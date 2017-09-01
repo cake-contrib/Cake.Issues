@@ -1,0 +1,106 @@
+﻿namespace Cake.Issues.InspectCode
+{
+    using Core;
+    using Core.Annotations;
+    using Core.IO;
+    using IssueProvider;
+
+    /// <summary>
+    /// Contains functionality related to importing code analysis issues from JetBrains Inspect Code
+    /// to write them to pull requests.
+    /// </summary>
+    [CakeAliasCategory(IssuesAliasConstants.MainCakeAliasCategory)]
+    public static class InspectCodeIssuesAliases
+    {
+        /// <summary>
+        /// Gets an instance of a provider for code analysis issues reported by JetBrains Inspect Code using a log file from disk.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <param name="logFilePath">Path to the the InspectCode log file.</param>
+        /// <returns>Instance of a provider for code analysis issues reported by JetBrains Insepct Code.</returns>
+        /// <example>
+        /// <para>Read code analysis issues reported by JetBrains Inspect Code:</para>
+        /// <code>
+        /// <![CDATA[
+        ///     var issues = 
+        ///         ReadIssues(
+        ///             InspectCodeIssuesFromFilePath(new FilePath("C:\build\InspectCode.log")),
+        ///             new DirectoryPath("c:\repo")));
+        /// ]]>
+        /// </code>
+        /// </example>
+        [CakeMethodAlias]
+        [CakeAliasCategory(IssuesAliasConstants.IssueProviderCakeAliasCategory)]
+        public static IIssueProvider InspectCodeIssuesFromFilePath(
+            this ICakeContext context,
+            FilePath logFilePath)
+        {
+            context.NotNull(nameof(context));
+            logFilePath.NotNull(nameof(logFilePath));
+
+            return context.InspectCodeIssues(InspectCodeIssuesSettings.FromFilePath(logFilePath));
+        }
+
+        /// <summary>
+        /// Gets an instance of a provider for code analysis issues reported by JetBrains Inspect Code using log file content.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <param name="logFileContent">Content of the the Inspect Code log file.</param>
+        /// <returns>Instance of a provider for code analysis issues reported by JetBrains Inspect Code.</returns>
+        /// <example>
+        /// <para>Read code analysis issues reported by JetBrains Inspect Code:</para>
+        /// <code>
+        /// <![CDATA[
+        ///     var issues = 
+        ///         ReadIssues(
+        ///             InspectCodeIssuesFromContent(logFileContent)),
+        ///             new DirectoryPath("c:\repo")));
+        /// ]]>
+        /// </code>
+        /// </example>
+        [CakeMethodAlias]
+        [CakeAliasCategory(IssuesAliasConstants.IssueProviderCakeAliasCategory)]
+        public static IIssueProvider InspectCodeIssuesFromContent(
+            this ICakeContext context,
+            string logFileContent)
+        {
+            context.NotNull(nameof(context));
+            logFileContent.NotNullOrWhiteSpace(nameof(logFileContent));
+
+            return context.InspectCodeIssues(InspectCodeIssuesSettings.FromContent(logFileContent));
+        }
+
+        /// <summary>
+        /// Gets an instance of a provider for code analysis issues reported by JetBrains Inspect Code using specified settings.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <param name="settings">Settings for reading the Inspect Code log.</param>
+        /// <returns>Instance of a provider for code analysis issues reported by JetBrains Inspect Code.</returns>
+        /// <example>
+        /// <para>Read code analysis issues reported by JetBrains Inspect Code:</para>
+        /// <code>
+        /// <![CDATA[
+        ///     var settings =
+        ///         new InspectCodeIssuesSettings(
+        ///             new FilePath("C:\build\InspectCode.log"));
+        ///
+        ///     var issues = 
+        ///         ReadIssues(
+        ///             InspectCodeIssues(settings),
+        ///             new DirectoryPath("c:\repo")));
+        /// ]]>
+        /// </code>
+        /// </example>
+        [CakeMethodAlias]
+        [CakeAliasCategory(IssuesAliasConstants.IssueProviderCakeAliasCategory)]
+        public static IIssueProvider InspectCodeIssues(
+            this ICakeContext context,
+            InspectCodeIssuesSettings settings)
+        {
+            context.NotNull(nameof(context));
+            settings.NotNull(nameof(settings));
+
+            return new InspectCodeIssuesProvider(context.Log, settings);
+        }
+    }
+}

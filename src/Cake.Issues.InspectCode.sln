@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.8
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.Issues.InspectCode", "Cake.Issues.InspectCode\Cake.Issues.InspectCode.csproj", "{CE99B416-2EE1-40C4-A554-4CE844B34296}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.Issues.InspectCode.Tests", "Cake.Issues.InspectCode.Tests\Cake.Issues.InspectCode.Tests.csproj", "{B9DD5E9C-EBD1-4FBD-B73D-21B946A72911}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{F4C96A0B-F657-49DC-9644-611EF9D2202E}"
+	ProjectSection(SolutionItems) = preProject
+		..\setup.cake = ..\setup.cake
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nuspec", "nuspec", "{1BCE24B1-7AC2-47E0-8DFF-3C6B5A916FDE}"
+	ProjectSection(SolutionItems) = preProject
+		..\nuspec\nuget\Cake.Issues.InspectCode.nuspec = ..\nuspec\nuget\Cake.Issues.InspectCode.nuspec
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CE99B416-2EE1-40C4-A554-4CE844B34296}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE99B416-2EE1-40C4-A554-4CE844B34296}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE99B416-2EE1-40C4-A554-4CE844B34296}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE99B416-2EE1-40C4-A554-4CE844B34296}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9DD5E9C-EBD1-4FBD-B73D-21B946A72911}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9DD5E9C-EBD1-4FBD-B73D-21B946A72911}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9DD5E9C-EBD1-4FBD-B73D-21B946A72911}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9DD5E9C-EBD1-4FBD-B73D-21B946A72911}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1BCE24B1-7AC2-47E0-8DFF-3C6B5A916FDE} = {F4C96A0B-F657-49DC-9644-611EF9D2202E}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {01AB5641-CE0F-43CE-BD88-3C5B6BE6595B}
+	EndGlobalSection
+EndGlobal
