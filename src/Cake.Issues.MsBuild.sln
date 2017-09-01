@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.8
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.Issues.MsBuild", "Cake.Issues.MsBuild\Cake.Issues.MsBuild.csproj", "{1A6C74CE-4775-458A-B013-BDE1986C5B88}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.Issues.MsBuild.Tests", "Cake.Issues.MsBuild.Tests\Cake.Issues.MsBuild.Tests.csproj", "{C69329F6-A4D1-4E33-BD9D-5E59973BE781}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{2EBEB9BA-3A3B-4EDC-95C0-44DD001AFFDC}"
+	ProjectSection(SolutionItems) = preProject
+		..\setup.cake = ..\setup.cake
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nuspec", "nuspec", "{3E340FDE-17DA-429E-BC41-AA5F5F5271DB}"
+	ProjectSection(SolutionItems) = preProject
+		..\nuspec\nuget\Cake.Issues.MsBuild.nuspec = ..\nuspec\nuget\Cake.Issues.MsBuild.nuspec
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1A6C74CE-4775-458A-B013-BDE1986C5B88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A6C74CE-4775-458A-B013-BDE1986C5B88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A6C74CE-4775-458A-B013-BDE1986C5B88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A6C74CE-4775-458A-B013-BDE1986C5B88}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C69329F6-A4D1-4E33-BD9D-5E59973BE781}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C69329F6-A4D1-4E33-BD9D-5E59973BE781}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C69329F6-A4D1-4E33-BD9D-5E59973BE781}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C69329F6-A4D1-4E33-BD9D-5E59973BE781}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3E340FDE-17DA-429E-BC41-AA5F5F5271DB} = {2EBEB9BA-3A3B-4EDC-95C0-44DD001AFFDC}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {896FC38E-24E4-4A35-8CF6-01E8EADDB346}
+	EndGlobalSection
+EndGlobal
