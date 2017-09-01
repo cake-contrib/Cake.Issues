@@ -1,0 +1,60 @@
+﻿namespace Cake.Issues.Testing
+{
+    using System.Collections.Generic;
+    using Core.Diagnostics;
+    using IssueProvider;
+
+    /// <summary>
+    /// Implementation of a <see cref="IssueProvider"/> for use in test cases.
+    /// </summary>
+    public class FakeIssueProvider : IssueProvider
+    {
+        private readonly List<IIssue> issues = new List<IIssue>();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FakeIssueProvider"/> class.
+        /// </summary>
+        /// <param name="log">The Cake log instance</param>
+        public FakeIssueProvider(ICakeLog log)
+            : base(log)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FakeIssueProvider"/> class.
+        /// </summary>
+        /// <param name="log">The Cake log instance</param>
+        /// <param name="issues">Issues which should be returned by the issue provider.</param>
+        public FakeIssueProvider(ICakeLog log, IEnumerable<IIssue> issues)
+            : base(log)
+        {
+            // ReSharper disable once PossibleMultipleEnumeration
+            issues.NotNull(nameof(issues));
+
+            // ReSharper disable once PossibleMultipleEnumeration
+            this.issues.AddRange(issues);
+        }
+
+        /// <summary>
+        /// Gets the Cake log instance.
+        /// </summary>
+        public new ICakeLog Log => base.Log;
+
+        /// <summary>
+        /// Gets the settings.
+        /// </summary>
+        public new RepositorySettings Settings => base.Settings;
+
+        /// <summary>
+        /// Gets the format in which issues should be returned.
+        /// </summary>
+        public IssueCommentFormat Format { get; private set; }
+
+        /// <inheritdoc/>
+        protected override IEnumerable<IIssue> InternalReadIssues(IssueCommentFormat format)
+        {
+            this.Format = format;
+            return this.issues;
+        }
+    }
+}

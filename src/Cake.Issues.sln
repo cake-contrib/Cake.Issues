@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.8
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.Issues", "Cake.Issues\Cake.Issues.csproj", "{956EE163-6E8B-44A9-AE58-50185DE4F878}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.Issues.Tests", "Cake.Issues.Tests\Cake.Issues.Tests.csproj", "{6602FB4A-353A-40B5-8469-69502F189113}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{12963AB7-D907-4D27-B1F0-8C77A55BD2F2}"
+	ProjectSection(SolutionItems) = preProject
+		..\setup.cake = ..\setup.cake
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nuspec", "nuspec", "{C9E29268-658F-4887-95C3-99C48F9A2DAD}"
+	ProjectSection(SolutionItems) = preProject
+		..\nuspec\nuget\Cake.Issues.nuspec = ..\nuspec\nuget\Cake.Issues.nuspec
+		..\nuspec\nuget\Cake.Issues.Testing.nuspec = ..\nuspec\nuget\Cake.Issues.Testing.nuspec
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.Issues.Testing", "Cake.Issues.Testing\Cake.Issues.Testing.csproj", "{95CB4393-DCAE-4E92-960F-98C4236D703E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{956EE163-6E8B-44A9-AE58-50185DE4F878}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{956EE163-6E8B-44A9-AE58-50185DE4F878}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{956EE163-6E8B-44A9-AE58-50185DE4F878}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{956EE163-6E8B-44A9-AE58-50185DE4F878}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6602FB4A-353A-40B5-8469-69502F189113}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6602FB4A-353A-40B5-8469-69502F189113}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6602FB4A-353A-40B5-8469-69502F189113}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6602FB4A-353A-40B5-8469-69502F189113}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95CB4393-DCAE-4E92-960F-98C4236D703E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95CB4393-DCAE-4E92-960F-98C4236D703E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95CB4393-DCAE-4E92-960F-98C4236D703E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95CB4393-DCAE-4E92-960F-98C4236D703E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C9E29268-658F-4887-95C3-99C48F9A2DAD} = {12963AB7-D907-4D27-B1F0-8C77A55BD2F2}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E9F2EC94-9A1B-4834-A464-E5208B210F11}
+	EndGlobalSection
+EndGlobal
