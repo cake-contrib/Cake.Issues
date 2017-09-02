@@ -4,7 +4,7 @@
     <id>Cake.Issues.InspectCode</id>
     <title>Cake.Issues.InspectCode</title>
     <version>0.0.0</version>
-    <authors>BBT Software AG</authors>
+    <authors>BBT Software AG and contributors</authors>
     <owners>bbtsoftware, pascalberger, cake-contrib</owners>
     <summary>JetBrains Inspect Code support for the Cake.Issues addin for Cake Build Automation System</summary>
     <description>
