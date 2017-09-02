@@ -453,5 +453,18 @@
                 issue.ProviderType.ShouldBe("Cake.Issues.Testing.FakeIssueProvider");
             }
         }
+
+        public sealed class TheGetProviderTypeNameMethod
+        {
+            [Fact]
+            public void Should_Return_Full_Type_Name()
+            {
+                // Given / When
+                var result = Issue<FakeIssueProvider>.GetProviderTypeName();
+
+                // Then
+                result.ShouldBe("Cake.Issues.Testing.FakeIssueProvider");
+            }
+        }
     }
 }

@@ -49,8 +49,17 @@
             int priority,
             string rule,
             Uri ruleUrl)
-            : base(filePath, line, message, priority, rule, ruleUrl, typeof(T).FullName)
+            : base(filePath, line, message, priority, rule, ruleUrl, GetProviderTypeName())
         {
+        }
+
+        /// <summary>
+        /// Gets the name of the issue provider as it will be set to in the <see cref="IIssue.ProviderType"/> property.
+        /// </summary>
+        /// <returns>Name of the issue provider.</returns>
+        public static string GetProviderTypeName()
+        {
+            return typeof(T).FullName;
         }
     }
 }
