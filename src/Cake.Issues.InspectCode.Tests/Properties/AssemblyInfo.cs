@@ -1,16 +1,15 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Cake.Issues.InspectCode.Tests")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Tests for the Cake.Issues.InspectCode addin")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Cake.Issues.InspectCode.Tests")]
-[assembly: AssemblyCopyright("Copyright ©  2017")]
+[assembly: AssemblyCompany("BBT Software AG")]
+[assembly: AssemblyProduct("Cake.Issues")]
+[assembly: AssemblyCopyright("Copyright © 2017 BBT Software AG and contributors")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
