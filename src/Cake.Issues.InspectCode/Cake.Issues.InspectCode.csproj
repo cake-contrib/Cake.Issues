@@ -36,7 +36,7 @@
       <HintPath>..\packages\Cake.Core.0.16.2\lib\net45\Cake.Core.dll</HintPath>
     </Reference>
     <Reference Include="Cake.Issues, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Cake.Issues.0.1.0-beta0001\lib\net45\Cake.Issues.dll</HintPath>
+      <HintPath>..\packages\Cake.Issues.0.1.0-beta0002\lib\net45\Cake.Issues.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
