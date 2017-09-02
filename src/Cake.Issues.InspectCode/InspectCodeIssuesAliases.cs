@@ -13,6 +13,22 @@
     public static class InspectCodeIssuesAliases
     {
         /// <summary>
+        /// Gets the name of the Inspect Code issue provider.
+        /// This name can be used to identify issues based on the <see cref="IIssue.ProviderType"/> property.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <returns>Name of the Inspect Code issue provider.</returns>
+        [CakePropertyAlias]
+        [CakeAliasCategory(IssuesAliasConstants.IssueProviderCakeAliasCategory)]
+        public static string InspectCodeIssuesProviderTypeName(
+            this ICakeContext context)
+        {
+            context.NotNull(nameof(context));
+
+            return Issue<InspectCodeIssuesProvider>.GetProviderTypeName();
+        }
+
+        /// <summary>
         /// Gets an instance of a provider for code analysis issues reported by JetBrains Inspect Code using a log file from disk.
         /// </summary>
         /// <param name="context">The context.</param>
