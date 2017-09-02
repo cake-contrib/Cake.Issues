@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <id>Cake.Issues.DocFx</id>
+    <title>Cake.Issues.DocFx</title>
+    <version>0.0.0</version>
+    <authors>BBT Software AG and contributors</authors>
+    <owners>bbtsoftware, pascalberger, cake-contrib</owners>
+    <summary>DocFx support for the Cake.Issues addin for Cake Build Automation System</summary>
+    <description>
+The MsBuild support for the Cake.Issues addin for Cake allows you to read issues logged as warnings in a MsBuild log.
+
+This addin provides the aliases for reading warnings from DocFx log files and provides them to the Cake.Issues addin.
+It also requires the core Cake.Issues addin.
+
+There are also additional addins for generating reports or posting issues to pull requests.
+
+See the Project Site for an overview of the whole ecosystem of addins for working with issues in Cake scripts.
+    </description>
+    <licenseUrl>https://github.com/cake-contrib/Cake.Issues.DocFx/blob/develop/LICENSE</licenseUrl>
+    <projectUrl>http://cake-contrib.github.io/Cake.Issues.Website</projectUrl>
+    <iconUrl>https://cdn.rawgit.com/cake-contrib/graphics/a5cf0f881c390650144b2243ae551d5b9f836196/png/cake-contrib-medium.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <copyright>Copyright © 2017 BBT Software AG and contributors</copyright>
+    <tags>Cake Script Cake-Issues Cake-IssueProvider CodeAnalysis Linting DocFx</tags>
+    <releaseNotes>https://github.com/cake-contrib/Cake.Issues.DocFx/releases/tag/0.1.0</releaseNotes>
+  </metadata>
+  <files>
+    <file src="Cake.Issues.DocFx.dll" target="lib\net45" />
+    <file src="Cake.Issues.DocFx.pdb" target="lib\net45" />
+    <file src="Cake.Issues.DocFx.xml" target="lib\net45" />
+  </files>
+</package>
