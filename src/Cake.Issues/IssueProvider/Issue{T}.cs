@@ -3,7 +3,7 @@
     using System;
 
     /// <summary>
-    /// Base class for anissue.
+    /// Base class for an issue.
     /// </summary>
     /// <typeparam name="T">Type of the issue provider which has raised the issue.</typeparam>
     public class Issue<T> : Issue
