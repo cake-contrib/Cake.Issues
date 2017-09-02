@@ -6,8 +6,7 @@
     using IssueProvider;
 
     /// <summary>
-    /// Contains functionality related to importing code analysis issues from JetBrains Inspect Code
-    /// to write them to pull requests.
+    /// Contains functionality for reading code analysis issues from JetBrains Inspect Code log files.
     /// </summary>
     [CakeAliasCategory(IssuesAliasConstants.MainCakeAliasCategory)]
     public static class InspectCodeIssuesAliases
