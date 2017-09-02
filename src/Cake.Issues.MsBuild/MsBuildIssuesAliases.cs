@@ -7,8 +7,7 @@
     using IssueProvider;
 
     /// <summary>
-    /// Contains functionality related to importing code analysis issues from MSBuild logs to write them to
-    /// pull requests.
+    /// Contains functionality for reading warnings from MSBuild log files.
     /// </summary>
     [CakeAliasCategory(IssuesAliasConstants.MainCakeAliasCategory)]
     public static class MsBuildIssuesAliases
@@ -140,19 +139,15 @@
         /// <param name="format">Format of the provided MsBuild log file.</param>
         /// <returns>Instance of a provider for code analysis issues reported as MsBuild warnings.</returns>
         /// <example>
-        /// <para>Report code analysis issues reported as MsBuild warnings to a TFS pull request:</para>
+        /// <para>Read code analysis issues reported as MsBuild warnings:</para>
         /// <code>
         /// <![CDATA[
-        ///     var repoRoot = new DirectoryPath("c:\repo");
-        ///     ReportIssuesToPullRequest(
-        ///         MsBuildIssuesFromFilePath(
-        ///             "C:\build\msbuild.log",
-        ///             MsBuildXmlFileLoggerFormat),
-        ///         TfsPullRequests(
-        ///             new Uri("http://myserver:8080/tfs/defaultcollection/myproject/_git/myrepository"),
-        ///             "refs/heads/feature/myfeature",
-        ///             TfsAuthenticationNtlm()),
-        ///         repoRoot);
+        ///     var issues =
+        ///         ReadIssues(
+        ///             MsBuildIssuesFromFilePath(
+        ///                 new FilePath("C:\build\InspectCode.log"),
+        ///                 MsBuildXmlFileLoggerFormat),
+        ///             new DirectoryPath("c:\repo")));
         /// ]]>
         /// </code>
         /// </example>
@@ -179,19 +174,15 @@
         /// <param name="format">Format of the provided MsBuild log file.</param>
         /// <returns>Instance of a provider for code analysis issues reported as MsBuild warnings.</returns>
         /// <example>
-        /// <para>Report code analysis issues reported as MsBuild warnings to a TFS pull request:</para>
+        /// <para>Read code analysis issues reported as MsBuild warnings:</para>
         /// <code>
         /// <![CDATA[
-        ///     var repoRoot = new DirectoryPath("c:\repo");
-        ///     ReportIssuesToPullRequest(
-        ///         MsBuildIssuesFromContent(
-        ///             logFileContent,
-        ///             MsBuildXmlFileLoggerFormat),
-        ///         TfsPullRequests(
-        ///             new Uri("http://myserver:8080/tfs/defaultcollection/myproject/_git/myrepository"),
-        ///             "refs/heads/feature/myfeature",
-        ///             TfsAuthenticationNtlm()),
-        ///         repoRoot);
+        ///     var issues =
+        ///         ReadIssues(
+        ///             MsBuildIssuesFromContent(
+        ///                 logFileContent,
+        ///                 MsBuildXmlFileLoggerFormat)),
+        ///             new DirectoryPath("c:\repo")));
         /// ]]>
         /// </code>
         /// </example>
@@ -216,22 +207,18 @@
         /// <param name="settings">Settings for reading the MSBuild log.</param>
         /// <returns>Instance of a provider for code analysis issues reported as MsBuild warnings.</returns>
         /// <example>
-        /// <para>Report code analysis issues reported as MsBuild warnings to a TFS pull request:</para>
+        /// <para>Read code analysis issues reported as MsBuild warnings:</para>
         /// <code>
         /// <![CDATA[
-        ///     var repoRoot = new DirectoryPath("c:\repo");
         ///     var settings =
         ///         MsBuildIssuesSettings.FromFilePath(
         ///             "C:\build\msbuild.log",
         ///             MsBuildXmlFileLoggerFormat);
         ///
-        ///     ReportIssuesToPullRequest(
-        ///         MsBuildIssues(settings),
-        ///         TfsPullRequests(
-        ///             new Uri("http://myserver:8080/tfs/defaultcollection/myproject/_git/myrepository"),
-        ///             "refs/heads/feature/myfeature",
-        ///             TfsAuthenticationNtlm()),
-        ///         repoRoot);
+        ///     var issues =
+        ///         ReadIssues(
+        ///             MsBuildIssues(settings),
+        ///             new DirectoryPath("c:\repo")));
         /// ]]>
         /// </code>
         /// </example>
