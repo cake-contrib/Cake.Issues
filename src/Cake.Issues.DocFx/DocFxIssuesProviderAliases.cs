@@ -12,6 +12,22 @@
     public static class DocFxIssuesProviderAliases
     {
         /// <summary>
+        /// Gets the name of the DocFx issue provider.
+        /// This name can be used to identify issues based on the <see cref="IIssue.ProviderType"/> property.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <returns>Name of the DocFx issue provider.</returns>
+        [CakePropertyAlias]
+        [CakeAliasCategory(IssuesAliasConstants.IssueProviderCakeAliasCategory)]
+        public static string DocFxIssuesProviderTypeName(
+            this ICakeContext context)
+        {
+            context.NotNull(nameof(context));
+
+            return Issue<DocFxIssuesProvider>.GetProviderTypeName();
+        }
+
+        /// <summary>
         /// Gets an instance of a provider for warnings reported by DocFx using a log file from disk
         /// for a DocFx project in the repository root.
         /// </summary>
