@@ -14,6 +14,22 @@
     public static class MsBuildIssuesAliases
     {
         /// <summary>
+        /// Gets the name of the MsBuild issue provider.
+        /// This name can be used to identify issues based on the <see cref="IIssue.ProviderType"/> property.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <returns>Name of the MsBuild issue provider.</returns>
+        [CakePropertyAlias]
+        [CakeAliasCategory(IssuesAliasConstants.IssueProviderCakeAliasCategory)]
+        public static string MsBuildIssuesProviderTypeName(
+            this ICakeContext context)
+        {
+            context.NotNull(nameof(context));
+
+            return Issue<MsBuildIssuesProvider>.GetProviderTypeName();
+        }
+
+        /// <summary>
         /// Registers a new URL resolver with default priority of 0.
         /// </summary>
         /// <param name="context">The context.</param>
