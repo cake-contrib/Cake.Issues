@@ -39,8 +39,8 @@
         /// <![CDATA[
         ///     var issues = 
         ///         ReadIssues(
-        ///             InspectCodeIssuesFromFilePath(new FilePath("C:\build\InspectCode.log")),
-        ///             new DirectoryPath("c:\repo")));
+        ///             InspectCodeIssuesFromFilePath(new FilePath(@"c:\build\InspectCode.log")),
+        ///             new DirectoryPath(@"c:\repo")));
         /// ]]>
         /// </code>
         /// </example>
@@ -69,7 +69,7 @@
         ///     var issues = 
         ///         ReadIssues(
         ///             InspectCodeIssuesFromContent(logFileContent)),
-        ///             new DirectoryPath("c:\repo")));
+        ///             new DirectoryPath(@"c:\repo")));
         /// ]]>
         /// </code>
         /// </example>
@@ -97,12 +97,12 @@
         /// <![CDATA[
         ///     var settings =
         ///         new InspectCodeIssuesSettings(
-        ///             new FilePath("C:\build\InspectCode.log"));
+        ///             new FilePath(@"c:\build\InspectCode.log"));
         ///
         ///     var issues = 
         ///         ReadIssues(
         ///             InspectCodeIssues(settings),
-        ///             new DirectoryPath("c:\repo")));
+        ///             new DirectoryPath(@"c:\repo")));
         /// ]]>
         /// </code>
         /// </example>
