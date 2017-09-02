@@ -33,6 +33,7 @@
         /// </code>
         /// </example>
         [CakeMethodAlias]
+        [CakeAliasCategory(IssuesAliasConstants.ReadCakeAliasCategory)]
         public static IEnumerable<IIssue> ReadIssues(
             this ICakeContext context,
             IIssueProvider issueProvider,
@@ -74,6 +75,7 @@
         /// </code>
         /// </example>
         [CakeMethodAlias]
+        [CakeAliasCategory(IssuesAliasConstants.ReadCakeAliasCategory)]
         public static IEnumerable<IIssue> ReadIssues(
             this ICakeContext context,
             IEnumerable<IIssueProvider> issueProviders,
@@ -118,6 +120,7 @@
         /// </code>
         /// </example>
         [CakeMethodAlias]
+        [CakeAliasCategory(IssuesAliasConstants.ReadCakeAliasCategory)]
         public static IEnumerable<IIssue> ReadIssues(
             this ICakeContext context,
             IIssueProvider issueProvider,
@@ -166,6 +169,7 @@
         /// </code>
         /// </example>
         [CakeMethodAlias]
+        [CakeAliasCategory(IssuesAliasConstants.ReadCakeAliasCategory)]
         public static IEnumerable<IIssue> ReadIssues(
             this ICakeContext context,
             IEnumerable<IIssueProvider> issueProviders,

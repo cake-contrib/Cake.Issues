@@ -11,6 +11,11 @@
         public const string MainCakeAliasCategory = "Issues";
 
         /// <summary>
+        /// Category to use for all Cake aliases providing functionality for reading issues.
+        /// </summary>
+        public const string ReadCakeAliasCategory = "Read";
+
+        /// <summary>
         /// Category to use for all Cake aliases creating issue providers.
         /// </summary>
         public const string IssueProviderCakeAliasCategory = "Issue Provider";
