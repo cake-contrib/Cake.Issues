@@ -106,7 +106,7 @@
         ///         "XmlFileLogger",
         ///         string.Format(
         ///             "logfile=\"{0}\";verbosity=Detailed;encoding=UTF-8",
-        ///             @"C:\build\msbuild.log")
+        ///             @"c:\build\msbuild.log")
         ///     )
         /// </code>
         /// </para>
@@ -145,9 +145,9 @@
         ///     var issues =
         ///         ReadIssues(
         ///             MsBuildIssuesFromFilePath(
-        ///                 new FilePath("C:\build\InspectCode.log"),
+        ///                 new FilePath(@"c:\build\InspectCode.log"),
         ///                 MsBuildXmlFileLoggerFormat),
-        ///             new DirectoryPath("c:\repo")));
+        ///             new DirectoryPath(@"c:\repo")));
         /// ]]>
         /// </code>
         /// </example>
@@ -182,7 +182,7 @@
         ///             MsBuildIssuesFromContent(
         ///                 logFileContent,
         ///                 MsBuildXmlFileLoggerFormat)),
-        ///             new DirectoryPath("c:\repo")));
+        ///             new DirectoryPath(@"c:\repo")));
         /// ]]>
         /// </code>
         /// </example>
@@ -212,13 +212,13 @@
         /// <![CDATA[
         ///     var settings =
         ///         MsBuildIssuesSettings.FromFilePath(
-        ///             "C:\build\msbuild.log",
+        ///             @"c:\build\msbuild.log",
         ///             MsBuildXmlFileLoggerFormat);
         ///
         ///     var issues =
         ///         ReadIssues(
         ///             MsBuildIssues(settings),
-        ///             new DirectoryPath("c:\repo")));
+        ///             new DirectoryPath(@"c:\repo")));
         /// ]]>
         /// </code>
         /// </example>
