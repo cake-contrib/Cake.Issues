@@ -3,7 +3,6 @@
     using Core;
     using Core.Annotations;
     using Core.IO;
-    using IssueProvider;
 
     /// <summary>
     /// Contains functionality related to read warnings from DocFx log files.

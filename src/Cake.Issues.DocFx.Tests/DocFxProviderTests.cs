@@ -3,8 +3,6 @@
     using System.Linq;
     using Cake.Testing;
     using Core.IO;
-    using DocFx;
-    using IssueProvider;
     using Shouldly;
     using Testing;
     using Xunit;

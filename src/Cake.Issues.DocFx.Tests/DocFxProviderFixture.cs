@@ -5,9 +5,6 @@
     using Cake.Testing;
     using Core.Diagnostics;
     using Core.IO;
-    using DocFx;
-    using IssueProvider;
-    using Issues;
 
     internal class DocFxProviderFixture
     {

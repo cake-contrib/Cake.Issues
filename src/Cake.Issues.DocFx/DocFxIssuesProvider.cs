@@ -5,7 +5,6 @@
     using System.Linq;
     using Core.Diagnostics;
     using Core.IO;
-    using IssueProvider;
     using Newtonsoft.Json;
     using Newtonsoft.Json.Linq;
 

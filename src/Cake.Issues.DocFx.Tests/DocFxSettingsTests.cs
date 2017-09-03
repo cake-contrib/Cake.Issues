@@ -5,7 +5,6 @@
     using System.Linq;
     using System.Text;
     using Core.IO;
-    using DocFx;
     using Shouldly;
     using Testing;
     using Xunit;
