@@ -1,7 +1,7 @@
 ﻿namespace Cake.Issues.PullRequests.Tfs.Tests.Authentication
 {
-    using Issues.Testing;
     using Shouldly;
+    using Testing;
     using Tfs.Authentication;
     using Xunit;
 

@@ -4,7 +4,6 @@
     using Authentication;
     using Core;
     using Core.Annotations;
-    using PullRequestSystem;
 
     /// <summary>
     /// Contains functionality related to writing code analysis issues to Team Foundation Server or

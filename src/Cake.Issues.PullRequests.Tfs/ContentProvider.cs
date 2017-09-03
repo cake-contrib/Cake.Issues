@@ -1,7 +1,5 @@
 ﻿namespace Cake.Issues.PullRequests.Tfs
 {
-    using IssueProvider;
-
     /// <summary>
     /// Class for providing the content for a pull request comment.
     /// </summary>

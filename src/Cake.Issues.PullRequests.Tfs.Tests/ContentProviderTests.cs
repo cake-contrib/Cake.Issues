@@ -1,7 +1,6 @@
 ﻿namespace Cake.Issues.PullRequests.Tfs.Tests
 {
     using System;
-    using IssueProvider;
     using Shouldly;
     using Xunit;
 
