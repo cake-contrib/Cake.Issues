@@ -13,6 +13,6 @@
         /// <summary>
         /// Category to use for all Cake aliases providing functionality for writing issues to pull requests.
         /// </summary>
-        public const string ReadCakeAliasCategory = "Pull Requests";
+        public const string ReportIssuesToPullRequestCakeAliasCategory = "Report Issues To Pull Requests";
     }
 }

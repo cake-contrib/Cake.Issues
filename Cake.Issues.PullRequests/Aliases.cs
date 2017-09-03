@@ -37,7 +37,7 @@
         /// </code>
         /// </example>
         [CakeMethodAlias]
-        [CakeAliasCategory(PullRequestsAliasConstants.ReadCakeAliasCategory)]
+        [CakeAliasCategory(PullRequestsAliasConstants.ReportIssuesToPullRequestCakeAliasCategory)]
         public static PullRequestIssueResult ReportIssuesToPullRequest(
             this ICakeContext context,
             IIssueProvider issueProvider,
@@ -86,7 +86,7 @@
         /// </code>
         /// </example>
         [CakeMethodAlias]
-        [CakeAliasCategory(PullRequestsAliasConstants.ReadCakeAliasCategory)]
+        [CakeAliasCategory(PullRequestsAliasConstants.ReportIssuesToPullRequestCakeAliasCategory)]
         public static PullRequestIssueResult ReportIssuesToPullRequest(
             this ICakeContext context,
             IEnumerable<IIssueProvider> issueProviders,
@@ -139,7 +139,7 @@
         /// </code>
         /// </example>
         [CakeMethodAlias]
-        [CakeAliasCategory(PullRequestsAliasConstants.ReadCakeAliasCategory)]
+        [CakeAliasCategory(PullRequestsAliasConstants.ReportIssuesToPullRequestCakeAliasCategory)]
         public static PullRequestIssueResult ReportIssuesToPullRequest(
             this ICakeContext context,
             IIssueProvider issueProvider,
@@ -194,7 +194,7 @@
         /// </code>
         /// </example>
         [CakeMethodAlias]
-        [CakeAliasCategory(PullRequestsAliasConstants.ReadCakeAliasCategory)]
+        [CakeAliasCategory(PullRequestsAliasConstants.ReportIssuesToPullRequestCakeAliasCategory)]
         public static PullRequestIssueResult ReportIssuesToPullRequest(
             this ICakeContext context,
             IEnumerable<IIssueProvider> issueProviders,
