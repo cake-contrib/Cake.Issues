@@ -2,7 +2,6 @@
 {
     using System.Collections.Generic;
     using Core.IO;
-    using Issues.IssueProvider;
     using Issues.PullRequests.PullRequestSystem;
     using Issues.Testing;
     using Xunit;

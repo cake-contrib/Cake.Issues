@@ -6,8 +6,6 @@
     using System.Globalization;
     using System.Linq;
     using Core.Diagnostics;
-    using Issues;
-    using Issues.IssueProvider;
     using PullRequestSystem;
 
     /// <summary>

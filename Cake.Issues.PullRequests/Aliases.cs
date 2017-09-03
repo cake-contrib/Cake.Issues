@@ -4,8 +4,6 @@
     using Core;
     using Core.Annotations;
     using Core.IO;
-    using Issues;
-    using Issues.IssueProvider;
     using PullRequestSystem;
 
     /// <summary>

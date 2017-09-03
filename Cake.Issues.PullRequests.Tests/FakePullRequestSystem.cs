@@ -3,8 +3,6 @@
     using System.Collections.Generic;
     using Core.Diagnostics;
     using Core.IO;
-    using Issues;
-    using Issues.IssueProvider;
     using Issues.PullRequests;
     using Issues.PullRequests.PullRequestSystem;
 

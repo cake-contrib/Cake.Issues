@@ -3,8 +3,6 @@
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using Core.IO;
-    using Issues;
-    using Issues.IssueProvider;
 
     /// <summary>
     /// Interface describing a pull request server.

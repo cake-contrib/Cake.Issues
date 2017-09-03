@@ -1,8 +1,6 @@
 ﻿namespace Cake.Issues.PullRequests
 {
     using System.Collections.Generic;
-    using Issues;
-    using Issues.IssueProvider;
 
     /// <summary>
     /// Result from reporting issues to a pull request.

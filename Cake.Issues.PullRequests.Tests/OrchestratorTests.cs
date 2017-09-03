@@ -3,8 +3,6 @@
     using System.Collections.Generic;
     using System.Linq;
     using Core.IO;
-    using Issues;
-    using Issues.IssueProvider;
     using Issues.PullRequests.PullRequestSystem;
     using Issues.Testing;
     using Shouldly;
