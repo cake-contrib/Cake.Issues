@@ -1,4 +1,4 @@
-﻿namespace Cake.Issues.IssueProvider
+﻿namespace Cake.Issues
 {
     /// <summary>
     /// Base class for all rule descriptions.

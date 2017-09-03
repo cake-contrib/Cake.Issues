@@ -1,4 +1,4 @@
-﻿namespace Cake.Issues.IssueProvider
+﻿namespace Cake.Issues
 {
     using System;
     using Core.IO;

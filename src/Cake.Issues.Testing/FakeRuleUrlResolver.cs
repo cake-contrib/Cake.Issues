@@ -1,7 +1,5 @@
 ﻿namespace Cake.Issues.Testing
 {
-    using IssueProvider;
-
     /// <summary>
     /// Implementation of a <see cref="BaseRuleUrlResolver{T}"/> for use in test cases.
     /// </summary>

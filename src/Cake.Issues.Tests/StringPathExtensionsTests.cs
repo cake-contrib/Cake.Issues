@@ -1,6 +1,5 @@
-﻿namespace Cake.Issues.Tests.IssueProvider
+﻿namespace Cake.Issues.Tests
 {
-    using Issues.IssueProvider;
     using Shouldly;
     using Testing;
     using Xunit;

@@ -3,7 +3,6 @@
     using System.Collections.Generic;
     using Cake.Testing;
     using Core.Diagnostics;
-    using Issues.IssueProvider;
     using Testing;
 
     public class IssuesFixture

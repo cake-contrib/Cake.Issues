@@ -2,7 +2,6 @@
 {
     using System.Collections.Generic;
     using Core.Diagnostics;
-    using IssueProvider;
 
     /// <summary>
     /// Implementation of a <see cref="IssueProvider"/> for use in test cases.

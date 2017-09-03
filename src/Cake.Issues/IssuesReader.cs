@@ -3,7 +3,6 @@
     using System.Collections.Generic;
     using System.Linq;
     using Core.Diagnostics;
-    using IssueProvider;
 
     /// <summary>
     /// Class for reading issues.

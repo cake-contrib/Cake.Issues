@@ -4,13 +4,11 @@
     using Core;
     using Core.Annotations;
     using Core.IO;
-    using IssueProvider;
 
     /// <summary>
     /// Contains functionality related to reading issues.
     /// </summary>
     [CakeAliasCategory(IssuesAliasConstants.MainCakeAliasCategory)]
-    [CakeNamespaceImport("Cake.Issues.IssueProvider")]
     public static class Aliases
     {
         /// <summary>
