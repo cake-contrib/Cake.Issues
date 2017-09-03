@@ -59,13 +59,13 @@
     <Compile Include="PullRequestIssuesException.cs" />
     <Compile Include="PullRequestsAliasConstants.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PullRequestSystem\IPullRequestDiscussionComment.cs" />
-    <Compile Include="PullRequestSystem\IPullRequestDiscussionThread.cs" />
-    <Compile Include="PullRequestSystem\IPullRequestSystem.cs" />
-    <Compile Include="PullRequestSystem\PullRequestDiscussionComment.cs" />
-    <Compile Include="PullRequestSystem\PullRequestDiscussionStatus.cs" />
-    <Compile Include="PullRequestSystem\PullRequestDiscussionThread.cs" />
-    <Compile Include="PullRequestSystem\PullRequestSystem.cs" />
+    <Compile Include="IPullRequestDiscussionComment.cs" />
+    <Compile Include="IPullRequestDiscussionThread.cs" />
+    <Compile Include="IPullRequestSystem.cs" />
+    <Compile Include="PullRequestDiscussionComment.cs" />
+    <Compile Include="PullRequestDiscussionStatus.cs" />
+    <Compile Include="PullRequestDiscussionThread.cs" />
+    <Compile Include="PullRequestSystem.cs" />
     <Compile Include="ReportIssuesToPullRequestSettings.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,4 +1,4 @@
-﻿namespace Cake.Issues.PullRequests.PullRequestSystem
+﻿namespace Cake.Issues.PullRequests
 {
     /// <summary>
     /// Base class for a pull request comment.

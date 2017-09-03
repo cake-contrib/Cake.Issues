@@ -1,4 +1,4 @@
-﻿namespace Cake.Issues.PullRequests.PullRequestSystem
+﻿namespace Cake.Issues.PullRequests
 {
     using System;
     using System.Collections.Generic;

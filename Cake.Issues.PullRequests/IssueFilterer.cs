@@ -6,7 +6,6 @@
     using System.Linq;
     using Core.Diagnostics;
     using Core.IO;
-    using PullRequestSystem;
 
     /// <summary>
     /// Class for filtering issues.

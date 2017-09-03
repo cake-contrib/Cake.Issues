@@ -79,8 +79,8 @@
     <Compile Include="PullRequestsFixture.cs" />
     <Compile Include="PullRequestIssueResultTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PullRequestSystem\PullRequestDiscussionThreadTests.cs" />
-    <Compile Include="PullRequestSystem\PullRequestSystemTests.cs" />
+    <Compile Include="PullRequestDiscussionThreadTests.cs" />
+    <Compile Include="PullRequestSystemTests.cs" />
     <Compile Include="ReportIssuesToPullRequestSettingsTests.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -4,7 +4,6 @@
     using Core;
     using Core.Annotations;
     using Core.IO;
-    using PullRequestSystem;
 
     /// <summary>
     /// Contains functionality related to reporting issues to pull requests.

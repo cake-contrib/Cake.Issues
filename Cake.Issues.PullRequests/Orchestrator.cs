@@ -6,7 +6,6 @@
     using System.Globalization;
     using System.Linq;
     using Core.Diagnostics;
-    using PullRequestSystem;
 
     /// <summary>
     /// Class for writing issues to pull requests.
