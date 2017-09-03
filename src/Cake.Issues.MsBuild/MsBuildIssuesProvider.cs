@@ -2,7 +2,6 @@
 {
     using System.Collections.Generic;
     using Core.Diagnostics;
-    using IssueProvider;
 
     /// <summary>
     /// Provider for code analysis issues reported as MsBuild warnings.

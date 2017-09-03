@@ -5,7 +5,6 @@
     using System.IO;
     using System.Xml.Linq;
     using Core.Diagnostics;
-    using IssueProvider;
 
     /// <summary>
     /// MsBuild log format as written by the <c>XmlFileLogger</c> class from MSBuild Extension Pack.

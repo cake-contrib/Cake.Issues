@@ -1,7 +1,5 @@
 ﻿namespace Cake.Issues.MsBuild
 {
-    using IssueProvider;
-
     /// <summary>
     /// Class describing rules appearing in MsBuild logs.
     /// </summary>

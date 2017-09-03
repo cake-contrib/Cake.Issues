@@ -4,7 +4,6 @@
     using Core;
     using Core.Annotations;
     using Core.IO;
-    using IssueProvider;
 
     /// <summary>
     /// Contains functionality for reading warnings from MSBuild log files.

@@ -2,7 +2,6 @@
 {
     using System.Linq;
     using Core.IO;
-    using IssueProvider;
     using Shouldly;
     using Testing;
     using Xunit;

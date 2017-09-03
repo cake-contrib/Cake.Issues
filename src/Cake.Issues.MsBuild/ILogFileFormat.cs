@@ -1,7 +1,6 @@
 ﻿namespace Cake.Issues.MsBuild
 {
     using System.Collections.Generic;
-    using IssueProvider;
 
     /// <summary>
     /// Definition of a MsBuild log file format.
