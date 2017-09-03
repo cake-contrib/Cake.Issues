@@ -4,7 +4,6 @@
     using System.IO;
     using Cake.Testing;
     using Core.Diagnostics;
-    using IssueProvider;
 
     internal class InspectCodeIssuesProviderFixture
     {
