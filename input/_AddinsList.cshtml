@@ -1,0 +1,57 @@
+@model IEnumerable<IDocument>
+
+<p>
+    This page contains core and third party addins for Cake Issues.
+    If you want to file an issue for any addin listed here, contact the author of the addin.
+</p>
+<p>
+    See <a href="../dsl">Reference</a> for a list of aliases provided by these addins.
+</p>
+<p>
+    If you're an addin author and want your addin listed here, follow the instructions <a href="https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/README.md#addins">here</a>.
+</p>
+
+@foreach(IDocument addin in Model)
+{
+    string description = @addin.String("Description");
+    string author = @addin.String("Author");
+    string nuget = @addin.String("NuGet");
+    string repositoryOwner = @addin.String("repositoryOwner");
+    string repositoryName = @addin.String("repositoryName");
+    string documentation = @addin.String("documentation");
+
+    <a id="@(nuget)"></a>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title"><i class="fa fa-puzzle-piece"></i> @addin.String("Name")</h3>
+        </div>
+        <div class="panel-body">
+            @if(!string.IsNullOrEmpty(description))
+            {
+                <p>@description</p>
+            }    
+            <dl class="dl-horizontal">	
+                @if(!string.IsNullOrEmpty(author))
+                {
+                    <dt>Author</dt>
+                    <dd>@author</dd>
+                }
+                @if(!string.IsNullOrEmpty(nuget))
+                {
+                    <dt>NuGet</dt>
+                    <dd><a href="https://www.nuget.org/packages/@(nuget)">@nuget</a></dd>
+                }
+                @if(!string.IsNullOrEmpty(repositoryOwner) && !string.IsNullOrEmpty(repositoryName))
+                {
+                    <dt>Repository</dt>
+                    <dd><a href="https://github.com/@(repositoryOwner)/@(repositoryName)">@(repositoryOwner)/@(repositoryName)</a></dd>
+                }
+                @if(!string.IsNullOrEmpty(documentation))
+                {
+                    <dt>Documentation</dt>
+                    <dd><a href="@Context.GetLink(documentation)">Documentation</a></dd>
+                }
+            </dl>
+        </div>
+    </div>
+}
