@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.8
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.Issues.EsLint", "Cake.Issues.EsLint\Cake.Issues.EsLint.csproj", "{EAC1D76A-A763-4EA8-8B9D-7B2F71B7EA8B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.Issues.EsLint.Tests", "Cake.Issues.EsLint.Tests\Cake.Issues.EsLint.Tests.csproj", "{4A657D7C-B66B-49C8-B1E2-544EFF8525F6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EAC1D76A-A763-4EA8-8B9D-7B2F71B7EA8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAC1D76A-A763-4EA8-8B9D-7B2F71B7EA8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAC1D76A-A763-4EA8-8B9D-7B2F71B7EA8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAC1D76A-A763-4EA8-8B9D-7B2F71B7EA8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A657D7C-B66B-49C8-B1E2-544EFF8525F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A657D7C-B66B-49C8-B1E2-544EFF8525F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A657D7C-B66B-49C8-B1E2-544EFF8525F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A657D7C-B66B-49C8-B1E2-544EFF8525F6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D075C1C8-0C5E-4B2A-99E3-5AAD32EA5142}
+	EndGlobalSection
+EndGlobal
