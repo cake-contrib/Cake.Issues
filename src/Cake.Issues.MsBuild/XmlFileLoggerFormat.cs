@@ -85,8 +85,8 @@
 
             line = int.Parse(lineValue, CultureInfo.InvariantCulture);
 
-            // Convert negative lines numbers to null
-            if (line < 0)
+            // Convert negative line numbers or line number 0 to null
+            if (line <= 0)
             {
                 line = null;
             }

@@ -66,6 +66,27 @@
             }
 
             [Fact]
+            public void Should_Read_Issue_With_Line_Zero_Correct()
+            {
+                // Given
+                var fixture = new MsBuildIssuesProviderFixture("IssueWithLineZero.xml");
+
+                // When
+                var issues = fixture.ReadIssues().ToList();
+
+                // Then
+                issues.Count.ShouldBe(1);
+                var issue = issues.Single();
+                CheckIssue(
+                    issue,
+                    @"SHFB",
+                    null,
+                    "BE0006",
+                    0,
+                    @"Unable to locate any documentation sources for 'c:\Source\Cake.Prca\Cake.Prca..csproj' (Configuration: Debug Platform: AnyCPU)");
+            }
+
+            [Fact]
             public void Should_Read_Issue_Without_File_Correct()
             {
                 // Given
