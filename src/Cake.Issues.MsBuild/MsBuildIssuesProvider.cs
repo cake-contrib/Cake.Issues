@@ -4,7 +4,7 @@
     using Core.Diagnostics;
 
     /// <summary>
-    /// Provider for code analysis issues reported as MsBuild warnings.
+    /// Provider for issues reported as MsBuild warnings.
     /// </summary>
     internal class MsBuildIssuesProvider : IssueProvider
     {

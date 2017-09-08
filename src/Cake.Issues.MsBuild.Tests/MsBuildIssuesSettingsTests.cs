@@ -11,7 +11,7 @@
 
     public class MsBuildIssuesSettingsTests
     {
-        public sealed class TheMsBuildCodeAnalysisSettingsCtor
+        public sealed class TheCtor
         {
             [Fact]
             public void Should_Throw_If_LogFilePath_Is_Null()

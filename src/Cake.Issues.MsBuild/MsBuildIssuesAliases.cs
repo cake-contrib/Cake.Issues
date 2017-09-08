@@ -130,15 +130,15 @@
         }
 
         /// <summary>
-        /// Gets an instance of a provider for code analysis issues reported as MsBuild warnings using a log file from disk.
+        /// Gets an instance of a provider for issues reported as MsBuild warnings using a log file from disk.
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="logFilePath">Path to the the MsBuild log file.
         /// The log file needs to be in the format as defined by the <paramref name="format"/> parameter.</param>
         /// <param name="format">Format of the provided MsBuild log file.</param>
-        /// <returns>Instance of a provider for code analysis issues reported as MsBuild warnings.</returns>
+        /// <returns>Instance of a provider for issues reported as MsBuild warnings.</returns>
         /// <example>
-        /// <para>Read code analysis issues reported as MsBuild warnings:</para>
+        /// <para>Read issues reported as MsBuild warnings:</para>
         /// <code>
         /// <![CDATA[
         ///     var issues =
@@ -146,7 +146,7 @@
         ///             MsBuildIssuesFromFilePath(
         ///                 new FilePath(@"c:\build\InspectCode.log"),
         ///                 MsBuildXmlFileLoggerFormat),
-        ///             new DirectoryPath(@"c:\repo")));
+        ///             new DirectoryPath(@"c:\repo"));
         /// ]]>
         /// </code>
         /// </example>
@@ -165,15 +165,15 @@
         }
 
         /// <summary>
-        /// Gets an instance of a provider for code analysis issues reported as MsBuild warnings using log content.
+        /// Gets an instance of a provider for issues reported as MsBuild warnings using log content.
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="logFileContent">Content of the the MsBuild log file.
         /// The log file needs to be in the format as defined by the <paramref name="format"/> parameter.</param>
         /// <param name="format">Format of the provided MsBuild log file.</param>
-        /// <returns>Instance of a provider for code analysis issues reported as MsBuild warnings.</returns>
+        /// <returns>Instance of a provider for issues reported as MsBuild warnings.</returns>
         /// <example>
-        /// <para>Read code analysis issues reported as MsBuild warnings:</para>
+        /// <para>Read issues reported as MsBuild warnings:</para>
         /// <code>
         /// <![CDATA[
         ///     var issues =
@@ -181,7 +181,7 @@
         ///             MsBuildIssuesFromContent(
         ///                 logFileContent,
         ///                 MsBuildXmlFileLoggerFormat)),
-        ///             new DirectoryPath(@"c:\repo")));
+        ///             new DirectoryPath(@"c:\repo"));
         /// ]]>
         /// </code>
         /// </example>
@@ -200,13 +200,13 @@
         }
 
         /// <summary>
-        /// Gets an instance of a provider for code analysis issues reported as MsBuild warnings using specified settings.
+        /// Gets an instance of a provider for issues reported as MsBuild warnings using specified settings.
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="settings">Settings for reading the MSBuild log.</param>
-        /// <returns>Instance of a provider for code analysis issues reported as MsBuild warnings.</returns>
+        /// <returns>Instance of a provider for issues reported as MsBuild warnings.</returns>
         /// <example>
-        /// <para>Read code analysis issues reported as MsBuild warnings:</para>
+        /// <para>Read issues reported as MsBuild warnings:</para>
         /// <code>
         /// <![CDATA[
         ///     var settings =
@@ -217,7 +217,7 @@
         ///     var issues =
         ///         ReadIssues(
         ///             MsBuildIssues(settings),
-        ///             new DirectoryPath(@"c:\repo")));
+        ///             new DirectoryPath(@"c:\repo"));
         /// ]]>
         /// </code>
         /// </example>

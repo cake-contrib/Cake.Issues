@@ -8,11 +8,11 @@
     public interface ILogFileFormat
     {
         /// <summary>
-        /// Gets all code analysis issues.
+        /// Gets all issues.
         /// </summary>
         /// <param name="repositorySettings">Repository settings to use.</param>
-        /// <param name="msBuildIssuesSettings">Settings for code analysis provider to use.</param>
-        /// <returns>List of code analysis issues</returns>
+        /// <param name="msBuildIssuesSettings">Settings for issue provider to use.</param>
+        /// <returns>List of issues</returns>
         IEnumerable<IIssue> ReadIssues(
             RepositorySettings repositorySettings,
             MsBuildIssuesSettings msBuildIssuesSettings);
