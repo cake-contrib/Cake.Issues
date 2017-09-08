@@ -9,7 +9,7 @@
     using Core.Diagnostics;
 
     /// <summary>
-    /// Provider for code analysis issues reported by JetBrains Inspect Code.
+    /// Provider for issues reported by JetBrains Inspect Code.
     /// </summary>
     internal class InspectCodeIssuesProvider : IssueProvider
     {

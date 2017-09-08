@@ -9,7 +9,7 @@
 
     public class InspectCodeIssuesSettingsTests
     {
-        public sealed class TheInspectCodeIssuesSettingsCtor
+        public sealed class TheCtor
         {
             [Fact]
             public void Should_Throw_If_LogFilePath_Is_Null()

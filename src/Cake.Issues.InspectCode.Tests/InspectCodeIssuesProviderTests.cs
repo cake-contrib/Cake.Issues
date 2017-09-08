@@ -9,7 +9,7 @@
 
     public class InspectCodeIssuesProviderTests
     {
-        public sealed class TheInspectCodeIssuesProviderCtor
+        public sealed class TheCtor
         {
             [Fact]
             public void Should_Throw_If_Log_Is_Null()
