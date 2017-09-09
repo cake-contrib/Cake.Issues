@@ -11,6 +11,22 @@
     public static class MarkdownlintIssuesAliases
     {
         /// <summary>
+        /// Gets the name of the Markdownlint issue provider.
+        /// This name can be used to identify issues based on the <see cref="IIssue.ProviderType"/> property.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <returns>Name of the Markdownlint issue provider.</returns>
+        [CakePropertyAlias]
+        [CakeAliasCategory(IssuesAliasConstants.IssueProviderCakeAliasCategory)]
+        public static string MarkdownlintIssuesProviderTypeName(
+            this ICakeContext context)
+        {
+            context.NotNull(nameof(context));
+
+            return Issue<MarkdownlintIssuesProvider>.GetProviderTypeName();
+        }
+
+        /// <summary>
         /// Gets an instance of a provider for issues reported by Markdownlint using a log file from disk.
         /// </summary>
         /// <param name="context">The context.</param>
