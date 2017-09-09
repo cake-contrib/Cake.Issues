@@ -12,6 +12,22 @@
     public static class EsLintIssuesAliases
     {
         /// <summary>
+        /// Gets the name of the ESLint issue provider.
+        /// This name can be used to identify issues based on the <see cref="IIssue.ProviderType"/> property.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <returns>Name of the ESLint issue provider.</returns>
+        [CakePropertyAlias]
+        [CakeAliasCategory(IssuesAliasConstants.IssueProviderCakeAliasCategory)]
+        public static string EsLintIssuesProviderTypeName(
+            this ICakeContext context)
+        {
+            context.NotNull(nameof(context));
+
+            return Issue<EsLintIssuesProvider>.GetProviderTypeName();
+        }
+
+        /// <summary>
         /// Registers a new URL resolver with default priority of 0.
         /// </summary>
         /// <param name="context">The context.</param>
