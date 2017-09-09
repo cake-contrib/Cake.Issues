@@ -1,4 +1,4 @@
-﻿namespace Cake.Issues.Reporting.ReportFormat
+﻿namespace Cake.Issues.Reporting
 {
     using System.Collections.Generic;
     using Core.IO;

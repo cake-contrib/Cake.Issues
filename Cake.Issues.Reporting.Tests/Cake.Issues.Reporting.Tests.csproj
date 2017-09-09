@@ -76,7 +76,7 @@
     <Compile Include="IssueReportCreatorTests.cs" />
     <Compile Include="IssueReportFormatFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReportFormat\IssueReportFormatTests.cs" />
+    <Compile Include="IssueReportFormatTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
