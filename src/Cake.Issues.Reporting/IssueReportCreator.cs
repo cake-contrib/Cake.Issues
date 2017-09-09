@@ -4,7 +4,6 @@
     using Core.Diagnostics;
     using Core.IO;
     using IssueProvider;
-    using ReportFormat;
 
     /// <summary>
     /// Class for creating issue reports.

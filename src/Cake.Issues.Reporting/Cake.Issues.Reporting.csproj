@@ -55,8 +55,8 @@
     <Compile Include="Aliases.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="IssueReportCreator.cs" />
-    <Compile Include="ReportFormat\IIssueReportFormat.cs" />
-    <Compile Include="ReportFormat\IssueReportFormat.cs" />
+    <Compile Include="IIssueReportFormat.cs" />
+    <Compile Include="IssueReportFormat.cs" />
     <Compile Include="ReportingAliasConstants.cs" />
   </ItemGroup>
   <ItemGroup>

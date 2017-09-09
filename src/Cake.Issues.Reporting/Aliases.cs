@@ -5,7 +5,6 @@
     using Core.Annotations;
     using Core.IO;
     using Issues.IssueProvider;
-    using ReportFormat;
 
     /// <summary>
     /// Contains functionality related to creating issue reports.

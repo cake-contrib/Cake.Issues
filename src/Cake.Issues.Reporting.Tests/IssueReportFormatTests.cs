@@ -1,4 +1,4 @@
-﻿namespace Cake.Issues.Reporting.Tests.ReportFormat
+﻿namespace Cake.Issues.Reporting.Tests
 {
     using System.Collections.Generic;
     using Cake.Testing;

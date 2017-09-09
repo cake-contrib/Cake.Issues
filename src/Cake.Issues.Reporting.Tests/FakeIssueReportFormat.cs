@@ -5,7 +5,6 @@
     using Core.IO;
     using Issues;
     using Issues.IssueProvider;
-    using Issues.Reporting.ReportFormat;
 
     /// <summary>
     /// Implementation of a <see cref="IssueReportFormat"/> for use in test cases.
