@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <id>Cake.Issues.Reporting</id>
+    <title>Cake.Issues.Reporting</title>
+    <version>0.0.0</version>
+    <authors>BBT Software AG and contributors</authors>
+    <owners>bbtsoftware, pascalberger, cake-contrib</owners>
+    <summary>Addin for the Cake build automation system for creating reports for issues from any code analyzer or linter</summary>
+    <description>
+The issues reporting addin for Cake allows you to create reports for issue from any code analyzer or linter.
+
+This addin provides the aliases for creating reports.
+It requires the core Cake.Issues addin, addins for reading issues and one or more reporting format addin for the specific report format.
+
+See the Project Site for an overview of the whole ecosystem of addins for working with issues in Cake scripts.
+    </description>
+    <licenseUrl>https://github.com/cake-contrib/Cake.Issues.Reporting/blob/develop/LICENSE</licenseUrl>
+    <projectUrl>http://cake-contrib.github.io/Cake.Issues.Website/</projectUrl>
+    <iconUrl>https://cdn.rawgit.com/cake-contrib/graphics/a5cf0f881c390650144b2243ae551d5b9f836196/png/cake-contrib-medium.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <copyright>Copyright © 2017 BBT Software AG and contributors</copyright>
+    <tags>Cake Script Cake-Issues CodeAnalysis Linting Issues Reporting</tags>
+    <releaseNotes>https://github.com/cake-contrib/Cake.Issues.Reporting/releases/tag/0.1.0</releaseNotes>
+  </metadata>
+  <files>
+    <file src="Cake.Issues.Reporting.dll" target="lib\net45" />
+    <file src="Cake.Issues.Reporting.pdb" target="lib\net45" />
+    <file src="Cake.Issues.Reporting.xml" target="lib\net45" />
+  </files>
+</package>
