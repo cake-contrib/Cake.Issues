@@ -9,7 +9,6 @@
     /// Contains functionality related to creating issue reports.
     /// </summary>
     [CakeAliasCategory(IssuesAliasConstants.MainCakeAliasCategory)]
-    [CakeNamespaceImport("Cake.Issues.Reporting.ReportFormat")]
     public static class Aliases
     {
         /// <summary>
@@ -19,28 +18,32 @@
         /// <param name="issueProviders">Issue providers for whose issues the report should be generated.</param>
         /// <param name="reportFormat">Format in which the report should be generated.</param>
         /// <param name="repositoryRoot">Root path of the repository.</param>
-        /// <returns>Path to the report.</returns>
+        /// <param name="outputFilePath">Path of the generated report file.</param>
+        /// <returns>Path to the created report or <c>null</c> if report could not be created.</returns>
         [CakeMethodAlias]
         [CakeAliasCategory(ReportingAliasConstants.CreateIssueReportCakeAliasCategory)]
         public static FilePath CreateIssueReport(
             this ICakeContext context,
             IEnumerable<IIssueProvider> issueProviders,
             IIssueReportFormat reportFormat,
-            DirectoryPath repositoryRoot)
+            DirectoryPath repositoryRoot,
+            FilePath outputFilePath)
         {
             context.NotNull(nameof(context));
-            reportFormat.NotNull(nameof(reportFormat));
-            repositoryRoot.NotNull(nameof(repositoryRoot));
 
             // ReSharper disable once PossibleMultipleEnumeration
             issueProviders.NotNullOrEmptyOrEmptyElement(nameof(issueProviders));
+
+            reportFormat.NotNull(nameof(reportFormat));
+            repositoryRoot.NotNull(nameof(repositoryRoot));
+            outputFilePath.NotNull(nameof(outputFilePath));
 
             // ReSharper disable once PossibleMultipleEnumeration
             return
                 context.CreateIssueReport(
                     issueProviders,
                     reportFormat,
-                    new RepositorySettings(repositoryRoot));
+                    new CreateIssueReportSettings(repositoryRoot, outputFilePath));
         }
 
         /// <summary>
@@ -50,14 +53,14 @@
         /// <param name="issueProviders">Issue providers for whose issues the report should be generated.</param>
         /// <param name="reportFormat">Format in which the report should be generated.</param>
         /// <param name="settings">The settings.</param>
-        /// <returns>Path to the report.</returns>
+        /// <returns>Path to the created report or <c>null</c> if report could not be created.</returns>
         [CakeMethodAlias]
         [CakeAliasCategory(ReportingAliasConstants.CreateIssueReportCakeAliasCategory)]
         public static FilePath CreateIssueReport(
             this ICakeContext context,
             IEnumerable<IIssueProvider> issueProviders,
             IIssueReportFormat reportFormat,
-            RepositorySettings settings)
+            CreateIssueReportSettings settings)
         {
             context.NotNull(nameof(context));
             reportFormat.NotNull(nameof(reportFormat));
@@ -78,28 +81,32 @@
         /// <param name="issues">Issues for which the report should be generated.</param>
         /// <param name="reportFormat">Format in which the report should be generated.</param>
         /// <param name="repositoryRoot">Root path of the repository.</param>
-        /// <returns>Path to the report.</returns>
+        /// <param name="outputFilePath">Path of the generated report file.</param>
+        /// <returns>Path to the created report or <c>null</c> if report could not be created.</returns>
         [CakeMethodAlias]
         [CakeAliasCategory(ReportingAliasConstants.CreateIssueReportCakeAliasCategory)]
         public static FilePath CreateIssueReport(
             this ICakeContext context,
             IEnumerable<IIssue> issues,
             IIssueReportFormat reportFormat,
-            DirectoryPath repositoryRoot)
+            DirectoryPath repositoryRoot,
+            FilePath outputFilePath)
         {
             context.NotNull(nameof(context));
-            reportFormat.NotNull(nameof(reportFormat));
-            repositoryRoot.NotNull(nameof(repositoryRoot));
 
             // ReSharper disable once PossibleMultipleEnumeration
             issues.NotNullOrEmptyElement(nameof(issues));
+
+            reportFormat.NotNull(nameof(reportFormat));
+            repositoryRoot.NotNull(nameof(repositoryRoot));
+            outputFilePath.NotNull(nameof(outputFilePath));
 
             // ReSharper disable once PossibleMultipleEnumeration
             return
                 context.CreateIssueReport(
                     issues,
                     reportFormat,
-                    new RepositorySettings(repositoryRoot));
+                    new CreateIssueReportSettings(repositoryRoot, outputFilePath));
         }
 
         /// <summary>
@@ -109,20 +116,22 @@
         /// <param name="issues">Issues for which the report should be generated.</param>
         /// <param name="reportFormat">Format in which the report should be generated.</param>
         /// <param name="settings">The settings.</param>
-        /// <returns>Path to the report.</returns>
+        /// <returns>Path to the created report or <c>null</c> if report could not be created.</returns>
         [CakeMethodAlias]
         [CakeAliasCategory(ReportingAliasConstants.CreateIssueReportCakeAliasCategory)]
         public static FilePath CreateIssueReport(
             this ICakeContext context,
             IEnumerable<IIssue> issues,
             IIssueReportFormat reportFormat,
-            RepositorySettings settings)
+            CreateIssueReportSettings settings)
         {
             context.NotNull(nameof(context));
-            reportFormat.NotNull(nameof(reportFormat));
 
             // ReSharper disable once PossibleMultipleEnumeration
             issues.NotNullOrEmptyElement(nameof(issues));
+
+            reportFormat.NotNull(nameof(reportFormat));
+            settings.NotNull(nameof(settings));
 
             var issueReportCreator = new IssueReportCreator(context.Log, settings);
 
