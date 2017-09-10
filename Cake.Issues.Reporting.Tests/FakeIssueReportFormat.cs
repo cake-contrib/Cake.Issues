@@ -28,7 +28,7 @@
         public bool ShouldFailOnInitialization { get; set; } = false;
 
         /// <inheritdoc />
-        public override bool Initialize(RepositorySettings settings)
+        public override bool Initialize(CreateIssueReportSettings settings)
         {
             var result = base.Initialize(settings);
 

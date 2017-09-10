@@ -7,7 +7,7 @@
     /// <summary>
     /// Base class for all report format implementations.
     /// </summary>
-    public abstract class IssueReportFormat : BaseIssueComponent<RepositorySettings>, IIssueReportFormat
+    public abstract class IssueReportFormat : BaseIssueComponent<CreateIssueReportSettings>, IIssueReportFormat
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="IssueReportFormat"/> class.

@@ -6,7 +6,7 @@
     /// <summary>
     /// Interface describing a issue report format.
     /// </summary>
-    public interface IIssueReportFormat : IBaseIssueComponent<RepositorySettings>
+    public interface IIssueReportFormat : IBaseIssueComponent<CreateIssueReportSettings>
     {
         /// <summary>
         /// Creates a report from a list of issues.

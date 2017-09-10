@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Aliases.cs" />
+    <Compile Include="CreateIssueReportSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="IssueReportCreator.cs" />
     <Compile Include="IIssueReportFormat.cs" />
