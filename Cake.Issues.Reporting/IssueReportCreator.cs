@@ -3,7 +3,6 @@
     using System.Collections.Generic;
     using Core.Diagnostics;
     using Core.IO;
-    using IssueProvider;
 
     /// <summary>
     /// Class for creating issue reports.

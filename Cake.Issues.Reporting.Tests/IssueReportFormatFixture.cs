@@ -4,8 +4,6 @@
     using Cake.Testing;
     using Core.Diagnostics;
     using Core.IO;
-    using Issues;
-    using Issues.IssueProvider;
 
     public class IssueReportFormatFixture
     {

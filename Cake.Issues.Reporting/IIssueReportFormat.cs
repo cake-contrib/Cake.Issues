@@ -2,7 +2,6 @@
 {
     using System.Collections.Generic;
     using Core.IO;
-    using Issues.IssueProvider;
 
     /// <summary>
     /// Interface describing a issue report format.
