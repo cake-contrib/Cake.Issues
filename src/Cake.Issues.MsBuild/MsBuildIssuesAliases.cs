@@ -99,14 +99,14 @@
         /// <para>
         /// You can add the logger to the MSBuildSettings like this:
         /// <code>
-        /// var settings = new MsBuildSettings()
+        /// var settings = new MSBuildSettings()
         ///     .WithLogger(
         ///         Context.Tools.Resolve("MSBuild.ExtensionPack.Loggers.dll").FullPath,
         ///         "XmlFileLogger",
         ///         string.Format(
         ///             "logfile=\"{0}\";verbosity=Detailed;encoding=UTF-8",
         ///             @"c:\build\msbuild.log")
-        ///     )
+        ///     );
         /// </code>
         /// </para>
         /// <para>
