@@ -4,7 +4,6 @@
     using Core;
     using Core.Annotations;
     using Core.IO;
-    using Issues.IssueProvider;
 
     /// <summary>
     /// Contains functionality related to creating issue reports.

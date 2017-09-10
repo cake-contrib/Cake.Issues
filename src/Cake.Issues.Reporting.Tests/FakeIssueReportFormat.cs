@@ -3,8 +3,6 @@
     using System.Collections.Generic;
     using Core.Diagnostics;
     using Core.IO;
-    using Issues;
-    using Issues.IssueProvider;
 
     /// <summary>
     /// Implementation of a <see cref="IssueReportFormat"/> for use in test cases.

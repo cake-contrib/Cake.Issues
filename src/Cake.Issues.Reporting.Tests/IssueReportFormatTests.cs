@@ -2,7 +2,6 @@
 {
     using System.Collections.Generic;
     using Cake.Testing;
-    using Issues.IssueProvider;
     using Shouldly;
     using Testing;
     using Xunit;
