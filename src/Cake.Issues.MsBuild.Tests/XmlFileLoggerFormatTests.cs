@@ -6,7 +6,7 @@
     using Testing;
     using Xunit;
 
-    public class XmlFileLoggerFormatTests
+    public sealed class XmlFileLoggerFormatTests
     {
         public sealed class TheXmlFileLoggerFormatCtor
         {

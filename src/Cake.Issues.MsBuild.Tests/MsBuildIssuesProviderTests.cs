@@ -4,7 +4,7 @@
     using Testing;
     using Xunit;
 
-    public class MsBuildIssuesProviderTests
+    public sealed class MsBuildIssuesProviderTests
     {
         public sealed class TheCtor
         {

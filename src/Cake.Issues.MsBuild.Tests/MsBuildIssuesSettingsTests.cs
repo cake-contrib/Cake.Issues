@@ -9,7 +9,7 @@
     using Testing;
     using Xunit;
 
-    public class MsBuildIssuesSettingsTests
+    public sealed class MsBuildIssuesSettingsTests
     {
         public sealed class TheCtor
         {
