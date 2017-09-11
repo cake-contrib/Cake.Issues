@@ -1,0 +1,8 @@
+﻿@model IEnumerable<Cake.Issues.IIssue>
+
+<ul>
+    @foreach (var issue in Model)
+    {
+        <li>@issue.Message</li>
+    }
+</ul>

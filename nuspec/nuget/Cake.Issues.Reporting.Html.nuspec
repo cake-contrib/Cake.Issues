@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <id>Cake.Issues.Reporting.Html</id>
+    <title>Cake.Issues.Reporting.Html</title>
+    <version>0.0.0</version>
+    <authors>Pascal Berger</authors>
+    <owners>pascalberger, cake-contrib</owners>
+    <summary>HTML reporting support for the Cake.Issues addin for Cake Build Automation System</summary>
+    <description>
+The HTML reporting support for the Cake.Issues addin for Cake allows you to create HTML issue reports.
+
+This addin provides the aliases for the HTML report format.
+It also requires the core Cake.Issues and Cake.Issues.Reporting addins and one or more issue providers.
+
+See the Project Site for an overview of the whole ecosystem of addins for working with issues in Cake scripts.
+    </description>
+    <licenseUrl>https://github.com/cake-contrib/Cake.Issues.Reporting.Html/blob/develop/LICENSE</licenseUrl>
+    <projectUrl>http://cake-contrib.github.io/Cake.Issues.Website</projectUrl>
+    <iconUrl>https://cdn.rawgit.com/cake-contrib/graphics/a5cf0f881c390650144b2243ae551d5b9f836196/png/cake-contrib-medium.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <copyright>Copyright © 2017 Pascal Berger</copyright>
+    <tags>Cake Script Cake-Issues Cake-ReportFormat Issues Reporting Html</tags>
+    <releaseNotes>https://github.com/cake-contrib/Cake.Issues.Reporting.Html/releases/tag/0.1.0</releaseNotes>
+  </metadata>
+  <files>
+    <file src="Cake.Issues.Reporting.Html.dll" target="lib\net45" />
+    <file src="Cake.Issues.Reporting.Html.pdb" target="lib\net45" />
+    <file src="Cake.Issues.Reporting.Html.xml" target="lib\net45" />
+  </files>
+</package>
