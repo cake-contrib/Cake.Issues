@@ -4,7 +4,7 @@
     using Core.IO;
 
     /// <summary>
-    /// Settings for <see cref="HtmlIssueReportGenerator"/>.
+    /// Settings for <see cref="HtmlIssueReportFormatAliases"/>.
     /// </summary>
     public class HtmlIssueReportFormatSettings
     {
