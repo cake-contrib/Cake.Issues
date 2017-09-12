@@ -4,7 +4,7 @@
     using Core.IO;
 
     /// <summary>
-    /// Settings for <see cref="MsBuildIssuesProvider"/>.
+    /// Settings for <see cref="MsBuildIssuesAliases"/>.
     /// </summary>
     public class MsBuildIssuesSettings
     {
