@@ -20,6 +20,26 @@
         /// <param name="repositoryRoot">Root path of the repository.</param>
         /// <param name="outputFilePath">Path of the generated report file.</param>
         /// <returns>Path to the created report or <c>null</c> if report could not be created.</returns>
+        /// <example>
+        /// <para>Create HTML report using the diagnostic template:</para>
+        /// <code>
+        /// <![CDATA[
+        ///     CreateIssueReport(
+        ///         new List<IIssueProvider>
+        ///         {
+        ///             MsBuildIssuesFromFilePath(
+        ///                 @"C:\build\msbuild.log",
+        ///                 MsBuildXmlFileLoggerFormat),
+        ///             InspectCodeIssuesFromFilePath(
+        ///                 @"C:\build\inspectcode.log",
+        ///                 MsBuildXmlFileLoggerFormat)
+        ///         },
+        ///         HtmlIssueReportFormatFromEmbeddedTemplate(HtmlIssueReportTemplate.Diagnostic),
+        ///         @"c:\repo",
+        ///         @"c:\report.html");
+        /// ]]>
+        /// </code>
+        /// </example>
         [CakeMethodAlias]
         [CakeAliasCategory(ReportingAliasConstants.CreateIssueReportCakeAliasCategory)]
         public static FilePath CreateIssueReport(
@@ -54,6 +74,28 @@
         /// <param name="reportFormat">Format in which the report should be generated.</param>
         /// <param name="settings">The settings.</param>
         /// <returns>Path to the created report or <c>null</c> if report could not be created.</returns>
+        /// <example>
+        /// <para>Create HTML report using the diagnostic template:</para>
+        /// <code>
+        /// <![CDATA[
+        ///     var settings =
+        ///         new CreateIssueReportSettings(@"c:\repo", @"c:\report.html");
+        ///
+        ///     CreateIssueReport(
+        ///         new List<IIssueProvider>
+        ///         {
+        ///             MsBuildIssuesFromFilePath(
+        ///                 @"C:\build\msbuild.log",
+        ///                 MsBuildXmlFileLoggerFormat),
+        ///             InspectCodeIssuesFromFilePath(
+        ///                 @"C:\build\inspectcode.log",
+        ///                 MsBuildXmlFileLoggerFormat)
+        ///         },
+        ///         HtmlIssueReportFormatFromEmbeddedTemplate(HtmlIssueReportTemplate.Diagnostic),
+        ///         settings);
+        /// ]]>
+        /// </code>
+        /// </example>
         [CakeMethodAlias]
         [CakeAliasCategory(ReportingAliasConstants.CreateIssueReportCakeAliasCategory)]
         public static FilePath CreateIssueReport(
@@ -83,6 +125,18 @@
         /// <param name="repositoryRoot">Root path of the repository.</param>
         /// <param name="outputFilePath">Path of the generated report file.</param>
         /// <returns>Path to the created report or <c>null</c> if report could not be created.</returns>
+        /// <example>
+        /// <para>Create HTML report using the diagnostic template:</para>
+        /// <code>
+        /// <![CDATA[
+        ///     CreateIssueReport(
+        ///         issues,
+        ///         HtmlIssueReportFormatFromEmbeddedTemplate(HtmlIssueReportTemplate.Diagnostic),
+        ///         @"c:\repo",
+        ///         @"c:\report.html");
+        /// ]]>
+        /// </code>
+        /// </example>
         [CakeMethodAlias]
         [CakeAliasCategory(ReportingAliasConstants.CreateIssueReportCakeAliasCategory)]
         public static FilePath CreateIssueReport(
@@ -117,6 +171,20 @@
         /// <param name="reportFormat">Format in which the report should be generated.</param>
         /// <param name="settings">The settings.</param>
         /// <returns>Path to the created report or <c>null</c> if report could not be created.</returns>
+        /// <example>
+        /// <para>Create HTML report using the diagnostic template:</para>
+        /// <code>
+        /// <![CDATA[
+        ///     var settings =
+        ///         new CreateIssueReportSettings(@"c:\repo", @"c:\report.html");
+        ///
+        ///     CreateIssueReport(
+        ///         issues,
+        ///         HtmlIssueReportFormatFromEmbeddedTemplate(HtmlIssueReportTemplate.Diagnostic),
+        ///         settings);
+        /// ]]>
+        /// </code>
+        /// </example>
         [CakeMethodAlias]
         [CakeAliasCategory(ReportingAliasConstants.CreateIssueReportCakeAliasCategory)]
         public static FilePath CreateIssueReport(
