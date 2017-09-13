@@ -38,9 +38,8 @@
         /// <![CDATA[
         ///     var issues =
         ///         ReadIssues(
-        ///             MarkdownlintIssuesFromFilePath(
-        ///                 new FilePath(@"C:\build\Markdownlint.log")),
-        ///             new DirectoryPath(@"c:\repo"));
+        ///             MarkdownlintIssuesFromFilePath(@"c:\build\Markdownlint.log"),
+        ///             @"c:\repo");
         /// ]]>
         /// </code>
         /// </example>
@@ -69,7 +68,7 @@
         ///     var issues =
         ///         ReadIssues(
         ///             MarkdownlintIssuesFromContent(logFileContent),
-        ///             new DirectoryPath(@"c:\repo"));
+        ///             @"c:\repo");
         /// ]]>
         /// </code>
         /// </example>
@@ -96,13 +95,12 @@
         /// <code>
         /// <![CDATA[
         ///     var settings =
-        ///         new MarkdownlintIssuesSettings(
-        ///             new FilePath("C:\build\Markdownlint.log"));
+        ///         new MarkdownlintIssuesSettings("C:\build\Markdownlint.log");
         ///
         ///     var issues =
         ///         ReadIssues(
         ///             MarkdownlintIssuesFromFilePath(settings),
-        ///             new DirectoryPath(@"c:\repo"));
+        ///             @"c:\repo");
         /// ]]>
         /// </code>
         /// </example>
