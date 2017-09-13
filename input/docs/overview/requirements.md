@@ -4,7 +4,7 @@ Description: Requirements for using Cake.Issues.
 ---
 ## Cake
 
-The core addins requires Cake 0.16.2 or higher.
+The core addins requires Cake 0.22.0 or higher.
 
 :::{.alert .alert-info}
 Note that individual addins might require a newer version of Cake.
