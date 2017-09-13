@@ -120,9 +120,8 @@
         /// <![CDATA[
         ///     var issues =
         ///         ReadIssues(
-        ///             EsLintIssuesFromFilePath(
-        ///                 new FilePath(@"c:\build\ESLint.log")),
-        ///             new DirectoryPath(@"c:\repo"));
+        ///             EsLintIssuesFromFilePath(@"c:\build\ESLint.log"),
+        ///             @"c:\repo");
         /// ]]>
         /// </code>
         /// </example>
@@ -155,7 +154,7 @@
         ///     var issues =
         ///         ReadIssues(
         ///             EsLintIssuesFromContent(logFileContent),
-        ///             new DirectoryPath(@"c:\repo"));
+        ///             @"c:\repo");
         /// ]]>
         /// </code>
         /// </example>
@@ -184,13 +183,12 @@
         /// <code>
         /// <![CDATA[
         ///     var settings =
-        ///         new EsLintIssuesSettings(
-        ///             new FilePath(@"c:\build\ESLint.log"));
+        ///         new EsLintIssuesSettings(@"c:\build\ESLint.log");
         ///
         ///     var issues =
         ///         ReadIssues(
         ///             EsLintIssues(settings),
-        ///             new DirectoryPath(@"c:\repo"));
+        ///             @"c:\repo");
         /// ]]>
         /// </code>
         /// </example>
