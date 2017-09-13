@@ -43,7 +43,7 @@
       <HintPath>..\packages\Cake.Issues.0.1.0-beta0004\lib\net45\Cake.Issues.dll</HintPath>
     </Reference>
     <Reference Include="Cake.Issues.Reporting, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Cake.Issues.Reporting.0.1.0-beta0004\lib\net45\Cake.Issues.Reporting.dll</HintPath>
+      <HintPath>..\packages\Cake.Issues.Reporting.0.1.0-beta0005\lib\net45\Cake.Issues.Reporting.dll</HintPath>
     </Reference>
     <Reference Include="Cake.Issues.Testing, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Cake.Issues.Testing.0.1.0-beta0004\lib\net45\Cake.Issues.Testing.dll</HintPath>
