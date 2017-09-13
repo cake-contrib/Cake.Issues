@@ -127,7 +127,7 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
     <Reference Include="TfsUrlParser, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\TfsUrlParser.1.0.0\lib\net40\TfsUrlParser.dll</HintPath>
+      <HintPath>..\packages\TfsUrlParser.1.2.0\lib\net40\TfsUrlParser.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
