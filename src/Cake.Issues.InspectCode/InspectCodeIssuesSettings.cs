@@ -4,7 +4,7 @@
     using Core.IO;
 
     /// <summary>
-    /// Settings for <see cref="InspectCodeIssuesProvider"/>.
+    /// Settings for <see cref="InspectCodeIssuesAliases"/>.
     /// </summary>
     public class InspectCodeIssuesSettings
     {

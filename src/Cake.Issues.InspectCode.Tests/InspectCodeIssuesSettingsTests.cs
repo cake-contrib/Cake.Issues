@@ -3,8 +3,8 @@
     using System.IO;
     using System.Text;
     using Core.IO;
-    using Testing;
     using Shouldly;
+    using Testing;
     using Xunit;
 
     public class InspectCodeIssuesSettingsTests

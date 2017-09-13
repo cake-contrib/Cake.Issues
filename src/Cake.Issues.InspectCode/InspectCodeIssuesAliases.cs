@@ -36,10 +36,10 @@
         /// <para>Read issues reported by JetBrains Inspect Code:</para>
         /// <code>
         /// <![CDATA[
-        ///     var issues = 
+        ///     var issues =
         ///         ReadIssues(
-        ///             InspectCodeIssuesFromFilePath(new FilePath(@"c:\build\InspectCode.log")),
-        ///             new DirectoryPath(@"c:\repo"));
+        ///             InspectCodeIssuesFromFilePath(@"c:\build\InspectCode.log"),
+        ///             @"c:\repo");
         /// ]]>
         /// </code>
         /// </example>
@@ -65,10 +65,10 @@
         /// <para>Read issues reported by JetBrains Inspect Code:</para>
         /// <code>
         /// <![CDATA[
-        ///     var issues = 
+        ///     var issues =
         ///         ReadIssues(
         ///             InspectCodeIssuesFromContent(logFileContent)),
-        ///             new DirectoryPath(@"c:\repo"));
+        ///             @"c:\repo");
         /// ]]>
         /// </code>
         /// </example>
@@ -96,12 +96,12 @@
         /// <![CDATA[
         ///     var settings =
         ///         new InspectCodeIssuesSettings(
-        ///             new FilePath(@"c:\build\InspectCode.log"));
+        ///             @"c:\build\InspectCode.log));
         ///
-        ///     var issues = 
+        ///     var issues =
         ///         ReadIssues(
         ///             InspectCodeIssues(settings),
-        ///             new DirectoryPath(@"c:\repo"));
+        ///             @"c:\repo");
         /// ]]>
         /// </code>
         /// </example>
