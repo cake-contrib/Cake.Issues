@@ -4,7 +4,7 @@
     using Core.IO;
 
     /// <summary>
-    /// Settings for <see cref="DocFxIssuesProvider"/>.
+    /// Settings for <see cref="DocFxIssuesAliases"/>.
     /// </summary>
     public class DocFxIssuesSettings
     {

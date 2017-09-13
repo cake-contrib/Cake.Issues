@@ -61,7 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DocFxIssuesProvider.cs" />
-    <Compile Include="DocFxIssuesProviderAliases.cs" />
+    <Compile Include="DocFxIssuesAliases.cs" />
     <Compile Include="DocFxIssuesSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

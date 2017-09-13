@@ -8,7 +8,7 @@
     /// Contains functionality related to read warnings from DocFx log files.
     /// </summary>
     [CakeAliasCategory(IssuesAliasConstants.MainCakeAliasCategory)]
-    public static class DocFxIssuesProviderAliases
+    public static class DocFxIssuesAliases
     {
         /// <summary>
         /// Gets the name of the DocFx issue provider.
@@ -39,8 +39,8 @@
         /// <![CDATA[
         ///     var issues =
         ///         ReadIssues(
-        ///             DocFxIssuesFromFilePath(new FilePath(@"c:\build\docfx.log")),
-        ///             new DirectoryPath(@"c:\repo"));
+        ///             DocFxIssuesFromFilePath(@"c:\build\docfx.log"),
+        ///             @"c:\repo");
         /// ]]>
         /// </code>
         /// </example>
@@ -73,7 +73,7 @@
         ///             DocFxIssuesFromFilePath(
         ///                 @"c:\build\docfx.log",
         ///                 @"c:\build\doc")),
-        ///             new DirectoryPath(@"c:\repo"));
+        ///             @"c:\repo");
         /// ]]>
         /// </code>
         /// </example>
@@ -105,7 +105,7 @@
         ///     var issues =
         ///         ReadIssues(
         ///             DocFxIssuesFromContent(logFileContent)),
-        ///             new DirectoryPath(@"c:\repo"));
+        ///             @"c:\repo");
         /// ]]>
         /// </code>
         /// </example>
@@ -138,7 +138,7 @@
         ///             DocFxIssuesFromContent(
         ///                 logFileContent,
         ///                 @"c:\build\doc")),
-        ///             new DirectoryPath(@"c:\repo"));
+        ///             @"c:\repo");
         /// ]]>
         /// </code>
         /// </example>
@@ -172,7 +172,7 @@
         ///     var issues =
         ///         ReadIssues(
         ///             DocFxIssues(settings),
-        ///             new DirectoryPath(@"c:\repo"));
+        ///             @"c:\repo");
         /// ]]>
         /// </code>
         /// </example>
