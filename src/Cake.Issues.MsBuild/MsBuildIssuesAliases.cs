@@ -144,9 +144,9 @@
         ///     var issues =
         ///         ReadIssues(
         ///             MsBuildIssuesFromFilePath(
-        ///                 new FilePath(@"c:\build\InspectCode.log"),
+        ///                 @"c:\build\InspectCode.log",
         ///                 MsBuildXmlFileLoggerFormat),
-        ///             new DirectoryPath(@"c:\repo"));
+        ///             @"c:\repo");
         /// ]]>
         /// </code>
         /// </example>
@@ -181,7 +181,7 @@
         ///             MsBuildIssuesFromContent(
         ///                 logFileContent,
         ///                 MsBuildXmlFileLoggerFormat)),
-        ///             new DirectoryPath(@"c:\repo"));
+        ///             @"c:\repo");
         /// ]]>
         /// </code>
         /// </example>
@@ -217,7 +217,7 @@
         ///     var issues =
         ///         ReadIssues(
         ///             MsBuildIssues(settings),
-        ///             new DirectoryPath(@"c:\repo"));
+        ///             @"c:\repo");
         /// ]]>
         /// </code>
         /// </example>
