@@ -5,7 +5,7 @@
     using Core.Diagnostics;
     using Core.IO;
 
-    public class IssueReportFormatFixture
+    internal class IssueReportFormatFixture
     {
         public IssueReportFormatFixture()
         {
