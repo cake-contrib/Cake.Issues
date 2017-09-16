@@ -7,7 +7,7 @@
     using Testing;
     using Xunit;
 
-    public class InspectCodeIssuesSettingsTests
+    public sealed class InspectCodeIssuesSettingsTests
     {
         public sealed class TheCtor
         {
