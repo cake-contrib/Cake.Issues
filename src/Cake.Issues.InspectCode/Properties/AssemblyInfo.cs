@@ -10,8 +10,8 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("JetBrains Inspect Code support for the Cake.Issues Addin for Cake Build Automation System")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("BBT Software AG")]
-[assembly: AssemblyProduct("Cake.Issues.InspectCode")]
-[assembly: AssemblyCopyright("Copyright © 2017 BBT Software AG, Root/Zermatt, Switzerland")]
+[assembly: AssemblyProduct("Cake.Issues")]
+[assembly: AssemblyCopyright("Copyright © 2017 BBT Software AG and contributors")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

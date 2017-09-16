@@ -7,10 +7,9 @@
     using System.Linq;
     using System.Xml.Linq;
     using Core.Diagnostics;
-    using IssueProvider;
 
     /// <summary>
-    /// Provider for code analysis issues reported by JetBrains Inspect Code.
+    /// Provider for issues reported by JetBrains Inspect Code.
     /// </summary>
     internal class InspectCodeIssuesProvider : IssueProvider
     {

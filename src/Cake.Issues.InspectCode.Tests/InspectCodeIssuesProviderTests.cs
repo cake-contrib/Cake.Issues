@@ -3,14 +3,13 @@
     using System.Linq;
     using Cake.Testing;
     using Core.IO;
-    using Issues.IssueProvider;
     using Shouldly;
     using Testing;
     using Xunit;
 
-    public class InspectCodeIssuesProviderTests
+    public sealed class InspectCodeIssuesProviderTests
     {
-        public sealed class TheInspectCodeIssuesProviderCtor
+        public sealed class TheCtor
         {
             [Fact]
             public void Should_Throw_If_Log_Is_Null()

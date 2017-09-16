@@ -3,11 +3,9 @@
     using Core;
     using Core.Annotations;
     using Core.IO;
-    using IssueProvider;
 
     /// <summary>
-    /// Contains functionality related to importing code analysis issues from JetBrains Inspect Code
-    /// to write them to pull requests.
+    /// Contains functionality for reading issues from JetBrains Inspect Code log files.
     /// </summary>
     [CakeAliasCategory(IssuesAliasConstants.MainCakeAliasCategory)]
     public static class InspectCodeIssuesAliases
@@ -29,19 +27,19 @@
         }
 
         /// <summary>
-        /// Gets an instance of a provider for code analysis issues reported by JetBrains Inspect Code using a log file from disk.
+        /// Gets an instance of a provider for issues reported by JetBrains Inspect Code using a log file from disk.
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="logFilePath">Path to the the InspectCode log file.</param>
-        /// <returns>Instance of a provider for code analysis issues reported by JetBrains Insepct Code.</returns>
+        /// <returns>Instance of a provider for issues reported by JetBrains Insepct Code.</returns>
         /// <example>
-        /// <para>Read code analysis issues reported by JetBrains Inspect Code:</para>
+        /// <para>Read issues reported by JetBrains Inspect Code:</para>
         /// <code>
         /// <![CDATA[
-        ///     var issues = 
+        ///     var issues =
         ///         ReadIssues(
-        ///             InspectCodeIssuesFromFilePath(new FilePath("C:\build\InspectCode.log")),
-        ///             new DirectoryPath("c:\repo")));
+        ///             InspectCodeIssuesFromFilePath(@"c:\build\InspectCode.log"),
+        ///             @"c:\repo");
         /// ]]>
         /// </code>
         /// </example>
@@ -58,19 +56,19 @@
         }
 
         /// <summary>
-        /// Gets an instance of a provider for code analysis issues reported by JetBrains Inspect Code using log file content.
+        /// Gets an instance of a provider for issues reported by JetBrains Inspect Code using log file content.
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="logFileContent">Content of the the Inspect Code log file.</param>
-        /// <returns>Instance of a provider for code analysis issues reported by JetBrains Inspect Code.</returns>
+        /// <returns>Instance of a provider for issues reported by JetBrains Inspect Code.</returns>
         /// <example>
-        /// <para>Read code analysis issues reported by JetBrains Inspect Code:</para>
+        /// <para>Read issues reported by JetBrains Inspect Code:</para>
         /// <code>
         /// <![CDATA[
-        ///     var issues = 
+        ///     var issues =
         ///         ReadIssues(
         ///             InspectCodeIssuesFromContent(logFileContent)),
-        ///             new DirectoryPath("c:\repo")));
+        ///             @"c:\repo");
         /// ]]>
         /// </code>
         /// </example>
@@ -87,23 +85,23 @@
         }
 
         /// <summary>
-        /// Gets an instance of a provider for code analysis issues reported by JetBrains Inspect Code using specified settings.
+        /// Gets an instance of a provider for issues reported by JetBrains Inspect Code using specified settings.
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="settings">Settings for reading the Inspect Code log.</param>
-        /// <returns>Instance of a provider for code analysis issues reported by JetBrains Inspect Code.</returns>
+        /// <returns>Instance of a provider for issues reported by JetBrains Inspect Code.</returns>
         /// <example>
-        /// <para>Read code analysis issues reported by JetBrains Inspect Code:</para>
+        /// <para>Read issues reported by JetBrains Inspect Code:</para>
         /// <code>
         /// <![CDATA[
         ///     var settings =
         ///         new InspectCodeIssuesSettings(
-        ///             new FilePath("C:\build\InspectCode.log"));
+        ///             @"c:\build\InspectCode.log));
         ///
-        ///     var issues = 
+        ///     var issues =
         ///         ReadIssues(
         ///             InspectCodeIssues(settings),
-        ///             new DirectoryPath("c:\repo")));
+        ///             @"c:\repo");
         /// ]]>
         /// </code>
         /// </example>

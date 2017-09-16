@@ -4,7 +4,6 @@
     using System.IO;
     using Cake.Testing;
     using Core.Diagnostics;
-    using IssueProvider;
 
     internal class InspectCodeIssuesProviderFixture
     {
@@ -41,8 +40,8 @@
 
         public IEnumerable<IIssue> ReadIssues()
         {
-            var codeAnalysisProvider = this.Create();
-            return codeAnalysisProvider.ReadIssues(IssueCommentFormat.PlainText);
+            var issueProvider = this.Create();
+            return issueProvider.ReadIssues(IssueCommentFormat.PlainText);
         }
     }
 }

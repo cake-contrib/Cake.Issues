@@ -3,13 +3,13 @@
     using System.IO;
     using System.Text;
     using Core.IO;
-    using Testing;
     using Shouldly;
+    using Testing;
     using Xunit;
 
-    public class InspectCodeIssuesSettingsTests
+    public sealed class InspectCodeIssuesSettingsTests
     {
-        public sealed class TheInspectCodeIssuesSettingsCtor
+        public sealed class TheCtor
         {
             [Fact]
             public void Should_Throw_If_LogFilePath_Is_Null()
