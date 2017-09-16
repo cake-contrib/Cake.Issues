@@ -9,7 +9,7 @@
     using Testing;
     using Xunit;
 
-    public class DocFxSettingsTests
+    public sealed class DocFxSettingsTests
     {
         public sealed class TheCtor
         {
