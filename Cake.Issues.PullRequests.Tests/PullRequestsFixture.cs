@@ -5,7 +5,7 @@
     using Core.Diagnostics;
     using Issues.Testing;
 
-    public class PullRequestsFixture
+    internal class PullRequestsFixture
     {
         public PullRequestsFixture()
         {
