@@ -12,6 +12,96 @@
     public static class Aliases
     {
         /// <summary>
+        /// Creates a report for a the issues from an issue provider in the specified format.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <param name="issueProvider">Issue provider for whose issues the report should be generated.</param>
+        /// <param name="reportFormat">Format in which the report should be generated.</param>
+        /// <param name="repositoryRoot">Root path of the repository.</param>
+        /// <param name="outputFilePath">Path of the generated report file.</param>
+        /// <returns>Path to the created report or <c>null</c> if report could not be created.</returns>
+        /// <example>
+        /// <para>Create HTML report using the diagnostic template:</para>
+        /// <code>
+        /// <![CDATA[
+        ///     CreateIssueReport(
+        ///         InspectCodeIssuesFromFilePath(
+        ///             @"C:\build\inspectcode.log",
+        ///             MsBuildXmlFileLoggerFormat),
+        ///         HtmlIssueReportFormatFromEmbeddedTemplate(HtmlIssueReportTemplate.Diagnostic),
+        ///         @"c:\repo",
+        ///         @"c:\report.html");
+        /// ]]>
+        /// </code>
+        /// </example>
+        [CakeMethodAlias]
+        [CakeAliasCategory(ReportingAliasConstants.CreateIssueReportCakeAliasCategory)]
+        public static FilePath CreateIssueReport(
+            this ICakeContext context,
+            IIssueProvider issueProvider,
+            IIssueReportFormat reportFormat,
+            DirectoryPath repositoryRoot,
+            FilePath outputFilePath)
+        {
+            context.NotNull(nameof(context));
+
+            issueProvider.NotNull(nameof(issueProvider));
+
+            reportFormat.NotNull(nameof(reportFormat));
+            repositoryRoot.NotNull(nameof(repositoryRoot));
+            outputFilePath.NotNull(nameof(outputFilePath));
+
+            return
+                context.CreateIssueReport(
+                    issueProvider,
+                    reportFormat,
+                    new CreateIssueReportSettings(repositoryRoot, outputFilePath));
+        }
+
+        /// <summary>
+        /// Creates a report for a the issues from an issue provider with the specific settings.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <param name="issueProvider">Issue provider for whose issues the report should be generated.</param>
+        /// <param name="reportFormat">Format in which the report should be generated.</param>
+        /// <param name="settings">The settings.</param>
+        /// <returns>Path to the created report or <c>null</c> if report could not be created.</returns>
+        /// <example>
+        /// <para>Create HTML report using the diagnostic template:</para>
+        /// <code>
+        /// <![CDATA[
+        ///     var settings =
+        ///         new CreateIssueReportSettings(@"c:\repo", @"c:\report.html");
+        ///
+        ///     CreateIssueReport(
+        ///         new List<IIssueProvider>
+        ///         InspectCodeIssuesFromFilePath(
+        ///             @"C:\build\inspectcode.log",
+        ///             MsBuildXmlFileLoggerFormat),
+        ///         HtmlIssueReportFormatFromEmbeddedTemplate(HtmlIssueReportTemplate.Diagnostic),
+        ///         settings);
+        /// ]]>
+        /// </code>
+        /// </example>
+        [CakeMethodAlias]
+        [CakeAliasCategory(ReportingAliasConstants.CreateIssueReportCakeAliasCategory)]
+        public static FilePath CreateIssueReport(
+            this ICakeContext context,
+            IIssueProvider issueProvider,
+            IIssueReportFormat reportFormat,
+            CreateIssueReportSettings settings)
+        {
+            context.NotNull(nameof(context));
+            reportFormat.NotNull(nameof(reportFormat));
+
+            issueProvider.NotNull(nameof(issueProvider));
+
+            var issueReportCreator = new IssueReportCreator(context.Log, settings);
+
+            return issueReportCreator.CreateReport(new List<IIssueProvider> { issueProvider }, reportFormat);
+        }
+
+        /// <summary>
         /// Creates a report for a list of issues in the specified format.
         /// </summary>
         /// <param name="context">The context.</param>
@@ -67,7 +157,7 @@
         }
 
         /// <summary>
-        /// Creates a report for a list of issues in the specified format.
+        /// Creates a report for a list of issues with the specific settings.
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="issueProviders">Issue providers for whose issues the report should be generated.</param>
@@ -164,7 +254,7 @@
         }
 
         /// <summary>
-        /// Creates a report for a list of issues in the specified format.
+        /// Creates a report for a list of issues with the specific settings.
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="issues">Issues for which the report should be generated.</param>
