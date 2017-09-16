@@ -3,7 +3,7 @@
     using Cake.Testing;
     using Xunit;
 
-    public class EsLintIssuesProviderTests
+    public sealed class EsLintIssuesProviderTests
     {
         public sealed class TheEsLintIssuesProviderCtor
         {

@@ -5,7 +5,7 @@
     using Shouldly;
     using Xunit;
 
-    public class JsonFormatTests
+    public sealed class JsonFormatTests
     {
         public sealed class TheJsonFormatCtor
         {

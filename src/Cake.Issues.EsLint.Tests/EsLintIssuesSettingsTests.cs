@@ -6,10 +6,9 @@
     using System.Text;
     using Cake.Testing;
     using Shouldly;
-    using Testing;
     using Xunit;
 
-    public class EsLintIssuesSettingsTests
+    public sealed class EsLintIssuesSettingsTests
     {
         public sealed class TheEsLintIssuesSettingsCtor
         {
