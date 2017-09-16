@@ -5,14 +5,13 @@
     using System.Linq;
     using System.Text;
     using Core.IO;
-    using DocFx;
     using Shouldly;
     using Testing;
     using Xunit;
 
-    public class DocFxSettingsTests
+    public sealed class DocFxSettingsTests
     {
-        public sealed class TheDocFxSettingsCtor
+        public sealed class TheCtor
         {
             [Fact]
             public void Should_Throw_If_LogFilePath_Is_Null()

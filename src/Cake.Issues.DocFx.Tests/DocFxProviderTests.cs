@@ -3,15 +3,13 @@
     using System.Linq;
     using Cake.Testing;
     using Core.IO;
-    using DocFx;
-    using IssueProvider;
     using Shouldly;
     using Testing;
     using Xunit;
 
-    public class DocFxProviderTests
+    public sealed class DocFxProviderTests
     {
-        public sealed class TheMsBuildCodeAnalysisProviderCtor
+        public sealed class TheCtor
         {
             [Fact]
             public void Should_Throw_If_Log_Is_Null()
