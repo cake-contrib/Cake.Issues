@@ -7,9 +7,9 @@
     using Testing;
     using Xunit;
 
-    public class MarkdownlintIssuesProviderTests
+    public sealed class MarkdownlintIssuesProviderTests
     {
-        public sealed class TheMarkdownlintIssuesProviderCtor
+        public sealed class TheCtor
         {
             [Fact]
             public void Should_Throw_If_Log_Is_Null()

@@ -4,7 +4,7 @@
     using Testing;
     using Xunit;
 
-    public class MarkdownlintRuleUrlResolverTests
+    public sealed class MarkdownlintRuleUrlResolverTests
     {
         public sealed class TheResolveRuleUrlMethod
         {

@@ -4,7 +4,7 @@
     using Core.IO;
 
     /// <summary>
-    /// Settings for <see cref="MarkdownlintIssuesProvider"/>.
+    /// Settings for <see cref="MarkdownlintIssuesAliases"/>.
     /// </summary>
     public class MarkdownlintIssuesSettings
     {
