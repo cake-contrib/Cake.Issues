@@ -1,9 +1,9 @@
-﻿namespace Cake.Issues.IssueProvider
+﻿namespace Cake.Issues
 {
     using System;
 
     /// <summary>
-    /// Base class for anissue.
+    /// Base class for an issue.
     /// </summary>
     /// <typeparam name="T">Type of the issue provider which has raised the issue.</typeparam>
     public class Issue<T> : Issue
@@ -49,8 +49,17 @@
             int priority,
             string rule,
             Uri ruleUrl)
-            : base(filePath, line, message, priority, rule, ruleUrl, typeof(T).FullName)
+            : base(filePath, line, message, priority, rule, ruleUrl, GetProviderTypeName())
         {
+        }
+
+        /// <summary>
+        /// Gets the name of the issue provider as it will be set to in the <see cref="IIssue.ProviderType"/> property.
+        /// </summary>
+        /// <returns>Name of the issue provider.</returns>
+        public static string GetProviderTypeName()
+        {
+            return typeof(T).FullName;
         }
     }
 }

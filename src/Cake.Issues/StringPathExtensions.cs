@@ -1,6 +1,6 @@
 ﻿// Based on http://stackoverflow.com/a/31941159/566901
 
-namespace Cake.Issues.IssueProvider
+namespace Cake.Issues
 {
     using System;
     using System.IO;

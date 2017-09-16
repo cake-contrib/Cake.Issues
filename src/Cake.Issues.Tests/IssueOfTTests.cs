@@ -1,7 +1,6 @@
-﻿namespace Cake.Issues.Tests.IssueProvider
+﻿namespace Cake.Issues.Tests
 {
     using System;
-    using Issues.IssueProvider;
     using Shouldly;
     using Testing;
     using Xunit;
@@ -451,6 +450,19 @@
 
                 // Then
                 issue.ProviderType.ShouldBe("Cake.Issues.Testing.FakeIssueProvider");
+            }
+        }
+
+        public sealed class TheGetProviderTypeNameMethod
+        {
+            [Fact]
+            public void Should_Return_Full_Type_Name()
+            {
+                // Given / When
+                var result = Issue<FakeIssueProvider>.GetProviderTypeName();
+
+                // Then
+                result.ShouldBe("Cake.Issues.Testing.FakeIssueProvider");
             }
         }
     }

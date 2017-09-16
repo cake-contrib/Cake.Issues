@@ -4,13 +4,11 @@
     using Core;
     using Core.Annotations;
     using Core.IO;
-    using IssueProvider;
 
     /// <summary>
     /// Contains functionality related to reading issues.
     /// </summary>
     [CakeAliasCategory(IssuesAliasConstants.MainCakeAliasCategory)]
-    [CakeNamespaceImport("Cake.Issues.IssueProvider")]
     public static class Aliases
     {
         /// <summary>
@@ -33,6 +31,7 @@
         /// </code>
         /// </example>
         [CakeMethodAlias]
+        [CakeAliasCategory(IssuesAliasConstants.ReadCakeAliasCategory)]
         public static IEnumerable<IIssue> ReadIssues(
             this ICakeContext context,
             IIssueProvider issueProvider,
@@ -74,6 +73,7 @@
         /// </code>
         /// </example>
         [CakeMethodAlias]
+        [CakeAliasCategory(IssuesAliasConstants.ReadCakeAliasCategory)]
         public static IEnumerable<IIssue> ReadIssues(
             this ICakeContext context,
             IEnumerable<IIssueProvider> issueProviders,
@@ -118,6 +118,7 @@
         /// </code>
         /// </example>
         [CakeMethodAlias]
+        [CakeAliasCategory(IssuesAliasConstants.ReadCakeAliasCategory)]
         public static IEnumerable<IIssue> ReadIssues(
             this ICakeContext context,
             IIssueProvider issueProvider,
@@ -166,6 +167,7 @@
         /// </code>
         /// </example>
         [CakeMethodAlias]
+        [CakeAliasCategory(IssuesAliasConstants.ReadCakeAliasCategory)]
         public static IEnumerable<IIssue> ReadIssues(
             this ICakeContext context,
             IEnumerable<IIssueProvider> issueProviders,

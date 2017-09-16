@@ -37,4 +37,4 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyFileVersion("1.0.0.0")]
 
 [assembly: CLSCompliant(true)]
-[assembly: InternalsVisibleTo("Cake.Prca.Tests")]
+[assembly: InternalsVisibleTo("Cake.Issues.Tests")]

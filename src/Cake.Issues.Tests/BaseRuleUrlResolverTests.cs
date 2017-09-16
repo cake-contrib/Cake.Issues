@@ -1,4 +1,4 @@
-﻿namespace Cake.Issues.Tests.IssueProvider
+﻿namespace Cake.Issues.Tests
 {
     using System;
     using Shouldly;

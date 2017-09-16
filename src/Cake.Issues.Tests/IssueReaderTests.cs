@@ -2,7 +2,6 @@
 {
     using System.Collections.Generic;
     using System.Linq;
-    using Issues.IssueProvider;
     using Shouldly;
     using Testing;
     using Xunit;

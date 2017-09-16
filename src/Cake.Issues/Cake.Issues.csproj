@@ -9,10 +9,11 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Cake.Issues</RootNamespace>
     <AssemblyName>Cake.Issues</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -36,8 +37,8 @@
     <CodeAnalysisRuleSet>..\Cake.Issues.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Cake.Core, Version=0.16.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Cake.Core.0.16.2\lib\net45\Cake.Core.dll</HintPath>
+    <Reference Include="Cake.Core, Version=0.22.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Cake.Core.0.22.0\lib\net46\Cake.Core.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -53,14 +54,14 @@
     <Compile Include="BaseIssueComponent.cs" />
     <Compile Include="IBaseIssueComponent.cs" />
     <Compile Include="IssuesAliasConstants.cs" />
-    <Compile Include="IssueProvider\BaseRuleDescription.cs" />
-    <Compile Include="IssueProvider\BaseRuleUrlResolver.cs" />
-    <Compile Include="IssueProvider\Issue.cs" />
-    <Compile Include="IssueProvider\Issue{T}.cs" />
-    <Compile Include="IssueProvider\IssueProvider.cs" />
-    <Compile Include="IssueProvider\IIssue.cs" />
-    <Compile Include="IssueProvider\IIssueProvider.cs" />
-    <Compile Include="IssueProvider\StringPathExtensions.cs" />
+    <Compile Include="BaseRuleDescription.cs" />
+    <Compile Include="BaseRuleUrlResolver.cs" />
+    <Compile Include="Issue.cs" />
+    <Compile Include="Issue{T}.cs" />
+    <Compile Include="IssueProvider.cs" />
+    <Compile Include="IIssue.cs" />
+    <Compile Include="IIssueProvider.cs" />
+    <Compile Include="StringPathExtensions.cs" />
     <Compile Include="IssuesReader.cs" />
     <Compile Include="IssuesArgumentChecks.cs" />
     <Compile Include="RepositorySettings.cs" />
