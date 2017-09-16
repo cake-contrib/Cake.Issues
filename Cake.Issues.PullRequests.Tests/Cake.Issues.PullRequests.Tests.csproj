@@ -40,10 +40,10 @@
       <HintPath>..\packages\Cake.Core.0.22.0\lib\net46\Cake.Core.dll</HintPath>
     </Reference>
     <Reference Include="Cake.Issues, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Cake.Issues.0.1.0-beta0004\lib\net45\Cake.Issues.dll</HintPath>
+      <HintPath>..\packages\Cake.Issues.0.1.0\lib\net45\Cake.Issues.dll</HintPath>
     </Reference>
     <Reference Include="Cake.Issues.Testing, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Cake.Issues.Testing.0.1.0-beta0004\lib\net45\Cake.Issues.Testing.dll</HintPath>
+      <HintPath>..\packages\Cake.Issues.Testing.0.1.0\lib\net45\Cake.Issues.Testing.dll</HintPath>
     </Reference>
     <Reference Include="Cake.Testing, Version=0.22.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Cake.Testing.0.22.0\lib\net46\Cake.Testing.dll</HintPath>
