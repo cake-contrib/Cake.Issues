@@ -4,7 +4,6 @@
     using System.Linq;
     using Core.IO;
     using Microsoft.TeamFoundation.SourceControl.WebApi;
-    using PullRequestSystem;
 
     /// <summary>
     /// Extensions for <see cref="GitPullRequestCommentThread"/>.

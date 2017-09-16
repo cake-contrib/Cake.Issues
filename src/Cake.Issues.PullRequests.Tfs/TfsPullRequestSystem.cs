@@ -6,11 +6,9 @@
     using System.Threading;
     using Core.Diagnostics;
     using Core.IO;
-    using IssueProvider;
     using Microsoft.TeamFoundation.SourceControl.WebApi;
     using Microsoft.VisualStudio.Services.Identity;
     using Microsoft.VisualStudio.Services.WebApi;
-    using PullRequestSystem;
     using TfsUrlParser;
 
     /// <summary>

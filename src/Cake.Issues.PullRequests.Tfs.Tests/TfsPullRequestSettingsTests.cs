@@ -1,12 +1,12 @@
 ﻿namespace Cake.Issues.PullRequests.Tfs.Tests
 {
     using System;
-    using Issues.Testing;
+    using Testing;
     using Xunit;
 
-    public class TfsPullRequestSettingsTests
+    public sealed class TfsPullRequestSettingsTests
     {
-        public sealed class TheTfsPullRequestSettings
+        public sealed class TheCtor
         {
             [Fact]
             public void Should_Throw_If_RepositoryUrl_For_SourceBranch_Is_Null()

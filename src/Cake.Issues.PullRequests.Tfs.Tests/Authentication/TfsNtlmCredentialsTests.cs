@@ -4,7 +4,7 @@
     using Tfs.Authentication;
     using Xunit;
 
-    public class TfsNtlmCredentialsTests
+    public sealed class TfsNtlmCredentialsTests
     {
         public sealed class TheCtor
         {

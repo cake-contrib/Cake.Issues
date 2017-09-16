@@ -3,7 +3,7 @@
     using System;
 
     /// <summary>
-    /// Settings for <see cref="TfsPullRequestSystem"/>.
+    /// Settings for <see cref="TfsPullRequestSystemAliases"/>.
     /// </summary>
     public class TfsPullRequestSettings
     {

@@ -4,7 +4,6 @@
     using Authentication;
     using Core;
     using Core.Annotations;
-    using PullRequestSystem;
 
     /// <summary>
     /// Contains functionality related to writing code analysis issues to Team Foundation Server or
@@ -128,16 +127,15 @@
         /// <para>Report code analysis issues reported as MsBuild warnings to a TFS pull request:</para>
         /// <code>
         /// <![CDATA[
-        ///     var repoRoot = new DirectoryPath("c:\repo");
         ///     ReportIssuesToPullRequest(
         ///         MsBuildCodeAnalysis(
-        ///             @"C:\build\msbuild.log",
+        ///             @"c:\build\msbuild.log",
         ///             MsBuildXmlFileLoggerFormat),
         ///         TfsPullRequests(
         ///             new Uri("http://myserver:8080/tfs/defaultcollection/myproject/_git/myrepository"),
         ///             "refs/heads/feature/myfeature",
         ///             TfsAuthenticationNtlm()),
-        ///         repoRoot);
+        ///         @"c:\repo");
         /// ]]>
         /// </code>
         /// </example>
@@ -174,16 +172,15 @@
         /// <para>Report code analysis issues reported as MsBuild warnings to a TFS pull request:</para>
         /// <code>
         /// <![CDATA[
-        ///     var repoRoot = new DirectoryPath("c:\repo");
         ///     ReportIssuesToPullRequest(
         ///         MsBuildCodeAnalysis(
-        ///             @"C:\build\msbuild.log",
+        ///             @"c:\build\msbuild.log",
         ///             MsBuildXmlFileLoggerFormat),
         ///         TfsPullRequests(
         ///             new Uri("http://myserver:8080/tfs/defaultcollection/myproject/_git/myrepository"),
         ///             5,
         ///             TfsAuthenticationNtlm()),
-        ///         repoRoot);
+        ///         @"c:\repo");
         /// ]]>
         /// </code>
         /// </example>
@@ -213,7 +210,6 @@
         /// <para>Report code analysis issues reported as MsBuild warnings to a TFS pull request:</para>
         /// <code>
         /// <![CDATA[
-        ///     var repoRoot = new DirectoryPath("c:\repo");
         ///     var pullRequestSettings =
         ///         new TfsPullRequestSettings(
         ///             new Uri("http://myserver:8080/tfs/defaultcollection/myproject/_git/myrepository"),
@@ -222,10 +218,10 @@
         ///
         ///     ReportCodeAnalysisIssuesToPullRequest(
         ///         MsBuildCodeAnalysis(
-        ///             @"C:\build\msbuild.log",
+        ///             @"c:\build\msbuild.log",
         ///             MsBuildXmlFileLoggerFormat),
         ///         TfsPullRequests(pullRequestSettings),
-        ///         repoRoot);
+        ///         @"c:\repo");
         /// ]]>
         /// </code>
         /// </example>

@@ -12,7 +12,7 @@ The Team Foundation Server / Visual Studio Team Services support for the Cake.Is
 write found issues as comments Team Foundation Server or Visual Studio Team Services pull requests.
 
 This addin provides the aliases for writing to Team Foundation Server or Visual Studio Team Services pull requests.
-It also requires the core Cake.Issues and Cake.Issues.PullRequests addins as one or more issue providers.
+It also requires the core Cake.Issues and Cake.Issues.PullRequests addins and one or more issue providers.
 
 See the Project Site for an overview of the whole ecosystem of addins for working with issues in Cake scripts.
     </description>
@@ -22,7 +22,7 @@ See the Project Site for an overview of the whole ecosystem of addins for workin
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <copyright>Copyright © 2017 BBT Software AG and contributors</copyright>
     <tags>Cake Script Cake-Issues Cake-PullRequestSystem Issues PullRequest TFS VSTS</tags>
-    <releaseNotes>https://github.com/cake-contrib/Cake.Issues.PullRequests.Tfs/releases/tag/0.5.0</releaseNotes>
+    <releaseNotes>https://github.com/cake-contrib/Cake.Issues.PullRequests.Tfs/releases/tag/0.1.0</releaseNotes>
   </metadata>
   <files>
     <file src="Cake.Issues.PullRequests.Tfs.dll" target="lib\net45" />

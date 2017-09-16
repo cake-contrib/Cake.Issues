@@ -1,7 +1,6 @@
 ﻿namespace Cake.Issues.PullRequests.Tfs
 {
     using Microsoft.TeamFoundation.SourceControl.WebApi;
-    using PullRequestSystem;
 
     /// <summary>
     /// Extensions for <see cref="CommentThreadStatus"/> enumeration.

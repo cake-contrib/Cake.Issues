@@ -9,10 +9,11 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Cake.Issues.PullRequests.Tfs</RootNamespace>
     <AssemblyName>Cake.Issues.PullRequests.Tfs</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -36,14 +37,14 @@
     <CodeAnalysisRuleSet>..\Cake.Issues.PullRequests.Tfs.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Cake.Core, Version=0.16.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Cake.Core.0.16.2\lib\net45\Cake.Core.dll</HintPath>
+    <Reference Include="Cake.Core, Version=0.22.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Cake.Core.0.22.0\lib\net46\Cake.Core.dll</HintPath>
     </Reference>
     <Reference Include="Cake.Issues, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Cake.Issues.0.1.0-beta0002\lib\net45\Cake.Issues.dll</HintPath>
+      <HintPath>..\packages\Cake.Issues.0.1.0\lib\net45\Cake.Issues.dll</HintPath>
     </Reference>
     <Reference Include="Cake.Issues.PullRequests, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Cake.Issues.PullRequests.0.1.0-beta0001\lib\net45\Cake.Issues.PullRequests.dll</HintPath>
+      <HintPath>..\packages\Cake.Issues.PullRequests.0.1.0\lib\net45\Cake.Issues.PullRequests.dll</HintPath>
     </Reference>
     <Reference Include="Costura, Version=1.6.2.0, Culture=neutral, PublicKeyToken=9919ef960d84173d, processorArchitecture=MSIL">
       <HintPath>..\packages\Costura.Fody.1.6.2\lib\dotnet\Costura.dll</HintPath>
@@ -126,7 +127,7 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
     <Reference Include="TfsUrlParser, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\TfsUrlParser.1.0.0\lib\net40\TfsUrlParser.dll</HintPath>
+      <HintPath>..\packages\TfsUrlParser.1.2.0\lib\net40\TfsUrlParser.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

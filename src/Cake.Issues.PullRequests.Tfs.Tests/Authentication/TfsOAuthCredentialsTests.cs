@@ -1,11 +1,11 @@
 ﻿namespace Cake.Issues.PullRequests.Tfs.Tests.Authentication
 {
-    using Issues.Testing;
     using Shouldly;
+    using Testing;
     using Tfs.Authentication;
     using Xunit;
 
-    public class TfsOAuthCredentialsTests
+    public sealed class TfsOAuthCredentialsTests
     {
         public sealed class TheCtor
         {
