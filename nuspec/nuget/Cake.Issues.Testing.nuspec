@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <id>Cake.Issues.Testing</id>
+    <title>Cake.Issues.Testing</title>
+    <version>0.0.0</version>
+    <authors>BBT Software AG and contributors</authors>
+    <owners>bbtsoftware, pascalberger, cake-contrib</owners>
+    <summary>Common helpers for testing add-ins based on Cake.Issues</summary>
+    <description>
+Common helpers for testing add-ins based on Cake.Issues
+    </description>
+    <licenseUrl>https://github.com/cake-contrib/Cake.Issues.Testing/blob/develop/LICENSE</licenseUrl>
+    <projectUrl>http://cake-contrib.github.io/Cake.Issues.Website/</projectUrl>
+    <iconUrl>https://cdn.rawgit.com/cake-contrib/graphics/a5cf0f881c390650144b2243ae551d5b9f836196/png/cake-contrib-medium.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <copyright>Copyright © 2017 BBT Software AG and contributors</copyright>
+    <tags>Cake Script Cake-Issues Issues Testing</tags>
+    <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/0.1.0</releaseNotes>
+  </metadata>
+  <files>
+    <file src="Cake.Issues.Testing.dll" target="lib\net45" />
+    <file src="Cake.Issues.Testing.pdb" target="lib\net45" />
+    <file src="Cake.Issues.Testing.xml" target="lib\net45" />
+  </files>
+</package>
