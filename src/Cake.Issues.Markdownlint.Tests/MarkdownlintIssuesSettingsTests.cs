@@ -8,9 +8,9 @@
     using Testing;
     using Xunit;
 
-    public class MarkdownlintIssuesSettingsTests
+    public sealed class MarkdownlintIssuesSettingsTests
     {
-        public sealed class TheMarkdownlintIssuesSettingsCtor
+        public sealed class TheCtor
         {
             [Fact]
             public void Should_Throw_If_LogFilePath_Is_Null()
