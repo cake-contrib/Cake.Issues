@@ -2,7 +2,6 @@
 {
     using System;
     using System.Text;
-    using IssueProvider;
 
     /// <summary>
     /// Class for retrieving an URL linking to a site describing a rule.

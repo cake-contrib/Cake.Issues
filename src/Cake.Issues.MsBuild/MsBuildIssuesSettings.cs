@@ -4,14 +4,14 @@
     using Core.IO;
 
     /// <summary>
-    /// Settings for <see cref="MsBuildIssuesProvider"/>.
+    /// Settings for <see cref="MsBuildIssuesAliases"/>.
     /// </summary>
     public class MsBuildIssuesSettings
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="MsBuildIssuesSettings"/> class.
         /// </summary>
-        /// <param name="logFilePath">Path to the the MsBuild log file.
+        /// <param name="logFilePath">Path to the MsBuild log file.
         /// The log file needs to be in the format as defined by the <paramref name="format"/> parameter.</param>
         /// <param name="format">Format of the provided MsBuild log file.</param>
         protected MsBuildIssuesSettings(FilePath logFilePath, ILogFileFormat format)
@@ -33,7 +33,7 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="MsBuildIssuesSettings"/> class.
         /// </summary>
-        /// <param name="logFileContent">Content of the the MsBuild log file.
+        /// <param name="logFileContent">Content of the MsBuild log file.
         /// The log file needs to be in the format as defined by the <paramref name="format"/> parameter.</param>
         /// <param name="format">Format of the provided MsBuild log file.</param>
         protected MsBuildIssuesSettings(string logFileContent, ILogFileFormat format)

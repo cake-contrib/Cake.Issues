@@ -2,7 +2,6 @@
 {
     using System.Collections.Generic;
     using Core.Diagnostics;
-    using IssueProvider;
 
     /// <summary>
     /// Base class for all MsBuild log file format implementations.

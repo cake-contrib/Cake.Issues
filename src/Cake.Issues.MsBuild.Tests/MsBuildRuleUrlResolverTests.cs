@@ -5,7 +5,7 @@
     using Testing;
     using Xunit;
 
-    public class MsBuildRuleUrlResolverTests
+    public sealed class MsBuildRuleUrlResolverTests
     {
         public sealed class TheResolveRuleUrlMethod
         {

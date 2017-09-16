@@ -4,12 +4,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Cake.Issues.MsBuild")]
-[assembly: AssemblyDescription("MsBuild support for the Cake.Issues Addin for Cake Build Automation System")]
+[assembly: AssemblyTitle("Cake.Issues.MsBuild.Tests")]
+[assembly: AssemblyDescription("Tests for the Cake.Issues.MsBuild addin")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("BBT Software AG")]
 [assembly: AssemblyProduct("Cake.Issues")]
-[assembly: AssemblyCopyright("Copyright © 2017 BBT Software AG, Root/Zermatt, Switzerland")]
+[assembly: AssemblyCopyright("Copyright © 2017 BBT Software AG and contributors")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

@@ -2,12 +2,11 @@
 {
     using System.Linq;
     using Core.IO;
-    using IssueProvider;
     using Shouldly;
     using Testing;
     using Xunit;
 
-    public class XmlFileLoggerFormatTests
+    public sealed class XmlFileLoggerFormatTests
     {
         public sealed class TheXmlFileLoggerFormatCtor
         {
@@ -64,6 +63,27 @@
                     "CS0219",
                     0,
                     "The variable 'foo' is assigned but its value is never used");
+            }
+
+            [Fact]
+            public void Should_Read_Issue_With_Line_Zero_Correct()
+            {
+                // Given
+                var fixture = new MsBuildIssuesProviderFixture("IssueWithLineZero.xml");
+
+                // When
+                var issues = fixture.ReadIssues().ToList();
+
+                // Then
+                issues.Count.ShouldBe(1);
+                var issue = issues.Single();
+                CheckIssue(
+                    issue,
+                    @"SHFB",
+                    null,
+                    "BE0006",
+                    0,
+                    @"Unable to locate any documentation sources for 'c:\Source\Cake.Prca\Cake.Prca..csproj' (Configuration: Debug Platform: AnyCPU)");
             }
 
             [Fact]

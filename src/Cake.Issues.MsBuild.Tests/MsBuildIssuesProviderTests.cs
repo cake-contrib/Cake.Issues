@@ -4,9 +4,9 @@
     using Testing;
     using Xunit;
 
-    public class MsBuildIssuesProviderTests
+    public sealed class MsBuildIssuesProviderTests
     {
-        public sealed class TheMsBuildCodeAnalysisProviderCtor
+        public sealed class TheCtor
         {
             [Fact]
             public void Should_Throw_If_Log_Is_Null()
