@@ -4,7 +4,7 @@
     using Core.IO;
 
     /// <summary>
-    /// Settings for <see cref="EsLintIssuesProvider"/>.
+    /// Settings for <see cref="EsLintIssuesAliases"/>.
     /// </summary>
     public class EsLintIssuesSettings
     {

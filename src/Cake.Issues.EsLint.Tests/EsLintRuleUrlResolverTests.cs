@@ -4,7 +4,7 @@
     using Shouldly;
     using Xunit;
 
-    public class EsLintRuleUrlResolverTests
+    public sealed class EsLintRuleUrlResolverTests
     {
         public sealed class TheResolveRuleUrlMethod
         {
