@@ -4,9 +4,9 @@
     using Shouldly;
     using Xunit;
 
-    public class ContentProviderTests
+    public sealed class ContentProviderTests
     {
-        public sealed class TheGetContentClass
+        public sealed class TheGetContentMethod
         {
             [Theory]
             [InlineData(

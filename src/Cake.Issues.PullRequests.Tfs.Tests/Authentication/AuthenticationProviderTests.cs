@@ -5,7 +5,7 @@
     using Tfs.Authentication;
     using Xunit;
 
-    public class AuthenticationProviderTests
+    public sealed class AuthenticationProviderTests
     {
         public sealed class TheAuthenticationNtlmMethod
         {
