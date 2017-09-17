@@ -43,7 +43,7 @@ Finally you can define a task where you call the core addin with the desired iss
 
 ```csharp
 Task("Analyze-Project")
-.IsDependentOn("Build-Documentation")
+.IsDependentOn("Analyze-Project")
 .Does(() =>
 {
     // Read Issues.
