@@ -8,6 +8,8 @@ The [Cake.Issues.EsLint addin] provides the following features:
 * Reads issues reported by ESLint.
 * Supported ESLint formatters:
   * [json formatter]
+* Supported comment formats:
+  * Plain text
 * Provides URLs for all issues.
 * Support for custom URL resolving using the [EsLintAddRuleUrlResolver] alias.
 
