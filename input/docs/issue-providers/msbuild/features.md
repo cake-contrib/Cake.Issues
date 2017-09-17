@@ -8,6 +8,8 @@ The [Cake.Issues.MsBuild addin] provides the following features:
 * Reads warnings from MSBuild log files.
 * Supported log file formats:
   * [MSBuild Extension Pack XmlFileLogger]
+* Supported comment formats:
+  * Plain text
 * Provides URLs for all code analysis (`CA*`) and StyleCop (`SA*`) warnings.
 * Support for custom URL resolving using the [MsBuildAddRuleUrlResolver] alias.
 

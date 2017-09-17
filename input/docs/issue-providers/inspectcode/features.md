@@ -6,6 +6,8 @@ Description: Features of the Cake.Issues.InspectCode addin.
 The [Cake.Issues.InspectCode addin] provides the following features:
 
 * Reads warnings from [JetBrains InsepectCode] log files.
+* Supported comment formats:
+  * Plain text
 * Provides URLs for issues containing a Wiki URL.
 
 [JetBrains InsepectCode]: https://www.jetbrains.com/help/resharper/2017.1/InspectCode.html
