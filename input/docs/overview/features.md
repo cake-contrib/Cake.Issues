@@ -10,15 +10,17 @@ create reports or write issues to comments in pull requests.
 The core addins provide the following functionality:
 
 * Modular architecture, allowing to easily enhance it for supporting additional analyzers, linters,
-  report formarts and code review systems.
+  report formats and code review systems.
 * `Cake.Issues` addin for reading issues
-  * `ReadIssues` alias for reading issues.
+  * `ReadIssues` aliases for reading issues.
     This can for example be used to fail builds on certain conditions.
-  * Support for reporting issues from multiple issue providers.
+  * Support for reading issues from multiple issue providers.
+  * Support for reading issues in specific format (Plain text, Markdown, HTML) if supported by issue provider.
 * `Cake.Issues.Reporting` addin for creating reports
-  * `CreateIssueReport` alias for creating reports about issues.
+  * `CreateIssueReport` aliases for creating reports about issues.
+  * Support for creating reports with issues from multiple issue providers.
 * `Cake.Issues.PullRequests` addin for writing issues as comments to pull requests
-  * `ReportIssuesToPullRequest` alias for writing issues as comments to pull requests.
+  * `ReportIssuesToPullRequest` aliases for writing issues as comments to pull requests.
   * Support for reporting issues from multiple issue providers.
   * Filtering issues to only those related to changes in a pull request.
   * Automatic resolving of issues fixed in subsequent commits.
