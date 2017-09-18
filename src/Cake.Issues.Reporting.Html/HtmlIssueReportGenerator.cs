@@ -34,16 +34,27 @@
         /// <inheritdoc />
         protected override FilePath InternalCreateReport(IEnumerable<IIssue> issues)
         {
-            var result =
-                Engine.Razor.RunCompile(
-                    this.htmlIssueReportFormatSettings.Template,
-                    Guid.NewGuid().ToString(),
-                    typeof(IEnumerable<IIssue>),
-                    issues);
+            this.Log.Information("Creating report '{0}'", this.Settings.OutputFilePath.FullPath);
 
-            File.WriteAllText(this.Settings.OutputFilePath.FullPath, result);
+            try
+            {
+                var result =
+                    Engine.Razor.RunCompile(
+                        this.htmlIssueReportFormatSettings.Template,
+                        Guid.NewGuid().ToString(),
+                        typeof(IEnumerable<IIssue>),
+                        issues);
 
-            return this.Settings.OutputFilePath;
+                File.WriteAllText(this.Settings.OutputFilePath.FullPath, result);
+
+                return this.Settings.OutputFilePath;
+            }
+            catch (Exception e)
+            {
+                this.Log.Error(e.Message);
+
+                throw;
+            }
         }
 
         private void ConfigureRazorEngine()
