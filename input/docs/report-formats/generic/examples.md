@@ -1,7 +1,7 @@
 ---
 Order: 30
 Title: Examples
-Description: Examples for using the Cake.Issues.Reporting.Html addin.
+Description: Examples for using the Cake.Issues.Reporting.Generic addin.
 ---
 The following example will create a HTML report for issues logged as warnings by MsBuild.
 
@@ -10,7 +10,7 @@ The following example will create a HTML report for issues logged as warnings by
 #addin "Cake.Issues"
 #addin "Cake.Issues.MsBuild"
 #addin "Cake.Reporting"
-#addin "Cake.Reporting.Html"
+#addin "Cake.Reporting.Generic"
 
 Task("Create-IssueReport").Does(() =>
 {
@@ -37,7 +37,7 @@ Task("Create-IssueReport").Does(() =>
                 msBuildLogFile,
                 MsBuildXmlFileLoggerFormat)
         },
-        HtmlIssueReportFormatFromEmbeddedTemplate(HtmlIssueReportTemplate.Diagnostic),
+        GenericIssueReportFormatFromEmbeddedTemplate(HtmlIssueReportTemplate.HtmlDiagnostic),
         repoRootFolder,
         @"c:\report.html");
 });
