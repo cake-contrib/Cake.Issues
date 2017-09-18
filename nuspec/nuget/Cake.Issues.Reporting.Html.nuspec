@@ -27,5 +27,9 @@ See the Project Site for an overview of the whole ecosystem of addins for workin
     <file src="Cake.Issues.Reporting.Html.dll" target="lib\net45" />
     <file src="Cake.Issues.Reporting.Html.pdb" target="lib\net45" />
     <file src="Cake.Issues.Reporting.Html.xml" target="lib\net45" />
+    <file src="RazorEngine.dll" target="lib\net45" />
+    <file src="RazorEngine.xml" target="lib\net45" />
+    <file src="System.Web.Razor.dll" target="lib\net45" />
+    <file src="System.Web.Razor.xml" target="lib\net45" />
   </files>
 </package>
