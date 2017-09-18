@@ -7,8 +7,8 @@
     <ProjectGuid>{B514788A-8596-41CA-92B6-86199549DC2A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Cake.Issues.Reporting.Html</RootNamespace>
-    <AssemblyName>Cake.Issues.Reporting.Html</AssemblyName>
+    <RootNamespace>Cake.Issues.Reporting.Generic</RootNamespace>
+    <AssemblyName>Cake.Issues.Reporting.Generic</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>
@@ -23,8 +23,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\Cake.Issues.Reporting.Html.xml</DocumentationFile>
-    <CodeAnalysisRuleSet>..\Cake.Issues.Reporting.Html.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>bin\Debug\Cake.Issues.Reporting.Generic.xml</DocumentationFile>
+    <CodeAnalysisRuleSet>..\Cake.Issues.Reporting.Generic.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -33,8 +33,8 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\Cake.Issues.Reporting.Html.xml</DocumentationFile>
-    <CodeAnalysisRuleSet>..\Cake.Issues.Reporting.Html.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>bin\Release\Cake.Issues.Reporting.Generic.xml</DocumentationFile>
+    <CodeAnalysisRuleSet>..\Cake.Issues.Reporting.Generic.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Cake.Core, Version=0.22.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -66,12 +66,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HtmlIssueReportFormatAliases.cs" />
-    <Compile Include="HtmlIssueReportGenerator.cs" />
-    <Compile Include="HtmlIssueReportFormatSettings.cs" />
+    <Compile Include="GenericIssueReportFormatAliases.cs" />
+    <Compile Include="GenericIssueReportGenerator.cs" />
+    <Compile Include="GenericIssueReportFormatSettings.cs" />
     <Compile Include="RazorEngineReferenceResolver.cs" />
-    <Compile Include="HtmlIssueReportTemplate.cs" />
-    <Compile Include="HtmlIssueReportTemplateExtensions.cs" />
+    <Compile Include="GenericIssueReportTemplate.cs" />
+    <Compile Include="GenericIssueReportTemplateExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

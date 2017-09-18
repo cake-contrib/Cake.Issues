@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.8
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.Issues.Reporting.Html", "Cake.Issues.Reporting.Html\Cake.Issues.Reporting.Html.csproj", "{B514788A-8596-41CA-92B6-86199549DC2A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.Issues.Reporting.Generic", "Cake.Issues.Reporting.Generic\Cake.Issues.Reporting.Generic.csproj", "{B514788A-8596-41CA-92B6-86199549DC2A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.Issues.Reporting.Html.Tests", "Cake.Issues.Reporting.Html.Tests\Cake.Issues.Reporting.Html.Tests.csproj", "{1E92A970-E905-4DF8-8ECA-5529B701E8E3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.Issues.Reporting.Generic.Tests", "Cake.Issues.Reporting.Generic.Tests\Cake.Issues.Reporting.Generic.Tests.csproj", "{1E92A970-E905-4DF8-8ECA-5529B701E8E3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{CCC3591D-69C0-4140-8E33-D0E2703DB8C5}"
 	ProjectSection(SolutionItems) = preProject
@@ -14,7 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{CCC3591D
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nuget", "nuget", "{78523A6B-9A2C-43AB-BD00-0D7994F28A5B}"
 	ProjectSection(SolutionItems) = preProject
-		..\nuspec\nuget\Cake.Issues.Reporting.Html.nuspec = ..\nuspec\nuget\Cake.Issues.Reporting.Html.nuspec
+		..\nuspec\nuget\Cake.Issues.Reporting.Generic.nuspec = ..\nuspec\nuget\Cake.Issues.Reporting.Generic.nuspec
 	EndProjectSection
 EndProject
 Global

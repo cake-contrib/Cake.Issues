@@ -1,4 +1,4 @@
-﻿namespace Cake.Issues.Reporting.Html.Tests
+﻿namespace Cake.Issues.Reporting.Generic.Tests
 {
     using System.Collections.Generic;
     using Cake.Testing;
@@ -6,7 +6,7 @@
     using Testing;
     using Xunit;
 
-    public sealed class HtmlIssueReportGeneratorTests
+    public sealed class GenericIssueReportGeneratorTests
     {
         public sealed class TheCtor
         {
@@ -15,9 +15,9 @@
             {
                 // Given / When
                 var result = Record.Exception(() =>
-                    new HtmlIssueReportGenerator(
+                    new GenericIssueReportGenerator(
                         null,
-                        HtmlIssueReportFormatSettings.FromContent("Foo")));
+                        GenericIssueReportFormatSettings.FromContent("Foo")));
 
                 // Then
                 result.IsArgumentNullException("log");
@@ -28,7 +28,7 @@
             {
                 // Given / When
                 var result = Record.Exception(() =>
-                    new HtmlIssueReportGenerator(
+                    new GenericIssueReportGenerator(
                         new FakeLog(),
                         null));
 
@@ -43,19 +43,19 @@
             public void Should_Generate_Report()
             {
                 // Given
-                var fixture = new HtmlIssueReportFixture("<ul>@foreach(var issue in Model){<li>@issue.Message</li>}</ul>");
+                var fixture = new GenericIssueReportFixture("<ul>@foreach(var issue in Model){<li>@issue.Message</li>}</ul>");
                 var issues =
                     new List<IIssue>
                     {
                         new Issue(
-                            @"src\Cake.Issues.Reporting.Html.Tests\Foo.cs",
+                            @"src\Cake.Issues.Reporting.Generic.Tests\Foo.cs",
                             10,
                             "Foo",
                             0,
                             "Foo",
                             "Foo"),
                         new Issue(
-                            @"src\Cake.Issues.Reporting.Html.Tests\Foo.cs",
+                            @"src\Cake.Issues.Reporting.Generic.Tests\Foo.cs",
                             12,
                             "Bar",
                             0,

@@ -8,8 +8,8 @@
     <ProjectGuid>{1E92A970-E905-4DF8-8ECA-5529B701E8E3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Cake.Issues.Reporting.Html.Tests</RootNamespace>
-    <AssemblyName>Cake.Issues.Reporting.Html.Tests</AssemblyName>
+    <RootNamespace>Cake.Issues.Reporting.Generic.Tests</RootNamespace>
+    <AssemblyName>Cake.Issues.Reporting.Generic.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>
@@ -24,7 +24,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>..\Cake.Issues.Reporting.Html.Tests.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>..\Cake.Issues.Reporting.Generic.Tests.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -33,7 +33,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>..\Cake.Issues.Reporting.Html.Tests.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>..\Cake.Issues.Reporting.Generic.Tests.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Cake.Core, Version=0.22.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -76,16 +76,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HtmlIssueReportFixture.cs" />
-    <Compile Include="HtmlIssueReportFormatSettingsTests.cs" />
-    <Compile Include="HtmlIssueReportGeneratorTests.cs" />
-    <Compile Include="HtmlIssueReportTemplateExtensionsTests.cs" />
+    <Compile Include="GenericIssueReportFixture.cs" />
+    <Compile Include="GenericIssueReportFormatSettingsTests.cs" />
+    <Compile Include="GenericIssueReportGeneratorTests.cs" />
+    <Compile Include="GenericIssueReportTemplateExtensionsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Cake.Issues.Reporting.Html\Cake.Issues.Reporting.Html.csproj">
+    <ProjectReference Include="..\Cake.Issues.Reporting.Generic\Cake.Issues.Reporting.Generic.csproj">
       <Project>{b514788a-8596-41ca-92b6-86199549dc2a}</Project>
-      <Name>Cake.Issues.Reporting.Html</Name>
+      <Name>Cake.Issues.Reporting.Generic</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

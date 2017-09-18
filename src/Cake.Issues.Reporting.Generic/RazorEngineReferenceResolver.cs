@@ -1,4 +1,4 @@
-﻿namespace Cake.Issues.Reporting.Html
+﻿namespace Cake.Issues.Reporting.Generic
 {
     using System.Collections.Generic;
     using System.IO;

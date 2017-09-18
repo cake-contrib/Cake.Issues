@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<RuleSet Name="Ruleset for Cake.Issues.Reporting.Html" Description="Rules valid for Cake.Issues.Reporting.Html" ToolsVersion="14.0">
+<RuleSet Name="Ruleset for Cake.Issues.Reporting.Generic" Description="Rules valid for Cake.Issues.Reporting.Generic" ToolsVersion="14.0">
   <IncludeAll Action="Warning" />
   <Rules AnalyzerId="Microsoft.Analyzers.ManagedCodeAnalysis" RuleNamespace="Microsoft.Rules.Managed">
     <Rule Id="CA1000" Action="None" />

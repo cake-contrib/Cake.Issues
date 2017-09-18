@@ -1,40 +1,40 @@
-﻿namespace Cake.Issues.Reporting.Html.Tests
+﻿namespace Cake.Issues.Reporting.Generic.Tests
 {
     using System.Collections.Generic;
     using System.IO;
     using Cake.Testing;
     using Core.Diagnostics;
 
-    internal class HtmlIssueReportFixture
+    internal class GenericIssueReportFixture
     {
-        public HtmlIssueReportFixture()
+        public GenericIssueReportFixture()
         {
             this.Log = new FakeLog { Verbosity = Verbosity.Normal };
-            this.HtmlIssueReportFormatSettings =
-                HtmlIssueReportFormatSettings.FromEmbeddedTemplate(HtmlIssueReportTemplate.Diagnostic);
+            this.GenericIssueReportFormatSettings =
+                GenericIssueReportFormatSettings.FromEmbeddedTemplate(GenericIssueReportTemplate.HtmlDiagnostic);
         }
 
-        public HtmlIssueReportFixture(string templateContent)
+        public GenericIssueReportFixture(string templateContent)
         {
             this.Log = new FakeLog { Verbosity = Verbosity.Normal };
-            this.HtmlIssueReportFormatSettings =
-                HtmlIssueReportFormatSettings.FromContent(templateContent);
+            this.GenericIssueReportFormatSettings =
+                GenericIssueReportFormatSettings.FromContent(templateContent);
         }
 
         public FakeLog Log { get; set; }
 
-        public HtmlIssueReportFormatSettings HtmlIssueReportFormatSettings { get; set; }
+        public GenericIssueReportFormatSettings GenericIssueReportFormatSettings { get; set; }
 
         public string CreateReport(IEnumerable<IIssue> issues)
         {
             var generator =
-                new HtmlIssueReportGenerator(this.Log, this.HtmlIssueReportFormatSettings);
+                new GenericIssueReportGenerator(this.Log, this.GenericIssueReportFormatSettings);
 
-            var reportFile = System.IO.Path.GetTempFileName();
+            var reportFile = Path.GetTempFileName();
             try
             {
                 var createIssueReportSettings =
-                    new CreateIssueReportSettings(@"c:\Source\Cake.Issues.Reporting.Html", reportFile);
+                    new CreateIssueReportSettings(@"c:\Source\Cake.Issues.Reporting.Generic", reportFile);
                 generator.Initialize(createIssueReportSettings);
                 generator.CreateReport(issues);
 
