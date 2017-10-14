@@ -10,7 +10,7 @@
         public sealed class TheCtor
         {
             [Theory]
-            [InlineData(@"foo<bar")]
+            [InlineData("foo\tbar")]
             public void Should_Throw_If_File_Path_Is_Invalid(string filePath)
             {
                 // Given / When
@@ -220,7 +220,7 @@
         public sealed class TheIssueOfTCtorWithRuleId
         {
             [Theory]
-            [InlineData(@"foo<bar")]
+            [InlineData("foo\tbar")]
             public void Should_Throw_If_File_Path_Is_Invalid(string filePath)
             {
                 // Given / When
