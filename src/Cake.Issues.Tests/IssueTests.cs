@@ -134,6 +134,47 @@
             }
 
             [Fact]
+            public void Should_Handle_Projects_Which_Are_Null()
+            {
+                // Given / When
+                var issue = new Issue(null, @"src\foo.cs", null, "Foo", 1, "Bar", "foo");
+
+                // Then
+                issue.Project.ShouldBe(null);
+            }
+
+            [Fact]
+            public void Should_Handle_Projects_Which_Are_WhiteSpace()
+            {
+                // Given / When
+                var issue = new Issue(" ", @"src\foo.cs", null, "Foo", 1, "Bar", "foo");
+
+                // Then
+                issue.Project.ShouldBe(" ");
+            }
+
+            [Fact]
+            public void Should_Handle_Projects_Which_Are_Empty()
+            {
+                // Given / When
+                var issue = new Issue(string.Empty, @"src\foo.cs", null, "Foo", 1, "Bar", "foo");
+
+                // Then
+                issue.Project.ShouldBe(string.Empty);
+            }
+
+            [Theory]
+            [InlineData("project")]
+            public void Should_Set_Project(string project)
+            {
+                // Given / When
+                var issue = new Issue(project, @"src\foo.cs", null, "Foo", 1, "Bar", "foo");
+
+                // Then
+                issue.Project.ShouldBe(project);
+            }
+
+            [Fact]
             public void Should_Handle_File_Paths_Which_Are_Null()
             {
                 // Given / When
