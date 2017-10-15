@@ -122,6 +122,57 @@
             }
 
             [Fact]
+            public void Should_Throw_If_Provider_Type_Is_WhiteSpace()
+            {
+                // Given / When
+                var result = Record.Exception(() => new Issue(@"src\foo.cs", 100, "foo", 1, "foo", " "));
+
+                // Then
+                result.IsArgumentOutOfRangeException("providerType");
+            }
+
+            [Fact]
+            public void Should_Handle_Projects_Which_Are_Null()
+            {
+                // Given / When
+                var issue = new Issue<FakeIssueProvider>(null, @"src\foo.cs", null, "Foo", 1, "Bar");
+
+                // Then
+                issue.Project.ShouldBe(null);
+            }
+
+            [Fact]
+            public void Should_Handle_Projects_Which_Are_WhiteSpace()
+            {
+                // Given / When
+                var issue = new Issue<FakeIssueProvider>(" ", @"src\foo.cs", null, "Foo", 1, "Bar");
+
+                // Then
+                issue.Project.ShouldBe(" ");
+            }
+
+            [Fact]
+            public void Should_Handle_Projects_Which_Are_Empty()
+            {
+                // Given / When
+                var issue = new Issue<FakeIssueProvider>(string.Empty, @"src\foo.cs", null, "Foo", 1, "Bar");
+
+                // Then
+                issue.Project.ShouldBe(string.Empty);
+            }
+
+            [Theory]
+            [InlineData("project")]
+            public void Should_Set_Project(string project)
+            {
+                // Given / When
+                var issue = new Issue<FakeIssueProvider>(project, @"src\foo.cs", null, "Foo", 1, "Bar");
+
+                // Then
+                issue.Project.ShouldBe(project);
+            }
+
+            [Fact]
             public void Should_Handle_File_Paths_Which_Are_Null()
             {
                 // Given / When

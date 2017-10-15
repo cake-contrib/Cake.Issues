@@ -9,6 +9,11 @@
     public interface IIssue
     {
         /// <summary>
+        /// Gets the name of the project to which the file affected by the issue belongs.
+        /// </summary>
+        string Project { get; }
+
+        /// <summary>
         /// Gets the path to the file affacted by the issue.
         /// The path is relative to the repository root.
         /// Can be <c>null</c> if issue is not related to a change in a file.

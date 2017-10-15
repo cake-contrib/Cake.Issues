@@ -52,6 +52,58 @@
             string rule,
             Uri ruleUrl,
             string providerType)
+            : this(null, filePath, line, message, priority, rule, ruleUrl, providerType)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Issue"/> class.
+        /// </summary>
+        /// <param name="project">Name of the project to which the file affected by the issue belongs</param>
+        /// <param name="filePath">The path to the file affacted by the issue.
+        /// The path needs to be relative to the repository root.
+        /// <c>null</c> or <see cref="string.Empty"/> if issue is not related to a change in a file.</param>
+        /// <param name="line">The line in the file where the issues has occurred.
+        /// Nothing if the issue affects the whole file or an asssembly.</param>
+        /// <param name="message">The message of the issue.</param>
+        /// <param name="priority">The priority of the message.</param>
+        /// <param name="rule">The rule of the issue.</param>
+        /// <param name="providerType">The type of the issue provider.</param>
+        public Issue(
+            string project,
+            string filePath,
+            int? line,
+            string message,
+            int priority,
+            string rule,
+            string providerType)
+            : this(project, filePath, line, message, priority, rule, null, providerType)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Issue"/> class.
+        /// </summary>
+        /// <param name="project">Name of the project to which the file affected by the issue belongs</param>
+        /// <param name="filePath">The path to the file affacted by the issue.
+        /// The path needs to be relative to the repository root.
+        /// <c>null</c> or <see cref="string.Empty"/> if issue is not related to a change in a file.</param>
+        /// <param name="line">The line in the file where the issues has occurred.
+        /// Nothing if the issue affects the whole file or an asssembly.</param>
+        /// <param name="message">The message of the issue.</param>
+        /// <param name="priority">The priority of the message.</param>
+        /// <param name="rule">The rule of the issue.</param>
+        /// <param name="ruleUrl">The URL containing information about the failing rule.</param>
+        /// <param name="providerType">The type of the issue provider.</param>
+        public Issue(
+            string project,
+            string filePath,
+            int? line,
+            string message,
+            int priority,
+            string rule,
+            Uri ruleUrl,
+            string providerType)
         {
             line?.NotNegativeOrZero(nameof(line));
             message.NotNullOrWhiteSpace(nameof(message));
@@ -79,6 +131,7 @@
                 throw new ArgumentOutOfRangeException(nameof(line), "Cannot specify a line while not specifying a file.");
             }
 
+            this.Project = project;
             this.Line = line;
             this.Message = message;
             this.Priority = priority;
@@ -86,6 +139,9 @@
             this.RuleUrl = ruleUrl;
             this.ProviderType = providerType;
         }
+
+        /// <inheritdoc/>
+        public string Project { get; }
 
         /// <inheritdoc/>
         public FilePath AffectedFileRelativePath { get; }
