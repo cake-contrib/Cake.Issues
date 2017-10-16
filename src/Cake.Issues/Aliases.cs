@@ -26,7 +26,7 @@
         ///         MsBuildIssuesFromFilePath(
         ///             @"C:\build\msbuild.log",
         ///             MsBuildXmlFileLoggerFormat),
-        ///         new DirectoryPath("c:\repo")));
+        ///         @"c:\repo"));
         /// ]]>
         /// </code>
         /// </example>
@@ -68,7 +68,7 @@
         ///                 @"C:\build\inspectcode.log",
         ///                 MsBuildXmlFileLoggerFormat)
         ///         },
-        ///         new DirectoryPath("c:\repo")));
+        ///         @"c:\repo"));
         /// ]]>
         /// </code>
         /// </example>
@@ -104,7 +104,7 @@
         /// <code>
         /// <![CDATA[
         ///     var settings =
-        ///         new ReadIssuesSettings(new DirectoryPath("c:\repo"))
+        ///         new ReadIssuesSettings(@"c:\repo")
         ///         {
         ///             Format = IssueCommentFormat.Markdown
         ///         };
@@ -147,7 +147,7 @@
         /// <code>
         /// <![CDATA[
         ///     var settings =
-        ///         new ReadIssuesSettings(new DirectoryPath("c:\repo"))
+        ///         new ReadIssuesSettings(@"c:\repo")
         ///         {
         ///             Format = IssueCommentFormat.Markdown
         ///         };
