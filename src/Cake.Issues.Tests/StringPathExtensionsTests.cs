@@ -49,7 +49,7 @@
             [InlineData(@"c:\foo\")]
             [InlineData(@"c:\foo\bar")]
             [InlineData(@"/foo")]
-            [InlineData(@"/foo")]
+            [InlineData(@"/foo/")]
             [InlineData(@"/foo/bar")]
             public void Should_Return_True_If_Valid_Path(string path)
             {
@@ -135,7 +135,7 @@
             [InlineData(@"\foo\")]
             [InlineData(@"\foo\bar")]
             [InlineData(@"/foo")]
-            [InlineData(@"/foo")]
+            [InlineData(@"/foo/")]
             [InlineData(@"/foo/bar")]
             public void Should_Return_False_If_Not_Full_Path(string path)
             {
@@ -250,7 +250,7 @@
             [InlineData(@"c:\foobar\a.txt", @"c:\foo")]
             [InlineData(@"c:\foobar\a.txt", @"c:\foo\")]
             [InlineData(@"c:\foo\a.txt", @"c:\foobar")]
-            [InlineData(@"c:\foo\a.txt", @"c:\foobar")]
+            [InlineData(@"c:\foo\a.txt", @"c:\foobar\")]
             public void Should_Return_False_If_Not_SubPath(string path, string baseDir)
             {
                 // Given / When
