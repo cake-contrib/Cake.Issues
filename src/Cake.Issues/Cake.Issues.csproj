@@ -9,6 +9,8 @@
   </PropertyGroup>
 
   <PropertyGroup>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
     <CodeAnalysisRuleSet>..\Cake.Issues.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
 
