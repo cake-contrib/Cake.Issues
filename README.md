@@ -12,7 +12,7 @@ and for general information about the Cake build automation system see the [Cake
 | | Stable | Pre-release |
 |:--:|:--:|:--:|
 |GitHub Release|-|[![GitHub release](https://img.shields.io/github/release/cake-contrib/Cake.Issues.Reporting.svg)](https://github.com/cake-contrib/Cake.Issues.Reporting/releases/latest)|
-|NuGet|[![NuGet](https://img.shields.io/nuget/v/Cake.Issues.svg)](https://www.nuget.org/packages/Cake.Issues.Reporting)|[![NuGet](https://img.shields.io/nuget/vpre/Cake.Issues.svg)](https://www.nuget.org/packages/Cake.Issues.Reporting)|
+|NuGet|[![NuGet](https://img.shields.io/nuget/v/Cake.Issues.Reporting.svg)](https://www.nuget.org/packages/Cake.Issues.Reporting)|[![NuGet](https://img.shields.io/nuget/vpre/Cake.Issues.Reporting.svg)](https://www.nuget.org/packages/Cake.Issues.Reporting)|
 
 ## Build Status
 

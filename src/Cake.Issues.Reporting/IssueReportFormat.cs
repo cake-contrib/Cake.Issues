@@ -1,14 +1,13 @@
-﻿namespace Cake.Issues.Reporting.ReportFormat
+﻿namespace Cake.Issues.Reporting
 {
     using System.Collections.Generic;
     using Core.Diagnostics;
     using Core.IO;
-    using Issues.IssueProvider;
 
     /// <summary>
     /// Base class for all report format implementations.
     /// </summary>
-    public abstract class IssueReportFormat : BaseIssueComponent<RepositorySettings>, IIssueReportFormat
+    public abstract class IssueReportFormat : BaseIssueComponent<CreateIssueReportSettings>, IIssueReportFormat
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="IssueReportFormat"/> class.

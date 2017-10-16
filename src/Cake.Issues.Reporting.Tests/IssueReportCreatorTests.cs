@@ -1,7 +1,6 @@
 ﻿namespace Cake.Issues.Reporting.Tests
 {
     using System.Collections.Generic;
-    using IssueProvider;
     using Shouldly;
     using Testing;
     using Xunit;

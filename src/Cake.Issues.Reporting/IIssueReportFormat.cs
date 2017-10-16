@@ -1,13 +1,12 @@
-﻿namespace Cake.Issues.Reporting.ReportFormat
+﻿namespace Cake.Issues.Reporting
 {
     using System.Collections.Generic;
     using Core.IO;
-    using Issues.IssueProvider;
 
     /// <summary>
     /// Interface describing a issue report format.
     /// </summary>
-    public interface IIssueReportFormat : IBaseIssueComponent<RepositorySettings>
+    public interface IIssueReportFormat : IBaseIssueComponent<CreateIssueReportSettings>
     {
         /// <summary>
         /// Creates a report from a list of issues.
