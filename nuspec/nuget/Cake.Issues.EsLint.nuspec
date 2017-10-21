@@ -26,8 +26,11 @@ See the Project Site for an overview of the whole ecosystem of addins for workin
     <releaseNotes>https://github.com/cake-contrib/Cake.Issues.ESLint/releases/tag/0.1.0</releaseNotes>
   </metadata>
   <files>
-    <file src="Cake.Issues.EsLint.dll" target="lib\net45" />
-    <file src="Cake.Issues.EsLint.pdb" target="lib\net45" />
-    <file src="Cake.Issues.EsLint.xml" target="lib\net45" />
+    <file src="net46\Cake.Issues.EsLint.dll" target="lib\net46" />
+    <file src="net46\Cake.Issues.EsLint.pdb" target="lib\net46" />
+    <file src="net46\Cake.Issues.EsLint.xml" target="lib\net46" />
+    <file src="netstandard1.6\Cake.Issues.EsLint.dll" target="lib\netstandard1.6" />
+    <file src="netstandard1.6\Cake.Issues.EsLint.pdb" target="lib\netstandard1.6" />
+    <file src="netstandard1.6\Cake.Issues.EsLint.xml" target="lib\netstandard1.6" />
   </files>
 </package>
