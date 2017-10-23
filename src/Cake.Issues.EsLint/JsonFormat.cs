@@ -3,9 +3,9 @@
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
+    using System.Runtime.Serialization.Json;
+    using System.Text;
     using Core.Diagnostics;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
 
     /// <summary>
     /// ESLint Json format.
@@ -29,22 +29,31 @@
             repositorySettings.NotNull(nameof(repositorySettings));
             esLintsettings.NotNull(nameof(esLintsettings));
 
-            var logFileEntries =
-                JsonConvert.DeserializeObject<IEnumerable<JToken>>(esLintsettings.LogFileContent);
+            IEnumerable<LogFile> logFileEntries = null;
+            using (var ms = new MemoryStream(Encoding.UTF8.GetBytes(esLintsettings.LogFileContent)))
+            {
+                var jsonSerializer = new DataContractJsonSerializer(typeof(LogFile[]));
+                logFileEntries = jsonSerializer.ReadObject(ms) as LogFile[];
+            }
 
-            return
-                from file in logFileEntries
-                from message in file.SelectToken("messages")
-                let
-                    rule = (string)message.SelectToken("ruleId")
-                select
-                    new Issue<EsLintIssuesProvider>(
-                        GetRelativeFilePath((string)file.SelectToken("filePath"), repositorySettings),
-                        (int)message.SelectToken("line"),
-                        (string)message.SelectToken("message"),
-                        (int)message.SelectToken("severity"),
-                        rule,
-                        EsLintRuleUrlResolver.Instance.ResolveRuleUrl(rule));
+            if (logFileEntries != null)
+            {
+                return
+                    from file in logFileEntries
+                    from message in file.messages
+                    let
+                        rule = message.ruleId
+                    select
+                        new Issue<EsLintIssuesProvider>(
+                            GetRelativeFilePath(file.filePath, repositorySettings),
+                            message.line,
+                            message.message,
+                            message.severity,
+                            rule,
+                            EsLintRuleUrlResolver.Instance.ResolveRuleUrl(rule));
+            }
+
+            return new List<IIssue>();
         }
 
         private static string GetRelativeFilePath(
