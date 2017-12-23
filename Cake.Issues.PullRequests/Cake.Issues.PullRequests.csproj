@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Aliases.cs" />
+    <Compile Include="IPullRequestSystemExtension.cs" />
     <Compile Include="IssueFilterer.cs" />
     <Compile Include="Orchestrator.cs" />
     <Compile Include="PullRequestIssueResult.cs" />

@@ -76,6 +76,7 @@
   <ItemGroup>
     <Compile Include="ExceptionAssertExtensions.cs" />
     <Compile Include="FakePullRequestSystem.cs" />
+    <Compile Include="IPullRequestSystemExtensionTests.cs" />
     <Compile Include="IssueFiltererTests.cs" />
     <Compile Include="OrchestratorTests.cs" />
     <Compile Include="PullRequestsFixture.cs" />

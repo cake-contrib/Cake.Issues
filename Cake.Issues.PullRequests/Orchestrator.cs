@@ -158,6 +158,16 @@
                     remainingIssues.Count,
                     string.Join(Environment.NewLine, formattedMessages));
 
+                if (!string.IsNullOrWhiteSpace(reportIssuesToPullRequestSettings.CommitId) &&
+                    !this.pullRequestSystem.IsCurrentCommitId(reportIssuesToPullRequestSettings.CommitId))
+                {
+                    this.log.Information(
+                        "Skipping posting of issues since commit {0} is outdated. Current commit is {1}",
+                        reportIssuesToPullRequestSettings.CommitId,
+                        this.pullRequestSystem.GetLastSourceCommitId());
+                    return new List<IIssue>();
+                }
+
                 this.pullRequestSystem.PostDiscussionThreads(
                     remainingIssues,
                     reportIssuesToPullRequestSettings.CommentSource);

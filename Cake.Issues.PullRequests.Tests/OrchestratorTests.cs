@@ -595,6 +595,48 @@
             }
 
             [Fact]
+            public void Should_Skip_Posting_If_Commit_Is_Outdate()
+            {
+                // Given
+                var issueToPost =
+                    new Issue(
+                        @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
+                        10,
+                        "Foo",
+                        0,
+                        "Foo",
+                        "Foo");
+
+                var fixture = new PullRequestsFixture();
+                fixture.IssueProviders.Clear();
+                fixture.IssueProviders.Add(
+                    new FakeIssueProvider(
+                        fixture.Log,
+                        new List<IIssue>
+                        {
+                            issueToPost
+                        }));
+
+                fixture.PullRequestSystem =
+                    new FakePullRequestSystem(
+                        fixture.Log,
+                        new List<IPullRequestDiscussionThread>(),
+                        new List<FilePath>
+                        {
+                            new FilePath(@"src\Cake.Issues.Tests\FakeIssueProvider.cs")
+                        });
+
+                fixture.PullRequestSystem.LastSourceCommitId = "9ebcec39e16c39b5ffcb10f253d0c2bcf8438cf6";
+                fixture.ReportIssuesToPullRequestSettings.CommitId = "15c54be6435cfb6b6973896d7be79f1d9b7497a9";
+
+                // When
+                fixture.RunOrchestrator();
+
+                // Then
+                fixture.PullRequestSystem.PostedIssues.ShouldBeEmpty();
+            }
+
+            [Fact]
             public void Should_Return_Correct_Values()
             {
                 // Given

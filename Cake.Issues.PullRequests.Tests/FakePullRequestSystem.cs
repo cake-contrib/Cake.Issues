@@ -66,6 +66,11 @@
         public IEnumerable<IIssue> PostedIssues => this.postedIssues;
 
         /// <summary>
+        /// Gets or sets the ID of the last source commit returned with <see cref="GetLastSourceCommitId"/>.
+        /// </summary>
+        public string LastSourceCommitId { get; set; }
+
+        /// <summary>
         /// Gets or sets the preferred comment format returned with <see cref="GetPreferredCommentFormat"/>.
         /// </summary>
         public IssueCommentFormat CommentFormat { get; set; }
@@ -74,6 +79,12 @@
         /// Gets or sets a value indicating whether the pull request system should return false during <see cref="Initialize"/>.
         /// </summary>
         public bool ShouldFailOnInitialization { get; set; } = false;
+
+        /// <inheritdoc />
+        public override string GetLastSourceCommitId()
+        {
+            return this.LastSourceCommitId;
+        }
 
         /// <inheritdoc />
         public override IssueCommentFormat GetPreferredCommentFormat()

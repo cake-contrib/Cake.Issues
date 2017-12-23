@@ -19,6 +19,12 @@
         }
 
         /// <inheritdoc/>
+        public virtual string GetLastSourceCommitId()
+        {
+            return null;
+        }
+
+        /// <inheritdoc/>
         public virtual IssueCommentFormat GetPreferredCommentFormat()
         {
             return IssueCommentFormat.PlainText;

@@ -17,6 +17,11 @@
         }
 
         /// <summary>
+        /// Gets or sets the hash of the commit for which the issues were reported.
+        /// </summary>
+        public string CommitId { get; set; }
+
+        /// <summary>
         /// Gets or sets the number of issues which should be posted at maximum.
         /// </summary>
         public int MaxIssuesToPost { get; set; } = 100;
