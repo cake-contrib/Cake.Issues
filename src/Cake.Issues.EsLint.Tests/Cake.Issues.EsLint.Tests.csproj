@@ -33,13 +33,14 @@
     <PackageReference Include="Cake.Issues.Testing" Version="0.2.0-beta0002" />
     <PackageReference Include="Shouldly" Version="2.8.3" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.0.2" />
-    <PackageReference Include="xunit" Version="2.2.0" />
+    <PackageReference Include="xunit" Version="2.3.1" />
     <PackageReference Include="xunit.abstractions" Version="2.0.1" />
-    <PackageReference Include="xunit.assert" Version="2.2.0" />
-    <PackageReference Include="xunit.core" Version="2.2.0" />
-    <PackageReference Include="xunit.extensibility.core" Version="2.2.0" />
-    <PackageReference Include="xunit.extensibility.execution" Version="2.2.0" />
-    <PackageReference Include="xunit.runner.visualstudio" Version="2.2.0" />
+    <PackageReference Include="xunit.analyzers" Version="0.8.0" />
+    <PackageReference Include="xunit.assert" Version="2.3.1" />
+    <PackageReference Include="xunit.core" Version="2.3.1" />
+    <PackageReference Include="xunit.extensibility.core" Version="2.3.1" />
+    <PackageReference Include="xunit.extensibility.execution" Version="2.3.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.3.1" />
   </ItemGroup>
 
   <ItemGroup>
