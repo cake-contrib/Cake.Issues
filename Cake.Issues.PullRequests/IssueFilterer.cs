@@ -174,14 +174,44 @@
                 return issues;
             }
 
-            var countBefore = issues.Count;
-            var result = issues.OrderByDescending(x => x.Priority).Take(this.settings.MaxIssuesToPost).ToList();
-            var commentsFiltered = countBefore - result.Count;
+            // Apply issue limits per issue provider
+            var result = new List<IIssue>();
+            if (this.settings.MaxIssuesToPostForEachIssueProvider.HasValue)
+            {
+                foreach (var group in issues.GroupBy(x => x.ProviderType))
+                {
+                    var countBefore = group.Count();
+                    var issuesFiltered =
+                        group
+                            .OrderByDescending(x => x.Priority)
+                            .Take(this.settings.MaxIssuesToPostForEachIssueProvider.Value);
 
-            this.log.Information(
-                "{0} issue(s) were filtered to match the maximum {1} comments limit",
-                commentsFiltered,
-                this.settings.MaxIssuesToPost);
+                    this.log.Information(
+                        "{0} issue(s) of type {1} were filtered to match the maximum of {2} issues which should be reported for each issue provider",
+                        countBefore - issuesFiltered.Count(),
+                        group.Key,
+                        this.settings.MaxIssuesToPostForEachIssueProvider);
+
+                    result.AddRange(issuesFiltered);
+                }
+            }
+
+            // Apply global issue limit
+            if (this.settings.MaxIssuesToPost.HasValue)
+            {
+                var countBefore = issues.Count;
+                result =
+                    result
+                        .OrderByDescending(x => x.Priority)
+                        .Take(this.settings.MaxIssuesToPost.Value)
+                        .ToList();
+                var commentsFiltered = countBefore - result.Count;
+
+                this.log.Information(
+                    "{0} issue(s) were filtered to match the global issue limit of {1}",
+                    commentsFiltered,
+                    this.settings.MaxIssuesToPost);
+            }
 
             return result;
         }
