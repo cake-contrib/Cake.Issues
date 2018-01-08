@@ -27,6 +27,8 @@
         /// <summary>
         /// Gets or sets the global number of issues which should be posted at maximum over all
         /// <see cref="IIssueProvider"/>.
+        /// Issues are filtered by <see cref="IIssue.Priority"/> and issues with an <see cref="IIssue.AffectedFileRelativePath"/>
+        /// are prioritized.
         /// Set to <see langword="null"/> to not set a global limit.
         /// Default is to not set a global limit.
         /// Use <see cref="MaxIssuesToPostForEachIssueProvider"/> to set the limit for each issue provider.
@@ -36,6 +38,8 @@
         /// <summary>
         /// Gets or sets the global number of issues which should be posted at for each
         /// <see cref="IIssueProvider"/>.
+        /// Issues are filtered by <see cref="IIssue.Priority"/> and issues with an <see cref="IIssue.AffectedFileRelativePath"/>
+        /// are prioritized.
         /// Set to <see langword="null"/> to not limit issues per issue provider.
         /// Default is to filter to 100 issues for each issue provider.
         /// Use <see cref="MaxIssuesToPost"/> to set the global limit over all issue providers.

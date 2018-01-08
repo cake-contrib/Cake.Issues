@@ -382,7 +382,113 @@
                         @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
                         12,
                         "Bar",
+                        0,
+                        "Bar",
+                        "Bar");
+
+                var fixture = new PullRequestsFixture();
+                fixture.IssueProviders.Clear();
+                fixture.IssueProviders.Add(
+                    new FakeIssueProvider(
+                        fixture.Log,
+                        new List<IIssue>
+                        {
+                            issue1, issue2
+                        }));
+
+                fixture.PullRequestSystem =
+                    new FakePullRequestSystem(
+                        fixture.Log,
+                        new List<IPullRequestDiscussionThread>(),
+                        new List<FilePath>
+                        {
+                            new FilePath(@"src\Cake.Issues.Tests\FakeIssueProvider.cs")
+                        });
+
+                fixture.ReportIssuesToPullRequestSettings.MaxIssuesToPost = 1;
+
+                // When
+                var result = fixture.RunOrchestrator();
+
+                // Then
+                result.ReportedIssues.Count().ShouldBe(2);
+                result.PostedIssues.Count().ShouldBe(1);
+                result.PostedIssues.ShouldContain(issue1);
+                fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) were filtered to match the global issue limit of 1");
+                fixture.Log.Entries.ShouldContain(x => x.Message.StartsWith("Posting 1 issue(s):"));
+            }
+
+            [Fact]
+            public void Should_Limit_Messages_To_Global_Maximum_By_Priority()
+            {
+                // Given
+                var issue1 =
+                    new Issue(
+                        @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
+                        10,
+                        "Foo",
+                        0,
+                        "Foo",
+                        "Foo");
+                var issue2 =
+                    new Issue(
+                        @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
+                        12,
+                        "Bar",
                         1,
+                        "Bar",
+                        "Bar");
+
+                var fixture = new PullRequestsFixture();
+                fixture.IssueProviders.Clear();
+                fixture.IssueProviders.Add(
+                    new FakeIssueProvider(
+                        fixture.Log,
+                        new List<IIssue>
+                        {
+                            issue1, issue2
+                        }));
+
+                fixture.PullRequestSystem =
+                    new FakePullRequestSystem(
+                        fixture.Log,
+                        new List<IPullRequestDiscussionThread>(),
+                        new List<FilePath>
+                        {
+                            new FilePath(@"src\Cake.Issues.Tests\FakeIssueProvider.cs")
+                        });
+
+                fixture.ReportIssuesToPullRequestSettings.MaxIssuesToPost = 1;
+
+                // When
+                var result = fixture.RunOrchestrator();
+
+                // Then
+                result.ReportedIssues.Count().ShouldBe(2);
+                result.PostedIssues.Count().ShouldBe(1);
+                result.PostedIssues.ShouldContain(issue2);
+                fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) were filtered to match the global issue limit of 1");
+                fixture.Log.Entries.ShouldContain(x => x.Message.StartsWith("Posting 1 issue(s):"));
+            }
+
+            [Fact]
+            public void Should_Limit_Messages_To_Global_Maximum_By_FilePath()
+            {
+                // Given
+                var issue1 =
+                    new Issue(
+                        null,
+                        null,
+                        "Foo",
+                        0,
+                        "Foo",
+                        "Foo");
+                var issue2 =
+                    new Issue(
+                        @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
+                        12,
+                        "Bar",
+                        0,
                         "Bar",
                         "Bar");
 
@@ -435,6 +541,76 @@
                         @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
                         12,
                         "Foo",
+                        0,
+                        "Foo",
+                        "ProviderA");
+                var issue3 =
+                    new Issue(
+                        @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
+                        10,
+                        "Bar",
+                        0,
+                        "Bar",
+                        "ProviderB");
+                var issue4 =
+                    new Issue(
+                        @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
+                        12,
+                        "Bar",
+                        0,
+                        "Bar",
+                        "ProviderB");
+                var fixture = new PullRequestsFixture();
+                fixture.IssueProviders.Clear();
+                fixture.IssueProviders.Add(
+                    new FakeIssueProvider(
+                        fixture.Log,
+                        new List<IIssue>
+                        {
+                            issue1, issue2, issue3, issue4
+                        }));
+
+                fixture.PullRequestSystem =
+                    new FakePullRequestSystem(
+                        fixture.Log,
+                        new List<IPullRequestDiscussionThread>(),
+                        new List<FilePath>
+                        {
+                            new FilePath(@"src\Cake.Issues.Tests\FakeIssueProvider.cs")
+                        });
+
+                fixture.ReportIssuesToPullRequestSettings.MaxIssuesToPostForEachIssueProvider = 1;
+
+                // When
+                var result = fixture.RunOrchestrator();
+
+                // Then
+                result.ReportedIssues.Count().ShouldBe(4);
+                result.PostedIssues.Count().ShouldBe(2);
+                result.PostedIssues.ShouldContain(issue1);
+                result.PostedIssues.ShouldContain(issue3);
+                fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) of type ProviderA were filtered to match the maximum of 1 issues which should be reported for each issue provider");
+                fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) of type ProviderB were filtered to match the maximum of 1 issues which should be reported for each issue provider");
+                fixture.Log.Entries.ShouldContain(x => x.Message.StartsWith("Posting 2 issue(s):"));
+            }
+
+            [Fact]
+            public void Should_Limit_Messages_To_Maximum_Per_Issue_Provider_By_Priority()
+            {
+                // Given
+                var issue1 =
+                    new Issue(
+                        @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
+                        10,
+                        "Foo",
+                        0,
+                        "Foo",
+                        "ProviderA");
+                var issue2 =
+                    new Issue(
+                        @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
+                        12,
+                        "Foo",
                         1,
                         "Foo",
                         "ProviderA");
@@ -450,6 +626,76 @@
                     new Issue(
                         @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
                         12,
+                        "Bar",
+                        0,
+                        "Bar",
+                        "ProviderB");
+                var fixture = new PullRequestsFixture();
+                fixture.IssueProviders.Clear();
+                fixture.IssueProviders.Add(
+                    new FakeIssueProvider(
+                        fixture.Log,
+                        new List<IIssue>
+                        {
+                            issue1, issue2, issue3, issue4
+                        }));
+
+                fixture.PullRequestSystem =
+                    new FakePullRequestSystem(
+                        fixture.Log,
+                        new List<IPullRequestDiscussionThread>(),
+                        new List<FilePath>
+                        {
+                            new FilePath(@"src\Cake.Issues.Tests\FakeIssueProvider.cs")
+                        });
+
+                fixture.ReportIssuesToPullRequestSettings.MaxIssuesToPostForEachIssueProvider = 1;
+
+                // When
+                var result = fixture.RunOrchestrator();
+
+                // Then
+                result.ReportedIssues.Count().ShouldBe(4);
+                result.PostedIssues.Count().ShouldBe(2);
+                result.PostedIssues.ShouldContain(issue2);
+                result.PostedIssues.ShouldContain(issue3);
+                fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) of type ProviderA were filtered to match the maximum of 1 issues which should be reported for each issue provider");
+                fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) of type ProviderB were filtered to match the maximum of 1 issues which should be reported for each issue provider");
+                fixture.Log.Entries.ShouldContain(x => x.Message.StartsWith("Posting 2 issue(s):"));
+            }
+
+            [Fact]
+            public void Should_Limit_Messages_To_Maximum_Per_Issue_Provider_By_FilePath()
+            {
+                // Given
+                var issue1 =
+                    new Issue(
+                        null,
+                        null,
+                        "Foo",
+                        0,
+                        "Foo",
+                        "ProviderA");
+                var issue2 =
+                    new Issue(
+                        @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
+                        12,
+                        "Foo",
+                        0,
+                        "Foo",
+                        "ProviderA");
+                var issue3 =
+                    new Issue(
+                        @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
+                        10,
+                        "Bar",
+                        0,
+                        "Bar",
+                        "ProviderB");
+                var issue4 =
+                    new Issue(
+                        null,
+                        null,
                         "Bar",
                         0,
                         "Bar",

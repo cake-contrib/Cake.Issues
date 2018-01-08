@@ -184,6 +184,8 @@
                     var issuesFiltered =
                         group
                             .OrderByDescending(x => x.Priority)
+                            .ThenBy(x => x.AffectedFileRelativePath is null)
+                            .ThenBy(x => x.AffectedFileRelativePath?.FullPath)
                             .Take(this.settings.MaxIssuesToPostForEachIssueProvider.Value);
 
                     this.log.Information(
@@ -203,6 +205,8 @@
                 result =
                     result
                         .OrderByDescending(x => x.Priority)
+                        .ThenBy(x => x.AffectedFileRelativePath is null)
+                        .ThenBy(x => x.AffectedFileRelativePath?.FullPath)
                         .Take(this.settings.MaxIssuesToPost.Value)
                         .ToList();
                 var commentsFiltered = countBefore - result.Count;
