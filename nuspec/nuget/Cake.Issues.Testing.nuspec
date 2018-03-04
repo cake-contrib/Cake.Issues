@@ -22,8 +22,8 @@ Common helpers for testing add-ins based on Cake.Issues
     <file src="net46\Cake.Issues.Testing.dll" target="lib\net46" />
     <file src="net46\Cake.Issues.Testing.pdb" target="lib\net46" />
     <file src="net46\Cake.Issues.Testing.xml" target="lib\net46" />
-    <file src="netstandard1.6\Cake.Issues.Testing.dll" target="lib\netstandard1.6" />
-    <file src="netstandard1.6\Cake.Issues.Testing.pdb" target="lib\netstandard1.6" />
-    <file src="netstandard1.6\Cake.Issues.Testing.xml" target="lib\netstandard1.6" />
+    <file src="netstandard2.0\Cake.Issues.Testing.dll" target="lib\netstandard2.0" />
+    <file src="netstandard2.0\Cake.Issues.Testing.pdb" target="lib\netstandard2.0" />
+    <file src="netstandard2.0\Cake.Issues.Testing.xml" target="lib\netstandard2.0" />
   </files>
 </package>
