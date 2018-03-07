@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp2.0;net46</TargetFrameworks>
+    <TargetFrameworks>netcoreapp2.0</TargetFrameworks>
     <IsPackable>false</IsPackable>
     <Product>Cake.Issues</Product>
     <Copyright>Copyright © BBT Software AG and contributors</Copyright>
@@ -10,11 +10,9 @@
     <Company>BBT Software AG</Company>
   </PropertyGroup>
 
-
   <PropertyGroup>
     <CodeAnalysisRuleSet>..\Cake.Issues.MsBuild.Tests.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
-
 
   <ItemGroup>
     <None Remove="Testfiles\IssueWithFile.xml" />
@@ -22,7 +20,6 @@
     <None Remove="Testfiles\IssueWithOnlyFileName.xml" />
     <None Remove="Testfiles\IssueWithoutFile.xml" />
   </ItemGroup>
-
 
   <ItemGroup>
     <EmbeddedResource Include="Testfiles\IssueWithFile.xml" />
