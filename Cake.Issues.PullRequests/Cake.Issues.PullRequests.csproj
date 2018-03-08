@@ -3,7 +3,7 @@
     <TargetFrameworks>netstandard2.0;net46</TargetFrameworks>
     <IsPackable>false</IsPackable>
     <Product>Cake.Issues</Product>
-    <Copyright>Copyright © 2017 BBT Software AG and contributors</Copyright>
+    <Copyright>Copyright © BBT Software AG and contributors</Copyright>
     <Description>Addin for the Cake build automation system for writing code analyzer or linter issues as comments to pull requests</Description>
     <Authors>BBT Software AG</Authors>
     <Company>BBT Software AG</Company>
