@@ -39,7 +39,7 @@
     <PackageReference Include="Cake.Issues" Version="0.2.0-beta0004" />
     <PackageReference Include="Cake.Issues.Testing" Version="0.2.0-beta0004" />
     <PackageReference Include="Cake.Testing" Version="0.26.0" />
-    <PackageReference Include="Shouldly" Version="2.8.3" />
+    <PackageReference Include="Shouldly" Version="3.0.0" />
     <PackageReference Include="StyleCop.Analyzers">
       <Version>1.0.2</Version>
     </PackageReference>
