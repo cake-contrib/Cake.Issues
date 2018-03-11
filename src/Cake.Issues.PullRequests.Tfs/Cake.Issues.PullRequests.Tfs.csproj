@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Cake.Issues.PullRequests.Tfs</RootNamespace>
     <AssemblyName>Cake.Issues.PullRequests.Tfs</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -38,8 +38,8 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Cake.Core" Version="0.26.0" />
-    <PackageReference Include="Cake.Issues" Version="0.1.0" />
-    <PackageReference Include="Cake.Issues.PullRequests" Version="0.1.0" />
+    <PackageReference Include="Cake.Issues" Version="0.2.0-beta0004" />
+    <PackageReference Include="Cake.Issues.PullRequests" Version="0.2.0-beta0002" />
     <PackageReference Include="Costura.Fody">
       <Version>1.6.2</Version>
     </PackageReference>
@@ -91,7 +91,9 @@
     <Compile Include="TfsPullRequestVote.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="FodyWeavers.xml" />
