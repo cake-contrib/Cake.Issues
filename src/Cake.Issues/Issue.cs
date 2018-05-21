@@ -19,7 +19,7 @@
         /// <param name="message">The message of the issue.</param>
         /// <param name="priority">The priority of the message.</param>
         /// <param name="rule">The rule of the issue.
-        /// <see cref="string.Empty"/> if issue has no specific rule ID.</param>
+        /// <c>null</c> or <see cref="string.Empty"/> if issue has no specific rule ID.</param>
         /// <param name="providerType">The type of the issue provider.</param>
         public Issue(
             string filePath,
@@ -43,7 +43,7 @@
         /// <param name="message">The message of the issue.</param>
         /// <param name="priority">The priority of the message.</param>
         /// <param name="rule">The rule of the issue.
-        /// <see cref="string.Empty"/> if issue has no specific rule ID.</param>
+        /// <c>null</c> or <see cref="string.Empty"/> if issue has no specific rule ID.</param>
         /// <param name="ruleUrl">The URL containing information about the failing rule.
         /// <c>null</c> if no URL is available.</param>
         /// <param name="providerType">The type of the issue provider.</param>
@@ -72,7 +72,7 @@
         /// <param name="message">The message of the issue.</param>
         /// <param name="priority">The priority of the message.</param>
         /// <param name="rule">The rule of the issue.
-        /// <see cref="string.Empty"/> if issue has no specific rule ID.</param>
+        /// <c>null</c> or <see cref="string.Empty"/> if issue has no specific rule ID.</param>
         /// <param name="providerType">The type of the issue provider.</param>
         public Issue(
             string project,
@@ -99,7 +99,7 @@
         /// <param name="message">The message of the issue.</param>
         /// <param name="priority">The priority of the message.</param>
         /// <param name="rule">The rule of the issue.
-        /// <see cref="string.Empty"/> if issue has no specific rule ID.</param>
+        /// <c>null</c> or <see cref="string.Empty"/> if issue has no specific rule ID.</param>
         /// <param name="ruleUrl">The URL containing information about the failing rule.
         /// <c>null</c> if no URL is available.</param>
         /// <param name="providerType">The type of the issue provider.</param>
@@ -115,7 +115,6 @@
         {
             line?.NotNegativeOrZero(nameof(line));
             message.NotNullOrWhiteSpace(nameof(message));
-            rule.NotNull(nameof(rule));
             providerType.NotNullOrWhiteSpace(nameof(providerType));
 
             // File path needs to be relative to the repository root.

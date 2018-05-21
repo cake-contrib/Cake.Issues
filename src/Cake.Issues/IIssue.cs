@@ -39,7 +39,7 @@
 
         /// <summary>
         /// Gets the rule of the issue.
-        /// Can be <see cref="string.Empty"/> if the issue provider provides no rule.
+        /// Can be <c>null</c> or <see cref="string.Empty"/> if the issue provider provides no rule.
         /// </summary>
         string Rule { get; }
 

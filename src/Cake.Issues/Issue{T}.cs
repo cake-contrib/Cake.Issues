@@ -20,7 +20,7 @@
         /// <param name="message">The message of the issue.</param>
         /// <param name="priority">The priority of the message.</param>
         /// <param name="rule">The rule of the issue.
-        /// <see cref="string.Empty"/> if issue has no specific rule ID.</param>
+        /// <c>null</c> or <see cref="string.Empty"/> if issue has no specific rule ID.</param>
         public Issue(
             string filePath,
             int? line,
@@ -42,7 +42,7 @@
         /// <param name="message">The message of the issue.</param>
         /// <param name="priority">The priority of the message.</param>
         /// <param name="rule">The rule of the issue.
-        /// <see cref="string.Empty"/> if issue has no specific rule ID.</param>
+        /// <c>null</c> or <see cref="string.Empty"/> if issue has no specific rule ID.</param>
         /// <param name="ruleUrl">The URL containing information about the failing rule.
         /// <c>null</c> if no URL is available.</param>
         public Issue(
@@ -69,7 +69,7 @@
         /// <param name="message">The message of the issue.</param>
         /// <param name="priority">The priority of the message.</param>
         /// <param name="rule">The rule of the issue.
-        /// <see cref="string.Empty"/> if issue has no specific rule ID.</param>
+        /// <c>null</c> or <see cref="string.Empty"/> if issue has no specific rule ID.</param>
         public Issue(
             string project,
             string filePath,
@@ -94,7 +94,7 @@
         /// <param name="message">The message of the issue.</param>
         /// <param name="priority">The priority of the message.</param>
         /// <param name="rule">The rule of the issue.
-        /// <see cref="string.Empty"/> if issue has no specific rule ID.</param>
+        /// <c>null</c> or <see cref="string.Empty"/> if issue has no specific rule ID.</param>
         /// <param name="ruleUrl">The URL containing information about the failing rule.
         /// <c>null</c> if no URL is available.</param>
         public Issue(
