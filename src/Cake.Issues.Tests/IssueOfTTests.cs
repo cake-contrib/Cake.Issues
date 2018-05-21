@@ -10,7 +10,7 @@
         public sealed class TheCtor
         {
             [Theory]
-            [InlineData(@"foo<bar")]
+            [InlineData("foo\tbar")]
             public void Should_Throw_If_File_Path_Is_Invalid(string filePath)
             {
                 // Given / When
@@ -110,15 +110,54 @@
             }
 
             [Fact]
-            public void Should_Throw_If_Rule_Is_Null()
+            public void Should_Throw_If_Provider_Type_Is_WhiteSpace()
             {
                 // Given / When
-                var result =
-                    Record.Exception(() =>
-                        new Issue<FakeIssueProvider>(@"src\foo.cs", 100, "foo", 1, null));
+                var result = Record.Exception(() => new Issue(@"src\foo.cs", 100, "foo", 1, "foo", " "));
 
                 // Then
-                result.IsArgumentNullException("rule");
+                result.IsArgumentOutOfRangeException("providerType");
+            }
+
+            [Fact]
+            public void Should_Handle_Projects_Which_Are_Null()
+            {
+                // Given / When
+                var issue = new Issue<FakeIssueProvider>(null, @"src\foo.cs", null, "Foo", 1, "Bar");
+
+                // Then
+                issue.Project.ShouldBe(null);
+            }
+
+            [Fact]
+            public void Should_Handle_Projects_Which_Are_WhiteSpace()
+            {
+                // Given / When
+                var issue = new Issue<FakeIssueProvider>(" ", @"src\foo.cs", null, "Foo", 1, "Bar");
+
+                // Then
+                issue.Project.ShouldBe(" ");
+            }
+
+            [Fact]
+            public void Should_Handle_Projects_Which_Are_Empty()
+            {
+                // Given / When
+                var issue = new Issue<FakeIssueProvider>(string.Empty, @"src\foo.cs", null, "Foo", 1, "Bar");
+
+                // Then
+                issue.Project.ShouldBe(string.Empty);
+            }
+
+            [Theory]
+            [InlineData("project")]
+            public void Should_Set_Project(string project)
+            {
+                // Given / When
+                var issue = new Issue<FakeIssueProvider>(project, @"src\foo.cs", null, "Foo", 1, "Bar");
+
+                // Then
+                issue.Project.ShouldBe(project);
             }
 
             [Fact]
@@ -196,6 +235,8 @@
             }
 
             [Theory]
+            [InlineData(null)]
+            [InlineData("")]
             [InlineData("rule")]
             public void Should_Set_Rule(string rule)
             {
@@ -220,7 +261,7 @@
         public sealed class TheIssueOfTCtorWithRuleId
         {
             [Theory]
-            [InlineData(@"foo<bar")]
+            [InlineData("foo\tbar")]
             public void Should_Throw_If_File_Path_Is_Invalid(string filePath)
             {
                 // Given / When
@@ -320,18 +361,6 @@
             }
 
             [Fact]
-            public void Should_Throw_If_Rule_Is_Null()
-            {
-                // Given / When
-                var result =
-                    Record.Exception(() =>
-                        new Issue<FakeIssueProvider>(@"src\foo.cs", 100, "foo", 1, null, new Uri("https://google.com")));
-
-                // Then
-                result.IsArgumentNullException("rule");
-            }
-
-            [Fact]
             public void Should_Handle_File_Paths_Which_Are_Null()
             {
                 // Given / When
@@ -406,6 +435,8 @@
             }
 
             [Theory]
+            [InlineData(null)]
+            [InlineData("")]
             [InlineData("rule")]
             public void Should_Set_Rule(string rule)
             {

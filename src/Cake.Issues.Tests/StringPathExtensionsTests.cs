@@ -49,7 +49,7 @@
             [InlineData(@"c:\foo\")]
             [InlineData(@"c:\foo\bar")]
             [InlineData(@"/foo")]
-            [InlineData(@"/foo")]
+            [InlineData(@"/foo/")]
             [InlineData(@"/foo/bar")]
             public void Should_Return_True_If_Valid_Path(string path)
             {
@@ -61,7 +61,7 @@
             }
 
             [Theory]
-            [InlineData(@"foo<bar")]
+            [InlineData("foo\tbar")]
             public void Should_Return_False_If_Valid_Path(string path)
             {
                 // Given / When
@@ -108,7 +108,7 @@
             public void Should_Throw_If_Path_Is_Not_Valid()
             {
                 // Given / When
-                var result = Record.Exception(() => @"c:\foo<bar".IsFullPath());
+                var result = Record.Exception(() => "c:\\foo\tbar".IsFullPath());
 
                 // Then
                 result.IsArgumentException("path");
@@ -135,7 +135,7 @@
             [InlineData(@"\foo\")]
             [InlineData(@"\foo\bar")]
             [InlineData(@"/foo")]
-            [InlineData(@"/foo")]
+            [InlineData(@"/foo/")]
             [InlineData(@"/foo/bar")]
             public void Should_Return_False_If_Not_Full_Path(string path)
             {
@@ -183,7 +183,7 @@
             public void Should_Throw_If_Path_Is_Invalid()
             {
                 // Given / When
-                var result = Record.Exception(() => @"c:\foo<bar".IsSubpathOf(@"c:\foo"));
+                var result = Record.Exception(() => "c:\\foo\tbar".IsSubpathOf(@"c:\foo"));
 
                 // Then
                 result.IsArgumentException("path");
@@ -223,7 +223,7 @@
             public void Should_Throw_If_BaseDirPath_Is_Invalid()
             {
                 // Given / When
-                var result = Record.Exception(() => @"c:\foo\bar".IsSubpathOf(@"c:\f<o"));
+                var result = Record.Exception(() => @"c:\foo\bar".IsSubpathOf("c:\\f\to"));
 
                 // Then
                 result.IsArgumentException("baseDirPath");
@@ -250,7 +250,7 @@
             [InlineData(@"c:\foobar\a.txt", @"c:\foo")]
             [InlineData(@"c:\foobar\a.txt", @"c:\foo\")]
             [InlineData(@"c:\foo\a.txt", @"c:\foobar")]
-            [InlineData(@"c:\foo\a.txt", @"c:\foobar")]
+            [InlineData(@"c:\foo\a.txt", @"c:\foobar\")]
             public void Should_Return_False_If_Not_SubPath(string path, string baseDir)
             {
                 // Given / When
@@ -361,7 +361,7 @@
             public void Should_Throw_If_Path_Is_Invalid()
             {
                 // Given / When
-                var result = Record.Exception(() => @"c:\foo<bar".NormalizePath());
+                var result = Record.Exception(() => "c:\\foo\tbar".NormalizePath());
 
                 // Then
                 result.IsArgumentException("path");

@@ -10,7 +10,7 @@
         public sealed class TheCtor
         {
             [Theory]
-            [InlineData(@"foo<bar")]
+            [InlineData("foo\tbar")]
             public void Should_Throw_If_File_Path_Is_Invalid(string filePath)
             {
                 // Given / When
@@ -94,16 +94,6 @@
             }
 
             [Fact]
-            public void Should_Throw_If_Rule_Is_Null()
-            {
-                // Given / When
-                var result = Record.Exception(() => new Issue(@"src\foo.cs", 100, "foo", 1, null, "foo"));
-
-                // Then
-                result.IsArgumentNullException("rule");
-            }
-
-            [Fact]
             public void Should_Throw_If_Provider_Type_Is_Null()
             {
                 // Given / When
@@ -131,6 +121,47 @@
 
                 // Then
                 result.IsArgumentOutOfRangeException("providerType");
+            }
+
+            [Fact]
+            public void Should_Handle_Projects_Which_Are_Null()
+            {
+                // Given / When
+                var issue = new Issue(null, @"src\foo.cs", null, "Foo", 1, "Bar", "foo");
+
+                // Then
+                issue.Project.ShouldBe(null);
+            }
+
+            [Fact]
+            public void Should_Handle_Projects_Which_Are_WhiteSpace()
+            {
+                // Given / When
+                var issue = new Issue(" ", @"src\foo.cs", null, "Foo", 1, "Bar", "foo");
+
+                // Then
+                issue.Project.ShouldBe(" ");
+            }
+
+            [Fact]
+            public void Should_Handle_Projects_Which_Are_Empty()
+            {
+                // Given / When
+                var issue = new Issue(string.Empty, @"src\foo.cs", null, "Foo", 1, "Bar", "foo");
+
+                // Then
+                issue.Project.ShouldBe(string.Empty);
+            }
+
+            [Theory]
+            [InlineData("project")]
+            public void Should_Set_Project(string project)
+            {
+                // Given / When
+                var issue = new Issue(project, @"src\foo.cs", null, "Foo", 1, "Bar", "foo");
+
+                // Then
+                issue.Project.ShouldBe(project);
             }
 
             [Fact]
@@ -208,6 +239,8 @@
             }
 
             [Theory]
+            [InlineData(null)]
+            [InlineData("")]
             [InlineData("rule")]
             public void Should_Set_Rule(string rule)
             {
