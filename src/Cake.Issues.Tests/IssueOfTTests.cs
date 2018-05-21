@@ -110,18 +110,6 @@
             }
 
             [Fact]
-            public void Should_Throw_If_Rule_Is_Null()
-            {
-                // Given / When
-                var result =
-                    Record.Exception(() =>
-                        new Issue<FakeIssueProvider>(@"src\foo.cs", 100, "foo", 1, null));
-
-                // Then
-                result.IsArgumentNullException("rule");
-            }
-
-            [Fact]
             public void Should_Throw_If_Provider_Type_Is_WhiteSpace()
             {
                 // Given / When
@@ -247,6 +235,8 @@
             }
 
             [Theory]
+            [InlineData(null)]
+            [InlineData("")]
             [InlineData("rule")]
             public void Should_Set_Rule(string rule)
             {
@@ -371,18 +361,6 @@
             }
 
             [Fact]
-            public void Should_Throw_If_Rule_Is_Null()
-            {
-                // Given / When
-                var result =
-                    Record.Exception(() =>
-                        new Issue<FakeIssueProvider>(@"src\foo.cs", 100, "foo", 1, null, new Uri("https://google.com")));
-
-                // Then
-                result.IsArgumentNullException("rule");
-            }
-
-            [Fact]
             public void Should_Handle_File_Paths_Which_Are_Null()
             {
                 // Given / When
@@ -457,6 +435,8 @@
             }
 
             [Theory]
+            [InlineData(null)]
+            [InlineData("")]
             [InlineData("rule")]
             public void Should_Set_Rule(string rule)
             {
