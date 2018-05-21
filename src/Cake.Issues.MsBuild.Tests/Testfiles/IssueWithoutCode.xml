@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<build started="5/19/2018 10:15:51 AM">
+  <task name="StyleCopTask" file="c:\Source\Cake.Issues.MsBuild\src\Cake.Issues.MsBuild.Tests\Cake.Issues.MsBuild.Tests.csproj" started="5/19/2018 10:15:51 AM">
+    <warning file="c:\Source\Cake.Issues.MsBuild\src\Cake.Issues.MsBuild.Tests\MsBuildIssuesProviderTests.cs" line="21" column="1" started="5/19/2018 10:15:51 AM"><![CDATA[SA1300 : CSharp.Naming : namespace names begin with an upper-case letter: foo.]]></warning>
+  </task>
+</build>

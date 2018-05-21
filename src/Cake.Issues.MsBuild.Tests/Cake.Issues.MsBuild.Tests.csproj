@@ -18,10 +18,12 @@
     <None Remove="Testfiles\IssueWithFile.xml" />
     <None Remove="Testfiles\IssueWithLineZero.xml" />
     <None Remove="Testfiles\IssueWithOnlyFileName.xml" />
+    <None Remove="Testfiles\IssueWithoutCode.xml" />
     <None Remove="Testfiles\IssueWithoutFile.xml" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Testfiles\IssueWithoutCode.xml" />
     <EmbeddedResource Include="Testfiles\IssueWithFile.xml" />
     <EmbeddedResource Include="Testfiles\IssueWithLineZero.xml" />
     <EmbeddedResource Include="Testfiles\IssueWithOnlyFileName.xml" />

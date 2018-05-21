@@ -1,5 +1,6 @@
 ﻿namespace Cake.Issues.MsBuild
 {
+    using System;
     using System.Collections.Generic;
     using System.Globalization;
     using System.IO;
@@ -53,13 +54,20 @@
                     continue;
                 }
 
+                // Determine rule URL.
+                Uri ruleUrl = null;
+                if (!string.IsNullOrWhiteSpace(rule))
+                {
+                    ruleUrl = MsBuildRuleUrlResolver.Instance.ResolveRuleUrl(rule);
+                }
+
                 result.Add(new Issue<MsBuildIssuesProvider>(
                     fileName,
                     line,
                     warning.Value,
                     0,
                     rule,
-                    MsBuildRuleUrlResolver.Instance.ResolveRuleUrl(rule)));
+                    ruleUrl));
             }
 
             return result;
@@ -107,7 +115,8 @@
             var codeAttr = warning.Attribute("code");
             if (codeAttr == null)
             {
-                return false;
+                rule = string.Empty;
+                return true;
             }
 
             rule = codeAttr.Value;
