@@ -1,11 +1,13 @@
-﻿using System.Reflection;
+﻿using System;
+using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Cake.Issues.Reporting.Html.Tests")]
-[assembly: AssemblyDescription("Tests for the Cake.Issues.Reporting.Html addin")]
+[assembly: AssemblyTitle("Cake.Issues.Reporting.Generic")]
+[assembly: AssemblyDescription("Support for creating issue reports in any text based format (HTML, Markdown, ...) from the Cake.Issues Addin for Cake Build Automation System")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("BBT Software AG")]
 [assembly: AssemblyProduct("Cake.Issues")]
@@ -19,7 +21,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("1e92a970-e905-4df8-8eca-5529b701e8e3")]
+[assembly: Guid("b514788a-8596-41ca-92b6-86199549dc2a")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -33,3 +35,6 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
+
+[assembly: CLSCompliant(true)]
+[assembly: InternalsVisibleTo("Cake.Issues.Reporting.Generic.Tests")]

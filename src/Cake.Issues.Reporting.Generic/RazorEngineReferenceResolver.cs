@@ -1,4 +1,4 @@
-﻿namespace Cake.Issues.Reporting.Html
+﻿namespace Cake.Issues.Reporting.Generic
 {
     using System.Collections.Generic;
     using System.IO;
@@ -27,6 +27,7 @@
             yield return CompilerReference.From(this.FindLoaded(loadedAssemblies, "mscorlib.dll"));
             yield return CompilerReference.From(this.FindLoaded(loadedAssemblies, "System.dll"));
             yield return CompilerReference.From(this.FindLoaded(loadedAssemblies, "System.Core.dll"));
+            yield return CompilerReference.From(this.FindLoaded(loadedAssemblies, "Cake.Core.dll"));
             yield return CompilerReference.From(this.FindLoaded(loadedAssemblies, "Cake.Issues.dll"));
             yield return CompilerReference.From(typeof(RazorEngine.Engine).Assembly);
         }

@@ -1,9 +1,9 @@
-﻿namespace Cake.Issues.Reporting.Html.Tests
+﻿namespace Cake.Issues.Reporting.Generic.Tests
 {
     using Shouldly;
     using Xunit;
 
-    public sealed class HtmlIssueReportTemplateExtensionsTests
+    public sealed class GenericIssueReportTemplateExtensionsTests
     {
         public sealed class TheGetTemplateResourceNameMethod
         {
@@ -11,7 +11,7 @@
             public void Should_Return_ResourceName()
             {
                 // Given
-                var template = HtmlIssueReportTemplate.Diagnostic;
+                var template = GenericIssueReportTemplate.HtmlDiagnostic;
 
                 // When
                 var result = template.GetTemplateResourceName();

@@ -1,4 +1,4 @@
-﻿namespace Cake.Issues.Reporting.Html
+﻿namespace Cake.Issues.Reporting.Generic
 {
     using System;
     using System.Collections.Generic;
@@ -10,23 +10,23 @@
     using RazorEngine.Templating;
 
     /// <summary>
-    /// Generator for creating HTML issue reports.
+    /// Generator for creating text based issue reports.
     /// </summary>
-    internal class HtmlIssueReportGenerator : IssueReportFormat
+    internal class GenericIssueReportGenerator : IssueReportFormat
     {
-        private readonly HtmlIssueReportFormatSettings htmlIssueReportFormatSettings;
+        private readonly GenericIssueReportFormatSettings genericIssueReportFormatSettings;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="HtmlIssueReportGenerator"/> class.
+        /// Initializes a new instance of the <see cref="GenericIssueReportGenerator"/> class.
         /// </summary>
         /// <param name="log">The Cake log context.</param>
         /// <param name="settings">Settings for reading the log file.</param>
-        public HtmlIssueReportGenerator(ICakeLog log, HtmlIssueReportFormatSettings settings)
+        public GenericIssueReportGenerator(ICakeLog log, GenericIssueReportFormatSettings settings)
             : base(log)
         {
             settings.NotNull(nameof(settings));
 
-            this.htmlIssueReportFormatSettings = settings;
+            this.genericIssueReportFormatSettings = settings;
 
             this.ConfigureRazorEngine();
         }
@@ -34,16 +34,27 @@
         /// <inheritdoc />
         protected override FilePath InternalCreateReport(IEnumerable<IIssue> issues)
         {
-            var result =
-                Engine.Razor.RunCompile(
-                    this.htmlIssueReportFormatSettings.Template,
-                    Guid.NewGuid().ToString(),
-                    typeof(IEnumerable<IIssue>),
-                    issues);
+            this.Log.Information("Creating report '{0}'", this.Settings.OutputFilePath.FullPath);
 
-            File.WriteAllText(this.Settings.OutputFilePath.FullPath, result);
+            try
+            {
+                var result =
+                    Engine.Razor.RunCompile(
+                        this.genericIssueReportFormatSettings.Template,
+                        Guid.NewGuid().ToString(),
+                        typeof(IEnumerable<IIssue>),
+                        issues);
 
-            return this.Settings.OutputFilePath;
+                File.WriteAllText(this.Settings.OutputFilePath.FullPath, result);
+
+                return this.Settings.OutputFilePath;
+            }
+            catch (Exception e)
+            {
+                this.Log.Error(e.Message);
+
+                throw;
+            }
         }
 
         private void ConfigureRazorEngine()

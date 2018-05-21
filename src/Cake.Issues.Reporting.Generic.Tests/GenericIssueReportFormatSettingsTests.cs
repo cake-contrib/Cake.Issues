@@ -1,4 +1,4 @@
-﻿namespace Cake.Issues.Reporting.Html.Tests
+﻿namespace Cake.Issues.Reporting.Generic.Tests
 {
     using System;
     using System.IO;
@@ -9,7 +9,7 @@
     using Testing;
     using Xunit;
 
-    public sealed class HtmlIssueReportFormatSettingsTests
+    public sealed class GenericIssueReportFormatSettingsTests
     {
         public sealed class TheCtor
         {
@@ -21,7 +21,7 @@
 
                 // When
                 var result = Record.Exception(() =>
-                    HtmlIssueReportFormatSettings.FromFilePath(templatePath));
+                    GenericIssueReportFormatSettings.FromFilePath(templatePath));
 
                 // Then
                 result.IsArgumentNullException("templatePath");
@@ -35,7 +35,7 @@
 
                 // When
                 var result = Record.Exception(() =>
-                    HtmlIssueReportFormatSettings.FromContent(templateContent));
+                    GenericIssueReportFormatSettings.FromContent(templateContent));
 
                 // Then
                 result.IsArgumentNullException("templateContent");
@@ -49,7 +49,7 @@
 
                 // When
                 var result = Record.Exception(() =>
-                    HtmlIssueReportFormatSettings.FromContent(templateContent));
+                    GenericIssueReportFormatSettings.FromContent(templateContent));
 
                 // Then
                 result.IsArgumentOutOfRangeException("templateContent");
@@ -63,7 +63,7 @@
 
                 // When
                 var result = Record.Exception(() =>
-                    HtmlIssueReportFormatSettings.FromContent(templateContent));
+                    GenericIssueReportFormatSettings.FromContent(templateContent));
 
                 // Then
                 result.IsArgumentOutOfRangeException("templateContent");
@@ -76,7 +76,7 @@
                 var templateContent = "foo";
 
                 // When
-                var settings = HtmlIssueReportFormatSettings.FromContent(templateContent);
+                var settings = GenericIssueReportFormatSettings.FromContent(templateContent);
 
                 // Then
                 settings.Template.ShouldBe(templateContent);
@@ -86,10 +86,10 @@
             public void Should_Set_Embedded_Template()
             {
                 // Given
-                var template = HtmlIssueReportTemplate.Diagnostic;
+                var template = GenericIssueReportTemplate.HtmlDiagnostic;
 
                 // When
-                var settings = HtmlIssueReportFormatSettings.FromEmbeddedTemplate(template);
+                var settings = GenericIssueReportFormatSettings.FromEmbeddedTemplate(template);
 
                 // Then
                 settings.Template.ShouldNotBeNullOrWhiteSpace();
@@ -104,7 +104,7 @@
                     // Given
                     string expected;
                     using (var ms = new MemoryStream())
-                    using (var stream = this.GetType().Assembly.GetManifestResourceStream("Cake.Issues.Reporting.Html.Tests.Templates.TestTemplate.cshtml"))
+                    using (var stream = this.GetType().Assembly.GetManifestResourceStream("Cake.Issues.Reporting.Generic.Tests.Templates.TestTemplate.cshtml"))
                     {
                         stream.CopyTo(ms);
                         var data = ms.ToArray();
@@ -119,7 +119,7 @@
 
                     // When
                     var settings =
-                        HtmlIssueReportFormatSettings.FromFilePath(fileName);
+                        GenericIssueReportFormatSettings.FromFilePath(fileName);
 
                     // Then
                     settings.Template.ShouldBe(expected);

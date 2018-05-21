@@ -8,12 +8,13 @@
     <ProjectGuid>{1E92A970-E905-4DF8-8ECA-5529B701E8E3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Cake.Issues.Reporting.Html.Tests</RootNamespace>
-    <AssemblyName>Cake.Issues.Reporting.Html.Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <RootNamespace>Cake.Issues.Reporting.Generic.Tests</RootNamespace>
+    <AssemblyName>Cake.Issues.Reporting.Generic.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -23,7 +24,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>..\Cake.Issues.Reporting.Html.Tests.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>..\Cake.Issues.Reporting.Generic.Tests.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -32,23 +33,23 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>..\Cake.Issues.Reporting.Html.Tests.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>..\Cake.Issues.Reporting.Generic.Tests.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Cake.Core, Version=0.16.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Cake.Core.0.16.2\lib\net45\Cake.Core.dll</HintPath>
+    <Reference Include="Cake.Core, Version=0.22.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Cake.Core.0.22.0\lib\net46\Cake.Core.dll</HintPath>
     </Reference>
     <Reference Include="Cake.Issues, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Cake.Issues.0.1.0-beta0003\lib\net45\Cake.Issues.dll</HintPath>
+      <HintPath>..\packages\Cake.Issues.0.1.0\lib\net45\Cake.Issues.dll</HintPath>
     </Reference>
     <Reference Include="Cake.Issues.Reporting, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Cake.Issues.Reporting.0.1.0-beta0004\lib\net45\Cake.Issues.Reporting.dll</HintPath>
+      <HintPath>..\packages\Cake.Issues.Reporting.0.1.0-beta0006\lib\net45\Cake.Issues.Reporting.dll</HintPath>
     </Reference>
     <Reference Include="Cake.Issues.Testing, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Cake.Issues.Testing.0.1.0-beta0003\lib\net45\Cake.Issues.Testing.dll</HintPath>
+      <HintPath>..\packages\Cake.Issues.Testing.0.1.0\lib\net45\Cake.Issues.Testing.dll</HintPath>
     </Reference>
-    <Reference Include="Cake.Testing, Version=0.16.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Cake.Testing.0.16.2\lib\net45\Cake.Testing.dll</HintPath>
+    <Reference Include="Cake.Testing, Version=0.22.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Cake.Testing.0.22.0\lib\net46\Cake.Testing.dll</HintPath>
     </Reference>
     <Reference Include="Shouldly, Version=2.8.3.0, Culture=neutral, PublicKeyToken=6042cbcb05cbc941, processorArchitecture=MSIL">
       <HintPath>..\packages\Shouldly.2.8.3\lib\net451\Shouldly.dll</HintPath>
@@ -75,28 +76,30 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HtmlIssueReportFixture.cs" />
-    <Compile Include="HtmlIssueReportFormatSettingsTests.cs" />
-    <Compile Include="HtmlIssueReportGeneratorTests.cs" />
-    <Compile Include="HtmlIssueReportTemplateExtensionsTests.cs" />
+    <Compile Include="GenericIssueReportFixture.cs" />
+    <Compile Include="GenericIssueReportFormatSettingsTests.cs" />
+    <Compile Include="GenericIssueReportGeneratorTests.cs" />
+    <Compile Include="GenericIssueReportTemplateExtensionsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Cake.Issues.Reporting.Html\Cake.Issues.Reporting.Html.csproj">
+    <ProjectReference Include="..\Cake.Issues.Reporting.Generic\Cake.Issues.Reporting.Generic.csproj">
       <Project>{b514788a-8596-41ca-92b6-86199549dc2a}</Project>
-      <Name>Cake.Issues.Reporting.Html</Name>
+      <Name>Cake.Issues.Reporting.Generic</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
     <EmbeddedResource Include="Templates\TestTemplate.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.2\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.2\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
