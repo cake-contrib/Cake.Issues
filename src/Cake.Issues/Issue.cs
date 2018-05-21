@@ -15,10 +15,11 @@
         /// The path needs to be relative to the repository root.
         /// <c>null</c> or <see cref="string.Empty"/> if issue is not related to a change in a file.</param>
         /// <param name="line">The line in the file where the issues has occurred.
-        /// Nothing if the issue affects the whole file or an asssembly.</param>
+        /// <c>null</c> if the issue affects the whole file or an asssembly.</param>
         /// <param name="message">The message of the issue.</param>
         /// <param name="priority">The priority of the message.</param>
-        /// <param name="rule">The rule of the issue.</param>
+        /// <param name="rule">The rule of the issue.
+        /// <see cref="string.Empty"/> if issue has no specific rule ID.</param>
         /// <param name="providerType">The type of the issue provider.</param>
         public Issue(
             string filePath,
@@ -38,11 +39,13 @@
         /// The path needs to be relative to the repository root.
         /// <c>null</c> or <see cref="string.Empty"/> if issue is not related to a change in a file.</param>
         /// <param name="line">The line in the file where the issues has occurred.
-        /// Nothing if the issue affects the whole file or an asssembly.</param>
+        /// <c>null</c> if the issue affects the whole file or an asssembly.</param>
         /// <param name="message">The message of the issue.</param>
         /// <param name="priority">The priority of the message.</param>
-        /// <param name="rule">The rule of the issue.</param>
-        /// <param name="ruleUrl">The URL containing information about the failing rule.</param>
+        /// <param name="rule">The rule of the issue.
+        /// <see cref="string.Empty"/> if issue has no specific rule ID.</param>
+        /// <param name="ruleUrl">The URL containing information about the failing rule.
+        /// <c>null</c> if no URL is available.</param>
         /// <param name="providerType">The type of the issue provider.</param>
         public Issue(
             string filePath,
@@ -59,15 +62,17 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="Issue"/> class.
         /// </summary>
-        /// <param name="project">Name of the project to which the file affected by the issue belongs</param>
+        /// <param name="project">Name of the project to which the file affected by the issue belongs.
+        /// <c>null</c> or <see cref="string.Empty"/> if issue is not related to a project.</param>
         /// <param name="filePath">The path to the file affacted by the issue.
         /// The path needs to be relative to the repository root.
         /// <c>null</c> or <see cref="string.Empty"/> if issue is not related to a change in a file.</param>
         /// <param name="line">The line in the file where the issues has occurred.
-        /// Nothing if the issue affects the whole file or an asssembly.</param>
+        /// <c>null</c> if the issue affects the whole file or an asssembly.</param>
         /// <param name="message">The message of the issue.</param>
         /// <param name="priority">The priority of the message.</param>
-        /// <param name="rule">The rule of the issue.</param>
+        /// <param name="rule">The rule of the issue.
+        /// <see cref="string.Empty"/> if issue has no specific rule ID.</param>
         /// <param name="providerType">The type of the issue provider.</param>
         public Issue(
             string project,
@@ -84,16 +89,19 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="Issue"/> class.
         /// </summary>
-        /// <param name="project">Name of the project to which the file affected by the issue belongs</param>
+        /// <param name="project">Name of the project to which the file affected by the issue belongs.
+        /// <c>null</c> or <see cref="string.Empty"/> if issue is not related to a project.</param>
         /// <param name="filePath">The path to the file affacted by the issue.
         /// The path needs to be relative to the repository root.
         /// <c>null</c> or <see cref="string.Empty"/> if issue is not related to a change in a file.</param>
         /// <param name="line">The line in the file where the issues has occurred.
-        /// Nothing if the issue affects the whole file or an asssembly.</param>
+        /// <c>null</c> if the issue affects the whole file or an asssembly.</param>
         /// <param name="message">The message of the issue.</param>
         /// <param name="priority">The priority of the message.</param>
-        /// <param name="rule">The rule of the issue.</param>
-        /// <param name="ruleUrl">The URL containing information about the failing rule.</param>
+        /// <param name="rule">The rule of the issue.
+        /// <see cref="string.Empty"/> if issue has no specific rule ID.</param>
+        /// <param name="ruleUrl">The URL containing information about the failing rule.
+        /// <c>null</c> if no URL is available.</param>
         /// <param name="providerType">The type of the issue provider.</param>
         public Issue(
             string project,

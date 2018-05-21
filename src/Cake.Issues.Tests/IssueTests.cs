@@ -249,6 +249,7 @@
             }
 
             [Theory]
+            [InlineData("")]
             [InlineData("rule")]
             public void Should_Set_Rule(string rule)
             {
