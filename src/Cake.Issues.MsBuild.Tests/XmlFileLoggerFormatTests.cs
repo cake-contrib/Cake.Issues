@@ -123,7 +123,7 @@
                     issue,
                     @"src\Cake.Issues.MsBuild.Tests\MsBuildIssuesProviderTests.cs",
                     21,
-                    string.Empty,
+                    null,
                     0,
                     @"SA1300 : CSharp.Naming : namespace names begin with an upper-case letter: foo.");
             }

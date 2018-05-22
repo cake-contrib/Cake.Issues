@@ -115,7 +115,7 @@
             var codeAttr = warning.Attribute("code");
             if (codeAttr == null)
             {
-                rule = string.Empty;
+                rule = null;
                 return true;
             }
 
