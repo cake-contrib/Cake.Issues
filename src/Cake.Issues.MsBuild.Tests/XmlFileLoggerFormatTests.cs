@@ -107,6 +107,27 @@
                     "Microsoft.Naming : Rename type name 'UniqueQueue(Of T)' so that it does not end in 'Queue'.");
             }
 
+            [Fact]
+            public void Should_Read_Issue_Without_Code_Correct()
+            {
+                // Given
+                var fixture = new MsBuildIssuesProviderFixture("IssueWithoutCode.xml");
+
+                // When
+                var issues = fixture.ReadIssues().ToList();
+
+                // Then
+                issues.Count.ShouldBe(1);
+                var issue = issues.Single();
+                CheckIssue(
+                    issue,
+                    @"src\Cake.Issues.MsBuild.Tests\MsBuildIssuesProviderTests.cs",
+                    21,
+                    null,
+                    0,
+                    @"SA1300 : CSharp.Naming : namespace names begin with an upper-case letter: foo.");
+            }
+
             private static void CheckIssue(
                 IIssue issue,
                 string affectedFileRelativePath,
