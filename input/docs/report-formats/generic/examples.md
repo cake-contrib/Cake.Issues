@@ -39,7 +39,7 @@ Task("Create-IssueReport").Does(() =>
                 msBuildLogFile,
                 MsBuildXmlFileLoggerFormat)
         },
-        GenericIssueReportFormatFromEmbeddedTemplate(HtmlIssueReportTemplate.HtmlDiagnostic),
+        GenericIssueReportFormatFromEmbeddedTemplate(GenericIssueReportTemplate.HtmlDiagnostic),
         repoRootFolder,
         @"c:\report.html");
 });
