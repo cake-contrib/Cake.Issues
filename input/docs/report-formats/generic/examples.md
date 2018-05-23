@@ -47,6 +47,11 @@ Task("Create-IssueReport").Does(() =>
 
 ## Use custom template
 
+:::{.alert .alert-info}
+If you create a universally usable custom template we're happy to package it with the addin.
+To have it included in the addin please [create a pull request] with your contribution.
+:::
+
 The following example will create a HTML report for issues logged as warnings by MsBuild using a custom template.
 
 ```csharp
@@ -142,3 +147,5 @@ In custom templates functionality from the following assemblies are available:
 * Cake.Issues.dll
 
 :::
+
+[create a pull request]: https://github.com/cake-contrib/Cake.Issues.Reporting.Generic/blob/develop/CONTRIBUTING.md
