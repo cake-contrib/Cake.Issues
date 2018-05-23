@@ -136,9 +136,8 @@ The template retrieves an `IEnumerable<Cake.Issues.IIssue>` as model.
 :::{.alert .alert-info}
 In custom templates functionality from the following assemblies are available:
 
-* mscorlib.dll
 * system.dll
-* system.core.dll
+* netstandard.dll
 * Cake.Core.dll
 * Cake.Issues.dll
 
