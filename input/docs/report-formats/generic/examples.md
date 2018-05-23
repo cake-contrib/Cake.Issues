@@ -39,13 +39,18 @@ Task("Create-IssueReport").Does(() =>
                 msBuildLogFile,
                 MsBuildXmlFileLoggerFormat)
         },
-        GenericIssueReportFormatFromEmbeddedTemplate(HtmlIssueReportTemplate.HtmlDiagnostic),
+        GenericIssueReportFormatFromEmbeddedTemplate(GenericIssueReportTemplate.HtmlDiagnostic),
         repoRootFolder,
         @"c:\report.html");
 });
 ```
 
 ## Use custom template
+
+:::{.alert .alert-info}
+If you create a universally usable custom template we're happy to package it with the addin.
+To have it included in the addin please [create a pull request] with your contribution.
+:::
 
 The following example will create a HTML report for issues logged as warnings by MsBuild using a custom template.
 
@@ -136,10 +141,11 @@ The template retrieves an `IEnumerable<Cake.Issues.IIssue>` as model.
 :::{.alert .alert-info}
 In custom templates functionality from the following assemblies are available:
 
-* mscorlib.dll
 * system.dll
-* system.core.dll
+* netstandard.dll
 * Cake.Core.dll
 * Cake.Issues.dll
 
 :::
+
+[create a pull request]: https://github.com/cake-contrib/Cake.Issues.Reporting.Generic/blob/develop/CONTRIBUTING.md
