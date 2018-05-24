@@ -5,7 +5,7 @@
     <Description>EsLint support for the Cake.Issues Addin for Cake Build Automation System</Description>
     <Authors>BBT Software AG</Authors>
     <Company>BBT Software AG</Company>
-    <Copyright>Copyright © 2017 BBT Software AG and contributors</Copyright>
+    <Copyright>Copyright © BBT Software AG and contributors</Copyright>
     <Product>Cake.Issues</Product>
   </PropertyGroup>
 
