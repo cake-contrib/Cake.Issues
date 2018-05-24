@@ -1,10 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp2.0;net46</TargetFrameworks>
+    <TargetFrameworks>netcoreapp2.0</TargetFrameworks>
     <IsPackable>false</IsPackable>
     <Product>Cake.Issues</Product>
-    <Copyright>Copyright © 2017 BBT Software AG and contributors</Copyright>
+    <Copyright>Copyright © BBT Software AG and contributors</Copyright>
     <Description>Tests for the Cake.Issues.EsLint addin</Description>
     <Authors>BBT Software AG</Authors>
     <Company>BBT Software AG</Company>
@@ -27,11 +27,11 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.0.0" />
-    <PackageReference Include="Cake.Core" Version="0.22.0" />
-    <PackageReference Include="Cake.Testing" Version="0.22.0" />
-    <PackageReference Include="Cake.Issues" Version="0.2.0-beta0002" />
-    <PackageReference Include="Cake.Issues.Testing" Version="0.2.0-beta0002" />
-    <PackageReference Include="Shouldly" Version="2.8.3" />
+    <PackageReference Include="Cake.Core" Version="0.26.0" />
+    <PackageReference Include="Cake.Testing" Version="0.26.0" />
+    <PackageReference Include="Cake.Issues" Version="0.2.0" />
+    <PackageReference Include="Cake.Issues.Testing" Version="0.2.0" />
+    <PackageReference Include="Shouldly" Version="3.0.0" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.0.2" />
     <PackageReference Include="xunit" Version="2.3.1" />
     <PackageReference Include="xunit.abstractions" Version="2.0.1" />
