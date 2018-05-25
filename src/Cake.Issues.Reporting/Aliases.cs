@@ -28,7 +28,7 @@
         ///         InspectCodeIssuesFromFilePath(
         ///             @"C:\build\inspectcode.log",
         ///             MsBuildXmlFileLoggerFormat),
-        ///         HtmlIssueReportFormatFromEmbeddedTemplate(HtmlIssueReportTemplate.Diagnostic),
+        ///         GenericIssueReportFormatFromEmbeddedTemplate(GenericIssueReportTemplate.HtmlDiagnostic),
         ///         @"c:\repo",
         ///         @"c:\report.html");
         /// ]]>
@@ -78,7 +78,7 @@
         ///         InspectCodeIssuesFromFilePath(
         ///             @"C:\build\inspectcode.log",
         ///             MsBuildXmlFileLoggerFormat),
-        ///         HtmlIssueReportFormatFromEmbeddedTemplate(HtmlIssueReportTemplate.Diagnostic),
+        ///         GenericIssueReportFormatFromEmbeddedTemplate(GenericIssueReportTemplate.HtmlDiagnostic),
         ///         settings);
         /// ]]>
         /// </code>
@@ -124,7 +124,7 @@
         ///                 @"C:\build\inspectcode.log",
         ///                 MsBuildXmlFileLoggerFormat)
         ///         },
-        ///         HtmlIssueReportFormatFromEmbeddedTemplate(HtmlIssueReportTemplate.Diagnostic),
+        ///         GenericIssueReportFormatFromEmbeddedTemplate(GenericIssueReportTemplate.HtmlDiagnostic),
         ///         @"c:\repo",
         ///         @"c:\report.html");
         /// ]]>
@@ -181,7 +181,7 @@
         ///                 @"C:\build\inspectcode.log",
         ///                 MsBuildXmlFileLoggerFormat)
         ///         },
-        ///         HtmlIssueReportFormatFromEmbeddedTemplate(HtmlIssueReportTemplate.Diagnostic),
+        ///         GenericIssueReportFormatFromEmbeddedTemplate(GenericIssueReportTemplate.HtmlDiagnostic),
         ///         settings);
         /// ]]>
         /// </code>
@@ -221,7 +221,7 @@
         /// <![CDATA[
         ///     CreateIssueReport(
         ///         issues,
-        ///         HtmlIssueReportFormatFromEmbeddedTemplate(HtmlIssueReportTemplate.Diagnostic),
+        ///         GenericIssueReportFormatFromEmbeddedTemplate(GenericIssueReportTemplate.HtmlDiagnostic),
         ///         @"c:\repo",
         ///         @"c:\report.html");
         /// ]]>
@@ -270,7 +270,7 @@
         ///
         ///     CreateIssueReport(
         ///         issues,
-        ///         HtmlIssueReportFormatFromEmbeddedTemplate(HtmlIssueReportTemplate.Diagnostic),
+        ///         GenericIssueReportFormatFromEmbeddedTemplate(GenericIssueReportTemplate.HtmlDiagnostic),
         ///         settings);
         /// ]]>
         /// </code>
