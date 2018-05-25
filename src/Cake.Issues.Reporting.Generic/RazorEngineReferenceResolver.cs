@@ -25,6 +25,7 @@
 
             // All assemblies which can be used inside the templates need to be listed here.
             yield return CompilerReference.From(this.FindLoaded(loadedAssemblies, "System.dll"));
+            yield return CompilerReference.From(this.FindLoaded(loadedAssemblies, "System.Core.dll"));
             yield return CompilerReference.From(this.FindLoaded(loadedAssemblies, "netstandard.dll"));
             yield return CompilerReference.From(this.FindLoaded(loadedAssemblies, "Cake.Core.dll"));
             yield return CompilerReference.From(this.FindLoaded(loadedAssemblies, "Cake.Issues.dll"));
