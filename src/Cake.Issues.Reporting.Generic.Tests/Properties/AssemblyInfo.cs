@@ -7,9 +7,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Cake.Issues.Reporting.Generic.Tests")]
 [assembly: AssemblyDescription("Tests for the Cake.Issues.Reporting.Generic addin")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("BBT Software AG")]
+[assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Cake.Issues")]
-[assembly: AssemblyCopyright("Copyright © 2017 BBT Software AG and contributors")]
+[assembly: AssemblyCopyright("Copyright © Pascal Berger and contributors")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

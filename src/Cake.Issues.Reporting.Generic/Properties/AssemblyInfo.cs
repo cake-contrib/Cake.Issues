@@ -9,9 +9,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Cake.Issues.Reporting.Generic")]
 [assembly: AssemblyDescription("Support for creating issue reports in any text based format (HTML, Markdown, ...) from the Cake.Issues Addin for Cake Build Automation System")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("BBT Software AG")]
+[assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Cake.Issues")]
-[assembly: AssemblyCopyright("Copyright © 2017 BBT Software AG and contributors")]
+[assembly: AssemblyCopyright("Copyright © Pascal Berger and contributors")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
