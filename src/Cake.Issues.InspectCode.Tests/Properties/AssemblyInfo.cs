@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("BBT Software AG")]
 [assembly: AssemblyProduct("Cake.Issues")]
-[assembly: AssemblyCopyright("Copyright © 2017 BBT Software AG and contributors")]
+[assembly: AssemblyCopyright("Copyright © BBT Software AG and contributors")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
