@@ -84,6 +84,7 @@
   <ItemGroup>
     <None Include="FodyWeavers.xml" />
     <None Include="packages.config" />
+    <EmbeddedResource Include="Templates\DataTable.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\packages\Microsoft.CodeQuality.Analyzers.2.6.0\analyzers\dotnet\cs\Microsoft.CodeQuality.Analyzers.dll" />
