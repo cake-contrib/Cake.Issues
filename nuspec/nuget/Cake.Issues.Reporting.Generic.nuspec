@@ -19,9 +19,9 @@ See the Project Site for an overview of the whole ecosystem of addins for workin
     <projectUrl>http://cake-contrib.github.io/Cake.Issues.Website</projectUrl>
     <iconUrl>https://cdn.rawgit.com/cake-contrib/graphics/a5cf0f881c390650144b2243ae551d5b9f836196/png/cake-contrib-medium.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <copyright>Copyright © 2017 Pascal Berger</copyright>
+    <copyright>Copyright © Pascal Berger</copyright>
     <tags>Cake Script Cake-Issues Cake-ReportFormat Issues Reporting Html Markdown</tags>
-    <releaseNotes>https://github.com/cake-contrib/Cake.Issues.Reporting.Generic/releases/tag/0.1.0</releaseNotes>
+    <releaseNotes>https://github.com/cake-contrib/Cake.Issues.Reporting.Generic/releases/tag/0.2.0</releaseNotes>
   </metadata>
   <files>
     <file src="Cake.Issues.Reporting.Generic.dll" target="lib\net45" />

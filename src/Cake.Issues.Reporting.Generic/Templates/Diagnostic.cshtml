@@ -11,6 +11,7 @@
     <table>
         <thead>
             <tr>
+                <th scope="col">Project</th>
                 <th scope="col">AffectedFileRelativePath</th>
                 <th scope="col">Line</th>
                 <th scope="col">Message</th>
@@ -23,15 +24,16 @@
         <tbody>
             @foreach (var issue in Model)
             {
-                <tr>
-                    <td>@issue.AffectedFileRelativePath</td>
-                    <td>@issue.Line</td>
-                    <td>@issue.Message</td>
-                    <td>@issue.Priority</td>
-                    <td>@issue.Rule</td>
-                    <td>@issue.RuleUrl</td>
-                    <td>@issue.ProviderType</td>
-                </tr>
+            <tr>
+                <td>@issue.Project</td>
+                <td>@issue.AffectedFileRelativePath</td>
+                <td>@issue.Line</td>
+                <td>@issue.Message</td>
+                <td>@issue.Priority</td>
+                <td>@issue.Rule</td>
+                <td>@issue.RuleUrl</td>
+                <td>@issue.ProviderType</td>
+            </tr>
             }
         </tbody>
     </table>
