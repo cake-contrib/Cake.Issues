@@ -19,6 +19,9 @@
                 case GenericIssueReportTemplate.HtmlDiagnostic:
                     return "Diagnostic.cshtml";
 
+                case GenericIssueReportTemplate.HtmlDataTable:
+                    return "DataTable.cshtml";
+
                 default:
                     throw new ArgumentOutOfRangeException(nameof(template));
             }
