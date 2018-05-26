@@ -24,12 +24,12 @@ See the Project Site for an overview of the whole ecosystem of addins for workin
     <releaseNotes>https://github.com/cake-contrib/Cake.Issues.Reporting.Generic/releases/tag/0.2.1</releaseNotes>
   </metadata>
   <files>
-    <file src="Cake.Issues.Reporting.Generic.dll" target="lib\net45" />
-    <file src="Cake.Issues.Reporting.Generic.pdb" target="lib\net45" />
-    <file src="Cake.Issues.Reporting.Generic.xml" target="lib\net45" />
-    <file src="RazorEngine.dll" target="lib\net45" />
-    <file src="RazorEngine.xml" target="lib\net45" />
-    <file src="System.Web.Razor.dll" target="lib\net45" />
-    <file src="System.Web.Razor.xml" target="lib\net45" />
+    <file src="Cake.Issues.Reporting.Generic.dll" target="lib\net46" />
+    <file src="Cake.Issues.Reporting.Generic.pdb" target="lib\net46" />
+    <file src="Cake.Issues.Reporting.Generic.xml" target="lib\net46" />
+    <file src="RazorEngine.dll" target="lib\net46" />
+    <file src="RazorEngine.xml" target="lib\net46" />
+    <file src="System.Web.Razor.dll" target="lib\net46" />
+    <file src="System.Web.Razor.xml" target="lib\net46" />
   </files>
 </package>
