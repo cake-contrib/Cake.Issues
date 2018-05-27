@@ -3,7 +3,7 @@ Order: 10
 Title: HTML Data Table
 Description: Template for a HTML report containing a rich data table view with sorting and search functionality.
 ---
-Template for a HTML report containing a rich data table view with sorting and search functionality.
+Template for a HTML report containing a rich data table view with sorting and search functionality powered by [Vanilla-DataTables].
 
 ## Features
 
@@ -16,3 +16,5 @@ Template for a HTML report containing a rich data table view with sorting and se
 ## Screenshots
 
 ![HTML Data Table](htmldatatable01.png "HTML Data Table")
+
+[Vanilla-DataTables]: https://github.com/Mobius1/Vanilla-DataTables
