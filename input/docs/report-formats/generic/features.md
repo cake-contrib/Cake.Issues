@@ -9,4 +9,9 @@ The [Cake.Issues.Reporting.Generic addin] provides the following features:
 * Provides out of the box templates
 * Possibility to use custom templates using Razor
 
+:::{.alert .alert-info}
+See [Template Gallery] for a list of available out of the box and 3rd party templates.
+:::
+
 [Cake.Issues.Reporting.Generic addin]: https://www.nuget.org/packages/Cake.Issues.Reporting.Generic
+[Template Gallery]: templates/
