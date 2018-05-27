@@ -50,6 +50,9 @@
         public IssueCommentFormat Format { get; private set; }
 
         /// <inheritdoc/>
+        public override string ProviderName => "Fake Issue Provider";
+
+        /// <inheritdoc/>
         protected override IEnumerable<IIssue> InternalReadIssues(IssueCommentFormat format)
         {
             this.Format = format;

@@ -21,14 +21,16 @@
         /// <param name="rule">The rule of the issue.
         /// <c>null</c> or <see cref="string.Empty"/> if issue has no specific rule ID.</param>
         /// <param name="providerType">The type of the issue provider.</param>
+        /// <param name="providerName">The human friendly name of the issue provider.</param>
         public Issue(
             string filePath,
             int? line,
             string message,
             int priority,
             string rule,
-            string providerType)
-            : this(filePath, line, message, priority, rule, null, providerType)
+            string providerType,
+            string providerName)
+            : this(filePath, line, message, priority, rule, null, providerType, providerName)
         {
         }
 
@@ -47,6 +49,7 @@
         /// <param name="ruleUrl">The URL containing information about the failing rule.
         /// <c>null</c> if no URL is available.</param>
         /// <param name="providerType">The type of the issue provider.</param>
+        /// <param name="providerName">The human friendly name of the issue provider.</param>
         public Issue(
             string filePath,
             int? line,
@@ -54,8 +57,9 @@
             int priority,
             string rule,
             Uri ruleUrl,
-            string providerType)
-            : this(null, filePath, line, message, priority, rule, ruleUrl, providerType)
+            string providerType,
+            string providerName)
+            : this(null, filePath, line, message, priority, rule, ruleUrl, providerType, providerName)
         {
         }
 
@@ -74,6 +78,7 @@
         /// <param name="rule">The rule of the issue.
         /// <c>null</c> or <see cref="string.Empty"/> if issue has no specific rule ID.</param>
         /// <param name="providerType">The type of the issue provider.</param>
+        /// <param name="providerName">The human friendly name of the issue provider.</param>
         public Issue(
             string project,
             string filePath,
@@ -81,8 +86,9 @@
             string message,
             int priority,
             string rule,
-            string providerType)
-            : this(project, filePath, line, message, priority, rule, null, providerType)
+            string providerType,
+            string providerName)
+            : this(project, filePath, line, message, priority, rule, null, providerType, providerName)
         {
         }
 
@@ -103,6 +109,7 @@
         /// <param name="ruleUrl">The URL containing information about the failing rule.
         /// <c>null</c> if no URL is available.</param>
         /// <param name="providerType">The type of the issue provider.</param>
+        /// <param name="providerName">The human friendly name of the issue provider.</param>
         public Issue(
             string project,
             string filePath,
@@ -111,11 +118,13 @@
             int priority,
             string rule,
             Uri ruleUrl,
-            string providerType)
+            string providerType,
+            string providerName)
         {
             line?.NotNegativeOrZero(nameof(line));
             message.NotNullOrWhiteSpace(nameof(message));
             providerType.NotNullOrWhiteSpace(nameof(providerType));
+            providerName.NotNullOrWhiteSpace(nameof(providerName));
 
             // File path needs to be relative to the repository root.
             if (!string.IsNullOrWhiteSpace(filePath))
@@ -145,6 +154,7 @@
             this.Rule = rule;
             this.RuleUrl = ruleUrl;
             this.ProviderType = providerType;
+            this.ProviderName = providerName;
         }
 
         /// <inheritdoc/>
@@ -170,5 +180,8 @@
 
         /// <inheritdoc/>
         public string ProviderType { get; }
+
+        /// <inheritdoc/>
+        public string ProviderName { get; }
     }
 }

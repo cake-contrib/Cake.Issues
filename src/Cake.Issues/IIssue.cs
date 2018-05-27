@@ -53,5 +53,10 @@
         /// Gets the type of the issue provider.
         /// </summary>
         string ProviderType { get; }
+
+        /// <summary>
+        /// Gets the human friendly name of the issue provider.
+        /// </summary>
+        string ProviderName { get; }
     }
 }
