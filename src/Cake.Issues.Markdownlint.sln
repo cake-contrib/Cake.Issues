@@ -14,7 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{CE25C309
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nuspec", "nuspec", "{0E6A55DD-0E2C-42C5-9444-F5F894A0A11E}"
 	ProjectSection(SolutionItems) = preProject
-		..\nuspec\Cake.Issues.Markdownlint.nuspec = ..\nuspec\Cake.Issues.Markdownlint.nuspec
+		..\nuspec\nuget\Cake.Issues.Markdownlint.nuspec = ..\nuspec\nuget\Cake.Issues.Markdownlint.nuspec
 	EndProjectSection
 EndProject
 Global
