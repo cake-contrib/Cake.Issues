@@ -1,6 +1,7 @@
-﻿namespace Cake.Issues.Markdownlint.Tests
+﻿namespace Cake.Issues.Markdownlint.Tests.Markdownlint
 {
     using System.Linq;
+    using Cake.Issues.Markdownlint.Markdownlint;
     using Cake.Testing;
     using Core.IO;
     using Shouldly;
