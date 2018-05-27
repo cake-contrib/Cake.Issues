@@ -1,14 +1,15 @@
-﻿namespace Cake.Issues.Markdownlint.Tests
+﻿namespace Cake.Issues.Markdownlint.Tests.MarkdownlintCli
 {
     using System;
     using System.IO;
     using System.Linq;
     using System.Text;
+    using Cake.Issues.Markdownlint.MarkdownlintCli;
     using Shouldly;
     using Testing;
     using Xunit;
 
-    public sealed class MarkdownlintIssuesSettingsTests
+    public sealed class MarkdownlintCliIssuesSettingsTests
     {
         public sealed class TheCtor
         {
@@ -17,7 +18,7 @@
             {
                 // Given / When
                 var result = Record.Exception(() =>
-                    MarkdownlintIssuesSettings.FromFilePath(null));
+                    MarkdownlintCliIssuesSettings.FromFilePath(null));
 
                 // Then
                 result.IsArgumentNullException("logFilePath");
@@ -28,7 +29,7 @@
             {
                 // Given / When
                 var result = Record.Exception(() =>
-                    MarkdownlintIssuesSettings.FromContent(null));
+                    MarkdownlintCliIssuesSettings.FromContent(null));
 
                 // Then
                 result.IsArgumentNullException("logFileContent");
@@ -39,7 +40,7 @@
             {
                 // Given / When
                 var result = Record.Exception(() =>
-                    MarkdownlintIssuesSettings.FromContent(string.Empty));
+                    MarkdownlintCliIssuesSettings.FromContent(string.Empty));
 
                 // Then
                 result.IsArgumentOutOfRangeException("logFileContent");
@@ -50,7 +51,7 @@
             {
                 // Given / When
                 var result = Record.Exception(() =>
-                    MarkdownlintIssuesSettings.FromContent(" "));
+                    MarkdownlintCliIssuesSettings.FromContent(" "));
 
                 // Then
                 result.IsArgumentOutOfRangeException("logFileContent");
@@ -63,7 +64,7 @@
                 const string logFileContent = "foo";
 
                 // When
-                var settings = MarkdownlintIssuesSettings.FromContent(logFileContent);
+                var settings = MarkdownlintCliIssuesSettings.FromContent(logFileContent);
 
                 // Then
                 settings.LogFileContent.ShouldBe(logFileContent);
@@ -78,7 +79,7 @@
                     // Given
                     string expected;
                     using (var ms = new MemoryStream())
-                    using (var stream = this.GetType().Assembly.GetManifestResourceStream("Cake.Issues.Markdownlint.Tests.Testfiles.markdownlint.json"))
+                    using (var stream = this.GetType().Assembly.GetManifestResourceStream("Cake.Issues.Markdownlint.Tests.Testfiles.markdownlint-cli.log"))
                     {
                         stream.CopyTo(ms);
                         var data = ms.ToArray();
@@ -88,12 +89,12 @@
                             file.Write(data, 0, data.Length);
                         }
 
-                        expected = ConvertFromUtf8(data);
+                        expected = Encoding.UTF8.GetString(data);
                     }
 
                     // When
                     var settings =
-                        MarkdownlintIssuesSettings.FromFilePath(fileName);
+                        MarkdownlintCliIssuesSettings.FromFilePath(fileName);
 
                     // Then
                     settings.LogFileContent.ShouldBe(expected);
@@ -105,19 +106,6 @@
                         File.Delete(fileName);
                     }
                 }
-            }
-
-            private static string ConvertFromUtf8(byte[] bytes)
-            {
-                var enc = new UTF8Encoding(true);
-                var preamble = enc.GetPreamble();
-
-                if (preamble.Where((p, i) => p != bytes[i]).Any())
-                {
-                    throw new ArgumentException("Not utf8-BOM");
-                }
-
-                return enc.GetString(bytes.Skip(preamble.Length).ToArray());
             }
         }
     }

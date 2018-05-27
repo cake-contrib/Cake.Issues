@@ -74,9 +74,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MarkdownlintIssuesProviderFixture.cs" />
-    <Compile Include="MarkdownlintIssuesProviderTests.cs" />
-    <Compile Include="MarkdownlintIssuesSettingsTests.cs" />
+    <Compile Include="MarkdownlintCli\MarkdownlintCliIssuesProviderFixture.cs" />
+    <Compile Include="MarkdownlintCli\MarkdownlintCliIssuesProviderTests.cs" />
+    <Compile Include="MarkdownlintCli\MarkdownlintCliIssuesSettingsTests.cs" />
+    <Compile Include="Markdownlint\MarkdownlintIssuesProviderFixture.cs" />
+    <Compile Include="Markdownlint\MarkdownlintIssuesProviderTests.cs" />
+    <Compile Include="Markdownlint\MarkdownlintIssuesSettingsTests.cs" />
     <Compile Include="MarkdownlintRuleUrlResolverTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -94,12 +97,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <EmbeddedResource Include="Testfiles\markdownlint-cli.log" />
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.2\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.2\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
     <Analyzer Include="..\packages\xunit.analyzers.0.8.0\analyzers\dotnet\cs\xunit.analyzers.dll" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
