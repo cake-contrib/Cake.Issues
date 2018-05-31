@@ -108,10 +108,12 @@
                             new Issue(
                                 @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
                                 10,
-                                "Foo",
+                                "Message",
                                 0,
-                                "Foo",
-                                "Foo")
+                                "Warning",
+                                "Rule",
+                                "ProviderType",
+                                "ProviderName")
                         },
                         new Dictionary<IIssue, IEnumerable<IPullRequestDiscussionComment>>()));
 
