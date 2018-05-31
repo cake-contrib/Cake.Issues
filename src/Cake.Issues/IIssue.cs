@@ -38,6 +38,11 @@
         int Priority { get; }
 
         /// <summary>
+        /// Gets the human friendly name of the priority.
+        /// </summary>
+        string PriorityName { get; }
+
+        /// <summary>
         /// Gets the rule of the issue.
         /// Can be <c>null</c> or <see cref="string.Empty"/> if the issue provider provides no rule.
         /// </summary>

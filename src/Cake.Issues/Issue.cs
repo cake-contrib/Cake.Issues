@@ -18,6 +18,7 @@
         /// <c>null</c> if the issue affects the whole file or an asssembly.</param>
         /// <param name="message">The message of the issue.</param>
         /// <param name="priority">The priority of the message.</param>
+        /// <param name="priorityName">The human friendly name of the priority.</param>
         /// <param name="rule">The rule of the issue.
         /// <c>null</c> or <see cref="string.Empty"/> if issue has no specific rule ID.</param>
         /// <param name="providerType">The type of the issue provider.</param>
@@ -27,10 +28,11 @@
             int? line,
             string message,
             int priority,
+            string priorityName,
             string rule,
             string providerType,
             string providerName)
-            : this(filePath, line, message, priority, rule, null, providerType, providerName)
+            : this(filePath, line, message, priority, priorityName, rule, null, providerType, providerName)
         {
         }
 
@@ -44,6 +46,7 @@
         /// <c>null</c> if the issue affects the whole file or an asssembly.</param>
         /// <param name="message">The message of the issue.</param>
         /// <param name="priority">The priority of the message.</param>
+        /// <param name="priorityName">The human friendly name of the priority.</param>
         /// <param name="rule">The rule of the issue.
         /// <c>null</c> or <see cref="string.Empty"/> if issue has no specific rule ID.</param>
         /// <param name="ruleUrl">The URL containing information about the failing rule.
@@ -55,11 +58,12 @@
             int? line,
             string message,
             int priority,
+            string priorityName,
             string rule,
             Uri ruleUrl,
             string providerType,
             string providerName)
-            : this(null, filePath, line, message, priority, rule, ruleUrl, providerType, providerName)
+            : this(null, filePath, line, message, priority, priorityName, rule, ruleUrl, providerType, providerName)
         {
         }
 
@@ -75,6 +79,7 @@
         /// <c>null</c> if the issue affects the whole file or an asssembly.</param>
         /// <param name="message">The message of the issue.</param>
         /// <param name="priority">The priority of the message.</param>
+        /// <param name="priorityName">The human friendly name of the priority.</param>
         /// <param name="rule">The rule of the issue.
         /// <c>null</c> or <see cref="string.Empty"/> if issue has no specific rule ID.</param>
         /// <param name="providerType">The type of the issue provider.</param>
@@ -85,10 +90,11 @@
             int? line,
             string message,
             int priority,
+            string priorityName,
             string rule,
             string providerType,
             string providerName)
-            : this(project, filePath, line, message, priority, rule, null, providerType, providerName)
+            : this(project, filePath, line, message, priority, priorityName, rule, null, providerType, providerName)
         {
         }
 
@@ -104,6 +110,7 @@
         /// <c>null</c> if the issue affects the whole file or an asssembly.</param>
         /// <param name="message">The message of the issue.</param>
         /// <param name="priority">The priority of the message.</param>
+        /// <param name="priorityName">The human friendly name of the priority.</param>
         /// <param name="rule">The rule of the issue.
         /// <c>null</c> or <see cref="string.Empty"/> if issue has no specific rule ID.</param>
         /// <param name="ruleUrl">The URL containing information about the failing rule.
@@ -116,6 +123,7 @@
             int? line,
             string message,
             int priority,
+            string priorityName,
             string rule,
             Uri ruleUrl,
             string providerType,
@@ -123,6 +131,7 @@
         {
             line?.NotNegativeOrZero(nameof(line));
             message.NotNullOrWhiteSpace(nameof(message));
+            priorityName.NotNullOrWhiteSpace(nameof(priorityName));
             providerType.NotNullOrWhiteSpace(nameof(providerType));
             providerName.NotNullOrWhiteSpace(nameof(providerName));
 
@@ -151,6 +160,7 @@
             this.Line = line;
             this.Message = message;
             this.Priority = priority;
+            this.PriorityName = priorityName;
             this.Rule = rule;
             this.RuleUrl = ruleUrl;
             this.ProviderType = providerType;
@@ -171,6 +181,9 @@
 
         /// <inheritdoc/>
         public int Priority { get; }
+
+        /// <inheritdoc/>
+        public string PriorityName { get; }
 
         /// <inheritdoc/>
         public string Rule { get; }

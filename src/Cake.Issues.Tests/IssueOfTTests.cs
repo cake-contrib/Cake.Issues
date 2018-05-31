@@ -21,7 +21,7 @@
                 // When
                 var result =
                     Record.Exception(() =>
-                        new Issue<FakeIssueProvider>(issueProvider, filePath, 100, "Foo", 1, "Bar"));
+                        new Issue<FakeIssueProvider>(issueProvider, filePath, 100, "Foo", 1, "Warning", "Bar"));
 
                 // Then
                 result.IsArgumentException("filePath");
@@ -40,7 +40,7 @@
                 // When
                 var result =
                     Record.Exception(() =>
-                        new Issue<FakeIssueProvider>(issueProvider, filePath, 100, "Foo", 1, "Bar"));
+                        new Issue<FakeIssueProvider>(issueProvider, filePath, 100, "Foo", 1, "Warning", "Bar"));
 
                 // Then
                 result.IsArgumentOutOfRangeException("filePath");
@@ -56,7 +56,7 @@
                 // When
                 var result =
                     Record.Exception(() =>
-                        new Issue<FakeIssueProvider>(issueProvider, @"src\foo.cs", -1, "Foo", 1, "Bar"));
+                        new Issue<FakeIssueProvider>(issueProvider, @"src\foo.cs", -1, "Foo", 1, "Warning", "Bar"));
 
                 // Then
                 result.IsArgumentOutOfRangeException("line");
@@ -72,7 +72,7 @@
                 // When
                 var result =
                     Record.Exception(() =>
-                        new Issue<FakeIssueProvider>(issueProvider, @"src\foo.cs", 0, "Foo", 1, "Bar"));
+                        new Issue<FakeIssueProvider>(issueProvider, @"src\foo.cs", 0, "Foo", 1, "Warning", "Bar"));
 
                 // Then
                 result.IsArgumentOutOfRangeException("line");
@@ -88,7 +88,7 @@
                 // When
                 var result =
                     Record.Exception(() =>
-                        new Issue<FakeIssueProvider>(issueProvider, null, 10, "Foo", 1, "Bar"));
+                        new Issue<FakeIssueProvider>(issueProvider, null, 10, "Foo", 1, "Warning", "Bar"));
 
                 // Then
                 result.IsArgumentOutOfRangeException("line");
@@ -104,7 +104,7 @@
                 // When
                 var result =
                     Record.Exception(() =>
-                        new Issue<FakeIssueProvider>(issueProvider, @"src\foo.cs", 100, null, 1, "Bar"));
+                        new Issue<FakeIssueProvider>(issueProvider, @"src\foo.cs", 100, null, 1, "Warning", "Bar"));
 
                 // Then
                 result.IsArgumentNullException("message");
@@ -120,7 +120,7 @@
                 // When
                 var result =
                     Record.Exception(() =>
-                        new Issue<FakeIssueProvider>(issueProvider, @"src\foo.cs", 100, string.Empty, 1, "Bar"));
+                        new Issue<FakeIssueProvider>(issueProvider, @"src\foo.cs", 100, string.Empty, 1, "Warning", "Bar"));
 
                 // Then
                 result.IsArgumentOutOfRangeException("message");
@@ -136,10 +136,58 @@
                 // When
                 var result =
                     Record.Exception(() =>
-                        new Issue<FakeIssueProvider>(issueProvider, @"src\foo.cs", 100, " ", 1, "Bar"));
+                        new Issue<FakeIssueProvider>(issueProvider, @"src\foo.cs", 100, " ", 1, "Warning", "Bar"));
 
                 // Then
                 result.IsArgumentOutOfRangeException("message");
+            }
+
+            [Fact]
+            public void Should_Throw_If_Priority_Name_Is_Null()
+            {
+                // Given
+                var fixture = new IssuesFixture();
+                var issueProvider = fixture.IssueProviders.OfType<FakeIssueProvider>().Single();
+
+                // When
+                var result =
+                    Record.Exception(() =>
+                        new Issue<FakeIssueProvider>(issueProvider, @"src\foo.cs", 100, "Message", 1, null, "Bar"));
+
+                // Then
+                result.IsArgumentNullException("priorityName");
+            }
+
+            [Fact]
+            public void Should_Throw_If_Priority_Name_Is_Empty()
+            {
+                // Given
+                var fixture = new IssuesFixture();
+                var issueProvider = fixture.IssueProviders.OfType<FakeIssueProvider>().Single();
+
+                // When
+                var result =
+                    Record.Exception(() =>
+                        new Issue<FakeIssueProvider>(issueProvider, @"src\foo.cs", 100, "Message", 1, string.Empty, "Bar"));
+
+                // Then
+                result.IsArgumentOutOfRangeException("priorityName");
+            }
+
+            [Fact]
+            public void Should_Throw_If_Priority_Name_Is_WhiteSpace()
+            {
+                // Given
+                var fixture = new IssuesFixture();
+                var issueProvider = fixture.IssueProviders.OfType<FakeIssueProvider>().Single();
+
+                // When
+                var result =
+                    Record.Exception(() =>
+                        new Issue<FakeIssueProvider>(issueProvider, @"src\foo.cs", 100, "Message", 1, " ", "Bar"));
+
+                // Then
+                result.IsArgumentOutOfRangeException("priorityName");
             }
 
             [Fact]
@@ -150,7 +198,7 @@
                 var issueProvider = fixture.IssueProviders.OfType<FakeIssueProvider>().Single();
 
                 // When
-                var issue = new Issue<FakeIssueProvider>(issueProvider, null, @"src\foo.cs", null, "Foo", 1, "Bar");
+                var issue = new Issue<FakeIssueProvider>(issueProvider, null, @"src\foo.cs", null, "Foo", 1, "Warning", "Bar");
 
                 // Then
                 issue.Project.ShouldBe(null);
@@ -164,7 +212,7 @@
                 var issueProvider = fixture.IssueProviders.OfType<FakeIssueProvider>().Single();
 
                 // When
-                var issue = new Issue<FakeIssueProvider>(issueProvider, " ", @"src\foo.cs", null, "Foo", 1, "Bar");
+                var issue = new Issue<FakeIssueProvider>(issueProvider, " ", @"src\foo.cs", null, "Foo", 1, "Warning", "Bar");
 
                 // Then
                 issue.Project.ShouldBe(" ");
@@ -178,7 +226,7 @@
                 var issueProvider = fixture.IssueProviders.OfType<FakeIssueProvider>().Single();
 
                 // When
-                var issue = new Issue<FakeIssueProvider>(issueProvider, string.Empty, @"src\foo.cs", null, "Foo", 1, "Bar");
+                var issue = new Issue<FakeIssueProvider>(issueProvider, string.Empty, @"src\foo.cs", null, "Foo", 1, "Warning", "Bar");
 
                 // Then
                 issue.Project.ShouldBe(string.Empty);
@@ -193,7 +241,7 @@
                 var issueProvider = fixture.IssueProviders.OfType<FakeIssueProvider>().Single();
 
                 // When
-                var issue = new Issue<FakeIssueProvider>(issueProvider, project, @"src\foo.cs", null, "Foo", 1, "Bar");
+                var issue = new Issue<FakeIssueProvider>(issueProvider, project, @"src\foo.cs", null, "Foo", 1, "Warning", "Bar");
 
                 // Then
                 issue.Project.ShouldBe(project);
@@ -207,7 +255,7 @@
                 var issueProvider = fixture.IssueProviders.OfType<FakeIssueProvider>().Single();
 
                 // When
-                var issue = new Issue<FakeIssueProvider>(issueProvider, null, null, "Foo", 1, "Bar");
+                var issue = new Issue<FakeIssueProvider>(issueProvider, null, null, "Foo", 1, "Warning", "Bar");
 
                 // Then
                 issue.AffectedFileRelativePath.ShouldBe(null);
@@ -221,7 +269,7 @@
                 var issueProvider = fixture.IssueProviders.OfType<FakeIssueProvider>().Single();
 
                 // When
-                var issue = new Issue<FakeIssueProvider>(issueProvider, string.Empty, null, "Foo", 1, "Bar");
+                var issue = new Issue<FakeIssueProvider>(issueProvider, string.Empty, null, "Foo", 1, "Warning", "Bar");
 
                 // Then
                 issue.AffectedFileRelativePath.ShouldBe(null);
@@ -235,7 +283,7 @@
                 var issueProvider = fixture.IssueProviders.OfType<FakeIssueProvider>().Single();
 
                 // When
-                var issue = new Issue<FakeIssueProvider>(issueProvider, " ", null, "Foo", 1, "Bar");
+                var issue = new Issue<FakeIssueProvider>(issueProvider, " ", null, "Foo", 1, "Warning", "Bar");
 
                 // Then
                 issue.AffectedFileRelativePath.ShouldBe(null);
@@ -258,7 +306,7 @@
                 var issueProvider = fixture.IssueProviders.OfType<FakeIssueProvider>().Single();
 
                 // When
-                var issue = new Issue<FakeIssueProvider>(issueProvider, filePath, 100, "Foo", 1, "Bar");
+                var issue = new Issue<FakeIssueProvider>(issueProvider, filePath, 100, "Foo", 1, "Warning", "Bar");
 
                 // Then
                 issue.AffectedFileRelativePath.ToString().ShouldBe(expectedFilePath);
@@ -276,7 +324,7 @@
                 var issueProvider = fixture.IssueProviders.OfType<FakeIssueProvider>().Single();
 
                 // When
-                var issue = new Issue<FakeIssueProvider>(issueProvider, @"foo.cs", line, "Foo", 1, "Bar");
+                var issue = new Issue<FakeIssueProvider>(issueProvider, @"foo.cs", line, "Foo", 1, "Warning", "Bar");
 
                 // Then
                 issue.Line.ShouldBe(line);
@@ -291,10 +339,44 @@
                 var issueProvider = fixture.IssueProviders.OfType<FakeIssueProvider>().Single();
 
                 // When
-                var issue = new Issue<FakeIssueProvider>(issueProvider, @"foo.cs", 100, message, 1, "Bar");
+                var issue = new Issue<FakeIssueProvider>(issueProvider, @"foo.cs", 100, message, 1, "Warning", "Bar");
 
                 // Then
                 issue.Message.ShouldBe(message);
+            }
+
+            [Theory]
+            [InlineData(int.MinValue)]
+            [InlineData(-1)]
+            [InlineData(0)]
+            [InlineData(1)]
+            [InlineData(int.MaxValue)]
+            public void Should_Set_Priority(int priority)
+            {
+                // Given
+                var fixture = new IssuesFixture();
+                var issueProvider = fixture.IssueProviders.OfType<FakeIssueProvider>().Single();
+
+                // When
+                var issue = new Issue<FakeIssueProvider>(issueProvider, @"foo.cs", 100, "Message", priority, "Warning", "Bar");
+
+                // Then
+                issue.Priority.ShouldBe(priority);
+            }
+
+            [Theory]
+            [InlineData("Warning")]
+            public void Should_Set_Priority_Name(string priorityName)
+            {
+                // Given
+                var fixture = new IssuesFixture();
+                var issueProvider = fixture.IssueProviders.OfType<FakeIssueProvider>().Single();
+
+                // When
+                var issue = new Issue<FakeIssueProvider>(issueProvider, @"foo.cs", 100, "Message", 1, priorityName, "Bar");
+
+                // Then
+                issue.PriorityName.ShouldBe(priorityName);
             }
 
             [Theory]
@@ -308,7 +390,7 @@
                 var issueProvider = fixture.IssueProviders.OfType<FakeIssueProvider>().Single();
 
                 // When
-                var issue = new Issue<FakeIssueProvider>(issueProvider, @"foo.cs", 100, "foo", 1, rule);
+                var issue = new Issue<FakeIssueProvider>(issueProvider, @"foo.cs", 100, "foo", 1, "Warning", rule);
 
                 // Then
                 issue.Rule.ShouldBe(rule);
@@ -322,7 +404,7 @@
                 var issueProvider = fixture.IssueProviders.OfType<FakeIssueProvider>().Single();
 
                 // Given
-                var issue = new Issue<FakeIssueProvider>(issueProvider, @"foo.cs", 100, "foo", 1, "foo");
+                var issue = new Issue<FakeIssueProvider>(issueProvider, @"foo.cs", 100, "foo", 1, "Warning", "foo");
 
                 // Then
                 issue.ProviderType.ShouldBe("Cake.Issues.Testing.FakeIssueProvider");
@@ -342,7 +424,7 @@
                 // When
                 var result =
                     Record.Exception(() =>
-                        new Issue<FakeIssueProvider>(issueProvider, filePath, 100, "Foo", 1, "Bar", new Uri("https://google.com")));
+                        new Issue<FakeIssueProvider>(issueProvider, filePath, 100, "Foo", 1, "Warning", "Bar", new Uri("https://google.com")));
 
                 // Then
                 result.IsArgumentException("filePath");
@@ -361,7 +443,7 @@
                 // When
                 var result =
                     Record.Exception(() =>
-                        new Issue<FakeIssueProvider>(issueProvider, filePath, 100, "Foo", 1, "Bar", new Uri("https://google.com")));
+                        new Issue<FakeIssueProvider>(issueProvider, filePath, 100, "Foo", 1, "Warning", "Bar", new Uri("https://google.com")));
 
                 // Then
                 result.IsArgumentOutOfRangeException("filePath");
@@ -377,7 +459,7 @@
                 // When
                 var result =
                     Record.Exception(() =>
-                        new Issue<FakeIssueProvider>(issueProvider, @"src\foo.cs", -1, "Foo", 1, "Bar", new Uri("https://google.com")));
+                        new Issue<FakeIssueProvider>(issueProvider, @"src\foo.cs", -1, "Foo", 1, "Warning", "Bar", new Uri("https://google.com")));
 
                 // Then
                 result.IsArgumentOutOfRangeException("line");
@@ -393,7 +475,7 @@
                 // When
                 var result =
                     Record.Exception(() =>
-                        new Issue<FakeIssueProvider>(issueProvider, @"src\foo.cs", 0, "Foo", 1, "Bar", new Uri("https://google.com")));
+                        new Issue<FakeIssueProvider>(issueProvider, @"src\foo.cs", 0, "Foo", 1, "Warning", "Bar", new Uri("https://google.com")));
 
                 // Then
                 result.IsArgumentOutOfRangeException("line");
@@ -409,7 +491,7 @@
                 // When
                 var result =
                     Record.Exception(() =>
-                        new Issue<FakeIssueProvider>(issueProvider, null, 10, "Foo", 1, "Bar", new Uri("https://google.com")));
+                        new Issue<FakeIssueProvider>(issueProvider, null, 10, "Foo", 1, "Warning", "Bar", new Uri("https://google.com")));
 
                 // Then
                 result.IsArgumentOutOfRangeException("line");
@@ -425,7 +507,7 @@
                 // Given / When
                 var result =
                     Record.Exception(() =>
-                        new Issue<FakeIssueProvider>(issueProvider, @"src\foo.cs", 100, null, 1, "Bar", new Uri("https://google.com")));
+                        new Issue<FakeIssueProvider>(issueProvider, @"src\foo.cs", 100, null, 1, "Warning", "Bar", new Uri("https://google.com")));
 
                 // Then
                 result.IsArgumentNullException("message");
@@ -441,7 +523,7 @@
                 // When
                 var result =
                     Record.Exception(() =>
-                        new Issue<FakeIssueProvider>(issueProvider, @"src\foo.cs", 100, string.Empty, 1, "Bar", new Uri("https://google.com")));
+                        new Issue<FakeIssueProvider>(issueProvider, @"src\foo.cs", 100, string.Empty, 1, "Warning", "Bar", new Uri("https://google.com")));
 
                 // Then
                 result.IsArgumentOutOfRangeException("message");
@@ -457,7 +539,7 @@
                 // When
                 var result =
                     Record.Exception(() =>
-                        new Issue<FakeIssueProvider>(issueProvider, @"src\foo.cs", 100, " ", 1, "Bar", new Uri("https://google.com")));
+                        new Issue<FakeIssueProvider>(issueProvider, @"src\foo.cs", 100, " ", 1, "Warning", "Bar", new Uri("https://google.com")));
 
                 // Then
                 result.IsArgumentOutOfRangeException("message");
@@ -471,7 +553,7 @@
                 var issueProvider = fixture.IssueProviders.OfType<FakeIssueProvider>().Single();
 
                 // When
-                var issue = new Issue<FakeIssueProvider>(issueProvider, null, null, "Foo", 1, "Bar", new Uri("https://google.com"));
+                var issue = new Issue<FakeIssueProvider>(issueProvider, null, null, "Foo", 1, "Warning", "Bar", new Uri("https://google.com"));
 
                 // Then
                 issue.AffectedFileRelativePath.ShouldBe(null);
@@ -485,7 +567,7 @@
                 var issueProvider = fixture.IssueProviders.OfType<FakeIssueProvider>().Single();
 
                 // When
-                var issue = new Issue<FakeIssueProvider>(issueProvider, string.Empty, null, "Foo", 1, "Bar", new Uri("https://google.com"));
+                var issue = new Issue<FakeIssueProvider>(issueProvider, string.Empty, null, "Foo", 1, "Warning", "Bar", new Uri("https://google.com"));
 
                 // Then
                 issue.AffectedFileRelativePath.ShouldBe(null);
@@ -499,7 +581,7 @@
                 var issueProvider = fixture.IssueProviders.OfType<FakeIssueProvider>().Single();
 
                 // When
-                var issue = new Issue<FakeIssueProvider>(issueProvider, " ", null, "Foo", 1, "Bar", new Uri("https://google.com"));
+                var issue = new Issue<FakeIssueProvider>(issueProvider, " ", null, "Foo", 1, "Warning", "Bar", new Uri("https://google.com"));
 
                 // Then
                 issue.AffectedFileRelativePath.ShouldBe(null);
@@ -522,7 +604,7 @@
                 var issueProvider = fixture.IssueProviders.OfType<FakeIssueProvider>().Single();
 
                 // When
-                var issue = new Issue<FakeIssueProvider>(issueProvider, filePath, 100, "Foo", 1, "Bar", new Uri("https://google.com"));
+                var issue = new Issue<FakeIssueProvider>(issueProvider, filePath, 100, "Foo", 1, "Warning", "Bar", new Uri("https://google.com"));
 
                 // Then
                 issue.AffectedFileRelativePath.ToString().ShouldBe(expectedFilePath);
@@ -540,7 +622,7 @@
                 var issueProvider = fixture.IssueProviders.OfType<FakeIssueProvider>().Single();
 
                 // When
-                var issue = new Issue<FakeIssueProvider>(issueProvider, @"foo.cs", line, "Foo", 1, "Bar", new Uri("https://google.com"));
+                var issue = new Issue<FakeIssueProvider>(issueProvider, @"foo.cs", line, "Foo", 1, "Warning", "Bar", new Uri("https://google.com"));
 
                 // Then
                 issue.Line.ShouldBe(line);
@@ -555,7 +637,7 @@
                 var issueProvider = fixture.IssueProviders.OfType<FakeIssueProvider>().Single();
 
                 // When
-                var issue = new Issue<FakeIssueProvider>(issueProvider, @"foo.cs", 100, message, 1, "Bar", new Uri("https://google.com"));
+                var issue = new Issue<FakeIssueProvider>(issueProvider, @"foo.cs", 100, message, 1, "Warning", "Bar", new Uri("https://google.com"));
 
                 // Then
                 issue.Message.ShouldBe(message);
@@ -572,7 +654,7 @@
                 var issueProvider = fixture.IssueProviders.OfType<FakeIssueProvider>().Single();
 
                 // When
-                var issue = new Issue<FakeIssueProvider>(issueProvider, @"foo.cs", 100, "foo", 1, rule, new Uri("https://google.com"));
+                var issue = new Issue<FakeIssueProvider>(issueProvider, @"foo.cs", 100, "foo", 1, "Warning", rule, new Uri("https://google.com"));
 
                 // Then
                 issue.Rule.ShouldBe(rule);
@@ -587,7 +669,7 @@
                 var ruleUrl = new Uri("http://google.com");
 
                 // When
-                var issue = new Issue<FakeIssueProvider>(issueProvider, @"foo.cs", 100, "foo", 1, "foo", ruleUrl);
+                var issue = new Issue<FakeIssueProvider>(issueProvider, @"foo.cs", 100, "foo", 1, "Warning", "foo", ruleUrl);
 
                 // Then
                 issue.RuleUrl.ShouldBe(ruleUrl);
@@ -602,7 +684,7 @@
                 Uri ruleUrl = null;
 
                 // When
-                var issue = new Issue<FakeIssueProvider>(issueProvider, @"foo.cs", 100, "foo", 1, "foo", ruleUrl);
+                var issue = new Issue<FakeIssueProvider>(issueProvider, @"foo.cs", 100, "foo", 1, "Warning", "foo", ruleUrl);
 
                 // Then
                 issue.RuleUrl.ShouldBe(ruleUrl);
@@ -617,7 +699,7 @@
 
                 // When
                 var issue =
-                    new Issue<FakeIssueProvider>(issueProvider, @"foo.cs", 100, "foo", 1, "foo", new Uri("https://google.com"));
+                    new Issue<FakeIssueProvider>(issueProvider, @"foo.cs", 100, "foo", 1, "Warning", "foo", new Uri("https://google.com"));
 
                 // Then
                 issue.ProviderType.ShouldBe("Cake.Issues.Testing.FakeIssueProvider");

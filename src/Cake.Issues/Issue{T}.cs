@@ -20,6 +20,7 @@
         /// <c>null</c> if the issue affects the whole file or an asssembly.</param>
         /// <param name="message">The message of the issue.</param>
         /// <param name="priority">The priority of the message.</param>
+        /// <param name="priorityName">The human friendly name of the priority.</param>
         /// <param name="rule">The rule of the issue.
         /// <c>null</c> or <see cref="string.Empty"/> if issue has no specific rule ID.</param>
         public Issue(
@@ -28,8 +29,9 @@
             int? line,
             string message,
             int priority,
+            string priorityName,
             string rule)
-            : base(filePath, line, message, priority, rule, GetProviderTypeName(), issueProvider.ProviderName)
+            : base(filePath, line, message, priority, priorityName, rule, GetProviderTypeName(), issueProvider.ProviderName)
         {
         }
 
@@ -44,6 +46,7 @@
         /// <c>null</c> if the issue affects the whole file or an asssembly.</param>
         /// <param name="message">The message of the issue.</param>
         /// <param name="priority">The priority of the message.</param>
+        /// <param name="priorityName">The human friendly name of the priority.</param>
         /// <param name="rule">The rule of the issue.
         /// <c>null</c> or <see cref="string.Empty"/> if issue has no specific rule ID.</param>
         /// <param name="ruleUrl">The URL containing information about the failing rule.
@@ -54,9 +57,10 @@
             int? line,
             string message,
             int priority,
+            string priorityName,
             string rule,
             Uri ruleUrl)
-            : base(filePath, line, message, priority, rule, ruleUrl, GetProviderTypeName(), issueProvider.ProviderName)
+            : base(filePath, line, message, priority, priorityName, rule, ruleUrl, GetProviderTypeName(), issueProvider.ProviderName)
         {
         }
 
@@ -73,6 +77,7 @@
         /// <c>null</c> if the issue affects the whole file or an asssembly.</param>
         /// <param name="message">The message of the issue.</param>
         /// <param name="priority">The priority of the message.</param>
+        /// <param name="priorityName">The human friendly name of the priority.</param>
         /// <param name="rule">The rule of the issue.
         /// <c>null</c> or <see cref="string.Empty"/> if issue has no specific rule ID.</param>
         public Issue(
@@ -82,8 +87,9 @@
             int? line,
             string message,
             int priority,
+            string priorityName,
             string rule)
-            : base(project, filePath, line, message, priority, rule, null, GetProviderTypeName(), issueProvider.ProviderName)
+            : base(project, filePath, line, message, priority, priorityName, rule, null, GetProviderTypeName(), issueProvider.ProviderName)
         {
         }
 
@@ -100,6 +106,7 @@
         /// <c>null</c> if the issue affects the whole file or an asssembly.</param>
         /// <param name="message">The message of the issue.</param>
         /// <param name="priority">The priority of the message.</param>
+        /// <param name="priorityName">The human friendly name of the priority.</param>
         /// <param name="rule">The rule of the issue.
         /// <c>null</c> or <see cref="string.Empty"/> if issue has no specific rule ID.</param>
         /// <param name="ruleUrl">The URL containing information about the failing rule.
@@ -111,9 +118,10 @@
             int? line,
             string message,
             int priority,
+            string priorityName,
             string rule,
             Uri ruleUrl)
-            : base(project, filePath, line, message, priority, rule, ruleUrl, GetProviderTypeName(), issueProvider.ProviderName)
+            : base(project, filePath, line, message, priority, priorityName, rule, ruleUrl, GetProviderTypeName(), issueProvider.ProviderName)
         {
         }
 

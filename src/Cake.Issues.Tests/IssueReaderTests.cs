@@ -119,6 +119,7 @@
                                 10,
                                 "Foo",
                                 0,
+                                "Warning",
                                 "Foo",
                                 "Foo",
                                 "ProviderName"),
@@ -127,6 +128,7 @@
                                 12,
                                 "Bar",
                                 0,
+                                "Warning",
                                 "Bar",
                                 "Bar",
                                 "ProviderName")
@@ -141,6 +143,7 @@
                                 5,
                                 "Foo",
                                 0,
+                                "Warning",
                                 "Foo",
                                 "Foo",
                                 "ProviderName"),
@@ -149,6 +152,7 @@
                                 7,
                                 "Bar",
                                 0,
+                                "Warning",
                                 "Bar",
                                 "Bar",
                                 "ProviderName")
@@ -171,6 +175,7 @@
                         10,
                         "Foo",
                         0,
+                        "Warning",
                         "Foo",
                         "Foo",
                         "ProviderName");
@@ -180,6 +185,7 @@
                         12,
                         "Bar",
                         0,
+                        "Warning",
                         "Bar",
                         "Bar",
                         "ProviderName");
@@ -213,6 +219,7 @@
                         null,
                         "Foo",
                         0,
+                        "Warning",
                         "Foo",
                         "Foo",
                         "ProviderName");
@@ -222,6 +229,7 @@
                         null,
                         "Bar",
                         0,
+                        "Warning",
                         "Bar",
                         "Bar",
                         "ProviderName");
@@ -255,6 +263,7 @@
                         10,
                         "Foo",
                         0,
+                        "Warning",
                         "Foo",
                         "Foo",
                         "ProviderName");
@@ -264,6 +273,7 @@
                         12,
                         "Bar",
                         0,
+                        "Warning",
                         "Bar",
                         "Bar",
                         "ProviderName");
@@ -273,6 +283,7 @@
                         5,
                         "Foo",
                         0,
+                        "Warning",
                         "Foo",
                         "Foo",
                         "ProviderName");
@@ -282,6 +293,7 @@
                         7,
                         "Bar",
                         0,
+                        "Warning",
                         "Bar",
                         "Bar",
                         "ProviderName");
