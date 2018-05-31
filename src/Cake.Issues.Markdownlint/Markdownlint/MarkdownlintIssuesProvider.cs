@@ -27,6 +27,9 @@
         }
 
         /// <inheritdoc />
+        public override string ProviderName => "markdownlint";
+
+        /// <inheritdoc />
         protected override IEnumerable<IIssue> InternalReadIssues(IssueCommentFormat format)
         {
             var logFileEntries =
@@ -39,10 +42,12 @@
                     rule = (string)entry.SelectToken("ruleName")
                 select
                     new Issue<MarkdownlintIssuesProvider>(
+                        this,
                         file.Key,
                         (int)entry.SelectToken("lineNumber"),
                         (string)entry.SelectToken("ruleDescription"),
                         0,
+                        "Warning",
                         rule,
                         MarkdownlintRuleUrlResolver.Instance.ResolveRuleUrl(rule));
         }
