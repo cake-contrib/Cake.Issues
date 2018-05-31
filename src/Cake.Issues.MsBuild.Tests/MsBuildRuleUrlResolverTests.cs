@@ -40,7 +40,7 @@
             }
 
             [Theory]
-            [InlineData("CA2201", "https://www.google.im/search?q=\"CA2201:\"+site:msdn.microsoft.com")]
+            [InlineData("CA2201", "https://www.google.com/search?q=\"CA2201:\"+site:docs.microsoft.com")]
             [InlineData("SA1652", "https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1652.md")]
             public void Should_Resolve_Url(string rule, string expectedUrl)
             {
