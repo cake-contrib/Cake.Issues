@@ -50,20 +50,24 @@
                         new Issue(
                             @"src\Cake.Issues.Reporting.Generic.Tests\Foo.cs",
                             10,
-                            "Foo",
+                            "Message Foo",
                             0,
-                            "Foo",
-                            "Foo"),
+                            "Warning",
+                            "Rule Foo",
+                            "ProviderType Foo",
+                            "ProviderName Foo"),
                         new Issue(
                             @"src\Cake.Issues.Reporting.Generic.Tests\Foo.cs",
                             12,
-                            "Bar",
+                            "Message Bar",
                             0,
-                            "Bar",
-                            "Bar")
+                            "Warning",
+                            "Rule Bar",
+                            "ProviderType Bar",
+                            "ProviderName Foo")
                         };
                 var expectedResult =
-                    @"<ul><li>Foo</li><li>Bar</li></ul>";
+                    @"<ul><li>Message Foo</li><li>Message Bar</li></ul>";
 
                 // When
                 var result = fixture.CreateReport(issues);
