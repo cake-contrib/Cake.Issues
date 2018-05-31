@@ -63,6 +63,7 @@
                     "Build Document.LinkPhaseHandler.Apply Templates",
                     null,
                     0,
+                    "Warning",
                     "Invalid cross reference \"[Foo](xref:foo)\".");
             }
 
@@ -84,6 +85,7 @@
                     "Build Document.LinkPhaseHandler.ConceptualDocumentProcessor.Save",
                     null,
                     0,
+                    "Warning",
                     "Invalid file link:(~/foo.md).");
             }
 
@@ -94,8 +96,12 @@
                 string rule,
                 string ruleUrl,
                 int priority,
+                string priorityName,
                 string message)
             {
+                issue.ProviderType.ShouldBe("Cake.Issues.DocFx.DocFxIssuesProvider");
+                issue.ProviderName.ShouldBe("DocFX");
+
                 if (issue.AffectedFileRelativePath == null)
                 {
                     affectedFileRelativePath.ShouldBeNull();
@@ -119,6 +125,7 @@
                 }
 
                 issue.Priority.ShouldBe(priority);
+                issue.PriorityName.ShouldBe(priorityName);
                 issue.Message.ShouldBe(message);
             }
         }
