@@ -42,5 +42,5 @@ See [Report Format Addins] for a list of currently supported report output forma
 See [Pull Request System Addins] for a list of currently supported pull request systems.
 
 [Issue Provider Addins]: ../../addins/issue-provider/
-[Report Format Addins]: ../../addins/report-format/
+[Report Format Addins]: ../../addins/reporting-format/
 [Pull Request System Addins]: ../../addins/pull-request-system/
