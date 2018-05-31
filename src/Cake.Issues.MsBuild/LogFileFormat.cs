@@ -26,6 +26,7 @@
 
         /// <inheritdoc/>
         public abstract IEnumerable<IIssue> ReadIssues(
+            MsBuildIssuesProvider issueProvider,
             RepositorySettings repositorySettings,
             MsBuildIssuesSettings msBuildIssuesSettings);
     }

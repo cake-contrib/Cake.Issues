@@ -23,9 +23,11 @@
 
         /// <inheritdoc/>
         public override IEnumerable<IIssue> ReadIssues(
+            MsBuildIssuesProvider issueProvider,
             RepositorySettings repositorySettings,
             MsBuildIssuesSettings msBuildIssuesSettings)
         {
+            issueProvider.NotNull(nameof(issueProvider));
             repositorySettings.NotNull(nameof(repositorySettings));
             msBuildIssuesSettings.NotNull(nameof(msBuildIssuesSettings));
 
@@ -62,10 +64,12 @@
                 }
 
                 result.Add(new Issue<MsBuildIssuesProvider>(
+                    issueProvider,
                     fileName,
                     line,
                     warning.Value,
                     0,
+                    "Warning",
                     rule,
                     ruleUrl));
             }
