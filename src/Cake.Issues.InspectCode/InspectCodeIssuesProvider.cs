@@ -29,6 +29,9 @@
         }
 
         /// <inheritdoc />
+        public override string ProviderName => "InspectCode";
+
+        /// <inheritdoc />
         protected override IEnumerable<IIssue> InternalReadIssues(IssueCommentFormat format)
         {
             var result = new List<IIssue>();
@@ -74,10 +77,12 @@
                 }
 
                 result.Add(new Issue<InspectCodeIssuesProvider>(
+                    this,
                     fileName,
                     line,
                     message,
-                    0, // TODO Set based on severity of issueType
+                    0, // TODO Set based on severity of issueType,
+                    "Warning",
                     rule,
                     issueTypes[rule].WikiUrl));
             }
