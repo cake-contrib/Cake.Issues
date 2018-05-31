@@ -58,6 +58,7 @@
                     "MD022",
                     "https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md022",
                     0,
+                    "Warning",
                     "Headers should be surrounded by blank lines [Context: \"# foo\"]");
                 CheckIssue(
                     issues[1],
@@ -66,6 +67,7 @@
                     "MD009",
                     "https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md009",
                     0,
+                    "Warning",
                     "Trailing spaces [Expected: 2; Actual: 1]");
                 CheckIssue(
                     issues[2],
@@ -74,6 +76,7 @@
                     "MD013",
                     "https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md013",
                     0,
+                    "Warning",
                     "Line length [Expected: 100; Actual: 811]");
                 CheckIssue(
                     issues[3],
@@ -82,6 +85,7 @@
                     "MD022",
                     "https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md022",
                     0,
+                    "Warning",
                     "Headers should be surrounded by blank lines [Context: \"# bar\"]");
                 CheckIssue(
                     issues[4],
@@ -90,6 +94,7 @@
                     "MD025",
                     "https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md025",
                     0,
+                    "Warning",
                     "Multiple top level headers in the same document [Context: \"# bar\"]");
                 CheckIssue(
                     issues[5],
@@ -98,6 +103,7 @@
                     "MD031",
                     "https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md031",
                     0,
+                    "Warning",
                     "Fenced code blocks should be surrounded by blank lines [Context: \"```\"]");
                 CheckIssue(
                     issues[6],
@@ -106,6 +112,7 @@
                     "MD040",
                     "https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md040",
                     0,
+                    "Warning",
                     "Fenced code blocks should have a language specified [Context: \"```\"]");
                 CheckIssue(
                     issues[7],
@@ -114,6 +121,7 @@
                     "MD009",
                     "https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md009",
                     0,
+                    "Warning",
                     "Trailing spaces [Expected: 2; Actual: 1]");
             }
 
@@ -124,8 +132,12 @@
                 string rule,
                 string ruleUrl,
                 int priority,
+                string priorityName,
                 string message)
             {
+                issue.ProviderType.ShouldBe("Cake.Issues.Markdownlint.MarkdownlintCli.MarkdownlintCliIssuesProvider");
+                issue.ProviderName.ShouldBe("markdownlint");
+
                 if (issue.AffectedFileRelativePath == null)
                 {
                     affectedFileRelativePath.ShouldBeNull();
@@ -149,6 +161,7 @@
                 }
 
                 issue.Priority.ShouldBe(priority);
+                issue.PriorityName.ShouldBe(priorityName);
                 issue.Message.ShouldBe(message);
             }
         }

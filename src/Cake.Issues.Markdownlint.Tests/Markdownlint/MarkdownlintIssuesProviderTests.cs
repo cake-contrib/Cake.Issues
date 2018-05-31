@@ -58,6 +58,7 @@
                     "MD010",
                     "https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md010",
                     0,
+                    "Warning",
                     "Hard tabs");
                 CheckIssue(
                     issues[1],
@@ -66,6 +67,7 @@
                     "MD018",
                     "https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md018",
                     0,
+                    "Warning",
                     "No space after hash on atx style header");
                 CheckIssue(
                     issues[2],
@@ -74,6 +76,7 @@
                     "MD018",
                     "https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md018",
                     0,
+                    "Warning",
                     "No space after hash on atx style header");
             }
 
@@ -84,8 +87,12 @@
                 string rule,
                 string ruleUrl,
                 int priority,
+                string priorityName,
                 string message)
             {
+                issue.ProviderType.ShouldBe("Cake.Issues.Markdownlint.Markdownlint.MarkdownlintIssuesProvider");
+                issue.ProviderName.ShouldBe("markdownlint");
+
                 if (issue.AffectedFileRelativePath == null)
                 {
                     affectedFileRelativePath.ShouldBeNull();
@@ -109,6 +116,7 @@
                 }
 
                 issue.Priority.ShouldBe(priority);
+                issue.PriorityName.ShouldBe(priorityName);
                 issue.Message.ShouldBe(message);
             }
         }

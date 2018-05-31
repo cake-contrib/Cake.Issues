@@ -28,6 +28,9 @@
         }
 
         /// <inheritdoc />
+        public override string ProviderName => "markdownlint";
+
+        /// <inheritdoc />
         protected override IEnumerable<IIssue> InternalReadIssues(IssueCommentFormat format)
         {
             var regex = new Regex(@"(.*): (\d*): (MD\d*)/((?:\w*-*)*) (.*)");
@@ -48,10 +51,12 @@
 
                 yield return
                     new Issue<MarkdownlintCliIssuesProvider>(
+                        this,
                         fileName,
                         lineNumber,
                         ruleDescription,
                         0,
+                        "Warning",
                         rule,
                         MarkdownlintRuleUrlResolver.Instance.ResolveRuleUrl(rule));
             }
