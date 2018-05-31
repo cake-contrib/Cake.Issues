@@ -44,8 +44,8 @@
     <Reference Include="Cake.Core, Version=0.26.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Cake.Core.0.26.0\lib\net46\Cake.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Cake.Issues, Version=0.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Cake.Issues.0.2.0\lib\netstandard2.0\Cake.Issues.dll</HintPath>
+    <Reference Include="Cake.Issues, Version=0.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Cake.Issues.0.3.0-beta0001\lib\netstandard2.0\Cake.Issues.dll</HintPath>
     </Reference>
     <Reference Include="Costura, Version=2.0.1.0, Culture=neutral, PublicKeyToken=9919ef960d84173d, processorArchitecture=MSIL">
       <HintPath>..\packages\Costura.Fody.2.0.1\lib\net452\Costura.dll</HintPath>
