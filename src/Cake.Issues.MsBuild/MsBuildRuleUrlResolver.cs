@@ -19,7 +19,7 @@
             // Add resolver for common known issue categories.
             this.AddUrlResolver(x =>
                 x.Category.ToUpperInvariant() == "CA" ?
-                    new Uri("https://www.google.im/search?q=%22" + x.Rule + ":%22+site:msdn.microsoft.com") :
+                    new Uri("https://www.google.com/search?q=%22" + x.Rule + ":%22+site:docs.microsoft.com") :
                     null);
             this.AddUrlResolver(x =>
                 x.Category.ToUpperInvariant() == "SA" ?
