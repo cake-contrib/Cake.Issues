@@ -99,12 +99,14 @@
                     new List<IIssue>
                     {
                         new Issue(
-                        @"src\Cake.Issues.Reporting\Foo.cs",
-                        10,
-                        "Foo",
-                        0,
-                        "Foo",
-                        "Foo")
+                            @"src\Cake.Issues.Reporting\Foo.cs",
+                            10,
+                            "Foo",
+                            0,
+                            "Warning",
+                            "Rule",
+                            "ProviderType",
+                            "ProviderName")
                     };
 
                 // When
@@ -124,12 +126,14 @@
                     new List<IIssue>
                     {
                         new Issue(
-                        @"src\Cake.Issues.Reporting\Foo.cs",
-                        10,
-                        "Foo",
-                        0,
-                        "Foo",
-                        "Foo")
+                            @"src\Cake.Issues.Reporting\Foo.cs",
+                            10,
+                            "Foo",
+                            0,
+                            "Warning",
+                            "Rule",
+                            "ProviderType",
+                            "ProviderName")
                     };
 
                 // When
@@ -148,12 +152,14 @@
                     new List<IIssue>
                     {
                         new Issue(
-                        @"src\Cake.Issues.Reporting\Foo.cs",
-                        10,
-                        "Foo",
-                        0,
-                        "Foo",
-                        "Foo")
+                            @"src\Cake.Issues.Reporting\Foo.cs",
+                            10,
+                            "Foo",
+                            0,
+                            "Warning",
+                            "Rule",
+                            "ProviderType",
+                            "ProviderName")
                     };
 
                 // When
