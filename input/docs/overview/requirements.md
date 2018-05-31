@@ -2,8 +2,6 @@
 Order: 20
 Description: Requirements for using Cake.Issues.
 ---
-## Cake
-
 The requirements for core addins are listed in the release notes for any specific version:
 
 * [Release notes Cake.Issues]

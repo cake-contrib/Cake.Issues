@@ -5,7 +5,7 @@ Description: Overview about core features.
 The Cake Issues addins for Cake allows you to read issues from any analyzer or linter,
 create reports or write issues to comments in pull requests.
 
-## Supported Core Functionality
+# Supported Core Functionality
 
 The core addins provide the following functionality:
 
@@ -29,15 +29,15 @@ The core addins provide the following functionality:
   * Limit number of maximum issues to post.
   * Returns all issues as provided by the issue providers and the issues reported to the pull request.
 
-## Supported Issue Providers
+# Supported Issue Providers
 
 See [Issue Provider Addins] for a list of currently supported analyzers and linters.
 
-## Supported Report Formats
+# Supported Report Formats
 
 See [Report Format Addins] for a list of currently supported report output formats.
 
-## Supported Pull Request Systems
+# Supported Pull Request Systems
 
 See [Pull Request System Addins] for a list of currently supported pull request systems.
 

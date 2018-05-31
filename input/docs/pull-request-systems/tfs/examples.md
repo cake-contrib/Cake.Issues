@@ -4,7 +4,7 @@ Title: Examples
 Description: Examples for using the Cake.Issues.PullRequests.Tfs addin.
 ---
 
-## Using with repository remote url and source branch name
+# Using with repository remote url and source branch name
 
 This example shows how to write issues as comments to a Team Foundation Server (TFS) or
 Visual Studio Team Services (VSTS) pull request while using repository information.
@@ -48,7 +48,7 @@ Task("ReportIssuesToPullRequest").Does(() =>
 });
 ```
 
-## Voting for pull requests
+# Voting for pull requests
 
 The [Cake.Issues.PullRequests.Tfs addin] also provides an alias for approving or voting for pull requests.
 

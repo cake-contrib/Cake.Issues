@@ -5,11 +5,11 @@ Description: Template for a HTML report containing a list of all issues with all
 ---
 Template for a HTML report containing a list of all issues with all properties.
 
-## Features
+# Features
 
 * Unstyled table listing all properties of [IIssue]
 
-## Screenshots
+# Screenshots
 
 ![HTML Diagnostic](htmldiagnostic01.png "HTML Diagnostic")
 
