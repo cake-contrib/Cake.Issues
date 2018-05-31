@@ -55,7 +55,8 @@
                     16,
                     "UnusedMember.Global",
                     null,
-                    0,
+                    200,
+                    "Suggestion",
                     @"Constant 'PullRequestSystemCakeAliasCategory' is never used");
             }
 
@@ -77,7 +78,8 @@
                     3,
                     "RedundantUsingDirective",
                     "http://www.jetbrains.com/resharperplatform/help?Keyword=RedundantUsingDirective",
-                    0,
+                    300,
+                    "Warning",
                     @"Using directive is not required by the code and can be safely removed");
             }
 
@@ -88,8 +90,12 @@
                 string rule,
                 string ruleUrl,
                 int priority,
+                string priorityName,
                 string message)
             {
+                issue.ProviderType.ShouldBe("Cake.Issues.InspectCode.InspectCodeIssuesProvider");
+                issue.ProviderName.ShouldBe("InspectCode");
+
                 if (issue.AffectedFileRelativePath == null)
                 {
                     affectedFileRelativePath.ShouldBeNull();
@@ -113,6 +119,7 @@
                 }
 
                 issue.Priority.ShouldBe(priority);
+                issue.PriorityName.ShouldBe(priorityName);
                 issue.Message.ShouldBe(message);
             }
         }

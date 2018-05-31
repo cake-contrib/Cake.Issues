@@ -40,12 +40,13 @@
 
             var solutionPath = Path.GetDirectoryName(logDocument.Descendants("Solution").Single().Value);
 
-            // Read all issue types
+            // Read all issue types.
             var issueTypes =
                 logDocument.Descendants("IssueType").ToDictionary(
                     x => x.Attribute("Id")?.Value,
                     x => new IssueType
                     {
+                        Severity = x.Attribute("Severity").Value,
                         WikiUrl = x.Attribute("WikiUrl")?.Value.ToUri()
                     });
 
@@ -76,13 +77,16 @@
                     continue;
                 }
 
+                // Determine severity.
+                string severity = issueTypes[rule].Severity.ToLowerInvariant();
+
                 result.Add(new Issue<InspectCodeIssuesProvider>(
                     this,
                     fileName,
                     line,
                     message,
-                    0, // TODO Set based on severity of issueType,
-                    "Warning",
+                    GetPriority(severity),
+                    CultureInfo.CurrentCulture.TextInfo.ToTitleCase(severity),
                     rule,
                     issueTypes[rule].WikiUrl));
             }
@@ -193,10 +197,41 @@
         }
 
         /// <summary>
+        /// Converts the severity level to a priority.
+        /// </summary>
+        /// <param name="severity">Severity level as reported by InspectCode.</param>
+        /// <returns>Priority</returns>
+        private static int GetPriority(string severity)
+        {
+            switch (severity.ToLowerInvariant())
+            {
+                case "hint":
+                    return 100;
+
+                case "suggestion":
+                    return 200;
+
+                case "warning":
+                    return 300;
+
+                case "error":
+                    return 400;
+
+                default:
+                    return 0;
+            }
+        }
+
+        /// <summary>
         /// Description of an issue type.
         /// </summary>
         private class IssueType
         {
+            /// <summary>
+            /// Gets or sets the severity of this issue type.
+            /// </summary>
+            public string Severity { get; set; }
+
             /// <summary>
             /// Gets or sets the URL to the page containing documentation about this issue type.
             /// </summary>
