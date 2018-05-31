@@ -33,7 +33,7 @@
         /// <inheritdoc />
         protected override IEnumerable<IIssue> InternalReadIssues(IssueCommentFormat format)
         {
-            var regex = new Regex(@"(.*): (\d*): (MD\d*)/((?:\w*-*)*) (.*)");
+            var regex = new Regex(@"(.*): (\d*): (MD\d*)/((?:\w*-*/*)*) (.*)");
 
             foreach (var line in this.settings.LogFileContent.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None).ToList().Where(s => !string.IsNullOrEmpty(s)))
             {

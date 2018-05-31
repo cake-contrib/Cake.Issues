@@ -97,7 +97,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <EmbeddedResource Include="Testfiles\markdownlint-cli.log" />
+    <EmbeddedResource Include="Testfiles\markdownlint-cli-0-8-1.log" />
+    <EmbeddedResource Include="Testfiles\markdownlint-cli-0.10.0.log" />
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.2\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
