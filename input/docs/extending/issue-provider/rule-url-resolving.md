@@ -7,7 +7,7 @@ For cases where additional logic is required to determine the URL for a rule, th
 addin provides the [BaseRuleDescription] and [BaseRuleUrlResolver] classes for
 simplifying implementation of providing URLs linking to site providing information about issues.
 
-## Implementing RuleUrlResolver
+# Implementing RuleUrlResolver
 
 In the issue provider a concrete class inheriting from [BaseRuleDescription] should be implemented
 containing all properties required to determine the URL to a rule.
@@ -84,7 +84,7 @@ internal class MyRuleUrlResolver : BaseUrlResolver<MyRuleDescription>
     }
 ```
 
-## Support custom URL resolvers
+# Support custom URL resolvers
 
 The [AddUrlResolver] method can also be called from an Cake alias to allow users of the addin to
 register custom resolvers.

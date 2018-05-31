@@ -3,7 +3,7 @@ Order: 30
 Title: Examples
 Description: Examples for using the Cake.Issues.Reporting.Generic addin.
 ---
-## Use embedded default template
+# Use embedded default template
 
 The following example will create a HTML report for issues logged as warnings by MsBuild.
 
@@ -45,7 +45,7 @@ Task("Create-IssueReport").Does(() =>
 });
 ```
 
-## Use custom template
+# Use custom template
 
 :::{.alert .alert-info}
 If you create a universally usable custom template we're happy to package it with the addin.

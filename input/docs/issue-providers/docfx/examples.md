@@ -1,7 +1,7 @@
 ---
 Order: 30
 Title: Examples
-Description: Examples for using the Cake.Issues.InspectCode addin.
+Description: Examples for using the Cake.Issues.DocFx addin.
 ---
 The following example will call [DocFx] to generate the documentation and outputs the number of warnings.
 
@@ -55,5 +55,5 @@ Task("Analyze-Log")
 });
 ```
 
-[InspectCode]: https://www.jetbrains.com/help/resharper/InspectCode.html
+[DocFx]: http://dotnet.github.io/docfx/
 [Cake.DocFx]: https://www.nuget.org/packages/Cake.DocFx/
