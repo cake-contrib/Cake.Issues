@@ -54,7 +54,7 @@
         {
             if (groupedIssues.Count() > 1)
             {
-                <h2>@group.Key</h2>
+                <h2>@group.First().ProviderName</h2>
             }
 
             var tableId = group.Key.Replace(".", "-").ToLower();
