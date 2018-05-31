@@ -120,14 +120,16 @@
                                 "Foo",
                                 0,
                                 "Foo",
-                                "Foo"),
+                                "Foo",
+                                "ProviderName"),
                             new Issue(
                                 @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
                                 12,
                                 "Bar",
                                 0,
                                 "Bar",
-                                "Bar")
+                                "Bar",
+                                "ProviderName")
                         }));
                 fixture.IssueProviders.Add(
                     new FakeIssueProvider(
@@ -140,14 +142,16 @@
                                 "Foo",
                                 0,
                                 "Foo",
-                                "Foo"),
+                                "Foo",
+                                "ProviderName"),
                             new Issue(
                                 @"src\Cake.Issues.Tests\Bar.cs",
                                 7,
                                 "Bar",
                                 0,
                                 "Bar",
-                                "Bar")
+                                "Bar",
+                                "ProviderName")
                         }));
 
                 // When
@@ -168,7 +172,8 @@
                         "Foo",
                         0,
                         "Foo",
-                        "Foo");
+                        "Foo",
+                        "ProviderName");
                 var issue2 =
                     new Issue(
                         @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
@@ -176,7 +181,8 @@
                         "Bar",
                         0,
                         "Bar",
-                        "Bar");
+                        "Bar",
+                        "ProviderName");
                 var fixture = new IssuesFixture();
                 fixture.IssueProviders.Clear();
                 fixture.IssueProviders.Add(
@@ -208,7 +214,8 @@
                         "Foo",
                         0,
                         "Foo",
-                        "Foo");
+                        "Foo",
+                        "ProviderName");
                 var issue2 =
                     new Issue(
                         null,
@@ -216,7 +223,8 @@
                         "Bar",
                         0,
                         "Bar",
-                        "Bar");
+                        "Bar",
+                        "ProviderName");
                 var fixture = new IssuesFixture();
                 fixture.IssueProviders.Clear();
                 fixture.IssueProviders.Add(
@@ -248,7 +256,8 @@
                         "Foo",
                         0,
                         "Foo",
-                        "Foo");
+                        "Foo",
+                        "ProviderName");
                 var issue2 =
                     new Issue(
                         @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
@@ -256,7 +265,8 @@
                         "Bar",
                         0,
                         "Bar",
-                        "Bar");
+                        "Bar",
+                        "ProviderName");
                 var issue3 =
                     new Issue(
                         @"src\Cake.Issues.Tests\Foo.cs",
@@ -264,7 +274,8 @@
                         "Foo",
                         0,
                         "Foo",
-                        "Foo");
+                        "Foo",
+                        "ProviderName");
                 var issue4 =
                     new Issue(
                         @"src\Cake.Issues.Tests\Bar.cs",
@@ -272,7 +283,8 @@
                         "Bar",
                         0,
                         "Bar",
-                        "Bar");
+                        "Bar",
+                        "ProviderName");
                 var fixture = new IssuesFixture();
                 fixture.IssueProviders.Clear();
                 fixture.IssueProviders.Add(

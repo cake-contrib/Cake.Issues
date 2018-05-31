@@ -14,7 +14,7 @@
             public void Should_Throw_If_File_Path_Is_Invalid(string filePath)
             {
                 // Given / When
-                var result = Record.Exception(() => new Issue(filePath, 100, "Foo", 1, "Bar", "foo"));
+                var result = Record.Exception(() => new Issue(filePath, 100, "Foo", 1, "Bar", "foo", "providerName"));
 
                 // Then
                 result.IsArgumentException("filePath");
@@ -27,7 +27,7 @@
             public void Should_Throw_If_File_Path_Is_Absolute(string filePath)
             {
                 // Given / When
-                var result = Record.Exception(() => new Issue(filePath, 100, "Foo", 1, "Bar", "foo"));
+                var result = Record.Exception(() => new Issue(filePath, 100, "Foo", 1, "Bar", "foo", "providerName"));
 
                 // Then
                 result.IsArgumentOutOfRangeException("filePath");
@@ -37,7 +37,7 @@
             public void Should_Throw_If_Line_Is_Negative()
             {
                 // Given / When
-                var result = Record.Exception(() => new Issue(@"src\foo.cs", -1, "Foo", 1, "Bar", "foo"));
+                var result = Record.Exception(() => new Issue(@"src\foo.cs", -1, "Foo", 1, "Bar", "foo", "providerName"));
 
                 // Then
                 result.IsArgumentOutOfRangeException("line");
@@ -47,7 +47,7 @@
             public void Should_Throw_If_Line_Is_Zero()
             {
                 // Given / When
-                var result = Record.Exception(() => new Issue(@"src\foo.cs", 0, "Foo", 1, "Bar", "foo"));
+                var result = Record.Exception(() => new Issue(@"src\foo.cs", 0, "Foo", 1, "Bar", "foo", "providerName"));
 
                 // Then
                 result.IsArgumentOutOfRangeException("line");
@@ -57,7 +57,7 @@
             public void Should_Throw_If_Line_Is_Set_But_No_File()
             {
                 // Given / When
-                var result = Record.Exception(() => new Issue(null, 10, "Foo", 1, "Bar", "foo"));
+                var result = Record.Exception(() => new Issue(null, 10, "Foo", 1, "Bar", "foo", "providerName"));
 
                 // Then
                 result.IsArgumentOutOfRangeException("line");
@@ -67,7 +67,7 @@
             public void Should_Throw_If_Message_Is_Null()
             {
                 // Given / When
-                var result = Record.Exception(() => new Issue(@"src\foo.cs", 100, null, 1, "Bar", "foo"));
+                var result = Record.Exception(() => new Issue(@"src\foo.cs", 100, null, 1, "Bar", "foo", "providerName"));
 
                 // Then
                 result.IsArgumentNullException("message");
@@ -77,7 +77,7 @@
             public void Should_Throw_If_Message_Is_Empty()
             {
                 // Given / When
-                var result = Record.Exception(() => new Issue(@"src\foo.cs", 100, string.Empty, 1, "Bar", "foo"));
+                var result = Record.Exception(() => new Issue(@"src\foo.cs", 100, string.Empty, 1, "Bar", "foo", "providerName"));
 
                 // Then
                 result.IsArgumentOutOfRangeException("message");
@@ -87,7 +87,7 @@
             public void Should_Throw_If_Message_Is_WhiteSpace()
             {
                 // Given / When
-                var result = Record.Exception(() => new Issue(@"src\foo.cs", 100, " ", 1, "Bar", "foo"));
+                var result = Record.Exception(() => new Issue(@"src\foo.cs", 100, " ", 1, "Bar", "foo", "providerName"));
 
                 // Then
                 result.IsArgumentOutOfRangeException("message");
@@ -97,7 +97,7 @@
             public void Should_Throw_If_Provider_Type_Is_Null()
             {
                 // Given / When
-                var result = Record.Exception(() => new Issue(@"src\foo.cs", 100, "foo", 1, "foo", null));
+                var result = Record.Exception(() => new Issue(@"src\foo.cs", 100, "foo", 1, "foo", null, "providerName"));
 
                 // Then
                 result.IsArgumentNullException("providerType");
@@ -107,7 +107,7 @@
             public void Should_Throw_If_Provider_Type_Is_Empty()
             {
                 // Given / When
-                var result = Record.Exception(() => new Issue(@"src\foo.cs", 100, "foo", 1, "foo", string.Empty));
+                var result = Record.Exception(() => new Issue(@"src\foo.cs", 100, "foo", 1, "foo", string.Empty, "providerName"));
 
                 // Then
                 result.IsArgumentOutOfRangeException("providerType");
@@ -117,17 +117,47 @@
             public void Should_Throw_If_Provider_Type_Is_WhiteSpace()
             {
                 // Given / When
-                var result = Record.Exception(() => new Issue(@"src\foo.cs", 100, "foo", 1, "foo", " "));
+                var result = Record.Exception(() => new Issue(@"src\foo.cs", 100, "foo", 1, "foo", " ", "providerName"));
 
                 // Then
                 result.IsArgumentOutOfRangeException("providerType");
             }
 
             [Fact]
+            public void Should_Throw_If_Provider_Name_Is_Null()
+            {
+                // Given / When
+                var result = Record.Exception(() => new Issue(@"src\foo.cs", 100, "foo", 1, "foo", "providerType", null));
+
+                // Then
+                result.IsArgumentNullException("providerName");
+            }
+
+            [Fact]
+            public void Should_Throw_If_Provider_Name_Is_Empty()
+            {
+                // Given / When
+                var result = Record.Exception(() => new Issue(@"src\foo.cs", 100, "foo", 1, "foo", "providerType", string.Empty));
+
+                // Then
+                result.IsArgumentOutOfRangeException("providerName");
+            }
+
+            [Fact]
+            public void Should_Throw_If_Provider_Name_Is_WhiteSpace()
+            {
+                // Given / When
+                var result = Record.Exception(() => new Issue(@"src\foo.cs", 100, "foo", 1, "foo", "providerType", " "));
+
+                // Then
+                result.IsArgumentOutOfRangeException("providerName");
+            }
+
+            [Fact]
             public void Should_Handle_Projects_Which_Are_Null()
             {
                 // Given / When
-                var issue = new Issue(null, @"src\foo.cs", null, "Foo", 1, "Bar", "foo");
+                var issue = new Issue(null, @"src\foo.cs", null, "Foo", 1, "Bar", "foo", "providerName");
 
                 // Then
                 issue.Project.ShouldBe(null);
@@ -137,7 +167,7 @@
             public void Should_Handle_Projects_Which_Are_WhiteSpace()
             {
                 // Given / When
-                var issue = new Issue(" ", @"src\foo.cs", null, "Foo", 1, "Bar", "foo");
+                var issue = new Issue(" ", @"src\foo.cs", null, "Foo", 1, "Bar", "foo", "providerName");
 
                 // Then
                 issue.Project.ShouldBe(" ");
@@ -147,7 +177,7 @@
             public void Should_Handle_Projects_Which_Are_Empty()
             {
                 // Given / When
-                var issue = new Issue(string.Empty, @"src\foo.cs", null, "Foo", 1, "Bar", "foo");
+                var issue = new Issue(string.Empty, @"src\foo.cs", null, "Foo", 1, "Bar", "foo", "providerName");
 
                 // Then
                 issue.Project.ShouldBe(string.Empty);
@@ -158,7 +188,7 @@
             public void Should_Set_Project(string project)
             {
                 // Given / When
-                var issue = new Issue(project, @"src\foo.cs", null, "Foo", 1, "Bar", "foo");
+                var issue = new Issue(project, @"src\foo.cs", null, "Foo", 1, "Bar", "foo", "providerName");
 
                 // Then
                 issue.Project.ShouldBe(project);
@@ -168,7 +198,7 @@
             public void Should_Handle_File_Paths_Which_Are_Null()
             {
                 // Given / When
-                var issue = new Issue(null, null, "Foo", 1, "Bar", "foo");
+                var issue = new Issue(null, null, "Foo", 1, "Bar", "foo", "providerName");
 
                 // Then
                 issue.AffectedFileRelativePath.ShouldBe(null);
@@ -178,7 +208,7 @@
             public void Should_Handle_File_Paths_Which_Are_Empty()
             {
                 // Given / When
-                var issue = new Issue(string.Empty, null, "Foo", 1, "Bar", "foo");
+                var issue = new Issue(string.Empty, null, "Foo", 1, "Bar", "foo", "providerName");
 
                 // Then
                 issue.AffectedFileRelativePath.ShouldBe(null);
@@ -188,7 +218,7 @@
             public void Should_Handle_File_Paths_Which_Are_WhiteSpace()
             {
                 // Given / When
-                var issue = new Issue(" ", null, "Foo", 1, "Bar", "foo");
+                var issue = new Issue(" ", null, "Foo", 1, "Bar", "foo", "providerName");
 
                 // Then
                 issue.AffectedFileRelativePath.ShouldBe(null);
@@ -207,7 +237,7 @@
             public void Should_Set_File_Path(string filePath, string expectedFilePath)
             {
                 // Given / When
-                var issue = new Issue(filePath, 100, "Foo", 1, "Bar", "foo");
+                var issue = new Issue(filePath, 100, "Foo", 1, "Bar", "foo", "providerName");
 
                 // Then
                 issue.AffectedFileRelativePath.ToString().ShouldBe(expectedFilePath);
@@ -221,7 +251,7 @@
             public void Should_Set_Line(int? line)
             {
                 // Given / When
-                var issue = new Issue(@"foo.cs", line, "Foo", 1, "Bar", "foo");
+                var issue = new Issue(@"foo.cs", line, "Foo", 1, "Bar", "foo", "providerName");
 
                 // Then
                 issue.Line.ShouldBe(line);
@@ -232,7 +262,7 @@
             public void Should_Set_Message(string message)
             {
                 // Given / When
-                var issue = new Issue(@"foo.cs", 100, message, 1, "Bar", "foo");
+                var issue = new Issue(@"foo.cs", 100, message, 1, "Bar", "foo", "providerName");
 
                 // Then
                 issue.Message.ShouldBe(message);
@@ -245,7 +275,7 @@
             public void Should_Set_Rule(string rule)
             {
                 // Given / When
-                var issue = new Issue(@"foo.cs", 100, "foo", 1, rule, "foo");
+                var issue = new Issue(@"foo.cs", 100, "foo", 1, rule, "foo", "providerName");
 
                 // Then
                 issue.Rule.ShouldBe(rule);
@@ -258,7 +288,7 @@
                 var ruleUrl = new Uri("http://google.com");
 
                 // When
-                var issue = new Issue(@"foo.cs", 100, "foo", 1, "foo", ruleUrl, "foo");
+                var issue = new Issue(@"foo.cs", 100, "foo", 1, "foo", ruleUrl, "foo", "providerName");
 
                 // Then
                 issue.RuleUrl.ShouldBe(ruleUrl);
@@ -271,7 +301,7 @@
                 Uri ruleUrl = null;
 
                 // When
-                var issue = new Issue(@"foo.cs", 100, "foo", 1, "foo", ruleUrl, "foo");
+                var issue = new Issue(@"foo.cs", 100, "foo", 1, "foo", ruleUrl, "foo", "providerName");
 
                 // Then
                 issue.RuleUrl.ShouldBe(ruleUrl);
@@ -282,10 +312,21 @@
             public void Should_Set_ProviderType(string providerType)
             {
                 // Given / When
-                var issue = new Issue(@"foo.cs", 100, "foo", 1, "foo", providerType);
+                var issue = new Issue(@"foo.cs", 100, "foo", 1, "foo", providerType, "providerName");
 
                 // Then
                 issue.ProviderType.ShouldBe(providerType);
+            }
+
+            [Theory]
+            [InlineData("providerName")]
+            public void Should_Set_ProviderName(string providerName)
+            {
+                // Given / When
+                var issue = new Issue(@"foo.cs", 100, "foo", 1, "foo", "foo", providerName);
+
+                // Then
+                issue.ProviderName.ShouldBe(providerName);
             }
         }
     }

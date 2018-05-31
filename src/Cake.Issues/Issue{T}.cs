@@ -12,6 +12,7 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="Issue{T}"/> class.
         /// </summary>
+        /// <param name="issueProvider">Issue provider which reported this issue.</param>
         /// <param name="filePath">The path to the file affacted by the issue.
         /// The path needs to be relative to the repository root.
         /// <c>null</c> or <see cref="string.Empty"/> if issue is not related to a change in a file.</param>
@@ -22,18 +23,20 @@
         /// <param name="rule">The rule of the issue.
         /// <c>null</c> or <see cref="string.Empty"/> if issue has no specific rule ID.</param>
         public Issue(
+            T issueProvider,
             string filePath,
             int? line,
             string message,
             int priority,
             string rule)
-            : base(filePath, line, message, priority, rule, typeof(T).FullName)
+            : base(filePath, line, message, priority, rule, GetProviderTypeName(), issueProvider.ProviderName)
         {
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Issue{T}"/> class.
         /// </summary>
+        /// <param name="issueProvider">Issue provider which reported this issue.</param>
         /// <param name="filePath">The path to the file affacted by the issue.
         /// The path needs to be relative to the repository root.
         /// <c>null</c> or <see cref="string.Empty"/> if issue is not related to a change in a file.</param>
@@ -46,19 +49,21 @@
         /// <param name="ruleUrl">The URL containing information about the failing rule.
         /// <c>null</c> if no URL is available.</param>
         public Issue(
+            T issueProvider,
             string filePath,
             int? line,
             string message,
             int priority,
             string rule,
             Uri ruleUrl)
-            : base(filePath, line, message, priority, rule, ruleUrl, GetProviderTypeName())
+            : base(filePath, line, message, priority, rule, ruleUrl, GetProviderTypeName(), issueProvider.ProviderName)
         {
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Issue{T}"/> class.
         /// </summary>
+        /// <param name="issueProvider">Issue provider which reported this issue.</param>
         /// <param name="project">Name of the project to which the file affected by the issue belongs.
         /// <c>null</c> or <see cref="string.Empty"/> if issue is not related to a project.</param>
         /// <param name="filePath">The path to the file affacted by the issue.
@@ -71,19 +76,21 @@
         /// <param name="rule">The rule of the issue.
         /// <c>null</c> or <see cref="string.Empty"/> if issue has no specific rule ID.</param>
         public Issue(
+            T issueProvider,
             string project,
             string filePath,
             int? line,
             string message,
             int priority,
             string rule)
-            : base(project, filePath, line, message, priority, rule, null, GetProviderTypeName())
+            : base(project, filePath, line, message, priority, rule, null, GetProviderTypeName(), issueProvider.ProviderName)
         {
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Issue{T}"/> class.
         /// </summary>
+        /// <param name="issueProvider">Issue provider which reported this issue.</param>
         /// <param name="project">Name of the project to which the file affected by the issue belongs.
         /// <c>null</c> or <see cref="string.Empty"/> if issue is not related to a project.</param>
         /// <param name="filePath">The path to the file affacted by the issue.
@@ -98,6 +105,7 @@
         /// <param name="ruleUrl">The URL containing information about the failing rule.
         /// <c>null</c> if no URL is available.</param>
         public Issue(
+            T issueProvider,
             string project,
             string filePath,
             int? line,
@@ -105,14 +113,14 @@
             int priority,
             string rule,
             Uri ruleUrl)
-            : base(project, filePath, line, message, priority, rule, ruleUrl, GetProviderTypeName())
+            : base(project, filePath, line, message, priority, rule, ruleUrl, GetProviderTypeName(), issueProvider.ProviderName)
         {
         }
 
         /// <summary>
-        /// Gets the name of the issue provider as it will be set to in the <see cref="IIssue.ProviderType"/> property.
+        /// Gets the name of the issue provider type as it will be set to in the <see cref="IIssue.ProviderType"/> property.
         /// </summary>
-        /// <returns>Name of the issue provider.</returns>
+        /// <returns>Name of the issue provider type.</returns>
         public static string GetProviderTypeName()
         {
             return typeof(T).FullName;
