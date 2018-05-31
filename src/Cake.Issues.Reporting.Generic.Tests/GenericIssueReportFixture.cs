@@ -7,11 +7,11 @@
 
     internal class GenericIssueReportFixture
     {
-        public GenericIssueReportFixture()
+        public GenericIssueReportFixture(GenericIssueReportTemplate template)
         {
             this.Log = new FakeLog { Verbosity = Verbosity.Normal };
             this.GenericIssueReportFormatSettings =
-                GenericIssueReportFormatSettings.FromEmbeddedTemplate(GenericIssueReportTemplate.HtmlDiagnostic);
+                GenericIssueReportFormatSettings.FromEmbeddedTemplate(template);
         }
 
         public GenericIssueReportFixture(string templateContent)
