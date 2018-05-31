@@ -5,7 +5,7 @@ Description: Template for a HTML report containing a rich data table view with s
 ---
 Template for a HTML report containing a rich data table view with sorting and search functionality powered by [Vanilla-DataTables].
 
-## Features
+# Features
 
 * Separate table for issues of each issue provider.
 * Table with `Severity`, `Project`, `Path`, `File`, `Line`, `Rule`, `Message`.
@@ -13,7 +13,7 @@ Template for a HTML report containing a rich data table view with sorting and se
 * Paged table with possibility for user to change number of entries per page.
 * Client-side full text search.
 
-## Screenshots
+# Screenshots
 
 ![HTML Data Table](htmldatatable01.png "HTML Data Table")
 
