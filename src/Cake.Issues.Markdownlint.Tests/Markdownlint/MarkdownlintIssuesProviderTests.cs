@@ -57,7 +57,7 @@
                     3,
                     "MD010",
                     "https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md010",
-                    0,
+                    300,
                     "Warning",
                     "Hard tabs");
                 CheckIssue(
@@ -66,7 +66,7 @@
                     1,
                     "MD018",
                     "https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md018",
-                    0,
+                    300,
                     "Warning",
                     "No space after hash on atx style header");
                 CheckIssue(
@@ -75,7 +75,7 @@
                     3,
                     "MD018",
                     "https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md018",
-                    0,
+                    300,
                     "Warning",
                     "No space after hash on atx style header");
             }

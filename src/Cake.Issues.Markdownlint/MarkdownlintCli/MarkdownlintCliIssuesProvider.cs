@@ -50,15 +50,12 @@
                 var ruleDescription = groups[5].Value;
 
                 yield return
-                    new Issue<MarkdownlintCliIssuesProvider>(
-                        this,
-                        fileName,
-                        lineNumber,
-                        ruleDescription,
-                        0,
-                        "Warning",
-                        rule,
-                        MarkdownlintRuleUrlResolver.Instance.ResolveRuleUrl(rule));
+                    IssueBuilder
+                        .NewIssue(ruleDescription, this)
+                        .InFile(fileName, lineNumber)
+                        .WithPriority(IssuePriority.Warning)
+                        .OfRule(rule, MarkdownlintRuleUrlResolver.Instance.ResolveRuleUrl(rule))
+                        .Create();
             }
         }
 
