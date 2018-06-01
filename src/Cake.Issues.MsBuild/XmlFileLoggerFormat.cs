@@ -63,15 +63,37 @@
                     ruleUrl = MsBuildRuleUrlResolver.Instance.ResolveRuleUrl(rule);
                 }
 
-                result.Add(new Issue<MsBuildIssuesProvider>(
-                    issueProvider,
-                    fileName,
-                    line,
-                    warning.Value,
-                    0,
-                    "Warning",
-                    rule,
-                    ruleUrl));
+                // Build issue.
+                var issueBuilder =
+                    IssueBuilder
+                        .NewIssue(warning.Value, issueProvider)
+                        .WithPriority(IssuePriority.Warning);
+
+                if (!string.IsNullOrWhiteSpace(fileName))
+                {
+                    if (line.HasValue)
+                    {
+                        issueBuilder = issueBuilder.InFile(fileName, line.Value);
+                    }
+                    else
+                    {
+                        issueBuilder = issueBuilder.InFile(fileName);
+                    }
+                }
+
+                if (!string.IsNullOrWhiteSpace(rule))
+                {
+                    if (ruleUrl != null)
+                    {
+                        issueBuilder = issueBuilder.OfRule(rule, ruleUrl);
+                    }
+                    else
+                    {
+                        issueBuilder = issueBuilder.OfRule(rule);
+                    }
+                }
+
+                result.Add(issueBuilder.Create());
             }
 
             return result;
