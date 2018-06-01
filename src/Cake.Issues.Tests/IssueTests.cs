@@ -631,12 +631,13 @@
             public sealed class ThePriorityArgument
             {
                 [Theory]
+                [InlineData(null)]
                 [InlineData(int.MinValue)]
                 [InlineData(-1)]
                 [InlineData(0)]
                 [InlineData(1)]
                 [InlineData(int.MaxValue)]
-                public void Should_Set_Priority(int priority)
+                public void Should_Set_Priority(int? priority)
                 {
                     // Given
                     var project = "Project";
@@ -671,7 +672,7 @@
             public sealed class ThePriorityNameArgument
             {
                 [Fact]
-                public void Should_Throw_If_Priority_Name_Is_Null()
+                public void Should_Handle_PriorityNames_Which_Are_Null()
                 {
                     // Given
                     var project = "Project";
@@ -686,7 +687,7 @@
                     var providerName = "ProviderName";
 
                     // When
-                    var result = Record.Exception(() =>
+                    var issue =
                         new Issue(
                             project,
                             filePath,
@@ -697,17 +698,17 @@
                             rule,
                             ruleUri,
                             providerType,
-                            providerName));
+                            providerName);
 
                     // Then
-                    result.IsArgumentNullException("priorityName");
+                    issue.PriorityName.ShouldBe(null);
                 }
 
                 [Fact]
-                public void Should_Throw_If_Priority_Name_Is_Empty()
+                public void Should_Handle_PriorityNames_Which_Are_Empty()
                 {
                     // Given
-                    var project = "Project";
+                    var project = "PRoject";
                     var filePath = @"src\foo.cs";
                     var line = 10;
                     var message = "Message";
@@ -719,7 +720,7 @@
                     var providerName = "ProviderName";
 
                     // When
-                    var result = Record.Exception(() =>
+                    var issue =
                         new Issue(
                             project,
                             filePath,
@@ -730,14 +731,14 @@
                             rule,
                             ruleUri,
                             providerType,
-                            providerName));
+                            providerName);
 
                     // Then
-                    result.IsArgumentOutOfRangeException("priorityName");
+                    issue.PriorityName.ShouldBe(string.Empty);
                 }
 
                 [Fact]
-                public void Should_Throw_If_Priority_Name_Is_WhiteSpace()
+                public void Should_Handle_PriorityNames_Which_Are_WhiteSpace()
                 {
                     // Given
                     var project = "Project";
@@ -752,7 +753,7 @@
                     var providerName = "ProviderName";
 
                     // When
-                    var result = Record.Exception(() =>
+                    var issue =
                         new Issue(
                             project,
                             filePath,
@@ -763,10 +764,10 @@
                             rule,
                             ruleUri,
                             providerType,
-                            providerName));
+                            providerName);
 
                     // Then
-                    result.IsArgumentOutOfRangeException("priorityName");
+                    issue.PriorityName.ShouldBe(" ");
                 }
 
                 [Theory]

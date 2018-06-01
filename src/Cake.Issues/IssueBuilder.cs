@@ -36,8 +36,6 @@
             this.message = message;
             this.providerType = providerType;
             this.providerName = providerName;
-
-            this.priorityName = "Warning";
         }
 
         /// <summary>

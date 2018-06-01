@@ -34,11 +34,13 @@
 
         /// <summary>
         /// Gets the priority of the message. A higher value indicates a higher priority.
+        /// <c>null</c> if no priority was assigned.
         /// </summary>
-        int Priority { get; }
+        int? Priority { get; }
 
         /// <summary>
         /// Gets the human friendly name of the priority.
+        /// <c>null</c> or <see cref="string.Empty"/> if no priority was assigned.
         /// </summary>
         string PriorityName { get; }
 

@@ -19,8 +19,10 @@
         /// <param name="line">The line in the file where the issues has occurred.
         /// <c>null</c> if the issue affects the whole file or an asssembly.</param>
         /// <param name="message">The message of the issue.</param>
-        /// <param name="priority">The priority of the message.</param>
-        /// <param name="priorityName">The human friendly name of the priority.</param>
+        /// <param name="priority">The priority of the message.
+        /// <c>null</c> if no priority was assigned.</param>
+        /// <param name="priorityName">The human friendly name of the priority.
+        /// <c>null</c> or <see cref="string.Empty"/> if no priority was assigned.</param>
         /// <param name="rule">The rule of the issue.
         /// <c>null</c> or <see cref="string.Empty"/> if issue has no specific rule ID.</param>
         /// <param name="ruleUrl">The URL containing information about the failing rule.
@@ -32,7 +34,7 @@
             string filePath,
             int? line,
             string message,
-            int priority,
+            int? priority,
             string priorityName,
             string rule,
             Uri ruleUrl,
@@ -41,7 +43,6 @@
         {
             line?.NotNegativeOrZero(nameof(line));
             message.NotNullOrWhiteSpace(nameof(message));
-            priorityName.NotNullOrWhiteSpace(nameof(priorityName));
             providerType.NotNullOrWhiteSpace(nameof(providerType));
             providerName.NotNullOrWhiteSpace(nameof(providerName));
 
@@ -90,7 +91,7 @@
         public string Message { get; }
 
         /// <inheritdoc/>
-        public int Priority { get; }
+        public int? Priority { get; }
 
         /// <inheritdoc/>
         public string PriorityName { get; }
