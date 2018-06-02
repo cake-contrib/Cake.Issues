@@ -49,24 +49,18 @@
                 var issues =
                     new List<IIssue>
                     {
-                        new Issue(
-                            @"src\Cake.Issues.Reporting.Generic.Tests\Foo.cs",
-                            10,
-                            "Message Foo",
-                            0,
-                            "Warning",
-                            "Rule Foo",
-                            "ProviderType Foo",
-                            "ProviderName Foo"),
-                        new Issue(
-                            @"src\Cake.Issues.Reporting.Generic.Tests\Foo.cs",
-                            12,
-                            "Message Bar",
-                            0,
-                            "Warning",
-                            "Rule Bar",
-                            "ProviderType Bar",
-                            "ProviderName Foo")
+                        IssueBuilder
+                            .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                            .InFile(@"src\Cake.Issues.Reporting.Generic.Tests\Foo.cs", 10)
+                            .OfRule("Rule Foo")
+                            .WithPriority(IssuePriority.Warning)
+                            .Create(),
+                        IssueBuilder
+                            .NewIssue("Message Bar", "ProviderType Bar", "ProviderName Bar")
+                            .InFile(@"src\Cake.Issues.Reporting.Generic.Tests\Foo.cs", 12)
+                            .OfRule("Rule Bar")
+                            .WithPriority(IssuePriority.Warning)
+                            .Create()
                         };
 
                 // When
@@ -84,24 +78,18 @@
                 var issues =
                     new List<IIssue>
                     {
-                        new Issue(
-                            @"src\Cake.Issues.Reporting.Generic.Tests\Foo.cs",
-                            10,
-                            "Message Foo",
-                            0,
-                            "Warning",
-                            "Rule Foo",
-                            "ProviderType Foo",
-                            "ProviderName Foo"),
-                        new Issue(
-                            @"src\Cake.Issues.Reporting.Generic.Tests\Foo.cs",
-                            12,
-                            "Message Bar",
-                            0,
-                            "Warning",
-                            "Rule Bar",
-                            "ProviderType Bar",
-                            "ProviderName Foo")
+                        IssueBuilder
+                            .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                            .InFile(@"src\Cake.Issues.Reporting.Generic.Tests\Foo.cs", 10)
+                            .OfRule("Rule Foo")
+                            .WithPriority(IssuePriority.Warning)
+                            .Create(),
+                        IssueBuilder
+                            .NewIssue("Message Bar", "ProviderType Bar", "ProviderName Bar")
+                            .InFile(@"src\Cake.Issues.Reporting.Generic.Tests\Foo.cs", 12)
+                            .OfRule("Rule Bar")
+                            .WithPriority(IssuePriority.Warning)
+                            .Create()
                         };
                 var expectedResult =
                     @"<ul><li>Message Foo</li><li>Message Bar</li></ul>";
