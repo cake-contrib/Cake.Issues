@@ -145,8 +145,6 @@
         /// <returns>Issue Builder instance.</returns>
         public IssueBuilder WithPriority(int value, string name)
         {
-            name.NotNullOrWhiteSpace(nameof(name));
-
             this.priority = value;
             this.priorityName = name;
 
@@ -161,8 +159,6 @@
         /// <returns>Issue Builder instance.</returns>
         public IssueBuilder OfRule(string name)
         {
-            name.NotNullOrWhiteSpace(nameof(name));
-
             this.rule = name;
 
             return this;
@@ -178,9 +174,6 @@
         /// <returns>Issue Builder instance.</returns>
         public IssueBuilder OfRule(string name, Uri uri)
         {
-            name.NotNullOrWhiteSpace(nameof(name));
-            uri.NotNull(nameof(uri));
-
             this.rule = name;
             this.ruleUrl = uri;
 

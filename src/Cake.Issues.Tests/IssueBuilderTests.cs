@@ -466,45 +466,45 @@
         public sealed class TheWithPriorityMethod
         {
             [Fact]
-            public void Should_Throw_If_Name_Is_Null()
+            public void Should_Handle_PriorityNames_Which_Are_Null()
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
+                string priorityName = null;
 
                 // When
-                var result = Record.Exception(() =>
-                    fixture.IssueBuilder.WithPriority(0, null));
+                var issue = fixture.IssueBuilder.WithPriority(0, priorityName).Create();
 
                 // Then
-                result.IsArgumentNullException("name");
+                issue.PriorityName.ShouldBe(priorityName);
             }
 
             [Fact]
-            public void Should_Throw_If_Name_Is_Empty()
+            public void Should_Handle_PriorityNames_Which_Are_Empty()
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
+                var priorityName = string.Empty;
 
                 // When
-                var result = Record.Exception(() =>
-                    fixture.IssueBuilder.WithPriority(0, string.Empty));
+                var issue = fixture.IssueBuilder.WithPriority(0, priorityName).Create();
 
                 // Then
-                result.IsArgumentOutOfRangeException("name");
+                issue.PriorityName.ShouldBe(priorityName);
             }
 
             [Fact]
-            public void Should_Throw_If_Name_Is_WhiteSpace()
+            public void Should_Handle_PriorityNames_Which_Are_WhiteSpace()
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
+                var priorityName = " ";
 
                 // When
-                var result = Record.Exception(() =>
-                    fixture.IssueBuilder.WithPriority(0, " "));
+                var issue = fixture.IssueBuilder.WithPriority(0, priorityName).Create();
 
                 // Then
-                result.IsArgumentOutOfRangeException("name");
+                issue.PriorityName.ShouldBe(priorityName);
             }
 
             [Theory]
@@ -564,45 +564,45 @@
         public sealed class TheOfRuleMethod
         {
             [Fact]
-            public void Should_Throw_If_Name_Is_Null()
+            public void Should_Handle_Rules_Which_Are_Null()
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
+                string rule = null;
 
                 // When
-                var result = Record.Exception(() =>
-                    fixture.IssueBuilder.OfRule(null));
+                var issue = fixture.IssueBuilder.OfRule(rule).Create();
 
                 // Then
-                result.IsArgumentNullException("name");
+                issue.Rule.ShouldBe(rule);
             }
 
             [Fact]
-            public void Should_Throw_If_Name_Is_Empty()
+            public void Should_Handle_Rules_Which_Are_Empty()
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
+                var rule = string.Empty;
 
                 // When
-                var result = Record.Exception(() =>
-                    fixture.IssueBuilder.OfRule(string.Empty));
+                var issue = fixture.IssueBuilder.OfRule(rule).Create();
 
                 // Then
-                result.IsArgumentOutOfRangeException("name");
+                issue.Rule.ShouldBe(rule);
             }
 
             [Fact]
-            public void Should_Throw_If_Name_Is_WhiteSpace()
+            public void Should_Handle_Rules_Which_Are_WhiteSpace()
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
+                var rule = " ";
 
                 // When
-                var result = Record.Exception(() =>
-                    fixture.IssueBuilder.OfRule(" "));
+                var issue = fixture.IssueBuilder.OfRule(rule).Create();
 
                 // Then
-                result.IsArgumentOutOfRangeException("name");
+                issue.Rule.ShouldBe(rule);
             }
 
             [Theory]
@@ -623,59 +623,58 @@
         public sealed class TheOfRuleWithUriMethod
         {
             [Fact]
-            public void Should_Throw_If_Name_Is_Null()
+            public void Should_Handle_Names_Which_Are_Null()
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
+                string rule = null;
 
                 // When
-                var result = Record.Exception(() =>
-                    fixture.IssueBuilder.OfRule(null, new Uri("https://google.com")));
+                var issue = fixture.IssueBuilder.OfRule(rule, new Uri("https://google.com")).Create();
 
                 // Then
-                result.IsArgumentNullException("name");
+                issue.Rule.ShouldBe(rule);
             }
 
             [Fact]
-            public void Should_Throw_If_Name_Is_Empty()
+            public void Should_Handle_Name_Which_Are_Empty()
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
+                var rule = string.Empty;
 
                 // When
-                var result = Record.Exception(() =>
-                    fixture.IssueBuilder.OfRule(string.Empty, new Uri("https://google.com")));
+                var issue = fixture.IssueBuilder.OfRule(rule, new Uri("https://google.com")).Create();
 
                 // Then
-                result.IsArgumentOutOfRangeException("name");
+                issue.Rule.ShouldBe(rule);
             }
 
             [Fact]
-            public void Should_Throw_If_Name_Is_WhiteSpace()
+            public void Should_Handle_Names_Which_Are_WhiteSpace()
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
+                var rule = " ";
 
                 // When
-                var result = Record.Exception(() =>
-                    fixture.IssueBuilder.OfRule(" ", new Uri("https://google.com")));
+                var issue = fixture.IssueBuilder.OfRule(rule, new Uri("https://google.com")).Create();
 
                 // Then
-                result.IsArgumentOutOfRangeException("name");
+                issue.Rule.ShouldBe(rule);
             }
 
             [Fact]
-            public void Should_Throw_If_RuleUri_Is_Null()
+            public void Should_Handle_Rule_Uri_Which_Are_Null()
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
 
                 // When
-                var result = Record.Exception(() =>
-                    fixture.IssueBuilder.OfRule("Rule", null));
+                var issue = fixture.IssueBuilder.OfRule("Rule", null).Create();
 
                 // Then
-                result.IsArgumentNullException("uri");
+                issue.RuleUrl.ShouldBe(null);
             }
 
             [Theory]
@@ -684,12 +683,13 @@
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
+                var ruleUri = "https://google.com/";
 
                 // When
-                var issue = fixture.IssueBuilder.OfRule(rule, new Uri("https://google.com")).Create();
+                var issue = fixture.IssueBuilder.OfRule(rule, new Uri(ruleUri)).Create();
 
                 // Then
-                issue.Rule.ShouldBe(rule);
+                issue.RuleUrl.ToString().ShouldBe(ruleUri);
             }
 
             [Theory]
