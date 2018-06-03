@@ -82,13 +82,13 @@
         /// <summary>
         /// Sets the name of the project to which the file affected by the issue belongs.
         /// </summary>
-        /// <param name="name">Name of the project to which the file affected by the issue belongs.</param>
+        /// <param name="name">Name of the project to which the file affected by the issue belongs.
+        /// <c>null</c> or <see cref="string.Empty"/> if issue is not related to a project.</param>
         /// <returns>Issue Builder instance.</returns>
         public IssueBuilder InProject(string name)
         {
-            name.NotNullOrWhiteSpace(nameof(name));
-
             this.project = name;
+
             return this;
         }
 
@@ -96,12 +96,11 @@
         /// Sets the path to the file affected by the issue.
         /// </summary>
         /// <param name="filePath">The path to the file affacted by the issue.
-        /// The path needs to be relative to the repository root.</param>
+        /// The path needs to be relative to the repository root.
+        /// <c>null</c> or <see cref="string.Empty"/> if issue is not related to a change in a file.</param>
         /// <returns>Issue Builder instance.</returns>
         public IssueBuilder InFile(string filePath)
         {
-            filePath.NotNullOrWhiteSpace(nameof(filePath));
-
             this.filePath = filePath;
 
             return this;
@@ -111,13 +110,14 @@
         /// Sets the path to the file affected by the issue and the line in the file where the issues has occurred.
         /// </summary>
         /// <param name="filePath">The path to the file affacted by the issue.
-        /// The path needs to be relative to the repository root.</param>
-        /// <param name="line">The line in the file where the issues has occurred.</param>
+        /// The path needs to be relative to the repository root.
+        /// <c>null</c> or <see cref="string.Empty"/> if issue is not related to a change in a file.</param>
+        /// <param name="line">The line in the file where the issues has occurred.
+        /// <c>null</c> if the issue affects the whole file or an asssembly.</param>
         /// <returns>Issue Builder instance.</returns>
-        public IssueBuilder InFile(string filePath, int line)
+        public IssueBuilder InFile(string filePath, int? line)
         {
-            filePath.NotNullOrWhiteSpace(nameof(filePath));
-            line.NotNegativeOrZero(nameof(line));
+            line?.NotNegativeOrZero(nameof(line));
 
             this.filePath = filePath;
             this.line = line;
@@ -138,8 +138,10 @@
         /// <summary>
         /// Sets the priority of the message.
         /// </summary>
-        /// <param name="value">The priority of the message.</param>
-        /// <param name="name">The human friendly name of the priority.</param>
+        /// <param name="value">The priority of the message.
+        /// <c>null</c> if no priority should be assigned.</param>
+        /// <param name="name">The human friendly name of the priority.
+        /// <c>null</c> or <see cref="string.Empty"/> if no priority should be assigned.</param>
         /// <returns>Issue Builder instance.</returns>
         public IssueBuilder WithPriority(int value, string name)
         {
@@ -154,7 +156,8 @@
         /// <summary>
         /// Sets the rule of the issue.
         /// </summary>
-        /// <param name="name">The rule of the issue.</param>
+        /// <param name="name">The rule of the issue.
+        /// <c>null</c> or <see cref="string.Empty"/> if issue has no specific rule ID.</param>
         /// <returns>Issue Builder instance.</returns>
         public IssueBuilder OfRule(string name)
         {
@@ -168,8 +171,10 @@
         /// <summary>
         /// Sets the rule of the issue.
         /// </summary>
-        /// <param name="name">The rule of the issue.</param>
-        /// <param name="uri">The URL containing information about the failing rule.</param>
+        /// <param name="name">The rule of the issue.
+        /// <c>null</c> or <see cref="string.Empty"/> if issue has no specific rule ID.</param>
+        /// <param name="uri">The URL containing information about the failing rule.
+        /// <c>null</c> if no URL is available.</param>
         /// <returns>Issue Builder instance.</returns>
         public IssueBuilder OfRule(string name, Uri uri)
         {

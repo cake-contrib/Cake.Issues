@@ -221,45 +221,45 @@
         public sealed class TheInProjectMethod
         {
             [Fact]
-            public void Should_Throw_If_Name_Is_Null()
+            public void Should_Handle_Projects_Which_Are_Null()
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
+                string project = null;
 
                 // When
-                var result = Record.Exception(() =>
-                    fixture.IssueBuilder.InProject(null));
+                var issue = fixture.IssueBuilder.InProject(project).Create();
 
                 // Then
-                result.IsArgumentNullException("name");
+                issue.Project.ShouldBe(project);
             }
 
             [Fact]
-            public void Should_Throw_If_Name_Is_Empty()
+            public void Should_Handle_Projects_Which_Are_Empty()
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
+                var project = string.Empty;
 
                 // When
-                var result = Record.Exception(() =>
-                    fixture.IssueBuilder.InProject(string.Empty));
+                var issue = fixture.IssueBuilder.InProject(project).Create();
 
                 // Then
-                result.IsArgumentOutOfRangeException("name");
+                issue.Project.ShouldBe(project);
             }
 
             [Fact]
-            public void Should_Throw_If_Name_Is_WhiteSpace()
+            public void Should_Handle_Projects_Which_Are_WhiteSpace()
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
+                var project = " ";
 
                 // When
-                var result = Record.Exception(() =>
-                    fixture.IssueBuilder.InProject(" "));
+                var issue = fixture.IssueBuilder.InProject(project).Create();
 
                 // Then
-                result.IsArgumentOutOfRangeException("name");
+                issue.Project.ShouldBe(project);
             }
 
             [Theory]
@@ -280,45 +280,42 @@
         public sealed class TheInFileMethod
         {
             [Fact]
-            public void Should_Throw_If_FilePath_Is_Null()
+            public void Should_Handle_File_Paths_Which_Are_Null()
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
 
                 // When
-                var result = Record.Exception(() =>
-                    fixture.IssueBuilder.InFile(null));
+                var issue = fixture.IssueBuilder.InFile(null).Create();
 
                 // Then
-                result.IsArgumentNullException("filePath");
+                issue.AffectedFileRelativePath.ShouldBe(null);
             }
 
             [Fact]
-            public void Should_Throw_If_FilePath_Is_Empty()
+            public void Should_Handle_File_Paths_Which_Are_Empty()
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
 
                 // When
-                var result = Record.Exception(() =>
-                    fixture.IssueBuilder.InFile(string.Empty));
+                var issue = fixture.IssueBuilder.InFile(string.Empty).Create();
 
                 // Then
-                result.IsArgumentOutOfRangeException("filePath");
+                issue.AffectedFileRelativePath.ShouldBe(null);
             }
 
             [Fact]
-            public void Should_Throw_If_FilePath_Is_WhiteSpace()
+            public void Should_Handle_File_Paths_Which_Are_WhiteSpace()
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
 
                 // When
-                var result = Record.Exception(() =>
-                    fixture.IssueBuilder.InFile(" "));
+                var issue = fixture.IssueBuilder.InFile(" ").Create();
 
                 // Then
-                result.IsArgumentOutOfRangeException("filePath");
+                issue.AffectedFileRelativePath.ShouldBe(null);
             }
 
             [Theory]
@@ -348,45 +345,42 @@
         public sealed class TheInFileLineMethod
         {
             [Fact]
-            public void Should_Throw_If_FilePath_Is_Null()
+            public void Should_Handle_File_Paths_Which_Are_Null()
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
 
                 // When
-                var result = Record.Exception(() =>
-                    fixture.IssueBuilder.InFile(null, 10));
+                var issue = fixture.IssueBuilder.InFile(null).Create();
 
                 // Then
-                result.IsArgumentNullException("filePath");
+                issue.AffectedFileRelativePath.ShouldBe(null);
             }
 
             [Fact]
-            public void Should_Throw_If_FilePath_Is_Empty()
+            public void Should_Handle_File_Paths_Which_Are_Empty()
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
 
                 // When
-                var result = Record.Exception(() =>
-                    fixture.IssueBuilder.InFile(string.Empty, 10));
+                var issue = fixture.IssueBuilder.InFile(string.Empty).Create();
 
                 // Then
-                result.IsArgumentOutOfRangeException("filePath");
+                issue.AffectedFileRelativePath.ShouldBe(null);
             }
 
             [Fact]
-            public void Should_Throw_If_FilePath_Is_WhiteSpace()
+            public void Should_Handle_File_Paths_Which_Are_WhiteSpace()
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
 
                 // When
-                var result = Record.Exception(() =>
-                    fixture.IssueBuilder.InFile(" ", 10));
+                var issue = fixture.IssueBuilder.InFile(" ").Create();
 
                 // Then
-                result.IsArgumentOutOfRangeException("filePath");
+                issue.AffectedFileRelativePath.ShouldBe(null);
             }
 
             [Fact]
@@ -415,6 +409,19 @@
 
                 // Then
                 result.IsArgumentOutOfRangeException("line");
+            }
+
+            [Fact]
+            public void Should_Handle_Line_Which_Is_Null()
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+
+                // When
+                var issue = fixture.IssueBuilder.InFile("foo", null).Create();
+
+                // Then
+                issue.Line.ShouldBe(null);
             }
 
             [Theory]
