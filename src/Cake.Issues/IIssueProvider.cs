@@ -8,6 +8,11 @@
     public interface IIssueProvider : IBaseIssueComponent<RepositorySettings>
     {
         /// <summary>
+        /// Gets the human friendly name of the issue provider.
+        /// </summary>
+        string ProviderName { get; }
+
+        /// <summary>
         /// Gets all issues.
         /// </summary>
         /// <param name="format">Preferred format of the comments.</param>

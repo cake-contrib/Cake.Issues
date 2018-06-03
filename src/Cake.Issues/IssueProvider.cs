@@ -18,6 +18,9 @@
         }
 
         /// <inheritdoc/>
+        public abstract string ProviderName { get; }
+
+        /// <inheritdoc/>
         public IEnumerable<IIssue> ReadIssues(IssueCommentFormat format)
         {
             this.AssertSettings();
