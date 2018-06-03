@@ -39,7 +39,8 @@
                     1,
                     "no-unused-vars",
                     "http://eslint.org/docs/rules/no-unused-vars",
-                    2,
+                    400,
+                    "Error",
                     "'addOne' is defined but never used.");
                 CheckIssue(
                     issues[1],
@@ -47,7 +48,8 @@
                     2,
                     "use-isnan",
                     "http://eslint.org/docs/rules/use-isnan",
-                    2,
+                    400,
+                    "Error",
                     "Use the isNaN function to compare with NaN.");
                 CheckIssue(
                     issues[2],
@@ -55,7 +57,8 @@
                     3,
                     "space-unary-ops",
                     "http://eslint.org/docs/rules/space-unary-ops",
-                    2,
+                    400,
+                    "Error",
                     "Unexpected space before unary operator '++'.");
                 CheckIssue(
                     issues[3],
@@ -63,7 +66,8 @@
                     3,
                     "semi",
                     "http://eslint.org/docs/rules/semi",
-                    1,
+                    300,
+                    "Warning",
                     "Missing semicolon.");
                 CheckIssue(
                     issues[4],
@@ -71,7 +75,8 @@
                     4,
                     "no-else-return",
                     "http://eslint.org/docs/rules/no-else-return",
-                    1,
+                    300,
+                    "Warning",
                     "Unnecessary 'else' after 'return'.");
                 CheckIssue(
                     issues[5],
@@ -79,7 +84,8 @@
                     5,
                     "indent",
                     "http://eslint.org/docs/rules/indent",
-                    1,
+                    300,
+                    "Warning",
                     "Expected indentation of 8 spaces but found 6.");
                 CheckIssue(
                     issues[6],
@@ -87,7 +93,8 @@
                     5,
                     "consistent-return",
                     "http://eslint.org/docs/rules/consistent-return",
-                    2,
+                    400,
+                    "Error",
                     "Function 'addOne' expected a return value.");
                 CheckIssue(
                     issues[7],
@@ -95,7 +102,8 @@
                     5,
                     "semi",
                     "http://eslint.org/docs/rules/semi",
-                    1,
+                    300,
+                    "Warning",
                     "Missing semicolon.");
                 CheckIssue(
                     issues[8],
@@ -103,7 +111,8 @@
                     7,
                     "no-extra-semi",
                     "http://eslint.org/docs/rules/no-extra-semi",
-                    2,
+                    400,
+                    "Error",
                     "Unnecessary semicolon.");
             }
 
@@ -114,8 +123,12 @@
                 string rule,
                 string ruleUrl,
                 int priority,
+                string priorityName,
                 string message)
             {
+                issue.ProviderType.ShouldBe("Cake.Issues.EsLint.EsLintIssuesProvider");
+                issue.ProviderName.ShouldBe("ESLint");
+
                 if (issue.AffectedFileRelativePath == null)
                 {
                     affectedFileRelativePath.ShouldBeNull();
@@ -139,6 +152,7 @@
                 }
 
                 issue.Priority.ShouldBe(priority);
+                issue.PriorityName.ShouldBe(priorityName);
                 issue.Message.ShouldBe(message);
             }
         }

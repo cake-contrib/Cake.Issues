@@ -6,7 +6,7 @@
     /// <summary>
     /// Provider for issues reported by ESLint.
     /// </summary>
-    internal class EsLintIssuesProvider : IssueProvider
+    public class EsLintIssuesProvider : IssueProvider
     {
         private readonly EsLintIssuesSettings settings;
 
@@ -24,9 +24,12 @@
         }
 
         /// <inheritdoc />
+        public override string ProviderName => "ESLint";
+
+        /// <inheritdoc />
         protected override IEnumerable<IIssue> InternalReadIssues(IssueCommentFormat format)
         {
-            return this.settings.Format.ReadIssues(this.Settings, this.settings);
+            return this.settings.Format.ReadIssues(this, this.Settings, this.settings);
         }
     }
 }

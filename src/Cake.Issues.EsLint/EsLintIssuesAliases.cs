@@ -24,7 +24,7 @@
         {
             context.NotNull(nameof(context));
 
-            return Issue<EsLintIssuesProvider>.GetProviderTypeName();
+            return typeof(EsLintIssuesProvider).FullName;
         }
 
         /// <summary>
