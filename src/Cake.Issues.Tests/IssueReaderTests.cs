@@ -114,48 +114,36 @@
                         fixture.Log,
                         new List<IIssue>
                         {
-                            new Issue(
-                                @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
-                                10,
-                                "Foo",
-                                0,
-                                "Warning",
-                                "Foo",
-                                "Foo",
-                                "ProviderName"),
-                            new Issue(
-                                @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
-                                12,
-                                "Bar",
-                                0,
-                                "Warning",
-                                "Bar",
-                                "Bar",
-                                "ProviderName")
+                            IssueBuilder
+                                .NewIssue("Foo", "ProviderTypeFoo", "ProviderNameFoo")
+                                .InFile(@"src\Cake.Issues.Tests\FakeIssueProvider.cs", 10)
+                                .OfRule("Foo")
+                                .WithPriority(IssuePriority.Warning)
+                                .Create(),
+                            IssueBuilder
+                                .NewIssue("Bar", "ProviderTypeBar", "ProviderNameBar")
+                                .InFile(@"src\Cake.Issues.Tests\FakeIssueProvider.cs", 12)
+                                .OfRule("Bar")
+                                .WithPriority(IssuePriority.Warning)
+                                .Create()
                         }));
                 fixture.IssueProviders.Add(
                     new FakeIssueProvider(
                         fixture.Log,
                         new List<IIssue>
                         {
-                            new Issue(
-                                @"src\Cake.Issues.Tests\Foo.cs",
-                                5,
-                                "Foo",
-                                0,
-                                "Warning",
-                                "Foo",
-                                "Foo",
-                                "ProviderName"),
-                            new Issue(
-                                @"src\Cake.Issues.Tests\Bar.cs",
-                                7,
-                                "Bar",
-                                0,
-                                "Warning",
-                                "Bar",
-                                "Bar",
-                                "ProviderName")
+                            IssueBuilder
+                                .NewIssue("Foo", "ProviderTypeFoo", "ProviderNameFoo")
+                                .InFile(@"src\Cake.Issues.Tests\Foo.cs", 5)
+                                .OfRule("Foo")
+                                .WithPriority(IssuePriority.Warning)
+                                .Create(),
+                            IssueBuilder
+                                .NewIssue("Bar", "ProviderTypeBar", "ProviderNameBar")
+                                .InFile(@"src\Cake.Issues.Tests\Bar.cs", 7)
+                                .OfRule("Bar")
+                                .WithPriority(IssuePriority.Warning)
+                                .Create()
                         }));
 
                 // When
@@ -170,25 +158,19 @@
             {
                 // Given
                 var issue1 =
-                    new Issue(
-                        @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
-                        10,
-                        "Foo",
-                        0,
-                        "Warning",
-                        "Foo",
-                        "Foo",
-                        "ProviderName");
+                    IssueBuilder
+                        .NewIssue("Foo", "ProviderTypeFoo", "ProviderNameFoo")
+                        .InFile(@"src\Cake.Issues.Tests\FakeIssueProvider.cs", 10)
+                        .OfRule("Foo")
+                        .WithPriority(IssuePriority.Warning)
+                        .Create();
                 var issue2 =
-                    new Issue(
-                        @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
-                        12,
-                        "Bar",
-                        0,
-                        "Warning",
-                        "Bar",
-                        "Bar",
-                        "ProviderName");
+                    IssueBuilder
+                        .NewIssue("Bar", "ProviderTypeBar", "ProviderNameBar")
+                        .InFile(@"src\Cake.Issues.Tests\FakeIssueProvider.cs", 12)
+                        .OfRule("Bar")
+                        .WithPriority(IssuePriority.Warning)
+                        .Create();
                 var fixture = new IssuesFixture();
                 fixture.IssueProviders.Clear();
                 fixture.IssueProviders.Add(
@@ -214,25 +196,17 @@
             {
                 // Given
                 var issue1 =
-                    new Issue(
-                        null,
-                        null,
-                        "Foo",
-                        0,
-                        "Warning",
-                        "Foo",
-                        "Foo",
-                        "ProviderName");
+                    IssueBuilder
+                        .NewIssue("Foo", "ProviderTypeFoo", "ProviderNameFoo")
+                        .OfRule("Foo")
+                        .WithPriority(IssuePriority.Warning)
+                        .Create();
                 var issue2 =
-                    new Issue(
-                        null,
-                        null,
-                        "Bar",
-                        0,
-                        "Warning",
-                        "Bar",
-                        "Bar",
-                        "ProviderName");
+                    IssueBuilder
+                        .NewIssue("Bar", "ProviderTypeBar", "ProviderNameBar")
+                        .OfRule("Bar")
+                        .WithPriority(IssuePriority.Warning)
+                        .Create();
                 var fixture = new IssuesFixture();
                 fixture.IssueProviders.Clear();
                 fixture.IssueProviders.Add(
@@ -258,45 +232,33 @@
             {
                 // Given
                 var issue1 =
-                    new Issue(
-                        @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
-                        10,
-                        "Foo",
-                        0,
-                        "Warning",
-                        "Foo",
-                        "Foo",
-                        "ProviderName");
+                    IssueBuilder
+                        .NewIssue("Foo", "ProviderTypeFoo", "ProviderNameFoo")
+                        .InFile(@"src\Cake.Issues.Tests\FakeIssueProvider.cs", 10)
+                        .OfRule("Foo")
+                        .WithPriority(IssuePriority.Warning)
+                        .Create();
                 var issue2 =
-                    new Issue(
-                        @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
-                        12,
-                        "Bar",
-                        0,
-                        "Warning",
-                        "Bar",
-                        "Bar",
-                        "ProviderName");
+                    IssueBuilder
+                        .NewIssue("Bar", "ProviderTypeBar", "ProviderNameBar")
+                        .InFile(@"src\Cake.Issues.Tests\FakeIssueProvider.cs", 12)
+                        .OfRule("Bar")
+                        .WithPriority(IssuePriority.Warning)
+                        .Create();
                 var issue3 =
-                    new Issue(
-                        @"src\Cake.Issues.Tests\Foo.cs",
-                        5,
-                        "Foo",
-                        0,
-                        "Warning",
-                        "Foo",
-                        "Foo",
-                        "ProviderName");
+                    IssueBuilder
+                        .NewIssue("Foo", "ProviderTypeFoo", "ProviderNameFoo")
+                        .InFile(@"src\Cake.Issues.Tests\Foo.cs", 5)
+                        .OfRule("Foo")
+                        .WithPriority(IssuePriority.Warning)
+                        .Create();
                 var issue4 =
-                    new Issue(
-                        @"src\Cake.Issues.Tests\Bar.cs",
-                        7,
-                        "Bar",
-                        0,
-                        "Warning",
-                        "Bar",
-                        "Bar",
-                        "ProviderName");
+                    IssueBuilder
+                        .NewIssue("Bar", "ProviderTypeBar", "ProviderNameBar")
+                        .InFile(@"src\Cake.Issues.Tests\Bar.cs", 5)
+                        .OfRule("Bar")
+                        .WithPriority(IssuePriority.Warning)
+                        .Create();
                 var fixture = new IssuesFixture();
                 fixture.IssueProviders.Clear();
                 fixture.IssueProviders.Add(
