@@ -53,14 +53,12 @@
                     severity == "warning" &&
                     !string.IsNullOrWhiteSpace(message)
                 select
-                    new Issue<DocFxIssuesProvider>(
-                        this,
-                        file,
-                        line,
-                        message,
-                        0,
-                        "Warning",
-                        source);
+                    IssueBuilder
+                        .NewIssue(message, this)
+                        .InFile(file, line)
+                        .OfRule(source)
+                        .WithPriority(IssuePriority.Warning)
+                        .Create();
         }
 
         /// <summary>
