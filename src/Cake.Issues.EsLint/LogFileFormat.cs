@@ -26,6 +26,7 @@
 
         /// <inheritdoc/>
         public abstract IEnumerable<IIssue> ReadIssues(
+            EsLintIssuesProvider issueProvider,
             RepositorySettings repositorySettings,
             EsLintIssuesSettings esLintsettings);
     }

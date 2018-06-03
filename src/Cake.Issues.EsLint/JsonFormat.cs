@@ -23,9 +23,11 @@
 
         /// <inheritdoc />
         public override IEnumerable<IIssue> ReadIssues(
+            EsLintIssuesProvider issueProvider,
             RepositorySettings repositorySettings,
             EsLintIssuesSettings esLintsettings)
         {
+            issueProvider.NotNull(nameof(issueProvider));
             repositorySettings.NotNull(nameof(repositorySettings));
             esLintsettings.NotNull(nameof(esLintsettings));
 
@@ -44,13 +46,12 @@
                     let
                         rule = message.ruleId
                     select
-                        new Issue<EsLintIssuesProvider>(
-                            GetRelativeFilePath(file.filePath, repositorySettings),
-                            message.line,
-                            message.message,
-                            message.severity,
-                            rule,
-                            EsLintRuleUrlResolver.Instance.ResolveRuleUrl(rule));
+                        IssueBuilder
+                            .NewIssue(message.message, issueProvider)
+                            .InFile(GetRelativeFilePath(file.filePath, repositorySettings), message.line)
+                            .OfRule(rule, EsLintRuleUrlResolver.Instance.ResolveRuleUrl(rule))
+                            .WithPriority(GetPriority(message.severity))
+                            .Create();
             }
 
             return new List<IIssue>();
@@ -70,6 +71,29 @@
             }
 
             return relativeFilePath;
+        }
+
+        /// <summary>
+        /// Converts the severity level to a priority.
+        /// </summary>
+        /// <param name="severity">Severity level as reported by ESLint.</param>
+        /// <returns>Priority</returns>
+        private static IssuePriority GetPriority(int severity)
+        {
+            switch (severity)
+            {
+                case 0:
+                    return IssuePriority.Hint;
+
+                case 1:
+                    return IssuePriority.Warning;
+
+                case 2:
+                    return IssuePriority.Error;
+
+                default:
+                    return IssuePriority.Undefined;
+            }
         }
     }
 }
