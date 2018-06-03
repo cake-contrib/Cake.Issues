@@ -64,36 +64,13 @@
                 }
 
                 // Build issue.
-                var issueBuilder =
+                result.Add(
                     IssueBuilder
                         .NewIssue(warning.Value, issueProvider)
-                        .WithPriority(IssuePriority.Warning);
-
-                if (!string.IsNullOrWhiteSpace(fileName))
-                {
-                    if (line.HasValue)
-                    {
-                        issueBuilder = issueBuilder.InFile(fileName, line.Value);
-                    }
-                    else
-                    {
-                        issueBuilder = issueBuilder.InFile(fileName);
-                    }
-                }
-
-                if (!string.IsNullOrWhiteSpace(rule))
-                {
-                    if (ruleUrl != null)
-                    {
-                        issueBuilder = issueBuilder.OfRule(rule, ruleUrl);
-                    }
-                    else
-                    {
-                        issueBuilder = issueBuilder.OfRule(rule);
-                    }
-                }
-
-                result.Add(issueBuilder.Create());
+                        .WithPriority(IssuePriority.Warning)
+                        .InFile(fileName, line)
+                        .OfRule(rule, ruleUrl)
+                        .Create());
             }
 
             return result;
