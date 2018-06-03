@@ -83,22 +83,13 @@
                 var ruleUrl = issueType.WikiUrl;
 
                 // Build issue.
-                var issueBuilder =
+                result.Add(
                     IssueBuilder
                         .NewIssue(message, this)
                         .InFile(fileName, line)
-                        .WithPriority(GetPriority(severity));
-
-                if (ruleUrl != null)
-                {
-                    issueBuilder = issueBuilder.OfRule(rule, ruleUrl);
-                }
-                else
-                {
-                    issueBuilder = issueBuilder.OfRule(rule);
-                }
-
-                result.Add(issueBuilder.Create());
+                        .WithPriority(GetPriority(severity))
+                        .OfRule(rule, ruleUrl)
+                        .Create());
             }
 
             return result;
