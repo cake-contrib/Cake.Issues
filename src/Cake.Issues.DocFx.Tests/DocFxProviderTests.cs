@@ -62,7 +62,7 @@
                     null,
                     "Build Document.LinkPhaseHandler.Apply Templates",
                     null,
-                    0,
+                    300,
                     "Warning",
                     "Invalid cross reference \"[Foo](xref:foo)\".");
             }
@@ -84,7 +84,7 @@
                     45,
                     "Build Document.LinkPhaseHandler.ConceptualDocumentProcessor.Save",
                     null,
-                    0,
+                    300,
                     "Warning",
                     "Invalid file link:(~/foo.md).");
             }
