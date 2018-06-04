@@ -29,6 +29,9 @@
         }
 
         /// <inheritdoc />
+        public override string ProviderName => "DocFX";
+
+        /// <inheritdoc />
         protected override IEnumerable<IIssue> InternalReadIssues(IssueCommentFormat format)
         {
             // Determine path of the doc root.
@@ -50,12 +53,12 @@
                     severity == "warning" &&
                     !string.IsNullOrWhiteSpace(message)
                 select
-                    new Issue<DocFxIssuesProvider>(
-                        file,
-                        line,
-                        message,
-                        0,
-                        source);
+                    IssueBuilder
+                        .NewIssue(message, this)
+                        .InFile(file, line)
+                        .OfRule(source)
+                        .WithPriority(IssuePriority.Warning)
+                        .Create();
         }
 
         /// <summary>
