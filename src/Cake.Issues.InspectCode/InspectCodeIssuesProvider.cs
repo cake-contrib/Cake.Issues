@@ -77,18 +77,19 @@
                     continue;
                 }
 
-                // Determine severity.
-                string severity = issueTypes[rule].Severity.ToLowerInvariant();
+                // Determine issue type properties.
+                var issueType = issueTypes[rule];
+                var severity = issueType.Severity.ToLowerInvariant();
+                var ruleUrl = issueType.WikiUrl;
 
-                result.Add(new Issue<InspectCodeIssuesProvider>(
-                    this,
-                    fileName,
-                    line,
-                    message,
-                    GetPriority(severity),
-                    CultureInfo.CurrentCulture.TextInfo.ToTitleCase(severity),
-                    rule,
-                    issueTypes[rule].WikiUrl));
+                // Build issue.
+                result.Add(
+                    IssueBuilder
+                        .NewIssue(message, this)
+                        .InFile(fileName, line)
+                        .WithPriority(GetPriority(severity))
+                        .OfRule(rule, ruleUrl)
+                        .Create());
             }
 
             return result;
@@ -201,24 +202,24 @@
         /// </summary>
         /// <param name="severity">Severity level as reported by InspectCode.</param>
         /// <returns>Priority</returns>
-        private static int GetPriority(string severity)
+        private static IssuePriority GetPriority(string severity)
         {
             switch (severity.ToLowerInvariant())
             {
                 case "hint":
-                    return 100;
+                    return IssuePriority.Hint;
 
                 case "suggestion":
-                    return 200;
+                    return IssuePriority.Suggestion;
 
                 case "warning":
-                    return 300;
+                    return IssuePriority.Warning;
 
                 case "error":
-                    return 400;
+                    return IssuePriority.Error;
 
                 default:
-                    return 0;
+                    return IssuePriority.Undefined;
             }
         }
 
