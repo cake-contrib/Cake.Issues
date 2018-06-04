@@ -41,15 +41,12 @@
                 let
                     rule = (string)entry.SelectToken("ruleName")
                 select
-                    new Issue<MarkdownlintIssuesProvider>(
-                        this,
-                        file.Key,
-                        (int)entry.SelectToken("lineNumber"),
-                        (string)entry.SelectToken("ruleDescription"),
-                        0,
-                        "Warning",
-                        rule,
-                        MarkdownlintRuleUrlResolver.Instance.ResolveRuleUrl(rule));
+                    IssueBuilder
+                        .NewIssue((string)entry.SelectToken("ruleDescription"), this)
+                        .InFile(file.Key, (int)entry.SelectToken("lineNumber"))
+                        .WithPriority(IssuePriority.Warning)
+                        .OfRule(rule, MarkdownlintRuleUrlResolver.Instance.ResolveRuleUrl(rule))
+                        .Create();
         }
     }
 }

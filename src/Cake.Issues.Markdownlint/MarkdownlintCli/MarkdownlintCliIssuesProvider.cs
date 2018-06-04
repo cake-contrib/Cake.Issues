@@ -33,7 +33,7 @@
         /// <inheritdoc />
         protected override IEnumerable<IIssue> InternalReadIssues(IssueCommentFormat format)
         {
-            var regex = new Regex(@"(.*): (\d*): (MD\d*)/((?:\w*-*)*) (.*)");
+            var regex = new Regex(@"(.*): (\d*): (MD\d*)/((?:\w*-*/*)*) (.*)");
 
             foreach (var line in this.settings.LogFileContent.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None).ToList().Where(s => !string.IsNullOrEmpty(s)))
             {
@@ -50,15 +50,12 @@
                 var ruleDescription = groups[5].Value;
 
                 yield return
-                    new Issue<MarkdownlintCliIssuesProvider>(
-                        this,
-                        fileName,
-                        lineNumber,
-                        ruleDescription,
-                        0,
-                        "Warning",
-                        rule,
-                        MarkdownlintRuleUrlResolver.Instance.ResolveRuleUrl(rule));
+                    IssueBuilder
+                        .NewIssue(ruleDescription, this)
+                        .InFile(fileName, lineNumber)
+                        .WithPriority(IssuePriority.Warning)
+                        .OfRule(rule, MarkdownlintRuleUrlResolver.Instance.ResolveRuleUrl(rule))
+                        .Create();
             }
         }
 

@@ -79,7 +79,7 @@
                     // Given
                     string expected;
                     using (var ms = new MemoryStream())
-                    using (var stream = this.GetType().Assembly.GetManifestResourceStream("Cake.Issues.Markdownlint.Tests.Testfiles.markdownlint-cli.log"))
+                    using (var stream = this.GetType().Assembly.GetManifestResourceStream("Cake.Issues.Markdownlint.Tests.Testfiles.markdownlint-cli-0-8-1.log"))
                     {
                         stream.CopyTo(ms);
                         var data = ms.ToArray();
