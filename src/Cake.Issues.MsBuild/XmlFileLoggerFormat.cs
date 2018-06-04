@@ -63,15 +63,14 @@
                     ruleUrl = MsBuildRuleUrlResolver.Instance.ResolveRuleUrl(rule);
                 }
 
-                result.Add(new Issue<MsBuildIssuesProvider>(
-                    issueProvider,
-                    fileName,
-                    line,
-                    warning.Value,
-                    0,
-                    "Warning",
-                    rule,
-                    ruleUrl));
+                // Build issue.
+                result.Add(
+                    IssueBuilder
+                        .NewIssue(warning.Value, issueProvider)
+                        .WithPriority(IssuePriority.Warning)
+                        .InFile(fileName, line)
+                        .OfRule(rule, ruleUrl)
+                        .Create());
             }
 
             return result;
