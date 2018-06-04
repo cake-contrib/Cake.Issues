@@ -29,6 +29,9 @@
         }
 
         /// <inheritdoc />
+        public override string ProviderName => "InspectCode";
+
+        /// <inheritdoc />
         protected override IEnumerable<IIssue> InternalReadIssues(IssueCommentFormat format)
         {
             var result = new List<IIssue>();
@@ -37,12 +40,13 @@
 
             var solutionPath = Path.GetDirectoryName(logDocument.Descendants("Solution").Single().Value);
 
-            // Read all issue types
+            // Read all issue types.
             var issueTypes =
                 logDocument.Descendants("IssueType").ToDictionary(
                     x => x.Attribute("Id")?.Value,
                     x => new IssueType
                     {
+                        Severity = x.Attribute("Severity").Value,
                         WikiUrl = x.Attribute("WikiUrl")?.Value.ToUri()
                     });
 
@@ -73,13 +77,19 @@
                     continue;
                 }
 
-                result.Add(new Issue<InspectCodeIssuesProvider>(
-                    fileName,
-                    line,
-                    message,
-                    0, // TODO Set based on severity of issueType
-                    rule,
-                    issueTypes[rule].WikiUrl));
+                // Determine issue type properties.
+                var issueType = issueTypes[rule];
+                var severity = issueType.Severity.ToLowerInvariant();
+                var ruleUrl = issueType.WikiUrl;
+
+                // Build issue.
+                result.Add(
+                    IssueBuilder
+                        .NewIssue(message, this)
+                        .InFile(fileName, line)
+                        .WithPriority(GetPriority(severity))
+                        .OfRule(rule, ruleUrl)
+                        .Create());
             }
 
             return result;
@@ -188,10 +198,41 @@
         }
 
         /// <summary>
+        /// Converts the severity level to a priority.
+        /// </summary>
+        /// <param name="severity">Severity level as reported by InspectCode.</param>
+        /// <returns>Priority</returns>
+        private static IssuePriority GetPriority(string severity)
+        {
+            switch (severity.ToLowerInvariant())
+            {
+                case "hint":
+                    return IssuePriority.Hint;
+
+                case "suggestion":
+                    return IssuePriority.Suggestion;
+
+                case "warning":
+                    return IssuePriority.Warning;
+
+                case "error":
+                    return IssuePriority.Error;
+
+                default:
+                    return IssuePriority.Undefined;
+            }
+        }
+
+        /// <summary>
         /// Description of an issue type.
         /// </summary>
         private class IssueType
         {
+            /// <summary>
+            /// Gets or sets the severity of this issue type.
+            /// </summary>
+            public string Severity { get; set; }
+
             /// <summary>
             /// Gets or sets the URL to the page containing documentation about this issue type.
             /// </summary>

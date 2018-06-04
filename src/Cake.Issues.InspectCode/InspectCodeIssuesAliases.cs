@@ -23,7 +23,7 @@
         {
             context.NotNull(nameof(context));
 
-            return Issue<InspectCodeIssuesProvider>.GetProviderTypeName();
+            return typeof(InspectCodeIssuesProvider).FullName;
         }
 
         /// <summary>
