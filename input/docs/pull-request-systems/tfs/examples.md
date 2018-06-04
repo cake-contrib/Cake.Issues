@@ -9,7 +9,7 @@ Description: Examples for using the Cake.Issues.PullRequests.Tfs addin.
 This example shows how to write issues as comments to a Team Foundation Server (TFS) or
 Visual Studio Team Services (VSTS) pull request while using repository information.
 
-For determing the remote repository URL and source branch of the pull request you need the [Cake.Git] addin:
+To determine the remote repository URL and source branch of the pull request you need the [Cake.Git] addin:
 
 ```csharp
 #addin "Cake.Git"

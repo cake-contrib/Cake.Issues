@@ -3,7 +3,7 @@ Order: 50
 Title: Helper
 Description: Overview of different helper classes for implementing issue providers.
 ---
-The following helpers are provider by `Cake.Issues` for simplyfing implementation of issue providers:
+The following helpers are provider by `Cake.Issues` for simplifying implementation of issue providers:
 
 | Helper                   | Description                                                                    |
 |--------------------------|--------------------------------------------------------------------------------|
