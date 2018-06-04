@@ -13,7 +13,7 @@
                 @"foo.cs",
                 123,
                 "Some message",
-                1,
+                IssuePriority.Warning,
                 "foo",
                 null,
                 "foo: Some message")]
@@ -21,7 +21,7 @@
                 @"foo.cs",
                 123,
                 "Some message",
-                1,
+                IssuePriority.Warning,
                 "",
                 null,
                 "Some message")]
@@ -29,7 +29,7 @@
                 @"foo.cs",
                 123,
                 "Some message",
-                1,
+                IssuePriority.Warning,
                 " ",
                 null,
                 "Some message")]
@@ -37,7 +37,7 @@
                 @"foo.cs",
                 123,
                 "Some message",
-                1,
+                IssuePriority.Warning,
                 "foo",
                 "http://google.com",
                 "[foo](http://google.com/): Some message")]
@@ -45,7 +45,7 @@
                 string filePath,
                 int? line,
                 string message,
-                int priority,
+                IssuePriority priority,
                 string rule,
                 string ruleUrl,
                 string expectedResult)
@@ -57,7 +57,13 @@
                     ruleUri = new Uri(ruleUrl);
                 }
 
-                var issue = new Issue(filePath, line, message, priority, rule, ruleUri, "Foo");
+                var issue =
+                    IssueBuilder
+                        .NewIssue(message, "ProviderType", "ProviderName")
+                        .InFile(filePath, line)
+                        .OfRule(rule, ruleUri)
+                        .WithPriority(priority)
+                        .Create();
 
                 // When
                 var result = ContentProvider.GetContent(issue);
