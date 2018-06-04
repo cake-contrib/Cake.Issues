@@ -10,10 +10,12 @@
         /// <summary>
         /// Gets all issues.
         /// </summary>
+        /// <param name="issueProvider">Issue provider instance.</param>
         /// <param name="repositorySettings">General settings to use.</param>
         /// <param name="esLintSettings">Settings for issue provider to use.</param>
         /// <returns>List of issues</returns>
         IEnumerable<IIssue> ReadIssues(
+            EsLintIssuesProvider issueProvider,
             RepositorySettings repositorySettings,
             EsLintIssuesSettings esLintSettings);
     }
