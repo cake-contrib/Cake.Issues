@@ -6,7 +6,7 @@
     /// <summary>
     /// Provider for issues reported as MsBuild warnings.
     /// </summary>
-    internal class MsBuildIssuesProvider : IssueProvider
+    public class MsBuildIssuesProvider : IssueProvider
     {
         private readonly MsBuildIssuesSettings msBuildIssuesSettings;
 
@@ -24,9 +24,12 @@
         }
 
         /// <inheritdoc />
+        public override string ProviderName => "MSBuild";
+
+        /// <inheritdoc />
         protected override IEnumerable<IIssue> InternalReadIssues(IssueCommentFormat format)
         {
-            return this.msBuildIssuesSettings.Format.ReadIssues(this.Settings, this.msBuildIssuesSettings);
+            return this.msBuildIssuesSettings.Format.ReadIssues(this, this.Settings, this.msBuildIssuesSettings);
         }
     }
 }

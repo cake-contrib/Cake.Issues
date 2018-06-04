@@ -40,7 +40,8 @@
                     @"src\Cake.Issues.MsBuild.Tests\MsBuildIssuesProviderTests.cs",
                     1311,
                     "CA2201",
-                    0,
+                    300,
+                    "Warning",
                     @"Microsoft.Usage : 'ConfigurationManager.GetSortedConfigFiles(String)' creates an exception of type 'ApplicationException', an exception type that is not sufficiently specific and should never be raised by user code. If this exception instance might be thrown, use a different exception type.");
             }
 
@@ -61,7 +62,8 @@
                     @"src\Cake.Issues.MsBuild.Tests\MsBuildIssuesProviderTests.cs",
                     13,
                     "CS0219",
-                    0,
+                    300,
+                    "Warning",
                     "The variable 'foo' is assigned but its value is never used");
             }
 
@@ -82,7 +84,8 @@
                     @"SHFB",
                     null,
                     "BE0006",
-                    0,
+                    300,
+                    "Warning",
                     @"Unable to locate any documentation sources for 'c:\Source\Cake.Prca\Cake.Prca..csproj' (Configuration: Debug Platform: AnyCPU)");
             }
 
@@ -103,7 +106,8 @@
                     null,
                     null,
                     "CA1711",
-                    0,
+                    300,
+                    "Warning",
                     "Microsoft.Naming : Rename type name 'UniqueQueue(Of T)' so that it does not end in 'Queue'.");
             }
 
@@ -124,7 +128,8 @@
                     @"src\Cake.Issues.MsBuild.Tests\MsBuildIssuesProviderTests.cs",
                     21,
                     null,
-                    0,
+                    300,
+                    "Warning",
                     @"SA1300 : CSharp.Naming : namespace names begin with an upper-case letter: foo.");
             }
 
@@ -134,8 +139,12 @@
                 int? line,
                 string rule,
                 int priority,
+                string priorityName,
                 string message)
             {
+                issue.ProviderType.ShouldBe("Cake.Issues.MsBuild.MsBuildIssuesProvider");
+                issue.ProviderName.ShouldBe("MSBuild");
+
                 if (issue.AffectedFileRelativePath == null)
                 {
                     affectedFileRelativePath.ShouldBeNull();
@@ -149,6 +158,7 @@
                 issue.Line.ShouldBe(line);
                 issue.Rule.ShouldBe(rule);
                 issue.Priority.ShouldBe(priority);
+                issue.PriorityName.ShouldBe(priorityName);
                 issue.Message.ShouldBe(message);
             }
         }

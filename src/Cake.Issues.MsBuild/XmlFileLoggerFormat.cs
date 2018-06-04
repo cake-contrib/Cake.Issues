@@ -23,9 +23,11 @@
 
         /// <inheritdoc/>
         public override IEnumerable<IIssue> ReadIssues(
+            MsBuildIssuesProvider issueProvider,
             RepositorySettings repositorySettings,
             MsBuildIssuesSettings msBuildIssuesSettings)
         {
+            issueProvider.NotNull(nameof(issueProvider));
             repositorySettings.NotNull(nameof(repositorySettings));
             msBuildIssuesSettings.NotNull(nameof(msBuildIssuesSettings));
 
@@ -61,13 +63,14 @@
                     ruleUrl = MsBuildRuleUrlResolver.Instance.ResolveRuleUrl(rule);
                 }
 
-                result.Add(new Issue<MsBuildIssuesProvider>(
-                    fileName,
-                    line,
-                    warning.Value,
-                    0,
-                    rule,
-                    ruleUrl));
+                // Build issue.
+                result.Add(
+                    IssueBuilder
+                        .NewIssue(warning.Value, issueProvider)
+                        .WithPriority(IssuePriority.Warning)
+                        .InFile(fileName, line)
+                        .OfRule(rule, ruleUrl)
+                        .Create());
             }
 
             return result;

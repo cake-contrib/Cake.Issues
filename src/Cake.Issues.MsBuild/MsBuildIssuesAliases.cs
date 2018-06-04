@@ -24,7 +24,7 @@
         {
             context.NotNull(nameof(context));
 
-            return Issue<MsBuildIssuesProvider>.GetProviderTypeName();
+            return typeof(MsBuildIssuesProvider).FullName;
         }
 
         /// <summary>
