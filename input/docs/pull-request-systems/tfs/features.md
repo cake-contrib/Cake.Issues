@@ -24,10 +24,10 @@ The [Cake.Issues.PullRequests.Tfs addin] provides the following features:
 * Alias for approving or voting pull requests.
 
 [Cake.Issues.PullRequests.Tfs addin]: https://www.nuget.org/packages/Cake.Issues.PullRequests.Tfs
-[Core features]: ../overview/features#supported-core-functionality
-[TfsAuthenticationNtlm]: ../../api/Cake.Issues.PullRequests.Tfs/TfsPullRequestSystemAliases/7DFCE6F3
-[TfsAuthenticationBasic]: ../../api/Cake.Issues.PullRequests.Tfs/TfsPullRequestSystemAliases/3A473143
-[TfsAuthenticationPersonalAccessToken]: ../../api/Cake.Issues.PullRequests.Tfs/TfsPullRequestSystemAliases/B24D89BD
-[TfsAuthenticationOAuth]: ../../api/Cake.Issues.PullRequests.Tfs/TfsPullRequestSystemAliases/BEDAF9BF
-[TfsAuthenticationAzureActiveDirectory]: ../../api/Cake.Issues.PullRequests.Tfs/TfsPullRequestSystemAliases/DF54F8F0
+[Core features]: ../../overview/features#supported-core-functionality
+[TfsAuthenticationNtlm]: ../../../api/Cake.Issues.PullRequests.Tfs/TfsPullRequestSystemAliases/7DFCE6F3
+[TfsAuthenticationBasic]: ../../../api/Cake.Issues.PullRequests.Tfs/TfsPullRequestSystemAliases/3A473143
+[TfsAuthenticationPersonalAccessToken]: ../../../api/Cake.Issues.PullRequests.Tfs/TfsPullRequestSystemAliases/B24D89BD
+[TfsAuthenticationOAuth]: ../../../api/Cake.Issues.PullRequests.Tfs/TfsPullRequestSystemAliases/BEDAF9BF
+[TfsAuthenticationAzureActiveDirectory]: ../../../api/Cake.Issues.PullRequests.Tfs/TfsPullRequestSystemAliases/DF54F8F0
 [configured for basic authentication]: https://www.visualstudio.com/en-us/docs/integrate/get-started/auth/tfs-basic-auth
