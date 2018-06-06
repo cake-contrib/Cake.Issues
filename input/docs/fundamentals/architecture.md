@@ -4,7 +4,9 @@ Description: Architecture overview.
 ---
 
 The Cake Issues addins are built in a modular architecture, allowing to easily
-enhance it for supporting additional analyzers, linters, report formats and code review systems.
+enhance it for supporting additional analyzers, linters, report formats and pull request systems.
+
+![Architecture Overview](overview.png "Architecture Overview")
 
 The core consists of the following addins:
 
