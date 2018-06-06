@@ -1,37 +1,79 @@
 ---
 Title: Cake Issues
 NoSidebar: true
-NoContainer: false
+NoContainer: true
 NoGutter: true
 ---
 
-<div class="container">
-	<h2>What is it?</h2>
-    <p>
-        Do you want to break your build on JetBrains InspectCode issues?
-        Do you want to create nice reports for StyleCop issues in your code?
-        Do you want to have ESLint issues reported as comments to pull requests?
-        The Issues addins for <a href="http://cakebuild.net/" target="_blank">Cake</a> allows you to do this and much more.
-        Read issues from different analyzer or linters, create reports or add them as comments to pull requests.
-    </p>
-	<h2>Architecture</h2>
-    <p>
-        Unlike other Cake addins, the Cake Issues addin consists of over 10 different <a href="addins">addins</a>,
-        working together and providing you with over 50 <a href="dsl">aliases</a> which you can use in your Cake
-        build scripts to work with issues.<br/>
-        The addins are built in a modular architecture and are providing different <a href="docs/extending">extension points</a>
-        which allow you to easily enhance it for supporting additional analyzers, linters, report formats
-        and code review systems.
-    </p>
-    <p>
-        <img style="display:block; margin: 0 auto" src="overview.png" />
-    </p>
-	<h2>More information</h2>
-    <p>
-        See <a href="docs">Documentation</a> for basic concepts and usage instructions.
-    </p>
-    <p>
-        See <a href="addins">Addins</a> for a list of supported issue providers, report formats and pull request systems
-        and <a href="dsl">Reference</a> for a list of aliases provided by these addins.
-    </p>
+<div class="jumbotron">
+    <div class="container">
+        <h1 class="display-4">Cake Issues</h1>
+        <p>
+            Issue Management for the Cake Build System<br/>
+        </p>
+        <a class="btn btn-primary btn-lg" href="docs" role="button">Learn more</a>
+        <a class="btn btn-primary btn-lg" href="addins" role="button">Addins</a>
+        <a class="btn btn-primary btn-lg" href="dsl" role="button">Aliases</a>
+    </div>
+</div>
+
+<div class="container text-center">
+    <div class="row slideanim">
+        <div class="col-sm-4">
+            <span class="glyphicon glyphicon-heart logo-small"></span>
+            <h3 class="no-anchor">Open-Source</h3>
+            <p>
+                Cake Issues is free to use, improve, contribute and distribute.
+                Source code is available on <a href="https://github.com/search?q=topic%3Acake-issues&type=Repositories">GitHub</a> under MIT license.
+            </p>
+        </div>
+        <div class="col-sm-4">
+            <span class="glyphicon glyphicon-globe logo-small"></span>
+            <h3 class="no-anchor">Rich ecosystem</h3>
+            <p>
+                Unlike other Cake addins, Cake Issues consists of over 10 different <a href="addins">addins</a>,
+                working together and providing you with over 50 <a href="dsl">aliases</a> which you can use in your Cake
+                build scripts to work with issues.
+            </p>
+        </div>
+        <div class="col-sm-4">
+            <span class="glyphicon glyphicon-wrench logo-small"></span>
+            <h3 class="no-anchor">Supports your tooling</h3>
+            <p>
+                Read issues from different analyzers, linters or tools.
+                The growing range of out-of-the-box supported tools include
+                <a href="docs/issue-providers/msbuild">MSBuild</a>,
+                <a href="docs/issue-providers/inspectcode">JetBrains InspectCode (ReSharper)</a>,
+                <a href="docs/issue-providers/eslint">ESLint</a>,
+                <a href="docs/issue-providers/markdownlint">Markdownlint</a>,
+                <a href="docs/issue-providers/docfx">DocFX</a>.
+            </p>
+        </div>
+    </div>
+    <div class="row slideanim">
+        <div class="col-sm-4">
+            <span class="glyphicon glyphicon-dashboard logo-small"></span>
+            <h3 class="no-anchor">Reporting</h3>
+            <p>
+                Cake Issues provides aliases to create reports from the parsed issues.
+                There's a <a href="docs/report-formats/generic/">generic reporting addin</a> which allows to create reports using out-of-the-box or custom Razor templates.
+            </p>
+        </div>
+        <div class="col-sm-4">
+            <span class="glyphicon glyphicon-eye-open logo-small"></span>
+            <h3 class="no-anchor">Pull request workflow integration</h3>
+            <p>
+                Issues found on a feature branch can be reported as comments to pull requests giving developers instant and direct feedback.
+                Currently <a href="docs/pull-request-systems/tfs/">Visual Studio Team Services and Team Foundation Server</a> are supported.
+            </p>
+        </div>
+        <div class="col-sm-4">
+            <span class="glyphicon glyphicon-th-large logo-small"></span>
+            <h3 class="no-anchor">Extensible</h3>
+            <p>
+                The addins are built in a modular architecture and are providing different <a href="docs/extending">extension points</a>
+                which allow you to easily enhance it for supporting additional analyzers, linters, report formats and pull request systems.
+            </p>
+        </div>
+    </div>
 </div>
