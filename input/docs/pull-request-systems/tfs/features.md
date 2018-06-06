@@ -23,11 +23,13 @@ The [Cake.Issues.PullRequests.Tfs addin] provides the following features:
 * Support for issues messages formatted in Markdown format.
 * Alias for approving or voting pull requests.
 
+![Cake.Issues.PullRequests.Tfs](cake.issues.pullrequests.tfs.png "Cake.Issues.PullRequests.Tfs")
+
 [Cake.Issues.PullRequests.Tfs addin]: https://www.nuget.org/packages/Cake.Issues.PullRequests.Tfs
 [Core features]: ../../overview/features#supported-core-functionality
-[TfsAuthenticationNtlm]: ../../../api/Cake.Issues.PullRequests.Tfs/TfsPullRequestSystemAliases/7DFCE6F3
-[TfsAuthenticationBasic]: ../../../api/Cake.Issues.PullRequests.Tfs/TfsPullRequestSystemAliases/3A473143
-[TfsAuthenticationPersonalAccessToken]: ../../../api/Cake.Issues.PullRequests.Tfs/TfsPullRequestSystemAliases/B24D89BD
-[TfsAuthenticationOAuth]: ../../../api/Cake.Issues.PullRequests.Tfs/TfsPullRequestSystemAliases/BEDAF9BF
-[TfsAuthenticationAzureActiveDirectory]: ../../../api/Cake.Issues.PullRequests.Tfs/TfsPullRequestSystemAliases/DF54F8F0
+[TfsAuthenticationNtlm]: ../../../api/Cake.Issues.PullRequests.Tfs/TfsPullRequestSystemAliases/4E73CD70
+[TfsAuthenticationBasic]: ../../../api/Cake.Issues.PullRequests.Tfs/TfsPullRequestSystemAliases/3FA02408
+[TfsAuthenticationPersonalAccessToken]: ../../../api/Cake.Issues.PullRequests.Tfs/TfsPullRequestSystemAliases/B7AA9CF6
+[TfsAuthenticationOAuth]: ../../../api/Cake.Issues.PullRequests.Tfs/TfsPullRequestSystemAliases/44032AF4
+[TfsAuthenticationAzureActiveDirectory]: ../../../api/Cake.Issues.PullRequests.Tfs/TfsPullRequestSystemAliases/6826C541
 [configured for basic authentication]: https://www.visualstudio.com/en-us/docs/integrate/get-started/auth/tfs-basic-auth
