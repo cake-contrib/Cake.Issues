@@ -1,0 +1,140 @@
+﻿@model IEnumerable<Cake.Issues.IIssue>
+    @using Newtonsoft.Json
+    @using Cake.Issues.Reporting.Generic
+
+    <!DOCTYPE html>
+
+    @{
+        var issues =
+            from issue in Model
+            select
+                new
+                {
+                    issue.ProviderName,
+                    issue.ProviderType,
+                    issue.Priority,
+                    issue.PriorityName,
+                    issue.Project,
+                    Path = issue.FilePath(),
+                    File = issue.FileName(),
+                    issue.Line,
+                    issue.Rule,
+                    issue.RuleUrl,
+                    issue.Message
+                };
+    }
+
+    <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8" />
+        <title>Issues Report</title>
+
+        @* DevExtreme dependencies *@
+        <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.1.0.min.js"></script>
+        @* DevExtreme themes *@
+        <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/18.1.3/css/dx.common.css" />
+        <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/18.1.3/css/dx.light.css" />
+        @* DevExtreme library *@
+        <script type="text/javascript" src="https://cdn3.devexpress.com/jslib/18.1.3/js/dx.all.js"></script>
+    </head>
+    <body class="dx-viewport">
+        <h1>Issues Report</h1>
+
+        <div class="container">
+            <div id="gridContainer"></div>
+        </div>
+
+        <script type="text/javascript">
+        var issues = @Raw(JsonConvert.SerializeObject(issues));
+        </script>
+
+        <script type="text/javascript">
+            $(function(){
+                $("#gridContainer").dxDataGrid({
+                    dataSource: issues,
+                    loadPanel: {
+                        enabled: true
+                    },
+                    searchPanel: {
+                        visible: true
+                    },
+                    groupPanel: {
+                        visible: true
+                    },
+                    headerFilter: {
+                        visible: true
+                    },
+                    rowAlternationEnabled: true,
+                    allowColumnResizing: true,
+                    columns: [
+                        {
+                            dataField: "ProviderName",
+                            groupIndex: 0
+                        },
+                        {
+                            caption: "Severity",
+                            dataField: "PriorityName",
+                            calculateSortValue: "Priority",
+                            width: "90px",
+                            sortIndex: 0,
+                            sortOrder: "desc"
+                        },
+                        {
+                            dataField: "Project",
+                            sortIndex: 1,
+                            sortOrder: "asc"
+                        },
+                        {
+                            dataField: "Path",
+                            sortIndex: 2,
+                            sortOrder: "asc"
+                        },
+                        {
+                            dataField: "File",
+                            sortIndex: 3,
+                            sortOrder: "asc"
+                        },
+                        {
+                            dataField: "Line",
+                            allowFiltering: false,
+                            allowGrouping: false,
+                            width: "70px",
+                            sortIndex: 4,
+                            sortOrder: "asc"
+                        },
+                        {
+                            dataField: "Rule",
+                            cellTemplate: function (container, options) {
+                                if (options.data["RuleUrl"]) {
+                                    $('<a>', {
+                                        text: options.value,
+                                        href: options.data["RuleUrl"],
+                                        target: "_blank"
+                                    }).appendTo(container);
+                                }
+                                else {
+                                    container.text(options.value);
+                                }
+                            }
+                        },
+                        {
+                            dataField: "Message"
+                        }
+                    ],
+                    summary: {
+                        groupItems: [{
+                            column: "ProviderType",
+                            summaryType: "count",
+                            displayFormat: "{0} issues",
+                        }],
+                        totalItems: [{
+                            column: "Severity",
+                            summaryType: "count",
+                            displayFormat: "{0} issues"
+                        }]
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
