@@ -20,5 +20,11 @@
         /// See <see cref="HtmlDxDataGridOption"/> for template specific options.
         /// </summary>
         HtmlDxDataGrid,
+
+        /// <summary>
+        /// Template for a HTML report containing a pivot grid showing number of errors, warnings, suggestions and hints,
+        /// with a detail drill down view and an overview chart.
+        /// </summary>
+        HtmlDxPivotGrid,
     }
 }

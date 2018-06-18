@@ -21,6 +21,7 @@
     <EmbeddedResource Include="Templates\DataTable.cshtml" />
     <EmbeddedResource Include="Templates\Diagnostic.cshtml" />
     <EmbeddedResource Include="Templates\DxDataGrid.cshtml" />
+    <EmbeddedResource Include="Templates\DxPivotGrid.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
