@@ -25,8 +25,8 @@
         /// <![CDATA[
         ///     var issue =
         ///         NewIssue(
-        ///             "Something went wrong"
-        ///             "MyCakeScript"
+        ///             "Something went wrong",
+        ///             "MyCakeScript",
         ///             "My Cake Script")
         ///             .InFile("myfile.txt", 42)
         ///             .WithPriority(IssuePriority.Warning)
