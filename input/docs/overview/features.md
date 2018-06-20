@@ -11,9 +11,9 @@ The core addins provide the following functionality:
 
 * Modular architecture, allowing to easily enhance it for supporting additional analyzers, linters,
   report formats and code review systems.
-* `Cake.Issues` addin for reading issues
-  * `ReadIssues` aliases for reading issues.
-    This can for example be used to fail builds on certain conditions.
+* `Cake.Issues` addin for creating and reading issues
+  * `NewIssue` alias for creating issues in the build script.
+  * `ReadIssues` aliases for reading issues from an issue provider.
   * Support for reading issues from multiple issue providers.
   * Support for reading issues in specific format (Plain text, Markdown, HTML) if supported by issue provider.
 * `Cake.Issues.Reporting` addin for creating reports
