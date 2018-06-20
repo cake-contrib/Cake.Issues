@@ -3,7 +3,7 @@
     using System;
 
     /// <summary>
-    /// Class to create instances of <see cref="Issue"/> with a fluent API.
+    /// Class to create instances of <see cref="IIssue"/> with a fluent API.
     /// </summary>
     public class IssueBuilder
     {
@@ -39,12 +39,12 @@
         }
 
         /// <summary>
-        /// Creates a new instance of the <see cref="Issue"/> class.
+        /// Initiates the creation of a new <see cref="IIssue"/>.
         /// </summary>
         /// <param name="message">The message of the issue.</param>
         /// <param name="providerType">The type of the issue provider.</param>
         /// <param name="providerName">The human friendly name of the issue provider.</param>
-        /// <returns>New issue</returns>
+        /// <returns>Builder class for creating a new issue.</returns>
         public static IssueBuilder NewIssue(
             string message,
             string providerType,
@@ -58,12 +58,12 @@
         }
 
         /// <summary>
-        /// Creates a new instance of the <see cref="Issue"/> class.
+        /// Initiates the creation of a new <see cref="IIssue"/>.
         /// </summary>
         /// <typeparam name="T">Type of the issue provider which has the issue created.</typeparam>
         /// <param name="message">The message of the issue.</param>
         /// <param name="issueProvider">Issue provider which has the issue created.</param>
-        /// <returns>New issue</returns>
+        /// <returns>Builder class for creating a new issue.</returns>
         public static IssueBuilder NewIssue<T>(
             string message,
             T issueProvider)
@@ -126,9 +126,9 @@
         }
 
         /// <summary>
-        /// Sets the priority of the message.
+        /// Sets the priority of the issue.
         /// </summary>
-        /// <param name="priority">The priority of the message.</param>
+        /// <param name="priority">The priority of the issue.</param>
         /// <returns>Issue Builder instance.</returns>
         public IssueBuilder WithPriority(IssuePriority priority)
         {
@@ -136,9 +136,9 @@
         }
 
         /// <summary>
-        /// Sets the priority of the message.
+        /// Sets the priority of the issue.
         /// </summary>
-        /// <param name="value">The priority of the message.
+        /// <param name="value">The priority of the issue.
         /// <c>null</c> if no priority should be assigned.</param>
         /// <param name="name">The human friendly name of the priority.
         /// <c>null</c> or <see cref="string.Empty"/> if no priority should be assigned.</param>
@@ -181,7 +181,7 @@
         }
 
         /// <summary>
-        /// Creates a new <see cref="Issue"/>.
+        /// Creates a new <see cref="IIssue"/>.
         /// </summary>
         /// <returns>New issue object.</returns>
         public IIssue Create()
