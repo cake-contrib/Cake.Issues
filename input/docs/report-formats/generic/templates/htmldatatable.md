@@ -18,7 +18,7 @@ Template for a HTML report containing a rich data table view with sorting and se
 
 # Requirements
 
-* No additional requirements.
+* Cake.Issues.Reporting.Generic 0.2.1 or higher
 
 # Usage
 
