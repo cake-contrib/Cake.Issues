@@ -57,6 +57,20 @@
             result = this.FilterPreExistingComments(result, issueComments);
             result = this.FilterIssuesByNumber(result);
 
+            // Apply custom filters.
+            foreach (var filterer in this.settings.IssueFilters)
+            {
+                var countBefore = result.Count;
+
+                result = filterer(result).ToList();
+
+                var commentsFiltered = countBefore - result.Count;
+
+                this.log.Information(
+                    "{0} issue(s) were filtered by custom filter.",
+                    commentsFiltered);
+            }
+
             return result;
         }
 

@@ -1,8 +1,10 @@
 ﻿namespace Cake.Issues.PullRequests.Tests
 {
     using System.Collections.Generic;
+    using System.Linq;
     using Core.IO;
     using Issues.Testing;
+    using Shouldly;
     using Xunit;
 
     public sealed class IssueFiltererTests
@@ -116,6 +118,50 @@
 
                 // Then
                 result.IsPullRequestIssuesException(@"Absolute file paths are not suported for modified files. Path: c:/FakeIssueProvider.cs");
+            }
+
+            [Fact]
+            public void Should_Apply_Custom_Filters()
+            {
+                // Given
+                var fixture = new PullRequestsFixture();
+                fixture.PullRequestSystem =
+                    new FakePullRequestSystem(
+                        fixture.Log,
+                        new List<IPullRequestDiscussionThread>(),
+                        new List<FilePath>
+                        {
+                            new FilePath(@"src\Cake.Issues.Tests\FakeIssueProvider.cs")
+                        });
+                fixture.ReportIssuesToPullRequestSettings.IssueFilters.Add(x => x.Where(issue => issue.Rule != "Bar"));
+
+                var issue1 =
+                    IssueBuilder
+                        .NewIssue("Message", "ProviderType", "ProviderName")
+                        .InFile(@"src\Cake.Issues.Tests\FakeIssueProvider.cs", 10)
+                        .OfRule("Foo")
+                        .WithPriority(IssuePriority.Warning)
+                        .Create();
+                var issue2 =
+                    IssueBuilder
+                        .NewIssue("Message", "ProviderType", "ProviderName")
+                        .InFile(@"src\Cake.Issues.Tests\FakeIssueProvider.cs", 10)
+                        .OfRule("Bar")
+                        .WithPriority(IssuePriority.Warning)
+                        .Create();
+
+                // When
+                var issues =
+                    fixture.FilterIssues(
+                        new List<IIssue>
+                        {
+                            issue1, issue2
+                        },
+                        new Dictionary<IIssue, IEnumerable<IPullRequestDiscussionComment>>());
+
+                // Then
+                issues.Count().ShouldBe(1);
+                issues.ShouldContain(issue1);
             }
         }
     }

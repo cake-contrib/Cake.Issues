@@ -1,5 +1,6 @@
 ﻿namespace Cake.Issues.PullRequests
 {
+    using System;
     using System.Collections.Generic;
     using Core.IO;
 
@@ -9,6 +10,7 @@
     public class ReportIssuesToPullRequestSettings : RepositorySettings
     {
         private readonly Dictionary<IIssueProvider, int> maxIssuesToPost = new Dictionary<IIssueProvider, int>();
+        private readonly List<Func<IEnumerable<IIssue>, IEnumerable<IIssue>>> issueFilters = new List<Func<IEnumerable<IIssue>, IEnumerable<IIssue>>>();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ReportIssuesToPullRequestSettings"/> class.
@@ -51,5 +53,10 @@
         /// Only comments with the same source will be resolved.
         /// </summary>
         public string CommentSource { get; set; } = "CakeIssues";
+
+        /// <summary>
+        /// Gets list of filter functions which should be applied before posting issues to pull requests.
+        /// </summary>
+        public IList<Func<IEnumerable<IIssue>, IEnumerable<IIssue>>> IssueFilters => this.issueFilters;
     }
 }
