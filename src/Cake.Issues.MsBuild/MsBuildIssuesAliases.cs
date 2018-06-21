@@ -144,7 +144,7 @@
         ///     var issues =
         ///         ReadIssues(
         ///             MsBuildIssuesFromFilePath(
-        ///                 @"c:\build\InspectCode.log",
+        ///                 @"c:\build\msbuild.xml",
         ///                 MsBuildXmlFileLoggerFormat),
         ///             @"c:\repo");
         /// ]]>
@@ -211,7 +211,7 @@
         /// <![CDATA[
         ///     var settings =
         ///         MsBuildIssuesSettings.FromFilePath(
-        ///             @"c:\build\msbuild.log",
+        ///             @"c:\build\msbuild.xml",
         ///             MsBuildXmlFileLoggerFormat);
         ///
         ///     var issues =
