@@ -23,10 +23,11 @@ The core addins provide the following functionality:
   * `ReportIssuesToPullRequest` aliases for writing issues as comments to pull requests.
   * Support for reporting issues from multiple issue providers.
   * Filtering issues to only those related to changes in a pull request.
+  * Support for custom issue filter routines.
   * Skipping posting of issues if checked source code is outdated
   * Automatic resolving of issues fixed in subsequent commits.
   * Comparing issues by content to not rely on line numbers.
-  * Limit number of maximum issues to post.
+  * Limit number of maximum issues to post globally or per issue provider.
   * Returns all issues as provided by the issue providers and the issues reported to the pull request.
 
 # Supported Issue Providers
