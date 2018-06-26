@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Globalization;
     using System.IO;
+    using System.Linq;
     using System.Xml.Linq;
     using Core.Diagnostics;
 
@@ -38,6 +39,12 @@
             // Loop through all warning tags.
             foreach (var warning in logDocument.Descendants("warning"))
             {
+                // Read affected project from the warning.
+                if (!TryGetProject(warning, repositorySettings, out string project))
+                {
+                    continue;
+                }
+
                 // Read affected file from the warning.
                 if (!this.TryGetFile(warning, repositorySettings, out string fileName))
                 {
@@ -68,6 +75,7 @@
                     IssueBuilder
                         .NewIssue(warning.Value, issueProvider)
                         .WithPriority(IssuePriority.Warning)
+                        .InProject(project)
                         .InFile(fileName, line)
                         .OfRule(rule, ruleUrl)
                         .Create());
@@ -124,6 +132,50 @@
 
             rule = codeAttr.Value;
             return !string.IsNullOrWhiteSpace(rule);
+        }
+
+        /// <summary>
+        /// Determines the project for a warning logged in a MsBuild log.
+        /// </summary>
+        /// <param name="warning">Warning element from MsBuild log.</param>
+        /// <param name="repositorySettings">Repository settings to use.</param>
+        /// <param name="project">Returns project.</param>
+        /// <returns>True if the project could be parsed.</returns>
+        private static bool TryGetProject(
+            XElement warning,
+            RepositorySettings repositorySettings,
+            out string project)
+        {
+            project = string.Empty;
+
+            var projectNode = warning.Ancestors("project").FirstOrDefault();
+            if (projectNode == null)
+            {
+                return true;
+            }
+
+            var projectAttr = projectNode.Attribute("file");
+            if (projectAttr == null)
+            {
+                return true;
+            }
+
+            project = projectAttr.Value;
+            if (string.IsNullOrWhiteSpace(project))
+            {
+                return true;
+            }
+
+            // Make path relative to repository root.
+            project = project.Substring(repositorySettings.RepositoryRoot.FullPath.Length);
+
+            // Remove leading directory separator.
+            if (project.StartsWith(Path.DirectorySeparatorChar.ToString()))
+            {
+                project = project.Substring(1);
+            }
+
+            return true;
         }
 
         /// <summary>
