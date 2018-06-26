@@ -15,6 +15,7 @@ The [Cake.Issues.MsBuild addin] provides the following features:
 * Supported `IIssue` properties:
   * [ProviderType]
   * [ProviderName]
+  * [Project]
   * [AffectedFileRelativePath]
   * [Line]
   * [Message]
@@ -28,6 +29,7 @@ The [Cake.Issues.MsBuild addin] provides the following features:
 [MsBuildAddRuleUrlResolver]: ../../../api/Cake.Issues.MsBuild/MsBuildIssuesAliases/93C21487
 [ProviderType]: ../../../api/Cake.Issues/IIssue/D5A24C72
 [ProviderName]: ../../../api/Cake.Issues/IIssue/FA8BB1A0
+[Project]: ../../../api/Cake.Issues/IIssue/89B374A4
 [AffectedFileRelativePath]: ../../../api/Cake.Issues/IIssue/BF0CD6F1
 [Line]: ../../../api/Cake.Issues/IIssue/F2A42E89
 [Message]: ../../../api/Cake.Issues/IIssue/18537A3D
