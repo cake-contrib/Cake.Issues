@@ -144,6 +144,7 @@ In custom templates functionality from the following assemblies are available:
 * System.dll
 * System.Core.dll
 * netstandard.dll
+* Newtonsoft.Json.dll
 * Cake.Core.dll
 * Cake.Issues.dll
 
