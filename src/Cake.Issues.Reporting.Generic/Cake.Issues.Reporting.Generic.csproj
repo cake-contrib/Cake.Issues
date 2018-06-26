@@ -73,6 +73,7 @@
     <Compile Include="GenericIssueReportFormatAliases.cs" />
     <Compile Include="GenericIssueReportGenerator.cs" />
     <Compile Include="GenericIssueReportFormatSettings.cs" />
+    <Compile Include="IIssueExtension.cs" />
     <Compile Include="RazorEngineReferenceResolver.cs" />
     <Compile Include="GenericIssueReportTemplate.cs" />
     <Compile Include="GenericIssueReportTemplateExtensions.cs" />
