@@ -1,5 +1,6 @@
 ﻿namespace Cake.Issues.Reporting.Generic
 {
+    using System;
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
@@ -35,7 +36,17 @@
 
         private string FindLoaded(IEnumerable<string> refs, string find)
         {
-            return refs.First(r => r.EndsWith(Path.DirectorySeparatorChar + find));
+            var result = refs.FirstOrDefault(r => r.EndsWith(Path.DirectorySeparatorChar + find));
+
+            if (result == null)
+            {
+                throw new InvalidOperationException(
+                    string.Format(
+                        "Could not find loaded assembly {0}.",
+                        find));
+            }
+
+            return result;
         }
     }
 }
