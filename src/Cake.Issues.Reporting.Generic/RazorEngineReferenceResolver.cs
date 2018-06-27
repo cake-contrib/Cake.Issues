@@ -31,6 +31,7 @@
             yield return CompilerReference.From(this.FindLoaded(loadedAssemblies, "Newtonsoft.Json.dll"));
             yield return CompilerReference.From(this.FindLoaded(loadedAssemblies, "Cake.Core.dll"));
             yield return CompilerReference.From(this.FindLoaded(loadedAssemblies, "Cake.Issues.dll"));
+            yield return CompilerReference.From(this.FindLoaded(loadedAssemblies, "Cake.Issues.Reporting.Generic.dll"));
             yield return CompilerReference.From(typeof(RazorEngine.Engine).Assembly);
         }
 

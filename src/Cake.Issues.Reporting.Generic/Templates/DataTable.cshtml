@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<Cake.Issues.IIssue>
+@using Cake.Issues.Reporting.Generic
 
 <!DOCTYPE html>
 
@@ -77,18 +78,8 @@
                     <tr>
                         <td>@issue.PriorityName</td>
                         <td>@issue.Project</td>
-                        <td>
-                            @if (issue.AffectedFileRelativePath != null)
-                            {
-                                @issue.AffectedFileRelativePath.GetDirectory()
-                            }
-                        </td>
-                        <td>
-                            @if (issue.AffectedFileRelativePath != null)
-                            {
-                                @issue.AffectedFileRelativePath.GetFilename()
-                            }
-                        </td>
+                        <td>@issue.FilePath()</td>
+                        <td>@issue.FileName()</td>
                         <td>@issue.Line</td>
                         <td>
                             @if (issue.RuleUrl != null)
