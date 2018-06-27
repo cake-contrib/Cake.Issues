@@ -13,6 +13,11 @@
         /// <summary>
         /// Template for a HTML report containing a rich data table view with sorting and search functionality.
         /// </summary>
-        HtmlDataTable
+        HtmlDataTable,
+
+        /// <summary>
+        /// Template for a HTML report containing a rich data grid with sorting, filtering, grouping and search capabilities.
+        /// </summary>
+        HtmlDxDataGrid
     }
 }

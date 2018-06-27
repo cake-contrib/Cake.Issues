@@ -22,6 +22,9 @@
                 case GenericIssueReportTemplate.HtmlDataTable:
                     return "DataTable.cshtml";
 
+                case GenericIssueReportTemplate.HtmlDxDataGrid:
+                    return "DxDataGrid.cshtml";
+
                 default:
                     throw new ArgumentOutOfRangeException(nameof(template));
             }
