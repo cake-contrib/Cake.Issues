@@ -1,5 +1,5 @@
 ---
-Order: 10
+Order: 30
 Title: HTML Diagnostic
 Description: Template for a HTML report containing a list of all issues with all properties.
 ---
