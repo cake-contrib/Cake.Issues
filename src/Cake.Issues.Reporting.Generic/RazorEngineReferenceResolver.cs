@@ -28,6 +28,7 @@
             yield return CompilerReference.From(this.FindLoaded(loadedAssemblies, "System.dll"));
             yield return CompilerReference.From(this.FindLoaded(loadedAssemblies, "System.Core.dll"));
             yield return CompilerReference.From(this.FindLoaded(loadedAssemblies, "netstandard.dll"));
+            yield return CompilerReference.From(this.FindLoaded(loadedAssemblies, "Microsoft.CSharp.dll"));
             yield return CompilerReference.From(this.FindLoaded(loadedAssemblies, "Newtonsoft.Json.dll"));
             yield return CompilerReference.From(this.FindLoaded(loadedAssemblies, "Cake.Core.dll"));
             yield return CompilerReference.From(this.FindLoaded(loadedAssemblies, "Cake.Issues.dll"));
