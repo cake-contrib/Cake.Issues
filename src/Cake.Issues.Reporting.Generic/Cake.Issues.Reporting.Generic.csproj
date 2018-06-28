@@ -70,11 +70,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ColumnSortOrder.cs" />
+    <Compile Include="ColumnSortOrderExtensions.cs" />
+    <Compile Include="DevExtremeTheme.cs" />
+    <Compile Include="DevExtremeThemeExtensions.cs" />
+    <Compile Include="HtmlDxDataGridOption.cs" />
     <Compile Include="GenericIssueReportFormatAliases.cs" />
     <Compile Include="GenericIssueReportFormatSettingsExtensions.cs" />
     <Compile Include="GenericIssueReportGenerator.cs" />
     <Compile Include="GenericIssueReportFormatSettings.cs" />
     <Compile Include="IIssueExtension.cs" />
+    <Compile Include="ReportColumn.cs" />
+    <Compile Include="ViewBagHelper.cs" />
     <Compile Include="RazorEngineReferenceResolver.cs" />
     <Compile Include="GenericIssueReportTemplate.cs" />
     <Compile Include="GenericIssueReportTemplateExtensions.cs" />
