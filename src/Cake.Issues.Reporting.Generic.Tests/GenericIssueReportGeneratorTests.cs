@@ -101,6 +101,21 @@
                 // Then
                 result.ShouldBe(expectedResult);
             }
+
+            [Fact]
+            public void Should_Pass_Options_To_ViewBag()
+            {
+                // Given
+                var expectedResult = "Foo";
+                var fixture = new GenericIssueReportFixture("@ViewBag.Title");
+                fixture.GenericIssueReportFormatSettings.WithOption("Title", expectedResult);
+
+                // When
+                var result = fixture.CreateReport(new List<IIssue>());
+
+                // Then
+                result.ShouldBe(expectedResult);
+            }
         }
     }
 }
