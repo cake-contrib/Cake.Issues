@@ -1,5 +1,6 @@
 ﻿namespace Cake.Issues.Reporting.Generic
 {
+    using System;
     using Core;
     using Core.Annotations;
     using Core.IO;
@@ -40,6 +41,40 @@
         }
 
         /// <summary>
+        /// Gets an instance of a the generic report format using an embedded template with custom settings.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <param name="template">Template to use for generating the report.</param>
+        /// <param name="configurator">Action for defining the settings.</param>
+        /// <returns>Instance of a the generic report format.</returns>
+        /// <example>
+        /// <para>Create HTML report using the HtmlDxDataGrid template with custom title:</para>
+        /// <code>
+        /// <![CDATA[
+        ///     CreateIssueReport(
+        ///         issues,
+        ///         GenericIssueReportFormatFromEmbeddedTemplate(
+        ///             GenericIssueReportTemplate.HtmlDxDataGrid,
+        ///             x => x.WithOption(HtmlDxDataGridOption.Title, "My Issue Report")),
+        ///         @"c:\repo",
+        ///         @"c:\report.html");
+        /// ]]>
+        /// </code>
+        /// </example>
+        public static IIssueReportFormat GenericIssueReportFormatFromEmbeddedTemplate(
+            this ICakeContext context,
+            GenericIssueReportTemplate template,
+            Action<GenericIssueReportFormatSettings> configurator)
+        {
+            context.NotNull(nameof(context));
+            configurator.NotNull(nameof(configurator));
+
+            var settings = GenericIssueReportFormatSettings.FromEmbeddedTemplate(template);
+            configurator(settings);
+            return context.GenericIssueReportFormat(settings);
+        }
+
+        /// <summary>
         /// Gets an instance of a the generic report format using a local template.
         /// </summary>
         /// <param name="context">The context.</param>
@@ -67,6 +102,41 @@
             templatePath.NotNull(nameof(templatePath));
 
             return context.GenericIssueReportFormat(GenericIssueReportFormatSettings.FromFilePath(templatePath));
+        }
+
+        /// <summary>
+        /// Gets an instance of a the generic report format using a local template with custom settings.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <param name="templatePath">Path to the template to use for generating the report.</param>
+        /// <param name="configurator">Action for defining the settings.</param>
+        /// <returns>Instance of a the generic report format.</returns>
+        /// <example>
+        /// <para>Create HTML report from local template file with custom title:</para>
+        /// <code>
+        /// <![CDATA[
+        ///     CreateIssueReport(
+        ///         issues,
+        ///         GenericIssueReportFormatFromFilePath(
+        ///             @"c:\ReportTemplate.cshtml",
+        ///             x => x.WithOption("Title", "My Issue Report")),
+        ///         @"c:\repo",
+        ///         @"c:\report.html");
+        /// ]]>
+        /// </code>
+        /// </example>
+        public static IIssueReportFormat GenericIssueReportFormatFromFilePath(
+            this ICakeContext context,
+            FilePath templatePath,
+            Action<GenericIssueReportFormatSettings> configurator)
+        {
+            context.NotNull(nameof(context));
+            templatePath.NotNull(nameof(templatePath));
+            configurator.NotNull(nameof(configurator));
+
+            var settings = GenericIssueReportFormatSettings.FromFilePath(templatePath);
+            configurator(settings);
+            return context.GenericIssueReportFormat(settings);
         }
 
         /// <summary>
@@ -102,6 +172,43 @@
         }
 
         /// <summary>
+        /// Gets an instance of a the generic report format using a template string with custom settings.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <param name="templateContent">Content of the template to use for generating the report.</param>
+        /// <param name="configurator">Action for defining the settings.</param>
+        /// <returns>Instance of a the generic report format.</returns>
+        /// <example>
+        /// <para>Create HTML report from a template string with custom title:</para>
+        /// <code>
+        /// <![CDATA[
+        ///     template =
+        ///         "<h1>@ViewBag.Title</h1><ul>@foreach(var issue in Model){<li>@issue.Message</li>}</ul>";
+        ///     CreateIssueReport(
+        ///         issues,
+        ///         GenericIssueReportFormatFromContent(
+        ///             template,
+        ///             x => x.WithOption("Title", "My Issue Report")),
+        ///         @"c:\repo",
+        ///         @"c:\report.html");
+        /// ]]>
+        /// </code>
+        /// </example>
+        public static IIssueReportFormat GenericIssueReportFormatFromContent(
+            this ICakeContext context,
+            string templateContent,
+            Action<GenericIssueReportFormatSettings> configurator)
+        {
+            context.NotNull(nameof(context));
+            templateContent.NotNullOrWhiteSpace(nameof(templateContent));
+            configurator.NotNull(nameof(configurator));
+
+            var settings = GenericIssueReportFormatSettings.FromContent(templateContent);
+            configurator(settings);
+            return context.GenericIssueReportFormat(settings);
+        }
+
+        /// <summary>
         /// Gets an instance of a the generic report format using specified settings.
         /// </summary>
         /// <param name="context">The context.</param>
@@ -112,7 +219,8 @@
         /// <code>
         /// <![CDATA[
         ///     var settings =
-        ///         GenericIssueReportFormatSettings.FromEmbeddedTemplate(GenericIssueReportTemplate.HtmlDiagnostic);
+        ///         GenericIssueReportFormatSettings
+        ///             .FromEmbeddedTemplate(GenericIssueReportTemplate.HtmlDiagnostic);
         ///
         ///     CreateIssueReport(
         ///         issues,
