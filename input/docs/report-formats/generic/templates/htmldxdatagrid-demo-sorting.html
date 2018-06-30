@@ -59,30 +59,22 @@
                                     dataField: "PriorityName",
                                     calculateSortValue: "Priority",
                                     width: "90px",
-                                                                            sortIndex: 0,
-                                        sortOrder: "desc",
-                                },
+                                                                    },
                             
                                                     
                                 {
                                     dataField: "Project",
-                                                                            sortIndex: 1,
-                                        sortOrder: "asc",
-                                },
+                                                                    },
                             
                                                     
                                 {
                                     dataField: "Path",
-                                                                            sortIndex: 2,
-                                        sortOrder: "asc",
-                                },
+                                                                    },
                             
                                                     
                                 {
                                     dataField: "File",
-                                                                            sortIndex: 3,
-                                        sortOrder: "asc",
-                                },
+                                                                    },
                             
                                                     
                                 {
@@ -90,14 +82,14 @@
                                     allowFiltering: false,
                                     allowGrouping: false,
                                     width: "70px",
-                                                                            sortIndex: 4,
-                                        sortOrder: "asc",
-                                },
+                                                                    },
                             
                                                     
                                 {
                                     dataField: "Rule",
-                                                                        cellTemplate: function (container, options) {
+                                                                            sortIndex: 0,
+                                        sortOrder: "asc",
+                                    cellTemplate: function (container, options) {
                                         if (options.data["RuleUrl"]) {
                                             $('<a>', {
                                                 text: options.value,
