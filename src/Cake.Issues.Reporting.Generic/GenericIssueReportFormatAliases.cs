@@ -61,6 +61,8 @@
         /// ]]>
         /// </code>
         /// </example>
+        [CakeMethodAlias]
+        [CakeAliasCategory(ReportingAliasConstants.ReportingFormatCakeAliasCategory)]
         public static IIssueReportFormat GenericIssueReportFormatFromEmbeddedTemplate(
             this ICakeContext context,
             GenericIssueReportTemplate template,
@@ -125,6 +127,8 @@
         /// ]]>
         /// </code>
         /// </example>
+        [CakeMethodAlias]
+        [CakeAliasCategory(ReportingAliasConstants.ReportingFormatCakeAliasCategory)]
         public static IIssueReportFormat GenericIssueReportFormatFromFilePath(
             this ICakeContext context,
             FilePath templatePath,
@@ -194,6 +198,8 @@
         /// ]]>
         /// </code>
         /// </example>
+        [CakeMethodAlias]
+        [CakeAliasCategory(ReportingAliasConstants.ReportingFormatCakeAliasCategory)]
         public static IIssueReportFormat GenericIssueReportFormatFromContent(
             this ICakeContext context,
             string templateContent,
