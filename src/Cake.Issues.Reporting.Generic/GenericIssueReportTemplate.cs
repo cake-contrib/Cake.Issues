@@ -17,6 +17,7 @@
 
         /// <summary>
         /// Template for a HTML report containing a rich data grid with sorting, filtering, grouping and search capabilities.
+        /// See <see cref="HtmlDxDataGridOption"/> for template specific options.
         /// </summary>
         HtmlDxDataGrid
     }

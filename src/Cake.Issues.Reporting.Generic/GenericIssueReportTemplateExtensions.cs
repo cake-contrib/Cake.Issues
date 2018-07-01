@@ -3,7 +3,7 @@
     using System;
 
     /// <summary>
-    /// Extensions for <see cref="GenericIssueReportTemplate"/> enumeration.
+    /// Extension methods for <see cref="GenericIssueReportTemplate"/> enumeration.
     /// </summary>
     internal static class GenericIssueReportTemplateExtensions
     {
