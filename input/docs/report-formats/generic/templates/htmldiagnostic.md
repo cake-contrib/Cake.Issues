@@ -30,7 +30,7 @@ CreateIssueReport(
 
 # Demos
 
-* <a href="htmldiagnostic-demo.html" target="_blank">Default</a>
+* <a href="htmldiagnostic-demo-default.html" target="_blank">Default</a>
 
 # Source Code
 
