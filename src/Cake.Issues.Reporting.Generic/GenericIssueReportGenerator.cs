@@ -43,7 +43,8 @@
                         this.genericIssueReportFormatSettings.Template,
                         Guid.NewGuid().ToString(),
                         typeof(IEnumerable<IIssue>),
-                        issues);
+                        issues,
+                        new DynamicViewBag(this.genericIssueReportFormatSettings.Options));
 
                 File.WriteAllText(this.Settings.OutputFilePath.FullPath, result);
 

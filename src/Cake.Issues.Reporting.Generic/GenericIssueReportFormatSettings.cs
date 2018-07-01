@@ -1,5 +1,6 @@
 ﻿namespace Cake.Issues.Reporting.Generic
 {
+    using System.Collections.Generic;
     using System.IO;
     using Core.IO;
 
@@ -55,6 +56,12 @@
         /// Gets the template to use for generating the report.
         /// </summary>
         public string Template { get; private set; }
+
+        /// <summary>
+        /// Gets the options to use for generating the report.
+        /// See template for available options.
+        /// </summary>
+        public Dictionary<string, object> Options { get; } = new Dictionary<string, object>();
 
         /// <summary>
         /// Returns a new instance of the <see cref="GenericIssueReportFormatSettings"/> class from a template file on disk.

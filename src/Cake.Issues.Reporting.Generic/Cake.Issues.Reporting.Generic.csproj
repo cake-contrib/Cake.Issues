@@ -50,10 +50,6 @@
     <Reference Include="Cake.Issues.Reporting, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Cake.Issues.Reporting.0.3.0\lib\net46\Cake.Issues.Reporting.dll</HintPath>
     </Reference>
-    <Reference Include="Costura, Version=1.6.2.0, Culture=neutral, PublicKeyToken=9919ef960d84173d, processorArchitecture=MSIL">
-      <HintPath>..\packages\Costura.Fody.1.6.2\lib\dotnet\Costura.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="RazorEngine, Version=3.10.0.0, Culture=neutral, PublicKeyToken=9ee697374c7e744a, processorArchitecture=MSIL">
       <HintPath>..\packages\RazorEngine.3.10.0\lib\net45\RazorEngine.dll</HintPath>
     </Reference>
@@ -70,10 +66,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ColumnSortOrder.cs" />
+    <Compile Include="ColumnSortOrderExtensions.cs" />
+    <Compile Include="DevExtremeTheme.cs" />
+    <Compile Include="DevExtremeThemeExtensions.cs" />
+    <Compile Include="HtmlDxDataGridOption.cs" />
     <Compile Include="GenericIssueReportFormatAliases.cs" />
+    <Compile Include="GenericIssueReportFormatSettingsExtensions.cs" />
     <Compile Include="GenericIssueReportGenerator.cs" />
     <Compile Include="GenericIssueReportFormatSettings.cs" />
     <Compile Include="IIssueExtension.cs" />
+    <Compile Include="ReportColumn.cs" />
+    <Compile Include="ViewBagHelper.cs" />
     <Compile Include="RazorEngineReferenceResolver.cs" />
     <Compile Include="GenericIssueReportTemplate.cs" />
     <Compile Include="GenericIssueReportTemplateExtensions.cs" />
@@ -83,7 +87,6 @@
     <EmbeddedResource Include="Templates\Diagnostic.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="FodyWeavers.xml" />
     <None Include="packages.config" />
     <EmbeddedResource Include="Templates\DataTable.cshtml" />
     <EmbeddedResource Include="Templates\DxDataGrid.cshtml" />
@@ -105,13 +108,9 @@
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Costura.Fody.1.6.2\build\dotnet\Costura.Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Costura.Fody.1.6.2\build\dotnet\Costura.Fody.targets'))" />
-    <Error Condition="!Exists('..\packages\Fody.2.1.2\build\netstandard1.0\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Fody.2.1.2\build\netstandard1.0\Fody.targets'))" />
     <Error Condition="!Exists('..\packages\Microsoft.CodeQuality.Analyzers.2.6.1\build\Microsoft.CodeQuality.Analyzers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeQuality.Analyzers.2.6.1\build\Microsoft.CodeQuality.Analyzers.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.NetCore.Analyzers.2.6.1\build\Microsoft.NetCore.Analyzers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.NetCore.Analyzers.2.6.1\build\Microsoft.NetCore.Analyzers.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.NetFramework.Analyzers.2.6.1\build\Microsoft.NetFramework.Analyzers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.NetFramework.Analyzers.2.6.1\build\Microsoft.NetFramework.Analyzers.props'))" />
     <Error Condition="!Exists('..\packages\Text.Analyzers.2.6.1\build\Text.Analyzers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Text.Analyzers.2.6.1\build\Text.Analyzers.props'))" />
   </Target>
-  <Import Project="..\packages\Costura.Fody.1.6.2\build\dotnet\Costura.Fody.targets" Condition="Exists('..\packages\Costura.Fody.1.6.2\build\dotnet\Costura.Fody.targets')" />
-  <Import Project="..\packages\Fody.2.1.2\build\netstandard1.0\Fody.targets" Condition="Exists('..\packages\Fody.2.1.2\build\netstandard1.0\Fody.targets')" />
 </Project>
