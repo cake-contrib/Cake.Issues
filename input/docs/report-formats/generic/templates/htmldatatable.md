@@ -32,6 +32,10 @@ CreateIssueReport(
     @"c:\report.html");
 ```
 
+# Options
+
+This template doesn't support any options.
+
 # Demos
 
 * <a href="htmldatatable-demo-default.html" target="_blank">Default</a>
