@@ -36,7 +36,7 @@ CreateIssueReport(
 
 # Demos
 
-* <a href="htmldxdatagrid-demo.html" target="_blank">Default</a>
+* <a href="htmldxdatagrid-demo-default.html" target="_blank">Default</a>
 
 # Source Code
 

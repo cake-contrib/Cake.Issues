@@ -34,7 +34,7 @@ CreateIssueReport(
 
 # Demos
 
-* <a href="htmldatatable-demo.html" target="_blank">Default</a>
+* <a href="htmldatatable-demo-default.html" target="_blank">Default</a>
 
 # Source Code
 
