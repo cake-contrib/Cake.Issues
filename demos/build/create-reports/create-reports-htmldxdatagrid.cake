@@ -23,6 +23,7 @@
 #load create-reports-htmldxdatagrid-disable-header.cake
 #load create-reports-htmldxdatagrid-disable-filtering.cake
 #load create-reports-htmldxdatagrid-disable-searching.cake
+#load create-reports-htmldxdatagrid-file-linking.cake
 
 Task("Create-Reports-HtmlDxDataGrid")
     .Description("Creates HtmlDxDataGrid demo reports")
@@ -50,4 +51,5 @@ Task("Create-Reports-HtmlDxDataGrid")
     .IsDependentOn("Create-Reports-HtmlDxDataGrid-Change-Title")
     .IsDependentOn("Create-Reports-HtmlDxDataGrid-Disable-Header")
     .IsDependentOn("Create-Reports-HtmlDxDataGrid-Disable-Filtering")
-    .IsDependentOn("Create-Reports-HtmlDxDataGrid-Disable-Searching");
+    .IsDependentOn("Create-Reports-HtmlDxDataGrid-Disable-Searching")
+    .IsDependentOn("Create-Reports-HtmlDxDataGrid-File-Linking");
