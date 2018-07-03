@@ -171,6 +171,13 @@
         /// Default value is <see cref="ReportColumn.PriorityName"/>, <see cref="ReportColumn.Project"/>,
         /// <see cref="ReportColumn.Path"/>, <see cref="ReportColumn.File"/>, <see cref="ReportColumn.Line"/>.
         /// </summary>
-        SortedColumns
+        SortedColumns,
+
+        /// <summary>
+        /// Settings for having issues linked to files.
+        /// Value needs to be an instance of <see cref="FileLinkSettings"/>.
+        /// Default value is <c>null</c>.
+        /// </summary>
+        FileLinkSettings
     }
 }

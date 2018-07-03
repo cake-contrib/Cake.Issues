@@ -85,6 +85,8 @@
   <ItemGroup>
     <Compile Include="ColumnSortOrderExtensionsTests.cs" />
     <Compile Include="DevExtremeThemeExtensionsTests.cs" />
+    <Compile Include="UriExtensionsTests.cs" />
+    <Compile Include="FileLinkSettingsTests.cs" />
     <Compile Include="GenericIssueReportFixture.cs" />
     <Compile Include="GenericIssueReportFormatSettingsExtensionsTests.cs" />
     <Compile Include="GenericIssueReportFormatSettingsTests.cs" />

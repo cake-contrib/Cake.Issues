@@ -30,7 +30,10 @@
         ColumnSortOrder messageSortOrder = ViewBagHelper.ValueOrDefault(ViewBag.MessageSortOder, ColumnSortOrder.Ascending);
         var groupedColumns = ViewBagHelper.ValueOrDefault(ViewBag.GroupedColumns, new List<ReportColumn> { ReportColumn.ProviderName });
         var sortedColumns = ViewBagHelper.ValueOrDefault(ViewBag.SortedColumns, new List<ReportColumn> { ReportColumn.PriorityName, ReportColumn.Project, ReportColumn.Path, ReportColumn.File, ReportColumn.Line });
+        FileLinkSettings fileLinkSettings = ViewBagHelper.ValueOrDefault(ViewBag.FileLinkSettings, new FileLinkSettings());
+    }
 
+    @{
         // Prepare issues.
         var issues =
             from issue in Model
@@ -44,6 +47,7 @@
                     issue.Project,
                     Path = issue.FilePath(),
                     File = issue.FileName(),
+                    FileLink = @fileLinkSettings.GetFileLink(issue),
                     issue.Line,
                     issue.Rule,
                     issue.RuleUrl,
@@ -183,6 +187,23 @@
                                         @:sortIndex: @sortedColumns.IndexOf(ReportColumn.File),
                                         @:sortOrder: "@fileSortOrder.ToShortString()",
                                     }
+                                    @if (fileLinkSettings != null && !string.IsNullOrWhiteSpace(fileLinkSettings.FileLinkPattern))
+                                    {
+                                        <text>
+                                            cellTemplate: function (container, options) {
+                                                if (options.data["FileLink"]) {
+                                                    $('<a>', {
+                                                        text: options.value,
+                                                        href: options.data["FileLink"],
+                                                        target: "_blank"
+                                                    }).appendTo(container);
+                                                }
+                                                else {
+                                                    container.text(options.value);
+                                                }
+                                            }
+                                        </text>
+                                    }
                                 },
                             </text>
                         }
@@ -202,6 +223,23 @@
                                     {
                                         @:sortIndex: @sortedColumns.IndexOf(ReportColumn.Line),
                                         @:sortOrder: "@lineSortOrder.ToShortString()",
+                                    }
+                                    @if (fileLinkSettings != null && !string.IsNullOrWhiteSpace(fileLinkSettings.FileLinkPattern))
+                                    {
+                                        <text>
+                                            cellTemplate: function (container, options) {
+                                                if (options.data["FileLink"]) {
+                                                    $('<a>', {
+                                                        text: options.value,
+                                                        href: options.data["FileLink"],
+                                                        target: "_blank"
+                                                    }).appendTo(container);
+                                                }
+                                                else {
+                                                    container.text(options.value);
+                                                }
+                                            }
+                                        </text>
                                     }
                                 },
                             </text>
