@@ -1,0 +1,166 @@
+        
+    <!DOCTYPE html>
+
+
+
+
+
+    <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8" />
+        <title>Issues Report</title>
+
+        
+        <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.1.0.min.js"></script>
+        
+        <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/18.1.4/css/dx.common.css" />
+        <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/18.1.4/css/dx.light.css" />
+        
+        <script type="text/javascript" src="https://cdn3.devexpress.com/jslib/18.1.4/js/dx.all.js"></script>
+    </head>
+    <body class="dx-viewport">
+            <h1>Issues Report</h1>
+
+        <div class="container">
+            <div id="gridContainer"></div>
+        </div>
+
+        <script type="text/javascript">
+        var issues = [{"ProviderName":"My Cake Script","ProviderType":"MyCakeScript","Priority":300,"PriorityName":"Warning","Project":null,"Path":"","File":"myfile.txt","FileLink":"https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/myfile.txt#L42","Line":42,"Rule":null,"RuleUrl":null,"Message":"Something went wrong"},{"ProviderName":"MSBuild","ProviderType":"Cake.Issues.MsBuild.MsBuildIssuesProvider","Priority":300,"PriorityName":"Warning","Project":"src\\ClassLibrary1\\ClassLibrary1.csproj","Path":"src/ClassLibrary1","File":"Class1.cs","FileLink":"https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/src/ClassLibrary1/Class1.cs#L13","Line":13,"Rule":"CS0219","RuleUrl":null,"Message":"The variable 'foo' is assigned but its value is never used"},{"ProviderName":"MSBuild","ProviderType":"Cake.Issues.MsBuild.MsBuildIssuesProvider","Priority":300,"PriorityName":"Warning","Project":"src\\ClassLibrary1\\ClassLibrary1.csproj","Path":"src/ClassLibrary1","File":"Class1.cs","FileLink":"https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/src/ClassLibrary1/Class1.cs#L1","Line":1,"Rule":"SA1652","RuleUrl":"https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1652.md","Message":"Enable XML documentation output"},{"ProviderName":"MSBuild","ProviderType":"Cake.Issues.MsBuild.MsBuildIssuesProvider","Priority":300,"PriorityName":"Warning","Project":"src\\ClassLibrary1\\ClassLibrary1.csproj","Path":"src/ClassLibrary1","File":"Class1.cs","FileLink":"https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/src/ClassLibrary1/Class1.cs#L1","Line":1,"Rule":"SA1633","RuleUrl":"https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1633.md","Message":"The file header is missing or not located at the top of the file."},{"ProviderName":"MSBuild","ProviderType":"Cake.Issues.MsBuild.MsBuildIssuesProvider","Priority":300,"PriorityName":"Warning","Project":"src\\ClassLibrary1\\ClassLibrary1.csproj","Path":"src/ClassLibrary1","File":"Class1.cs","FileLink":"https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/src/ClassLibrary1/Class1.cs#L1","Line":1,"Rule":"SA1200","RuleUrl":"https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1200.md","Message":"Using directive must appear within a namespace declaration"},{"ProviderName":"MSBuild","ProviderType":"Cake.Issues.MsBuild.MsBuildIssuesProvider","Priority":300,"PriorityName":"Warning","Project":"src\\ClassLibrary1\\ClassLibrary1.csproj","Path":"src/ClassLibrary1","File":"Class1.cs","FileLink":"https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/src/ClassLibrary1/Class1.cs#L2","Line":2,"Rule":"SA1200","RuleUrl":"https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1200.md","Message":"Using directive must appear within a namespace declaration"},{"ProviderName":"MSBuild","ProviderType":"Cake.Issues.MsBuild.MsBuildIssuesProvider","Priority":300,"PriorityName":"Warning","Project":"src\\ClassLibrary1\\ClassLibrary1.csproj","Path":"src/ClassLibrary1","File":"Class1.cs","FileLink":"https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/src/ClassLibrary1/Class1.cs#L3","Line":3,"Rule":"SA1200","RuleUrl":"https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1200.md","Message":"Using directive must appear within a namespace declaration"},{"ProviderName":"MSBuild","ProviderType":"Cake.Issues.MsBuild.MsBuildIssuesProvider","Priority":300,"PriorityName":"Warning","Project":"src\\ClassLibrary1\\ClassLibrary1.csproj","Path":"src/ClassLibrary1","File":"Class1.cs","FileLink":"https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/src/ClassLibrary1/Class1.cs#L4","Line":4,"Rule":"SA1200","RuleUrl":"https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1200.md","Message":"Using directive must appear within a namespace declaration"},{"ProviderName":"MSBuild","ProviderType":"Cake.Issues.MsBuild.MsBuildIssuesProvider","Priority":300,"PriorityName":"Warning","Project":"src\\ClassLibrary1\\ClassLibrary1.csproj","Path":"src/ClassLibrary1","File":"Class1.cs","FileLink":"https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/src/ClassLibrary1/Class1.cs#L5","Line":5,"Rule":"SA1200","RuleUrl":"https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1200.md","Message":"Using directive must appear within a namespace declaration"},{"ProviderName":"MSBuild","ProviderType":"Cake.Issues.MsBuild.MsBuildIssuesProvider","Priority":300,"PriorityName":"Warning","Project":"src\\ClassLibrary1\\ClassLibrary1.csproj","Path":"src/ClassLibrary1/Properties","File":"AssemblyInfo.cs","FileLink":"https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/src/ClassLibrary1/Properties/AssemblyInfo.cs#L1","Line":1,"Rule":"SA1652","RuleUrl":"https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1652.md","Message":"Enable XML documentation output"},{"ProviderName":"MSBuild","ProviderType":"Cake.Issues.MsBuild.MsBuildIssuesProvider","Priority":300,"PriorityName":"Warning","Project":"src\\ClassLibrary1\\ClassLibrary1.csproj","Path":"src/ClassLibrary1/Properties","File":"AssemblyInfo.cs","FileLink":"https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/src/ClassLibrary1/Properties/AssemblyInfo.cs#L1","Line":1,"Rule":"SA1633","RuleUrl":"https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1633.md","Message":"The file header is missing or not located at the top of the file."},{"ProviderName":"MSBuild","ProviderType":"Cake.Issues.MsBuild.MsBuildIssuesProvider","Priority":300,"PriorityName":"Warning","Project":"src\\ClassLibrary1\\ClassLibrary1.csproj","Path":"src/ClassLibrary1/Properties","File":"AssemblyInfo.cs","FileLink":"https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/src/ClassLibrary1/Properties/AssemblyInfo.cs#L5","Line":5,"Rule":"SA1028","RuleUrl":"https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1028.md","Message":"Code must not contain trailing whitespace"},{"ProviderName":"MSBuild","ProviderType":"Cake.Issues.MsBuild.MsBuildIssuesProvider","Priority":300,"PriorityName":"Warning","Project":"src\\ClassLibrary1\\ClassLibrary1.csproj","Path":"src/ClassLibrary1/Properties","File":"AssemblyInfo.cs","FileLink":"https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/src/ClassLibrary1/Properties/AssemblyInfo.cs#L17","Line":17,"Rule":"SA1028","RuleUrl":"https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1028.md","Message":"Code must not contain trailing whitespace"},{"ProviderName":"MSBuild","ProviderType":"Cake.Issues.MsBuild.MsBuildIssuesProvider","Priority":300,"PriorityName":"Warning","Project":"src\\ClassLibrary1\\ClassLibrary1.csproj","Path":"src/ClassLibrary1/Properties","File":"AssemblyInfo.cs","FileLink":"https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/src/ClassLibrary1/Properties/AssemblyInfo.cs#L18","Line":18,"Rule":"SA1028","RuleUrl":"https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1028.md","Message":"Code must not contain trailing whitespace"},{"ProviderName":"MSBuild","ProviderType":"Cake.Issues.MsBuild.MsBuildIssuesProvider","Priority":300,"PriorityName":"Warning","Project":"src\\ClassLibrary1\\ClassLibrary1.csproj","Path":"src/ClassLibrary1/Properties","File":"AssemblyInfo.cs","FileLink":"https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/src/ClassLibrary1/Properties/AssemblyInfo.cs#L28","Line":28,"Rule":"SA1028","RuleUrl":"https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1028.md","Message":"Code must not contain trailing whitespace"},{"ProviderName":"MSBuild","ProviderType":"Cake.Issues.MsBuild.MsBuildIssuesProvider","Priority":300,"PriorityName":"Warning","Project":"src\\ClassLibrary1\\ClassLibrary1.csproj","Path":"src/ClassLibrary1/Properties","File":"AssemblyInfo.cs","FileLink":"https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/src/ClassLibrary1/Properties/AssemblyInfo.cs#L32","Line":32,"Rule":"SA1028","RuleUrl":"https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1028.md","Message":"Code must not contain trailing whitespace"},{"ProviderName":"MSBuild","ProviderType":"Cake.Issues.MsBuild.MsBuildIssuesProvider","Priority":300,"PriorityName":"Warning","Project":"src\\ClassLibrary1\\ClassLibrary1.csproj","Path":null,"File":null,"FileLink":"https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/#L","Line":null,"Rule":"CA2210","RuleUrl":"https://www.google.com/search?q=%22CA2210:%22+site:docs.microsoft.com","Message":"Microsoft.Design : Sign 'ClassLibrary1.dll' with a strong name key."},{"ProviderName":"MSBuild","ProviderType":"Cake.Issues.MsBuild.MsBuildIssuesProvider","Priority":300,"PriorityName":"Warning","Project":"src\\ClassLibrary1\\ClassLibrary1.csproj","Path":null,"File":null,"FileLink":"https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/#L","Line":null,"Rule":"CA1014","RuleUrl":"https://www.google.com/search?q=%22CA1014:%22+site:docs.microsoft.com","Message":"Microsoft.Design : Mark 'ClassLibrary1.dll' with CLSCompliant(true) because it exposes externally visible types."},{"ProviderName":"MSBuild","ProviderType":"Cake.Issues.MsBuild.MsBuildIssuesProvider","Priority":300,"PriorityName":"Warning","Project":"src\\ClassLibrary1\\ClassLibrary1.csproj","Path":"src/ClassLibrary1","File":"Class1.cs","FileLink":"https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/src/ClassLibrary1/Class1.cs#L12","Line":12,"Rule":"CA1822","RuleUrl":"https://www.google.com/search?q=%22CA1822:%22+site:docs.microsoft.com","Message":"Microsoft.Performance : The 'this' parameter (or 'Me' in Visual Basic) of 'Class1.Foo()' is never used. Mark the member as static (or Shared in Visual Basic) or use 'this'/'Me' in the method body or at least one property accessor, if appropriate."},{"ProviderName":"MSBuild","ProviderType":"Cake.Issues.MsBuild.MsBuildIssuesProvider","Priority":300,"PriorityName":"Warning","Project":"src\\ClassLibrary1\\ClassLibrary1.csproj","Path":"src/ClassLibrary1","File":"Class1.cs","FileLink":"https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/src/ClassLibrary1/Class1.cs#L13","Line":13,"Rule":"CA1804","RuleUrl":"https://www.google.com/search?q=%22CA1804:%22+site:docs.microsoft.com","Message":"Microsoft.Performance : 'Class1.Foo()' declares a variable, 'foo', of type 'string', which is never used or is only assigned to. Use this variable or remove it."},{"ProviderName":"InspectCode","ProviderType":"Cake.Issues.InspectCode.InspectCodeIssuesProvider","Priority":300,"PriorityName":"Warning","Project":null,"Path":"src/ClassLibrary1","File":"Class1.cs","FileLink":"https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/src/ClassLibrary1/Class1.cs#L2","Line":2,"Rule":"RedundantUsingDirective","RuleUrl":"https://www.jetbrains.com/resharperplatform/help?Keyword=RedundantUsingDirective","Message":"Using directive is not required by the code and can be safely removed"},{"ProviderName":"InspectCode","ProviderType":"Cake.Issues.InspectCode.InspectCodeIssuesProvider","Priority":300,"PriorityName":"Warning","Project":null,"Path":"src/ClassLibrary1","File":"Class1.cs","FileLink":"https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/src/ClassLibrary1/Class1.cs#L3","Line":3,"Rule":"RedundantUsingDirective","RuleUrl":"https://www.jetbrains.com/resharperplatform/help?Keyword=RedundantUsingDirective","Message":"Using directive is not required by the code and can be safely removed"},{"ProviderName":"InspectCode","ProviderType":"Cake.Issues.InspectCode.InspectCodeIssuesProvider","Priority":300,"PriorityName":"Warning","Project":null,"Path":"src/ClassLibrary1","File":"Class1.cs","FileLink":"https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/src/ClassLibrary1/Class1.cs#L4","Line":4,"Rule":"RedundantUsingDirective","RuleUrl":"https://www.jetbrains.com/resharperplatform/help?Keyword=RedundantUsingDirective","Message":"Using directive is not required by the code and can be safely removed"},{"ProviderName":"InspectCode","ProviderType":"Cake.Issues.InspectCode.InspectCodeIssuesProvider","Priority":300,"PriorityName":"Warning","Project":null,"Path":"src/ClassLibrary1","File":"Class1.cs","FileLink":"https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/src/ClassLibrary1/Class1.cs#L5","Line":5,"Rule":"RedundantUsingDirective","RuleUrl":"https://www.jetbrains.com/resharperplatform/help?Keyword=RedundantUsingDirective","Message":"Using directive is not required by the code and can be safely removed"},{"ProviderName":"InspectCode","ProviderType":"Cake.Issues.InspectCode.InspectCodeIssuesProvider","Priority":200,"PriorityName":"Suggestion","Project":null,"Path":"src/ClassLibrary1","File":"Class1.cs","FileLink":"https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/src/ClassLibrary1/Class1.cs#L9","Line":9,"Rule":"UnusedMember.Global","RuleUrl":"https://www.jetbrains.com/resharperplatform/help?Keyword=UnusedMember.Global","Message":"Class 'Class1' is never used"},{"ProviderName":"InspectCode","ProviderType":"Cake.Issues.InspectCode.InspectCodeIssuesProvider","Priority":200,"PriorityName":"Suggestion","Project":null,"Path":"src/ClassLibrary1","File":"Class1.cs","FileLink":"https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/src/ClassLibrary1/Class1.cs#L11","Line":11,"Rule":"UnusedMember.Global","RuleUrl":"https://www.jetbrains.com/resharperplatform/help?Keyword=UnusedMember.Global","Message":"Method 'Foo' is never used"},{"ProviderName":"InspectCode","ProviderType":"Cake.Issues.InspectCode.InspectCodeIssuesProvider","Priority":300,"PriorityName":"Warning","Project":null,"Path":"src/ClassLibrary1","File":"Class1.cs","FileLink":"https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/src/ClassLibrary1/Class1.cs#L13","Line":13,"Rule":"NotAccessedVariable.Compiler","RuleUrl":null,"Message":"Local variable 'foo' is only assigned but its value is never used"},{"ProviderName":"InspectCode","ProviderType":"Cake.Issues.InspectCode.InspectCodeIssuesProvider","Priority":300,"PriorityName":"Warning","Project":null,"Path":"src/ClassLibrary1/Properties","File":"AssemblyInfo.cs","FileLink":"https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/src/ClassLibrary1/Properties/AssemblyInfo.cs#L2","Line":2,"Rule":"RedundantUsingDirective","RuleUrl":"https://www.jetbrains.com/resharperplatform/help?Keyword=RedundantUsingDirective","Message":"Using directive is not required by the code and can be safely removed"},{"ProviderName":"markdownlint","ProviderType":"Cake.Issues.Markdownlint.MarkdownlintCli.MarkdownlintCliIssuesProvider","Priority":300,"PriorityName":"Warning","Project":null,"Path":"docs","File":"index.md","FileLink":"https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/docs/index.md#L1","Line":1,"Rule":"MD022","RuleUrl":"https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md022","Message":"Headings should be surrounded by blank lines [Context: \"# foo\"]"},{"ProviderName":"markdownlint","ProviderType":"Cake.Issues.Markdownlint.MarkdownlintCli.MarkdownlintCliIssuesProvider","Priority":300,"PriorityName":"Warning","Project":null,"Path":"docs","File":"index.md","FileLink":"https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/docs/index.md#L2","Line":2,"Rule":"MD009","RuleUrl":"https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md009","Message":"Trailing spaces [Expected: 0 or 2; Actual: 1]"},{"ProviderName":"markdownlint","ProviderType":"Cake.Issues.Markdownlint.MarkdownlintCli.MarkdownlintCliIssuesProvider","Priority":300,"PriorityName":"Warning","Project":null,"Path":"docs","File":"index.md","FileLink":"https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/docs/index.md#L2","Line":2,"Rule":"MD013","RuleUrl":"https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md013","Message":"Line length [Expected: 100; Actual: 811]"},{"ProviderName":"markdownlint","ProviderType":"Cake.Issues.Markdownlint.MarkdownlintCli.MarkdownlintCliIssuesProvider","Priority":300,"PriorityName":"Warning","Project":null,"Path":"docs","File":"index.md","FileLink":"https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/docs/index.md#L4","Line":4,"Rule":"MD022","RuleUrl":"https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md022","Message":"Headings should be surrounded by blank lines [Context: \"# bar\"]"},{"ProviderName":"markdownlint","ProviderType":"Cake.Issues.Markdownlint.MarkdownlintCli.MarkdownlintCliIssuesProvider","Priority":300,"PriorityName":"Warning","Project":null,"Path":"docs","File":"index.md","FileLink":"https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/docs/index.md#L4","Line":4,"Rule":"MD025","RuleUrl":"https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md025","Message":"Multiple top level headings in the same document [Context: \"# bar\"]"},{"ProviderName":"markdownlint","ProviderType":"Cake.Issues.Markdownlint.MarkdownlintCli.MarkdownlintCliIssuesProvider","Priority":300,"PriorityName":"Warning","Project":null,"Path":"docs","File":"index.md","FileLink":"https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/docs/index.md#L5","Line":5,"Rule":"MD031","RuleUrl":"https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md031","Message":"Fenced code blocks should be surrounded by blank lines [Context: \"```\"]"},{"ProviderName":"markdownlint","ProviderType":"Cake.Issues.Markdownlint.MarkdownlintCli.MarkdownlintCliIssuesProvider","Priority":300,"PriorityName":"Warning","Project":null,"Path":"docs","File":"index.md","FileLink":"https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/docs/index.md#L5","Line":5,"Rule":"MD040","RuleUrl":"https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md040","Message":"Fenced code blocks should have a language specified [Context: \"```\"]"},{"ProviderName":"markdownlint","ProviderType":"Cake.Issues.Markdownlint.MarkdownlintCli.MarkdownlintCliIssuesProvider","Priority":300,"PriorityName":"Warning","Project":null,"Path":"docs","File":"index.md","FileLink":"https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/docs/index.md#L6","Line":6,"Rule":"MD009","RuleUrl":"https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md009","Message":"Trailing spaces [Expected: 0 or 2; Actual: 1]"}];
+        </script>
+
+        <script type="text/javascript">
+            $(function(){
+                $("#gridContainer").dxDataGrid({
+                    dataSource: issues,
+                    loadPanel: {
+                        enabled: true
+                    },
+                    searchPanel: {
+                        visible: true
+                    },
+                    groupPanel: {
+                        visible: true
+                    },
+                    headerFilter: {
+                        visible: true
+                    },
+                    rowAlternationEnabled: true,
+                    allowColumnResizing: true,
+                    columns: [
+                            
+                                {
+                                    caption: "Provider",
+                                    dataField: "ProviderName",
+                                        groupIndex: 0,
+                                                                    },
+                            
+                                                    
+                                {
+                                    caption: "Severity",
+                                    dataField: "PriorityName",
+                                    calculateSortValue: "Priority",
+                                    width: "90px",
+                                                                            sortIndex: 0,
+                                        sortOrder: "desc",
+                                },
+                            
+                                                    
+                                {
+                                    dataField: "Project",
+                                                                            sortIndex: 1,
+                                        sortOrder: "asc",
+                                },
+                            
+                                                    
+                                {
+                                    dataField: "Path",
+                                                                            sortIndex: 2,
+                                        sortOrder: "asc",
+                                },
+                            
+                                                    
+                                {
+                                    dataField: "File",
+                                                                            sortIndex: 3,
+                                        sortOrder: "asc",
+                                                                            
+                                            cellTemplate: function (container, options) {
+                                                if (options.data["FileLink"]) {
+                                                    $('<a>', {
+                                                        text: options.value,
+                                                        href: options.data["FileLink"],
+                                                        target: "_blank"
+                                                    }).appendTo(container);
+                                                }
+                                                else {
+                                                    container.text(options.value);
+                                                }
+                                            }
+                                        
+                                },
+                            
+                                                    
+                                {
+                                    dataField: "Line",
+                                    allowFiltering: false,
+                                    allowGrouping: false,
+                                    width: "70px",
+                                                                            sortIndex: 4,
+                                        sortOrder: "asc",
+                                                                            
+                                            cellTemplate: function (container, options) {
+                                                if (options.data["FileLink"]) {
+                                                    $('<a>', {
+                                                        text: options.value,
+                                                        href: options.data["FileLink"],
+                                                        target: "_blank"
+                                                    }).appendTo(container);
+                                                }
+                                                else {
+                                                    container.text(options.value);
+                                                }
+                                            }
+                                        
+                                },
+                            
+                                                    
+                                {
+                                    dataField: "Rule",
+                                                                        cellTemplate: function (container, options) {
+                                        if (options.data["RuleUrl"]) {
+                                            $('<a>', {
+                                                text: options.value,
+                                                href: options.data["RuleUrl"],
+                                                target: "_blank"
+                                            }).appendTo(container);
+                                        }
+                                        else {
+                                            container.text(options.value);
+                                        }
+                                    }
+                                },
+                            
+                                                    
+                                {
+                                    dataField: "Message",
+                                                                    },
+                            
+                    ],
+                    summary: {
+                        groupItems: [{
+                            column: "ProviderType",
+                            summaryType: "count",
+                            displayFormat: "{0} issues",
+                        }],
+                        totalItems: [{
+                            column: "PriorityName",
+                            summaryType: "count",
+                            displayFormat: "{0} issues"
+                        }]
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>

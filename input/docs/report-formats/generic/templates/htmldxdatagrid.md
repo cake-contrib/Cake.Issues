@@ -155,6 +155,8 @@ CreateIssueReport(
   (<a href="https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/build/create-reports/create-reports-htmldxdatagrid-change-title.cake" target="_blank">Source Code</a>)
 * <a href="htmldxdatagrid-demo-disableheader.html" target="_blank">Disable header</a>
   (<a href="https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/build/create-reports/create-reports-htmldxdatagrid-disable-header.cake" target="_blank">Source Code</a>)
+* <a href="htmldxdatagrid-demo-filelinking.html" target="_blank">File linking</a>
+  (<a href="https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/build/create-reports/create-reports-htmldxdatagrid-file-linking.cake" target="_blank">Source Code</a>)
 * <a href="htmldxdatagrid-demo-disablefiltering.html" target="_blank">Disable filtering</a>
   (<a href="https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/build/create-reports/create-reports-htmldxdatagrid-disable-filtering.cake" target="_blank">Source Code</a>)
 * <a href="htmldxdatagrid-demo-disablesearching.html" target="_blank">Disable searching</a>
