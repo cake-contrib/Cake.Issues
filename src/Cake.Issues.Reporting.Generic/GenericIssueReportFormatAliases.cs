@@ -30,7 +30,7 @@
             repositoryUrl.NotNull(nameof(repositoryUrl));
             branch.NotNullOrWhiteSpace(nameof(branch));
 
-            return context.GenericIssueReportFileLinkSettingsForGitHub(repositoryUrl, branch);
+            return context.GenericIssueReportFileLinkSettingsForGitHub(repositoryUrl, branch, null);
         }
 
         /// <summary>
@@ -78,7 +78,7 @@
             repositoryUrl.NotNull(nameof(repositoryUrl));
             branch.NotNullOrWhiteSpace(nameof(branch));
 
-            return context.GenericIssueReportFileLinkSettingsForTeamFoundationServer(repositoryUrl, branch);
+            return context.GenericIssueReportFileLinkSettingsForTeamFoundationServer(repositoryUrl, branch, null);
         }
 
         /// <summary>
