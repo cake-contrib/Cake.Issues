@@ -23,6 +23,26 @@
         public string MenuEntryText { get; set; } = "Open in IDE";
 
         /// <summary>
+        /// Returns settings for integrating with Visual Studio using the TeamCity addin.
+        /// </summary>
+        /// <returns>Settings for integrating with Visual Studio using the TeamCity addin.</returns>
+        public static IdeIntegrationSettings ForVisualStudioUsingTeamCityAddin()
+        {
+            return new IdeIntegrationSettings()
+            {
+                MenuEntryText = "Open in Visual Studio",
+                JavaScript =
+                    @"function sendHttpGetRequest(filePath, lineNumber) {
+                        var url = 'http://127.0.0.1:63330/file?file=' + filePath + '&line=' + lineNumber;
+                        var xmlHttp = new XMLHttpRequest();
+                        xmlHttp.open('GET', url, false);
+                        xmlHttp.send(null);
+                    }",
+                OpenInIdeCall = "sendHttpGetRequest({FilePath}, {Line});"
+            };
+        }
+
+        /// <summary>
         /// Returns the JavaScript which should be called to open the file affected by an issue in an IDE
         /// with all patterns of <see cref="OpenInIdeCall"/> replaced.
         /// </summary>
