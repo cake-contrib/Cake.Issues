@@ -78,6 +78,7 @@
     <Compile Include="GenericIssueReportFormatSettingsExtensions.cs" />
     <Compile Include="GenericIssueReportGenerator.cs" />
     <Compile Include="GenericIssueReportFormatSettings.cs" />
+    <Compile Include="IdeIntegrationSettings.cs" />
     <Compile Include="IIssueExtensions.cs" />
     <Compile Include="ReportColumn.cs" />
     <Compile Include="UriExtensions.cs" />

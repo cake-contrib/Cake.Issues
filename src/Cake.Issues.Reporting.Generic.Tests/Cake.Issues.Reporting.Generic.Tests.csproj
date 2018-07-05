@@ -86,6 +86,7 @@
     <Compile Include="ColumnSortOrderExtensionsTests.cs" />
     <Compile Include="DevExtremeThemeExtensionsTests.cs" />
     <Compile Include="ExceptionAssertExtensions.cs" />
+    <Compile Include="IdeIntegrationSettingsTests.cs" />
     <Compile Include="HtmlDxDataGridColumnDescriptionTests.cs" />
     <Compile Include="IIssueExtensionsTests.cs" />
     <Compile Include="UriExtensionsTests.cs" />

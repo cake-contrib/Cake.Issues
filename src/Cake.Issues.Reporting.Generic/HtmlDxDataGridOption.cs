@@ -300,6 +300,13 @@
         /// If setting this the matching <see cref="JQueryVersion"/> needs to also be set.
         /// Default value is <c>18.2.7</c>.
         /// </summary>
-        DevExtremeVersion
+        DevExtremeVersion,
+
+        /// <summary>
+        /// Settings for having functionality to open files affected by issues in IDEs.
+        /// Value needs to be an instance of <see cref="IdeIntegrationSettings"/>.
+        /// Default value is <c>null</c>.
+        /// </summary>
+        IdeIntegrationSettings
     }
 }
