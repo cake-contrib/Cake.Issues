@@ -59,7 +59,7 @@
                 var prSystem = new FakePullRequestSystem(new FakeLog());
 
                 // When
-                var result = Record.Exception(() => prSystem.FetchActiveDiscussionThreads("Foo"));
+                var result = Record.Exception(() => prSystem.FetchDiscussionThreads("Foo"));
 
                 // Then
                 result.IsInvalidOperationException("Initialize needs to be called first.");

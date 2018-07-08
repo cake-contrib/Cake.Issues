@@ -31,11 +31,11 @@
         }
 
         /// <inheritdoc/>
-        public IEnumerable<IPullRequestDiscussionThread> FetchActiveDiscussionThreads(string commentSource)
+        public IEnumerable<IPullRequestDiscussionThread> FetchDiscussionThreads(string commentSource)
         {
             this.AssertSettings();
 
-            return this.InternalFetchActiveDiscussionThreads(commentSource);
+            return this.InternalFetchDiscussionThreads(commentSource);
         }
 
         /// <inheritdoc/>
@@ -63,12 +63,12 @@
         }
 
         /// <summary>
-        /// Returns a list of all active discussion threads.
-        /// Compared to <see cref="FetchActiveDiscussionThreads"/> it is safe to access Settings from this method.
+        /// Returns a list of all discussion threads.
+        /// Compared to <see cref="FetchDiscussionThreads"/> it is safe to access Settings from this method.
         /// </summary>
         /// <param name="commentSource">Value used to indicate threads created by this addin.</param>
-        /// <returns>List of all active discussion threads.</returns>
-        protected abstract IEnumerable<IPullRequestDiscussionThread> InternalFetchActiveDiscussionThreads(string commentSource);
+        /// <returns>List of all discussion threads.</returns>
+        protected abstract IEnumerable<IPullRequestDiscussionThread> InternalFetchDiscussionThreads(string commentSource);
 
         /// <summary>
         /// Returns a list of all files modified in a pull request.

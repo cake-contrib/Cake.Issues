@@ -118,7 +118,7 @@
             this.log.Information("Fetching existing threads and comments...");
 
             var existingThreads =
-                this.pullRequestSystem.FetchActiveDiscussionThreads(
+                this.pullRequestSystem.FetchDiscussionThreads(
                     reportIssuesToPullRequestSettings.CommentSource).ToList();
 
             var issueComments =

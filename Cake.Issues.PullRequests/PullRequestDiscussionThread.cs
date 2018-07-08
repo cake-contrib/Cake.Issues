@@ -54,6 +54,9 @@
         public PullRequestDiscussionStatus Status { get; set; }
 
         /// <inheritdoc/>
+        public PullRequestDiscussionResolution Resolution { get; set; }
+
+        /// <inheritdoc/>
         public FilePath AffectedFileRelativePath { get; set; }
 
         /// <inheritdoc/>

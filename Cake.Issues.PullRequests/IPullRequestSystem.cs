@@ -23,11 +23,11 @@
         IssueCommentFormat GetPreferredCommentFormat();
 
         /// <summary>
-        /// Returns a list of all active discussion threads.
+        /// Returns a list of all discussion threads.
         /// </summary>
         /// <param name="commentSource">Value used to indicate threads created by this addin.</param>
-        /// <returns>List of all active discussion threads.</returns>
-        IEnumerable<IPullRequestDiscussionThread> FetchActiveDiscussionThreads(string commentSource);
+        /// <returns>List of all discussion threads.</returns>
+        IEnumerable<IPullRequestDiscussionThread> FetchDiscussionThreads(string commentSource);
 
         /// <summary>
         /// Marks a list of discussion threads as resolved.

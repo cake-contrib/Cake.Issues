@@ -107,7 +107,7 @@
         }
 
         /// <inheritdoc />
-        protected override IEnumerable<IPullRequestDiscussionThread> InternalFetchActiveDiscussionThreads(string commentSource)
+        protected override IEnumerable<IPullRequestDiscussionThread> InternalFetchDiscussionThreads(string commentSource)
         {
             return this.discussionThreads;
         }
