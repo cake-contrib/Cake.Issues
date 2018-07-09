@@ -44,7 +44,7 @@
         /// <returns>List of filtered issues.</returns>
         public IEnumerable<IIssue> FilterIssues(
             IEnumerable<IIssue> issues,
-            IDictionary<IIssue, IEnumerable<IPullRequestDiscussionComment>> issueComments)
+            IDictionary<IIssue, IssueCommentInfo> issueComments)
         {
             // ReSharper disable once PossibleMultipleEnumeration
             issues.NotNull(nameof(issues));
@@ -82,11 +82,14 @@
         /// <returns>True if there are already comments for an issue.</returns>
         private static bool IssueHasMatchingComments(
             IIssue issue,
-            IDictionary<IIssue, IEnumerable<IPullRequestDiscussionComment>> issueComments)
+            IDictionary<IIssue, IssueCommentInfo> issueComments)
         {
             return
                 issueComments.ContainsKey(issue) &&
-                issueComments[issue].Any();
+                (
+                    issueComments[issue].ActiveComments.Any() ||
+                    issueComments[issue].WontFixComments.Any() ||
+                    issueComments[issue].ResolvedComments.Any());
         }
 
         /// <summary>
@@ -151,7 +154,7 @@
         /// <returns>List issues filtered to only the ones not having already a comment.</returns>
         private IList<IIssue> FilterPreExistingComments(
             IList<IIssue> issues,
-            IDictionary<IIssue, IEnumerable<IPullRequestDiscussionComment>> issueComments)
+            IDictionary<IIssue, IssueCommentInfo> issueComments)
         {
             if (!issues.Any())
             {

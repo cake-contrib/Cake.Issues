@@ -41,7 +41,7 @@
 
         public IEnumerable<IIssue> FilterIssues(
             IEnumerable<IIssue> issues,
-            IDictionary<IIssue, IEnumerable<IPullRequestDiscussionComment>> issueComments)
+            IDictionary<IIssue, IssueCommentInfo> issueComments)
         {
             this.PullRequestSystem?.Initialize(this.ReportIssuesToPullRequestSettings);
 

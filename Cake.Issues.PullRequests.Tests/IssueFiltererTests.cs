@@ -69,7 +69,7 @@
                 var fixture = new PullRequestsFixture();
 
                 // When
-                var result = Record.Exception(() => fixture.FilterIssues(null, new Dictionary<IIssue, IEnumerable<IPullRequestDiscussionComment>>()));
+                var result = Record.Exception(() => fixture.FilterIssues(null, new Dictionary<IIssue, IssueCommentInfo>()));
 
                 // Then
                 result.IsArgumentNullException("issues");
@@ -114,10 +114,187 @@
                                 .WithPriority(IssuePriority.Warning)
                                 .Create()
                         },
-                        new Dictionary<IIssue, IEnumerable<IPullRequestDiscussionComment>>()));
+                        new Dictionary<IIssue, IssueCommentInfo>()));
 
                 // Then
                 result.IsPullRequestIssuesException(@"Absolute file paths are not suported for modified files. Path: c:/FakeIssueProvider.cs");
+            }
+
+            [Fact]
+            public void Should_Filter_Issues_With_Existing_Active_Comment()
+            {
+                // Given
+                var fixture = new PullRequestsFixture();
+                fixture.PullRequestSystem =
+                    new FakePullRequestSystem(
+                        fixture.Log,
+                        new List<IPullRequestDiscussionThread>(),
+                        new List<FilePath>
+                        {
+                            new FilePath(@"src\Cake.Issues.Tests\FakeIssueProvider.cs")
+                        });
+
+                var issue1 =
+                    IssueBuilder
+                        .NewIssue("Message Foo", "ProviderType", "ProviderName")
+                        .InFile(@"src\Cake.Issues.Tests\FakeIssueProvider.cs", 10)
+                        .OfRule("Foo")
+                        .WithPriority(IssuePriority.Warning)
+                        .Create();
+                var issue2 =
+                    IssueBuilder
+                        .NewIssue("Message Bar", "ProviderType", "ProviderName")
+                        .InFile(@"src\Cake.Issues.Tests\FakeIssueProvider.cs", 10)
+                        .OfRule("Bar")
+                        .WithPriority(IssuePriority.Warning)
+                        .Create();
+
+                // When
+                var issues =
+                    fixture.FilterIssues(
+                        new List<IIssue>
+                        {
+                            issue1, issue2
+                        },
+                        new Dictionary<IIssue, IssueCommentInfo>
+                        {
+                            {
+                                issue1,
+                                new IssueCommentInfo(
+                                    new List<IPullRequestDiscussionComment>
+                                    {
+                                        new PullRequestDiscussionComment
+                                        {
+                                            Content = "Message Foo",
+                                            IsDeleted = false
+                                        }
+                                    },
+                                    new List<IPullRequestDiscussionComment>(),
+                                    new List<IPullRequestDiscussionComment>())
+                            }
+                        });
+
+                // Then
+                issues.Count().ShouldBe(1);
+                issues.ShouldContain(issue2);
+            }
+
+            [Fact]
+            public void Should_Filter_Issues_With_Existing_WontFix_Comment()
+            {
+                // Given
+                var fixture = new PullRequestsFixture();
+                fixture.PullRequestSystem =
+                    new FakePullRequestSystem(
+                        fixture.Log,
+                        new List<IPullRequestDiscussionThread>(),
+                        new List<FilePath>
+                        {
+                            new FilePath(@"src\Cake.Issues.Tests\FakeIssueProvider.cs")
+                        });
+
+                var issue1 =
+                    IssueBuilder
+                        .NewIssue("Message Foo", "ProviderType", "ProviderName")
+                        .InFile(@"src\Cake.Issues.Tests\FakeIssueProvider.cs", 10)
+                        .OfRule("Foo")
+                        .WithPriority(IssuePriority.Warning)
+                        .Create();
+                var issue2 =
+                    IssueBuilder
+                        .NewIssue("Message Bar", "ProviderType", "ProviderName")
+                        .InFile(@"src\Cake.Issues.Tests\FakeIssueProvider.cs", 10)
+                        .OfRule("Bar")
+                        .WithPriority(IssuePriority.Warning)
+                        .Create();
+
+                // When
+                var issues =
+                    fixture.FilterIssues(
+                        new List<IIssue>
+                        {
+                            issue1, issue2
+                        },
+                        new Dictionary<IIssue, IssueCommentInfo>
+                        {
+                            {
+                                issue1,
+                                new IssueCommentInfo(
+                                    new List<IPullRequestDiscussionComment>(),
+                                    new List<IPullRequestDiscussionComment>
+                                    {
+                                        new PullRequestDiscussionComment
+                                        {
+                                            Content = "Message Foo",
+                                            IsDeleted = false
+                                        }
+                                    },
+                                    new List<IPullRequestDiscussionComment>())
+                            }
+                        });
+
+                // Then
+                issues.Count().ShouldBe(1);
+                issues.ShouldContain(issue2);
+            }
+
+            [Fact]
+            public void Should_Filter_Issues_With_Existing_Resolved_Comment()
+            {
+                // Given
+                var fixture = new PullRequestsFixture();
+                fixture.PullRequestSystem =
+                    new FakePullRequestSystem(
+                        fixture.Log,
+                        new List<IPullRequestDiscussionThread>(),
+                        new List<FilePath>
+                        {
+                            new FilePath(@"src\Cake.Issues.Tests\FakeIssueProvider.cs")
+                        });
+
+                var issue1 =
+                    IssueBuilder
+                        .NewIssue("Message Foo", "ProviderType", "ProviderName")
+                        .InFile(@"src\Cake.Issues.Tests\FakeIssueProvider.cs", 10)
+                        .OfRule("Foo")
+                        .WithPriority(IssuePriority.Warning)
+                        .Create();
+                var issue2 =
+                    IssueBuilder
+                        .NewIssue("Message Bar", "ProviderType", "ProviderName")
+                        .InFile(@"src\Cake.Issues.Tests\FakeIssueProvider.cs", 10)
+                        .OfRule("Bar")
+                        .WithPriority(IssuePriority.Warning)
+                        .Create();
+
+                // When
+                var issues =
+                    fixture.FilterIssues(
+                        new List<IIssue>
+                        {
+                            issue1, issue2
+                        },
+                        new Dictionary<IIssue, IssueCommentInfo>
+                        {
+                            {
+                                issue1,
+                                new IssueCommentInfo(
+                                    new List<IPullRequestDiscussionComment>(),
+                                    new List<IPullRequestDiscussionComment>(),
+                                    new List<IPullRequestDiscussionComment>
+                                    {
+                                        new PullRequestDiscussionComment
+                                        {
+                                            Content = "Message Foo",
+                                            IsDeleted = false
+                                        }
+                                    })
+                            }
+                        });
+
+                // Then
+                issues.Count().ShouldBe(1);
+                issues.ShouldContain(issue2);
             }
 
             [Fact]
@@ -157,7 +334,7 @@
                         {
                             issue1, issue2
                         },
-                        new Dictionary<IIssue, IEnumerable<IPullRequestDiscussionComment>>());
+                        new Dictionary<IIssue, IssueCommentInfo>());
 
                 // Then
                 issues.Count().ShouldBe(1);
