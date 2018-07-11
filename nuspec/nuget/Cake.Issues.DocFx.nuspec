@@ -8,7 +8,7 @@
     <owners>bbtsoftware, pascalberger, cake-contrib</owners>
     <summary>DocFx support for the Cake.Issues addin for Cake Build Automation System</summary>
     <description>
-The MsBuild support for the Cake.Issues addin for Cake allows you to read issues logged as warnings in a MsBuild log.
+The DocFx support for the Cake.Issues addin for Cake allows you to read warnings from DocFx log files.
 
 This addin provides the aliases for reading warnings from DocFx log files and provides them to the Cake.Issues addin.
 It also requires the core Cake.Issues addin.
