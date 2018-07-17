@@ -5,7 +5,7 @@
     using System.Diagnostics;
     using System.Globalization;
     using System.Linq;
-    using Core.Diagnostics;
+    using Cake.Core.Diagnostics;
 
     /// <summary>
     /// Class for writing issues to pull requests.
@@ -223,7 +223,7 @@
         /// Comments are considered matching if they fulfill all of the following conditions:
         /// * The thread is active.
         /// * The thread is for the same file.
-        /// * The thread was created by the same logic, i.e. the same <code>commentSource</code>.
+        /// * The thread was created by the same logic, i.e. the same <see cref="IPullRequestDiscussionThread.CommentSource"/>.
         /// * The comment contains the same content.
         /// </summary>
         /// <remarks>

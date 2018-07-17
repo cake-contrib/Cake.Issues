@@ -4,8 +4,8 @@
     using System.Collections.Generic;
     using System.Diagnostics;
     using System.Linq;
-    using Core.Diagnostics;
-    using Core.IO;
+    using Cake.Core.Diagnostics;
+    using Cake.Core.IO;
 
     /// <summary>
     /// Class for filtering issues.

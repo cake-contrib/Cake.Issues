@@ -1,7 +1,7 @@
 ﻿namespace Cake.Issues.PullRequests
 {
     using System.Collections.Generic;
-    using Core.IO;
+    using Cake.Core.IO;
 
     /// <summary>
     /// Description of a collection of pull request comments relating to each other.

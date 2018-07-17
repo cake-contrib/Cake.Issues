@@ -2,8 +2,8 @@
 {
     using System.Collections.Generic;
     using System.Linq;
-    using Core.IO;
-    using Issues.Testing;
+    using Cake.Core.IO;
+    using Cake.Issues.Testing;
     using Shouldly;
     using Xunit;
 
@@ -913,9 +913,10 @@
                         new List<FilePath>
                         {
                             new FilePath(@"src\Cake.Issues.Tests\FakeIssueProvider.cs")
-                        });
-
-                fixture.PullRequestSystem.LastSourceCommitId = "9ebcec39e16c39b5ffcb10f253d0c2bcf8438cf6";
+                        })
+                    {
+                        LastSourceCommitId = "9ebcec39e16c39b5ffcb10f253d0c2bcf8438cf6"
+                    };
                 fixture.ReportIssuesToPullRequestSettings.CommitId = "15c54be6435cfb6b6973896d7be79f1d9b7497a9";
 
                 // When

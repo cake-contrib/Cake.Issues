@@ -2,14 +2,13 @@
 {
     using System;
     using System.Collections.Generic;
-    using Core.IO;
+    using Cake.Core.IO;
 
     /// <summary>
     /// Settings affecting how issues are reported to pull requests.
     /// </summary>
     public class ReportIssuesToPullRequestSettings : RepositorySettings
     {
-        private readonly Dictionary<IIssueProvider, int> maxIssuesToPost = new Dictionary<IIssueProvider, int>();
         private readonly List<Func<IEnumerable<IIssue>, IEnumerable<IIssue>>> issueFilters = new List<Func<IEnumerable<IIssue>, IEnumerable<IIssue>>>();
 
         /// <summary>
@@ -35,7 +34,7 @@
         /// Default is to not set a global limit.
         /// Use <see cref="MaxIssuesToPostForEachIssueProvider"/> to set the limit for each issue provider.
         /// </summary>
-        public int? MaxIssuesToPost { get; set; } = null;
+        public int? MaxIssuesToPost { get; set; }
 
         /// <summary>
         /// Gets or sets the number of issues which should be posted at maximum for each

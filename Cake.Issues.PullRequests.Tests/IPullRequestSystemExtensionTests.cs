@@ -1,6 +1,6 @@
 ﻿namespace Cake.Issues.PullRequests.Tests
 {
-    using Issues.Testing;
+    using Cake.Issues.Testing;
     using Shouldly;
     using Xunit;
 
