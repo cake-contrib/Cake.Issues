@@ -1,8 +1,8 @@
 ﻿namespace Cake.Issues.PullRequests
 {
     using System.Collections.Generic;
-    using Core.Diagnostics;
-    using Core.IO;
+    using Cake.Core.Diagnostics;
+    using Cake.Core.IO;
 
     /// <summary>
     /// Base class for all pull request system implementations.

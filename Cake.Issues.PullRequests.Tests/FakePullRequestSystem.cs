@@ -1,8 +1,8 @@
 ﻿namespace Cake.Issues.PullRequests.Tests
 {
     using System.Collections.Generic;
-    using Core.Diagnostics;
-    using Core.IO;
+    using Cake.Core.Diagnostics;
+    using Cake.Core.IO;
 
     /// <summary>
     /// Implementation of a <see cref="Issues.PullRequests.PullRequestSystem.PullRequestSystem"/> for use in test cases.
@@ -17,7 +17,7 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="FakePullRequestSystem"/> class.
         /// </summary>
-        /// <param name="log">The Cake log instance</param>
+        /// <param name="log">The Cake log instance.</param>
         public FakePullRequestSystem(ICakeLog log)
             : base(log)
         {
@@ -27,7 +27,7 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="FakePullRequestSystem"/> class.
         /// </summary>
-        /// <param name="log">The Cake log instance</param>
+        /// <param name="log">The Cake log instance.</param>
         /// <param name="discussionThreads">Discussion threads which the pull request system should return.</param>
         /// <param name="modifiedFiles">List of modified files which the pull request system should return.</param>
         public FakePullRequestSystem(
@@ -51,8 +51,14 @@
             this.Initialize();
         }
 
+        /// <summary>
+        /// Gets the log instance.
+        /// </summary>
         public new ICakeLog Log => base.Log;
 
+        /// <summary>
+        /// Gets the settings which should be used.
+        /// </summary>
         public new ReportIssuesToPullRequestSettings Settings => base.Settings;
 
         /// <summary>

@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
-    using Core.IO;
+    using Cake.Core.IO;
 
     /// <summary>
     /// Interface describing a pull request server.
@@ -19,7 +19,7 @@
         /// <summary>
         /// Returns the preferred format for pull request comments.
         /// </summary>
-        /// <returns>The preferred format for pull request comments</returns>
+        /// <returns>The preferred format for pull request comments.</returns>
         IssueCommentFormat GetPreferredCommentFormat();
 
         /// <summary>
