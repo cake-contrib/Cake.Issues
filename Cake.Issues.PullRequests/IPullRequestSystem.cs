@@ -33,7 +33,13 @@
         /// Marks a list of discussion threads as resolved.
         /// </summary>
         /// <param name="threads">Threads to mark as fixed.</param>
-        void MarkThreadsAsFixed(IEnumerable<IPullRequestDiscussionThread> threads);
+        void ResolveDiscussionThreads(IEnumerable<IPullRequestDiscussionThread> threads);
+
+        /// <summary>
+        /// Marks a list of discussion threads as active.
+        /// </summary>
+        /// <param name="threads">Threads to mark as active.</param>
+        void ReopenDiscussionThreads(IEnumerable<IPullRequestDiscussionThread> threads);
 
         /// <summary>
         /// Returns a list of all files modified in a pull request.

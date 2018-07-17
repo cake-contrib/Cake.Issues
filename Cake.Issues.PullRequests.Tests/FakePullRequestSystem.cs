@@ -11,7 +11,8 @@
     {
         private readonly List<IPullRequestDiscussionThread> discussionThreads = new List<IPullRequestDiscussionThread>();
         private readonly List<FilePath> modifiedFiles = new List<FilePath>();
-        private readonly List<IPullRequestDiscussionThread> threadsMarkedAsFixed = new List<IPullRequestDiscussionThread>();
+        private readonly List<IPullRequestDiscussionThread> resolvedThreads = new List<IPullRequestDiscussionThread>();
+        private readonly List<IPullRequestDiscussionThread> reopenedThreads = new List<IPullRequestDiscussionThread>();
         private readonly List<IIssue> postedIssues = new List<IIssue>();
 
         /// <summary>
@@ -64,7 +65,12 @@
         /// <summary>
         /// Gets the discussion threads marked as fixed.
         /// </summary>
-        public IEnumerable<IPullRequestDiscussionThread> ThreadsMarkedAsFixed => this.threadsMarkedAsFixed;
+        public IEnumerable<IPullRequestDiscussionThread> ResolvedThreads => this.resolvedThreads;
+
+        /// <summary>
+        /// Gets the discussion threads marked as active.
+        /// </summary>
+        public IEnumerable<IPullRequestDiscussionThread> ReopenedThreads => this.reopenedThreads;
 
         /// <summary>
         /// Gets the issues posted to the pull request.
@@ -119,13 +125,23 @@
         }
 
         /// <inheritdoc />
-        protected override void InternalMarkThreadsAsFixed(IEnumerable<IPullRequestDiscussionThread> threads)
+        protected override void InternalResolveDiscussionThreads(IEnumerable<IPullRequestDiscussionThread> threads)
         {
             // ReSharper disable once PossibleMultipleEnumeration
             threads.NotNull(nameof(threads));
 
             // ReSharper disable once PossibleMultipleEnumeration
-            this.threadsMarkedAsFixed.AddRange(threads);
+            this.resolvedThreads.AddRange(threads);
+        }
+
+        /// <inheritdoc />
+        protected override void InternalReopenDiscussionThreads(IEnumerable<IPullRequestDiscussionThread> threads)
+        {
+            // ReSharper disable once PossibleMultipleEnumeration
+            threads.NotNull(nameof(threads));
+
+            // ReSharper disable once PossibleMultipleEnumeration
+            this.reopenedThreads.AddRange(threads);
         }
 
         /// <inheritdoc />

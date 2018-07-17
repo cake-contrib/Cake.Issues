@@ -47,11 +47,19 @@
         }
 
         /// <inheritdoc/>
-        public void MarkThreadsAsFixed(IEnumerable<IPullRequestDiscussionThread> threads)
+        public void ResolveDiscussionThreads(IEnumerable<IPullRequestDiscussionThread> threads)
         {
             this.AssertSettings();
 
-            this.InternalMarkThreadsAsFixed(threads);
+            this.InternalResolveDiscussionThreads(threads);
+        }
+
+        /// <inheritdoc/>
+        public void ReopenDiscussionThreads(IEnumerable<IPullRequestDiscussionThread> threads)
+        {
+            this.AssertSettings();
+
+            this.InternalReopenDiscussionThreads(threads);
         }
 
         /// <inheritdoc/>
@@ -79,10 +87,17 @@
 
         /// <summary>
         /// Marks a list of discussion threads as resolved.
-        /// Compared to <see cref="MarkThreadsAsFixed"/> it is safe to access Settings from this method.
+        /// Compared to <see cref="ResolveDiscussionThreads"/> it is safe to access Settings from this method.
         /// </summary>
         /// <param name="threads">Threads to mark as fixed.</param>
-        protected abstract void InternalMarkThreadsAsFixed(IEnumerable<IPullRequestDiscussionThread> threads);
+        protected abstract void InternalResolveDiscussionThreads(IEnumerable<IPullRequestDiscussionThread> threads);
+
+        /// <summary>
+        /// Marks a list of discussion threads as active.
+        /// Compared to <see cref="ReopenDiscussionThreads"/> it is safe to access Settings from this method.
+        /// </summary>
+        /// <param name="threads">Threads to mark as active.</param>
+        protected abstract void InternalReopenDiscussionThreads(IEnumerable<IPullRequestDiscussionThread> threads);
 
         /// <summary>
         /// Posts discussion threads for all issues which need to be posted.

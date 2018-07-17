@@ -91,7 +91,7 @@
                 var prSystem = new FakePullRequestSystem(new FakeLog());
 
                 // When
-                var result = Record.Exception(() => prSystem.MarkThreadsAsFixed(new List<IPullRequestDiscussionThread>()));
+                var result = Record.Exception(() => prSystem.ResolveDiscussionThreads(new List<IPullRequestDiscussionThread>()));
 
                 // Then
                 result.IsInvalidOperationException("Initialize needs to be called first.");

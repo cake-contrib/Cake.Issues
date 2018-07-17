@@ -130,7 +130,8 @@
             // Comments that were created by this logic but do not have corresponding issues can be marked as 'Resolved'.
             this.ResolveExistingComments(existingThreads, issueComments);
 
-            // TODO Comments that were created by this logic, are resolved, but still have a corresponding issue needs to be reopened
+            // Comments that were created by this logic and are resolved, but still have a corresponding issue need to be reopened.
+            this.ReopenExistingComments(existingThreads, issueComments);
 
             if (!issues.Any())
             {
@@ -242,7 +243,7 @@
         /// <param name="issue">Issue for which the comments should be returned.</param>
         /// <param name="existingThreads">Existing discussion threads on the pull request.</param>
         /// <returns>Comments for the issue.</returns>
-        private(IEnumerable<IPullRequestDiscussionComment> activeComments,
+        private (IEnumerable<IPullRequestDiscussionComment> activeComments,
                 IEnumerable<IPullRequestDiscussionComment> wontFixComments,
                 IEnumerable<IPullRequestDiscussionComment> resolvedComments) GetMatchingComments(
             ReportIssuesToPullRequestSettings reportIssuesToPullRequestSettings,
@@ -318,7 +319,7 @@
         /// Marks comment threads created by this logic but without active issues as resolved.
         /// </summary>
         /// <param name="existingThreads">Existing discussion threads on the pull request.</param>
-        /// <param name="issueComments">Issues and their related comments.</param>
+        /// <param name="issueComments">Issues and their related existing comments on the pull request.</param>
         private void ResolveExistingComments(
             IList<IPullRequestDiscussionThread> existingThreads,
             IDictionary<IIssue, IssueCommentInfo> issueComments)
@@ -336,14 +337,14 @@
                 this.GetThreadsToResolve(existingThreads, issueComments).ToList();
 
             this.log.Verbose("Mark {0} threads as fixed...", threadsToResolve.Count);
-            this.pullRequestSystem.MarkThreadsAsFixed(threadsToResolve);
+            this.pullRequestSystem.ResolveDiscussionThreads(threadsToResolve);
         }
 
         /// <summary>
         /// Returns threads that can be resolved.
         /// </summary>
         /// <param name="existingThreads">Existing discussion threads on the pull request.</param>
-        /// <param name="issueComments">Issues and their related comments.</param>
+        /// <param name="issueComments">Issues and their related existing comments on the pull request.</param>
         /// <returns>List of threads which can be resolved.</returns>
         private IEnumerable<IPullRequestDiscussionThread> GetThreadsToResolve(
             IList<IPullRequestDiscussionThread> existingThreads,
@@ -352,15 +353,73 @@
             existingThreads.NotNull(nameof(existingThreads));
             issueComments.NotNull(nameof(issueComments));
 
-            var currentComments =
+            var activeComments =
                 new HashSet<IPullRequestDiscussionComment>(
                     issueComments.Values.SelectMany(x => x.ActiveComments));
 
             var result =
-                existingThreads.Where(thread => !thread.Comments.Any(x => currentComments.Contains(x))).ToList();
+                existingThreads.Where(
+                    thread =>
+                        thread.Status == PullRequestDiscussionStatus.Active &&
+                        !thread.Comments.Any(x => activeComments.Contains(x))).ToList();
 
             this.log.Verbose(
                 "Found {0} existing thread(s) that do not match any new issue and can be resolved.",
+                result.Count);
+
+            return result;
+        }
+
+        /// <summary>
+        /// Marks resolved comment threads created by this logic with active issues as active.
+        /// </summary>
+        /// <param name="existingThreads">Existing discussion threads on the pull request.</param>
+        /// <param name="issueComments">Issues and their related existing comments on the pull request.</param>
+        private void ReopenExistingComments(
+            IList<IPullRequestDiscussionThread> existingThreads,
+            IDictionary<IIssue, IssueCommentInfo> issueComments)
+        {
+            existingThreads.NotNull(nameof(existingThreads));
+            issueComments.NotNull(nameof(issueComments));
+
+            if (!existingThreads.Any())
+            {
+                this.log.Verbose("No existings threads to reopen.");
+                return;
+            }
+
+            var threadsToReopen =
+                this.GetThreadsToReopen(existingThreads, issueComments).ToList();
+
+            this.log.Verbose("Reopen {0} threads...", threadsToReopen.Count);
+            this.pullRequestSystem.ReopenDiscussionThreads(threadsToReopen);
+        }
+
+        /// <summary>
+        /// Returns threads that should be reopened.
+        /// </summary>
+        /// <param name="existingThreads">Existing discussion threads on the pull request.</param>
+        /// <param name="issueComments">Issues and their related existing comments on the pull request.</param>
+        /// <returns>List of threads which should be reopened.</returns>
+        private IEnumerable<IPullRequestDiscussionThread> GetThreadsToReopen(
+            IList<IPullRequestDiscussionThread> existingThreads,
+            IDictionary<IIssue, IssueCommentInfo> issueComments)
+        {
+            existingThreads.NotNull(nameof(existingThreads));
+            issueComments.NotNull(nameof(issueComments));
+
+            var resolvedComments =
+                new HashSet<IPullRequestDiscussionComment>(
+                    issueComments.Values.SelectMany(x => x.ResolvedComments));
+
+            var result =
+                existingThreads.Where(
+                    thread =>
+                        thread.Status == PullRequestDiscussionStatus.Resolved &&
+                        thread.Comments.Any(x => resolvedComments.Contains(x))).ToList();
+
+            this.log.Verbose(
+                "Found {0} existing thread(s) that are resolved but still have an open issue.",
                 result.Count);
 
             return result;
