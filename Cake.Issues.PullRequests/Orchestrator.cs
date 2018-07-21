@@ -128,10 +128,10 @@
                     existingThreads);
 
             // Comments that were created by this logic but do not have corresponding issues can be marked as 'Resolved'.
-            this.ResolveExistingComments(existingThreads, issueComments);
+            this.ResolveExistingComments(existingThreads, issueComments, reportIssuesToPullRequestSettings);
 
             // Comments that were created by this logic and are resolved, but still have a corresponding issue need to be reopened.
-            this.ReopenExistingComments(existingThreads, issueComments);
+            this.ReopenExistingComments(existingThreads, issueComments, reportIssuesToPullRequestSettings);
 
             if (!issues.Any())
             {
@@ -320,12 +320,15 @@
         /// </summary>
         /// <param name="existingThreads">Existing discussion threads on the pull request.</param>
         /// <param name="issueComments">Issues and their related existing comments on the pull request.</param>
+        /// <param name="reportIssuesToPullRequestSettings">Settings for posting the issues.</param>
         private void ResolveExistingComments(
             IList<IPullRequestDiscussionThread> existingThreads,
-            IDictionary<IIssue, IssueCommentInfo> issueComments)
+            IDictionary<IIssue, IssueCommentInfo> issueComments,
+            ReportIssuesToPullRequestSettings reportIssuesToPullRequestSettings)
         {
             existingThreads.NotNull(nameof(existingThreads));
             issueComments.NotNull(nameof(issueComments));
+            reportIssuesToPullRequestSettings.NotNull(nameof(reportIssuesToPullRequestSettings));
 
             if (!existingThreads.Any())
             {
@@ -334,7 +337,7 @@
             }
 
             var threadsToResolve =
-                this.GetThreadsToResolve(existingThreads, issueComments).ToList();
+                this.GetThreadsToResolve(existingThreads, issueComments, reportIssuesToPullRequestSettings).ToList();
 
             this.log.Verbose("Mark {0} threads as fixed...", threadsToResolve.Count);
             this.pullRequestSystem.ResolveDiscussionThreads(threadsToResolve);
@@ -345,13 +348,16 @@
         /// </summary>
         /// <param name="existingThreads">Existing discussion threads on the pull request.</param>
         /// <param name="issueComments">Issues and their related existing comments on the pull request.</param>
+        /// <param name="reportIssuesToPullRequestSettings">Settings for posting the issues.</param>
         /// <returns>List of threads which can be resolved.</returns>
         private IEnumerable<IPullRequestDiscussionThread> GetThreadsToResolve(
             IList<IPullRequestDiscussionThread> existingThreads,
-            IDictionary<IIssue, IssueCommentInfo> issueComments)
+            IDictionary<IIssue, IssueCommentInfo> issueComments,
+            ReportIssuesToPullRequestSettings reportIssuesToPullRequestSettings)
         {
             existingThreads.NotNull(nameof(existingThreads));
             issueComments.NotNull(nameof(issueComments));
+            reportIssuesToPullRequestSettings.NotNull(nameof(reportIssuesToPullRequestSettings));
 
             var activeComments =
                 new HashSet<IPullRequestDiscussionComment>(
@@ -361,6 +367,7 @@
                 existingThreads.Where(
                     thread =>
                         thread.Status == PullRequestDiscussionStatus.Active &&
+                        thread.CommentSource == reportIssuesToPullRequestSettings.CommentSource &&
                         !thread.Comments.Any(x => activeComments.Contains(x))).ToList();
 
             this.log.Verbose(
@@ -375,12 +382,15 @@
         /// </summary>
         /// <param name="existingThreads">Existing discussion threads on the pull request.</param>
         /// <param name="issueComments">Issues and their related existing comments on the pull request.</param>
+        /// <param name="reportIssuesToPullRequestSettings">Settings for posting the issues.</param>
         private void ReopenExistingComments(
             IList<IPullRequestDiscussionThread> existingThreads,
-            IDictionary<IIssue, IssueCommentInfo> issueComments)
+            IDictionary<IIssue, IssueCommentInfo> issueComments,
+            ReportIssuesToPullRequestSettings reportIssuesToPullRequestSettings)
         {
             existingThreads.NotNull(nameof(existingThreads));
             issueComments.NotNull(nameof(issueComments));
+            reportIssuesToPullRequestSettings.NotNull(nameof(reportIssuesToPullRequestSettings));
 
             if (!existingThreads.Any())
             {
@@ -389,7 +399,7 @@
             }
 
             var threadsToReopen =
-                this.GetThreadsToReopen(existingThreads, issueComments).ToList();
+                this.GetThreadsToReopen(existingThreads, issueComments, reportIssuesToPullRequestSettings).ToList();
 
             this.log.Verbose("Reopen {0} threads...", threadsToReopen.Count);
             this.pullRequestSystem.ReopenDiscussionThreads(threadsToReopen);
@@ -400,13 +410,16 @@
         /// </summary>
         /// <param name="existingThreads">Existing discussion threads on the pull request.</param>
         /// <param name="issueComments">Issues and their related existing comments on the pull request.</param>
+        /// <param name="reportIssuesToPullRequestSettings">Settings for posting the issues.</param>
         /// <returns>List of threads which should be reopened.</returns>
         private IEnumerable<IPullRequestDiscussionThread> GetThreadsToReopen(
             IList<IPullRequestDiscussionThread> existingThreads,
-            IDictionary<IIssue, IssueCommentInfo> issueComments)
+            IDictionary<IIssue, IssueCommentInfo> issueComments,
+            ReportIssuesToPullRequestSettings reportIssuesToPullRequestSettings)
         {
             existingThreads.NotNull(nameof(existingThreads));
             issueComments.NotNull(nameof(issueComments));
+            reportIssuesToPullRequestSettings.NotNull(nameof(reportIssuesToPullRequestSettings));
 
             var resolvedComments =
                 new HashSet<IPullRequestDiscussionComment>(
@@ -416,6 +429,7 @@
                 existingThreads.Where(
                     thread =>
                         thread.Status == PullRequestDiscussionStatus.Resolved &&
+                        thread.CommentSource == reportIssuesToPullRequestSettings.CommentSource &&
                         thread.Comments.Any(x => resolvedComments.Contains(x))).ToList();
 
             this.log.Verbose(

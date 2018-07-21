@@ -839,6 +839,7 @@
             public void Should_Resolve_Closed_Issues()
             {
                 // Given
+                var fixture = new PullRequestsFixture();
                 var threadToResolve =
                     new PullRequestDiscussionThread(
                         1,
@@ -853,7 +854,62 @@
                             }
                         })
                     {
-                        CommentSource = null
+                        CommentSource = fixture.ReportIssuesToPullRequestSettings.CommentSource
+                    };
+
+                fixture.IssueProviders.Clear();
+                fixture.IssueProviders.Add(
+                    new FakeIssueProvider(
+                        fixture.Log,
+                        new List<IIssue>
+                        {
+                            IssueBuilder
+                                .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                                .InFile(@"src\Cake.Issues.Tests\FakeIssueProvider.cs", 10)
+                                .OfRule("Rule Foo")
+                                .WithPriority(IssuePriority.Warning)
+                                .Create()
+                        }));
+
+                fixture.PullRequestSystem =
+                    new FakePullRequestSystem(
+                        fixture.Log,
+                        new List<IPullRequestDiscussionThread>
+                        {
+                            threadToResolve
+                        },
+                        new List<FilePath>
+                        {
+                            new FilePath(@"src\Cake.Issues.Tests\FakeIssueProvider.cs")
+                        });
+
+                // When
+                fixture.RunOrchestrator();
+
+                // Then
+                fixture.PullRequestSystem.ResolvedThreads.ShouldContain(threadToResolve);
+                fixture.Log.Entries.ShouldContain(x => x.Message == "Found 1 existing thread(s) that do not match any new issue and can be resolved.");
+            }
+
+            [Fact]
+            public void Should_Only_Resolve_Issues_From_Same_Comment_Source()
+            {
+                // Given
+                var threadToResolve =
+                    new PullRequestDiscussionThread(
+                        1,
+                        PullRequestDiscussionStatus.Active,
+                        new FilePath(@"src\Cake.Issues.Tests\FakeIssueProvider.cs"),
+                        new List<IPullRequestDiscussionComment>
+                        {
+                            new PullRequestDiscussionComment()
+                            {
+                                Content = "Bar",
+                                IsDeleted = false
+                            }
+                        })
+                    {
+                        CommentSource = "DifferentCommentSource"
                     };
 
                 var fixture = new PullRequestsFixture();
@@ -887,8 +943,7 @@
                 fixture.RunOrchestrator();
 
                 // Then
-                fixture.PullRequestSystem.ResolvedThreads.ShouldContain(threadToResolve);
-                fixture.Log.Entries.ShouldContain(x => x.Message == "Found 1 existing thread(s) that do not match any new issue and can be resolved.");
+                fixture.PullRequestSystem.ResolvedThreads.ShouldBeEmpty();
             }
 
             [Fact]
@@ -947,6 +1002,63 @@
                 // Then
                 fixture.PullRequestSystem.ReopenedThreads.ShouldContain(threadToReopen);
                 fixture.Log.Entries.ShouldContain(x => x.Message == "Found 1 existing thread(s) that are resolved but still have an open issue.");
+            }
+
+            [Fact]
+            public void Should_Only_Reopen_Still_Active_Issues_From_Same_Comment_Source()
+            {
+                // Given
+                var fixture = new PullRequestsFixture();
+
+                var threadToReopen =
+                    new PullRequestDiscussionThread(
+                        1,
+                        PullRequestDiscussionStatus.Resolved,
+                        new FilePath(@"src\Cake.Issues.Tests\FakeIssueProvider.cs"),
+                        new List<IPullRequestDiscussionComment>
+                        {
+                            new PullRequestDiscussionComment()
+                            {
+                                Content = "Message Foo",
+                                IsDeleted = false
+                            }
+                        })
+                    {
+                        CommentSource = "DifferentCommentSource",
+                        Resolution = PullRequestDiscussionResolution.Resolved
+                    };
+
+                fixture.IssueProviders.Clear();
+                fixture.IssueProviders.Add(
+                    new FakeIssueProvider(
+                        fixture.Log,
+                        new List<IIssue>
+                        {
+                            IssueBuilder
+                                .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                                .InFile(@"src\Cake.Issues.Tests\FakeIssueProvider.cs", 10)
+                                .OfRule("Rule Foo")
+                                .WithPriority(IssuePriority.Warning)
+                                .Create()
+                        }));
+
+                fixture.PullRequestSystem =
+                    new FakePullRequestSystem(
+                        fixture.Log,
+                        new List<IPullRequestDiscussionThread>
+                        {
+                            threadToReopen
+                        },
+                        new List<FilePath>
+                        {
+                            new FilePath(@"src\Cake.Issues.Tests\FakeIssueProvider.cs")
+                        });
+
+                // When
+                fixture.RunOrchestrator();
+
+                // Then
+                fixture.PullRequestSystem.ReopenedThreads.ShouldBeEmpty();
             }
 
             [Fact]
