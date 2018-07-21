@@ -341,6 +341,25 @@
                 }
                 rowAlternationEnabled: true,
                 allowColumnResizing: true,
+                rowTemplate: function (container, item) {
+                    var data = item.data,
+                        markup = "<tbody class='issue dx-row " + ((item.rowIndex % 2) ? 'dx-row-alt' : '') + "'>" +
+                            "<tr class='main-row'>" +
+                            "<td>" + data.ProviderName + "</td>" +
+                            "<td>" + data.PriorityName + "</td>" +
+                            "<td>" + data.Project + "</td>" +
+                            "<td>" + data.Path + "</td>" +
+                            "<td>" + data.File + "</td>" +
+                            "<td>" + data.Line + "</td>" +
+                            "<td>" + data.Rule + "</td>" +
+                            "</tr>" +
+                            "<tr class='message-row'>" +
+                            "<td colspan='7'><div>" + data.Message + "</div></td>" +
+                            "</tr>" +
+                            "</tbody>";
+
+                    container.append(markup);
+                },
                 columns: [
                     @if (providerTypeVisible)
                     {
@@ -806,26 +825,6 @@
                                             target: "_blank"
                                         }).appendTo(container);
                                     }
-                                }
-                            },
-                        </text>
-                    }
-                    @if (messageVisible)
-                    {
-                        <text>
-                            {
-                                caption: "Message",
-                                dataField: "MessageHtml",
-                                encodeHtml: false,
-                                visibleIndex: @((int)ReportColumn.Message),
-                                @if (groupedColumns.Contains(ReportColumn.Message))
-                                {
-                                    @:groupIndex: @groupedColumns.IndexOf(ReportColumn.Message),
-                                }
-                                @if (sortedColumns.Contains(ReportColumn.Message))
-                                {
-                                    @:sortIndex: @sortedColumns.IndexOf(ReportColumn.Message),
-                                    @:sortOrder: "@messageSortOrder.ToShortString()",
                                 }
                             },
                         </text>
