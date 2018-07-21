@@ -149,6 +149,20 @@
             public void Should_Ignore_Issues_If_File_Is_Not_Modified()
             {
                 // Given
+                var issue1 =
+                    IssueBuilder
+                        .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                        .InFile(@"src\Cake.Issues.Tests\FakeIssueProvider.cs", 10)
+                        .OfRule("Rule Foo")
+                        .WithPriority(IssuePriority.Warning)
+                        .Create();
+                var issue2 =
+                    IssueBuilder
+                        .NewIssue("Message Bar", "ProviderType Bar", "ProviderName Bar")
+                        .InFile(@"src\Cake.Issues.Tests\NotModified.cs", 10)
+                        .OfRule("Rule Bar")
+                        .WithPriority(IssuePriority.Warning)
+                        .Create();
                 var fixture = new PullRequestsFixture();
                 fixture.IssueProviders.Clear();
                 fixture.IssueProviders.Add(
@@ -156,18 +170,8 @@
                         fixture.Log,
                         new List<IIssue>
                         {
-                            IssueBuilder
-                                .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
-                                .InFile(@"src\Cake.Issues.Tests\FakeIssueProvider.cs", 10)
-                                .OfRule("Rule Foo")
-                                .WithPriority(IssuePriority.Warning)
-                                .Create(),
-                            IssueBuilder
-                                .NewIssue("Message Bar", "ProviderType Bar", "ProviderName Bar")
-                                .InFile(@"src\Cake.Issues.Tests\NotModified.cs", 10)
-                                .OfRule("Rule Bar")
-                                .WithPriority(IssuePriority.Warning)
-                                .Create()
+                            issue1,
+                            issue2
                         }));
 
                 fixture.PullRequestSystem =
@@ -180,9 +184,20 @@
                         });
 
                 // When
-                fixture.RunOrchestrator();
+                var result = fixture.RunOrchestrator();
 
                 // Then
+                result.ReportedIssues.Count().ShouldBe(2);
+                result.ReportedIssues.ShouldContain(issue1);
+                result.ReportedIssues.ShouldContain(issue2);
+                result.PostedIssues.Count().ShouldBe(1);
+                result.PostedIssues.ShouldContain(issue1);
+
+                fixture.PullRequestSystem.PostedIssues.Count().ShouldBe(1);
+                fixture.PullRequestSystem.PostedIssues.ShouldContain(issue1);
+                fixture.PullRequestSystem.ResolvedThreads.ShouldBeEmpty();
+                fixture.PullRequestSystem.ReopenedThreads.ShouldBeEmpty();
+
                 fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) were filtered because they do not belong to files that were changed in this pull request");
                 fixture.Log.Entries.ShouldContain(x => x.Message.StartsWith("Posting 1 issue(s):"));
             }
@@ -254,8 +269,8 @@
 
                 fixture.PullRequestSystem.PostedIssues.Count().ShouldBe(1);
                 fixture.PullRequestSystem.PostedIssues.ShouldContain(issue2);
-                fixture.PullRequestSystem.ResolvedThreads.Count().ShouldBe(0);
-                fixture.PullRequestSystem.ReopenedThreads.Count().ShouldBe(0);
+                fixture.PullRequestSystem.ResolvedThreads.ShouldBeEmpty();
+                fixture.PullRequestSystem.ReopenedThreads.ShouldBeEmpty();
 
                 fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) were filtered because they were already present");
                 fixture.Log.Entries.ShouldContain(x => x.Message.StartsWith("Posting 1 issue(s):"));
@@ -329,8 +344,8 @@
 
                 fixture.PullRequestSystem.PostedIssues.Count().ShouldBe(1);
                 fixture.PullRequestSystem.PostedIssues.ShouldContain(issue2);
-                fixture.PullRequestSystem.ResolvedThreads.Count().ShouldBe(0);
-                fixture.PullRequestSystem.ReopenedThreads.Count().ShouldBe(0);
+                fixture.PullRequestSystem.ResolvedThreads.ShouldBeEmpty();
+                fixture.PullRequestSystem.ReopenedThreads.ShouldBeEmpty();
 
                 fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) were filtered because they were already present");
                 fixture.Log.Entries.ShouldContain(x => x.Message.StartsWith("Posting 1 issue(s):"));
@@ -340,6 +355,18 @@
             public void Should_Ignore_Issues_Already_Present_Not_Related_To_A_File()
             {
                 // Given
+                var issue1 =
+                    IssueBuilder
+                        .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                        .OfRule("Rule Foo")
+                        .WithPriority(IssuePriority.Warning)
+                        .Create();
+                var issue2 =
+                    IssueBuilder
+                        .NewIssue("Message Bar", "ProviderType Bar", "ProviderName Bar")
+                        .OfRule("Rule Bar")
+                        .WithPriority(IssuePriority.Warning)
+                        .Create();
                 var fixture = new PullRequestsFixture();
                 fixture.IssueProviders.Clear();
                 fixture.IssueProviders.Add(
@@ -347,16 +374,8 @@
                         fixture.Log,
                         new List<IIssue>
                         {
-                            IssueBuilder
-                                .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
-                                .OfRule("Rule Foo")
-                                .WithPriority(IssuePriority.Warning)
-                                .Create(),
-                            IssueBuilder
-                                .NewIssue("Message Bar", "ProviderType Bar", "ProviderName Bar")
-                                .OfRule("Rule Bar")
-                                .WithPriority(IssuePriority.Warning)
-                                .Create()
+                            issue1,
+                            issue2
                         }));
 
                 fixture.PullRequestSystem =
@@ -386,9 +405,20 @@
                         });
 
                 // When
-                fixture.RunOrchestrator();
+                var result = fixture.RunOrchestrator();
 
                 // Then
+                result.ReportedIssues.Count().ShouldBe(2);
+                result.ReportedIssues.ShouldContain(issue1);
+                result.ReportedIssues.ShouldContain(issue2);
+                result.PostedIssues.Count().ShouldBe(1);
+                result.PostedIssues.ShouldContain(issue2);
+
+                fixture.PullRequestSystem.PostedIssues.Count().ShouldBe(1);
+                fixture.PullRequestSystem.PostedIssues.ShouldContain(issue2);
+                fixture.PullRequestSystem.ResolvedThreads.ShouldBeEmpty();
+                fixture.PullRequestSystem.ReopenedThreads.ShouldBeEmpty();
+
                 fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) were filtered because they were already present");
                 fixture.Log.Entries.ShouldContain(x => x.Message.StartsWith("Posting 1 issue(s):"));
             }
@@ -397,6 +427,13 @@
             public void Should_Only_Ignore_Issues_With_Same_Comment_Source()
             {
                 // Given
+                var issue =
+                    IssueBuilder
+                        .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                        .InFile(@"src\Cake.Issues.Tests\FakeIssueProvider.cs", 10)
+                        .OfRule("Rule Foo")
+                        .WithPriority(IssuePriority.Warning)
+                        .Create();
                 var fixture = new PullRequestsFixture();
                 fixture.IssueProviders.Clear();
                 fixture.IssueProviders.Add(
@@ -404,12 +441,7 @@
                         fixture.Log,
                         new List<IIssue>
                         {
-                            IssueBuilder
-                                .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
-                                .InFile(@"src\Cake.Issues.Tests\FakeIssueProvider.cs", 10)
-                                .OfRule("Rule Foo")
-                                .WithPriority(IssuePriority.Warning)
-                                .Create(),
+                            issue
                         }));
 
                 fixture.PullRequestSystem =
@@ -439,9 +471,19 @@
                         });
 
                 // When
-                fixture.RunOrchestrator();
+                var result = fixture.RunOrchestrator();
 
                 // Then
+                result.ReportedIssues.Count().ShouldBe(1);
+                result.ReportedIssues.ShouldContain(issue);
+                result.PostedIssues.Count().ShouldBe(1);
+                result.PostedIssues.ShouldContain(issue);
+
+                fixture.PullRequestSystem.PostedIssues.Count().ShouldBe(1);
+                fixture.PullRequestSystem.PostedIssues.ShouldContain(issue);
+                fixture.PullRequestSystem.ResolvedThreads.ShouldBeEmpty();
+                fixture.PullRequestSystem.ReopenedThreads.ShouldBeEmpty();
+
                 fixture.Log.Entries.ShouldContain(x => x.Message == "0 issue(s) were filtered because they were already present");
                 fixture.Log.Entries.ShouldContain(x => x.Message.StartsWith("Posting 1 issue(s):"));
             }
@@ -1180,10 +1222,11 @@
                 fixture.ReportIssuesToPullRequestSettings.CommitId = "15c54be6435cfb6b6973896d7be79f1d9b7497a9";
 
                 // When
-                fixture.RunOrchestrator();
+                var result = fixture.RunOrchestrator();
 
                 // Then
                 fixture.PullRequestSystem.PostedIssues.ShouldBeEmpty();
+                result.PostedIssues.ShouldBeEmpty();
             }
 
             [Fact]
@@ -1285,7 +1328,7 @@
                 result.ReportedIssues.Count().ShouldBe(2);
                 result.ReportedIssues.ShouldContain(firstIssue);
                 result.ReportedIssues.ShouldContain(secondIssue);
-                result.PostedIssues.Count().ShouldBe(0);
+                result.PostedIssues.ShouldBeEmpty();
             }
         }
     }
