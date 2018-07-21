@@ -53,6 +53,12 @@
             // Loop through all issue tags.
             foreach (var issue in logDocument.Descendants("Issue"))
             {
+                // Read affected project from the issue.
+                if (!TryGetProject(issue, out string projectName))
+                {
+                    continue;
+                }
+
                 // Read affected file from the issue.
                 if (!TryGetFile(issue, solutionPath, out string fileName))
                 {
@@ -86,6 +92,7 @@
                 result.Add(
                     IssueBuilder
                         .NewIssue(message, this)
+                        .InProjectOfName(projectName)
                         .InFile(fileName, line)
                         .WithPriority(GetPriority(severity))
                         .OfRule(rule, ruleUrl)
@@ -93,6 +100,39 @@
             }
 
             return result;
+        }
+
+        /// <summary>
+        /// Determines the project for a issue logged in a Inspect Code log.
+        /// </summary>
+        /// <param name="issue">Issue element from Inspect Code log.</param>
+        /// <param name="project">Returns project.</param>
+        /// <returns>True if the project could be parsed.</returns>
+        private static bool TryGetProject(
+            XElement issue,
+            out string project)
+        {
+            project = string.Empty;
+
+            var projectNode = issue.Ancestors("Project").FirstOrDefault();
+            if (projectNode == null)
+            {
+                return false;
+            }
+
+            var projectAttr = projectNode.Attribute("Name");
+            if (projectAttr == null)
+            {
+                return false;
+            }
+
+            project = projectAttr.Value;
+            if (string.IsNullOrWhiteSpace(project))
+            {
+                return false;
+            }
+
+            return true;
         }
 
         /// <summary>

@@ -51,6 +51,7 @@
                 var issue = issues.Single();
                 CheckIssue(
                     issue,
+                    "Cake.Issues",
                     @"src\Cake.Issues\CakeAliasConstants.cs",
                     16,
                     "UnusedMember.Global",
@@ -74,6 +75,7 @@
                 var issue = issues.Single();
                 CheckIssue(
                     issue,
+                    "Cake.CodeAnalysisReporting",
                     @"src\Cake.CodeAnalysisReporting\CodeAnalysisReportingAliases.cs",
                     3,
                     "RedundantUsingDirective",
@@ -85,6 +87,7 @@
 
             private static void CheckIssue(
                 IIssue issue,
+                string projectName,
                 string affectedFileRelativePath,
                 int? line,
                 string rule,
@@ -95,6 +98,9 @@
             {
                 issue.ProviderType.ShouldBe("Cake.Issues.InspectCode.InspectCodeIssuesProvider");
                 issue.ProviderName.ShouldBe("InspectCode");
+
+                issue.ProjectFileRelativePath.ShouldBe(null);
+                issue.ProjectName.ShouldBe(projectName);
 
                 if (issue.AffectedFileRelativePath == null)
                 {
