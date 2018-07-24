@@ -26,9 +26,14 @@
         PriorityName,
 
         /// <summary>
-        /// Column for the <see cref="IIssue.Project"/> field.
+        /// Column for the <see cref="IIssue.ProjectFileRelativePath"/> field.
         /// </summary>
-        Project,
+        ProjectPath,
+
+        /// <summary>
+        /// Column for the <see cref="IIssue.ProjectName"/> field.
+        /// </summary>
+        ProjectName,
 
         /// <summary>
         /// Column for the <see cref="IIssue.AffectedFileRelativePath"/> field.

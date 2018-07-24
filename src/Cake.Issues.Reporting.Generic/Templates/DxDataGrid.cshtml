@@ -17,8 +17,8 @@
     ColumnSortOrder providerNameSortOrder = ViewBagHelper.ValueOrDefault(ViewBag.ProviderNameSortOder, ColumnSortOrder.Ascending);
     bool priorityNameVisible = ViewBagHelper.ValueOrDefault(ViewBag.PriorityNameVisible, true);
     ColumnSortOrder priorityNameSortOrder = ViewBagHelper.ValueOrDefault(ViewBag.PriorityNameSortOrder, ColumnSortOrder.Descending);
-    bool projectVisible = ViewBagHelper.ValueOrDefault(ViewBag.ProjectVisible, true);
-    ColumnSortOrder projectSortOrder = ViewBagHelper.ValueOrDefault(ViewBag.ProjectSortOder, ColumnSortOrder.Ascending);
+    bool projectNameVisible = ViewBagHelper.ValueOrDefault(ViewBag.ProjectNameVisible, true);
+    ColumnSortOrder projectNameSortOrder = ViewBagHelper.ValueOrDefault(ViewBag.ProjectNameSortOder, ColumnSortOrder.Ascending);
     bool pathVisible = ViewBagHelper.ValueOrDefault(ViewBag.PathVisible, true);
     ColumnSortOrder pathSortOrder = ViewBagHelper.ValueOrDefault(ViewBag.PathSortOder, ColumnSortOrder.Ascending);
     bool fileVisible = ViewBagHelper.ValueOrDefault(ViewBag.FileVisible, true);
@@ -30,7 +30,7 @@
     bool messageVisible = ViewBagHelper.ValueOrDefault(ViewBag.MessageVisible, true);
     ColumnSortOrder messageSortOrder = ViewBagHelper.ValueOrDefault(ViewBag.MessageSortOder, ColumnSortOrder.Ascending);
     var groupedColumns = ViewBagHelper.ValueOrDefault(ViewBag.GroupedColumns, new List<ReportColumn> { ReportColumn.ProviderName });
-    var sortedColumns = ViewBagHelper.ValueOrDefault(ViewBag.SortedColumns, new List<ReportColumn> { ReportColumn.PriorityName, ReportColumn.Project, ReportColumn.Path, ReportColumn.File, ReportColumn.Line });
+    var sortedColumns = ViewBagHelper.ValueOrDefault(ViewBag.SortedColumns, new List<ReportColumn> { ReportColumn.PriorityName, ReportColumn.ProjectName, ReportColumn.Path, ReportColumn.File, ReportColumn.Line });
     FileLinkSettings fileLinkSettings = ViewBagHelper.ValueOrDefault(ViewBag.FileLinkSettings, new FileLinkSettings());
 }
 
@@ -45,7 +45,7 @@
                 issue.ProviderType,
                 issue.Priority,
                 issue.PriorityName,
-                issue.Project,
+                issue.ProjectName,
                 Path = issue.FilePath(),
                 File = issue.FileName(),
                 FileLink = @fileLinkSettings.GetFileLink(issue),
@@ -140,19 +140,20 @@
                             },
                         </text>
                     }
-                    @if (projectVisible)
+                    @if (projectNameVisible)
                     {
                         <text>
-                            {
-                                dataField: "Project",
-                                @if (groupedColumns.Contains(ReportColumn.Project))
+                    {
+                                caption: "Project",
+                                dataField: "ProjectName",
+                                @if (groupedColumns.Contains(ReportColumn.ProjectName))
                                 {
-                                    @:groupIndex: @groupedColumns.IndexOf(ReportColumn.Project),
+                                    @:groupIndex: @groupedColumns.IndexOf(ReportColumn.ProjectName),
                                 }
-                                @if (sortedColumns.Contains(ReportColumn.Project))
+                                @if (sortedColumns.Contains(ReportColumn.ProjectName))
                                 {
-                                    @:sortIndex: @sortedColumns.IndexOf(ReportColumn.Project),
-                                    @:sortOrder: "@projectSortOrder.ToShortString()",
+                                    @:sortIndex: @sortedColumns.IndexOf(ReportColumn.ProjectName),
+                                    @:sortOrder: "@projectNameSortOrder.ToShortString()",
                                 }
                             },
                         </text>
