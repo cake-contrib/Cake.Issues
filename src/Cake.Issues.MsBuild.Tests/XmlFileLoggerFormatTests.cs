@@ -37,6 +37,7 @@
                 CheckIssue(
                     issues[0],
                     @"src\ClassLibrary1\ClassLibrary1.csproj",
+                    "ClassLibrary1",
                     @"src\ClassLibrary1\Class1.cs",
                     13,
                     "CS0219",
@@ -46,6 +47,7 @@
                 CheckIssue(
                     issues[1],
                     @"src\ClassLibrary1\ClassLibrary1.csproj",
+                    "ClassLibrary1",
                     @"src\ClassLibrary1\Class1.cs",
                     1,
                     "SA1652",
@@ -55,6 +57,7 @@
                 CheckIssue(
                     issues[2],
                     @"src\ClassLibrary1\ClassLibrary1.csproj",
+                    "ClassLibrary1",
                     @"src\ClassLibrary1\Class1.cs",
                     1,
                     "SA1633",
@@ -64,6 +67,7 @@
                 CheckIssue(
                     issues[3],
                     @"src\ClassLibrary1\ClassLibrary1.csproj",
+                    "ClassLibrary1",
                     @"src\ClassLibrary1\Class1.cs",
                     1,
                     "SA1200",
@@ -73,6 +77,7 @@
                 CheckIssue(
                     issues[4],
                     @"src\ClassLibrary1\ClassLibrary1.csproj",
+                    "ClassLibrary1",
                     @"src\ClassLibrary1\Class1.cs",
                     2,
                     "SA1200",
@@ -82,6 +87,7 @@
                 CheckIssue(
                     issues[5],
                     @"src\ClassLibrary1\ClassLibrary1.csproj",
+                    "ClassLibrary1",
                     @"src\ClassLibrary1\Class1.cs",
                     3,
                     "SA1200",
@@ -91,6 +97,7 @@
                 CheckIssue(
                     issues[6],
                     @"src\ClassLibrary1\ClassLibrary1.csproj",
+                    "ClassLibrary1",
                     @"src\ClassLibrary1\Class1.cs",
                     4,
                     "SA1200",
@@ -100,6 +107,7 @@
                 CheckIssue(
                     issues[7],
                     @"src\ClassLibrary1\ClassLibrary1.csproj",
+                    "ClassLibrary1",
                     @"src\ClassLibrary1\Class1.cs",
                     5,
                     "SA1200",
@@ -109,6 +117,7 @@
                 CheckIssue(
                     issues[8],
                     @"src\ClassLibrary1\ClassLibrary1.csproj",
+                    "ClassLibrary1",
                     @"src\ClassLibrary1\Properties\AssemblyInfo.cs",
                     1,
                     "SA1652",
@@ -118,6 +127,7 @@
                 CheckIssue(
                     issues[9],
                     @"src\ClassLibrary1\ClassLibrary1.csproj",
+                    "ClassLibrary1",
                     @"src\ClassLibrary1\Properties\AssemblyInfo.cs",
                     1,
                     "SA1633",
@@ -127,6 +137,7 @@
                 CheckIssue(
                     issues[10],
                     @"src\ClassLibrary1\ClassLibrary1.csproj",
+                    "ClassLibrary1",
                     @"src\ClassLibrary1\Properties\AssemblyInfo.cs",
                     5,
                     "SA1028",
@@ -136,6 +147,7 @@
                 CheckIssue(
                     issues[11],
                     @"src\ClassLibrary1\ClassLibrary1.csproj",
+                    "ClassLibrary1",
                     @"src\ClassLibrary1\Properties\AssemblyInfo.cs",
                     17,
                     "SA1028",
@@ -145,6 +157,7 @@
                 CheckIssue(
                     issues[12],
                     @"src\ClassLibrary1\ClassLibrary1.csproj",
+                    "ClassLibrary1",
                     @"src\ClassLibrary1\Properties\AssemblyInfo.cs",
                     18,
                     "SA1028",
@@ -154,6 +167,7 @@
                 CheckIssue(
                     issues[13],
                     @"src\ClassLibrary1\ClassLibrary1.csproj",
+                    "ClassLibrary1",
                     @"src\ClassLibrary1\Properties\AssemblyInfo.cs",
                     28,
                     "SA1028",
@@ -163,6 +177,7 @@
                 CheckIssue(
                     issues[14],
                     @"src\ClassLibrary1\ClassLibrary1.csproj",
+                    "ClassLibrary1",
                     @"src\ClassLibrary1\Properties\AssemblyInfo.cs",
                     32,
                     "SA1028",
@@ -172,6 +187,7 @@
                 CheckIssue(
                     issues[15],
                     @"src\ClassLibrary1\ClassLibrary1.csproj",
+                    "ClassLibrary1",
                     null,
                     null,
                     "CA2210",
@@ -181,6 +197,7 @@
                 CheckIssue(
                     issues[16],
                     @"src\ClassLibrary1\ClassLibrary1.csproj",
+                    "ClassLibrary1",
                     null,
                     null,
                     "CA1014",
@@ -190,6 +207,7 @@
                 CheckIssue(
                     issues[17],
                     @"src\ClassLibrary1\ClassLibrary1.csproj",
+                    "ClassLibrary1",
                     @"src\ClassLibrary1\Class1.cs",
                     12,
                     "CA1822",
@@ -199,6 +217,7 @@
                 CheckIssue(
                     issues[18],
                     @"src\ClassLibrary1\ClassLibrary1.csproj",
+                    "ClassLibrary1",
                     @"src\ClassLibrary1\Class1.cs",
                     13,
                     "CA1804",
@@ -221,6 +240,7 @@
                 var issue = issues.Single();
                 CheckIssue(
                     issue,
+                    null,
                     string.Empty,
                     @"src\Cake.Issues.MsBuild.Tests\MsBuildIssuesProviderTests.cs",
                     1311,
@@ -244,6 +264,7 @@
                 var issue = issues.Single();
                 CheckIssue(
                     issue,
+                    null,
                     string.Empty,
                     @"src\Cake.Issues.MsBuild.Tests\MsBuildIssuesProviderTests.cs",
                     13,
@@ -268,6 +289,7 @@
                 CheckIssue(
                     issue,
                     @"Cake.Prca.shfbproj",
+                    "Cake.Prca",
                     @"SHFB",
                     null,
                     "BE0006",
@@ -290,6 +312,7 @@
                 var issue = issues.Single();
                 CheckIssue(
                     issue,
+                    null,
                     string.Empty,
                     null,
                     null,
@@ -313,6 +336,7 @@
                 var issue = issues.Single();
                 CheckIssue(
                     issue,
+                    null,
                     string.Empty,
                     @"src\Cake.Issues.MsBuild.Tests\MsBuildIssuesProviderTests.cs",
                     21,
@@ -324,7 +348,8 @@
 
             private static void CheckIssue(
                 IIssue issue,
-                string project,
+                string projectFileRelativePath,
+                string projectName,
                 string affectedFileRelativePath,
                 int? line,
                 string rule,
@@ -334,7 +359,18 @@
             {
                 issue.ProviderType.ShouldBe("Cake.Issues.MsBuild.MsBuildIssuesProvider");
                 issue.ProviderName.ShouldBe("MSBuild");
-                issue.Project.ShouldBe(project);
+
+                if (issue.ProjectFileRelativePath == null)
+                {
+                    projectFileRelativePath.ShouldBeNull();
+                }
+                else
+                {
+                    issue.ProjectFileRelativePath.ToString().ShouldBe(new FilePath(projectFileRelativePath).ToString());
+                    issue.ProjectFileRelativePath.IsRelative.ShouldBe(true, "Issue path is not relative");
+                }
+
+                issue.ProjectName.ShouldBe(projectName);
 
                 if (issue.AffectedFileRelativePath == null)
                 {
