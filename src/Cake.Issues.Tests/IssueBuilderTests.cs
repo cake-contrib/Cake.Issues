@@ -218,62 +218,244 @@
             }
         }
 
-        public sealed class TheInProjectMethod
+        public sealed class TheInProjectFileMethod
         {
             [Fact]
-            public void Should_Handle_Projects_Which_Are_Null()
+            public void Should_Handle_Project_Paths_Which_Are_Null()
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
-                string project = null;
+                string projectPath = null;
 
                 // When
-                var issue = fixture.IssueBuilder.InProject(project).Create();
+                var issue = fixture.IssueBuilder.InProjectFile(projectPath).Create();
 
                 // Then
-                issue.Project.ShouldBe(project);
+                issue.ProjectFileRelativePath.ShouldBe(null);
             }
 
             [Fact]
-            public void Should_Handle_Projects_Which_Are_Empty()
+            public void Should_Handle_Project_Paths_Which_Are_Empty()
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
-                var project = string.Empty;
+                var projectPath = string.Empty;
 
                 // When
-                var issue = fixture.IssueBuilder.InProject(project).Create();
+                var issue = fixture.IssueBuilder.InProjectFile(projectPath).Create();
 
                 // Then
-                issue.Project.ShouldBe(project);
+                issue.ProjectFileRelativePath.ShouldBe(null);
             }
 
             [Fact]
-            public void Should_Handle_Projects_Which_Are_WhiteSpace()
+            public void Should_Handle_Project_Path_Which_Are_WhiteSpace()
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
-                var project = " ";
+                var projectPath = " ";
 
                 // When
-                var issue = fixture.IssueBuilder.InProject(project).Create();
+                var issue = fixture.IssueBuilder.InProjectFile(projectPath).Create();
 
                 // Then
-                issue.Project.ShouldBe(project);
+                issue.ProjectFileRelativePath.ShouldBe(null);
+            }
+
+            [Theory]
+            [InlineData(@"src/project.csproj")]
+            public void Should_Set_ProjectFileRelativePath(string projectPath)
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+
+                // When
+                var issue = fixture.IssueBuilder.InProjectFile(projectPath).Create();
+
+                // Then
+                issue.ProjectFileRelativePath.ToString().ShouldBe(projectPath);
+            }
+        }
+
+        public sealed class TheInProjectOfNameMethod
+        {
+            [Fact]
+            public void Should_Handle_Project_Names_Which_Are_Null()
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+                string projectName = null;
+
+                // When
+                var issue = fixture.IssueBuilder.InProjectOfName(projectName).Create();
+
+                // Then
+                issue.ProjectName.ShouldBe(projectName);
+            }
+
+            [Fact]
+            public void Should_Handle_Project_Names_Which_Are_Empty()
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+                var projectName = string.Empty;
+
+                // When
+                var issue = fixture.IssueBuilder.InProjectOfName(projectName).Create();
+
+                // Then
+                issue.ProjectName.ShouldBe(projectName);
+            }
+
+            [Fact]
+            public void Should_Handle_Project_Names_Which_Are_WhiteSpace()
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+                var projectName = " ";
+
+                // When
+                var issue = fixture.IssueBuilder.InProjectOfName(projectName).Create();
+
+                // Then
+                issue.ProjectName.ShouldBe(projectName);
             }
 
             [Theory]
             [InlineData("project")]
-            public void Should_Set_Project(string project)
+            public void Should_Set_ProjectName(string projectName)
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
 
                 // When
-                var issue = fixture.IssueBuilder.InProject(project).Create();
+                var issue = fixture.IssueBuilder.InProjectOfName(projectName).Create();
 
                 // Then
-                issue.Project.ShouldBe(project);
+                issue.ProjectName.ShouldBe(projectName);
+            }
+        }
+
+        public sealed class TheInProjectMethod
+        {
+            [Fact]
+            public void Should_Handle_Project_Paths_Which_Are_Null()
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+                string projectPath = null;
+                var projectName = "foo";
+
+                // When
+                var issue = fixture.IssueBuilder.InProject(projectPath, projectName).Create();
+
+                // Then
+                issue.ProjectFileRelativePath.ShouldBe(null);
+            }
+
+            [Fact]
+            public void Should_Handle_Project_Paths_Which_Are_Empty()
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+                var projectPath = string.Empty;
+                var projectName = "foo";
+
+                // When
+                var issue = fixture.IssueBuilder.InProject(projectPath, projectName).Create();
+
+                // Then
+                issue.ProjectFileRelativePath.ShouldBe(null);
+            }
+
+            [Fact]
+            public void Should_Handle_Project_Paths_Which_Are_WhiteSpace()
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+                var projectPath = " ";
+                var projectName = "foo";
+
+                // When
+                var issue = fixture.IssueBuilder.InProject(projectPath, projectName).Create();
+
+                // Then
+                issue.ProjectFileRelativePath.ShouldBe(null);
+            }
+
+            [Fact]
+            public void Should_Handle_Project_Names_Which_Are_Null()
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+                string projectName = null;
+                var projectPath = "foo";
+
+                // When
+                var issue = fixture.IssueBuilder.InProject(projectPath, projectName).Create();
+
+                // Then
+                issue.ProjectName.ShouldBe(projectName);
+            }
+
+            [Fact]
+            public void Should_Handle_Project_Names_Which_Are_Empty()
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+                var projectName = string.Empty;
+                var projectPath = "foo";
+
+                // When
+                var issue = fixture.IssueBuilder.InProject(projectPath, projectName).Create();
+
+                // Then
+                issue.ProjectName.ShouldBe(projectName);
+            }
+
+            [Fact]
+            public void Should_Handle_Project_Names_Which_Are_WhiteSpace()
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+                var projectName = " ";
+                var projectPath = "foo";
+
+                // When
+                var issue = fixture.IssueBuilder.InProject(projectPath, projectName).Create();
+
+                // Then
+                issue.ProjectName.ShouldBe(projectName);
+            }
+
+            [Theory]
+            [InlineData(@"src/project.csproj")]
+            public void Should_Set_ProjectFileRelativePath(string projectPath)
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+                var projectName = "foo";
+
+                // When
+                var issue = fixture.IssueBuilder.InProject(projectPath, projectName).Create();
+
+                // Then
+                issue.ProjectFileRelativePath.ToString().ShouldBe(projectPath);
+            }
+
+            [Theory]
+            [InlineData("project")]
+            public void Should_Set_ProjectName(string projectName)
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+                var projectPath = "foo";
+
+                // When
+                var issue = fixture.IssueBuilder.InProject(projectPath, projectName).Create();
+
+                // Then
+                issue.ProjectName.ShouldBe(projectName);
             }
         }
 

@@ -11,8 +11,11 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="Issue"/> class.
         /// </summary>
-        /// <param name="project">Name of the project to which the file affected by the issue belongs.
-        /// <c>null</c> or <see cref="string.Empty"/> if issue is not related to a project.</param>
+        /// <param name="projectFileRelativePath">The path to the project to which the file affected by the issue belongs.
+        /// The path needs to be relative to the repository root.
+        /// Can be <c>null</c> or <see cref="string.Empty"/> if issue is not related to a project.</param>
+        /// <param name="projectName">The name of the project to which the file affected by the issue belongs.
+        /// Can be <c>null</c> or <see cref="string.Empty"/> if issue is not related to a project.</param>
         /// <param name="filePath">The path to the file affacted by the issue.
         /// The path needs to be relative to the repository root.
         /// <c>null</c> or <see cref="string.Empty"/> if issue is not related to a change in a file.</param>
@@ -30,7 +33,8 @@
         /// <param name="providerType">The type of the issue provider.</param>
         /// <param name="providerName">The human friendly name of the issue provider.</param>
         public Issue(
-            string project,
+            string projectFileRelativePath,
+            string projectName,
             string filePath,
             int? line,
             string message,
@@ -45,6 +49,22 @@
             message.NotNullOrWhiteSpace(nameof(message));
             providerType.NotNullOrWhiteSpace(nameof(providerType));
             providerName.NotNullOrWhiteSpace(nameof(providerName));
+
+            // File path needs to be relative to the repository root.
+            if (!string.IsNullOrWhiteSpace(projectFileRelativePath))
+            {
+                if (!projectFileRelativePath.IsValidPath())
+                {
+                    throw new ArgumentException("Invalid path", nameof(projectFileRelativePath));
+                }
+
+                this.ProjectFileRelativePath = projectFileRelativePath;
+
+                if (!this.ProjectFileRelativePath.IsRelative)
+                {
+                    throw new ArgumentOutOfRangeException(nameof(projectFileRelativePath), "Project file path needs to be relative to the repository root.");
+                }
+            }
 
             // File path needs to be relative to the repository root.
             if (!string.IsNullOrWhiteSpace(filePath))
@@ -67,7 +87,7 @@
                 throw new ArgumentOutOfRangeException(nameof(line), "Cannot specify a line while not specifying a file.");
             }
 
-            this.Project = project;
+            this.ProjectName = projectName;
             this.Line = line;
             this.Message = message;
             this.Priority = priority;
@@ -79,7 +99,10 @@
         }
 
         /// <inheritdoc/>
-        public string Project { get; }
+        public FilePath ProjectFileRelativePath { get; }
+
+        /// <inheritdoc/>
+        public string ProjectName { get; }
 
         /// <inheritdoc/>
         public FilePath AffectedFileRelativePath { get; }
