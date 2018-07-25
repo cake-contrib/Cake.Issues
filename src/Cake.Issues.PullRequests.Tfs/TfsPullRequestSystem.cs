@@ -161,7 +161,7 @@
         }
 
         /// <inheritdoc/>
-        protected override IEnumerable<IPullRequestDiscussionThread> InternalFetchActiveDiscussionThreads(string commentSource)
+        protected override IEnumerable<IPullRequestDiscussionThread> InternalFetchDiscussionThreads(string commentSource)
         {
             if (!this.ValidatePullRequest())
             {
@@ -184,7 +184,7 @@
                 var threadList = new List<IPullRequestDiscussionThread>();
                 foreach (var thread in threads)
                 {
-                    if (!thread.IsCommentSource(commentSource) || thread.Status != CommentThreadStatus.Active)
+                    if (!thread.IsCommentSource(commentSource))
                     {
                         continue;
                     }
@@ -259,7 +259,7 @@
         }
 
         /// <inheritdoc/>
-        protected override void InternalMarkThreadsAsFixed(IEnumerable<IPullRequestDiscussionThread> threads)
+        protected override void InternalResolveDiscussionThreads(IEnumerable<IPullRequestDiscussionThread> threads)
         {
             // ReSharper disable once PossibleMultipleEnumeration
             threads.NotNull(nameof(threads));
@@ -277,6 +277,38 @@
                     var newThread = new GitPullRequestCommentThread
                     {
                         Status = CommentThreadStatus.Fixed
+                    };
+
+                    gitClient.UpdateThreadAsync(
+                        newThread,
+                        this.pullRequest.Repository.Id,
+                        this.pullRequest.PullRequestId,
+                        thread.Id,
+                        null,
+                        CancellationToken.None).Wait();
+                }
+            }
+        }
+
+        /// <inheritdoc/>
+        protected override void InternalReopenDiscussionThreads(IEnumerable<IPullRequestDiscussionThread> threads)
+        {
+            // ReSharper disable once PossibleMultipleEnumeration
+            threads.NotNull(nameof(threads));
+
+            if (!this.ValidatePullRequest())
+            {
+                return;
+            }
+
+            using (var gitClient = this.CreateGitClient())
+            {
+                // ReSharper disable once PossibleMultipleEnumeration
+                foreach (var thread in threads)
+                {
+                    var newThread = new GitPullRequestCommentThread
+                    {
+                        Status = CommentThreadStatus.Active
                     };
 
                     gitClient.UpdateThreadAsync(

@@ -29,6 +29,7 @@
                 thread.Comments.Select(x => x.ToPullRequestDiscussionComment()))
             {
                 CommentSource = thread.GetCommentSource(),
+                Resolution = thread.Status.ToPullRequestDiscussionResolution()
             };
         }
 
