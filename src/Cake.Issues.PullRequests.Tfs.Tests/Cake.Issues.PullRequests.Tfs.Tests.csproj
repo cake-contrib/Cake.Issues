@@ -66,8 +66,12 @@
     <Compile Include="Authentication\TfsBasicCredentialsTests.cs" />
     <Compile Include="Authentication\TfsNtlmCredentialsTests.cs" />
     <Compile Include="Authentication\TfsOAuthCredentialsTests.cs" />
+    <Compile Include="CommentExtensionsTests.cs" />
+    <Compile Include="CommentThreadStatusExtensionsTests.cs" />
     <Compile Include="ContentProviderTests.cs" />
+    <Compile Include="GitPullRequestCommentThreadExtensionsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TfsCredentialsExtensionsTests.cs" />
     <Compile Include="TfsPullRequestSettingsTests.cs" />
   </ItemGroup>
   <ItemGroup>
