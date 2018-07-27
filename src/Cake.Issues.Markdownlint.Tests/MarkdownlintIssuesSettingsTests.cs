@@ -1,10 +1,12 @@
-﻿namespace Cake.Issues.Markdownlint.Tests.Markdownlint
+﻿namespace Cake.Issues.Markdownlint.Tests
 {
     using System;
     using System.IO;
     using System.Linq;
     using System.Text;
-    using Cake.Issues.Markdownlint.Markdownlint;
+    using Cake.Core.IO;
+    using Cake.Issues.Markdownlint;
+    using Cake.Testing;
     using Shouldly;
     using Testing;
     using Xunit;
@@ -16,20 +18,43 @@
             [Fact]
             public void Should_Throw_If_LogFilePath_Is_Null()
             {
-                // Given / When
+                // Given
+                FilePath logFilePath = null;
+                var format = new MarkdownlintLogFileFormat(new FakeLog());
+
+                // When
                 var result = Record.Exception(() =>
-                    MarkdownlintIssuesSettings.FromFilePath(null));
+                    MarkdownlintIssuesSettings.FromFilePath(logFilePath, format));
 
                 // Then
                 result.IsArgumentNullException("logFilePath");
             }
 
             [Fact]
+            public void Should_Throw_If_Format_For_LogFilePath_Is_Null()
+            {
+                // Given
+                var logFilePath = @"c:\markdownlint.log";
+                ILogFileFormat format = null;
+
+                // When
+                var result = Record.Exception(() =>
+                    MarkdownlintIssuesSettings.FromFilePath(logFilePath, format));
+
+                // Then
+                result.IsArgumentNullException("format");
+            }
+
+            [Fact]
             public void Should_Throw_If_LogFileContent_Is_Null()
             {
-                // Given / When
+                // Given
+                string logFileContent = null;
+                var format = new MarkdownlintLogFileFormat(new FakeLog());
+
+                // When
                 var result = Record.Exception(() =>
-                    MarkdownlintIssuesSettings.FromContent(null));
+                    MarkdownlintIssuesSettings.FromContent(logFileContent, format));
 
                 // Then
                 result.IsArgumentNullException("logFileContent");
@@ -38,9 +63,13 @@
             [Fact]
             public void Should_Throw_If_LogFileContent_Is_Empty()
             {
-                // Given / When
+                // Given
+                var logFileContent = string.Empty;
+                var format = new MarkdownlintLogFileFormat(new FakeLog());
+
+                // When
                 var result = Record.Exception(() =>
-                    MarkdownlintIssuesSettings.FromContent(string.Empty));
+                    MarkdownlintIssuesSettings.FromContent(logFileContent, format));
 
                 // Then
                 result.IsArgumentOutOfRangeException("logFileContent");
@@ -49,12 +78,31 @@
             [Fact]
             public void Should_Throw_If_LogFileContent_Is_WhiteSpace()
             {
-                // Given / When
+                // Given
+                var logFileContent = " ";
+                var format = new MarkdownlintLogFileFormat(new FakeLog());
+
+                // When
                 var result = Record.Exception(() =>
-                    MarkdownlintIssuesSettings.FromContent(" "));
+                    MarkdownlintIssuesSettings.FromContent(logFileContent, format));
 
                 // Then
                 result.IsArgumentOutOfRangeException("logFileContent");
+            }
+
+            [Fact]
+            public void Should_Throw_If_Format_For_LogFileContent_Is_Null()
+            {
+                // Given
+                var logFileContent = "foo";
+                ILogFileFormat format = null;
+
+                // When
+                var result = Record.Exception(() =>
+                    MarkdownlintIssuesSettings.FromContent(logFileContent, format));
+
+                // Then
+                result.IsArgumentNullException("format");
             }
 
             [Fact]
@@ -62,9 +110,10 @@
             {
                 // Given
                 const string logFileContent = "foo";
+                var format = new MarkdownlintLogFileFormat(new FakeLog());
 
                 // When
-                var settings = MarkdownlintIssuesSettings.FromContent(logFileContent);
+                var settings = MarkdownlintIssuesSettings.FromContent(logFileContent, format);
 
                 // Then
                 settings.LogFileContent.ShouldBe(logFileContent);
@@ -73,10 +122,11 @@
             [Fact]
             public void Should_Read_File_From_Disk()
             {
-                var fileName = Path.GetTempFileName();
+                var fileName = System.IO.Path.GetTempFileName();
                 try
                 {
                     // Given
+                    var format = new MarkdownlintLogFileFormat(new FakeLog());
                     string expected;
                     using (var ms = new MemoryStream())
                     using (var stream = this.GetType().Assembly.GetManifestResourceStream("Cake.Issues.Markdownlint.Tests.Testfiles.markdownlint.json"))
@@ -94,7 +144,7 @@
 
                     // When
                     var settings =
-                        MarkdownlintIssuesSettings.FromFilePath(fileName);
+                        MarkdownlintIssuesSettings.FromFilePath(fileName, format);
 
                     // Then
                     settings.LogFileContent.ShouldBe(expected);

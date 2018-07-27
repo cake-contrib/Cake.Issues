@@ -1,46 +1,43 @@
-﻿namespace Cake.Issues.Markdownlint.MarkdownlintCli
+﻿namespace Cake.Issues.Markdownlint
 {
     using System;
     using System.Collections.Generic;
-    using System.IO;
     using System.Linq;
     using System.Text.RegularExpressions;
-    using Core.Diagnostics;
+    using Cake.Core.Diagnostics;
 
     /// <summary>
-    /// Provider for issues reported by markdownlint-cli.
+    /// Logfile format as written by markdownlint-cli.
     /// </summary>
-    internal class MarkdownlintCliIssuesProvider : IssueProvider
+    internal class MarkdownlintCliLogFileFormat : LogFileFormat
     {
-        private readonly MarkdownlintCliIssuesSettings settings;
-
         /// <summary>
-        /// Initializes a new instance of the <see cref="MarkdownlintCliIssuesProvider"/> class.
+        /// Initializes a new instance of the <see cref="MarkdownlintCliLogFileFormat"/> class.
         /// </summary>
-        /// <param name="log">The Cake log context.</param>
-        /// <param name="settings">Settings for reading the log file.</param>
-        public MarkdownlintCliIssuesProvider(ICakeLog log, MarkdownlintCliIssuesSettings settings)
+        /// <param name="log">The Cake log instance.</param>
+        public MarkdownlintCliLogFileFormat(ICakeLog log)
             : base(log)
         {
-            settings.NotNull(nameof(settings));
-
-            this.settings = settings;
         }
 
         /// <inheritdoc />
-        public override string ProviderName => "markdownlint";
-
-        /// <inheritdoc />
-        protected override IEnumerable<IIssue> InternalReadIssues(IssueCommentFormat format)
+        public override IEnumerable<IIssue> ReadIssues(
+            MarkdownlintIssuesProvider issueProvider,
+            RepositorySettings repositorySettings,
+            MarkdownlintIssuesSettings markdownlintIssuesSettings)
         {
+            issueProvider.NotNull(nameof(issueProvider));
+            repositorySettings.NotNull(nameof(repositorySettings));
+            markdownlintIssuesSettings.NotNull(nameof(markdownlintIssuesSettings));
+
             var regex = new Regex(@"(.*): (\d*): (MD\d*)/((?:\w*-*/*)*) (.*)");
 
-            foreach (var line in this.settings.LogFileContent.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None).ToList().Where(s => !string.IsNullOrEmpty(s)))
+            foreach (var line in markdownlintIssuesSettings.LogFileContent.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None).ToList().Where(s => !string.IsNullOrEmpty(s)))
             {
                 var groups = regex.Match(line).Groups;
 
                 // Read affected file from the line.
-                if (!this.TryGetFile(groups, this.Settings, out string fileName))
+                if (!this.TryGetFile(groups, repositorySettings, out string fileName))
                 {
                     continue;
                 }
@@ -51,7 +48,7 @@
 
                 yield return
                     IssueBuilder
-                        .NewIssue(ruleDescription, this)
+                        .NewIssue(ruleDescription, issueProvider)
                         .InFile(fileName, lineNumber)
                         .WithPriority(IssuePriority.Warning)
                         .OfRule(rule, MarkdownlintRuleUrlResolver.Instance.ResolveRuleUrl(rule))

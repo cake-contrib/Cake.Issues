@@ -64,13 +64,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ILogFileFormat.cs" />
+    <Compile Include="LogFileFormat.cs" />
+    <Compile Include="MarkdownlintLogFileFormat.cs" />
+    <Compile Include="MarkdownlintCliLogFileFormat.cs" />
+    <Compile Include="MarkdownlintIssuesSettings.cs" />
+    <Compile Include="MarkdownlintIssuesProvider.cs" />
     <Compile Include="MarkdownlintIssuesAliases.cs" />
-    <Compile Include="MarkdownlintCli\MarkdownlintCliIssuesProvider.cs" />
-    <Compile Include="MarkdownlintCli\MarkdownlintCliIssuesSettings.cs" />
-    <Compile Include="MarkdownlintIssuesAliases.MarkdownlintCli.cs" />
-    <Compile Include="MarkdownlintIssuesAliases.Markdownlint.cs" />
-    <Compile Include="Markdownlint\MarkdownlintIssuesProvider.cs" />
-    <Compile Include="Markdownlint\MarkdownlintIssuesSettings.cs" />
     <Compile Include="MarkdownlintRuleUrlResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
