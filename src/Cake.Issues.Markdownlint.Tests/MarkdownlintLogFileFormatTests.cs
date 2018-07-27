@@ -1,14 +1,13 @@
-﻿namespace Cake.Issues.Markdownlint.Tests.Markdownlint
+﻿namespace Cake.Issues.Markdownlint.Tests
 {
     using System.Linq;
-    using Cake.Issues.Markdownlint.Markdownlint;
     using Cake.Testing;
     using Core.IO;
     using Shouldly;
     using Testing;
     using Xunit;
 
-    public sealed class MarkdownlintIssuesProviderTests
+    public sealed class MarkdownlintLogFileFormatTests
     {
         public sealed class TheCtor
         {
@@ -16,35 +15,21 @@
             public void Should_Throw_If_Log_Is_Null()
             {
                 // Given / When
-                var result = Record.Exception(() =>
-                    new MarkdownlintIssuesProvider(
-                        null,
-                        MarkdownlintIssuesSettings.FromContent("Foo")));
+                var result = Record.Exception(() => new MarkdownlintLogFileFormat(null));
 
                 // Then
                 result.IsArgumentNullException("log");
-            }
-
-            [Fact]
-            public void Should_Throw_If_Settings_Are_Null()
-            {
-                var result = Record.Exception(() =>
-                    new MarkdownlintIssuesProvider(
-                        new FakeLog(),
-                        null));
-
-                // Then
-                result.IsArgumentNullException("settings");
             }
         }
 
         public sealed class TheReadIssuesMethod
         {
             [Fact]
-            public void Should_Read_Issue_Correct()
+            public void Should_Read_Issues_Correct()
             {
                 // Given
-                var fixture = new MarkdownlintIssuesProviderFixture("markdownlint.json");
+                var format = new MarkdownlintLogFileFormat(new FakeLog());
+                var fixture = new MarkdownlintIssuesProviderFixture("markdownlint.json", format);
 
                 // When
                 var issues = fixture.ReadIssues().ToList();
@@ -53,6 +38,8 @@
                 issues.Count.ShouldBe(3);
                 CheckIssue(
                     issues[0],
+                    null,
+                    null,
                     @"bad.md",
                     3,
                     "MD010",
@@ -62,6 +49,8 @@
                     "Hard tabs");
                 CheckIssue(
                     issues[1],
+                    null,
+                    null,
                     @"bad.md",
                     1,
                     "MD018",
@@ -71,6 +60,8 @@
                     "No space after hash on atx style header");
                 CheckIssue(
                     issues[2],
+                    null,
+                    null,
                     @"bad.md",
                     3,
                     "MD018",
@@ -82,6 +73,8 @@
 
             private static void CheckIssue(
                 IIssue issue,
+                string projectFileRelativePath,
+                string projectName,
                 string affectedFileRelativePath,
                 int? line,
                 string rule,
@@ -90,8 +83,20 @@
                 string priorityName,
                 string message)
             {
-                issue.ProviderType.ShouldBe("Cake.Issues.Markdownlint.Markdownlint.MarkdownlintIssuesProvider");
+                issue.ProviderType.ShouldBe("Cake.Issues.Markdownlint.MarkdownlintIssuesProvider");
                 issue.ProviderName.ShouldBe("markdownlint");
+
+                if (issue.ProjectFileRelativePath == null)
+                {
+                    projectFileRelativePath.ShouldBeNull();
+                }
+                else
+                {
+                    issue.ProjectFileRelativePath.ToString().ShouldBe(new FilePath(projectFileRelativePath).ToString());
+                    issue.ProjectFileRelativePath.IsRelative.ShouldBe(true, "Issue path is not relative");
+                }
+
+                issue.ProjectName.ShouldBe(projectName);
 
                 if (issue.AffectedFileRelativePath == null)
                 {

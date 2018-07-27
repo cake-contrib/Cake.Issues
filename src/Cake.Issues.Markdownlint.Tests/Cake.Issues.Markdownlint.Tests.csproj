@@ -74,12 +74,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MarkdownlintCli\MarkdownlintCliIssuesProviderFixture.cs" />
-    <Compile Include="MarkdownlintCli\MarkdownlintCliIssuesProviderTests.cs" />
-    <Compile Include="MarkdownlintCli\MarkdownlintCliIssuesSettingsTests.cs" />
-    <Compile Include="Markdownlint\MarkdownlintIssuesProviderFixture.cs" />
-    <Compile Include="Markdownlint\MarkdownlintIssuesProviderTests.cs" />
-    <Compile Include="Markdownlint\MarkdownlintIssuesSettingsTests.cs" />
+    <Compile Include="MarkdownlintIssuesProviderFixture.cs" />
+    <Compile Include="MarkdownlintIssuesProviderTests.cs" />
+    <Compile Include="MarkdownlintIssuesSettingsTests.cs" />
+    <Compile Include="MarkdownlintCliLogFileFormatTests.cs" />
+    <Compile Include="MarkdownlintLogFileFormatTests.cs" />
     <Compile Include="MarkdownlintRuleUrlResolverTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -97,7 +96,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <EmbeddedResource Include="Testfiles\markdownlint-cli-0-8-1.log" />
+    <EmbeddedResource Include="Testfiles\markdownlint-cli-0.8.1.log" />
     <EmbeddedResource Include="Testfiles\markdownlint-cli-0.10.0.log" />
   </ItemGroup>
   <ItemGroup>

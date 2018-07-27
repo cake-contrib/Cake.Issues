@@ -1,14 +1,14 @@
-﻿namespace Cake.Issues.Markdownlint.Tests.MarkdownlintCli
+﻿namespace Cake.Issues.Markdownlint.Tests
 {
     using System.Collections.Generic;
     using System.IO;
-    using Cake.Issues.Markdownlint.MarkdownlintCli;
+    using Cake.Issues.Markdownlint;
     using Cake.Testing;
     using Core.Diagnostics;
 
-    internal class MarkdownlintCliIssuesProviderFixture
+    internal class MarkdownlintIssuesProviderFixture
     {
-        public MarkdownlintCliIssuesProviderFixture(string fileResourceName)
+        public MarkdownlintIssuesProviderFixture(string fileResourceName, ILogFileFormat format)
         {
             this.Log = new FakeLog { Verbosity = Verbosity.Normal };
 
@@ -17,8 +17,9 @@
                 using (var sr = new StreamReader(stream))
                 {
                     this.Settings =
-                        MarkdownlintCliIssuesSettings.FromContent(
-                            sr.ReadToEnd());
+                        MarkdownlintIssuesSettings.FromContent(
+                            sr.ReadToEnd(),
+                            format);
                 }
             }
 
@@ -28,13 +29,13 @@
 
         public FakeLog Log { get; set; }
 
-        public MarkdownlintCliIssuesSettings Settings { get; set; }
+        public MarkdownlintIssuesSettings Settings { get; set; }
 
         public RepositorySettings RepositorySettings { get; set; }
 
-        public MarkdownlintCliIssuesProvider Create()
+        public MarkdownlintIssuesProvider Create()
         {
-            var provider = new MarkdownlintCliIssuesProvider(this.Log, this.Settings);
+            var provider = new MarkdownlintIssuesProvider(this.Log, this.Settings);
             provider.Initialize(this.RepositorySettings);
             return provider;
         }
