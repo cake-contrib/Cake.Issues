@@ -71,6 +71,7 @@
     <Compile Include="MarkdownlintIssuesSettings.cs" />
     <Compile Include="MarkdownlintIssuesProvider.cs" />
     <Compile Include="MarkdownlintIssuesAliases.cs" />
+    <Compile Include="MarkdownlintRuleDescription.cs" />
     <Compile Include="MarkdownlintRuleUrlResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
