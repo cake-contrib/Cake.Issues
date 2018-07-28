@@ -40,7 +40,7 @@
             foreach (var warning in logDocument.Descendants("warning"))
             {
                 // Read affected project from the warning.
-                if (!TryGetProject(warning, repositorySettings, out string project))
+                if (!TryGetProject(warning, repositorySettings, out string projectFileRelativePath))
                 {
                     continue;
                 }
@@ -75,7 +75,7 @@
                     IssueBuilder
                         .NewIssue(warning.Value, issueProvider)
                         .WithPriority(IssuePriority.Warning)
-                        .InProject(project)
+                        .InProject(projectFileRelativePath, Path.GetFileNameWithoutExtension(projectFileRelativePath))
                         .InFile(fileName, line)
                         .OfRule(rule, ruleUrl)
                         .Create());
