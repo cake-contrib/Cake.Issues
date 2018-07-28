@@ -3,35 +3,43 @@ Order: 20
 Title: Features
 Description: Features of the Cake.Issues.EsLint addin.
 ---
-The [Cake.Issues.EsLint addin] provides the following features:
+The [Cake.Issues.EsLint addin] provides the following features.
+
+# Basic features
 
 * Reads issues reported by ESLint.
-* Supported ESLint formatters:
-  * [json formatter]
-* Supported comment formats:
-  * Plain text
 * Provides URLs for all issues.
 * Support for custom URL resolving using the [EsLintAddRuleUrlResolver] alias.
-* Supported `IIssue` properties:
-  * [ProviderType]
-  * [ProviderName]
-  * [AffectedFileRelativePath]
-  * [Line]
-  * [Message]
-  * [Priority]
-  * [PriorityName]
-  * [Rule]
-  * [RuleUrl]
+
+# Supported log file formats
+
+* [EsLintJsonFormat] alias for reading issues from log files created by [ESLint json formatter].
+
+# Supported comment formats
+
+|                                                                    | Comment format                 | Remarks                        |
+|--------------------------------------------------------------------|--------------------------------|--------------------------------|
+| <span class="glyphicon glyphicon-ok" style="color:green"></span>   | `IssueCommentFormat.PlainText` |                                |
+| <span class="glyphicon glyphicon-remove" style="color:red"></span> | `IssueCommentFormat.Markdown`  |                                |
+| <span class="glyphicon glyphicon-remove" style="color:red"></span> | `IssueCommentFormat.Html`      |                                |
+
+# Supported IIssue properties
+
+|                                                                    | Property                          | Remarks                        |
+|--------------------------------------------------------------------|-----------------------------------|--------------------------------|
+| <span class="glyphicon glyphicon-ok" style="color:green"></span>   | `IIssue.ProviderType`             |                                |
+| <span class="glyphicon glyphicon-ok" style="color:green"></span>   | `IIssue.ProviderName`             |                                |
+| <span class="glyphicon glyphicon-remove" style="color:red"></span> | `IIssue.ProjectName`              |                                |
+| <span class="glyphicon glyphicon-remove" style="color:red"></span> | `IIssue.ProjectFileRelativePath`  |                                |
+| <span class="glyphicon glyphicon-ok" style="color:green"></span>   | `IIssue.AffectedFileRelativePath` |                                |
+| <span class="glyphicon glyphicon-ok" style="color:green"></span>   | `IIssue.Line`                     |                                |
+| <span class="glyphicon glyphicon-ok" style="color:green"></span>   | `IIssue.Message`                  |                                |
+| <span class="glyphicon glyphicon-ok" style="color:green"></span>   | `IIssue.Priority`                 |                                |
+| <span class="glyphicon glyphicon-ok" style="color:green"></span>   | `IIssue.PriorityName`             |                                |
+| <span class="glyphicon glyphicon-ok" style="color:green"></span>   | `IIssue.Rule`                     |                                |
+| <span class="glyphicon glyphicon-ok" style="color:green"></span>   | `IIssue.RuleUrl`                  | Support for custom rules can be added through a custom [EsLintAddRuleUrlResolver] |
 
 [Cake.Issues.EsLint addin]: https://www.nuget.org/packages/Cake.Issues.EsLint
-[json formatter]: http://eslint.org/docs/user-guide/formatters/#json
+[ESLint json formatter]: http://eslint.org/docs/user-guide/formatters/#json
 [EsLintAddRuleUrlResolver]: ../../../api/Cake.Issues.EsLint/EsLintIssuesAliases/D64301E6
-[ProviderType]: ../../../api/Cake.Issues/IIssue/D5A24C72
-[ProviderName]: ../../../api/Cake.Issues/IIssue/FA8BB1A0
-[AffectedFileRelativePath]: ../../../api/Cake.Issues/IIssue/BF0CD6F1
-[Line]: ../../../api/Cake.Issues/IIssue/F2A42E89
-[Message]: ../../../api/Cake.Issues/IIssue/18537A3D
-[Priority]: ../../../api/Cake.Issues/IIssue/BFEFFBB1
-[PriorityName]: ../../../api/Cake.Issues/IIssue/05A39052
-[Rule]: ../../../api/Cake.Issues/IIssue/C8BCE21E
-[RuleUrl]: ../../../api/Cake.Issues/IIssue/48A6F355
+[EsLintJsonFormat]: ../../../api/Cake.Issues.EsLint/EsLintIssuesAliases/230C6E27

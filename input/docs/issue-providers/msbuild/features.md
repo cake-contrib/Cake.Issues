@@ -3,38 +3,44 @@ Order: 20
 Title: Features
 Description: Features of the Cake.Issues.MsBuild addin.
 ---
-The [Cake.Issues.MsBuild addin] provides the following features:
+The [Cake.Issues.MsBuild addin] provides the following features.
+
+# Basic features
 
 * Reads warnings from MSBuild log files.
-* Supported log file formats:
-  * [MSBuild Extension Pack XmlFileLogger]
-* Supported comment formats:
-  * Plain text
 * Provides URLs for all code analysis (`CA*`) and StyleCop (`SA*`) warnings.
 * Support for custom URL resolving using the [MsBuildAddRuleUrlResolver] alias.
-* Supported `IIssue` properties:
-  * [ProviderType]
-  * [ProviderName]
-  * [Project]
-  * [AffectedFileRelativePath]
-  * [Line]
-  * [Message]
-  * [Priority] (Always [IssuePriority.Warning])
-  * [PriorityName] (Always [IssuePriority.Warning])
-  * [Rule]
-  * [RuleUrl]
+
+# Supported log file formats
+
+* [MsBuildXmlFileLoggerFormat] alias for reading issues from log files created by [MSBuild Extension Pack XmlFileLogger].
+
+# Supported comment formats
+
+|                                                                    | Comment format                 | Remarks                        |
+|--------------------------------------------------------------------|--------------------------------|--------------------------------|
+| <span class="glyphicon glyphicon-ok" style="color:green"></span>   | `IssueCommentFormat.PlainText` |                                |
+| <span class="glyphicon glyphicon-remove" style="color:red"></span> | `IssueCommentFormat.Markdown`  |                                |
+| <span class="glyphicon glyphicon-remove" style="color:red"></span> | `IssueCommentFormat.Html`      |                                |
+
+# Supported IIssue properties
+
+|                                                                  | Property                          | Remarks                        |
+|------------------------------------------------------------------|-----------------------------------|--------------------------------|
+| <span class="glyphicon glyphicon-ok" style="color:green"></span> | `IIssue.ProviderType`             |                                |
+| <span class="glyphicon glyphicon-ok" style="color:green"></span> | `IIssue.ProviderName`             |                                |
+| <span class="glyphicon glyphicon-ok" style="color:green"></span> | `IIssue.ProjectName`              |                                |
+| <span class="glyphicon glyphicon-ok" style="color:green"></span> | `IIssue.ProjectFileRelativePath`  |                                |
+| <span class="glyphicon glyphicon-ok" style="color:green"></span> | `IIssue.AffectedFileRelativePath` |                                |
+| <span class="glyphicon glyphicon-ok" style="color:green"></span> | `IIssue.Line`                     |                                |
+| <span class="glyphicon glyphicon-ok" style="color:green"></span> | `IIssue.Message`                  |                                |
+| <span class="glyphicon glyphicon-ok" style="color:green"></span> | `IIssue.Priority`                 | Always [IssuePriority.Warning] |
+| <span class="glyphicon glyphicon-ok" style="color:green"></span> | `IIssue.PriorityName`             | Always [IssuePriority.Warning] |
+| <span class="glyphicon glyphicon-ok" style="color:green"></span> | `IIssue.Rule`                     |                                |
+| <span class="glyphicon glyphicon-ok" style="color:green"></span> | `IIssue.RuleUrl`                  | For code analysis (`CA*`) and StyleCop (`SA*`) warnings. Support for additional rules can be added through a custom [MsBuildAddRuleUrlResolver] |
 
 [Cake.Issues.MsBuild addin]: https://www.nuget.org/packages/Cake.Issues.MsBuild
 [MSBuild Extension Pack XmlFileLogger]: http://www.msbuildextensionpack.com/help/4.0.5.0/html/242ab4fd-c2e2-f6aa-325b-7588725aed24.htm
 [MsBuildAddRuleUrlResolver]: ../../../api/Cake.Issues.MsBuild/MsBuildIssuesAliases/93C21487
-[ProviderType]: ../../../api/Cake.Issues/IIssue/D5A24C72
-[ProviderName]: ../../../api/Cake.Issues/IIssue/FA8BB1A0
-[Project]: ../../../api/Cake.Issues/IIssue/89B374A4
-[AffectedFileRelativePath]: ../../../api/Cake.Issues/IIssue/BF0CD6F1
-[Line]: ../../../api/Cake.Issues/IIssue/F2A42E89
-[Message]: ../../../api/Cake.Issues/IIssue/18537A3D
-[Priority]: ../../../api/Cake.Issues/IIssue/BFEFFBB1
-[PriorityName]: ../../../api/Cake.Issues/IIssue/05A39052
-[Rule]: ../../../api/Cake.Issues/IIssue/C8BCE21E
-[RuleUrl]: ../../../api/Cake.Issues/IIssue/48A6F355
+[MsBuildXmlFileLoggerFormat]: ../../../api/Cake.Issues.MsBuild/MsBuildIssuesAliases/051D7B6E
 [IssuePriority.Warning]: ../../../api/Cake.Issues/IssuePriority/7A0CE07F
