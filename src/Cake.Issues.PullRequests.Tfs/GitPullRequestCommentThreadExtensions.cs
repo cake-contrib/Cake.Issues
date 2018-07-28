@@ -22,10 +22,20 @@
         {
             thread.NotNull(nameof(thread));
 
+            if (thread.ThreadContext == null)
+            {
+                throw new InvalidOperationException("ThreadContext is not created.");
+            }
+
+            if (thread.Comments == null)
+            {
+                throw new InvalidOperationException("Comments list is not created.");
+            }
+
             return new PullRequestDiscussionThread(
                 thread.Id,
                 thread.Status.ToPullRequestDiscussionStatus(),
-                new FilePath(thread.ThreadContext.FilePath.TrimStart('/')),
+                thread.ThreadContext.FilePath?.TrimStart('/'),
                 thread.Comments.Select(x => x.ToPullRequestDiscussionComment()))
             {
                 CommentSource = thread.GetCommentSource(),
@@ -41,6 +51,11 @@
         public static string GetCommentSource(this GitPullRequestCommentThread thread)
         {
             thread.NotNull(nameof(thread));
+
+            if (thread.Properties == null)
+            {
+                throw new InvalidOperationException("Properties collection is not created.");
+            }
 
             return thread.Properties.GetValue(CommentSourcePropertyName, string.Empty);
         }
@@ -80,6 +95,11 @@
         public static string GetIssueMessage(this GitPullRequestCommentThread thread)
         {
             thread.NotNull(nameof(thread));
+
+            if (thread.Properties == null)
+            {
+                throw new InvalidOperationException("Properties collection is not created.");
+            }
 
             return thread.Properties.GetValue(IssueMessagePropertyName, string.Empty);
         }
