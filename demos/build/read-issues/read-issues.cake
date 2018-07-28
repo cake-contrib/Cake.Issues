@@ -17,8 +17,9 @@ Task("Read-Issues")
                 MsBuildXmlFileLoggerFormat),
             InspectCodeIssuesFromFilePath(
                 data.InspectCodeLogFilePath),
-            MarkdownlintCliIssuesFromFilePath(
-                data.MarkdownLintLogFilePath)
+            MarkdownlintIssuesFromFilePath(
+                data.MarkdownLintLogFilePath,
+                MarkdownlintCliLogFileFormat)
         },
         settings));
 
