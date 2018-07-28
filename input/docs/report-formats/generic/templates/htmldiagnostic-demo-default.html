@@ -9,7 +9,8 @@
     <table>
         <thead>
             <tr>
-                <th scope="col">Project</th>
+                <th scope="col">ProjectFileRelativePath</th>
+                <th scope="col">ProjectName</th>
                 <th scope="col">AffectedFileRelativePath</th>
                 <th scope="col">Line</th>
                 <th scope="col">Message</th>
@@ -24,6 +25,7 @@
         <tbody>
             <tr>
                 <td></td>
+                <td></td>
                 <td>myfile.txt</td>
                 <td>42</td>
                 <td>Something went wrong</td>
@@ -35,7 +37,8 @@
                 <td>My Cake Script</td>
             </tr>
             <tr>
-                <td>src\ClassLibrary1\ClassLibrary1.csproj</td>
+                <td>src/ClassLibrary1/ClassLibrary1.csproj</td>
+                <td>ClassLibrary1</td>
                 <td>src/ClassLibrary1/Class1.cs</td>
                 <td>13</td>
                 <td>The variable &#39;foo&#39; is assigned but its value is never used</td>
@@ -47,7 +50,8 @@
                 <td>MSBuild</td>
             </tr>
             <tr>
-                <td>src\ClassLibrary1\ClassLibrary1.csproj</td>
+                <td>src/ClassLibrary1/ClassLibrary1.csproj</td>
+                <td>ClassLibrary1</td>
                 <td>src/ClassLibrary1/Class1.cs</td>
                 <td>1</td>
                 <td>Enable XML documentation output</td>
@@ -59,103 +63,8 @@
                 <td>MSBuild</td>
             </tr>
             <tr>
-                <td>src\ClassLibrary1\ClassLibrary1.csproj</td>
-                <td>src/ClassLibrary1/Class1.cs</td>
-                <td>1</td>
-                <td>The file header is missing or not located at the top of the file.</td>
-                <td>300</td>
-                <td>Warning</td>
-                <td>SA1633</td>
-                <td>https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1633.md</td>
-                <td>Cake.Issues.MsBuild.MsBuildIssuesProvider</td>
-                <td>MSBuild</td>
-            </tr>
-            <tr>
-                <td>src\ClassLibrary1\ClassLibrary1.csproj</td>
-                <td>src/ClassLibrary1/Properties/AssemblyInfo.cs</td>
-                <td>1</td>
-                <td>Enable XML documentation output</td>
-                <td>300</td>
-                <td>Warning</td>
-                <td>SA1652</td>
-                <td>https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1652.md</td>
-                <td>Cake.Issues.MsBuild.MsBuildIssuesProvider</td>
-                <td>MSBuild</td>
-            </tr>
-            <tr>
-                <td>src\ClassLibrary1\ClassLibrary1.csproj</td>
-                <td>src/ClassLibrary1/Properties/AssemblyInfo.cs</td>
-                <td>1</td>
-                <td>The file header is missing or not located at the top of the file.</td>
-                <td>300</td>
-                <td>Warning</td>
-                <td>SA1633</td>
-                <td>https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1633.md</td>
-                <td>Cake.Issues.MsBuild.MsBuildIssuesProvider</td>
-                <td>MSBuild</td>
-            </tr>
-            <tr>
-                <td>src\ClassLibrary1\ClassLibrary1.csproj</td>
-                <td>src/ClassLibrary1/Properties/AssemblyInfo.cs</td>
-                <td>5</td>
-                <td>Code must not contain trailing whitespace</td>
-                <td>300</td>
-                <td>Warning</td>
-                <td>SA1028</td>
-                <td>https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1028.md</td>
-                <td>Cake.Issues.MsBuild.MsBuildIssuesProvider</td>
-                <td>MSBuild</td>
-            </tr>
-            <tr>
-                <td>src\ClassLibrary1\ClassLibrary1.csproj</td>
-                <td>src/ClassLibrary1/Properties/AssemblyInfo.cs</td>
-                <td>17</td>
-                <td>Code must not contain trailing whitespace</td>
-                <td>300</td>
-                <td>Warning</td>
-                <td>SA1028</td>
-                <td>https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1028.md</td>
-                <td>Cake.Issues.MsBuild.MsBuildIssuesProvider</td>
-                <td>MSBuild</td>
-            </tr>
-            <tr>
-                <td>src\ClassLibrary1\ClassLibrary1.csproj</td>
-                <td>src/ClassLibrary1/Properties/AssemblyInfo.cs</td>
-                <td>18</td>
-                <td>Code must not contain trailing whitespace</td>
-                <td>300</td>
-                <td>Warning</td>
-                <td>SA1028</td>
-                <td>https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1028.md</td>
-                <td>Cake.Issues.MsBuild.MsBuildIssuesProvider</td>
-                <td>MSBuild</td>
-            </tr>
-            <tr>
-                <td>src\ClassLibrary1\ClassLibrary1.csproj</td>
-                <td>src/ClassLibrary1/Properties/AssemblyInfo.cs</td>
-                <td>28</td>
-                <td>Code must not contain trailing whitespace</td>
-                <td>300</td>
-                <td>Warning</td>
-                <td>SA1028</td>
-                <td>https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1028.md</td>
-                <td>Cake.Issues.MsBuild.MsBuildIssuesProvider</td>
-                <td>MSBuild</td>
-            </tr>
-            <tr>
-                <td>src\ClassLibrary1\ClassLibrary1.csproj</td>
-                <td>src/ClassLibrary1/Properties/AssemblyInfo.cs</td>
-                <td>32</td>
-                <td>Code must not contain trailing whitespace</td>
-                <td>300</td>
-                <td>Warning</td>
-                <td>SA1028</td>
-                <td>https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1028.md</td>
-                <td>Cake.Issues.MsBuild.MsBuildIssuesProvider</td>
-                <td>MSBuild</td>
-            </tr>
-            <tr>
-                <td>src\ClassLibrary1\ClassLibrary1.csproj</td>
+                <td>src/ClassLibrary1/ClassLibrary1.csproj</td>
+                <td>ClassLibrary1</td>
                 <td>src/ClassLibrary1/Class1.cs</td>
                 <td>1</td>
                 <td>Using directive must appear within a namespace declaration</td>
@@ -167,7 +76,8 @@
                 <td>MSBuild</td>
             </tr>
             <tr>
-                <td>src\ClassLibrary1\ClassLibrary1.csproj</td>
+                <td>src/ClassLibrary1/ClassLibrary1.csproj</td>
+                <td>ClassLibrary1</td>
                 <td>src/ClassLibrary1/Class1.cs</td>
                 <td>2</td>
                 <td>Using directive must appear within a namespace declaration</td>
@@ -179,7 +89,8 @@
                 <td>MSBuild</td>
             </tr>
             <tr>
-                <td>src\ClassLibrary1\ClassLibrary1.csproj</td>
+                <td>src/ClassLibrary1/ClassLibrary1.csproj</td>
+                <td>ClassLibrary1</td>
                 <td>src/ClassLibrary1/Class1.cs</td>
                 <td>3</td>
                 <td>Using directive must appear within a namespace declaration</td>
@@ -191,7 +102,8 @@
                 <td>MSBuild</td>
             </tr>
             <tr>
-                <td>src\ClassLibrary1\ClassLibrary1.csproj</td>
+                <td>src/ClassLibrary1/ClassLibrary1.csproj</td>
+                <td>ClassLibrary1</td>
                 <td>src/ClassLibrary1/Class1.cs</td>
                 <td>4</td>
                 <td>Using directive must appear within a namespace declaration</td>
@@ -203,7 +115,8 @@
                 <td>MSBuild</td>
             </tr>
             <tr>
-                <td>src\ClassLibrary1\ClassLibrary1.csproj</td>
+                <td>src/ClassLibrary1/ClassLibrary1.csproj</td>
+                <td>ClassLibrary1</td>
                 <td>src/ClassLibrary1/Class1.cs</td>
                 <td>5</td>
                 <td>Using directive must appear within a namespace declaration</td>
@@ -215,7 +128,112 @@
                 <td>MSBuild</td>
             </tr>
             <tr>
-                <td>src\ClassLibrary1\ClassLibrary1.csproj</td>
+                <td>src/ClassLibrary1/ClassLibrary1.csproj</td>
+                <td>ClassLibrary1</td>
+                <td>src/ClassLibrary1/Class1.cs</td>
+                <td>1</td>
+                <td>The file header is missing or not located at the top of the file.</td>
+                <td>300</td>
+                <td>Warning</td>
+                <td>SA1633</td>
+                <td>https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1633.md</td>
+                <td>Cake.Issues.MsBuild.MsBuildIssuesProvider</td>
+                <td>MSBuild</td>
+            </tr>
+            <tr>
+                <td>src/ClassLibrary1/ClassLibrary1.csproj</td>
+                <td>ClassLibrary1</td>
+                <td>src/ClassLibrary1/Properties/AssemblyInfo.cs</td>
+                <td>1</td>
+                <td>Enable XML documentation output</td>
+                <td>300</td>
+                <td>Warning</td>
+                <td>SA1652</td>
+                <td>https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1652.md</td>
+                <td>Cake.Issues.MsBuild.MsBuildIssuesProvider</td>
+                <td>MSBuild</td>
+            </tr>
+            <tr>
+                <td>src/ClassLibrary1/ClassLibrary1.csproj</td>
+                <td>ClassLibrary1</td>
+                <td>src/ClassLibrary1/Properties/AssemblyInfo.cs</td>
+                <td>1</td>
+                <td>The file header is missing or not located at the top of the file.</td>
+                <td>300</td>
+                <td>Warning</td>
+                <td>SA1633</td>
+                <td>https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1633.md</td>
+                <td>Cake.Issues.MsBuild.MsBuildIssuesProvider</td>
+                <td>MSBuild</td>
+            </tr>
+            <tr>
+                <td>src/ClassLibrary1/ClassLibrary1.csproj</td>
+                <td>ClassLibrary1</td>
+                <td>src/ClassLibrary1/Properties/AssemblyInfo.cs</td>
+                <td>5</td>
+                <td>Code must not contain trailing whitespace</td>
+                <td>300</td>
+                <td>Warning</td>
+                <td>SA1028</td>
+                <td>https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1028.md</td>
+                <td>Cake.Issues.MsBuild.MsBuildIssuesProvider</td>
+                <td>MSBuild</td>
+            </tr>
+            <tr>
+                <td>src/ClassLibrary1/ClassLibrary1.csproj</td>
+                <td>ClassLibrary1</td>
+                <td>src/ClassLibrary1/Properties/AssemblyInfo.cs</td>
+                <td>17</td>
+                <td>Code must not contain trailing whitespace</td>
+                <td>300</td>
+                <td>Warning</td>
+                <td>SA1028</td>
+                <td>https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1028.md</td>
+                <td>Cake.Issues.MsBuild.MsBuildIssuesProvider</td>
+                <td>MSBuild</td>
+            </tr>
+            <tr>
+                <td>src/ClassLibrary1/ClassLibrary1.csproj</td>
+                <td>ClassLibrary1</td>
+                <td>src/ClassLibrary1/Properties/AssemblyInfo.cs</td>
+                <td>18</td>
+                <td>Code must not contain trailing whitespace</td>
+                <td>300</td>
+                <td>Warning</td>
+                <td>SA1028</td>
+                <td>https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1028.md</td>
+                <td>Cake.Issues.MsBuild.MsBuildIssuesProvider</td>
+                <td>MSBuild</td>
+            </tr>
+            <tr>
+                <td>src/ClassLibrary1/ClassLibrary1.csproj</td>
+                <td>ClassLibrary1</td>
+                <td>src/ClassLibrary1/Properties/AssemblyInfo.cs</td>
+                <td>28</td>
+                <td>Code must not contain trailing whitespace</td>
+                <td>300</td>
+                <td>Warning</td>
+                <td>SA1028</td>
+                <td>https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1028.md</td>
+                <td>Cake.Issues.MsBuild.MsBuildIssuesProvider</td>
+                <td>MSBuild</td>
+            </tr>
+            <tr>
+                <td>src/ClassLibrary1/ClassLibrary1.csproj</td>
+                <td>ClassLibrary1</td>
+                <td>src/ClassLibrary1/Properties/AssemblyInfo.cs</td>
+                <td>32</td>
+                <td>Code must not contain trailing whitespace</td>
+                <td>300</td>
+                <td>Warning</td>
+                <td>SA1028</td>
+                <td>https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1028.md</td>
+                <td>Cake.Issues.MsBuild.MsBuildIssuesProvider</td>
+                <td>MSBuild</td>
+            </tr>
+            <tr>
+                <td>src/ClassLibrary1/ClassLibrary1.csproj</td>
+                <td>ClassLibrary1</td>
                 <td></td>
                 <td></td>
                 <td>Microsoft.Design : Sign &#39;ClassLibrary1.dll&#39; with a strong name key.</td>
@@ -227,7 +245,8 @@
                 <td>MSBuild</td>
             </tr>
             <tr>
-                <td>src\ClassLibrary1\ClassLibrary1.csproj</td>
+                <td>src/ClassLibrary1/ClassLibrary1.csproj</td>
+                <td>ClassLibrary1</td>
                 <td></td>
                 <td></td>
                 <td>Microsoft.Design : Mark &#39;ClassLibrary1.dll&#39; with CLSCompliant(true) because it exposes externally visible types.</td>
@@ -239,7 +258,8 @@
                 <td>MSBuild</td>
             </tr>
             <tr>
-                <td>src\ClassLibrary1\ClassLibrary1.csproj</td>
+                <td>src/ClassLibrary1/ClassLibrary1.csproj</td>
+                <td>ClassLibrary1</td>
                 <td>src/ClassLibrary1/Class1.cs</td>
                 <td>12</td>
                 <td>Microsoft.Performance : The &#39;this&#39; parameter (or &#39;Me&#39; in Visual Basic) of &#39;Class1.Foo()&#39; is never used. Mark the member as static (or Shared in Visual Basic) or use &#39;this&#39;/&#39;Me&#39; in the method body or at least one property accessor, if appropriate.</td>
@@ -251,7 +271,8 @@
                 <td>MSBuild</td>
             </tr>
             <tr>
-                <td>src\ClassLibrary1\ClassLibrary1.csproj</td>
+                <td>src/ClassLibrary1/ClassLibrary1.csproj</td>
+                <td>ClassLibrary1</td>
                 <td>src/ClassLibrary1/Class1.cs</td>
                 <td>13</td>
                 <td>Microsoft.Performance : &#39;Class1.Foo()&#39; declares a variable, &#39;foo&#39;, of type &#39;string&#39;, which is never used or is only assigned to. Use this variable or remove it.</td>
@@ -264,6 +285,7 @@
             </tr>
             <tr>
                 <td></td>
+                <td>ClassLibrary1</td>
                 <td>src/ClassLibrary1/Class1.cs</td>
                 <td>2</td>
                 <td>Using directive is not required by the code and can be safely removed</td>
@@ -276,6 +298,7 @@
             </tr>
             <tr>
                 <td></td>
+                <td>ClassLibrary1</td>
                 <td>src/ClassLibrary1/Class1.cs</td>
                 <td>3</td>
                 <td>Using directive is not required by the code and can be safely removed</td>
@@ -288,6 +311,7 @@
             </tr>
             <tr>
                 <td></td>
+                <td>ClassLibrary1</td>
                 <td>src/ClassLibrary1/Class1.cs</td>
                 <td>4</td>
                 <td>Using directive is not required by the code and can be safely removed</td>
@@ -300,6 +324,7 @@
             </tr>
             <tr>
                 <td></td>
+                <td>ClassLibrary1</td>
                 <td>src/ClassLibrary1/Class1.cs</td>
                 <td>5</td>
                 <td>Using directive is not required by the code and can be safely removed</td>
@@ -312,6 +337,7 @@
             </tr>
             <tr>
                 <td></td>
+                <td>ClassLibrary1</td>
                 <td>src/ClassLibrary1/Class1.cs</td>
                 <td>9</td>
                 <td>Class &#39;Class1&#39; is never used</td>
@@ -324,6 +350,7 @@
             </tr>
             <tr>
                 <td></td>
+                <td>ClassLibrary1</td>
                 <td>src/ClassLibrary1/Class1.cs</td>
                 <td>11</td>
                 <td>Method &#39;Foo&#39; is never used</td>
@@ -336,6 +363,7 @@
             </tr>
             <tr>
                 <td></td>
+                <td>ClassLibrary1</td>
                 <td>src/ClassLibrary1/Class1.cs</td>
                 <td>13</td>
                 <td>Local variable &#39;foo&#39; is only assigned but its value is never used</td>
@@ -348,6 +376,7 @@
             </tr>
             <tr>
                 <td></td>
+                <td>ClassLibrary1</td>
                 <td>src/ClassLibrary1/Properties/AssemblyInfo.cs</td>
                 <td>2</td>
                 <td>Using directive is not required by the code and can be safely removed</td>
@@ -360,6 +389,7 @@
             </tr>
             <tr>
                 <td></td>
+                <td></td>
                 <td>docs/index.md</td>
                 <td>1</td>
                 <td>Headings should be surrounded by blank lines [Context: &quot;# foo&quot;]</td>
@@ -367,10 +397,11 @@
                 <td>Warning</td>
                 <td>MD022</td>
                 <td>https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md022</td>
-                <td>Cake.Issues.Markdownlint.MarkdownlintCli.MarkdownlintCliIssuesProvider</td>
+                <td>Cake.Issues.Markdownlint.MarkdownlintIssuesProvider</td>
                 <td>markdownlint</td>
             </tr>
             <tr>
+                <td></td>
                 <td></td>
                 <td>docs/index.md</td>
                 <td>2</td>
@@ -379,10 +410,11 @@
                 <td>Warning</td>
                 <td>MD009</td>
                 <td>https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md009</td>
-                <td>Cake.Issues.Markdownlint.MarkdownlintCli.MarkdownlintCliIssuesProvider</td>
+                <td>Cake.Issues.Markdownlint.MarkdownlintIssuesProvider</td>
                 <td>markdownlint</td>
             </tr>
             <tr>
+                <td></td>
                 <td></td>
                 <td>docs/index.md</td>
                 <td>2</td>
@@ -391,10 +423,11 @@
                 <td>Warning</td>
                 <td>MD013</td>
                 <td>https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md013</td>
-                <td>Cake.Issues.Markdownlint.MarkdownlintCli.MarkdownlintCliIssuesProvider</td>
+                <td>Cake.Issues.Markdownlint.MarkdownlintIssuesProvider</td>
                 <td>markdownlint</td>
             </tr>
             <tr>
+                <td></td>
                 <td></td>
                 <td>docs/index.md</td>
                 <td>4</td>
@@ -403,10 +436,11 @@
                 <td>Warning</td>
                 <td>MD022</td>
                 <td>https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md022</td>
-                <td>Cake.Issues.Markdownlint.MarkdownlintCli.MarkdownlintCliIssuesProvider</td>
+                <td>Cake.Issues.Markdownlint.MarkdownlintIssuesProvider</td>
                 <td>markdownlint</td>
             </tr>
             <tr>
+                <td></td>
                 <td></td>
                 <td>docs/index.md</td>
                 <td>4</td>
@@ -415,10 +449,11 @@
                 <td>Warning</td>
                 <td>MD025</td>
                 <td>https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md025</td>
-                <td>Cake.Issues.Markdownlint.MarkdownlintCli.MarkdownlintCliIssuesProvider</td>
+                <td>Cake.Issues.Markdownlint.MarkdownlintIssuesProvider</td>
                 <td>markdownlint</td>
             </tr>
             <tr>
+                <td></td>
                 <td></td>
                 <td>docs/index.md</td>
                 <td>5</td>
@@ -427,10 +462,11 @@
                 <td>Warning</td>
                 <td>MD031</td>
                 <td>https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md031</td>
-                <td>Cake.Issues.Markdownlint.MarkdownlintCli.MarkdownlintCliIssuesProvider</td>
+                <td>Cake.Issues.Markdownlint.MarkdownlintIssuesProvider</td>
                 <td>markdownlint</td>
             </tr>
             <tr>
+                <td></td>
                 <td></td>
                 <td>docs/index.md</td>
                 <td>5</td>
@@ -439,10 +475,11 @@
                 <td>Warning</td>
                 <td>MD040</td>
                 <td>https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md040</td>
-                <td>Cake.Issues.Markdownlint.MarkdownlintCli.MarkdownlintCliIssuesProvider</td>
+                <td>Cake.Issues.Markdownlint.MarkdownlintIssuesProvider</td>
                 <td>markdownlint</td>
             </tr>
             <tr>
+                <td></td>
                 <td></td>
                 <td>docs/index.md</td>
                 <td>6</td>
@@ -451,7 +488,7 @@
                 <td>Warning</td>
                 <td>MD009</td>
                 <td>https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md009</td>
-                <td>Cake.Issues.Markdownlint.MarkdownlintCli.MarkdownlintCliIssuesProvider</td>
+                <td>Cake.Issues.Markdownlint.MarkdownlintIssuesProvider</td>
                 <td>markdownlint</td>
             </tr>
         </tbody>
