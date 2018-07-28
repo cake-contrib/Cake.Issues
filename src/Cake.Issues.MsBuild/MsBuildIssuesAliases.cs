@@ -32,7 +32,7 @@
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="resolver">Resolver which returns an <see cref="Uri"/> linking to a site
-        /// containing help for a specific <see cref="BaseRuleDescription"/>.</param>
+        /// containing help for a specific <see cref="MsBuildRuleDescription"/>.</param>
         /// <example>
         /// <para>Adds a provider with default priority of 0 returning a link for all rules of the category <c>CA</c> to
         /// search <c>msdn.microsoft.com</c> with Google for the rule:</para>
@@ -62,7 +62,7 @@
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="resolver">Resolver which returns an <see cref="Uri"/> linking to a site
-        /// containing help for a specific <see cref="BaseRuleDescription"/>.</param>
+        /// containing help for a specific <see cref="MsBuildRuleDescription"/>.</param>
         /// <param name="priority">Priority of the resolver. Resolver with a higher priority are considered
         /// first during resolving of the URL.</param>
         /// <example>
