@@ -9,10 +9,17 @@
     public interface IIssue
     {
         /// <summary>
+        /// Gets the path to the project to which the file affected by the issue belongs.
+        /// The path is relative to the repository root.
+        /// Can be <c>null</c> or <see cref="string.Empty"/> if issue is not related to a project.
+        /// </summary>
+        FilePath ProjectFileRelativePath { get; }
+
+        /// <summary>
         /// Gets the name of the project to which the file affected by the issue belongs.
         /// Can be <c>null</c> or <see cref="string.Empty"/> if issue is not related to a project.
         /// </summary>
-        string Project { get; }
+        string ProjectName { get; }
 
         /// <summary>
         /// Gets the path to the file affacted by the issue.

@@ -10,7 +10,8 @@
         private readonly string message;
         private readonly string providerType;
         private readonly string providerName;
-        private string project;
+        private string projectFileRelativePath;
+        private string projectName;
         private string filePath;
         private int? line;
         private int priority;
@@ -80,14 +81,45 @@
         }
 
         /// <summary>
+        /// Sets the path of the project to which the file affected by the issue belongs.
+        /// </summary>
+        /// <param name="projectFileRelativePath">The path to the project to which the file affected by the issue belongs.
+        /// The path needs to be relative to the repository root.
+        /// Can be <c>null</c> or <see cref="string.Empty"/> if issue is not related to a project.</param>
+        /// <returns>Issue Builder instance.</returns>
+        public IssueBuilder InProjectFile(string projectFileRelativePath)
+        {
+            this.projectFileRelativePath = projectFileRelativePath;
+
+            return this;
+        }
+
+        /// <summary>
         /// Sets the name of the project to which the file affected by the issue belongs.
         /// </summary>
-        /// <param name="name">Name of the project to which the file affected by the issue belongs.
+        /// <param name="projectName">Name of the project to which the file affected by the issue belongs.
         /// <c>null</c> or <see cref="string.Empty"/> if issue is not related to a project.</param>
         /// <returns>Issue Builder instance.</returns>
-        public IssueBuilder InProject(string name)
+        public IssueBuilder InProjectOfName(string projectName)
         {
-            this.project = name;
+            this.projectName = projectName;
+
+            return this;
+        }
+
+        /// <summary>
+        /// Sets the project to which the file affected by the issue belongs.
+        /// </summary>
+        /// <param name="projectFileRelativePath">The path to the project to which the file affected by the issue belongs.
+        /// The path needs to be relative to the repository root.
+        /// Can be <c>null</c> or <see cref="string.Empty"/> if issue is not related to a project.</param>
+        /// <param name="projectName">Name of the project to which the file affected by the issue belongs.
+        /// <c>null</c> or <see cref="string.Empty"/> if issue is not related to a project.</param>
+        /// <returns>Issue Builder instance.</returns>
+        public IssueBuilder InProject(string projectFileRelativePath, string projectName)
+        {
+            this.projectFileRelativePath = projectFileRelativePath;
+            this.projectName = projectName;
 
             return this;
         }
@@ -188,7 +220,8 @@
         {
             return
                 new Issue(
-                    this.project,
+                    this.projectFileRelativePath,
+                    this.projectName,
                     this.filePath,
                     this.line,
                     this.message,
