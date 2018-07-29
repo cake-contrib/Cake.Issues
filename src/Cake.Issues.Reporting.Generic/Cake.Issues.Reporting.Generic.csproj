@@ -70,7 +70,6 @@
     <Compile Include="ColumnSortOrderExtensions.cs" />
     <Compile Include="DevExtremeTheme.cs" />
     <Compile Include="DevExtremeThemeExtensions.cs" />
-    <Compile Include="FileLinkType.cs" />
     <Compile Include="FileLinkSettings.cs" />
     <Compile Include="HtmlDxDataGridOption.cs" />
     <Compile Include="GenericIssueReportFormatAliases.cs" />
