@@ -38,6 +38,8 @@
         /// <returns>Directory of the file affected by the issue.</returns>
         public static string FileDirectory(this IIssue issue)
         {
+            issue.NotNull(nameof(issue));
+
             return issue.AffectedFileRelativePath?.GetDirectory().FullPath;
         }
 
@@ -48,6 +50,8 @@
         /// <returns>Name of the file affected by the issue.</returns>
         public static string FileName(this IIssue issue)
         {
+            issue.NotNull(nameof(issue));
+
             return issue.AffectedFileRelativePath?.GetFilename().ToString();
         }
     }
