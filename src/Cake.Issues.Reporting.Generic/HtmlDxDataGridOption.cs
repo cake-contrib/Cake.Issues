@@ -48,6 +48,20 @@
         EnableFiltering,
 
         /// <summary>
+        /// Flag if the <see cref="ReportColumn.ProviderType"/> column should be visible or not.
+        /// Either <c>true</c> or <c>false</c>.
+        /// Default value is <c>false</c>.
+        /// </summary>
+        ProviderTypeVisible,
+
+        /// <summary>
+        /// Sort order of the <see cref="ReportColumn.ProviderType"/> column if it is part of <see cref="SortedColumns"/>.
+        /// See <see cref="ColumnSortOrder"/> for possible values.
+        /// Default value is <see cref="ColumnSortOrder.Ascending"/>.
+        /// </summary>
+        ProviderTypeSortOrder,
+
+        /// <summary>
         /// Flag if the <see cref="ReportColumn.ProviderName"/> column should be visible or not.
         /// Either <c>true</c> or <c>false</c>.
         /// Default value is <c>true</c>.
@@ -60,6 +74,20 @@
         /// Default value is <see cref="ColumnSortOrder.Ascending"/>.
         /// </summary>
         ProviderNameSortOrder,
+
+        /// <summary>
+        /// Flag if the <see cref="ReportColumn.Priority"/> column should be visible or not.
+        /// Either <c>true</c> or <c>false</c>.
+        /// Default value is <c>false</c>.
+        /// </summary>
+        PriorityVisible,
+
+        /// <summary>
+        /// Sort order of the <see cref="ReportColumn.Priority"/> column if it is part of <see cref="SortedColumns"/>.
+        /// See <see cref="ColumnSortOrder"/> for possible values.
+        /// Default value is <see cref="ColumnSortOrder.Descending"/>.
+        /// </summary>
+        PrioritySortOrder,
 
         /// <summary>
         /// Flag if the <see cref="ReportColumn.PriorityName"/> column should be visible or not.
@@ -76,6 +104,20 @@
         PriorityNameSortOrder,
 
         /// <summary>
+        /// Flag if the <see cref="ReportColumn.ProjectPath"/> column should be visible or not.
+        /// Either <c>true</c> or <c>false</c>.
+        /// Default value is <c>false</c>.
+        /// </summary>
+        ProjectPathVisible,
+
+        /// <summary>
+        /// Sort order of the <see cref="ReportColumn.ProjectPath"/> column if it is part of <see cref="SortedColumns"/>.
+        /// See <see cref="ColumnSortOrder"/> for possible values.
+        /// Default value is <see cref="ColumnSortOrder.Ascending"/>.
+        /// </summary>
+        ProjectPathSortOrder,
+
+        /// <summary>
         /// Flag if the <see cref="ReportColumn.ProjectName"/> column should be visible or not.
         /// Either <c>true</c> or <c>false</c>.
         /// Default value is <c>true</c>.
@@ -88,6 +130,20 @@
         /// Default value is <see cref="ColumnSortOrder.Ascending"/>.
         /// </summary>
         ProjectNameSortOrder,
+
+        /// <summary>
+        /// Flag if the <see cref="ReportColumn.FilePath"/> column should be visible or not.
+        /// Either <c>true</c> or <c>false</c>.
+        /// Default value is <c>false</c>.
+        /// </summary>
+        FilePathVisible,
+
+        /// <summary>
+        /// Sort order of the <see cref="ReportColumn.FilePath"/> column if it is part of <see cref="SortedColumns"/>.
+        /// See <see cref="ColumnSortOrder"/> for possible values.
+        /// Default value is <see cref="ColumnSortOrder.Ascending"/>.
+        /// </summary>
+        FilePathSortOrder,
 
         /// <summary>
         /// Flag if the <see cref="ReportColumn.Path"/> column should be visible or not.

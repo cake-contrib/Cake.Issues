@@ -13,12 +13,20 @@
     bool enableSearching = ViewBagHelper.ValueOrDefault(ViewBag.EnableSearching, true);
     bool enableGrouping = ViewBagHelper.ValueOrDefault(ViewBag.EnableGrouping, true);
     bool enableFiltering = ViewBagHelper.ValueOrDefault(ViewBag.EnableFiltering, true);
+    bool providerTypeVisible = ViewBagHelper.ValueOrDefault(ViewBag.ProviderTypeVisible, false);
+    ColumnSortOrder providerTypeSortOrder = ViewBagHelper.ValueOrDefault(ViewBag.ProviderTypeSortOder, ColumnSortOrder.Ascending);
     bool providerNameVisible = ViewBagHelper.ValueOrDefault(ViewBag.ProviderNameVisible, true);
     ColumnSortOrder providerNameSortOrder = ViewBagHelper.ValueOrDefault(ViewBag.ProviderNameSortOder, ColumnSortOrder.Ascending);
+    bool priorityVisible = ViewBagHelper.ValueOrDefault(ViewBag.PriorityVisible, false);
+    ColumnSortOrder prioritySortOrder = ViewBagHelper.ValueOrDefault(ViewBag.PrioritySortOrder, ColumnSortOrder.Descending);
     bool priorityNameVisible = ViewBagHelper.ValueOrDefault(ViewBag.PriorityNameVisible, true);
     ColumnSortOrder priorityNameSortOrder = ViewBagHelper.ValueOrDefault(ViewBag.PriorityNameSortOrder, ColumnSortOrder.Descending);
+    bool projectPathVisible = ViewBagHelper.ValueOrDefault(ViewBag.ProjectPathVisible, false);
+    ColumnSortOrder projectPathSortOrder = ViewBagHelper.ValueOrDefault(ViewBag.ProjectPathSortOder, ColumnSortOrder.Ascending);
     bool projectNameVisible = ViewBagHelper.ValueOrDefault(ViewBag.ProjectNameVisible, true);
     ColumnSortOrder projectNameSortOrder = ViewBagHelper.ValueOrDefault(ViewBag.ProjectNameSortOder, ColumnSortOrder.Ascending);
+    bool filePathVisible = ViewBagHelper.ValueOrDefault(ViewBag.FilePathVisible, false);
+    ColumnSortOrder filePathSortOrder = ViewBagHelper.ValueOrDefault(ViewBag.FilePathSortOder, ColumnSortOrder.Ascending);
     bool pathVisible = ViewBagHelper.ValueOrDefault(ViewBag.PathVisible, true);
     ColumnSortOrder pathSortOrder = ViewBagHelper.ValueOrDefault(ViewBag.PathSortOder, ColumnSortOrder.Ascending);
     bool fileVisible = ViewBagHelper.ValueOrDefault(ViewBag.FileVisible, true);
@@ -41,12 +49,14 @@
         select
             new
             {
-                issue.ProviderName,
                 issue.ProviderType,
+                issue.ProviderName,
                 issue.Priority,
                 issue.PriorityName,
+                ProjectPath = issue.ProjectPath(),
                 issue.ProjectName,
-                Path = issue.FilePath(),
+                FilePath = issue.FilePath(),
+                Path = issue.FileDirectory(),
                 File = issue.FileName(),
                 FileLink = @fileLinkSettings.GetFileLink(issue),
                 issue.Line,
@@ -102,6 +112,23 @@
                 rowAlternationEnabled: true,
                 allowColumnResizing: true,
                 columns: [
+                    @if (providerTypeVisible)
+                    {
+                        <text>
+                            {
+                                dataField: "ProviderType",
+                                @if (groupedColumns.Contains(ReportColumn.ProviderType))
+                                {
+                                    @:groupIndex: @groupedColumns.IndexOf(ReportColumn.ProviderType),
+                                }
+                                @if (sortedColumns.Contains(ReportColumn.ProviderType))
+                                {
+                                    @:sortIndex: @sortedColumns.IndexOf(ReportColumn.ProviderType),
+                                    @:sortOrder: "@providerTypeSortOrder.ToShortString()",
+                                }
+                            },
+                        </text>
+                    }
                     @if (providerNameVisible)
                     {
                         <text>
@@ -116,6 +143,24 @@
                                 {
                                     @:sortIndex: @sortedColumns.IndexOf(ReportColumn.ProviderName),
                                     @:sortOrder: "@providerNameSortOrder.ToShortString()",
+                                }
+                            },
+                        </text>
+                    }
+                    @if (priorityVisible)
+                    {
+                        <text>
+                            {
+                                dataField: "Priority",
+                                width: "90px",
+                                @if (groupedColumns.Contains(ReportColumn.Priority))
+                                {
+                                    @:groupIndex: @groupedColumns.IndexOf(ReportColumn.Priority),
+                                }
+                                @if (sortedColumns.Contains(ReportColumn.Priority))
+                                {
+                                    @:sortIndex: @sortedColumns.IndexOf(ReportColumn.Priority),
+                                    @:sortOrder: "@prioritySortOrder.ToShortString()",
                                 }
                             },
                         </text>
@@ -140,10 +185,27 @@
                             },
                         </text>
                     }
+                    @if (projectPathVisible)
+                    {
+                        <text>
+                            {
+                                dataField: "ProjectPath",
+                                @if (groupedColumns.Contains(ReportColumn.ProjectPath))
+                                {
+                                    @:groupIndex: @groupedColumns.IndexOf(ReportColumn.ProjectPath),
+                                }
+                                @if (sortedColumns.Contains(ReportColumn.ProjectPath))
+                                {
+                                    @:sortIndex: @sortedColumns.IndexOf(ReportColumn.ProjectPath),
+                                    @:sortOrder: "@projectPathSortOrder.ToShortString()",
+                                }
+                            },
+                        </text>
+                    }
                     @if (projectNameVisible)
                     {
                         <text>
-                    {
+                            {
                                 caption: "Project",
                                 dataField: "ProjectName",
                                 @if (groupedColumns.Contains(ReportColumn.ProjectName))
@@ -154,6 +216,23 @@
                                 {
                                     @:sortIndex: @sortedColumns.IndexOf(ReportColumn.ProjectName),
                                     @:sortOrder: "@projectNameSortOrder.ToShortString()",
+                                }
+                            },
+                        </text>
+                    }
+                    @if (filePathVisible)
+                    {
+                        <text>
+                            {
+                                dataField: "FilePath",
+                                @if (groupedColumns.Contains(ReportColumn.FilePath))
+                                {
+                                    @:groupIndex: @groupedColumns.IndexOf(ReportColumn.FilePath),
+                                }
+                                @if (sortedColumns.Contains(ReportColumn.FilePath))
+                                {
+                                    @:sortIndex: @sortedColumns.IndexOf(ReportColumn.FilePath),
+                                    @:sortOrder: "@filePathSortOrder.ToShortString()",
                                 }
                             },
                         </text>
