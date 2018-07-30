@@ -202,6 +202,20 @@
         RuleSortOrder,
 
         /// <summary>
+        /// Flag if the <see cref="ReportColumn.RuleUrl"/> column should be visible or not.
+        /// Either <c>true</c> or <c>false</c>.
+        /// Default value is <c>false</c>.
+        /// </summary>
+        RuleUrlVisible,
+
+        /// <summary>
+        /// Sort order of the <see cref="ReportColumn.RuleUrl"/> column if it is part of <see cref="SortedColumns"/>.
+        /// See <see cref="ColumnSortOrder"/> for possible values.
+        /// Default value is <see cref="ColumnSortOrder.Ascending"/>.
+        /// </summary>
+        RuleUrlSortOrder,
+
+        /// <summary>
         /// Flag if the <see cref="ReportColumn.Message"/> column should be visible or not.
         /// Either <c>true</c> or <c>false</c>.
         /// Default value is <c>true</c>.

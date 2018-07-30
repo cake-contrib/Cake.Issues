@@ -35,6 +35,8 @@
     ColumnSortOrder lineSortOrder = ViewBagHelper.ValueOrDefault(ViewBag.LineSortOder, ColumnSortOrder.Ascending);
     bool ruleVisible = ViewBagHelper.ValueOrDefault(ViewBag.RuleVisible, true);
     ColumnSortOrder ruleSortOrder = ViewBagHelper.ValueOrDefault(ViewBag.RuleSortOder, ColumnSortOrder.Ascending);
+    bool ruleUrlVisible = ViewBagHelper.ValueOrDefault(ViewBag.RuleUrlVisible, true);
+    ColumnSortOrder ruleUrlSortOrder = ViewBagHelper.ValueOrDefault(ViewBag.RuleUrlSortOder, ColumnSortOrder.Ascending);
     bool messageVisible = ViewBagHelper.ValueOrDefault(ViewBag.MessageVisible, true);
     ColumnSortOrder messageSortOrder = ViewBagHelper.ValueOrDefault(ViewBag.MessageSortOder, ColumnSortOrder.Ascending);
     var groupedColumns = ViewBagHelper.ValueOrDefault(ViewBag.GroupedColumns, new List<ReportColumn> { ReportColumn.ProviderName });
@@ -349,6 +351,32 @@
                                     }
                                     else {
                                         container.text(options.value);
+                                    }
+                                }
+                            },
+                        </text>
+                    }
+                    @if (ruleUrlVisible)
+                    {
+                        <text>
+                            {
+                                dataField: "RuleUrl",
+                                @if (groupedColumns.Contains(ReportColumn.RuleUrl))
+                                {
+                                    @:groupIndex: @groupedColumns.IndexOf(ReportColumn.RuleUrl),
+                                }
+                                @if (sortedColumns.Contains(ReportColumn.RuleUrl))
+                                {
+                                    @:sortIndex: @sortedColumns.IndexOf(ReportColumn.RuleUrl),
+                                    @:sortOrder: "@ruleUrlSortOrder.ToShortString()",
+                                }
+                                cellTemplate: function (container, options) {
+                                    if (options.data["RuleUrl"]) {
+                                        $('<a>', {
+                                            text: options.value,
+                                            href: options.data["RuleUrl"],
+                                            target: "_blank"
+                                        }).appendTo(container);
                                     }
                                 }
                             },
