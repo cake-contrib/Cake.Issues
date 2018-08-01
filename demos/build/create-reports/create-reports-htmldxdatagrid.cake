@@ -16,6 +16,7 @@
 #load create-reports-htmldxdatagrid-theme-materialpurplelight.cake
 #load create-reports-htmldxdatagrid-theme-materialteallight.cake
 #load create-reports-htmldxdatagrid-hide-columns.cake
+#load create-reports-htmldxdatagrid-additional-columns.cake
 #load create-reports-htmldxdatagrid-sorting.cake
 #load create-reports-htmldxdatagrid-grouping.cake
 #load create-reports-htmldxdatagrid-disable-grouping.cake
@@ -45,6 +46,7 @@ Task("Create-Reports-HtmlDxDataGrid")
     .IsDependentOn("Create-Reports-HtmlDxDataGrid-Theme-MaterialPurpleLight")
     .IsDependentOn("Create-Reports-HtmlDxDataGrid-Theme-MaterialTealLight")
     .IsDependentOn("Create-Reports-HtmlDxDataGrid-Hide-Columns")
+    .IsDependentOn("Create-Reports-HtmlDxDataGrid-Additional-Columns")
     .IsDependentOn("Create-Reports-HtmlDxDataGrid-Sorting")
     .IsDependentOn("Create-Reports-HtmlDxDataGrid-Grouping")
     .IsDependentOn("Create-Reports-HtmlDxDataGrid-Disable-Grouping")
