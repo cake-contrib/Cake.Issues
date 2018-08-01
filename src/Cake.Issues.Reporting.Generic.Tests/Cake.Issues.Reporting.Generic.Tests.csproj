@@ -85,6 +85,8 @@
   <ItemGroup>
     <Compile Include="ColumnSortOrderExtensionsTests.cs" />
     <Compile Include="DevExtremeThemeExtensionsTests.cs" />
+    <Compile Include="ExceptionAssertExtensions.cs" />
+    <Compile Include="HtmlDxDataGridColumnDescriptionTests.cs" />
     <Compile Include="IIssueExtensionTests.cs" />
     <Compile Include="UriExtensionsTests.cs" />
     <Compile Include="FileLinkSettingsTests.cs" />

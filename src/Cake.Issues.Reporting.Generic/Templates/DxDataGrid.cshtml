@@ -42,6 +42,7 @@
     var groupedColumns = ViewBagHelper.ValueOrDefault(ViewBag.GroupedColumns, new List<ReportColumn> { ReportColumn.ProviderName });
     var sortedColumns = ViewBagHelper.ValueOrDefault(ViewBag.SortedColumns, new List<ReportColumn> { ReportColumn.PriorityName, ReportColumn.ProjectName, ReportColumn.Path, ReportColumn.File, ReportColumn.Line });
     FileLinkSettings fileLinkSettings = ViewBagHelper.ValueOrDefault(ViewBag.FileLinkSettings, new FileLinkSettings());
+    List<HtmlDxDataGridColumnDescription> additionalColumns = ViewBagHelper.ValueOrDefault(ViewBag.AdditionalColumns, new List<HtmlDxDataGridColumnDescription>());
 }
 
 @{
@@ -49,23 +50,22 @@
     var issues =
         from issue in Model
         select
-            new
-            {
-                issue.ProviderType,
-                issue.ProviderName,
-                issue.Priority,
-                issue.PriorityName,
-                ProjectPath = issue.ProjectPath(),
-                issue.ProjectName,
-                FilePath = issue.FilePath(),
-                Path = issue.FileDirectory(),
-                File = issue.FileName(),
-                FileLink = @fileLinkSettings.GetFileLink(issue),
-                issue.Line,
-                issue.Rule,
-                issue.RuleUrl,
-                issue.Message
-            };
+            issue.GetExpandoObject(
+                addProviderType: providerTypeVisible,
+                addProviderName: providerNameVisible,
+                addPriority: priorityVisible || priorityNameVisible,
+                addPriorityName: priorityNameVisible,
+                addProjectPath: projectPathVisible,
+                addProjectName: projectNameVisible,
+                addFilePath: filePathVisible,
+                addFileDirectory: pathVisible,
+                addFileName: fileVisible,
+                addLine: lineVisible,
+                addRule: ruleVisible,
+                addRuleUrl: ruleVisible || ruleUrlVisible,
+                addMessage: messageVisible,
+                fileLinkSettings: fileLinkSettings,
+                additionalValues: additionalColumns.ToDictionary(x => x.Id, x => x.ValueRetriever));
 }
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
@@ -119,6 +119,7 @@
                         <text>
                             {
                                 dataField: "ProviderType",
+                                visibleIndex: @((int)ReportColumn.ProviderType),
                                 @if (groupedColumns.Contains(ReportColumn.ProviderType))
                                 {
                                     @:groupIndex: @groupedColumns.IndexOf(ReportColumn.ProviderType),
@@ -137,6 +138,7 @@
                             {
                                 caption: "Provider",
                                 dataField: "ProviderName",
+                                visibleIndex: @((int)ReportColumn.ProviderName),
                                 @if (groupedColumns.Contains(ReportColumn.ProviderName))
                                 {
                                     @:groupIndex: @groupedColumns.IndexOf(ReportColumn.ProviderName),
@@ -155,6 +157,7 @@
                             {
                                 dataField: "Priority",
                                 width: "90px",
+                                visibleIndex: @((int)ReportColumn.Priority),
                                 @if (groupedColumns.Contains(ReportColumn.Priority))
                                 {
                                     @:groupIndex: @groupedColumns.IndexOf(ReportColumn.Priority),
@@ -175,6 +178,7 @@
                                 dataField: "PriorityName",
                                 calculateSortValue: "Priority",
                                 width: "90px",
+                                visibleIndex: @((int)ReportColumn.PriorityName),
                                 @if (groupedColumns.Contains(ReportColumn.PriorityName))
                                 {
                                     @:groupIndex: @groupedColumns.IndexOf(ReportColumn.PriorityName),
@@ -192,6 +196,7 @@
                         <text>
                             {
                                 dataField: "ProjectPath",
+                                visibleIndex: @((int)ReportColumn.ProjectPath),
                                 @if (groupedColumns.Contains(ReportColumn.ProjectPath))
                                 {
                                     @:groupIndex: @groupedColumns.IndexOf(ReportColumn.ProjectPath),
@@ -210,6 +215,7 @@
                             {
                                 caption: "Project",
                                 dataField: "ProjectName",
+                                visibleIndex: @((int)ReportColumn.ProjectName),
                                 @if (groupedColumns.Contains(ReportColumn.ProjectName))
                                 {
                                     @:groupIndex: @groupedColumns.IndexOf(ReportColumn.ProjectName),
@@ -227,6 +233,7 @@
                         <text>
                             {
                                 dataField: "FilePath",
+                                visibleIndex: @((int)ReportColumn.FilePath),
                                 @if (groupedColumns.Contains(ReportColumn.FilePath))
                                 {
                                     @:groupIndex: @groupedColumns.IndexOf(ReportColumn.FilePath),
@@ -243,7 +250,9 @@
                     {
                         <text>
                             {
-                                dataField: "Path",
+                                caption: "Directory",
+                                dataField: "FileDirectory",
+                                visibleIndex: @((int)ReportColumn.Path),
                                 @if (groupedColumns.Contains(ReportColumn.Path))
                                 {
                                     @:groupIndex: @groupedColumns.IndexOf(ReportColumn.Path),
@@ -260,7 +269,9 @@
                     {
                         <text>
                             {
-                                dataField: "File",
+                                caption: "File",
+                                dataField: "FileName",
+                                visibleIndex: @((int)ReportColumn.File),
                                 @if (groupedColumns.Contains(ReportColumn.File))
                                 {
                                     @:groupIndex: @groupedColumns.IndexOf(ReportColumn.File),
@@ -298,6 +309,7 @@
                                 allowFiltering: false,
                                 allowGrouping: false,
                                 width: "70px",
+                                visibleIndex: @((int)ReportColumn.Line),
                                 @if (groupedColumns.Contains(ReportColumn.Line))
                                 {
                                     @:groupIndex: @groupedColumns.IndexOf(ReportColumn.Line),
@@ -332,6 +344,7 @@
                         <text>
                             {
                                 dataField: "Rule",
+                                visibleIndex: @((int)ReportColumn.Rule),
                                 @if (groupedColumns.Contains(ReportColumn.Rule))
                                 {
                                     @:groupIndex: @groupedColumns.IndexOf(ReportColumn.Rule),
@@ -361,6 +374,7 @@
                         <text>
                             {
                                 dataField: "RuleUrl",
+                                visibleIndex: @((int)ReportColumn.RuleUrl),
                                 @if (groupedColumns.Contains(ReportColumn.RuleUrl))
                                 {
                                     @:groupIndex: @groupedColumns.IndexOf(ReportColumn.RuleUrl),
@@ -387,6 +401,7 @@
                         <text>
                             {
                                 dataField: "Message",
+                                visibleIndex: @((int)ReportColumn.Message),
                                 @if (groupedColumns.Contains(ReportColumn.Message))
                                 {
                                     @:groupIndex: @groupedColumns.IndexOf(ReportColumn.Message),
@@ -396,6 +411,22 @@
                                     @:sortIndex: @sortedColumns.IndexOf(ReportColumn.Message),
                                     @:sortOrder: "@messageSortOrder.ToShortString()",
                                 }
+                            },
+                        </text>
+                    }
+                    @foreach (var additionalColumn in additionalColumns)
+                    {
+                        <text>
+                            {
+                                dataField: "@additionalColumn.Id",
+                                @if (!string.IsNullOrWhiteSpace(additionalColumn.Caption))
+                                {
+                                    @:caption: "@additionalColumn.Caption",
+                                }
+                                visibleIndex: @additionalColumn.VisibleIndex,
+                                allowGrouping: @additionalColumn.AllowGrouping.ToString().ToLowerInvariant(),
+                                allowFiltering: @additionalColumn.AllowFiltering.ToString().ToLowerInvariant(),
+                                allowSorting: @additionalColumn.AllowSorting.ToString().ToLowerInvariant()
                             },
                         </text>
                     }

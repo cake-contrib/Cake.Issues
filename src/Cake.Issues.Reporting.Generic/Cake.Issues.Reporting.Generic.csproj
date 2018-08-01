@@ -71,6 +71,7 @@
     <Compile Include="DevExtremeTheme.cs" />
     <Compile Include="DevExtremeThemeExtensions.cs" />
     <Compile Include="FileLinkSettings.cs" />
+    <Compile Include="HtmlDxDataGridColumnDescription.cs" />
     <Compile Include="HtmlDxDataGridOption.cs" />
     <Compile Include="GenericIssueReportFormatAliases.cs" />
     <Compile Include="GenericIssueReportFormatSettingsExtensions.cs" />
