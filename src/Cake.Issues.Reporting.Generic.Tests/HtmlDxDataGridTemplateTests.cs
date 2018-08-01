@@ -127,5 +127,42 @@
                 headingElements.ShouldBeEmpty();
             }
         }
+
+        public sealed class TheAdditionalColumnsOption
+        {
+            [Fact]
+            public void Should_Not_Fail_On_Report_Creation()
+            {
+                // Given
+                var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+                fixture.GenericIssueReportFormatSettings
+                    .WithOption(
+                        HtmlDxDataGridOption.AdditionalColumns,
+                        new List<HtmlDxDataGridColumnDescription>
+                        {
+                            new HtmlDxDataGridColumnDescription("MyCustomColumn", x => { return "Foo"; })
+                            {
+                                Caption = "Custom Value",
+                            }
+                        });
+
+                // When
+                var result =
+                    fixture.CreateReport(
+                        new List<IIssue>
+                        {
+                            IssueBuilder
+                                .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                                .InFile(@"src\Cake.Issues.Reporting.Generic.Tests\Foo.cs", 10)
+                                .OfRule("Rule Foo")
+                                .WithPriority(IssuePriority.Warning)
+                                .Create(),
+                        });
+
+                // Then
+                // Currently only checks if genertions failed or not without checking actual output.
+                result.ShouldNotBeNull();
+            }
+        }
     }
 }

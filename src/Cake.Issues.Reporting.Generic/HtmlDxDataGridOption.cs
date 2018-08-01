@@ -244,6 +244,12 @@
         SortedColumns,
 
         /// <summary>
+        /// List of <see cref="HtmlDxDataGridColumnDescription"/> for additional columsn which should be added to the grid.
+        /// Default value is an empty list.
+        /// </summary>
+        AdditionalColumns,
+
+        /// <summary>
         /// Settings for having issues linked to files.
         /// Value needs to be an instance of <see cref="FileLinkSettings"/>.
         /// Default value is <c>null</c>.
