@@ -107,8 +107,12 @@ CreateIssueReport(
     @"c:\report.html");
 ```
 
-* <a href="htmldxdatagrid-demo-columnhiding.html" target="_blank">Hide columns</a>
+Additional columns can be added using the `AdditionalColumns` option.
+
+* <a href="htmldxdatagrid-demo-columnhiding.html" target="_blank">Show and hide columns</a>
   (<a href="https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/build/create-reports/create-reports-htmldxdatagrid-hide-columns.cake" target="_blank">Source Code</a>)
+* <a href="htmldxdatagrid-demo-additionalcolumns.html" target="_blank">Add additional columns</a>
+  (<a href="https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/build/create-reports/create-reports-htmldxdatagrid-additional-columns.cake" target="_blank">Source Code</a>)
 
 ## Sorting
 
