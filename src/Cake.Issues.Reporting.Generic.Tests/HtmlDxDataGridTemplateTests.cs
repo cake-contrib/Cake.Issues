@@ -1,5 +1,6 @@
 ﻿namespace Cake.Issues.Reporting.Generic.Tests
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using HtmlAgilityPack;
@@ -128,6 +129,542 @@
             }
         }
 
+        public sealed class TheEnableSearchingOption
+        {
+            [Theory]
+            [InlineData(true)]
+            [InlineData(false)]
+            public void Should_Not_Fail_On_Report_Creation(bool value)
+            {
+                // Given
+                var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+
+                // When / Then
+                fixture.TestReportCreation(
+                    settings =>
+                        settings.WithOption(HtmlDxDataGridOption.EnableSearching, value));
+            }
+        }
+
+        public sealed class TheEnableGroupingOption
+        {
+            [Theory]
+            [InlineData(true)]
+            [InlineData(false)]
+            public void Should_Not_Fail_On_Report_Creation(bool value)
+            {
+                // Given
+                var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+
+                // When / Then
+                fixture.TestReportCreation(
+                    settings =>
+                        settings.WithOption(HtmlDxDataGridOption.EnableGrouping, value));
+            }
+        }
+
+        public sealed class TheEnableFilteringOption
+        {
+            [Theory]
+            [InlineData(true)]
+            [InlineData(false)]
+            public void Should_Not_Fail_On_Report_Creation(bool value)
+            {
+                // Given
+                var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+
+                // When / Then
+                fixture.TestReportCreation(
+                    settings =>
+                        settings.WithOption(HtmlDxDataGridOption.EnableFiltering, value));
+            }
+        }
+
+        public sealed class TheProviderTypeVisibleOption
+        {
+            [Theory]
+            [InlineData(true)]
+            [InlineData(false)]
+            public void Should_Not_Fail_On_Report_Creation(bool value)
+            {
+                // Given
+                var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+
+                // When / Then
+                fixture.TestReportCreation(
+                    settings =>
+                        settings.WithOption(HtmlDxDataGridOption.ProviderTypeVisible, value));
+            }
+        }
+
+        public sealed class TheProviderTypeSortOrderOption
+        {
+            [Theory]
+            [InlineData(ColumnSortOrder.Ascending)]
+            [InlineData(ColumnSortOrder.Descending)]
+            public void Should_Not_Fail_On_Report_Creation(ColumnSortOrder value)
+            {
+                // Given
+                var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+
+                // When / Then
+                fixture.TestReportCreation(
+                    settings =>
+                        settings.WithOption(HtmlDxDataGridOption.ProviderTypeSortOrder, value));
+            }
+        }
+
+        public sealed class TheProviderNameVisibleOption
+        {
+            [Theory]
+            [InlineData(true)]
+            [InlineData(false)]
+            public void Should_Not_Fail_On_Report_Creation(bool value)
+            {
+                // Given
+                var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+
+                // When / Then
+                fixture.TestReportCreation(
+                    settings =>
+                        settings.WithOption(HtmlDxDataGridOption.ProviderNameVisible, value));
+            }
+        }
+
+        public sealed class TheProviderNameSortOrderOption
+        {
+            [Theory]
+            [InlineData(ColumnSortOrder.Ascending)]
+            [InlineData(ColumnSortOrder.Descending)]
+            public void Should_Not_Fail_On_Report_Creation(ColumnSortOrder value)
+            {
+                // Given
+                var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+
+                // When / Then
+                fixture.TestReportCreation(
+                    settings =>
+                        settings.WithOption(HtmlDxDataGridOption.ProviderNameSortOrder, value));
+            }
+        }
+
+        public sealed class ThePriorityVisibleOption
+        {
+            [Theory]
+            [InlineData(true)]
+            [InlineData(false)]
+            public void Should_Not_Fail_On_Report_Creation(bool value)
+            {
+                // Given
+                var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+
+                // When / Then
+                fixture.TestReportCreation(
+                    settings =>
+                        settings.WithOption(HtmlDxDataGridOption.PriorityVisible, value));
+            }
+        }
+
+        public sealed class ThePrioritySortOrderOption
+        {
+            [Theory]
+            [InlineData(ColumnSortOrder.Ascending)]
+            [InlineData(ColumnSortOrder.Descending)]
+            public void Should_Not_Fail_On_Report_Creation(ColumnSortOrder value)
+            {
+                // Given
+                var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+
+                // When / Then
+                fixture.TestReportCreation(
+                    settings =>
+                        settings.WithOption(HtmlDxDataGridOption.PrioritySortOrder, value));
+            }
+        }
+
+        public sealed class ThePriorityNameVisibleOption
+        {
+            [Theory]
+            [InlineData(true)]
+            [InlineData(false)]
+            public void Should_Not_Fail_On_Report_Creation(bool value)
+            {
+                // Given
+                var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+
+                // When / Then
+                fixture.TestReportCreation(
+                    settings =>
+                        settings.WithOption(HtmlDxDataGridOption.PriorityNameVisible, value));
+            }
+        }
+
+        public sealed class ThePriorityNameSortOrderOption
+        {
+            [Theory]
+            [InlineData(ColumnSortOrder.Ascending)]
+            [InlineData(ColumnSortOrder.Descending)]
+            public void Should_Not_Fail_On_Report_Creation(ColumnSortOrder value)
+            {
+                // Given
+                var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+
+                // When / Then
+                fixture.TestReportCreation(
+                    settings =>
+                        settings.WithOption(HtmlDxDataGridOption.PriorityNameSortOrder, value));
+            }
+        }
+
+        public sealed class TheProjectPathVisibleOption
+        {
+            [Theory]
+            [InlineData(true)]
+            [InlineData(false)]
+            public void Should_Not_Fail_On_Report_Creation(bool value)
+            {
+                // Given
+                var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+
+                // When / Then
+                fixture.TestReportCreation(
+                    settings =>
+                        settings.WithOption(HtmlDxDataGridOption.ProjectPathVisible, value));
+            }
+        }
+
+        public sealed class TheProjectPathSortOrderOption
+        {
+            [Theory]
+            [InlineData(ColumnSortOrder.Ascending)]
+            [InlineData(ColumnSortOrder.Descending)]
+            public void Should_Not_Fail_On_Report_Creation(ColumnSortOrder value)
+            {
+                // Given
+                var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+
+                // When / Then
+                fixture.TestReportCreation(
+                    settings =>
+                        settings.WithOption(HtmlDxDataGridOption.ProjectPathSortOrder, value));
+            }
+        }
+
+        public sealed class TheProjectNameVisibleOption
+        {
+            [Theory]
+            [InlineData(true)]
+            [InlineData(false)]
+            public void Should_Not_Fail_On_Report_Creation(bool value)
+            {
+                // Given
+                var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+
+                // When / Then
+                fixture.TestReportCreation(
+                    settings =>
+                        settings.WithOption(HtmlDxDataGridOption.ProjectNameVisible, value));
+            }
+        }
+
+        public sealed class TheProjectNameSortOrderOption
+        {
+            [Theory]
+            [InlineData(ColumnSortOrder.Ascending)]
+            [InlineData(ColumnSortOrder.Descending)]
+            public void Should_Not_Fail_On_Report_Creation(ColumnSortOrder value)
+            {
+                // Given
+                var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+
+                // When / Then
+                fixture.TestReportCreation(
+                    settings =>
+                        settings.WithOption(HtmlDxDataGridOption.ProjectNameSortOrder, value));
+            }
+        }
+
+        public sealed class TheFilePathVisibleOption
+        {
+            [Theory]
+            [InlineData(true)]
+            [InlineData(false)]
+            public void Should_Not_Fail_On_Report_Creation(bool value)
+            {
+                // Given
+                var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+
+                // When / Then
+                fixture.TestReportCreation(
+                    settings =>
+                        settings.WithOption(HtmlDxDataGridOption.FilePathVisible, value));
+            }
+        }
+
+        public sealed class TheFilePathSortOrderOption
+        {
+            [Theory]
+            [InlineData(ColumnSortOrder.Ascending)]
+            [InlineData(ColumnSortOrder.Descending)]
+            public void Should_Not_Fail_On_Report_Creation(ColumnSortOrder value)
+            {
+                // Given
+                var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+
+                // When / Then
+                fixture.TestReportCreation(
+                    settings =>
+                        settings.WithOption(HtmlDxDataGridOption.FilePathSortOrder, value));
+            }
+        }
+
+        public sealed class ThePathVisibleOption
+        {
+            [Theory]
+            [InlineData(true)]
+            [InlineData(false)]
+            public void Should_Not_Fail_On_Report_Creation(bool value)
+            {
+                // Given
+                var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+
+                // When / Then
+                fixture.TestReportCreation(
+                    settings =>
+                        settings.WithOption(HtmlDxDataGridOption.PathVisible, value));
+            }
+        }
+
+        public sealed class ThePathSortOrderOption
+        {
+            [Theory]
+            [InlineData(ColumnSortOrder.Ascending)]
+            [InlineData(ColumnSortOrder.Descending)]
+            public void Should_Not_Fail_On_Report_Creation(ColumnSortOrder value)
+            {
+                // Given
+                var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+
+                // When / Then
+                fixture.TestReportCreation(
+                    settings =>
+                        settings.WithOption(HtmlDxDataGridOption.PathSortOrder, value));
+            }
+        }
+
+        public sealed class TheFileVisibleOption
+        {
+            [Theory]
+            [InlineData(true)]
+            [InlineData(false)]
+            public void Should_Not_Fail_On_Report_Creation(bool value)
+            {
+                // Given
+                var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+
+                // When / Then
+                fixture.TestReportCreation(
+                    settings =>
+                        settings.WithOption(HtmlDxDataGridOption.FileVisible, value));
+            }
+        }
+
+        public sealed class TheFileSortOrderOption
+        {
+            [Theory]
+            [InlineData(ColumnSortOrder.Ascending)]
+            [InlineData(ColumnSortOrder.Descending)]
+            public void Should_Not_Fail_On_Report_Creation(ColumnSortOrder value)
+            {
+                // Given
+                var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+
+                // When / Then
+                fixture.TestReportCreation(
+                    settings =>
+                        settings.WithOption(HtmlDxDataGridOption.FileSortOrder, value));
+            }
+        }
+
+        public sealed class TheLineVisibleOption
+        {
+            [Theory]
+            [InlineData(true)]
+            [InlineData(false)]
+            public void Should_Not_Fail_On_Report_Creation(bool value)
+            {
+                // Given
+                var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+
+                // When / Then
+                fixture.TestReportCreation(
+                    settings =>
+                        settings.WithOption(HtmlDxDataGridOption.LineVisible, value));
+            }
+        }
+
+        public sealed class TheLineSortOrderOption
+        {
+            [Theory]
+            [InlineData(ColumnSortOrder.Ascending)]
+            [InlineData(ColumnSortOrder.Descending)]
+            public void Should_Not_Fail_On_Report_Creation(ColumnSortOrder value)
+            {
+                // Given
+                var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+
+                // When / Then
+                fixture.TestReportCreation(
+                    settings =>
+                        settings.WithOption(HtmlDxDataGridOption.LineSortOrder, value));
+            }
+        }
+
+        public sealed class TheLRuleVisibleOption
+        {
+            [Theory]
+            [InlineData(true)]
+            [InlineData(false)]
+            public void Should_Not_Fail_On_Report_Creation(bool value)
+            {
+                // Given
+                var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+
+                // When / Then
+                fixture.TestReportCreation(
+                    settings =>
+                        settings.WithOption(HtmlDxDataGridOption.RuleVisible, value));
+            }
+        }
+
+        public sealed class TheRuleSortOrderOption
+        {
+            [Theory]
+            [InlineData(ColumnSortOrder.Ascending)]
+            [InlineData(ColumnSortOrder.Descending)]
+            public void Should_Not_Fail_On_Report_Creation(ColumnSortOrder value)
+            {
+                // Given
+                var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+
+                // When / Then
+                fixture.TestReportCreation(
+                    settings =>
+                        settings.WithOption(HtmlDxDataGridOption.RuleSortOrder, value));
+            }
+        }
+
+        public sealed class TheLRuleUrlVisibleOption
+        {
+            [Theory]
+            [InlineData(true)]
+            [InlineData(false)]
+            public void Should_Not_Fail_On_Report_Creation(bool value)
+            {
+                // Given
+                var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+
+                // When / Then
+                fixture.TestReportCreation(
+                    settings =>
+                        settings.WithOption(HtmlDxDataGridOption.RuleUrlVisible, value));
+            }
+        }
+
+        public sealed class TheRuleUrlSortOrderOption
+        {
+            [Theory]
+            [InlineData(ColumnSortOrder.Ascending)]
+            [InlineData(ColumnSortOrder.Descending)]
+            public void Should_Not_Fail_On_Report_Creation(ColumnSortOrder value)
+            {
+                // Given
+                var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+
+                // When / Then
+                fixture.TestReportCreation(
+                    settings =>
+                        settings.WithOption(HtmlDxDataGridOption.RuleUrlSortOrder, value));
+            }
+        }
+
+        public sealed class TheMessageVisibleOption
+        {
+            [Theory]
+            [InlineData(true)]
+            [InlineData(false)]
+            public void Should_Not_Fail_On_Report_Creation(bool value)
+            {
+                // Given
+                var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+
+                // When / Then
+                fixture.TestReportCreation(
+                    settings =>
+                        settings.WithOption(HtmlDxDataGridOption.MessageVisible, value));
+            }
+        }
+
+        public sealed class TheMessageSortOrderOption
+        {
+            [Theory]
+            [InlineData(ColumnSortOrder.Ascending)]
+            [InlineData(ColumnSortOrder.Descending)]
+            public void Should_Not_Fail_On_Report_Creation(ColumnSortOrder value)
+            {
+                // Given
+                var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+
+                // When / Then
+                fixture.TestReportCreation(
+                    settings =>
+                        settings.WithOption(HtmlDxDataGridOption.MessageSortOrder, value));
+            }
+        }
+
+        public sealed class TheGroupedColumnsOption
+        {
+            [Fact]
+            public void Should_Not_Fail_On_Report_Creation()
+            {
+                // Given
+                var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+
+                // When / Then
+                fixture.TestReportCreation(
+                    settings =>
+                        settings.WithOption(
+                            HtmlDxDataGridOption.GroupedColumns,
+                            new List<ReportColumn>
+                            {
+                                ReportColumn.ProjectName,
+                                ReportColumn.Path,
+                                ReportColumn.File
+                            }));
+            }
+        }
+
+        public sealed class TheSortedColumnsOption
+        {
+            [Fact]
+            public void Should_Not_Fail_On_Report_Creation()
+            {
+                // Given
+                var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+
+                // When / Then
+                fixture.TestReportCreation(
+                    settings =>
+                        settings.WithOption(
+                            HtmlDxDataGridOption.SortedColumns,
+                            new List<ReportColumn>
+                            {
+                                ReportColumn.Rule,
+                                ReportColumn.Message
+                            }));
+            }
+        }
+
         public sealed class TheAdditionalColumnsOption
         {
             [Fact]
@@ -135,33 +672,39 @@
             {
                 // Given
                 var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
-                fixture.GenericIssueReportFormatSettings
-                    .WithOption(
-                        HtmlDxDataGridOption.AdditionalColumns,
-                        new List<HtmlDxDataGridColumnDescription>
-                        {
-                            new HtmlDxDataGridColumnDescription("MyCustomColumn", x => { return "Foo"; })
+
+                // When / Then
+                fixture.TestReportCreation(
+                    settings =>
+                        settings.WithOption(
+                            HtmlDxDataGridOption.AdditionalColumns,
+                            new List<HtmlDxDataGridColumnDescription>
                             {
-                                Caption = "Custom Value",
-                            }
-                        });
+                                new HtmlDxDataGridColumnDescription("MyCustomColumn", x => { return "Foo"; })
+                                {
+                                    Caption = "Custom Value",
+                                }
+                            }));
+            }
+        }
 
-                // When
-                var result =
-                    fixture.CreateReport(
-                        new List<IIssue>
-                        {
-                            IssueBuilder
-                                .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
-                                .InFile(@"src\Cake.Issues.Reporting.Generic.Tests\Foo.cs", 10)
-                                .OfRule("Rule Foo")
-                                .WithPriority(IssuePriority.Warning)
-                                .Create(),
-                        });
+        public sealed class TheFileLinkSettingsOption
+        {
+            [Fact]
+            public void Should_Not_Fail_On_Report_Creation()
+            {
+                // Given
+                var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
 
-                // Then
-                // Currently only checks if genertions failed or not without checking actual output.
-                result.ShouldNotBeNull();
+                // When / Then
+                fixture.TestReportCreation(
+                    settings =>
+                        settings.WithOption(
+                            HtmlDxDataGridOption.FileLinkSettings,
+                            FileLinkSettings.GitHub(
+                                new Uri("https://github.com/cake-contrib/Cake.Issues.Reporting.Generic"),
+                                "master",
+                                null)));
             }
         }
     }

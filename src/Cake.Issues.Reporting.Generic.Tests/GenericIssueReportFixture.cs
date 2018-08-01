@@ -1,9 +1,11 @@
 ﻿namespace Cake.Issues.Reporting.Generic.Tests
 {
+    using System;
     using System.Collections.Generic;
     using System.IO;
     using Cake.Testing;
     using Core.Diagnostics;
+    using Shouldly;
 
     internal class GenericIssueReportFixture
     {
@@ -61,6 +63,29 @@
                     File.Delete(reportFile);
                 }
             }
+        }
+
+        public void TestReportCreation(Action<GenericIssueReportFormatSettings> settings)
+        {
+            // Given
+            settings(this.GenericIssueReportFormatSettings);
+
+            // When
+            var result =
+                this.CreateReport(
+                    new List<IIssue>
+                    {
+                            IssueBuilder
+                                .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                                .InFile(@"src\Cake.Issues.Reporting.Generic.Tests\Foo.cs", 10)
+                                .OfRule("Rule Foo")
+                                .WithPriority(IssuePriority.Warning)
+                                .Create(),
+                    });
+
+            // Then
+            // Currently only checks if genertions failed or not without checking actual output.
+            result.ShouldNotBeNull();
         }
     }
 }
