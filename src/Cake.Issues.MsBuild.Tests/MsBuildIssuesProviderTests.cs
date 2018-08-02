@@ -1,5 +1,6 @@
 ﻿namespace Cake.Issues.MsBuild.Tests
 {
+    using System.Text;
     using Cake.Testing;
     using Testing;
     using Xunit;
@@ -15,8 +16,8 @@
                 var result = Record.Exception(() =>
                     new MsBuildIssuesProvider(
                         null,
-                        MsBuildIssuesSettings.FromContent(
-                            "Foo",
+                        new MsBuildIssuesSettings(
+                            Encoding.UTF8.GetBytes("Foo"),
                             new XmlFileLoggerFormat(new FakeLog()))));
 
                 // Then
