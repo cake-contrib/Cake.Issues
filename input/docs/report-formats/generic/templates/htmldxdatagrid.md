@@ -107,7 +107,7 @@ CreateIssueReport(
     @"c:\report.html");
 ```
 
-Additional columns can be added using the `AdditionalColumns` option.
+Additional columns can be added using the [HtmlDxDataGridOption.AdditionalColumns] option.
 
 * <a href="htmldxdatagrid-demo-columnhiding.html" target="_blank">Show and hide columns</a>
   (<a href="https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/build/create-reports/create-reports-htmldxdatagrid-hide-columns.cake" target="_blank">Source Code</a>)
@@ -179,6 +179,7 @@ Source code is available on [GitHub].
 [HtmlDxDataGridOption]: ../../../../../Cake.Issues.Website/api/Cake.Issues.Reporting.Generic/HtmlDxDataGridOption/
 [DevExtremeTheme]: ../../../../../Cake.Issues.Website/api/Cake.Issues.Reporting.Generic/DevExtremeTheme/
 [HtmlDxDataGridOption.Theme]: ../../../../../Cake.Issues.Website/api/Cake.Issues.Reporting.Generic/HtmlDxDataGridOption/EA83DCAB
+[HtmlDxDataGridOption.AdditionalColumns]: ../../../../../Cake.Issues.Website/api/Cake.Issues.Reporting.Generic/HtmlDxDataGridOption/F9860912
 [HtmlDxDataGridOption.SortedColumns]: ../../../../../Cake.Issues.Website/api/Cake.Issues.Reporting.Generic/HtmlDxDataGridOption/D578E453
 [HtmlDxDataGridOption.GroupedColumns]: ../../../../../Cake.Issues.Website/api/Cake.Issues.Reporting.Generic/HtmlDxDataGridOption/0907599C
 [custom template]: ../examples#use-custom-template
