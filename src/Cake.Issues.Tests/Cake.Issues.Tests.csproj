@@ -15,6 +15,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Testfiles\Build.log" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Testfiles\Build.log" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.8.0" />
     <PackageReference Include="Cake.Core" Version="0.28.0" />
     <PackageReference Include="Cake.Testing" Version="0.28.0" />

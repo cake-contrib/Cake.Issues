@@ -58,14 +58,14 @@
         /// <param name="repositoryRoot">Root path of the repository.</param>
         /// <returns>Issues reported by issue provider.</returns>
         /// <example>
-        /// <para>Read issues reported as MsBuild warnings:</para>
+        /// <para>Read issues reported by JetBrains inspect code:</para>
         /// <code>
         /// <![CDATA[
-        ///     var issues = ReadIssues(
-        ///         MsBuildIssuesFromFilePath(
-        ///             @"C:\build\msbuild.log",
-        ///             MsBuildXmlFileLoggerFormat),
-        ///         @"c:\repo"));
+        ///     var issues =
+        ///         ReadIssues(
+        ///             InspectCodeIssuesFromFilePath(
+        ///                 @"C:\build\inspectcode.log"),
+        ///             @"c:\repo"));
         /// ]]>
         /// </code>
         /// </example>
@@ -97,17 +97,17 @@
         /// <para>Read issues reported as MsBuild warnings and issues reported by JetBrains inspect code:</para>
         /// <code>
         /// <![CDATA[
-        ///     var issues = ReadIssues(
-        ///         new List<IIssueProvider>
-        ///         {
-        ///             MsBuildIssuesFromFilePath(
-        ///                 @"C:\build\msbuild.log",
-        ///                 MsBuildXmlFileLoggerFormat),
-        ///             InspectCodeIssuesFromFilePath(
-        ///                 @"C:\build\inspectcode.log",
-        ///                 MsBuildXmlFileLoggerFormat)
-        ///         },
-        ///         @"c:\repo"));
+        ///     var issues =
+        ///         ReadIssues(
+        ///             new List<IIssueProvider>
+        ///             {
+        ///                 MsBuildIssuesFromFilePath(
+        ///                     @"C:\build\msbuild.log",
+        ///                     MsBuildXmlFileLoggerFormat),
+        ///                 InspectCodeIssuesFromFilePath(
+        ///                     @"C:\build\inspectcode.log")
+        ///             },
+        ///             @"c:\repo"));
         /// ]]>
         /// </code>
         /// </example>
@@ -139,7 +139,7 @@
         /// <param name="settings">The settings.</param>
         /// <returns>Issues reported by issue provider.</returns>
         /// <example>
-        /// <para>Read issues reported as MsBuild warnings and format comments in Markdown:</para>
+        /// <para>Read issues reported by JetBrains inspect code and format comments in Markdown:</para>
         /// <code>
         /// <![CDATA[
         ///     var settings =
@@ -148,11 +148,11 @@
         ///             Format = IssueCommentFormat.Markdown
         ///         };
         ///
-        ///     var issues = ReadIssues(
-        ///         MsBuildIssuesFromFilePath(
-        ///             @"C:\build\msbuild.log",
-        ///             MsBuildXmlFileLoggerFormat),
-        ///         settings));
+        ///     var issues =
+        ///         ReadIssues(
+        ///             InspectCodeIssuesFromFilePath(
+        ///                 @"C:\build\inspectcode.log"),
+        ///             settings));
         /// ]]>
         /// </code>
         /// </example>
@@ -191,17 +191,17 @@
         ///             Format = IssueCommentFormat.Markdown
         ///         };
         ///
-        ///     var issues = ReadIssues(
-        ///         new List<IIssueProvider>
-        ///         {
-        ///             MsBuildIssuesFromFilePath(
-        ///                 @"C:\build\msbuild.log",
-        ///                 MsBuildXmlFileLoggerFormat),
-        ///             InspectCodeIssuesFromFilePath(
-        ///                 @"C:\build\inspectcode.log",
-        ///                 MsBuildXmlFileLoggerFormat)
-        ///         },
-        ///         settings));
+        ///     var issues =
+        ///         ReadIssues(
+        ///             new List<IIssueProvider>
+        ///             {
+        ///                 MsBuildIssuesFromFilePath(
+        ///                     @"C:\build\msbuild.log",
+        ///                     MsBuildXmlFileLoggerFormat),
+        ///                 InspectCodeIssuesFromFilePath(
+        ///                     @"C:\build\inspectcode.log")
+        ///             },
+        ///             settings));
         /// ]]>
         /// </code>
         /// </example>
