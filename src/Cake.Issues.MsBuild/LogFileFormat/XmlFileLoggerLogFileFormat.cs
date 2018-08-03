@@ -28,9 +28,15 @@
             RepositorySettings repositorySettings,
             MsBuildIssuesSettings issueProviderSettings)
         {
+#pragma warning disable SA1123 // Do not place regions within elements
+            #region DupFinder Exclusion
+#pragma warning restore SA1123 // Do not place regions within elements
+
             issueProvider.NotNull(nameof(issueProvider));
             repositorySettings.NotNull(nameof(repositorySettings));
             issueProviderSettings.NotNull(nameof(issueProviderSettings));
+
+            #endregion
 
             var result = new List<IIssue>();
 
@@ -41,7 +47,7 @@
             foreach (var warning in logDocument.Descendants("warning"))
             {
                 // Read affected project from the warning.
-                if (!TryGetProject(warning, repositorySettings, out string projectFileRelativePath))
+                if (!this.TryGetProject(warning, repositorySettings, out string projectFileRelativePath))
                 {
                     continue;
                 }
@@ -142,7 +148,7 @@
         /// <param name="repositorySettings">Repository settings to use.</param>
         /// <param name="project">Returns project.</param>
         /// <returns>True if the project could be parsed.</returns>
-        private static bool TryGetProject(
+        private bool TryGetProject(
             XElement warning,
             RepositorySettings repositorySettings,
             out string project)
@@ -167,16 +173,10 @@
                 return true;
             }
 
-            // Make path relative to repository root.
-            project = project.Substring(repositorySettings.RepositoryRoot.FullPath.Length);
-
-            // Remove leading directory separator.
-            if (project.StartsWith(System.IO.Path.DirectorySeparatorChar.ToString()))
-            {
-                project = project.Substring(1);
-            }
-
-            return true;
+            // Validate project path and make relative to repository root.
+            bool result;
+            (result, project) = this.ValidateFilePath(project, repositorySettings);
+            return result;
         }
 
         /// <summary>
@@ -216,27 +216,10 @@
                 }
             }
 
-            // Ignore files from outside the repository.
-            if (!fileName.IsSubpathOf(repositorySettings.RepositoryRoot.FullPath))
-            {
-                this.Log.Warning(
-                    "Ignored issue for file '{0}' since it is outside the repository folder at {1}.",
-                    fileName,
-                    repositorySettings.RepositoryRoot);
-
-                return false;
-            }
-
-            // Make path relative to repository root.
-            fileName = fileName.Substring(repositorySettings.RepositoryRoot.FullPath.Length);
-
-            // Remove leading directory separator.
-            if (fileName.StartsWith(System.IO.Path.DirectorySeparatorChar.ToString()))
-            {
-                fileName = fileName.Substring(1);
-            }
-
-            return true;
+            // Validate file path and make relative to repository root.
+            bool result;
+            (result, fileName) = this.ValidateFilePath(fileName, repositorySettings);
+            return result;
         }
     }
 }
