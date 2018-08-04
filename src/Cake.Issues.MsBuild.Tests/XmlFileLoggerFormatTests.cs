@@ -1,6 +1,7 @@
 ﻿namespace Cake.Issues.MsBuild.Tests
 {
     using System.Linq;
+    using Cake.Core.Diagnostics;
     using Core.IO;
     using Shouldly;
     using Testing;
@@ -8,13 +9,16 @@
 
     public sealed class XmlFileLoggerFormatTests
     {
-        public sealed class TheXmlFileLoggerFormatCtor
+        public sealed class TheCtor
         {
             [Fact]
             public void Should_Throw_If_Log_Is_Null()
             {
-                // Given / When
-                var result = Record.Exception(() => new XmlFileLoggerFormat(null));
+                // Given
+                ICakeLog log = null;
+
+                // When
+                var result = Record.Exception(() => new XmlFileLoggerFormat(log));
 
                 // Then
                 result.IsArgumentNullException("log");

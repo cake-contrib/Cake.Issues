@@ -11,15 +11,12 @@
         {
             this.Log = new FakeLog { Verbosity = Verbosity.Normal };
 
+            using (var ms = new MemoryStream())
             using (var stream = this.GetType().Assembly.GetManifestResourceStream("Cake.Issues.MsBuild.Tests.Testfiles." + fileResourceName))
             {
-                using (var sr = new StreamReader(stream))
-                {
-                    this.MsBuildIssuesSettings =
-                        MsBuildIssuesSettings.FromContent(
-                            sr.ReadToEnd(),
-                            new XmlFileLoggerFormat(this.Log));
-                }
+                stream.CopyTo(ms);
+                this.MsBuildIssuesSettings =
+                    new MsBuildIssuesSettings(ms.ToArray(), new XmlFileLoggerFormat(this.Log));
             }
 
             this.RepositorySettings =

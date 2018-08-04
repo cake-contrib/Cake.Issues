@@ -1,6 +1,7 @@
 ﻿namespace Cake.Issues.MsBuild
 {
     using System;
+    using System.Text;
     using Core;
     using Core.Annotations;
     using Core.IO;
@@ -121,7 +122,7 @@
         /// <returns>Instance for the MsBuild log format.</returns>
         [CakePropertyAlias]
         [CakeAliasCategory(IssuesAliasConstants.IssueProviderCakeAliasCategory)]
-        public static ILogFileFormat MsBuildXmlFileLoggerFormat(
+        public static MsBuildLogFileFormat MsBuildXmlFileLoggerFormat(
             this ICakeContext context)
         {
             context.NotNull(nameof(context));
@@ -155,13 +156,13 @@
         public static IIssueProvider MsBuildIssuesFromFilePath(
             this ICakeContext context,
             FilePath logFilePath,
-            ILogFileFormat format)
+            MsBuildLogFileFormat format)
         {
             context.NotNull(nameof(context));
             logFilePath.NotNull(nameof(logFilePath));
             format.NotNull(nameof(format));
 
-            return context.MsBuildIssues(MsBuildIssuesSettings.FromFilePath(logFilePath, format));
+            return context.MsBuildIssues(new MsBuildIssuesSettings(logFilePath, format));
         }
 
         /// <summary>
@@ -190,13 +191,13 @@
         public static IIssueProvider MsBuildIssuesFromContent(
             this ICakeContext context,
             string logFileContent,
-            ILogFileFormat format)
+            MsBuildLogFileFormat format)
         {
             context.NotNull(nameof(context));
             logFileContent.NotNullOrWhiteSpace(nameof(logFileContent));
             format.NotNull(nameof(format));
 
-            return context.MsBuildIssues(MsBuildIssuesSettings.FromContent(logFileContent, format));
+            return context.MsBuildIssues(new MsBuildIssuesSettings(Encoding.UTF8.GetBytes(logFileContent), format));
         }
 
         /// <summary>
