@@ -1,5 +1,5 @@
 ---
-Order: 50
+Order: 60
 Title: Helper
 Description: Overview of different helper classes for implementing issue providers.
 ---
