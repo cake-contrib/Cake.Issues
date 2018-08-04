@@ -21,7 +21,7 @@
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MsBuildIssuesSettings"/> class
-        /// for a log file content in memoy.
+        /// for a log file content in memory.
         /// </summary>
         /// <param name="logFileContent">Content of the MSBuild log file.
         /// The log file needs to be in the format as defined by the <paramref name="format"/> parameter.</param>
