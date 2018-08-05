@@ -1,4 +1,4 @@
-﻿namespace Cake.Issues.Markdownlint.Tests.Markdownlint
+﻿namespace Cake.Issues.Markdownlint.Tests
 {
     using Cake.Core.Diagnostics;
     using Cake.Issues.Markdownlint;
@@ -20,14 +20,14 @@
                 var result = Record.Exception(() =>
                     new MarkdownlintIssuesProvider(
                         log,
-                        MarkdownlintIssuesSettings.FromContent("Foo", new MarkdownlintLogFileFormat(new FakeLog()))));
+                        new MarkdownlintIssuesSettings("Foo".ToByteArray(), new MarkdownlintLogFileFormat(new FakeLog()))));
 
                 // Then
                 result.IsArgumentNullException("log");
             }
 
             [Fact]
-            public void Should_Throw_If_Settings_Are_Null()
+            public void Should_Throw_If_IssueProviderSettings_Are_Null()
             {
                 var result = Record.Exception(() =>
                     new MarkdownlintIssuesProvider(
@@ -35,7 +35,7 @@
                         null));
 
                 // Then
-                result.IsArgumentNullException("settings");
+                result.IsArgumentNullException("issueProviderSettings");
             }
         }
     }

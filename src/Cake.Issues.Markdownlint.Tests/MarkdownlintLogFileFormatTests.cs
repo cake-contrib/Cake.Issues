@@ -1,7 +1,6 @@
 ﻿namespace Cake.Issues.Markdownlint.Tests
 {
     using System.Linq;
-    using Cake.Testing;
     using Core.IO;
     using Shouldly;
     using Testing;
@@ -28,8 +27,7 @@
             public void Should_Read_Issues_Correct()
             {
                 // Given
-                var format = new MarkdownlintLogFileFormat(new FakeLog());
-                var fixture = new MarkdownlintIssuesProviderFixture("markdownlint.json", format);
+                var fixture = new MarkdownlintIssuesProviderFixture<MarkdownlintLogFileFormat>("markdownlint.json");
 
                 // When
                 var issues = fixture.ReadIssues().ToList();

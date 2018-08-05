@@ -1,7 +1,6 @@
 ﻿namespace Cake.Issues.Markdownlint.Tests
 {
     using System.Linq;
-    using Cake.Testing;
     using Core.IO;
     using Shouldly;
     using Testing;
@@ -28,8 +27,8 @@
             public void Should_Read_Issue_Correct_0_8_1()
             {
                 // Given
-                var format = new MarkdownlintCliLogFileFormat(new FakeLog());
-                var fixture = new MarkdownlintIssuesProviderFixture("markdownlint-cli-0.8.1.log", format);
+                var fixture =
+                    new MarkdownlintIssuesProviderFixture<MarkdownlintCliLogFileFormat>("markdownlint-cli-0.8.1.log");
 
                 // When
                 var issues = fixture.ReadIssues().ToList();
@@ -130,8 +129,8 @@
             public void Should_Read_Issue_Correct_0_10_0()
             {
                 // Given
-                var format = new MarkdownlintCliLogFileFormat(new FakeLog());
-                var fixture = new MarkdownlintIssuesProviderFixture("markdownlint-cli-0.10.0.log", format);
+                var fixture =
+                    new MarkdownlintIssuesProviderFixture<MarkdownlintCliLogFileFormat>("markdownlint-cli-0.10.0.log");
 
                 // When
                 var issues = fixture.ReadIssues().ToList();

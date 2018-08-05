@@ -9,7 +9,7 @@
     /// <summary>
     /// Logfile format as written by Markdownlint.
     /// </summary>
-    internal class MarkdownlintLogFileFormat : LogFileFormat
+    internal class MarkdownlintLogFileFormat : BaseMarkdownlintLogFileFormat
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="MarkdownlintLogFileFormat"/> class.
@@ -31,7 +31,8 @@
             markdownlintIssuesSettings.NotNull(nameof(markdownlintIssuesSettings));
 
             var logFileEntries =
-                JsonConvert.DeserializeObject<Dictionary<string, IEnumerable<JToken>>>(markdownlintIssuesSettings.LogFileContent);
+                JsonConvert.DeserializeObject<Dictionary<string, IEnumerable<JToken>>>(
+                    markdownlintIssuesSettings.LogFileContent.ToStringUsingEncoding(true));
 
             return
                 from file in logFileEntries

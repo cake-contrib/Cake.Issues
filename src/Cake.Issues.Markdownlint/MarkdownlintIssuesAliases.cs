@@ -98,7 +98,7 @@
         /// <returns>Instance for the Markdownlint log format.</returns>
         [CakePropertyAlias]
         [CakeAliasCategory(IssuesAliasConstants.IssueProviderCakeAliasCategory)]
-        public static ILogFileFormat MarkdownlintLogFileFormat(
+        public static BaseMarkdownlintLogFileFormat MarkdownlintLogFileFormat(
             this ICakeContext context)
         {
             context.NotNull(nameof(context));
@@ -113,7 +113,7 @@
         /// <returns>Instance for the Markdownlint log format.</returns>
         [CakePropertyAlias]
         [CakeAliasCategory(IssuesAliasConstants.IssueProviderCakeAliasCategory)]
-        public static ILogFileFormat MarkdownlintCliLogFileFormat(
+        public static BaseMarkdownlintLogFileFormat MarkdownlintCliLogFileFormat(
             this ICakeContext context)
         {
             context.NotNull(nameof(context));
@@ -147,13 +147,13 @@
         public static IIssueProvider MarkdownlintIssuesFromFilePath(
             this ICakeContext context,
             FilePath logFilePath,
-            ILogFileFormat format)
+            BaseMarkdownlintLogFileFormat format)
         {
             context.NotNull(nameof(context));
             logFilePath.NotNull(nameof(logFilePath));
             format.NotNull(nameof(format));
 
-            return context.MarkdownlintIssues(MarkdownlintIssuesSettings.FromFilePath(logFilePath, format));
+            return context.MarkdownlintIssues(new MarkdownlintIssuesSettings(logFilePath, format));
         }
 
         /// <summary>
@@ -182,13 +182,13 @@
         public static IIssueProvider MarkdownlintIssuesFromContent(
             this ICakeContext context,
             string logFileContent,
-            ILogFileFormat format)
+            BaseMarkdownlintLogFileFormat format)
         {
             context.NotNull(nameof(context));
             logFileContent.NotNullOrWhiteSpace(nameof(logFileContent));
             format.NotNull(nameof(format));
 
-            return context.MarkdownlintIssues(MarkdownlintIssuesSettings.FromContent(logFileContent, format));
+            return context.MarkdownlintIssues(new MarkdownlintIssuesSettings(logFileContent, format));
         }
 
         /// <summary>
