@@ -2,6 +2,7 @@
 {
     using System.Text;
     using Cake.Core.Diagnostics;
+    using Cake.Issues.MsBuild.LogFileFormat;
     using Cake.Testing;
     using Testing;
     using Xunit;
@@ -18,7 +19,7 @@
                 var settings =
                     new MsBuildIssuesSettings(
                         Encoding.UTF8.GetBytes("Foo"),
-                        new XmlFileLoggerFormat(new FakeLog()));
+                        new XmlFileLoggerLogFileFormat(new FakeLog()));
 
                 // When
                 var result = Record.Exception(() => new MsBuildIssuesProvider(log, settings));

@@ -24,12 +24,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Testfiles\FullLog.xml" />
-    <EmbeddedResource Include="Testfiles\IssueWithoutCode.xml" />
-    <EmbeddedResource Include="Testfiles\IssueWithFile.xml" />
-    <EmbeddedResource Include="Testfiles\IssueWithLineZero.xml" />
-    <EmbeddedResource Include="Testfiles\IssueWithOnlyFileName.xml" />
-    <EmbeddedResource Include="Testfiles\IssueWithoutFile.xml" />
+    <EmbeddedResource Include="Testfiles\XmlFileLoggerLogFileFormat\FullLog.xml" />
+    <EmbeddedResource Include="Testfiles\XmlFileLoggerLogFileFormat\IssueWithoutCode.xml" />
+    <EmbeddedResource Include="Testfiles\XmlFileLoggerLogFileFormat\IssueWithFile.xml" />
+    <EmbeddedResource Include="Testfiles\XmlFileLoggerLogFileFormat\IssueWithLineZero.xml" />
+    <EmbeddedResource Include="Testfiles\XmlFileLoggerLogFileFormat\IssueWithOnlyFileName.xml" />
+    <EmbeddedResource Include="Testfiles\XmlFileLoggerLogFileFormat\IssueWithoutFile.xml" />
   </ItemGroup>
 
   <ItemGroup>
