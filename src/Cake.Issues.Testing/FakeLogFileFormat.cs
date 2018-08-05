@@ -4,10 +4,12 @@
     using Cake.Core.Diagnostics;
 
     /// <summary>
-    /// Implementation of <see cref="LogFileFormat{TIssueProvider, TSettings}"/> for use in test cases.
+    /// Implementation of <see cref="BaseLogFileFormat{TIssueProvider, TSettings}"/> for use in test cases.
     /// </summary>
-    public class FakeLogFileFormat : LogFileFormat<FakeIssueProvider, FakeIssueProviderSettings>
+    public class FakeLogFileFormat : BaseLogFileFormat<FakeMultiFormatIssueProvider, FakeMultiFormatIssueProviderSettings>
     {
+        private readonly List<IIssue> issues = new List<IIssue>();
+
         /// <summary>
         /// Initializes a new instance of the <see cref="FakeLogFileFormat"/> class.
         /// </summary>
@@ -18,17 +20,32 @@
         }
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="FakeLogFileFormat"/> class.
+        /// </summary>
+        /// <param name="log">The Cake log instance.</param>
+        /// <param name="issues">Issues which should be returned by the log file format.</param>
+        public FakeLogFileFormat(ICakeLog log, IEnumerable<IIssue> issues)
+            : base(log)
+        {
+            // ReSharper disable once PossibleMultipleEnumeration
+            issues.NotNull(nameof(issues));
+
+            // ReSharper disable once PossibleMultipleEnumeration
+            this.issues.AddRange(issues);
+        }
+
+        /// <summary>
         /// Gets the Cake log instance.
         /// </summary>
         public new ICakeLog Log => base.Log;
 
         /// <inheritdoc/>
         public override IEnumerable<IIssue> ReadIssues(
-            FakeIssueProvider issueProvider,
+            FakeMultiFormatIssueProvider issueProvider,
             RepositorySettings repositorySettings,
-            FakeIssueProviderSettings issueProviderSettings)
+            FakeMultiFormatIssueProviderSettings issueProviderSettings)
         {
-            return new List<IIssue>();
+            return this.issues;
         }
     }
 }

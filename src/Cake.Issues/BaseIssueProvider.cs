@@ -6,13 +6,13 @@
     /// <summary>
     /// Base class for all issue provider implementations.
     /// </summary>
-    public abstract class IssueProvider : BaseIssueComponent<RepositorySettings>, IIssueProvider
+    public abstract class BaseIssueProvider : BaseIssueComponent<RepositorySettings>, IIssueProvider
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="IssueProvider"/> class.
+        /// Initializes a new instance of the <see cref="BaseIssueProvider"/> class.
         /// </summary>
         /// <param name="log">The Cake log context.</param>
-        protected IssueProvider(ICakeLog log)
+        protected BaseIssueProvider(ICakeLog log)
             : base(log)
         {
         }
