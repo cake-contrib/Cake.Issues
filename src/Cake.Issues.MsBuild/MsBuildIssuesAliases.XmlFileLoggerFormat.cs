@@ -38,7 +38,7 @@
         /// <returns>Instance for the MsBuild log format.</returns>
         [CakePropertyAlias]
         [CakeAliasCategory(IssuesAliasConstants.IssueProviderCakeAliasCategory)]
-        public static MsBuildLogFileFormat MsBuildXmlFileLoggerFormat(
+        public static BaseMsBuildLogFileFormat MsBuildXmlFileLoggerFormat(
             this ICakeContext context)
         {
             context.NotNull(nameof(context));

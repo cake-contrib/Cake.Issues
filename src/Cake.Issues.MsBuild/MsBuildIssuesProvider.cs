@@ -1,35 +1,23 @@
 ﻿namespace Cake.Issues.MsBuild
 {
-    using System.Collections.Generic;
     using Core.Diagnostics;
 
     /// <summary>
     /// Provider for issues reported as MsBuild warnings.
     /// </summary>
-    public class MsBuildIssuesProvider : IssueProvider
+    public class MsBuildIssuesProvider : BaseMultiFormatIssueProvider<MsBuildIssuesSettings, MsBuildIssuesProvider>
     {
-        private readonly MsBuildIssuesSettings msBuildIssuesSettings;
-
         /// <summary>
         /// Initializes a new instance of the <see cref="MsBuildIssuesProvider"/> class.
         /// </summary>
         /// <param name="log">The Cake log context.</param>
         /// <param name="settings">Settings for reading the log file.</param>
         public MsBuildIssuesProvider(ICakeLog log, MsBuildIssuesSettings settings)
-            : base(log)
+            : base(log, settings)
         {
-            settings.NotNull(nameof(settings));
-
-            this.msBuildIssuesSettings = settings;
         }
 
         /// <inheritdoc />
         public override string ProviderName => "MSBuild";
-
-        /// <inheritdoc />
-        protected override IEnumerable<IIssue> InternalReadIssues(IssueCommentFormat format)
-        {
-            return this.msBuildIssuesSettings.Format.ReadIssues(this, this.Settings, this.msBuildIssuesSettings);
-        }
     }
 }
