@@ -2,9 +2,11 @@
 {
     using Cake.Core.Diagnostics;
     using Cake.Issues.Testing;
+    using Cake.Testing;
+    using Shouldly;
     using Xunit;
 
-    public sealed class LogFileFormatTests
+    public sealed class BaseLogFileFormatTests
     {
         public sealed class TheCtor
         {
@@ -19,6 +21,19 @@
 
                 // Then
                 result.IsArgumentNullException("log");
+            }
+
+            [Fact]
+            public void Should_Set_Log()
+            {
+                // Given
+                var log = new FakeLog();
+
+                // When
+                var result = new FakeLogFileFormat(log);
+
+                // Then
+                result.Log.ShouldBe(log);
             }
         }
     }

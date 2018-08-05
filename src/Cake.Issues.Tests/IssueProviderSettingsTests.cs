@@ -2,13 +2,14 @@
 {
     using System;
     using System.IO;
+    using System.Text;
     using Cake.Core.IO;
     using Cake.Issues.Testing;
     using Cake.Testing;
     using Shouldly;
     using Xunit;
 
-    public sealed class MultiFormatIssueProviderSettingsTests
+    public sealed class IssueProviderSettingsTests
     {
         public sealed class TheCtor
         {
@@ -17,10 +18,9 @@
             {
                 // Given
                 FilePath logFilePath = null;
-                var format = new FakeLogFileFormat(new FakeLog());
 
                 // When
-                var result = Record.Exception(() => new FakeIssueProviderSettings(logFilePath, format));
+                var result = Record.Exception(() => new IssueProviderSettings(logFilePath));
 
                 // Then
                 result.IsArgumentNullException("logFilePath");
@@ -31,10 +31,9 @@
             {
                 // Given
                 byte[] logFileContent = null;
-                var format = new FakeLogFileFormat(new FakeLog());
 
                 // When
-                var result = Record.Exception(() => new FakeIssueProviderSettings(logFileContent, format));
+                var result = Record.Exception(() => new IssueProviderSettings(logFileContent));
 
                 // Then
                 result.IsArgumentNullException("logFileContent");
@@ -45,17 +44,29 @@
             {
                 // Given
                 byte[] logFileContent = Array.Empty<byte>();
-                var format = new FakeLogFileFormat(new FakeLog());
 
                 // When
-                var result = Record.Exception(() => new FakeIssueProviderSettings(logFileContent, format));
+                var result = Record.Exception(() => new IssueProviderSettings(logFileContent));
 
                 // Then
                 result.IsArgumentException("logFileContent");
             }
 
             [Fact]
-            public void Should_Read_File_From_Disk()
+            public void Should_Set_LogContent()
+            {
+                // Given
+                var logFileContent = Encoding.UTF8.GetBytes("Foo");
+
+                // When
+                var settings = new IssueProviderSettings(logFileContent);
+
+                // Then
+                settings.LogFileContent.ShouldBe(logFileContent);
+            }
+
+            [Fact]
+            public void Should_Set_LogContent_From_LogFilePath()
             {
                 var fileName = System.IO.Path.GetTempFileName();
                 try
@@ -74,10 +85,8 @@
                         }
                     }
 
-                    var format = new FakeLogFileFormat(new FakeLog());
-
                     // When
-                    var settings = new FakeIssueProviderSettings(fileName, format);
+                    var settings = new IssueProviderSettings(fileName);
 
                     // Then
                     settings.LogFileContent.ShouldBe(expected);

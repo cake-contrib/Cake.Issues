@@ -5,12 +5,12 @@
     using Testing;
     using Xunit;
 
-    public sealed class IssueProviderTests
+    public sealed class BaseIssueProviderTests
     {
         public sealed class TheCtor
         {
             [Fact]
-            public void Should_Throw_If_File_Log_Is_Null()
+            public void Should_Throw_If_Log_Is_Null()
             {
                 // Given / When
                 var result = Record.Exception(() => new FakeIssueProvider(null));

@@ -8,8 +8,8 @@
     /// <typeparam name="TIssueProvider">Type of the issue provider.</typeparam>
     /// <typeparam name="TSettings">Type of the settings.</typeparam>
     public interface ILogFileFormat<TIssueProvider, TSettings>
-        where TIssueProvider : IIssueProvider
-        where TSettings : MultiFormatIssueProviderSettings<TIssueProvider, TSettings>
+        where TIssueProvider : BaseMultiFormatIssueProvider<TSettings, TIssueProvider>
+        where TSettings : BaseMultiFormatIssueProviderSettings<TIssueProvider, TSettings>
     {
         /// <summary>
         /// Gets all issues.
