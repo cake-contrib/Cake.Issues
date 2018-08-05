@@ -47,7 +47,7 @@ public class MyIssuesSettings : MultiFormatIssueProviderSettings<MyIssuesProvide
     /// <param name="logFilePath">Path to the log file.
     /// The log file needs to be in the format as defined by the <paramref name="format"/> parameter.</param>
     /// <param name="format">Format of the provided log file.</param>
-    public MsBuildIssuesSettings(FilePath logFilePath, MyLogFileFormat format)
+    public MyIssuesSettings(FilePath logFilePath, MyLogFileFormat format)
         : base(logFilePath, format)
     {
     }
@@ -59,7 +59,7 @@ public class MyIssuesSettings : MultiFormatIssueProviderSettings<MyIssuesProvide
     /// <param name="logFileContent">Content of the log file.
     /// The log file needs to be in the format as defined by the <paramref name="format"/> parameter.</param>
     /// <param name="format">Format of the provided log file.</param>
-    public MsBuildIssuesSettings(byte[] logFileContent, MyLogFileFormat format)
+    public MyIssuesSettings(byte[] logFileContent, MyLogFileFormat format)
         : base(logFileContent, format)
     {
     }
@@ -87,7 +87,7 @@ internal class MyConcreteLogFileFormat : MyLogFileFormat
 
     /// <inheritdoc/>
     public override IEnumerable<IIssue> ReadIssues(
-        MsBuildIssuesProvider issueProvider,
+        MyIssuesProvider issueProvider,
         RepositorySettings repositorySettings,
         MyIssuesSettings issueProviderSettings)
     {
