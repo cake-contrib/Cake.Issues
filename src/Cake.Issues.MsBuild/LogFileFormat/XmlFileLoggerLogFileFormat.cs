@@ -1,4 +1,4 @@
-﻿namespace Cake.Issues.MsBuild
+﻿namespace Cake.Issues.MsBuild.LogFileFormat
 {
     using System;
     using System.Collections.Generic;
@@ -10,13 +10,13 @@
     /// <summary>
     /// MsBuild log format as written by the <c>XmlFileLogger</c> class from MSBuild Extension Pack.
     /// </summary>
-    internal class XmlFileLoggerFormat : BaseMsBuildLogFileFormat
+    internal class XmlFileLoggerLogFileFormat : BaseMsBuildLogFileFormat
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="XmlFileLoggerFormat"/> class.
+        /// Initializes a new instance of the <see cref="XmlFileLoggerLogFileFormat"/> class.
         /// </summary>
         /// <param name="log">The Cake log instance.</param>
-        public XmlFileLoggerFormat(ICakeLog log)
+        public XmlFileLoggerLogFileFormat(ICakeLog log)
             : base(log)
         {
         }

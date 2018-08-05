@@ -1,10 +1,10 @@
-﻿namespace Cake.Issues.MsBuild
+﻿namespace Cake.Issues.MsBuild.LogFileFormat
 {
     using Cake.Core;
     using Cake.Core.Annotations;
 
     /// <content>
-    /// Contains functionality related to <see cref="XmlFileLoggerFormat"/>.
+    /// Contains functionality related to <see cref="XmlFileLoggerLogFileFormat"/>.
     /// </content>
     public static partial class MsBuildIssuesAliases
     {
@@ -43,7 +43,7 @@
         {
             context.NotNull(nameof(context));
 
-            return new XmlFileLoggerFormat(context.Log);
+            return new XmlFileLoggerLogFileFormat(context.Log);
         }
     }
 }
