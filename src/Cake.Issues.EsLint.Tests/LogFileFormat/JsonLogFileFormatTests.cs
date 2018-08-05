@@ -1,11 +1,12 @@
-﻿namespace Cake.Issues.EsLint.Tests
+﻿namespace Cake.Issues.EsLint.Tests.LogFileFormat
 {
     using System.Linq;
+    using Cake.Issues.EsLint.LogFileFormat;
     using Core.IO;
     using Shouldly;
     using Xunit;
 
-    public sealed class JsonFormatTests
+    public sealed class JsonLogFileFormatTests
     {
         public sealed class TheJsonFormatCtor
         {
@@ -13,7 +14,7 @@
             public void Should_Throw_If_Log_Is_Null()
             {
                 // Given / When
-                var result = Record.Exception(() => new JsonFormat(null));
+                var result = Record.Exception(() => new JsonLogFileFormat(null));
 
                 // Then
                 result.IsArgumentNullException("log");
@@ -26,7 +27,7 @@
             public void Should_Read_Issue_Correct()
             {
                 // Given
-                var fixture = new EsLintIssuesProviderFixture("jsonFormatWindows.json");
+                var fixture = new EsLintIssuesProviderFixture<JsonLogFileFormat>("jsonFormatWindows.json");
 
                 // When
                 var issues = fixture.ReadIssues().ToList();

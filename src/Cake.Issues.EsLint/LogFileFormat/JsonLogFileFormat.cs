@@ -1,4 +1,4 @@
-﻿namespace Cake.Issues.EsLint
+﻿namespace Cake.Issues.EsLint.LogFileFormat
 {
     using System.Collections.Generic;
     using System.IO;
@@ -10,13 +10,13 @@
     /// <summary>
     /// ESLint Json format.
     /// </summary>
-    internal class JsonFormat : LogFileFormat
+    internal class JsonLogFileFormat : BaseEsLintLogFileFormat
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="JsonFormat"/> class.
+        /// Initializes a new instance of the <see cref="JsonLogFileFormat"/> class.
         /// </summary>
         /// <param name="log">The Cake log instance.</param>
-        public JsonFormat(ICakeLog log)
+        public JsonLogFileFormat(ICakeLog log)
             : base(log)
         {
         }
@@ -32,7 +32,7 @@
             esLintsettings.NotNull(nameof(esLintsettings));
 
             IEnumerable<LogFile> logFileEntries = null;
-            using (var ms = new MemoryStream(Encoding.UTF8.GetBytes(esLintsettings.LogFileContent)))
+            using (var ms = new MemoryStream(Encoding.UTF8.GetBytes(esLintsettings.LogFileContent.Utf8ToString(true))))
             {
                 var jsonSerializer = new DataContractJsonSerializer(typeof(LogFile[]));
                 logFileEntries = jsonSerializer.ReadObject(ms) as LogFile[];

@@ -1,6 +1,8 @@
 ﻿namespace Cake.Issues.EsLint
 {
     using System;
+    using System.Text;
+    using Cake.Issues.EsLint.LogFileFormat;
     using Core;
     using Core.Annotations;
     using Core.IO;
@@ -98,12 +100,12 @@
         /// <returns>Instance for the ESLint JSON log format.</returns>
         [CakePropertyAlias]
         [CakeAliasCategory(IssuesAliasConstants.IssueProviderCakeAliasCategory)]
-        public static ILogFileFormat EsLintJsonFormat(
+        public static BaseEsLintLogFileFormat EsLintJsonFormat(
             this ICakeContext context)
         {
             context.NotNull(nameof(context));
 
-            return new JsonFormat(context.Log);
+            return new JsonLogFileFormat(context.Log);
         }
 
         /// <summary>
@@ -130,13 +132,13 @@
         public static IIssueProvider EsLintIssuesFromFilePath(
             this ICakeContext context,
             FilePath logFilePath,
-            ILogFileFormat format)
+            BaseEsLintLogFileFormat format)
         {
             context.NotNull(nameof(context));
             logFilePath.NotNull(nameof(logFilePath));
             format.NotNull(nameof(format));
 
-            return context.EsLintIssues(EsLintIssuesSettings.FromFilePath(logFilePath, format));
+            return context.EsLintIssues(new EsLintIssuesSettings(logFilePath, format));
         }
 
         /// <summary>
@@ -163,13 +165,15 @@
         public static IIssueProvider EsLintIssuesFromContent(
             this ICakeContext context,
             string logFileContent,
-            ILogFileFormat format)
+            BaseEsLintLogFileFormat format)
         {
             context.NotNull(nameof(context));
             logFileContent.NotNullOrWhiteSpace(nameof(logFileContent));
             format.NotNull(nameof(format));
 
-            return context.EsLintIssues(EsLintIssuesSettings.FromContent(logFileContent, format));
+            return
+                context.EsLintIssues(
+                    new EsLintIssuesSettings(Encoding.UTF8.GetBytes(logFileContent), format));
         }
 
         /// <summary>
