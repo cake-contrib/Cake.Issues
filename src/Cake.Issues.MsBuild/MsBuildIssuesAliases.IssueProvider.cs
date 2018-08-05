@@ -107,7 +107,7 @@
         /// <code>
         /// <![CDATA[
         ///     var settings =
-        ///         MsBuildIssuesSettings.FromFilePath(
+        ///         new MsBuildIssuesSettings(
         ///             @"c:\build\msbuild.xml",
         ///             MsBuildXmlFileLoggerFormat);
         ///
