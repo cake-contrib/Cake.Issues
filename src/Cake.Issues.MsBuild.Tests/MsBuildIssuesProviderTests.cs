@@ -33,7 +33,7 @@
                         null));
 
                 // Then
-                result.IsArgumentNullException("settings");
+                result.IsArgumentNullException("issueProviderSettings");
             }
         }
     }

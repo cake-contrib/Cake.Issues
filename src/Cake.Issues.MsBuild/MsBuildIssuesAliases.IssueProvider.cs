@@ -52,7 +52,7 @@
         public static IIssueProvider MsBuildIssuesFromFilePath(
             this ICakeContext context,
             FilePath logFilePath,
-            MsBuildLogFileFormat format)
+            BaseMsBuildLogFileFormat format)
         {
             context.NotNull(nameof(context));
             logFilePath.NotNull(nameof(logFilePath));
@@ -87,7 +87,7 @@
         public static IIssueProvider MsBuildIssuesFromContent(
             this ICakeContext context,
             string logFileContent,
-            MsBuildLogFileFormat format)
+            BaseMsBuildLogFileFormat format)
         {
             context.NotNull(nameof(context));
             logFileContent.NotNullOrWhiteSpace(nameof(logFileContent));
