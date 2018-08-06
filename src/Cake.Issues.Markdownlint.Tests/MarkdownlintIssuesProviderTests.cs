@@ -2,8 +2,9 @@
 {
     using Cake.Core.Diagnostics;
     using Cake.Issues.Markdownlint;
+    using Cake.Issues.Markdownlint.LogFileFormat;
+    using Cake.Issues.Testing;
     using Cake.Testing;
-    using Testing;
     using Xunit;
 
     public sealed class MarkdownlintIssuesProviderTests

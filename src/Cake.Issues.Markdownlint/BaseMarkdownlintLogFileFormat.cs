@@ -1,6 +1,6 @@
 ﻿namespace Cake.Issues.Markdownlint
 {
-    using Core.Diagnostics;
+    using Cake.Core.Diagnostics;
 
     /// <summary>
     /// Base class for all log file formats supported by the Markdownlint issue provider.

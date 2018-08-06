@@ -4,9 +4,10 @@
     using System.Text;
     using Cake.Core.IO;
     using Cake.Issues.Markdownlint;
+    using Cake.Issues.Markdownlint.LogFileFormat;
+    using Cake.Issues.Testing;
     using Cake.Testing;
     using Shouldly;
-    using Testing;
     using Xunit;
 
     public sealed class MarkdownlintIssuesSettingsTests
@@ -34,7 +35,7 @@
                 // Given
                 BaseMarkdownlintLogFileFormat format = null;
 
-                using (var tempFile = new ResourceTempFile("Cake.Issues.Markdownlint.Tests.Testfiles.markdownlint.json"))
+                using (var tempFile = new ResourceTempFile("Cake.Issues.Markdownlint.Tests.Testfiles.MarkdownlintLogFileFormat.markdownlint.json"))
                 {
                     // When
                     var result = Record.Exception(() =>
@@ -109,7 +110,7 @@
             {
                 // Given
                 var format = new MarkdownlintLogFileFormat(new FakeLog());
-                using (var tempFile = new ResourceTempFile("Cake.Issues.Markdownlint.Tests.Testfiles.markdownlint.json"))
+                using (var tempFile = new ResourceTempFile("Cake.Issues.Markdownlint.Tests.Testfiles.MarkdownlintLogFileFormat.markdownlint.json"))
                 {
                     // When
                     var settings = new MarkdownlintIssuesSettings(tempFile.FileName, format);

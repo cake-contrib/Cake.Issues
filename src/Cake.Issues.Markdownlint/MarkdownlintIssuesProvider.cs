@@ -1,6 +1,6 @@
 ﻿namespace Cake.Issues.Markdownlint
 {
-    using Core.Diagnostics;
+    using Cake.Core.Diagnostics;
 
     /// <summary>
     /// Provider for issues reported by Markdownlint.

@@ -1,8 +1,8 @@
 ﻿namespace Cake.Issues.Markdownlint.Tests
 {
     using System;
+    using Cake.Issues.Testing;
     using Shouldly;
-    using Testing;
     using Xunit;
 
     public sealed class MarkdownlintRuleUrlResolverTests

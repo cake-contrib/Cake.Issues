@@ -14,6 +14,6 @@
                 new RepositorySettings(@"c:\Source\Cake.Issues");
         }
 
-        protected override string FileResourceNamespace => "Cake.Issues.Markdownlint.Tests.Testfiles.";
+        protected override string FileResourceNamespace => "Cake.Issues.Markdownlint.Tests.Testfiles." + typeof(T).Name + ".";
     }
 }

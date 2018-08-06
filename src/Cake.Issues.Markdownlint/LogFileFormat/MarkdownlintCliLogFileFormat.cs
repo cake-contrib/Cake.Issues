@@ -1,4 +1,4 @@
-﻿namespace Cake.Issues.Markdownlint
+﻿namespace Cake.Issues.Markdownlint.LogFileFormat
 {
     using System;
     using System.Collections.Generic;

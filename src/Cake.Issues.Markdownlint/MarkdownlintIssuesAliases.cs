@@ -2,8 +2,9 @@
 {
     using System;
     using Cake.Core;
+    using Cake.Core.Annotations;
     using Cake.Core.IO;
-    using Core.Annotations;
+    using Cake.Issues.Markdownlint.LogFileFormat;
 
     /// <summary>
     /// Contains functionality for reading issues from Markdownlint log files.
