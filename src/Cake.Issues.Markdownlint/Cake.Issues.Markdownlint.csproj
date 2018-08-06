@@ -67,6 +67,10 @@
     <Compile Include="BaseMarkdownlintLogFileFormat.cs" />
     <Compile Include="LogFileFormat\MarkdownlintLogFileFormat.cs" />
     <Compile Include="LogFileFormat\MarkdownlintCliLogFileFormat.cs" />
+    <Compile Include="MarkdownlintIssuesAliases.MarkdownlintLogFileFormat.cs" />
+    <Compile Include="MarkdownlintIssuesAliases.MarkdownlintCliLogFileFormat.cs" />
+    <Compile Include="MarkdownlintIssuesAliases.RuleUrlResolver.cs" />
+    <Compile Include="MarkdownlintIssuesAliases.IssueProvider.cs" />
     <Compile Include="MarkdownlintIssuesSettings.cs" />
     <Compile Include="MarkdownlintIssuesProvider.cs" />
     <Compile Include="MarkdownlintIssuesAliases.cs" />
