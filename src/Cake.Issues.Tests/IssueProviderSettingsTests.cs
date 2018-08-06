@@ -55,7 +55,7 @@
             public void Should_Set_LogContent()
             {
                 // Given
-                var logFileContent = Encoding.UTF8.GetBytes("Foo");
+                var logFileContent = "Foo".ToByteArray();
 
                 // When
                 var settings = new IssueProviderSettings(logFileContent);

@@ -35,5 +35,31 @@
 
             return encoding.GetString(value);
         }
+
+        /// <summary>
+        /// Converts a string to a byte array using UTF-8 encoding.
+        /// </summary>
+        /// <param name="value">String value to convert.</param>
+        /// <returns>Byte array with string value in UTF-8 encoding.</returns>
+        public static byte[] ToByteArray(this string value)
+        {
+            value.NotNull(nameof(value));
+
+            return value.ToByteArray(Encoding.UTF8);
+        }
+
+        /// <summary>
+        /// Converts a string to a byte array using a specific encoding.
+        /// </summary>
+        /// <param name="value">String value to convert.</param>
+        /// <param name="encoding">Encoding to use.</param>
+        /// <returns>Byte array with string value in specified encoding.</returns>
+        public static byte[] ToByteArray(this string value, Encoding encoding)
+        {
+            value.NotNull(nameof(value));
+            encoding.NotNull(nameof(encoding));
+
+            return encoding.GetBytes(value);
+        }
     }
 }

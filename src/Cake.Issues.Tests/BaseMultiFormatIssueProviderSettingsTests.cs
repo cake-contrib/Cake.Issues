@@ -1,8 +1,6 @@
 ﻿namespace Cake.Issues.Tests
 {
     using System;
-    using System.IO;
-    using System.Text;
     using Cake.Core.IO;
     using Cake.Issues.Testing;
     using Cake.Testing;
@@ -59,7 +57,7 @@
             public void Should_Set_LogContent()
             {
                 // Given
-                var logFileContent = Encoding.UTF8.GetBytes("Foo");
+                var logFileContent = "Foo".ToByteArray();
                 var format = new FakeLogFileFormat(new FakeLog());
 
                 // When
@@ -73,7 +71,7 @@
             public void Should_Set_Format_For_LogContent()
             {
                 // Given
-                var logFileContent = Encoding.UTF8.GetBytes("Foo");
+                var logFileContent = "Foo".ToByteArray();
                 var format = new FakeLogFileFormat(new FakeLog());
 
                 // When

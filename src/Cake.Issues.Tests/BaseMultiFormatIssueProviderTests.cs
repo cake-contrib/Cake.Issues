@@ -20,7 +20,7 @@
                 ICakeLog log = null;
                 var settings =
                     new FakeMultiFormatIssueProviderSettings(
-                        Encoding.UTF8.GetBytes("Foo"),
+                        "Foo".ToByteArray(),
                         new FakeLogFileFormat(new FakeLog()));
 
                 // When
@@ -51,7 +51,7 @@
                 var log = new FakeLog();
                 var settings =
                     new FakeMultiFormatIssueProviderSettings(
-                        Encoding.UTF8.GetBytes("Foo"),
+                        "Foo".ToByteArray(),
                         new FakeLogFileFormat(log));
 
                 // When
@@ -68,7 +68,7 @@
                 var log = new FakeLog();
                 var settings =
                     new FakeMultiFormatIssueProviderSettings(
-                        Encoding.UTF8.GetBytes("Foo"),
+                        "Foo".ToByteArray(),
                         new FakeLogFileFormat(log));
 
                 // When
@@ -107,7 +107,7 @@
                         new List<IIssue> { issue1, issue2 });
                 var settings =
                     new FakeMultiFormatIssueProviderSettings(
-                        Encoding.UTF8.GetBytes("Foo"),
+                        "Foo".ToByteArray(),
                         format);
                 var provider = new FakeMultiFormatIssueProvider(log, settings);
                 provider.Initialize(new RepositorySettings(@"c:\repo"));
