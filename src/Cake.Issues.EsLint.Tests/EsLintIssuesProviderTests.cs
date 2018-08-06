@@ -17,7 +17,7 @@
                 ICakeLog log = null;
                 var settings =
                     new EsLintIssuesSettings(
-                        Encoding.UTF8.GetBytes("Foo"),
+                        "Foo".ToByteArray(),
                         new JsonLogFileFormat(new FakeLog()));
 
                 // When

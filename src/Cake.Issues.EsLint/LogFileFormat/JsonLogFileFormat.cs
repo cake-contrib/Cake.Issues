@@ -32,7 +32,7 @@
             esLintsettings.NotNull(nameof(esLintsettings));
 
             IEnumerable<LogFile> logFileEntries = null;
-            using (var ms = new MemoryStream(Encoding.UTF8.GetBytes(esLintsettings.LogFileContent.Utf8ToString(true))))
+            using (var ms = new MemoryStream(esLintsettings.LogFileContent.ToStringUsingEncoding(true).ToByteArray()))
             {
                 var jsonSerializer = new DataContractJsonSerializer(typeof(LogFile[]));
                 logFileEntries = jsonSerializer.ReadObject(ms) as LogFile[];

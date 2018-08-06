@@ -91,7 +91,7 @@
 
             return
                 context.EsLintIssues(
-                    new EsLintIssuesSettings(Encoding.UTF8.GetBytes(logFileContent), format));
+                    new EsLintIssuesSettings(logFileContent, format));
         }
 
         /// <summary>
