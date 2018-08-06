@@ -9,7 +9,7 @@
 
     public sealed class ByteArrayExtensionsTests
     {
-        public sealed class TheUtf8ToStringExtension
+        public sealed class TheToStringUsingEncodingExtension
         {
             [Fact]
             public void Should_Throw_If_Value_Is_Null()
@@ -18,7 +18,7 @@
                 byte[] value = null;
 
                 // When
-                var result = Record.Exception(() => value.Utf8ToString(true));
+                var result = Record.Exception(() => value.ToStringUsingEncoding());
 
                 // Then
                 result.IsArgumentNullException("value");
@@ -31,42 +31,85 @@
                 byte[] value = Array.Empty<byte>();
 
                 // When
-                var result = Record.Exception(() => value.Utf8ToString(true));
+                var result = Record.Exception(() => value.ToStringUsingEncoding());
 
                 // Then
                 result.IsArgumentException("value");
             }
 
             [Fact]
-            public void Should_Throw_If_BOM_Should_Be_Skipped_But_No_BOM_Passed()
+            public void Should_Return_Correct_Value_Without_Preamble()
             {
                 // Given
                 var stringValue = "foo🐱bar";
                 var byteArrayValue = stringValue.ToByteArray();
 
                 // When
-                var result = Record.Exception(() => byteArrayValue.Utf8ToString(true));
+                var result = byteArrayValue.ToStringUsingEncoding();
+
+                // Then
+                result.ShouldBe(stringValue);
+            }
+        }
+
+        public sealed class TheToStringUsingEncodingWithSkipPreambleExtension
+        {
+            [Fact]
+            public void Should_Throw_If_Value_Is_Null()
+            {
+                // Given
+                byte[] value = null;
+
+                // When
+                var result = Record.Exception(() => value.ToStringUsingEncoding(true));
+
+                // Then
+                result.IsArgumentNullException("value");
+            }
+
+            [Fact]
+            public void Should_Throw_If_Value_Is_Empty()
+            {
+                // Given
+                byte[] value = Array.Empty<byte>();
+
+                // When
+                var result = Record.Exception(() => value.ToStringUsingEncoding(true));
 
                 // Then
                 result.IsArgumentException("value");
             }
 
             [Fact]
-            public void Should_Return_Correct_Value_Without_BOM()
+            public void Should_Throw_If_Preamble_Should_Be_Skipped_But_No_Preamble_Passed()
             {
                 // Given
                 var stringValue = "foo🐱bar";
                 var byteArrayValue = stringValue.ToByteArray();
 
                 // When
-                var result = byteArrayValue.Utf8ToString(false);
+                var result = Record.Exception(() => byteArrayValue.ToStringUsingEncoding(true));
+
+                // Then
+                result.IsArgumentException("value");
+            }
+
+            [Fact]
+            public void Should_Return_Correct_Value_Without_Preamble()
+            {
+                // Given
+                var stringValue = "foo🐱bar";
+                var byteArrayValue = stringValue.ToByteArray();
+
+                // When
+                var result = byteArrayValue.ToStringUsingEncoding(false);
 
                 // Then
                 result.ShouldBe(stringValue);
             }
 
             [Fact]
-            public void Should_Return_Correct_Value_With_BOM()
+            public void Should_Return_Correct_Value_With_Preamble()
             {
                 // Given
                 var stringValue = "foo🐱bar";
@@ -74,7 +117,99 @@
                 var byteArrayValue = preamble.Concat(stringValue.ToByteArray()).ToArray();
 
                 // When
-                var result = byteArrayValue.Utf8ToString(true);
+                var result = byteArrayValue.ToStringUsingEncoding(true);
+
+                // Then
+                result.ShouldBe(stringValue);
+            }
+        }
+
+        public sealed class TheToStringUsingEncodingWithEncodingAndSkipPreambleExtension
+        {
+            [Fact]
+            public void Should_Throw_If_Value_Is_Null()
+            {
+                // Given
+                byte[] value = null;
+                var encoding = Encoding.UTF32;
+
+                // When
+                var result = Record.Exception(() => value.ToStringUsingEncoding(encoding, true));
+
+                // Then
+                result.IsArgumentNullException("value");
+            }
+
+            [Fact]
+            public void Should_Throw_If_Value_Is_Empty()
+            {
+                // Given
+                byte[] value = Array.Empty<byte>();
+                var encoding = Encoding.UTF32;
+
+                // When
+                var result = Record.Exception(() => value.ToStringUsingEncoding(encoding, true));
+
+                // Then
+                result.IsArgumentException("value");
+            }
+
+            [Fact]
+            public void Should_Throw_If_Preamble_Should_Be_Skipped_But_No_Preamble_Passed()
+            {
+                // Given
+                var encoding = Encoding.UTF32;
+                var stringValue = "foo🐱bar";
+                var byteArrayValue = stringValue.ToByteArray(encoding);
+
+                // When
+                var result = Record.Exception(() => byteArrayValue.ToStringUsingEncoding(encoding, true));
+
+                // Then
+                result.IsArgumentException("value");
+            }
+
+            [Fact]
+            public void Should_Return_Value_If_Preamble_Should_Be_Skipped_But_Encoding_Does_Not_Have_Preamble()
+            {
+                // Given
+                var stringValue = "foo";
+                var byteArrayValue = stringValue.ToByteArray();
+                var encoding = Encoding.ASCII;
+
+                // When
+                var result = byteArrayValue.ToStringUsingEncoding(encoding, true);
+
+                // Then
+                result.ShouldBe(stringValue);
+            }
+
+            [Fact]
+            public void Should_Return_Correct_Value_Without_Preamble()
+            {
+                // Given
+                var encoding = Encoding.UTF32;
+                var stringValue = "foo🐱bar";
+                var byteArrayValue = stringValue.ToByteArray(encoding);
+
+                // When
+                var result = byteArrayValue.ToStringUsingEncoding(encoding, false);
+
+                // Then
+                result.ShouldBe(stringValue);
+            }
+
+            [Fact]
+            public void Should_Return_Correct_Value_With_Preamble()
+            {
+                // Given
+                var encoding = Encoding.UTF32;
+                var stringValue = "foo🐱bar";
+                var preamble = encoding.GetPreamble();
+                var byteArrayValue = preamble.Concat(stringValue.ToByteArray(encoding)).ToArray();
+
+                // When
+                var result = byteArrayValue.ToStringUsingEncoding(encoding, true);
 
                 // Then
                 result.ShouldBe(stringValue);
