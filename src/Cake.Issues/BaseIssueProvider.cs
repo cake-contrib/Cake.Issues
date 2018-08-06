@@ -1,7 +1,7 @@
 ﻿namespace Cake.Issues
 {
     using System.Collections.Generic;
-    using Core.Diagnostics;
+    using Cake.Core.Diagnostics;
 
     /// <summary>
     /// Base class for all issue provider implementations.

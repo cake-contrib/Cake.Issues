@@ -5,7 +5,6 @@
     using System.Text;
     using Cake.Core.IO;
     using Cake.Issues.Testing;
-    using Cake.Testing;
     using Shouldly;
     using Xunit;
 
