@@ -1,7 +1,6 @@
 ﻿namespace Cake.Issues.Markdownlint.Tests
 {
     using System;
-    using System.Text;
     using Cake.Core.IO;
     using Cake.Issues.Markdownlint;
     using Cake.Issues.Markdownlint.LogFileFormat;
