@@ -34,7 +34,7 @@
             var result = new List<IIssue>();
 
             // Read log file.
-            var logDocument = XDocument.Parse(issueProviderSettings.LogFileContent.Utf8ToString(true));
+            var logDocument = XDocument.Parse(issueProviderSettings.LogFileContent.ToStringUsingEncoding(true));
 
             // Loop through all warning tags.
             foreach (var warning in logDocument.Descendants("warning"))
