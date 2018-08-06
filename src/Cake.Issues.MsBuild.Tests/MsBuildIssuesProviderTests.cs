@@ -18,7 +18,7 @@
                 ICakeLog log = null;
                 var settings =
                     new MsBuildIssuesSettings(
-                        Encoding.UTF8.GetBytes("Foo"),
+                        "Foo".ToByteArray(),
                         new XmlFileLoggerLogFileFormat(new FakeLog()));
 
                 // When

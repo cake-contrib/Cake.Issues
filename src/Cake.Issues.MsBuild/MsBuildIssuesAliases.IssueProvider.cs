@@ -93,7 +93,7 @@
             logFileContent.NotNullOrWhiteSpace(nameof(logFileContent));
             format.NotNull(nameof(format));
 
-            return context.MsBuildIssues(new MsBuildIssuesSettings(Encoding.UTF8.GetBytes(logFileContent), format));
+            return context.MsBuildIssues(new MsBuildIssuesSettings(logFileContent.ToByteArray(), format));
         }
 
         /// <summary>
