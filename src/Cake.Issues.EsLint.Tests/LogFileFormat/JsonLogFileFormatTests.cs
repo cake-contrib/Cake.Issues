@@ -1,8 +1,8 @@
 ﻿namespace Cake.Issues.EsLint.Tests.LogFileFormat
 {
     using System.Linq;
+    using Cake.Core.IO;
     using Cake.Issues.EsLint.LogFileFormat;
-    using Core.IO;
     using Shouldly;
     using Xunit;
 

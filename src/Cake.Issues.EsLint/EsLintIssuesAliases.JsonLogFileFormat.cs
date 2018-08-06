@@ -1,8 +1,8 @@
 ﻿namespace Cake.Issues.EsLint
 {
+    using Cake.Core;
+    using Cake.Core.Annotations;
     using Cake.Issues.EsLint.LogFileFormat;
-    using Core;
-    using Core.Annotations;
 
     /// <content>
     /// Contains functionality related to <see cref="JsonLogFileFormat"/>.

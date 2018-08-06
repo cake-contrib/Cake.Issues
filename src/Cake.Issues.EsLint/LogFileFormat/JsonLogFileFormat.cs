@@ -4,8 +4,7 @@
     using System.IO;
     using System.Linq;
     using System.Runtime.Serialization.Json;
-    using System.Text;
-    using Core.Diagnostics;
+    using Cake.Core.Diagnostics;
 
     /// <summary>
     /// ESLint Json format.

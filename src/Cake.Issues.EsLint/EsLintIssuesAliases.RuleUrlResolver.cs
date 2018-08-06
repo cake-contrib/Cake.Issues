@@ -1,8 +1,8 @@
 ﻿namespace Cake.Issues.EsLint
 {
     using System;
-    using Core;
-    using Core.Annotations;
+    using Cake.Core;
+    using Cake.Core.Annotations;
 
     /// <content>
     /// Contains functionality related to rule url resolving.

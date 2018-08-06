@@ -1,6 +1,6 @@
 ﻿namespace Cake.Issues.EsLint
 {
-    using Core.Annotations;
+    using Cake.Core.Annotations;
 
     /// <summary>
     /// Contains functionality for reading issues reported by ESLint.

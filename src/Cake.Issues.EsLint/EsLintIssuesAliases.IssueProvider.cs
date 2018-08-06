@@ -1,9 +1,8 @@
 ﻿namespace Cake.Issues.EsLint
 {
-    using System.Text;
-    using Core;
-    using Core.Annotations;
-    using Core.IO;
+    using Cake.Core;
+    using Cake.Core.Annotations;
+    using Cake.Core.IO;
 
     /// <content>
     /// Contains functionality related to <see cref="EsLintIssuesProvider"/>.
