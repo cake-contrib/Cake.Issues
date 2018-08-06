@@ -27,11 +27,11 @@
                 }
 
                 stream.CopyTo(ms);
-                var data = ms.ToArray();
+                this.Content = ms.ToArray();
 
                 using (var file = new FileStream(this.FileName, FileMode.Create, FileAccess.Write))
                 {
-                    file.Write(data, 0, data.Length);
+                    file.Write(this.Content, 0, this.Content.Length);
                 }
             }
         }
@@ -40,6 +40,11 @@
         /// Gets the name of the temporary file.
         /// </summary>
         public string FileName { get; } = Path.GetTempFileName();
+
+        /// <summary>
+        /// Gets the content which was written to the temporary file.
+        /// </summary>
+        public byte[] Content { get; }
 
         /// <inheritdoc/>
         public void Dispose()

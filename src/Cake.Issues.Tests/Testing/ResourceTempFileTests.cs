@@ -75,6 +75,19 @@
                 }
             }
 
+            [Fact]
+            public void Should_Write_Content()
+            {
+                // Given
+                var resourceName = "Cake.Issues.Tests.Testfiles.Build.log";
+
+                // When
+                using (var tempFile = new ResourceTempFile(resourceName))
+                {
+                    // Then
+                    tempFile.Content.ShouldNotBeEmpty();
+                }
+            }
         }
 
         public sealed class TheDisposeMethod
