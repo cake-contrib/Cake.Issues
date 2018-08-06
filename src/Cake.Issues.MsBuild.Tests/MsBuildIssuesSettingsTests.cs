@@ -29,6 +29,23 @@
             }
 
             [Fact]
+            public void Should_Throw_If_Format_For_LogFilePath_Is_Null()
+            {
+                // Given
+                BaseMsBuildLogFileFormat format = null;
+
+                using (var tempFile = new ResourceTempFile("Cake.Issues.MsBuild.Tests.Testfiles.XmlFileLoggerLogFileFormat.FullLog.xml"))
+                {
+                    // When
+                    var result = Record.Exception(() =>
+                        new MsBuildIssuesSettings(tempFile.FileName, format));
+
+                    // Then
+                    result.IsArgumentNullException("format");
+                }
+            }
+
+            [Fact]
             public void Should_Throw_If_LogContent_Is_Null()
             {
                 // Given
@@ -54,6 +71,21 @@
 
                 // Then
                 result.IsArgumentException("logFileContent");
+            }
+
+            [Fact]
+            public void Should_Throw_If_Format_For_LogFileContent_Is_Null()
+            {
+                // Given
+                var logFileContent = "foo".ToByteArray();
+                BaseMsBuildLogFileFormat format = null;
+
+                // When
+                var result = Record.Exception(() =>
+                    new MsBuildIssuesSettings(logFileContent, format));
+
+                // Then
+                result.IsArgumentNullException("format");
             }
 
             [Fact]
