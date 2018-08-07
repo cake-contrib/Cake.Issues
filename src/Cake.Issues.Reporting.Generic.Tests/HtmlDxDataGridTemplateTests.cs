@@ -418,7 +418,7 @@
             }
         }
 
-        public sealed class ThePathVisibleOption
+        public sealed class TheFileDirectoryVisibleOption
         {
             [Theory]
             [InlineData(true)]
@@ -431,11 +431,11 @@
                 // When / Then
                 fixture.TestReportCreation(
                     settings =>
-                        settings.WithOption(HtmlDxDataGridOption.PathVisible, value));
+                        settings.WithOption(HtmlDxDataGridOption.FileDirectoryVisible, value));
             }
         }
 
-        public sealed class ThePathSortOrderOption
+        public sealed class TheFileDirectorySortOrderOption
         {
             [Theory]
             [InlineData(ColumnSortOrder.Ascending)]
@@ -448,11 +448,11 @@
                 // When / Then
                 fixture.TestReportCreation(
                     settings =>
-                        settings.WithOption(HtmlDxDataGridOption.PathSortOrder, value));
+                        settings.WithOption(HtmlDxDataGridOption.FileDirectorySortOrder, value));
             }
         }
 
-        public sealed class TheFileVisibleOption
+        public sealed class TheFileNameVisibleOption
         {
             [Theory]
             [InlineData(true)]
@@ -465,11 +465,11 @@
                 // When / Then
                 fixture.TestReportCreation(
                     settings =>
-                        settings.WithOption(HtmlDxDataGridOption.FileVisible, value));
+                        settings.WithOption(HtmlDxDataGridOption.FileNameVisible, value));
             }
         }
 
-        public sealed class TheFileSortOrderOption
+        public sealed class TheFileNameSortOrderOption
         {
             [Theory]
             [InlineData(ColumnSortOrder.Ascending)]
@@ -482,7 +482,7 @@
                 // When / Then
                 fixture.TestReportCreation(
                     settings =>
-                        settings.WithOption(HtmlDxDataGridOption.FileSortOrder, value));
+                        settings.WithOption(HtmlDxDataGridOption.FileNameSortOrder, value));
             }
         }
 
@@ -638,8 +638,8 @@
                             new List<ReportColumn>
                             {
                                 ReportColumn.ProjectName,
-                                ReportColumn.Path,
-                                ReportColumn.File
+                                ReportColumn.FileDirectory,
+                                ReportColumn.FileName
                             }));
             }
         }
