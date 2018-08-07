@@ -1,8 +1,8 @@
 ﻿namespace Cake.Issues.DocFx.Tests
 {
     using System.Linq;
+    using Cake.Core.IO;
     using Cake.Testing;
-    using Core.IO;
     using Shouldly;
     using Testing;
     using Xunit;
@@ -18,14 +18,14 @@
                 var result = Record.Exception(() =>
                     new DocFxIssuesProvider(
                         null,
-                        DocFxIssuesSettings.FromContent("Foo", @"c:\Source\Cake.Issues")));
+                        new DocFxIssuesSettings("Foo".ToByteArray(), @"c:\Source\Cake.Issues")));
 
                 // Then
                 result.IsArgumentNullException("log");
             }
 
             [Fact]
-            public void Should_Throw_If_Settings_Are_Null()
+            public void Should_Throw_If_IssueProviderSettings_Are_Null()
             {
                 var result = Record.Exception(() =>
                     new DocFxIssuesProvider(
@@ -33,7 +33,7 @@
                         null));
 
                 // Then
-                result.IsArgumentNullException("settings");
+                result.IsArgumentNullException("issueProviderSettings");
             }
         }
 
