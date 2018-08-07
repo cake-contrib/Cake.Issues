@@ -1,10 +1,9 @@
 ﻿namespace Cake.Issues.InspectCode.Tests
 {
-    using System.IO;
-    using System.Text;
-    using Core.IO;
+    using System;
+    using Cake.Core.IO;
+    using Cake.Issues.Testing;
     using Shouldly;
-    using Testing;
     using Xunit;
 
     public sealed class InspectCodeIssuesSettingsTests
@@ -14,8 +13,11 @@
             [Fact]
             public void Should_Throw_If_LogFilePath_Is_Null()
             {
-                // Given / When
-                var result = Record.Exception(() => InspectCodeIssuesSettings.FromFilePath(null));
+                // Given
+                FilePath logFilePath = null;
+
+                // When
+                var result = Record.Exception(() => new InspectCodeIssuesSettings(logFilePath));
 
                 // Then
                 result.IsArgumentNullException("logFilePath");
@@ -24,8 +26,11 @@
             [Fact]
             public void Should_Throw_If_LogFileContent_Is_Null()
             {
-                // Given / When
-                var result = Record.Exception(() => InspectCodeIssuesSettings.FromContent(null));
+                // Given
+                byte[] logFileContent = null;
+
+                // When
+                var result = Record.Exception(() => new InspectCodeIssuesSettings(logFileContent));
 
                 // Then
                 result.IsArgumentNullException("logFileContent");
@@ -34,70 +39,40 @@
             [Fact]
             public void Should_Throw_If_LogFileContent_Is_Empty()
             {
-                // Given / When
-                var result = Record.Exception(() => InspectCodeIssuesSettings.FromContent(string.Empty));
-
-                // Then
-                result.IsArgumentOutOfRangeException("logFileContent");
-            }
-
-            [Fact]
-            public void Should_Throw_If_LogFileContent_Is_WhiteSpace()
-            {
-                // Given / When
-                var result = Record.Exception(() => InspectCodeIssuesSettings.FromContent(" "));
-
-                // Then
-                result.IsArgumentOutOfRangeException("logFileContent");
-            }
-
-            [Fact]
-            public void Should_Set_Property_Values_Passed_To_Constructor()
-            {
                 // Given
-                const string logFileContent = "foo";
+                byte[] logFileContent = Array.Empty<byte>();
 
                 // When
-                var settings = InspectCodeIssuesSettings.FromContent(logFileContent);
+                var result = Record.Exception(() => new InspectCodeIssuesSettings(logFileContent));
+
+                // Then
+                result.IsArgumentException("logFileContent");
+            }
+
+            [Fact]
+            public void Should_Set_LogContent()
+            {
+                // Given
+                var logFileContent = "Foo".ToByteArray();
+
+                // When
+                var settings = new InspectCodeIssuesSettings(logFileContent);
 
                 // Then
                 settings.LogFileContent.ShouldBe(logFileContent);
             }
 
             [Fact]
-            public void Should_Read_File_From_Disk()
+            public void Should_Set_LogContent_From_LogFilePath()
             {
-                var fileName = System.IO.Path.GetTempFileName();
-                try
+                // Given
+                using (var tempFile = new ResourceTempFile("Cake.Issues.InspectCode.Tests.Testfiles.inspectcode.xml"))
                 {
-                    // Given
-                    string expected;
-                    using (var ms = new MemoryStream())
-                    using (var stream = this.GetType().Assembly.GetManifestResourceStream("Cake.Issues.InspectCode.Tests.Testfiles.inspectcode.xml"))
-                    {
-                        stream.CopyTo(ms);
-                        var data = ms.ToArray();
-
-                        using (var file = new FileStream(fileName, FileMode.Create, FileAccess.Write))
-                        {
-                            file.Write(data, 0, data.Length);
-                        }
-
-                        expected = Encoding.UTF8.GetString(data, 0, data.Length);
-                    }
-
                     // When
-                    var settings = InspectCodeIssuesSettings.FromFilePath(new FilePath(fileName));
+                    var settings = new InspectCodeIssuesSettings(tempFile.FileName);
 
                     // Then
-                    settings.LogFileContent.ShouldBe(expected);
-                }
-                finally
-                {
-                    if (File.Exists(fileName))
-                    {
-                        File.Delete(fileName);
-                    }
+                    settings.LogFileContent.ShouldBe(tempFile.Content);
                 }
             }
         }
