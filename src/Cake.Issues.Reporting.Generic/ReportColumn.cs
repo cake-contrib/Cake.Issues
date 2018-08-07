@@ -44,12 +44,12 @@
         /// <summary>
         /// Column for the value returned by <see cref="IIssueExtension.FilePath(IIssue)"/>.
         /// </summary>
-        Path = 800,
+        FileDirectory = 800,
 
         /// <summary>
         /// Column for the value returned by <see cref="IIssueExtension.FileName(IIssue)"/>.
         /// </summary>
-        File = 900,
+        FileName = 900,
 
         /// <summary>
         /// Column for the <see cref="IIssue.Line"/> field.

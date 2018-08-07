@@ -27,10 +27,10 @@
     ColumnSortOrder projectNameSortOrder = ViewBagHelper.ValueOrDefault(ViewBag.ProjectNameSortOder, ColumnSortOrder.Ascending);
     bool filePathVisible = ViewBagHelper.ValueOrDefault(ViewBag.FilePathVisible, false);
     ColumnSortOrder filePathSortOrder = ViewBagHelper.ValueOrDefault(ViewBag.FilePathSortOder, ColumnSortOrder.Ascending);
-    bool pathVisible = ViewBagHelper.ValueOrDefault(ViewBag.PathVisible, true);
-    ColumnSortOrder pathSortOrder = ViewBagHelper.ValueOrDefault(ViewBag.PathSortOder, ColumnSortOrder.Ascending);
-    bool fileVisible = ViewBagHelper.ValueOrDefault(ViewBag.FileVisible, true);
-    ColumnSortOrder fileSortOrder = ViewBagHelper.ValueOrDefault(ViewBag.FileSortOder, ColumnSortOrder.Ascending);
+    bool fileDirectoryVisible = ViewBagHelper.ValueOrDefault(ViewBag.FileDirectoryVisible, true);
+    ColumnSortOrder fileDirectorySortOrder = ViewBagHelper.ValueOrDefault(ViewBag.FileDirectorySortOder, ColumnSortOrder.Ascending);
+    bool fileNameVisible = ViewBagHelper.ValueOrDefault(ViewBag.FileNameVisible, true);
+    ColumnSortOrder fileNameSortOrder = ViewBagHelper.ValueOrDefault(ViewBag.FileNameSortOder, ColumnSortOrder.Ascending);
     bool lineVisible = ViewBagHelper.ValueOrDefault(ViewBag.LineVisible, true);
     ColumnSortOrder lineSortOrder = ViewBagHelper.ValueOrDefault(ViewBag.LineSortOder, ColumnSortOrder.Ascending);
     bool ruleVisible = ViewBagHelper.ValueOrDefault(ViewBag.RuleVisible, true);
@@ -40,7 +40,7 @@
     bool messageVisible = ViewBagHelper.ValueOrDefault(ViewBag.MessageVisible, true);
     ColumnSortOrder messageSortOrder = ViewBagHelper.ValueOrDefault(ViewBag.MessageSortOder, ColumnSortOrder.Ascending);
     var groupedColumns = ViewBagHelper.ValueOrDefault(ViewBag.GroupedColumns, new List<ReportColumn> { ReportColumn.ProviderName });
-    var sortedColumns = ViewBagHelper.ValueOrDefault(ViewBag.SortedColumns, new List<ReportColumn> { ReportColumn.PriorityName, ReportColumn.ProjectName, ReportColumn.Path, ReportColumn.File, ReportColumn.Line });
+    var sortedColumns = ViewBagHelper.ValueOrDefault(ViewBag.SortedColumns, new List<ReportColumn> { ReportColumn.PriorityName, ReportColumn.ProjectName, ReportColumn.FileDirectory, ReportColumn.FileName, ReportColumn.Line });
     FileLinkSettings fileLinkSettings = ViewBagHelper.ValueOrDefault(ViewBag.FileLinkSettings, new FileLinkSettings());
     List<HtmlDxDataGridColumnDescription> additionalColumns = ViewBagHelper.ValueOrDefault(ViewBag.AdditionalColumns, new List<HtmlDxDataGridColumnDescription>());
 }
@@ -58,8 +58,8 @@
                 addProjectPath: projectPathVisible,
                 addProjectName: projectNameVisible,
                 addFilePath: filePathVisible,
-                addFileDirectory: pathVisible,
-                addFileName: fileVisible,
+                addFileDirectory: fileDirectoryVisible,
+                addFileName: fileNameVisible,
                 addLine: lineVisible,
                 addRule: ruleVisible,
                 addRuleUrl: ruleVisible || ruleUrlVisible,
@@ -246,40 +246,40 @@
                             },
                         </text>
                     }
-                    @if (pathVisible)
+                    @if (fileDirectoryVisible)
                     {
                         <text>
                             {
                                 caption: "Directory",
                                 dataField: "FileDirectory",
-                                visibleIndex: @((int)ReportColumn.Path),
-                                @if (groupedColumns.Contains(ReportColumn.Path))
+                                visibleIndex: @((int)ReportColumn.FileDirectory),
+                                @if (groupedColumns.Contains(ReportColumn.FileDirectory))
                                 {
-                                    @:groupIndex: @groupedColumns.IndexOf(ReportColumn.Path),
+                                    @:groupIndex: @groupedColumns.IndexOf(ReportColumn.FileDirectory),
                                 }
-                                @if (sortedColumns.Contains(ReportColumn.Path))
+                                @if (sortedColumns.Contains(ReportColumn.FileDirectory))
                                 {
-                                    @:sortIndex: @sortedColumns.IndexOf(ReportColumn.Path),
-                                    @:sortOrder: "@pathSortOrder.ToShortString()",
+                                    @:sortIndex: @sortedColumns.IndexOf(ReportColumn.FileDirectory),
+                                    @:sortOrder: "@fileDirectorySortOrder.ToShortString()",
                                 }
                             },
                         </text>
                     }
-                    @if (fileVisible)
+                    @if (fileNameVisible)
                     {
                         <text>
                             {
                                 caption: "File",
                                 dataField: "FileName",
-                                visibleIndex: @((int)ReportColumn.File),
-                                @if (groupedColumns.Contains(ReportColumn.File))
+                                visibleIndex: @((int)ReportColumn.FileName),
+                                @if (groupedColumns.Contains(ReportColumn.FileName))
                                 {
-                                    @:groupIndex: @groupedColumns.IndexOf(ReportColumn.File),
+                                    @:groupIndex: @groupedColumns.IndexOf(ReportColumn.FileName),
                                 }
-                                @if (sortedColumns.Contains(ReportColumn.File))
+                                @if (sortedColumns.Contains(ReportColumn.FileName))
                                 {
-                                    @:sortIndex: @sortedColumns.IndexOf(ReportColumn.File),
-                                    @:sortOrder: "@fileSortOrder.ToShortString()",
+                                    @:sortIndex: @sortedColumns.IndexOf(ReportColumn.FileName),
+                                    @:sortOrder: "@fileNameSortOrder.ToShortString()",
                                 }
                                 @if (fileLinkSettings != null && !string.IsNullOrWhiteSpace(fileLinkSettings.FileLinkPattern))
                                 {

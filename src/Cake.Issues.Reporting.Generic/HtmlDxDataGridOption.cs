@@ -146,32 +146,32 @@
         FilePathSortOrder,
 
         /// <summary>
-        /// Flag if the <see cref="ReportColumn.Path"/> column should be visible or not.
+        /// Flag if the <see cref="ReportColumn.FileDirectory"/> column should be visible or not.
         /// Either <c>true</c> or <c>false</c>.
         /// Default value is <c>true</c>.
         /// </summary>
-        PathVisible,
+        FileDirectoryVisible,
 
         /// <summary>
-        /// Sort order of the <see cref="ReportColumn.Path"/> column if it is part of <see cref="SortedColumns"/>.
+        /// Sort order of the <see cref="ReportColumn.FileDirectory"/> column if it is part of <see cref="SortedColumns"/>.
         /// See <see cref="ColumnSortOrder"/> for possible values.
         /// Default value is <see cref="ColumnSortOrder.Ascending"/>.
         /// </summary>
-        PathSortOrder,
+        FileDirectorySortOrder,
 
         /// <summary>
-        /// Flag if the <see cref="ReportColumn.File"/> column should be visible or not.
+        /// Flag if the <see cref="ReportColumn.FileName"/> column should be visible or not.
         /// Either <c>true</c> or <c>false</c>.
         /// Default value is <c>true</c>.
         /// </summary>
-        FileVisible,
+        FileNameVisible,
 
         /// <summary>
-        /// Sort order of the <see cref="ReportColumn.File"/> column if it is part of <see cref="SortedColumns"/>.
+        /// Sort order of the <see cref="ReportColumn.FileName"/> column if it is part of <see cref="SortedColumns"/>.
         /// See <see cref="ColumnSortOrder"/> for possible values.
         /// Default value is <see cref="ColumnSortOrder.Ascending"/>.
         /// </summary>
-        FileSortOrder,
+        FileNameSortOrder,
 
         /// <summary>
         /// Flag if the <see cref="ReportColumn.Line"/> column should be visible or not.
@@ -239,7 +239,7 @@
         /// <summary>
         /// List of <see cref="ReportColumn"/> which should be sorted.
         /// Default value is <see cref="ReportColumn.PriorityName"/>, <see cref="ReportColumn.ProjectName"/>,
-        /// <see cref="ReportColumn.Path"/>, <see cref="ReportColumn.File"/>, <see cref="ReportColumn.Line"/>.
+        /// <see cref="ReportColumn.FileDirectory"/>, <see cref="ReportColumn.FileName"/>, <see cref="ReportColumn.Line"/>.
         /// </summary>
         SortedColumns,
 
