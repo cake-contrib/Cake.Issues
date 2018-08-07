@@ -1,7 +1,7 @@
 ﻿namespace Cake.Issues.InspectCode.Tests
 {
+    using Cake.Issues.Testing;
     using Shouldly;
-    using Testing;
     using Xunit;
 
     public sealed class ExtensionsTests

@@ -6,26 +6,21 @@
     using System.IO;
     using System.Linq;
     using System.Xml.Linq;
-    using Core.Diagnostics;
+    using Cake.Core.Diagnostics;
 
     /// <summary>
     /// Provider for issues reported by JetBrains Inspect Code.
     /// </summary>
-    internal class InspectCodeIssuesProvider : IssueProvider
+    internal class InspectCodeIssuesProvider : BaseConfigurableIssueProvider<InspectCodeIssuesSettings>
     {
-        private readonly InspectCodeIssuesSettings settings;
-
         /// <summary>
         /// Initializes a new instance of the <see cref="InspectCodeIssuesProvider"/> class.
         /// </summary>
         /// <param name="log">The Cake log context.</param>
-        /// <param name="settings">Settings for reading the log file.</param>
-        public InspectCodeIssuesProvider(ICakeLog log, InspectCodeIssuesSettings settings)
-            : base(log)
+        /// <param name="issueProviderSettings">Settings for the issue provider.</param>
+        public InspectCodeIssuesProvider(ICakeLog log, InspectCodeIssuesSettings issueProviderSettings)
+            : base(log, issueProviderSettings)
         {
-            settings.NotNull(nameof(settings));
-
-            this.settings = settings;
         }
 
         /// <inheritdoc />
@@ -36,7 +31,7 @@
         {
             var result = new List<IIssue>();
 
-            var logDocument = XDocument.Parse(this.settings.LogFileContent);
+            var logDocument = XDocument.Parse(this.IssueProviderSettings.LogFileContent.ToStringUsingEncoding());
 
             var solutionPath = Path.GetDirectoryName(logDocument.Descendants("Solution").Single().Value);
 
