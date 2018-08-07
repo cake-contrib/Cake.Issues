@@ -1,49 +1,30 @@
 ﻿namespace Cake.Issues.DocFx.Tests
 {
     using System.Collections.Generic;
-    using System.IO;
-    using Cake.Testing;
-    using Core.Diagnostics;
-    using Core.IO;
+    using Cake.Core.IO;
+    using Cake.Issues.Testing;
 
-    internal class DocFxProviderFixture
+    internal class DocFxProviderFixture : BaseConfigurableIssueProviderFixture<DocFxIssuesProvider, DocFxIssuesSettings>
     {
+        private readonly DirectoryPath docRootPath;
+
         public DocFxProviderFixture(string fileResourceName, DirectoryPath docRootPath)
+            : base(fileResourceName)
         {
-            this.Log = new FakeLog { Verbosity = Verbosity.Normal };
+            docRootPath.NotNull(nameof(docRootPath));
 
-            using (var stream = this.GetType().Assembly.GetManifestResourceStream("Cake.Issues.DocFx.Tests.Testfiles." + fileResourceName))
-            {
-                using (var sr = new StreamReader(stream))
-                {
-                    this.DocFxIssuesSettings =
-                        DocFxIssuesSettings.FromContent(
-                            sr.ReadToEnd(),
-                            docRootPath);
-                }
-            }
-
+            this.docRootPath = docRootPath;
             this.RepositorySettings =
                 new RepositorySettings(@"c:\Source\Cake.Issues");
         }
 
-        public FakeLog Log { get; set; }
+        protected override string FileResourceNamespace => "Cake.Issues.DocFx.Tests.Testfiles.";
 
-        public DocFxIssuesSettings DocFxIssuesSettings { get; set; }
-
-        public RepositorySettings RepositorySettings { get; set; }
-
-        public DocFxIssuesProvider Create()
+        protected override IList<object> GetCreateIssueProviderSettingsArguments()
         {
-            var provider = new DocFxIssuesProvider(this.Log, this.DocFxIssuesSettings);
-            provider.Initialize(this.RepositorySettings);
-            return provider;
-        }
-
-        public IEnumerable<IIssue> ReadIssues()
-        {
-            var issueProvider = this.Create();
-            return issueProvider.ReadIssues(IssueCommentFormat.PlainText);
+            var result = base.GetCreateIssueProviderSettingsArguments();
+            result.Add(this.docRootPath);
+            return result;
         }
     }
 }

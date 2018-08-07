@@ -1,10 +1,7 @@
 ﻿namespace Cake.Issues.DocFx.Tests
 {
     using System;
-    using System.IO;
-    using System.Linq;
-    using System.Text;
-    using Core.IO;
+    using Cake.Core.IO;
     using Shouldly;
     using Testing;
     using Xunit;
@@ -16,58 +13,87 @@
             [Fact]
             public void Should_Throw_If_LogFilePath_Is_Null()
             {
-                // Given / When
+                // Given
+                FilePath logFilePath = null;
+                var docRootPath = @"c:\Source\Cake.Issues\docs";
+
+                // When
                 var result = Record.Exception(() =>
-                    DocFxIssuesSettings.FromFilePath(null, @"c:\Source\Cake.Issues\docs"));
+                    new DocFxIssuesSettings(logFilePath, docRootPath));
 
                 // Then
                 result.IsArgumentNullException("logFilePath");
             }
 
             [Fact]
-            public void Should_Throw_If_LogFileContent_Is_Null()
+            public void Should_Throw_If_DocRootPath_For_LogFilePath_Is_Null()
             {
-                // Given / When
-                var result = Record.Exception(() =>
-                    DocFxIssuesSettings.FromContent(null, @"c:\Source\Cake.Issues\docs"));
+                // Given
+                DirectoryPath docRootPath = null;
+
+                using (var tempFile = new ResourceTempFile("Cake.Issues.DocFx.Tests.Testfiles.docfx.json"))
+                {
+                    // When
+                    var result = Record.Exception(() =>
+                        new DocFxIssuesSettings(tempFile.FileName, docRootPath));
+
+                    // Then
+                    result.IsArgumentNullException("docRootPath");
+                }
+            }
+
+            [Fact]
+            public void Should_Throw_If_LogContent_Is_Null()
+            {
+                // Given
+                byte[] logFileContent = null;
+                var docRootPath = @"c:\Source\Cake.Issues\docs";
+
+                // When
+                var result = Record.Exception(() => new DocFxIssuesSettings(logFileContent, docRootPath));
 
                 // Then
                 result.IsArgumentNullException("logFileContent");
             }
 
             [Fact]
-            public void Should_Throw_If_LogFileContent_Is_Empty()
-            {
-                // Given / When
-                var result = Record.Exception(() =>
-                    DocFxIssuesSettings.FromContent(string.Empty, @"c:\Source\Cake.Issues\docs"));
-
-                // Then
-                result.IsArgumentOutOfRangeException("logFileContent");
-            }
-
-            [Fact]
-            public void Should_Throw_If_LogFileContent_Is_WhiteSpace()
-            {
-                // Given / When
-                var result = Record.Exception(() =>
-                    DocFxIssuesSettings.FromContent(" ", @"c:\Source\Cake.Issues\docs"));
-
-                // Then
-                result.IsArgumentOutOfRangeException("logFileContent");
-            }
-
-            [Fact]
-            public void Should_Set_LogFileContent()
+            public void Should_Throw_If_LogContent_Is_Empty()
             {
                 // Given
-                const string logFileContent = "foo";
+                byte[] logFileContent = Array.Empty<byte>();
+                var docRootPath = @"c:\Source\Cake.Issues\docs";
 
                 // When
-                var settings =
-                    DocFxIssuesSettings.FromContent(
-                        logFileContent,
-                        @"c:\Source\Cake.Issues\docs");
+                var result = Record.Exception(() => new DocFxIssuesSettings(logFileContent, docRootPath));
+
+                // Then
+                result.IsArgumentException("logFileContent");
+            }
+
+            [Fact]
+            public void Should_Throw_If_DocRootPath_For_LogFileContent_Is_Null()
+            {
+                // Given
+                var logFileContent = "foo".ToByteArray();
+                DirectoryPath docRootPath = null;
+
+                // When
+                var result = Record.Exception(() =>
+                    new DocFxIssuesSettings(logFileContent, docRootPath));
+
+                // Then
+                result.IsArgumentNullException("docRootPath");
+            }
+
+            [Fact]
+            public void Should_Set_LogContent()
+            {
+                // Given
+                var logFileContent = "Foo".ToByteArray();
+                var docRootPath = @"c:\Source\Cake.Issues\docs";
+
+                // When
+                var settings = new DocFxIssuesSettings(logFileContent, docRootPath);
 
                 // Then
                 settings.LogFileContent.ShouldBe(logFileContent);
@@ -77,67 +103,44 @@
             public void Should_Set_DocRootPath()
             {
                 // Given
-                DirectoryPath docRootPath = @"c:\Source\Cake.Issues\docs";
+                var logFileContent = "Foo".ToByteArray();
+                var docRootPath = @"c:/Source/Cake.Issues/docs";
 
                 // When
-                var settings =
-                    DocFxIssuesSettings.FromContent(
-                        "foo",
-                        docRootPath);
+                var settings = new DocFxIssuesSettings(logFileContent, docRootPath);
 
                 // Then
-                settings.DocRootPath.ShouldBe(docRootPath);
+                settings.DocRootPath.ToString().ShouldBe(docRootPath);
             }
 
             [Fact]
-            public void Should_Read_File_From_Disk()
+            public void Should_Set_LogContent_From_LogFilePath()
             {
-                var fileName = System.IO.Path.GetTempFileName();
-                try
+                // Given
+                var docRootPath = @"c:\Source\Cake.Issues\docs";
+                using (var tempFile = new ResourceTempFile("Cake.Issues.DocFx.Tests.Testfiles.docfx.json"))
                 {
-                    // Given
-                    string expected;
-                    using (var ms = new MemoryStream())
-                    using (var stream = this.GetType().Assembly.GetManifestResourceStream("Cake.Issues.DocFx.Tests.Testfiles.docfx.json"))
-                    {
-                        stream.CopyTo(ms);
-                        var data = ms.ToArray();
-
-                        using (var file = new FileStream(fileName, FileMode.Create, FileAccess.Write))
-                        {
-                            file.Write(data, 0, data.Length);
-                        }
-
-                        expected = ConvertFromUtf8(data);
-                    }
-
                     // When
-                    var settings =
-                        DocFxIssuesSettings.FromFilePath(fileName, @"c:\Source\Cake.Issues\docs");
+                    var settings = new DocFxIssuesSettings(tempFile.FileName, docRootPath);
 
                     // Then
-                    settings.LogFileContent.ShouldBe(expected);
-                }
-                finally
-                {
-                    if (File.Exists(fileName))
-                    {
-                        File.Delete(fileName);
-                    }
+                    settings.LogFileContent.ShouldBe(tempFile.Content);
                 }
             }
 
-            private static string ConvertFromUtf8(byte[] bytes)
+            [Fact]
+            public void Should_Set_DocRootPath_From_LogFilePath()
             {
-                var enc = new UTF8Encoding(true);
-                var preamble = enc.GetPreamble();
-
-                if (preamble.Where((p, i) => p != bytes[i]).Any())
+                // Given
+                var docRootPath = @"c:/Source/Cake.Issues/docs";
+                using (var tempFile = new ResourceTempFile("Cake.Issues.DocFx.Tests.Testfiles.docfx.json"))
                 {
-                    throw new ArgumentException("Not utf8-BOM");
-                }
+                    // When
+                    var settings = new DocFxIssuesSettings(tempFile.FileName, docRootPath);
 
-                return enc.GetString(bytes.Skip(preamble.Length).ToArray());
+                    // Then
+                    settings.DocRootPath.ToString().ShouldBe(docRootPath);
+                }
             }
         }
     }
