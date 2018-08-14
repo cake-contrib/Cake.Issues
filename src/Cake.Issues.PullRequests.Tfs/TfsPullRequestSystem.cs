@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Globalization;
     using System.Linq;
     using System.Threading;
     using Core.Diagnostics;
@@ -568,11 +569,28 @@
             path.NotNull(nameof(path));
 
             var change = changes.ChangeEntries.Where(x => x.Item.Path == "/" + path.ToString()).ToList();
-            if (change.Count != 1)
+
+            if (change.Count == 0)
             {
                 this.Log.Error(
-                    "Cannot post a comment for the file {0} because no changes could be found.",
+                    "Cannot post a comment for the file {0} because no changes on the pull request server could be found.",
                     path);
+                return -1;
+            }
+
+            if (change.Count > 1)
+            {
+                this.Log.Error(
+                    "Cannot post a comment for the file {0} because more than one change has been found on the pull request server:" + Environment.NewLine + "{1}",
+                    path,
+                    string.Join(
+                        Environment.NewLine,
+                        change.Select(
+                            x => string.Format(
+                                CultureInfo.InvariantCulture,
+                                "  ID: {0}, Path: {1}",
+                                x.ChangeId,
+                                x.Item.Path))));
                 return -1;
             }
 
