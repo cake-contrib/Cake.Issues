@@ -42,10 +42,8 @@
             return true;
         }
 
-        /// <summary>
-        /// Asserts that settings are set.
-        /// </summary>
-        protected void AssertSettings()
+        /// <inheritdoc/>
+        public void AssertInitialized()
         {
             if (this.Settings == null)
             {

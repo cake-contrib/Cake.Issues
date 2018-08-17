@@ -23,7 +23,7 @@
         /// <inheritdoc/>
         public IEnumerable<IIssue> ReadIssues(IssueCommentFormat format)
         {
-            this.AssertSettings();
+            this.AssertInitialized();
 
             return this.InternalReadIssues(format);
         }
