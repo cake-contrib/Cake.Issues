@@ -1,6 +1,5 @@
 ﻿namespace Cake.Issues.Tests
 {
-    using System.Text;
     using Cake.Core.Diagnostics;
     using Cake.Issues.Testing;
     using Cake.Testing;
@@ -16,7 +15,7 @@
             {
                 // Given
                 ICakeLog log = null;
-                var settings = new IssueProviderSettings(Encoding.UTF8.GetBytes("Foo"));
+                var settings = new IssueProviderSettings("Foo".ToByteArray());
 
                 // When
                 var result = Record.Exception(() => new FakeConfigurableIssueProvider(log, settings));
@@ -44,7 +43,7 @@
             {
                 // Given
                 var log = new FakeLog();
-                var settings = new IssueProviderSettings(Encoding.UTF8.GetBytes("Foo"));
+                var settings = new IssueProviderSettings("Foo".ToByteArray());
 
                 // When
                 var result = new FakeConfigurableIssueProvider(log, settings);
@@ -58,7 +57,7 @@
             {
                 // Given
                 var log = new FakeLog();
-                var settings = new IssueProviderSettings(Encoding.UTF8.GetBytes("Foo"));
+                var settings = new IssueProviderSettings("Foo".ToByteArray());
 
                 // When
                 var result = new FakeConfigurableIssueProvider(log, settings);

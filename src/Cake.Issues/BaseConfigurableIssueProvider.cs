@@ -1,6 +1,6 @@
 ﻿namespace Cake.Issues
 {
-    using Core.Diagnostics;
+    using Cake.Core.Diagnostics;
 
     /// <summary>
     /// Base class for all issue provider implementations with issue provider specific settings.

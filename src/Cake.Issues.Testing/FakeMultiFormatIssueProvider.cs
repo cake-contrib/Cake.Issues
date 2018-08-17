@@ -1,7 +1,6 @@
 ﻿namespace Cake.Issues.Testing
 {
-    using System.Collections.Generic;
-    using Core.Diagnostics;
+    using Cake.Core.Diagnostics;
 
     /// <summary>
     /// Implementation of a <see cref="BaseMultiFormatIssueProvider{TSettings, TIssueProvider} "/> for use in test cases.

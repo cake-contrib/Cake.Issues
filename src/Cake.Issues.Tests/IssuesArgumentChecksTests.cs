@@ -1,7 +1,7 @@
 ﻿namespace Cake.Issues.Tests
 {
     using System.Collections.Generic;
-    using Testing;
+    using Cake.Issues.Testing;
     using Xunit;
 
     public sealed class IssuesArgumentChecksTests
