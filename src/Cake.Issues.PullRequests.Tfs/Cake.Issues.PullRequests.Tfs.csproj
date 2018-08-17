@@ -38,8 +38,8 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Cake.Core" Version="0.28.0" />
-    <PackageReference Include="Cake.Issues" Version="0.5.0-beta0002" />
-    <PackageReference Include="Cake.Issues.PullRequests" Version="0.5.0-beta0001" />
+    <PackageReference Include="Cake.Issues" Version="0.5.0" />
+    <PackageReference Include="Cake.Issues.PullRequests" Version="0.5.0" />
     <PackageReference Include="Costura.Fody">
       <Version>3.1.0</Version>
     </PackageReference>
