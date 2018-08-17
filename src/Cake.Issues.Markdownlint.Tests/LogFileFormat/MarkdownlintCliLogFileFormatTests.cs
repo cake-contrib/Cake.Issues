@@ -1,10 +1,10 @@
-﻿namespace Cake.Issues.Markdownlint.Tests
+﻿namespace Cake.Issues.Markdownlint.Tests.LogFileFormat
 {
     using System.Linq;
-    using Cake.Testing;
-    using Core.IO;
+    using Cake.Core.IO;
+    using Cake.Issues.Markdownlint.LogFileFormat;
+    using Cake.Issues.Testing;
     using Shouldly;
-    using Testing;
     using Xunit;
 
     public sealed class MarkdownlintCliLogFileFormatTests
@@ -28,8 +28,8 @@
             public void Should_Read_Issue_Correct_0_8_1()
             {
                 // Given
-                var format = new MarkdownlintCliLogFileFormat(new FakeLog());
-                var fixture = new MarkdownlintIssuesProviderFixture("markdownlint-cli-0.8.1.log", format);
+                var fixture =
+                    new MarkdownlintIssuesProviderFixture<MarkdownlintCliLogFileFormat>("markdownlint-cli-0.8.1.log");
 
                 // When
                 var issues = fixture.ReadIssues().ToList();
@@ -130,8 +130,8 @@
             public void Should_Read_Issue_Correct_0_10_0()
             {
                 // Given
-                var format = new MarkdownlintCliLogFileFormat(new FakeLog());
-                var fixture = new MarkdownlintIssuesProviderFixture("markdownlint-cli-0.10.0.log", format);
+                var fixture =
+                    new MarkdownlintIssuesProviderFixture<MarkdownlintCliLogFileFormat>("markdownlint-cli-0.10.0.log");
 
                 // When
                 var issues = fixture.ReadIssues().ToList();

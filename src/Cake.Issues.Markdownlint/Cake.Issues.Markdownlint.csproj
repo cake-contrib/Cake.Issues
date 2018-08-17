@@ -44,8 +44,8 @@
     <Reference Include="Cake.Core, Version=0.28.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Cake.Core.0.28.0\lib\net46\Cake.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Cake.Issues, Version=0.4.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Cake.Issues.0.4.0\lib\netstandard2.0\Cake.Issues.dll</HintPath>
+    <Reference Include="Cake.Issues, Version=0.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Cake.Issues.0.5.0\lib\netstandard2.0\Cake.Issues.dll</HintPath>
     </Reference>
     <Reference Include="Costura, Version=1.6.2.0, Culture=neutral, PublicKeyToken=9919ef960d84173d, processorArchitecture=MSIL">
       <HintPath>..\packages\Costura.Fody.1.6.2\lib\dotnet\Costura.dll</HintPath>
@@ -64,10 +64,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ILogFileFormat.cs" />
-    <Compile Include="LogFileFormat.cs" />
-    <Compile Include="MarkdownlintLogFileFormat.cs" />
-    <Compile Include="MarkdownlintCliLogFileFormat.cs" />
+    <Compile Include="BaseMarkdownlintLogFileFormat.cs" />
+    <Compile Include="LogFileFormat\MarkdownlintLogFileFormat.cs" />
+    <Compile Include="LogFileFormat\MarkdownlintCliLogFileFormat.cs" />
+    <Compile Include="MarkdownlintIssuesAliases.MarkdownlintLogFileFormat.cs" />
+    <Compile Include="MarkdownlintIssuesAliases.MarkdownlintCliLogFileFormat.cs" />
+    <Compile Include="MarkdownlintIssuesAliases.RuleUrlResolver.cs" />
+    <Compile Include="MarkdownlintIssuesAliases.IssueProvider.cs" />
     <Compile Include="MarkdownlintIssuesSettings.cs" />
     <Compile Include="MarkdownlintIssuesProvider.cs" />
     <Compile Include="MarkdownlintIssuesAliases.cs" />

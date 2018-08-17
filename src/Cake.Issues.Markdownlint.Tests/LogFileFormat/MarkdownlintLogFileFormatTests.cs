@@ -1,10 +1,10 @@
-﻿namespace Cake.Issues.Markdownlint.Tests
+﻿namespace Cake.Issues.Markdownlint.Tests.LogFileFormat
 {
     using System.Linq;
-    using Cake.Testing;
-    using Core.IO;
+    using Cake.Core.IO;
+    using Cake.Issues.Markdownlint.LogFileFormat;
+    using Cake.Issues.Testing;
     using Shouldly;
-    using Testing;
     using Xunit;
 
     public sealed class MarkdownlintLogFileFormatTests
@@ -28,8 +28,7 @@
             public void Should_Read_Issues_Correct()
             {
                 // Given
-                var format = new MarkdownlintLogFileFormat(new FakeLog());
-                var fixture = new MarkdownlintIssuesProviderFixture("markdownlint.json", format);
+                var fixture = new MarkdownlintIssuesProviderFixture<MarkdownlintLogFileFormat>("markdownlint.json");
 
                 // When
                 var issues = fixture.ReadIssues().ToList();

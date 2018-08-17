@@ -1,4 +1,4 @@
-﻿namespace Cake.Issues.Markdownlint
+﻿namespace Cake.Issues.Markdownlint.LogFileFormat
 {
     using System;
     using System.Collections.Generic;
@@ -9,7 +9,7 @@
     /// <summary>
     /// Logfile format as written by markdownlint-cli.
     /// </summary>
-    internal class MarkdownlintCliLogFileFormat : LogFileFormat
+    internal class MarkdownlintCliLogFileFormat : BaseMarkdownlintLogFileFormat
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="MarkdownlintCliLogFileFormat"/> class.
@@ -32,7 +32,7 @@
 
             var regex = new Regex(@"(.*): (\d*): (MD\d*)/((?:\w*-*/*)*) (.*)");
 
-            foreach (var line in markdownlintIssuesSettings.LogFileContent.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None).ToList().Where(s => !string.IsNullOrEmpty(s)))
+            foreach (var line in markdownlintIssuesSettings.LogFileContent.ToStringUsingEncoding().Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None).ToList().Where(s => !string.IsNullOrEmpty(s)))
             {
                 var groups = regex.Match(line).Groups;
 
