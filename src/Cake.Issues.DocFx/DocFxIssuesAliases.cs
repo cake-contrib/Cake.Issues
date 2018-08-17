@@ -1,8 +1,8 @@
 ﻿namespace Cake.Issues.DocFx
 {
-    using Core;
-    using Core.Annotations;
-    using Core.IO;
+    using Cake.Core;
+    using Cake.Core.Annotations;
+    using Cake.Core.IO;
 
     /// <summary>
     /// Contains functionality related to read warnings from DocFx log files.
@@ -88,7 +88,7 @@
             logFilePath.NotNull(nameof(logFilePath));
             docRootPath.NotNull(nameof(docRootPath));
 
-            return context.DocFxIssues(DocFxIssuesSettings.FromFilePath(logFilePath, docRootPath));
+            return context.DocFxIssues(new DocFxIssuesSettings(logFilePath, docRootPath));
         }
 
         /// <summary>
@@ -118,7 +118,7 @@
             context.NotNull(nameof(context));
             logFileContent.NotNullOrWhiteSpace(nameof(logFileContent));
 
-            return context.DocFxIssues(DocFxIssuesSettings.FromContent(logFileContent, "/"));
+            return context.DocFxIssues(new DocFxIssuesSettings(logFileContent.ToByteArray(), "/"));
         }
 
         /// <summary>
@@ -153,7 +153,7 @@
             logFileContent.NotNullOrWhiteSpace(nameof(logFileContent));
             docRootPath.NotNull(nameof(docRootPath));
 
-            return context.DocFxIssues(DocFxIssuesSettings.FromContent(logFileContent, docRootPath));
+            return context.DocFxIssues(new DocFxIssuesSettings(logFileContent.ToByteArray(), docRootPath));
         }
 
         /// <summary>
@@ -167,7 +167,7 @@
         /// <code>
         /// <![CDATA[
         ///     var settings =
-        ///         DocFxIssuesSettings(@"c:\build\docfx.log");
+        ///         new DocFxIssuesSettings(@"c:\build\docfx.log");
         ///
         ///     var issues =
         ///         ReadIssues(
