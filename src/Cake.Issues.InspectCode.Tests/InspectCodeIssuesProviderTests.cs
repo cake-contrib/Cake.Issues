@@ -1,10 +1,10 @@
 ﻿namespace Cake.Issues.InspectCode.Tests
 {
     using System.Linq;
+    using Cake.Core.IO;
+    using Cake.Issues.Testing;
     using Cake.Testing;
-    using Core.IO;
     using Shouldly;
-    using Testing;
     using Xunit;
 
     public sealed class InspectCodeIssuesProviderTests
@@ -18,20 +18,20 @@
                 var result = Record.Exception(() =>
                     new InspectCodeIssuesProvider(
                         null,
-                        InspectCodeIssuesSettings.FromContent(@"foo")));
+                        new InspectCodeIssuesSettings("Foo".ToByteArray())));
 
                 // Then
                 result.IsArgumentNullException("log");
             }
 
             [Fact]
-            public void Should_Throw_If_Settings_Are_Null()
+            public void Should_Throw_If_IssueProviderSettings_Are_Null()
             {
                 // Given / When
                 var result = Record.Exception(() => new InspectCodeIssuesProvider(new FakeLog(), null));
 
                 // Then
-                result.IsArgumentNullException("settings");
+                result.IsArgumentNullException("issueProviderSettings");
             }
         }
 

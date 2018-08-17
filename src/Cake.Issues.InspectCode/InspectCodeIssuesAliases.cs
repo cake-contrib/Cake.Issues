@@ -1,8 +1,8 @@
 ﻿namespace Cake.Issues.InspectCode
 {
-    using Core;
-    using Core.Annotations;
-    using Core.IO;
+    using Cake.Core;
+    using Cake.Core.Annotations;
+    using Cake.Core.IO;
 
     /// <summary>
     /// Contains functionality for reading issues from JetBrains Inspect Code log files.
@@ -52,7 +52,7 @@
             context.NotNull(nameof(context));
             logFilePath.NotNull(nameof(logFilePath));
 
-            return context.InspectCodeIssues(InspectCodeIssuesSettings.FromFilePath(logFilePath));
+            return context.InspectCodeIssues(new InspectCodeIssuesSettings(logFilePath));
         }
 
         /// <summary>
@@ -81,7 +81,7 @@
             context.NotNull(nameof(context));
             logFileContent.NotNullOrWhiteSpace(nameof(logFileContent));
 
-            return context.InspectCodeIssues(InspectCodeIssuesSettings.FromContent(logFileContent));
+            return context.InspectCodeIssues(new InspectCodeIssuesSettings(logFileContent.ToByteArray()));
         }
 
         /// <summary>
