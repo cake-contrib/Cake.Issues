@@ -4,28 +4,34 @@
     using Cake.Core.Diagnostics;
 
     /// <summary>
-    /// Implementation of a <see cref="BaseIssueProvider"/> for use in test cases.
+    /// Implementation of a <see cref="BaseConfigurableIssueProvider{T}"/> for use in test cases.
     /// </summary>
-    public class FakeIssueProvider : BaseIssueProvider
+    public class FakeConfigurableIssueProvider
+        : BaseConfigurableIssueProvider<IssueProviderSettings>
     {
         private readonly List<IIssue> issues = new List<IIssue>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FakeIssueProvider"/> class.
+        /// Initializes a new instance of the <see cref="FakeConfigurableIssueProvider"/> class.
         /// </summary>
-        /// <param name="log">The Cake log instance</param>
-        public FakeIssueProvider(ICakeLog log)
-            : base(log)
+        /// <param name="log">The Cake log instance.</param>
+        /// <param name="settings">The issue provider settings.</param>
+        public FakeConfigurableIssueProvider(ICakeLog log, IssueProviderSettings settings)
+            : base(log, settings)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FakeIssueProvider"/> class.
+        /// Initializes a new instance of the <see cref="FakeConfigurableIssueProvider"/> class.
         /// </summary>
         /// <param name="log">The Cake log instance</param>
+        /// <param name="settings">The issue provider settings.</param>
         /// <param name="issues">Issues which should be returned by the issue provider.</param>
-        public FakeIssueProvider(ICakeLog log, IEnumerable<IIssue> issues)
-            : base(log)
+        public FakeConfigurableIssueProvider(
+            ICakeLog log,
+            IssueProviderSettings settings,
+            IEnumerable<IIssue> issues)
+            : base(log, settings)
         {
             // ReSharper disable once PossibleMultipleEnumeration
             issues.NotNull(nameof(issues));
@@ -40,9 +46,14 @@
         public new ICakeLog Log => base.Log;
 
         /// <summary>
-        /// Gets the settings.
+        /// Gets the repository settings.
         /// </summary>
-        public new RepositorySettings Settings => base.Settings;
+        public RepositorySettings RepositorySettings => this.Settings;
+
+        /// <summary>
+        /// Gets the issue provider settings.
+        /// </summary>
+        public new IssueProviderSettings IssueProviderSettings => base.IssueProviderSettings;
 
         /// <summary>
         /// Gets the format in which issues should be returned.

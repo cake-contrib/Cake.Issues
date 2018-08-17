@@ -1,7 +1,7 @@
 ﻿namespace Cake.Issues
 {
-    using Core;
-    using Core.Annotations;
+    using Cake.Core;
+    using Cake.Core.Annotations;
 
     /// <content>
     /// Contains functionality related to creating issues.

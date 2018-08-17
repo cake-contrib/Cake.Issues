@@ -1,9 +1,9 @@
 ﻿namespace Cake.Issues.Tests
 {
     using System.Collections.Generic;
+    using Cake.Issues.Testing;
     using Cake.Testing;
     using Core.Diagnostics;
-    using Testing;
 
     public class IssuesFixture
     {

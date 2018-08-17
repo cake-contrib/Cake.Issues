@@ -1,7 +1,7 @@
 ﻿namespace Cake.Issues
 {
     using System;
-    using Core.IO;
+    using Cake.Core.IO;
 
     /// <summary>
     /// Description of an issue.

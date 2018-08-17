@@ -1,6 +1,6 @@
 ﻿namespace Cake.Issues.Testing
 {
-    using Core.Diagnostics;
+    using Cake.Core.Diagnostics;
 
     /// <summary>
     /// Implementation of a <see cref="BaseIssueComponent{T}"/> for use in test cases.
