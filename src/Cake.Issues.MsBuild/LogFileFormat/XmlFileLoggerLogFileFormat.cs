@@ -1,9 +1,8 @@
-﻿namespace Cake.Issues.MsBuild
+﻿namespace Cake.Issues.MsBuild.LogFileFormat
 {
     using System;
     using System.Collections.Generic;
     using System.Globalization;
-    using System.IO;
     using System.Linq;
     using System.Xml.Linq;
     using Core.Diagnostics;
@@ -11,13 +10,13 @@
     /// <summary>
     /// MsBuild log format as written by the <c>XmlFileLogger</c> class from MSBuild Extension Pack.
     /// </summary>
-    internal class XmlFileLoggerFormat : LogFileFormat
+    internal class XmlFileLoggerLogFileFormat : BaseMsBuildLogFileFormat
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="XmlFileLoggerFormat"/> class.
+        /// Initializes a new instance of the <see cref="XmlFileLoggerLogFileFormat"/> class.
         /// </summary>
         /// <param name="log">The Cake log instance.</param>
-        public XmlFileLoggerFormat(ICakeLog log)
+        public XmlFileLoggerLogFileFormat(ICakeLog log)
             : base(log)
         {
         }
@@ -26,15 +25,16 @@
         public override IEnumerable<IIssue> ReadIssues(
             MsBuildIssuesProvider issueProvider,
             RepositorySettings repositorySettings,
-            MsBuildIssuesSettings msBuildIssuesSettings)
+            MsBuildIssuesSettings issueProviderSettings)
         {
             issueProvider.NotNull(nameof(issueProvider));
             repositorySettings.NotNull(nameof(repositorySettings));
-            msBuildIssuesSettings.NotNull(nameof(msBuildIssuesSettings));
+            issueProviderSettings.NotNull(nameof(issueProviderSettings));
 
             var result = new List<IIssue>();
 
-            var logDocument = XDocument.Parse(msBuildIssuesSettings.LogFileContent);
+            // Read log file.
+            var logDocument = XDocument.Parse(issueProviderSettings.LogFileContent.ToStringUsingEncoding(true));
 
             // Loop through all warning tags.
             foreach (var warning in logDocument.Descendants("warning"))
@@ -75,7 +75,7 @@
                     IssueBuilder
                         .NewIssue(warning.Value, issueProvider)
                         .WithPriority(IssuePriority.Warning)
-                        .InProject(projectFileRelativePath, Path.GetFileNameWithoutExtension(projectFileRelativePath))
+                        .InProject(projectFileRelativePath, System.IO.Path.GetFileNameWithoutExtension(projectFileRelativePath))
                         .InFile(fileName, line)
                         .OfRule(rule, ruleUrl)
                         .Create());
@@ -170,7 +170,7 @@
             project = project.Substring(repositorySettings.RepositoryRoot.FullPath.Length);
 
             // Remove leading directory separator.
-            if (project.StartsWith(Path.DirectorySeparatorChar.ToString()))
+            if (project.StartsWith(System.IO.Path.DirectorySeparatorChar.ToString()))
             {
                 project = project.Substring(1);
             }
@@ -210,8 +210,8 @@
                 var parentFileAttr = warning.Parent?.Attribute("file");
                 if (parentFileAttr != null)
                 {
-                    var compileTaskDirectory = Path.GetDirectoryName(parentFileAttr.Value);
-                    fileName = Path.Combine(compileTaskDirectory, fileName);
+                    var compileTaskDirectory = System.IO.Path.GetDirectoryName(parentFileAttr.Value);
+                    fileName = System.IO.Path.Combine(compileTaskDirectory, fileName);
                 }
             }
 
@@ -230,7 +230,7 @@
             fileName = fileName.Substring(repositorySettings.RepositoryRoot.FullPath.Length);
 
             // Remove leading directory separator.
-            if (fileName.StartsWith(Path.DirectorySeparatorChar.ToString()))
+            if (fileName.StartsWith(System.IO.Path.DirectorySeparatorChar.ToString()))
             {
                 fileName = fileName.Substring(1);
             }

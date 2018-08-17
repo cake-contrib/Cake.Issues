@@ -1,20 +1,25 @@
-﻿namespace Cake.Issues.MsBuild.Tests
+﻿namespace Cake.Issues.MsBuild.Tests.LogFileFormat
 {
     using System.Linq;
+    using Cake.Core.Diagnostics;
+    using Cake.Issues.MsBuild.LogFileFormat;
     using Core.IO;
     using Shouldly;
     using Testing;
     using Xunit;
 
-    public sealed class XmlFileLoggerFormatTests
+    public sealed class XmlFileLoggerLogFileFormatTests
     {
-        public sealed class TheXmlFileLoggerFormatCtor
+        public sealed class TheCtor
         {
             [Fact]
             public void Should_Throw_If_Log_Is_Null()
             {
-                // Given / When
-                var result = Record.Exception(() => new XmlFileLoggerFormat(null));
+                // Given
+                ICakeLog log = null;
+
+                // When
+                var result = Record.Exception(() => new XmlFileLoggerLogFileFormat(log));
 
                 // Then
                 result.IsArgumentNullException("log");
@@ -27,7 +32,7 @@
             public void Should_Read_Full_Log_Correct()
             {
                 // Given
-                var fixture = new MsBuildIssuesProviderFixture("FullLog.xml");
+                var fixture = new MsBuildIssuesProviderFixture<XmlFileLoggerLogFileFormat>("FullLog.xml");
 
                 // When
                 var issues = fixture.ReadIssues().ToList();
@@ -230,7 +235,7 @@
             public void Should_Read_Issue_With_File_Correct()
             {
                 // Given
-                var fixture = new MsBuildIssuesProviderFixture("IssueWithFile.xml");
+                var fixture = new MsBuildIssuesProviderFixture<XmlFileLoggerLogFileFormat>("IssueWithFile.xml");
 
                 // When
                 var issues = fixture.ReadIssues().ToList();
@@ -254,7 +259,7 @@
             public void Should_Read_Issue_With_File_Without_Path_Correct()
             {
                 // Given
-                var fixture = new MsBuildIssuesProviderFixture("IssueWithOnlyFileName.xml");
+                var fixture = new MsBuildIssuesProviderFixture<XmlFileLoggerLogFileFormat>("IssueWithOnlyFileName.xml");
 
                 // When
                 var issues = fixture.ReadIssues().ToList();
@@ -278,7 +283,7 @@
             public void Should_Read_Issue_With_Line_Zero_Correct()
             {
                 // Given
-                var fixture = new MsBuildIssuesProviderFixture("IssueWithLineZero.xml");
+                var fixture = new MsBuildIssuesProviderFixture<XmlFileLoggerLogFileFormat>("IssueWithLineZero.xml");
 
                 // When
                 var issues = fixture.ReadIssues().ToList();
@@ -302,7 +307,7 @@
             public void Should_Read_Issue_Without_File_Correct()
             {
                 // Given
-                var fixture = new MsBuildIssuesProviderFixture("IssueWithoutFile.xml");
+                var fixture = new MsBuildIssuesProviderFixture<XmlFileLoggerLogFileFormat>("IssueWithoutFile.xml");
 
                 // When
                 var issues = fixture.ReadIssues().ToList();
@@ -326,7 +331,7 @@
             public void Should_Read_Issue_Without_Code_Correct()
             {
                 // Given
-                var fixture = new MsBuildIssuesProviderFixture("IssueWithoutCode.xml");
+                var fixture = new MsBuildIssuesProviderFixture<XmlFileLoggerLogFileFormat>("IssueWithoutCode.xml");
 
                 // When
                 var issues = fixture.ReadIssues().ToList();

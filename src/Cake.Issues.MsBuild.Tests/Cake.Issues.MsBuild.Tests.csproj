@@ -24,20 +24,20 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Testfiles\FullLog.xml" />
-    <EmbeddedResource Include="Testfiles\IssueWithoutCode.xml" />
-    <EmbeddedResource Include="Testfiles\IssueWithFile.xml" />
-    <EmbeddedResource Include="Testfiles\IssueWithLineZero.xml" />
-    <EmbeddedResource Include="Testfiles\IssueWithOnlyFileName.xml" />
-    <EmbeddedResource Include="Testfiles\IssueWithoutFile.xml" />
+    <EmbeddedResource Include="Testfiles\XmlFileLoggerLogFileFormat\FullLog.xml" />
+    <EmbeddedResource Include="Testfiles\XmlFileLoggerLogFileFormat\IssueWithoutCode.xml" />
+    <EmbeddedResource Include="Testfiles\XmlFileLoggerLogFileFormat\IssueWithFile.xml" />
+    <EmbeddedResource Include="Testfiles\XmlFileLoggerLogFileFormat\IssueWithLineZero.xml" />
+    <EmbeddedResource Include="Testfiles\XmlFileLoggerLogFileFormat\IssueWithOnlyFileName.xml" />
+    <EmbeddedResource Include="Testfiles\XmlFileLoggerLogFileFormat\IssueWithoutFile.xml" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.8.0" />
     <PackageReference Include="Cake.Core" Version="0.28.0" />
     <PackageReference Include="Cake.Testing" Version="0.28.0" />
-    <PackageReference Include="Cake.Issues" Version="0.4.0" />
-    <PackageReference Include="Cake.Issues.Testing" Version="0.4.0" />
+    <PackageReference Include="Cake.Issues" Version="0.5.0" />
+    <PackageReference Include="Cake.Issues.Testing" Version="0.5.0" />
     <PackageReference Include="Shouldly" Version="3.0.0" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.0.2" />
     <PackageReference Include="xunit" Version="2.4.0" />

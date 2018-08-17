@@ -1,5 +1,8 @@
 ﻿namespace Cake.Issues.MsBuild.Tests
 {
+    using System.Text;
+    using Cake.Core.Diagnostics;
+    using Cake.Issues.MsBuild.LogFileFormat;
     using Cake.Testing;
     using Testing;
     using Xunit;
@@ -11,28 +14,32 @@
             [Fact]
             public void Should_Throw_If_Log_Is_Null()
             {
-                // Given / When
-                var result = Record.Exception(() =>
-                    new MsBuildIssuesProvider(
-                        null,
-                        MsBuildIssuesSettings.FromContent(
-                            "Foo",
-                            new XmlFileLoggerFormat(new FakeLog()))));
+                // Given
+                ICakeLog log = null;
+                var settings =
+                    new MsBuildIssuesSettings(
+                        "Foo".ToByteArray(),
+                        new XmlFileLoggerLogFileFormat(new FakeLog()));
+
+                // When
+                var result = Record.Exception(() => new MsBuildIssuesProvider(log, settings));
 
                 // Then
                 result.IsArgumentNullException("log");
             }
 
             [Fact]
-            public void Should_Throw_If_Settings_Are_Null()
+            public void Should_Throw_If_IssueProviderSettings_Are_Null()
             {
-                var result = Record.Exception(() =>
-                    new MsBuildIssuesProvider(
-                        new FakeLog(),
-                        null));
+                // Given
+                var log = new FakeLog();
+                MsBuildIssuesSettings settings = null;
+
+                // When
+                var result = Record.Exception(() => new MsBuildIssuesProvider(log, settings));
 
                 // Then
-                result.IsArgumentNullException("settings");
+                result.IsArgumentNullException("issueProviderSettings");
             }
         }
     }
