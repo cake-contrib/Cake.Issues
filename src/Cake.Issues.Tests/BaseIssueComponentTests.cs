@@ -76,5 +76,35 @@
                 result.ShouldBe(true);
             }
         }
+
+        public sealed class TheAssertInitializedMethod
+        {
+            [Fact]
+            public void Should_Throw_If_Initialize_Was_Not_Called()
+            {
+                // Given
+                var provider = new FakeIssueComponent(new FakeLog());
+
+                // When
+                var result = Record.Exception(() => provider.AssertInitialized());
+
+                // Then
+                result.IsInvalidOperationException("Initialize needs to be called first.");
+            }
+
+            [Fact]
+            public void Should_Not_Throw_If_Initialize_Was_Called()
+            {
+                // Given
+                var provider = new FakeIssueComponent(new FakeLog());
+                var settings = new RepositorySettings(@"c:\foo");
+                provider.Initialize(settings);
+
+                // When
+                provider.AssertInitialized();
+
+                // Then
+            }
+        }
     }
 }
