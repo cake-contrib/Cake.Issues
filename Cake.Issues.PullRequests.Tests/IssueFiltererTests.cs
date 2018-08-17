@@ -76,48 +76,15 @@
             }
 
             [Fact]
-            public void Should_Throw_If_Issue_Comments_Are_Null()
+            public void Should_Not_Throw_If_Issue_Comments_Are_Null()
             {
                 // Given
                 var fixture = new PullRequestsFixture();
 
                 // When
-                var result = Record.Exception(() => fixture.FilterIssues(new List<IIssue>(), null));
+                fixture.FilterIssues(new List<IIssue>(), null);
 
                 // Then
-                result.IsArgumentNullException("issueComments");
-            }
-
-            [Fact]
-            public void Should_Throw_If_Modified_Files_Contain_Absolute_Path()
-            {
-                // Given
-                var fixture = new PullRequestsFixture();
-                fixture.PullRequestSystem =
-                    new FakePullRequestSystem(
-                        fixture.Log,
-                        new List<IPullRequestDiscussionThread>(),
-                        new List<FilePath>
-                        {
-                            new FilePath(@"c:\FakeIssueProvider.cs")
-                        });
-
-                // When
-                var result = Record.Exception(() =>
-                    fixture.FilterIssues(
-                        new List<IIssue>
-                        {
-                            IssueBuilder
-                                .NewIssue("Message", "ProviderType", "ProviderName")
-                                .InFile(@"src\Cake.Issues.Tests\FakeIssueProvider.cs", 10)
-                                .OfRule("Rule")
-                                .WithPriority(IssuePriority.Warning)
-                                .Create()
-                        },
-                        new Dictionary<IIssue, IssueCommentInfo>()));
-
-                // Then
-                result.IsPullRequestIssuesException(@"Absolute file paths are not suported for modified files. Path: c:/FakeIssueProvider.cs");
             }
 
             [Fact]
@@ -125,14 +92,6 @@
             {
                 // Given
                 var fixture = new PullRequestsFixture();
-                fixture.PullRequestSystem =
-                    new FakePullRequestSystem(
-                        fixture.Log,
-                        new List<IPullRequestDiscussionThread>(),
-                        new List<FilePath>
-                        {
-                            new FilePath(@"src\Cake.Issues.Tests\FakeIssueProvider.cs")
-                        });
 
                 var issue1 =
                     IssueBuilder
@@ -184,14 +143,6 @@
             {
                 // Given
                 var fixture = new PullRequestsFixture();
-                fixture.PullRequestSystem =
-                    new FakePullRequestSystem(
-                        fixture.Log,
-                        new List<IPullRequestDiscussionThread>(),
-                        new List<FilePath>
-                        {
-                            new FilePath(@"src\Cake.Issues.Tests\FakeIssueProvider.cs")
-                        });
 
                 var issue1 =
                     IssueBuilder
@@ -243,14 +194,6 @@
             {
                 // Given
                 var fixture = new PullRequestsFixture();
-                fixture.PullRequestSystem =
-                    new FakePullRequestSystem(
-                        fixture.Log,
-                        new List<IPullRequestDiscussionThread>(),
-                        new List<FilePath>
-                        {
-                            new FilePath(@"src\Cake.Issues.Tests\FakeIssueProvider.cs")
-                        });
 
                 var issue1 =
                     IssueBuilder
@@ -301,15 +244,8 @@
             public void Should_Apply_Custom_Filters()
             {
                 // Given
-                var fixture = new PullRequestsFixture();
-                fixture.PullRequestSystem =
-                    new FakePullRequestSystem(
-                        fixture.Log,
-                        new List<IPullRequestDiscussionThread>(),
-                        new List<FilePath>
-                        {
-                            new FilePath(@"src\Cake.Issues.Tests\FakeIssueProvider.cs")
-                        });
+                var fixture =
+                    new PullRequestsFixture();
                 fixture.ReportIssuesToPullRequestSettings.IssueFilters.Add(x => x.Where(issue => issue.Rule != "Bar"));
 
                 var issue1 =
@@ -339,6 +275,40 @@
                 // Then
                 issues.Count().ShouldBe(1);
                 issues.ShouldContain(issue1);
+            }
+        }
+
+        public sealed class TheFilterIssuesMethodWithFilteringByModifiedFilesCapability
+        {
+            [Fact]
+            public void Should_Throw_If_Modified_Files_Contain_Absolute_Path()
+            {
+                // Given
+                var fixture =
+                    new PullRequestsFixture(
+                        (builder, settings) => builder
+                            .WithFilteringByModifiedFilesCapability(
+                                new List<FilePath>
+                                {
+                                    new FilePath(@"c:\FakeIssueProvider.cs")
+                                }));
+
+                // When
+                var result = Record.Exception(() =>
+                    fixture.FilterIssues(
+                        new List<IIssue>
+                        {
+                            IssueBuilder
+                                .NewIssue("Message", "ProviderType", "ProviderName")
+                                .InFile(@"src\Cake.Issues.Tests\FakeIssueProvider.cs", 10)
+                                .OfRule("Rule")
+                                .WithPriority(IssuePriority.Warning)
+                                .Create()
+                        },
+                        new Dictionary<IIssue, IssueCommentInfo>()));
+
+                // Then
+                result.IsPullRequestIssuesException(@"Absolute file paths are not suported for modified files. Path: c:/FakeIssueProvider.cs");
             }
         }
     }

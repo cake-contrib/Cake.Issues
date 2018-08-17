@@ -40,7 +40,8 @@
         /// Filters all issues which should not be logged.
         /// </summary>
         /// <param name="issues">Found issues.</param>
-        /// <param name="issueComments">List of existing comments on the pull request.</param>
+        /// <param name="issueComments">List of existing comments on the pull request or null if the
+        /// pull request system doesn't support discussions.</param>
         /// <returns>List of filtered issues.</returns>
         public IEnumerable<IIssue> FilterIssues(
             IEnumerable<IIssue> issues,
@@ -48,13 +49,17 @@
         {
             // ReSharper disable once PossibleMultipleEnumeration
             issues.NotNull(nameof(issues));
-            issueComments.NotNull(nameof(issueComments));
 
             this.log.Verbose("Filtering issues before posting...");
 
             // ReSharper disable once PossibleMultipleEnumeration
             var result = this.FilterIssuesByPath(issues as IList<IIssue> ?? issues.ToList());
-            result = this.FilterPreExistingComments(result, issueComments);
+
+            if (issueComments != null)
+            {
+                result = this.FilterPreExistingComments(result, issueComments);
+            }
+
             result = this.FilterIssuesByNumber(result);
 
             // Apply custom filters.
@@ -117,7 +122,13 @@
                 return issues;
             }
 
-            var modifiedFilesList = this.pullRequestSystem.GetModifiedFilesInPullRequest().ToList();
+            var filterByModifiedFilesCapability = this.pullRequestSystem.GetCapability<ISupportFilteringByModifiedFiles>();
+            if (filterByModifiedFilesCapability == null)
+            {
+                return issues;
+            }
+
+            var modifiedFilesList = filterByModifiedFilesCapability.GetModifiedFilesInPullRequest().ToList();
             ValidateModifiedFiles(modifiedFilesList);
 
             // Create paths absolute to repository root.

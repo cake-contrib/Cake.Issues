@@ -115,23 +115,36 @@
         {
             issues.NotNull(nameof(issues));
 
-            this.log.Information("Fetching existing threads and comments...");
+            IDictionary<IIssue, IssueCommentInfo> issueComments = null;
+            var discussionThreadsCapability = this.pullRequestSystem.GetCapability<ISupportDiscussionThreads>();
+            if (discussionThreadsCapability != null)
+            {
+                this.log.Information("Fetching existing threads and comments...");
 
-            var existingThreads =
-                this.pullRequestSystem.FetchDiscussionThreads(
-                    reportIssuesToPullRequestSettings.CommentSource).ToList();
+                var existingThreads =
+                    discussionThreadsCapability.FetchDiscussionThreads(
+                        reportIssuesToPullRequestSettings.CommentSource).ToList();
 
-            var issueComments =
-                this.GetCommentsForIssue(
-                    reportIssuesToPullRequestSettings,
-                    issues,
-                    existingThreads);
+                issueComments =
+                    this.GetCommentsForIssue(
+                        reportIssuesToPullRequestSettings,
+                        issues,
+                        existingThreads);
 
-            // Comments that were created by this logic but do not have corresponding issues can be marked as 'Resolved'.
-            this.ResolveExistingComments(existingThreads, issueComments, reportIssuesToPullRequestSettings);
+                // Comments that were created by this logic but do not have corresponding issues can be marked as 'Resolved'.
+                this.ResolveExistingComments(
+                    discussionThreadsCapability,
+                    existingThreads,
+                    issueComments,
+                    reportIssuesToPullRequestSettings);
 
-            // Comments that were created by this logic and are resolved, but still have a corresponding issue need to be reopened.
-            this.ReopenExistingComments(existingThreads, issueComments, reportIssuesToPullRequestSettings);
+                // Comments that were created by this logic and are resolved, but still have a corresponding issue need to be reopened.
+                this.ReopenExistingComments(
+                    discussionThreadsCapability,
+                    existingThreads,
+                    issueComments,
+                    reportIssuesToPullRequestSettings);
+            }
 
             if (!issues.Any())
             {
@@ -161,14 +174,19 @@
                     remainingIssues.Count,
                     string.Join(Environment.NewLine, formattedMessages));
 
-                if (!string.IsNullOrWhiteSpace(reportIssuesToPullRequestSettings.CommitId) &&
-                    !this.pullRequestSystem.IsCurrentCommitId(reportIssuesToPullRequestSettings.CommitId))
+                if (!string.IsNullOrWhiteSpace(reportIssuesToPullRequestSettings.CommitId))
                 {
-                    this.log.Information(
-                        "Skipping posting of issues since commit {0} is outdated. Current commit is {1}",
-                        reportIssuesToPullRequestSettings.CommitId,
-                        this.pullRequestSystem.GetLastSourceCommitId());
-                    return new List<IIssue>();
+                    var checkCommitIdCapability = this.pullRequestSystem.GetCapability<ISupportCheckingCommitId>();
+
+                    if (checkCommitIdCapability != null &&
+                        !checkCommitIdCapability.IsCurrentCommitId(reportIssuesToPullRequestSettings.CommitId))
+                    {
+                        this.log.Information(
+                            "Skipping posting of issues since commit {0} is outdated. Current commit is {1}",
+                            reportIssuesToPullRequestSettings.CommitId,
+                            checkCommitIdCapability.GetLastSourceCommitId());
+                        return new List<IIssue>();
+                    }
                 }
 
                 this.pullRequestSystem.PostDiscussionThreads(
@@ -318,10 +336,12 @@
         /// <summary>
         /// Marks comment threads created by this logic but without active issues as resolved.
         /// </summary>
+        /// <param name="discussionThreadsCapability">Pull request system capability for working with discussion threads.</param>
         /// <param name="existingThreads">Existing discussion threads on the pull request.</param>
         /// <param name="issueComments">Issues and their related existing comments on the pull request.</param>
         /// <param name="reportIssuesToPullRequestSettings">Settings for posting the issues.</param>
         private void ResolveExistingComments(
+            ISupportDiscussionThreads discussionThreadsCapability,
             IList<IPullRequestDiscussionThread> existingThreads,
             IDictionary<IIssue, IssueCommentInfo> issueComments,
             ReportIssuesToPullRequestSettings reportIssuesToPullRequestSettings)
@@ -340,7 +360,7 @@
                 this.GetThreadsToResolve(existingThreads, issueComments, reportIssuesToPullRequestSettings).ToList();
 
             this.log.Verbose("Mark {0} threads as fixed...", threadsToResolve.Count);
-            this.pullRequestSystem.ResolveDiscussionThreads(threadsToResolve);
+            discussionThreadsCapability.ResolveDiscussionThreads(threadsToResolve);
         }
 
         /// <summary>
@@ -380,10 +400,12 @@
         /// <summary>
         /// Marks resolved comment threads created by this logic with active issues as active.
         /// </summary>
+        /// <param name="discussionThreadsCapability">Pull request system capability for working with discussion threads.</param>
         /// <param name="existingThreads">Existing discussion threads on the pull request.</param>
         /// <param name="issueComments">Issues and their related existing comments on the pull request.</param>
         /// <param name="reportIssuesToPullRequestSettings">Settings for posting the issues.</param>
         private void ReopenExistingComments(
+            ISupportDiscussionThreads discussionThreadsCapability,
             IList<IPullRequestDiscussionThread> existingThreads,
             IDictionary<IIssue, IssueCommentInfo> issueComments,
             ReportIssuesToPullRequestSettings reportIssuesToPullRequestSettings)
@@ -402,7 +424,7 @@
                 this.GetThreadsToReopen(existingThreads, issueComments, reportIssuesToPullRequestSettings).ToList();
 
             this.log.Verbose("Reopen {0} threads...", threadsToReopen.Count);
-            this.pullRequestSystem.ReopenDiscussionThreads(threadsToReopen);
+            discussionThreadsCapability.ReopenDiscussionThreads(threadsToReopen);
         }
 
         /// <summary>

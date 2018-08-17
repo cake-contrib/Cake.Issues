@@ -1,5 +1,6 @@
 ﻿namespace Cake.Issues.PullRequests.Tests
 {
+    using System;
     using System.Collections.Generic;
     using Cake.Core.Diagnostics;
     using Cake.Issues.Testing;
@@ -8,13 +9,27 @@
     internal class PullRequestsFixture
     {
         public PullRequestsFixture()
+            : this((builder, settings) => builder)
         {
+        }
+
+        public PullRequestsFixture(
+            Func<FakePullRequestSystemBuilder, ReportIssuesToPullRequestSettings, FakePullRequestSystemBuilder> pullRequestSettings)
+        {
+            pullRequestSettings.NotNull(nameof(pullRequestSettings));
+
             this.Log = new FakeLog { Verbosity = Verbosity.Normal };
+
             this.IssueProviders = new List<FakeIssueProvider> { new FakeIssueProvider(this.Log) };
-            this.PullRequestSystem = new FakePullRequestSystem(this.Log);
+
             this.Settings =
                 new ReportIssuesToPullRequestSettings(
                     new Core.IO.DirectoryPath(@"c:\Source\Cake.Issues"));
+
+            var pullRequestSystemBuilder = FakePullRequestSystemBuilder.NewPullRequestSystem(this.Log);
+            pullRequestSystemBuilder =
+                pullRequestSettings(pullRequestSystemBuilder, this.ReportIssuesToPullRequestSettings);
+            this.PullRequestSystem = pullRequestSystemBuilder.Create();
         }
 
         public FakeLog Log { get; set; }

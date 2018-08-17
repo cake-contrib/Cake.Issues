@@ -2,54 +2,37 @@
 {
     using System.Collections.Generic;
     using Cake.Core.Diagnostics;
-    using Cake.Core.IO;
 
     /// <summary>
-    /// Base class for all pull request system implementations.
+    /// Capability to read, resolve and reopen discussion threads.
     /// </summary>
-    public abstract class PullRequestSystem : BaseIssueComponent<ReportIssuesToPullRequestSettings>, IPullRequestSystem
+    /// <typeparam name="T">Type of the pull request system to which this capability belongs.</typeparam>
+    public abstract class BaseDiscussionThreadsCapability<T>
+        : BasePullRequestSystemCapability<T>, ISupportDiscussionThreads
+        where T : class, IPullRequestSystem
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PullRequestSystem"/> class.
+        /// Initializes a new instance of the <see cref="BaseDiscussionThreadsCapability{T}"/> class.
         /// </summary>
         /// <param name="log">The Cake log context.</param>
-        protected PullRequestSystem(ICakeLog log)
-            : base(log)
+        /// <param name="pullRequestSystem">Pull request system to which this capability belongs.</param>
+        public BaseDiscussionThreadsCapability(ICakeLog log, T pullRequestSystem)
+            : base(log, pullRequestSystem)
         {
-        }
-
-        /// <inheritdoc/>
-        public virtual string GetLastSourceCommitId()
-        {
-            return null;
-        }
-
-        /// <inheritdoc/>
-        public virtual IssueCommentFormat GetPreferredCommentFormat()
-        {
-            return IssueCommentFormat.PlainText;
         }
 
         /// <inheritdoc/>
         public IEnumerable<IPullRequestDiscussionThread> FetchDiscussionThreads(string commentSource)
         {
-            this.AssertSettings();
+            this.PullRequestSystem.AssertInitialized();
 
             return this.InternalFetchDiscussionThreads(commentSource);
         }
 
         /// <inheritdoc/>
-        public IEnumerable<FilePath> GetModifiedFilesInPullRequest()
-        {
-            this.AssertSettings();
-
-            return this.InternalGetModifiedFilesInPullRequest();
-        }
-
-        /// <inheritdoc/>
         public void ResolveDiscussionThreads(IEnumerable<IPullRequestDiscussionThread> threads)
         {
-            this.AssertSettings();
+            this.PullRequestSystem.AssertInitialized();
 
             this.InternalResolveDiscussionThreads(threads);
         }
@@ -57,17 +40,9 @@
         /// <inheritdoc/>
         public void ReopenDiscussionThreads(IEnumerable<IPullRequestDiscussionThread> threads)
         {
-            this.AssertSettings();
+            this.PullRequestSystem.AssertInitialized();
 
             this.InternalReopenDiscussionThreads(threads);
-        }
-
-        /// <inheritdoc/>
-        public void PostDiscussionThreads(IEnumerable<IIssue> issues, string commentSource)
-        {
-            this.AssertSettings();
-
-            this.InternalPostDiscussionThreads(issues, commentSource);
         }
 
         /// <summary>
@@ -77,13 +52,6 @@
         /// <param name="commentSource">Value used to indicate threads created by this addin.</param>
         /// <returns>List of all discussion threads.</returns>
         protected abstract IEnumerable<IPullRequestDiscussionThread> InternalFetchDiscussionThreads(string commentSource);
-
-        /// <summary>
-        /// Returns a list of all files modified in a pull request.
-        /// Compared to <see cref="GetModifiedFilesInPullRequest"/> it is safe to access Settings from this method.
-        /// </summary>
-        /// <returns>List of all files modified in a pull request.</returns>
-        protected abstract IEnumerable<FilePath> InternalGetModifiedFilesInPullRequest();
 
         /// <summary>
         /// Marks a list of discussion threads as resolved.
@@ -98,13 +66,5 @@
         /// </summary>
         /// <param name="threads">Threads to mark as active.</param>
         protected abstract void InternalReopenDiscussionThreads(IEnumerable<IPullRequestDiscussionThread> threads);
-
-        /// <summary>
-        /// Posts discussion threads for all issues which need to be posted.
-        /// Compared to <see cref="PostDiscussionThreads"/> it is safe to access Settings from this method.
-        /// </summary>
-        /// <param name="issues">Issues which need to be posted.</param>
-        /// <param name="commentSource">Value used to decorate comments created by this addin.</param>
-        protected abstract void InternalPostDiscussionThreads(IEnumerable<IIssue> issues, string commentSource);
     }
 }

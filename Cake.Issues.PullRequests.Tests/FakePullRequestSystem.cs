@@ -2,17 +2,12 @@
 {
     using System.Collections.Generic;
     using Cake.Core.Diagnostics;
-    using Cake.Core.IO;
 
     /// <summary>
-    /// Implementation of a <see cref="Issues.PullRequests.PullRequestSystem.PullRequestSystem"/> for use in test cases.
+    /// Implementation of a <see cref="BasePullRequestSystem"/> for use in test cases.
     /// </summary>
-    public class FakePullRequestSystem : PullRequestSystem
+    public class FakePullRequestSystem : BasePullRequestSystem
     {
-        private readonly List<IPullRequestDiscussionThread> discussionThreads = new List<IPullRequestDiscussionThread>();
-        private readonly List<FilePath> modifiedFiles = new List<FilePath>();
-        private readonly List<IPullRequestDiscussionThread> resolvedThreads = new List<IPullRequestDiscussionThread>();
-        private readonly List<IPullRequestDiscussionThread> reopenedThreads = new List<IPullRequestDiscussionThread>();
         private readonly List<IIssue> postedIssues = new List<IIssue>();
 
         /// <summary>
@@ -22,33 +17,6 @@
         public FakePullRequestSystem(ICakeLog log)
             : base(log)
         {
-            this.Initialize();
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="FakePullRequestSystem"/> class.
-        /// </summary>
-        /// <param name="log">The Cake log instance.</param>
-        /// <param name="discussionThreads">Discussion threads which the pull request system should return.</param>
-        /// <param name="modifiedFiles">List of modified files which the pull request system should return.</param>
-        public FakePullRequestSystem(
-            ICakeLog log,
-            IEnumerable<IPullRequestDiscussionThread> discussionThreads,
-            IEnumerable<FilePath> modifiedFiles)
-            : base(log)
-        {
-            // ReSharper disable once PossibleMultipleEnumeration
-            discussionThreads.NotNull(nameof(discussionThreads));
-
-            // ReSharper disable once PossibleMultipleEnumeration
-            modifiedFiles.NotNull(nameof(modifiedFiles));
-
-            // ReSharper disable once PossibleMultipleEnumeration
-            this.discussionThreads.AddRange(discussionThreads);
-
-            // ReSharper disable once PossibleMultipleEnumeration
-            this.modifiedFiles.AddRange(modifiedFiles);
-
             this.Initialize();
         }
 
@@ -63,24 +31,27 @@
         public new ReportIssuesToPullRequestSettings Settings => base.Settings;
 
         /// <summary>
-        /// Gets the discussion threads marked as fixed.
+        /// Gets the <see cref="FakeCheckingCommitIdCapability"/> if it is enabled or null.
         /// </summary>
-        public IEnumerable<IPullRequestDiscussionThread> ResolvedThreads => this.resolvedThreads;
+        public FakeCheckingCommitIdCapability CheckingCommitIdCapability =>
+            this.GetCapability<FakeCheckingCommitIdCapability>();
 
         /// <summary>
-        /// Gets the discussion threads marked as active.
+        /// Gets the <see cref="FakeDiscussionThreadsCapability"/> if it is enabled or null.
         /// </summary>
-        public IEnumerable<IPullRequestDiscussionThread> ReopenedThreads => this.reopenedThreads;
+        public FakeDiscussionThreadsCapability DiscussionThreadsCapability =>
+            this.GetCapability<FakeDiscussionThreadsCapability>();
+
+        /// <summary>
+        /// Gets the <see cref="FakeFilteringByModifiedFilesCapability"/> if it is enabled or null.
+        /// </summary>
+        public FakeFilteringByModifiedFilesCapability FilteringByModifiedFilesCapability =>
+            this.GetCapability<FakeFilteringByModifiedFilesCapability>();
 
         /// <summary>
         /// Gets the issues posted to the pull request.
         /// </summary>
         public IEnumerable<IIssue> PostedIssues => this.postedIssues;
-
-        /// <summary>
-        /// Gets or sets the ID of the last source commit returned with <see cref="GetLastSourceCommitId"/>.
-        /// </summary>
-        public string LastSourceCommitId { get; set; }
 
         /// <summary>
         /// Gets or sets the preferred comment format returned with <see cref="GetPreferredCommentFormat"/>.
@@ -91,12 +62,6 @@
         /// Gets or sets a value indicating whether the pull request system should return false during <see cref="Initialize"/>.
         /// </summary>
         public bool ShouldFailOnInitialization { get; set; } = false;
-
-        /// <inheritdoc />
-        public override string GetLastSourceCommitId()
-        {
-            return this.LastSourceCommitId;
-        }
 
         /// <inheritdoc />
         public override IssueCommentFormat GetPreferredCommentFormat()
@@ -110,38 +75,6 @@
             var result = base.Initialize(settings);
 
             return result && !this.ShouldFailOnInitialization;
-        }
-
-        /// <inheritdoc />
-        protected override IEnumerable<IPullRequestDiscussionThread> InternalFetchDiscussionThreads(string commentSource)
-        {
-            return this.discussionThreads;
-        }
-
-        /// <inheritdoc />
-        protected override IEnumerable<FilePath> InternalGetModifiedFilesInPullRequest()
-        {
-            return this.modifiedFiles;
-        }
-
-        /// <inheritdoc />
-        protected override void InternalResolveDiscussionThreads(IEnumerable<IPullRequestDiscussionThread> threads)
-        {
-            // ReSharper disable once PossibleMultipleEnumeration
-            threads.NotNull(nameof(threads));
-
-            // ReSharper disable once PossibleMultipleEnumeration
-            this.resolvedThreads.AddRange(threads);
-        }
-
-        /// <inheritdoc />
-        protected override void InternalReopenDiscussionThreads(IEnumerable<IPullRequestDiscussionThread> threads)
-        {
-            // ReSharper disable once PossibleMultipleEnumeration
-            threads.NotNull(nameof(threads));
-
-            // ReSharper disable once PossibleMultipleEnumeration
-            this.reopenedThreads.AddRange(threads);
         }
 
         /// <inheritdoc />
