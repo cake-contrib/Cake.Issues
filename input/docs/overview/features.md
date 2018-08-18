@@ -32,15 +32,21 @@ Addin for writing issues as comments to pull requests providing the following fu
 
 * [ReportIssuesToPullRequest] aliases for writing issues as comments to pull requests.
 * Support for reporting issues from multiple issue providers.
-* Filtering issues to only those related to changed files in a pull request.
 * Support for passing custom issue filter routines in `ReportIssuesToPullRequestSettings.IssueFilters`.
-* Skipping posting of issues if checked source code is outdated by setting `ReportIssuesToPullRequestSettings.CommitId`.
-* Automatic resolving of issues fixed in subsequent commits.
-* Automatic reopening of still existing issues which are already closed on pull request.
-* Comparing issues by content to not rely on line numbers.
 * Limit number of maximum issues to post globally or per issue provider by setting
   `ReportIssuesToPullRequestSettings.MaxIssuesToPostForEachIssueProvider` or `ReportIssuesToPullRequestSettings.MaxIssuesToPost`.
 * Returns all issues as provided by the issue providers and the issues reported to the pull request.
+
+Concrete pull request systems can implement optional capabilities which will provide the following functionality:
+
+* Filter by modified files ([BaseFilteringByModifiedFilesCapability])
+  * Filtering issues to only those related to changed files in a pull request.
+* Check commit ID ([BaseCheckingCommitIdCapability])
+  * Skipping posting of issues if checked source code is outdated by setting `ReportIssuesToPullRequestSettings.CommitId`.
+* Support for discussion threads ([BaseDiscussionThreadsCapability])
+  * Automatic resolving of issues fixed in subsequent commits.
+  * Automatic reopening of still existing issues which are already closed on pull request.
+  * Comparing issues by content to not rely on line numbers.
 
 # Supported Issue Providers
 
@@ -58,6 +64,9 @@ See [Pull Request System Addins] for a list of currently supported pull request 
 [ReadIssues]: ../../api/Cake.Issues/Aliases/713F15FD
 [CreateIssueReport]: ../../api/Cake.Issues.Reporting/Aliases/C778C70A
 [ReportIssuesToPullRequest]: ../../api/Cake.Issues.PullRequests/Aliases/5350C413
+[BaseFilteringByModifiedFilesCapability]: ../../api/Cake.Issues.PullRequests/BaseFilteringByModifiedFilesCapability_1
+[BaseCheckingCommitIdCapability]: ../../api/Cake.Issues.PullRequests/BaseCheckingCommitIdCapability_1
+[BaseDiscussionThreadsCapability]: ../../api/Cake.Issues.PullRequests/BaseDiscussionThreadsCapability_1
 [Issue Provider Addins]: ../../addins/issue-provider/
 [Report Format Addins]: ../../addins/reporting-format/
 [Pull Request System Addins]: ../../addins/pull-request-system/
