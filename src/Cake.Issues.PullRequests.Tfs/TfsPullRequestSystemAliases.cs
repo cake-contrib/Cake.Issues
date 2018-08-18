@@ -307,8 +307,8 @@
             context.NotNull(nameof(context));
             settings.NotNull(nameof(settings));
 
-            var pullRequest = new TfsPullRequestSystem(context.Log, settings);
-            return pullRequest.LastSourceCommitId;
+            var pullRequestSystem = new TfsPullRequestSystem(context.Log, settings);
+            return pullRequestSystem.GetCapability<TfsCheckingCommitIdCapability>().GetLastSourceCommitId();
         }
     }
 }

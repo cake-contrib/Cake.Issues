@@ -38,3 +38,4 @@ using System.Runtime.InteropServices;
 
 [assembly: CLSCompliant(true)]
 [assembly: InternalsVisibleTo("Cake.Issues.PullRequests.Tfs.Tests")]
+[assembly: InternalsVisibleTo("DynamicProxyGenAssembly2")] // Required for NSubstitute
