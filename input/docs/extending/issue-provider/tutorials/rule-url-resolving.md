@@ -1,6 +1,6 @@
 ---
 Order: 40
-Title: Implementing rule URL resolving
+Title: Rule URL resolving
 Description: Instructions how to implement rule URL resolving.
 ---
 For cases where additional logic is required to determine the URL for a rule, the `Cake.Issue`
@@ -127,8 +127,8 @@ public static class MyIssueProviderAliases
     }
 ```
 
-[BaseRuleDescription]: ../../../api/Cake.Issues/BaseRuleDescription/
-[BaseRuleUrlResolver]: ../../../api/Cake.Issues/BaseRuleUrlResolver_1/
-[TryGetRuleDescription]: ../../../api/Cake.Issues/BaseRuleUrlResolver_1/D9DB5D44
-[AddUrlResolver]: ../../../api/Cake.Issues/BaseRuleUrlResolver_1/AAA4FB20
-[ResolveRuleUrl]: ../../../api/Cake.Issues/BaseRuleUrlResolver_1/6B23EC74
+[BaseRuleDescription]: ../../../../api/Cake.Issues/BaseRuleDescription/
+[BaseRuleUrlResolver]: ../../../../api/Cake.Issues/BaseRuleUrlResolver_1/
+[TryGetRuleDescription]: ../../../../api/Cake.Issues/BaseRuleUrlResolver_1/D9DB5D44
+[AddUrlResolver]: ../../../../api/Cake.Issues/BaseRuleUrlResolver_1/AAA4FB20
+[ResolveRuleUrl]: ../../../../api/Cake.Issues/BaseRuleUrlResolver_1/6B23EC74
