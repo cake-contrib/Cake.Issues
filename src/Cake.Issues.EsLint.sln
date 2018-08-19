@@ -3,9 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.8
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.Issues.EsLint", "Cake.Issues.EsLint\Cake.Issues.EsLint.csproj", "{EAC1D76A-A763-4EA8-8B9D-7B2F71B7EA8B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cake.Issues.EsLint", "Cake.Issues.EsLint\Cake.Issues.EsLint.csproj", "{EAC1D76A-A763-4EA8-8B9D-7B2F71B7EA8B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.Issues.EsLint.Tests", "Cake.Issues.EsLint.Tests\Cake.Issues.EsLint.Tests.csproj", "{4A657D7C-B66B-49C8-B1E2-544EFF8525F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cake.Issues.EsLint.Tests", "Cake.Issues.EsLint.Tests\Cake.Issues.EsLint.Tests.csproj", "{4A657D7C-B66B-49C8-B1E2-544EFF8525F6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{86A53287-4147-4449-BC52-B3BD17B1C22B}"
+	ProjectSection(SolutionItems) = preProject
+		..\setup.cake = ..\setup.cake
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nuspec", "nuspec", "{3D3B8EEA-DBFC-4492-8CAD-BEDF32BA0828}"
+	ProjectSection(SolutionItems) = preProject
+		..\nuspec\nuget\Cake.Issues.EsLint.nuspec = ..\nuspec\nuget\Cake.Issues.EsLint.nuspec
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,6 +34,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3D3B8EEA-DBFC-4492-8CAD-BEDF32BA0828} = {86A53287-4147-4449-BC52-B3BD17B1C22B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D075C1C8-0C5E-4B2A-99E3-5AAD32EA5142}
