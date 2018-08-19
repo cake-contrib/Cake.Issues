@@ -31,6 +31,7 @@
         /// <inheritdoc/>
         public abstract IEnumerable<IIssue> ReadIssues(
             TIssueProvider issueProvider,
+            IssueCommentFormat format,
             RepositorySettings repositorySettings,
             TSettings issueProviderSettings);
     }
