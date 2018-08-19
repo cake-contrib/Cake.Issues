@@ -15,7 +15,7 @@
     /// <summary>
     /// Class for writing issues to Team Foundation Server or Visual Studio Team Services pull requests.
     /// </summary>
-    internal sealed class TfsPullRequestSystem : PullRequestSystem
+    internal sealed class TfsPullRequestSystem : BasePullRequestSystem, ITfsPullRequestSystem
     {
         private readonly TfsPullRequestSettings settings;
         private readonly RepositoryDescription repositoryDescription;
@@ -33,6 +33,10 @@
             settings.NotNull(nameof(settings));
 
             this.settings = settings;
+
+            this.AddCapability(new TfsCheckingCommitIdCapability(log, this));
+            this.AddCapability(new TfsDiscussionThreadsCapability(log, this));
+            this.AddCapability(new TfsFilteringByModifiedFilesCapability(log, this));
 
             this.repositoryDescription = new RepositoryDescription(settings.RepositoryUrl);
 
@@ -104,27 +108,26 @@
                 this.pullRequest.SourceRefName);
         }
 
-        /// <summary>
-        /// Gets the hash of the latest commit on the source branch.
-        /// Returns <see cref="string.Empty"/> if no pull request could be found.
-        /// </summary>
-        public string LastSourceCommitId
-        {
-            get
-            {
-                if (!this.ValidatePullRequest())
-                {
-                    return string.Empty;
-                }
+        /// <inheritdoc/>
+        RepositoryDescription ITfsPullRequestSystem.RepositoryDescription => this.repositoryDescription;
 
-                return this.pullRequest.LastMergeSourceCommit.CommitId;
-            }
+        /// <inheritdoc/>
+        GitPullRequest ITfsPullRequestSystem.PullRequest => this.pullRequest;
+
+        /// <inheritdoc/>
+        public override bool Initialize(ReportIssuesToPullRequestSettings settings)
+        {
+            // Fail initialization if no pull request could be found.
+            return base.Initialize(settings) && this.pullRequest != null;
         }
 
-        /// <summary>
-        /// Votes for the pullrequest.
-        /// </summary>
-        /// <param name="vote">The vote for the pull request.</param>
+        /// <inheritdoc/>
+        public override IssueCommentFormat GetPreferredCommentFormat()
+        {
+            return IssueCommentFormat.Markdown;
+        }
+
+        /// <inheritdoc/>
         public void Vote(TfsPullRequestVote vote)
         {
             if (!this.ValidatePullRequest())
@@ -149,178 +152,15 @@
         }
 
         /// <inheritdoc/>
-        public override bool Initialize(ReportIssuesToPullRequestSettings settings)
+        bool ITfsPullRequestSystem.ValidatePullRequest()
         {
-            // Fail initialization if no pull request could be found.
-            return base.Initialize(settings) && this.pullRequest != null;
+            return this.ValidatePullRequest();
         }
 
         /// <inheritdoc/>
-        public override IssueCommentFormat GetPreferredCommentFormat()
+        GitHttpClient ITfsPullRequestSystem.CreateGitClient()
         {
-            return IssueCommentFormat.Markdown;
-        }
-
-        /// <inheritdoc/>
-        protected override IEnumerable<IPullRequestDiscussionThread> InternalFetchDiscussionThreads(string commentSource)
-        {
-            if (!this.ValidatePullRequest())
-            {
-                return new List<IPullRequestDiscussionThread>();
-            }
-
-            using (var gitClient = this.CreateGitClient())
-            {
-                var request =
-                    gitClient.GetThreadsAsync(
-                        this.pullRequest.Repository.Id,
-                        this.pullRequest.PullRequestId,
-                        null,
-                        null,
-                        null,
-                        CancellationToken.None);
-
-                var threads = request.Result;
-
-                var threadList = new List<IPullRequestDiscussionThread>();
-                foreach (var thread in threads)
-                {
-                    if (!thread.IsCommentSource(commentSource))
-                    {
-                        continue;
-                    }
-
-                    var pullRequestThread = thread.ToPullRequestDiscussionThread();
-
-                    // Assuming that the first comment is the one written by this addin, we replace the content
-                    // containing additional formatting done by this addin with the original issue message to
-                    // allow Cake.Issues.PullRequests to do a proper comparison to find out which issues already were posted.
-                    pullRequestThread.Comments.First().Content = thread.GetIssueMessage();
-
-                    threadList.Add(pullRequestThread);
-                }
-
-                this.Log.Verbose("Found {0} discussion thread(s)", threadList.Count);
-                return threadList;
-            }
-        }
-
-        /// <inheritdoc/>
-        protected override IEnumerable<FilePath> InternalGetModifiedFilesInPullRequest()
-        {
-            if (!this.ValidatePullRequest())
-            {
-                return new List<FilePath>();
-            }
-
-            this.Log.Verbose("Computing the list of files changed in this pull request...");
-
-            var targetVersionDescriptor = new GitTargetVersionDescriptor
-            {
-                VersionType = GitVersionType.Commit,
-                Version = this.pullRequest.LastMergeSourceCommit.CommitId
-            };
-
-            var baseVersionDescriptor = new GitBaseVersionDescriptor
-            {
-                VersionType = GitVersionType.Commit,
-                Version = this.pullRequest.LastMergeTargetCommit.CommitId
-            };
-
-            using (var gitClient = this.CreateGitClient())
-            {
-                var commitDiffs = gitClient.GetCommitDiffsAsync(
-                    this.repositoryDescription.ProjectName,
-                    this.repositoryDescription.RepositoryName,
-                    true, // bool? diffCommonCommit
-                    null, // int? top
-                    null, // int? skip
-                    baseVersionDescriptor,
-                    targetVersionDescriptor,
-                    null, // object userState
-                    CancellationToken.None).Result;
-
-                if (!commitDiffs.ChangeCounts.Any())
-                {
-                    return new List<FilePath>();
-                }
-
-                this.Log.Verbose(
-                    "Found {0} changed file(s) in the pull request",
-                    commitDiffs.Changes.Count());
-
-                return
-                    from change in commitDiffs.Changes
-                    where
-                        change != null &&
-                        !change.Item.IsFolder
-                    select
-                        new FilePath(change.Item.Path.TrimStart('/'));
-            }
-        }
-
-        /// <inheritdoc/>
-        protected override void InternalResolveDiscussionThreads(IEnumerable<IPullRequestDiscussionThread> threads)
-        {
-            // ReSharper disable once PossibleMultipleEnumeration
-            threads.NotNull(nameof(threads));
-
-            if (!this.ValidatePullRequest())
-            {
-                return;
-            }
-
-            using (var gitClient = this.CreateGitClient())
-            {
-                // ReSharper disable once PossibleMultipleEnumeration
-                foreach (var thread in threads)
-                {
-                    var newThread = new GitPullRequestCommentThread
-                    {
-                        Status = CommentThreadStatus.Fixed
-                    };
-
-                    gitClient.UpdateThreadAsync(
-                        newThread,
-                        this.pullRequest.Repository.Id,
-                        this.pullRequest.PullRequestId,
-                        thread.Id,
-                        null,
-                        CancellationToken.None).Wait();
-                }
-            }
-        }
-
-        /// <inheritdoc/>
-        protected override void InternalReopenDiscussionThreads(IEnumerable<IPullRequestDiscussionThread> threads)
-        {
-            // ReSharper disable once PossibleMultipleEnumeration
-            threads.NotNull(nameof(threads));
-
-            if (!this.ValidatePullRequest())
-            {
-                return;
-            }
-
-            using (var gitClient = this.CreateGitClient())
-            {
-                // ReSharper disable once PossibleMultipleEnumeration
-                foreach (var thread in threads)
-                {
-                    var newThread = new GitPullRequestCommentThread
-                    {
-                        Status = CommentThreadStatus.Active
-                    };
-
-                    gitClient.UpdateThreadAsync(
-                        newThread,
-                        this.pullRequest.Repository.Id,
-                        this.pullRequest.PullRequestId,
-                        thread.Id,
-                        null,
-                        CancellationToken.None).Wait();
-                }
-            }
+            return this.CreateGitClient();
         }
 
         /// <inheritdoc/>
