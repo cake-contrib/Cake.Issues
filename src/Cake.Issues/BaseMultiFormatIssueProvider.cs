@@ -28,6 +28,7 @@
             return
                 this.IssueProviderSettings.Format.ReadIssues(
                     (TIssueProvider)this,
+                    format,
                     this.Settings,
                     this.IssueProviderSettings);
         }
