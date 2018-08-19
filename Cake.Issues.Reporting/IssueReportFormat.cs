@@ -24,7 +24,7 @@
             // ReSharper disable once PossibleMultipleEnumeration
             issues.NotNullOrEmptyElement(nameof(issues));
 
-            this.AssertSettings();
+            this.AssertInitialized();
 
             return this.InternalCreateReport(issues);
         }
