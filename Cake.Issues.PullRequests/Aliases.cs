@@ -9,7 +9,6 @@
     /// Contains functionality related to reporting issues to pull requests.
     /// </summary>
     [CakeAliasCategory(IssuesAliasConstants.MainCakeAliasCategory)]
-    [CakeNamespaceImport("Cake.Issues.PullRequests.PullRequestSystem")]
     public static class Aliases
     {
         /// <summary>
