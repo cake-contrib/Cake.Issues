@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <id>Cake.Issues.PullRequests.AppVeyor</id>
+    <title>Cake.Issues.PullRequests.AppVeyor</title>
+    <version>0.0.0</version>
+    <authors>Pascal Berger</authors>
+    <owners>pascalberger, cake-contrib</owners>
+    <summary>AppVeyor support for the Cake.Issues addin for Cake Build Automation System</summary>
+    <description>
+      AppVeyor support for the Cake.Issues addin for Cake allows you to write found issues as message to AppVeyor builds.
+
+      This addin provides the aliases for writing to AppVeyor builds.
+      It also requires the core Cake.Issues and Cake.Issues.PullRequests addins and one or more issue providers.
+
+      See the Project Site for an overview of the whole ecosystem of addins for working with issues in Cake scripts.
+    </description>
+    <licenseUrl>https://github.com/cake-contrib/Cake.Issues.PullRequests.AppVeyor/blob/develop/LICENSE</licenseUrl>
+    <projectUrl>http://cake-contrib.github.io/Cake.Issues.Website</projectUrl>
+    <iconUrl>https://cdn.rawgit.com/cake-contrib/graphics/a5cf0f881c390650144b2243ae551d5b9f836196/png/cake-contrib-medium.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <repository type="git" url="https://github.com/cake-contrib/Cake.Issues.PullRequests.AppVeyor"/>
+    <copyright>Copyright © Pascal Berger</copyright>
+    <tags>Cake Script Cake-Issues Cake-PullRequestSystem Issues PullRequest AppVeyor</tags>
+    <releaseNotes>https://github.com/cake-contrib/Cake.Issues.PullRequests.AppVeyor/releases/tag/0.5.0</releaseNotes>
+  </metadata>
+  <files>
+    <file src="netstandard2.0\Cake.Issues.PullRequests.AppVeyor.dll" target="lib\netstandard2.0" />
+    <file src="netstandard2.0\Cake.Issues.PullRequests.AppVeyor.pdb" target="lib\netstandard2.0" />
+    <file src="netstandard2.0\Cake.Issues.PullRequests.AppVeyor.xml" target="lib\netstandard2.0" />
+  </files>
+</package>

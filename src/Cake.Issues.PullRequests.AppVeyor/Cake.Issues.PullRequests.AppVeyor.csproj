@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Description>Addin for writing code analyzer or linter issues to AppVeyor</Description>
+    <Authors>Pascal Berger</Authors>
+    <Copyright>Copyright © Pascal Berger and contributors</Copyright>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <CodeAnalysisRuleSet>..\Cake.Issues.PullRequests.AppVeyor.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
+    <DocumentationFile>bin\Debug\netstandard2.0\Cake.Issues.PullRequests.AppVeyor.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard2.0|AnyCPU'">
+    <DocumentationFile>bin\Release\netstandard2.0\Cake.Issues.PullRequests.AppVeyor.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Cake.Common" Version="0.28.0" />
+    <PackageReference Include="Cake.Core" Version="0.28.0" />
+    <PackageReference Include="Cake.Issues" Version="0.6.1-beta0001" />
+    <PackageReference Include="Cake.Issues.PullRequests" Version="0.6.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.6.1" />
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.0-beta008" />
+  </ItemGroup>
+
+</Project>
