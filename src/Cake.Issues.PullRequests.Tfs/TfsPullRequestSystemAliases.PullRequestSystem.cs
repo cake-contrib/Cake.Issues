@@ -1,8 +1,9 @@
 ﻿namespace Cake.Issues.PullRequests.Tfs
 {
     using System;
-    using Core;
-    using Core.Annotations;
+    using Cake.Core;
+    using Cake.Core.Annotations;
+    using Cake.Tfs.Authentication;
 
     /// <content>
     /// Contains functionality related to <see cref="TfsPullRequestSystem"/>.

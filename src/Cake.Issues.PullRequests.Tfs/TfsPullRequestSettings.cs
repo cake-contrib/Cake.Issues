@@ -1,6 +1,7 @@
 ﻿namespace Cake.Issues.PullRequests.Tfs
 {
     using System;
+    using Cake.Tfs.Authentication;
 
     /// <summary>
     /// Settings for <see cref="TfsPullRequestSystemAliases"/>.

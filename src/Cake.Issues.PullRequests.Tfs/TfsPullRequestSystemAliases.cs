@@ -1,6 +1,6 @@
 ﻿namespace Cake.Issues.PullRequests.Tfs
 {
-    using Core.Annotations;
+    using Cake.Core.Annotations;
 
     /// <summary>
     /// Contains functionality related to writing code analysis issues to Team Foundation Server or

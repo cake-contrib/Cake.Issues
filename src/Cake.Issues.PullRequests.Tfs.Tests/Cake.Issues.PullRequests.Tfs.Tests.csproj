@@ -64,11 +64,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Authentication\AuthenticationProviderTests.cs" />
-    <Compile Include="Authentication\TfsAadCredentialsTests.cs" />
-    <Compile Include="Authentication\TfsBasicCredentialsTests.cs" />
-    <Compile Include="Authentication\TfsNtlmCredentialsTests.cs" />
-    <Compile Include="Authentication\TfsOAuthCredentialsTests.cs" />
     <Compile Include="CommentExtensionsTests.cs" />
     <Compile Include="CommentThreadStatusExtensionsTests.cs" />
     <Compile Include="ContentProviderTests.cs" />

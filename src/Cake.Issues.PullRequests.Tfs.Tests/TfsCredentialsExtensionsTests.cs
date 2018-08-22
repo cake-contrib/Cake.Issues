@@ -1,10 +1,8 @@
 ﻿namespace Cake.Issues.PullRequests.Tfs.Tests
 {
-    using Cake.Issues.PullRequests.Tfs.Authentication;
+    using Cake.Issues.PullRequests.Tfs;
     using Cake.Issues.Testing;
-    using Microsoft.VisualStudio.Services.Client;
-    using Microsoft.VisualStudio.Services.Common;
-    using Microsoft.VisualStudio.Services.OAuth;
+    using Cake.Tfs.Authentication;
     using Shouldly;
     using Xunit;
 

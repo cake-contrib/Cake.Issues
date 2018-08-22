@@ -40,6 +40,9 @@
     <PackageReference Include="Cake.Core" Version="0.28.0" />
     <PackageReference Include="Cake.Issues" Version="0.6.0-beta0002" />
     <PackageReference Include="Cake.Issues.PullRequests" Version="0.6.0-beta0002" />
+    <PackageReference Include="Cake.Tfs">
+      <Version>0.1.0-beta0001</Version>
+    </PackageReference>
     <PackageReference Include="Costura.Fody">
       <Version>3.1.0</Version>
     </PackageReference>
@@ -73,16 +76,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Authentication\AuthenticationProvider.cs" />
-    <Compile Include="Authentication\TfsAadCredentials.cs" />
-    <Compile Include="Authentication\TfsBasicCredentials.cs" />
-    <Compile Include="Authentication\TfsNtlmCredentials.cs" />
-    <Compile Include="Authentication\TfsOAuthCredentials.cs" />
     <Compile Include="CommentExtensions.cs" />
     <Compile Include="CommentThreadStatusExtensions.cs" />
     <Compile Include="ContentProvider.cs" />
     <Compile Include="GitPullRequestCommentThreadExtensions.cs" />
-    <Compile Include="ITfsCredentials.cs" />
     <Compile Include="ITfsPullRequestSystem.cs" />
     <Compile Include="TfsDiscussionThreadsCapability.cs" />
     <Compile Include="TfsFilteringByModifiedFilesCapability.cs" />
@@ -92,7 +89,6 @@
     <Compile Include="TfsPullRequestSettings.cs" />
     <Compile Include="TfsPullRequestSystem.cs" />
     <Compile Include="TfsPullRequestSystemAliases.PullRequestSystem.cs" />
-    <Compile Include="TfsPullRequestSystemAliases.Authentication.cs" />
     <Compile Include="TfsPullRequestSystemAliases.cs" />
   </ItemGroup>
   <ItemGroup>
