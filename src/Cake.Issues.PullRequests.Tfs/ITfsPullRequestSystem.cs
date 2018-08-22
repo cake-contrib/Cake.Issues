@@ -31,11 +31,5 @@
         /// </summary>
         /// <returns>Client object for communicating with TFS</returns>
         GitHttpClient CreateGitClient();
-
-        /// <summary>
-        /// Votes for the pull request.
-        /// </summary>
-        /// <param name="vote">The vote for the pull request.</param>
-        void Vote(TfsPullRequestVote vote);
     }
 }

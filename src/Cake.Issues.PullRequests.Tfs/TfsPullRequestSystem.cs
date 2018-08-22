@@ -128,30 +128,6 @@
         }
 
         /// <inheritdoc/>
-        public void Vote(TfsPullRequestVote vote)
-        {
-            if (!this.ValidatePullRequest())
-            {
-                return;
-            }
-
-            using (var gitClient = this.CreateGitClient(out var authorizedIdenity))
-            {
-                var request =
-                    gitClient.CreatePullRequestReviewerAsync(
-                        new IdentityRefWithVote() { Vote = (short)vote },
-                        this.pullRequest.Repository.Id,
-                        this.pullRequest.PullRequestId,
-                        authorizedIdenity.Id.ToString(),
-                        CancellationToken.None);
-
-                var createdReviewer = request.Result;
-                var createdVote = (TfsPullRequestVote)createdReviewer.Vote;
-                this.Log.Verbose("Voted for pull request with '{0}'.", createdVote.ToString());
-            }
-        }
-
-        /// <inheritdoc/>
         bool ITfsPullRequestSystem.ValidatePullRequest()
         {
             return this.ValidatePullRequest();
