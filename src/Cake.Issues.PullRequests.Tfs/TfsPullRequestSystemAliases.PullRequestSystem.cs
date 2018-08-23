@@ -52,7 +52,7 @@
             sourceBranch.NotNullOrWhiteSpace(nameof(sourceBranch));
             credentials.NotNull(nameof(credentials));
 
-            return context.TfsPullRequests(new TfsPullRequestSettings(repositoryUrl, sourceBranch, credentials));
+            return context.TfsPullRequests(new TfsPullRequestSystemSettings(repositoryUrl, sourceBranch, credentials));
         }
 
         /// <summary>
@@ -96,7 +96,7 @@
             repositoryUrl.NotNull(nameof(repositoryUrl));
             credentials.NotNull(nameof(credentials));
 
-            return context.TfsPullRequests(new TfsPullRequestSettings(repositoryUrl, pullRequestId, credentials));
+            return context.TfsPullRequests(new TfsPullRequestSystemSettings(repositoryUrl, pullRequestId, credentials));
         }
 
         /// <summary>
@@ -129,7 +129,7 @@
         [CakeAliasCategory(PullRequestsAliasConstants.PullRequestSystemCakeAliasCategory)]
         public static IPullRequestSystem TfsPullRequests(
             this ICakeContext context,
-            TfsPullRequestSettings settings)
+            TfsPullRequestSystemSettings settings)
         {
             context.NotNull(nameof(context));
             settings.NotNull(nameof(settings));

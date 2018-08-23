@@ -33,8 +33,8 @@
             {
                 var request =
                     gitClient.GetThreadsAsync(
-                        this.PullRequestSystem.PullRequest.Repository.Id,
-                        this.PullRequestSystem.PullRequest.PullRequestId,
+                        this.PullRequestSystem.TfsPullRequest.RepositoryId,
+                        this.PullRequestSystem.TfsPullRequest.PullRequestId,
                         null,
                         null,
                         null,
@@ -88,8 +88,8 @@
 
                     gitClient.UpdateThreadAsync(
                         newThread,
-                        this.PullRequestSystem.PullRequest.Repository.Id,
-                        this.PullRequestSystem.PullRequest.PullRequestId,
+                        this.PullRequestSystem.TfsPullRequest.RepositoryId,
+                        this.PullRequestSystem.TfsPullRequest.PullRequestId,
                         thread.Id,
                         null,
                         CancellationToken.None).Wait();
@@ -120,8 +120,8 @@
 
                     gitClient.UpdateThreadAsync(
                         newThread,
-                        this.PullRequestSystem.PullRequest.Repository.Id,
-                        this.PullRequestSystem.PullRequest.PullRequestId,
+                        this.PullRequestSystem.TfsPullRequest.RepositoryId,
+                        this.PullRequestSystem.TfsPullRequest.PullRequestId,
                         thread.Id,
                         null,
                         CancellationToken.None).Wait();

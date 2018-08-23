@@ -4,7 +4,7 @@
     using Testing;
     using Xunit;
 
-    public sealed class TfsPullRequestSettingsTests
+    public sealed class TfsPullRequestSystemSettingsTests
     {
         public sealed class TheCtor
         {
@@ -12,7 +12,7 @@
             public void Should_Throw_If_RepositoryUrl_For_SourceBranch_Is_Null()
             {
                 // Given / When
-                var result = Record.Exception(() => new TfsPullRequestSettings(null, "foo", null));
+                var result = Record.Exception(() => new TfsPullRequestSystemSettings(null, "foo", null));
 
                 // Then
                 result.IsArgumentNullException("repositoryUrl");
@@ -22,7 +22,7 @@
             public void Should_Throw_If_SourceBranch_Is_Null()
             {
                 // Given / When
-                var result = Record.Exception(() => new TfsPullRequestSettings(new Uri("http://example.com"), null, null));
+                var result = Record.Exception(() => new TfsPullRequestSystemSettings(new Uri("http://example.com"), null, null));
 
                 // Then
                 result.IsArgumentNullException("sourceBranch");
@@ -32,7 +32,7 @@
             public void Should_Throw_If_SourceBranch_Is_Empty()
             {
                 // Given / When
-                var result = Record.Exception(() => new TfsPullRequestSettings(new Uri("http://example.com"), string.Empty, null));
+                var result = Record.Exception(() => new TfsPullRequestSystemSettings(new Uri("http://example.com"), string.Empty, null));
 
                 // Then
                 result.IsArgumentOutOfRangeException("sourceBranch");
@@ -42,7 +42,7 @@
             public void Should_Throw_If_SourceBranch_Is_WhiteSpace()
             {
                 // Given / When
-                var result = Record.Exception(() => new TfsPullRequestSettings(new Uri("http://example.com"), " ", null));
+                var result = Record.Exception(() => new TfsPullRequestSystemSettings(new Uri("http://example.com"), " ", null));
 
                 // Then
                 result.IsArgumentOutOfRangeException("sourceBranch");
@@ -52,7 +52,7 @@
             public void Should_Throw_If_RepositoryUrl_For_PullRequestId_Is_Null()
             {
                 // Given / When
-                var result = Record.Exception(() => new TfsPullRequestSettings(null, 0, null));
+                var result = Record.Exception(() => new TfsPullRequestSystemSettings(null, 0, null));
 
                 // Then
                 result.IsArgumentNullException("repositoryUrl");
