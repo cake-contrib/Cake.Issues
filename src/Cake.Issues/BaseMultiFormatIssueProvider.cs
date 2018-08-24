@@ -4,7 +4,7 @@
     using Cake.Core.Diagnostics;
 
     /// <summary>
-    /// Base settings for issue providers supporting multiple log formats.
+    /// Base class for issue providers supporting multiple log formats.
     /// </summary>
     /// <typeparam name="TSettings">Type of the settings.</typeparam>
     /// <typeparam name="TIssueProvider">Type of the issue provider.</typeparam>
@@ -28,6 +28,7 @@
             return
                 this.IssueProviderSettings.Format.ReadIssues(
                     (TIssueProvider)this,
+                    format,
                     this.Settings,
                     this.IssueProviderSettings);
         }
