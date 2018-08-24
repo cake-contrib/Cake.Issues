@@ -3,6 +3,7 @@
   <Costura>
     <ExcludeAssemblies>
       Cake.Core
+      Cake.Tfs
       Cake.Issues
       Cake.Issues.PullRequests
       Costura

@@ -5,21 +5,20 @@
     using System.Globalization;
     using System.Linq;
     using System.Threading;
-    using Core.Diagnostics;
-    using Core.IO;
+    using Cake.Core.Diagnostics;
+    using Cake.Core.IO;
+    using Cake.Tfs.PullRequest;
     using Microsoft.TeamFoundation.SourceControl.WebApi;
     using Microsoft.VisualStudio.Services.Identity;
     using Microsoft.VisualStudio.Services.WebApi;
-    using TfsUrlParser;
 
     /// <summary>
     /// Class for writing issues to Team Foundation Server or Visual Studio Team Services pull requests.
     /// </summary>
-    internal sealed class TfsPullRequestSystem : PullRequestSystem
+    internal sealed class TfsPullRequestSystem : BasePullRequestSystem, ITfsPullRequestSystem
     {
-        private readonly TfsPullRequestSettings settings;
-        private readonly RepositoryDescription repositoryDescription;
-        private readonly GitPullRequest pullRequest;
+        private readonly TfsPullRequestSystemSettings settings;
+        private readonly TfsPullRequest tfsPullRequest;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="TfsPullRequestSystem"/> class.
@@ -27,132 +26,28 @@
         /// </summary>
         /// <param name="log">The Cake log context.</param>
         /// <param name="settings">Settings for accessing TFS.</param>
-        public TfsPullRequestSystem(ICakeLog log, TfsPullRequestSettings settings)
+        public TfsPullRequestSystem(ICakeLog log, TfsPullRequestSystemSettings settings)
             : base(log)
         {
             settings.NotNull(nameof(settings));
 
             this.settings = settings;
 
-            this.repositoryDescription = new RepositoryDescription(settings.RepositoryUrl);
+            this.AddCapability(new TfsCheckingCommitIdCapability(log, this));
+            this.AddCapability(new TfsDiscussionThreadsCapability(log, this));
+            this.AddCapability(new TfsFilteringByModifiedFilesCapability(log, this));
 
-            this.Log.Verbose(
-                "Repository information:\n  CollectionName: {0}\n  CollectionUrl: {1}\n  ProjectName: {2}\n  RepositoryName: {3}",
-                this.repositoryDescription.CollectionName,
-                this.repositoryDescription.CollectionUrl,
-                this.repositoryDescription.ProjectName,
-                this.repositoryDescription.RepositoryName);
-
-            using (var gitClient = this.CreateGitClient(out var authorizedIdenity))
-            {
-                this.Log.Verbose(
-                     "Authorized Identity:\n  Id: {0}\n  DisplayName: {1}",
-                     authorizedIdenity.Id,
-                     authorizedIdenity.DisplayName);
-
-                if (settings.PullRequestId.HasValue)
-                {
-                    this.Log.Verbose("Read pull request with ID {0}", settings.PullRequestId.Value);
-                    this.pullRequest =
-                        gitClient.GetPullRequestAsync(
-                            this.repositoryDescription.ProjectName,
-                            this.repositoryDescription.RepositoryName,
-                            settings.PullRequestId.Value).Result;
-                }
-                else if (!string.IsNullOrWhiteSpace(settings.SourceBranch))
-                {
-                    this.Log.Verbose("Read pull request for branch {0}", settings.SourceBranch);
-
-                    var pullRequestSearchCriteria =
-                        new GitPullRequestSearchCriteria()
-                        {
-                            Status = PullRequestStatus.Active,
-                            SourceRefName = settings.SourceBranch
-                        };
-
-                    this.pullRequest =
-                        gitClient.GetPullRequestsAsync(
-                            this.repositoryDescription.ProjectName,
-                            this.repositoryDescription.RepositoryName,
-                            pullRequestSearchCriteria,
-                            top: 1).Result.SingleOrDefault();
-                }
-                else
-                {
-                    throw new ArgumentOutOfRangeException(
-                        nameof(settings),
-                        "Either PullRequestId or SourceBranch needs to be set");
-                }
-            }
-
-            if (this.pullRequest == null)
-            {
-                if (this.settings.ThrowExceptionIfPullRequestDoesNotExist)
-                {
-                    throw new PullRequestIssuesException("Could not find pull request");
-                }
-
-                this.Log.Warning("Could not find pull request");
-                return;
-            }
-
-            this.Log.Verbose(
-                "Pull request information:\n  PullRequestId: {0}\n  RepositoryId: {1}\n  RepositoryName: {2}\n  SourceRefName: {3}",
-                this.pullRequest.PullRequestId,
-                this.pullRequest.Repository.Id,
-                this.pullRequest.Repository.Name,
-                this.pullRequest.SourceRefName);
+            this.tfsPullRequest = new TfsPullRequest(log, settings);
         }
 
-        /// <summary>
-        /// Gets the hash of the latest commit on the source branch.
-        /// Returns <see cref="string.Empty"/> if no pull request could be found.
-        /// </summary>
-        public string LastSourceCommitId
-        {
-            get
-            {
-                if (!this.ValidatePullRequest())
-                {
-                    return string.Empty;
-                }
-
-                return this.pullRequest.LastMergeSourceCommit.CommitId;
-            }
-        }
-
-        /// <summary>
-        /// Votes for the pullrequest.
-        /// </summary>
-        /// <param name="vote">The vote for the pull request.</param>
-        public void Vote(TfsPullRequestVote vote)
-        {
-            if (!this.ValidatePullRequest())
-            {
-                return;
-            }
-
-            using (var gitClient = this.CreateGitClient(out var authorizedIdenity))
-            {
-                var request =
-                    gitClient.CreatePullRequestReviewerAsync(
-                        new IdentityRefWithVote() { Vote = (short)vote },
-                        this.pullRequest.Repository.Id,
-                        this.pullRequest.PullRequestId,
-                        authorizedIdenity.Id.ToString(),
-                        CancellationToken.None);
-
-                var createdReviewer = request.Result;
-                var createdVote = (TfsPullRequestVote)createdReviewer.Vote;
-                this.Log.Verbose("Voted for pull request with '{0}'.", createdVote.ToString());
-            }
-        }
+        /// <inheritdoc/>
+        TfsPullRequest ITfsPullRequestSystem.TfsPullRequest => this.tfsPullRequest;
 
         /// <inheritdoc/>
         public override bool Initialize(ReportIssuesToPullRequestSettings settings)
         {
             // Fail initialization if no pull request could be found.
-            return base.Initialize(settings) && this.pullRequest != null;
+            return base.Initialize(settings) && this.tfsPullRequest.HasPullRequestLoaded;
         }
 
         /// <inheritdoc/>
@@ -162,165 +57,15 @@
         }
 
         /// <inheritdoc/>
-        protected override IEnumerable<IPullRequestDiscussionThread> InternalFetchDiscussionThreads(string commentSource)
+        bool ITfsPullRequestSystem.ValidatePullRequest()
         {
-            if (!this.ValidatePullRequest())
-            {
-                return new List<IPullRequestDiscussionThread>();
-            }
-
-            using (var gitClient = this.CreateGitClient())
-            {
-                var request =
-                    gitClient.GetThreadsAsync(
-                        this.pullRequest.Repository.Id,
-                        this.pullRequest.PullRequestId,
-                        null,
-                        null,
-                        null,
-                        CancellationToken.None);
-
-                var threads = request.Result;
-
-                var threadList = new List<IPullRequestDiscussionThread>();
-                foreach (var thread in threads)
-                {
-                    if (!thread.IsCommentSource(commentSource))
-                    {
-                        continue;
-                    }
-
-                    var pullRequestThread = thread.ToPullRequestDiscussionThread();
-
-                    // Assuming that the first comment is the one written by this addin, we replace the content
-                    // containing additional formatting done by this addin with the original issue message to
-                    // allow Cake.Issues.PullRequests to do a proper comparison to find out which issues already were posted.
-                    pullRequestThread.Comments.First().Content = thread.GetIssueMessage();
-
-                    threadList.Add(pullRequestThread);
-                }
-
-                this.Log.Verbose("Found {0} discussion thread(s)", threadList.Count);
-                return threadList;
-            }
+            return this.ValidatePullRequest();
         }
 
         /// <inheritdoc/>
-        protected override IEnumerable<FilePath> InternalGetModifiedFilesInPullRequest()
+        GitHttpClient ITfsPullRequestSystem.CreateGitClient()
         {
-            if (!this.ValidatePullRequest())
-            {
-                return new List<FilePath>();
-            }
-
-            this.Log.Verbose("Computing the list of files changed in this pull request...");
-
-            var targetVersionDescriptor = new GitTargetVersionDescriptor
-            {
-                VersionType = GitVersionType.Commit,
-                Version = this.pullRequest.LastMergeSourceCommit.CommitId
-            };
-
-            var baseVersionDescriptor = new GitBaseVersionDescriptor
-            {
-                VersionType = GitVersionType.Commit,
-                Version = this.pullRequest.LastMergeTargetCommit.CommitId
-            };
-
-            using (var gitClient = this.CreateGitClient())
-            {
-                var commitDiffs = gitClient.GetCommitDiffsAsync(
-                    this.repositoryDescription.ProjectName,
-                    this.repositoryDescription.RepositoryName,
-                    true, // bool? diffCommonCommit
-                    null, // int? top
-                    null, // int? skip
-                    baseVersionDescriptor,
-                    targetVersionDescriptor,
-                    null, // object userState
-                    CancellationToken.None).Result;
-
-                if (!commitDiffs.ChangeCounts.Any())
-                {
-                    return new List<FilePath>();
-                }
-
-                this.Log.Verbose(
-                    "Found {0} changed file(s) in the pull request",
-                    commitDiffs.Changes.Count());
-
-                return
-                    from change in commitDiffs.Changes
-                    where
-                        change != null &&
-                        !change.Item.IsFolder
-                    select
-                        new FilePath(change.Item.Path.TrimStart('/'));
-            }
-        }
-
-        /// <inheritdoc/>
-        protected override void InternalResolveDiscussionThreads(IEnumerable<IPullRequestDiscussionThread> threads)
-        {
-            // ReSharper disable once PossibleMultipleEnumeration
-            threads.NotNull(nameof(threads));
-
-            if (!this.ValidatePullRequest())
-            {
-                return;
-            }
-
-            using (var gitClient = this.CreateGitClient())
-            {
-                // ReSharper disable once PossibleMultipleEnumeration
-                foreach (var thread in threads)
-                {
-                    var newThread = new GitPullRequestCommentThread
-                    {
-                        Status = CommentThreadStatus.Fixed
-                    };
-
-                    gitClient.UpdateThreadAsync(
-                        newThread,
-                        this.pullRequest.Repository.Id,
-                        this.pullRequest.PullRequestId,
-                        thread.Id,
-                        null,
-                        CancellationToken.None).Wait();
-                }
-            }
-        }
-
-        /// <inheritdoc/>
-        protected override void InternalReopenDiscussionThreads(IEnumerable<IPullRequestDiscussionThread> threads)
-        {
-            // ReSharper disable once PossibleMultipleEnumeration
-            threads.NotNull(nameof(threads));
-
-            if (!this.ValidatePullRequest())
-            {
-                return;
-            }
-
-            using (var gitClient = this.CreateGitClient())
-            {
-                // ReSharper disable once PossibleMultipleEnumeration
-                foreach (var thread in threads)
-                {
-                    var newThread = new GitPullRequestCommentThread
-                    {
-                        Status = CommentThreadStatus.Active
-                    };
-
-                    gitClient.UpdateThreadAsync(
-                        newThread,
-                        this.pullRequest.Repository.Id,
-                        this.pullRequest.PullRequestId,
-                        thread.Id,
-                        null,
-                        CancellationToken.None).Wait();
-                }
-            }
+            return this.CreateGitClient();
         }
 
         /// <inheritdoc/>
@@ -349,8 +94,8 @@
                 {
                     gitClient.CreateThreadAsync(
                         thread,
-                        this.pullRequest.Repository.Id,
-                        this.pullRequest.PullRequestId,
+                        this.tfsPullRequest.RepositoryId,
+                        this.tfsPullRequest.PullRequestId,
                         null,
                         CancellationToken.None).Wait();
                 }
@@ -380,13 +125,13 @@
 
         /// <summary>
         /// Validates if a pull request could be found.
-        /// Depending on <see cref="TfsPullRequestSettings.ThrowExceptionIfPullRequestDoesNotExist"/>
-        /// the pull request instance can be null for subsequent calls.
+        /// Depending on <see cref="TfsPullRequestSettings.ThrowExceptionIfPullRequestCouldNotBeFound"/>
+        /// the pull request instance can not be successfully loaded.
         /// </summary>
         /// <returns>True if a valid pull request instance exists.</returns>
         private bool ValidatePullRequest()
         {
-            if (this.pullRequest != null)
+            if (this.tfsPullRequest.HasPullRequestLoaded)
             {
                 return true;
             }
@@ -399,7 +144,7 @@
         {
             var connection =
                 new VssConnection(
-                    this.repositoryDescription.CollectionUrl,
+                    this.tfsPullRequest.CollectionUrl,
                     this.settings.Credentials.ToVssCredentials());
 
             authorizedIdentity = connection.AuthorizedIdentity;
@@ -433,7 +178,7 @@
             var iterationId = 0;
             GitPullRequestIterationChanges changes = null;
 
-            if (this.pullRequest.CodeReviewId > 0)
+            if (this.tfsPullRequest.CodeReviewId > 0)
             {
                 iterationId = this.GetCodeFlowLatestIterationId(gitClient);
                 changes = this.GetCodeFlowChanges(gitClient, iterationId);
@@ -486,7 +231,7 @@
 
             var properties = new PropertiesCollection();
 
-            if (this.pullRequest.CodeReviewId > 0)
+            if (this.tfsPullRequest.CodeReviewId > 0)
             {
                 var changeTrackingId =
                     this.TryGetCodeFlowChangeTrackingId(changes, issue.AffectedFileRelativePath);
@@ -522,8 +267,8 @@
         {
             var request =
                 gitClient.GetPullRequestIterationsAsync(
-                    this.pullRequest.Repository.Id,
-                    this.pullRequest.PullRequestId,
+                    this.tfsPullRequest.RepositoryId,
+                    this.tfsPullRequest.PullRequestId,
                     null,
                     null,
                     CancellationToken.None);
@@ -544,8 +289,8 @@
         {
             var request =
                 gitClient.GetPullRequestIterationChangesAsync(
-                    this.pullRequest.Repository.Id,
-                    this.pullRequest.PullRequestId,
+                    this.tfsPullRequest.RepositoryId,
+                    this.tfsPullRequest.PullRequestId,
                     iterationId,
                     null,
                     null,
