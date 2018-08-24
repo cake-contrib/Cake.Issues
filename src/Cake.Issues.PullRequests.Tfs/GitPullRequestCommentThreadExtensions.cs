@@ -2,7 +2,6 @@
 {
     using System;
     using System.Linq;
-    using Core.IO;
     using Microsoft.TeamFoundation.SourceControl.WebApi;
 
     /// <summary>

@@ -36,8 +36,8 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Cake.Core" Version="0.28.0" />
-    <PackageReference Include="Cake.Issues" Version="0.6.0-beta0001" />
-    <PackageReference Include="Cake.Issues.Testing" Version="0.6.0-beta0001" />
+    <PackageReference Include="Cake.Issues" Version="0.6.0" />
+    <PackageReference Include="Cake.Issues.Testing" Version="0.6.0" />
     <PackageReference Include="Cake.Testing" Version="0.28.0" />
     <PackageReference Include="NSubstitute">
       <Version>3.1.0</Version>
@@ -64,11 +64,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Authentication\AuthenticationProviderTests.cs" />
-    <Compile Include="Authentication\TfsAadCredentialsTests.cs" />
-    <Compile Include="Authentication\TfsBasicCredentialsTests.cs" />
-    <Compile Include="Authentication\TfsNtlmCredentialsTests.cs" />
-    <Compile Include="Authentication\TfsOAuthCredentialsTests.cs" />
     <Compile Include="CommentExtensionsTests.cs" />
     <Compile Include="CommentThreadStatusExtensionsTests.cs" />
     <Compile Include="ContentProviderTests.cs" />
@@ -78,7 +73,7 @@
     <Compile Include="TfsDiscussionThreadsCapabilityTests.cs" />
     <Compile Include="TfsCheckingCommitIdCapabilityTests.cs" />
     <Compile Include="TfsCredentialsExtensionsTests.cs" />
-    <Compile Include="TfsPullRequestSettingsTests.cs" />
+    <Compile Include="TfsPullRequestSystemSettingsTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

@@ -25,7 +25,7 @@
                 return string.Empty;
             }
 
-            return this.PullRequestSystem.PullRequest.LastMergeSourceCommit.CommitId;
+            return this.PullRequestSystem.TfsPullRequest.LastSourceCommitId;
         }
     }
 }

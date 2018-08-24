@@ -35,20 +35,20 @@
             var targetVersionDescriptor = new GitTargetVersionDescriptor
             {
                 VersionType = GitVersionType.Commit,
-                Version = this.PullRequestSystem.PullRequest.LastMergeSourceCommit.CommitId
+                Version = this.PullRequestSystem.TfsPullRequest.LastSourceCommitId
             };
 
             var baseVersionDescriptor = new GitBaseVersionDescriptor
             {
                 VersionType = GitVersionType.Commit,
-                Version = this.PullRequestSystem.PullRequest.LastMergeTargetCommit.CommitId
+                Version = this.PullRequestSystem.TfsPullRequest.LastSourceCommitId
             };
 
             using (var gitClient = this.PullRequestSystem.CreateGitClient())
             {
                 var commitDiffs = gitClient.GetCommitDiffsAsync(
-                    this.PullRequestSystem.RepositoryDescription.ProjectName,
-                    this.PullRequestSystem.RepositoryDescription.RepositoryName,
+                    this.PullRequestSystem.TfsPullRequest.ProjectName,
+                    this.PullRequestSystem.TfsPullRequest.RepositoryName,
                     true, // bool? diffCommonCommit
                     null, // int? top
                     null, // int? skip
