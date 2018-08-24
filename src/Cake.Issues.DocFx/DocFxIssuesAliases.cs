@@ -31,7 +31,7 @@
         /// for a DocFx project in the repository root.
         /// </summary>
         /// <param name="context">The context.</param>
-        /// <param name="logFilePath">Path to the the DocFx log file.</param>
+        /// <param name="logFilePath">Path to the DocFx log file.</param>
         /// <returns>Instance of a provider for warnings reported by DocFx.</returns>
         /// <example>
         /// <para>Read warnings reported by DocFx:</para>
@@ -60,7 +60,7 @@
         /// Gets an instance of a provider for warnings reported by DocFx using a log file from disk.
         /// </summary>
         /// <param name="context">The context.</param>
-        /// <param name="logFilePath">Path to the the DocFx log file.</param>
+        /// <param name="logFilePath">Path to the DocFx log file.</param>
         /// <param name="docRootPath">Path to the root directory of the DocFx project.
         /// Either the full path or the path relative to the repository root.</param>
         /// <returns>Instance of a provider for warnings reported by DocFx.</returns>
@@ -96,7 +96,7 @@
         /// for a DocFx project in the repository root.
         /// </summary>
         /// <param name="context">The context.</param>
-        /// <param name="logFileContent">Content of the the DocFx log file.</param>
+        /// <param name="logFileContent">Content of the DocFx log file.</param>
         /// <returns>Instance of a provider for warnings reported by DocFx.</returns>
         /// <example>
         /// <para>Read warnings reported by DocFx:</para>
@@ -125,7 +125,7 @@
         /// Gets an instance of a provider for warnings reported by DocFx using log file content.
         /// </summary>
         /// <param name="context">The context.</param>
-        /// <param name="logFileContent">Content of the the DocFx log file.</param>
+        /// <param name="logFileContent">Content of the DocFx log file.</param>
         /// <param name="docRootPath">Path to the root directory of the DocFx project.
         /// Either the full path or the path relative to the repository root.</param>
         /// <returns>Instance of a provider for warnings reported by DocFx.</returns>
