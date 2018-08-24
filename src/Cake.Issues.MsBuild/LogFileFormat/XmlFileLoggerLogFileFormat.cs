@@ -24,6 +24,7 @@
         /// <inheritdoc/>
         public override IEnumerable<IIssue> ReadIssues(
             MsBuildIssuesProvider issueProvider,
+            IssueCommentFormat format,
             RepositorySettings repositorySettings,
             MsBuildIssuesSettings issueProviderSettings)
         {
