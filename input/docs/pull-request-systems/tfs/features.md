@@ -12,7 +12,6 @@ The [Cake.Issues.PullRequests.Tfs addin] provides the following features.
 * Comments written by the addin will be rendered with a specific icon corresponding to the state of the issue.
 * Adds rule number and, if provided by the issue provider, link to the rule description to the comment.
 * Support for issues messages formatted in Markdown format.
-* Alias for approving or voting pull requests.
 
 # Supported capabilities
 
