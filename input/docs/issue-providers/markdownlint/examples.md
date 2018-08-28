@@ -47,9 +47,12 @@ Task("Analyze-Log")
 .Does(() =>
 {
     // Read Issues.
-    var issues = ReadIssues(
-        MarkdownlintCliIssuesFromFilePath(logPath),
-        repoRootPath);
+    var issues =
+        ReadIssues(
+            MarkdownlintIssuesFromFilePath(
+                logPath,
+                MarkdownlintCliLogFileFormat),
+            repoRootPath);
 
     Information("{0} issues are found.", issues.Count());
 });
