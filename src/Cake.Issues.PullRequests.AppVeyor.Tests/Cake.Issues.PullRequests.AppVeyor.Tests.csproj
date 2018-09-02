@@ -14,7 +14,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Cake.Issues.Testing" Version="0.6.0" />
+    <PackageReference Include="Cake.Issues.Testing" Version="0.6.1" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.8.0" />
     <PackageReference Include="Cake.Core" Version="0.28.0" />
     <PackageReference Include="Cake.Testing" Version="0.28.0" />
