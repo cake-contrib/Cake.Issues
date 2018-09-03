@@ -9,7 +9,118 @@
 
     public sealed class OrchestratorTests
     {
-        public sealed class TheCtor
+        public sealed class TheCtorWithIssues
+        {
+            [Fact]
+            public void Should_Throw_If_Log_Is_Null()
+            {
+                // Given
+                var fixture = new PullRequestsFixture
+                {
+                    Log = null
+                };
+                var issues = new List<IIssue>();
+
+                // When
+                var result = Record.Exception(() => fixture.RunOrchestratorForIssues(issues));
+
+                // Then
+                result.IsArgumentNullException("log");
+            }
+
+            [Fact]
+            public void Should_Throw_If_Issues_Are_Null()
+            {
+                // Given
+                var fixture = new PullRequestsFixture();
+                List<IIssue> issues = null;
+
+                // When
+                var result = Record.Exception(() => fixture.RunOrchestratorForIssues(issues));
+
+                // Then
+                result.IsArgumentNullException("issues");
+            }
+
+            [Fact]
+            public void Should_Throw_If_Issue_Is_Null()
+            {
+                // Given
+                var fixture = new PullRequestsFixture();
+                var issues = new List<IIssue> { null };
+
+                // When
+                var result = Record.Exception(() => fixture.RunOrchestratorForIssues(issues));
+
+                // Then
+                result.IsArgumentOutOfRangeException("issues");
+            }
+
+            [Fact]
+            public void Should_Throw_If_Pull_Request_System_Is_Null()
+            {
+                // Given
+                var fixture = new PullRequestsFixture
+                {
+                    PullRequestSystem = null
+                };
+                var issues = new List<IIssue>();
+
+                // When
+                var result = Record.Exception(() => fixture.RunOrchestratorForIssues(issues));
+
+                // Then
+                result.IsArgumentNullException("pullRequestSystem");
+            }
+
+            [Fact]
+            public void Should_Throw_If_Settings_Are_Null()
+            {
+                // Given
+                var fixture = new PullRequestsFixture
+                {
+                    Settings = null
+                };
+                var issues = new List<IIssue>();
+
+                // When
+                var result = Record.Exception(() => fixture.RunOrchestratorForIssues(issues));
+
+                // Then
+                result.IsArgumentNullException("settings");
+            }
+
+            [Fact]
+            public void Should_Initialize_Pull_Request_System()
+            {
+                // Given
+                var fixture = new PullRequestsFixture();
+                var issues = new List<IIssue>();
+
+                // When
+                var result = fixture.RunOrchestratorForIssues(issues);
+
+                // Then
+                fixture.PullRequestSystem.Settings.ShouldBe(fixture.Settings);
+            }
+
+            [Fact]
+            public void Should_Not_Throw_If_Issues_Are_Empry()
+            {
+                // Given
+                var fixture = new PullRequestsFixture();
+                var issues = new List<IIssue>();
+
+                // When
+                var result = fixture.RunOrchestratorForIssues(issues);
+
+                // Then
+                result.ReportedIssues.ShouldBeEmpty();
+                result.PostedIssues.ShouldBeEmpty();
+            }
+        }
+
+        public sealed class TheCtorWithIssueProviders
         {
             [Fact]
             public void Should_Throw_If_Log_Is_Null()
@@ -21,7 +132,7 @@
                 };
 
                 // When
-                var result = Record.Exception(() => fixture.RunOrchestrator());
+                var result = Record.Exception(() => fixture.RunOrchestratorForIssueProviders());
 
                 // Then
                 result.IsArgumentNullException("log");
@@ -37,7 +148,7 @@
                 };
 
                 // When
-                var result = Record.Exception(() => fixture.RunOrchestrator());
+                var result = Record.Exception(() => fixture.RunOrchestratorForIssueProviders());
 
                 // Then
                 result.IsArgumentNullException("issueProviders");
@@ -51,7 +162,7 @@
                 fixture.IssueProviders.Clear();
 
                 // When
-                var result = Record.Exception(() => fixture.RunOrchestrator());
+                var result = Record.Exception(() => fixture.RunOrchestratorForIssueProviders());
 
                 // Then
                 result.IsArgumentException("issueProviders");
@@ -66,7 +177,7 @@
                 fixture.IssueProviders.Add(null);
 
                 // When
-                var result = Record.Exception(() => fixture.RunOrchestrator());
+                var result = Record.Exception(() => fixture.RunOrchestratorForIssueProviders());
 
                 // Then
                 result.IsArgumentOutOfRangeException("issueProviders");
@@ -82,7 +193,7 @@
                 };
 
                 // When
-                var result = Record.Exception(() => fixture.RunOrchestrator());
+                var result = Record.Exception(() => fixture.RunOrchestratorForIssueProviders());
 
                 // Then
                 result.IsArgumentNullException("pullRequestSystem");
@@ -98,15 +209,12 @@
                 };
 
                 // When
-                var result = Record.Exception(() => fixture.RunOrchestrator());
+                var result = Record.Exception(() => fixture.RunOrchestratorForIssueProviders());
 
                 // Then
                 result.IsArgumentNullException("settings");
             }
-        }
 
-        public sealed class TheRunMethod
-        {
             [Theory]
             [InlineData(IssueCommentFormat.Undefined)]
             [InlineData(IssueCommentFormat.Html)]
@@ -119,7 +227,7 @@
                 fixture.PullRequestSystem.CommentFormat = format;
 
                 // When
-                fixture.RunOrchestrator();
+                fixture.RunOrchestratorForIssueProviders();
 
                 // Then
                 fixture.IssueProviders.ShouldAllBe(x => x.Format == format);
@@ -132,12 +240,15 @@
                 var fixture = new PullRequestsFixture();
 
                 // When
-                fixture.RunOrchestrator();
+                fixture.RunOrchestratorForIssueProviders();
 
                 // Then
                 fixture.PullRequestSystem.Settings.ShouldBe(fixture.Settings);
             }
+        }
 
+        public sealed class TheRunMethod
+        {
             [Fact]
             public void Should_Limit_Messages_To_Global_Maximum()
             {
@@ -171,7 +282,7 @@
                 fixture.ReportIssuesToPullRequestSettings.MaxIssuesToPost = 1;
 
                 // When
-                var result = fixture.RunOrchestrator();
+                var result = fixture.RunOrchestratorForIssueProviders();
 
                 // Then
                 result.ReportedIssues.Count().ShouldBe(2);
@@ -214,7 +325,7 @@
                 fixture.ReportIssuesToPullRequestSettings.MaxIssuesToPost = 1;
 
                 // When
-                var result = fixture.RunOrchestrator();
+                var result = fixture.RunOrchestratorForIssueProviders();
 
                 // Then
                 result.ReportedIssues.Count().ShouldBe(2);
@@ -256,7 +367,7 @@
                 fixture.ReportIssuesToPullRequestSettings.MaxIssuesToPost = 1;
 
                 // When
-                var result = fixture.RunOrchestrator();
+                var result = fixture.RunOrchestratorForIssueProviders();
 
                 // Then
                 result.ReportedIssues.Count().ShouldBe(2);
@@ -313,7 +424,7 @@
                 fixture.ReportIssuesToPullRequestSettings.MaxIssuesToPostForEachIssueProvider = 1;
 
                 // When
-                var result = fixture.RunOrchestrator();
+                var result = fixture.RunOrchestratorForIssueProviders();
 
                 // Then
                 result.ReportedIssues.Count().ShouldBe(4);
@@ -372,7 +483,7 @@
                 fixture.ReportIssuesToPullRequestSettings.MaxIssuesToPostForEachIssueProvider = 1;
 
                 // When
-                var result = fixture.RunOrchestrator();
+                var result = fixture.RunOrchestratorForIssueProviders();
 
                 // Then
                 result.ReportedIssues.Count().ShouldBe(4);
@@ -429,7 +540,7 @@
                 fixture.ReportIssuesToPullRequestSettings.MaxIssuesToPostForEachIssueProvider = 1;
 
                 // When
-                var result = fixture.RunOrchestrator();
+                var result = fixture.RunOrchestratorForIssueProviders();
 
                 // Then
                 result.ReportedIssues.Count().ShouldBe(4);
@@ -465,7 +576,7 @@
                         }));
 
                 // When
-                fixture.RunOrchestrator();
+                fixture.RunOrchestratorForIssueProviders();
 
                 // Then
                 fixture.PullRequestSystem.PostedIssues.ShouldContain(issueToPost);
@@ -498,7 +609,7 @@
                         }));
 
                 // When
-                fixture.RunOrchestrator();
+                fixture.RunOrchestratorForIssueProviders();
 
                 // Then
                 fixture.PullRequestSystem.PostedIssues.ShouldContain(issueToPost);
@@ -541,7 +652,7 @@
                 fixture.ReportIssuesToPullRequestSettings.MaxIssuesToPost = 1;
 
                 // When
-                var result = fixture.RunOrchestrator();
+                var result = fixture.RunOrchestratorForIssueProviders();
 
                 // Then
                 result.ReportedIssues.Count().ShouldBe(2);
@@ -585,7 +696,7 @@
                 fixture.ReportIssuesToPullRequestSettings.MaxIssuesToPost = 1;
 
                 // When
-                var result = fixture.RunOrchestrator();
+                var result = fixture.RunOrchestratorForIssueProviders();
 
                 // Then
                 result.ReportedIssues.Count().ShouldBe(2);
@@ -629,7 +740,7 @@
                     "15c54be6435cfb6b6973896d7be79f1d9b7497a9";
 
                 // When
-                var result = fixture.RunOrchestrator();
+                var result = fixture.RunOrchestratorForIssueProviders();
 
                 // Then
                 fixture.PullRequestSystem.PostedIssues.ShouldBeEmpty();
@@ -691,7 +802,7 @@
                         }));
 
                 // When
-                var result = fixture.RunOrchestrator();
+                var result = fixture.RunOrchestratorForIssueProviders();
 
                 // Then
                 result.ReportedIssues.Count().ShouldBe(2);
@@ -762,7 +873,7 @@
                         }));
 
                 // When
-                var result = fixture.RunOrchestrator();
+                var result = fixture.RunOrchestratorForIssueProviders();
 
                 // Then
                 result.ReportedIssues.Count().ShouldBe(2);
@@ -831,7 +942,7 @@
                         }));
 
                 // When
-                var result = fixture.RunOrchestrator();
+                var result = fixture.RunOrchestratorForIssueProviders();
 
                 // Then
                 result.ReportedIssues.Count().ShouldBe(2);
@@ -894,7 +1005,7 @@
                         }));
 
                 // When
-                var result = fixture.RunOrchestrator();
+                var result = fixture.RunOrchestratorForIssueProviders();
 
                 // Then
                 result.ReportedIssues.Count().ShouldBe(1);
@@ -956,7 +1067,7 @@
                         }));
 
                 // When
-                fixture.RunOrchestrator();
+                fixture.RunOrchestratorForIssueProviders();
 
                 // Then
                 fixture.PullRequestSystem.DiscussionThreadsCapability.ResolvedThreads.ShouldContain(threadToResolve);
@@ -1008,7 +1119,7 @@
                         }));
 
                 // When
-                fixture.RunOrchestrator();
+                fixture.RunOrchestratorForIssueProviders();
 
                 // Then
                 fixture.PullRequestSystem.DiscussionThreadsCapability.ResolvedThreads.ShouldBeEmpty();
@@ -1060,7 +1171,7 @@
                         }));
 
                 // When
-                fixture.RunOrchestrator();
+                fixture.RunOrchestratorForIssueProviders();
 
                 // Then
                 fixture.PullRequestSystem.DiscussionThreadsCapability.ReopenedThreads.ShouldContain(threadToReopen);
@@ -1113,7 +1224,7 @@
                         }));
 
                 // When
-                fixture.RunOrchestrator();
+                fixture.RunOrchestratorForIssueProviders();
 
                 // Then
                 fixture.PullRequestSystem.DiscussionThreadsCapability.ReopenedThreads.ShouldBeEmpty();
@@ -1161,7 +1272,7 @@
                         }));
 
                 // When
-                var result = fixture.RunOrchestrator();
+                var result = fixture.RunOrchestratorForIssueProviders();
 
                 // Then
                 result.ReportedIssues.Count().ShouldBe(2);
@@ -1210,7 +1321,7 @@
                         }));
 
                 // When
-                fixture.RunOrchestrator();
+                fixture.RunOrchestratorForIssueProviders();
 
                 // Then
                 fixture.Log.Entries.ShouldContain(x => x.Message == "All issues were filtered. Nothing new to post.");

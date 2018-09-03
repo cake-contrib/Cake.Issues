@@ -15,6 +15,100 @@
         /// Reports issues to pull requests.
         /// </summary>
         /// <param name="context">The context.</param>
+        /// <param name="issues">Issues which should be reported.</param>
+        /// <param name="pullRequestSystem">The pull request system.</param>
+        /// <param name="repositoryRoot">Root path of the repository.</param>
+        /// <returns>Information about the reported and written issues.</returns>
+        /// <example>
+        /// <para>Report issues reported as MsBuild warnings to a TFS pull request:</para>
+        /// <code>
+        /// <![CDATA[
+        ///     ReportIssuesToPullRequest(
+        ///         issues,
+        ///         TfsPullRequests(
+        ///             new Uri("http://myserver:8080/tfs/defaultcollection/myproject/_git/myrepository"),
+        ///             "refs/heads/feature/myfeature",
+        ///             TfsAuthenticationNtlm()),
+        ///         @"C:\repo"));
+        /// ]]>
+        /// </code>
+        /// </example>
+        [CakeMethodAlias]
+        [CakeAliasCategory(PullRequestsAliasConstants.ReportIssuesToPullRequestCakeAliasCategory)]
+        public static PullRequestIssueResult ReportIssuesToPullRequest(
+            this ICakeContext context,
+            IEnumerable<IIssue> issues,
+            IPullRequestSystem pullRequestSystem,
+            DirectoryPath repositoryRoot)
+        {
+            context.NotNull(nameof(context));
+            pullRequestSystem.NotNull(nameof(pullRequestSystem));
+            repositoryRoot.NotNull(nameof(repositoryRoot));
+
+            // ReSharper disable once PossibleMultipleEnumeration
+            issues.NotNullOrEmptyOrEmptyElement(nameof(issues));
+
+            // ReSharper disable once PossibleMultipleEnumeration
+            return context.ReportIssuesToPullRequest(issues, pullRequestSystem, new ReportIssuesToPullRequestSettings(repositoryRoot));
+        }
+
+        /// <summary>
+        /// Reports issues to pull requests using the specified settings.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <param name="issues">Issues which should be reported.</param>
+        /// <param name="pullRequestSystem">The pull request system.</param>
+        /// <param name="settings">The settings.</param>
+        /// <returns>Information about the reported and written issues.</returns>
+        /// <example>
+        /// <para>Report issues reported as MsBuild warnings to a TFS pull request and limit number of comments to ten:</para>
+        /// <code>
+        /// <![CDATA[
+        ///     var settings =
+        ///         new ReportIssuesToPullRequestSettings(@"C:\repo")
+        ///         {
+        ///             MaxIssuesToPost = 10
+        ///         };
+        ///
+        ///     ReportIssuesToPullRequest(
+        ///         issues,
+        ///         TfsPullRequests(
+        ///             new Uri("http://myserver:8080/tfs/defaultcollection/myproject/_git/myrepository"),
+        ///             "refs/heads/feature/myfeature",
+        ///             TfsAuthenticationNtlm()),
+        ///         settings));
+        /// ]]>
+        /// </code>
+        /// </example>
+        [CakeMethodAlias]
+        [CakeAliasCategory(PullRequestsAliasConstants.ReportIssuesToPullRequestCakeAliasCategory)]
+        public static PullRequestIssueResult ReportIssuesToPullRequest(
+            this ICakeContext context,
+            IEnumerable<IIssue> issues,
+            IPullRequestSystem pullRequestSystem,
+            ReportIssuesToPullRequestSettings settings)
+        {
+            context.NotNull(nameof(context));
+            pullRequestSystem.NotNull(nameof(pullRequestSystem));
+            settings.NotNull(nameof(settings));
+
+            // ReSharper disable once PossibleMultipleEnumeration
+            issues.NotNullOrEmptyOrEmptyElement(nameof(issues));
+
+            var orchestrator =
+                new Orchestrator(
+                    context.Log,
+                    pullRequestSystem,
+                    settings);
+
+            // ReSharper disable once PossibleMultipleEnumeration
+            return orchestrator.Run(issues);
+        }
+
+        /// <summary>
+        /// Reports issues to pull requests.
+        /// </summary>
+        /// <param name="context">The context.</param>
         /// <param name="issueProvider">The provider for issues.</param>
         /// <param name="pullRequestSystem">The pull request system.</param>
         /// <param name="repositoryRoot">Root path of the repository.</param>
@@ -31,7 +125,7 @@
         ///             new Uri("http://myserver:8080/tfs/defaultcollection/myproject/_git/myrepository"),
         ///             "refs/heads/feature/myfeature",
         ///             TfsAuthenticationNtlm()),
-        ///         new DirectoryPath("c:\repo"));
+        ///         @"C:\repo");
         /// ]]>
         /// </code>
         /// </example>
@@ -80,7 +174,7 @@
         ///             new Uri("http://myserver:8080/tfs/defaultcollection/myproject/_git/myrepository"),
         ///             "refs/heads/feature/myfeature",
         ///             TfsAuthenticationNtlm()),
-        ///         new DirectoryPath("c:\repo"));
+        ///         @"C:\repo");
         /// ]]>
         /// </code>
         /// </example>
@@ -120,7 +214,7 @@
         /// <code>
         /// <![CDATA[
         ///     var settings =
-        ///         new ReportIssuesToPullRequestSettings(new DirectoryPath("c:\repo"))
+        ///         new ReportIssuesToPullRequestSettings(@"C:\repo")
         ///         {
         ///             MaxIssuesToPost = 10
         ///         };
@@ -170,7 +264,7 @@
         /// <code>
         /// <![CDATA[
         ///     var settings =
-        ///         new ReportIssuesToPullRequestSettings(new DirectoryPath("c:\repo"))
+        ///         new ReportIssuesToPullRequestSettings(@"C:\repo")
         ///         {
         ///             MaxIssuesToPost = 10
         ///         };
@@ -207,14 +301,14 @@
             // ReSharper disable once PossibleMultipleEnumeration
             issueProviders.NotNullOrEmptyOrEmptyElement(nameof(issueProviders));
 
-            // ReSharper disable once PossibleMultipleEnumeration
             var orchestrator =
                 new Orchestrator(
                     context.Log,
-                    issueProviders,
                     pullRequestSystem,
                     settings);
-            return orchestrator.Run();
+
+            // ReSharper disable once PossibleMultipleEnumeration
+            return orchestrator.Run(issueProviders);
         }
     }
 }

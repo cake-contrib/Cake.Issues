@@ -13,37 +13,43 @@
     internal class Orchestrator
     {
         private readonly ICakeLog log;
-        private readonly List<IIssueProvider> issueProviders = new List<IIssueProvider>();
         private readonly IPullRequestSystem pullRequestSystem;
         private readonly ReportIssuesToPullRequestSettings settings;
+        private readonly bool pullRequestSystemInitialized;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Orchestrator"/> class.
         /// </summary>
         /// <param name="log">Cake log instance.</param>
-        /// <param name="issueProviders">List of issue providers to use.</param>
         /// <param name="pullRequestSystem">Object for accessing pull request system.
         /// <c>null</c> if only issues should be read.</param>
         /// <param name="settings">Settings.</param>
         public Orchestrator(
             ICakeLog log,
-            IEnumerable<IIssueProvider> issueProviders,
             IPullRequestSystem pullRequestSystem,
             ReportIssuesToPullRequestSettings settings)
         {
+#pragma warning disable SA1123 // Do not place regions within elements
+            #region DupFinder Exclusion
+#pragma warning restore SA1123 // Do not place regions within elements
+
             log.NotNull(nameof(log));
             pullRequestSystem.NotNull(nameof(pullRequestSystem));
             settings.NotNull(nameof(settings));
-
-            // ReSharper disable once PossibleMultipleEnumeration
-            issueProviders.NotNullOrEmptyOrEmptyElement(nameof(issueProviders));
 
             this.log = log;
             this.pullRequestSystem = pullRequestSystem;
             this.settings = settings;
 
-            // ReSharper disable once PossibleMultipleEnumeration
-            this.issueProviders.AddRange(issueProviders);
+            #endregion
+
+            // Initialize pull request system.
+            this.log.Verbose("Initialize pull request system...");
+            this.pullRequestSystemInitialized = this.pullRequestSystem.Initialize(this.settings);
+            if (!this.pullRequestSystemInitialized)
+            {
+                this.log.Warning("Error initializing the pull request system.");
+            }
         }
 
         /// <summary>
@@ -51,36 +57,47 @@
         /// Posts new issues, ignoring duplicate comments and resolves comments that were open in an old iteration
         /// of the pull request.
         /// </summary>
+        /// <param name="issueProviders">List of issue providers to use.</param>
         /// <returns>Information about the reported and written issues.</returns>
-        public PullRequestIssueResult Run()
+        public PullRequestIssueResult Run(IEnumerable<IIssueProvider> issueProviders)
         {
+            // ReSharper disable once PossibleMultipleEnumeration
+            issueProviders.NotNullOrEmptyOrEmptyElement(nameof(issueProviders));
+
             var format = IssueCommentFormat.Undefined;
 
-            // Initialize pull request system.
-            this.log.Verbose("Initialize pull request system...");
-            var pullRequestSystemInitialized = this.pullRequestSystem.Initialize(this.settings);
-            if (pullRequestSystemInitialized)
+            if (this.pullRequestSystemInitialized)
             {
                 format = this.pullRequestSystem.GetPreferredCommentFormat();
                 this.log.Verbose("Pull request system prefers comments in {0} format.", format);
             }
-            else
-            {
-                this.log.Warning("Error initializing the pull request system.");
-            }
 
+            // ReSharper disable once PossibleMultipleEnumeration
             var issuesReader =
-                new IssuesReader(this.log, this.issueProviders, this.settings);
-            var issues = issuesReader.ReadIssues(format).ToList();
+                new IssuesReader(this.log, issueProviders, this.settings);
+
+            return this.Run(issuesReader.ReadIssues(format));
+        }
+
+        /// <summary>
+        /// Runs the orchestrator.
+        /// Posts new issues, ignoring duplicate comments and resolves comments that were open in an old iteration
+        /// of the pull request.
+        /// </summary>
+        /// <param name="issues">Issues which should be reported.</param>
+        /// <returns>Information about the reported and written issues.</returns>
+        public PullRequestIssueResult Run(IEnumerable<IIssue> issues)
+        {
+            issues.NotNullOrEmptyElement(nameof(issues));
 
             // Don't process issues if pull request system could not be initialized.
-            if (!pullRequestSystemInitialized)
+            if (!this.pullRequestSystemInitialized)
             {
                 return new PullRequestIssueResult(issues, new List<IIssue>());
             }
 
-            this.log.Information("Processing {0} new issues", issues.Count);
-            var postedIssues = this.PostAndResolveComments(this.settings, issues);
+            this.log.Information("Processing {0} new issues", issues.Count());
+            var postedIssues = this.PostAndResolveComments(this.settings, issues.ToList());
 
             return new PullRequestIssueResult(issues, postedIssues);
         }

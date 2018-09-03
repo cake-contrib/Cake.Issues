@@ -43,15 +43,24 @@
         public ReportIssuesToPullRequestSettings ReportIssuesToPullRequestSettings =>
             this.Settings as ReportIssuesToPullRequestSettings;
 
-        public PullRequestIssueResult RunOrchestrator()
+        public PullRequestIssueResult RunOrchestratorForIssueProviders()
         {
             var orchestrator =
                 new Orchestrator(
                     this.Log,
-                    this.IssueProviders,
                     this.PullRequestSystem,
                     this.ReportIssuesToPullRequestSettings);
-            return orchestrator.Run();
+            return orchestrator.Run(this.IssueProviders);
+        }
+
+        public PullRequestIssueResult RunOrchestratorForIssues(IEnumerable<IIssue> issues)
+        {
+            var orchestrator =
+                new Orchestrator(
+                    this.Log,
+                    this.PullRequestSystem,
+                    this.ReportIssuesToPullRequestSettings);
+            return orchestrator.Run(issues);
         }
 
         public IEnumerable<IIssue> FilterIssues(
