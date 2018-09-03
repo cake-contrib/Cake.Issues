@@ -65,37 +65,5 @@
                     repositoryUrl.ToString().TrimEnd('/') + "?path=" + rootPath + "{FilePath}&version=GB" + branch + "&line={Line}"
             };
         }
-
-        /// <summary>
-        /// Returns the file link with all patterns of <see cref="FileLinkPattern"/> replaced
-        /// by the values of <paramref name="issue"/>.
-        /// </summary>
-        /// <param name="issue">Issue whose values should be used to replace the patterns.</param>
-        /// <returns>File link with all patterns replaced.</returns>
-        public string GetFileLink(IIssue issue)
-        {
-            issue.NotNull(nameof(issue));
-
-            if (string.IsNullOrWhiteSpace(this.FileLinkPattern))
-            {
-                return null;
-            }
-
-            return
-                this.FileLinkPattern
-                    .Replace("{ProviderType}", issue.ProviderType)
-                    .Replace("{ProviderName}", issue.ProviderName)
-                    .Replace("{Priority}", issue.Priority?.ToString())
-                    .Replace("{PriorityName}", issue.PriorityName)
-                    .Replace("{ProjectPath}", issue.ProjectPath())
-                    .Replace("{PojectName}", issue.ProjectName)
-                    .Replace("{FilePath}", issue.FilePath())
-                    .Replace("{Path}", issue.FileDirectory())
-                    .Replace("{File}", issue.FileName())
-                    .Replace("{Line}", issue.Line?.ToString())
-                    .Replace("{Rule}", issue.Rule)
-                    .Replace("{RuleUrl}", issue.RuleUrl?.ToString())
-                    .Replace("{Message}", issue.Message);
-        }
     }
 }

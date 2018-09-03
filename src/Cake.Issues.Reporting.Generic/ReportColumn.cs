@@ -42,12 +42,12 @@
         FilePath = 700,
 
         /// <summary>
-        /// Column for the value returned by <see cref="IIssueExtension.FilePath(IIssue)"/>.
+        /// Column for the value returned by <see cref="Cake.Issues.IIssueExtensions.FilePath(IIssue)"/>.
         /// </summary>
         FileDirectory = 800,
 
         /// <summary>
-        /// Column for the value returned by <see cref="IIssueExtension.FileName(IIssue)"/>.
+        /// Column for the value returned by <see cref="Cake.Issues.IIssueExtensions.FileName(IIssue)"/>.
         /// </summary>
         FileName = 900,
 
