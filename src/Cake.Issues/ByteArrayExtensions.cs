@@ -49,12 +49,10 @@
             {
                 var preamble = encoding.GetPreamble();
 
-                if (preamble.Where((p, i) => p != value[i]).Any())
+                if (value.Zip(preamble, (x, y) => x == y).All(x => x))
                 {
-                    throw new ArgumentException("Value contains no preamble.", nameof(value));
+                    value = value.Skip(preamble.Length).ToArray();
                 }
-
-                value = value.Skip(preamble.Length).ToArray();
             }
 
             return encoding.GetString(value);

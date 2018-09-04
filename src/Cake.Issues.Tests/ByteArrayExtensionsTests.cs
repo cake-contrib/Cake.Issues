@@ -56,17 +56,17 @@
             }
 
             [Fact]
-            public void Should_Throw_If_Preamble_Should_Be_Skipped_But_No_Preamble_Passed()
+            public void Should_Ignore_If_Preamble_Should_Be_Skipped_But_No_Preamble_Passed()
             {
                 // Given
                 var stringValue = "foo🐱bar";
                 var byteArrayValue = stringValue.ToByteArray();
 
                 // When
-                var result = Record.Exception(() => byteArrayValue.ToStringUsingEncoding(true));
+                var result = byteArrayValue.ToStringUsingEncoding(true);
 
                 // Then
-                result.IsArgumentException("value");
+                result.ShouldBe(stringValue);
             }
 
             [Theory]
@@ -131,7 +131,7 @@
             }
 
             [Fact]
-            public void Should_Throw_If_Preamble_Should_Be_Skipped_But_No_Preamble_Passed()
+            public void Should_Ignore_If_Preamble_Should_Be_Skipped_But_No_Preamble_Passed()
             {
                 // Given
                 var encoding = Encoding.UTF32;
@@ -139,10 +139,10 @@
                 var byteArrayValue = stringValue.ToByteArray(encoding);
 
                 // When
-                var result = Record.Exception(() => byteArrayValue.ToStringUsingEncoding(encoding, true));
+                var result = byteArrayValue.ToStringUsingEncoding(encoding, true);
 
                 // Then
-                result.IsArgumentException("value");
+                result.ShouldBe(stringValue);
             }
 
             [Theory]
