@@ -16,7 +16,7 @@
         /// <returns>Converted string.</returns>
         public static string ToStringUsingEncoding(this byte[] value)
         {
-            value.NotNullOrEmpty(nameof(value));
+            value.NotNull(nameof(value));
 
             return value.ToStringUsingEncoding(false);
         }
@@ -29,6 +29,8 @@
         /// <returns>Converted string.</returns>
         public static string ToStringUsingEncoding(this byte[] value, bool skipPreamble)
         {
+            value.NotNull(nameof(value));
+
             return value.ToStringUsingEncoding(Encoding.UTF8, skipPreamble);
         }
 
@@ -41,9 +43,9 @@
         /// <returns>Converted string.</returns>
         public static string ToStringUsingEncoding(this byte[] value, Encoding encoding, bool skipPreamble)
         {
-            value.NotNullOrEmpty(nameof(value));
+            value.NotNull(nameof(value));
 
-            if (skipPreamble)
+            if (value.Any() && skipPreamble)
             {
                 var preamble = encoding.GetPreamble();
 
