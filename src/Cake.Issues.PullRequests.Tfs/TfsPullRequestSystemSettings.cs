@@ -38,5 +38,15 @@
             : base(repositoryUrl, pullRequestId, credentials)
         {
         }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TfsPullRequestSystemSettings"/> class
+        /// based on the instance of a <see cref="TfsPullRequestSettings"/> class.
+        /// </summary>
+        /// <param name="settings">Settings containing the parameters.</param>
+        public TfsPullRequestSystemSettings(TfsPullRequestSettings settings)
+            : base(settings)
+        {
+        }
     }
 }
