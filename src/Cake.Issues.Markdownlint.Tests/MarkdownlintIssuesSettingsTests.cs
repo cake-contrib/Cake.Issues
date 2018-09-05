@@ -61,21 +61,6 @@
             }
 
             [Fact]
-            public void Should_Throw_If_LogFileContent_Is_Empty()
-            {
-                // Given
-                byte[] logFileContent = Array.Empty<byte>();
-                var format = new MarkdownlintLogFileFormat(new FakeLog());
-
-                // When
-                var result = Record.Exception(() =>
-                    new MarkdownlintIssuesSettings(logFileContent, format));
-
-                // Then
-                result.IsArgumentException("logFileContent");
-            }
-
-            [Fact]
             public void Should_Throw_If_Format_For_LogFileContent_Is_Null()
             {
                 // Given
@@ -91,7 +76,7 @@
             }
 
             [Fact]
-            public void Should_Set_LogContent()
+            public void Should_Set_LogFileContent()
             {
                 // Given
                 var logFileContent = "Foo".ToByteArray();
@@ -105,7 +90,21 @@
             }
 
             [Fact]
-            public void Should_Set_LogContent_From_LogFilePath()
+            public void Should_Set_LogFileContent_If_Empty()
+            {
+                // Given
+                byte[] logFileContent = Array.Empty<byte>();
+                var format = new MarkdownlintLogFileFormat(new FakeLog());
+
+                // When
+                var settings = new MarkdownlintIssuesSettings(logFileContent, format);
+
+                // Then
+                settings.LogFileContent.ShouldBe(logFileContent);
+            }
+
+            [Fact]
+            public void Should_Set_LogFileContent_From_LogFilePath()
             {
                 // Given
                 var format = new MarkdownlintLogFileFormat(new FakeLog());
