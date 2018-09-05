@@ -16,7 +16,7 @@
         /// <returns>Converted string.</returns>
         public static string ToStringUsingEncoding(this byte[] value)
         {
-            value.NotNullOrEmpty(nameof(value));
+            value.NotNull(nameof(value));
 
             return value.ToStringUsingEncoding(false);
         }
@@ -29,6 +29,8 @@
         /// <returns>Converted string.</returns>
         public static string ToStringUsingEncoding(this byte[] value, bool skipPreamble)
         {
+            value.NotNull(nameof(value));
+
             return value.ToStringUsingEncoding(Encoding.UTF8, skipPreamble);
         }
 
@@ -41,18 +43,16 @@
         /// <returns>Converted string.</returns>
         public static string ToStringUsingEncoding(this byte[] value, Encoding encoding, bool skipPreamble)
         {
-            value.NotNullOrEmpty(nameof(value));
+            value.NotNull(nameof(value));
 
-            if (skipPreamble)
+            if (value.Any() && skipPreamble)
             {
                 var preamble = encoding.GetPreamble();
 
-                if (preamble.Where((p, i) => p != value[i]).Any())
+                if (value.Zip(preamble, (x, y) => x == y).All(x => x))
                 {
-                    throw new ArgumentException("Value contains no preamble.", nameof(value));
+                    value = value.Skip(preamble.Length).ToArray();
                 }
-
-                value = value.Skip(preamble.Length).ToArray();
             }
 
             return encoding.GetString(value);
