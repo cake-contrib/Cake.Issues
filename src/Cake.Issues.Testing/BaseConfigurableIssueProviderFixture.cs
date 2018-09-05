@@ -20,9 +20,20 @@
         /// <param name="fileResourceName">Name of the resource to load.</param>
         protected BaseConfigurableIssueProviderFixture(string fileResourceName)
         {
+            fileResourceName.NotNullOrWhiteSpace(nameof(fileResourceName));
+
+            var resourceName = this.FileResourceNamespace + fileResourceName;
+
             using (var ms = new MemoryStream())
-            using (var stream = this.GetType().Assembly.GetManifestResourceStream(this.FileResourceNamespace + fileResourceName))
+            using (var stream = this.GetType().Assembly.GetManifestResourceStream(resourceName))
             {
+                if (stream == null)
+                {
+                    throw new ArgumentException(
+                        $"Resource {resourceName} not found",
+                        nameof(fileResourceName));
+                }
+
                 stream.CopyTo(ms);
                 this.LogFileContent = ms.ToArray();
             }
@@ -52,7 +63,7 @@
         /// <returns>Instance of the issue provider settings.</returns>
         protected virtual IList<object> GetCreateIssueProviderSettingsArguments()
         {
-            if (this.LogFileContent == null || !this.LogFileContent.Any())
+            if (this.LogFileContent == null)
             {
                 throw new InvalidOperationException("No log content set.");
             }

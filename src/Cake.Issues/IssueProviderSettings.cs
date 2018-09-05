@@ -27,7 +27,7 @@
         /// <param name="logFileContent">Content of the log file.</param>
         public IssueProviderSettings(byte[] logFileContent)
         {
-            logFileContent.NotNullOrEmpty(nameof(logFileContent));
+            logFileContent.NotNull(nameof(logFileContent));
 
             this.LogFileContent = logFileContent;
         }

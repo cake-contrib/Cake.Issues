@@ -39,23 +39,23 @@
             }
 
             [Fact]
-            public void Should_Throw_If_LogContent_Is_Empty()
-            {
-                // Given
-                byte[] logFileContent = Array.Empty<byte>();
-
-                // When
-                var result = Record.Exception(() => new IssueProviderSettings(logFileContent));
-
-                // Then
-                result.IsArgumentException("logFileContent");
-            }
-
-            [Fact]
             public void Should_Set_LogContent()
             {
                 // Given
                 var logFileContent = "Foo".ToByteArray();
+
+                // When
+                var settings = new IssueProviderSettings(logFileContent);
+
+                // Then
+                settings.LogFileContent.ShouldBe(logFileContent);
+            }
+
+            [Fact]
+            public void Should_Set_If_LogContent_If_Empty()
+            {
+                // Given
+                byte[] logFileContent = Array.Empty<byte>();
 
                 // When
                 var settings = new IssueProviderSettings(logFileContent);

@@ -40,24 +40,24 @@
             }
 
             [Fact]
-            public void Should_Throw_If_LogContent_Is_Empty()
-            {
-                // Given
-                byte[] logFileContent = Array.Empty<byte>();
-                var format = new FakeLogFileFormat(new FakeLog());
-
-                // When
-                var result = Record.Exception(() => new FakeMultiFormatIssueProviderSettings(logFileContent, format));
-
-                // Then
-                result.IsArgumentException("logFileContent");
-            }
-
-            [Fact]
             public void Should_Set_LogContent()
             {
                 // Given
                 var logFileContent = "Foo".ToByteArray();
+                var format = new FakeLogFileFormat(new FakeLog());
+
+                // When
+                var settings = new FakeMultiFormatIssueProviderSettings(logFileContent, format);
+
+                // Then
+                settings.LogFileContent.ShouldBe(logFileContent);
+            }
+
+            [Fact]
+            public void Should_Set_LogContent_If_Empty()
+            {
+                // Given
+                byte[] logFileContent = Array.Empty<byte>();
                 var format = new FakeLogFileFormat(new FakeLog());
 
                 // When
