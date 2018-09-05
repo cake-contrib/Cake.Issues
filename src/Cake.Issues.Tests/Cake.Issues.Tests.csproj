@@ -16,9 +16,11 @@
 
   <ItemGroup>
     <None Remove="Testfiles\Build.log" />
+    <None Remove="Testfiles\Empty.log" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Testfiles\Empty.log" />
     <EmbeddedResource Include="Testfiles\Build.log" />
   </ItemGroup>
 
