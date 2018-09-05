@@ -48,5 +48,23 @@
             : base(settings)
         {
         }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether pull request system should check if commit Id
+        /// is still up to date before posting comments.
+        /// </summary>
+        public bool CheckCommitId { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether discussion threads should automatically be
+        /// resolved oder reopened.
+        /// </summary>
+        public bool ManageDiscussionThreadStatus { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether pull request system should filter to issues affecting
+        /// files changed in the pull request.
+        /// </summary>
+        public bool FilterModifiedFiles { get; set; }
     }
 }
