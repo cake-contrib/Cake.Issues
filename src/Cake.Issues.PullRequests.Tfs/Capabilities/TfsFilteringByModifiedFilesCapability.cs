@@ -41,14 +41,14 @@
             var baseVersionDescriptor = new GitBaseVersionDescriptor
             {
                 VersionType = GitVersionType.Commit,
-                Version = this.PullRequestSystem.TfsPullRequest.LastSourceCommitId
+                Version = this.PullRequestSystem.TfsPullRequest.LastTargetCommitId
             };
 
             using (var gitClient = this.PullRequestSystem.CreateGitClient())
             {
                 var commitDiffs = gitClient.GetCommitDiffsAsync(
                     this.PullRequestSystem.TfsPullRequest.ProjectName,
-                    this.PullRequestSystem.TfsPullRequest.RepositoryName,
+                    this.PullRequestSystem.TfsPullRequest.RepositoryId,
                     true, // bool? diffCommonCommit
                     null, // int? top
                     null, // int? skip
@@ -57,14 +57,14 @@
                     null, // object userState
                     CancellationToken.None).Result;
 
+                this.Log.Verbose(
+                    "Found {0} changed file(s) in the pull request",
+                    commitDiffs.Changes.Count());
+
                 if (!commitDiffs.ChangeCounts.Any())
                 {
                     return new List<FilePath>();
                 }
-
-                this.Log.Verbose(
-                    "Found {0} changed file(s) in the pull request",
-                    commitDiffs.Changes.Count());
 
                 return
                     from change in commitDiffs.Changes
