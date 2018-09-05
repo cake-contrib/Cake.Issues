@@ -73,6 +73,7 @@
     <Compile Include="Capabilities\TfsDiscussionThreadsCapabilityTests.cs" />
     <Compile Include="Capabilities\TfsCheckingCommitIdCapabilityTests.cs" />
     <Compile Include="TfsCredentialsExtensionsTests.cs" />
+    <Compile Include="TfsPullRequestSystemTests.cs" />
     <Compile Include="TfsPullRequestSystemSettingsTests.cs" />
   </ItemGroup>
   <ItemGroup>
