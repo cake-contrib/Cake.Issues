@@ -7,6 +7,7 @@
     using System.Threading;
     using Cake.Core.Diagnostics;
     using Cake.Core.IO;
+    using Cake.Issues.PullRequests.Tfs.Capabilities;
     using Cake.Tfs.PullRequest;
     using Microsoft.TeamFoundation.SourceControl.WebApi;
     using Microsoft.VisualStudio.Services.Identity;
@@ -33,9 +34,20 @@
 
             this.settings = settings;
 
-            this.AddCapability(new TfsCheckingCommitIdCapability(log, this));
-            this.AddCapability(new TfsDiscussionThreadsCapability(log, this));
-            this.AddCapability(new TfsFilteringByModifiedFilesCapability(log, this));
+            if (settings.CheckCommitId)
+            {
+                this.AddCapability(new TfsCheckingCommitIdCapability(log, this));
+            }
+
+            if (settings.ManageDiscussionThreadStatus)
+            {
+                this.AddCapability(new TfsDiscussionThreadsCapability(log, this));
+            }
+
+            if (settings.FilterModifiedFiles)
+            {
+                this.AddCapability(new TfsFilteringByModifiedFilesCapability(log, this));
+            }
 
             this.tfsPullRequest = new TfsPullRequest(log, settings);
         }

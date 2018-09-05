@@ -1,12 +1,13 @@
-﻿namespace Cake.Issues.PullRequests.Tfs.Tests
+﻿namespace Cake.Issues.PullRequests.Tfs.Tests.Capabilities
 {
     using Cake.Core.Diagnostics;
+    using Cake.Issues.PullRequests.Tfs.Capabilities;
     using Cake.Issues.Testing;
     using Cake.Testing;
     using NSubstitute;
     using Xunit;
 
-    public sealed class TfsCheckingCommitIdCapabilityTests
+    public sealed class TfsFilteringByModifiedFilesCapabilityTests
     {
         public sealed class TheCtor
         {
@@ -15,10 +16,10 @@
             {
                 // Given
                 ICakeLog log = null;
-                var pullRequestSystem = NSubstitute.Substitute.For<ITfsPullRequestSystem>();
+                var pullRequestSystem = Substitute.For<ITfsPullRequestSystem>();
 
                 // When
-                var result = Record.Exception(() => new TfsCheckingCommitIdCapability(log, pullRequestSystem));
+                var result = Record.Exception(() => new TfsFilteringByModifiedFilesCapability(log, pullRequestSystem));
 
                 // Then
                 result.IsArgumentNullException("log");
@@ -32,7 +33,7 @@
                 TfsPullRequestSystem pullRequestSystem = null;
 
                 // When
-                var result = Record.Exception(() => new TfsCheckingCommitIdCapability(log, pullRequestSystem));
+                var result = Record.Exception(() => new TfsFilteringByModifiedFilesCapability(log, pullRequestSystem));
 
                 // Then
                 result.IsArgumentNullException("pullRequestSystem");

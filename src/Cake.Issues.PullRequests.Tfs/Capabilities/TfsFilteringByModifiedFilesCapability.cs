@@ -1,4 +1,4 @@
-﻿namespace Cake.Issues.PullRequests.Tfs
+﻿namespace Cake.Issues.PullRequests.Tfs.Capabilities
 {
     using System.Collections.Generic;
     using System.Linq;

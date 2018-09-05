@@ -75,14 +75,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CommentExtensions.cs" />
-    <Compile Include="CommentThreadStatusExtensions.cs" />
+    <Compile Include="Capabilities\CommentExtensions.cs" />
+    <Compile Include="Capabilities\CommentThreadStatusExtensions.cs" />
     <Compile Include="ContentProvider.cs" />
-    <Compile Include="GitPullRequestCommentThreadExtensions.cs" />
+    <Compile Include="Capabilities\GitPullRequestCommentThreadExtensions.cs" />
     <Compile Include="ITfsPullRequestSystem.cs" />
-    <Compile Include="TfsDiscussionThreadsCapability.cs" />
-    <Compile Include="TfsFilteringByModifiedFilesCapability.cs" />
-    <Compile Include="TfsCheckingCommitIdCapability.cs" />
+    <Compile Include="Capabilities\TfsDiscussionThreadsCapability.cs" />
+    <Compile Include="Capabilities\TfsFilteringByModifiedFilesCapability.cs" />
+    <Compile Include="Capabilities\TfsCheckingCommitIdCapability.cs" />
     <Compile Include="TfsCredentialsExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TfsPullRequestSystemSettings.cs" />

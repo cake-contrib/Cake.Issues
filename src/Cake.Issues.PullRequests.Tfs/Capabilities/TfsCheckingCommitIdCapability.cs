@@ -1,4 +1,4 @@
-﻿namespace Cake.Issues.PullRequests.Tfs
+﻿namespace Cake.Issues.PullRequests.Tfs.Capabilities
 {
     using Cake.Core.Diagnostics;
 
