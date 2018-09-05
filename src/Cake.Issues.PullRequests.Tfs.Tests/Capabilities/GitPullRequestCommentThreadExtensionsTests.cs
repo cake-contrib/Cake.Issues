@@ -1,7 +1,8 @@
-﻿namespace Cake.Issues.PullRequests.Tfs.Tests
+﻿namespace Cake.Issues.PullRequests.Tfs.Tests.Capabilities
 {
     using System.Collections.Generic;
     using System.Linq;
+    using Cake.Issues.PullRequests.Tfs.Capabilities;
     using Cake.Issues.Testing;
     using Microsoft.TeamFoundation.SourceControl.WebApi;
     using Microsoft.VisualStudio.Services.WebApi;

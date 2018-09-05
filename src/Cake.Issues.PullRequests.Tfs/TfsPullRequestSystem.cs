@@ -7,6 +7,7 @@
     using System.Threading;
     using Cake.Core.Diagnostics;
     using Cake.Core.IO;
+    using Cake.Issues.PullRequests.Tfs.Capabilities;
     using Cake.Tfs.PullRequest;
     using Microsoft.TeamFoundation.SourceControl.WebApi;
     using Microsoft.VisualStudio.Services.Identity;

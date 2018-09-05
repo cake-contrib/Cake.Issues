@@ -64,14 +64,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CommentExtensionsTests.cs" />
-    <Compile Include="CommentThreadStatusExtensionsTests.cs" />
+    <Compile Include="Capabilities\CommentExtensionsTests.cs" />
+    <Compile Include="Capabilities\CommentThreadStatusExtensionsTests.cs" />
     <Compile Include="ContentProviderTests.cs" />
-    <Compile Include="GitPullRequestCommentThreadExtensionsTests.cs" />
+    <Compile Include="Capabilities\GitPullRequestCommentThreadExtensionsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TfsFilteringByModifiedFilesCapabilityTests.cs" />
-    <Compile Include="TfsDiscussionThreadsCapabilityTests.cs" />
-    <Compile Include="TfsCheckingCommitIdCapabilityTests.cs" />
+    <Compile Include="Capabilities\TfsFilteringByModifiedFilesCapabilityTests.cs" />
+    <Compile Include="Capabilities\TfsDiscussionThreadsCapabilityTests.cs" />
+    <Compile Include="Capabilities\TfsCheckingCommitIdCapabilityTests.cs" />
     <Compile Include="TfsCredentialsExtensionsTests.cs" />
     <Compile Include="TfsPullRequestSystemSettingsTests.cs" />
   </ItemGroup>
