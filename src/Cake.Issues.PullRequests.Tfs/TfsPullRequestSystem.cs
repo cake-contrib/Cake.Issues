@@ -37,16 +37,31 @@
             if (settings.CheckCommitId)
             {
                 this.AddCapability(new TfsCheckingCommitIdCapability(log, this));
+                this.Log.Information("Commit ID check capability is enabled.");
+            }
+            else
+            {
+                this.Log.Information("Commit ID check capability is disabled.");
             }
 
             if (settings.ManageDiscussionThreadStatus)
             {
                 this.AddCapability(new TfsDiscussionThreadsCapability(log, this));
+                this.Log.Information("Discussion thread status management capability is enabled.");
+            }
+            else
+            {
+                this.Log.Information("Discussion thread status management capability is disabled.");
             }
 
             if (settings.FilterModifiedFiles)
             {
                 this.AddCapability(new TfsFilteringByModifiedFilesCapability(log, this));
+                this.Log.Information("Modified files filtering capability is enabled.");
+            }
+            else
+            {
+                this.Log.Information("Modified files filtering capability is disabled.");
             }
 
             this.tfsPullRequest = new TfsPullRequest(log, settings);
