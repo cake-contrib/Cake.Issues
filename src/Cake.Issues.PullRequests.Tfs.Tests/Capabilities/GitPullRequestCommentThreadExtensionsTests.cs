@@ -27,27 +27,6 @@
             }
 
             [Fact]
-            public void Should_Throw_If_ThreadContext_Is_Null()
-            {
-                // Given
-                var thread =
-                    new GitPullRequestCommentThread
-                    {
-                        Id = 123,
-                        Status = CommentThreadStatus.Active,
-                        ThreadContext = null,
-                        Comments = new List<Comment>(),
-                        Properties = new PropertiesCollection()
-                    };
-
-                // When
-                var result = Record.Exception(() => thread.ToPullRequestDiscussionThread());
-
-                // Then
-                result.IsInvalidOperationException("ThreadContext is not created.");
-            }
-
-            [Fact]
             public void Should_Throw_If_Comments_Are_Null()
             {
                 // Given
@@ -181,6 +160,27 @@
 
                 // Then
                 result.AffectedFileRelativePath.ToString().ShouldBe(expectedResult);
+            }
+
+            [Fact]
+            public void Should_Set_Correct_FilePath_If_ThreadContext_Is_Null()
+            {
+                // Given
+                var thread =
+                    new GitPullRequestCommentThread
+                    {
+                        Id = 123,
+                        Status = CommentThreadStatus.Active,
+                        ThreadContext = null,
+                        Comments = new List<Comment>(),
+                        Properties = new PropertiesCollection()
+                    };
+
+                // When
+                var result = thread.ToPullRequestDiscussionThread();
+
+                // Then
+                result.AffectedFileRelativePath.ShouldBeNull();
             }
 
             [Fact]

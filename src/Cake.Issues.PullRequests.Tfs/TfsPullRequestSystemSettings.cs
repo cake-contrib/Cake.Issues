@@ -69,5 +69,12 @@
         /// Default value is <c>true</c>.
         /// </summary>
         public bool FilterModifiedFiles { get; set; } = true;
+
+        /// <summary>
+        /// Gets or sets a value indicating whether issues not related to a file should be posted
+        /// as comments or not.
+        /// Default value is <c>false</c>.
+        /// </summary>
+        public bool ReportIssuesNotRelatedToAFile { get; set; } = false;
     }
 }

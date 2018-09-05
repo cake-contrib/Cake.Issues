@@ -2,6 +2,7 @@
 {
     using System;
     using System.Linq;
+    using Cake.Core.IO;
     using Microsoft.TeamFoundation.SourceControl.WebApi;
 
     /// <summary>
@@ -21,20 +22,21 @@
         {
             thread.NotNull(nameof(thread));
 
-            if (thread.ThreadContext == null)
-            {
-                throw new InvalidOperationException("ThreadContext is not created.");
-            }
-
             if (thread.Comments == null)
             {
                 throw new InvalidOperationException("Comments list is not created.");
             }
 
+            FilePath filePath = null;
+            if (thread.ThreadContext != null && thread.ThreadContext.FilePath != null)
+            {
+                filePath = thread.ThreadContext.FilePath.TrimStart('/');
+            }
+
             return new PullRequestDiscussionThread(
                 thread.Id,
                 thread.Status.ToPullRequestDiscussionStatus(),
-                thread.ThreadContext.FilePath?.TrimStart('/'),
+                filePath,
                 thread.Comments.Select(x => x.ToPullRequestDiscussionComment()))
             {
                 CommentSource = thread.GetCommentSource(),
