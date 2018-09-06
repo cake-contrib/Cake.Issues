@@ -54,7 +54,7 @@
                 this.Log.Information("Discussion thread status management capability is disabled.");
             }
 
-            if (settings.FilterModifiedFiles)
+            if (settings.FilterByModifiedFiles)
             {
                 this.AddCapability(new TfsFilteringByModifiedFilesCapability(log, this));
                 this.Log.Information("Modified files filtering capability is enabled.");

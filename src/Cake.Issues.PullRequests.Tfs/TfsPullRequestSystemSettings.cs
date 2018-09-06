@@ -68,7 +68,7 @@
         /// files changed in the pull request.
         /// Default value is <c>true</c>.
         /// </summary>
-        public bool FilterModifiedFiles { get; set; } = true;
+        public bool FilterByModifiedFiles { get; set; } = true;
 
         /// <summary>
         /// Gets or sets a value indicating whether issues not related to a file should be posted
