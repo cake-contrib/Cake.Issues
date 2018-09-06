@@ -211,10 +211,14 @@
                 changes = this.GetCodeFlowChanges(gitClient, iterationId);
             }
 
+            // Filter isues not related to a file.
+            if (!this.settings.ReportIssuesNotRelatedToAFile)
+            {
+                issues = issues.Where(x => x.AffectedFileRelativePath != null);
+            }
+
             // ReSharper disable once PossibleMultipleEnumeration
-            // We currenty don't support issues not related to a file.
-            // See https://github.com/cake-contrib/Cake.Issues.PullRequests.Tfs/issues/2
-            foreach (var issue in issues.Where(x => x.AffectedFileRelativePath != null))
+            foreach (var issue in issues)
             {
                 this.Log.Information(
                     "Creating a discussion comment for the issue at line {0} from {1}",
@@ -258,21 +262,24 @@
 
             var properties = new PropertiesCollection();
 
-            if (this.tfsPullRequest.CodeReviewId > 0)
+            if (issue.AffectedFileRelativePath != null)
             {
-                var changeTrackingId =
-                    this.TryGetCodeFlowChangeTrackingId(changes, issue.AffectedFileRelativePath);
-                if (changeTrackingId < 0)
+                if (this.tfsPullRequest.CodeReviewId > 0)
                 {
-                    // Don't post comment if we couldn't determine the change.
-                    return false;
-                }
+                    var changeTrackingId =
+                        this.TryGetCodeFlowChangeTrackingId(changes, issue.AffectedFileRelativePath);
+                    if (changeTrackingId < 0)
+                    {
+                        // Don't post comment if we couldn't determine the change.
+                        return false;
+                    }
 
-                AddCodeFlowProperties(issue, iterationId, changeTrackingId, properties);
-            }
-            else
-            {
-                throw new NotSupportedException("Legacy code reviews are not supported.");
+                    AddCodeFlowProperties(issue, iterationId, changeTrackingId, properties);
+                }
+                else
+                {
+                    throw new NotSupportedException("Legacy code reviews are not supported.");
+                }
             }
 
             // A VSTS UI extension will recognize this and format the comments differently.
