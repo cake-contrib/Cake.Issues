@@ -1,5 +1,6 @@
-﻿namespace Cake.Issues.PullRequests.Tfs.Tests
+﻿namespace Cake.Issues.PullRequests.Tfs.Tests.Capabilities
 {
+    using Cake.Issues.PullRequests.Tfs.Capabilities;
     using Microsoft.TeamFoundation.SourceControl.WebApi;
     using Shouldly;
     using Xunit;

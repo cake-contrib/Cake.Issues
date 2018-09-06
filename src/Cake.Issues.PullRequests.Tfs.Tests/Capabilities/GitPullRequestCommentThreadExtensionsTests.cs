@@ -1,7 +1,8 @@
-﻿namespace Cake.Issues.PullRequests.Tfs.Tests
+﻿namespace Cake.Issues.PullRequests.Tfs.Tests.Capabilities
 {
     using System.Collections.Generic;
     using System.Linq;
+    using Cake.Issues.PullRequests.Tfs.Capabilities;
     using Cake.Issues.Testing;
     using Microsoft.TeamFoundation.SourceControl.WebApi;
     using Microsoft.VisualStudio.Services.WebApi;
@@ -23,27 +24,6 @@
 
                 // Then
                 result.IsArgumentNullException("thread");
-            }
-
-            [Fact]
-            public void Should_Throw_If_ThreadContext_Is_Null()
-            {
-                // Given
-                var thread =
-                    new GitPullRequestCommentThread
-                    {
-                        Id = 123,
-                        Status = CommentThreadStatus.Active,
-                        ThreadContext = null,
-                        Comments = new List<Comment>(),
-                        Properties = new PropertiesCollection()
-                    };
-
-                // When
-                var result = Record.Exception(() => thread.ToPullRequestDiscussionThread());
-
-                // Then
-                result.IsInvalidOperationException("ThreadContext is not created.");
             }
 
             [Fact]
@@ -180,6 +160,27 @@
 
                 // Then
                 result.AffectedFileRelativePath.ToString().ShouldBe(expectedResult);
+            }
+
+            [Fact]
+            public void Should_Set_Correct_FilePath_If_ThreadContext_Is_Null()
+            {
+                // Given
+                var thread =
+                    new GitPullRequestCommentThread
+                    {
+                        Id = 123,
+                        Status = CommentThreadStatus.Active,
+                        ThreadContext = null,
+                        Comments = new List<Comment>(),
+                        Properties = new PropertiesCollection()
+                    };
+
+                // When
+                var result = thread.ToPullRequestDiscussionThread();
+
+                // Then
+                result.AffectedFileRelativePath.ShouldBeNull();
             }
 
             [Fact]

@@ -48,5 +48,26 @@
             : base(settings)
         {
         }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether pull request system should check if commit Id
+        /// is still up to date before posting comments.
+        /// Default value is <c>true</c>.
+        /// </summary>
+        public bool CheckCommitId { get; set; } = true;
+
+        /// <summary>
+        /// Gets or sets a value indicating whether discussion threads should automatically be
+        /// resolved oder reopened.
+        /// Default value is <c>true</c>.
+        /// </summary>
+        public bool ManageDiscussionThreadStatus { get; set; } = true;
+
+        /// <summary>
+        /// Gets or sets a value indicating whether issues not related to a file should be posted
+        /// as comments or not.
+        /// Default value is <c>false</c>.
+        /// </summary>
+        public bool ReportIssuesNotRelatedToAFile { get; set; } = false;
     }
 }

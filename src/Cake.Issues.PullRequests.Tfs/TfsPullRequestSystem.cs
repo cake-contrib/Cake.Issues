@@ -7,6 +7,7 @@
     using System.Threading;
     using Cake.Core.Diagnostics;
     using Cake.Core.IO;
+    using Cake.Issues.PullRequests.Tfs.Capabilities;
     using Cake.Tfs.PullRequest;
     using Microsoft.TeamFoundation.SourceControl.WebApi;
     using Microsoft.VisualStudio.Services.Identity;
@@ -33,8 +34,29 @@
 
             this.settings = settings;
 
-            this.AddCapability(new TfsCheckingCommitIdCapability(log, this));
-            this.AddCapability(new TfsDiscussionThreadsCapability(log, this));
+            if (settings.CheckCommitId)
+            {
+                this.AddCapability(new TfsCheckingCommitIdCapability(log, this));
+                this.Log.Information("Commit ID check capability is enabled.");
+            }
+            else
+            {
+                this.Log.Information("Commit ID check capability is disabled.");
+            }
+
+            if (settings.ManageDiscussionThreadStatus)
+            {
+                this.AddCapability(new TfsDiscussionThreadsCapability(log, this));
+                this.Log.Information("Discussion thread status management capability is enabled.");
+            }
+            else
+            {
+                this.Log.Information("Discussion thread status management capability is disabled.");
+            }
+
+            // Filtering by modified files is always required as we otherwise no longer can compare issues
+            // in a subsequent run as we lose information about file and line.
+            // See https://github.com/cake-contrib/Cake.Issues.PullRequests.Tfs/issues/46#issuecomment-419149355
             this.AddCapability(new TfsFilteringByModifiedFilesCapability(log, this));
 
             this.tfsPullRequest = new TfsPullRequest(log, settings);
@@ -184,10 +206,14 @@
                 changes = this.GetCodeFlowChanges(gitClient, iterationId);
             }
 
+            // Filter isues not related to a file.
+            if (!this.settings.ReportIssuesNotRelatedToAFile)
+            {
+                issues = issues.Where(x => x.AffectedFileRelativePath != null);
+            }
+
             // ReSharper disable once PossibleMultipleEnumeration
-            // We currenty don't support issues not related to a file.
-            // See https://github.com/cake-contrib/Cake.Issues.PullRequests.Tfs/issues/2
-            foreach (var issue in issues.Where(x => x.AffectedFileRelativePath != null))
+            foreach (var issue in issues)
             {
                 this.Log.Information(
                     "Creating a discussion comment for the issue at line {0} from {1}",
@@ -231,21 +257,24 @@
 
             var properties = new PropertiesCollection();
 
-            if (this.tfsPullRequest.CodeReviewId > 0)
+            if (issue.AffectedFileRelativePath != null)
             {
-                var changeTrackingId =
-                    this.TryGetCodeFlowChangeTrackingId(changes, issue.AffectedFileRelativePath);
-                if (changeTrackingId < 0)
+                if (this.tfsPullRequest.CodeReviewId > 0)
                 {
-                    // Don't post comment if we couldn't determine the change.
-                    return false;
-                }
+                    var changeTrackingId =
+                        this.TryGetCodeFlowChangeTrackingId(changes, issue.AffectedFileRelativePath);
+                    if (changeTrackingId < 0)
+                    {
+                        // Don't post comment if we couldn't determine the change.
+                        return false;
+                    }
 
-                AddCodeFlowProperties(issue, iterationId, changeTrackingId, properties);
-            }
-            else
-            {
-                throw new NotSupportedException("Legacy code reviews are not supported.");
+                    AddCodeFlowProperties(issue, iterationId, changeTrackingId, properties);
+                }
+                else
+                {
+                    throw new NotSupportedException("Legacy code reviews are not supported.");
+                }
             }
 
             // A VSTS UI extension will recognize this and format the comments differently.
