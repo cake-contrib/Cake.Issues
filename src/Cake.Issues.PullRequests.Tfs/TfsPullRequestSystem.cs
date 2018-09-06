@@ -54,15 +54,10 @@
                 this.Log.Information("Discussion thread status management capability is disabled.");
             }
 
-            if (settings.FilterByModifiedFiles)
-            {
-                this.AddCapability(new TfsFilteringByModifiedFilesCapability(log, this));
-                this.Log.Information("Modified files filtering capability is enabled.");
-            }
-            else
-            {
-                this.Log.Information("Modified files filtering capability is disabled.");
-            }
+            // Filtering by modified files is always required as we otherwise no longer can compare issues
+            // in a subsequent run as we lose information about file and line.
+            // See https://github.com/cake-contrib/Cake.Issues.PullRequests.Tfs/issues/46#issuecomment-419149355
+            this.AddCapability(new TfsFilteringByModifiedFilesCapability(log, this));
 
             this.tfsPullRequest = new TfsPullRequest(log, settings);
         }
