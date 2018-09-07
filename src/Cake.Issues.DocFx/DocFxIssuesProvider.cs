@@ -41,7 +41,7 @@
                 let logEntryObject = JsonConvert.DeserializeObject<JToken>(logEntry)
                 let severity = (string)logEntryObject.SelectToken("message_severity")
                 let file = this.TryGetFile(logEntryObject, docRootPath)
-                let line = (int?)logEntryObject.SelectToken("line")
+                let line = this.TryGetLine(logEntryObject)
                 let message = (string)logEntryObject.SelectToken("message")
                 let source = (string)logEntryObject.SelectToken("source") ?? "DocFx"
                 where
@@ -86,6 +86,25 @@
             }
 
             return fileName;
+        }
+
+        /// <summary>
+        /// Reads the affected line from a issue logged in a DocFx log file.
+        /// </summary>
+        /// <param name="token">JSON Token object for the current log entry.</param>
+        /// <returns>The line of the issue.</returns>
+        private int? TryGetLine(
+            JToken token)
+        {
+            var line = (int?)token.SelectToken("line");
+
+            // Convert negative line numbers or line number 0 to null
+            if (line.HasValue && line.Value <= 0)
+            {
+                return null;
+            }
+
+            return line;
         }
     }
 }
