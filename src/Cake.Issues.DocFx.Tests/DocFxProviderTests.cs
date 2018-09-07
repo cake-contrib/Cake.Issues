@@ -89,6 +89,28 @@
                     "Invalid file link:(~/foo.md).");
             }
 
+            [Fact]
+            public void Should_Read_Line_Zero_Correct()
+            {
+                // Given
+                var fixture = new DocFxProviderFixture("entry-with-line-0.json", @"/");
+
+                // When
+                var issues = fixture.ReadIssues().ToList();
+
+                // Then
+                issues.Count.ShouldBe(1);
+                CheckIssue(
+                    issues[0],
+                    @"~/toc.yml",
+                    null,
+                    "BuildCore.Build Document.LinkPhaseHandlerWithIncremental.TocDocumentProcessor.Save",
+                    null,
+                    300,
+                    "Warning",
+                    "Invalid file link:(~/foo.md).");
+            }
+
             private static void CheckIssue(
                 IIssue issue,
                 string affectedFileRelativePath,
