@@ -1,6 +1,6 @@
 ﻿namespace Cake.Issues.MsBuild
 {
-    using Core.Annotations;
+    using Cake.Core.Annotations;
 
     /// <summary>
     /// Contains functionality for reading warnings from MSBuild log files.

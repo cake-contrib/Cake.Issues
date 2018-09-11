@@ -2,10 +2,10 @@
 {
     using System.Linq;
     using Cake.Core.Diagnostics;
+    using Cake.Core.IO;
     using Cake.Issues.MsBuild.LogFileFormat;
-    using Core.IO;
+    using Cake.Issues.Testing;
     using Shouldly;
-    using Testing;
     using Xunit;
 
     public sealed class XmlFileLoggerLogFileFormatTests
