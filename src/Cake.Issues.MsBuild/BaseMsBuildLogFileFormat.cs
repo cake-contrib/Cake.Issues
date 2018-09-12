@@ -30,7 +30,7 @@
             // Ignore files from outside the repository.
             if (!this.CheckIfFileIsInRepository(filePath, repositorySettings))
             {
-                return (false, filePath);
+                return (false, string.Empty);
             }
 
             // Make path relative to repository root.
