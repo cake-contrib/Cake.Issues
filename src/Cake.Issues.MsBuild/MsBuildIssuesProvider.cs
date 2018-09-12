@@ -1,6 +1,6 @@
 ﻿namespace Cake.Issues.MsBuild
 {
-    using Core.Diagnostics;
+    using Cake.Core.Diagnostics;
 
     /// <summary>
     /// Provider for issues reported as MsBuild warnings.

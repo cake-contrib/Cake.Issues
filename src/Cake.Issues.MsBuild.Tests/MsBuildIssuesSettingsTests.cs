@@ -1,13 +1,11 @@
 ﻿namespace Cake.Issues.MsBuild.Tests
 {
     using System;
-    using System.IO;
-    using System.Text;
     using Cake.Core.IO;
     using Cake.Issues.MsBuild.LogFileFormat;
+    using Cake.Issues.Testing;
     using Cake.Testing;
     using Shouldly;
-    using Testing;
     using Xunit;
 
     public sealed class MsBuildIssuesSettingsTests

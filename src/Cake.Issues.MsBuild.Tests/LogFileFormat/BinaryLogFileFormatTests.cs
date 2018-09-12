@@ -8,7 +8,7 @@
     using Shouldly;
     using Xunit;
 
-    public sealed class XmlFileLoggerLogFileFormatTests
+    public sealed class BinaryLogFileFormatTests
     {
         public sealed class TheCtor
         {
@@ -19,7 +19,7 @@
                 ICakeLog log = null;
 
                 // When
-                var result = Record.Exception(() => new XmlFileLoggerLogFileFormat(log));
+                var result = Record.Exception(() => new BinaryLogFileFormat(log));
 
                 // Then
                 result.IsArgumentNullException("log");
@@ -32,7 +32,8 @@
             public void Should_Read_Full_Log_Correct()
             {
                 // Given
-                var fixture = new MsBuildIssuesProviderFixture<XmlFileLoggerLogFileFormat>("FullLog.xml");
+                var fixture = new MsBuildIssuesProviderFixture<BinaryLogFileFormat>("FullLog.binlog");
+                fixture.RepositorySettings = new RepositorySettings(@"c:\Git\Test\Cake.Prca\");
 
                 // When
                 var issues = fixture.ReadIssues().ToList();
@@ -65,22 +66,12 @@
                     "ClassLibrary1",
                     @"src\ClassLibrary1\Class1.cs",
                     1,
-                    "SA1633",
-                    300,
-                    "Warning",
-                    @"The file header is missing or not located at the top of the file.");
-                CheckIssue(
-                    issues[3],
-                    @"src\ClassLibrary1\ClassLibrary1.csproj",
-                    "ClassLibrary1",
-                    @"src\ClassLibrary1\Class1.cs",
-                    1,
                     "SA1200",
                     300,
                     "Warning",
                     @"Using directive must appear within a namespace declaration");
                 CheckIssue(
-                    issues[4],
+                    issues[3],
                     @"src\ClassLibrary1\ClassLibrary1.csproj",
                     "ClassLibrary1",
                     @"src\ClassLibrary1\Class1.cs",
@@ -90,7 +81,7 @@
                     "Warning",
                     @"Using directive must appear within a namespace declaration");
                 CheckIssue(
-                    issues[5],
+                    issues[4],
                     @"src\ClassLibrary1\ClassLibrary1.csproj",
                     "ClassLibrary1",
                     @"src\ClassLibrary1\Class1.cs",
@@ -100,7 +91,7 @@
                     "Warning",
                     @"Using directive must appear within a namespace declaration");
                 CheckIssue(
-                    issues[6],
+                    issues[5],
                     @"src\ClassLibrary1\ClassLibrary1.csproj",
                     "ClassLibrary1",
                     @"src\ClassLibrary1\Class1.cs",
@@ -110,7 +101,7 @@
                     "Warning",
                     @"Using directive must appear within a namespace declaration");
                 CheckIssue(
-                    issues[7],
+                    issues[6],
                     @"src\ClassLibrary1\ClassLibrary1.csproj",
                     "ClassLibrary1",
                     @"src\ClassLibrary1\Class1.cs",
@@ -119,6 +110,16 @@
                     300,
                     "Warning",
                     @"Using directive must appear within a namespace declaration");
+                CheckIssue(
+                    issues[7],
+                    @"src\ClassLibrary1\ClassLibrary1.csproj",
+                    "ClassLibrary1",
+                    @"src\ClassLibrary1\Class1.cs",
+                    1,
+                    "SA1633",
+                    300,
+                    "Warning",
+                    @"The file header is missing or not located at the top of the file.");
                 CheckIssue(
                     issues[8],
                     @"src\ClassLibrary1\ClassLibrary1.csproj",
@@ -229,126 +230,6 @@
                     300,
                     "Warning",
                     @"Microsoft.Performance : 'Class1.Foo()' declares a variable, 'foo', of type 'string', which is never used or is only assigned to. Use this variable or remove it.");
-            }
-
-            [Fact]
-            public void Should_Read_Issue_With_File_Correct()
-            {
-                // Given
-                var fixture = new MsBuildIssuesProviderFixture<XmlFileLoggerLogFileFormat>("IssueWithFile.xml");
-
-                // When
-                var issues = fixture.ReadIssues().ToList();
-
-                // Then
-                issues.Count.ShouldBe(1);
-                var issue = issues.Single();
-                CheckIssue(
-                    issue,
-                    null,
-                    string.Empty,
-                    @"src\Cake.Issues.MsBuild.Tests\MsBuildIssuesProviderTests.cs",
-                    1311,
-                    "CA2201",
-                    300,
-                    "Warning",
-                    @"Microsoft.Usage : 'ConfigurationManager.GetSortedConfigFiles(String)' creates an exception of type 'ApplicationException', an exception type that is not sufficiently specific and should never be raised by user code. If this exception instance might be thrown, use a different exception type.");
-            }
-
-            [Fact]
-            public void Should_Read_Issue_With_File_Without_Path_Correct()
-            {
-                // Given
-                var fixture = new MsBuildIssuesProviderFixture<XmlFileLoggerLogFileFormat>("IssueWithOnlyFileName.xml");
-
-                // When
-                var issues = fixture.ReadIssues().ToList();
-
-                // Then
-                issues.Count.ShouldBe(1);
-                var issue = issues.Single();
-                CheckIssue(
-                    issue,
-                    null,
-                    string.Empty,
-                    @"src\Cake.Issues.MsBuild.Tests\MsBuildIssuesProviderTests.cs",
-                    13,
-                    "CS0219",
-                    300,
-                    "Warning",
-                    "The variable 'foo' is assigned but its value is never used");
-            }
-
-            [Fact]
-            public void Should_Read_Issue_With_Line_Zero_Correct()
-            {
-                // Given
-                var fixture = new MsBuildIssuesProviderFixture<XmlFileLoggerLogFileFormat>("IssueWithLineZero.xml");
-
-                // When
-                var issues = fixture.ReadIssues().ToList();
-
-                // Then
-                issues.Count.ShouldBe(1);
-                var issue = issues.Single();
-                CheckIssue(
-                    issue,
-                    @"Cake.Prca.shfbproj",
-                    "Cake.Prca",
-                    @"SHFB",
-                    null,
-                    "BE0006",
-                    300,
-                    "Warning",
-                    @"Unable to locate any documentation sources for 'c:\Source\Cake.Prca\Cake.Prca..csproj' (Configuration: Debug Platform: AnyCPU)");
-            }
-
-            [Fact]
-            public void Should_Read_Issue_Without_File_Correct()
-            {
-                // Given
-                var fixture = new MsBuildIssuesProviderFixture<XmlFileLoggerLogFileFormat>("IssueWithoutFile.xml");
-
-                // When
-                var issues = fixture.ReadIssues().ToList();
-
-                // Then
-                issues.Count.ShouldBe(1);
-                var issue = issues.Single();
-                CheckIssue(
-                    issue,
-                    null,
-                    string.Empty,
-                    null,
-                    null,
-                    "CA1711",
-                    300,
-                    "Warning",
-                    "Microsoft.Naming : Rename type name 'UniqueQueue(Of T)' so that it does not end in 'Queue'.");
-            }
-
-            [Fact]
-            public void Should_Read_Issue_Without_Code_Correct()
-            {
-                // Given
-                var fixture = new MsBuildIssuesProviderFixture<XmlFileLoggerLogFileFormat>("IssueWithoutCode.xml");
-
-                // When
-                var issues = fixture.ReadIssues().ToList();
-
-                // Then
-                issues.Count.ShouldBe(1);
-                var issue = issues.Single();
-                CheckIssue(
-                    issue,
-                    null,
-                    string.Empty,
-                    @"src\Cake.Issues.MsBuild.Tests\MsBuildIssuesProviderTests.cs",
-                    21,
-                    null,
-                    300,
-                    "Warning",
-                    @"SA1300 : CSharp.Naming : namespace names begin with an upper-case letter: foo.");
             }
 
             private static void CheckIssue(

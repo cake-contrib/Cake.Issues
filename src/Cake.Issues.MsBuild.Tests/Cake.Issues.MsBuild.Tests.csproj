@@ -15,6 +15,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Testfiles\FullLog.binlog" />
     <None Remove="Testfiles\FullLog.xml" />
     <None Remove="Testfiles\IssueWithFile.xml" />
     <None Remove="Testfiles\IssueWithLineZero.xml" />
@@ -24,6 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Testfiles\BinaryLogFileFormat\FullLog.binlog" />
     <EmbeddedResource Include="Testfiles\XmlFileLoggerLogFileFormat\FullLog.xml" />
     <EmbeddedResource Include="Testfiles\XmlFileLoggerLogFileFormat\IssueWithoutCode.xml" />
     <EmbeddedResource Include="Testfiles\XmlFileLoggerLogFileFormat\IssueWithFile.xml" />
@@ -39,7 +41,7 @@
     <PackageReference Include="Cake.Issues" Version="0.6.0" />
     <PackageReference Include="Cake.Issues.Testing" Version="0.6.0" />
     <PackageReference Include="Shouldly" Version="3.0.0" />
-    <PackageReference Include="StyleCop.Analyzers" Version="1.0.2" />
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.0-beta009" />
     <PackageReference Include="xunit" Version="2.4.0" />
     <PackageReference Include="xunit.abstractions" Version="2.0.2" />
     <PackageReference Include="xunit.analyzers" Version="0.10.0" />
