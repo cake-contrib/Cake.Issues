@@ -5,6 +5,10 @@ Description: Features of the Cake.Issues.PullRequests.Tfs addin.
 ---
 The [Cake.Issues.PullRequests.Tfs addin] provides the following features.
 
+:::{.alert .alert-info}
+There's a [demo repository] available which you can fork and to which you can create pull requests to test the integration functionality.
+:::
+
 # Basic features
 
 * Writes issues as comments to Team Foundation Server (TFS) or [Azure DevOps] pull requests.
@@ -35,6 +39,7 @@ The [Cake.Issues.PullRequests.Tfs addin] supports all [Core features].
 
 ![Cake.Issues.PullRequests.Tfs](cake.issues.pullrequests.tfs.png "Cake.Issues.PullRequests.Tfs")
 
+[demo repository]: https://dev.azure.com/pberger/Cake.Issues-Demo
 [Cake.Issues.PullRequests.Tfs addin]: https://www.nuget.org/packages/Cake.Issues.PullRequests.Tfs
 [Azure DevOps]: https://azure.microsoft.com/en-us/services/devops/
 [Core features]: ../../overview/features#supported-core-functionality
