@@ -4,10 +4,10 @@ Title: Using with pull request id
 Description: Example how to use the Cake.Issues.PullRequests.Tfs addin with pull request id.
 ---
 This example shows how to write issues as comments to a Team Foundation Server (TFS) or
-Visual Studio Team Services (VSTS) pull request while using pull request id.
+Azure DevOps pull request while using pull request id.
 
-To write issues as comments to TFS or VSTS pull requests you need to import the core addin,
-the core pull request addin, the TFS/VSTS support including the Cake TFS addin, and one or more issue providers,
+To write issues as comments to TFS or Azure DevOps pull requests you need to import the core addin,
+the core pull request addin, the TFS/Azure DevOps support including the Cake TFS addin, and one or more issue providers,
 in this example for JetBrains InspectCode:
 
 ```csharp

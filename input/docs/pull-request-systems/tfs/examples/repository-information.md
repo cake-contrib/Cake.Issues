@@ -4,7 +4,7 @@ Title: Using with repository remote url and source branch name
 Description: Example how to use the Cake.Issues.PullRequests.Tfs addin with repository remote url and source branch name.
 ---
 This example shows how to write issues as comments to a Team Foundation Server (TFS) or
-Visual Studio Team Services (VSTS) pull request while using repository information.
+Azure DevOps pull request while using repository information.
 
 To determine the remote repository URL and source branch of the pull request you need the [Cake.Git] addin:
 
@@ -12,8 +12,8 @@ To determine the remote repository URL and source branch of the pull request you
 #addin "Cake.Git"
 ```
 
-To write issues as comments to TFS or VSTS pull requests you need to import the core addin,
-the core pull request addin, the TFS/VSTS support including the Cake TFS addin, and one or more issue providers,
+To write issues as comments to TFS or Azure DevOps pull requests you need to import the core addin,
+the core pull request addin, the TFS/Azure DevOps support including the Cake TFS addin, and one or more issue providers,
 in this example for JetBrains InspectCode:
 
 ```csharp
