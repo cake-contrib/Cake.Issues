@@ -50,5 +50,5 @@ Source code is available on [GitHub].
 
 [Vanilla-DataTables]: https://github.com/Mobius1/Vanilla-DataTables
 [GenericIssueReportTemplate.HtmlDataTable]: ../../../../../Cake.Issues.Website/api/Cake.Issues.Reporting.Generic/GenericIssueReportTemplate/62ADE81F
-[custom template]: ../examples#use-custom-template
+[custom template]: ../examples/custom-template
 [GitHub]: https://github.com/cake-contrib/Cake.Issues.Reporting.Generic/blob/develop/src/Cake.Issues.Reporting.Generic/Templates/DataTable.cshtml

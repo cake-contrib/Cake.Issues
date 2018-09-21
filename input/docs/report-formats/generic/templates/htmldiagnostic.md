@@ -46,5 +46,5 @@ Source code is available on [GitHub].
 
 [IIssue]: ../../../../../Cake.Issues.Website/api/Cake.Issues/IIssue/
 [GenericIssueReportTemplate.HtmlDiagnostic]: ../../../../../Cake.Issues.Website/api/Cake.Issues.Reporting.Generic/GenericIssueReportTemplate/4F88BD05
-[custom template]: ../examples#use-custom-template
+[custom template]: ../examples/custom-template
 [GitHub]: https://github.com/cake-contrib/Cake.Issues.Reporting.Generic/blob/develop/src/Cake.Issues.Reporting.Generic/Templates/Diagnostic.cshtml
