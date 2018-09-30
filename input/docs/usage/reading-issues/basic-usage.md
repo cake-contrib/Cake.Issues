@@ -21,6 +21,13 @@ and from JetBrains InspectCode are imported:
 #addin "Cake.Issues.InspectCode"
 ```
 
+:::{.alert .alert-warning}
+Please note that you always should pin addins to a specific version to make sure your builds are deterministic and
+won't break due to updates to one of the addins.
+
+See [pinning addin versions](https://cakebuild.net/docs/tutorials/pinning-cake-version#pinning-addin-version) for details.
+:::
+
 Finally you can define a task where you call the core addin with the desired issue providers.
 The following example reads issues reported as MsBuild warnings by the `XmlFileLogger`
 class from [MSBuild Extension Pack] and issues reported by JetBrains InspectCode with

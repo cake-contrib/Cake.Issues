@@ -19,6 +19,13 @@ and support for Team Foundation Server pull requests is imported:
 #addin "Cake.Issues.PullRequests.Tfs"
 ```
 
+:::{.alert .alert-warning}
+Please note that you always should pin addins to a specific version to make sure your builds are deterministic and
+won't break due to updates to one of the addins.
+
+See [pinning addin versions](https://cakebuild.net/docs/tutorials/pinning-cake-version#pinning-addin-version) for details.
+:::
+
 Finally you can define a task where you call the core addin with the desired issue provider and pull request system:
 
 ```csharp
