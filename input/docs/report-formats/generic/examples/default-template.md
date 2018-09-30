@@ -5,6 +5,13 @@ Description: Example how to create a report using an embedded default template.
 ---
 The following example will create a HTML report for issues logged as warnings by MsBuild.
 
+:::{.alert .alert-warning}
+Please note that you always should pin addins and tools to a specific version to make sure your builds are deterministic and
+won't break due to updates to one of the packages.
+
+See [pinning addin versions](https://cakebuild.net/docs/tutorials/pinning-cake-version#pinning-addin-version) for details.
+:::
+
 ```csharp
 #tool "nuget:?package=MSBuild.Extension.Pack"
 #addin "Cake.Issues"

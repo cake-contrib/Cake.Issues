@@ -18,6 +18,13 @@ in this example for JetBrains InspectCode:
 #addin "Cake.Tfs"
 ```
 
+:::{.alert .alert-warning}
+Please note that you always should pin addins to a specific version to make sure your builds are deterministic and
+won't break due to updates to one of the addins.
+
+See [pinning addin versions](https://cakebuild.net/docs/tutorials/pinning-cake-version#pinning-addin-version) for details.
+:::
+
 In the following task we'll first determine if the build is running on Azure DevOps and for a pull request,
 then read the remote repository URL and pull request id from environment variables set by the Azure Pipelines build 
 and finally call the [TfsPullRequests] alias using the OAuth token provided by the Azure Pipeline build.

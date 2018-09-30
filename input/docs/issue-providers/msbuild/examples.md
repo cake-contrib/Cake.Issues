@@ -19,6 +19,13 @@ In order to use the above logger, the following line will download and install t
 #tool "nuget:?package=MSBuild.Extension.Pack"
 ```
 
+:::{.alert .alert-warning}
+Please note that you always should pin addins and tools to a specific version to make sure your builds are deterministic and
+won't break due to updates to one of the packages.
+
+See [pinning addin versions](https://cakebuild.net/docs/tutorials/pinning-cake-version#pinning-addin-version) for details.
+:::
+
 We need some global variables:
 
 ```csharp

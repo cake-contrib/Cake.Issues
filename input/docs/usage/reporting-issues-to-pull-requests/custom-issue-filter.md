@@ -13,7 +13,14 @@ which retrieves the logs from the previous build, parses them using the appropri
 out any issues which were already existing in the previous build.
 :::
 
-The following example will filter out all issues from the rule `CA1000` from being posted to the pull request:
+The following example will filter out all issues from the rule `CA1000` from being posted to the pull request.
+
+:::{.alert .alert-warning}
+Please note that you always should pin addins to a specific version to make sure your builds are deterministic and
+won't break due to updates to one of the addins.
+
+See [pinning addin versions](https://cakebuild.net/docs/tutorials/pinning-cake-version#pinning-addin-version) for details.
+:::
 
 ```csharp
 #addin "Cake.Issues"
