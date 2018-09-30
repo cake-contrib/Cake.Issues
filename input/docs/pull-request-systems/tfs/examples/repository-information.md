@@ -46,5 +46,5 @@ Task("ReportIssuesToPullRequest").Does(() =>
 });
 ```
 
-[TfsPullRequests]: ../../../api/Cake.Issues.PullRequests.Tfs/TfsPullRequestSystemAliases/
+[TfsPullRequests]: ../../../../api/Cake.Issues.PullRequests.Tfs/TfsPullRequestSystemAliases/8B150084
 [Cake.Git]: https://www.nuget.org/packages/Cake.Git/
