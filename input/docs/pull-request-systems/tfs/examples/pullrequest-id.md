@@ -32,7 +32,8 @@ See [pinning addin versions](https://cakebuild.net/docs/tutorials/pinning-cake-v
 :::
 
 In the following task we'll first determine the remote repository URL and
-with this information call the [TfsPullRequests] alias:
+with this information call the [TfsPullRequests] alias,
+which will authenticate through NTLM to a on-premise TFS instance:
 
 ```csharp
 Task("ReportIssuesToPullRequest").Does(() =>
