@@ -18,6 +18,13 @@ To read issues from InspectCode log files you need to import the core addin and 
 #addin "Cake.Issues.InspectCode"
 ```
 
+:::{.alert .alert-warning}
+Please note that you always should pin addins and tools to a specific version to make sure your builds are deterministic and
+won't break due to updates to one of the packages.
+
+See [pinning addin versions](https://cakebuild.net/docs/tutorials/pinning-cake-version#pinning-addin-version) for details.
+:::
+
 We need some global variables:
 
 ```csharp
