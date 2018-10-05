@@ -2,11 +2,13 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.IO;
     using System.Linq;
+    using System.Runtime.Serialization.Json;
+    using System.Text;
+    using Cake.Core;
     using Cake.Core.Diagnostics;
     using Cake.Core.IO;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
 
     /// <summary>
     /// Provider for warnings reported by DocFx.
@@ -36,22 +38,33 @@
                 docRootPath = docRootPath.MakeAbsolute(this.Settings.RepositoryRoot);
             }
 
+            IEnumerable<LogEntryDataContract> logFileEntries = null;
+
+            var logFileContent = this.IssueProviderSettings.LogFileContent.ToStringUsingEncoding(true);
+
+            logFileContent =
+                "[" +
+                    string.Join(",", logFileContent.SplitLines()) +
+                "]";
+
+            using (var ms = new MemoryStream(Encoding.UTF8.GetBytes(logFileContent)))
+            {
+                var jsonSerializer = new DataContractJsonSerializer(typeof(LogEntryDataContract[]));
+                logFileEntries = jsonSerializer.ReadObject(ms) as LogEntryDataContract[];
+            }
+
             return
-                from logEntry in this.IssueProviderSettings.LogFileContent.ToStringUsingEncoding(true).Split(new[] { '{', '}' }, StringSplitOptions.RemoveEmptyEntries).Select(x => "{" + x + "}")
-                let logEntryObject = JsonConvert.DeserializeObject<JToken>(logEntry)
-                let severity = (string)logEntryObject.SelectToken("message_severity")
-                let file = this.TryGetFile(logEntryObject, docRootPath)
-                let line = this.TryGetLine(logEntryObject)
-                let message = (string)logEntryObject.SelectToken("message")
-                let source = (string)logEntryObject.SelectToken("source") ?? "DocFx"
+                from logEntry in logFileEntries
+                let file = this.TryGetFile(logEntry.file, docRootPath)
+                let line = this.TryGetLine(logEntry.line)
                 where
-                    severity == "warning" &&
-                    !string.IsNullOrWhiteSpace(message)
+                    logEntry.message_severity == "warning" &&
+                    !string.IsNullOrWhiteSpace(logEntry.message)
                 select
                     IssueBuilder
-                        .NewIssue(message, this)
+                        .NewIssue(logEntry.message, this)
                         .InFile(file, line)
-                        .OfRule(source)
+                        .OfRule(logEntry.source)
                         .WithPriority(IssuePriority.Warning)
                         .Create();
         }
@@ -59,15 +72,13 @@
         /// <summary>
         /// Reads the affected file path from a issue logged in a DocFx log file.
         /// </summary>
-        /// <param name="token">JSON Token object for the current log entry.</param>
+        /// <param name="fileName">The file name in the current log entry.</param>
         /// <param name="docRootPath">Absolute path to the root of the DocFx project.</param>
         /// <returns>The full path to the affected file.</returns>
         private string TryGetFile(
-            JToken token,
+            string fileName,
             DirectoryPath docRootPath)
         {
-            var fileName = (string)token.SelectToken("file");
-
             if (string.IsNullOrWhiteSpace(fileName))
             {
                 return null;
@@ -91,13 +102,11 @@
         /// <summary>
         /// Reads the affected line from a issue logged in a DocFx log file.
         /// </summary>
-        /// <param name="token">JSON Token object for the current log entry.</param>
+        /// <param name="line">The line in the current log entry.</param>
         /// <returns>The line of the issue.</returns>
         private int? TryGetLine(
-            JToken token)
+            int? line)
         {
-            var line = (int?)token.SelectToken("line");
-
             // Convert negative line numbers or line number 0 to null
             if (line.HasValue && line.Value <= 0)
             {
