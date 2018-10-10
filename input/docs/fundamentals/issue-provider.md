@@ -1,5 +1,5 @@
 ---
-Order: 30
+Order: 40
 Description: Overview about issue providers.
 ---
 Issue provider addins are responsible for providing the output of an analyzer or linter to the Cake Issues addin.
