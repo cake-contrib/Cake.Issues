@@ -27,8 +27,11 @@ See the Project Site for an overview of the whole ecosystem of addins for workin
     <releaseNotes>https://github.com/cake-contrib/Cake.Issues.InspectCode/releases/tag/0.6.0</releaseNotes>
   </metadata>
   <files>
-    <file src="Cake.Issues.InspectCode.dll" target="lib\net46" />
-    <file src="Cake.Issues.InspectCode.pdb" target="lib\net46" />
-    <file src="Cake.Issues.InspectCode.xml" target="lib\net46" />
+    <file src="net461/Cake.Issues.InspectCode.dll" target="lib\net461" />
+    <file src="net461/Cake.Issues.InspectCode.pdb" target="lib\net461" />
+    <file src="net461/Cake.Issues.InspectCode.xml" target="lib\net461" />
+    <file src="netstandard2.0/Cake.Issues.InspectCode.dll" target="lib\netstandard2.0" />
+    <file src="netstandard2.0/Cake.Issues.InspectCode.pdb" target="lib\netstandard2.0" />
+    <file src="netstandard2.0/Cake.Issues.InspectCode.xml" target="lib\netstandard2.0" />
   </files>
 </package>
