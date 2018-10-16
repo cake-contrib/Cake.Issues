@@ -20,29 +20,38 @@ won't break due to updates to Cake.Issues.Recipe.
 See [pinning addin versions](https://cakebuild.net/docs/tutorials/pinning-cake-version#pinning-addin-version) for details.
 :::
 
+# Configuring Cake.Issues.Recipe
+
+To make issues available to Cake.Issues.Recipe you need to set the corresponding configuration parameters.
+
+In the following example a new task is introduced which depends on existing tasks which build a MsBuild solution and run JetBrains InspectCode.
+It will pass the MsBuild and InspectCode logfile to Cake.Issues.Recipe:
+
+```csharp
+// Run issues task by default.
+Task("Configure-CakeIssuesRecipe")
+    .IsDependentOn("Build")
+    .IsDependentOn("Run-InspectCode")
+    .Does(() =>
+{
+    IssuesParameters.InputFiles.MsBuildXmlFileLoggerLogFilePath = msBuildLogFilePath;
+    IssuesParameters.InputFiles.InspectCodeLogFilePath = inspectCodeLogFilePath;
+}
+```
+
+See [configuration] for a full list of available configuration parameters.
+
 # Calling issues tasks
 
 Cake.Issues.Recipe will add a bunch of [tasks] to your build script.
 
-## Calling explicitly
-
-You can call the tasks explicitly while running your Cake build script:
-
-```cmd
-.\build.ps1 -target Issues
-```
-
-## Integrating in build pipeline
-
-Often you might want to integrate the issues functionality into your existing build pipeline.
-For this you can make the `Read-Issues` task dependent on your specific task which generates the log files.
-In the following example the `Build` and `Run-InspectCode` task:
+To add the issues functionality into your existing build pipeline you can make
+the `Read-Issues` task dependent on the task which configures Cake.Issues.Recipe:
 
 ```csharp
 // Make sure build and linters run before issues task.
 IssuesBuildTasks.ReadIssuesTask
-    .IsDependentOn("Build")
-    .IsDependentOn("Run-InspectCode");
+    .IsDependentOn("Configure-CakeIssuesRecipe");
 ```
 
 At some point you need to call the tasks provided by Cake.Isses.Recipe.
@@ -55,4 +64,5 @@ Task("Default")
 ```
 
 [Cake.Issues.Recipe]: ../../recipe/
+[configuration]: ../../recipe/configuration
 [tasks]: ../../recipe/tasks
