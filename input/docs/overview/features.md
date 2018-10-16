@@ -5,6 +5,10 @@ Description: Overview about core features.
 The Cake Issues addins for Cake allows you to read issues from any analyzer or linter,
 create reports or write issues to comments in pull requests.
 
+# Recipe Functionality
+
+See [Supported Tools] for a list of tools supported by [Cake.Issues.Recipe].
+
 # Supported Core Functionality
 
 The core addins provide a modular architecture, allowing to easily enhance it for supporting additional analyzers, linters,
@@ -60,6 +64,8 @@ See [Report Format Addins] for a list of currently supported report output forma
 
 See [Pull Request System Addins] for a list of currently supported pull request systems.
 
+[Supported Tools]: ../recipe/supported-tools
+[Cake.Issues.Recipe]: ../recipe/
 [NewIssue]: ../../api/Cake.Issues/Aliases/DC3A3FD7
 [ReadIssues]: ../../api/Cake.Issues/Aliases/713F15FD
 [CreateIssueReport]: ../../api/Cake.Issues.Reporting/Aliases/C778C70A
