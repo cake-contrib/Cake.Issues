@@ -7,7 +7,7 @@
     <Authors>BBT Software AG</Authors>
     <Company>BBT Software AG</Company>
     <Product>Cake.Issues</Product>
-    <Copyright>Copyright © 2017 BBT Software AG and contributors</Copyright>
+    <Copyright>Copyright © BBT Software AG and contributors</Copyright>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DocumentationFile>bin\Debug\Cake.Issues.DocFx.xml</DocumentationFile>
