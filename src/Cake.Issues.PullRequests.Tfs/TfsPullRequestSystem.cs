@@ -14,7 +14,7 @@
     using Microsoft.VisualStudio.Services.WebApi;
 
     /// <summary>
-    /// Class for writing issues to Team Foundation Server or Visual Studio Team Services pull requests.
+    /// Class for writing issues to Team Foundation Server or Azure DevOps pull requests.
     /// </summary>
     internal sealed class TfsPullRequestSystem : BasePullRequestSystem, ITfsPullRequestSystem
     {
@@ -277,7 +277,7 @@
                 }
             }
 
-            // A VSTS UI extension will recognize this and format the comments differently.
+            // An Azure DevOps UI extension will recognize this and format the comments differently.
             properties.Add("CodeAnalysisThreadType", "CodeAnalysisIssue");
 
             thread.Properties = properties;

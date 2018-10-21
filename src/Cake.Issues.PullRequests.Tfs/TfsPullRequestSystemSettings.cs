@@ -18,7 +18,7 @@
         /// URLs using SSH scheme are converted to HTTPS.</param>
         /// <param name="sourceBranch">Branch for which the pull request is made.</param>
         /// <param name="credentials">Credentials to use to authenticate against Team Foundation Server or
-        /// Visual Studio Team Services.</param>
+        /// Azure DevOps.</param>
         public TfsPullRequestSystemSettings(Uri repositoryUrl, string sourceBranch, ITfsCredentials credentials)
             : base(repositoryUrl, sourceBranch, credentials)
         {
@@ -33,7 +33,7 @@
         /// URLs using SSH scheme are converted to HTTPS.</param>
         /// <param name="pullRequestId">ID of the pull request.</param>
         /// <param name="credentials">Credentials to use to authenticate against Team Foundation Server or
-        /// Visual Studio Team Services.</param>
+        /// Azure DevOps.</param>
         public TfsPullRequestSystemSettings(Uri repositoryUrl, int pullRequestId, ITfsCredentials credentials)
             : base(repositoryUrl, pullRequestId, credentials)
         {
