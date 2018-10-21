@@ -101,6 +101,69 @@
 
         /// <summary>
         /// Gets an object for writing issues to Team Foundation Server or Azure DevOps pull request
+        /// where all required data is taken from the environment variables set by the Azure Pipelines / TFS build.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <param name="credentials">Credentials to use to authenticate against Team Foundation Server or
+        /// Azure DevOps.</param>
+        /// <returns>Object for writing issues to Team Foundation Server or Azure DevOps pull request.</returns>
+        /// <example>
+        /// <para>Report code analysis issues reported as MsBuild warnings to a TFS pull request:</para>
+        /// <code>
+        /// <![CDATA[
+        ///     ReportIssuesToPullRequest(
+        ///         MsBuildCodeAnalysis(
+        ///             @"c:\build\msbuild.log",
+        ///             MsBuildXmlFileLoggerFormat),
+        ///         TfsPullRequests(
+        ///             TfsAuthenticationNtlm()),
+        ///         @"c:\repo");
+        /// ]]>
+        /// </code>
+        /// </example>
+        [CakeMethodAlias]
+        [CakeAliasCategory(PullRequestsAliasConstants.PullRequestSystemCakeAliasCategory)]
+        public static IPullRequestSystem TfsPullRequests(
+            this ICakeContext context,
+            ITfsCredentials credentials)
+        {
+            context.NotNull(nameof(context));
+            credentials.NotNull(nameof(credentials));
+
+            return context.TfsPullRequests(new TfsPullRequestSystemSettings(credentials));
+        }
+
+        /// <summary>
+        /// Gets an object for writing issues to Team Foundation Server or Azure DevOps pull request
+        /// where all required data (including authentication token) is taken from the environment variables set by the Azure Pipelines / TFS build.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <returns>Object for writing issues to Team Foundation Server or Azure DevOps pull request.</returns>
+        /// <example>
+        /// <para>Report code analysis issues reported as MsBuild warnings to a TFS pull request:</para>
+        /// <code>
+        /// <![CDATA[
+        ///     ReportIssuesToPullRequest(
+        ///         MsBuildCodeAnalysis(
+        ///             @"c:\build\msbuild.log",
+        ///             MsBuildXmlFileLoggerFormat),
+        ///         TfsPullRequests(),
+        ///         @"c:\repo");
+        /// ]]>
+        /// </code>
+        /// </example>
+        [CakeMethodAlias]
+        [CakeAliasCategory(PullRequestsAliasConstants.PullRequestSystemCakeAliasCategory)]
+        public static IPullRequestSystem TfsPullRequests(
+            this ICakeContext context)
+        {
+            context.NotNull(nameof(context));
+
+            return context.TfsPullRequests(new TfsPullRequestSystemSettings());
+        }
+
+        /// <summary>
+        /// Gets an object for writing issues to Team Foundation Server or Visual Studio Team Services pull request
         /// using the specified settings.
         /// </summary>
         /// <param name="context">The context.</param>
