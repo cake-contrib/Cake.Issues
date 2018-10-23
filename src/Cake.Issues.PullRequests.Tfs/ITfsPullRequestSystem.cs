@@ -4,7 +4,7 @@
     using Microsoft.TeamFoundation.SourceControl.WebApi;
 
     /// <summary>
-    /// Interface for writing issues to Team Foundation Server or Visual Studio Team Services pull requests.
+    /// Interface for writing issues to Team Foundation Server or Azure DevOps pull requests.
     /// </summary>
     internal interface ITfsPullRequestSystem : IPullRequestSystem
     {
