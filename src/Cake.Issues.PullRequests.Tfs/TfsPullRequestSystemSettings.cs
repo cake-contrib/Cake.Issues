@@ -50,6 +50,27 @@
         }
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="TfsPullRequestSystemSettings"/> class
+        /// based on the environment variables set by the Azure Pipelines / TFS build.
+        /// </summary>
+        /// <param name="credentials">Credentials to use to authenticate against Team Foundation Server or
+        /// Azure DevOps.</param>
+        public TfsPullRequestSystemSettings(ITfsCredentials credentials)
+            : base(credentials)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TfsPullRequestSystemSettings"/> class
+        /// based on the environment variables set by the Azure Pipelines / TFS build
+        /// using the build authentication token.
+        /// </summary>
+        public TfsPullRequestSystemSettings()
+            : base(UsingTfsBuildOAuthToken())
+        {
+        }
+
+        /// <summary>
         /// Gets or sets a value indicating whether pull request system should check if commit Id
         /// is still up to date before posting comments.
         /// Default value is <c>true</c>.

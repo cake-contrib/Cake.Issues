@@ -57,6 +57,26 @@
                 // Then
                 result.IsArgumentNullException("repositoryUrl");
             }
+
+            [Fact]
+            public void Should_Throw_If_Credentials_For_PullRequestId_Are_Null()
+            {
+                // Given / When
+                var result = Record.Exception(() => new TfsPullRequestSystemSettings(new Uri("http://example.com"), 42, null));
+
+                // Then
+                result.IsArgumentNullException("credentials");
+            }
+
+            [Fact]
+            public void Should_Throw_If_Credentials_For_SourceBranch_Are_Null()
+            {
+                // Given / When
+                var result = Record.Exception(() => new TfsPullRequestSystemSettings(new Uri("http://example.com"), "feature/foo", null));
+
+                // Then
+                result.IsArgumentNullException("credentials");
+            }
         }
     }
 }
