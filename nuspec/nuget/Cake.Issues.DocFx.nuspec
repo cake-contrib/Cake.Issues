@@ -19,16 +19,19 @@ See the Project Site for an overview of the whole ecosystem of addins for workin
     </description>
     <licenseUrl>https://github.com/cake-contrib/Cake.Issues.DocFx/blob/develop/LICENSE</licenseUrl>
     <projectUrl>http://cake-contrib.github.io/Cake.Issues.Website</projectUrl>
-    <iconUrl>https://cdn.rawgit.com/cake-contrib/graphics/a5cf0f881c390650144b2243ae551d5b9f836196/png/cake-contrib-medium.png</iconUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/cake-contrib/graphics@a5cf0f881c390650144b2243ae551d5b9f836196/png/cake-contrib-medium.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <repository type="git" url="https://github.com/cake-contrib/Cake.Issues.DocFx"/>
     <copyright>Copyright © BBT Software AG and contributors</copyright>
     <tags>Cake Script Cake-Issues Cake-IssueProvider CodeAnalysis Linting DocFx</tags>
-    <releaseNotes>https://github.com/cake-contrib/Cake.Issues.DocFx/releases/tag/0.6.1</releaseNotes>
+    <releaseNotes>https://github.com/cake-contrib/Cake.Issues.DocFx/releases/tag/0.6.2</releaseNotes>
   </metadata>
   <files>
-    <file src="Cake.Issues.DocFx.dll" target="lib\net46" />
-    <file src="Cake.Issues.DocFx.pdb" target="lib\net46" />
-    <file src="Cake.Issues.DocFx.xml" target="lib\net46" />
+    <file src="net461/Cake.Issues.DocFx.dll" target="lib\net461" />
+    <file src="net461/Cake.Issues.DocFx.pdb" target="lib\net461" />
+    <file src="net461/Cake.Issues.DocFx.xml" target="lib\net461" />
+    <file src="netstandard2.0/Cake.Issues.DocFx.dll" target="lib\netstandard2.0" />
+    <file src="netstandard2.0/Cake.Issues.DocFx.pdb" target="lib\netstandard2.0" />
+    <file src="netstandard2.0/Cake.Issues.DocFx.xml" target="lib\netstandard2.0" />
   </files>
 </package>
