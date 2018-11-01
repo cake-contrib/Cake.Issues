@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Cake.Issues.PullRequests.Tfs")]
-[assembly: AssemblyDescription("TFS and VSTS support for the Cake.Issues addin for Cake Build Automation System")]
+[assembly: AssemblyDescription("TFS and Azure DevOps support for the Cake.Issues addin for Cake Build Automation System")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("BBT Software AG")]
 [assembly: AssemblyProduct("Cake.Issues")]
