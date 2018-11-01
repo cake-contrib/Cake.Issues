@@ -25,6 +25,20 @@
         public sealed class TheReadIssuesMethod
         {
             [Fact]
+            public void Should_Read_Empty_File_Correct()
+            {
+                // Given
+                var fixture =
+                    new MarkdownlintIssuesProviderFixture<MarkdownlintCliLogFileFormat>("empty.log");
+
+                // When
+                var issues = fixture.ReadIssues().ToList();
+
+                // Then
+                issues.ShouldBeEmpty();
+            }
+
+            [Fact]
             public void Should_Read_Issue_Correct_0_8_1()
             {
                 // Given

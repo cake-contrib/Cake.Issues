@@ -1,10 +1,11 @@
 ﻿namespace Cake.Issues.Markdownlint.LogFileFormat
 {
     using System.Collections.Generic;
+    using System.IO;
     using System.Linq;
+    using System.Runtime.Serialization.Json;
+    using System.Text;
     using Cake.Core.Diagnostics;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
 
     /// <summary>
     /// Logfile format as written by Markdownlint.
@@ -31,19 +32,31 @@
             repositorySettings.NotNull(nameof(repositorySettings));
             markdownlintIssuesSettings.NotNull(nameof(markdownlintIssuesSettings));
 
-            var logFileEntries =
-                JsonConvert.DeserializeObject<Dictionary<string, IEnumerable<JToken>>>(
-                    markdownlintIssuesSettings.LogFileContent.ToStringUsingEncoding(true));
+            byte[] utf8Preamble = Encoding.UTF8.GetPreamble();
+            bool preambleToSkip = utf8Preamble
+                .SequenceEqual(markdownlintIssuesSettings.LogFileContent.Take(utf8Preamble.Length));
+
+            Dictionary<string, IEnumerable<Issue>> logFileEntries;
+            using (var ms = new MemoryStream(markdownlintIssuesSettings.LogFileContent))
+            {
+                ms.Position = preambleToSkip ? utf8Preamble.Length : 0;
+
+                var jsonSerializer = new DataContractJsonSerializer(
+                    typeof(Dictionary<string, IEnumerable<Issue>>),
+                    settings: new DataContractJsonSerializerSettings { UseSimpleDictionaryFormat = true });
+
+                logFileEntries = jsonSerializer.ReadObject(ms) as Dictionary<string, IEnumerable<Issue>>;
+            }
 
             return
                 from file in logFileEntries
                 from entry in file.Value
                 let
-                    rule = (string)entry.SelectToken("ruleName")
+                    rule = entry.ruleName
                 select
                     IssueBuilder
-                        .NewIssue((string)entry.SelectToken("ruleDescription"), issueProvider)
-                        .InFile(file.Key, (int)entry.SelectToken("lineNumber"))
+                        .NewIssue(entry.ruleDescription, issueProvider)
+                        .InFile(file.Key, entry.lineNumber)
                         .WithPriority(IssuePriority.Warning)
                         .OfRule(rule, MarkdownlintRuleUrlResolver.Instance.ResolveRuleUrl(rule))
                         .Create();
