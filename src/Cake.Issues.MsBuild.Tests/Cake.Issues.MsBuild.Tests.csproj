@@ -22,6 +22,7 @@
     <None Remove="Testfiles\IssueWithOnlyFileName.xml" />
     <None Remove="Testfiles\IssueWithoutCode.xml" />
     <None Remove="Testfiles\IssueWithoutFile.xml" />
+    <None Remove="Testfiles\XmlFileLoggerLogFileFormat\LogWithControlChars.xml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -32,6 +33,7 @@
     <EmbeddedResource Include="Testfiles\XmlFileLoggerLogFileFormat\IssueWithLineZero.xml" />
     <EmbeddedResource Include="Testfiles\XmlFileLoggerLogFileFormat\IssueWithOnlyFileName.xml" />
     <EmbeddedResource Include="Testfiles\XmlFileLoggerLogFileFormat\IssueWithoutFile.xml" />
+    <EmbeddedResource Include="Testfiles\XmlFileLoggerLogFileFormat\LogWithControlChars.xml" />
   </ItemGroup>
 
   <ItemGroup>
