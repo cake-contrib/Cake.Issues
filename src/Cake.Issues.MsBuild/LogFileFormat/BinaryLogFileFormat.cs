@@ -46,6 +46,12 @@
 
                 if (buildEventArgs is BuildWarningEventArgs buildWarning)
                 {
+                    // Ignore warnings without a message.
+                    if (string.IsNullOrWhiteSpace(buildWarning.Message))
+                    {
+                        continue;
+                    }
+
                     var projectFileRelativePath = this.GetProject(buildWarning, repositorySettings);
 
                     // Read affected file from the warning.

@@ -48,6 +48,12 @@
             // Loop through all warning tags.
             foreach (var warning in logDocument.Descendants("warning"))
             {
+                // Ignore warnings without a message.
+                if (string.IsNullOrWhiteSpace(warning.Value))
+                {
+                    continue;
+                }
+
                 // Read affected project from the warning.
                 if (!this.TryGetProject(warning, repositorySettings, out string projectFileRelativePath))
                 {
