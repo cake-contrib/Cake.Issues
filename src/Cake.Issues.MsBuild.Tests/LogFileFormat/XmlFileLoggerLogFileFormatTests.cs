@@ -352,6 +352,20 @@
             }
 
             [Fact]
+            public void Should_Ignore_Issue_Without_Message()
+            {
+                // Given
+                var fixture = new MsBuildIssuesProviderFixture<XmlFileLoggerLogFileFormat>("IssueWithoutMessage.xml");
+
+                // When
+                var issues = fixture.ReadIssues().ToList();
+
+                // Then
+                issues.Count.ShouldBe(0);
+            }
+
+
+            [Fact]
             public void Should_Filter_Control_Chars_From_Log_Content()
             {
                 // Given
