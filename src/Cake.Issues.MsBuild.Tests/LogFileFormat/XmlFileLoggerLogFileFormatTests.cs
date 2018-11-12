@@ -351,6 +351,33 @@
                     @"SA1300 : CSharp.Naming : namespace names begin with an upper-case letter: foo.");
             }
 
+            [Fact]
+            public void Should_Ignore_Issue_Without_Message()
+            {
+                // Given
+                var fixture = new MsBuildIssuesProviderFixture<XmlFileLoggerLogFileFormat>("IssueWithoutMessage.xml");
+
+                // When
+                var issues = fixture.ReadIssues().ToList();
+
+                // Then
+                issues.Count.ShouldBe(0);
+            }
+
+
+            [Fact]
+            public void Should_Filter_Control_Chars_From_Log_Content()
+            {
+                // Given
+                var fixture = new MsBuildIssuesProviderFixture<XmlFileLoggerLogFileFormat>("LogWithControlChars.xml");
+
+                // When
+                var issues = fixture.ReadIssues().ToList();
+
+                // Then
+                issues.Count.ShouldBe(0);
+            }
+
             private static void CheckIssue(
                 IIssue issue,
                 string projectFileRelativePath,

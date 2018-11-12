@@ -41,11 +41,19 @@
             var result = new List<IIssue>();
 
             // Read log file.
-            var logDocument = XDocument.Parse(issueProviderSettings.LogFileContent.ToStringUsingEncoding(true));
+            var raw = issueProviderSettings.LogFileContent.ToStringUsingEncoding(true);
+            var filtered = string.Concat(raw.Where(c => !char.IsControl(c)));
+            var logDocument = XDocument.Parse(filtered);
 
             // Loop through all warning tags.
             foreach (var warning in logDocument.Descendants("warning"))
             {
+                // Ignore warnings without a message.
+                if (string.IsNullOrWhiteSpace(warning.Value))
+                {
+                    continue;
+                }
+
                 // Read affected project from the warning.
                 if (!this.TryGetProject(warning, repositorySettings, out string projectFileRelativePath))
                 {
