@@ -25,55 +25,9 @@
         /// <inheritdoc />
         protected override IEnumerable<FilePath> InternalGetModifiedFilesInPullRequest()
         {
-            if (!this.PullRequestSystem.ValidatePullRequest())
-            {
-                return new List<FilePath>();
-            }
-
             this.Log.Verbose("Computing the list of files changed in this pull request...");
 
-            var targetVersionDescriptor = new GitTargetVersionDescriptor
-            {
-                VersionType = GitVersionType.Commit,
-                Version = this.PullRequestSystem.TfsPullRequest.LastSourceCommitId
-            };
-
-            var baseVersionDescriptor = new GitBaseVersionDescriptor
-            {
-                VersionType = GitVersionType.Commit,
-                Version = this.PullRequestSystem.TfsPullRequest.LastTargetCommitId
-            };
-
-            using (var gitClient = this.PullRequestSystem.CreateGitClient())
-            {
-                var commitDiffs = gitClient.GetCommitDiffsAsync(
-                    this.PullRequestSystem.TfsPullRequest.ProjectName,
-                    this.PullRequestSystem.TfsPullRequest.RepositoryId,
-                    true, // bool? diffCommonCommit
-                    null, // int? top
-                    null, // int? skip
-                    baseVersionDescriptor,
-                    targetVersionDescriptor,
-                    null, // object userState
-                    CancellationToken.None).Result;
-
-                this.Log.Verbose(
-                    "Found {0} changed file(s) in the pull request",
-                    commitDiffs.Changes.Count());
-
-                if (!commitDiffs.ChangeCounts.Any())
-                {
-                    return new List<FilePath>();
-                }
-
-                return
-                    from change in commitDiffs.Changes
-                    where
-                        change != null &&
-                        !change.Item.IsFolder
-                    select
-                        new FilePath(change.Item.Path.TrimStart('/'));
-            }
+            return this.PullRequestSystem.TfsPullRequest.GetModifiedFiles();
         }
     }
 }
