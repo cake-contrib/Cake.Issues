@@ -62,7 +62,7 @@
 
             [Theory]
             [InlineData("foo\tbar")]
-            public void Should_Return_False_If_Valid_Path(string path)
+            public void Should_Return_False_If_Invalid_Path(string path)
             {
                 // Given / When
                 var result = path.IsValidPath();
