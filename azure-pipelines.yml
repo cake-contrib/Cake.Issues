@@ -22,5 +22,5 @@ jobs:
     vmImage: 'macOS-10.13'
   steps:
   - bash: |
-      ./build.sh
+      ./build.sh --verbosity Diagnostic
     displayName: 'Cake Build'
