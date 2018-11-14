@@ -71,29 +71,10 @@
             // ReSharper disable once PossibleMultipleEnumeration
             threads.NotNull(nameof(threads));
 
-            if (!this.PullRequestSystem.ValidatePullRequest())
+            // ReSharper disable once PossibleMultipleEnumeration
+            foreach (var thread in threads)
             {
-                return;
-            }
-
-            using (var gitClient = this.PullRequestSystem.CreateGitClient())
-            {
-                // ReSharper disable once PossibleMultipleEnumeration
-                foreach (var thread in threads)
-                {
-                    var newThread = new GitPullRequestCommentThread
-                    {
-                        Status = CommentThreadStatus.Fixed
-                    };
-
-                    gitClient.UpdateThreadAsync(
-                        newThread,
-                        this.PullRequestSystem.TfsPullRequest.RepositoryId,
-                        this.PullRequestSystem.TfsPullRequest.PullRequestId,
-                        thread.Id,
-                        null,
-                        CancellationToken.None).Wait();
-                }
+                this.PullRequestSystem.TfsPullRequest.ResolveCommentThread(thread.Id);
             }
         }
 
@@ -103,29 +84,10 @@
             // ReSharper disable once PossibleMultipleEnumeration
             threads.NotNull(nameof(threads));
 
-            if (!this.PullRequestSystem.ValidatePullRequest())
+            // ReSharper disable once PossibleMultipleEnumeration
+            foreach (var thread in threads)
             {
-                return;
-            }
-
-            using (var gitClient = this.PullRequestSystem.CreateGitClient())
-            {
-                // ReSharper disable once PossibleMultipleEnumeration
-                foreach (var thread in threads)
-                {
-                    var newThread = new GitPullRequestCommentThread
-                    {
-                        Status = CommentThreadStatus.Active
-                    };
-
-                    gitClient.UpdateThreadAsync(
-                        newThread,
-                        this.PullRequestSystem.TfsPullRequest.RepositoryId,
-                        this.PullRequestSystem.TfsPullRequest.PullRequestId,
-                        thread.Id,
-                        null,
-                        CancellationToken.None).Wait();
-                }
+                this.PullRequestSystem.TfsPullRequest.ActivateCommentThread(thread.Id);
             }
         }
     }
