@@ -22,6 +22,8 @@ jobs:
     vmImage: 'macOS-10.13'
   steps:
   - bash: |
+      brew install mono
+      mono --version
       ./build.sh --verbosity Diagnostic
     displayName: 'Cake Build'
 - job: Ubuntu
