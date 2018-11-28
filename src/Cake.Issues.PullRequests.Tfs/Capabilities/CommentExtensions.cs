@@ -1,18 +1,18 @@
 ﻿namespace Cake.Issues.PullRequests.Tfs.Capabilities
 {
-    using Microsoft.TeamFoundation.SourceControl.WebApi;
+    using Cake.Tfs.PullRequest.CommentThread;
 
     /// <summary>
-    /// Extensions for <see cref="Comment"/>.
+    /// Extensions for <see cref="TfsComment"/>.
     /// </summary>
     internal static class CommentExtensions
     {
         /// <summary>
-        /// Converts a <see cref="Comment"/> from TFS to a <see cref="IPullRequestDiscussionComment"/> as used in this addin.
+        /// Converts a <see cref="TfsComment"/> from TFS to a <see cref="IPullRequestDiscussionComment"/> as used in this addin.
         /// </summary>
         /// <param name="comment">TFS comment to convert.</param>
         /// <returns>Converted comment.</returns>
-        public static IPullRequestDiscussionComment ToPullRequestDiscussionComment(this Comment comment)
+        public static IPullRequestDiscussionComment ToPullRequestDiscussionComment(this TfsComment comment)
         {
             comment.NotNull(nameof(comment));
 

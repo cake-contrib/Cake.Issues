@@ -9,6 +9,7 @@
     using Cake.Core.IO;
     using Cake.Issues.PullRequests.Tfs.Capabilities;
     using Cake.Tfs.PullRequest;
+    using Cake.Tfs.PullRequest.CommentThread;
     using Microsoft.TeamFoundation.SourceControl.WebApi;
     using Microsoft.VisualStudio.Services.Identity;
     using Microsoft.VisualStudio.Services.WebApi;
@@ -114,12 +115,7 @@
 
                 foreach (var thread in threads)
                 {
-                    gitClient.CreateThreadAsync(
-                        thread,
-                        this.tfsPullRequest.RepositoryId,
-                        this.tfsPullRequest.PullRequestId,
-                        null,
-                        CancellationToken.None).Wait();
+                    this.tfsPullRequest.CreateCommentThread(thread);
                 }
 
                 this.Log.Information("Posted {0} discussion threads", threads.Count);
@@ -185,7 +181,7 @@
             return this.CreateGitClient(out var identity);
         }
 
-        private IEnumerable<GitPullRequestCommentThread> CreateDiscussionThreads(
+        private IEnumerable<TfsPullRequestCommentThread> CreateDiscussionThreads(
             GitHttpClient gitClient,
             IEnumerable<IIssue> issues,
             string commentSource)
@@ -194,7 +190,7 @@
             issues.NotNull(nameof(issues));
 
             this.Log.Verbose("Creating new discussion threads");
-            var result = new List<GitPullRequestCommentThread>();
+            var result = new List<TfsPullRequestCommentThread>();
 
             // Code flow properties
             var iterationId = 0;
@@ -220,14 +216,14 @@
                     issue.Line,
                     issue.AffectedFileRelativePath);
 
-                var newThread = new GitPullRequestCommentThread()
+                var newThread = new TfsPullRequestCommentThread()
                 {
-                    Status = CommentThreadStatus.Active
+                    Status = TfsCommentThreadStatus.Active
                 };
 
-                var discussionComment = new Comment
+                var discussionComment = new TfsComment
                 {
-                    CommentType = CommentType.System,
+                    CommentType = TfsCommentType.System,
                     IsDeleted = false,
                     Content = ContentProvider.GetContent(issue)
                 };
@@ -237,7 +233,7 @@
                     continue;
                 }
 
-                newThread.Comments = new List<Comment> { discussionComment };
+                newThread.Comments = new List<TfsComment> { discussionComment };
                 result.Add(newThread);
             }
 
@@ -245,7 +241,7 @@
         }
 
         private bool AddThreadProperties(
-            GitPullRequestCommentThread thread,
+            TfsPullRequestCommentThread thread,
             GitPullRequestIterationChanges changes,
             IIssue issue,
             int iterationId,

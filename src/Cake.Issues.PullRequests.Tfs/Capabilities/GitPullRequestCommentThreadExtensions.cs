@@ -1,12 +1,11 @@
 ﻿namespace Cake.Issues.PullRequests.Tfs.Capabilities
 {
-    using System;
     using System.Linq;
     using Cake.Core.IO;
-    using Microsoft.TeamFoundation.SourceControl.WebApi;
+    using Cake.Tfs.PullRequest.CommentThread;
 
     /// <summary>
-    /// Extensions for <see cref="GitPullRequestCommentThread"/>.
+    /// Extensions for <see cref="TfsPullRequestCommentThread"/>.
     /// </summary>
     internal static class GitPullRequestCommentThreadExtensions
     {
@@ -14,29 +13,18 @@
         private const string IssueMessagePropertyName = "CakeIssuesIssueMessage";
 
         /// <summary>
-        /// Converts a <see cref="GitPullRequestCommentThread"/> from TFS to a <see cref="IPullRequestDiscussionThread"/> as used in this addin.
+        /// Converts a <see cref="TfsPullRequestCommentThread"/> from TFS to a <see cref="IPullRequestDiscussionThread"/> as used in this addin.
         /// </summary>
         /// <param name="thread">TFS thread to convert.</param>
         /// <returns>Converted thread.</returns>
-        public static IPullRequestDiscussionThread ToPullRequestDiscussionThread(this GitPullRequestCommentThread thread)
+        public static IPullRequestDiscussionThread ToPullRequestDiscussionThread(this TfsPullRequestCommentThread thread)
         {
             thread.NotNull(nameof(thread));
-
-            if (thread.Comments == null)
-            {
-                throw new InvalidOperationException("Comments list is not created.");
-            }
-
-            FilePath filePath = null;
-            if (thread.ThreadContext != null && thread.ThreadContext.FilePath != null)
-            {
-                filePath = thread.ThreadContext.FilePath.TrimStart('/');
-            }
 
             return new PullRequestDiscussionThread(
                 thread.Id,
                 thread.Status.ToPullRequestDiscussionStatus(),
-                filePath,
+                thread.FilePath,
                 thread.Comments.Select(x => x.ToPullRequestDiscussionComment()))
             {
                 CommentSource = thread.GetCommentSource(),
@@ -49,16 +37,11 @@
         /// </summary>
         /// <param name="thread">Thread to get the value from.</param>
         /// <returns>Comment source value.</returns>
-        public static string GetCommentSource(this GitPullRequestCommentThread thread)
+        public static string GetCommentSource(this TfsPullRequestCommentThread thread)
         {
             thread.NotNull(nameof(thread));
 
-            if (thread.Properties == null)
-            {
-                throw new InvalidOperationException("Properties collection is not created.");
-            }
-
-            return thread.Properties.GetValue(CommentSourcePropertyName, string.Empty);
+            return thread.GetValue<string>(CommentSourcePropertyName);
         }
 
         /// <summary>
@@ -66,7 +49,7 @@
         /// </summary>
         /// <param name="thread">Thread for which the value should be set.</param>
         /// <param name="value">Value to set as comment source.</param>
-        public static void SetCommentSource(this GitPullRequestCommentThread thread, string value)
+        public static void SetCommentSource(this TfsPullRequestCommentThread thread, string value)
         {
             thread.NotNull(nameof(thread));
 
@@ -80,7 +63,7 @@
         /// <param name="thread">Thread to check.</param>
         /// <param name="value">Value to check for.</param>
         /// <returns><c>True</c> if the value is identical, <c>False</c> otherwise.</returns>
-        public static bool IsCommentSource(this GitPullRequestCommentThread thread, string value)
+        public static bool IsCommentSource(this TfsPullRequestCommentThread thread, string value)
         {
             thread.NotNull(nameof(thread));
 
@@ -93,16 +76,11 @@
         /// </summary>
         /// <param name="thread">Thread to get the value from.</param>
         /// <returns>Original message of the issue.</returns>
-        public static string GetIssueMessage(this GitPullRequestCommentThread thread)
+        public static string GetIssueMessage(this TfsPullRequestCommentThread thread)
         {
             thread.NotNull(nameof(thread));
 
-            if (thread.Properties == null)
-            {
-                throw new InvalidOperationException("Properties collection is not created.");
-            }
-
-            return thread.Properties.GetValue(IssueMessagePropertyName, string.Empty);
+            return thread.GetValue<string>(IssueMessagePropertyName);
         }
 
         /// <summary>
@@ -110,38 +88,11 @@
         /// </summary>
         /// <param name="thread">Thread for which the value should be set.</param>
         /// <param name="value">Value to set as the original message.</param>
-        public static void SetIssueMessage(this GitPullRequestCommentThread thread, string value)
+        public static void SetIssueMessage(this TfsPullRequestCommentThread thread, string value)
         {
             thread.NotNull(nameof(thread));
 
             thread.SetValue(IssueMessagePropertyName, value);
-        }
-
-        /// <summary>
-        /// Sets a value in the thread properties.
-        /// </summary>
-        /// <typeparam name="T">Type of the value.</typeparam>
-        /// <param name="thread">Thread for which the value should be set.</param>
-        /// <param name="propertyName">Name of the property.</param>
-        /// <param name="value">Value to set.</param>
-        private static void SetValue<T>(this GitPullRequestCommentThread thread, string propertyName, T value)
-        {
-            thread.NotNull(nameof(thread));
-            propertyName.NotNullOrWhiteSpace(nameof(propertyName));
-
-            if (thread.Properties == null)
-            {
-                throw new InvalidOperationException("Properties collection is not created.");
-            }
-
-            if (thread.Properties.ContainsKey(propertyName))
-            {
-                thread.Properties[propertyName] = value;
-            }
-            else
-            {
-                thread.Properties.Add(propertyName, value);
-            }
         }
     }
 }

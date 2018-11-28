@@ -1,30 +1,30 @@
 ﻿namespace Cake.Issues.PullRequests.Tfs.Capabilities
 {
-    using Microsoft.TeamFoundation.SourceControl.WebApi;
+    using Cake.Tfs.PullRequest.CommentThread;
 
     /// <summary>
-    /// Extensions for <see cref="CommentThreadStatus"/> enumeration.
+    /// Extensions for <see cref="TfsCommentThreadStatus"/> enumeration.
     /// </summary>
     internal static class CommentThreadStatusExtensions
     {
         /// <summary>
-        /// Converts a <see cref="CommentThreadStatus"/> from TFS to a <see cref="PullRequestDiscussionStatus"/> as used in this addin.
+        /// Converts a <see cref="TfsCommentThreadStatus"/> from TFS to a <see cref="PullRequestDiscussionStatus"/> as used in this addin.
         /// </summary>
         /// <param name="status">TFS status to convert.</param>
         /// <returns>Converted status.</returns>
-        public static PullRequestDiscussionStatus ToPullRequestDiscussionStatus(this CommentThreadStatus status)
+        public static PullRequestDiscussionStatus ToPullRequestDiscussionStatus(this TfsCommentThreadStatus status)
         {
             switch (status)
             {
-                case CommentThreadStatus.Unknown:
+                case TfsCommentThreadStatus.Unknown:
                     return PullRequestDiscussionStatus.Unknown;
-                case CommentThreadStatus.Active:
-                case CommentThreadStatus.Pending:
+                case TfsCommentThreadStatus.Active:
+                case TfsCommentThreadStatus.Pending:
                     return PullRequestDiscussionStatus.Active;
-                case CommentThreadStatus.Fixed:
-                case CommentThreadStatus.WontFix:
-                case CommentThreadStatus.Closed:
-                case CommentThreadStatus.ByDesign:
+                case TfsCommentThreadStatus.Fixed:
+                case TfsCommentThreadStatus.WontFix:
+                case TfsCommentThreadStatus.Closed:
+                case TfsCommentThreadStatus.ByDesign:
                     return PullRequestDiscussionStatus.Resolved;
                 default:
                     throw new PullRequestIssuesException("Unknown enumeration value");
@@ -32,23 +32,23 @@
         }
 
         /// <summary>
-        /// Converts a <see cref="CommentThreadStatus"/> from TFS to a <see cref="PullRequestDiscussionResolution"/> as used in this addin.
+        /// Converts a <see cref="TfsCommentThreadStatus"/> from TFS to a <see cref="PullRequestDiscussionResolution"/> as used in this addin.
         /// </summary>
         /// <param name="status">TFS status to convert.</param>
         /// <returns>Converted status.</returns>
-        public static PullRequestDiscussionResolution ToPullRequestDiscussionResolution(this CommentThreadStatus status)
+        public static PullRequestDiscussionResolution ToPullRequestDiscussionResolution(this TfsCommentThreadStatus status)
         {
             switch (status)
             {
-                case CommentThreadStatus.Unknown:
-                case CommentThreadStatus.Active:
-                case CommentThreadStatus.Pending:
+                case TfsCommentThreadStatus.Unknown:
+                case TfsCommentThreadStatus.Active:
+                case TfsCommentThreadStatus.Pending:
                     return PullRequestDiscussionResolution.Unknown;
-                case CommentThreadStatus.Fixed:
-                case CommentThreadStatus.Closed:
-                case CommentThreadStatus.ByDesign:
+                case TfsCommentThreadStatus.Fixed:
+                case TfsCommentThreadStatus.Closed:
+                case TfsCommentThreadStatus.ByDesign:
                     return PullRequestDiscussionResolution.Resolved;
-                case CommentThreadStatus.WontFix:
+                case TfsCommentThreadStatus.WontFix:
                     return PullRequestDiscussionResolution.WontFix;
                 default:
                     throw new PullRequestIssuesException("Unknown enumeration value");

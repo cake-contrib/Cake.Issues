@@ -2,9 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Linq;
-    using System.Threading;
     using Cake.Core.Diagnostics;
-    using Microsoft.TeamFoundation.SourceControl.WebApi;
 
     /// <summary>
     /// Implementation of a <see cref="BaseDiscussionThreadsCapability{T}"/> for <see cref="TfsPullRequestSystem"/>.
@@ -24,45 +22,28 @@
         /// <inheritdoc />
         protected override IEnumerable<IPullRequestDiscussionThread> InternalFetchDiscussionThreads(string commentSource)
         {
-            if (!this.PullRequestSystem.ValidatePullRequest())
+            var threads = this.PullRequestSystem.TfsPullRequest.GetCommentThreads();
+
+            var threadList = new List<IPullRequestDiscussionThread>();
+            foreach (var thread in threads)
             {
-                return new List<IPullRequestDiscussionThread>();
-            }
-
-            using (var gitClient = this.PullRequestSystem.CreateGitClient())
-            {
-                var request =
-                    gitClient.GetThreadsAsync(
-                        this.PullRequestSystem.TfsPullRequest.RepositoryId,
-                        this.PullRequestSystem.TfsPullRequest.PullRequestId,
-                        null,
-                        null,
-                        null,
-                        CancellationToken.None);
-
-                var threads = request.Result;
-
-                var threadList = new List<IPullRequestDiscussionThread>();
-                foreach (var thread in threads)
+                if (!thread.IsCommentSource(commentSource))
                 {
-                    if (!thread.IsCommentSource(commentSource))
-                    {
-                        continue;
-                    }
-
-                    var pullRequestThread = thread.ToPullRequestDiscussionThread();
-
-                    // Assuming that the first comment is the one written by this addin, we replace the content
-                    // containing additional formatting done by this addin with the original issue message to
-                    // allow Cake.Issues.PullRequests to do a proper comparison to find out which issues already were posted.
-                    pullRequestThread.Comments.First().Content = thread.GetIssueMessage();
-
-                    threadList.Add(pullRequestThread);
+                    continue;
                 }
 
-                this.Log.Verbose("Found {0} discussion thread(s)", threadList.Count);
-                return threadList;
+                var pullRequestThread = thread.ToPullRequestDiscussionThread();
+
+                // Assuming that the first comment is the one written by this addin, we replace the content
+                // containing additional formatting done by this addin with the original issue message to
+                // allow Cake.Issues.PullRequests to do a proper comparison to find out which issues already were posted.
+                pullRequestThread.Comments.First().Content = thread.GetIssueMessage();
+
+                threadList.Add(pullRequestThread);
             }
+
+            this.Log.Verbose("Found {0} discussion thread(s)", threadList.Count);
+            return threadList;
         }
 
         /// <inheritdoc />
