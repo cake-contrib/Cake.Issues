@@ -1,11 +1,8 @@
 ﻿namespace Cake.Issues.PullRequests.Tfs.Capabilities
 {
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Threading;
     using Cake.Core.Diagnostics;
     using Cake.Core.IO;
-    using Microsoft.TeamFoundation.SourceControl.WebApi;
 
     /// <summary>
     /// Implementation of a <see cref="BaseFilteringByModifiedFilesCapability{T}"/> for <see cref="TfsPullRequestSystem"/>.

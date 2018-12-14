@@ -1,7 +1,6 @@
 ﻿namespace Cake.Issues.PullRequests.Tfs.Capabilities
 {
     using System.Linq;
-    using Cake.Core.IO;
     using Cake.Tfs.PullRequest.CommentThread;
 
     /// <summary>

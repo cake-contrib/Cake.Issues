@@ -194,12 +194,12 @@
 
             // Code flow properties
             var iterationId = 0;
-            GitPullRequestIterationChanges changes = null;
+            IEnumerable<TfsPullRequestIterationChange> changes = null;
 
             if (this.tfsPullRequest.CodeReviewId > 0)
             {
-                iterationId = this.GetCodeFlowLatestIterationId(gitClient);
-                changes = this.GetCodeFlowChanges(gitClient, iterationId);
+                iterationId = this.GetCodeFlowLatestIterationId();
+                changes = this.GetCodeFlowChanges(iterationId);
             }
 
             // Filter isues not related to a file.
@@ -242,7 +242,7 @@
 
         private bool AddThreadProperties(
             TfsPullRequestCommentThread thread,
-            GitPullRequestIterationChanges changes,
+            IEnumerable<TfsPullRequestIterationChange> changes,
             IIssue issue,
             int iterationId,
             string commentSource)
@@ -288,57 +288,31 @@
             return true;
         }
 
-        private int GetCodeFlowLatestIterationId(GitHttpClient gitClient)
+        private int GetCodeFlowLatestIterationId()
         {
-            var request =
-                gitClient.GetPullRequestIterationsAsync(
-                    this.tfsPullRequest.RepositoryId,
-                    this.tfsPullRequest.PullRequestId,
-                    null,
-                    null,
-                    CancellationToken.None);
-
-            var iterations = request.Result;
-
-            if (iterations == null)
-            {
-                throw new PullRequestIssuesException("Could not retrieve the iterations");
-            }
-
-            var iterationId = iterations.Max(x => x.Id ?? -1);
+            var iterationId = this.tfsPullRequest.GetLatestIterationId();
             this.Log.Verbose("Determined iteration ID: {0}", iterationId);
             return iterationId;
         }
 
-        private GitPullRequestIterationChanges GetCodeFlowChanges(GitHttpClient gitClient, int iterationId)
+        private IEnumerable<TfsPullRequestIterationChange> GetCodeFlowChanges(int iterationId)
         {
-            var request =
-                gitClient.GetPullRequestIterationChangesAsync(
-                    this.tfsPullRequest.RepositoryId,
-                    this.tfsPullRequest.PullRequestId,
-                    iterationId,
-                    null,
-                    null,
-                    null,
-                    null,
-                    CancellationToken.None);
-
-            var changes = request.Result;
+            var changes = this.tfsPullRequest.GetIterationChanges(iterationId);
 
             if (changes != null)
             {
-                this.Log.Verbose("Change count: {0}", changes.ChangeEntries.Count());
+                this.Log.Verbose("Change count: {0}", changes.Count());
             }
 
             return changes;
         }
 
-        private int TryGetCodeFlowChangeTrackingId(GitPullRequestIterationChanges changes, FilePath path)
+        private int TryGetCodeFlowChangeTrackingId(IEnumerable<TfsPullRequestIterationChange> changes, FilePath path)
         {
             changes.NotNull(nameof(changes));
             path.NotNull(nameof(path));
 
-            var change = changes.ChangeEntries.Where(x => x.Item.Path == "/" + path.ToString()).ToList();
+            var change = changes.Where(x => x.ItemPath.FullPath == "/" + path.ToString()).ToList();
 
             if (change.Count == 0)
             {
@@ -360,7 +334,7 @@
                                 CultureInfo.InvariantCulture,
                                 "  ID: {0}, Path: {1}",
                                 x.ChangeId,
-                                x.Item.Path))));
+                                x.ItemPath))));
                 return -1;
             }
 
