@@ -126,7 +126,7 @@
            IIssue issue,
            int iterationId,
            int changeTrackingId,
-           PropertiesCollection properties)
+           IDictionary<string, object> properties)
         {
             issue.NotNull(nameof(issue));
             properties.NotNull(nameof(properties));
@@ -251,7 +251,7 @@
             changes.NotNull(nameof(changes));
             issue.NotNull(nameof(issue));
 
-            var properties = new PropertiesCollection();
+            var properties = new Dictionary<string, object>();
 
             if (issue.AffectedFileRelativePath != null)
             {
