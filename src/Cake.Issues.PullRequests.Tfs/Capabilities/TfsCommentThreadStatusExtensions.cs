@@ -5,7 +5,7 @@
     /// <summary>
     /// Extensions for <see cref="TfsCommentThreadStatus"/> enumeration.
     /// </summary>
-    internal static class CommentThreadStatusExtensions
+    internal static class TfsCommentThreadStatusExtensions
     {
         /// <summary>
         /// Converts a <see cref="TfsCommentThreadStatus"/> from TFS to a <see cref="PullRequestDiscussionStatus"/> as used in this addin.

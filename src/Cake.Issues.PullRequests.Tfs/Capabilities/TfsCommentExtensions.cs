@@ -5,7 +5,7 @@
     /// <summary>
     /// Extensions for <see cref="TfsComment"/>.
     /// </summary>
-    internal static class CommentExtensions
+    internal static class TfsCommentExtensions
     {
         /// <summary>
         /// Converts a <see cref="TfsComment"/> from TFS to a <see cref="IPullRequestDiscussionComment"/> as used in this addin.

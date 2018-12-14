@@ -7,7 +7,7 @@
     /// <summary>
     /// Extensions for <see cref="TfsPullRequestCommentThread"/>.
     /// </summary>
-    internal static class GitPullRequestCommentThreadExtensions
+    internal static class TfsPullRequestCommentThreadExtensions
     {
         private const string CommentSourcePropertyName = "CakeIssuesCommentSource";
         private const string IssueMessagePropertyName = "CakeIssuesIssueMessage";
