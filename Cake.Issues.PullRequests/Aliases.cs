@@ -46,7 +46,7 @@
             repositoryRoot.NotNull(nameof(repositoryRoot));
 
             // ReSharper disable once PossibleMultipleEnumeration
-            issues.NotNullOrEmptyOrEmptyElement(nameof(issues));
+            issues.NotNullOrEmptyElement(nameof(issues));
 
             // ReSharper disable once PossibleMultipleEnumeration
             return context.ReportIssuesToPullRequest(issues, pullRequestSystem, new ReportIssuesToPullRequestSettings(repositoryRoot));
@@ -93,7 +93,7 @@
             settings.NotNull(nameof(settings));
 
             // ReSharper disable once PossibleMultipleEnumeration
-            issues.NotNullOrEmptyOrEmptyElement(nameof(issues));
+            issues.NotNullOrEmptyElement(nameof(issues));
 
             var orchestrator =
                 new Orchestrator(
