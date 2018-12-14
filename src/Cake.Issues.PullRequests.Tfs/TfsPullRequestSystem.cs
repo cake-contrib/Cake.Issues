@@ -10,9 +10,6 @@
     using Cake.Issues.PullRequests.Tfs.Capabilities;
     using Cake.Tfs.PullRequest;
     using Cake.Tfs.PullRequest.CommentThread;
-    using Microsoft.TeamFoundation.SourceControl.WebApi;
-    using Microsoft.VisualStudio.Services.Identity;
-    using Microsoft.VisualStudio.Services.WebApi;
 
     /// <summary>
     /// Class for writing issues to Team Foundation Server or Azure DevOps pull requests.
@@ -86,12 +83,6 @@
         }
 
         /// <inheritdoc/>
-        GitHttpClient ITfsPullRequestSystem.CreateGitClient()
-        {
-            return this.CreateGitClient();
-        }
-
-        /// <inheritdoc/>
         protected override void InternalPostDiscussionThreads(IEnumerable<IIssue> issues, string commentSource)
         {
             // ReSharper disable once PossibleMultipleEnumeration
@@ -102,24 +93,21 @@
                 return;
             }
 
-            using (var gitClient = this.CreateGitClient())
+            // ReSharper disable once PossibleMultipleEnumeration
+            var threads = this.CreateDiscussionThreads(issues, commentSource).ToList();
+
+            if (!threads.Any())
             {
-                // ReSharper disable once PossibleMultipleEnumeration
-                var threads = this.CreateDiscussionThreads(gitClient, issues, commentSource).ToList();
-
-                if (!threads.Any())
-                {
-                    this.Log.Verbose("No threads to post");
-                    return;
-                }
-
-                foreach (var thread in threads)
-                {
-                    this.tfsPullRequest.CreateCommentThread(thread);
-                }
-
-                this.Log.Information("Posted {0} discussion threads", threads.Count);
+                this.Log.Verbose("No threads to post");
+                return;
             }
+
+            foreach (var thread in threads)
+            {
+                this.tfsPullRequest.CreateCommentThread(thread);
+            }
+
+            this.Log.Information("Posted {0} discussion threads", threads.Count);
         }
 
         private static void AddCodeFlowProperties(
@@ -158,31 +146,7 @@
             return false;
         }
 
-        private GitHttpClient CreateGitClient(out Identity authorizedIdentity)
-        {
-            var connection =
-                new VssConnection(
-                    this.tfsPullRequest.CollectionUrl,
-                    this.settings.Credentials.ToVssCredentials());
-
-            authorizedIdentity = connection.AuthorizedIdentity;
-
-            var gitClient = connection.GetClient<GitHttpClient>();
-            if (gitClient == null)
-            {
-                throw new PullRequestIssuesException("Could not retrieve the GitHttpClient object");
-            }
-
-            return gitClient;
-        }
-
-        private GitHttpClient CreateGitClient()
-        {
-            return this.CreateGitClient(out var identity);
-        }
-
         private IEnumerable<TfsPullRequestCommentThread> CreateDiscussionThreads(
-            GitHttpClient gitClient,
             IEnumerable<IIssue> issues,
             string commentSource)
         {

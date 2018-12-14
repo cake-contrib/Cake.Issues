@@ -1,7 +1,6 @@
 ﻿namespace Cake.Issues.PullRequests.Tfs
 {
     using Cake.Tfs.PullRequest;
-    using Microsoft.TeamFoundation.SourceControl.WebApi;
 
     /// <summary>
     /// Interface for writing issues to Team Foundation Server or Azure DevOps pull requests.
@@ -20,11 +19,5 @@
         /// </summary>
         /// <returns>True if a valid pull request instance exists.</returns>
         bool ValidatePullRequest();
-
-        /// <summary>
-        /// Creates a client object for communicating with TFS.
-        /// </summary>
-        /// <returns>Client object for communicating with TFS</returns>
-        GitHttpClient CreateGitClient();
     }
 }
