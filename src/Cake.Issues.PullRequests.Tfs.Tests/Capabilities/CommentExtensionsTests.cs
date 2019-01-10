@@ -2,7 +2,7 @@
 {
     using Cake.Issues.PullRequests.Tfs.Capabilities;
     using Cake.Issues.Testing;
-    using Microsoft.TeamFoundation.SourceControl.WebApi;
+    using Cake.Tfs.PullRequest.CommentThread;
     using Shouldly;
     using Xunit;
 
@@ -14,7 +14,7 @@
             public void Should_Throw_If_Comment_Is_Null()
             {
                 // Given
-                Comment comment = null;
+                TfsComment comment = null;
 
                 // When
                 var result = Record.Exception(() => comment.ToPullRequestDiscussionComment());
@@ -29,7 +29,7 @@
                 // Given
                 var content = "foo";
                 var comment =
-                    new Comment
+                    new TfsComment
                     {
                         Content = content
                     };
@@ -48,7 +48,7 @@
             {
                 // Given
                 var comment =
-                    new Comment
+                    new TfsComment
                     {
                         IsDeleted = isDeleted
                     };

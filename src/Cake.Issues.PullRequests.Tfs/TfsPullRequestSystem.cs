@@ -9,9 +9,7 @@
     using Cake.Core.IO;
     using Cake.Issues.PullRequests.Tfs.Capabilities;
     using Cake.Tfs.PullRequest;
-    using Microsoft.TeamFoundation.SourceControl.WebApi;
-    using Microsoft.VisualStudio.Services.Identity;
-    using Microsoft.VisualStudio.Services.WebApi;
+    using Cake.Tfs.PullRequest.CommentThread;
 
     /// <summary>
     /// Class for writing issues to Team Foundation Server or Azure DevOps pull requests.
@@ -85,12 +83,6 @@
         }
 
         /// <inheritdoc/>
-        GitHttpClient ITfsPullRequestSystem.CreateGitClient()
-        {
-            return this.CreateGitClient();
-        }
-
-        /// <inheritdoc/>
         protected override void InternalPostDiscussionThreads(IEnumerable<IIssue> issues, string commentSource)
         {
             // ReSharper disable once PossibleMultipleEnumeration
@@ -101,36 +93,28 @@
                 return;
             }
 
-            using (var gitClient = this.CreateGitClient())
+            // ReSharper disable once PossibleMultipleEnumeration
+            var threads = this.CreateDiscussionThreads(issues, commentSource).ToList();
+
+            if (!threads.Any())
             {
-                // ReSharper disable once PossibleMultipleEnumeration
-                var threads = this.CreateDiscussionThreads(gitClient, issues, commentSource).ToList();
-
-                if (!threads.Any())
-                {
-                    this.Log.Verbose("No threads to post");
-                    return;
-                }
-
-                foreach (var thread in threads)
-                {
-                    gitClient.CreateThreadAsync(
-                        thread,
-                        this.tfsPullRequest.RepositoryId,
-                        this.tfsPullRequest.PullRequestId,
-                        null,
-                        CancellationToken.None).Wait();
-                }
-
-                this.Log.Information("Posted {0} discussion threads", threads.Count);
+                this.Log.Verbose("No threads to post");
+                return;
             }
+
+            foreach (var thread in threads)
+            {
+                this.tfsPullRequest.CreateCommentThread(thread);
+            }
+
+            this.Log.Information("Posted {0} discussion threads", threads.Count);
         }
 
         private static void AddCodeFlowProperties(
            IIssue issue,
            int iterationId,
            int changeTrackingId,
-           PropertiesCollection properties)
+           IDictionary<string, object> properties)
         {
             issue.NotNull(nameof(issue));
             properties.NotNull(nameof(properties));
@@ -162,31 +146,7 @@
             return false;
         }
 
-        private GitHttpClient CreateGitClient(out Identity authorizedIdentity)
-        {
-            var connection =
-                new VssConnection(
-                    this.tfsPullRequest.CollectionUrl,
-                    this.settings.Credentials.ToVssCredentials());
-
-            authorizedIdentity = connection.AuthorizedIdentity;
-
-            var gitClient = connection.GetClient<GitHttpClient>();
-            if (gitClient == null)
-            {
-                throw new PullRequestIssuesException("Could not retrieve the GitHttpClient object");
-            }
-
-            return gitClient;
-        }
-
-        private GitHttpClient CreateGitClient()
-        {
-            return this.CreateGitClient(out var identity);
-        }
-
-        private IEnumerable<GitPullRequestCommentThread> CreateDiscussionThreads(
-            GitHttpClient gitClient,
+        private IEnumerable<TfsPullRequestCommentThread> CreateDiscussionThreads(
             IEnumerable<IIssue> issues,
             string commentSource)
         {
@@ -194,16 +154,16 @@
             issues.NotNull(nameof(issues));
 
             this.Log.Verbose("Creating new discussion threads");
-            var result = new List<GitPullRequestCommentThread>();
+            var result = new List<TfsPullRequestCommentThread>();
 
             // Code flow properties
             var iterationId = 0;
-            GitPullRequestIterationChanges changes = null;
+            IEnumerable<TfsPullRequestIterationChange> changes = null;
 
             if (this.tfsPullRequest.CodeReviewId > 0)
             {
-                iterationId = this.GetCodeFlowLatestIterationId(gitClient);
-                changes = this.GetCodeFlowChanges(gitClient, iterationId);
+                iterationId = this.GetCodeFlowLatestIterationId();
+                changes = this.GetCodeFlowChanges(iterationId);
             }
 
             // Filter isues not related to a file.
@@ -220,14 +180,14 @@
                     issue.Line,
                     issue.AffectedFileRelativePath);
 
-                var newThread = new GitPullRequestCommentThread()
+                var newThread = new TfsPullRequestCommentThread()
                 {
-                    Status = CommentThreadStatus.Active
+                    Status = TfsCommentThreadStatus.Active
                 };
 
-                var discussionComment = new Comment
+                var discussionComment = new TfsComment
                 {
-                    CommentType = CommentType.System,
+                    CommentType = TfsCommentType.System,
                     IsDeleted = false,
                     Content = ContentProvider.GetContent(issue)
                 };
@@ -237,7 +197,7 @@
                     continue;
                 }
 
-                newThread.Comments = new List<Comment> { discussionComment };
+                newThread.Comments = new List<TfsComment> { discussionComment };
                 result.Add(newThread);
             }
 
@@ -245,8 +205,8 @@
         }
 
         private bool AddThreadProperties(
-            GitPullRequestCommentThread thread,
-            GitPullRequestIterationChanges changes,
+            TfsPullRequestCommentThread thread,
+            IEnumerable<TfsPullRequestIterationChange> changes,
             IIssue issue,
             int iterationId,
             string commentSource)
@@ -255,7 +215,7 @@
             changes.NotNull(nameof(changes));
             issue.NotNull(nameof(issue));
 
-            var properties = new PropertiesCollection();
+            var properties = new Dictionary<string, object>();
 
             if (issue.AffectedFileRelativePath != null)
             {
@@ -292,57 +252,31 @@
             return true;
         }
 
-        private int GetCodeFlowLatestIterationId(GitHttpClient gitClient)
+        private int GetCodeFlowLatestIterationId()
         {
-            var request =
-                gitClient.GetPullRequestIterationsAsync(
-                    this.tfsPullRequest.RepositoryId,
-                    this.tfsPullRequest.PullRequestId,
-                    null,
-                    null,
-                    CancellationToken.None);
-
-            var iterations = request.Result;
-
-            if (iterations == null)
-            {
-                throw new PullRequestIssuesException("Could not retrieve the iterations");
-            }
-
-            var iterationId = iterations.Max(x => x.Id ?? -1);
+            var iterationId = this.tfsPullRequest.GetLatestIterationId();
             this.Log.Verbose("Determined iteration ID: {0}", iterationId);
             return iterationId;
         }
 
-        private GitPullRequestIterationChanges GetCodeFlowChanges(GitHttpClient gitClient, int iterationId)
+        private IEnumerable<TfsPullRequestIterationChange> GetCodeFlowChanges(int iterationId)
         {
-            var request =
-                gitClient.GetPullRequestIterationChangesAsync(
-                    this.tfsPullRequest.RepositoryId,
-                    this.tfsPullRequest.PullRequestId,
-                    iterationId,
-                    null,
-                    null,
-                    null,
-                    null,
-                    CancellationToken.None);
-
-            var changes = request.Result;
+            var changes = this.tfsPullRequest.GetIterationChanges(iterationId);
 
             if (changes != null)
             {
-                this.Log.Verbose("Change count: {0}", changes.ChangeEntries.Count());
+                this.Log.Verbose("Change count: {0}", changes.Count());
             }
 
             return changes;
         }
 
-        private int TryGetCodeFlowChangeTrackingId(GitPullRequestIterationChanges changes, FilePath path)
+        private int TryGetCodeFlowChangeTrackingId(IEnumerable<TfsPullRequestIterationChange> changes, FilePath path)
         {
             changes.NotNull(nameof(changes));
             path.NotNull(nameof(path));
 
-            var change = changes.ChangeEntries.Where(x => x.Item.Path == "/" + path.ToString()).ToList();
+            var change = changes.Where(x => x.ItemPath.FullPath == "/" + path.ToString()).ToList();
 
             if (change.Count == 0)
             {
@@ -364,7 +298,7 @@
                                 CultureInfo.InvariantCulture,
                                 "  ID: {0}, Path: {1}",
                                 x.ChangeId,
-                                x.Item.Path))));
+                                x.ItemPath))));
                 return -1;
             }
 

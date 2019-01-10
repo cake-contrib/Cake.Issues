@@ -4,8 +4,7 @@
     using System.Linq;
     using Cake.Issues.PullRequests.Tfs.Capabilities;
     using Cake.Issues.Testing;
-    using Microsoft.TeamFoundation.SourceControl.WebApi;
-    using Microsoft.VisualStudio.Services.WebApi;
+    using Cake.Tfs.PullRequest.CommentThread;
     using Shouldly;
     using Xunit;
 
@@ -17,7 +16,7 @@
             public void Should_Throw_If_Thread_Is_Null()
             {
                 // Given
-                GitPullRequestCommentThread thread = null;
+                TfsPullRequestCommentThread thread = null;
 
                 // When
                 var result = Record.Exception(() => thread.ToPullRequestDiscussionThread());
@@ -31,13 +30,13 @@
             {
                 // Given
                 var thread =
-                    new GitPullRequestCommentThread
+                    new TfsPullRequestCommentThread
                     {
                         Id = 123,
-                        Status = CommentThreadStatus.Active,
-                        ThreadContext = new CommentThreadContext { FilePath = "/foo.cs" },
+                        Status = TfsCommentThreadStatus.Active,
+                        FilePath = "/foo.cs",
                         Comments = null,
-                        Properties = new PropertiesCollection()
+                        Properties = new Dictionary<string, object>()
                     };
 
                 // When
@@ -52,12 +51,12 @@
             {
                 // Given
                 var thread =
-                    new GitPullRequestCommentThread
+                    new TfsPullRequestCommentThread
                     {
                         Id = 123,
-                        Status = CommentThreadStatus.Active,
-                        ThreadContext = new CommentThreadContext { FilePath = "/foo.cs" },
-                        Comments = new List<Comment>(),
+                        Status = TfsCommentThreadStatus.Active,
+                        FilePath = "/foo.cs",
+                        Comments = new List<TfsComment>(),
                         Properties = null
                     };
 
@@ -73,16 +72,16 @@
             {
                 // Given
                 var id = 123;
-                var status = CommentThreadStatus.Active;
+                var status = TfsCommentThreadStatus.Active;
                 var filePath = "/foo.cs";
                 var thread =
-                    new GitPullRequestCommentThread
+                    new TfsPullRequestCommentThread
                     {
                         Id = id,
                         Status = status,
-                        ThreadContext = new CommentThreadContext() { FilePath = filePath },
-                        Comments = new List<Comment>(),
-                        Properties = new PropertiesCollection()
+                        FilePath = filePath,
+                        Comments = new List<TfsComment>(),
+                        Properties = new Dictionary<string, object>()
                     };
 
                 // When
@@ -94,41 +93,41 @@
 
             [Theory]
             [InlineData(
-                CommentThreadStatus.Unknown,
+                TfsCommentThreadStatus.Unknown,
                 PullRequestDiscussionStatus.Unknown)]
             [InlineData(
-                CommentThreadStatus.Active,
+                TfsCommentThreadStatus.Active,
                 PullRequestDiscussionStatus.Active)]
             [InlineData(
-                CommentThreadStatus.Pending,
+                TfsCommentThreadStatus.Pending,
                 PullRequestDiscussionStatus.Active)]
             [InlineData(
-                CommentThreadStatus.Fixed,
+                TfsCommentThreadStatus.Fixed,
                 PullRequestDiscussionStatus.Resolved)]
             [InlineData(
-                CommentThreadStatus.WontFix,
+                TfsCommentThreadStatus.WontFix,
                 PullRequestDiscussionStatus.Resolved)]
             [InlineData(
-                CommentThreadStatus.Closed,
+                TfsCommentThreadStatus.Closed,
                 PullRequestDiscussionStatus.Resolved)]
             [InlineData(
-                CommentThreadStatus.ByDesign,
+                TfsCommentThreadStatus.ByDesign,
                 PullRequestDiscussionStatus.Resolved)]
             public void Should_Set_Correct_Status(
-                CommentThreadStatus status,
+                TfsCommentThreadStatus status,
                 PullRequestDiscussionStatus expectedResult)
             {
                 // Given
                 var id = 123;
                 var filePath = "/foo.cs";
                 var thread =
-                    new GitPullRequestCommentThread
+                    new TfsPullRequestCommentThread
                     {
                         Id = id,
                         Status = status,
-                        ThreadContext = new CommentThreadContext() { FilePath = filePath },
-                        Comments = new List<Comment>(),
-                        Properties = new PropertiesCollection()
+                        FilePath = filePath,
+                        Comments = new List<TfsComment>(),
+                        Properties = new Dictionary<string, object>()
                     };
 
                 // When
@@ -144,15 +143,15 @@
             {
                 // Given
                 var id = 123;
-                var status = CommentThreadStatus.Active;
+                var status = TfsCommentThreadStatus.Active;
                 var thread =
-                    new GitPullRequestCommentThread
+                    new TfsPullRequestCommentThread
                     {
                         Id = id,
                         Status = status,
-                        ThreadContext = new CommentThreadContext() { FilePath = filePath },
-                        Comments = new List<Comment>(),
-                        Properties = new PropertiesCollection()
+                        FilePath = filePath,
+                        Comments = new List<TfsComment>(),
+                        Properties = new Dictionary<string, object>()
                     };
 
                 // When
@@ -167,13 +166,12 @@
             {
                 // Given
                 var thread =
-                    new GitPullRequestCommentThread
+                    new TfsPullRequestCommentThread
                     {
                         Id = 123,
-                        Status = CommentThreadStatus.Active,
-                        ThreadContext = null,
-                        Comments = new List<Comment>(),
-                        Properties = new PropertiesCollection()
+                        Status = TfsCommentThreadStatus.Active,
+                        Comments = new List<TfsComment>(),
+                        Properties = new Dictionary<string, object>()
                     };
 
                 // When
@@ -188,25 +186,25 @@
             {
                 // Given
                 var id = 123;
-                var status = CommentThreadStatus.Active;
+                var status = TfsCommentThreadStatus.Active;
                 var filePath = "/foo.cs";
                 var commentContent = "foo";
                 var commentIsDeleted = false;
                 var thread =
-                    new GitPullRequestCommentThread
+                    new TfsPullRequestCommentThread
                     {
                         Id = id,
                         Status = status,
-                        ThreadContext = new CommentThreadContext() { FilePath = filePath },
-                        Comments = new List<Comment>
+                        FilePath = filePath,
+                        Comments = new List<TfsComment>
                         {
-                            new Comment()
+                            new TfsComment()
                             {
                                 Content = commentContent,
                                 IsDeleted = commentIsDeleted
                             }
                         },
-                        Properties = new PropertiesCollection()
+                        Properties = new Dictionary<string, object>()
                     };
 
                 // When
@@ -223,17 +221,17 @@
             {
                 // Given
                 var id = 123;
-                var status = CommentThreadStatus.Active;
+                var status = TfsCommentThreadStatus.Active;
                 var filePath = "/foo.cs";
                 var commentSource = "foo";
                 var thread =
-                    new GitPullRequestCommentThread
+                    new TfsPullRequestCommentThread
                     {
                         Id = id,
                         Status = status,
-                        ThreadContext = new CommentThreadContext() { FilePath = filePath },
-                        Comments = new List<Comment>(),
-                        Properties = new PropertiesCollection()
+                        FilePath = filePath,
+                        Comments = new List<TfsComment>(),
+                        Properties = new Dictionary<string, object>()
                     };
                 thread.SetCommentSource(commentSource);
 
@@ -246,41 +244,41 @@
 
             [Theory]
             [InlineData(
-                CommentThreadStatus.Unknown,
+                TfsCommentThreadStatus.Unknown,
                 PullRequestDiscussionResolution.Unknown)]
             [InlineData(
-                CommentThreadStatus.Active,
+                TfsCommentThreadStatus.Active,
                 PullRequestDiscussionResolution.Unknown)]
             [InlineData(
-                CommentThreadStatus.Pending,
+                TfsCommentThreadStatus.Pending,
                 PullRequestDiscussionResolution.Unknown)]
             [InlineData(
-                CommentThreadStatus.Fixed,
+                TfsCommentThreadStatus.Fixed,
                 PullRequestDiscussionResolution.Resolved)]
             [InlineData(
-                CommentThreadStatus.WontFix,
+                TfsCommentThreadStatus.WontFix,
                 PullRequestDiscussionResolution.WontFix)]
             [InlineData(
-                CommentThreadStatus.Closed,
+                TfsCommentThreadStatus.Closed,
                 PullRequestDiscussionResolution.Resolved)]
             [InlineData(
-                CommentThreadStatus.ByDesign,
+                TfsCommentThreadStatus.ByDesign,
                 PullRequestDiscussionResolution.Resolved)]
             public void Should_Set_Correct_Resolution(
-                CommentThreadStatus status,
+                TfsCommentThreadStatus status,
                 PullRequestDiscussionResolution expectedResult)
             {
                 // Given
                 var id = 123;
                 var filePath = "/foo.cs";
                 var thread =
-                    new GitPullRequestCommentThread
+                    new TfsPullRequestCommentThread
                     {
                         Id = id,
                         Status = status,
-                        ThreadContext = new CommentThreadContext() { FilePath = filePath },
-                        Comments = new List<Comment>(),
-                        Properties = new PropertiesCollection()
+                        FilePath = filePath,
+                        Comments = new List<TfsComment>(),
+                        Properties = new Dictionary<string, object>()
                     };
 
                 // When
@@ -297,7 +295,7 @@
             public void Should_Throw_If_Thread_Is_Null()
             {
                 // Given
-                GitPullRequestCommentThread thread = null;
+                TfsPullRequestCommentThread thread = null;
 
                 // When
                 var result = Record.Exception(() => thread.GetCommentSource());
@@ -311,12 +309,12 @@
             {
                 // Given
                 var thread =
-                    new GitPullRequestCommentThread
+                    new TfsPullRequestCommentThread
                     {
                         Id = 123,
-                        Status = CommentThreadStatus.Active,
-                        ThreadContext = new CommentThreadContext { FilePath = "/foo.cs" },
-                        Comments = new List<Comment>(),
+                        Status = TfsCommentThreadStatus.Active,
+                        FilePath = "/foo.cs",
+                        Comments = new List<TfsComment>(),
                         Properties = null
                     };
 
@@ -333,13 +331,13 @@
                 // Given
                 var commentSource = "foo";
                 var thread =
-                    new GitPullRequestCommentThread
+                    new TfsPullRequestCommentThread
                     {
                         Id = 123,
-                        Status = CommentThreadStatus.Active,
-                        ThreadContext = new CommentThreadContext() { FilePath = "/foo.cs" },
-                        Comments = new List<Comment>(),
-                        Properties = new PropertiesCollection()
+                        Status = TfsCommentThreadStatus.Active,
+                        FilePath = "/foo.cs",
+                        Comments = new List<TfsComment>(),
+                        Properties = new Dictionary<string, object>()
                     };
                 thread.SetCommentSource(commentSource);
 
@@ -357,7 +355,7 @@
             public void Should_Throw_If_Thread_Is_Null()
             {
                 // Given
-                GitPullRequestCommentThread thread = null;
+                TfsPullRequestCommentThread thread = null;
                 var value = "foo";
 
                 // When
@@ -372,12 +370,12 @@
             {
                 // Given
                 var thread =
-                    new GitPullRequestCommentThread
+                    new TfsPullRequestCommentThread
                     {
                         Id = 123,
-                        Status = CommentThreadStatus.Active,
-                        ThreadContext = new CommentThreadContext { FilePath = "/foo.cs" },
-                        Comments = new List<Comment>(),
+                        Status = TfsCommentThreadStatus.Active,
+                        FilePath = "/foo.cs",
+                        Comments = new List<TfsComment>(),
                         Properties = null
                     };
                 var value = "foo";
@@ -395,13 +393,13 @@
                 // Given
                 var commentSource = "foo";
                 var thread =
-                    new GitPullRequestCommentThread
+                    new TfsPullRequestCommentThread
                     {
                         Id = 123,
-                        Status = CommentThreadStatus.Active,
-                        ThreadContext = new CommentThreadContext() { FilePath = "/foo.cs" },
-                        Comments = new List<Comment>(),
-                        Properties = new PropertiesCollection()
+                        Status = TfsCommentThreadStatus.Active,
+                        FilePath = "/foo.cs",
+                        Comments = new List<TfsComment>(),
+                        Properties = new Dictionary<string, object>()
                     };
 
                 // When
@@ -418,7 +416,7 @@
             public void Should_Throw_If_Thread_Is_Null()
             {
                 // Given
-                GitPullRequestCommentThread thread = null;
+                TfsPullRequestCommentThread thread = null;
                 var value = "foo";
 
                 // When
@@ -433,12 +431,12 @@
             {
                 // Given
                 var thread =
-                    new GitPullRequestCommentThread
+                    new TfsPullRequestCommentThread
                     {
                         Id = 123,
-                        Status = CommentThreadStatus.Active,
-                        ThreadContext = new CommentThreadContext { FilePath = "/foo.cs" },
-                        Comments = new List<Comment>(),
+                        Status = TfsCommentThreadStatus.Active,
+                        FilePath = "/foo.cs",
+                        Comments = new List<TfsComment>(),
                         Properties = null
                     };
                 var value = "foo";
@@ -456,13 +454,13 @@
                 // Given
                 var commentSource = "foo";
                 var thread =
-                    new GitPullRequestCommentThread
+                    new TfsPullRequestCommentThread
                     {
                         Id = 123,
-                        Status = CommentThreadStatus.Active,
-                        ThreadContext = new CommentThreadContext() { FilePath = "/foo.cs" },
-                        Comments = new List<Comment>(),
-                        Properties = new PropertiesCollection()
+                        Status = TfsCommentThreadStatus.Active,
+                        FilePath = "/foo.cs",
+                        Comments = new List<TfsComment>(),
+                        Properties = new Dictionary<string, object>()
                     };
                 thread.SetCommentSource(commentSource);
 
@@ -478,13 +476,13 @@
             {
                 // Given
                 var thread =
-                    new GitPullRequestCommentThread
+                    new TfsPullRequestCommentThread
                     {
                         Id = 123,
-                        Status = CommentThreadStatus.Active,
-                        ThreadContext = new CommentThreadContext() { FilePath = "/foo.cs" },
-                        Comments = new List<Comment>(),
-                        Properties = new PropertiesCollection()
+                        Status = TfsCommentThreadStatus.Active,
+                        FilePath = "/foo.cs",
+                        Comments = new List<TfsComment>(),
+                        Properties = new Dictionary<string, object>()
                     };
                 thread.SetCommentSource("foo");
 
@@ -502,7 +500,7 @@
             public void Should_Throw_If_Thread_Is_Null()
             {
                 // Given
-                GitPullRequestCommentThread thread = null;
+                TfsPullRequestCommentThread thread = null;
 
                 // When
                 var result = Record.Exception(() => thread.GetIssueMessage());
@@ -516,12 +514,12 @@
             {
                 // Given
                 var thread =
-                    new GitPullRequestCommentThread
+                    new TfsPullRequestCommentThread
                     {
                         Id = 123,
-                        Status = CommentThreadStatus.Active,
-                        ThreadContext = new CommentThreadContext { FilePath = "/foo.cs" },
-                        Comments = new List<Comment>(),
+                        Status = TfsCommentThreadStatus.Active,
+                        FilePath = "/foo.cs",
+                        Comments = new List<TfsComment>(),
                         Properties = null
                     };
 
@@ -538,13 +536,13 @@
                 // Given
                 var message = "foo";
                 var thread =
-                    new GitPullRequestCommentThread
+                    new TfsPullRequestCommentThread
                     {
                         Id = 123,
-                        Status = CommentThreadStatus.Active,
-                        ThreadContext = new CommentThreadContext() { FilePath = "/foo.cs" },
-                        Comments = new List<Comment>(),
-                        Properties = new PropertiesCollection()
+                        Status = TfsCommentThreadStatus.Active,
+                        FilePath = "/foo.cs",
+                        Comments = new List<TfsComment>(),
+                        Properties = new Dictionary<string, object>()
                     };
                 thread.SetIssueMessage(message);
 
@@ -562,7 +560,7 @@
             public void Should_Throw_If_Thread_Is_Null()
             {
                 // Given
-                GitPullRequestCommentThread thread = null;
+                TfsPullRequestCommentThread thread = null;
                 var value = "foo";
 
                 // When
@@ -577,12 +575,12 @@
             {
                 // Given
                 var thread =
-                    new GitPullRequestCommentThread
+                    new TfsPullRequestCommentThread
                     {
                         Id = 123,
-                        Status = CommentThreadStatus.Active,
-                        ThreadContext = new CommentThreadContext { FilePath = "/foo.cs" },
-                        Comments = new List<Comment>(),
+                        Status = TfsCommentThreadStatus.Active,
+                        FilePath = "/foo.cs",
+                        Comments = new List<TfsComment>(),
                         Properties = null
                     };
                 var value = "foo";
@@ -600,13 +598,13 @@
                 // Given
                 var message = "foo";
                 var thread =
-                    new GitPullRequestCommentThread
+                    new TfsPullRequestCommentThread
                     {
                         Id = 123,
-                        Status = CommentThreadStatus.Active,
-                        ThreadContext = new CommentThreadContext() { FilePath = "/foo.cs" },
-                        Comments = new List<Comment>(),
-                        Properties = new PropertiesCollection()
+                        Status = TfsCommentThreadStatus.Active,
+                        FilePath = "/foo.cs",
+                        Comments = new List<TfsComment>(),
+                        Properties = new Dictionary<string, object>()
                     };
 
                 // When

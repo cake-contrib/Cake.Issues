@@ -1,7 +1,7 @@
 ﻿namespace Cake.Issues.PullRequests.Tfs.Tests.Capabilities
 {
     using Cake.Issues.PullRequests.Tfs.Capabilities;
-    using Microsoft.TeamFoundation.SourceControl.WebApi;
+    using Cake.Tfs.PullRequest.CommentThread;
     using Shouldly;
     using Xunit;
 
@@ -11,28 +11,28 @@
         {
             [Theory]
             [InlineData(
-                CommentThreadStatus.Unknown,
+                TfsCommentThreadStatus.Unknown,
                 PullRequestDiscussionStatus.Unknown)]
             [InlineData(
-                CommentThreadStatus.Active,
+                TfsCommentThreadStatus.Active,
                 PullRequestDiscussionStatus.Active)]
             [InlineData(
-                CommentThreadStatus.Pending,
+                TfsCommentThreadStatus.Pending,
                 PullRequestDiscussionStatus.Active)]
             [InlineData(
-                CommentThreadStatus.Fixed,
+                TfsCommentThreadStatus.Fixed,
                 PullRequestDiscussionStatus.Resolved)]
             [InlineData(
-                CommentThreadStatus.WontFix,
+                TfsCommentThreadStatus.WontFix,
                 PullRequestDiscussionStatus.Resolved)]
             [InlineData(
-                CommentThreadStatus.Closed,
+                TfsCommentThreadStatus.Closed,
                 PullRequestDiscussionStatus.Resolved)]
             [InlineData(
-                CommentThreadStatus.ByDesign,
+                TfsCommentThreadStatus.ByDesign,
                 PullRequestDiscussionStatus.Resolved)]
             public void Should_Return_Correct_Value(
-                CommentThreadStatus status,
+                TfsCommentThreadStatus status,
                 PullRequestDiscussionStatus expectedResult)
             {
                 // Given
@@ -49,28 +49,28 @@
         {
             [Theory]
             [InlineData(
-                CommentThreadStatus.Unknown,
+                TfsCommentThreadStatus.Unknown,
                 PullRequestDiscussionResolution.Unknown)]
             [InlineData(
-                CommentThreadStatus.Active,
+                TfsCommentThreadStatus.Active,
                 PullRequestDiscussionResolution.Unknown)]
             [InlineData(
-                CommentThreadStatus.Pending,
+                TfsCommentThreadStatus.Pending,
                 PullRequestDiscussionResolution.Unknown)]
             [InlineData(
-                CommentThreadStatus.Fixed,
+                TfsCommentThreadStatus.Fixed,
                 PullRequestDiscussionResolution.Resolved)]
             [InlineData(
-                CommentThreadStatus.WontFix,
+                TfsCommentThreadStatus.WontFix,
                 PullRequestDiscussionResolution.WontFix)]
             [InlineData(
-                CommentThreadStatus.Closed,
+                TfsCommentThreadStatus.Closed,
                 PullRequestDiscussionResolution.Resolved)]
             [InlineData(
-                CommentThreadStatus.ByDesign,
+                TfsCommentThreadStatus.ByDesign,
                 PullRequestDiscussionResolution.Resolved)]
             public void Should_Return_Correct_Value(
-                CommentThreadStatus status,
+                TfsCommentThreadStatus status,
                 PullRequestDiscussionResolution expectedResult)
             {
                 // Given
