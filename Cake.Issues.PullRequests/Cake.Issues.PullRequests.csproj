@@ -7,16 +7,24 @@
     <Description>Addin for the Cake build automation system for writing code analyzer or linter issues as comments to pull requests</Description>
     <Authors>BBT Software AG</Authors>
     <Company>BBT Software AG</Company>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
     <CodeAnalysisRuleSet>..\Cake.Issues.PullRequests.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
     <DocumentationFile>bin\Debug\netstandard2.0\Cake.Issues.PullRequests.xml</DocumentationFile>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard2.0|AnyCPU'">
+
+   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard2.0|AnyCPU'">
     <DocumentationFile>bin\Release\netstandard2.0\Cake.Issues.PullRequests.xml</DocumentationFile>
   </PropertyGroup>
-  <ItemGroup>
+
+   <ItemGroup>
     <PackageReference Include="Cake.Core" Version="0.28.0" />
     <PackageReference Include="Cake.Issues" Version="0.6.0" />
     <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.6.3" />
