@@ -54,3 +54,4 @@ Task("ReportIssuesToPullRequest").Does(() =>
 ```
 
 [TfsPullRequests]: ../../../../api/Cake.Issues.PullRequests.Tfs/TfsPullRequestSystemAliases/BC3F9B2C
+[Cake.Git]: https://www.nuget.org/packages/Cake.Git/
