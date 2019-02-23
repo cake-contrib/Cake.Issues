@@ -56,17 +56,54 @@
             return
                 from logEntry in logFileEntries
                 let file = this.TryGetFile(logEntry.file, docRootPath)
-                let line = this.TryGetLine(logEntry.line)
+                let line = TryGetLine(logEntry.line)
                 where
-                    logEntry.message_severity == "warning" &&
+                    (logEntry.message_severity == "warning" || logEntry.message_severity == "suggestion") &&
                     !string.IsNullOrWhiteSpace(logEntry.message)
                 select
                     IssueBuilder
                         .NewIssue(logEntry.message, this)
                         .InFile(file, line)
                         .OfRule(logEntry.source)
-                        .WithPriority(IssuePriority.Warning)
+                        .WithPriority(GetPriority(logEntry.message_severity))
                         .Create();
+        }
+
+        /// <summary>
+        /// Converts the severity to a priority.
+        /// </summary>
+        /// <param name="severity">Severity as reported by DocFX.</param>
+        /// <returns>Priority</returns>
+        private static IssuePriority GetPriority(string severity)
+        {
+            switch (severity.ToLower())
+            {
+                case "warning":
+                    return IssuePriority.Warning;
+
+                case "suggestion":
+                    return IssuePriority.Suggestion;
+
+                default:
+                    return IssuePriority.Undefined;
+            }
+        }
+
+        /// <summary>
+        /// Reads the affected line from a issue logged in a DocFx log file.
+        /// </summary>
+        /// <param name="line">The line in the current log entry.</param>
+        /// <returns>The line of the issue.</returns>
+        private static int? TryGetLine(
+            int? line)
+        {
+            // Convert negative line numbers or line number 0 to null
+            if (line.HasValue && line.Value <= 0)
+            {
+                return null;
+            }
+
+            return line;
         }
 
         /// <summary>
@@ -97,23 +134,6 @@
             }
 
             return fileName;
-        }
-
-        /// <summary>
-        /// Reads the affected line from a issue logged in a DocFx log file.
-        /// </summary>
-        /// <param name="line">The line in the current log entry.</param>
-        /// <returns>The line of the issue.</returns>
-        private int? TryGetLine(
-            int? line)
-        {
-            // Convert negative line numbers or line number 0 to null
-            if (line.HasValue && line.Value <= 0)
-            {
-                return null;
-            }
-
-            return line;
         }
     }
 }

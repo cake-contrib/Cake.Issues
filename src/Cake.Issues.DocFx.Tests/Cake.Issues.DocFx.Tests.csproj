@@ -17,10 +17,14 @@
     <CodeAnalysisRuleSet>..\Cake.Issues.DocFx.Tests.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Testfiles\entry-of-level-suggestion.json" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\Cake.Issues.DocFx\Cake.Issues.DocFx.csproj" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Testfiles\docfx.json" />
+    <EmbeddedResource Include="Testfiles\entry-of-level-suggestion.json" />
     <EmbeddedResource Include="Testfiles\entry-with-line.json" />
   </ItemGroup>
   <ItemGroup>
@@ -40,7 +44,7 @@
       <Version>0.28.0</Version>
     </PackageReference>
     <PackageReference Include="Shouldly">
-      <Version>3.0.0</Version>
+      <Version>3.0.2</Version>
     </PackageReference>
     <PackageReference Include="StyleCop.Analyzers">
       <Version>1.0.2</Version>
@@ -48,10 +52,10 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="xunit">
-      <Version>2.4.0</Version>
+      <Version>2.4.1</Version>
     </PackageReference>
     <PackageReference Include="xunit.runner.visualstudio">
-      <Version>2.4.0</Version>
+      <Version>2.4.1</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>

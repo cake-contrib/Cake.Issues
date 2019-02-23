@@ -111,6 +111,28 @@
                     "Invalid file link:(~/foo.md).");
             }
 
+            [Fact]
+            public void Should_Read_Suggestions_Correct()
+            {
+                // Given
+                var fixture = new DocFxProviderFixture("entry-of-level-suggestion.json", @"/");
+
+                // When
+                var issues = fixture.ReadIssues().ToList();
+
+                // Then
+                issues.Count.ShouldBe(1);
+                CheckIssue(
+                    issues[0],
+                    @"bar.md",
+                    45,
+                    "Build Document.LinkPhaseHandler.ConceptualDocumentProcessor.Save",
+                    null,
+                    200,
+                    "Suggestion",
+                    "Invalid file link:(~/foo.md).");
+            }
+
             private static void CheckIssue(
                 IIssue issue,
                 string affectedFileRelativePath,
