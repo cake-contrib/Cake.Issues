@@ -56,7 +56,7 @@
             return
                 from logEntry in logFileEntries
                 let file = this.TryGetFile(logEntry.file, docRootPath)
-                let line = this.TryGetLine(logEntry.line)
+                let line = TryGetLine(logEntry.line)
                 where
                     (logEntry.message_severity == "warning" || logEntry.message_severity == "suggestion") &&
                     !string.IsNullOrWhiteSpace(logEntry.message)
@@ -90,6 +90,23 @@
         }
 
         /// <summary>
+        /// Reads the affected line from a issue logged in a DocFx log file.
+        /// </summary>
+        /// <param name="line">The line in the current log entry.</param>
+        /// <returns>The line of the issue.</returns>
+        private static int? TryGetLine(
+            int? line)
+        {
+            // Convert negative line numbers or line number 0 to null
+            if (line.HasValue && line.Value <= 0)
+            {
+                return null;
+            }
+
+            return line;
+        }
+
+        /// <summary>
         /// Reads the affected file path from a issue logged in a DocFx log file.
         /// </summary>
         /// <param name="fileName">The file name in the current log entry.</param>
@@ -117,23 +134,6 @@
             }
 
             return fileName;
-        }
-
-        /// <summary>
-        /// Reads the affected line from a issue logged in a DocFx log file.
-        /// </summary>
-        /// <param name="line">The line in the current log entry.</param>
-        /// <returns>The line of the issue.</returns>
-        private int? TryGetLine(
-            int? line)
-        {
-            // Convert negative line numbers or line number 0 to null
-            if (line.HasValue && line.Value <= 0)
-            {
-                return null;
-            }
-
-            return line;
         }
     }
 }
