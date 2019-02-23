@@ -17,10 +17,14 @@
     <CodeAnalysisRuleSet>..\Cake.Issues.DocFx.Tests.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Testfiles\entry-of-level-suggestion.json" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\Cake.Issues.DocFx\Cake.Issues.DocFx.csproj" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Testfiles\docfx.json" />
+    <EmbeddedResource Include="Testfiles\entry-of-level-suggestion.json" />
     <EmbeddedResource Include="Testfiles\entry-with-line.json" />
   </ItemGroup>
   <ItemGroup>

@@ -58,15 +58,35 @@
                 let file = this.TryGetFile(logEntry.file, docRootPath)
                 let line = this.TryGetLine(logEntry.line)
                 where
-                    logEntry.message_severity == "warning" &&
+                    (logEntry.message_severity == "warning" || logEntry.message_severity == "suggestion") &&
                     !string.IsNullOrWhiteSpace(logEntry.message)
                 select
                     IssueBuilder
                         .NewIssue(logEntry.message, this)
                         .InFile(file, line)
                         .OfRule(logEntry.source)
-                        .WithPriority(IssuePriority.Warning)
+                        .WithPriority(GetPriority(logEntry.message_severity))
                         .Create();
+        }
+
+        /// <summary>
+        /// Converts the severity to a priority.
+        /// </summary>
+        /// <param name="severity">Severity as reported by DocFX.</param>
+        /// <returns>Priority</returns>
+        private static IssuePriority GetPriority(string severity)
+        {
+            switch (severity.ToLower())
+            {
+                case "warning":
+                    return IssuePriority.Warning;
+
+                case "suggestion":
+                    return IssuePriority.Suggestion;
+
+                default:
+                    return IssuePriority.Undefined;
+            }
         }
 
         /// <summary>
