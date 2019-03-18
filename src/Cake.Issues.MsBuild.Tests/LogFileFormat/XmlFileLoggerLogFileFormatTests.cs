@@ -1,5 +1,6 @@
 ﻿namespace Cake.Issues.MsBuild.Tests.LogFileFormat
 {
+    using System.IO;
     using System.Linq;
     using Cake.Core.Diagnostics;
     using Cake.Core.IO;
@@ -364,7 +365,6 @@
                 issues.Count.ShouldBe(0);
             }
 
-
             [Fact]
             public void Should_Filter_Control_Chars_From_Log_Content()
             {
@@ -376,6 +376,40 @@
 
                 // Then
                 issues.Count.ShouldBe(0);
+            }
+
+            [Fact]
+            public void Should_Read_Issue_With_Absolute_FileName_And_Without_Task()
+            {
+                var fixture = new MsBuildIssuesProviderFixture<XmlFileLoggerLogFileFormat>("IssueWithAbsoluteFileNameAndWithoutTask.xml");
+
+                var repoRootCreated = !Directory.Exists(fixture.RepositorySettings.RepositoryRoot.FullPath);
+                Directory.CreateDirectory(fixture.RepositorySettings.RepositoryRoot.FullPath);
+                try
+                {
+                    var oldWorkingDirectory = Directory.GetCurrentDirectory();
+                    try
+                    {
+                        Directory.SetCurrentDirectory(fixture.RepositorySettings.RepositoryRoot.FullPath);
+
+                        // When
+                        var issues = fixture.ReadIssues().ToList();
+
+                        // Then
+                        issues.Count.ShouldBe(1);
+                    }
+                    finally
+                    {
+                        Directory.SetCurrentDirectory(oldWorkingDirectory);
+                    }
+                }
+                finally
+                {
+                    if (repoRootCreated)
+                    {
+                        Directory.Delete(fixture.RepositorySettings.RepositoryRoot.FullPath);
+                    }
+                }
             }
 
             private static void CheckIssue(

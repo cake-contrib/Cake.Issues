@@ -33,7 +33,7 @@
             {
                 // Given
                 var fixture = new MsBuildIssuesProviderFixture<BinaryLogFileFormat>("FullLog.binlog");
-                fixture.RepositorySettings = new RepositorySettings(@"c:\Git\Test\Cake.Prca\");
+                fixture.RepositorySettings = new RepositorySettings(@"C:\projects\cake-issues-demo\");
 
                 // When
                 var issues = fixture.ReadIssues().ToList();
@@ -66,62 +66,12 @@
                     "ClassLibrary1",
                     @"src\ClassLibrary1\Class1.cs",
                     1,
-                    "SA1200",
-                    300,
-                    "Warning",
-                    @"Using directive must appear within a namespace declaration");
-                CheckIssue(
-                    issues[3],
-                    @"src\ClassLibrary1\ClassLibrary1.csproj",
-                    "ClassLibrary1",
-                    @"src\ClassLibrary1\Class1.cs",
-                    2,
-                    "SA1200",
-                    300,
-                    "Warning",
-                    @"Using directive must appear within a namespace declaration");
-                CheckIssue(
-                    issues[4],
-                    @"src\ClassLibrary1\ClassLibrary1.csproj",
-                    "ClassLibrary1",
-                    @"src\ClassLibrary1\Class1.cs",
-                    3,
-                    "SA1200",
-                    300,
-                    "Warning",
-                    @"Using directive must appear within a namespace declaration");
-                CheckIssue(
-                    issues[5],
-                    @"src\ClassLibrary1\ClassLibrary1.csproj",
-                    "ClassLibrary1",
-                    @"src\ClassLibrary1\Class1.cs",
-                    4,
-                    "SA1200",
-                    300,
-                    "Warning",
-                    @"Using directive must appear within a namespace declaration");
-                CheckIssue(
-                    issues[6],
-                    @"src\ClassLibrary1\ClassLibrary1.csproj",
-                    "ClassLibrary1",
-                    @"src\ClassLibrary1\Class1.cs",
-                    5,
-                    "SA1200",
-                    300,
-                    "Warning",
-                    @"Using directive must appear within a namespace declaration");
-                CheckIssue(
-                    issues[7],
-                    @"src\ClassLibrary1\ClassLibrary1.csproj",
-                    "ClassLibrary1",
-                    @"src\ClassLibrary1\Class1.cs",
-                    1,
                     "SA1633",
                     300,
                     "Warning",
                     @"The file header is missing or not located at the top of the file.");
                 CheckIssue(
-                    issues[8],
+                    issues[3],
                     @"src\ClassLibrary1\ClassLibrary1.csproj",
                     "ClassLibrary1",
                     @"src\ClassLibrary1\Properties\AssemblyInfo.cs",
@@ -131,7 +81,7 @@
                     "Warning",
                     @"Enable XML documentation output");
                 CheckIssue(
-                    issues[9],
+                    issues[4],
                     @"src\ClassLibrary1\ClassLibrary1.csproj",
                     "ClassLibrary1",
                     @"src\ClassLibrary1\Properties\AssemblyInfo.cs",
@@ -141,7 +91,7 @@
                     "Warning",
                     @"The file header is missing or not located at the top of the file.");
                 CheckIssue(
-                    issues[10],
+                    issues[5],
                     @"src\ClassLibrary1\ClassLibrary1.csproj",
                     "ClassLibrary1",
                     @"src\ClassLibrary1\Properties\AssemblyInfo.cs",
@@ -151,7 +101,7 @@
                     "Warning",
                     @"Code must not contain trailing whitespace");
                 CheckIssue(
-                    issues[11],
+                    issues[6],
                     @"src\ClassLibrary1\ClassLibrary1.csproj",
                     "ClassLibrary1",
                     @"src\ClassLibrary1\Properties\AssemblyInfo.cs",
@@ -161,7 +111,7 @@
                     "Warning",
                     @"Code must not contain trailing whitespace");
                 CheckIssue(
-                    issues[12],
+                    issues[7],
                     @"src\ClassLibrary1\ClassLibrary1.csproj",
                     "ClassLibrary1",
                     @"src\ClassLibrary1\Properties\AssemblyInfo.cs",
@@ -171,7 +121,7 @@
                     "Warning",
                     @"Code must not contain trailing whitespace");
                 CheckIssue(
-                    issues[13],
+                    issues[8],
                     @"src\ClassLibrary1\ClassLibrary1.csproj",
                     "ClassLibrary1",
                     @"src\ClassLibrary1\Properties\AssemblyInfo.cs",
@@ -181,7 +131,7 @@
                     "Warning",
                     @"Code must not contain trailing whitespace");
                 CheckIssue(
-                    issues[14],
+                    issues[9],
                     @"src\ClassLibrary1\ClassLibrary1.csproj",
                     "ClassLibrary1",
                     @"src\ClassLibrary1\Properties\AssemblyInfo.cs",
@@ -190,6 +140,56 @@
                     300,
                     "Warning",
                     @"Code must not contain trailing whitespace");
+                CheckIssue(
+                    issues[10],
+                    @"src\ClassLibrary1\ClassLibrary1.csproj",
+                    "ClassLibrary1",
+                    @"src\ClassLibrary1\Class1.cs",
+                    1,
+                    "SA1200",
+                    300,
+                    "Warning",
+                    @"Using directive must appear within a namespace declaration");
+                CheckIssue(
+                    issues[11],
+                    @"src\ClassLibrary1\ClassLibrary1.csproj",
+                    "ClassLibrary1",
+                    @"src\ClassLibrary1\Class1.cs",
+                    2,
+                    "SA1200",
+                    300,
+                    "Warning",
+                    @"Using directive must appear within a namespace declaration");
+                CheckIssue(
+                    issues[12],
+                    @"src\ClassLibrary1\ClassLibrary1.csproj",
+                    "ClassLibrary1",
+                    @"src\ClassLibrary1\Class1.cs",
+                    3,
+                    "SA1200",
+                    300,
+                    "Warning",
+                    @"Using directive must appear within a namespace declaration");
+                CheckIssue(
+                    issues[13],
+                    @"src\ClassLibrary1\ClassLibrary1.csproj",
+                    "ClassLibrary1",
+                    @"src\ClassLibrary1\Class1.cs",
+                    4,
+                    "SA1200",
+                    300,
+                    "Warning",
+                    @"Using directive must appear within a namespace declaration");
+                CheckIssue(
+                    issues[14],
+                    @"src\ClassLibrary1\ClassLibrary1.csproj",
+                    "ClassLibrary1",
+                    @"src\ClassLibrary1\Class1.cs",
+                    5,
+                    "SA1200",
+                    300,
+                    "Warning",
+                    @"Using directive must appear within a namespace declaration");
                 CheckIssue(
                     issues[15],
                     @"src\ClassLibrary1\ClassLibrary1.csproj",
