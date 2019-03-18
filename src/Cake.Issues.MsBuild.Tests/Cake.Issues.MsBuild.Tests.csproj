@@ -22,6 +22,7 @@
     <None Remove="Testfiles\IssueWithOnlyFileName.xml" />
     <None Remove="Testfiles\IssueWithoutCode.xml" />
     <None Remove="Testfiles\IssueWithoutFile.xml" />
+    <None Remove="Testfiles\XmlFileLoggerLogFileFormat\IssueWithAbsoluteFileNameAndWithoutTask.xml" />
     <None Remove="Testfiles\XmlFileLoggerLogFileFormat\IssueWithoutMessage.xml" />
     <None Remove="Testfiles\XmlFileLoggerLogFileFormat\LogWithControlChars.xml" />
   </ItemGroup>
@@ -52,6 +53,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Cake.Issues.MsBuild\Cake.Issues.MsBuild.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Testfiles\XmlFileLoggerLogFileFormat\IssueWithAbsoluteFileNameAndWithoutTask.xml" />
   </ItemGroup>
 
 </Project>

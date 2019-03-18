@@ -222,6 +222,10 @@
                     var compileTaskDirectory = System.IO.Path.GetDirectoryName(parentFileAttr.Value);
                     fileName = System.IO.Path.Combine(compileTaskDirectory, fileName);
                 }
+                else
+                {
+                    fileName = System.IO.Path.Combine(repositorySettings.RepositoryRoot.FullPath, fileName);
+                }
             }
 
             // Validate file path and make relative to repository root.
