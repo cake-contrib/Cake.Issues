@@ -9,7 +9,7 @@
         public sealed class TheCtor
         {
             [Fact]
-            public void Should_Throw_If_RepositoryUrl_For_SourceBranch_Is_Null()
+            public void Should_Throw_If_RepositoryUrl_For_SourceRefName_Is_Null()
             {
                 // Given / When
                 var result = Record.Exception(() => new TfsPullRequestSystemSettings(null, "foo", null));
@@ -19,33 +19,33 @@
             }
 
             [Fact]
-            public void Should_Throw_If_SourceBranch_Is_Null()
+            public void Should_Throw_If_SourceRefName_Is_Null()
             {
                 // Given / When
                 var result = Record.Exception(() => new TfsPullRequestSystemSettings(new Uri("http://example.com"), null, null));
 
                 // Then
-                result.IsArgumentNullException("sourceBranch");
+                result.IsArgumentNullException("sourceRefName");
             }
 
             [Fact]
-            public void Should_Throw_If_SourceBranch_Is_Empty()
+            public void Should_Throw_If_SourceRefName_Is_Empty()
             {
                 // Given / When
                 var result = Record.Exception(() => new TfsPullRequestSystemSettings(new Uri("http://example.com"), string.Empty, null));
 
                 // Then
-                result.IsArgumentOutOfRangeException("sourceBranch");
+                result.IsArgumentOutOfRangeException("sourceRefName");
             }
 
             [Fact]
-            public void Should_Throw_If_SourceBranch_Is_WhiteSpace()
+            public void Should_Throw_If_SourceRefName_Is_WhiteSpace()
             {
                 // Given / When
                 var result = Record.Exception(() => new TfsPullRequestSystemSettings(new Uri("http://example.com"), " ", null));
 
                 // Then
-                result.IsArgumentOutOfRangeException("sourceBranch");
+                result.IsArgumentOutOfRangeException("sourceRefName");
             }
 
             [Fact]
