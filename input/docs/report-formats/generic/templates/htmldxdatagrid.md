@@ -175,6 +175,8 @@ CreateIssueReport(
   (<a href="https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/build/create-reports/create-reports-htmldxdatagrid-disable-filtering.cake" target="_blank">Source Code</a>)
 * <a href="htmldxdatagrid-demo-disablesearching.html" target="_blank">Disable searching</a>
   (<a href="https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/build/create-reports/create-reports-htmldxdatagrid-disable-searching.cake" target="_blank">Source Code</a>)
+* <a href="htmldxdatagrid-demo-customscriptlocation.html" target="_blank">Custom script location and version</a>
+  (<a href="https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/build/create-reports/create-reports-htmldxdatagrid-custom-script-location.cake" target="_blank">Source Code</a>)
 
 # Source Code
 
