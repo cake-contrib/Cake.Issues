@@ -48,6 +48,16 @@
                     return "dx.material.purple.light.css";
                 case DevExtremeTheme.MaterialTealLight:
                     return "dx.material.teal.light.css";
+                case DevExtremeTheme.MaterialBlueDark:
+                    return "dx.material.blue.dark.css";
+                case DevExtremeTheme.MaterialLimeDark:
+                    return "dx.material.lime.dark.css";
+                case DevExtremeTheme.MaterialOrangeDark:
+                    return "dx.material.orange.dark.css";
+                case DevExtremeTheme.MaterialPurpleDark:
+                    return "dx.material.purple.dark.css";
+                case DevExtremeTheme.MaterialTealDark:
+                    return "dx.material.teal.dark.css";
                 default:
                     throw new ArgumentException("Unknown enumeration value", nameof(theme));
             }
