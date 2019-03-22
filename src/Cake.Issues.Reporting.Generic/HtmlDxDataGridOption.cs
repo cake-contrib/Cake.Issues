@@ -254,6 +254,52 @@
         /// Value needs to be an instance of <see cref="FileLinkSettings"/>.
         /// Default value is <c>null</c>.
         /// </summary>
-        FileLinkSettings
+        FileLinkSettings,
+
+        /// <summary>
+        /// Location where jQuery can be found.
+        /// The following files need to be available:
+        /// <list type="bullet">
+        /// <item>
+        /// <description><c>{JQueryLocation}/jquery-{JQueryVersion}.min.js</c></description>
+        /// </item>
+        /// </list>
+        /// Default value is <c>https://ajax.aspnetcdn.com/ajax/jquery/</c>.
+        /// </summary>
+        JQueryLocation,
+
+        /// <summary>
+        /// Version of jQuery which should be used.
+        /// This version needs to match the version required by the selected <see cref="DevExtremeVersion"/>.
+        /// Default value is <c>3.1.0</c>.
+        /// </summary>
+        JQueryVersion,
+
+        /// <summary>
+        /// Location where the DevExtreme libraries can be found.
+        /// Below the location there needs to be a folder matching <see cref="DevExtremeVersion"/> and
+        /// inside there subfolders <c>js</c> and <c>css</c>.
+        /// The following files need to be available:
+        /// <list type="bullet">
+        /// <item>
+        /// <description><c>{DevExtremeLocation}/{DevExtremeVersion}/js/dx.all.js</c></description>
+        /// </item>
+        /// <item>
+        /// <description><c>{DevExtremeLocation}/{DevExtremeVersion}/css/dx.common.css</c></description>
+        /// </item>
+        /// <item>
+        /// <description><c>{DevExtremeLocation}/{DevExtremeVersion}/css/{Theme}</c></description>
+        /// </item>
+        /// </list>
+        /// Default value is <c>https://cdn3.devexpress.com/jslib/</c>.
+        /// </summary>
+        DevExtremeLocation,
+
+        /// <summary>
+        /// Version of the DevExtreme libraries which should be used.
+        /// If setting this the matching <see cref="JQueryVersion"/> needs to also be set.
+        /// Default value is <c>18.2.7</c>.
+        /// </summary>
+        DevExtremeVersion
     }
 }
