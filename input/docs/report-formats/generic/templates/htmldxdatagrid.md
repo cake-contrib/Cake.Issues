@@ -92,6 +92,16 @@ CreateIssueReport(
   (<a href="https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/build/create-reports/create-reports-htmldxdatagrid-theme-materialpurplelight.cake" target="_blank">Source Code</a>)
 * <a href="htmldxdatagrid-demo-theme-materialteallight.html" target="_blank">Material Teal Light Theme</a>
   (<a href="https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/build/create-reports/create-reports-htmldxdatagrid-theme-materialteallight.cake" target="_blank">Source Code</a>)
+* <a href="htmldxdatagrid-demo-theme-materialbluedark.html" target="_blank">Material Blue Dark Theme</a>
+  (<a href="https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/build/create-reports/create-reports-htmldxdatagrid-theme-materialbluedark.cake" target="_blank">Source Code</a>)
+* <a href="htmldxdatagrid-demo-theme-materiallimedark.html" target="_blank">Material Lime Dark Theme</a>
+  (<a href="https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/build/create-reports/create-reports-htmldxdatagrid-theme-materiallimedark.cake" target="_blank">Source Code</a>)
+* <a href="htmldxdatagrid-demo-theme-materialorangedark.html" target="_blank">Material Orange Dark Theme</a>
+  (<a href="https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/build/create-reports/create-reports-htmldxdatagrid-theme-materialorangedark.cake" target="_blank">Source Code</a>)
+* <a href="htmldxdatagrid-demo-theme-materialpurpledark.html" target="_blank">Material Purple Dark Theme</a>
+  (<a href="https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/build/create-reports/create-reports-htmldxdatagrid-theme-materialpurpledark.cake" target="_blank">Source Code</a>)
+* <a href="htmldxdatagrid-demo-theme-materialtealdark.html" target="_blank">Material Teal Dark Theme</a>
+  (<a href="https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/build/create-reports/create-reports-htmldxdatagrid-theme-materialtealdark.cake" target="_blank">Source Code</a>)
 
 ## Column visibility
 
@@ -165,6 +175,8 @@ CreateIssueReport(
   (<a href="https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/build/create-reports/create-reports-htmldxdatagrid-disable-filtering.cake" target="_blank">Source Code</a>)
 * <a href="htmldxdatagrid-demo-disablesearching.html" target="_blank">Disable searching</a>
   (<a href="https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/build/create-reports/create-reports-htmldxdatagrid-disable-searching.cake" target="_blank">Source Code</a>)
+* <a href="htmldxdatagrid-demo-customscriptlocation.html" target="_blank">Custom script location and version</a>
+  (<a href="https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/build/create-reports/create-reports-htmldxdatagrid-custom-script-location.cake" target="_blank">Source Code</a>)
 
 # Source Code
 

@@ -18,6 +18,7 @@ and behavior of Cake.Issues.Recipe.
 | Property                                                      | Default Value | Description                                            |
 |---------------------------------------------------------------|---------------|--------------------------------------------------------|
 | `IssuesParameters.InputFiles.MsBuildXmlFileLoggerLogFilePath` | `null`        | Path to the MSBuild log file created by XmlFileLogger. |
+| `IssuesParameters.InputFiles.MsBuildBinaryLogFilePath`        | `null`        | Path to the MSBuild binary log file.                   |
 | `IssuesParameters.InputFiles.InspectCodeLogFilePath`          | `null`        | Path to the JetBrains InspectCoe log file.             |
 
 # Report creation
