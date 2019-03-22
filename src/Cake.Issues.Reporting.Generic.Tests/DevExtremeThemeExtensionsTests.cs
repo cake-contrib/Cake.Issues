@@ -24,6 +24,11 @@
             [InlineData(DevExtremeTheme.MaterialOrangeLight)]
             [InlineData(DevExtremeTheme.MaterialPurpleLight)]
             [InlineData(DevExtremeTheme.MaterialTealLight)]
+            [InlineData(DevExtremeTheme.MaterialBlueDark)]
+            [InlineData(DevExtremeTheme.MaterialLimeDark)]
+            [InlineData(DevExtremeTheme.MaterialOrangeDark)]
+            [InlineData(DevExtremeTheme.MaterialPurpleDark)]
+            [InlineData(DevExtremeTheme.MaterialTealDark)]
             public void Should_Return_FileName(DevExtremeTheme theme)
             {
                 // Given

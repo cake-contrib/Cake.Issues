@@ -61,28 +61,53 @@
         ContrastCompact,
 
         /// <summary>
-        /// Theme in Google Material design in a blue color scheme.
+        /// Theme in Google Material design in a light blue color scheme.
         /// </summary>
         MaterialBlueLight,
 
         /// <summary>
-        /// Theme in Google Material design in a lime color scheme.
+        /// Theme in Google Material design in a light lime color scheme.
         /// </summary>
         MaterialLimeLight,
 
         /// <summary>
-        /// Theme in Google Material design in an orange color scheme.
+        /// Theme in Google Material design in a light orange color scheme.
         /// </summary>
         MaterialOrangeLight,
 
         /// <summary>
-        /// Theme in Google Material design in a purple color scheme.
+        /// Theme in Google Material design in a light purple color scheme.
         /// </summary>
         MaterialPurpleLight,
 
         /// <summary>
-        /// Theme in Google Material design in a teal color scheme.
+        /// Theme in Google Material design in a light teal color scheme.
         /// </summary>
         MaterialTealLight,
+
+        /// <summary>
+        /// Theme in Google Material design in a dark blue color scheme.
+        /// </summary>
+        MaterialBlueDark,
+
+        /// <summary>
+        /// Theme in Google Material design in a dark lime color scheme.
+        /// </summary>
+        MaterialLimeDark,
+
+        /// <summary>
+        /// Theme in Google Material design in a dark orange color scheme.
+        /// </summary>
+        MaterialOrangeDark,
+
+        /// <summary>
+        /// Theme in Google Material design in a dark purple color scheme.
+        /// </summary>
+        MaterialPurpleDark,
+
+        /// <summary>
+        /// Theme in Google Material design in a dark teal color scheme.
+        /// </summary>
+        MaterialTealDark,
     }
 }
