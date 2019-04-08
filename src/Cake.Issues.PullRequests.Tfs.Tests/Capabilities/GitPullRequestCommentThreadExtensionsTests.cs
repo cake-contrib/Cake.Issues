@@ -47,7 +47,7 @@
             }
 
             [Fact]
-            public void Should_Throw_If_Properties_Are_Null()
+            public void Should_Not_Throw_If_Properties_Are_Null()
             {
                 // Given
                 var thread =
@@ -61,10 +61,10 @@
                     };
 
                 // When
-                var result = Record.Exception(() => thread.ToPullRequestDiscussionThread());
+                var result = thread.ToPullRequestDiscussionThread();
 
                 // Then
-                result.IsInvalidOperationException("Properties collection is not created.");
+                result.CommentSource.ShouldBe(default(string));
             }
 
             [Fact]
@@ -305,7 +305,7 @@
             }
 
             [Fact]
-            public void Should_Throw_If_Properties_Are_Null()
+            public void Should_Not_Throw_If_Properties_Are_Null()
             {
                 // Given
                 var thread =
@@ -319,10 +319,10 @@
                     };
 
                 // When
-                var result = Record.Exception(() => thread.GetCommentSource());
+                var result = thread.GetCommentSource();
 
                 // Then
-                result.IsInvalidOperationException("Properties collection is not created.");
+                result.ShouldBe(default(string));
             }
 
             [Fact]
@@ -427,7 +427,7 @@
             }
 
             [Fact]
-            public void Should_Throw_If_Properties_Are_Null()
+            public void Should_Not_Throw_If_Properties_Are_Null()
             {
                 // Given
                 var thread =
@@ -442,10 +442,10 @@
                 var value = "foo";
 
                 // When
-                var result = Record.Exception(() => thread.IsCommentSource(value));
+                var result = thread.IsCommentSource(value);
 
                 // Then
-                result.IsInvalidOperationException("Properties collection is not created.");
+                result.ShouldBeFalse();
             }
 
             [Fact]
@@ -510,7 +510,7 @@
             }
 
             [Fact]
-            public void Should_Throw_If_Properties_Are_Null()
+            public void Should_Not_Throw_If_Properties_Are_Null()
             {
                 // Given
                 var thread =
@@ -524,10 +524,10 @@
                     };
 
                 // When
-                var result = Record.Exception(() => thread.GetIssueMessage());
+                var result = thread.GetIssueMessage();
 
                 // Then
-                result.IsInvalidOperationException("Properties collection is not created.");
+                result.ShouldBe(default(string));
             }
 
             [Fact]
