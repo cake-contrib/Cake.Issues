@@ -648,6 +648,20 @@
         public sealed class TheWithPriorityMethod
         {
             [Fact]
+            public void Should_Handle_Priority_Which_Is_Null()
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+                int? priority = null;
+
+                // When
+                var issue = fixture.IssueBuilder.WithPriority(priority, "Foo").Create();
+
+                // Then
+                issue.Priority.ShouldBe(priority);
+            }
+
+            [Fact]
             public void Should_Handle_PriorityNames_Which_Are_Null()
             {
                 // Given
