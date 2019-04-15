@@ -24,8 +24,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Cake.Core" Version="0.28.0" />
-    <PackageReference Include="Cake.Testing" Version="0.28.0" />
+    <PackageReference Include="Cake.Core" Version="0.33.0" />
+    <PackageReference Include="Cake.Testing" Version="0.33.0" />
     <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.1" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.0.2" />
     <PackageReference Include="xunit.assert" Version="2.4.1" />
