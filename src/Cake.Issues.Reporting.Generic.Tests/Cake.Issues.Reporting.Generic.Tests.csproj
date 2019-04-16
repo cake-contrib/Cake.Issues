@@ -37,8 +37,8 @@
     <CodeAnalysisRuleSet>..\Cake.Issues.Reporting.Generic.Tests.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Cake.Core, Version=0.28.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Cake.Core.0.28.0\lib\net46\Cake.Core.dll</HintPath>
+    <Reference Include="Cake.Core, Version=0.33.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Cake.Core.0.33.0\lib\net46\Cake.Core.dll</HintPath>
     </Reference>
     <Reference Include="Cake.Issues, Version=0.6.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Cake.Issues.0.6.1\lib\netstandard2.0\Cake.Issues.dll</HintPath>
@@ -49,8 +49,8 @@
     <Reference Include="Cake.Issues.Testing, Version=0.6.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Cake.Issues.Testing.0.6.1\lib\netstandard2.0\Cake.Issues.Testing.dll</HintPath>
     </Reference>
-    <Reference Include="Cake.Testing, Version=0.28.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Cake.Testing.0.28.0\lib\net46\Cake.Testing.dll</HintPath>
+    <Reference Include="Cake.Testing, Version=0.33.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Cake.Testing.0.33.0\lib\net46\Cake.Testing.dll</HintPath>
     </Reference>
     <Reference Include="HtmlAgilityPack, Version=1.11.0.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
       <HintPath>..\packages\HtmlAgilityPack.1.11.0\lib\Net45\HtmlAgilityPack.dll</HintPath>
