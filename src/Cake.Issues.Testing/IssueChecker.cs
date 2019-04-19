@@ -77,13 +77,13 @@
             if (issue.ProviderType != providerType)
             {
                 throw new Exception(
-                    $"Expected issue.ProviderType to be {providerType}");
+                    $"Expected issue.ProviderType to be '{providerType}' but was '{issue.ProviderType}'.");
             }
 
             if (issue.ProviderName != providerName)
             {
                 throw new Exception(
-                    $"Expected issue.ProviderName to be {providerName}");
+                    $"Expected issue.ProviderName to be '{providerName}' but was '{issue.ProviderName}'.");
             }
 
             if (issue.ProjectFileRelativePath == null)
@@ -91,7 +91,7 @@
                 if (projectFileRelativePath != null)
                 {
                     throw new Exception(
-                        $"Expected issue.ProjectFileRelativePath to be {projectFileRelativePath}");
+                        $"Expected issue.ProjectFileRelativePath to be '{projectFileRelativePath}' but was 'null'.");
                 }
             }
             else
@@ -99,7 +99,7 @@
                 if (issue.ProjectFileRelativePath.ToString() != new FilePath(projectFileRelativePath).ToString())
                 {
                     throw new Exception(
-                        $"Expected issue.ProjectFileRelativePath to be {projectFileRelativePath}");
+                        $"Expected issue.ProjectFileRelativePath to be '{projectFileRelativePath}' but was '{issue.ProjectFileRelativePath.ToString()}'.");
                 }
 
                 if (!issue.ProjectFileRelativePath.IsRelative)
@@ -112,7 +112,7 @@
             if (issue.ProjectName != projectName)
             {
                 throw new Exception(
-                    $"Expected issue.ProjectName to be {projectName}");
+                    $"Expected issue.ProjectName to be '{projectName}' but was '{issue.ProjectName}'.");
             }
 
             if (issue.AffectedFileRelativePath == null)
@@ -120,7 +120,7 @@
                 if (affectedFileRelativePath != null)
                 {
                     throw new Exception(
-                        $"Expected issue.AffectedFileRelativePath to be {affectedFileRelativePath}");
+                        $"Expected issue.AffectedFileRelativePath to be '{affectedFileRelativePath}' but was 'null'.");
                 }
             }
             else
@@ -128,7 +128,7 @@
                 if (issue.AffectedFileRelativePath.ToString() != new FilePath(affectedFileRelativePath).ToString())
                 {
                     throw new Exception(
-                        $"Expected issue.AffectedFileRelativePath to be {affectedFileRelativePath}");
+                        $"Expected issue.AffectedFileRelativePath to be '{affectedFileRelativePath}' but was '{issue.AffectedFileRelativePath.ToString()}'.");
                 }
 
                 if (!issue.AffectedFileRelativePath.IsRelative)
@@ -141,37 +141,37 @@
             if (issue.Line != line)
             {
                 throw new Exception(
-                    $"Expected issue.Line to be {line}");
+                    $"Expected issue.Line to be '{line}' but was '{issue.Line}'.");
             }
 
             if (issue.Message != message)
             {
                 throw new Exception(
-                    $"Expected issue.Message to be {message}");
+                    $"Expected issue.Message to be '{message}' but was '{issue.Message}'.");
             }
 
             if (issue.Priority != priority)
             {
                 throw new Exception(
-                    $"Expected issue.Priority to be {priority}");
+                    $"Expected issue.Priority to be '{priority}' but was '{issue.Priority}'.");
             }
 
             if (issue.PriorityName != priorityName)
             {
                 throw new Exception(
-                    $"Expected issue.PriorityName to be {priorityName}");
+                    $"Expected issue.PriorityName to be '{priorityName}' but was '{issue.PriorityName}'.");
             }
 
             if (issue.Rule != rule)
             {
                 throw new Exception(
-                    $"Expected issue.Rule to be {rule}");
+                    $"Expected issue.Rule to be '{rule}' but was '{issue.Rule}'.");
             }
 
             if (issue.RuleUrl?.ToString() != ruleUrl?.ToString())
             {
                 throw new Exception(
-                    $"Expected issue.RuleUrl to be {ruleUrl?.ToString()}");
+                    $"Expected issue.RuleUrl to be '{ruleUrl?.ToString()}' but was '{issue.RuleUrl?.ToString()}'.");
             }
         }
     }
