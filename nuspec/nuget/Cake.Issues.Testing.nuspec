@@ -10,7 +10,7 @@
     <description>
 Common helpers for testing add-ins based on Cake.Issues
     </description>
-    <licenseUrl>https://github.com/cake-contrib/Cake.Issues.Testing/blob/develop/LICENSE</licenseUrl>
+    <license type="expression">MIT</license>
     <projectUrl>http://cake-contrib.github.io/Cake.Issues.Website/</projectUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/cake-contrib/graphics@a5cf0f881c390650144b2243ae551d5b9f836196/png/cake-contrib-medium.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
