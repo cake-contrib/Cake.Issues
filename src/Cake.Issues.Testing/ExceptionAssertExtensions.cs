@@ -78,23 +78,5 @@
                 throw new Exception($"Expected exception message to be '{message}' but was '{invalidOperationException.Message}'.");
             }
         }
-
-        ///// <summary>
-        ///// Checks if an execption is of type <see cref="XunitException"/>.
-        ///// </summary>
-        ///// <param name="exception">Exception to check.</param>
-        ///// <param name="message">Expected exception message.</param>
-        //public static void IsXUnitException(this Exception exception, string message)
-        //{
-        //    if (!(exception is XunitException xunitException))
-        //    {
-        //        throw new Exception($"Expected exception of type '{typeof(XunitException)}' but was '{exception.GetType()}'");
-        //    }
-
-        //    if (xunitException.Message.StartsWith(message))
-        //    {
-        //        throw new Exception($"Expected exception message to be '{message}' but was '{xunitException.Message}'.");
-        //    }
-        //}
     }
 }

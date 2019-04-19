@@ -43,7 +43,7 @@
                 // Given
                 var fixture = new FakeIssueProviderFixture
                 {
-                    Log = null
+                    Log = null,
                 };
 
                 // When
@@ -59,7 +59,7 @@
                 // Given
                 var fixture = new FakeIssueProviderFixture
                 {
-                    RepositorySettings = null
+                    RepositorySettings = null,
                 };
 
                 // When

@@ -24,7 +24,7 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="FakeConfigurableIssueProvider"/> class.
         /// </summary>
-        /// <param name="log">The Cake log instance</param>
+        /// <param name="log">The Cake log instance.</param>
         /// <param name="settings">The issue provider settings.</param>
         /// <param name="issues">Issues which should be returned by the issue provider.</param>
         public FakeConfigurableIssueProvider(
