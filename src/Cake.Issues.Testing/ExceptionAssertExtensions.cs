@@ -14,10 +14,7 @@
         /// <param name="parameterName">Expected name of the parameter which has caused the exception.</param>
         public static void IsArgumentException(this Exception exception, string parameterName)
         {
-            if (!(exception is ArgumentException argumentException))
-            {
-                throw new Exception($"Expected exception of type '{typeof(ArgumentException)}' but was '{exception.GetType()}'");
-            }
+            var argumentException = exception.CheckExceptionType<ArgumentException>();
 
             if (argumentException.ParamName != parameterName)
             {
@@ -32,10 +29,7 @@
         /// <param name="parameterName">Expected name of the parameter which has caused the exception.</param>
         public static void IsArgumentNullException(this Exception exception, string parameterName)
         {
-            if (!(exception is ArgumentNullException argumentNullException))
-            {
-                throw new Exception($"Expected exception of type '{typeof(ArgumentNullException)}' but was '{exception.GetType()}'");
-            }
+            var argumentNullException = exception.CheckExceptionType<ArgumentNullException>();
 
             if (argumentNullException.ParamName != parameterName)
             {
@@ -50,10 +44,7 @@
         /// <param name="parameterName">Expected name of the parameter which has caused the exception.</param>
         public static void IsArgumentOutOfRangeException(this Exception exception, string parameterName)
         {
-            if (!(exception is ArgumentOutOfRangeException argumentOutOfRangeException))
-            {
-                throw new Exception($"Expected exception of type '{typeof(ArgumentOutOfRangeException)}' but was '{exception.GetType()}'");
-            }
+            var argumentOutOfRangeException = exception.CheckExceptionType<ArgumentOutOfRangeException>();
 
             if (argumentOutOfRangeException.ParamName != parameterName)
             {
@@ -68,15 +59,34 @@
         /// <param name="message">Expected exception message.</param>
         public static void IsInvalidOperationException(this Exception exception, string message)
         {
-            if (!(exception is InvalidOperationException invalidOperationException))
-            {
-                throw new Exception($"Expected exception of type '{typeof(InvalidOperationException)}' but was '{exception.GetType()}'");
-            }
+            var invalidOperationException = exception.CheckExceptionType<InvalidOperationException>();
 
             if (invalidOperationException.Message != message)
             {
                 throw new Exception($"Expected exception message to be '{message}' but was '{invalidOperationException.Message}'.");
             }
+        }
+
+        /// <summary>
+        /// Validates and converts an exception type.
+        /// </summary>
+        /// <typeparam name="T">Type of expected exception.</typeparam>
+        /// <param name="exception">Exception which should be checked.</param>
+        /// <returns>Converted exception.</returns>
+        private static T CheckExceptionType<T>(this Exception exception)
+            where T : Exception
+        {
+            if (exception == null)
+            {
+                throw new Exception($"Expected exception of type '{typeof(T)}' but no exception was thrown.");
+            }
+
+            if (!(exception is T typedException))
+            {
+                throw new Exception($"Expected exception of type '{typeof(T)}' but was '{exception.GetType()}'.");
+            }
+
+            return typedException;
         }
     }
 }
