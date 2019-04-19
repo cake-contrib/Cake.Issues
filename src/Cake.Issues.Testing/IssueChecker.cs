@@ -15,6 +15,23 @@
         /// <param name="expectedIssue">Description of the expected issue.</param>
         public static void Check(
             IIssue issueToCheck,
+            IssueBuilder expectedIssue)
+        {
+            issueToCheck.NotNull(nameof(issueToCheck));
+            expectedIssue.NotNull(nameof(expectedIssue));
+
+            Check(
+                issueToCheck,
+                expectedIssue.Create());
+        }
+
+        /// <summary>
+        /// Checks values of an issue.
+        /// </summary>
+        /// <param name="issueToCheck">Issue which should be checked.</param>
+        /// <param name="expectedIssue">Description of the expected issue.</param>
+        public static void Check(
+            IIssue issueToCheck,
             IIssue expectedIssue)
         {
             issueToCheck.NotNull(nameof(issueToCheck));

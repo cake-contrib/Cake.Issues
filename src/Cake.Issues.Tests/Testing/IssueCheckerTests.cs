@@ -7,6 +7,67 @@
 
     public sealed class IssueCheckerTests
     {
+        public sealed class TheCheckMethodWithIssueBuilder
+        {
+            [Fact]
+            public void Should_Throw_If_IssueToCheck_Is_Null()
+            {
+#pragma warning disable SA1123 // Do not place regions within elements
+                #region DupFinder Exclusion
+#pragma warning restore SA1123 // Do not place regions within elements
+
+                // Given
+                var fixture = new IssueBuilderFixture();
+                IIssue issueToCheck = null;
+                var expectedIssue = fixture.IssueBuilder;
+
+                // When
+                var result = Record.Exception(() =>
+                    IssueChecker.Check(issueToCheck, expectedIssue));
+
+                // Then
+                result.IsArgumentNullException("issueToCheck");
+
+                #endregion
+            }
+
+            [Fact]
+            public void Should_Throw_If_ExpectedIssue_Is_Null()
+            {
+#pragma warning disable SA1123 // Do not place regions within elements
+                #region DupFinder Exclusion
+#pragma warning restore SA1123 // Do not place regions within elements
+
+                // Given
+                var fixture = new IssueBuilderFixture();
+                var issueToCheck = fixture.IssueBuilder.Create();
+                IssueBuilder expectedIssue = null;
+
+                // When
+                var result = Record.Exception(() =>
+                    IssueChecker.Check(issueToCheck, expectedIssue));
+
+                // Then
+                result.IsArgumentNullException("expectedIssue");
+
+                #endregion
+            }
+
+            [Fact]
+            public void Should_Not_Throw_If_Issues_Are_Identical()
+            {
+                // Given
+                var fixture = new IssueCheckerFixture();
+                var issueToCheck = fixture.IssueBuilder.Create();
+                var expectedIssue = fixture.IssueBuilder;
+
+                // When
+                IssueChecker.Check(issueToCheck, expectedIssue);
+
+                // Then
+            }
+        }
+
         public sealed class TheCheckMethodComparingTwoIssues
         {
             [Fact]
