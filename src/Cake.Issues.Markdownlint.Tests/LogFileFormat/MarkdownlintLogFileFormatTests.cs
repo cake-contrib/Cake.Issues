@@ -1,7 +1,7 @@
 ﻿namespace Cake.Issues.Markdownlint.Tests.LogFileFormat
 {
+    using System;
     using System.Linq;
-    using Cake.Core.IO;
     using Cake.Issues.Markdownlint.LogFileFormat;
     using Cake.Issues.Testing;
     using Shouldly;
@@ -35,93 +35,33 @@
 
                 // Then
                 issues.Count.ShouldBe(3);
-                CheckIssue(
+                IssueChecker.Check(
                     issues[0],
-                    null,
-                    null,
-                    @"bad.md",
-                    3,
-                    "MD010",
-                    "https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md010",
-                    300,
-                    "Warning",
-                    "Hard tabs");
-                CheckIssue(
+                    IssueBuilder.NewIssue(
+                        "Hard tabs",
+                        "Cake.Issues.Markdownlint.MarkdownlintIssuesProvider",
+                        "markdownlint")
+                        .InFile("bad.md", 3)
+                        .OfRule("MD010", new Uri("https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md010"))
+                        .WithPriority(IssuePriority.Warning));
+                IssueChecker.Check(
                     issues[1],
-                    null,
-                    null,
-                    @"bad.md",
-                    1,
-                    "MD018",
-                    "https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md018",
-                    300,
-                    "Warning",
-                    "No space after hash on atx style header");
-                CheckIssue(
+                    IssueBuilder.NewIssue(
+                        "No space after hash on atx style header",
+                        "Cake.Issues.Markdownlint.MarkdownlintIssuesProvider",
+                        "markdownlint")
+                        .InFile("bad.md", 1)
+                        .OfRule("MD018", new Uri("https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md018"))
+                        .WithPriority(IssuePriority.Warning));
+                IssueChecker.Check(
                     issues[2],
-                    null,
-                    null,
-                    @"bad.md",
-                    3,
-                    "MD018",
-                    "https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md018",
-                    300,
-                    "Warning",
-                    "No space after hash on atx style header");
-            }
-
-            private static void CheckIssue(
-                IIssue issue,
-                string projectFileRelativePath,
-                string projectName,
-                string affectedFileRelativePath,
-                int? line,
-                string rule,
-                string ruleUrl,
-                int priority,
-                string priorityName,
-                string message)
-            {
-                issue.ProviderType.ShouldBe("Cake.Issues.Markdownlint.MarkdownlintIssuesProvider");
-                issue.ProviderName.ShouldBe("markdownlint");
-
-                if (issue.ProjectFileRelativePath == null)
-                {
-                    projectFileRelativePath.ShouldBeNull();
-                }
-                else
-                {
-                    issue.ProjectFileRelativePath.ToString().ShouldBe(new FilePath(projectFileRelativePath).ToString());
-                    issue.ProjectFileRelativePath.IsRelative.ShouldBe(true, "Issue path is not relative");
-                }
-
-                issue.ProjectName.ShouldBe(projectName);
-
-                if (issue.AffectedFileRelativePath == null)
-                {
-                    affectedFileRelativePath.ShouldBeNull();
-                }
-                else
-                {
-                    issue.AffectedFileRelativePath.ToString().ShouldBe(new FilePath(affectedFileRelativePath).ToString());
-                    issue.AffectedFileRelativePath.IsRelative.ShouldBe(true, "Issue path is not relative");
-                }
-
-                issue.Line.ShouldBe(line);
-                issue.Rule.ShouldBe(rule);
-
-                if (issue.RuleUrl == null)
-                {
-                    ruleUrl.ShouldBeNull();
-                }
-                else
-                {
-                    issue.RuleUrl.ToString().ShouldBe(ruleUrl);
-                }
-
-                issue.Priority.ShouldBe(priority);
-                issue.PriorityName.ShouldBe(priorityName);
-                issue.Message.ShouldBe(message);
+                    IssueBuilder.NewIssue(
+                        "No space after hash on atx style header",
+                        "Cake.Issues.Markdownlint.MarkdownlintIssuesProvider",
+                        "markdownlint")
+                        .InFile("bad.md", 3)
+                        .OfRule("MD018", new Uri("https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md018"))
+                        .WithPriority(IssuePriority.Warning));
             }
         }
     }
