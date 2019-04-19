@@ -1,8 +1,8 @@
 ﻿namespace Cake.Issues.MsBuild.Tests.LogFileFormat
 {
+    using System;
     using System.Linq;
     using Cake.Core.Diagnostics;
-    using Cake.Core.IO;
     using Cake.Issues.MsBuild.LogFileFormat;
     using Cake.Issues.Testing;
     using Shouldly;
@@ -32,247 +32,204 @@
             public void Should_Read_Full_Log_Correct()
             {
                 // Given
-                var fixture = new MsBuildIssuesProviderFixture<BinaryLogFileFormat>("FullLog.binlog");
-                fixture.RepositorySettings = new RepositorySettings(@"C:\projects\cake-issues-demo\");
+                var fixture = new MsBuildIssuesProviderFixture<BinaryLogFileFormat>("FullLog.binlog")
+                {
+                    RepositorySettings = new RepositorySettings(@"C:\projects\cake-issues-demo\"),
+                };
 
                 // When
                 var issues = fixture.ReadIssues().ToList();
 
                 // Then
                 issues.Count.ShouldBe(19);
-                CheckIssue(
+                IssueChecker.Check(
                     issues[0],
-                    @"src\ClassLibrary1\ClassLibrary1.csproj",
-                    "ClassLibrary1",
-                    @"src\ClassLibrary1\Class1.cs",
-                    13,
-                    "CS0219",
-                    300,
-                    "Warning",
-                    @"The variable 'foo' is assigned but its value is never used");
-                CheckIssue(
+                    IssueBuilder.NewIssue(
+                        "The variable 'foo' is assigned but its value is never used",
+                        "Cake.Issues.MsBuild.MsBuildIssuesProvider",
+                        "MSBuild")
+                        .InProject(@"src\ClassLibrary1\ClassLibrary1.csproj", "ClassLibrary1")
+                        .InFile(@"src\ClassLibrary1\Class1.cs", 13)
+                        .OfRule("CS0219")
+                        .WithPriority(IssuePriority.Warning));
+                IssueChecker.Check(
                     issues[1],
-                    @"src\ClassLibrary1\ClassLibrary1.csproj",
-                    "ClassLibrary1",
-                    @"src\ClassLibrary1\Class1.cs",
-                    1,
-                    "SA1652",
-                    300,
-                    "Warning",
-                    @"Enable XML documentation output");
-                CheckIssue(
+                    IssueBuilder.NewIssue(
+                        "Enable XML documentation output",
+                        "Cake.Issues.MsBuild.MsBuildIssuesProvider",
+                        "MSBuild")
+                        .InProject(@"src\ClassLibrary1\ClassLibrary1.csproj", "ClassLibrary1")
+                        .InFile(@"src\ClassLibrary1\Class1.cs", 1)
+                        .OfRule("SA1652", new Uri("https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1652.md"))
+                        .WithPriority(IssuePriority.Warning));
+                IssueChecker.Check(
                     issues[2],
-                    @"src\ClassLibrary1\ClassLibrary1.csproj",
-                    "ClassLibrary1",
-                    @"src\ClassLibrary1\Class1.cs",
-                    1,
-                    "SA1633",
-                    300,
-                    "Warning",
-                    @"The file header is missing or not located at the top of the file.");
-                CheckIssue(
+                    IssueBuilder.NewIssue(
+                        "The file header is missing or not located at the top of the file.",
+                        "Cake.Issues.MsBuild.MsBuildIssuesProvider",
+                        "MSBuild")
+                        .InProject(@"src\ClassLibrary1\ClassLibrary1.csproj", "ClassLibrary1")
+                        .InFile(@"src\ClassLibrary1\Class1.cs", 1)
+                        .OfRule("SA1633", new Uri("https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1633.md"))
+                        .WithPriority(IssuePriority.Warning));
+                IssueChecker.Check(
                     issues[3],
-                    @"src\ClassLibrary1\ClassLibrary1.csproj",
-                    "ClassLibrary1",
-                    @"src\ClassLibrary1\Properties\AssemblyInfo.cs",
-                    1,
-                    "SA1652",
-                    300,
-                    "Warning",
-                    @"Enable XML documentation output");
-                CheckIssue(
+                    IssueBuilder.NewIssue(
+                        "Enable XML documentation output",
+                        "Cake.Issues.MsBuild.MsBuildIssuesProvider",
+                        "MSBuild")
+                        .InProject(@"src\ClassLibrary1\ClassLibrary1.csproj", "ClassLibrary1")
+                        .InFile(@"src\ClassLibrary1\Properties\AssemblyInfo.cs", 1)
+                        .OfRule("SA1652", new Uri("https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1652.md"))
+                        .WithPriority(IssuePriority.Warning));
+                IssueChecker.Check(
                     issues[4],
-                    @"src\ClassLibrary1\ClassLibrary1.csproj",
-                    "ClassLibrary1",
-                    @"src\ClassLibrary1\Properties\AssemblyInfo.cs",
-                    1,
-                    "SA1633",
-                    300,
-                    "Warning",
-                    @"The file header is missing or not located at the top of the file.");
-                CheckIssue(
+                    IssueBuilder.NewIssue(
+                        "The file header is missing or not located at the top of the file.",
+                        "Cake.Issues.MsBuild.MsBuildIssuesProvider",
+                        "MSBuild")
+                        .InProject(@"src\ClassLibrary1\ClassLibrary1.csproj", "ClassLibrary1")
+                        .InFile(@"src\ClassLibrary1\Properties\AssemblyInfo.cs", 1)
+                        .OfRule("SA1633", new Uri("https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1633.md"))
+                        .WithPriority(IssuePriority.Warning));
+                IssueChecker.Check(
                     issues[5],
-                    @"src\ClassLibrary1\ClassLibrary1.csproj",
-                    "ClassLibrary1",
-                    @"src\ClassLibrary1\Properties\AssemblyInfo.cs",
-                    5,
-                    "SA1028",
-                    300,
-                    "Warning",
-                    @"Code must not contain trailing whitespace");
-                CheckIssue(
+                    IssueBuilder.NewIssue(
+                        "Code must not contain trailing whitespace",
+                        "Cake.Issues.MsBuild.MsBuildIssuesProvider",
+                        "MSBuild")
+                        .InProject(@"src\ClassLibrary1\ClassLibrary1.csproj", "ClassLibrary1")
+                        .InFile(@"src\ClassLibrary1\Properties\AssemblyInfo.cs", 5)
+                        .OfRule("SA1028", new Uri("https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1028.md"))
+                        .WithPriority(IssuePriority.Warning));
+                IssueChecker.Check(
                     issues[6],
-                    @"src\ClassLibrary1\ClassLibrary1.csproj",
-                    "ClassLibrary1",
-                    @"src\ClassLibrary1\Properties\AssemblyInfo.cs",
-                    17,
-                    "SA1028",
-                    300,
-                    "Warning",
-                    @"Code must not contain trailing whitespace");
-                CheckIssue(
+                    IssueBuilder.NewIssue(
+                        "Code must not contain trailing whitespace",
+                        "Cake.Issues.MsBuild.MsBuildIssuesProvider",
+                        "MSBuild")
+                        .InProject(@"src\ClassLibrary1\ClassLibrary1.csproj", "ClassLibrary1")
+                        .InFile(@"src\ClassLibrary1\Properties\AssemblyInfo.cs", 17)
+                        .OfRule("SA1028", new Uri("https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1028.md"))
+                        .WithPriority(IssuePriority.Warning));
+                IssueChecker.Check(
                     issues[7],
-                    @"src\ClassLibrary1\ClassLibrary1.csproj",
-                    "ClassLibrary1",
-                    @"src\ClassLibrary1\Properties\AssemblyInfo.cs",
-                    18,
-                    "SA1028",
-                    300,
-                    "Warning",
-                    @"Code must not contain trailing whitespace");
-                CheckIssue(
+                    IssueBuilder.NewIssue(
+                        "Code must not contain trailing whitespace",
+                        "Cake.Issues.MsBuild.MsBuildIssuesProvider",
+                        "MSBuild")
+                        .InProject(@"src\ClassLibrary1\ClassLibrary1.csproj", "ClassLibrary1")
+                        .InFile(@"src\ClassLibrary1\Properties\AssemblyInfo.cs", 18)
+                        .OfRule("SA1028", new Uri("https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1028.md"))
+                        .WithPriority(IssuePriority.Warning));
+                IssueChecker.Check(
                     issues[8],
-                    @"src\ClassLibrary1\ClassLibrary1.csproj",
-                    "ClassLibrary1",
-                    @"src\ClassLibrary1\Properties\AssemblyInfo.cs",
-                    28,
-                    "SA1028",
-                    300,
-                    "Warning",
-                    @"Code must not contain trailing whitespace");
-                CheckIssue(
+                    IssueBuilder.NewIssue(
+                        "Code must not contain trailing whitespace",
+                        "Cake.Issues.MsBuild.MsBuildIssuesProvider",
+                        "MSBuild")
+                        .InProject(@"src\ClassLibrary1\ClassLibrary1.csproj", "ClassLibrary1")
+                        .InFile(@"src\ClassLibrary1\Properties\AssemblyInfo.cs", 28)
+                        .OfRule("SA1028", new Uri("https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1028.md"))
+                        .WithPriority(IssuePriority.Warning));
+                IssueChecker.Check(
                     issues[9],
-                    @"src\ClassLibrary1\ClassLibrary1.csproj",
-                    "ClassLibrary1",
-                    @"src\ClassLibrary1\Properties\AssemblyInfo.cs",
-                    32,
-                    "SA1028",
-                    300,
-                    "Warning",
-                    @"Code must not contain trailing whitespace");
-                CheckIssue(
+                    IssueBuilder.NewIssue(
+                        "Code must not contain trailing whitespace",
+                        "Cake.Issues.MsBuild.MsBuildIssuesProvider",
+                        "MSBuild")
+                        .InProject(@"src\ClassLibrary1\ClassLibrary1.csproj", "ClassLibrary1")
+                        .InFile(@"src\ClassLibrary1\Properties\AssemblyInfo.cs", 32)
+                        .OfRule("SA1028", new Uri("https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1028.md"))
+                        .WithPriority(IssuePriority.Warning));
+                IssueChecker.Check(
                     issues[10],
-                    @"src\ClassLibrary1\ClassLibrary1.csproj",
-                    "ClassLibrary1",
-                    @"src\ClassLibrary1\Class1.cs",
-                    1,
-                    "SA1200",
-                    300,
-                    "Warning",
-                    @"Using directive must appear within a namespace declaration");
-                CheckIssue(
+                    IssueBuilder.NewIssue(
+                        "Using directive must appear within a namespace declaration",
+                        "Cake.Issues.MsBuild.MsBuildIssuesProvider",
+                        "MSBuild")
+                        .InProject(@"src\ClassLibrary1\ClassLibrary1.csproj", "ClassLibrary1")
+                        .InFile(@"src\ClassLibrary1\Class1.cs", 1)
+                        .OfRule("SA1200", new Uri("https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1200.md"))
+                        .WithPriority(IssuePriority.Warning));
+                IssueChecker.Check(
                     issues[11],
-                    @"src\ClassLibrary1\ClassLibrary1.csproj",
-                    "ClassLibrary1",
-                    @"src\ClassLibrary1\Class1.cs",
-                    2,
-                    "SA1200",
-                    300,
-                    "Warning",
-                    @"Using directive must appear within a namespace declaration");
-                CheckIssue(
+                    IssueBuilder.NewIssue(
+                        "Using directive must appear within a namespace declaration",
+                        "Cake.Issues.MsBuild.MsBuildIssuesProvider",
+                        "MSBuild")
+                        .InProject(@"src\ClassLibrary1\ClassLibrary1.csproj", "ClassLibrary1")
+                        .InFile(@"src\ClassLibrary1\Class1.cs", 2)
+                        .OfRule("SA1200", new Uri("https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1200.md"))
+                        .WithPriority(IssuePriority.Warning));
+                IssueChecker.Check(
                     issues[12],
-                    @"src\ClassLibrary1\ClassLibrary1.csproj",
-                    "ClassLibrary1",
-                    @"src\ClassLibrary1\Class1.cs",
-                    3,
-                    "SA1200",
-                    300,
-                    "Warning",
-                    @"Using directive must appear within a namespace declaration");
-                CheckIssue(
+                    IssueBuilder.NewIssue(
+                        "Using directive must appear within a namespace declaration",
+                        "Cake.Issues.MsBuild.MsBuildIssuesProvider",
+                        "MSBuild")
+                        .InProject(@"src\ClassLibrary1\ClassLibrary1.csproj", "ClassLibrary1")
+                        .InFile(@"src\ClassLibrary1\Class1.cs", 3)
+                        .OfRule("SA1200", new Uri("https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1200.md"))
+                        .WithPriority(IssuePriority.Warning));
+                IssueChecker.Check(
                     issues[13],
-                    @"src\ClassLibrary1\ClassLibrary1.csproj",
-                    "ClassLibrary1",
-                    @"src\ClassLibrary1\Class1.cs",
-                    4,
-                    "SA1200",
-                    300,
-                    "Warning",
-                    @"Using directive must appear within a namespace declaration");
-                CheckIssue(
+                    IssueBuilder.NewIssue(
+                        "Using directive must appear within a namespace declaration",
+                        "Cake.Issues.MsBuild.MsBuildIssuesProvider",
+                        "MSBuild")
+                        .InProject(@"src\ClassLibrary1\ClassLibrary1.csproj", "ClassLibrary1")
+                        .InFile(@"src\ClassLibrary1\Class1.cs", 4)
+                        .OfRule("SA1200", new Uri("https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1200.md"))
+                        .WithPriority(IssuePriority.Warning));
+                IssueChecker.Check(
                     issues[14],
-                    @"src\ClassLibrary1\ClassLibrary1.csproj",
-                    "ClassLibrary1",
-                    @"src\ClassLibrary1\Class1.cs",
-                    5,
-                    "SA1200",
-                    300,
-                    "Warning",
-                    @"Using directive must appear within a namespace declaration");
-                CheckIssue(
+                    IssueBuilder.NewIssue(
+                        "Using directive must appear within a namespace declaration",
+                        "Cake.Issues.MsBuild.MsBuildIssuesProvider",
+                        "MSBuild")
+                        .InProject(@"src\ClassLibrary1\ClassLibrary1.csproj", "ClassLibrary1")
+                        .InFile(@"src\ClassLibrary1\Class1.cs", 5)
+                        .OfRule("SA1200", new Uri("https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1200.md"))
+                        .WithPriority(IssuePriority.Warning));
+                IssueChecker.Check(
                     issues[15],
-                    @"src\ClassLibrary1\ClassLibrary1.csproj",
-                    "ClassLibrary1",
-                    null,
-                    null,
-                    "CA2210",
-                    300,
-                    "Warning",
-                    @"Microsoft.Design : Sign 'ClassLibrary1.dll' with a strong name key.");
-                CheckIssue(
+                    IssueBuilder.NewIssue(
+                        "Microsoft.Design : Sign 'ClassLibrary1.dll' with a strong name key.",
+                        "Cake.Issues.MsBuild.MsBuildIssuesProvider",
+                        "MSBuild")
+                        .InProject(@"src\ClassLibrary1\ClassLibrary1.csproj", "ClassLibrary1")
+                        .OfRule("CA2210", new Uri("https://www.google.com/search?q=\"CA2210:\"+site:docs.microsoft.com"))
+                        .WithPriority(IssuePriority.Warning));
+                IssueChecker.Check(
                     issues[16],
-                    @"src\ClassLibrary1\ClassLibrary1.csproj",
-                    "ClassLibrary1",
-                    null,
-                    null,
-                    "CA1014",
-                    300,
-                    "Warning",
-                    @"Microsoft.Design : Mark 'ClassLibrary1.dll' with CLSCompliant(true) because it exposes externally visible types.");
-                CheckIssue(
+                    IssueBuilder.NewIssue(
+                        "Microsoft.Design : Mark 'ClassLibrary1.dll' with CLSCompliant(true) because it exposes externally visible types.",
+                        "Cake.Issues.MsBuild.MsBuildIssuesProvider",
+                        "MSBuild")
+                        .InProject(@"src\ClassLibrary1\ClassLibrary1.csproj", "ClassLibrary1")
+                        .OfRule("CA1014", new Uri("https://www.google.com/search?q=\"CA1014:\"+site:docs.microsoft.com"))
+                        .WithPriority(IssuePriority.Warning));
+                IssueChecker.Check(
                     issues[17],
-                    @"src\ClassLibrary1\ClassLibrary1.csproj",
-                    "ClassLibrary1",
-                    @"src\ClassLibrary1\Class1.cs",
-                    12,
-                    "CA1822",
-                    300,
-                    "Warning",
-                    @"Microsoft.Performance : The 'this' parameter (or 'Me' in Visual Basic) of 'Class1.Foo()' is never used. Mark the member as static (or Shared in Visual Basic) or use 'this'/'Me' in the method body or at least one property accessor, if appropriate.");
-                CheckIssue(
+                    IssueBuilder.NewIssue(
+                        "Microsoft.Performance : The 'this' parameter (or 'Me' in Visual Basic) of 'Class1.Foo()' is never used. Mark the member as static (or Shared in Visual Basic) or use 'this'/'Me' in the method body or at least one property accessor, if appropriate.",
+                        "Cake.Issues.MsBuild.MsBuildIssuesProvider",
+                        "MSBuild")
+                        .InProject(@"src\ClassLibrary1\ClassLibrary1.csproj", "ClassLibrary1")
+                        .InFile(@"src\ClassLibrary1\Class1.cs", 12)
+                        .OfRule("CA1822", new Uri("https://www.google.com/search?q=\"CA1822:\"+site:docs.microsoft.com"))
+                        .WithPriority(IssuePriority.Warning));
+                IssueChecker.Check(
                     issues[18],
-                    @"src\ClassLibrary1\ClassLibrary1.csproj",
-                    "ClassLibrary1",
-                    @"src\ClassLibrary1\Class1.cs",
-                    13,
-                    "CA1804",
-                    300,
-                    "Warning",
-                    @"Microsoft.Performance : 'Class1.Foo()' declares a variable, 'foo', of type 'string', which is never used or is only assigned to. Use this variable or remove it.");
-            }
-
-            private static void CheckIssue(
-                IIssue issue,
-                string projectFileRelativePath,
-                string projectName,
-                string affectedFileRelativePath,
-                int? line,
-                string rule,
-                int priority,
-                string priorityName,
-                string message)
-            {
-                issue.ProviderType.ShouldBe("Cake.Issues.MsBuild.MsBuildIssuesProvider");
-                issue.ProviderName.ShouldBe("MSBuild");
-
-                if (issue.ProjectFileRelativePath == null)
-                {
-                    projectFileRelativePath.ShouldBeNull();
-                }
-                else
-                {
-                    issue.ProjectFileRelativePath.ToString().ShouldBe(new FilePath(projectFileRelativePath).ToString());
-                    issue.ProjectFileRelativePath.IsRelative.ShouldBe(true, "Issue path is not relative");
-                }
-
-                issue.ProjectName.ShouldBe(projectName);
-
-                if (issue.AffectedFileRelativePath == null)
-                {
-                    affectedFileRelativePath.ShouldBeNull();
-                }
-                else
-                {
-                    issue.AffectedFileRelativePath.ToString().ShouldBe(new FilePath(affectedFileRelativePath).ToString());
-                    issue.AffectedFileRelativePath.IsRelative.ShouldBe(true, "Issue path is not relative");
-                }
-
-                issue.Line.ShouldBe(line);
-                issue.Rule.ShouldBe(rule);
-                issue.Priority.ShouldBe(priority);
-                issue.PriorityName.ShouldBe(priorityName);
-                issue.Message.ShouldBe(message);
+                    IssueBuilder.NewIssue(
+                        "Microsoft.Performance : 'Class1.Foo()' declares a variable, 'foo', of type 'string', which is never used or is only assigned to. Use this variable or remove it.",
+                        "Cake.Issues.MsBuild.MsBuildIssuesProvider",
+                        "MSBuild")
+                        .InProject(@"src\ClassLibrary1\ClassLibrary1.csproj", "ClassLibrary1")
+                        .InFile(@"src\ClassLibrary1\Class1.cs", 13)
+                        .OfRule("CA1804", new Uri("https://www.google.com/search?q=\"CA1804:\"+site:docs.microsoft.com"))
+                        .WithPriority(IssuePriority.Warning));
             }
         }
     }
