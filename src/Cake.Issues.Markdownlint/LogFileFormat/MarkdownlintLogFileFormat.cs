@@ -32,15 +32,9 @@
             repositorySettings.NotNull(nameof(repositorySettings));
             markdownlintIssuesSettings.NotNull(nameof(markdownlintIssuesSettings));
 
-            byte[] utf8Preamble = Encoding.UTF8.GetPreamble();
-            bool preambleToSkip = utf8Preamble
-                .SequenceEqual(markdownlintIssuesSettings.LogFileContent.Take(utf8Preamble.Length));
-
             Dictionary<string, IEnumerable<Issue>> logFileEntries;
-            using (var ms = new MemoryStream(markdownlintIssuesSettings.LogFileContent))
+            using (var ms = new MemoryStream(markdownlintIssuesSettings.LogFileContent.RemovePreamble()))
             {
-                ms.Position = preambleToSkip ? utf8Preamble.Length : 0;
-
                 var jsonSerializer = new DataContractJsonSerializer(
                     typeof(Dictionary<string, IEnumerable<Issue>>),
                     settings: new DataContractJsonSerializerSettings { UseSimpleDictionaryFormat = true });
