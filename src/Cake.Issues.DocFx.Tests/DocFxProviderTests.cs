@@ -45,7 +45,7 @@
             [InlineData(@"c:\Source\Cake.Issues\src\docs", "src/docs/")]
             [InlineData(@"src\docs", "src/docs/")]
             [InlineData(@"c:\Source\Cake.Issues", "")]
-            [InlineData(@"/", "")]
+            [InlineData(@"./", "")]
             public void Should_Read_Issue_Correct(string docRootPath, string docRelativePath)
             {
                 // Given
@@ -71,7 +71,7 @@
             public void Should_Read_Line_Correct()
             {
                 // Given
-                var fixture = new DocFxProviderFixture("entry-with-line.json", @"/");
+                var fixture = new DocFxProviderFixture("entry-with-line.json", @"./");
 
                 // When
                 var issues = fixture.ReadIssues().ToList();
@@ -93,7 +93,7 @@
             public void Should_Read_Line_Zero_Correct()
             {
                 // Given
-                var fixture = new DocFxProviderFixture("entry-with-line-0.json", @"/");
+                var fixture = new DocFxProviderFixture("entry-with-line-0.json", @"./");
 
                 // When
                 var issues = fixture.ReadIssues().ToList();
@@ -115,7 +115,7 @@
             public void Should_Read_Suggestions_Correct()
             {
                 // Given
-                var fixture = new DocFxProviderFixture("entry-of-level-suggestion.json", @"/");
+                var fixture = new DocFxProviderFixture("entry-of-level-suggestion.json", @"./");
 
                 // When
                 var issues = fixture.ReadIssues().ToList();
