@@ -40,14 +40,14 @@
     <Reference Include="Cake.Core, Version=0.33.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Cake.Core.0.33.0\lib\net46\Cake.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Cake.Issues, Version=0.6.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Cake.Issues.0.6.1\lib\netstandard2.0\Cake.Issues.dll</HintPath>
+    <Reference Include="Cake.Issues, Version=0.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Cake.Issues.0.7.0-beta0002\lib\netstandard2.0\Cake.Issues.dll</HintPath>
     </Reference>
-    <Reference Include="Cake.Issues.Reporting, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Cake.Issues.Reporting.0.6.0\lib\net46\Cake.Issues.Reporting.dll</HintPath>
+    <Reference Include="Cake.Issues.Reporting, Version=0.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Cake.Issues.Reporting.0.7.0-beta0001\lib\netstandard2.0\Cake.Issues.Reporting.dll</HintPath>
     </Reference>
-    <Reference Include="Cake.Issues.Testing, Version=0.6.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Cake.Issues.Testing.0.6.1\lib\netstandard2.0\Cake.Issues.Testing.dll</HintPath>
+    <Reference Include="Cake.Issues.Testing, Version=0.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Cake.Issues.Testing.0.7.0-beta0002\lib\netstandard2.0\Cake.Issues.Testing.dll</HintPath>
     </Reference>
     <Reference Include="Cake.Testing, Version=0.33.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Cake.Testing.0.33.0\lib\net46\Cake.Testing.dll</HintPath>
