@@ -16,7 +16,7 @@
         /// <typeparam name="T">The type of the parameter.</typeparam>
         /// <param name="value">The value of the argument.</param>
         /// <param name="parameterName">The name of the parameter to include in any thrown exception.</param>
-        /// <exception cref="ArgumentNullException">Thrown if <paramref name="value"/> is <c>null</c></exception>
+        /// <exception cref="ArgumentNullException">Thrown if <paramref name="value"/> is <c>null</c>.</exception>
         [DebuggerStepThrough]
         public static void NotNull<T>([ValidatedNotNull]this T value, string parameterName)
             where T : class
@@ -32,8 +32,8 @@
         /// </summary>
         /// <param name="value">The value of the argument.</param>
         /// <param name="parameterName">The name of the parameter to include in any thrown exception.</param>
-        /// <exception cref="ArgumentNullException">Thrown if <paramref name="value"/> is <c>null</c></exception>
-        /// <exception cref="ArgumentOutOfRangeException">Thrown if <paramref name="value"/> is empty or consists only of white-space characters</exception>
+        /// <exception cref="ArgumentNullException">Thrown if <paramref name="value"/> is <c>null</c>.</exception>
+        /// <exception cref="ArgumentOutOfRangeException">Thrown if <paramref name="value"/> is empty or consists only of white-space characters.</exception>
         [DebuggerStepThrough]
         public static void NotNullOrWhiteSpace([ValidatedNotNull]this string value, string parameterName)
         {
@@ -84,7 +84,7 @@
         /// <typeparam name="T">The type of the parameter.</typeparam>
         /// <param name="value">The value of the argument.</param>
         /// <param name="parameterName">The name of the parameter to include in any thrown exception.</param>
-        /// <exception cref="ArgumentNullException">Thrown if <paramref name="value"/> is <c>null</c></exception>
+        /// <exception cref="ArgumentNullException">Thrown if <paramref name="value"/> is <c>null</c>.</exception>
         /// <exception cref="ArgumentException">Thrown if <paramref name="value"/> is empty.</exception>
         [DebuggerStepThrough]
         public static void NotNullOrEmpty<T>(this IEnumerable<T> value, string parameterName)
@@ -105,7 +105,7 @@
         /// <typeparam name="T">The type of the parameter.</typeparam>
         /// <param name="value">The value of the argument.</param>
         /// <param name="parameterName">The name of the parameter to include in any thrown exception.</param>
-        /// <exception cref="ArgumentNullException">Thrown if <paramref name="value"/> is <c>null</c></exception>
+        /// <exception cref="ArgumentNullException">Thrown if <paramref name="value"/> is <c>null</c>.</exception>
         /// <exception cref="ArgumentException">Thrown if <paramref name="value"/> is empty.</exception>
         /// <exception cref="ArgumentOutOfRangeException">Thrown if <paramref name="value"/> contains an empty element.</exception>
         [DebuggerStepThrough]
@@ -127,7 +127,7 @@
         /// <typeparam name="T">The type of the parameter.</typeparam>
         /// <param name="value">The value of the argument.</param>
         /// <param name="parameterName">The name of the parameter to include in any thrown exception.</param>
-        /// <exception cref="ArgumentNullException">Thrown if <paramref name="value"/> is <c>null</c></exception>
+        /// <exception cref="ArgumentNullException">Thrown if <paramref name="value"/> is <c>null</c>.</exception>
         /// <exception cref="ArgumentException">Thrown if <paramref name="value"/> is empty.</exception>
         /// <exception cref="ArgumentOutOfRangeException">Thrown if <paramref name="value"/> contains an empty element.</exception>
         [DebuggerStepThrough]

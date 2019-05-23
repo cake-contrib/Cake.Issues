@@ -28,6 +28,6 @@
         /// <summary>
         /// Issues that either prevent code from compiling or result in runtime errors.
         /// </summary>
-        Error = 400
+        Error = 400,
     }
 }
