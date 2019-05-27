@@ -1,7 +1,7 @@
 ﻿namespace Cake.Issues.PullRequests.AppVeyor
 {
     /// <summary>
-    /// Settings for <see cref="AppVeyorBuildsAlias"/>.
+    /// Settings for <see cref="AppVeyorBuildsAliases"/>.
     /// </summary>
     public class AppVeyorBuildSettings
     {
