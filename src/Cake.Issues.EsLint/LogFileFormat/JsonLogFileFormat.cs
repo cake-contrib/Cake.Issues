@@ -77,7 +77,7 @@
         /// Converts the severity level to a priority.
         /// </summary>
         /// <param name="severity">Severity level as reported by ESLint.</param>
-        /// <returns>Priority</returns>
+        /// <returns>Priority.</returns>
         private static IssuePriority GetPriority(int severity)
         {
             switch (severity)
