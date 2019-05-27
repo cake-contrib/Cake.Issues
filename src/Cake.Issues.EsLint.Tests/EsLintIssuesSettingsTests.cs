@@ -10,7 +10,7 @@
 
     public sealed class EsLintIssuesSettingsTests
     {
-        public sealed class TheEsLintIssuesSettingsCtor
+        public sealed class TheCtor
         {
             [Fact]
             public void Should_Throw_If_LogFilePath_Is_Null()
@@ -20,7 +20,8 @@
                 var format = new JsonLogFileFormat(new FakeLog());
 
                 // When
-                var result = Record.Exception(() => new EsLintIssuesSettings(logFilePath, format));
+                var result = Record.Exception(() =>
+                    new EsLintIssuesSettings(logFilePath, format));
 
                 // Then
                 result.IsArgumentNullException("logFilePath");
@@ -44,31 +45,18 @@
             }
 
             [Fact]
-            public void Should_Throw_If_LogContent_Is_Null()
+            public void Should_Throw_If_LogFileContent_Is_Null()
             {
                 // Given
                 byte[] logFileContent = null;
                 var format = new JsonLogFileFormat(new FakeLog());
 
                 // When
-                var result = Record.Exception(() => new EsLintIssuesSettings(logFileContent, format));
+                var result = Record.Exception(() =>
+                    new EsLintIssuesSettings(logFileContent, format));
 
                 // Then
                 result.IsArgumentNullException("logFileContent");
-            }
-
-            [Fact]
-            public void Should_Throw_If_LogContent_Is_Empty()
-            {
-                // Given
-                byte[] logFileContent = Array.Empty<byte>();
-                var format = new JsonLogFileFormat(new FakeLog());
-
-                // When
-                var result = Record.Exception(() => new EsLintIssuesSettings(logFileContent, format));
-
-                // Then
-                result.IsArgumentException("logFileContent");
             }
 
             [Fact]
@@ -87,7 +75,7 @@
             }
 
             [Fact]
-            public void Should_Set_LogContent()
+            public void Should_Set_LogFileContent()
             {
                 // Given
                 var logFileContent = "Foo".ToByteArray();
@@ -101,7 +89,21 @@
             }
 
             [Fact]
-            public void Should_Set_LogContent_From_LogFilePath()
+            public void Should_Set_LogFileContent_If_Empty()
+            {
+                // Given
+                byte[] logFileContent = Array.Empty<byte>();
+                var format = new JsonLogFileFormat(new FakeLog());
+
+                // When
+                var settings = new EsLintIssuesSettings(logFileContent, format);
+
+                // Then
+                settings.LogFileContent.ShouldBe(logFileContent);
+            }
+
+            [Fact]
+            public void Should_Set_LogFileContent_From_LogFilePath()
             {
                 // Given
                 var format = new JsonLogFileFormat(new FakeLog());

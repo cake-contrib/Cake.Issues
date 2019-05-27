@@ -1,8 +1,9 @@
 ﻿namespace Cake.Issues.EsLint.Tests.LogFileFormat
 {
+    using System;
     using System.Linq;
-    using Cake.Core.IO;
     using Cake.Issues.EsLint.LogFileFormat;
+    using Cake.Issues.Testing;
     using Shouldly;
     using Xunit;
 
@@ -34,127 +35,96 @@
 
                 // Then
                 issues.Count.ShouldBe(9);
-                CheckIssue(
+                IssueChecker.Check(
                     issues[0],
-                    @"src\Cake.Issues.EsLint.Tests\Testfiles\fullOfProblems.js",
-                    1,
-                    "no-unused-vars",
-                    "http://eslint.org/docs/rules/no-unused-vars",
-                    400,
-                    "Error",
-                    "'addOne' is defined but never used.");
-                CheckIssue(
+                    IssueBuilder.NewIssue(
+                        "'addOne' is defined but never used.",
+                        "Cake.Issues.EsLint.EsLintIssuesProvider",
+                        "ESLint")
+                        .InFile(@"src\Cake.Issues.EsLint.Tests\Testfiles\fullOfProblems.js", 1)
+                        .OfRule("no-unused-vars", new Uri("http://eslint.org/docs/rules/no-unused-vars"))
+                        .WithPriority(IssuePriority.Error)
+                        .Create());
+                IssueChecker.Check(
                     issues[1],
-                    @"src\Cake.Issues.EsLint.Tests\Testfiles\fullOfProblems.js",
-                    2,
-                    "use-isnan",
-                    "http://eslint.org/docs/rules/use-isnan",
-                    400,
-                    "Error",
-                    "Use the isNaN function to compare with NaN.");
-                CheckIssue(
+                    IssueBuilder.NewIssue(
+                        "Use the isNaN function to compare with NaN.",
+                        "Cake.Issues.EsLint.EsLintIssuesProvider",
+                        "ESLint")
+                        .InFile(@"src\Cake.Issues.EsLint.Tests\Testfiles\fullOfProblems.js", 2)
+                        .OfRule("use-isnan", new Uri("http://eslint.org/docs/rules/use-isnan"))
+                        .WithPriority(IssuePriority.Error)
+                        .Create());
+                IssueChecker.Check(
                     issues[2],
-                    @"src\Cake.Issues.EsLint.Tests\Testfiles\fullOfProblems.js",
-                    3,
-                    "space-unary-ops",
-                    "http://eslint.org/docs/rules/space-unary-ops",
-                    400,
-                    "Error",
-                    "Unexpected space before unary operator '++'.");
-                CheckIssue(
+                    IssueBuilder.NewIssue(
+                        "Unexpected space before unary operator '++'.",
+                        "Cake.Issues.EsLint.EsLintIssuesProvider",
+                        "ESLint")
+                        .InFile(@"src\Cake.Issues.EsLint.Tests\Testfiles\fullOfProblems.js", 3)
+                        .OfRule("space-unary-ops", new Uri("http://eslint.org/docs/rules/space-unary-ops"))
+                        .WithPriority(IssuePriority.Error)
+                        .Create());
+                IssueChecker.Check(
                     issues[3],
-                    @"src\Cake.Issues.EsLint.Tests\Testfiles\fullOfProblems.js",
-                    3,
-                    "semi",
-                    "http://eslint.org/docs/rules/semi",
-                    300,
-                    "Warning",
-                    "Missing semicolon.");
-                CheckIssue(
+                    IssueBuilder.NewIssue(
+                        "Missing semicolon.",
+                        "Cake.Issues.EsLint.EsLintIssuesProvider",
+                        "ESLint")
+                        .InFile(@"src\Cake.Issues.EsLint.Tests\Testfiles\fullOfProblems.js", 3)
+                        .OfRule("semi", new Uri("http://eslint.org/docs/rules/semi"))
+                        .WithPriority(IssuePriority.Warning)
+                        .Create());
+                IssueChecker.Check(
                     issues[4],
-                    @"src\Cake.Issues.EsLint.Tests\Testfiles\fullOfProblems.js",
-                    4,
-                    "no-else-return",
-                    "http://eslint.org/docs/rules/no-else-return",
-                    300,
-                    "Warning",
-                    "Unnecessary 'else' after 'return'.");
-                CheckIssue(
+                    IssueBuilder.NewIssue(
+                        "Unnecessary 'else' after 'return'.",
+                        "Cake.Issues.EsLint.EsLintIssuesProvider",
+                        "ESLint")
+                        .InFile(@"src\Cake.Issues.EsLint.Tests\Testfiles\fullOfProblems.js", 4)
+                        .OfRule("no-else-return", new Uri("http://eslint.org/docs/rules/no-else-return"))
+                        .WithPriority(IssuePriority.Warning)
+                        .Create());
+                IssueChecker.Check(
                     issues[5],
-                    @"src\Cake.Issues.EsLint.Tests\Testfiles\fullOfProblems.js",
-                    5,
-                    "indent",
-                    "http://eslint.org/docs/rules/indent",
-                    300,
-                    "Warning",
-                    "Expected indentation of 8 spaces but found 6.");
-                CheckIssue(
+                    IssueBuilder.NewIssue(
+                        "Expected indentation of 8 spaces but found 6.",
+                        "Cake.Issues.EsLint.EsLintIssuesProvider",
+                        "ESLint")
+                        .InFile(@"src\Cake.Issues.EsLint.Tests\Testfiles\fullOfProblems.js", 5)
+                        .OfRule("indent", new Uri("http://eslint.org/docs/rules/indent"))
+                        .WithPriority(IssuePriority.Warning)
+                        .Create());
+                IssueChecker.Check(
                     issues[6],
-                    @"src\Cake.Issues.EsLint.Tests\Testfiles\fullOfProblems.js",
-                    5,
-                    "consistent-return",
-                    "http://eslint.org/docs/rules/consistent-return",
-                    400,
-                    "Error",
-                    "Function 'addOne' expected a return value.");
-                CheckIssue(
+                    IssueBuilder.NewIssue(
+                        "Function 'addOne' expected a return value.",
+                        "Cake.Issues.EsLint.EsLintIssuesProvider",
+                        "ESLint")
+                        .InFile(@"src\Cake.Issues.EsLint.Tests\Testfiles\fullOfProblems.js", 5)
+                        .OfRule("consistent-return", new Uri("http://eslint.org/docs/rules/consistent-return"))
+                        .WithPriority(IssuePriority.Error)
+                        .Create());
+                IssueChecker.Check(
                     issues[7],
-                    @"src\Cake.Issues.EsLint.Tests\Testfiles\fullOfProblems.js",
-                    5,
-                    "semi",
-                    "http://eslint.org/docs/rules/semi",
-                    300,
-                    "Warning",
-                    "Missing semicolon.");
-                CheckIssue(
+                    IssueBuilder.NewIssue(
+                        "Missing semicolon.",
+                        "Cake.Issues.EsLint.EsLintIssuesProvider",
+                        "ESLint")
+                        .InFile(@"src\Cake.Issues.EsLint.Tests\Testfiles\fullOfProblems.js", 5)
+                        .OfRule("semi", new Uri("http://eslint.org/docs/rules/semi"))
+                        .WithPriority(IssuePriority.Warning)
+                        .Create());
+                IssueChecker.Check(
                     issues[8],
-                    @"src\Cake.Issues.EsLint.Tests\Testfiles\fullOfProblems.js",
-                    7,
-                    "no-extra-semi",
-                    "http://eslint.org/docs/rules/no-extra-semi",
-                    400,
-                    "Error",
-                    "Unnecessary semicolon.");
-            }
-
-            private static void CheckIssue(
-                IIssue issue,
-                string affectedFileRelativePath,
-                int? line,
-                string rule,
-                string ruleUrl,
-                int priority,
-                string priorityName,
-                string message)
-            {
-                issue.ProviderType.ShouldBe("Cake.Issues.EsLint.EsLintIssuesProvider");
-                issue.ProviderName.ShouldBe("ESLint");
-
-                if (issue.AffectedFileRelativePath == null)
-                {
-                    affectedFileRelativePath.ShouldBeNull();
-                }
-                else
-                {
-                    issue.AffectedFileRelativePath.ToString().ShouldBe(new FilePath(affectedFileRelativePath).ToString());
-                    issue.AffectedFileRelativePath.IsRelative.ShouldBe(true, "Issue path is not relative");
-                }
-
-                issue.Line.ShouldBe(line);
-                issue.Rule.ShouldBe(rule);
-
-                if (issue.RuleUrl == null)
-                {
-                    ruleUrl.ShouldBeNull();
-                }
-                else
-                {
-                    issue.RuleUrl.ToString().ShouldBe(ruleUrl);
-                }
-
-                issue.Priority.ShouldBe(priority);
-                issue.PriorityName.ShouldBe(priorityName);
-                issue.Message.ShouldBe(message);
+                    IssueBuilder.NewIssue(
+                        "Unnecessary semicolon.",
+                        "Cake.Issues.EsLint.EsLintIssuesProvider",
+                        "ESLint")
+                        .InFile(@"src\Cake.Issues.EsLint.Tests\Testfiles\fullOfProblems.js", 7)
+                        .OfRule("no-extra-semi", new Uri("http://eslint.org/docs/rules/no-extra-semi"))
+                        .WithPriority(IssuePriority.Error)
+                        .Create());
             }
         }
     }
