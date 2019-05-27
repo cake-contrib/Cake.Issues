@@ -42,4 +42,16 @@
     <ProjectReference Include="..\Cake.Issues\Cake.Issues.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Testfiles\issue.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Testfiles\issues.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Testfiles\empty-array.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
