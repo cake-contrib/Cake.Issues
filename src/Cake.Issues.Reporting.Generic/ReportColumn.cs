@@ -69,6 +69,6 @@
         /// <summary>
         /// Column for the <see cref="IIssue.Message"/> field.
         /// </summary>
-        Message = 1300
+        Message = 1300,
     }
 }

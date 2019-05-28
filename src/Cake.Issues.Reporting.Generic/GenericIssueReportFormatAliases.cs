@@ -1,9 +1,9 @@
 ﻿namespace Cake.Issues.Reporting.Generic
 {
     using System;
-    using Core;
-    using Core.Annotations;
-    using Core.IO;
+    using Cake.Core;
+    using Cake.Core.Annotations;
+    using Cake.Core.IO;
 
     /// <summary>
     /// Contains functionality for creating issue reports in any text based format (HTML, Markdown, ...).

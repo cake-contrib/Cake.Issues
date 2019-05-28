@@ -3,8 +3,8 @@
     using System;
     using System.Collections.Generic;
     using System.IO;
+    using Cake.Core.Diagnostics;
     using Cake.Testing;
-    using Core.Diagnostics;
     using Shouldly;
 
     internal class GenericIssueReportFixture

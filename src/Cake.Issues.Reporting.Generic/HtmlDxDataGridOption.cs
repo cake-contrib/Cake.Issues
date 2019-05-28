@@ -1,7 +1,7 @@
 ﻿namespace Cake.Issues.Reporting.Generic
 {
     /// <summary>
-    /// Options for the <see cref="GenericIssueReportTemplate.HtmlDxDataGrid"/> template
+    /// Options for the <see cref="GenericIssueReportTemplate.HtmlDxDataGrid"/> template.
     /// </summary>
     public enum HtmlDxDataGridOption
     {
@@ -307,6 +307,6 @@
         /// Value needs to be an instance of <see cref="IdeIntegrationSettings"/>.
         /// Default value is <c>null</c>.
         /// </summary>
-        IdeIntegrationSettings
+        IdeIntegrationSettings,
     }
 }

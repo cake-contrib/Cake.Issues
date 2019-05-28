@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
     using System.IO;
-    using Core.IO;
+    using Cake.Core.IO;
 
     /// <summary>
     /// Settings for <see cref="GenericIssueReportFormatAliases"/>.

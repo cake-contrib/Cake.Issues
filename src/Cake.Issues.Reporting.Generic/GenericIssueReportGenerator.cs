@@ -3,8 +3,8 @@
     using System;
     using System.Collections.Generic;
     using System.IO;
-    using Core.Diagnostics;
-    using Core.IO;
+    using Cake.Core.Diagnostics;
+    using Cake.Core.IO;
     using RazorEngine;
     using RazorEngine.Configuration;
     using RazorEngine.Templating;
@@ -71,7 +71,7 @@
                 CachingProvider = new DefaultCachingProvider(t => { }),
 
                 // Use custom reference resolver to make it work with assemblies embedded through Costura.Fody.
-                ReferenceResolver = new RazorEngineReferenceResolver()
+                ReferenceResolver = new RazorEngineReferenceResolver(),
             };
 
             var service = RazorEngineService.Create(config);

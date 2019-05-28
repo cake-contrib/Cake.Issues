@@ -1,9 +1,9 @@
 ﻿namespace Cake.Issues.Reporting.Generic.Tests
 {
     using System.Collections.Generic;
+    using Cake.Issues.Testing;
     using Cake.Testing;
     using Shouldly;
-    using Testing;
     using Xunit;
 
     public sealed class GenericIssueReportGeneratorTests
@@ -61,8 +61,8 @@
                             .InFile(@"src\Cake.Issues.Reporting.Generic.Tests\Foo.cs", 12)
                             .OfRule("Rule Bar")
                             .WithPriority(IssuePriority.Warning)
-                            .Create()
-                        };
+                            .Create(),
+                    };
 
                 // When
                 var result = fixture.CreateReport(issues);
@@ -90,8 +90,8 @@
                             .InFile(@"src\Cake.Issues.Reporting.Generic.Tests\Foo.cs", 12)
                             .OfRule("Rule Bar")
                             .WithPriority(IssuePriority.Warning)
-                            .Create()
-                        };
+                            .Create(),
+                    };
                 var expectedResult =
                     @"<ul><li>Message Foo</li><li>Message Bar</li></ul>";
 

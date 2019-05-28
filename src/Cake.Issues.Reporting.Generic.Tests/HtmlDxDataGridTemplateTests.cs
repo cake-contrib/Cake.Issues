@@ -644,7 +644,7 @@
                             {
                                 ReportColumn.ProjectName,
                                 ReportColumn.FileDirectory,
-                                ReportColumn.FileName
+                                ReportColumn.FileName,
                             }));
             }
         }
@@ -665,7 +665,7 @@
                             new List<ReportColumn>
                             {
                                 ReportColumn.Rule,
-                                ReportColumn.Message
+                                ReportColumn.Message,
                             }));
             }
         }
@@ -688,7 +688,7 @@
                                 new HtmlDxDataGridColumnDescription("MyCustomColumn", x => { return "Foo"; })
                                 {
                                     Caption = "Custom Value",
-                                }
+                                },
                             }));
             }
         }
