@@ -13,6 +13,6 @@
         /// <summary>
         /// Descending sorting.
         /// </summary>
-        Descending
+        Descending,
     }
 }

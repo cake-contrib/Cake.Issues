@@ -1,6 +1,5 @@
 ﻿namespace Cake.Issues.Reporting.Generic.Tests
 {
-    using System;
     using Cake.Issues.Testing;
     using Shouldly;
     using Xunit;
@@ -127,7 +126,7 @@
                 var ideIntegrationSettings =
                     new IdeIntegrationSettings
                     {
-                        OpenInIdeCall = "Foo{FilePath}Bar"
+                        OpenInIdeCall = "Foo{FilePath}Bar",
                     };
                 var filePathExpression = "file";
                 var lineExpression = "line";
@@ -146,7 +145,7 @@
                 var ideIntegrationSettings =
                     new IdeIntegrationSettings
                     {
-                        OpenInIdeCall = "Foo{Line}Bar"
+                        OpenInIdeCall = "Foo{Line}Bar",
                     };
                 var filePathExpression = "file";
                 var lineExpression = "line";

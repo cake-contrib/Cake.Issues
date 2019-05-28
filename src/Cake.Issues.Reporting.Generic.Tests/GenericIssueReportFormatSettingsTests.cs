@@ -4,9 +4,9 @@
     using System.IO;
     using System.Linq;
     using System.Text;
-    using Core.IO;
+    using Cake.Core.IO;
+    using Cake.Issues.Testing;
     using Shouldly;
-    using Testing;
     using Xunit;
 
     public sealed class GenericIssueReportFormatSettingsTests
