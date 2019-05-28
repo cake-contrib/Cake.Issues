@@ -19,7 +19,7 @@
     <projectUrl>http://cake-contrib.github.io/Cake.Issues.Website</projectUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/cake-contrib/graphics@a5cf0f881c390650144b2243ae551d5b9f836196/png/cake-contrib-medium.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <repository type="git" url="https://github.com/cake-contrib/Cake.Issues.PullRequests.AppVeyor"/>
+    <repository type="git" url="https://github.com/cake-contrib/Cake.Issues.PullRequests.AppVeyor.git"/>
     <copyright>Copyright © Pascal Berger</copyright>
     <tags>Cake Script Cake-Issues Cake-PullRequestSystem Issues PullRequest AppVeyor</tags>
     <releaseNotes>https://github.com/cake-contrib/Cake.Issues.PullRequests.AppVeyor/releases/tag/0.7.0</releaseNotes>
