@@ -54,38 +54,16 @@
 
         public sealed class TheThemeOption
         {
+            public static IEnumerable<object[]> DevExtremeThemes()
+            {
+                foreach (var number in Enum.GetValues(typeof(DevExtremeTheme)))
+                {
+                    yield return new object[] { number };
+                }
+            }
+
             [Theory]
-            [InlineData(DevExtremeTheme.Light)]
-            [InlineData(DevExtremeTheme.Dark)]
-            [InlineData(DevExtremeTheme.Contrast)]
-            [InlineData(DevExtremeTheme.Carmine)]
-            [InlineData(DevExtremeTheme.DarkMoon)]
-            [InlineData(DevExtremeTheme.SoftBlue)]
-            [InlineData(DevExtremeTheme.DarkViolet)]
-            [InlineData(DevExtremeTheme.GreenMist)]
-            [InlineData(DevExtremeTheme.LightCompact)]
-            [InlineData(DevExtremeTheme.DarkCompact)]
-            [InlineData(DevExtremeTheme.ContrastCompact)]
-            [InlineData(DevExtremeTheme.MaterialBlueLight)]
-            [InlineData(DevExtremeTheme.MaterialLimeLight)]
-            [InlineData(DevExtremeTheme.MaterialOrangeLight)]
-            [InlineData(DevExtremeTheme.MaterialPurpleLight)]
-            [InlineData(DevExtremeTheme.MaterialTealLight)]
-            [InlineData(DevExtremeTheme.MaterialBlueDark)]
-            [InlineData(DevExtremeTheme.MaterialLimeDark)]
-            [InlineData(DevExtremeTheme.MaterialOrangeDark)]
-            [InlineData(DevExtremeTheme.MaterialPurpleDark)]
-            [InlineData(DevExtremeTheme.MaterialTealDark)]
-            [InlineData(DevExtremeTheme.MaterialBlueLightCompact)]
-            [InlineData(DevExtremeTheme.MaterialLimeLightCompact)]
-            [InlineData(DevExtremeTheme.MaterialOrangeLightCompact)]
-            [InlineData(DevExtremeTheme.MaterialPurpleLightCompact)]
-            [InlineData(DevExtremeTheme.MaterialTealLightCompact)]
-            [InlineData(DevExtremeTheme.MaterialBlueDarkCompact)]
-            [InlineData(DevExtremeTheme.MaterialLimeDarkCompact)]
-            [InlineData(DevExtremeTheme.MaterialOrangeDarkCompact)]
-            [InlineData(DevExtremeTheme.MaterialPurpleDarkCompact)]
-            [InlineData(DevExtremeTheme.MaterialTealDarkCompact)]
+            [MemberData(nameof(DevExtremeThemes))]
             public void Should_Set_Theme(DevExtremeTheme theme)
             {
                 // Given
