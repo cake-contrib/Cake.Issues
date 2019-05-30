@@ -98,7 +98,7 @@
                 var issues = new List<IIssue>();
 
                 // When
-                var result = fixture.RunOrchestratorForIssues(issues);
+                fixture.RunOrchestratorForIssues(issues);
 
                 // Then
                 fixture.PullRequestSystem.Settings.ShouldBe(fixture.Settings);
