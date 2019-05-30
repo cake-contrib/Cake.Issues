@@ -1,9 +1,9 @@
 ﻿namespace Cake.Issues.DocFx.Tests
 {
     using System.Linq;
+    using Cake.Issues.Testing;
     using Cake.Testing;
     using Shouldly;
-    using Testing;
     using Xunit;
 
     public sealed class DocFxProviderTests
