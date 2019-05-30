@@ -1,7 +1,7 @@
 ﻿namespace Cake.Issues.Reporting
 {
     using System.Collections.Generic;
-    using Core.IO;
+    using Cake.Core.IO;
 
     /// <summary>
     /// Interface describing a issue report format.

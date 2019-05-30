@@ -1,9 +1,9 @@
 ﻿namespace Cake.Issues.Reporting.Tests
 {
     using System.Collections.Generic;
+    using Cake.Core.Diagnostics;
+    using Cake.Core.IO;
     using Cake.Testing;
-    using Core.Diagnostics;
-    using Core.IO;
 
     internal class IssueReportFormatFixture
     {

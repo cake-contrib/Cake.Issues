@@ -1,9 +1,9 @@
 ﻿namespace Cake.Issues.Reporting
 {
     using System.Collections.Generic;
-    using Core;
-    using Core.Annotations;
-    using Core.IO;
+    using Cake.Core;
+    using Cake.Core.Annotations;
+    using Cake.Core.IO;
 
     /// <summary>
     /// Contains functionality related to creating issue reports.

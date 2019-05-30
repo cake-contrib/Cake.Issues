@@ -1,9 +1,9 @@
 ﻿namespace Cake.Issues.Reporting.Tests
 {
     using System.Collections.Generic;
+    using Cake.Issues.Testing;
     using Cake.Testing;
     using Shouldly;
-    using Testing;
     using Xunit;
 
     public sealed class IssueReportFormatTests

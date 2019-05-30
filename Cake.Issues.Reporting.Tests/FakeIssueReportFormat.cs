@@ -1,8 +1,8 @@
 ﻿namespace Cake.Issues.Reporting.Tests
 {
     using System.Collections.Generic;
-    using Core.Diagnostics;
-    using Core.IO;
+    using Cake.Core.Diagnostics;
+    using Cake.Core.IO;
 
     /// <summary>
     /// Implementation of a <see cref="IssueReportFormat"/> for use in test cases.
@@ -12,7 +12,7 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="FakeIssueReportFormat"/> class.
         /// </summary>
-        /// <param name="log">The Cake log instance</param>
+        /// <param name="log">The Cake log instance.</param>
         public FakeIssueReportFormat(ICakeLog log)
             : base(log)
         {

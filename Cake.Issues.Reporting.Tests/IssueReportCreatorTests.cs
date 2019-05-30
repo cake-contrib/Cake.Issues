@@ -1,8 +1,8 @@
 ﻿namespace Cake.Issues.Reporting.Tests
 {
     using System.Collections.Generic;
+    using Cake.Issues.Testing;
     using Shouldly;
-    using Testing;
     using Xunit;
 
     public sealed class IssueReportCreatorTests
@@ -15,7 +15,7 @@
                 // Given
                 var fixture = new IssueReportFormatFixture
                 {
-                    Log = null
+                    Log = null,
                 };
 
                 // When
@@ -31,7 +31,7 @@
                 // Given
                 var fixture = new IssueReportFormatFixture
                 {
-                    Settings = null
+                    Settings = null,
                 };
 
                 // When
@@ -103,7 +103,7 @@
                             .InFile(@"src\Cake.Issues.Reporting\Foo.cs", 10)
                             .OfRule("Rule")
                             .WithPriority(IssuePriority.Warning)
-                            .Create()
+                            .Create(),
                     };
 
                 // When
@@ -127,7 +127,7 @@
                             .InFile(@"src\Cake.Issues.Reporting\Foo.cs", 10)
                             .OfRule("Rule")
                             .WithPriority(IssuePriority.Warning)
-                            .Create()
+                            .Create(),
                     };
 
                 // When
@@ -150,7 +150,7 @@
                             .InFile(@"src\Cake.Issues.Reporting\Foo.cs", 10)
                             .OfRule("Rule")
                             .WithPriority(IssuePriority.Warning)
-                            .Create()
+                            .Create(),
                     };
 
                 // When

@@ -1,8 +1,8 @@
 ﻿namespace Cake.Issues.Reporting
 {
     using System.Collections.Generic;
-    using Core.Diagnostics;
-    using Core.IO;
+    using Cake.Core.Diagnostics;
+    using Cake.Core.IO;
 
     /// <summary>
     /// Class for creating issue reports.

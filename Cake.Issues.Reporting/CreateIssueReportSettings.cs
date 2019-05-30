@@ -1,6 +1,6 @@
 ﻿namespace Cake.Issues.Reporting
 {
-    using Core.IO;
+    using Cake.Core.IO;
 
     /// <summary>
     /// Setting affecting how reports are created.

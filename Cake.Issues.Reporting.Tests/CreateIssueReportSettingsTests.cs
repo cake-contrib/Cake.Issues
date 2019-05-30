@@ -1,8 +1,8 @@
 ﻿namespace Cake.Issues.Reporting.Tests
 {
-    using Core.IO;
+    using Cake.Core.IO;
+    using Cake.Issues.Testing;
     using Shouldly;
-    using Testing;
     using Xunit;
 
     public sealed class CreateIssueReportSettingsTests
