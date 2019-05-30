@@ -9,6 +9,125 @@
 
     public sealed class ByteArrayExtensionsTests
     {
+        public sealed class TheRemovePreambleExtension
+        {
+            [Fact]
+            public void Should_Throw_If_Value_Is_Null()
+            {
+                // Given
+                byte[] value = null;
+
+                // When
+                var result = Record.Exception(() => value.RemovePreamble());
+
+                // Then
+                result.IsArgumentNullException("value");
+            }
+
+            [Theory]
+            [InlineData("foo🐱bar")]
+            [InlineData("")]
+            public void Should_Remove_Preamble(string value)
+            {
+                // Given
+                var encoding = Encoding.UTF8;
+                var preamble = encoding.GetPreamble();
+                var valueWithoutPreamble = value.ToByteArray(encoding);
+                var valueWithPreamble = preamble.Concat(valueWithoutPreamble).ToArray();
+
+                // When
+                var result = valueWithPreamble.RemovePreamble();
+
+                // Then
+                result.ShouldBe(valueWithoutPreamble);
+            }
+        }
+
+        public sealed class TheRemovePreambleWithEncodingExtension
+        {
+            [Fact]
+            public void Should_Throw_If_Value_Is_Null()
+            {
+                // Given
+                byte[] value = null;
+                var encoding = Encoding.UTF32;
+
+                // When
+                var result = Record.Exception(() => value.RemovePreamble(encoding));
+
+                // Then
+                result.IsArgumentNullException("value");
+            }
+
+            [Fact]
+            public void Should_Throw_If_Encoding_Is_Null()
+            {
+                // Given
+                var encoding = Encoding.UTF32;
+                var stringValue = "foo🐱bar";
+                var byteArrayValue = stringValue.ToByteArray(encoding);
+
+                // When
+                var result = Record.Exception(() => byteArrayValue.RemovePreamble(null));
+
+                // Then
+                result.IsArgumentNullException("encoding");
+            }
+
+            [Theory]
+            [InlineData("foo🐱bar")]
+            [InlineData("")]
+            public void Should_Remove_Preamble(string value)
+            {
+                // Given
+                var encoding = Encoding.UTF32;
+                var preamble = encoding.GetPreamble();
+                var valueWithoutPreamble = value.ToByteArray(encoding);
+                var valueWithPreamble = preamble.Concat(valueWithoutPreamble).ToArray();
+
+                // When
+                var result = valueWithPreamble.RemovePreamble(encoding);
+
+                // Then
+                result.ShouldBe(valueWithoutPreamble);
+            }
+
+            [Theory]
+            [InlineData("foo🐱bar")]
+            [InlineData("")]
+            public void Should_Return_Correct_Value_If_Enconding_Has_Preamble_But_Value_Not(string value)
+            {
+                // Given
+                var encoding = Encoding.UTF32;
+                var preamble = encoding.GetPreamble();
+                var valueWithoutPreamble = value.ToByteArray(encoding);
+
+                // When
+                var result = valueWithoutPreamble.RemovePreamble(encoding);
+
+                // Then
+                result.ShouldBe(valueWithoutPreamble);
+            }
+
+            [Theory]
+            [InlineData("foo")]
+            [InlineData("")]
+            public void Should_Return_Correct_Value_If_Encoding_Does_Not_Have_Preamble(string value)
+            {
+                // Given
+                var encoding = Encoding.ASCII;
+                var preamble = encoding.GetPreamble();
+                var valueWithoutPreamble = value.ToByteArray(encoding);
+                var valueWithPreamble = preamble.Concat(valueWithoutPreamble).ToArray();
+
+                // When
+                var result = valueWithPreamble.RemovePreamble(encoding);
+
+                // Then
+                result.ShouldBe(valueWithoutPreamble);
+            }
+        }
+
         public sealed class TheToStringUsingEncodingExtension
         {
             [Fact]

@@ -16,7 +16,7 @@
         /// Can be <c>null</c> or <see cref="string.Empty"/> if issue is not related to a project.</param>
         /// <param name="projectName">The name of the project to which the file affected by the issue belongs.
         /// Can be <c>null</c> or <see cref="string.Empty"/> if issue is not related to a project.</param>
-        /// <param name="filePath">The path to the file affacted by the issue.
+        /// <param name="affectedFileRelativePath">The path to the file affacted by the issue.
         /// The path needs to be relative to the repository root.
         /// <c>null</c> or <see cref="string.Empty"/> if issue is not related to a change in a file.</param>
         /// <param name="line">The line in the file where the issues has occurred.
@@ -35,7 +35,7 @@
         public Issue(
             string projectFileRelativePath,
             string projectName,
-            string filePath,
+            string affectedFileRelativePath,
             int? line,
             string message,
             int? priority,
@@ -67,18 +67,18 @@
             }
 
             // File path needs to be relative to the repository root.
-            if (!string.IsNullOrWhiteSpace(filePath))
+            if (!string.IsNullOrWhiteSpace(affectedFileRelativePath))
             {
-                if (!filePath.IsValidPath())
+                if (!affectedFileRelativePath.IsValidPath())
                 {
-                    throw new ArgumentException("Invalid path", nameof(filePath));
+                    throw new ArgumentException("Invalid path", nameof(affectedFileRelativePath));
                 }
 
-                this.AffectedFileRelativePath = filePath;
+                this.AffectedFileRelativePath = affectedFileRelativePath;
 
                 if (!this.AffectedFileRelativePath.IsRelative)
                 {
-                    throw new ArgumentOutOfRangeException(nameof(filePath), "File path needs to be relative to the repository root.");
+                    throw new ArgumentOutOfRangeException(nameof(affectedFileRelativePath), "File path needs to be relative to the repository root.");
                 }
             }
 

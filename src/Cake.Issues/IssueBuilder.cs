@@ -14,7 +14,7 @@
         private string projectName;
         private string filePath;
         private int? line;
-        private int priority;
+        private int? priority;
         private string priorityName;
         private string rule;
         private Uri ruleUrl;
@@ -175,7 +175,7 @@
         /// <param name="name">The human friendly name of the priority.
         /// <c>null</c> or <see cref="string.Empty"/> if no priority should be assigned.</param>
         /// <returns>Issue Builder instance.</returns>
-        public IssueBuilder WithPriority(int value, string name)
+        public IssueBuilder WithPriority(int? value, string name)
         {
             this.priority = value;
             this.priorityName = name;

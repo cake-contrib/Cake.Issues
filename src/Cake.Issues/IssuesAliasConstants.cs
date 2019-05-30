@@ -21,6 +21,11 @@
         public const string ReadCakeAliasCategory = "Reading Issues";
 
         /// <summary>
+        /// Category to use for all Cake aliases providing functionality for serializing and deserializing issues.
+        /// </summary>
+        public const string SerializationCakeAliasCategory = "Issue Serialization";
+
+        /// <summary>
         /// Category to use for all Cake aliases creating issue providers.
         /// </summary>
         public const string IssueProviderCakeAliasCategory = "Issue Providers";

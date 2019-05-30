@@ -1,6 +1,5 @@
 ﻿namespace Cake.Issues
 {
-    using System;
     using System.Linq;
     using System.Text;
 
@@ -9,6 +8,39 @@
     /// </summary>
     public static class ByteArrayExtensions
     {
+        /// <summary>
+        /// Removes the BOM of an UTF-8 encoded byte array.
+        /// </summary>
+        /// <param name="value">UTF-8 encoded byte array.</param>
+        /// <returns>UTF-8 encoded byte array without BOM.</returns>
+        public static byte[] RemovePreamble(this byte[] value)
+        {
+            value.NotNull(nameof(value));
+
+            return value.RemovePreamble(Encoding.UTF8);
+        }
+
+        /// <summary>
+        /// Removes the preamble from an byte array.
+        /// </summary>
+        /// <param name="value">Byte array.</param>
+        /// <param name="encoding">Encoding of the byte array.</param>
+        /// <returns>Byte array without preamble.</returns>
+        public static byte[] RemovePreamble(this byte[] value, Encoding encoding)
+        {
+            value.NotNull(nameof(value));
+            encoding.NotNull(nameof(encoding));
+
+            var preamble = encoding.GetPreamble();
+
+            if (value.Zip(preamble, (x, y) => x == y).All(x => x))
+            {
+                return value.Skip(preamble.Length).ToArray();
+            }
+
+            return value;
+        }
+
         /// <summary>
         /// Converts a byte array of an UTF-8 encoded string to a string.
         /// </summary>
@@ -47,12 +79,7 @@
 
             if (value.Any() && skipPreamble)
             {
-                var preamble = encoding.GetPreamble();
-
-                if (value.Zip(preamble, (x, y) => x == y).All(x => x))
-                {
-                    value = value.Skip(preamble.Length).ToArray();
-                }
+                value = value.RemovePreamble(encoding);
             }
 
             return encoding.GetString(value);

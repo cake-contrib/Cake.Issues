@@ -11,7 +11,7 @@
         /// <summary>
         /// Gets the path to the project to which the file affected by the issue belongs.
         /// The path is relative to the repository root.
-        /// Can be <c>null</c> or <see cref="string.Empty"/> if issue is not related to a project.
+        /// Can be <c>null</c> if issue is not related to a project.
         /// </summary>
         FilePath ProjectFileRelativePath { get; }
 

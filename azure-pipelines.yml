@@ -1,0 +1,16 @@
+trigger:
+- develop
+- master
+- release/*
+- hotfix/*
+
+pr:
+- develop
+
+jobs:
+- job: Windows
+  pool:
+    vmImage: 'vs2017-win2016'
+  steps:
+  - powershell: ./build.ps1
+    displayName: 'Cake Build'

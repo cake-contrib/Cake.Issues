@@ -25,23 +25,33 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.8.0" />
-    <PackageReference Include="Cake.Core" Version="0.28.0" />
-    <PackageReference Include="Cake.Testing" Version="0.28.0" />
-    <PackageReference Include="Shouldly" Version="3.0.0" />
-    <PackageReference Include="StyleCop.Analyzers" Version="1.0.2" />
-    <PackageReference Include="xunit" Version="2.4.0" />
-    <PackageReference Include="xunit.abstractions" Version="2.0.2" />
-    <PackageReference Include="xunit.assert" Version="2.4.0" />
-    <PackageReference Include="xunit.core" Version="2.4.0" />
-    <PackageReference Include="xunit.extensibility.core" Version="2.4.0" />
-    <PackageReference Include="xunit.extensibility.execution" Version="2.4.0" />
-    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.0.1" />
+    <PackageReference Include="Cake.Core" Version="0.33.0" />
+    <PackageReference Include="Cake.Testing" Version="0.33.0" />
+    <PackageReference Include="Shouldly" Version="3.0.2" />
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.1-rc.114">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="xunit" Version="2.4.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Cake.Issues.Testing\Cake.Issues.Testing.csproj" />
     <ProjectReference Include="..\Cake.Issues\Cake.Issues.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Testfiles\issue.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Testfiles\issues.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Testfiles\empty-array.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

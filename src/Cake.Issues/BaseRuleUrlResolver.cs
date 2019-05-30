@@ -7,14 +7,14 @@
     /// <summary>
     /// Base class for retrieving an URL linking to a site containing help for a rule.
     /// </summary>
-    /// <typeparam name="T">Type of the rule description</typeparam>
+    /// <typeparam name="T">Type of the rule description.</typeparam>
     public abstract class BaseRuleUrlResolver<T>
         where T : BaseRuleDescription, new()
     {
         private readonly List<Tuple<Func<T, Uri>, int>> registeredUrlResolver = new List<Tuple<Func<T, Uri>, int>>();
 
         /// <summary>
-        /// Registers a new resolver with default priority of <code>0</code>.
+        /// Registers a new resolver with default priority of <c>0</c>.
         /// </summary>
         /// <param name="resolver">Resolver which returns an <see cref="Uri"/> linking to a site
         /// containing help for a specific <see cref="BaseRuleDescription"/>.</param>

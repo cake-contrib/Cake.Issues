@@ -1,7 +1,6 @@
 ﻿namespace Cake.Issues.Testing
 {
     using System;
-    using Xunit;
 
     /// <summary>
     /// Extensions for asserting exceptions.
@@ -15,8 +14,12 @@
         /// <param name="parameterName">Expected name of the parameter which has caused the exception.</param>
         public static void IsArgumentException(this Exception exception, string parameterName)
         {
-            Assert.IsType<ArgumentException>(exception);
-            Assert.Equal(parameterName, ((ArgumentException)exception).ParamName);
+            var argumentException = exception.CheckExceptionType<ArgumentException>();
+
+            if (argumentException.ParamName != parameterName)
+            {
+                throw new Exception($"Expected parameter name to be '{parameterName}' but was '{argumentException.ParamName}'.");
+            }
         }
 
         /// <summary>
@@ -26,8 +29,12 @@
         /// <param name="parameterName">Expected name of the parameter which has caused the exception.</param>
         public static void IsArgumentNullException(this Exception exception, string parameterName)
         {
-            Assert.IsType<ArgumentNullException>(exception);
-            Assert.Equal(parameterName, ((ArgumentNullException)exception).ParamName);
+            var argumentNullException = exception.CheckExceptionType<ArgumentNullException>();
+
+            if (argumentNullException.ParamName != parameterName)
+            {
+                throw new Exception($"Expected parameter name to be '{parameterName}' but was '{argumentNullException.ParamName}'.");
+            }
         }
 
         /// <summary>
@@ -37,8 +44,12 @@
         /// <param name="parameterName">Expected name of the parameter which has caused the exception.</param>
         public static void IsArgumentOutOfRangeException(this Exception exception, string parameterName)
         {
-            Assert.IsType<ArgumentOutOfRangeException>(exception);
-            Assert.Equal(parameterName, ((ArgumentOutOfRangeException)exception).ParamName);
+            var argumentOutOfRangeException = exception.CheckExceptionType<ArgumentOutOfRangeException>();
+
+            if (argumentOutOfRangeException.ParamName != parameterName)
+            {
+                throw new Exception($"Expected parameter name to be '{parameterName}' but was '{argumentOutOfRangeException.ParamName}'.");
+            }
         }
 
         /// <summary>
@@ -48,8 +59,34 @@
         /// <param name="message">Expected exception message.</param>
         public static void IsInvalidOperationException(this Exception exception, string message)
         {
-            Assert.IsType<InvalidOperationException>(exception);
-            Assert.Equal(message, exception.Message);
+            var invalidOperationException = exception.CheckExceptionType<InvalidOperationException>();
+
+            if (invalidOperationException.Message != message)
+            {
+                throw new Exception($"Expected exception message to be '{message}' but was '{invalidOperationException.Message}'.");
+            }
+        }
+
+        /// <summary>
+        /// Validates and converts an exception type.
+        /// </summary>
+        /// <typeparam name="T">Type of expected exception.</typeparam>
+        /// <param name="exception">Exception which should be checked.</param>
+        /// <returns>Converted exception.</returns>
+        private static T CheckExceptionType<T>(this Exception exception)
+            where T : Exception
+        {
+            if (exception == null)
+            {
+                throw new Exception($"Expected exception of type '{typeof(T)}' but no exception was thrown.");
+            }
+
+            if (!(exception is T typedException))
+            {
+                throw new Exception($"Expected exception of type '{typeof(T)}' but was '{exception.GetType()}'.");
+            }
+
+            return typedException;
         }
     }
 }
