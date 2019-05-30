@@ -37,20 +37,7 @@
             }
 
             [Fact]
-            public void Should_Throw_If_LogFileContent_Is_Empty()
-            {
-                // Given
-                byte[] logFileContent = Array.Empty<byte>();
-
-                // When
-                var result = Record.Exception(() => new InspectCodeIssuesSettings(logFileContent));
-
-                // Then
-                result.IsArgumentException("logFileContent");
-            }
-
-            [Fact]
-            public void Should_Set_LogContent()
+            public void Should_Set_LogFileContent()
             {
                 // Given
                 var logFileContent = "Foo".ToByteArray();
@@ -63,7 +50,20 @@
             }
 
             [Fact]
-            public void Should_Set_LogContent_From_LogFilePath()
+            public void Should_Set_LogFileContent_If_Empty()
+            {
+                // Given
+                byte[] logFileContent = Array.Empty<byte>();
+
+                // When
+                var settings = new InspectCodeIssuesSettings(logFileContent);
+
+                // Then
+                settings.LogFileContent.ShouldBe(logFileContent);
+            }
+
+            [Fact]
+            public void Should_Set_LogFileContent_From_LogFilePath()
             {
                 // Given
                 using (var tempFile = new ResourceTempFile("Cake.Issues.InspectCode.Tests.Testfiles.inspectcode.xml"))
