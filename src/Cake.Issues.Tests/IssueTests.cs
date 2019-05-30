@@ -367,7 +367,7 @@
                 }
             }
 
-            public sealed class TheFilePathArgument
+            public sealed class TheAffectedFileRelativePathArgument
             {
                 [Theory]
                 [InlineData("foo\tbar")]
@@ -401,7 +401,7 @@
                             providerName));
 
                     // Then
-                    result.IsArgumentException("filePath");
+                    result.IsArgumentException("affectedFileRelativePath");
                 }
 
                 [Theory]
@@ -438,7 +438,7 @@
                             providerName));
 
                     // Then
-                    result.IsArgumentOutOfRangeException("filePath");
+                    result.IsArgumentOutOfRangeException("affectedFileRelativePath");
                 }
 
                 [Fact]

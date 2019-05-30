@@ -12,7 +12,7 @@
         /// <summary>
         /// Initializes the component.
         /// </summary>
-        /// <param name="settings">The settings</param>
+        /// <param name="settings">The settings.</param>
         /// <returns><c>true</c> if the initialization was successful, <c>false</c> otherwise.</returns>
         bool Initialize(T settings);
 

@@ -26,7 +26,7 @@ namespace Cake.Issues
         /// <summary>
         /// Checks if a string containing a path is a full path.
         /// </summary>
-        /// <param name="path">Path which should be checked</param>
+        /// <param name="path">Path which should be checked.</param>
         /// <returns><c>True</c> if full path.</returns>
         public static bool IsFullPath(this string path)
         {
@@ -102,7 +102,7 @@ namespace Cake.Issues
         /// <example>"hel".WithEnding("llo") returns "hello", which is the result of "hel" + "lo".</example>
         /// <param name="value">String to which <paramref name="ending"/> should be added.</param>
         /// <param name="ending">String which should be added to <paramref name="value"/>.</param>
-        /// <returns><paramref name="value"/> with the minimal concatenation of <paramref name="ending"/></returns>
+        /// <returns><paramref name="value"/> with the minimal concatenation of <paramref name="ending"/>.</returns>
         internal static string WithEnding(this string value, string ending)
         {
             if (value == null)

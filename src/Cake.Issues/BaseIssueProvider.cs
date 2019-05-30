@@ -33,7 +33,7 @@
         /// Compared to <see cref="ReadIssues"/> it is safe to access Settings from this method.
         /// </summary>
         /// <param name="format">Preferred format of the comments.</param>
-        /// <returns>List of issues</returns>
+        /// <returns>List of issues.</returns>
         protected abstract IEnumerable<IIssue> InternalReadIssues(IssueCommentFormat format);
     }
 }

@@ -13,7 +13,7 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="FakeIssueProvider"/> class.
         /// </summary>
-        /// <param name="log">The Cake log instance</param>
+        /// <param name="log">The Cake log instance.</param>
         public FakeIssueProvider(ICakeLog log)
             : base(log)
         {
@@ -22,7 +22,7 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="FakeIssueProvider"/> class.
         /// </summary>
-        /// <param name="log">The Cake log instance</param>
+        /// <param name="log">The Cake log instance.</param>
         /// <param name="issues">Issues which should be returned by the issue provider.</param>
         public FakeIssueProvider(ICakeLog log, IEnumerable<IIssue> issues)
             : base(log)

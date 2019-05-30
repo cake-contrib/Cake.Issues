@@ -10,7 +10,7 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="FakeIssueComponent"/> class.
         /// </summary>
-        /// <param name="log">The Cake log instance</param>
+        /// <param name="log">The Cake log instance.</param>
         public FakeIssueComponent(ICakeLog log)
             : base(log)
         {

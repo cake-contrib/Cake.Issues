@@ -120,7 +120,7 @@
                 // Given
                 var fixture = new FakeMultiFormatIssueProviderFixture("Build.log")
                 {
-                    Log = null
+                    Log = null,
                 };
 
                 // When
@@ -136,7 +136,7 @@
                 // Given
                 var fixture = new FakeMultiFormatIssueProviderFixture("Build.log")
                 {
-                    RepositorySettings = null
+                    RepositorySettings = null,
                 };
 
                 // When

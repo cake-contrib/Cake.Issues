@@ -23,6 +23,6 @@
         /// <summary>
         /// Markdown syntax.
         /// </summary>
-        Markdown
+        Markdown,
     }
 }

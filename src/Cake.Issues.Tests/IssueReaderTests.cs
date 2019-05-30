@@ -16,7 +16,7 @@
                 // Given
                 var fixture = new IssuesFixture
                 {
-                    Log = null
+                    Log = null,
                 };
 
                 // When
@@ -32,7 +32,7 @@
                 // Given
                 var fixture = new IssuesFixture
                 {
-                    IssueProviders = null
+                    IssueProviders = null,
                 };
 
                 // When
@@ -77,7 +77,7 @@
                 // Given
                 var fixture = new IssuesFixture
                 {
-                    Settings = null
+                    Settings = null,
                 };
 
                 // When
@@ -125,7 +125,7 @@
                                 .InFile(@"src\Cake.Issues.Tests\FakeIssueProvider.cs", 12)
                                 .OfRule("Bar")
                                 .WithPriority(IssuePriority.Warning)
-                                .Create()
+                                .Create(),
                         }));
                 fixture.IssueProviders.Add(
                     new FakeIssueProvider(
@@ -143,7 +143,7 @@
                                 .InFile(@"src\Cake.Issues.Tests\Bar.cs", 7)
                                 .OfRule("Bar")
                                 .WithPriority(IssuePriority.Warning)
-                                .Create()
+                                .Create(),
                         }));
 
                 // When
@@ -179,7 +179,7 @@
                         new List<IIssue>
                         {
                             issue1,
-                            issue2
+                            issue2,
                         }));
 
                 // When
@@ -215,7 +215,7 @@
                         new List<IIssue>
                         {
                             issue1,
-                            issue2
+                            issue2,
                         }));
 
                 // When
@@ -267,7 +267,7 @@
                         new List<IIssue>
                         {
                             issue1,
-                            issue2
+                            issue2,
                         }));
                 fixture.IssueProviders.Add(
                     new FakeIssueProvider(
@@ -275,7 +275,7 @@
                         new List<IIssue>
                         {
                             issue3,
-                            issue4
+                            issue4,
                         }));
 
                 // When
