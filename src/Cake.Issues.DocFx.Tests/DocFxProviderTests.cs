@@ -1,7 +1,6 @@
 ﻿namespace Cake.Issues.DocFx.Tests
 {
     using System.Linq;
-    using Cake.Core.IO;
     using Cake.Testing;
     using Shouldly;
     using Testing;
@@ -45,7 +44,7 @@
             [InlineData(@"c:\Source\Cake.Issues\src\docs", "src/docs/")]
             [InlineData(@"src\docs", "src/docs/")]
             [InlineData(@"c:\Source\Cake.Issues", "")]
-            [InlineData(@"/", "")]
+            [InlineData(@"./", "")]
             public void Should_Read_Issue_Correct(string docRootPath, string docRelativePath)
             {
                 // Given
@@ -56,121 +55,81 @@
 
                 // Then
                 issues.Count.ShouldBe(1);
-                CheckIssue(
+                IssueChecker.Check(
                     issues[0],
-                    docRelativePath + @"index.md",
-                    null,
-                    "Build Document.LinkPhaseHandler.Apply Templates",
-                    null,
-                    300,
-                    "Warning",
-                    "Invalid cross reference \"[Foo](xref:foo)\".");
+                    IssueBuilder.NewIssue(
+                        "Invalid cross reference \"[Foo](xref:foo)\".",
+                        "Cake.Issues.DocFx.DocFxIssuesProvider",
+                        "DocFX")
+                        .InFile(docRelativePath + @"index.md")
+                        .OfRule("Build Document.LinkPhaseHandler.Apply Templates")
+                        .WithPriority(IssuePriority.Warning));
             }
 
             [Fact]
             public void Should_Read_Line_Correct()
             {
                 // Given
-                var fixture = new DocFxProviderFixture("entry-with-line.json", @"/");
+                var fixture = new DocFxProviderFixture("entry-with-line.json", @"./");
 
                 // When
                 var issues = fixture.ReadIssues().ToList();
 
                 // Then
                 issues.Count.ShouldBe(1);
-                CheckIssue(
+                IssueChecker.Check(
                     issues[0],
-                    @"bar.md",
-                    45,
-                    "Build Document.LinkPhaseHandler.ConceptualDocumentProcessor.Save",
-                    null,
-                    300,
-                    "Warning",
-                    "Invalid file link:(~/foo.md).");
+                    IssueBuilder.NewIssue(
+                        "Invalid file link:(~/foo.md).",
+                        "Cake.Issues.DocFx.DocFxIssuesProvider",
+                        "DocFX")
+                        .InFile(@"bar.md", 45)
+                        .OfRule("Build Document.LinkPhaseHandler.ConceptualDocumentProcessor.Save")
+                        .WithPriority(IssuePriority.Warning));
             }
 
             [Fact]
             public void Should_Read_Line_Zero_Correct()
             {
                 // Given
-                var fixture = new DocFxProviderFixture("entry-with-line-0.json", @"/");
+                var fixture = new DocFxProviderFixture("entry-with-line-0.json", @"./");
 
                 // When
                 var issues = fixture.ReadIssues().ToList();
 
                 // Then
                 issues.Count.ShouldBe(1);
-                CheckIssue(
+                IssueChecker.Check(
                     issues[0],
-                    @"~/toc.yml",
-                    null,
-                    "BuildCore.Build Document.LinkPhaseHandlerWithIncremental.TocDocumentProcessor.Save",
-                    null,
-                    300,
-                    "Warning",
-                    "Invalid file link:(~/foo.md).");
+                    IssueBuilder.NewIssue(
+                        "Invalid file link:(~/foo.md).",
+                        "Cake.Issues.DocFx.DocFxIssuesProvider",
+                        "DocFX")
+                        .InFile(@"~/toc.yml")
+                        .OfRule("BuildCore.Build Document.LinkPhaseHandlerWithIncremental.TocDocumentProcessor.Save")
+                        .WithPriority(IssuePriority.Warning));
             }
 
             [Fact]
             public void Should_Read_Suggestions_Correct()
             {
                 // Given
-                var fixture = new DocFxProviderFixture("entry-of-level-suggestion.json", @"/");
+                var fixture = new DocFxProviderFixture("entry-of-level-suggestion.json", @"./");
 
                 // When
                 var issues = fixture.ReadIssues().ToList();
 
                 // Then
                 issues.Count.ShouldBe(1);
-                CheckIssue(
+                IssueChecker.Check(
                     issues[0],
-                    @"bar.md",
-                    45,
-                    "Build Document.LinkPhaseHandler.ConceptualDocumentProcessor.Save",
-                    null,
-                    200,
-                    "Suggestion",
-                    "Invalid file link:(~/foo.md).");
-            }
-
-            private static void CheckIssue(
-                IIssue issue,
-                string affectedFileRelativePath,
-                int? line,
-                string rule,
-                string ruleUrl,
-                int priority,
-                string priorityName,
-                string message)
-            {
-                issue.ProviderType.ShouldBe("Cake.Issues.DocFx.DocFxIssuesProvider");
-                issue.ProviderName.ShouldBe("DocFX");
-
-                if (issue.AffectedFileRelativePath == null)
-                {
-                    affectedFileRelativePath.ShouldBeNull();
-                }
-                else
-                {
-                    issue.AffectedFileRelativePath.ToString().ShouldBe(new FilePath(affectedFileRelativePath).ToString());
-                    issue.AffectedFileRelativePath.IsRelative.ShouldBe(true, "Issue path is not relative");
-                }
-
-                issue.Line.ShouldBe(line);
-                issue.Rule.ShouldBe(rule);
-
-                if (issue.RuleUrl == null)
-                {
-                    ruleUrl.ShouldBeNull();
-                }
-                else
-                {
-                    issue.RuleUrl.ToString().ShouldBe(ruleUrl);
-                }
-
-                issue.Priority.ShouldBe(priority);
-                issue.PriorityName.ShouldBe(priorityName);
-                issue.Message.ShouldBe(message);
+                    IssueBuilder.NewIssue(
+                        "Invalid file link:(~/foo.md).",
+                        "Cake.Issues.DocFx.DocFxIssuesProvider",
+                        "DocFX")
+                        .InFile(@"bar.md", 45)
+                        .OfRule("Build Document.LinkPhaseHandler.ConceptualDocumentProcessor.Save")
+                        .WithPriority(IssuePriority.Suggestion));
             }
         }
     }
