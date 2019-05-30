@@ -58,6 +58,26 @@
                     return "dx.material.purple.dark.css";
                 case DevExtremeTheme.MaterialTealDark:
                     return "dx.material.teal.dark.css";
+                case DevExtremeTheme.MaterialBlueLightCompact:
+                    return "dx.material.blue.light.compact.css";
+                case DevExtremeTheme.MaterialLimeLightCompact:
+                    return "dx.material.lime.light.compact.css";
+                case DevExtremeTheme.MaterialOrangeLightCompact:
+                    return "dx.material.orange.light.compact.css";
+                case DevExtremeTheme.MaterialPurpleLightCompact:
+                    return "dx.material.purple.light.compact.css";
+                case DevExtremeTheme.MaterialTealLightCompact:
+                    return "dx.material.teal.light.compact.css";
+                case DevExtremeTheme.MaterialBlueDarkCompact:
+                    return "dx.material.blue.dark.compact.css";
+                case DevExtremeTheme.MaterialLimeDarkCompact:
+                    return "dx.material.lime.dark.compact.css";
+                case DevExtremeTheme.MaterialOrangeDarkCompact:
+                    return "dx.material.orange.dark.compact.css";
+                case DevExtremeTheme.MaterialPurpleDarkCompact:
+                    return "dx.material.purple.dark.compact.css";
+                case DevExtremeTheme.MaterialTealDarkCompact:
+                    return "dx.material.teal.dark.compact.css";
                 default:
                     throw new ArgumentException("Unknown enumeration value", nameof(theme));
             }
