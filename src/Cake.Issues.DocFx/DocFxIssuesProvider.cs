@@ -73,7 +73,7 @@
         /// Converts the severity to a priority.
         /// </summary>
         /// <param name="severity">Severity as reported by DocFX.</param>
-        /// <returns>Priority</returns>
+        /// <returns>Priority.</returns>
         private static IssuePriority GetPriority(string severity)
         {
             switch (severity.ToLower())
