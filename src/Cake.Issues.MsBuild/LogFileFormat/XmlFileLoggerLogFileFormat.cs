@@ -136,8 +136,6 @@
         /// <returns>True if the rule code could be parsed.</returns>
         private static bool TryGetRule(XElement warning, out string rule)
         {
-            rule = string.Empty;
-
             var codeAttr = warning.Attribute("code");
             if (codeAttr == null)
             {
