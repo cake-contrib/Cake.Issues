@@ -11,7 +11,7 @@
         /// Returns the name of the embedded template file.
         /// </summary>
         /// <param name="template">Template for which the embedded file name should be returned.</param>
-        /// <returns>Name of the template file</returns>
+        /// <returns>Name of the template file.</returns>
         public static string GetTemplateResourceName(this GenericIssueReportTemplate template)
         {
             switch (template)

@@ -1,7 +1,7 @@
 ﻿namespace Cake.Issues.Reporting.Generic
 {
     /// <summary>
-    /// Options for the <see cref="GenericIssueReportTemplate.HtmlDxDataGrid"/> template
+    /// Options for the <see cref="GenericIssueReportTemplate.HtmlDxDataGrid"/> template.
     /// </summary>
     public enum HtmlDxDataGridOption
     {
@@ -298,8 +298,15 @@
         /// <summary>
         /// Version of the DevExtreme libraries which should be used.
         /// If setting this the matching <see cref="JQueryVersion"/> needs to also be set.
-        /// Default value is <c>18.2.7</c>.
+        /// Default value is <c>19.1.3</c>.
         /// </summary>
-        DevExtremeVersion
+        DevExtremeVersion,
+
+        /// <summary>
+        /// Settings for having functionality to open files affected by issues in IDEs.
+        /// Value needs to be an instance of <see cref="IdeIntegrationSettings"/>.
+        /// Default value is <c>null</c>.
+        /// </summary>
+        IdeIntegrationSettings,
     }
 }

@@ -14,13 +14,13 @@
             {
                 // Given
                 string id = null;
-                object valueRetriever(IIssue issue)
+                object ValueRetriever(IIssue issue)
                 {
                     return true;
                 }
 
                 // When
-                var result = Record.Exception(() => new HtmlDxDataGridColumnDescription(id, valueRetriever));
+                var result = Record.Exception(() => new HtmlDxDataGridColumnDescription(id, ValueRetriever));
 
                 // Then
                 result.IsArgumentNullException("id");
@@ -31,13 +31,13 @@
             {
                 // Given
                 var id = string.Empty;
-                object valueRetriever(IIssue issue)
+                object ValueRetriever(IIssue issue)
                 {
                     return true;
                 }
 
                 // When
-                var result = Record.Exception(() => new HtmlDxDataGridColumnDescription(id, valueRetriever));
+                var result = Record.Exception(() => new HtmlDxDataGridColumnDescription(id, ValueRetriever));
 
                 // Then
                 result.IsArgumentOutOfRangeException("id");
@@ -48,13 +48,13 @@
             {
                 // Given
                 var id = " ";
-                object valueRetriever(IIssue issue)
+                object ValueRetriever(IIssue issue)
                 {
                     return true;
                 }
 
                 // When
-                var result = Record.Exception(() => new HtmlDxDataGridColumnDescription(id, valueRetriever));
+                var result = Record.Exception(() => new HtmlDxDataGridColumnDescription(id, ValueRetriever));
 
                 // Then
                 result.IsArgumentOutOfRangeException("id");
@@ -79,13 +79,13 @@
             {
                 // Given
                 var id = "foo";
-                object valueRetriever(IIssue issue)
+                object ValueRetriever(IIssue issue)
                 {
                     return true;
                 }
 
                 // When
-                var result = new HtmlDxDataGridColumnDescription(id, valueRetriever);
+                var result = new HtmlDxDataGridColumnDescription(id, ValueRetriever);
 
                 // Then
                 result.Id.ShouldBe(id);
@@ -96,16 +96,16 @@
             {
                 // Given
                 var id = "foo";
-                object valueRetriever(IIssue issue)
+                object ValueRetriever(IIssue issue)
                 {
                     return true;
                 }
 
                 // When
-                var result = new HtmlDxDataGridColumnDescription(id, valueRetriever);
+                var result = new HtmlDxDataGridColumnDescription(id, ValueRetriever);
 
                 // Then
-                result.ValueRetriever.ShouldBe(valueRetriever);
+                result.ValueRetriever.ShouldBe(ValueRetriever);
             }
         }
     }
