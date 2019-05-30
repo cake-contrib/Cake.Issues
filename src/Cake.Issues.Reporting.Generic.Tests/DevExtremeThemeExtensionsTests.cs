@@ -29,6 +29,16 @@
             [InlineData(DevExtremeTheme.MaterialOrangeDark)]
             [InlineData(DevExtremeTheme.MaterialPurpleDark)]
             [InlineData(DevExtremeTheme.MaterialTealDark)]
+            [InlineData(DevExtremeTheme.MaterialBlueLightCompact)]
+            [InlineData(DevExtremeTheme.MaterialLimeLightCompact)]
+            [InlineData(DevExtremeTheme.MaterialOrangeLightCompact)]
+            [InlineData(DevExtremeTheme.MaterialPurpleLightCompact)]
+            [InlineData(DevExtremeTheme.MaterialTealLightCompact)]
+            [InlineData(DevExtremeTheme.MaterialBlueDarkCompact)]
+            [InlineData(DevExtremeTheme.MaterialLimeDarkCompact)]
+            [InlineData(DevExtremeTheme.MaterialOrangeDarkCompact)]
+            [InlineData(DevExtremeTheme.MaterialPurpleDarkCompact)]
+            [InlineData(DevExtremeTheme.MaterialTealDarkCompact)]
             public void Should_Return_FileName(DevExtremeTheme theme)
             {
                 // Given

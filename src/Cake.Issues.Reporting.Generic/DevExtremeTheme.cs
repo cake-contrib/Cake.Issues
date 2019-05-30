@@ -109,5 +109,55 @@
         /// Theme in Google Material design in a dark teal color scheme.
         /// </summary>
         MaterialTealDark,
+
+        /// <summary>
+        /// Theme in Google Material design in a compact light blue color scheme.
+        /// </summary>
+        MaterialBlueLightCompact,
+
+        /// <summary>
+        /// Theme in Google Material design in a compact light lime color scheme.
+        /// </summary>
+        MaterialLimeLightCompact,
+
+        /// <summary>
+        /// Theme in Google Material design in a compact light orange color scheme.
+        /// </summary>
+        MaterialOrangeLightCompact,
+
+        /// <summary>
+        /// Theme in Google Material design in a compact light purple color scheme.
+        /// </summary>
+        MaterialPurpleLightCompact,
+
+        /// <summary>
+        /// Theme in Google Material design in a compact light teal color scheme.
+        /// </summary>
+        MaterialTealLightCompact,
+
+        /// <summary>
+        /// Theme in Google Material design in a compact dark blue color scheme.
+        /// </summary>
+        MaterialBlueDarkCompact,
+
+        /// <summary>
+        /// Theme in Google Material design in a compact dark lime color scheme.
+        /// </summary>
+        MaterialLimeDarkCompact,
+
+        /// <summary>
+        /// Theme in Google Material design in a compact dark orange color scheme.
+        /// </summary>
+        MaterialOrangeDarkCompact,
+
+        /// <summary>
+        /// Theme in Google Material design in a compact dark purple color scheme.
+        /// </summary>
+        MaterialPurpleDarkCompact,
+
+        /// <summary>
+        /// Theme in Google Material design in a compact dark teal color scheme.
+        /// </summary>
+        MaterialTealDarkCompact,
     }
 }
