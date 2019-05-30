@@ -1,5 +1,6 @@
 ﻿namespace Cake.Issues.Markdownlint.Tests.LogFileFormat
 {
+    using System;
     using System.Linq;
     using Cake.Core.IO;
     using Cake.Issues.Markdownlint.LogFileFormat;
@@ -50,94 +51,78 @@
 
                 // Then
                 issues.Count.ShouldBe(8);
-                CheckIssue(
+                IssueChecker.Check(
                     issues[0],
-                    null,
-                    null,
-                    @"docs/index.md",
-                    1,
-                    "MD022",
-                    "https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md022",
-                    300,
-                    "Warning",
-                    "Headers should be surrounded by blank lines [Context: \"# foo\"]");
-                CheckIssue(
+                    IssueBuilder.NewIssue(
+                        "Headers should be surrounded by blank lines [Context: \"# foo\"]",
+                        "Cake.Issues.Markdownlint.MarkdownlintIssuesProvider",
+                        "markdownlint")
+                        .InFile("docs/index.md", 1)
+                        .OfRule("MD022", new Uri("https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md022"))
+                        .WithPriority(IssuePriority.Warning));
+                IssueChecker.Check(
                     issues[1],
-                    null,
-                    null,
-                    @"docs/index.md",
-                    2,
-                    "MD009",
-                    "https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md009",
-                    300,
-                    "Warning",
-                    "Trailing spaces [Expected: 2; Actual: 1]");
-                CheckIssue(
+                    IssueBuilder.NewIssue(
+                        "Trailing spaces [Expected: 2; Actual: 1]",
+                        "Cake.Issues.Markdownlint.MarkdownlintIssuesProvider",
+                        "markdownlint")
+                        .InFile("docs/index.md", 2)
+                        .OfRule("MD009", new Uri("https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md009"))
+                        .WithPriority(IssuePriority.Warning));
+                IssueChecker.Check(
                     issues[2],
-                    null,
-                    null,
-                    @"docs/index.md",
-                    2,
-                    "MD013",
-                    "https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md013",
-                    300,
-                    "Warning",
-                    "Line length [Expected: 100; Actual: 811]");
-                CheckIssue(
+                    IssueBuilder.NewIssue(
+                        "Line length [Expected: 100; Actual: 811]",
+                        "Cake.Issues.Markdownlint.MarkdownlintIssuesProvider",
+                        "markdownlint")
+                        .InFile("docs/index.md", 2)
+                        .OfRule("MD013", new Uri("https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md013"))
+                        .WithPriority(IssuePriority.Warning));
+                IssueChecker.Check(
                     issues[3],
-                    null,
-                    null,
-                    @"docs/index.md",
-                    4,
-                    "MD022",
-                    "https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md022",
-                    300,
-                    "Warning",
-                    "Headers should be surrounded by blank lines [Context: \"# bar\"]");
-                CheckIssue(
+                    IssueBuilder.NewIssue(
+                        "Headers should be surrounded by blank lines [Context: \"# bar\"]",
+                        "Cake.Issues.Markdownlint.MarkdownlintIssuesProvider",
+                        "markdownlint")
+                        .InFile("docs/index.md", 4)
+                        .OfRule("MD022", new Uri("https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md022"))
+                        .WithPriority(IssuePriority.Warning));
+                IssueChecker.Check(
                     issues[4],
-                    null,
-                    null,
-                    @"docs/index.md",
-                    4,
-                    "MD025",
-                    "https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md025",
-                    300,
-                    "Warning",
-                    "Multiple top level headers in the same document [Context: \"# bar\"]");
-                CheckIssue(
+                    IssueBuilder.NewIssue(
+                        "Multiple top level headers in the same document [Context: \"# bar\"]",
+                        "Cake.Issues.Markdownlint.MarkdownlintIssuesProvider",
+                        "markdownlint")
+                        .InFile("docs/index.md", 4)
+                        .OfRule("MD025", new Uri("https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md025"))
+                        .WithPriority(IssuePriority.Warning));
+                IssueChecker.Check(
                     issues[5],
-                    null,
-                    null,
-                    @"docs/index.md",
-                    5,
-                    "MD031",
-                    "https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md031",
-                    300,
-                    "Warning",
-                    "Fenced code blocks should be surrounded by blank lines [Context: \"```\"]");
-                CheckIssue(
+                    IssueBuilder.NewIssue(
+                        "Fenced code blocks should be surrounded by blank lines [Context: \"```\"]",
+                        "Cake.Issues.Markdownlint.MarkdownlintIssuesProvider",
+                        "markdownlint")
+                        .InFile("docs/index.md", 5)
+                        .OfRule("MD031", new Uri("https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md031"))
+                        .WithPriority(IssuePriority.Warning));
+                IssueChecker.Check(
                     issues[6],
-                    null,
-                    null,
-                    @"docs/index.md",
-                    5,
-                    "MD040",
-                    "https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md040",
-                    300,
-                    "Warning",
-                    "Fenced code blocks should have a language specified [Context: \"```\"]");
-                CheckIssue(
+                    IssueBuilder.NewIssue(
+                        "Fenced code blocks should have a language specified [Context: \"```\"]",
+                        "Cake.Issues.Markdownlint.MarkdownlintIssuesProvider",
+                        "markdownlint")
+                        .InFile("docs/index.md", 5)
+                        .OfRule("MD040", new Uri("https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md040"))
+                        .WithPriority(IssuePriority.Warning));
+                IssueChecker.Check(
                     issues[7],
-                    null,
-                    null,
-                    @"docs/index.md",
-                    6,
-                    "MD009",
-                    "https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md009",
-                    300,
-                    "Warning",
-                    "Trailing spaces [Expected: 2; Actual: 1]");
+                    IssueBuilder.NewIssue(
+                        "Trailing spaces [Expected: 2; Actual: 1]",
+                        "Cake.Issues.Markdownlint.MarkdownlintIssuesProvider",
+                        "markdownlint")
+                        .InFile("docs/index.md", 6)
+                        .OfRule("MD009", new Uri("https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md009"))
+                        .WithPriority(IssuePriority.Warning));
             }
 
             [Fact]
@@ -152,148 +137,78 @@
 
                 // Then
                 issues.Count.ShouldBe(8);
-                CheckIssue(
+                IssueChecker.Check(
                     issues[0],
-                    null,
-                    null,
-                    @"docs/index.md",
-                    1,
-                    "MD022",
-                    "https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md022",
-                    300,
-                    "Warning",
-                    "Headings should be surrounded by blank lines [Context: \"# foo\"]");
-                CheckIssue(
+                    IssueBuilder.NewIssue(
+                        "Headings should be surrounded by blank lines [Context: \"# foo\"]",
+                        "Cake.Issues.Markdownlint.MarkdownlintIssuesProvider",
+                        "markdownlint")
+                        .InFile("docs/index.md", 1)
+                        .OfRule("MD022", new Uri("https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md022"))
+                        .WithPriority(IssuePriority.Warning));
+                IssueChecker.Check(
                     issues[1],
-                    null,
-                    null,
-                    @"docs/index.md",
-                    2,
-                    "MD009",
-                    "https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md009",
-                    300,
-                    "Warning",
-                    "Trailing spaces [Expected: 0 or 2; Actual: 1]");
-                CheckIssue(
+                    IssueBuilder.NewIssue(
+                        "Trailing spaces [Expected: 0 or 2; Actual: 1]",
+                        "Cake.Issues.Markdownlint.MarkdownlintIssuesProvider",
+                        "markdownlint")
+                        .InFile("docs/index.md", 2)
+                        .OfRule("MD009", new Uri("https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md009"))
+                        .WithPriority(IssuePriority.Warning));
+                IssueChecker.Check(
                     issues[2],
-                    null,
-                    null,
-                    @"docs/index.md",
-                    2,
-                    "MD013",
-                    "https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md013",
-                    300,
-                    "Warning",
-                    "Line length [Expected: 100; Actual: 811]");
-                CheckIssue(
+                    IssueBuilder.NewIssue(
+                        "Line length [Expected: 100; Actual: 811]",
+                        "Cake.Issues.Markdownlint.MarkdownlintIssuesProvider",
+                        "markdownlint")
+                        .InFile("docs/index.md", 2)
+                        .OfRule("MD013", new Uri("https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md013"))
+                        .WithPriority(IssuePriority.Warning));
+                IssueChecker.Check(
                     issues[3],
-                    null,
-                    null,
-                    @"docs/index.md",
-                    4,
-                    "MD022",
-                    "https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md022",
-                    300,
-                    "Warning",
-                    "Headings should be surrounded by blank lines [Context: \"# bar\"]");
-                CheckIssue(
+                    IssueBuilder.NewIssue(
+                        "Headings should be surrounded by blank lines [Context: \"# bar\"]",
+                        "Cake.Issues.Markdownlint.MarkdownlintIssuesProvider",
+                        "markdownlint")
+                        .InFile("docs/index.md", 4)
+                        .OfRule("MD022", new Uri("https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md022"))
+                        .WithPriority(IssuePriority.Warning));
+                IssueChecker.Check(
                     issues[4],
-                    null,
-                    null,
-                    @"docs/index.md",
-                    4,
-                    "MD025",
-                    "https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md025",
-                    300,
-                    "Warning",
-                    "Multiple top level headings in the same document [Context: \"# bar\"]");
-                CheckIssue(
+                    IssueBuilder.NewIssue(
+                        "Multiple top level headings in the same document [Context: \"# bar\"]",
+                        "Cake.Issues.Markdownlint.MarkdownlintIssuesProvider",
+                        "markdownlint")
+                        .InFile("docs/index.md", 4)
+                        .OfRule("MD025", new Uri("https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md025"))
+                        .WithPriority(IssuePriority.Warning));
+                IssueChecker.Check(
                     issues[5],
-                    null,
-                    null,
-                    @"docs/index.md",
-                    5,
-                    "MD031",
-                    "https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md031",
-                    300,
-                    "Warning",
-                    "Fenced code blocks should be surrounded by blank lines [Context: \"```\"]");
-                CheckIssue(
+                    IssueBuilder.NewIssue(
+                        "Fenced code blocks should be surrounded by blank lines [Context: \"```\"]",
+                        "Cake.Issues.Markdownlint.MarkdownlintIssuesProvider",
+                        "markdownlint")
+                        .InFile("docs/index.md", 5)
+                        .OfRule("MD031", new Uri("https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md031"))
+                        .WithPriority(IssuePriority.Warning));
+                IssueChecker.Check(
                     issues[6],
-                    null,
-                    null,
-                    @"docs/index.md",
-                    5,
-                    "MD040",
-                    "https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md040",
-                    300,
-                    "Warning",
-                    "Fenced code blocks should have a language specified [Context: \"```\"]");
-                CheckIssue(
+                    IssueBuilder.NewIssue(
+                        "Fenced code blocks should have a language specified [Context: \"```\"]",
+                        "Cake.Issues.Markdownlint.MarkdownlintIssuesProvider",
+                        "markdownlint")
+                        .InFile("docs/index.md", 5)
+                        .OfRule("MD040", new Uri("https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md040"))
+                        .WithPriority(IssuePriority.Warning));
+                IssueChecker.Check(
                     issues[7],
-                    null,
-                    null,
-                    @"docs/index.md",
-                    6,
-                    "MD009",
-                    "https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md009",
-                    300,
-                    "Warning",
-                    "Trailing spaces [Expected: 0 or 2; Actual: 1]");
-            }
-
-            private static void CheckIssue(
-                IIssue issue,
-                string projectFileRelativePath,
-                string projectName,
-                string affectedFileRelativePath,
-                int? line,
-                string rule,
-                string ruleUrl,
-                int priority,
-                string priorityName,
-                string message)
-            {
-                issue.ProviderType.ShouldBe("Cake.Issues.Markdownlint.MarkdownlintIssuesProvider");
-                issue.ProviderName.ShouldBe("markdownlint");
-
-                if (issue.ProjectFileRelativePath == null)
-                {
-                    projectFileRelativePath.ShouldBeNull();
-                }
-                else
-                {
-                    issue.ProjectFileRelativePath.ToString().ShouldBe(new FilePath(projectFileRelativePath).ToString());
-                    issue.ProjectFileRelativePath.IsRelative.ShouldBe(true, "Issue path is not relative");
-                }
-
-                issue.ProjectName.ShouldBe(projectName);
-
-                if (issue.AffectedFileRelativePath == null)
-                {
-                    affectedFileRelativePath.ShouldBeNull();
-                }
-                else
-                {
-                    issue.AffectedFileRelativePath.ToString().ShouldBe(new FilePath(affectedFileRelativePath).ToString());
-                    issue.AffectedFileRelativePath.IsRelative.ShouldBe(true, "Issue path is not relative");
-                }
-
-                issue.Line.ShouldBe(line);
-                issue.Rule.ShouldBe(rule);
-
-                if (issue.RuleUrl == null)
-                {
-                    ruleUrl.ShouldBeNull();
-                }
-                else
-                {
-                    issue.RuleUrl.ToString().ShouldBe(ruleUrl);
-                }
-
-                issue.Priority.ShouldBe(priority);
-                issue.PriorityName.ShouldBe(priorityName);
-                issue.Message.ShouldBe(message);
+                    IssueBuilder.NewIssue(
+                        "Trailing spaces [Expected: 0 or 2; Actual: 1]",
+                        "Cake.Issues.Markdownlint.MarkdownlintIssuesProvider",
+                        "markdownlint")
+                        .InFile("docs/index.md", 6)
+                        .OfRule("MD009", new Uri("https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md009"))
+                        .WithPriority(IssuePriority.Warning));
             }
         }
     }
