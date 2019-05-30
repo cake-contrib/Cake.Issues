@@ -20,6 +20,16 @@
 #load create-reports-htmldxdatagrid-theme-materialorangedark.cake
 #load create-reports-htmldxdatagrid-theme-materialpurpledark.cake
 #load create-reports-htmldxdatagrid-theme-materialtealdark.cake
+#load create-reports-htmldxdatagrid-theme-materialbluelightcompact.cake
+#load create-reports-htmldxdatagrid-theme-materiallimelightcompact.cake
+#load create-reports-htmldxdatagrid-theme-materialorangelightcompact.cake
+#load create-reports-htmldxdatagrid-theme-materialpurplelightcompact.cake
+#load create-reports-htmldxdatagrid-theme-materialteallightcompact.cake
+#load create-reports-htmldxdatagrid-theme-materialbluedarkcompact.cake
+#load create-reports-htmldxdatagrid-theme-materiallimedarkcompact.cake
+#load create-reports-htmldxdatagrid-theme-materialorangedarkcompact.cake
+#load create-reports-htmldxdatagrid-theme-materialpurpledarkcompact.cake
+#load create-reports-htmldxdatagrid-theme-materialtealdarkcompact.cake
 #load create-reports-htmldxdatagrid-hide-columns.cake
 #load create-reports-htmldxdatagrid-additional-columns.cake
 #load create-reports-htmldxdatagrid-sorting.cake
@@ -56,6 +66,16 @@ Task("Create-Reports-HtmlDxDataGrid")
     .IsDependentOn("Create-Reports-HtmlDxDataGrid-Theme-MaterialOrangeDark")
     .IsDependentOn("Create-Reports-HtmlDxDataGrid-Theme-MaterialPurpleDark")
     .IsDependentOn("Create-Reports-HtmlDxDataGrid-Theme-MaterialTealDark")
+    .IsDependentOn("Create-Reports-HtmlDxDataGrid-Theme-MaterialBlueLightCompact")
+    .IsDependentOn("Create-Reports-HtmlDxDataGrid-Theme-MaterialLimeLightCompact")
+    .IsDependentOn("Create-Reports-HtmlDxDataGrid-Theme-MaterialOrangeLightCompact")
+    .IsDependentOn("Create-Reports-HtmlDxDataGrid-Theme-MaterialPurpleLightCompact")
+    .IsDependentOn("Create-Reports-HtmlDxDataGrid-Theme-MaterialTealLightCompact")
+    .IsDependentOn("Create-Reports-HtmlDxDataGrid-Theme-MaterialBlueDarkCompact")
+    .IsDependentOn("Create-Reports-HtmlDxDataGrid-Theme-MaterialLimeDarkCompact")
+    .IsDependentOn("Create-Reports-HtmlDxDataGrid-Theme-MaterialOrangeDarkCompact")
+    .IsDependentOn("Create-Reports-HtmlDxDataGrid-Theme-MaterialPurpleDarkCompact")
+    .IsDependentOn("Create-Reports-HtmlDxDataGrid-Theme-MaterialTealDarkCompact")
     .IsDependentOn("Create-Reports-HtmlDxDataGrid-Hide-Columns")
     .IsDependentOn("Create-Reports-HtmlDxDataGrid-Additional-Columns")
     .IsDependentOn("Create-Reports-HtmlDxDataGrid-Sorting")
