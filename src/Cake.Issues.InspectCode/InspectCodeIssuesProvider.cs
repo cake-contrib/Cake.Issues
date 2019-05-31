@@ -42,7 +42,7 @@
                     x => new IssueType
                     {
                         Severity = x.Attribute("Severity").Value,
-                        WikiUrl = x.Attribute("WikiUrl")?.Value.ToUri()
+                        WikiUrl = x.Attribute("WikiUrl")?.Value.ToUri(),
                     });
 
             // Loop through all issue tags.
@@ -236,7 +236,7 @@
         /// Converts the severity level to a priority.
         /// </summary>
         /// <param name="severity">Severity level as reported by InspectCode.</param>
-        /// <returns>Priority</returns>
+        /// <returns>Priority.</returns>
         private static IssuePriority GetPriority(string severity)
         {
             switch (severity.ToLowerInvariant())
