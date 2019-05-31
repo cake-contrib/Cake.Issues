@@ -182,14 +182,14 @@
 
                 var newThread = new TfsPullRequestCommentThread()
                 {
-                    Status = TfsCommentThreadStatus.Active
+                    Status = TfsCommentThreadStatus.Active,
                 };
 
                 var discussionComment = new TfsComment
                 {
                     CommentType = TfsCommentType.System,
                     IsDeleted = false,
-                    Content = ContentProvider.GetContent(issue)
+                    Content = ContentProvider.GetContent(issue),
                 };
 
                 if (!this.AddThreadProperties(newThread, changes, issue, iterationId, commentSource))

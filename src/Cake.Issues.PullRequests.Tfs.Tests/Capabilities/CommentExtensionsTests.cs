@@ -31,7 +31,7 @@
                 var comment =
                     new TfsComment
                     {
-                        Content = content
+                        Content = content,
                     };
 
                 // When
@@ -50,7 +50,7 @@
                 var comment =
                     new TfsComment
                     {
-                        IsDeleted = isDeleted
+                        IsDeleted = isDeleted,
                     };
 
                 // When

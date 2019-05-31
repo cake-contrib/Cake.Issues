@@ -11,6 +11,7 @@
 
   <PropertyGroup>
     <CodeAnalysisRuleSet>..\Cake.Issues.PullRequests.Tfs.Tests.ruleset</CodeAnalysisRuleSet>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
