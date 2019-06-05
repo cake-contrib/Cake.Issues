@@ -102,6 +102,26 @@ CreateIssueReport(
   (<a href="https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/build/create-reports/create-reports-htmldxdatagrid-theme-materialpurpledark.cake" target="_blank">Source Code</a>)
 * <a href="htmldxdatagrid-demo-theme-materialtealdark.html" target="_blank">Material Teal Dark Theme</a>
   (<a href="https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/build/create-reports/create-reports-htmldxdatagrid-theme-materialtealdark.cake" target="_blank">Source Code</a>)
+* <a href="htmldxdatagrid-demo-theme-materialbluelightcompact.html" target="_blank">Material Blue Light Compact Theme</a>
+  (<a href="https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/build/create-reports/create-reports-htmldxdatagrid-theme-materialbluelightcompact.cake" target="_blank">Source Code</a>)
+* <a href="htmldxdatagrid-demo-theme-materiallimelightcompact.html" target="_blank">Material Lime Light Compact Theme</a>
+  (<a href="https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/build/create-reports/create-reports-htmldxdatagrid-theme-materiallimelightcompact.cake" target="_blank">Source Code</a>)
+* <a href="htmldxdatagrid-demo-theme-materialorangelightcompact.html" target="_blank">Material Orange Light Compact Theme</a>
+  (<a href="https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/build/create-reports/create-reports-htmldxdatagrid-theme-materialorangelightcompact.cake" target="_blank">Source Code</a>)
+* <a href="htmldxdatagrid-demo-theme-materialpurplelightcompact.html" target="_blank">Material Purple Light Compact Theme</a>
+  (<a href="https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/build/create-reports/create-reports-htmldxdatagrid-theme-materialpurplelightcompact.cake" target="_blank">Source Code</a>)
+* <a href="htmldxdatagrid-demo-theme-materialteallightcompact.html" target="_blank">Material Teal Light Compact Theme</a>
+  (<a href="https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/build/create-reports/create-reports-htmldxdatagrid-theme-materialteallightcompact.cake" target="_blank">Source Code</a>)
+* <a href="htmldxdatagrid-demo-theme-materialbluedarkcompact.html" target="_blank">Material Blue Dark Compact Theme</a>
+  (<a href="https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/build/create-reports/create-reports-htmldxdatagrid-theme-materialbluedarkcompact.cake" target="_blank">Source Code</a>)
+* <a href="htmldxdatagrid-demo-theme-materiallimedarkcompact.html" target="_blank">Material Lime Dark Compact Theme</a>
+  (<a href="https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/build/create-reports/create-reports-htmldxdatagrid-theme-materiallimedarkcompact.cake" target="_blank">Source Code</a>)
+* <a href="htmldxdatagrid-demo-theme-materialorangedarkcompact.html" target="_blank">Material Orange Dark Compact Theme</a>
+  (<a href="https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/build/create-reports/create-reports-htmldxdatagrid-theme-materialorangedarkcompact.cake" target="_blank">Source Code</a>)
+* <a href="htmldxdatagrid-demo-theme-materialpurpledarkcompact.html" target="_blank">Material Purple Dark Compact Theme</a>
+  (<a href="https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/build/create-reports/create-reports-htmldxdatagrid-theme-materialpurpledarkcompact.cake" target="_blank">Source Code</a>)
+* <a href="htmldxdatagrid-demo-theme-materialtealdarkcompact.html" target="_blank">Material Teal Dark Compact Theme</a>
+  (<a href="https://github.com/cake-contrib/Cake.Issues.Website/blob/develop/demos/build/create-reports/create-reports-htmldxdatagrid-theme-materialtealdarkcompact.cake" target="_blank">Source Code</a>)
 
 ## Column visibility
 

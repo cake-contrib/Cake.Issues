@@ -67,6 +67,19 @@
                 <td>ClassLibrary1</td>
                 <td>src/ClassLibrary1/Class1.cs</td>
                 <td>1</td>
+                <td>The file header is missing or not located at the top of the file.</td>
+                <td>300</td>
+                <td>Warning</td>
+                <td>SA1633</td>
+                <td>https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1633.md</td>
+                <td>Cake.Issues.MsBuild.MsBuildIssuesProvider</td>
+                <td>MSBuild</td>
+            </tr>
+            <tr>
+                <td>src/ClassLibrary1/ClassLibrary1.csproj</td>
+                <td>ClassLibrary1</td>
+                <td>src/ClassLibrary1/Class1.cs</td>
+                <td>1</td>
                 <td>Using directive must appear within a namespace declaration</td>
                 <td>300</td>
                 <td>Warning</td>
@@ -124,19 +137,6 @@
                 <td>Warning</td>
                 <td>SA1200</td>
                 <td>https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1200.md</td>
-                <td>Cake.Issues.MsBuild.MsBuildIssuesProvider</td>
-                <td>MSBuild</td>
-            </tr>
-            <tr>
-                <td>src/ClassLibrary1/ClassLibrary1.csproj</td>
-                <td>ClassLibrary1</td>
-                <td>src/ClassLibrary1/Class1.cs</td>
-                <td>1</td>
-                <td>The file header is missing or not located at the top of the file.</td>
-                <td>300</td>
-                <td>Warning</td>
-                <td>SA1633</td>
-                <td>https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1633.md</td>
                 <td>Cake.Issues.MsBuild.MsBuildIssuesProvider</td>
                 <td>MSBuild</td>
             </tr>
@@ -392,7 +392,7 @@
                 <td></td>
                 <td>docs/index.md</td>
                 <td>1</td>
-                <td>Headings should be surrounded by blank lines [Context: &quot;# foo&quot;]</td>
+                <td>Headings should be surrounded by blank lines [Expected: 1; Actual: 0; Below] [Context: &quot;# foo&quot;]</td>
                 <td>300</td>
                 <td>Warning</td>
                 <td>MD022</td>
@@ -431,7 +431,7 @@
                 <td></td>
                 <td>docs/index.md</td>
                 <td>4</td>
-                <td>Headings should be surrounded by blank lines [Context: &quot;# bar&quot;]</td>
+                <td>Headings should be surrounded by blank lines [Expected: 1; Actual: 0; Below] [Context: &quot;# bar&quot;]</td>
                 <td>300</td>
                 <td>Warning</td>
                 <td>MD022</td>
