@@ -276,7 +276,7 @@
             changes.NotNull(nameof(changes));
             path.NotNull(nameof(path));
 
-            var change = changes.Where(x => x.ItemPath.FullPath == "/" + path.ToString()).ToList();
+            var change = changes.Where(x => x.ItemPath != null && x.ItemPath.FullPath == "/" + path.ToString()).ToList();
 
             if (change.Count == 0)
             {
