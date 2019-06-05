@@ -13,6 +13,7 @@ The [Cake.Issues.MsBuild addin] provides the following features.
 
 # Supported log file formats
 
+* [MsBuildBinaryLogFileFormat] alias for reading issues from binary log files.
 * [MsBuildXmlFileLoggerFormat] alias for reading issues from log files created by [MSBuild Extension Pack XmlFileLogger].
 
 # Supported comment formats
@@ -42,5 +43,6 @@ The [Cake.Issues.MsBuild addin] provides the following features.
 [Cake.Issues.MsBuild addin]: https://www.nuget.org/packages/Cake.Issues.MsBuild
 [MSBuild Extension Pack XmlFileLogger]: http://www.msbuildextensionpack.com/help/4.0.5.0/html/242ab4fd-c2e2-f6aa-325b-7588725aed24.htm
 [MsBuildAddRuleUrlResolver]: ../../../api/Cake.Issues.MsBuild/MsBuildIssuesAliases/93C21487
+[MsBuildBinaryLogFileFormat]: ../../../api/Cake.Issues.MsBuild/MsBuildIssuesAliases/AD50C7E1
 [MsBuildXmlFileLoggerFormat]: ../../../api/Cake.Issues.MsBuild/MsBuildIssuesAliases/051D7B6E
 [IssuePriority.Warning]: ../../../api/Cake.Issues/IssuePriority/7A0CE07F
