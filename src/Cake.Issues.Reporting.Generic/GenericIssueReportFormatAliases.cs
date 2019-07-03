@@ -108,6 +108,55 @@
         }
 
         /// <summary>
+        /// Gets an instance of the file link settings for linking to files hosted in Azure DevOps or
+        /// Azure DevOps Server.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <param name="repositoryUrl">Full URL of the Git repository,
+        /// eg. <code>https://dev.azure.com/myorganization/_git/myrepo</code>.</param>
+        /// <param name="branch">Name of the branch.</param>
+        /// <returns>Settings for linking files hosted on Azure DevOps or Azure DevOps Server.</returns>
+        [CakeMethodAlias]
+        [CakeAliasCategory(ReportingAliasConstants.ReportingFormatCakeAliasCategory)]
+        public static FileLinkSettings GenericIssueReportFileLinkSettingsForAzureDevOps(
+            this ICakeContext context,
+            Uri repositoryUrl,
+            string branch)
+        {
+            context.NotNull(nameof(context));
+            repositoryUrl.NotNull(nameof(repositoryUrl));
+            branch.NotNullOrWhiteSpace(nameof(branch));
+
+            return context.GenericIssueReportFileLinkSettingsForAzureDevOps(repositoryUrl, branch, null);
+        }
+
+        /// <summary>
+        /// Gets an instance of the file link settings for linking to files hosted in Azure DevOps or
+        /// Azure DevOps Server in a sub-folder.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <param name="repositoryUrl">Full URL of the Git repository,
+        /// eg. <code>https://dev.azure.com/myorganization/_git/myrepo</code>.</param>
+        /// <param name="branch">Name of the branch.</param>
+        /// <param name="rootPath">Root path of the files.
+        /// <c>null</c> or <see cref="string.Empty"/> if files are in the root of the repository.</param>
+        /// <returns>Settings for linking files hosted on Azure DevOps or Azure DevOps Server.</returns>
+        [CakeMethodAlias]
+        [CakeAliasCategory(ReportingAliasConstants.ReportingFormatCakeAliasCategory)]
+        public static FileLinkSettings GenericIssueReportFileLinkSettingsForAzureDevOps(
+            this ICakeContext context,
+            Uri repositoryUrl,
+            string branch,
+            string rootPath)
+        {
+            context.NotNull(nameof(context));
+            repositoryUrl.NotNull(nameof(repositoryUrl));
+            branch.NotNullOrWhiteSpace(nameof(branch));
+
+            return FileLinkSettings.AzureDevOps(repositoryUrl, branch, rootPath);
+        }
+
+        /// <summary>
         /// Gets an instance of a the generic report format using an embedded template.
         /// </summary>
         /// <param name="context">The context.</param>
