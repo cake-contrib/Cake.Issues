@@ -38,15 +38,35 @@
         }
 
         /// <summary>
-        /// Returns settings for linking to files hosted in Visual Studio Team Service or Team Foundation Server.
+        /// Returns settings for linking to files hosted in Team Foundation Server.
         /// </summary>
         /// <param name="repositoryUrl">Full URL of the Git repository,
         /// eg. <code>http://myserver:8080/tfs/defaultcollection/myproject/_git/myrepository</code>.</param>
         /// <param name="branch">Name of the branch.</param>
         /// <param name="rootPath">Root path of the files.
         /// <c>null</c> or <see cref="string.Empty"/> if files are in the root of the repository.</param>
-        /// <returns>Settings for linking to files hosted in Visual Studio Team Service or Team Foundation Server.</returns>
+        /// <returns>Settings for linking to files hosted in Team Foundation Server.</returns>
         public static FileLinkSettings TeamFoundationServer(
+            Uri repositoryUrl,
+            string branch,
+            string rootPath)
+        {
+            repositoryUrl.NotNull(nameof(repositoryUrl));
+            branch.NotNullOrWhiteSpace(nameof(branch));
+
+            return AzureDevOps(repositoryUrl, branch, rootPath);
+        }
+
+        /// <summary>
+        /// Returns settings for linking to files hosted in Azure DevOps or Azure DevOps Server.
+        /// </summary>
+        /// <param name="repositoryUrl">Full URL of the Git repository,
+        /// eg. <code>https://dev.azure.com/myorganization/_git/myrepo</code>.</param>
+        /// <param name="branch">Name of the branch.</param>
+        /// <param name="rootPath">Root path of the files.
+        /// <c>null</c> or <see cref="string.Empty"/> if files are in the root of the repository.</param>
+        /// <returns>Settings for linking to files hosted in Azure DevOps or Azure DevOps Server.</returns>
+        public static FileLinkSettings AzureDevOps(
             Uri repositoryUrl,
             string branch,
             string rootPath)
