@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26730.8
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28922.388
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.Issues.PullRequests.Tfs", "Cake.Issues.PullRequests.Tfs\Cake.Issues.PullRequests.Tfs.csproj", "{1D046545-035B-4D7E-98C8-8AE6F5D0D289}"
 EndProject
@@ -10,11 +10,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{AAD732D5-4A2D-4A67-B571-7CD931983393}"
 	ProjectSection(SolutionItems) = preProject
 		..\setup.cake = ..\setup.cake
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nuspec", "nuspec", "{85D67E36-8CFD-487E-BB11-E1385CC05878}"
-	ProjectSection(SolutionItems) = preProject
-		..\nuspec\nuget\Cake.Issues.PullRequests.Tfs.nuspec = ..\nuspec\nuget\Cake.Issues.PullRequests.Tfs.nuspec
 	EndProjectSection
 EndProject
 Global
@@ -34,9 +29,6 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{85D67E36-8CFD-487E-BB11-E1385CC05878} = {AAD732D5-4A2D-4A67-B571-7CD931983393}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1CAC9A70-DDF8-467C-8CA5-F65DED3BEF1C}

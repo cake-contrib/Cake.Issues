@@ -1,91 +1,34 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E938CD33-F1C7-45ED-A12C-7F18934AD131}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Cake.Issues.PullRequests.Tfs.Tests</RootNamespace>
-    <AssemblyName>Cake.Issues.PullRequests.Tfs.Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
-    <TargetFrameworkProfile />
+    <TargetFrameworks>netcoreapp2.0</TargetFrameworks>
+    <IsPackable>false</IsPackable>
+    <Product>Cake.Issues.PullRequests.Tfs</Product>
+    <Copyright>Copyright © BBT Software AG and contributors</Copyright>
+    <Description>Tests for the Cake.Issues.PullRequests.Tfs addin</Description>
+    <Authors>BBT Software AG and contributors</Authors>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+
+  <PropertyGroup>
     <CodeAnalysisRuleSet>..\Cake.Issues.PullRequests.Tfs.Tests.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>..\Cake.Issues.PullRequests.Tfs.Tests.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="Cake.Core" Version="0.33.0" />
     <PackageReference Include="Cake.Issues" Version="0.7.0" />
+    <PackageReference Include="Cake.Issues.PullRequests" Version="0.7.0" />
     <PackageReference Include="Cake.Issues.Testing" Version="0.7.0" />
     <PackageReference Include="Cake.Testing" Version="0.33.0" />
-    <PackageReference Include="NSubstitute">
-      <Version>4.2.1</Version>
-    </PackageReference>
+    <PackageReference Include="Cake.Tfs" Version="0.3.1-beta0001" />
+    <PackageReference Include="NSubstitute" Version="4.2.1" />
     <PackageReference Include="Shouldly" Version="3.0.2" />
-    <PackageReference Include="StyleCop.Analyzers">
-      <Version>1.0.2</Version>
-    </PackageReference>
-    <PackageReference Include="xunit">
-      <Version>2.4.1</Version>
-    </PackageReference>
-    <PackageReference Include="xunit.runner.visualstudio">
-      <Version>2.4.1</Version>
-    </PackageReference>
+    <PackageReference Include="StyleCop.Analyzers" Version="1.0.2" />
+    <PackageReference Include="xunit" Version="2.4.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1" />
   </ItemGroup>
+
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
+    <ProjectReference Include="..\Cake.Issues.PullRequests.Tfs\Cake.Issues.PullRequests.Tfs.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Capabilities\CommentExtensionsTests.cs" />
-    <Compile Include="Capabilities\CommentThreadStatusExtensionsTests.cs" />
-    <Compile Include="ContentProviderTests.cs" />
-    <Compile Include="Capabilities\GitPullRequestCommentThreadExtensionsTests.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Capabilities\TfsFilteringByModifiedFilesCapabilityTests.cs" />
-    <Compile Include="Capabilities\TfsDiscussionThreadsCapabilityTests.cs" />
-    <Compile Include="Capabilities\TfsCheckingCommitIdCapabilityTests.cs" />
-    <Compile Include="TfsPullRequestSystemTests.cs" />
-    <Compile Include="TfsPullRequestSystemSettingsTests.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Cake.Issues.PullRequests.Tfs\Cake.Issues.PullRequests.Tfs.csproj">
-      <Project>{1d046545-035b-4d7e-98c8-8ae6f5d0d289}</Project>
-      <Name>Cake.Issues.PullRequests.Tfs</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+
 </Project>
