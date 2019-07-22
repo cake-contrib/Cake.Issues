@@ -36,7 +36,7 @@
                         Status = TfsCommentThreadStatus.Active,
                         FilePath = "/foo.cs",
                         Comments = null,
-                        Properties = new Dictionary<string, object>()
+                        Properties = new Dictionary<string, object>(),
                     };
 
                 // When
@@ -57,14 +57,14 @@
                         Status = TfsCommentThreadStatus.Active,
                         FilePath = "/foo.cs",
                         Comments = new List<TfsComment>(),
-                        Properties = null
+                        Properties = null,
                     };
 
                 // When
                 var result = thread.ToPullRequestDiscussionThread();
 
                 // Then
-                result.CommentSource.ShouldBe(default(string));
+                result.CommentSource.ShouldBe(default);
             }
 
             [Fact]
@@ -81,7 +81,7 @@
                         Status = status,
                         FilePath = filePath,
                         Comments = new List<TfsComment>(),
-                        Properties = new Dictionary<string, object>()
+                        Properties = new Dictionary<string, object>(),
                     };
 
                 // When
@@ -127,7 +127,7 @@
                         Status = status,
                         FilePath = filePath,
                         Comments = new List<TfsComment>(),
-                        Properties = new Dictionary<string, object>()
+                        Properties = new Dictionary<string, object>(),
                     };
 
                 // When
@@ -151,7 +151,7 @@
                         Status = status,
                         FilePath = filePath,
                         Comments = new List<TfsComment>(),
-                        Properties = new Dictionary<string, object>()
+                        Properties = new Dictionary<string, object>(),
                     };
 
                 // When
@@ -171,7 +171,7 @@
                         Id = 123,
                         Status = TfsCommentThreadStatus.Active,
                         Comments = new List<TfsComment>(),
-                        Properties = new Dictionary<string, object>()
+                        Properties = new Dictionary<string, object>(),
                     };
 
                 // When
@@ -201,10 +201,10 @@
                             new TfsComment()
                             {
                                 Content = commentContent,
-                                IsDeleted = commentIsDeleted
-                            }
+                                IsDeleted = commentIsDeleted,
+                            },
                         },
-                        Properties = new Dictionary<string, object>()
+                        Properties = new Dictionary<string, object>(),
                     };
 
                 // When
@@ -231,7 +231,7 @@
                         Status = status,
                         FilePath = filePath,
                         Comments = new List<TfsComment>(),
-                        Properties = new Dictionary<string, object>()
+                        Properties = new Dictionary<string, object>(),
                     };
                 thread.SetCommentSource(commentSource);
 
@@ -278,7 +278,7 @@
                         Status = status,
                         FilePath = filePath,
                         Comments = new List<TfsComment>(),
-                        Properties = new Dictionary<string, object>()
+                        Properties = new Dictionary<string, object>(),
                     };
 
                 // When
@@ -315,14 +315,14 @@
                         Status = TfsCommentThreadStatus.Active,
                         FilePath = "/foo.cs",
                         Comments = new List<TfsComment>(),
-                        Properties = null
+                        Properties = null,
                     };
 
                 // When
                 var result = thread.GetCommentSource();
 
                 // Then
-                result.ShouldBe(default(string));
+                result.ShouldBe(default);
             }
 
             [Fact]
@@ -337,7 +337,7 @@
                         Status = TfsCommentThreadStatus.Active,
                         FilePath = "/foo.cs",
                         Comments = new List<TfsComment>(),
-                        Properties = new Dictionary<string, object>()
+                        Properties = new Dictionary<string, object>(),
                     };
                 thread.SetCommentSource(commentSource);
 
@@ -376,7 +376,7 @@
                         Status = TfsCommentThreadStatus.Active,
                         FilePath = "/foo.cs",
                         Comments = new List<TfsComment>(),
-                        Properties = null
+                        Properties = null,
                     };
                 var value = "foo";
 
@@ -399,7 +399,7 @@
                         Status = TfsCommentThreadStatus.Active,
                         FilePath = "/foo.cs",
                         Comments = new List<TfsComment>(),
-                        Properties = new Dictionary<string, object>()
+                        Properties = new Dictionary<string, object>(),
                     };
 
                 // When
@@ -437,7 +437,7 @@
                         Status = TfsCommentThreadStatus.Active,
                         FilePath = "/foo.cs",
                         Comments = new List<TfsComment>(),
-                        Properties = null
+                        Properties = null,
                     };
                 var value = "foo";
 
@@ -460,7 +460,7 @@
                         Status = TfsCommentThreadStatus.Active,
                         FilePath = "/foo.cs",
                         Comments = new List<TfsComment>(),
-                        Properties = new Dictionary<string, object>()
+                        Properties = new Dictionary<string, object>(),
                     };
                 thread.SetCommentSource(commentSource);
 
@@ -482,7 +482,7 @@
                         Status = TfsCommentThreadStatus.Active,
                         FilePath = "/foo.cs",
                         Comments = new List<TfsComment>(),
-                        Properties = new Dictionary<string, object>()
+                        Properties = new Dictionary<string, object>(),
                     };
                 thread.SetCommentSource("foo");
 
@@ -520,14 +520,14 @@
                         Status = TfsCommentThreadStatus.Active,
                         FilePath = "/foo.cs",
                         Comments = new List<TfsComment>(),
-                        Properties = null
+                        Properties = null,
                     };
 
                 // When
                 var result = thread.GetIssueMessage();
 
                 // Then
-                result.ShouldBe(default(string));
+                result.ShouldBe(default);
             }
 
             [Fact]
@@ -542,7 +542,7 @@
                         Status = TfsCommentThreadStatus.Active,
                         FilePath = "/foo.cs",
                         Comments = new List<TfsComment>(),
-                        Properties = new Dictionary<string, object>()
+                        Properties = new Dictionary<string, object>(),
                     };
                 thread.SetIssueMessage(message);
 
@@ -581,7 +581,7 @@
                         Status = TfsCommentThreadStatus.Active,
                         FilePath = "/foo.cs",
                         Comments = new List<TfsComment>(),
-                        Properties = null
+                        Properties = null,
                     };
                 var value = "foo";
 
@@ -604,7 +604,7 @@
                         Status = TfsCommentThreadStatus.Active,
                         FilePath = "/foo.cs",
                         Comments = new List<TfsComment>(),
-                        Properties = new Dictionary<string, object>()
+                        Properties = new Dictionary<string, object>(),
                     };
 
                 // When

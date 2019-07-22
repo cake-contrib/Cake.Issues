@@ -1,7 +1,7 @@
 ﻿namespace Cake.Issues.PullRequests.Tfs.Tests
 {
     using System;
-    using Testing;
+    using Cake.Issues.Testing;
     using Xunit;
 
     public sealed class TfsPullRequestSystemSettingsTests

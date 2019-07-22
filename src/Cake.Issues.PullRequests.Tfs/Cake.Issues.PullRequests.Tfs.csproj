@@ -8,6 +8,7 @@
     <DebugType>full</DebugType>
     <DebugSymbols>true</DebugSymbols>
     <CodeAnalysisRuleSet>..\Cake.Issues.PullRequests.Tfs.ruleset</CodeAnalysisRuleSet>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -46,6 +47,7 @@ See the Project Site for an overview of the whole ecosystem of addins for workin
     <PackageReference Include="Cake.Issues.PullRequests" Version="0.7.0" PrivateAssets="All" />
     <PackageReference Include="Cake.Tfs" Version="0.3.1-beta0001" PrivateAssets="All" />
     <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.3" PrivateAssets="All" />
-    <PackageReference Include="StyleCop.Analyzers" Version="1.0.2" PrivateAssets="All" />
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118" PrivateAssets="All" />
+
   </ItemGroup>
 </Project>
