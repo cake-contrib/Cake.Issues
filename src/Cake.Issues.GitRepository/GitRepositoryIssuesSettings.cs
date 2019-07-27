@@ -6,10 +6,10 @@
     public class GitRepositoryIssuesSettings
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="GitRepositoryIssuesSettings"/> class.
+        /// Gets or sets a value indicating whether the repository should be checked for
+        /// binary files not tracked by Git LFS.
+        /// Requires Git and Git-LFS to be available through Cake tool resolution.
         /// </summary>
-        public GitRepositoryIssuesSettings()
-        {
-        }
+        public bool CheckBinaryFilesTrackedByLfs { get; set; }
     }
 }

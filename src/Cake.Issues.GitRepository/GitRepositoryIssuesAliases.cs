@@ -2,7 +2,6 @@
 {
     using Cake.Core;
     using Cake.Core.Annotations;
-    using Cake.Core.IO;
 
     /// <summary>
     /// Contains functionality related to analyze Git repositories.
@@ -33,11 +32,14 @@
         /// <param name="settings">Settings for analyzing the Git repository.</param>
         /// <returns>Instance of a provider for analyzing a Git repository and reporting issues.</returns>
         /// <example>
-        /// <para>Analyze Git repository:</para>
+        /// <para>Check for binary files not tracked by Git LFS:</para>
         /// <code>
         /// <![CDATA[
         ///     var settings =
-        ///         new GitRepositoryIssues();
+        ///         new GitRepositoryIssuesSettings
+        ///         {
+        ///             CheckBinaryFilesTrackedWithLfs = true
+        ///         };
         ///
         ///     var issues =
         ///         ReadIssues(
@@ -55,7 +57,14 @@
             context.NotNull(nameof(context));
             settings.NotNull(nameof(settings));
 
-            return new GitRepositoryIssuesProvider(context.Log, settings);
+            return
+                new GitRepositoryIssuesProvider(
+                    context.Log,
+                    context.FileSystem,
+                    context.Environment,
+                    context.ProcessRunner,
+                    context.Tools,
+                    settings);
         }
     }
 }
