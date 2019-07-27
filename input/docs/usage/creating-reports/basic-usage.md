@@ -32,7 +32,7 @@ Finally you can define a task where you call the reporting addin with the desire
 Task("Create-Report").Does(() =>
 {
     var repoRootFolder = new DirectoryPath(@"C:\repo");
-    ReportIssuesToPullRequest(
+    CreateIssueReport(
         MsBuildIssuesFromFilePath(
             @"C:\build\msbuild.log",
             MsBuildXmlFileLoggerFormat),
