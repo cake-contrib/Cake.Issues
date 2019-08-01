@@ -2,7 +2,7 @@
 
 This addin for the Cake build automation system allows you to read issues from any code analyzer or linter.
 
-For more information about this addin see the [Cake.Issues website](https://cake-contrib.github.io/Cake.Issues.Website)
+For more information about this addin see the [Cake.Issues website](https://cakeissues.net)
 and for general information about the Cake build automation system see the [Cake website](http://cakebuild.net)
 
 [![License](http://img.shields.io/:license-mit-blue.svg)](https://github.com/cake-contrib/Cake.Issues/blob/develop/LICENSE)
@@ -27,7 +27,7 @@ and for general information about the Cake build automation system see the [Cake
 
 ## Quick Links
 
-- [Documentation](https://cake-contrib.github.io/Cake.Issues.Website)
+- [Documentation](https://cakeissues.net)
 
 ## Chat Room
 
