@@ -121,7 +121,9 @@
                     IssueBuilder
                         .NewIssue(message, this)
                         .InFile(file)
-                        .OfRule("BinaryFileNotTrackedByLfs")
+                        .OfRule(
+                            "BinaryFileNotTrackedByLfs",
+                            new Uri("https://cakeissues.net/docs/issue-providers/gitrepository/rules/BinaryFileNotTrackedByLfs"))
                         .WithPriority(IssuePriority.Warning)
                         .Create());
             }
