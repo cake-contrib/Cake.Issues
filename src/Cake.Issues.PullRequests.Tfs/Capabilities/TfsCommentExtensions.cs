@@ -19,7 +19,7 @@
             return new PullRequestDiscussionComment()
             {
                 Content = comment.Content,
-                IsDeleted = comment.IsDeleted
+                IsDeleted = comment.IsDeleted,
             };
         }
     }
