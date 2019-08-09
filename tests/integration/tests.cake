@@ -30,16 +30,18 @@ Task("CheckBinaryFilesTrackedByLfs")
 {
     var repoRootDir = MakeAbsolute(Directory("../../"));
 
-    var settings =
-        new GitRepositoryIssuesSettings
-        {
-            CheckBinaryFilesTrackedByLfs = true
-        };
-
     var issues =
         ReadIssues(
-            GitRepositoryIssuesAliases.GitRepositoryIssues(Context, settings),
-            repoRootDir);
+            GitRepositoryIssuesAliases.GitRepositoryIssues(
+                Context,
+                new GitRepositoryIssuesSettings
+                {
+                    CheckBinaryFilesTrackedByLfs = true
+                }),
+            new ReadIssuesSettings(repoRootDir)
+            {
+                 Format = IssueCommentFormat.Html
+            });
 
     var reportDir =
         repoRootDir.Combine("BuildArtifacts").Combine("TestResults").Combine("Integration");

@@ -58,7 +58,7 @@
 
             if (this.IssueProviderSettings.CheckBinaryFilesTrackedByLfs)
             {
-                result.AddRange(this.CheckForBinaryFilesNotTrackedByLfs());
+                result.AddRange(this.CheckForBinaryFilesNotTrackedByLfs(format));
             }
 
             return result;
@@ -67,8 +67,9 @@
         /// <summary>
         /// Checks for binary files which are not tracked by LFS.
         /// </summary>
+        /// <param name="format">Preferred format of the messages.</param>
         /// <returns>List of issues for binary files which are not tracked by LFS.</returns>
-        private IEnumerable<IIssue> CheckForBinaryFilesNotTrackedByLfs()
+        private IEnumerable<IIssue> CheckForBinaryFilesNotTrackedByLfs(IssueCommentFormat format)
         {
             var allFiles = this.GetAllFilesFromRepository();
             if (!allFiles.Any())
@@ -102,12 +103,27 @@
             var result = new List<IIssue>();
             foreach (var file in binaryFilesNotTrackedByLfs)
             {
+                string message = null;
+                switch (format)
+                {
+                    case IssueCommentFormat.Markdown:
+                        message = $"The binary file `{file}` is not tracked by Git LFS";
+                        break;
+                    case IssueCommentFormat.Html:
+                        message = $"The binary file <pre>{file}</pre> is not tracked by Git LFS";
+                        break;
+                    default:
+                        message = $"The binary file \"{file}\" is not tracked by Git LFS";
+                        break;
+                }
+
                 result.Add(
                     IssueBuilder
-                        .NewIssue(
-                            $"File '{file}' is a binary file but not tracked by LFS.", this)
+                        .NewIssue(message, this)
                         .InFile(file)
-                        .OfRule("BinaryFileNotTrackedByLfs")
+                        .OfRule(
+                            "BinaryFileNotTrackedByLfs",
+                            new Uri("https://cakeissues.net/docs/issue-providers/gitrepository/rules/BinaryFileNotTrackedByLfs"))
                         .WithPriority(IssuePriority.Warning)
                         .Create());
             }
