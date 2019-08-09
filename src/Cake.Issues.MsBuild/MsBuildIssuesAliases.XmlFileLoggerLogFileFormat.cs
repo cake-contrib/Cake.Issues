@@ -1,7 +1,8 @@
-﻿namespace Cake.Issues.MsBuild.LogFileFormat
+﻿namespace Cake.Issues.MsBuild
 {
     using Cake.Core;
     using Cake.Core.Annotations;
+    using Cake.Issues.MsBuild.LogFileFormat;
 
     /// <content>
     /// Contains functionality related to <see cref="XmlFileLoggerLogFileFormat"/>.
