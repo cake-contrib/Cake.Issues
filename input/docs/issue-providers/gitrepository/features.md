@@ -31,6 +31,6 @@ The [Cake.Issues.GitRepository addin] provides the following features.
 | <span class="glyphicon glyphicon-ok" style="color:green"></span>   | `IIssue.Priority`                 |                                |
 | <span class="glyphicon glyphicon-ok" style="color:green"></span>   | `IIssue.PriorityName`             |                                |
 | <span class="glyphicon glyphicon-ok" style="color:green"></span>   | `IIssue.Rule`                     |                                |
-| <span class="glyphicon glyphicon-remove" style="color:red"></span> | `IIssue.RuleUrl`                  |                                |
+| <span class="glyphicon glyphicon-ok" style="color:green"></span>   | `IIssue.RuleUrl`                  |                                |
 
 [Cake.Issues.GitRepository addin]: https://www.nuget.org/packages/Cake.Issues.GitRepository
