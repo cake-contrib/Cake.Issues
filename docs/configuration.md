@@ -9,9 +9,10 @@ and behavior of Cake.Issues.Recipe.
 
 # General
 
-| Property                                           | Default Value    | Description                                                                                      |
-|----------------------------------------------------|------------------|--------------------------------------------------------------------------------------------------|
-| `IssuesParameters.OutputDirectory`                 | `BuildArtifacts` | Path to the output directory. A relative path will be relative to the current working directory. |
+| Property                                           | Default Value    | Description                                                                                                                                              |
+|----------------------------------------------------|------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `IssuesParameters.OutputDirectory`                 | `BuildArtifacts` | Path to the output directory. A relative path will be relative to the current working directory.                                                         |
+| `IssuesParameters.BuildIdentifier`                 | `string.Empty`   | Identifier for the build run. If set this identifier will be used to identify to artifacts provided by the build if building on multiple configurations. |
 
 # Input files
 
