@@ -78,10 +78,6 @@
             }
 
             var textFiles = this.GetTextFilesFromRepository();
-            if (!textFiles.Any())
-            {
-                return new List<IIssue>();
-            }
 
             var binaryFiles = this.DetermineBinaryFiles(allFiles, textFiles);
             if (!binaryFiles.Any())
