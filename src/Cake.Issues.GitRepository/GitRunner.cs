@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Text;
     using Cake.Core;
     using Cake.Core.IO;
     using Cake.Core.Tooling;
@@ -50,17 +51,25 @@
                 RedirectStandardOutput = true,
             };
 
-            IEnumerable<string> result = null;
-            this.Run(
-                settings,
-                null,
-                processSettings,
-                process =>
-                {
-                    result = process.GetStandardOutput();
-                });
-
-            return result?.ToList();
+            var currentEncoding = Console.OutputEncoding;
+            Console.OutputEncoding = Encoding.UTF8;
+            try
+            {
+                IEnumerable<string> result = null;
+                this.Run(
+                    settings,
+                    null,
+                    processSettings,
+                    process =>
+                    {
+                        result = process.GetStandardOutput();
+                    });
+                return result?.ToList();
+            }
+            finally
+            {
+                Console.OutputEncoding = currentEncoding;
+            }
         }
 
         /// <summary>

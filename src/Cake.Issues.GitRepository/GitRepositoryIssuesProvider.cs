@@ -133,8 +133,8 @@
             };
 
             settings.Arguments.Clear();
-            settings.Arguments.Add("ls-files");
-            var allFiles = this.runner.RunCommand(settings);
+            settings.Arguments.Add("ls-files -z");
+            var allFiles = string.Join(string.Empty, this.runner.RunCommand(settings)).Split('\0').Where(x => !string.IsNullOrEmpty(x));
 
             if (allFiles == null)
             {
