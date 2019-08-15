@@ -28,7 +28,7 @@ public class BuildData
         this.RepoRootFolder = context.MakeAbsolute(context.Directory("./"));
         this.SourceFolder = this.RepoRootFolder.Combine("src");
         this.DocsFolder = this.RepoRootFolder.Combine("docs");
-        this.TemplateGalleryFolder = this.RepoRootFolder.Combine("../input/docs/report-formats/generic/templates");
+        this.TemplateGalleryFolder = this.RepoRootFolder.Combine("../docs/templates");
         this.MsBuildLogFilePath = this.RepoRootFolder.CombineWithFilePath("msbuild.log");
         this.InspectCodeLogFilePath = this.RepoRootFolder.CombineWithFilePath("inspectCode.log");
         this.MarkdownLintLogFilePath = this.RepoRootFolder.CombineWithFilePath("markdown.log");
