@@ -186,7 +186,7 @@
             };
 
             settings.Arguments.Clear();
-            settings.Arguments.Add("lfs ls-files");
+            settings.Arguments.Add("lfs ls-files -n");
             var lfsTrackedFiles = this.runner.RunCommand(settings);
             if (lfsTrackedFiles == null)
             {
