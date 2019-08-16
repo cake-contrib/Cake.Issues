@@ -18,7 +18,7 @@
     string nuget = @addin.String("NuGet");
     string repositoryOwner = @addin.String("repositoryOwner");
     string repositoryName = @addin.String("repositoryName");
-    string documentation = @addin.String("documentation");
+    string documentationLink = @addin.String("documentationLink");
 
     <a id="@(nuget)"></a>
     <div class="panel panel-default">
@@ -46,10 +46,10 @@
                     <dt>Repository</dt>
                     <dd><a href="https://github.com/@(repositoryOwner)/@(repositoryName)">@(repositoryOwner)/@(repositoryName)</a></dd>
                 }
-                @if(!string.IsNullOrEmpty(documentation))
+                @if(!string.IsNullOrEmpty(documentationLink))
                 {
                     <dt>Documentation</dt>
-                    <dd><a href="@Context.GetLink(documentation)">Documentation</a></dd>
+                    <dd><a href="@Context.GetLink(documentationLink)">Documentation</a></dd>
                 }
             </dl>
         </div>
