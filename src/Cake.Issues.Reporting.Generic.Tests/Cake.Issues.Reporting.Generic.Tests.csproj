@@ -37,7 +37,7 @@
   <ItemGroup>
     <PackageReference Include="Cake.Core" Version="0.33.0" />
     <PackageReference Include="Cake.Issues" Version="0.7.0" />
-    <PackageReference Include="Cake.Issues.Testing" Version="0.7.0" />
+    <PackageReference Include="Cake.Issues.Testing" Version="0.7.1" />
     <PackageReference Include="Cake.Testing" Version="0.33.0" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
     <PackageReference Include="HtmlAgilityPack" Version="1.11.12" />
