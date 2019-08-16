@@ -49,20 +49,20 @@ Task("Lint-Documentation").Does(() =>
 Finally you can define a task where you call the core addin with the desired issue provider.
 
 ```csharp
-Task("Analyze-Log")
-.IsDependentOn("Lint-Documentation")
-.Does(() =>
-{
-    // Read Issues.
-    var issues =
-        ReadIssues(
-            MarkdownlintIssuesFromFilePath(
-                logPath,
-                MarkdownlintCliLogFileFormat),
-            repoRootPath);
+Task("Read-Issues")
+    .IsDependentOn("Lint-Documentation")
+    .Does(() =>
+    {
+        // Read Issues.
+        var issues =
+            ReadIssues(
+                MarkdownlintIssuesFromFilePath(
+                    logPath,
+                    MarkdownlintCliLogFileFormat),
+                repoRootPath);
 
-    Information("{0} issues are found.", issues.Count());
-});
+        Information("{0} issues are found.", issues.Count());
+    });
 ```
 
 [markdownlint-cli]: https://github.com/igorshubovych/markdownlint-cli
