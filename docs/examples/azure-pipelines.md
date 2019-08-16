@@ -56,12 +56,10 @@ Task("ReportIssuesToPullRequest").Does(() =>
 
             if (isPullRequestBuild)
             {
-                if (!Int32.TryParse(context.EnvironmentVariable("SYSTEM_PULLREQUEST_PULLREQUESTID"), out var pullRequestId))
+                var pullRequestIdVariable = context.EnvironmentVariable("SYSTEM_PULLREQUEST_PULLREQUESTID");
+                if (!Int32.TryParse(pullRequestIdVariable, out var pullRequestId))
                 {
-                    throw new Exception(
-                        string.Format(
-                            "Invalid pull request ID: {0}",
-                            context.EnvironmentVariable("SYSTEM_PULLREQUEST_PULLREQUESTID")));
+                    throw new Exception($"Invalid pull request ID: {pullRequestIdVariable}");
                 }
                 else
                 {
