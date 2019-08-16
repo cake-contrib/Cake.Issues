@@ -36,7 +36,7 @@ The [Cake.Issues.MsBuild addin] provides the following features.
 | <span class="glyphicon glyphicon-ok" style="color:green"></span> | `IIssue.Line`                     |                                |
 | <span class="glyphicon glyphicon-ok" style="color:green"></span> | `IIssue.Message`                  |                                |
 | <span class="glyphicon glyphicon-ok" style="color:green"></span> | `IIssue.Priority`                 | Always [IssuePriority.Warning] |
-| <span class="glyphicon glyphicon-ok" style="color:green"></span> | `IIssue.PriorityName`             | Always [IssuePriority.Warning] |
+| <span class="glyphicon glyphicon-ok" style="color:green"></span> | `IIssue.PriorityName`             | Always `Warning`               |
 | <span class="glyphicon glyphicon-ok" style="color:green"></span> | `IIssue.Rule`                     |                                |
 | <span class="glyphicon glyphicon-ok" style="color:green"></span> | `IIssue.RuleUrl`                  | For code analysis (`CA*`) and StyleCop (`SA*`) warnings. Support for additional rules can be added through a custom [MsBuildAddRuleUrlResolver] |
 

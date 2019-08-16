@@ -44,9 +44,7 @@ Task("Build-Solution").Does(() =>
             .WithLogger(
                 Context.Tools.Resolve("MSBuild.ExtensionPack.Loggers.dll").FullPath,
                 "XmlFileLogger",
-                string.Format(
-                    "logfile=\"{0}\";verbosity=Detailed;encoding=UTF-8",
-                logPath)
+                $"logfile=\"{logPath}\";verbosity=Detailed;encoding=UTF-8"
     );
 
     MSBuild(repoRootPath.CombineWithFilePath("MySolution.sln"), settings);
@@ -58,19 +56,20 @@ The following example reads issues reported as MsBuild warnings by the `XmlFileL
 class from [MSBuild Extension Pack]:
 
 ```csharp
-Task("Analyze-Log")
-.IsDependentOn("Build-Solution")
-.Does(() =>
-{
-    // Read Issues.
-    var issues = ReadIssues(
-        MsBuildIssuesFromFilePath(
-            logPath,
-            MsBuildXmlFileLoggerFormat),
-        repoRootFolder);
+Task("Read-Issues")
+    .IsDependentOn("Build-Solution")
+    .Does(() =>
+    {
+        // Read Issues.
+        var issues =
+            ReadIssues(
+            MsBuildIssuesFromFilePath(
+                logPath,
+                MsBuildXmlFileLoggerFormat),
+            repoRootFolder);
 
-    Information("{0} issues are found.", issues.Count());
-});
+        Information("{0} issues are found.", issues.Count());
+    });
 ```
 
 [MSBuild Extension Pack]: http://www.msbuildextensionpack.com/
