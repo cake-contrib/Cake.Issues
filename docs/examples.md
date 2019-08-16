@@ -49,17 +49,18 @@ Task("Analyze-Project").Does(() =>
 Finally you can define a task where you call the core addin with the desired issue provider.
 
 ```csharp
-Task("Analyze-Project")
-.IsDependentOn("Analyze-Project")
-.Does(() =>
-{
-    // Read Issues.
-    var issues = ReadIssues(
-        InspectCodeIssuesFromFilePath(logPath),
-        repoRootPath);
+Task("Read-Issues")
+    .IsDependentOn("Analyze-Project")
+    .Does(() =>
+    {
+        // Read Issues.
+        var issues =
+            ReadIssues(
+                InspectCodeIssuesFromFilePath(logPath),
+                repoRootPath);
 
-    Information("{0} issues are found.", issues.Count());
-});
+        Information("{0} issues are found.", issues.Count());
+    });
 ```
 
 [JetBrains InspectCode]: https://www.jetbrains.com/help/resharper/InspectCode.html
