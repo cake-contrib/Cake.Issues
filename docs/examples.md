@@ -49,18 +49,19 @@ Task("Build-Documentation").Does(() =>
 Finally you can define a task where you call the core addin with the desired issue provider.
 
 ```csharp
-Task("Analyze-Log")
-.IsDependentOn("Build-Documentation")
-.Does(() =>
-{
-    // Read Issues.
-    var issues = ReadIssues(
-        DocFxIssuesFromFilePath(logPath, docRootPath),
-        repoRootPath);
+Task("Read-Issues")
+    .IsDependentOn("Build-Documentation")
+    .Does(() =>
+    {
+        // Read Issues.
+        var issues =
+            ReadIssues(
+                DocFxIssuesFromFilePath(logPath, docRootPath),
+                repoRootPath);
 
-    Information("{0} issues are found.", issues.Count());
-});
+        Information("{0} issues are found.", issues.Count());
+    });
 ```
 
-[DocFx]: http://dotnet.github.io/docfx/
+[DocFx]: https://dotnet.github.io/docfx/
 [Cake.DocFx]: https://www.nuget.org/packages/Cake.DocFx/
