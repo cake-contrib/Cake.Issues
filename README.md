@@ -2,7 +2,7 @@
 
 This addin for the Cake build automation system allows you to read issues from any code analyzer or linter.
 
-For more information about this addin see the [Cake.Issues website](https://cake-contrib.github.io/Cake.Issues.Website)
+For more information about this addin see the [Cake.Issues website](https://cakeissues.net)
 and for general information about the Cake build automation system see the [Cake website](http://cakebuild.net)
 
 [![License](http://img.shields.io/:license-mit-blue.svg)](https://github.com/cake-contrib/Cake.Issues/blob/develop/LICENSE)
@@ -19,7 +19,7 @@ and for general information about the Cake build automation system see the [Cake
 | | Develop | Master |
 |:--:|:--:|:--:|
 |AppVeyor Windows|[![Build status](https://ci.appveyor.com/api/projects/status/sde2oe3lu4kpmw0r/branch/develop?svg=true)](https://ci.appveyor.com/project/cakecontrib/cake-issues/branch/develop)|[![Build status](https://ci.appveyor.com/api/projects/status/sde2oe3lu4kpmw0r/branch/master?svg=true)](https://ci.appveyor.com/project/cakecontrib/cake-issues/branch/master)|
-|Azure DevOps Windows|[![Build Status](https://dev.azure.com/cake-contrib/Cake.Issues/_apis/build/status/cake-contrib.Cake.Issues?branchName=develop&jobName=Windows)](https://dev.azure.com/cake-contrib/Cake.Issues/_build/latest?definitionId=2?branchName=develop)|[![Build Status](https://dev.azure.com/cake-contrib/Cake.Issues/_apis/build/status/cake-contrib.Cake.Issues?branchName=master&jobName=Windows)](https://dev.azure.com/cake-contrib/Cake.Issues/_build/latest?definitionId=2?branchName=master)|
+|Azure DevOps Windows|[![Build Status](https://dev.azure.com/cake-contrib/Cake.Issues/_apis/build/status/cake-contrib.Cake.Issues?branchName=develop&jobName=Windows)](https://dev.azure.com/cake-contrib/Cake.Issues/_build/latest?definitionId=2&branchName=develop)|[![Build Status](https://dev.azure.com/cake-contrib/Cake.Issues/_apis/build/status/cake-contrib.Cake.Issues?branchName=master&jobName=Windows)](https://dev.azure.com/cake-contrib/Cake.Issues/_build/latest?definitionId=2&branchName=master)|
 
 ## Code Coverage
 
@@ -27,7 +27,7 @@ and for general information about the Cake build automation system see the [Cake
 
 ## Quick Links
 
-- [Documentation](https://cake-contrib.github.io/Cake.Issues.Website)
+- [Documentation](https://cakeissues.net)
 
 ## Chat Room
 

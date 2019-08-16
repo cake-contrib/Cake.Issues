@@ -55,14 +55,16 @@
             {
                 if (!projectFileRelativePath.IsValidPath())
                 {
-                    throw new ArgumentException("Invalid path", nameof(projectFileRelativePath));
+                    throw new ArgumentException($"Invalid path '{projectFileRelativePath}'", nameof(projectFileRelativePath));
                 }
 
                 this.ProjectFileRelativePath = projectFileRelativePath;
 
                 if (!this.ProjectFileRelativePath.IsRelative)
                 {
-                    throw new ArgumentOutOfRangeException(nameof(projectFileRelativePath), "Project file path needs to be relative to the repository root.");
+                    throw new ArgumentOutOfRangeException(
+                        nameof(projectFileRelativePath),
+                        $"Project file path '{this.ProjectFileRelativePath}' needs to be relative to the repository root.");
                 }
             }
 
@@ -71,14 +73,16 @@
             {
                 if (!affectedFileRelativePath.IsValidPath())
                 {
-                    throw new ArgumentException("Invalid path", nameof(affectedFileRelativePath));
+                    throw new ArgumentException($"Invalid path '{affectedFileRelativePath}'", nameof(affectedFileRelativePath));
                 }
 
                 this.AffectedFileRelativePath = affectedFileRelativePath;
 
                 if (!this.AffectedFileRelativePath.IsRelative)
                 {
-                    throw new ArgumentOutOfRangeException(nameof(affectedFileRelativePath), "File path needs to be relative to the repository root.");
+                    throw new ArgumentOutOfRangeException(
+                        nameof(affectedFileRelativePath), 
+                        $"File path '{this.AffectedFileRelativePath}' needs to be relative to the repository root.");
                 }
             }
 

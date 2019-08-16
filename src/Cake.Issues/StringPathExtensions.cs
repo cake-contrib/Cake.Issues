@@ -34,7 +34,7 @@ namespace Cake.Issues
 
             if (!path.IsValidPath())
             {
-                throw new ArgumentException("Invalid path", nameof(path));
+                throw new ArgumentException($"Invalid path '{path}'", nameof(path));
             }
 
             // ReSharper disable once PossibleNullReferenceException
@@ -59,12 +59,12 @@ namespace Cake.Issues
 
             if (!path.IsValidPath())
             {
-                throw new ArgumentException("Invalid path", nameof(path));
+                throw new ArgumentException($"Invalid path '{path}'", nameof(path));
             }
 
             if (!baseDirPath.IsValidPath())
             {
-                throw new ArgumentException("Invalid path", nameof(baseDirPath));
+                throw new ArgumentException($"Invalid path '{baseDirPath}'", nameof(baseDirPath));
             }
 
             // TODO There are edge cases where GetFullPath can lead to wrong results. See https://github.com/cake-contrib/Cake.Prca/pull/2#discussion_r106646030
@@ -89,7 +89,7 @@ namespace Cake.Issues
 
             if (!path.IsValidPath())
             {
-                throw new ArgumentException("Invalid path", nameof(path));
+                throw new ArgumentException($"Invalid path '{path}'", nameof(path));
             }
 
             return path.Replace('/', '\\');
