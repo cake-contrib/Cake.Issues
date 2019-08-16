@@ -40,6 +40,6 @@ The [Cake.Issues.EsLint addin] provides the following features.
 | <span class="glyphicon glyphicon-ok" style="color:green"></span>   | `IIssue.RuleUrl`                  | Support for custom rules can be added through a custom [EsLintAddRuleUrlResolver] |
 
 [Cake.Issues.EsLint addin]: https://www.nuget.org/packages/Cake.Issues.EsLint
-[ESLint json formatter]: http://eslint.org/docs/user-guide/formatters/#json
+[ESLint json formatter]: https://eslint.org/docs/user-guide/formatters/#json
 [EsLintAddRuleUrlResolver]: ../../../api/Cake.Issues.EsLint/EsLintIssuesAliases/D64301E6
 [EsLintJsonFormat]: ../../../api/Cake.Issues.EsLint/EsLintIssuesAliases/230C6E27
