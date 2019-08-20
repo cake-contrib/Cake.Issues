@@ -35,9 +35,19 @@
         int? Line { get; }
 
         /// <summary>
-        /// Gets the message of the issue.
+        /// Gets the message of the issue in text format.
         /// </summary>
-        string Message { get; }
+        string MessageText { get; }
+
+        /// <summary>
+        /// Gets the message of the issue in HTML format.
+        /// </summary>
+        string MessageHtml { get; }
+
+        /// <summary>
+        /// Gets the message of the issue in Markdown format.
+        /// </summary>
+        string MessageMarkdown { get; }
 
         /// <summary>
         /// Gets the priority of the message. A higher value indicates a higher priority.

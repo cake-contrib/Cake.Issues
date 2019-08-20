@@ -182,7 +182,7 @@
             var issuesReader =
                 new IssuesReader(context.Log, issueProviders, settings);
 
-            return issuesReader.ReadIssues(settings.Format);
+            return issuesReader.ReadIssues();
         }
     }
 }

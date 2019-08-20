@@ -45,7 +45,9 @@
                 expectedIssue.ProjectName,
                 expectedIssue.AffectedFileRelativePath?.ToString(),
                 expectedIssue.Line,
-                expectedIssue.Message,
+                expectedIssue.MessageText,
+                expectedIssue.MessageHtml,
+                expectedIssue.MessageMarkdown,
                 expectedIssue.Priority,
                 expectedIssue.PriorityName,
                 expectedIssue.Rule,
@@ -66,7 +68,9 @@
         /// <c>null</c> if the issue is not expected to be related to a change in a file.</param>
         /// <param name="line">Expected line number.
         /// <c>null</c> if the issue is not expected to be related to a file or specific line.</param>
-        /// <param name="message">Expected message.</param>
+        /// <param name="messageText">Expected message in plain text format.</param>
+        /// <param name="messageHtml">Expected message in HTML format.</param>
+        /// <param name="messageMarkdown">Expected message in Markdown format.</param>
         /// <param name="priority">Expected priority.
         /// <c>null</c> if no priority is expected.</param>
         /// <param name="priorityName">Expected priority name.
@@ -83,7 +87,9 @@
             string projectName,
             string affectedFileRelativePath,
             int? line,
-            string message,
+            string messageText,
+            string messageHtml,
+            string messageMarkdown,
             int? priority,
             string priorityName,
             string rule,
@@ -161,10 +167,22 @@
                     $"Expected issue.Line to be '{line}' but was '{issue.Line}'.");
             }
 
-            if (issue.Message != message)
+            if (issue.MessageText != messageText)
             {
                 throw new Exception(
-                    $"Expected issue.Message to be '{message}' but was '{issue.Message}'.");
+                    $"Expected issue.MessageText to be '{messageText}' but was '{issue.MessageText}'.");
+            }
+
+            if (issue.MessageHtml != messageHtml)
+            {
+                throw new Exception(
+                    $"Expected issue.MessageHtml to be '{messageHtml}' but was '{issue.MessageHtml}'.");
+            }
+
+            if (issue.MessageMarkdown != messageMarkdown)
+            {
+                throw new Exception(
+                    $"Expected issue.MessageMarkdown to be '{messageMarkdown}' but was '{issue.MessageMarkdown}'.");
             }
 
             if (issue.Priority != priority)

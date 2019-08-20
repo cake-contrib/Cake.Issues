@@ -1,10 +1,38 @@
 ﻿namespace Cake.Issues
 {
+    using System;
+
     /// <summary>
     /// Extensions for <see cref="IIssue"/>.
     /// </summary>
     public static class IIssueExtensions
     {
+        /// <summary>
+        /// Gets the message of the issue in a specific format.
+        /// If the message is not available in the specific format, the message in
+        /// text format will be returned.
+        /// </summary>
+        /// <param name="issue">Issue for which the message should be returned.</param>
+        /// <param name="format">Format in which the message should be returned.</param>
+        /// <returns>Message in the format specified by <paramref name="format"/> or message in text
+        /// format if it is not available in the desired format.</returns>
+        public static string Message(this IIssue issue, IssueCommentFormat format)
+        {
+            issue.NotNull(nameof(issue));
+
+            switch (format)
+            {
+                case IssueCommentFormat.PlainText:
+                    return issue.MessageText;
+                case IssueCommentFormat.Html:
+                    return !string.IsNullOrEmpty(issue.MessageHtml) ? issue.MessageHtml : issue.MessageText;
+                case IssueCommentFormat.Markdown:
+                    return !string.IsNullOrEmpty(issue.MessageMarkdown) ? issue.MessageMarkdown : issue.MessageText;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(format));
+            }
+        }
+
         /// <summary>
         /// Returns the full path of <see cref="IIssue.ProjectFileRelativePath"/> or <c>null</c>.
         /// </summary>
@@ -128,8 +156,18 @@
         ///         <description>The value of <see cref="IIssue.RuleUrl"/>.</description>
         ///     </item>
         ///     <item>
-        ///         <term>{Message}</term>
-        ///         <description>The value of <see cref="IIssue.Message"/>.</description>
+        ///         <term>{MessageText}</term>
+        ///         <description>The value of <see cref="IIssue.MessageText"/>.</description>
+        ///     </item>
+        ///     <item>
+        ///         <term>{MessageHtml}</term>
+        ///         <description>The value of <see cref="IIssue.MessageHtml"/> or <see cref="IIssue.MessageText"/>
+        ///         if message in HTML format is not available.</description>
+        ///     </item>
+        ///     <item>
+        ///         <term>{MessageMarkdown}</term>
+        ///         <description>The value of <see cref="IIssue.MessageMarkdown"/> or <see cref="IIssue.MessageText"/>
+        ///         if message in Markdown format is not available.</description>
         ///     </item>
         /// </list>
         /// </param>
@@ -155,7 +193,9 @@
                     .Replace("{Line}", issue.Line?.ToString())
                     .Replace("{Rule}", issue.Rule)
                     .Replace("{RuleUrl}", issue.RuleUrl?.ToString())
-                    .Replace("{Message}", issue.Message);
+                    .Replace("{MessageText}", issue.Message(IssueCommentFormat.PlainText))
+                    .Replace("{MessageHtml}", issue.Message(IssueCommentFormat.Html))
+                    .Replace("{MessageMarkdown}", issue.Message(IssueCommentFormat.Markdown));
         }
     }
 }

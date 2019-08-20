@@ -113,7 +113,7 @@
                 provider.Initialize(new RepositorySettings(@"c:\repo"));
 
                 // When
-                var result = provider.ReadIssues(IssueCommentFormat.PlainText);
+                var result = provider.ReadIssues();
 
                 // Then
                 result.Count().ShouldBe(2);

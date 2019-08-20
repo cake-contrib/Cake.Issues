@@ -7,9 +7,11 @@
     /// </summary>
     public class IssueBuilder
     {
-        private readonly string message;
         private readonly string providerType;
         private readonly string providerName;
+        private readonly string messageText;
+        private string messageHtml;
+        private string messageMarkdown;
         private string projectFileRelativePath;
         private string projectName;
         private string filePath;
@@ -22,7 +24,7 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="IssueBuilder"/> class.
         /// </summary>
-        /// <param name="message">The message of the issue.</param>
+        /// <param name="message">The message of the issue in plain text format.</param>
         /// <param name="providerType">The type of the issue provider.</param>
         /// <param name="providerName">The human friendly name of the issue provider.</param>
         private IssueBuilder(
@@ -34,7 +36,7 @@
             providerType.NotNullOrWhiteSpace(nameof(providerType));
             providerName.NotNullOrWhiteSpace(nameof(providerName));
 
-            this.message = message;
+            this.messageText = message;
             this.providerType = providerType;
             this.providerName = providerName;
         }
@@ -42,7 +44,7 @@
         /// <summary>
         /// Initiates the creation of a new <see cref="IIssue"/>.
         /// </summary>
-        /// <param name="message">The message of the issue.</param>
+        /// <param name="message">The message of the issue in plain text format.</param>
         /// <param name="providerType">The type of the issue provider.</param>
         /// <param name="providerName">The human friendly name of the issue provider.</param>
         /// <returns>Builder class for creating a new issue.</returns>
@@ -62,7 +64,7 @@
         /// Initiates the creation of a new <see cref="IIssue"/>.
         /// </summary>
         /// <typeparam name="T">Type of the issue provider which has the issue created.</typeparam>
-        /// <param name="message">The message of the issue.</param>
+        /// <param name="message">The message of the issue in plain text format.</param>
         /// <param name="issueProvider">Issue provider which has the issue created.</param>
         /// <returns>Builder class for creating a new issue.</returns>
         public static IssueBuilder NewIssue<T>(
@@ -78,6 +80,32 @@
             message.NotNullOrWhiteSpace(nameof(message));
 
             return new IssueBuilder(message, typeof(T).FullName, issueProvider.ProviderName);
+        }
+
+        /// <summary>
+        /// Sets the message in HTML format.
+        /// </summary>
+        /// <param name="message">Message in HTML format.
+        /// Can be <c>null</c> or <see cref="string.Empty"/> if issue doesn't have a message in HTML format.</param>
+        /// <returns>Issue Builder instance.</returns>
+        public IssueBuilder WithMessageInHtmlFormat(string message)
+        {
+            this.messageHtml = message;
+
+            return this;
+        }
+
+        /// <summary>
+        /// Sets the message in Markdown format.
+        /// </summary>
+        /// <param name="message">Message in Markdown format.
+        /// Can be <c>null</c> or <see cref="string.Empty"/> if issue doesn't have a message in Markdown format.</param>
+        /// <returns>Issue Builder instance.</returns>
+        public IssueBuilder WithMessageInMarkdownFormat(string message)
+        {
+            this.messageMarkdown = message;
+
+            return this;
         }
 
         /// <summary>
@@ -224,7 +252,9 @@
                     this.projectName,
                     this.filePath,
                     this.line,
-                    this.message,
+                    this.messageText,
+                    this.messageHtml,
+                    this.messageMarkdown,
                     this.priority,
                     this.priorityName,
                     this.rule,

@@ -148,7 +148,9 @@
                         fixture.ProjectName,
                         fixture.AffectedFileRelativePath,
                         fixture.Line,
-                        fixture.Message,
+                        fixture.MessageText,
+                        fixture.MessageHtml,
+                        fixture.MessageMarkdown,
                         fixture.Priority,
                         fixture.PriorityName,
                         fixture.Rule,
@@ -173,7 +175,9 @@
                     fixture.ProjectName,
                     fixture.AffectedFileRelativePath,
                     fixture.Line,
-                    fixture.Message,
+                    fixture.MessageText,
+                    fixture.MessageHtml,
+                    fixture.MessageMarkdown,
                     fixture.Priority,
                     fixture.PriorityName,
                     fixture.Rule,
@@ -202,7 +206,9 @@
                         fixture.ProjectName,
                         fixture.AffectedFileRelativePath,
                         fixture.Line,
-                        fixture.Message,
+                        fixture.MessageText,
+                        fixture.MessageHtml,
+                        fixture.MessageMarkdown,
                         fixture.Priority,
                         fixture.PriorityName,
                         fixture.Rule,
@@ -233,7 +239,9 @@
                         fixture.ProjectName,
                         fixture.AffectedFileRelativePath,
                         fixture.Line,
-                        fixture.Message,
+                        fixture.MessageText,
+                        fixture.MessageHtml,
+                        fixture.MessageMarkdown,
                         fixture.Priority,
                         fixture.PriorityName,
                         fixture.Rule,
@@ -265,7 +273,9 @@
                         fixture.ProjectName,
                         fixture.AffectedFileRelativePath,
                         fixture.Line,
-                        fixture.Message,
+                        fixture.MessageText,
+                        fixture.MessageHtml,
+                        fixture.MessageMarkdown,
                         fixture.Priority,
                         fixture.PriorityName,
                         fixture.Rule,
@@ -300,7 +310,9 @@
                         expectedValue,
                         fixture.AffectedFileRelativePath,
                         fixture.Line,
-                        fixture.Message,
+                        fixture.MessageText,
+                        fixture.MessageHtml,
+                        fixture.MessageMarkdown,
                         fixture.Priority,
                         fixture.PriorityName,
                         fixture.Rule,
@@ -332,7 +344,9 @@
                         fixture.ProjectName,
                         expectedValue,
                         fixture.Line,
-                        fixture.Message,
+                        fixture.MessageText,
+                        fixture.MessageHtml,
+                        fixture.MessageMarkdown,
                         fixture.Priority,
                         fixture.PriorityName,
                         fixture.Rule,
@@ -366,7 +380,9 @@
                         fixture.ProjectName,
                         fixture.AffectedFileRelativePath,
                         expectedValue,
-                        fixture.Message,
+                        fixture.MessageText,
+                        fixture.MessageHtml,
+                        fixture.MessageMarkdown,
                         fixture.Priority,
                         fixture.PriorityName,
                         fixture.Rule,
@@ -382,7 +398,7 @@
             [InlineData(null, "Foo")]
             [InlineData("", "Foo")]
             [InlineData(" ", "Foo")]
-            public void Should_Throw_If_Message_Is_Different(string expectedValue, string actualValue)
+            public void Should_Throw_If_MessageText_Is_Different(string expectedValue, string actualValue)
             {
                 // Given
                 var fixture = new IssueCheckerFixture(actualValue, "ProviderType", "ProviderName");
@@ -398,6 +414,8 @@
                         fixture.AffectedFileRelativePath,
                         fixture.Line,
                         expectedValue,
+                        fixture.MessageHtml,
+                        fixture.MessageMarkdown,
                         fixture.Priority,
                         fixture.PriorityName,
                         fixture.Rule,
@@ -405,7 +423,81 @@
 
                 // Then
                 result.ShouldBeOfType<Exception>();
-                result.Message.ShouldStartWith("Expected issue.Message");
+                result.Message.ShouldStartWith("Expected issue.MessageText");
+            }
+
+            [Theory]
+            [InlineData("Message", "Foo")]
+            [InlineData(null, "Foo")]
+            [InlineData("", "Foo")]
+            [InlineData(" ", "Foo")]
+            public void Should_Throw_If_MessageHtml_Is_Different(string expectedValue, string actualValue)
+            {
+                // Given
+                var fixture = new IssueCheckerFixture();
+                var issue =
+                    fixture.IssueBuilder
+                        .WithMessageInHtmlFormat(actualValue)
+                        .Create();
+
+                // When
+                var result = Record.Exception(() =>
+                    IssueChecker.Check(
+                        fixture.Issue,
+                        fixture.ProviderType,
+                        fixture.ProviderName,
+                        fixture.ProjectFileRelativePath,
+                        fixture.ProjectName,
+                        fixture.AffectedFileRelativePath,
+                        fixture.Line,
+                        fixture.MessageText,
+                        expectedValue,
+                        fixture.MessageMarkdown,
+                        fixture.Priority,
+                        fixture.PriorityName,
+                        fixture.Rule,
+                        fixture.RuleUrl));
+
+                // Then
+                result.ShouldBeOfType<Exception>();
+                result.Message.ShouldStartWith("Expected issue.MessageHtml");
+            }
+
+            [Theory]
+            [InlineData("Message", "Foo")]
+            [InlineData(null, "Foo")]
+            [InlineData("", "Foo")]
+            [InlineData(" ", "Foo")]
+            public void Should_Throw_If_MessageMarkdown_Is_Different(string expectedValue, string actualValue)
+            {
+                // Given
+                var fixture = new IssueCheckerFixture();
+                var issue =
+                    fixture.IssueBuilder
+                        .WithMessageInMarkdownFormat(actualValue)
+                        .Create();
+
+                // When
+                var result = Record.Exception(() =>
+                    IssueChecker.Check(
+                        fixture.Issue,
+                        fixture.ProviderType,
+                        fixture.ProviderName,
+                        fixture.ProjectFileRelativePath,
+                        fixture.ProjectName,
+                        fixture.AffectedFileRelativePath,
+                        fixture.Line,
+                        fixture.MessageText,
+                        fixture.MessageHtml,
+                        expectedValue,
+                        fixture.Priority,
+                        fixture.PriorityName,
+                        fixture.Rule,
+                        fixture.RuleUrl));
+
+                // Then
+                result.ShouldBeOfType<Exception>();
+                result.Message.ShouldStartWith("Expected issue.MessageMarkdown");
             }
 
             [Theory]
@@ -429,7 +521,9 @@
                         fixture.ProjectName,
                         fixture.AffectedFileRelativePath,
                         fixture.Line,
-                        fixture.Message,
+                        fixture.MessageText,
+                        fixture.MessageHtml,
+                        fixture.MessageMarkdown,
                         (int)expectedValue,
                         fixture.PriorityName,
                         fixture.Rule,
@@ -464,7 +558,9 @@
                         fixture.ProjectName,
                         fixture.AffectedFileRelativePath,
                         fixture.Line,
-                        fixture.Message,
+                        fixture.MessageText,
+                        fixture.MessageHtml,
+                        fixture.MessageMarkdown,
                         fixture.Priority,
                         expectedValue,
                         fixture.Rule,
@@ -499,7 +595,9 @@
                         fixture.ProjectName,
                         fixture.AffectedFileRelativePath,
                         fixture.Line,
-                        fixture.Message,
+                        fixture.MessageText,
+                        fixture.MessageHtml,
+                        fixture.MessageMarkdown,
                         fixture.Priority,
                         fixture.PriorityName,
                         expectedValue,
@@ -531,7 +629,9 @@
                         fixture.ProjectName,
                         fixture.AffectedFileRelativePath,
                         fixture.Line,
-                        fixture.Message,
+                        fixture.MessageText,
+                        fixture.MessageHtml,
+                        fixture.MessageMarkdown,
                         fixture.Priority,
                         fixture.PriorityName,
                         fixture.Rule,

@@ -70,21 +70,23 @@
         }
 
         /// <summary>
-        /// Converts an <see cref="IIssue"/> to a <see cref="SerializableIssue"/>.
+        /// Converts an <see cref="IIssue"/> to a <see cref="SerializableIssueV2"/>.
         /// </summary>
         /// <param name="issue">Issue which should be converted.</param>
         /// <returns>Converted issue.</returns>
-        internal static SerializableIssue ToSerializableIssue(this IIssue issue)
+        internal static SerializableIssueV2 ToSerializableIssue(this IIssue issue)
         {
             issue.NotNull(nameof(issue));
 
-            return new SerializableIssue
+            return new SerializableIssueV2
             {
                 ProjectFileRelativePath = issue.ProjectFileRelativePath?.FullPath,
                 ProjectName = issue.ProjectName,
                 AffectedFileRelativePath = issue.AffectedFileRelativePath?.FullPath,
                 Line = issue.Line,
-                Message = issue.Message,
+                MessageText = issue.MessageText,
+                MessageMarkdown = issue.MessageMarkdown,
+                MessageHtml = issue.MessageHtml,
                 Priority = issue.Priority,
                 PriorityName = issue.PriorityName,
                 Rule = issue.Rule,

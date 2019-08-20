@@ -23,12 +23,11 @@
         }
 
         /// <inheritdoc/>
-        protected override IEnumerable<IIssue> InternalReadIssues(IssueCommentFormat format)
+        protected override IEnumerable<IIssue> InternalReadIssues()
         {
             return
                 this.IssueProviderSettings.Format.ReadIssues(
                     (TIssueProvider)this,
-                    format,
                     this.Settings,
                     this.IssueProviderSettings);
         }

@@ -125,6 +125,8 @@
                 var version = (int)data["Version"];
                 switch (version)
                 {
+                    case 2:
+                        return JsonMapper.ToObject<SerializableIssueV2>(data.ToJson()).ToIssue();
                     default:
                         throw new Exception($"Not supported issue serialization format {version}");
                 }

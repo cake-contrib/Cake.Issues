@@ -7,10 +7,10 @@
         {
         }
 
-        public IssueBuilderFixture(string message, string providerType, string providerName)
+        public IssueBuilderFixture(string messageText, string providerType, string providerName)
         {
             this.IssueBuilder =
-                IssueBuilder.NewIssue(message, providerType, providerName);
+                IssueBuilder.NewIssue(messageText, providerType, providerName);
         }
 
         public IssueBuilder IssueBuilder { get; private set; }

@@ -3,16 +3,16 @@
     using System;
 
     /// <summary>
-    /// Extensions for <see cref="SerializableIssue"/>.
+    /// Extensions for <see cref="SerializableIssueV2"/>.
     /// </summary>
-    internal static class SerializableIssueExtensions
+    internal static class SerializableIssueV2Extensions
     {
         /// <summary>
-        /// Converts a <see cref="SerializableIssue"/> to an <see cref="Issue"/>.
+        /// Converts a <see cref="SerializableIssueV2"/> to an <see cref="Issue"/>.
         /// </summary>
         /// <param name="serializableIssue">Issue which should be converted.</param>
         /// <returns>Converted issue.</returns>
-        internal static Issue ToIssue(this SerializableIssue serializableIssue)
+        internal static Issue ToIssue(this SerializableIssueV2 serializableIssue)
         {
 #pragma warning disable SA1123 // Do not place regions within elements
             #region DupFinder Exclusion
@@ -31,9 +31,9 @@
                 serializableIssue.ProjectName,
                 serializableIssue.AffectedFileRelativePath,
                 serializableIssue.Line,
-                serializableIssue.Message,
-                null,
-                null,
+                serializableIssue.MessageText,
+                serializableIssue.MessageHtml,
+                serializableIssue.MessageMarkdown,
                 serializableIssue.Priority,
                 serializableIssue.PriorityName,
                 serializableIssue.Rule,

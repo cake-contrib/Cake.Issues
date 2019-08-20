@@ -308,13 +308,17 @@
             [InlineData("foo {Line} bar", "foo 42 bar")]
             [InlineData("foo {Rule} bar", "foo Rule Foo bar")]
             [InlineData("foo {RuleUrl} bar", "foo https://google.com/ bar")]
-            [InlineData("foo {Message} bar", "foo Message Foo bar")]
+            [InlineData("foo {MessageText} bar", "foo MessageText Foo bar")]
+            [InlineData("foo {MessageHtml} bar", "foo MessageHtml Foo bar")]
+            [InlineData("foo {MessageMarkdown} bar", "foo MessageMarkdown Foo bar")]
             public void Should_Replace_Tokens(string pattern, string expectedResult)
             {
                 // Given
                 var issue =
                     IssueBuilder
-                        .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                        .NewIssue("MessageText Foo", "ProviderType Foo", "ProviderName Foo")
+                        .WithMessageInHtmlFormat("MessageHtml Foo")
+                        .WithMessageInMarkdownFormat("MessageMarkdown Foo")
                         .InFile(@"src/Cake.Issues/foo.cs", 42)
                         .InProject(@"src/Cake.Issues/Cake.Issues.csproj", "Cake.Issues")
                         .OfRule("Rule Foo", new Uri("https://google.com"))

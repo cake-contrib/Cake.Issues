@@ -15,10 +15,5 @@
             : base(repositoryRoot)
         {
         }
-
-        /// <summary>
-        /// Gets or sets the preferred format in which issue comments should be returned.
-        /// </summary>
-        public IssueCommentFormat Format { get; set; } = IssueCommentFormat.Undefined;
     }
 }

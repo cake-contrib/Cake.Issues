@@ -27,7 +27,7 @@
             }
 
             [Fact]
-            public void Should_Give_Correct_Result_For_Message_After_Roundtrip()
+            public void Should_Give_Correct_Result_For_MessageText_After_Roundtrip()
             {
                 // Given
                 var message = "message";
@@ -40,7 +40,43 @@
                 var result = issue.SerializeToJsonString().DeserializeToIssue();
 
                 // Then
-                result.Message.ShouldBe(message);
+                result.MessageText.ShouldBe(message);
+            }
+
+            [Fact]
+            public void Should_Give_Correct_Result_For_MessageMarkdown_After_Roundtrip()
+            {
+                // Given
+                var messageMarkdown = "messageMarkdown";
+                var issue =
+                    IssueBuilder
+                        .NewIssue("message", "providerType", "providerName")
+                        .WithMessageInMarkdownFormat(messageMarkdown)
+                        .Create();
+
+                // When
+                var result = issue.SerializeToJsonString().DeserializeToIssue();
+
+                // Then
+                result.MessageMarkdown.ShouldBe(messageMarkdown);
+            }
+
+            [Fact]
+            public void Should_Give_Correct_Result_For_MessageHtml_After_Roundtrip()
+            {
+                // Given
+                var messageHtml = "messageHtml";
+                var issue =
+                    IssueBuilder
+                        .NewIssue("message", "providerType", "providerName")
+                        .WithMessageInHtmlFormat(messageHtml)
+                        .Create();
+
+                // When
+                var result = issue.SerializeToJsonString().DeserializeToIssue();
+
+                // Then
+                result.MessageHtml.ShouldBe(messageHtml);
             }
 
             [Fact]
@@ -238,19 +274,19 @@
             }
 
             [Fact]
-            public void Should_Give_Correct_Result_For_Message_After_Roundtrip()
+            public void Should_Give_Correct_Result_For_MessageText_After_Roundtrip()
             {
                 // Given
-                var message1 = "message1";
-                var message2 = "message2";
+                var messageText1 = "messageText1";
+                var messageText2 = "messageText2";
                 var issues =
                     new List<IIssue>
                     {
                         IssueBuilder
-                          .NewIssue(message1, "providerType1", "providerName1")
+                          .NewIssue(messageText1, "providerType1", "providerName1")
                             .Create(),
                         IssueBuilder
-                            .NewIssue(message2, "providerType2", "providerName2")
+                            .NewIssue(messageText2, "providerType2", "providerName2")
                             .Create(),
                     };
 
@@ -259,8 +295,64 @@
 
                 // Then
                 result.Count().ShouldBe(2);
-                result.First().Message.ShouldBe(message1);
-                result.Last().Message.ShouldBe(message2);
+                result.First().MessageText.ShouldBe(messageText1);
+                result.Last().MessageText.ShouldBe(messageText2);
+            }
+
+            [Fact]
+            public void Should_Give_Correct_Result_For_MessageMarkdown_After_Roundtrip()
+            {
+                // Given
+                var messageMarkdown1 = "messageMarkdown1";
+                var messageMarkdown2 = "messageMarkdown2";
+                var issues =
+                    new List<IIssue>
+                    {
+                        IssueBuilder
+                          .NewIssue("messageText1", "providerType1", "providerName1")
+                            .WithMessageInMarkdownFormat(messageMarkdown1)
+                            .Create(),
+                        IssueBuilder
+                            .NewIssue("messageText2", "providerType2", "providerName2")
+                            .WithMessageInMarkdownFormat(messageMarkdown2)
+                            .Create(),
+                    };
+
+                // When
+                var result = issues.SerializeToJsonString().DeserializeToIssues();
+
+                // Then
+                result.Count().ShouldBe(2);
+                result.First().MessageMarkdown.ShouldBe(messageMarkdown1);
+                result.Last().MessageMarkdown.ShouldBe(messageMarkdown2);
+            }
+
+            [Fact]
+            public void Should_Give_Correct_Result_For_MessageHtml_After_Roundtrip()
+            {
+                // Given
+                var messageHtml1 = "messageHtml1";
+                var messageHtml2 = "messageHtml2";
+                var issues =
+                    new List<IIssue>
+                    {
+                        IssueBuilder
+                          .NewIssue("messageText1", "providerType1", "providerName1")
+                            .WithMessageInHtmlFormat(messageHtml1)
+                            .Create(),
+                        IssueBuilder
+                            .NewIssue("messageText2", "providerType2", "providerName2")
+                            .WithMessageInHtmlFormat(messageHtml2)
+                            .Create(),
+                    };
+
+                // When
+                var result = issues.SerializeToJsonString().DeserializeToIssues();
+
+                // Then
+                result.Count().ShouldBe(2);
+                result.First().MessageHtml.ShouldBe(messageHtml1);
+                result.Last().MessageHtml.ShouldBe(messageHtml2);
             }
 
             [Fact]
@@ -574,13 +666,13 @@
             }
 
             [Fact]
-            public void Should_Give_Correct_Result_For_Message_After_Roundtrip()
+            public void Should_Give_Correct_Result_For_MessageText_After_Roundtrip()
             {
                 // Given
-                var message = "message";
+                var messageText = "messageText";
                 var issue =
                     IssueBuilder
-                        .NewIssue(message, "providerType", "providerName")
+                        .NewIssue(messageText, "providerType", "providerName")
                         .Create();
                 var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
 
@@ -591,7 +683,61 @@
                     var result = filePath.DeserializeToIssue();
 
                     // Then
-                    result.Message.ShouldBe(message);
+                    result.MessageText.ShouldBe(messageText);
+                }
+                finally
+                {
+                    System.IO.File.Delete(filePath.FullPath);
+                }
+            }
+
+            [Fact]
+            public void Should_Give_Correct_Result_For_MessageMarkdown_After_Roundtrip()
+            {
+                // Given
+                var messageMarkdown = "messageMarkdown";
+                var issue =
+                    IssueBuilder
+                        .NewIssue("messageText", "providerType", "providerName")
+                        .WithMessageInMarkdownFormat(messageMarkdown)
+                        .Create();
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+
+                try
+                {
+                    // When
+                    issue.SerializeToJsonFile(filePath);
+                    var result = filePath.DeserializeToIssue();
+
+                    // Then
+                    result.MessageMarkdown.ShouldBe(messageMarkdown);
+                }
+                finally
+                {
+                    System.IO.File.Delete(filePath.FullPath);
+                }
+            }
+
+            [Fact]
+            public void Should_Give_Correct_Result_For_MessageHtml_After_Roundtrip()
+            {
+                // Given
+                var messageHtml = "messageHtml";
+                var issue =
+                    IssueBuilder
+                        .NewIssue("messageText", "providerType", "providerName")
+                        .WithMessageInHtmlFormat(messageHtml)
+                        .Create();
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+
+                try
+                {
+                    // When
+                    issue.SerializeToJsonFile(filePath);
+                    var result = filePath.DeserializeToIssue();
+
+                    // Then
+                    result.MessageHtml.ShouldBe(messageHtml);
                 }
                 finally
                 {
@@ -899,19 +1045,19 @@
             }
 
             [Fact]
-            public void Should_Give_Correct_Result_For_Message_After_Roundtrip()
+            public void Should_Give_Correct_Result_For_MessageText_After_Roundtrip()
             {
                 // Given
-                var message1 = "message1";
-                var message2 = "message2";
+                var messageText1 = "messageText1";
+                var messageText2 = "messageText2";
                 var issues =
                     new List<IIssue>
                     {
                         IssueBuilder
-                          .NewIssue(message1, "providerType1", "providerName1")
+                          .NewIssue(messageText1, "providerType1", "providerName1")
                             .Create(),
                         IssueBuilder
-                            .NewIssue(message2, "providerType2", "providerName2")
+                            .NewIssue(messageText2, "providerType2", "providerName2")
                             .Create(),
                     };
                 var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
@@ -924,8 +1070,82 @@
 
                     // Then
                     result.Count().ShouldBe(2);
-                    result.First().Message.ShouldBe(message1);
-                    result.Last().Message.ShouldBe(message2);
+                    result.First().MessageText.ShouldBe(messageText1);
+                    result.Last().MessageText.ShouldBe(messageText2);
+                }
+                finally
+                {
+                    System.IO.File.Delete(filePath.FullPath);
+                }
+            }
+
+            [Fact]
+            public void Should_Give_Correct_Result_For_MessageMarkdown_After_Roundtrip()
+            {
+                // Given
+                var messageMarkdown1 = "messageMarkdown1";
+                var messageMarkdown2 = "messageMarkdown2";
+                var issues =
+                    new List<IIssue>
+                    {
+                        IssueBuilder
+                          .NewIssue("messageText1", "providerType1", "providerName1")
+                            .WithMessageInMarkdownFormat(messageMarkdown1)
+                            .Create(),
+                        IssueBuilder
+                            .NewIssue("messageText2", "providerType2", "providerName2")
+                            .WithMessageInMarkdownFormat(messageMarkdown2)
+                            .Create(),
+                    };
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+
+                try
+                {
+                    // When
+                    issues.SerializeToJsonFile(filePath);
+                    var result = filePath.DeserializeToIssues();
+
+                    // Then
+                    result.Count().ShouldBe(2);
+                    result.First().MessageMarkdown.ShouldBe(messageMarkdown1);
+                    result.Last().MessageMarkdown.ShouldBe(messageMarkdown2);
+                }
+                finally
+                {
+                    System.IO.File.Delete(filePath.FullPath);
+                }
+            }
+
+            [Fact]
+            public void Should_Give_Correct_Result_For_MessageHtml_After_Roundtrip()
+            {
+                // Given
+                var messageHtml1 = "messageHtml1";
+                var messageHtml2 = "messageHtml2";
+                var issues =
+                    new List<IIssue>
+                    {
+                        IssueBuilder
+                          .NewIssue("messageText1", "providerType1", "providerName1")
+                            .WithMessageInHtmlFormat(messageHtml1)
+                            .Create(),
+                        IssueBuilder
+                            .NewIssue("messageText2", "providerType2", "providerName2")
+                            .WithMessageInHtmlFormat(messageHtml2)
+                            .Create(),
+                    };
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+
+                try
+                {
+                    // When
+                    issues.SerializeToJsonFile(filePath);
+                    var result = filePath.DeserializeToIssues();
+
+                    // Then
+                    result.Count().ShouldBe(2);
+                    result.First().MessageHtml.ShouldBe(messageHtml1);
+                    result.Last().MessageHtml.ShouldBe(messageHtml2);
                 }
                 finally
                 {
