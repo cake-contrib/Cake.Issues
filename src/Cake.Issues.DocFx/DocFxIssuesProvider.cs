@@ -25,6 +25,12 @@
         {
         }
 
+        /// <summary>
+        /// Gets the name of the DocFx issue provider.
+        /// This name can be used to identify issues based on the <see cref="IIssue.ProviderType"/> property.
+        /// </summary>
+        public static string ProviderTypeName => typeof(DocFxIssuesProvider).FullName;
+
         /// <inheritdoc />
         public override string ProviderName => "DocFX";
 
