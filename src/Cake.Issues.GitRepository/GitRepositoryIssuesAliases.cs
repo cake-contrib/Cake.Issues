@@ -22,7 +22,7 @@
         {
             context.NotNull(nameof(context));
 
-            return typeof(GitRepositoryIssuesProvider).FullName;
+            return GitRepositoryIssuesProvider.ProviderTypeName;
         }
 
         /// <summary>
