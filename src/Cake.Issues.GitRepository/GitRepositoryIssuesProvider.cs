@@ -43,6 +43,12 @@
             this.runner = new GitRunner(fileSystem, environment, processRunner, toolLocator);
         }
 
+        /// <summary>
+        /// Gets the name of the Git repository issue provider.
+        /// This name can be used to identify issues based on the <see cref="IIssue.ProviderType"/> property.
+        /// </summary>
+        public static string ProviderTypeName => typeof(GitRepositoryIssuesProvider).FullName;
+
         /// <inheritdoc />
         public override string ProviderName => "Git Repository";
 
