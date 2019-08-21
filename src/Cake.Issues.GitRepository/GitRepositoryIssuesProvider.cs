@@ -111,14 +111,13 @@
                         break;
                 }
 
+                var ruleDescription = new BinaryFileNotTrackedByLfsRuleDescription();
+
                 result.Add(
                     IssueBuilder
                         .NewIssue(message, this)
                         .InFile(file)
-                        .OfRule(
-                            "BinaryFileNotTrackedByLfs",
-                            new Uri("https://cakeissues.net/docs/issue-providers/gitrepository/rules/BinaryFileNotTrackedByLfs"))
-                        .WithPriority(IssuePriority.Warning)
+                        .OfRule(ruleDescription)
                         .Create());
             }
 
