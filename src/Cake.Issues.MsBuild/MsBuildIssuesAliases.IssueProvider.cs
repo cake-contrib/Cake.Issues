@@ -22,7 +22,7 @@
         {
             context.NotNull(nameof(context));
 
-            return typeof(MsBuildIssuesProvider).FullName;
+            return MsBuildIssuesProvider.ProviderTypeName;
         }
 
         /// <summary>
