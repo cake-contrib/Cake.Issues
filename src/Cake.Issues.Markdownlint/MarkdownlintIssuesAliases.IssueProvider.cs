@@ -22,7 +22,7 @@
         {
             context.NotNull(nameof(context));
 
-            return typeof(MarkdownlintIssuesProvider).FullName;
+            return MarkdownlintIssuesProvider.ProviderTypeName;
         }
 
         /// <summary>
