@@ -23,7 +23,7 @@
         {
             context.NotNull(nameof(context));
 
-            return typeof(DocFxIssuesProvider).FullName;
+            return DocFxIssuesProvider.ProviderTypeName;
         }
 
         /// <summary>

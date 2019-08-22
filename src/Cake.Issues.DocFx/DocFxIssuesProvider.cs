@@ -25,6 +25,12 @@
         {
         }
 
+        /// <summary>
+        /// Gets the name of the DocFx issue provider.
+        /// This name can be used to identify issues based on the <see cref="IIssue.ProviderType"/> property.
+        /// </summary>
+        public static string ProviderTypeName => typeof(DocFxIssuesProvider).FullName;
+
         /// <inheritdoc />
         public override string ProviderName => "DocFX";
 
@@ -73,7 +79,7 @@
         /// Converts the severity to a priority.
         /// </summary>
         /// <param name="severity">Severity as reported by DocFX.</param>
-        /// <returns>Priority</returns>
+        /// <returns>Priority.</returns>
         private static IssuePriority GetPriority(string severity)
         {
             switch (severity.ToLower())
