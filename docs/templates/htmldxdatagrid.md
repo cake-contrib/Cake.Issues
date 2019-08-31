@@ -21,7 +21,6 @@ Template for a HTML report containing a rich data grid with sorting, filtering, 
 # Requirements
 
 * Cake.Issues.Reporting.Generic 0.3.1 or higher
-* Internet access
 
 # Usage
 
