@@ -41,6 +41,8 @@
 #load create-reports-htmldxdatagrid-disable-searching.cake
 #load create-reports-htmldxdatagrid-file-linking.cake
 #load create-reports-htmldxdatagrid-custom-script-location.cake
+#load create-reports-htmldxdatagrid-enable-exporting.cake
+#load create-reports-htmldxdatagrid-custom-export-filename.cake
 
 Task("Create-Reports-HtmlDxDataGrid")
     .Description("Creates HtmlDxDataGrid demo reports")
@@ -86,4 +88,6 @@ Task("Create-Reports-HtmlDxDataGrid")
     .IsDependentOn("Create-Reports-HtmlDxDataGrid-Disable-Filtering")
     .IsDependentOn("Create-Reports-HtmlDxDataGrid-Disable-Searching")
     .IsDependentOn("Create-Reports-HtmlDxDataGrid-File-Linking")
-    .IsDependentOn("Create-Reports-HtmlDxDataGrid-Custom-Script-Location");
+    .IsDependentOn("Create-Reports-HtmlDxDataGrid-Custom-Script-Location")
+    .IsDependentOn("Create-Reports-HtmlDxDataGrid-Enable-Exporting")
+    .IsDependentOn("Create-Reports-HtmlDxDataGrid-Custom-Export-Filename");

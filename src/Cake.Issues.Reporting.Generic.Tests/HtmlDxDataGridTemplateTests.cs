@@ -700,5 +700,58 @@
                                 null)));
             }
         }
+
+        public sealed class TheEnableExportingOption
+        {
+            [Theory]
+            [InlineData(true)]
+            [InlineData(false)]
+            public void Should_Not_Fail_On_Report_Creation(bool value)
+            {
+                // Given
+                var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+
+                // When / Then
+                fixture.TestReportCreation(
+                    settings =>
+                        settings.WithOption(
+                            HtmlDxDataGridOption.EnableExporting,
+                            value));
+            }
+        }
+
+        public sealed class TheExportFileNameOption
+        {
+            [Fact]
+            public void Should_Not_Fail_On_Report_Creation()
+            {
+                // Given
+                var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+
+                // When / Then
+                fixture.TestReportCreation(
+                    settings =>
+                        settings.WithOption(
+                            HtmlDxDataGridOption.ExportFileName,
+                            "foo"));
+            }
+        }
+
+        public sealed class TheJSZipLocationOption
+        {
+            [Fact]
+            public void Should_Not_Fail_On_Report_Creation()
+            {
+                // Given
+                var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+
+                // When / Then
+                fixture.TestReportCreation(
+                    settings =>
+                        settings.WithOption(
+                            HtmlDxDataGridOption.JSZipLocation,
+                            "foo"));
+            }
+        }
     }
 }
