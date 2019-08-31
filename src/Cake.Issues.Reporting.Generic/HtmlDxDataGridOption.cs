@@ -298,7 +298,7 @@
         /// <summary>
         /// Version of the DevExtreme libraries which should be used.
         /// If setting this the matching <see cref="JQueryVersion"/> needs to also be set.
-        /// Default value is <c>19.1.3</c>.
+        /// Default value is <c>19.1.5</c>.
         /// </summary>
         DevExtremeVersion,
 
