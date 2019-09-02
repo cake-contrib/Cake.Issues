@@ -298,7 +298,7 @@
         /// <summary>
         /// Version of the DevExtreme libraries which should be used.
         /// If setting this the matching <see cref="JQueryVersion"/> needs to also be set.
-        /// Default value is <c>19.1.3</c>.
+        /// Default value is <c>19.1.5</c>.
         /// </summary>
         DevExtremeVersion,
 
@@ -308,5 +308,33 @@
         /// Default value is <c>null</c>.
         /// </summary>
         IdeIntegrationSettings,
+
+        /// <summary>
+        /// Flag if exporting to Microsoft Excel should be available or not.
+        /// Either <c>true</c> or <c>false</c>.
+        /// Default value is <c>false</c>.
+        /// </summary>
+        /// <remarks>
+        /// Exporting won't work on Safari on macOS due to missing API for saving files.
+        /// </remarks>
+        EnableExporting,
+
+        /// <summary>
+        /// Default name of Microsoft Excel file without file name extension.
+        /// Default value is <c>issue-report</c>.
+        /// </summary>
+        ExportFileName,
+
+        /// <summary>
+        /// Location where JSZip can be found.
+        /// The following files need to be available:
+        /// <list type="bullet">
+        /// <item>
+        /// <description><c>{JSZipLocation}/jszip.min.js</c></description>
+        /// </item>
+        /// </list>
+        /// Default value is <c>https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.5/</c>.
+        /// </summary>
+        JSZipLocation,
     }
 }
