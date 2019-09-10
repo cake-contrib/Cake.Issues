@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.Issues.PullRequests.Te
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{CE5FCC88-C4DE-4619-8DD7-9AC88A34F50B}"
 	ProjectSection(SolutionItems) = preProject
-		..\setup.cake = ..\setup.cake
+		..\recipe.cake = ..\recipe.cake
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nuspec", "nuspec", "{9A8F9A5E-B006-4D55-9F84-BE8C47951BCE}"
