@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cake.Issues.EsLint.Tests", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{86A53287-4147-4449-BC52-B3BD17B1C22B}"
 	ProjectSection(SolutionItems) = preProject
-		..\setup.cake = ..\setup.cake
+		..\recipe.cake = ..\recipe.cake
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nuspec", "nuspec", "{3D3B8EEA-DBFC-4492-8CAD-BEDF32BA0828}"
