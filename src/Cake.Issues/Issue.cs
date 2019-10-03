@@ -81,7 +81,7 @@
                 if (!this.AffectedFileRelativePath.IsRelative)
                 {
                     throw new ArgumentOutOfRangeException(
-                        nameof(affectedFileRelativePath), 
+                        nameof(affectedFileRelativePath),
                         $"File path '{this.AffectedFileRelativePath}' needs to be relative to the repository root.");
                 }
             }
