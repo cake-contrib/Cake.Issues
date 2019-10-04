@@ -46,7 +46,7 @@ See the Project Site for an overview of the whole ecosystem of addins for workin
     <PackageReference Include="Cake.Issues" Version="0.7.0" PrivateAssets="All" />
     <PackageReference Include="Cake.Issues.PullRequests" Version="0.7.0" PrivateAssets="All" />
     <PackageReference Include="Cake.Tfs" Version="0.3.1" PrivateAssets="All" />
-    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.5" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.6" PrivateAssets="All" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.118" PrivateAssets="All" />
 
   </ItemGroup>
