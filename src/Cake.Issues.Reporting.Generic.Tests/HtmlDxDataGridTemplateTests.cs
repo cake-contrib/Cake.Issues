@@ -78,7 +78,7 @@
                 var doc = new HtmlDocument();
                 doc.LoadHtml(result);
                 var stylesheetElements = doc.DocumentNode.SelectNodes("//link[@rel='stylesheet']");
-                stylesheetElements.Count().ShouldBe(2);
+                stylesheetElements.Count.ShouldBe(2);
                 stylesheetElements.ShouldContain(x => x.Attributes["href"].Value.EndsWith(DevExtremeThemeExtensions.GetCssFileName(theme)));
             }
         }
