@@ -64,19 +64,11 @@
             // ReSharper disable once PossibleMultipleEnumeration
             issueProviders.NotNullOrEmptyOrEmptyElement(nameof(issueProviders));
 
-            var format = IssueCommentFormat.Undefined;
-
-            if (this.pullRequestSystemInitialized)
-            {
-                format = this.pullRequestSystem.GetPreferredCommentFormat();
-                this.log.Verbose("Pull request system prefers comments in {0} format.", format);
-            }
-
             // ReSharper disable once PossibleMultipleEnumeration
             var issuesReader =
                 new IssuesReader(this.log, issueProviders, this.settings);
 
-            return this.Run(issuesReader.ReadIssues(format));
+            return this.Run(issuesReader.ReadIssues());
         }
 
         /// <summary>
@@ -317,7 +309,7 @@
                     where
                         comment != null &&
                         !comment.IsDeleted &&
-                        comment.Content == issue.Message
+                        comment.Content == issue.MessageText
                     select
                         comment).ToList();
 

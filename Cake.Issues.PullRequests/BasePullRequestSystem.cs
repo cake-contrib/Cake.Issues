@@ -44,12 +44,6 @@
         }
 
         /// <inheritdoc/>
-        public virtual IssueCommentFormat GetPreferredCommentFormat()
-        {
-            return IssueCommentFormat.PlainText;
-        }
-
-        /// <inheritdoc/>
         public void PostDiscussionThreads(IEnumerable<IIssue> issues, string commentSource)
         {
             this.AssertInitialized();

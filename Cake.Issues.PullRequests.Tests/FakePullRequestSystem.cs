@@ -17,7 +17,6 @@
         public FakePullRequestSystem(ICakeLog log)
             : base(log)
         {
-            this.Initialize();
         }
 
         /// <summary>
@@ -54,20 +53,9 @@
         public IEnumerable<IIssue> PostedIssues => this.postedIssues;
 
         /// <summary>
-        /// Gets or sets the preferred comment format returned with <see cref="GetPreferredCommentFormat"/>.
-        /// </summary>
-        public IssueCommentFormat CommentFormat { get; set; }
-
-        /// <summary>
         /// Gets or sets a value indicating whether the pull request system should return false during <see cref="Initialize"/>.
         /// </summary>
         public bool ShouldFailOnInitialization { get; set; } = false;
-
-        /// <inheritdoc />
-        public override IssueCommentFormat GetPreferredCommentFormat()
-        {
-            return this.CommentFormat;
-        }
 
         /// <inheritdoc />
         public override bool Initialize(ReportIssuesToPullRequestSettings settings)
@@ -85,11 +73,6 @@
 
             // ReSharper disable once PossibleMultipleEnumeration
             this.postedIssues.AddRange(issues);
-        }
-
-        private void Initialize()
-        {
-            this.CommentFormat = base.GetPreferredCommentFormat();
         }
     }
 }

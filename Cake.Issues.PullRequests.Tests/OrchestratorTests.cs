@@ -215,24 +215,6 @@
                 result.IsArgumentNullException("settings");
             }
 
-            [Theory]
-            [InlineData(IssueCommentFormat.Undefined)]
-            [InlineData(IssueCommentFormat.Html)]
-            [InlineData(IssueCommentFormat.Markdown)]
-            [InlineData(IssueCommentFormat.PlainText)]
-            public void Should_Use_The_Correct_Comment_Format(IssueCommentFormat format)
-            {
-                // Given
-                var fixture = new PullRequestsFixture();
-                fixture.PullRequestSystem.CommentFormat = format;
-
-                // When
-                fixture.RunOrchestratorForIssueProviders();
-
-                // Then
-                fixture.IssueProviders.ShouldAllBe(x => x.Format == format);
-            }
-
             [Fact]
             public void Should_Initialize_Pull_Request_System()
             {

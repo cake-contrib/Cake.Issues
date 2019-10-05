@@ -30,12 +30,6 @@
             where T : IPullRequestSystemCapability;
 
         /// <summary>
-        /// Returns the preferred format for pull request comments.
-        /// </summary>
-        /// <returns>The preferred format for pull request comments.</returns>
-        IssueCommentFormat GetPreferredCommentFormat();
-
-        /// <summary>
         /// Posts discussion threads for all issues which need to be posted.
         /// </summary>
         /// <param name="issues">Issues which need to be posted.</param>

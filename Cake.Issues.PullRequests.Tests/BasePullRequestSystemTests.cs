@@ -139,22 +139,6 @@
             }
         }
 
-        public sealed class TheGetPreferredCommentFormatMethod
-        {
-            [Fact]
-            public void Should_Return_PlainText()
-            {
-                // Given
-                var pullRequestSystem = new FakePullRequestSystem(new FakeLog());
-
-                // When
-                var result = pullRequestSystem.GetPreferredCommentFormat();
-
-                // Then
-                result.ShouldBe(IssueCommentFormat.PlainText);
-            }
-        }
-
         public sealed class ThePostDiscussionThreadsMethod
         {
             [Fact]
