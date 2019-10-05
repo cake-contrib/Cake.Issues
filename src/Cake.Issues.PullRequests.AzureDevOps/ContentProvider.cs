@@ -12,7 +12,7 @@
         /// <returns>Comment content for the issue.</returns>
         public static string GetContent(IIssue issue)
         {
-            var result = issue.Message;
+            var result = issue.Message(IssueCommentFormat.Markdown);
             if (string.IsNullOrWhiteSpace(issue.Rule))
             {
                 return result;

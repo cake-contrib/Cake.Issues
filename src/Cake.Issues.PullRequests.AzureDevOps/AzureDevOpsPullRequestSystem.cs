@@ -70,12 +70,6 @@
         }
 
         /// <inheritdoc/>
-        public override IssueCommentFormat GetPreferredCommentFormat()
-        {
-            return IssueCommentFormat.Markdown;
-        }
-
-        /// <inheritdoc/>
         bool IAzureDevOpsPullRequestSystem.ValidatePullRequest()
         {
             return this.ValidatePullRequest();
@@ -246,7 +240,7 @@
 
             // Add a custom property to be able to return issue message from existing threads,
             // without any formatting done by this addin, back to Cake.Issues.PullRequests.
-            thread.SetIssueMessage(issue.Message);
+            thread.SetIssueMessage(issue.MessageText);
 
             return true;
         }
