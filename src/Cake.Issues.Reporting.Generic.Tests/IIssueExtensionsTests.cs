@@ -442,7 +442,7 @@
             }
 
             [Fact]
-            public void Should_Set_Message_If_Flag_Is_Set()
+            public void Should_Set_MessageText_If_Flag_Is_Set()
             {
                 // Given
                 var message = "Message Foo";
@@ -452,14 +452,14 @@
                         .Create();
 
                 // When
-                dynamic result = issue.GetExpandoObject(addMessage: true);
+                dynamic result = issue.GetExpandoObject(addMessageText: true);
 
                 // Then
-                Assert.Equal(result.Message, message);
+                Assert.Equal(result.MessageText, message);
             }
 
             [Fact]
-            public void Should_Not_Set_Message_If_Flag_Is_Not_Set()
+            public void Should_Not_Set_MessageText_If_Flag_Is_Not_Set()
             {
                 // Given
                 var issue =
@@ -468,11 +468,183 @@
                         .Create();
 
                 // When
-                dynamic expando = issue.GetExpandoObject(addMessage: false);
-                var result = Record.Exception(() => expando.Message);
+                dynamic expando = issue.GetExpandoObject(addMessageText: false);
+                var result = Record.Exception(() => expando.MessageText);
 
                 // Then
-                result.IsRuntimeBinderException("'System.Dynamic.ExpandoObject' does not contain a definition for 'Message'");
+                result.IsRuntimeBinderException("'System.Dynamic.ExpandoObject' does not contain a definition for 'MessageText'");
+            }
+
+            [Fact]
+            public void Should_Set_MessageHtml_If_Flag_Is_Set()
+            {
+                // Given
+                var messageHtml = "Message Foo HTML";
+                var issue =
+                    IssueBuilder
+                        .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                        .WithMessageInHtmlFormat(messageHtml)
+                        .Create();
+
+                // When
+                dynamic result = issue.GetExpandoObject(addMessageHtml: true);
+
+                // Then
+                Assert.Equal(result.MessageHtml, messageHtml);
+            }
+
+            [Fact]
+            public void Should_Not_Set_MessageHtml_If_Flag_Is_Not_Set()
+            {
+                // Given
+                var issue =
+                    IssueBuilder
+                        .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                        .Create();
+
+                // When
+                dynamic expando = issue.GetExpandoObject(addMessageHtml: false);
+                var result = Record.Exception(() => expando.MessageHtml);
+
+                // Then
+                result.IsRuntimeBinderException("'System.Dynamic.ExpandoObject' does not contain a definition for 'MessageHtml'");
+            }
+
+            [Fact]
+            public void Should_Fallback_To_MessageText_If_MessageHtml_Is_Not_Available()
+            {
+                // Given
+                var messageText = "Message Foo";
+                var issue =
+                    IssueBuilder
+                        .NewIssue(messageText, "ProviderType Foo", "ProviderName Foo")
+                        .Create();
+
+                // When
+                dynamic result = issue.GetExpandoObject(addMessageHtml: true);
+
+                // Then
+                Assert.Equal(result.MessageHtml, messageText);
+            }
+
+            [Fact]
+            public void Should_Fallback_To_MessageText_If_MessageHtml_Is_Not_Available_And_Flag_Is_Set()
+            {
+                // Given
+                var messageText = "Message Foo";
+                var issue =
+                    IssueBuilder
+                        .NewIssue(messageText, "ProviderType Foo", "ProviderName Foo")
+                        .Create();
+
+                // When
+                dynamic result = issue.GetExpandoObject(addMessageHtml: true, fallbackToTextMessageIfHtmlMessageNotAvailable: true);
+
+                // Then
+                Assert.Equal(result.MessageHtml, messageText);
+            }
+
+            [Fact]
+            public void Should_Not_Fallback_To_MessageText_If_MessageHtml_Is_Not_Available_And_Flag_Is_Not_Set()
+            {
+                // Given
+                var messageText = "Message Foo";
+                var issue =
+                    IssueBuilder
+                        .NewIssue(messageText, "ProviderType Foo", "ProviderName Foo")
+                        .Create();
+
+                // When
+                dynamic result = issue.GetExpandoObject(addMessageHtml: true, fallbackToTextMessageIfHtmlMessageNotAvailable: false);
+
+                // Then
+                Assert.Equal(result.MessageHtml, null);
+            }
+
+            [Fact]
+            public void Should_Set_MessageMarkdown_If_Flag_Is_Set()
+            {
+                // Given
+                var messageMarkdown = "Message Foo Markdown";
+                var issue =
+                    IssueBuilder
+                        .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                        .WithMessageInMarkdownFormat(messageMarkdown)
+                        .Create();
+
+                // When
+                dynamic result = issue.GetExpandoObject(addMessageMarkdown: true);
+
+                // Then
+                Assert.Equal(result.MessageMarkdown, messageMarkdown);
+            }
+
+            [Fact]
+            public void Should_Not_Set_MessageMarkdown_If_Flag_Is_Not_Set()
+            {
+                // Given
+                var issue =
+                    IssueBuilder
+                        .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                        .Create();
+
+                // When
+                dynamic expando = issue.GetExpandoObject(addMessageMarkdown: false);
+                var result = Record.Exception(() => expando.MessageMarkdown);
+
+                // Then
+                result.IsRuntimeBinderException("'System.Dynamic.ExpandoObject' does not contain a definition for 'MessageMarkdown'");
+            }
+
+            [Fact]
+            public void Should_Fallback_To_MessageText_If_MessageMarkdown_Is_Not_Available()
+            {
+                // Given
+                var messageText = "Message Foo";
+                var issue =
+                    IssueBuilder
+                        .NewIssue(messageText, "ProviderType Foo", "ProviderName Foo")
+                        .Create();
+
+                // When
+                dynamic result = issue.GetExpandoObject(addMessageMarkdown: true);
+
+                // Then
+                Assert.Equal(result.MessageMarkdown, messageText);
+            }
+
+            [Fact]
+            public void Should_Fallback_To_MessageText_If_MessageMarkdown_Is_Not_Available_And_Flag_Is_Set()
+            {
+                // Given
+                var messageText = "Message Foo";
+                var issue =
+                    IssueBuilder
+                        .NewIssue(messageText, "ProviderType Foo", "ProviderName Foo")
+                        .Create();
+
+                // When
+                dynamic result = issue.GetExpandoObject(addMessageMarkdown: true, fallbackToTextMessageIfMarkdownMessageNotAvailable: true);
+
+                // Then
+                Assert.Equal(result.MessageMarkdown, messageText);
+            }
+
+            [Fact]
+            public void Should_Not_Fallback_To_MessageText_If_MessageMarkdown_Is_Not_Available_And_Flag_Is_Not_Set()
+            {
+                // Given
+                var messageText = "Message Foo";
+                var issue =
+                    IssueBuilder
+                        .NewIssue(messageText, "ProviderType Foo", "ProviderName Foo")
+                        .Create();
+
+                // When
+                dynamic result = issue.GetExpandoObject(addMessageMarkdown: true, fallbackToTextMessageIfMarkdownMessageNotAvailable: false);
+
+                // Then
+                Assert.Equal(result.MessageMarkdown, null);
             }
         }
     }

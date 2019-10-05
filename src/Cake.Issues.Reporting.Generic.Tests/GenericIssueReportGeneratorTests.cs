@@ -52,6 +52,8 @@
                     {
                         IssueBuilder
                             .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                            .WithMessageInHtmlFormat("Message <b>Foo</b>")
+                            .WithMessageInMarkdownFormat("Message **Foo**")
                             .InFile(@"src\Cake.Issues.Reporting.Generic.Tests\Foo.cs", 10)
                             .OfRule("Rule Foo")
                             .WithPriority(IssuePriority.Warning)
@@ -75,7 +77,7 @@
             public void Should_Generate_Report_From_Custom_Template()
             {
                 // Given
-                var fixture = new GenericIssueReportFixture("<ul>@foreach(var issue in Model){<li>@issue.Message</li>}</ul>");
+                var fixture = new GenericIssueReportFixture("<ul>@foreach(var issue in Model){<li>@issue.MessageText</li>}</ul>");
                 var issues =
                     new List<IIssue>
                     {

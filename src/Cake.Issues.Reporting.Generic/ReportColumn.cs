@@ -67,7 +67,9 @@
         RuleUrl = 1200,
 
         /// <summary>
-        /// Column for the <see cref="IIssue.Message"/> field.
+        /// Column for the message. This can either be the <see cref="IIssue.MessageText"/>,
+        /// <see cref="IIssue.MessageHtml"/> or <see cref="IIssue.MessageMarkdown"/> field,
+        /// depending on the report.
         /// </summary>
         Message = 1300,
     }
