@@ -14,6 +14,9 @@
     internal class GitRepositoryIssuesProvider : BaseIssueProvider
     {
         private readonly GitRunner runner;
+        private readonly Lazy<IEnumerable<string>> allFiles;
+        private readonly Lazy<IEnumerable<string>> textFiles;
+        private readonly Lazy<IEnumerable<string>> binaryFiles;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="GitRepositoryIssuesProvider"/> class.
@@ -41,6 +44,19 @@
 
             this.IssueProviderSettings = issueProviderSettings;
             this.runner = new GitRunner(fileSystem, environment, processRunner, toolLocator);
+
+            this.allFiles =
+                new Lazy<IEnumerable<string>>(
+                    new Func<IEnumerable<string>>(
+                        () => this.GetAllFilesFromRepository()));
+            this.textFiles =
+                new Lazy<IEnumerable<string>>(
+                    new Func<IEnumerable<string>>(
+                        () => this.GetTextFilesFromRepository()));
+            this.binaryFiles =
+                new Lazy<IEnumerable<string>>(
+                    new Func<IEnumerable<string>>(
+                        () => this.DetermineBinaryFiles(this.allFiles.Value, this.textFiles.Value)));
         }
 
         /// <summary>
@@ -67,6 +83,11 @@
                 result.AddRange(this.CheckForBinaryFilesNotTrackedByLfs(format));
             }
 
+            if (this.IssueProviderSettings.CheckFilesPathLength)
+            {
+                result.AddRange(this.CheckForFilesPathLength(format));
+            }
+
             return result;
         }
 
@@ -77,22 +98,19 @@
         /// <returns>List of issues for binary files which are not tracked by LFS.</returns>
         private IEnumerable<IIssue> CheckForBinaryFilesNotTrackedByLfs(IssueCommentFormat format)
         {
-            var allFiles = this.GetAllFilesFromRepository();
-            if (!allFiles.Any())
+            if (!this.allFiles.Value.Any())
             {
                 return new List<IIssue>();
             }
 
-            var textFiles = this.GetTextFilesFromRepository();
-
-            var binaryFiles = this.DetermineBinaryFiles(allFiles, textFiles);
-            if (!binaryFiles.Any())
+            if (!this.binaryFiles.Value.Any())
             {
                 return new List<IIssue>();
             }
 
             var lfsTrackedFiles = this.GetLfsTrackedFilesFromRepository();
-            var binaryFilesNotTrackedByLfs = this.DetermineBinaryFilesNotTrackedWithLfs(binaryFiles, lfsTrackedFiles);
+            var binaryFilesNotTrackedByLfs =
+                this.DetermineBinaryFilesNotTrackedWithLfs(this.binaryFiles.Value, lfsTrackedFiles);
 
             var result = new List<IIssue>();
             foreach (var file in binaryFilesNotTrackedByLfs)
@@ -119,6 +137,54 @@
                         .InFile(file)
                         .OfRule(ruleDescription)
                         .Create());
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Checks for files path length.
+        /// </summary>
+        /// <param name="format">Preferred format of the messages.</param>
+        /// <returns>List of issues for repository files with paths exceeding the allowed maximum.</returns>
+        private IEnumerable<IIssue> CheckForFilesPathLength(IssueCommentFormat format)
+        {
+            if (!this.allFiles.Value.Any())
+            {
+                return new List<IIssue>();
+            }
+
+            var result = new List<IIssue>();
+            foreach (string file in this.allFiles.Value)
+            {
+                if (file.Length > this.IssueProviderSettings.MaxFilePathLength)
+                {
+                    string message = null;
+                    switch (format)
+                    {
+                        case IssueCommentFormat.Markdown:
+                            message =
+                                $"The path for the file `{file}` is too long. Maximum allowed path length is {this.IssueProviderSettings.MaxFilePathLength}, actual path length is {file.Length}.";
+                            break;
+                        case IssueCommentFormat.Html:
+                            message =
+                                $"The path for the file <pre>{file}</pre> is too long. Maximum allowed path length is {this.IssueProviderSettings.MaxFilePathLength}, actual path length is {file.Length}.";
+                            break;
+                        default:
+                            message =
+                                $"The path for the file \"{file}\" is too long. Maximum allowed path length is {this.IssueProviderSettings.MaxFilePathLength}, actual path length is {file.Length}.";
+                            break;
+                    }
+
+                    var ruleDescription = new FilePathTooLongRuleDescription();
+
+                    result.Add(
+                        IssueBuilder
+                            .NewIssue(message, this)
+                            .InFile(file)
+                            .OfRule(ruleDescription)
+                            .Create());
+                }
             }
 
             return result;
