@@ -7,6 +7,7 @@ Description: A binary file is not tracked by Git LFS.
 <?*
 "Rule Id" BinaryFileNotTrackedByLfs
 Priority Warning
+"Available in" "0.7.0 or higher"
 ?>
 <?#/ Table ?>
 
