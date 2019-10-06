@@ -7,6 +7,7 @@ Description: The path of a file is too long.
 <?*
 "Rule Id" FilePathTooLong
 Priority Warning
+"Available in" "0.7.3 or higher"
 ?>
 <?#/ Table ?>
 
