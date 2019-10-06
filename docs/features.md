@@ -7,7 +7,8 @@ The [Cake.Issues.GitRepository addin] provides the following features.
 
 # Basic features
 
-* Checks if binary files are tracked by Git LFS.
+* Checks path length of files. See [FilePathTooLong] for details.
+* Checks if binary files are tracked by Git LFS. See [BinaryFileNotTrackedByLfs] for details.
 
 # Supported comment formats
 
@@ -34,3 +35,5 @@ The [Cake.Issues.GitRepository addin] provides the following features.
 | <span class="glyphicon glyphicon-ok" style="color:green"></span>   | `IIssue.RuleUrl`                  |                                |
 
 [Cake.Issues.GitRepository addin]: https://www.nuget.org/packages/Cake.Issues.GitRepository
+[FilePathTooLong]: rules/FilePathTooLong
+[BinaryFileNotTrackedByLfs]: rules/BinaryFileNotTrackedByLfs
