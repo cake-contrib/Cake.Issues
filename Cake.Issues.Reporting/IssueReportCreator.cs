@@ -40,7 +40,7 @@
             reportFormat.NotNull(nameof(reportFormat));
 
             var issuesReader = new IssuesReader(this.log, issueProviders, this.settings);
-            var issues = issuesReader.ReadIssues(IssueCommentFormat.PlainText);
+            var issues = issuesReader.ReadIssues();
 
             return this.CreateReport(issues, reportFormat);
         }
