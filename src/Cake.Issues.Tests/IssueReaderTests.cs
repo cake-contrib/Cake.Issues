@@ -20,7 +20,7 @@
                 };
 
                 // When
-                var result = Record.Exception(() => fixture.ReadIssues(IssueCommentFormat.Undefined));
+                var result = Record.Exception(() => fixture.ReadIssues());
 
                 // Then
                 result.IsArgumentNullException("log");
@@ -36,7 +36,7 @@
                 };
 
                 // When
-                var result = Record.Exception(() => fixture.ReadIssues(IssueCommentFormat.Undefined));
+                var result = Record.Exception(() => fixture.ReadIssues());
 
                 // Then
                 result.IsArgumentNullException("issueProviders");
@@ -50,7 +50,7 @@
                 fixture.IssueProviders.Clear();
 
                 // When
-                var result = Record.Exception(() => fixture.ReadIssues(IssueCommentFormat.Undefined));
+                var result = Record.Exception(() => fixture.ReadIssues());
 
                 // Then
                 result.IsArgumentException("issueProviders");
@@ -65,7 +65,7 @@
                 fixture.IssueProviders.Add(null);
 
                 // When
-                var result = Record.Exception(() => fixture.ReadIssues(IssueCommentFormat.Undefined));
+                var result = Record.Exception(() => fixture.ReadIssues());
 
                 // Then
                 result.IsArgumentOutOfRangeException("issueProviders");
@@ -81,7 +81,7 @@
                 };
 
                 // When
-                var result = Record.Exception(() => fixture.ReadIssues(IssueCommentFormat.Undefined));
+                var result = Record.Exception(() => fixture.ReadIssues());
 
                 // Then
                 result.IsArgumentNullException("settings");
@@ -97,7 +97,7 @@
                 var fixture = new IssuesFixture();
 
                 // When
-                fixture.ReadIssues(IssueCommentFormat.Undefined);
+                fixture.ReadIssues();
 
                 // Then
                 fixture.IssueProviders.ShouldAllBe(x => x.Settings == fixture.Settings);
@@ -147,7 +147,7 @@
                         }));
 
                 // When
-                fixture.ReadIssues(IssueCommentFormat.Undefined);
+                fixture.ReadIssues();
 
                 // Then
                 fixture.IssueProviders.ShouldAllBe(x => x.Settings == fixture.Settings);
@@ -183,7 +183,7 @@
                         }));
 
                 // When
-                var issues = fixture.ReadIssues(IssueCommentFormat.Undefined).ToList();
+                var issues = fixture.ReadIssues().ToList();
 
                 // Then
                 issues.Count.ShouldBe(2);
@@ -219,7 +219,7 @@
                         }));
 
                 // When
-                var issues = fixture.ReadIssues(IssueCommentFormat.Undefined).ToList();
+                var issues = fixture.ReadIssues().ToList();
 
                 // Then
                 issues.Count.ShouldBe(2);
@@ -279,7 +279,7 @@
                         }));
 
                 // When
-                var issues = fixture.ReadIssues(IssueCommentFormat.Undefined).ToList();
+                var issues = fixture.ReadIssues().ToList();
 
                 // Then
                 issues.Count.ShouldBe(4);

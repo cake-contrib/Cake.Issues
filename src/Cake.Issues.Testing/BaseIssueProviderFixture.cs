@@ -33,13 +33,13 @@
         public RepositorySettings RepositorySettings { get; set; }
 
         /// <summary>
-        /// Calls <see cref="BaseIssueProvider.ReadIssues(IssueCommentFormat)"/>.
+        /// Calls <see cref="BaseIssueProvider.ReadIssues()"/>.
         /// </summary>
         /// <returns>Issues returned from issue provider.</returns>
         public IEnumerable<IIssue> ReadIssues()
         {
             var issueProvider = this.CreateIssueProvider();
-            return issueProvider.ReadIssues(IssueCommentFormat.PlainText);
+            return issueProvider.ReadIssues();
         }
 
         /// <summary>

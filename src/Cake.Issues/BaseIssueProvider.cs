@@ -21,19 +21,18 @@
         public abstract string ProviderName { get; }
 
         /// <inheritdoc/>
-        public IEnumerable<IIssue> ReadIssues(IssueCommentFormat format)
+        public IEnumerable<IIssue> ReadIssues()
         {
             this.AssertInitialized();
 
-            return this.InternalReadIssues(format);
+            return this.InternalReadIssues();
         }
 
         /// <summary>
         /// Gets all issues.
         /// Compared to <see cref="ReadIssues"/> it is safe to access Settings from this method.
         /// </summary>
-        /// <param name="format">Preferred format of the comments.</param>
         /// <returns>List of issues.</returns>
-        protected abstract IEnumerable<IIssue> InternalReadIssues(IssueCommentFormat format);
+        protected abstract IEnumerable<IIssue> InternalReadIssues();
     }
 }

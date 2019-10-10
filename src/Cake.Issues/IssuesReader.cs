@@ -40,9 +40,8 @@
         /// <summary>
         /// Read issues from issue providers.
         /// </summary>
-        /// <param name="format">Preferred format for comments.</param>
         /// <returns>List of issues.</returns>
-        public IEnumerable<IIssue> ReadIssues(IssueCommentFormat format)
+        public IEnumerable<IIssue> ReadIssues()
         {
             // Initialize issue providers and read issues.
             var issues = new List<IIssue>();
@@ -53,7 +52,7 @@
                 if (issueProvider.Initialize(this.settings))
                 {
                     this.log.Verbose("Reading issues from {0}...", providerName);
-                    var currentIssues = issueProvider.ReadIssues(format).ToList();
+                    var currentIssues = issueProvider.ReadIssues().ToList();
 
                     this.log.Verbose(
                         "Found {0} issues using issue provider {1}...",

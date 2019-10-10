@@ -15,8 +15,7 @@
         /// <summary>
         /// Gets all issues.
         /// </summary>
-        /// <param name="format">Preferred format of the comments.</param>
         /// <returns>List of issues.</returns>
-        IEnumerable<IIssue> ReadIssues(IssueCommentFormat format);
+        IEnumerable<IIssue> ReadIssues();
     }
 }

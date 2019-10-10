@@ -21,7 +21,9 @@
         /// <c>null</c> or <see cref="string.Empty"/> if issue is not related to a change in a file.</param>
         /// <param name="line">The line in the file where the issues has occurred.
         /// <c>null</c> if the issue affects the whole file or an asssembly.</param>
-        /// <param name="message">The message of the issue.</param>
+        /// <param name="messageText">The message of the issue in plain text format.</param>
+        /// <param name="messageHtml">The message of the issue in Html format.</param>
+        /// <param name="messageMarkdown">The message of the issue in Markdown format.</param>
         /// <param name="priority">The priority of the message.
         /// <c>null</c> if no priority was assigned.</param>
         /// <param name="priorityName">The human friendly name of the priority.
@@ -37,7 +39,9 @@
             string projectName,
             string affectedFileRelativePath,
             int? line,
-            string message,
+            string messageText,
+            string messageHtml,
+            string messageMarkdown,
             int? priority,
             string priorityName,
             string rule,
@@ -46,7 +50,7 @@
             string providerName)
         {
             line?.NotNegativeOrZero(nameof(line));
-            message.NotNullOrWhiteSpace(nameof(message));
+            messageText.NotNullOrWhiteSpace(nameof(messageText));
             providerType.NotNullOrWhiteSpace(nameof(providerType));
             providerName.NotNullOrWhiteSpace(nameof(providerName));
 
@@ -93,7 +97,9 @@
 
             this.ProjectName = projectName;
             this.Line = line;
-            this.Message = message;
+            this.MessageText = messageText;
+            this.MessageHtml = messageHtml;
+            this.MessageMarkdown = messageMarkdown;
             this.Priority = priority;
             this.PriorityName = priorityName;
             this.Rule = rule;
@@ -115,7 +121,13 @@
         public int? Line { get; }
 
         /// <inheritdoc/>
-        public string Message { get; }
+        public string MessageText { get; }
+
+        /// <inheritdoc/>
+        public string MessageHtml { get; }
+
+        /// <inheritdoc/>
+        public string MessageMarkdown { get; }
 
         /// <inheritdoc/>
         public int? Priority { get; }

@@ -19,7 +19,9 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 100;
-                    var message = "Message";
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
@@ -34,7 +36,9 @@
                             projectName,
                             filePath,
                             line,
-                            message,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
                             priority,
                             priorityName,
                             rule,
@@ -56,7 +60,9 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 100;
-                    var message = "Message";
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
@@ -71,7 +77,9 @@
                             projectName,
                             filePath,
                             line,
-                            message,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
                             priority,
                             priorityName,
                             rule,
@@ -91,7 +99,9 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
-                    var message = "Message";
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
@@ -106,7 +116,9 @@
                             projectName,
                             filePath,
                             line,
-                            message,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
                             priority,
                             priorityName,
                             rule,
@@ -126,7 +138,9 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
-                    var message = "Message";
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
@@ -141,7 +155,9 @@
                             projectName,
                             filePath,
                             line,
-                            message,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
                             priority,
                             priorityName,
                             rule,
@@ -161,7 +177,9 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
-                    var message = "Message";
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
@@ -176,7 +194,9 @@
                             projectName,
                             filePath,
                             line,
-                            message,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
                             priority,
                             priorityName,
                             rule,
@@ -196,7 +216,9 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
-                    var message = "Message";
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
@@ -211,7 +233,9 @@
                             projectName,
                             filePath,
                             line,
-                            message,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
                             priority,
                             priorityName,
                             rule,
@@ -234,7 +258,9 @@
                     string projectName = null;
                     var filePath = @"src\foo.cs";
                     var line = 10;
-                    var message = "Message";
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
@@ -249,7 +275,9 @@
                             projectName,
                             filePath,
                             line,
-                            message,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
                             priority,
                             priorityName,
                             rule,
@@ -269,7 +297,9 @@
                     var projectName = string.Empty;
                     var filePath = @"src\foo.cs";
                     var line = 10;
-                    var message = "Message";
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
@@ -284,7 +314,9 @@
                             projectName,
                             filePath,
                             line,
-                            message,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
                             priority,
                             priorityName,
                             rule,
@@ -304,7 +336,9 @@
                     var projectName = " ";
                     var filePath = @"src\foo.cs";
                     var line = 10;
-                    var message = "Message";
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
@@ -319,7 +353,9 @@
                             projectName,
                             filePath,
                             line,
-                            message,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
                             priority,
                             priorityName,
                             rule,
@@ -339,7 +375,9 @@
                     var projectPath = @"src\foo.csproj";
                     var filePath = @"src\foo.cs";
                     var line = 10;
-                    var message = "Message";
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
@@ -354,7 +392,9 @@
                             projectName,
                             filePath,
                             line,
-                            message,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
                             priority,
                             priorityName,
                             rule,
@@ -377,7 +417,9 @@
                     var projectPath = @"src\foo.csproj";
                     var projectName = "foo";
                     var line = 100;
-                    var message = "Message";
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
@@ -392,7 +434,9 @@
                             projectName,
                             filePath,
                             line,
-                            message,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
                             priority,
                             priorityName,
                             rule,
@@ -414,7 +458,9 @@
                     var projectPath = @"src\foo.csproj";
                     var projectName = "foo";
                     var line = 100;
-                    var message = "Message";
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
@@ -429,7 +475,9 @@
                             projectName,
                             filePath,
                             line,
-                            message,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
                             priority,
                             priorityName,
                             rule,
@@ -449,7 +497,9 @@
                     var projectName = "foo";
                     string filePath = null;
                     int? line = null;
-                    var message = "Message";
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
@@ -464,7 +514,9 @@
                             projectName,
                             filePath,
                             line,
-                            message,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
                             priority,
                             priorityName,
                             rule,
@@ -484,7 +536,9 @@
                     var projectName = "foo";
                     var filePath = string.Empty;
                     int? line = null;
-                    var message = "Message";
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
@@ -499,7 +553,9 @@
                             projectName,
                             filePath,
                             line,
-                            message,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
                             priority,
                             priorityName,
                             rule,
@@ -519,7 +575,9 @@
                     var projectName = "foo";
                     var filePath = " ";
                     int? line = null;
-                    var message = "Message";
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
@@ -534,7 +592,9 @@
                             projectName,
                             filePath,
                             line,
-                            message,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
                             priority,
                             priorityName,
                             rule,
@@ -562,7 +622,9 @@
                     var projectPath = @"src\foo.csproj";
                     var projectName = "foo";
                     var line = 10;
-                    var message = "Message";
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
@@ -577,7 +639,9 @@
                             projectName,
                             filePath,
                             line,
-                            message,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
                             priority,
                             priorityName,
                             rule,
@@ -601,7 +665,9 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = -1;
-                    var message = "Message";
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
@@ -616,7 +682,9 @@
                             projectName,
                             filePath,
                             line,
-                            message,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
                             priority,
                             priorityName,
                             rule,
@@ -636,7 +704,9 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 0;
-                    var message = "Message";
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
@@ -651,7 +721,9 @@
                             projectName,
                             filePath,
                             line,
-                            message,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
                             priority,
                             priorityName,
                             rule,
@@ -671,7 +743,9 @@
                     var projectName = "foo";
                     string filePath = null;
                     var line = 10;
-                    var message = "Message";
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
@@ -686,7 +760,9 @@
                             projectName,
                             filePath,
                             line,
-                            message,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
                             priority,
                             priorityName,
                             rule,
@@ -708,7 +784,9 @@
                     var projectPath = @"src\foo.csproj";
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
-                    var message = "Message";
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
@@ -723,7 +801,9 @@
                             projectName,
                             filePath,
                             line,
-                            message,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
                             priority,
                             priorityName,
                             rule,
@@ -736,17 +816,19 @@
                 }
             }
 
-            public sealed class TheMessageArgument
+            public sealed class TheMessageTextArgument
             {
                 [Fact]
-                public void Should_Throw_If_Message_Is_Null()
+                public void Should_Throw_If_MessageText_Is_Null()
                 {
                     // Given
                     var projectPath = @"src\foo.csproj";
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
-                    string message = null;
+                    string messageText = null;
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
@@ -761,7 +843,9 @@
                             projectName,
                             filePath,
                             line,
-                            message,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
                             priority,
                             priorityName,
                             rule,
@@ -770,18 +854,20 @@
                             providerName));
 
                     // Then
-                    result.IsArgumentNullException("message");
+                    result.IsArgumentNullException("messageText");
                 }
 
                 [Fact]
-                public void Should_Throw_If_Message_Is_Empty()
+                public void Should_Throw_If_MessageText_Is_Empty()
                 {
                     // Given
                     var projectPath = @"src\foo.csproj";
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
-                    var message = string.Empty;
+                    var messageText = string.Empty;
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
@@ -796,7 +882,9 @@
                             projectName,
                             filePath,
                             line,
-                            message,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
                             priority,
                             priorityName,
                             rule,
@@ -805,18 +893,20 @@
                             providerName));
 
                     // Then
-                    result.IsArgumentOutOfRangeException("message");
+                    result.IsArgumentOutOfRangeException("messageText");
                 }
 
                 [Fact]
-                public void Should_Throw_If_Message_Is_WhiteSpace()
+                public void Should_Throw_If_MessageText_Is_WhiteSpace()
                 {
                     // Given
                     var projectPath = @"src\foo.csproj";
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
-                    var message = " ";
+                    var messageText = " ";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
@@ -831,7 +921,9 @@
                             projectName,
                             filePath,
                             line,
-                            message,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
                             priority,
                             priorityName,
                             rule,
@@ -840,18 +932,20 @@
                             providerName));
 
                     // Then
-                    result.IsArgumentOutOfRangeException("message");
+                    result.IsArgumentOutOfRangeException("messageText");
                 }
 
                 [Theory]
-                [InlineData("message")]
-                public void Should_Set_Message(string message)
+                [InlineData("messageText")]
+                public void Should_Set_MessageText(string messageText)
                 {
                     // Given
                     var projectPath = @"src\foo.csproj";
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
@@ -866,7 +960,9 @@
                             projectName,
                             filePath,
                             line,
-                            message,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
                             priority,
                             priorityName,
                             rule,
@@ -875,7 +971,97 @@
                             providerName);
 
                     // Then
-                    issue.Message.ShouldBe(message);
+                    issue.MessageText.ShouldBe(messageText);
+                }
+            }
+
+            public sealed class TheMessageHtmlArgument
+            {
+                [Theory]
+                [InlineData(null)]
+                [InlineData("")]
+                [InlineData(" ")]
+                [InlineData("messageHtml")]
+                public void Should_Set_MessageHtml(string messageHtml)
+                {
+                    // Given
+                    var projectPath = @"src\foo.csproj";
+                    var projectName = "foo";
+                    var filePath = @"src\foo.cs";
+                    var line = 10;
+                    var messageText = "MessageText";
+                    var messageMarkdown = "MessageMarkdown";
+                    var priority = 1;
+                    var priorityName = "Warning";
+                    var rule = "Rule";
+                    var ruleUri = new Uri("https://google.com");
+                    var providerType = "ProviderType";
+                    var providerName = "ProviderName";
+
+                    // When
+                    var issue =
+                        new Issue(
+                            projectPath,
+                            projectName,
+                            filePath,
+                            line,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
+                            priority,
+                            priorityName,
+                            rule,
+                            ruleUri,
+                            providerType,
+                            providerName);
+
+                    // Then
+                    issue.MessageHtml.ShouldBe(messageHtml);
+                }
+            }
+
+            public sealed class TheMessageMarkdownArgument
+            {
+                [Theory]
+                [InlineData(null)]
+                [InlineData("")]
+                [InlineData(" ")]
+                [InlineData("messageMarkdown")]
+                public void Should_Set_MessageHtml(string messageMarkdown)
+                {
+                    // Given
+                    var projectPath = @"src\foo.csproj";
+                    var projectName = "foo";
+                    var filePath = @"src\foo.cs";
+                    var line = 10;
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var priority = 1;
+                    var priorityName = "Warning";
+                    var rule = "Rule";
+                    var ruleUri = new Uri("https://google.com");
+                    var providerType = "ProviderType";
+                    var providerName = "ProviderName";
+
+                    // When
+                    var issue =
+                        new Issue(
+                            projectPath,
+                            projectName,
+                            filePath,
+                            line,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
+                            priority,
+                            priorityName,
+                            rule,
+                            ruleUri,
+                            providerType,
+                            providerName);
+
+                    // Then
+                    issue.MessageMarkdown.ShouldBe(messageMarkdown);
                 }
             }
 
@@ -895,7 +1081,9 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
-                    var message = "Message";
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
                     var priorityName = "Warning";
                     var rule = "Rule";
                     var ruleUri = new Uri("https://google.com");
@@ -909,7 +1097,9 @@
                             projectName,
                             filePath,
                             line,
-                            message,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
                             priority,
                             priorityName,
                             rule,
@@ -932,7 +1122,9 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
-                    var message = "Message";
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
                     var priority = 1;
                     string priorityName = null;
                     var rule = "Rule";
@@ -947,7 +1139,9 @@
                             projectName,
                             filePath,
                             line,
-                            message,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
                             priority,
                             priorityName,
                             rule,
@@ -967,7 +1161,9 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
-                    var message = "Message";
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
                     var priority = 1;
                     var priorityName = string.Empty;
                     var rule = "Rule";
@@ -982,7 +1178,9 @@
                             projectName,
                             filePath,
                             line,
-                            message,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
                             priority,
                             priorityName,
                             rule,
@@ -1002,7 +1200,9 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
-                    var message = "Message";
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
                     var priority = 1;
                     var priorityName = " ";
                     var rule = "Rule";
@@ -1017,7 +1217,9 @@
                             projectName,
                             filePath,
                             line,
-                            message,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
                             priority,
                             priorityName,
                             rule,
@@ -1038,7 +1240,9 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
-                    var message = "Message";
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
                     var priority = 1;
                     var rule = "Rule";
                     var ruleUri = new Uri("https://google.com");
@@ -1052,7 +1256,9 @@
                             projectName,
                             filePath,
                             line,
-                            message,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
                             priority,
                             priorityName,
                             rule,
@@ -1078,7 +1284,9 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
-                    var message = "Message";
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
                     var priority = 1;
                     var priorityName = "Warning";
                     var ruleUri = new Uri("https://google.com");
@@ -1092,7 +1300,9 @@
                             projectName,
                             filePath,
                             line,
-                            message,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
                             priority,
                             priorityName,
                             rule,
@@ -1115,7 +1325,9 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
-                    var message = "Message";
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
@@ -1130,7 +1342,9 @@
                             projectName,
                             filePath,
                             line,
-                            message,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
                             priority,
                             priorityName,
                             rule,
@@ -1150,7 +1364,9 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
-                    var message = "Message";
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
@@ -1165,7 +1381,9 @@
                             projectName,
                             filePath,
                             line,
-                            message,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
                             priority,
                             priorityName,
                             rule,
@@ -1188,7 +1406,9 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
-                    var message = "Message";
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
@@ -1203,7 +1423,9 @@
                             projectName,
                             filePath,
                             line,
-                            message,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
                             priority,
                             priorityName,
                             rule,
@@ -1223,7 +1445,9 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
-                    var message = "Message";
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
@@ -1238,7 +1462,9 @@
                             projectName,
                             filePath,
                             line,
-                            message,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
                             priority,
                             priorityName,
                             rule,
@@ -1258,7 +1484,9 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
-                    var message = "Message";
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
@@ -1273,7 +1501,9 @@
                             projectName,
                             filePath,
                             line,
-                            message,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
                             priority,
                             priorityName,
                             rule,
@@ -1294,7 +1524,9 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
-                    var message = "Message";
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
@@ -1308,7 +1540,9 @@
                             projectName,
                             filePath,
                             line,
-                            message,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
                             priority,
                             priorityName,
                             rule,
@@ -1331,7 +1565,9 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
-                    var message = "Message";
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
@@ -1346,7 +1582,9 @@
                             projectName,
                             filePath,
                             line,
-                            message,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
                             priority,
                             priorityName,
                             rule,
@@ -1366,7 +1604,9 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
-                    var message = "Message";
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
@@ -1381,7 +1621,9 @@
                             projectName,
                             filePath,
                             line,
-                            message,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
                             priority,
                             priorityName,
                             rule,
@@ -1401,7 +1643,9 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
-                    var message = "Message";
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
@@ -1416,7 +1660,9 @@
                             projectName,
                             filePath,
                             line,
-                            message,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
                             priority,
                             priorityName,
                             rule,
@@ -1437,7 +1683,9 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
-                    var message = "Message";
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
@@ -1451,7 +1699,9 @@
                             projectName,
                             filePath,
                             line,
-                            message,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
                             priority,
                             priorityName,
                             rule,

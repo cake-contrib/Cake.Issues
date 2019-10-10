@@ -44,18 +44,12 @@
         /// </summary>
         public new RepositorySettings Settings => base.Settings;
 
-        /// <summary>
-        /// Gets the format in which issues should be returned.
-        /// </summary>
-        public IssueCommentFormat Format { get; private set; }
-
         /// <inheritdoc/>
         public override string ProviderName => "Fake Issue Provider";
 
         /// <inheritdoc/>
-        protected override IEnumerable<IIssue> InternalReadIssues(IssueCommentFormat format)
+        protected override IEnumerable<IIssue> InternalReadIssues()
         {
-            this.Format = format;
             return this.issues;
         }
     }

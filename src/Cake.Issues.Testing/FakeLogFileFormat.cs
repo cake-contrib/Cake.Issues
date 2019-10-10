@@ -42,7 +42,6 @@
         /// <inheritdoc/>
         public override IEnumerable<IIssue> ReadIssues(
             FakeMultiFormatIssueProvider issueProvider,
-            IssueCommentFormat format,
             RepositorySettings repositorySettings,
             FakeMultiFormatIssueProviderSettings issueProviderSettings)
         {
