@@ -687,7 +687,10 @@
                 }
                 finally
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    if (System.IO.File.Exists(filePath.FullPath))
+                    {
+                        System.IO.File.Delete(filePath.FullPath);
+                    }
                 }
             }
 
@@ -714,7 +717,10 @@
                 }
                 finally
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    if (System.IO.File.Exists(filePath.FullPath))
+                    {
+                        System.IO.File.Delete(filePath.FullPath);
+                    }
                 }
             }
 
@@ -741,7 +747,10 @@
                 }
                 finally
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    if (System.IO.File.Exists(filePath.FullPath))
+                    {
+                        System.IO.File.Delete(filePath.FullPath);
+                    }
                 }
             }
 
@@ -767,7 +776,10 @@
                 }
                 finally
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    if (System.IO.File.Exists(filePath.FullPath))
+                    {
+                        System.IO.File.Delete(filePath.FullPath);
+                    }
                 }
             }
 
@@ -793,7 +805,10 @@
                 }
                 finally
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    if (System.IO.File.Exists(filePath.FullPath))
+                    {
+                        System.IO.File.Delete(filePath.FullPath);
+                    }
                 }
             }
 
@@ -820,7 +835,10 @@
                 }
                 finally
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    if (System.IO.File.Exists(filePath.FullPath))
+                    {
+                        System.IO.File.Delete(filePath.FullPath);
+                    }
                 }
             }
 
@@ -847,7 +865,10 @@
                 }
                 finally
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    if (System.IO.File.Exists(filePath.FullPath))
+                    {
+                        System.IO.File.Delete(filePath.FullPath);
+                    }
                 }
             }
 
@@ -874,7 +895,10 @@
                 }
                 finally
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    if (System.IO.File.Exists(filePath.FullPath))
+                    {
+                        System.IO.File.Delete(filePath.FullPath);
+                    }
                 }
             }
 
@@ -901,7 +925,10 @@
                 }
                 finally
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    if (System.IO.File.Exists(filePath.FullPath))
+                    {
+                        System.IO.File.Delete(filePath.FullPath);
+                    }
                 }
             }
 
@@ -928,7 +955,10 @@
                 }
                 finally
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    if (System.IO.File.Exists(filePath.FullPath))
+                    {
+                        System.IO.File.Delete(filePath.FullPath);
+                    }
                 }
             }
 
@@ -955,7 +985,10 @@
                 }
                 finally
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    if (System.IO.File.Exists(filePath.FullPath))
+                    {
+                        System.IO.File.Delete(filePath.FullPath);
+                    }
                 }
             }
 
@@ -982,7 +1015,10 @@
                 }
                 finally
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    if (System.IO.File.Exists(filePath.FullPath))
+                    {
+                        System.IO.File.Delete(filePath.FullPath);
+                    }
                 }
             }
 
@@ -1009,7 +1045,10 @@
                 }
                 finally
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    if (System.IO.File.Exists(filePath.FullPath))
+                    {
+                        System.IO.File.Delete(filePath.FullPath);
+                    }
                 }
             }
         }
@@ -1075,7 +1114,10 @@
                 }
                 finally
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    if (System.IO.File.Exists(filePath.FullPath))
+                    {
+                        System.IO.File.Delete(filePath.FullPath);
+                    }
                 }
             }
 
@@ -1112,7 +1154,10 @@
                 }
                 finally
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    if (System.IO.File.Exists(filePath.FullPath))
+                    {
+                        System.IO.File.Delete(filePath.FullPath);
+                    }
                 }
             }
 
@@ -1149,7 +1194,10 @@
                 }
                 finally
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    if (System.IO.File.Exists(filePath.FullPath))
+                    {
+                        System.IO.File.Delete(filePath.FullPath);
+                    }
                 }
             }
 
@@ -1184,7 +1232,10 @@
                 }
                 finally
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    if (System.IO.File.Exists(filePath.FullPath))
+                    {
+                        System.IO.File.Delete(filePath.FullPath);
+                    }
                 }
             }
 
@@ -1219,7 +1270,10 @@
                 }
                 finally
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    if (System.IO.File.Exists(filePath.FullPath))
+                    {
+                        System.IO.File.Delete(filePath.FullPath);
+                    }
                 }
             }
 
@@ -1256,7 +1310,10 @@
                 }
                 finally
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    if (System.IO.File.Exists(filePath.FullPath))
+                    {
+                        System.IO.File.Delete(filePath.FullPath);
+                    }
                 }
             }
 
@@ -1293,7 +1350,10 @@
                 }
                 finally
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    if (System.IO.File.Exists(filePath.FullPath))
+                    {
+                        System.IO.File.Delete(filePath.FullPath);
+                    }
                 }
             }
 
@@ -1330,7 +1390,10 @@
                 }
                 finally
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    if (System.IO.File.Exists(filePath.FullPath))
+                    {
+                        System.IO.File.Delete(filePath.FullPath);
+                    }
                 }
             }
 
@@ -1367,7 +1430,10 @@
                 }
                 finally
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    if (System.IO.File.Exists(filePath.FullPath))
+                    {
+                        System.IO.File.Delete(filePath.FullPath);
+                    }
                 }
             }
 
@@ -1404,7 +1470,10 @@
                 }
                 finally
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    if (System.IO.File.Exists(filePath.FullPath))
+                    {
+                        System.IO.File.Delete(filePath.FullPath);
+                    }
                 }
             }
 
@@ -1441,7 +1510,10 @@
                 }
                 finally
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    if (System.IO.File.Exists(filePath.FullPath))
+                    {
+                        System.IO.File.Delete(filePath.FullPath);
+                    }
                 }
             }
 
@@ -1478,7 +1550,10 @@
                 }
                 finally
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    if (System.IO.File.Exists(filePath.FullPath))
+                    {
+                        System.IO.File.Delete(filePath.FullPath);
+                    }
                 }
             }
 
@@ -1515,7 +1590,10 @@
                 }
                 finally
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    if (System.IO.File.Exists(filePath.FullPath))
+                    {
+                        System.IO.File.Delete(filePath.FullPath);
+                    }
                 }
             }
         }
