@@ -14,3 +14,9 @@ jobs:
   steps:
   - powershell: ./build.ps1
     displayName: 'Cake Build'
+- job: macOS
+  pool:
+    vmImage: 'macOS-latest'
+  steps:
+  - script: ./build.sh
+    displayName: 'Cake Build'
