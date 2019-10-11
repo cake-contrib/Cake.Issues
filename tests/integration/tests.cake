@@ -1,6 +1,6 @@
-#addin nuget:?package=Cake.Issues
-#addin nuget:?package=Cake.Issues.Reporting
-#addin nuget:?package=Cake.Issues.Reporting.Generic
+#addin nuget:?package=Cake.Issues&prerelease
+#addin nuget:?package=Cake.Issues.Reporting&prerelease
+#addin nuget:?package=Cake.Issues.Reporting.Generic&prerelease
 #reference "../../tools/Addins/Cake.Issues.GitRepository/lib/netstandard2.0/Cake.Issues.GitRepository.dll"
 
 //////////////////////////////////////////////////
@@ -38,10 +38,7 @@ Task("CheckBinaryFilesTrackedByLfs")
                 {
                     CheckBinaryFilesTrackedByLfs = true
                 }),
-            new ReadIssuesSettings(repoRootDir)
-            {
-                 Format = IssueCommentFormat.Html
-            });
+            new ReadIssuesSettings(repoRootDir));
 
     var reportDir =
         repoRootDir.Combine("BuildArtifacts").Combine("TestResults").Combine("Integration");
@@ -70,10 +67,7 @@ Task("CheckFilesPathLength")
                     CheckFilesPathLength = true,
                     MaxFilePathLength = 60
                 }),
-            new ReadIssuesSettings(repoRootDir)
-            {
-                 Format = IssueCommentFormat.Html
-            });
+            new ReadIssuesSettings(repoRootDir));
 
     var reportDir =
         repoRootDir.Combine("BuildArtifacts").Combine("TestResults").Combine("Integration");
