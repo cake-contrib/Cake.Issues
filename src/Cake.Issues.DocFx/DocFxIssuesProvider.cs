@@ -35,7 +35,7 @@
         public override string ProviderName => "DocFX";
 
         /// <inheritdoc />
-        protected override IEnumerable<IIssue> InternalReadIssues(IssueCommentFormat format)
+        protected override IEnumerable<IIssue> InternalReadIssues()
         {
             // Determine path of the doc root.
             var docRootPath = this.IssueProviderSettings.DocRootPath;
