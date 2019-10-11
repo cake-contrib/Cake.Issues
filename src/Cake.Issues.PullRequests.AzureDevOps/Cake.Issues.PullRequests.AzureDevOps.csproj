@@ -1,0 +1,53 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <CodeAnalysisRuleSet>..\Cake.Issues.PullRequests.AzureDevOps.ruleset</CodeAnalysisRuleSet>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Title>Cake.Issues.PullRequests.AzureDevOps</Title>
+    <Description>
+The Azure DevOps support for the Cake.Issues addin for Cake allows you to
+write found issues as comments to Azure DevOps pull requests.
+
+This addin provides the aliases for writing to Azure DevOps pull requests.
+It also requires the core Cake.Issues and Cake.Issues.PullRequests addins and one or more issue providers.
+
+See the Project Site for an overview of the whole ecosystem of addins for working with issues in Cake scripts.
+    </Description>
+    <Authors>BBT Software AG and contributors</Authors>
+    <Copyright>Copyright © BBT Software AG and contributors</Copyright>
+    <PackageTags>Cake Script Cake-Issues Cake-PullRequestSystem Issues PullRequest TFS Azure-DevOps Azure-DevOps-Server</PackageTags>
+    <PackageIconUrl>https://cdn.jsdelivr.net/gh/cake-contrib/graphics@a5cf0f881c390650144b2243ae551d5b9f836196/png/cake-contrib-medium.png</PackageIconUrl>
+    <PackageProjectUrl>https://cakeissues.net</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/cake-contrib/Cake.Issues.PullRequests.AzureDevOps.git</RepositoryUrl>
+    <PackageReleaseNotes>https://github.com/cake-contrib/Cake.Issues.PullRequests.AzureDevOps/releases/tag/0.8.0</PackageReleaseNotes>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
+    <DocumentationFile>bin\Debug\netstandard2.0\Cake.Issues.PullRequests.AzureDevOps.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard2.0|AnyCPU'">
+    <DocumentationFile>bin\Release\netstandard2.0\Cake.Issues.PullRequests.AzureDevOps.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Cake.Core" Version="0.33.0" PrivateAssets="All" />
+    <PackageReference Include="Cake.Issues" Version="0.7.0" PrivateAssets="All" />
+    <PackageReference Include="Cake.Issues.PullRequests" Version="0.7.0" PrivateAssets="All" />
+    <PackageReference Include="Cake.AzureDevOps" Version="0.4.0-beta0001" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.6" PrivateAssets="All" />
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118" PrivateAssets="All" />
+
+  </ItemGroup>
+</Project>
