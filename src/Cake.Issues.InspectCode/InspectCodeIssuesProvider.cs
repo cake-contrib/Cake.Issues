@@ -27,7 +27,7 @@
         public override string ProviderName => "InspectCode";
 
         /// <inheritdoc />
-        protected override IEnumerable<IIssue> InternalReadIssues(IssueCommentFormat format)
+        protected override IEnumerable<IIssue> InternalReadIssues()
         {
             var result = new List<IIssue>();
 
