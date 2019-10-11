@@ -23,7 +23,6 @@
         /// <inheritdoc />
         public override IEnumerable<IIssue> ReadIssues(
             EsLintIssuesProvider issueProvider,
-            IssueCommentFormat format,
             RepositorySettings repositorySettings,
             EsLintIssuesSettings esLintsettings)
         {
