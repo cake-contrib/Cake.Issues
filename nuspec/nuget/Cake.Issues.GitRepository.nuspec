@@ -24,7 +24,7 @@ See the Project Site for an overview of the whole ecosystem of addins for workin
     <repository type="git" url="https://github.com/cake-contrib/Cake.Issues.GitRepository.git"/>
     <copyright>Copyright © Pascal Berger</copyright>
     <tags>Cake Script Cake-Issues Cake-IssueProvider CodeAnalysis Linting Git</tags>
-    <releaseNotes>https://github.com/cake-contrib/Cake.Issues.GitRepository/releases/tag/0.7.3</releaseNotes>
+    <releaseNotes>https://github.com/cake-contrib/Cake.Issues.GitRepository/releases/tag/0.8.0</releaseNotes>
   </metadata>
   <files>
     <file src="netstandard2.0/Cake.Issues.GitRepository.dll" target="lib\netstandard2.0" />
