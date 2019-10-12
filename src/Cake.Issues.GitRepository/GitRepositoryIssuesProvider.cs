@@ -74,18 +74,18 @@
         protected GitRepositoryIssuesSettings IssueProviderSettings { get; private set; }
 
         /// <inheritdoc />
-        protected override IEnumerable<IIssue> InternalReadIssues(IssueCommentFormat format)
+        protected override IEnumerable<IIssue> InternalReadIssues()
         {
             var result = new List<IIssue>();
 
             if (this.IssueProviderSettings.CheckBinaryFilesTrackedByLfs)
             {
-                result.AddRange(this.CheckForBinaryFilesNotTrackedByLfs(format));
+                result.AddRange(this.CheckForBinaryFilesNotTrackedByLfs());
             }
 
             if (this.IssueProviderSettings.CheckFilesPathLength)
             {
-                result.AddRange(this.CheckForFilesPathLength(format));
+                result.AddRange(this.CheckForFilesPathLength());
             }
 
             return result;
@@ -94,9 +94,8 @@
         /// <summary>
         /// Checks for binary files which are not tracked by LFS.
         /// </summary>
-        /// <param name="format">Preferred format of the messages.</param>
         /// <returns>List of issues for binary files which are not tracked by LFS.</returns>
-        private IEnumerable<IIssue> CheckForBinaryFilesNotTrackedByLfs(IssueCommentFormat format)
+        private IEnumerable<IIssue> CheckForBinaryFilesNotTrackedByLfs()
         {
             if (!this.allFiles.Value.Any())
             {
@@ -115,25 +114,13 @@
             var result = new List<IIssue>();
             foreach (var file in binaryFilesNotTrackedByLfs)
             {
-                string message = null;
-                switch (format)
-                {
-                    case IssueCommentFormat.Markdown:
-                        message = $"The binary file `{file}` is not tracked by Git LFS";
-                        break;
-                    case IssueCommentFormat.Html:
-                        message = $"The binary file <pre>{file}</pre> is not tracked by Git LFS";
-                        break;
-                    default:
-                        message = $"The binary file \"{file}\" is not tracked by Git LFS";
-                        break;
-                }
-
                 var ruleDescription = new BinaryFileNotTrackedByLfsRuleDescription();
 
                 result.Add(
                     IssueBuilder
-                        .NewIssue(message, this)
+                        .NewIssue($"The binary file \"{file}\" is not tracked by Git LFS", this)
+                        .WithMessageInHtmlFormat($"The binary file <pre>{file}</pre> is not tracked by Git LFS")
+                        .WithMessageInMarkdownFormat($"The binary file `{file}` is not tracked by Git LFS")
                         .InFile(file)
                         .OfRule(ruleDescription)
                         .Create());
@@ -145,9 +132,8 @@
         /// <summary>
         /// Checks for files path length.
         /// </summary>
-        /// <param name="format">Preferred format of the messages.</param>
         /// <returns>List of issues for repository files with paths exceeding the allowed maximum.</returns>
-        private IEnumerable<IIssue> CheckForFilesPathLength(IssueCommentFormat format)
+        private IEnumerable<IIssue> CheckForFilesPathLength()
         {
             if (!this.allFiles.Value.Any())
             {
@@ -159,28 +145,13 @@
             {
                 if (file.Length > this.IssueProviderSettings.MaxFilePathLength)
                 {
-                    string message = null;
-                    switch (format)
-                    {
-                        case IssueCommentFormat.Markdown:
-                            message =
-                                $"The path for the file `{file}` is too long. Maximum allowed path length is {this.IssueProviderSettings.MaxFilePathLength}, actual path length is {file.Length}.";
-                            break;
-                        case IssueCommentFormat.Html:
-                            message =
-                                $"The path for the file <pre>{file}</pre> is too long. Maximum allowed path length is {this.IssueProviderSettings.MaxFilePathLength}, actual path length is {file.Length}.";
-                            break;
-                        default:
-                            message =
-                                $"The path for the file \"{file}\" is too long. Maximum allowed path length is {this.IssueProviderSettings.MaxFilePathLength}, actual path length is {file.Length}.";
-                            break;
-                    }
-
                     var ruleDescription = new FilePathTooLongRuleDescription();
 
                     result.Add(
                         IssueBuilder
-                            .NewIssue(message, this)
+                            .NewIssue($"The path for the file \"{file}\" is too long. Maximum allowed path length is {this.IssueProviderSettings.MaxFilePathLength}, actual path length is {file.Length}.", this)
+                            .WithMessageInHtmlFormat($"The path for the file <pre>{file}</pre> is too long. Maximum allowed path length is {this.IssueProviderSettings.MaxFilePathLength}, actual path length is {file.Length}.")
+                            .WithMessageInMarkdownFormat($"The path for the file `{file}` is too long. Maximum allowed path length is {this.IssueProviderSettings.MaxFilePathLength}, actual path length is {file.Length}.")
                             .InFile(file)
                             .OfRule(ruleDescription)
                             .Create());
