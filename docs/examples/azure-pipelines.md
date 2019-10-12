@@ -1,21 +1,20 @@
 ---
 Order: 30
 Title: Using with Azure Pipelines
-Description: Example how to use the Cake.Issues.PullRequests.Tfs addin from an Azure Pipelines build.
+Description: Example how to use the Cake.Issues.PullRequests.AzureDevOps addin from an Azure Pipelines build.
 ---
-This example shows how to write issues as comments to a Team Foundation Server (TFS) or
-Azure DevOps pull request from an Azure Pipelines build.
+This example shows how to write issues as comments to an Azure DevOps pull request from an Azure Pipelines build.
 
-To write issues as comments to TFS or Azure DevOps pull requests you need to import the core addin,
-the core pull request addin, the TFS/Azure DevOps support including the Cake TFS addin, and one or more issue providers,
+To write issues as comments to Azure DevOps pull requests you need to import the core addin,
+the core pull request addin, the Azure DevOps support including the Cake.AzureDevOps addin, and one or more issue providers,
 in this example for JetBrains InspectCode:
 
 ```csharp
 #addin "Cake.Issues"
 #addin "Cake.Issues.InspectCode"
 #addin "Cake.Issues.PullRequests"
-#addin "Cake.Issues.PullRequests.Tfs"
-#addin "Cake.Tfs"
+#addin "Cake.Issues.PullRequests.AzureDevOps"
+#addin "Cake.AzureDevOps"
 ```
 
 :::{.alert .alert-warning}
@@ -27,7 +26,7 @@ See [pinning addin versions](https://cakebuild.net/docs/tutorials/pinning-cake-v
 
 In the following task we'll first determine if the build is running on Azure DevOps and for a pull request,
 then read the remote repository URL and pull request id from environment variables set by the Azure Pipelines build 
-and finally call the [TfsPullRequests] alias using the OAuth token provided by the Azure Pipeline build.
+and finally call the [AzureDevOpsPullRequests] alias using the OAuth token provided by the Azure Pipeline build.
 
 :::{.alert .alert-info}
 Please note that you'll need to setup your Azure Pipelines build to allow scripts to
@@ -68,10 +67,10 @@ Task("ReportIssuesToPullRequest").Does(() =>
                     ReportIssuesToPullRequest(
                         InspectCodeIssuesFromFilePath(
                             @"C:\build\inspectcode.log"),
-                        TfsPullRequests(
+                        AzureDevOpsPullRequests(
                             repositoryUrl,
                             pullRequestId,
-                            TfsAuthenticationOAuth(EnvironmentVariable("SYSTEM_ACCESSTOKEN"))),
+                            AzureDevOpsAuthenticationOAuth(EnvironmentVariable("SYSTEM_ACCESSTOKEN"))),
                         repoRootFolder);
                 }
             }
@@ -79,6 +78,6 @@ Task("ReportIssuesToPullRequest").Does(() =>
 });
 ```
 
-[TfsPullRequests]: ../../../../api/Cake.Issues.PullRequests.Tfs/TfsPullRequestSystemAliases/BC3F9B2C
-[Allow scripts to access the OAuth token]: https://docs.microsoft.com/en-us/azure/devops/pipelines/build/options?view=vsts&tabs=yaml#allow-scripts-to-access-the-oauth-token
+[AzureDevOpsPullRequests]: ../../../../api/Cake.Issues.PullRequests.AzureDevOps/AzureDevOpsPullRequestSystemAliases/64912B0A
+[Allow scripts to access the OAuth token]: https://docs.microsoft.com/en-us/azure/devops/pipelines/build/options#allow-scripts-to-access-the-oauth-token
 [OAuth authentication from Azure Pipelines]: ../setup#oauth-authentication-from-azure-pipelines

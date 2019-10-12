@@ -1,10 +1,9 @@
 ---
 Order: 10
 Title: Using with pull request id
-Description: Example how to use the Cake.Issues.PullRequests.Tfs addin with pull request id.
+Description: Example how to use the Cake.Issues.PullRequests.AzureDevOps addin with pull request id.
 ---
-This example shows how to write issues as comments to a Team Foundation Server (TFS) or
-Azure DevOps pull request while using pull request id.
+This example shows how to write issues as comments to an Azure DevOps pull request while using pull request id.
 
 To determine the remote repository URL you need the [Cake.Git] addin:
 
@@ -12,16 +11,16 @@ To determine the remote repository URL you need the [Cake.Git] addin:
 #addin "Cake.Git"
 ```
 
-To write issues as comments to TFS or Azure DevOps pull requests you need to import the core addin,
-the core pull request addin, the TFS/Azure DevOps support including the Cake TFS addin, and one or more issue providers,
+To write issues as comments to Azure DevOps pull requests you need to import the core addin,
+the core pull request addin, the Azure DevOps support including the Cake.AzureDevOps addin, and one or more issue providers,
 in this example for JetBrains InspectCode:
 
 ```csharp
 #addin "Cake.Issues"
 #addin "Cake.Issues.InspectCode"
 #addin "Cake.Issues.PullRequests"
-#addin "Cake.Issues.PullRequests.Tfs"
-#addin "Cake.Tfs"
+#addin "Cake.Issues.PullRequests.AzureDevOps"
+#addin "Cake.AzureDevOps"
 ```
 
 :::{.alert .alert-warning}
@@ -32,8 +31,8 @@ See [pinning addin versions](https://cakebuild.net/docs/tutorials/pinning-cake-v
 :::
 
 In the following task we'll first determine the remote repository URL and
-with this information call the [TfsPullRequests] alias,
-which will authenticate through NTLM to a on-premise TFS instance:
+with this information call the [AzureDevOpsPullRequests] alias,
+which will authenticate through NTLM to an on-premise Azure DevOps Server instance:
 
 ```csharp
 Task("ReportIssuesToPullRequest").Does(() =>
@@ -45,13 +44,13 @@ Task("ReportIssuesToPullRequest").Does(() =>
     ReportIssuesToPullRequest(
         InspectCodeIssuesFromFilePath(
             @"C:\build\inspectcode.log"),
-        TfsPullRequests(
+        AzureDevOpsPullRequests(
             repoRemoteUrl,
             pullRequestId,
-            TfsAuthenticationNtlm()),
+            AzureDevOpsAuthenticationNtlm()),
         repoRootFolder);
 });
 ```
 
-[TfsPullRequests]: ../../../../api/Cake.Issues.PullRequests.Tfs/TfsPullRequestSystemAliases/BC3F9B2C
+[AzureDevOpsPullRequests]: ../../../../api/Cake.Issues.PullRequests.AzureDevOps/AzureDevOpsPullRequestSystemAliases/64912B0A
 [Cake.Git]: https://www.nuget.org/packages/Cake.Git/
