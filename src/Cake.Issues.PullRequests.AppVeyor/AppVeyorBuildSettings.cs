@@ -6,7 +6,7 @@
     public class AppVeyorBuildSettings
     {
         private string messagePattern = "Project: {ProjectName}, File: {FilePath}, Line: {Line}";
-        private string detailsPattern = "{Rule}: {Message}";
+        private string detailsPattern = "{Rule}: {MessageText}";
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AppVeyorBuildSettings"/> class.
@@ -33,7 +33,7 @@
         /// <summary>
         /// Gets or sets the pattern of the message details to display.
         /// See <see cref="Cake.Issues.IIssueExtensions.ReplaceIssuePattern(string, IIssue)"/> for possible patterns.
-        /// The default value is: "{Rule}: {Message}".
+        /// The default value is: "{Rule}: {MessageText}".
         /// </summary>
         public string DetailsPattern
         {
