@@ -134,6 +134,9 @@
                 return issues;
             }
 
+            var stopwatch = new Stopwatch();
+            stopwatch.Start();
+
             var modifiedFilesList = filterByModifiedFilesCapability.GetModifiedFilesInPullRequest().ToList();
             ValidateModifiedFiles(modifiedFilesList);
 
@@ -154,11 +157,15 @@
                         modifiedFilesHashSet.Contains(
                             issue.AffectedFileRelativePath.MakeAbsolute(this.settings.RepositoryRoot).ToString()))
                     .ToList();
-            var commentsFiltered = countBefore - result.Count;
+            var issuesFilteredCount = countBefore - result.Count;
 
             this.log.Information(
                 "{0} issue(s) were filtered because they do not belong to files that were changed in this pull request",
-                commentsFiltered);
+                issuesFilteredCount);
+            this.log.Verbose(
+                "Filtering out {0} issues for files that were not changed in this pull request took {1} ms",
+                issuesFilteredCount,
+                stopwatch.ElapsedMilliseconds);
 
             return result;
         }
@@ -183,14 +190,14 @@
 
             var countBefore = issues.Count;
             var result = issues.Where(x => !IssueHasMatchingComments(x, issueComments)).ToList();
-            var commentsFiltered = countBefore - result.Count;
+            var issuesFilteredCount = countBefore - result.Count;
 
             this.log.Information(
                 "{0} issue(s) were filtered because they were already present",
-                commentsFiltered);
+                issuesFilteredCount);
             this.log.Verbose(
-                "Filtering out {0} existing comments took {1} ms",
-                commentsFiltered,
+                "Filtering out {0} existing issues took {1} ms",
+                issuesFilteredCount,
                 stopwatch.ElapsedMilliseconds);
 
             return result;
@@ -208,6 +215,11 @@
                 return issues;
             }
 
+            var stopwatch = new Stopwatch();
+            stopwatch.Start();
+
+            int totalIssuesFilteredCount = 0;
+
             // Apply issue limits per issue provider
             var result = new List<IIssue>();
             if (this.settings.MaxIssuesToPostForEachIssueProvider.HasValue)
@@ -221,10 +233,12 @@
                             .ThenBy(x => x.AffectedFileRelativePath is null)
                             .ThenBy(x => x.AffectedFileRelativePath?.FullPath)
                             .Take(this.settings.MaxIssuesToPostForEachIssueProvider.Value);
+                    var issuesFilteredCount = countBefore - issuesFiltered.Count();
+                    totalIssuesFilteredCount += issuesFilteredCount;
 
                     this.log.Information(
                         "{0} issue(s) of type {1} were filtered to match the maximum of {2} issues which should be reported for each issue provider",
-                        countBefore - issuesFiltered.Count(),
+                        issuesFilteredCount,
                         group.Key,
                         this.settings.MaxIssuesToPostForEachIssueProvider);
 
@@ -243,13 +257,19 @@
                         .ThenBy(x => x.AffectedFileRelativePath?.FullPath)
                         .Take(this.settings.MaxIssuesToPost.Value)
                         .ToList();
-                var commentsFiltered = countBefore - result.Count;
+                var issuesFilteredCount = countBefore - result.Count;
+                totalIssuesFilteredCount += issuesFilteredCount;
 
                 this.log.Information(
                     "{0} issue(s) were filtered to match the global issue limit of {1}",
-                    commentsFiltered,
+                    issuesFilteredCount,
                     this.settings.MaxIssuesToPost);
             }
+
+            this.log.Verbose(
+                "Filtering out {0} issues to match limits took {1} ms",
+                totalIssuesFilteredCount,
+                stopwatch.ElapsedMilliseconds);
 
             return result;
         }
