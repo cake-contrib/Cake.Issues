@@ -19,7 +19,7 @@ won't break due to updates to one of the addins.
 See [pinning addin versions](https://cakebuild.net/docs/tutorials/pinning-cake-version#pinning-addin-version) for details.
 :::
 
-In the following taks a new warning for the myfile.txt file on line 42 is created:
+In the following task a new warning for the myfile.txt file on line 42 is created:
 
 ```csharp
 Task("Create-Issue").Does(() =>
@@ -29,10 +29,12 @@ Task("Create-Issue").Does(() =>
             "Something went wrong",
             "MyCakeScript",
             "My Cake Script")
+            .WithMessageInHtmlFormat("Something went <b>wrong</b>")
+            .WithMessageInMarkdownFormat("Something went **wrong**")
             .InFile("myfile.txt", 42)
             .WithPriority(IssuePriority.Warning)
             .Create();
 
-    Information("{0} issues are found.", issues.Count());
+    Information("Issue created with message: {0}", issues.MessageText);
 });
 ```
