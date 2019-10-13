@@ -32,7 +32,7 @@ public class MyIssuesProvider : BaseConfigurableIssueProvider<MyIssuesSettings>
     public override string ProviderName => "MyIssuesProvider";
 
     /// <inheritdoc />
-    protected override IEnumerable<IIssue> InternalReadIssues(IssueCommentFormat format)
+    protected override IEnumerable<IIssue> InternalReadIssues()
     {
         var result = new List<IIssue>();
 

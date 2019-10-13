@@ -30,18 +30,12 @@ See [pinning addin versions](https://cakebuild.net/docs/tutorials/pinning-cake-v
 
 Finally you can define a task where you call the core addin with the desired issue providers.
 The following example reads issues reported as MsBuild warnings by the `XmlFileLogger`
-class from [MSBuild Extension Pack] and issues reported by JetBrains InspectCode with
-comments formatted as Markdown:
+class from [MSBuild Extension Pack] and issues reported by JetBrains InspectCode:
 
 ```csharp
 Task("Read-Issues").Does(() =>
 {
-    var settings =
-        new ReadIssuesSettings(new DirectoryPath(@"C:\repo"))
-        {
-            Format = IssueCommentFormat.Markdown
-        };
-
+    var repoRootFolder = new DirectoryPath(@"C:\repo");
     var issues = ReadIssues(
         new List<IIssueProvider>
         {
@@ -51,7 +45,7 @@ Task("Read-Issues").Does(() =>
             InspectCodeIssuesFromFilePath(
                 @"C:\build\inspectcode.log")
         },
-        settings);
+        repoRootFolder);
 
     Information("{0} issues are found.", issues.Count());
 });
