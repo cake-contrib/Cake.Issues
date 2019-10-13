@@ -8,7 +8,7 @@ This page describes the different ways how the [Cake.Issues.PullRequests.AzureDe
 # NTLM authentication
 
 :::{.alert .alert-info}
-NTLM authentication is only available for on-premise Team Foundation Server.
+NTLM authentication is only available for on-premise Azure DevOps Server.
 :::
 
 To authenticate with NTLM you can use the [AzureDevOpsAuthenticationNtlm] alias from the [Cake.AzureDevOps addin].
@@ -19,7 +19,7 @@ allow [Cake.Issues.PullRequests.AzureDevOps addin] to post issues as comments to
 # Basic authentication
 
 :::{.alert .alert-info}
-Basic authentication is only available for on-premise Team Foundation Server.
+Basic authentication is only available for on-premise Azure DevOps Server.
 :::
 
 To authenticate with basic authentication you can use the [AzureDevOpsAuthenticationBasic] alias from the [Cake.AzureDevOps addin] and
@@ -42,7 +42,7 @@ permission for the specific repository to allow [Cake.Issues.PullRequests.AzureD
 # OAuth authentication from Azure Pipelines
 
 :::{.alert .alert-info}
-OAuth authentication is only available for Azure DevOps.
+OAuth authentication is only available for Azure DevOps Service.
 :::
 
 If you want to use the [Cake.Issues.PullRequests.AzureDevOps addin] from an Azure Pipelines you can authenticate using the
@@ -58,7 +58,7 @@ to post issues as comments to pull requests.
 # Azure Active Directory
 
 :::{.alert .alert-info}
-OAuth authentication is only available for Azure DevOps.
+OAuth authentication is only available for Azure DevOps Service.
 :::
 
 To authenticate with Azure Active Directory you can use the [AzureDevOpsAuthenticationAzureActiveDirectory] alias from the [Cake.AzureDevOps addin].
