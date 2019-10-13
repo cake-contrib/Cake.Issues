@@ -13,14 +13,6 @@ The [Cake.Issues.DocFx addin] provides the following features.
   [DocFx] can be run with [Cake.DocFx] addin.
   :::
 
-# Supported comment formats
-
-|                                                                    | Comment format                 | Remarks                        |
-|--------------------------------------------------------------------|--------------------------------|--------------------------------|
-| <span class="glyphicon glyphicon-ok" style="color:green"></span>   | `IssueCommentFormat.PlainText` |                                |
-| <span class="glyphicon glyphicon-remove" style="color:red"></span> | `IssueCommentFormat.Markdown`  |                                |
-| <span class="glyphicon glyphicon-remove" style="color:red"></span> | `IssueCommentFormat.Html`      |                                |
-
 # Supported IIssue properties
 
 |                                                                    | Property                          | Remarks                        |
@@ -31,7 +23,9 @@ The [Cake.Issues.DocFx addin] provides the following features.
 | <span class="glyphicon glyphicon-remove" style="color:red"></span> | `IIssue.ProjectFileRelativePath`  |                                |
 | <span class="glyphicon glyphicon-ok" style="color:green"></span>   | `IIssue.AffectedFileRelativePath` |                                |
 | <span class="glyphicon glyphicon-ok" style="color:green"></span>   | `IIssue.Line`                     |                                |
-| <span class="glyphicon glyphicon-ok" style="color:green"></span>   | `IIssue.Message`                  |                                |
+| <span class="glyphicon glyphicon-ok" style="color:green"></span>   | `IIssue.MessageText`              |                                |
+| <span class="glyphicon glyphicon-remove" style="color:red"></span> | `IIssue.MessageHtml`              |                                |
+| <span class="glyphicon glyphicon-remove" style="color:red"></span> | `IIssue.MessageMarkdown`          |                                |
 | <span class="glyphicon glyphicon-ok" style="color:green"></span>   | `IIssue.Priority`                 |                                |
 | <span class="glyphicon glyphicon-ok" style="color:green"></span>   | `IIssue.PriorityName`             |                                |
 | <span class="glyphicon glyphicon-ok" style="color:green"></span>   | `IIssue.Rule`                     |                                |
