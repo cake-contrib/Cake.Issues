@@ -23,7 +23,7 @@ using System.Collections.Specialized;
 
 namespace LitJson
 {
-    public enum JsonType
+    internal enum JsonType
     {
         None,
 
@@ -36,7 +36,7 @@ namespace LitJson
         Boolean
     }
 
-    public interface IJsonWrapper : IList, IOrderedDictionary
+    internal interface IJsonWrapper : IList, IOrderedDictionary
     {
         bool IsArray   { get; }
         bool IsBoolean { get; }

@@ -20,7 +20,7 @@ using System;
 
 namespace LitJson
 {
-    public class JsonException :
+    internal class JsonException :
 #if NETSTANDARD1_5
         Exception
 #else
