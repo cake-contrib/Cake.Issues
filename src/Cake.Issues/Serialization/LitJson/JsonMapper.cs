@@ -95,15 +95,15 @@ namespace LitJson
 
 
     internal delegate void ExporterFunc    (object obj, JsonWriter writer);
-    public   delegate void ExporterFunc<T> (T obj, JsonWriter writer);
+    internal   delegate void ExporterFunc<T> (T obj, JsonWriter writer);
 
     internal delegate object ImporterFunc                (object input);
-    public   delegate TValue ImporterFunc<TJson, TValue> (TJson input);
+    internal   delegate TValue ImporterFunc<TJson, TValue> (TJson input);
 
-    public delegate IJsonWrapper WrapperFactory ();
+    internal delegate IJsonWrapper WrapperFactory ();
 
 
-    public class JsonMapper
+    internal class JsonMapper
     {
         #region Fields
         private static readonly int max_nesting_depth;

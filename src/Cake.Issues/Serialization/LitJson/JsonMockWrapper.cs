@@ -23,7 +23,7 @@ using System.Collections.Specialized;
 
 namespace LitJson
 {
-    public class JsonMockWrapper : IJsonWrapper
+    internal class JsonMockWrapper : IJsonWrapper
     {
         public bool IsArray   { get { return false; } }
         public bool IsBoolean { get { return false; } }
