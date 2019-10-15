@@ -12,6 +12,7 @@ Cake.Issues.Recipe provides the following tasks to your build script:
 | `Read-Issues`                | Reads issues from the provided log files.    | `IssuesBuildTasks.ReadIssuesTask`                |
 | `Create-FullIssuesReport`    | Creates issue report.                        | `IssuesBuildTasks.CreateFullIssuesReportTask`    |
 | `Publish-IssuesArtifacts`    | Publish artifacts to build server.           | `IssuesBuildTasks.PublishIssuesArtifactsTask`    |
+| `Report-IssuesToBuildServer` | Report issues to build server.               | `IssuesBuildTasks.ReportIssuesToBuildServerTask` |
 | `Create-SummaryIssuesReport` | Creates a summary issue report.              | `IssuesBuildTasks.CreateSummaryIssuesReportTask` |
 | `Report-IssuesToPullRequest` | Report issues to pull request.               | `IssuesBuildTasks.ReportIssuesToPullRequestTask` |
 | `Set-PullRequestIssuesState` | Set pull request status.                     | `IssuesBuildTasks.SetPullRequestIssuesStateTask` |
