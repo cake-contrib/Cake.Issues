@@ -16,29 +16,23 @@ The [Cake.Issues.MsBuild addin] provides the following features.
 * [MsBuildBinaryLogFileFormat] alias for reading issues from binary log files.
 * [MsBuildXmlFileLoggerFormat] alias for reading issues from log files created by [MSBuild Extension Pack XmlFileLogger].
 
-# Supported comment formats
-
-|                                                                    | Comment format                 | Remarks                        |
-|--------------------------------------------------------------------|--------------------------------|--------------------------------|
-| <span class="glyphicon glyphicon-ok" style="color:green"></span>   | `IssueCommentFormat.PlainText` |                                |
-| <span class="glyphicon glyphicon-remove" style="color:red"></span> | `IssueCommentFormat.Markdown`  |                                |
-| <span class="glyphicon glyphicon-remove" style="color:red"></span> | `IssueCommentFormat.Html`      |                                |
-
 # Supported IIssue properties
 
-|                                                                  | Property                          | Remarks                        |
-|------------------------------------------------------------------|-----------------------------------|--------------------------------|
-| <span class="glyphicon glyphicon-ok" style="color:green"></span> | `IIssue.ProviderType`             |                                |
-| <span class="glyphicon glyphicon-ok" style="color:green"></span> | `IIssue.ProviderName`             |                                |
-| <span class="glyphicon glyphicon-ok" style="color:green"></span> | `IIssue.ProjectName`              |                                |
-| <span class="glyphicon glyphicon-ok" style="color:green"></span> | `IIssue.ProjectFileRelativePath`  |                                |
-| <span class="glyphicon glyphicon-ok" style="color:green"></span> | `IIssue.AffectedFileRelativePath` |                                |
-| <span class="glyphicon glyphicon-ok" style="color:green"></span> | `IIssue.Line`                     |                                |
-| <span class="glyphicon glyphicon-ok" style="color:green"></span> | `IIssue.Message`                  |                                |
-| <span class="glyphicon glyphicon-ok" style="color:green"></span> | `IIssue.Priority`                 | Always [IssuePriority.Warning] |
-| <span class="glyphicon glyphicon-ok" style="color:green"></span> | `IIssue.PriorityName`             | Always `Warning`               |
-| <span class="glyphicon glyphicon-ok" style="color:green"></span> | `IIssue.Rule`                     |                                |
-| <span class="glyphicon glyphicon-ok" style="color:green"></span> | `IIssue.RuleUrl`                  | For code analysis (`CA*`) and StyleCop (`SA*`) warnings. Support for additional rules can be added through a custom [MsBuildAddRuleUrlResolver] |
+|                                                                    | Property                          | Remarks                        |
+|--------------------------------------------------------------------|-----------------------------------|--------------------------------|
+| <span class="glyphicon glyphicon-ok" style="color:green"></span>   | `IIssue.ProviderType`             |                                |
+| <span class="glyphicon glyphicon-ok" style="color:green"></span>   | `IIssue.ProviderName`             |                                |
+| <span class="glyphicon glyphicon-ok" style="color:green"></span>   | `IIssue.ProjectName`              |                                |
+| <span class="glyphicon glyphicon-ok" style="color:green"></span>   | `IIssue.ProjectFileRelativePath`  |                                |
+| <span class="glyphicon glyphicon-ok" style="color:green"></span>   | `IIssue.AffectedFileRelativePath` |                                |
+| <span class="glyphicon glyphicon-ok" style="color:green"></span>   | `IIssue.Line`                     |                                |
+| <span class="glyphicon glyphicon-ok" style="color:green"></span>   | `IIssue.MessageText`              |                                |
+| <span class="glyphicon glyphicon-remove" style="color:red"></span> | `IIssue.MessageHtml`              |                                |
+| <span class="glyphicon glyphicon-remove" style="color:red"></span> | `IIssue.MessageMarkdown`          |                                |
+| <span class="glyphicon glyphicon-ok" style="color:green"></span>   | `IIssue.Priority`                 | Always [IssuePriority.Warning] |
+| <span class="glyphicon glyphicon-ok" style="color:green"></span>   | `IIssue.PriorityName`             | Always `Warning`               |
+| <span class="glyphicon glyphicon-ok" style="color:green"></span>   | `IIssue.Rule`                     |                                |
+| <span class="glyphicon glyphicon-ok" style="color:green"></span>   | `IIssue.RuleUrl`                  | For code analysis (`CA*`) and StyleCop (`SA*`) warnings. Support for additional rules can be added through a custom [MsBuildAddRuleUrlResolver] |
 
 [Cake.Issues.MsBuild addin]: https://www.nuget.org/packages/Cake.Issues.MsBuild
 [MSBuild Extension Pack XmlFileLogger]: http://www.msbuildextensionpack.com/help/4.0.5.0/html/242ab4fd-c2e2-f6aa-325b-7588725aed24.htm

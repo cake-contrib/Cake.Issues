@@ -63,10 +63,10 @@ Task("Read-Issues")
         // Read Issues.
         var issues =
             ReadIssues(
-            MsBuildIssuesFromFilePath(
-                logPath,
-                MsBuildXmlFileLoggerFormat),
-            repoRootFolder);
+                MsBuildIssuesFromFilePath(
+                    logPath,
+                    MsBuildXmlFileLoggerFormat),
+                repoRootFolder);
 
         Information("{0} issues are found.", issues.Count());
     });
