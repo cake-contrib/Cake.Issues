@@ -4,6 +4,7 @@
     using Cake.Core;
     using Cake.Core.Annotations;
     using Cake.Core.IO;
+    using Cake.Issues.Serialization;
 
     /// <content>
     /// Contains functionality related to serializing and deserializing issues.

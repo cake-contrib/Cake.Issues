@@ -15,13 +15,11 @@
         /// Gets all issues.
         /// </summary>
         /// <param name="issueProvider">Issue provider instance.</param>
-        /// <param name="format">Preferred format for comments.</param>
         /// <param name="repositorySettings">Repository settings to use.</param>
         /// <param name="issueProviderSettings">Settings for issue provider to use.</param>
         /// <returns>List of issues.</returns>
         IEnumerable<IIssue> ReadIssues(
             TIssueProvider issueProvider,
-            IssueCommentFormat format,
             RepositorySettings repositorySettings,
             TSettings issueProviderSettings);
     }

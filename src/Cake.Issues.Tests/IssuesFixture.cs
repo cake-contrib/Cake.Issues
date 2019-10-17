@@ -22,10 +22,10 @@
 
         public RepositorySettings Settings { get; set; }
 
-        public IEnumerable<IIssue> ReadIssues(IssueCommentFormat format)
+        public IEnumerable<IIssue> ReadIssues()
         {
             var issueReader = new IssuesReader(this.Log, this.IssueProviders, this.Settings);
-            return issueReader.ReadIssues(format);
+            return issueReader.ReadIssues();
         }
     }
 }

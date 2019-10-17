@@ -9,8 +9,8 @@
         {
         }
 
-        public IssueCheckerFixture(string message, string providerType, string providerName)
-            : base(message, providerType, providerName)
+        public IssueCheckerFixture(string messageText, string providerType, string providerName)
+            : base(messageText, providerType, providerName)
         {
             this.ProviderType = providerType;
             this.ProviderName = providerName;
@@ -18,13 +18,17 @@
             this.ProjectName = "ProjectName";
             this.AffectedFileRelativePath = @"src\source.file";
             this.Line = 42;
-            this.Message = message;
+            this.MessageText = messageText;
+            this.MessageHtml = "messageHtml";
+            this.MessageMarkdown = "messageMarkdown";
             this.Priority = 100;
             this.PriorityName = "PriorityName";
             this.Rule = "Rule";
             this.RuleUrl = new Uri("https://google.com");
 
             this.IssueBuilder
+                .WithMessageInHtmlFormat(this.MessageHtml)
+                .WithMessageInMarkdownFormat(this.MessageMarkdown)
                 .InProject(this.ProjectFileRelativePath, this.ProjectName)
                 .InFile(this.AffectedFileRelativePath, this.Line)
                 .OfRule(this.Rule, this.RuleUrl)
@@ -48,7 +52,11 @@
 
         public int Line { get; private set; }
 
-        public string Message { get; private set; }
+        public string MessageText { get; private set; }
+
+        public string MessageHtml { get; private set; }
+
+        public string MessageMarkdown { get; private set; }
 
         public int Priority { get; private set; }
 
