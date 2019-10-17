@@ -1,6 +1,7 @@
 ﻿@model IEnumerable<Cake.Issues.IIssue>
 
 @using Newtonsoft.Json
+@using System.Linq
 @using Cake.Issues.Reporting.Generic
 
 <!DOCTYPE html>
@@ -71,7 +72,7 @@
                 addLine: lineVisible || ideIntegrationSettings != null,
                 addRule: ruleVisible,
                 addRuleUrl: ruleVisible || ruleUrlVisible,
-                addMessage: messageVisible,
+                addMessageHtml: messageVisible,
                 fileLinkSettings: fileLinkSettings,
                 additionalValues: additionalColumns.ToDictionary(x => x.Id, x => x.ValueRetriever));
 
@@ -492,7 +493,9 @@
                     {
                         <text>
                             {
-                                dataField: "Message",
+                                caption: "Message",
+                                dataField: "MessageHtml",
+                                encodeHtml: false,
                                 visibleIndex: @((int)ReportColumn.Message),
                                 @if (groupedColumns.Contains(ReportColumn.Message))
                                 {

@@ -86,7 +86,7 @@ Task("Create-IssueReport").Does(() =>
                 <tr>
                     <td>@issue.AffectedFileRelativePath</td>
                     <td>@issue.Line</td>
-                    <td>@issue.Message</td>
+                    <td>@issue.MessageText</td>
                     <td>@issue.Priority</td>
                     <td>@issue.Rule</td>
                     <td>@issue.RuleUrl</td>

@@ -25,7 +25,13 @@
         /// <param name="addLine">Flag if value of <see cref="IIssue.Line"/> should be added.</param>
         /// <param name="addRule">Flag if value of <see cref="IIssue.Rule"/> should be added.</param>
         /// <param name="addRuleUrl">Flag if value of <see cref="IIssue.RuleUrl"/> should be added.</param>
-        /// <param name="addMessage">Flag if value of <see cref="IIssue.Message"/> should be added.</param>
+        /// <param name="addMessageText">Flag if value of <see cref="IIssue.MessageText"/> should be added.</param>
+        /// <param name="addMessageHtml">Flag if value of <see cref="IIssue.MessageHtml"/> should be added.</param>
+        /// <param name="fallbackToTextMessageIfHtmlMessageNotAvailable">Flag if value of <see cref="IIssue.MessageText"/> should be
+        /// returned if <see cref="IIssue.MessageHtml"/> is not available.</param>
+        /// <param name="addMessageMarkdown">Flag if value of <see cref="IIssue.MessageMarkdown"/> should be added.</param>
+        /// <param name="fallbackToTextMessageIfMarkdownMessageNotAvailable">Flag if value of <see cref="IIssue.MessageText"/> should be
+        /// returned if <see cref="IIssue.MessageMarkdown"/> is not available.</param>
         /// <param name="fileLinkSettings">Settings for file linking.</param>
         /// <param name="additionalValues">Additional values which should be added to the object.</param>
         /// <returns>Dynamic object containing the properties of the issue.</returns>
@@ -43,7 +49,11 @@
             bool addLine = true,
             bool addRule = true,
             bool addRuleUrl = true,
-            bool addMessage = true,
+            bool addMessageText = true,
+            bool addMessageHtml = false,
+            bool fallbackToTextMessageIfHtmlMessageNotAvailable = true,
+            bool addMessageMarkdown = false,
+            bool fallbackToTextMessageIfMarkdownMessageNotAvailable = true,
             FileLinkSettings fileLinkSettings = null,
             IDictionary<string, Func<IIssue, object>> additionalValues = null)
         {
@@ -111,9 +121,33 @@
                 result.RuleUrl = issue.RuleUrl;
             }
 
-            if (addMessage)
+            if (addMessageText)
             {
-                result.Message = issue.Message;
+                result.MessageText = issue.MessageText;
+            }
+
+            if (addMessageHtml)
+            {
+                if (fallbackToTextMessageIfHtmlMessageNotAvailable)
+                {
+                    result.MessageHtml = issue.Message(IssueCommentFormat.Html);
+                }
+                else
+                {
+                    result.MessageHtml = issue.MessageHtml;
+                }
+            }
+
+            if (addMessageMarkdown)
+            {
+                if (fallbackToTextMessageIfMarkdownMessageNotAvailable)
+                {
+                    result.MessageMarkdown = issue.Message(IssueCommentFormat.Markdown);
+                }
+                else
+                {
+                    result.MessageMarkdown = issue.MessageMarkdown;
+                }
             }
 
             if (fileLinkSettings != null && !string.IsNullOrEmpty(fileLinkSettings.FileLinkPattern))

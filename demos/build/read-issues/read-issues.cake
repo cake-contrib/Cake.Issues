@@ -3,12 +3,6 @@ Task("Read-Issues")
     .IsDependentOn("Analyze")
     .Does<BuildData>(data =>
 {
-    var settings =
-        new ReadIssuesSettings(data.RepoRootFolder)
-        {
-            Format = IssueCommentFormat.Html
-        };
-
     data.Issues.AddRange(ReadIssues(
         new List<IIssueProvider>
         {
@@ -21,7 +15,7 @@ Task("Read-Issues")
                 data.MarkdownLintLogFilePath,
                 MarkdownlintCliLogFileFormat)
         },
-        settings));
+        data.RepoRootFolder));
 
     Information("{0} issues are found.", data.Issues.Count());
 });
