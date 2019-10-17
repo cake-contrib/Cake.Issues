@@ -23,7 +23,6 @@
         /// <inheritdoc />
         public override IEnumerable<IIssue> ReadIssues(
             MarkdownlintIssuesProvider issueProvider,
-            IssueCommentFormat format,
             RepositorySettings repositorySettings,
             MarkdownlintIssuesSettings markdownlintIssuesSettings)
         {
