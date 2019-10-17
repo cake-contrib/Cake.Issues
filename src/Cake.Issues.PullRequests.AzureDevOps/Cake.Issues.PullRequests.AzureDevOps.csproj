@@ -25,7 +25,7 @@ See the Project Site for an overview of the whole ecosystem of addins for workin
     <Authors>BBT Software AG and contributors</Authors>
     <Copyright>Copyright © BBT Software AG and contributors</Copyright>
     <PackageTags>Cake Script Cake-Issues Cake-PullRequestSystem Issues PullRequest TFS Azure-DevOps Azure-DevOps-Server</PackageTags>
-    <PackageIconUrl>https://cdn.jsdelivr.net/gh/cake-contrib/graphics@a5cf0f881c390650144b2243ae551d5b9f836196/png/cake-contrib-medium.png</PackageIconUrl>
+    <PackageIcon>icon.png</PackageIcon>
     <PackageProjectUrl>https://cakeissues.net</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryType>git</RepositoryType>
@@ -48,6 +48,9 @@ See the Project Site for an overview of the whole ecosystem of addins for workin
     <PackageReference Include="Cake.AzureDevOps" Version="0.4.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.6" PrivateAssets="All" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.118" PrivateAssets="All" />
+  </ItemGroup>
 
+  <ItemGroup>
+    <None Include="icon.png" Pack="true" PackagePath="\" />
   </ItemGroup>
 </Project>
