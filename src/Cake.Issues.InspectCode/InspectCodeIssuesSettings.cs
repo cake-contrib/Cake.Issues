@@ -1,6 +1,6 @@
 ﻿namespace Cake.Issues.InspectCode
 {
-    using Core.IO;
+    using Cake.Core.IO;
 
     /// <summary>
     /// Settings for <see cref="InspectCodeIssuesAliases"/>.

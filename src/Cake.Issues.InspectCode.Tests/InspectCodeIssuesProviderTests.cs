@@ -54,8 +54,7 @@
                     IssueBuilder.NewIssue(
                         "Constant 'PullRequestSystemCakeAliasCategory' is never used",
                         "Cake.Issues.InspectCode.InspectCodeIssuesProvider",
-                        "InspectCode"
-                        )
+                        "InspectCode")
                         .InProjectOfName("Cake.Issues")
                         .InFile(@"src\Cake.Issues\CakeAliasConstants.cs", 16)
                         .OfRule("UnusedMember.Global")
@@ -80,8 +79,7 @@
                     IssueBuilder.NewIssue(
                         @"Using directive is not required by the code and can be safely removed",
                         "Cake.Issues.InspectCode.InspectCodeIssuesProvider",
-                        "InspectCode"
-                        )
+                        "InspectCode")
                         .InProjectOfName("Cake.CodeAnalysisReporting")
                         .InFile(@"src\Cake.CodeAnalysisReporting\CodeAnalysisReportingAliases.cs", 3)
                         .OfRule("RedundantUsingDirective", new Uri("http://www.jetbrains.com/resharperplatform/help?Keyword=RedundantUsingDirective"))
