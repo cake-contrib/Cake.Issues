@@ -32,7 +32,7 @@ and behavior of Cake.Issues.Recipe.
 
 | Property                                                       | Default Value | Description                                                                               |
 |----------------------------------------------------------------|---------------|-------------------------------------------------------------------------------------------|
-| `IssuesParameters.PullRequest.ShouldReportIssuesToBuildServer` | `true`        | Indicates whether issues should be reported to the build server.                          |
+| `IssuesParameters.BuildServer.ShouldReportIssuesToBuildServer` | `true`        | Indicates whether issues should be reported to the build server.                          |
 | `IssuesParameters.BuildServer.ShouldPublishFullIssuesReport`   | `true`        | Indicates whether full issues report should be published as artifact to the build system. |
 | `IssuesParameters.BuildServer.ShouldCreateSummaryIssuesReport` | `true`        | Indicates whether summary issues report should be created.                                |
 
