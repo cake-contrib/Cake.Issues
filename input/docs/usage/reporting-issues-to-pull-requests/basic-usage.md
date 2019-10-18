@@ -12,11 +12,11 @@ To use report issues to pull requests you need to import the following core addi
 
 Also you need to import at least one issue provider and pull request system.
 In the following example the issue provider for reading warnings from MsBuild log files
-and support for Team Foundation Server pull requests is imported:
+and support for Azure DevOps pull requests is imported:
 
 ```csharp
 #addin "Cake.Issues.MsBuild"
-#addin "Cake.Issues.PullRequests.Tfs"
+#addin "Cake.Issues.PullRequests.AzureDevOps"
 ```
 
 :::{.alert .alert-warning}
@@ -36,10 +36,10 @@ Task("ReportIssuesToPullRequest").Does(() =>
         MsBuildIssuesFromFilePath(
             @"C:\build\msbuild.log",
             MsBuildXmlFileLoggerFormat),
-        TfsPullRequests(
+        AzureDevOpsPullRequests(
             new Uri("http://myserver:8080/tfs/defaultcollection/myproject/_git/myrepository"),
             "refs/heads/feature/myfeature",
-            TfsAuthenticationNtlm()),
+            AzureDevOpsAuthenticationNtlm()),
         repoRootFolder);
 });
 ```
