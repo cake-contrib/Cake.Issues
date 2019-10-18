@@ -26,7 +26,7 @@ See [pinning addin versions](https://cakebuild.net/docs/tutorials/pinning-cake-v
 #addin "Cake.Issues"
 #addin "Cake.Issues.MsBuild"
 #addin "Cake.Issues.PullRequests"
-#addin "Cake.Issues.PullRequests.Tfs"
+#addin "Cake.Issues.PullRequests.AzureDevOps"
 
 Task("ReportIssuesToPullRequest").Does(() =>
 {
@@ -44,10 +44,10 @@ Task("ReportIssuesToPullRequest").Does(() =>
                 @"C:\build\msbuild.log",
                 MsBuildXmlFileLoggerFormat)
         },
-        TfsPullRequests(
+        AzureDevOpsPullRequests(
             new Uri("http://myserver:8080/tfs/defaultcollection/myproject/_git/myrepository"),
             "refs/heads/feature/myfeature",
-            TfsAuthenticationNtlm()),
+            AzureDevOpsAuthenticationNtlm()),
         settings));
 });
 ```
