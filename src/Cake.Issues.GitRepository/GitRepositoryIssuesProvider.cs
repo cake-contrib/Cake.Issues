@@ -119,7 +119,7 @@
                 result.Add(
                     IssueBuilder
                         .NewIssue($"The binary file \"{file}\" is not tracked by Git LFS", this)
-                        .WithMessageInHtmlFormat($"The binary file <pre>{file}</pre> is not tracked by Git LFS")
+                        .WithMessageInHtmlFormat($"The binary file <code>{file}</code> is not tracked by Git LFS")
                         .WithMessageInMarkdownFormat($"The binary file `{file}` is not tracked by Git LFS")
                         .InFile(file)
                         .OfRule(ruleDescription)
@@ -150,7 +150,7 @@
                     result.Add(
                         IssueBuilder
                             .NewIssue($"The path for the file \"{file}\" is too long. Maximum allowed path length is {this.IssueProviderSettings.MaxFilePathLength}, actual path length is {file.Length}.", this)
-                            .WithMessageInHtmlFormat($"The path for the file <pre>{file}</pre> is too long. Maximum allowed path length is {this.IssueProviderSettings.MaxFilePathLength}, actual path length is {file.Length}.")
+                            .WithMessageInHtmlFormat($"The path for the file <code>{file}</code> is too long. Maximum allowed path length is {this.IssueProviderSettings.MaxFilePathLength}, actual path length is {file.Length}.")
                             .WithMessageInMarkdownFormat($"The path for the file `{file}` is too long. Maximum allowed path length is {this.IssueProviderSettings.MaxFilePathLength}, actual path length is {file.Length}.")
                             .InFile(file)
                             .OfRule(ruleDescription)
