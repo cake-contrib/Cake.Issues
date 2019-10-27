@@ -16,8 +16,8 @@ See [pinning addin versions](https://cakebuild.net/docs/tutorials/pinning-cake-v
 #tool "nuget:?package=MSBuild.Extension.Pack"
 #addin "Cake.Issues"
 #addin "Cake.Issues.MsBuild"
-#addin "Cake.Reporting"
-#addin "Cake.Reporting.Generic"
+#addin "Cake.Issues.Reporting"
+#addin "Cake.Issues.Reporting.Generic"
 
 Task("Create-IssueReport").Does(() =>
 {
