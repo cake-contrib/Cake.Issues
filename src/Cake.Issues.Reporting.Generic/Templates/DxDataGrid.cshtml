@@ -188,6 +188,9 @@
                 headerFilter: {
                     visible: @enableFiltering.ToString().ToLowerInvariant()
                 },
+                sorting: {
+                    mode: "multiple"
+                },
                 "export": {
                     enabled: @enableExporting.ToString().ToLowerInvariant(),
                     fileName: "@exportFileName",
