@@ -26,7 +26,7 @@
     <PackageReference Include="Cake.Core" Version="0.33.0" PrivateAssets="All" />
     <PackageReference Include="Cake.Issues" Version="0.8.0" />
     <PackageReference Include="Cake.Issues.PullRequests" Version="0.8.0" />
-    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.6" />
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.7" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.118" />
   </ItemGroup>
 
