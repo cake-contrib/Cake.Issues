@@ -29,6 +29,7 @@
     <None Include="app.config" />
     <EmbeddedResource Include="Testfiles\MarkdownlintCliLogFileFormat\markdownlint-cli-0.8.1.log" />
     <EmbeddedResource Include="Testfiles\MarkdownlintCliLogFileFormat\markdownlint-cli-0.10.0.log" />
+    <EmbeddedResource Include="Testfiles\MarkdownlintCliLogFileFormat\markdownlint-cli-0.19.0.log" />
     <EmbeddedResource Include="Testfiles\MarkdownlintCliLogFileFormat\empty.log" />
   </ItemGroup>
   <ItemGroup>
