@@ -26,7 +26,7 @@
         }
 
         /// <summary>
-        /// Registers a new resolver which with a specific priority.
+        /// Registers a new resolver with a specific priority.
         /// </summary>
         /// <param name="resolver">Resolver which returns an <see cref="Uri"/> linking to a site
         /// containing help for a specific <see cref="BaseRuleDescription"/>.</param>
