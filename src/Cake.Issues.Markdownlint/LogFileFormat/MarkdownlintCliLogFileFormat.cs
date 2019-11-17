@@ -30,7 +30,7 @@
             repositorySettings.NotNull(nameof(repositorySettings));
             markdownlintIssuesSettings.NotNull(nameof(markdownlintIssuesSettings));
 
-            var regex = new Regex(@"(.*): (\d*): (MD\d*)/((?:\w*-*/*)*) (.*)");
+            var regex = new Regex(@"(.*): ?(\d+):? (MD\d+)/((?:\w*-*/*)*) (.*)");
 
             foreach (var line in markdownlintIssuesSettings.LogFileContent.ToStringUsingEncoding().Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None).ToList().Where(s => !string.IsNullOrEmpty(s)))
             {
