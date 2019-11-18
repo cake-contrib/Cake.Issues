@@ -30,7 +30,7 @@
             repositorySettings.NotNull(nameof(repositorySettings));
             markdownlintIssuesSettings.NotNull(nameof(markdownlintIssuesSettings));
 
-            var regex = new Regex(@"(.*): ?(\d+):? (MD\d+)/((?:\w*-*/*)*) (.*)");
+            var regex = new Regex(@"(?<filePath>.*): ?(?<lineNumber>\d+):? (?<ruleId>MD\d+)/(?<ruleName>(?:\w*-*/*)*) (?<message>.*)");
 
             foreach (var line in markdownlintIssuesSettings.LogFileContent.ToStringUsingEncoding().Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None).ToList().Where(s => !string.IsNullOrEmpty(s)))
             {
@@ -42,16 +42,16 @@
                     continue;
                 }
 
-                var lineNumber = int.Parse(groups[2].Value);
-                var rule = groups[3].Value;
-                var ruleDescription = groups[5].Value;
+                var lineNumber = int.Parse(groups["lineNumber"].Value);
+                var ruleId = groups["ruleId"].Value;
+                var message = groups["message"].Value;
 
                 yield return
                     IssueBuilder
-                        .NewIssue(ruleDescription, issueProvider)
+                        .NewIssue(message, issueProvider)
                         .InFile(fileName, lineNumber)
                         .WithPriority(IssuePriority.Warning)
-                        .OfRule(rule, MarkdownlintRuleUrlResolver.Instance.ResolveRuleUrl(rule))
+                        .OfRule(ruleId, MarkdownlintRuleUrlResolver.Instance.ResolveRuleUrl(ruleId))
                         .Create();
             }
         }
@@ -68,7 +68,7 @@
             RepositorySettings repositorySettings,
             out string fileName)
         {
-            fileName = values[1].Value;
+            fileName = values["filePath"].Value;
 
             // Make path relative to repository root.
             fileName = fileName.Substring(repositorySettings.RepositoryRoot.FullPath.Length);

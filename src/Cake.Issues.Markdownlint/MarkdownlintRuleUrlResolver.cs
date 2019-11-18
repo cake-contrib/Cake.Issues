@@ -14,7 +14,7 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="MarkdownlintRuleUrlResolver"/> class.
         /// </summary>
-        private MarkdownlintRuleUrlResolver()
+        internal MarkdownlintRuleUrlResolver()
         {
             this.AddUrlResolver(x =>
                 new Uri("https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#" + x.Rule.ToLowerInvariant()));
