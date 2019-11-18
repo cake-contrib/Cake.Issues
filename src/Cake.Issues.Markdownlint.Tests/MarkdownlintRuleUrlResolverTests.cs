@@ -79,7 +79,7 @@
                 const string fooUrl = "http://foo.com/";
                 const string bar = "MD456";
                 const string barUrl = "http://bar.com/";
-                var urlResolver = MarkdownlintRuleUrlResolver.Instance;
+                var urlResolver = new MarkdownlintRuleUrlResolver();
                 urlResolver.AddUrlResolver(x => x.Rule == foo ? new Uri(fooUrl) : null, 1);
                 urlResolver.AddUrlResolver(x => x.Rule == bar ? new Uri(barUrl) : null, 1);
 
@@ -98,7 +98,7 @@
             {
                 // Given
                 int? ruleId = null;
-                var urlResolver = MarkdownlintRuleUrlResolver.Instance;
+                var urlResolver = new MarkdownlintRuleUrlResolver();
                 urlResolver.AddUrlResolver(
                     x =>
                     {
