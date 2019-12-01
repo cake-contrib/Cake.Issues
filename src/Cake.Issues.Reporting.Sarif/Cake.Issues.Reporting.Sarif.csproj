@@ -13,6 +13,7 @@
     <DebugType>full</DebugType>
     <DebugSymbols>true</DebugSymbols>
     <CodeAnalysisRuleSet>..\Cake.Issues.Reporting.Sarif.ruleset</CodeAnalysisRuleSet>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
