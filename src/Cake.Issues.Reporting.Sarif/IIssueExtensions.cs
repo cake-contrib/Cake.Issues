@@ -90,7 +90,7 @@
                 result.PhysicalLocation.ArtifactLocation =
                     new ArtifactLocation
                     {
-                        UriBaseId = repositoryRoot.FullPath,
+                        UriBaseId = SarifIssueReportGenerator.RepoRootUriBaseId,
                         Uri = new Uri(issue.FilePath(), UriKind.RelativeOrAbsolute),
                     };
             }
