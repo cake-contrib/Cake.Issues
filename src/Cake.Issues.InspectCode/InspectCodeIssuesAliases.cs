@@ -30,7 +30,7 @@
         /// Gets an instance of a provider for issues reported by JetBrains Inspect Code using a log file from disk.
         /// </summary>
         /// <param name="context">The context.</param>
-        /// <param name="logFilePath">Path to the the InspectCode log file.</param>
+        /// <param name="logFilePath">Path to the InspectCode log file.</param>
         /// <returns>Instance of a provider for issues reported by JetBrains Insepct Code.</returns>
         /// <example>
         /// <para>Read issues reported by JetBrains Inspect Code:</para>
@@ -59,7 +59,7 @@
         /// Gets an instance of a provider for issues reported by JetBrains Inspect Code using log file content.
         /// </summary>
         /// <param name="context">The context.</param>
-        /// <param name="logFileContent">Content of the the Inspect Code log file.</param>
+        /// <param name="logFileContent">Content of the Inspect Code log file.</param>
         /// <returns>Instance of a provider for issues reported by JetBrains Inspect Code.</returns>
         /// <example>
         /// <para>Read issues reported by JetBrains Inspect Code:</para>

@@ -10,7 +10,7 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="InspectCodeIssuesSettings"/> class.
         /// </summary>
-        /// <param name="logFilePath">Path to the the Inspect Code log file.</param>
+        /// <param name="logFilePath">Path to the Inspect Code log file.</param>
         public InspectCodeIssuesSettings(FilePath logFilePath)
             : base(logFilePath)
         {
@@ -19,7 +19,7 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="InspectCodeIssuesSettings"/> class.
         /// </summary>
-        /// <param name="logFileContent">Content of the the Inspect Code log file.</param>
+        /// <param name="logFileContent">Content of the Inspect Code log file.</param>
         public InspectCodeIssuesSettings(byte[] logFileContent)
             : base(logFileContent)
         {
