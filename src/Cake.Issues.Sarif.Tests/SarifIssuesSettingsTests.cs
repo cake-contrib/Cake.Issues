@@ -66,7 +66,7 @@
             public void Should_Set_LogFileContent_From_LogFilePath()
             {
                 // Given
-                using (var tempFile = new ResourceTempFile("Cake.Issues.Sarif.Tests.Testfiles.minimal.json"))
+                using (var tempFile = new ResourceTempFile("Cake.Issues.Sarif.Tests.Testfiles.minimal.sarif"))
                 {
                     // When
                     var settings = new SarifIssuesSettings(tempFile.FileName);

@@ -31,5 +31,6 @@ See the Project Site for an overview of the whole ecosystem of addins for workin
     <file src="netstandard2.0/Cake.Issues.Sarif.dll" target="lib\netstandard2.0" />
     <file src="netstandard2.0/Cake.Issues.Sarif.pdb" target="lib\netstandard2.0" />
     <file src="netstandard2.0/Cake.Issues.Sarif.xml" target="lib\netstandard2.0" />
+    <file src="netstandard2.0/Sarif.dll" target="lib\netstandard2.0" />
   </files>
 </package>

@@ -38,7 +38,7 @@
         /// <![CDATA[
         ///     var issues =
         ///         ReadIssues(
-        ///             SarifIssuesFromFilePath(@"c:\build\sarif.log"),
+        ///             SarifIssuesFromFilePath(@"c:\build\log.sarif"),
         ///             @"c:\repo");
         /// ]]>
         /// </code>
@@ -96,7 +96,7 @@
         /// <![CDATA[
         ///     var settings =
         ///         new SarifIssuesSettings(
-        ///             @"c:\build\sarif.log));
+        ///             @"c:\build\log.sarif));
         ///
         ///     var issues =
         ///         ReadIssues(
