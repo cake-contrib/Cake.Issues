@@ -14,8 +14,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Testfiles\eslint.sarif" />
+  </ItemGroup>
+
+  <ItemGroup>
     <EmbeddedResource Include="Testfiles\cake.issues.reporting.sarif.sarif" />
     <EmbeddedResource Include="Testfiles\comprehensive.sarif" />
+    <EmbeddedResource Include="Testfiles\eslint.sarif" />
     <EmbeddedResource Include="Testfiles\minimal.sarif" />
     <EmbeddedResource Include="Testfiles\recommended-with-source.sarif" />
     <EmbeddedResource Include="Testfiles\recommended-without-source.sarif" />
