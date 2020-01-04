@@ -1,44 +1,25 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1E92A970-E905-4DF8-8ECA-5529B701E8E3}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Cake.Issues.Reporting.Generic.Tests</RootNamespace>
-    <AssemblyName>Cake.Issues.Reporting.Generic.Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
-    <TargetFrameworkProfile />
+    <TargetFrameworks>net461</TargetFrameworks>
+    <IsPackable>false</IsPackable>
+    <Description>Tests for the Cake.Issues.Reporting.Generic addin</Description>
+    <Copyright>Copyright © Pascal Berger and contributors</Copyright>
+    <Product>Cake.Issues</Product>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+
+  <PropertyGroup>
     <CodeAnalysisRuleSet>..\Cake.Issues.Reporting.Generic.Tests.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>..\Cake.Issues.Reporting.Generic.Tests.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
+
   <ItemGroup>
-    <PackageReference Include="Cake.Core" Version="0.33.0" />
-    <PackageReference Include="Cake.Issues" Version="0.8.0" />
-    <PackageReference Include="Cake.Issues.Testing" Version="0.8.0" />
+    <EmbeddedResource Include="Templates\TestTemplate.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageReference Include="Cake.Testing" Version="0.33.0" />
+    <PackageReference Include="Cake.Issues.Testing" Version="0.8.0" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
     <PackageReference Include="HtmlAgilityPack" Version="1.11.17" />
     <PackageReference Include="Shouldly" Version="3.0.2" />
@@ -52,32 +33,9 @@
       <Version>2.4.1</Version>
     </PackageReference>
   </ItemGroup>
+
   <ItemGroup>
-    <ProjectReference Include="..\Cake.Issues.Reporting.Generic\Cake.Issues.Reporting.Generic.csproj">
-      <Project>{b514788a-8596-41ca-92b6-86199549dc2a}</Project>
-      <Name>Cake.Issues.Reporting.Generic</Name>
-    </ProjectReference>
+    <ProjectReference Include="..\Cake.Issues.Reporting.Generic\Cake.Issues.Reporting.Generic.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="ColumnSortOrderExtensionsTests.cs" />
-    <Compile Include="DevExtremeThemeExtensionsTests.cs" />
-    <Compile Include="ExceptionAssertExtensions.cs" />
-    <Compile Include="IdeIntegrationSettingsTests.cs" />
-    <Compile Include="HtmlDxDataGridColumnDescriptionTests.cs" />
-    <Compile Include="IIssueExtensionsTests.cs" />
-    <Compile Include="UriExtensionsTests.cs" />
-    <Compile Include="FileLinkSettingsTests.cs" />
-    <Compile Include="GenericIssueReportFixture.cs" />
-    <Compile Include="GenericIssueReportFormatSettingsExtensionsTests.cs" />
-    <Compile Include="GenericIssueReportFormatSettingsTests.cs" />
-    <Compile Include="HtmlDxDataGridTemplateTests.cs" />
-    <Compile Include="GenericIssueReportGeneratorTests.cs" />
-    <Compile Include="GenericIssueReportTemplateExtensionsTests.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewBagHelperTests.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Templates\TestTemplate.cshtml" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+
 </Project>
