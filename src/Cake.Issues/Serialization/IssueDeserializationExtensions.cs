@@ -10,7 +10,7 @@
     /// <summary>
     /// Extensions for deserializing an <see cref="IIssue"/>.
     /// </summary>
-    internal static class IssueDeserializationExtensions
+    public static class IssueDeserializationExtensions
     {
         /// <summary>
         /// Deserializes an <see cref="Issue"/> from a JSON string.
