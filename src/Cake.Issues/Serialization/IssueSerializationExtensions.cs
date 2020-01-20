@@ -9,7 +9,7 @@
     /// <summary>
     /// Extensions for serializing an <see cref="IIssue"/> to the latest serialization format.
     /// </summary>
-    internal static class IssueSerializationExtensions
+    public static class IssueSerializationExtensions
     {
         /// <summary>
         /// Serializes an <see cref="IIssue"/> to a JSON string.
