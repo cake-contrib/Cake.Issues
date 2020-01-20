@@ -333,7 +333,7 @@
         /// <description><c>{JSZipLocation}/jszip.min.js</c></description>
         /// </item>
         /// </list>
-        /// Default value is <c>https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.5/</c>.
+        /// Default value is <c>https://cdnjs.cloudflare.com/ajax/libs/jszip/3.2.2/</c>.
         /// </summary>
         JSZipLocation,
     }
