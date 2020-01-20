@@ -271,7 +271,7 @@
         /// <summary>
         /// Version of jQuery which should be used.
         /// This version needs to match the version required by the selected <see cref="DevExtremeVersion"/>.
-        /// Default value is <c>3.1.0</c>.
+        /// Default value is <c>3.4.1</c>.
         /// </summary>
         JQueryVersion,
 
@@ -298,7 +298,7 @@
         /// <summary>
         /// Version of the DevExtreme libraries which should be used.
         /// If setting this the matching <see cref="JQueryVersion"/> needs to also be set.
-        /// Default value is <c>19.2.3</c>.
+        /// Default value is <c>19.2.5</c>.
         /// </summary>
         DevExtremeVersion,
 
@@ -333,7 +333,7 @@
         /// <description><c>{JSZipLocation}/jszip.min.js</c></description>
         /// </item>
         /// </list>
-        /// Default value is <c>https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.5/</c>.
+        /// Default value is <c>https://cdnjs.cloudflare.com/ajax/libs/jszip/3.2.2/</c>.
         /// </summary>
         JSZipLocation,
     }

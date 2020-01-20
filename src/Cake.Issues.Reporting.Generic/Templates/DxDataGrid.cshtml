@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Cake.Issues.IIssue>
 
-@using Newtonsoft.Json
 @using System.Linq
+@using Cake.Issues.Serialization
 @using Cake.Issues.Reporting.Generic
 
 <!DOCTYPE html>
@@ -48,10 +48,10 @@
     IdeIntegrationSettings ideIntegrationSettings = ViewBagHelper.ValueOrDefault<IdeIntegrationSettings>(ViewBag.IdeIntegrationSettings, null);
     List<HtmlDxDataGridColumnDescription> additionalColumns = ViewBagHelper.ValueOrDefault(ViewBag.AdditionalColumns, new List<HtmlDxDataGridColumnDescription>());
     string jQueryLocation = ViewBagHelper.ValueOrDefault(ViewBag.JQueryLocation, "https://ajax.aspnetcdn.com/ajax/jquery/");
-    string jQueryVersion = ViewBagHelper.ValueOrDefault(ViewBag.JQueryVersion, "3.1.0");
-    string JSZipLocation = ViewBagHelper.ValueOrDefault(ViewBag.JSZipLocation, "https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.5/");
+    string jQueryVersion = ViewBagHelper.ValueOrDefault(ViewBag.JQueryVersion, "3.4.1");
+    string JSZipLocation = ViewBagHelper.ValueOrDefault(ViewBag.JSZipLocation, "https://cdnjs.cloudflare.com/ajax/libs/jszip/3.2.2/");
     string devExtremeLocation = ViewBagHelper.ValueOrDefault(ViewBag.DevExtremeLocation, "https://cdn3.devexpress.com/jslib/");
-    string devExtremeVersion = ViewBagHelper.ValueOrDefault(ViewBag.DevExtremeVersion, "19.2.3");
+    string devExtremeVersion = ViewBagHelper.ValueOrDefault(ViewBag.DevExtremeVersion, "19.2.5");
 }
 
 @{
@@ -139,7 +139,7 @@
     </div>
 
     <script type="text/javascript">
-    var issues = @Raw(JsonConvert.SerializeObject(issues));
+    var issues = @Raw(issues.SerializeToJsonString());
     </script>
 
     <script type="text/javascript">
