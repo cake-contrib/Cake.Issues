@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Cake.Issues.IIssue>
 
-@using Newtonsoft.Json
 @using System.Linq
+@using Cake.Issues.Serialization
 @using Cake.Issues.Reporting.Generic
 
 <!DOCTYPE html>
@@ -139,7 +139,7 @@
     </div>
 
     <script type="text/javascript">
-    var issues = @Raw(JsonConvert.SerializeObject(issues));
+    var issues = @Raw(issues.SerializeToJsonString());
     </script>
 
     <script type="text/javascript">
