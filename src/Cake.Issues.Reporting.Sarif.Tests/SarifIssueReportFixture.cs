@@ -9,6 +9,8 @@
 
     internal class SarifIssueReportFixture
     {
+        public const string RepositoryRootPath = @"c:\Source\Cake.Issues.Reporting.Sarif";
+
         public SarifIssueReportFixture()
         {
             this.Log = new FakeLog { Verbosity = Verbosity.Normal };
@@ -28,7 +30,7 @@
             try
             {
                 var createIssueReportSettings =
-                    new CreateIssueReportSettings(@"c:\Source\Cake.Issues.Reporting.Sarif", reportFile);
+                    new CreateIssueReportSettings(RepositoryRootPath, reportFile);
                 generator.Initialize(createIssueReportSettings);
                 generator.CreateReport(issues);
 

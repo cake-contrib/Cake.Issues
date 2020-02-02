@@ -48,7 +48,7 @@
         /// <code>
         /// <![CDATA[
         ///     var settings =
-        ///         SarifIssueReportFormatSettings();
+        ///         new SarifIssueReportFormatSettings();
         ///
         ///     CreateIssueReport(
         ///         issues,
