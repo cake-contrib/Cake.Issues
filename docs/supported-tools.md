@@ -25,7 +25,7 @@ Cake.Issues.Recipe integrates with the following build systems:
 | Build System                   | Write issues to build server                                       | Issues summary                                                     | Full issues report                                               |
 |--------------------------------|--------------------------------------------------------------------|--------------------------------------------------------------------|------------------------------------------------------------------|
 | AppVeyor                       | <span class="glyphicon glyphicon-ok" style="color:green"></span>   | <span class="glyphicon glyphicon-remove" style="color:red"></span> | <span class="glyphicon glyphicon-ok" style="color:green"></span> |
-| Azure Pipelines (Azure DevOps) | <span class="glyphicon glyphicon-remove" style="color:red"></span> | <span class="glyphicon glyphicon-ok" style="color:green"></span>   | <span class="glyphicon glyphicon-ok" style="color:green"></span> |
+| Azure Pipelines (Azure DevOps) | <span class="glyphicon glyphicon-ok" style="color:green"></span>   | <span class="glyphicon glyphicon-ok" style="color:green"></span>   | <span class="glyphicon glyphicon-ok" style="color:green"></span> |
 
 # Pull request systems
 
