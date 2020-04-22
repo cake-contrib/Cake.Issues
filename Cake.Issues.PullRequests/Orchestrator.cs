@@ -168,21 +168,6 @@
 
             if (remainingIssues.Any())
             {
-                var formattedMessages =
-                    from issue in remainingIssues
-                    select
-                        string.Format(
-                            CultureInfo.InvariantCulture,
-                            "  Rule: {0} Line: {1} File: {2}",
-                            issue.Rule,
-                            issue.Line,
-                            issue.AffectedFileRelativePath);
-
-                this.log.Verbose(
-                    "Posting {0} issue(s):\n{1}",
-                    remainingIssues.Count,
-                    string.Join(Environment.NewLine, formattedMessages));
-
                 if (!string.IsNullOrWhiteSpace(reportIssuesToPullRequestSettings.CommitId))
                 {
                     var checkCommitIdCapability = this.pullRequestSystem.GetCapability<ISupportCheckingCommitId>();
@@ -197,6 +182,21 @@
                         return new List<IIssue>();
                     }
                 }
+
+                var formattedMessages =
+                    from issue in remainingIssues
+                    select
+                        string.Format(
+                            CultureInfo.InvariantCulture,
+                            "  Rule: {0} Line: {1} File: {2}",
+                            issue.Rule,
+                            issue.Line,
+                            issue.AffectedFileRelativePath);
+
+                this.log.Verbose(
+                    "Posting {0} issue(s):\n{1}",
+                    remainingIssues.Count,
+                    string.Join(Environment.NewLine, formattedMessages));
 
                 this.pullRequestSystem.PostDiscussionThreads(
                     remainingIssues,
