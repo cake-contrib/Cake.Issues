@@ -232,6 +232,159 @@
         public sealed class TheRunMethod
         {
             [Fact]
+            public void Should_Post_Issue()
+            {
+                // Given
+                var issueToPost =
+                    IssueBuilder
+                        .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                        .InFile(@"src\Cake.Issues.Tests\FakeIssueProvider.cs", 10)
+                        .OfRule("Rule Foo")
+                        .WithPriority(IssuePriority.Warning)
+                        .Create();
+
+                var fixture = new PullRequestsFixture();
+
+                fixture.IssueProviders.Clear();
+                fixture.IssueProviders.Add(
+                    new FakeIssueProvider(
+                        fixture.Log,
+                        new List<IIssue>
+                        {
+                            issueToPost
+                        }));
+
+                // When
+                fixture.RunOrchestratorForIssueProviders();
+
+                // Then
+                fixture.PullRequestSystem.PostedIssues.ShouldContain(issueToPost);
+                fixture.Log.Entries.ShouldContain(
+                    x =>
+                        x.Message ==
+                            $"Posting 1 issue(s):\n  Rule: {issueToPost.Rule} Line: {issueToPost.Line} File: {issueToPost.AffectedFileRelativePath}");
+            }
+
+            [Fact]
+            public void Should_Post_Issue_Not_Related_To_A_File()
+            {
+                // Given
+                var issueToPost =
+                    IssueBuilder
+                        .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                        .OfRule("Rule Foo")
+                        .WithPriority(IssuePriority.Warning)
+                        .Create();
+
+                var fixture = new PullRequestsFixture();
+
+                fixture.IssueProviders.Clear();
+                fixture.IssueProviders.Add(
+                    new FakeIssueProvider(
+                        fixture.Log,
+                        new List<IIssue>
+                        {
+                            issueToPost
+                        }));
+
+                // When
+                fixture.RunOrchestratorForIssueProviders();
+
+                // Then
+                fixture.PullRequestSystem.PostedIssues.ShouldContain(issueToPost);
+                fixture.Log.Entries.ShouldContain(
+                    x =>
+                        x.Message ==
+                            $"Posting 1 issue(s):\n  Rule: {issueToPost.Rule} Line: {issueToPost.Line} File: {issueToPost.AffectedFileRelativePath}");
+            }
+
+            [Fact]
+            public void Should_Return_Correct_Values()
+            {
+                // Given
+                var reportedIssue =
+                    IssueBuilder
+                        .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                        .InFile(@"src\Cake.Issues.Tests\FakeIssueProvider.cs", 10)
+                        .OfRule("Rule Foo")
+                        .WithPriority(IssuePriority.Warning)
+                        .Create();
+                var postedIssue =
+                    IssueBuilder
+                        .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                        .InFile(@"src\Cake.Issues.Tests\FakeIssueProvider.cs", 10)
+                        .OfRule("Rule Foo")
+                        .WithPriority(IssuePriority.Warning)
+                        .Create();
+
+                var fixture = new PullRequestsFixture();
+
+                fixture.IssueProviders.Clear();
+                fixture.IssueProviders.Add(
+                    new FakeIssueProvider(
+                        fixture.Log,
+                        new List<IIssue>
+                        {
+                            postedIssue, reportedIssue
+                        }));
+
+                fixture.ReportIssuesToPullRequestSettings.MaxIssuesToPost = 1;
+
+                // When
+                var result = fixture.RunOrchestratorForIssueProviders();
+
+                // Then
+                result.ReportedIssues.Count().ShouldBe(2);
+                result.ReportedIssues.ShouldContain(reportedIssue);
+                result.ReportedIssues.ShouldContain(postedIssue);
+                result.PostedIssues.Count().ShouldBe(1);
+                result.PostedIssues.ShouldContain(postedIssue);
+            }
+
+            [Fact]
+            public void Should_Return_Reported_Issues_If_PullRequestSystem_Could_Not_Be_Initialized()
+            {
+                // Given
+                var firstIssue =
+                    IssueBuilder
+                        .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                        .InFile(@"src\Cake.Issues.Tests\FakeIssueProvider.cs", 10)
+                        .OfRule("Rule Foo")
+                        .WithPriority(IssuePriority.Warning)
+                        .Create();
+                var secondIssue =
+                     IssueBuilder
+                        .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                        .InFile(@"src\Cake.Issues.Tests\FakeIssueProvider.cs", 10)
+                        .OfRule("Rule Foo")
+                        .WithPriority(IssuePriority.Warning)
+                        .Create();
+
+                var fixture = new PullRequestsFixture();
+                fixture.PullRequestSystem.ShouldFailOnInitialization = true;
+
+                fixture.IssueProviders.Clear();
+                fixture.IssueProviders.Add(
+                    new FakeIssueProvider(
+                        fixture.Log,
+                        new List<IIssue>
+                        {
+                            firstIssue, secondIssue
+                        }));
+
+                fixture.ReportIssuesToPullRequestSettings.MaxIssuesToPost = 1;
+
+                // When
+                var result = fixture.RunOrchestratorForIssueProviders();
+
+                // Then
+                result.ReportedIssues.Count().ShouldBe(2);
+                result.ReportedIssues.ShouldContain(firstIssue);
+                result.ReportedIssues.ShouldContain(secondIssue);
+                result.PostedIssues.ShouldBeEmpty();
+            }
+
+            [Fact]
             public void Should_Limit_Messages_To_Global_Maximum()
             {
                 // Given
@@ -532,159 +685,6 @@
                 fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) of type ProviderTypeA were filtered to match the maximum of 1 issues which should be reported for each issue provider");
                 fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) of type ProviderTypeB were filtered to match the maximum of 1 issues which should be reported for each issue provider");
                 fixture.Log.Entries.ShouldContain(x => x.Message.StartsWith("Posting 2 issue(s):"));
-            }
-
-            [Fact]
-            public void Should_Post_Issue()
-            {
-                // Given
-                var issueToPost =
-                    IssueBuilder
-                        .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
-                        .InFile(@"src\Cake.Issues.Tests\FakeIssueProvider.cs", 10)
-                        .OfRule("Rule Foo")
-                        .WithPriority(IssuePriority.Warning)
-                        .Create();
-
-                var fixture = new PullRequestsFixture();
-
-                fixture.IssueProviders.Clear();
-                fixture.IssueProviders.Add(
-                    new FakeIssueProvider(
-                        fixture.Log,
-                        new List<IIssue>
-                        {
-                            issueToPost
-                        }));
-
-                // When
-                fixture.RunOrchestratorForIssueProviders();
-
-                // Then
-                fixture.PullRequestSystem.PostedIssues.ShouldContain(issueToPost);
-                fixture.Log.Entries.ShouldContain(
-                    x =>
-                        x.Message ==
-                            $"Posting 1 issue(s):\n  Rule: {issueToPost.Rule} Line: {issueToPost.Line} File: {issueToPost.AffectedFileRelativePath}");
-            }
-
-            [Fact]
-            public void Should_Post_Issue_Not_Related_To_A_File()
-            {
-                // Given
-                var issueToPost =
-                    IssueBuilder
-                        .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
-                        .OfRule("Rule Foo")
-                        .WithPriority(IssuePriority.Warning)
-                        .Create();
-
-                var fixture = new PullRequestsFixture();
-
-                fixture.IssueProviders.Clear();
-                fixture.IssueProviders.Add(
-                    new FakeIssueProvider(
-                        fixture.Log,
-                        new List<IIssue>
-                        {
-                            issueToPost
-                        }));
-
-                // When
-                fixture.RunOrchestratorForIssueProviders();
-
-                // Then
-                fixture.PullRequestSystem.PostedIssues.ShouldContain(issueToPost);
-                fixture.Log.Entries.ShouldContain(
-                    x =>
-                        x.Message ==
-                            $"Posting 1 issue(s):\n  Rule: {issueToPost.Rule} Line: {issueToPost.Line} File: {issueToPost.AffectedFileRelativePath}");
-            }
-
-            [Fact]
-            public void Should_Return_Correct_Values()
-            {
-                // Given
-                var reportedIssue =
-                    IssueBuilder
-                        .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
-                        .InFile(@"src\Cake.Issues.Tests\FakeIssueProvider.cs", 10)
-                        .OfRule("Rule Foo")
-                        .WithPriority(IssuePriority.Warning)
-                        .Create();
-                var postedIssue =
-                    IssueBuilder
-                        .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
-                        .InFile(@"src\Cake.Issues.Tests\FakeIssueProvider.cs", 10)
-                        .OfRule("Rule Foo")
-                        .WithPriority(IssuePriority.Warning)
-                        .Create();
-
-                var fixture = new PullRequestsFixture();
-
-                fixture.IssueProviders.Clear();
-                fixture.IssueProviders.Add(
-                    new FakeIssueProvider(
-                        fixture.Log,
-                        new List<IIssue>
-                        {
-                            postedIssue, reportedIssue
-                        }));
-
-                fixture.ReportIssuesToPullRequestSettings.MaxIssuesToPost = 1;
-
-                // When
-                var result = fixture.RunOrchestratorForIssueProviders();
-
-                // Then
-                result.ReportedIssues.Count().ShouldBe(2);
-                result.ReportedIssues.ShouldContain(reportedIssue);
-                result.ReportedIssues.ShouldContain(postedIssue);
-                result.PostedIssues.Count().ShouldBe(1);
-                result.PostedIssues.ShouldContain(postedIssue);
-            }
-
-            [Fact]
-            public void Should_Return_Reported_Issues_If_PullRequestSystem_Could_Not_Be_Initialized()
-            {
-                // Given
-                var firstIssue =
-                    IssueBuilder
-                        .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
-                        .InFile(@"src\Cake.Issues.Tests\FakeIssueProvider.cs", 10)
-                        .OfRule("Rule Foo")
-                        .WithPriority(IssuePriority.Warning)
-                        .Create();
-                var secondIssue =
-                     IssueBuilder
-                        .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
-                        .InFile(@"src\Cake.Issues.Tests\FakeIssueProvider.cs", 10)
-                        .OfRule("Rule Foo")
-                        .WithPriority(IssuePriority.Warning)
-                        .Create();
-
-                var fixture = new PullRequestsFixture();
-                fixture.PullRequestSystem.ShouldFailOnInitialization = true;
-
-                fixture.IssueProviders.Clear();
-                fixture.IssueProviders.Add(
-                    new FakeIssueProvider(
-                        fixture.Log,
-                        new List<IIssue>
-                        {
-                            firstIssue, secondIssue
-                        }));
-
-                fixture.ReportIssuesToPullRequestSettings.MaxIssuesToPost = 1;
-
-                // When
-                var result = fixture.RunOrchestratorForIssueProviders();
-
-                // Then
-                result.ReportedIssues.Count().ShouldBe(2);
-                result.ReportedIssues.ShouldContain(firstIssue);
-                result.ReportedIssues.ShouldContain(secondIssue);
-                result.PostedIssues.ShouldBeEmpty();
             }
         }
 
@@ -1278,9 +1278,7 @@
                     new PullRequestsFixture(
                         (builder, settings) => builder
                             .WithFilteringByModifiedFilesCapability(
-                                new List<FilePath>
-                                {
-                                }));
+                                new List<FilePath>()));
 
                 fixture.IssueProviders.Clear();
                 fixture.IssueProviders.Add(
