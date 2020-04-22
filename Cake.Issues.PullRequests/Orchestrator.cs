@@ -125,18 +125,20 @@
             issues.NotNull(nameof(issues));
 
             IDictionary<IIssue, IssueCommentInfo> issueComments = null;
+            IEnumerable<IPullRequestDiscussionThread> threadsWithoutIssues = null;
             var discussionThreadsCapability = this.pullRequestSystem.GetCapability<ISupportDiscussionThreads>();
             if (discussionThreadsCapability != null)
             {
                 this.log.Information("Fetching existing threads and comments...");
 
                 var existingThreads =
-                    discussionThreadsCapability.FetchDiscussionThreads(
-                        reportIssuesToPullRequestSettings.CommentSource).ToList();
+                    discussionThreadsCapability
+                        .FetchDiscussionThreads(reportIssuesToPullRequestSettings.CommentSource)
+                        .Where(x => x != null)
+                        .ToList();
 
-                issueComments =
+                (issueComments, threadsWithoutIssues) =
                     this.GetCommentsForIssue(
-                        reportIssuesToPullRequestSettings,
                         issues,
                         existingThreads);
 
@@ -164,7 +166,13 @@
             // Filter issues which should not be posted.
             var issueFilterer =
                 new IssueFilterer(this.log, this.pullRequestSystem, reportIssuesToPullRequestSettings);
-            var remainingIssues = issueFilterer.FilterIssues(issues, issueComments).ToList();
+            var remainingIssues =
+                issueFilterer
+                    .FilterIssues(
+                        issues,
+                        issueComments,
+                        threadsWithoutIssues)
+                    .ToList();
 
             if (remainingIssues.Any())
             {
@@ -213,12 +221,13 @@
         /// <summary>
         /// Returns existing matching comments from the pull request for a list of issues.
         /// </summary>
-        /// <param name="reportIssuesToPullRequestSettings">Settings to use.</param>
         /// <param name="issues">Issues for which matching comments should be found.</param>
         /// <param name="existingThreads">Existing discussion threads on the pull request.</param>
-        /// <returns>Dictionary containing issues and its associated matching comments on the pull request.</returns>
-        private IDictionary<IIssue, IssueCommentInfo> GetCommentsForIssue(
-            ReportIssuesToPullRequestSettings reportIssuesToPullRequestSettings,
+        /// <returns>Dictionary with issues  associated matching comments on the pull request and
+        /// a list of threads on the pull request which we reported by Cake.Issues but no longer
+        /// have an associated issue.</returns>
+        private (IDictionary<IIssue, IssueCommentInfo> issueComments,
+                IEnumerable<IPullRequestDiscussionThread> threadsWithoutIssues) GetCommentsForIssue(
             IList<IIssue> issues,
             IList<IPullRequestDiscussionThread> existingThreads)
         {
@@ -228,12 +237,12 @@
             var stopwatch = new Stopwatch();
             stopwatch.Start();
 
-            var result = new Dictionary<IIssue, IssueCommentInfo>();
+            var threadsWithIssues = new Dictionary<IIssue, IssueCommentInfo>();
+            IEnumerable<IPullRequestDiscussionThread> threadsWithoutIssues = existingThreads;
             foreach (var issue in issues)
             {
-                var (activeComments, wontFixComments, resolvedComments) =
+                var (activeComments, wontFixComments, resolvedComments, threads) =
                     this.GetMatchingComments(
-                        reportIssuesToPullRequestSettings,
                         issue,
                         existingThreads);
 
@@ -246,13 +255,14 @@
                             activeComments,
                             wontFixComments,
                             resolvedComments);
-                    result.Add(issue, issueCommentInfo);
+                    threadsWithIssues.Add(issue, issueCommentInfo);
+                    threadsWithoutIssues = threadsWithoutIssues.Except(threads);
                 }
             }
 
             this.log.Verbose("Built a issue to comment dictionary in {0} ms", stopwatch.ElapsedMilliseconds);
 
-            return result;
+            return (threadsWithIssues, threadsWithoutIssues.ToList());
         }
 
         /// <summary>
@@ -266,14 +276,13 @@
         /// <remarks>
         /// The line cannot be used since comments can move around.
         /// </remarks>
-        /// <param name="reportIssuesToPullRequestSettings">Settings to use.</param>
         /// <param name="issue">Issue for which the comments should be returned.</param>
         /// <param name="existingThreads">Existing discussion threads on the pull request.</param>
         /// <returns>Comments for the issue.</returns>
         private (IEnumerable<IPullRequestDiscussionComment> activeComments,
                 IEnumerable<IPullRequestDiscussionComment> wontFixComments,
-                IEnumerable<IPullRequestDiscussionComment> resolvedComments) GetMatchingComments(
-            ReportIssuesToPullRequestSettings reportIssuesToPullRequestSettings,
+                IEnumerable<IPullRequestDiscussionComment> resolvedComments,
+                IEnumerable<IPullRequestDiscussionThread> threads) GetMatchingComments(
             IIssue issue,
             IList<IPullRequestDiscussionThread> existingThreads)
         {
@@ -282,17 +291,14 @@
 
             // Select threads that point to the same file and have been marked with the given comment source.
             var matchingThreads =
-                (from thread in existingThreads
-                where
-                    thread != null &&
-                    FilePathsAreMatching(issue, thread) &&
-                    thread.CommentSource == reportIssuesToPullRequestSettings.CommentSource
-                select thread).ToList();
+                existingThreads
+                    .Where(x => FilePathsAreMatching(issue, x))
+                    .ToList();
 
             if (matchingThreads.Any())
             {
                 this.log.Verbose(
-                    "Found {0} matching thread(s) for the issue at {1} line {2}",
+                    "Found {0} matching thread(s) for the issue in file {1} on line {2}",
                     matchingThreads.Count,
                     issue.AffectedFileRelativePath,
                     issue.Line);
@@ -301,6 +307,7 @@
             var activeComments = new List<IPullRequestDiscussionComment>();
             var wontFixComments = new List<IPullRequestDiscussionComment>();
             var resolvedComments = new List<IPullRequestDiscussionComment>();
+            var threads = new List<IPullRequestDiscussionThread>();
             foreach (var thread in matchingThreads)
             {
                 // Select comments from this thread that are not deleted and that match the given message.
@@ -313,14 +320,16 @@
                     select
                         comment).ToList();
 
-                if (matchingComments.Any())
+                if (!matchingComments.Any())
                 {
-                    this.log.Verbose(
-                        "Found {0} matching comment(s) for the issue at {1} line {2}",
-                        matchingComments.Count,
-                        issue.AffectedFileRelativePath,
-                        issue.Line);
+                    continue;
                 }
+
+                this.log.Verbose(
+                    "Found {0} matching comment(s) for the issue in file {1} on line {2}",
+                    matchingComments.Count,
+                    issue.AffectedFileRelativePath,
+                    issue.Line);
 
                 if (thread.Status == PullRequestDiscussionStatus.Active)
                 {
@@ -337,9 +346,17 @@
                         resolvedComments.AddRange(matchingComments);
                     }
                 }
+                else
+                {
+                    this.log.Warning(
+                        "Thread has unknown status und matching comment(s) are ignored.");
+                    continue;
+                }
+
+                threads.Add(thread);
             }
 
-            return (activeComments, wontFixComments, resolvedComments);
+            return (activeComments, wontFixComments, resolvedComments, threads);
         }
 
         /// <summary>
