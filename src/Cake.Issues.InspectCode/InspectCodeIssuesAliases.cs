@@ -31,7 +31,7 @@
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="logFilePath">Path to the InspectCode log file.</param>
-        /// <returns>Instance of a provider for issues reported by JetBrains Insepct Code.</returns>
+        /// <returns>Instance of a provider for issues reported by JetBrains Inspect Code.</returns>
         /// <example>
         /// <para>Read issues reported by JetBrains Inspect Code:</para>
         /// <code>
