@@ -1384,6 +1384,86 @@
                 // Then
                 fixture.PullRequestSystem.DiscussionThreadsCapability.ReopenedThreads.ShouldBeEmpty();
             }
+
+            [Fact]
+            public void Should_Not_Throw_If_No_Existing_Threads()
+            {
+                // Given
+                var fixture =
+                    new PullRequestsFixture(
+                        (builder, settings) => builder
+                            .WithDiscussionThreadsCapability(
+                                new List<IPullRequestDiscussionThread>()));
+
+                fixture.IssueProviders.Clear();
+                fixture.IssueProviders.Add(
+                    new FakeIssueProvider(
+                        fixture.Log,
+                        new List<IIssue>
+                        {
+                            IssueBuilder
+                                .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                                .InFile(@"src\Cake.Issues.Tests\FakeIssueProvider.cs", 10)
+                                .OfRule("Rule Foo")
+                                .WithPriority(IssuePriority.Warning)
+                                .Create()
+                        }));
+
+                // When
+                fixture.RunOrchestratorForIssueProviders();
+
+                // Then
+                fixture.Log.Entries.ShouldContain(x => x.Message == "No existings threads to resolve.");
+                fixture.Log.Entries.ShouldContain(x => x.Message == "No existings threads to reopen.");
+            }
+
+            [Fact]
+            public void Should_Output_A_Warning_If_Unknown_Thread_Status()
+            {
+                // Given
+                var fixture =
+                    new PullRequestsFixture(
+                        (builder, settings) => builder
+                            .WithDiscussionThreadsCapability(
+                                new List<IPullRequestDiscussionThread>
+                                {
+                                    new PullRequestDiscussionThread(
+                                        1,
+                                        PullRequestDiscussionStatus.Unknown,
+                                        new FilePath(@"src\Cake.Issues.Tests\FakeIssueProvider.cs"),
+                                        new List<IPullRequestDiscussionComment>
+                                        {
+                                            new PullRequestDiscussionComment()
+                                            {
+                                                Content = "Message Foo",
+                                                IsDeleted = false
+                                            }
+                                        })
+                                }));
+
+                var threadToReopen =
+                    fixture.PullRequestSystem.DiscussionThreadsCapability.DiscussionThreads.Single();
+
+                fixture.IssueProviders.Clear();
+                fixture.IssueProviders.Add(
+                    new FakeIssueProvider(
+                        fixture.Log,
+                        new List<IIssue>
+                        {
+                            IssueBuilder
+                                .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                                .InFile(@"src\Cake.Issues.Tests\FakeIssueProvider.cs", 10)
+                                .OfRule("Rule Foo")
+                                .WithPriority(IssuePriority.Warning)
+                                .Create()
+                        }));
+
+                // When
+                fixture.RunOrchestratorForIssueProviders();
+
+                // Then
+                fixture.Log.Entries.ShouldContain(x => x.Message == "Thread has unknown status und matching comment(s) are ignored.");
+            }
         }
 
         public sealed class TheRunMethodWithFilteringByModifiedFilesCapability
