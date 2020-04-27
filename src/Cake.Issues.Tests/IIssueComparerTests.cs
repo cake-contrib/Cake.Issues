@@ -131,6 +131,30 @@
                 CompareIssues(issue1, issue2, false);
             }
 
+            [Theory]
+            [InlineData(1, 2)]
+            [InlineData(1, null)]
+            [InlineData(null, 1)]
+            [InlineData(int.MaxValue, 1)]
+            [InlineData(1, int.MaxValue)]
+            public void Should_Return_False_If_Column_Is_Different(int? column1, int? column2)
+            {
+                // Given
+                var issue1 =
+                    IssueBuilder
+                        .NewIssue("message", "providerType", "providerName")
+                        .InFile("foo", 42, column1)
+                        .Create();
+                var issue2 =
+                    IssueBuilder
+                        .NewIssue("message", "providerType", "providerName")
+                        .InFile("foo", 42, column2)
+                        .Create();
+
+                // When / Then
+                CompareIssues(issue1, issue2, false);
+            }
+
             [Fact]
             public void Should_Return_False_If_MessageText_Is_Different()
             {
@@ -461,6 +485,28 @@
                     IssueBuilder
                         .NewIssue("message", "providerType", "providerName")
                         .InFile("foo", line2)
+                        .Create();
+
+                // When / Then
+                CompareIssues(issue1, issue2, true);
+            }
+
+            [Theory]
+            [InlineData(1, 1)]
+            [InlineData(null, null)]
+            [InlineData(int.MaxValue, int.MaxValue)]
+            public void Should_Return_True_If_Column_Is_Same(int? column1, int? column2)
+            {
+                // Given
+                var issue1 =
+                    IssueBuilder
+                        .NewIssue("message", "providerType", "providerName")
+                        .InFile("foo", 42, column1)
+                        .Create();
+                var issue2 =
+                    IssueBuilder
+                        .NewIssue("message", "providerType", "providerName")
+                        .InFile("foo", 42, column2)
                         .Create();
 
                 // When / Then
@@ -1167,6 +1213,52 @@
                     IssueBuilder
                         .NewIssue("message", "providerType", "providerName")
                         .InFile("foo", line2)
+                        .Create();
+
+                // When / Then
+                CompareIssues(issue1, issue2, true);
+            }
+
+            [Theory]
+            [InlineData(1, 2)]
+            [InlineData(1, null)]
+            [InlineData(null, 1)]
+            [InlineData(int.MaxValue, 1)]
+            [InlineData(1, int.MaxValue)]
+            public void Should_Return_True_If_Column_Is_Different(int? column1, int? column2)
+            {
+                // Given
+                var issue1 =
+                    IssueBuilder
+                        .NewIssue("message", "providerType", "providerName")
+                        .InFile("foo", 42, column1)
+                        .Create();
+                var issue2 =
+                    IssueBuilder
+                        .NewIssue("message", "providerType", "providerName")
+                        .InFile("foo", 42, column2)
+                        .Create();
+
+                // When / Then
+                CompareIssues(issue1, issue2, true);
+            }
+
+            [Theory]
+            [InlineData(1, 1)]
+            [InlineData(null, null)]
+            [InlineData(int.MaxValue, int.MaxValue)]
+            public void Should_Return_True_If_Column_Is_Same(int? column1, int? column2)
+            {
+                // Given
+                var issue1 =
+                    IssueBuilder
+                        .NewIssue("message", "providerType", "providerName")
+                        .InFile("foo", 42, column1)
+                        .Create();
+                var issue2 =
+                    IssueBuilder
+                        .NewIssue("message", "providerType", "providerName")
+                        .InFile("foo", 42, column2)
                         .Create();
 
                 // When / Then

@@ -186,6 +186,24 @@
             }
 
             [Fact]
+            public void Should_Give_Correct_Result_For_Column_After_Roundtrip()
+            {
+                // Given
+                var column = 23;
+                var issue =
+                    IssueBuilder
+                        .NewIssue("message", "providerType", "providerName")
+                        .InFile(@"src/foo.bar", 42, column)
+                        .Create();
+
+                // When
+                var result = issue.SerializeToJsonString().DeserializeToIssue();
+
+                // Then
+                result.Column.ShouldBe(column);
+            }
+
+            [Fact]
             public void Should_Give_Correct_Result_For_Priority_After_Roundtrip()
             {
                 // Given
@@ -517,6 +535,34 @@
                 result.Count().ShouldBe(2);
                 result.First().Line.ShouldBe(line1);
                 result.Last().Line.ShouldBe(line2);
+            }
+
+            [Fact]
+            public void Should_Give_Correct_Result_For_Column_After_Roundtrip()
+            {
+                // Given
+                var column1 = 23;
+                var column2 = 42;
+                var issues =
+                    new List<IIssue>
+                    {
+                        IssueBuilder
+                          .NewIssue("message1", "providerType1", "providerName1")
+                            .InFile(@"src/foo.bar", 123, column1)
+                            .Create(),
+                        IssueBuilder
+                            .NewIssue("message2", "providerType2", "providerName2")
+                            .InFile(@"src/foo.bar", 123, column2)
+                            .Create(),
+                    };
+
+                // When
+                var result = issues.SerializeToJsonString().DeserializeToIssues();
+
+                // Then
+                result.Count().ShouldBe(2);
+                result.First().Column.ShouldBe(column1);
+                result.Last().Column.ShouldBe(column2);
             }
 
             [Fact]
@@ -922,6 +968,36 @@
 
                     // Then
                     result.Line.ShouldBe(line);
+                }
+                finally
+                {
+                    if (System.IO.File.Exists(filePath.FullPath))
+                    {
+                        System.IO.File.Delete(filePath.FullPath);
+                    }
+                }
+            }
+
+            [Fact]
+            public void Should_Give_Correct_Result_For_Column_After_Roundtrip()
+            {
+                // Given
+                var column = 23;
+                var issue =
+                    IssueBuilder
+                        .NewIssue("message", "providerType", "providerName")
+                        .InFile(@"src/foo.bar", 42, column)
+                        .Create();
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+
+                try
+                {
+                    // When
+                    issue.SerializeToJsonFile(filePath);
+                    var result = filePath.DeserializeToIssue();
+
+                    // Then
+                    result.Column.ShouldBe(column);
                 }
                 finally
                 {
@@ -1427,6 +1503,46 @@
                     result.Count().ShouldBe(2);
                     result.First().Line.ShouldBe(line1);
                     result.Last().Line.ShouldBe(line2);
+                }
+                finally
+                {
+                    if (System.IO.File.Exists(filePath.FullPath))
+                    {
+                        System.IO.File.Delete(filePath.FullPath);
+                    }
+                }
+            }
+
+            [Fact]
+            public void Should_Give_Correct_Result_For_Column_After_Roundtrip()
+            {
+                // Given
+                var column1 = 23;
+                var column2 = 42;
+                var issues =
+                    new List<IIssue>
+                    {
+                        IssueBuilder
+                          .NewIssue("message1", "providerType1", "providerName1")
+                            .InFile(@"src/foo.bar", 123, column1)
+                            .Create(),
+                        IssueBuilder
+                            .NewIssue("message2", "providerType2", "providerName2")
+                            .InFile(@"src/foo.bar", 123, column2)
+                            .Create(),
+                    };
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+
+                try
+                {
+                    // When
+                    issues.SerializeToJsonFile(filePath);
+                    var result = filePath.DeserializeToIssues();
+
+                    // Then
+                    result.Count().ShouldBe(2);
+                    result.First().Column.ShouldBe(column1);
+                    result.Last().Column.ShouldBe(column2);
                 }
                 finally
                 {

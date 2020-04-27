@@ -606,6 +606,130 @@
             }
         }
 
+        public sealed class TheInFileLineColumnMethod
+        {
+            public void Should_Throw_If_Line_Is_Negative()
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+
+                // When
+                var result = Record.Exception(() =>
+                    fixture.IssueBuilder.InFile("foo", -1, 50));
+
+                // Then
+                result.IsArgumentOutOfRangeException("line");
+            }
+
+            [Fact]
+            public void Should_Throw_If_Line_Is_Zero()
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+
+                // When
+                var result = Record.Exception(() =>
+                    fixture.IssueBuilder.InFile("foo", 0, 50));
+
+                // Then
+                result.IsArgumentOutOfRangeException("line");
+            }
+
+            [Fact]
+            public void Should_Throw_If_Column_Is_Negative()
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+
+                // When
+                var result = Record.Exception(() =>
+                    fixture.IssueBuilder.InFile("foo", 100, -1));
+
+                // Then
+                result.IsArgumentOutOfRangeException("column");
+            }
+
+            [Fact]
+            public void Should_Throw_If_Column_Is_Zero()
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+
+                // When
+                var result = Record.Exception(() =>
+                    fixture.IssueBuilder.InFile("foo", 100, 0));
+
+                // Then
+                result.IsArgumentOutOfRangeException("column");
+            }
+
+            [Fact]
+            public void Should_Handle_Column_Which_Is_Null()
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+
+                // When
+                var issue = fixture.IssueBuilder.InFile("foo", 100, null).Create();
+
+                // Then
+                issue.Column.ShouldBe(null);
+            }
+
+            [Theory]
+            [InlineData(@"foo", @"foo")]
+            [InlineData(@"foo\bar", @"foo/bar")]
+            [InlineData(@"foo/bar", @"foo/bar")]
+            [InlineData(@"foo\bar\", @"foo/bar")]
+            [InlineData(@"foo/bar/", @"foo/bar")]
+            [InlineData(@".\foo", @"foo")]
+            [InlineData(@"./foo", @"foo")]
+            [InlineData(@"foo\..\bar", @"foo/../bar")]
+            [InlineData(@"foo/../bar", @"foo/../bar")]
+            public void Should_Set_FilePath(string filePath, string expectedFilePath)
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+
+                // When
+                var issue = fixture.IssueBuilder.InFile(filePath, 10, 50).Create();
+
+                // Then
+                issue.AffectedFileRelativePath.ToString().ShouldBe(expectedFilePath);
+                issue.AffectedFileRelativePath.IsRelative.ShouldBe(true, "File path was not set as relative.");
+            }
+
+            [Theory]
+            [InlineData(1)]
+            [InlineData(int.MaxValue)]
+            public void Should_Set_Line(int line)
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+
+                // When
+                var issue = fixture.IssueBuilder.InFile("foo", line, 50).Create();
+
+                // Then
+                issue.Line.ShouldBe(line);
+            }
+
+            [Theory]
+            [InlineData(1)]
+            [InlineData(int.MaxValue)]
+            public void Should_Set_Column(int column)
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+
+                // When
+                var issue = fixture.IssueBuilder.InFile("foo", 100, column).Create();
+
+                // Then
+                issue.Column.ShouldBe(column);
+            }
+        }
+
         public sealed class TheWithPriorityMethod
         {
             [Fact]

@@ -16,6 +16,7 @@
         private string projectName;
         private string filePath;
         private int? line;
+        private int? column;
         private int? priority;
         private string priorityName;
         private string rule;
@@ -186,6 +187,29 @@
         }
 
         /// <summary>
+        /// Sets the path to the file affected by the issue and the line and column in the file where the issues has occurred.
+        /// </summary>
+        /// <param name="filePath">The path to the file affacted by the issue.
+        /// The path needs to be relative to the repository root.
+        /// <c>null</c> or <see cref="string.Empty"/> if issue is not related to a change in a file.</param>
+        /// <param name="line">The line in the file where the issues has occurred.
+        /// <c>null</c> if the issue affects the whole file or an asssembly.</param>
+        /// <param name="column">The column in the file where the issues has occurred.
+        /// <c>null</c> if the issue affects the whole file or an asssembly.</param>
+        /// <returns>Issue Builder instance.</returns>
+        public IssueBuilder InFile(string filePath, int? line, int? column)
+        {
+            line?.NotNegativeOrZero(nameof(line));
+            column?.NotNegativeOrZero(nameof(column));
+
+            this.filePath = filePath;
+            this.line = line;
+            this.column = column;
+
+            return this;
+        }
+
+        /// <summary>
         /// Sets the priority of the issue.
         /// </summary>
         /// <param name="priority">The priority of the issue.</param>
@@ -252,6 +276,7 @@
                     this.projectName,
                     this.filePath,
                     this.line,
+                    this.column,
                     this.messageText,
                     this.messageHtml,
                     this.messageMarkdown,

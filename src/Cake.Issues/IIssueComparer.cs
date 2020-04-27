@@ -38,6 +38,9 @@
         /// <item>
         /// <description><see cref="IIssue.Line"/></description>
         /// </item>
+        /// <item>
+        /// <description><see cref="IIssue.Column"/></description>
+        /// </item>
         /// </list>
         /// </remarks>
         public IIssueComparer(bool compareOnlyPersistentProperties)
@@ -63,6 +66,7 @@
                 (x.ProjectName == y.ProjectName) &&
                 (this.compareOnlyPersistentProperties || x.AffectedFileRelativePath?.FullPath == y.AffectedFileRelativePath?.FullPath) &&
                 (this.compareOnlyPersistentProperties || x.Line == y.Line) &&
+                (this.compareOnlyPersistentProperties || x.Column == y.Column) &&
                 (x.MessageText == y.MessageText) &&
                 (x.MessageHtml == y.MessageHtml) &&
                 (x.MessageMarkdown == y.MessageMarkdown) &&
@@ -105,6 +109,7 @@
                         obj.ProjectName,
                         obj.AffectedFileRelativePath?.ToString(),
                         obj.Line,
+                        obj.Column,
                         obj.MessageText,
                         obj.MessageHtml,
                         obj.MessageMarkdown,

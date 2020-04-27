@@ -19,6 +19,7 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 100;
+                    var column = 50;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -36,6 +37,7 @@
                             projectName,
                             filePath,
                             line,
+                            column,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -60,6 +62,7 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 100;
+                    var column = 50;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -77,6 +80,7 @@
                             projectName,
                             filePath,
                             line,
+                            column,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -99,6 +103,7 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var column = 50;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -116,6 +121,7 @@
                             projectName,
                             filePath,
                             line,
+                            column,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -138,6 +144,7 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var column = 50;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -155,6 +162,7 @@
                             projectName,
                             filePath,
                             line,
+                            column,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -177,6 +185,7 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var column = 50;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -194,6 +203,7 @@
                             projectName,
                             filePath,
                             line,
+                            column,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -216,6 +226,7 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var column = 50;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -233,6 +244,7 @@
                             projectName,
                             filePath,
                             line,
+                            column,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -258,6 +270,7 @@
                     string projectName = null;
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var column = 50;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -275,6 +288,7 @@
                             projectName,
                             filePath,
                             line,
+                            column,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -297,6 +311,7 @@
                     var projectName = string.Empty;
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var column = 50;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -314,6 +329,7 @@
                             projectName,
                             filePath,
                             line,
+                            column,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -336,6 +352,7 @@
                     var projectName = " ";
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var column = 50;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -353,6 +370,7 @@
                             projectName,
                             filePath,
                             line,
+                            column,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -375,6 +393,7 @@
                     var projectPath = @"src\foo.csproj";
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var column = 50;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -392,6 +411,7 @@
                             projectName,
                             filePath,
                             line,
+                            column,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -417,6 +437,7 @@
                     var projectPath = @"src\foo.csproj";
                     var projectName = "foo";
                     var line = 100;
+                    var column = 50;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -434,6 +455,7 @@
                             projectName,
                             filePath,
                             line,
+                            column,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -458,6 +480,7 @@
                     var projectPath = @"src\foo.csproj";
                     var projectName = "foo";
                     var line = 100;
+                    var column = 50;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -475,6 +498,7 @@
                             projectName,
                             filePath,
                             line,
+                            column,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -497,6 +521,7 @@
                     var projectName = "foo";
                     string filePath = null;
                     int? line = null;
+                    int? column = null;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -514,6 +539,7 @@
                             projectName,
                             filePath,
                             line,
+                            column,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -536,6 +562,7 @@
                     var projectName = "foo";
                     var filePath = string.Empty;
                     int? line = null;
+                    int? column = null;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -553,6 +580,7 @@
                             projectName,
                             filePath,
                             line,
+                            column,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -575,6 +603,7 @@
                     var projectName = "foo";
                     var filePath = " ";
                     int? line = null;
+                    int? column = null;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -592,6 +621,7 @@
                             projectName,
                             filePath,
                             line,
+                            column,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -622,6 +652,7 @@
                     var projectPath = @"src\foo.csproj";
                     var projectName = "foo";
                     var line = 10;
+                    var column = 50;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -639,6 +670,7 @@
                             projectName,
                             filePath,
                             line,
+                            column,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -665,6 +697,7 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = -1;
+                    var column = 50;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -682,6 +715,7 @@
                             projectName,
                             filePath,
                             line,
+                            column,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -704,6 +738,7 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 0;
+                    var column = 50;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -721,6 +756,7 @@
                             projectName,
                             filePath,
                             line,
+                            column,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -743,6 +779,7 @@
                     var projectName = "foo";
                     string filePath = null;
                     var line = 10;
+                    var column = 50;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -760,6 +797,7 @@
                             projectName,
                             filePath,
                             line,
+                            column,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -774,16 +812,15 @@
                     result.IsArgumentOutOfRangeException("line");
                 }
 
-                [Theory]
-                [InlineData(null)]
-                [InlineData(1)]
-                [InlineData(int.MaxValue)]
-                public void Should_Set_Line(int? line)
+                [Fact]
+                public void Should_Handle_Line_Which_Is_Null()
                 {
                     // Given
                     var projectPath = @"src\foo.csproj";
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
+                    int? line = null;
+                    int? column = null;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -801,6 +838,49 @@
                             projectName,
                             filePath,
                             line,
+                            column,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
+                            priority,
+                            priorityName,
+                            rule,
+                            ruleUri,
+                            providerType,
+                            providerName);
+
+                    // Then
+                    issue.Line.ShouldBe(line);
+                }
+
+                [Theory]
+                [InlineData(1)]
+                [InlineData(int.MaxValue)]
+                public void Should_Set_Line(int line)
+                {
+                    // Given
+                    var projectPath = @"src\foo.csproj";
+                    var projectName = "foo";
+                    var filePath = @"src\foo.cs";
+                    var column = 50;
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
+                    var priority = 1;
+                    var priorityName = "Warning";
+                    var rule = "Rule";
+                    var ruleUri = new Uri("https://google.com");
+                    var providerType = "ProviderType";
+                    var providerName = "ProviderName";
+
+                    // When
+                    var issue =
+                        new Issue(
+                            projectPath,
+                            projectName,
+                            filePath,
+                            line,
+                            column,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -816,6 +896,175 @@
                 }
             }
 
+            public sealed class TheColumnArgument
+            {
+                [Fact]
+                public void Should_Throw_If_Column_Is_Negative()
+                {
+                    // Given
+                    var projectPath = @"src\foo.csproj";
+                    var projectName = "foo";
+                    var filePath = @"src\foo.cs";
+                    var line = 100;
+                    var column = -1;
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
+                    var priority = 1;
+                    var priorityName = "Warning";
+                    var rule = "Rule";
+                    var ruleUri = new Uri("https://google.com");
+                    var providerType = "ProviderType";
+                    var providerName = "ProviderName";
+
+                    // When
+                    var result = Record.Exception(() =>
+                        new Issue(
+                            projectPath,
+                            projectName,
+                            filePath,
+                            line,
+                            column,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
+                            priority,
+                            priorityName,
+                            rule,
+                            ruleUri,
+                            providerType,
+                            providerName));
+
+                    // Then
+                    result.IsArgumentOutOfRangeException("column");
+                }
+
+                [Fact]
+                public void Should_Throw_If_Column_Is_Zero()
+                {
+                    // Given
+                    var projectPath = @"src\foo.csproj";
+                    var projectName = "foo";
+                    var filePath = @"src\foo.cs";
+                    var line = 100;
+                    var column = 0;
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
+                    var priority = 1;
+                    var priorityName = "Warning";
+                    var rule = "Rule";
+                    var ruleUri = new Uri("https://google.com");
+                    var providerType = "ProviderType";
+                    var providerName = "ProviderName";
+
+                    // When
+                    var result = Record.Exception(() =>
+                        new Issue(
+                            projectPath,
+                            projectName,
+                            filePath,
+                            line,
+                            column,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
+                            priority,
+                            priorityName,
+                            rule,
+                            ruleUri,
+                            providerType,
+                            providerName));
+
+                    // Then
+                    result.IsArgumentOutOfRangeException("column");
+                }
+
+                [Fact]
+                public void Should_Throw_If_Column_Is_Set_But_No_Line()
+                {
+                    // Given
+                    var projectPath = @"src\foo.csproj";
+                    var projectName = "foo";
+                    var filePath = @"src\foo.cs";
+                    int? line = null;
+                    var column = 50;
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
+                    var priority = 1;
+                    var priorityName = "Warning";
+                    var rule = "Rule";
+                    var ruleUri = new Uri("https://google.com");
+                    var providerType = "ProviderType";
+                    var providerName = "ProviderName";
+
+                    // When
+                    var result = Record.Exception(() =>
+                        new Issue(
+                            projectPath,
+                            projectName,
+                            filePath,
+                            line,
+                            column,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
+                            priority,
+                            priorityName,
+                            rule,
+                            ruleUri,
+                            providerType,
+                            providerName));
+
+                    // Then
+                    result.IsArgumentOutOfRangeException("column");
+                }
+
+                [Theory]
+                [InlineData(null)]
+                [InlineData(1)]
+                [InlineData(int.MaxValue)]
+                public void Should_Set_Column(int? column)
+                {
+                    // Given
+                    var projectPath = @"src\foo.csproj";
+                    var projectName = "foo";
+                    var filePath = @"src\foo.cs";
+                    var line = 100;
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
+                    var priority = 1;
+                    var priorityName = "Warning";
+                    var rule = "Rule";
+                    var ruleUri = new Uri("https://google.com");
+                    var providerType = "ProviderType";
+                    var providerName = "ProviderName";
+
+                    // When
+                    var issue =
+                        new Issue(
+                            projectPath,
+                            projectName,
+                            filePath,
+                            line,
+                            column,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
+                            priority,
+                            priorityName,
+                            rule,
+                            ruleUri,
+                            providerType,
+                            providerName);
+
+                    // Then
+                    issue.Column.ShouldBe(column);
+                }
+            }
+
             public sealed class TheMessageTextArgument
             {
                 [Fact]
@@ -826,6 +1075,7 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var column = 50;
                     string messageText = null;
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -843,6 +1093,7 @@
                             projectName,
                             filePath,
                             line,
+                            column,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -865,6 +1116,7 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var column = 50;
                     var messageText = string.Empty;
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -882,6 +1134,7 @@
                             projectName,
                             filePath,
                             line,
+                            column,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -904,6 +1157,7 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var column = 50;
                     var messageText = " ";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -921,6 +1175,7 @@
                             projectName,
                             filePath,
                             line,
+                            column,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -944,6 +1199,7 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var column = 50;
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
                     var priority = 1;
@@ -960,6 +1216,7 @@
                             projectName,
                             filePath,
                             line,
+                            column,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -989,6 +1246,7 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var column = 50;
                     var messageText = "MessageText";
                     var messageMarkdown = "MessageMarkdown";
                     var priority = 1;
@@ -1005,6 +1263,7 @@
                             projectName,
                             filePath,
                             line,
+                            column,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -1034,6 +1293,7 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var column = 50;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var priority = 1;
@@ -1050,6 +1310,7 @@
                             projectName,
                             filePath,
                             line,
+                            column,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -1081,6 +1342,7 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var column = 50;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -1097,6 +1359,7 @@
                             projectName,
                             filePath,
                             line,
+                            column,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -1122,6 +1385,7 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var column = 50;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -1139,6 +1403,7 @@
                             projectName,
                             filePath,
                             line,
+                            column,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -1161,6 +1426,7 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var column = 50;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -1178,6 +1444,7 @@
                             projectName,
                             filePath,
                             line,
+                            column,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -1200,6 +1467,7 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var column = 50;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -1217,6 +1485,7 @@
                             projectName,
                             filePath,
                             line,
+                            column,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -1240,6 +1509,7 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var column = 50;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -1256,6 +1526,7 @@
                             projectName,
                             filePath,
                             line,
+                            column,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -1284,6 +1555,7 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var column = 50;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -1300,6 +1572,7 @@
                             projectName,
                             filePath,
                             line,
+                            column,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -1325,6 +1598,7 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var column = 50;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -1342,6 +1616,7 @@
                             projectName,
                             filePath,
                             line,
+                            column,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -1364,6 +1639,7 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var column = 50;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -1381,6 +1657,7 @@
                             projectName,
                             filePath,
                             line,
+                            column,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -1406,6 +1683,7 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var column = 50;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -1423,6 +1701,7 @@
                             projectName,
                             filePath,
                             line,
+                            column,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -1445,6 +1724,7 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var column = 50;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -1462,6 +1742,7 @@
                             projectName,
                             filePath,
                             line,
+                            column,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -1484,6 +1765,7 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var column = 50;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -1501,6 +1783,7 @@
                             projectName,
                             filePath,
                             line,
+                            column,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -1524,6 +1807,7 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var column = 50;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -1540,6 +1824,7 @@
                             projectName,
                             filePath,
                             line,
+                            column,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -1565,6 +1850,7 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var column = 50;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -1582,6 +1868,7 @@
                             projectName,
                             filePath,
                             line,
+                            column,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -1604,6 +1891,7 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var column = 50;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -1621,6 +1909,7 @@
                             projectName,
                             filePath,
                             line,
+                            column,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -1643,6 +1932,7 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var column = 50;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -1660,6 +1950,7 @@
                             projectName,
                             filePath,
                             line,
+                            column,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -1683,6 +1974,7 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var column = 50;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -1699,6 +1991,7 @@
                             projectName,
                             filePath,
                             line,
+                            column,
                             messageText,
                             messageHtml,
                             messageMarkdown,

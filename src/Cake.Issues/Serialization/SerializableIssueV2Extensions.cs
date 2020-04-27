@@ -31,6 +31,7 @@
                 serializableIssue.ProjectName,
                 serializableIssue.AffectedFileRelativePath,
                 serializableIssue.Line,
+                null,
                 serializableIssue.MessageText,
                 serializableIssue.MessageHtml,
                 serializableIssue.MessageMarkdown,

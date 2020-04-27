@@ -35,6 +35,12 @@
         int? Line { get; }
 
         /// <summary>
+        /// Gets the column in the file where the issues has occurred.
+        /// <c>null</c> if the issue affects the whole file or an asssembly.
+        /// </summary>
+        int? Column { get; }
+
+        /// <summary>
         /// Gets the message of the issue in text format.
         /// </summary>
         string MessageText { get; }
