@@ -527,45 +527,6 @@
         public sealed class TheInFileLineMethod
         {
             [Fact]
-            public void Should_Handle_File_Paths_Which_Are_Null()
-            {
-                // Given
-                var fixture = new IssueBuilderFixture();
-
-                // When
-                var issue = fixture.IssueBuilder.InFile(null).Create();
-
-                // Then
-                issue.AffectedFileRelativePath.ShouldBe(null);
-            }
-
-            [Fact]
-            public void Should_Handle_File_Paths_Which_Are_Empty()
-            {
-                // Given
-                var fixture = new IssueBuilderFixture();
-
-                // When
-                var issue = fixture.IssueBuilder.InFile(string.Empty).Create();
-
-                // Then
-                issue.AffectedFileRelativePath.ShouldBe(null);
-            }
-
-            [Fact]
-            public void Should_Handle_File_Paths_Which_Are_WhiteSpace()
-            {
-                // Given
-                var fixture = new IssueBuilderFixture();
-
-                // When
-                var issue = fixture.IssueBuilder.InFile(" ").Create();
-
-                // Then
-                issue.AffectedFileRelativePath.ShouldBe(null);
-            }
-
-            [Fact]
             public void Should_Throw_If_Line_Is_Negative()
             {
                 // Given
