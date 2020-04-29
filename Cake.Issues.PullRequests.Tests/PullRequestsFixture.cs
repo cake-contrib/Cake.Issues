@@ -1,4 +1,4 @@
-﻿namespace Cake.Issues.PullRequests.Tests
+namespace Cake.Issues.PullRequests.Tests
 {
     using System;
     using System.Collections.Generic;
@@ -76,12 +76,12 @@
         public IEnumerable<IIssue> FilterIssues(
             IEnumerable<IIssue> issues,
             IDictionary<IIssue, IssueCommentInfo> issueComments,
-            IEnumerable<IPullRequestDiscussionThread> threadsWithoutIssues)
+            IReadOnlyCollection<IPullRequestDiscussionThread> existingThreads)
         {
             return
                 this
                     .GetIssueFilterer()
-                    .FilterIssues(issues, issueComments, threadsWithoutIssues);
+                    .FilterIssues(issues, issueComments, existingThreads);
         }
 
         private IssueFilterer GetIssueFilterer()

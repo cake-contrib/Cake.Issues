@@ -1,4 +1,4 @@
-﻿namespace Cake.Issues.PullRequests
+namespace Cake.Issues.PullRequests
 {
     using System;
     using System.Collections.Generic;
@@ -125,19 +125,19 @@
             issues.NotNull(nameof(issues));
 
             IDictionary<IIssue, IssueCommentInfo> issueComments = null;
-            IEnumerable<IPullRequestDiscussionThread> threadsWithoutIssues = null;
+            IReadOnlyCollection<IPullRequestDiscussionThread> existingThreads = null;
             var discussionThreadsCapability = this.pullRequestSystem.GetCapability<ISupportDiscussionThreads>();
             if (discussionThreadsCapability != null)
             {
                 this.log.Information("Fetching existing threads and comments...");
 
-                var existingThreads =
+                existingThreads =
                     discussionThreadsCapability
                         .FetchDiscussionThreads(reportIssuesToPullRequestSettings.CommentSource)
                         .Where(x => x != null)
                         .ToList();
 
-                (issueComments, threadsWithoutIssues) =
+                issueComments =
                     this.GetCommentsForIssue(
                         issues,
                         existingThreads);
@@ -171,7 +171,7 @@
                     .FilterIssues(
                         issues,
                         issueComments,
-                        threadsWithoutIssues)
+                        existingThreads)
                     .ToList();
 
             if (remainingIssues.Any())
@@ -223,13 +223,10 @@
         /// </summary>
         /// <param name="issues">Issues for which matching comments should be found.</param>
         /// <param name="existingThreads">Existing discussion threads on the pull request.</param>
-        /// <returns>Dictionary with issues  associated matching comments on the pull request and
-        /// a list of threads on the pull request which we reported by Cake.Issues but no longer
-        /// have an associated issue.</returns>
-        private (IDictionary<IIssue, IssueCommentInfo> issueComments,
-                IEnumerable<IPullRequestDiscussionThread> threadsWithoutIssues) GetCommentsForIssue(
+        /// <returns>Dictionary with issues  associated matching comments on the pull request.</returns>
+        private IDictionary<IIssue, IssueCommentInfo> GetCommentsForIssue(
             IList<IIssue> issues,
-            IList<IPullRequestDiscussionThread> existingThreads)
+            IReadOnlyCollection<IPullRequestDiscussionThread> existingThreads)
         {
             issues.NotNull(nameof(issues));
             existingThreads.NotNull(nameof(existingThreads));
@@ -238,7 +235,6 @@
             stopwatch.Start();
 
             var threadsWithIssues = new Dictionary<IIssue, IssueCommentInfo>();
-            IEnumerable<IPullRequestDiscussionThread> threadsWithoutIssues = existingThreads;
             foreach (var issue in issues)
             {
                 var (activeComments, wontFixComments, resolvedComments, threads) =
@@ -256,13 +252,12 @@
                             wontFixComments,
                             resolvedComments);
                     threadsWithIssues.Add(issue, issueCommentInfo);
-                    threadsWithoutIssues = threadsWithoutIssues.Except(threads);
                 }
             }
 
             this.log.Verbose("Built a issue to comment dictionary in {0} ms", stopwatch.ElapsedMilliseconds);
 
-            return (threadsWithIssues, threadsWithoutIssues.ToList());
+            return threadsWithIssues;
         }
 
         /// <summary>
@@ -284,7 +279,7 @@
                 IEnumerable<IPullRequestDiscussionComment> resolvedComments,
                 IEnumerable<IPullRequestDiscussionThread> threads) GetMatchingComments(
             IIssue issue,
-            IList<IPullRequestDiscussionThread> existingThreads)
+            IReadOnlyCollection<IPullRequestDiscussionThread> existingThreads)
         {
             issue.NotNull(nameof(issue));
             existingThreads.NotNull(nameof(existingThreads));
@@ -368,7 +363,7 @@
         /// <param name="reportIssuesToPullRequestSettings">Settings for posting the issues.</param>
         private void ResolveExistingComments(
             ISupportDiscussionThreads discussionThreadsCapability,
-            IList<IPullRequestDiscussionThread> existingThreads,
+            IReadOnlyCollection<IPullRequestDiscussionThread> existingThreads,
             IDictionary<IIssue, IssueCommentInfo> issueComments,
             ReportIssuesToPullRequestSettings reportIssuesToPullRequestSettings)
         {
@@ -397,7 +392,7 @@
         /// <param name="reportIssuesToPullRequestSettings">Settings for posting the issues.</param>
         /// <returns>List of threads which can be resolved.</returns>
         private IEnumerable<IPullRequestDiscussionThread> GetThreadsToResolve(
-            IList<IPullRequestDiscussionThread> existingThreads,
+            IReadOnlyCollection<IPullRequestDiscussionThread> existingThreads,
             IDictionary<IIssue, IssueCommentInfo> issueComments,
             ReportIssuesToPullRequestSettings reportIssuesToPullRequestSettings)
         {
@@ -427,12 +422,12 @@
         /// Marks resolved comment threads created by this logic with active issues as active.
         /// </summary>
         /// <param name="discussionThreadsCapability">Pull request system capability for working with discussion threads.</param>
-        /// <param name="existingThreads">Existing discussion threads on the pull request.</param>
+        /// <param name="existantThreads">Existing discussion threads on the pull request.</param>
         /// <param name="issueComments">Issues and their related existing comments on the pull request.</param>
         /// <param name="reportIssuesToPullRequestSettings">Settings for posting the issues.</param>
         private void ReopenExistingComments(
             ISupportDiscussionThreads discussionThreadsCapability,
-            IList<IPullRequestDiscussionThread> existingThreads,
+            IReadOnlyCollection<IPullRequestDiscussionThread> existingThreads,
             IDictionary<IIssue, IssueCommentInfo> issueComments,
             ReportIssuesToPullRequestSettings reportIssuesToPullRequestSettings)
         {
@@ -461,7 +456,7 @@
         /// <param name="reportIssuesToPullRequestSettings">Settings for posting the issues.</param>
         /// <returns>List of threads which should be reopened.</returns>
         private IEnumerable<IPullRequestDiscussionThread> GetThreadsToReopen(
-            IList<IPullRequestDiscussionThread> existingThreads,
+            IReadOnlyCollection<IPullRequestDiscussionThread> existingThreads,
             IDictionary<IIssue, IssueCommentInfo> issueComments,
             ReportIssuesToPullRequestSettings reportIssuesToPullRequestSettings)
         {
