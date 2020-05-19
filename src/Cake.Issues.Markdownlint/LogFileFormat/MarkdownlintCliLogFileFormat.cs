@@ -30,7 +30,7 @@
             repositorySettings.NotNull(nameof(repositorySettings));
             markdownlintIssuesSettings.NotNull(nameof(markdownlintIssuesSettings));
 
-            var regex = new Regex(@"(?<filePath>.*): ?(?<lineNumber>\d+):? (?<ruleId>MD\d+)/(?<ruleName>(?:\w*-*/*)*) (?<message>.*)");
+            var regex = new Regex(@"(?<filePath>.*[^:\d+]): ?(?<lineNumber>\d+):?(?<columnNumber>\d+)? (?<ruleId>MD\d+)/(?<ruleName>(?:\w*-*/*)*) (?<message>.*)");
 
             foreach (var line in markdownlintIssuesSettings.LogFileContent.ToStringUsingEncoding().Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None).ToList().Where(s => !string.IsNullOrEmpty(s)))
             {
