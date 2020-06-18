@@ -185,7 +185,7 @@
 
             this.Log.Verbose("Found {0} file(s)", allFiles.Count());
 
-            return allFiles;
+            return allFiles.ToList();
         }
 
         /// <summary>
@@ -211,7 +211,7 @@
 
             this.Log.Verbose("Found {0} text file(s)", textFiles.Count());
 
-            return textFiles;
+            return textFiles.ToList();
         }
 
         /// <summary>
@@ -259,7 +259,7 @@
 
             this.Log.Verbose("Found {0} binary file(s)", binaryFiles.Count());
 
-            return binaryFiles;
+            return binaryFiles.ToList();
         }
 
         /// <summary>
@@ -281,7 +281,7 @@
 
             this.Log.Verbose("Found {0} binary file(s) not tracked by LFS", binaryFilesNotTrackedWithLfs.Count());
 
-            return binaryFilesNotTrackedWithLfs;
+            return binaryFilesNotTrackedWithLfs.ToList();
         }
     }
 }
