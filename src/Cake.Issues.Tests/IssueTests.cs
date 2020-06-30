@@ -29,6 +29,7 @@
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
+                    var run = "Run";
 
                     // When
                     var result = Record.Exception(() =>
@@ -45,6 +46,7 @@
                             priorityName,
                             rule,
                             ruleUri,
+                            run,
                             providerType,
                             providerName));
 
@@ -72,6 +74,7 @@
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
+                    var run = "Run";
 
                     // When
                     var result = Record.Exception(() =>
@@ -88,6 +91,7 @@
                             priorityName,
                             rule,
                             ruleUri,
+                            run,
                             providerType,
                             providerName));
 
@@ -113,6 +117,7 @@
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
+                    var run = "Run";
 
                     // When
                     var issue =
@@ -129,6 +134,7 @@
                             priorityName,
                             rule,
                             ruleUri,
+                            run,
                             providerType,
                             providerName);
 
@@ -154,6 +160,7 @@
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
+                    var run = "Run";
 
                     // When
                     var issue =
@@ -170,6 +177,7 @@
                             priorityName,
                             rule,
                             ruleUri,
+                            run,
                             providerType,
                             providerName);
 
@@ -195,6 +203,7 @@
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
+                    var run = "Run";
 
                     // When
                     var issue =
@@ -211,6 +220,7 @@
                             priorityName,
                             rule,
                             ruleUri,
+                            run,
                             providerType,
                             providerName);
 
@@ -236,6 +246,7 @@
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
+                    var run = "Run";
 
                     // When
                     var issue =
@@ -252,6 +263,7 @@
                             priorityName,
                             rule,
                             ruleUri,
+                            run,
                             providerType,
                             providerName);
 
@@ -280,6 +292,7 @@
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
+                    var run = "Run";
 
                     // When
                     var issue =
@@ -296,6 +309,7 @@
                             priorityName,
                             rule,
                             ruleUri,
+                            run,
                             providerType,
                             providerName);
 
@@ -321,6 +335,7 @@
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
+                    var run = "Run";
 
                     // When
                     var issue =
@@ -337,6 +352,7 @@
                             priorityName,
                             rule,
                             ruleUri,
+                            run,
                             providerType,
                             providerName);
 
@@ -362,6 +378,7 @@
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
+                    var run = "Run";
 
                     // When
                     var issue =
@@ -378,6 +395,7 @@
                             priorityName,
                             rule,
                             ruleUri,
+                            run,
                             providerType,
                             providerName);
 
@@ -403,6 +421,7 @@
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
+                    var run = "Run";
 
                     // When
                     var issue =
@@ -419,6 +438,7 @@
                             priorityName,
                             rule,
                             ruleUri,
+                            run,
                             providerType,
                             providerName);
 
@@ -447,6 +467,7 @@
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
+                    var run = "Run";
 
                     // When
                     var result = Record.Exception(() =>
@@ -463,6 +484,7 @@
                             priorityName,
                             rule,
                             ruleUri,
+                            run,
                             providerType,
                             providerName));
 
@@ -490,6 +512,7 @@
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
+                    var run = "Run";
 
                     // When
                     var result = Record.Exception(() =>
@@ -506,6 +529,7 @@
                             priorityName,
                             rule,
                             ruleUri,
+                            run,
                             providerType,
                             providerName));
 
@@ -531,6 +555,7 @@
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
+                    var run = "Run";
 
                     // When
                     var issue =
@@ -547,6 +572,7 @@
                             priorityName,
                             rule,
                             ruleUri,
+                            run,
                             providerType,
                             providerName);
 
@@ -572,6 +598,7 @@
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
+                    var run = "Run";
 
                     // When
                     var issue =
@@ -588,6 +615,7 @@
                             priorityName,
                             rule,
                             ruleUri,
+                            run,
                             providerType,
                             providerName);
 
@@ -613,6 +641,7 @@
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
+                    var run = "Run";
 
                     // When
                     var issue =
@@ -629,6 +658,7 @@
                             priorityName,
                             rule,
                             ruleUri,
+                            run,
                             providerType,
                             providerName);
 
@@ -662,6 +692,7 @@
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
+                    var run = "Run";
 
                     // When
                     var issue =
@@ -678,6 +709,7 @@
                             priorityName,
                             rule,
                             ruleUri,
+                            run,
                             providerType,
                             providerName);
 
@@ -707,6 +739,7 @@
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
+                    var run = "Run";
 
                     // When
                     var result = Record.Exception(() =>
@@ -723,6 +756,7 @@
                             priorityName,
                             rule,
                             ruleUri,
+                            run,
                             providerType,
                             providerName));
 
@@ -748,6 +782,7 @@
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
+                    var run = "Run";
 
                     // When
                     var result = Record.Exception(() =>
@@ -764,6 +799,7 @@
                             priorityName,
                             rule,
                             ruleUri,
+                            run,
                             providerType,
                             providerName));
 
@@ -789,6 +825,7 @@
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
+                    var run = "Run";
 
                     // When
                     var result = Record.Exception(() =>
@@ -805,6 +842,7 @@
                             priorityName,
                             rule,
                             ruleUri,
+                            run,
                             providerType,
                             providerName));
 
@@ -830,6 +868,7 @@
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
+                    var run = "Run";
 
                     // When
                     var issue =
@@ -846,6 +885,7 @@
                             priorityName,
                             rule,
                             ruleUri,
+                            run,
                             providerType,
                             providerName);
 
@@ -872,6 +912,7 @@
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
+                    var run = "Run";
 
                     // When
                     var issue =
@@ -888,6 +929,7 @@
                             priorityName,
                             rule,
                             ruleUri,
+                            run,
                             providerType,
                             providerName);
 
@@ -916,6 +958,7 @@
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
+                    var run = "Run";
 
                     // When
                     var result = Record.Exception(() =>
@@ -932,6 +975,7 @@
                             priorityName,
                             rule,
                             ruleUri,
+                            run,
                             providerType,
                             providerName));
 
@@ -957,6 +1001,7 @@
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
+                    var run = "Run";
 
                     // When
                     var result = Record.Exception(() =>
@@ -973,6 +1018,7 @@
                             priorityName,
                             rule,
                             ruleUri,
+                            run,
                             providerType,
                             providerName));
 
@@ -998,6 +1044,7 @@
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
+                    var run = "Run";
 
                     // When
                     var result = Record.Exception(() =>
@@ -1014,6 +1061,7 @@
                             priorityName,
                             rule,
                             ruleUri,
+                            run,
                             providerType,
                             providerName));
 
@@ -1041,6 +1089,7 @@
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
+                    var run = "Run";
 
                     // When
                     var issue =
@@ -1057,6 +1106,7 @@
                             priorityName,
                             rule,
                             ruleUri,
+                            run,
                             providerType,
                             providerName);
 
@@ -1085,6 +1135,7 @@
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
+                    var run = "Run";
 
                     // When
                     var result = Record.Exception(() =>
@@ -1101,6 +1152,7 @@
                             priorityName,
                             rule,
                             ruleUri,
+                            run,
                             providerType,
                             providerName));
 
@@ -1126,6 +1178,7 @@
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
+                    var run = "Run";
 
                     // When
                     var result = Record.Exception(() =>
@@ -1142,6 +1195,7 @@
                             priorityName,
                             rule,
                             ruleUri,
+                            run,
                             providerType,
                             providerName));
 
@@ -1167,6 +1221,7 @@
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
+                    var run = "Run";
 
                     // When
                     var result = Record.Exception(() =>
@@ -1183,6 +1238,7 @@
                             priorityName,
                             rule,
                             ruleUri,
+                            run,
                             providerType,
                             providerName));
 
@@ -1208,6 +1264,7 @@
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
+                    var run = "Run";
 
                     // When
                     var issue =
@@ -1224,6 +1281,7 @@
                             priorityName,
                             rule,
                             ruleUri,
+                            run,
                             providerType,
                             providerName);
 
@@ -1255,6 +1313,7 @@
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
+                    var run = "Run";
 
                     // When
                     var issue =
@@ -1271,6 +1330,7 @@
                             priorityName,
                             rule,
                             ruleUri,
+                            run,
                             providerType,
                             providerName);
 
@@ -1302,6 +1362,7 @@
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
+                    var run = "Run";
 
                     // When
                     var issue =
@@ -1318,6 +1379,7 @@
                             priorityName,
                             rule,
                             ruleUri,
+                            run,
                             providerType,
                             providerName);
 
@@ -1351,6 +1413,7 @@
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
+                    var run = "Run";
 
                     // When
                     var issue =
@@ -1367,6 +1430,7 @@
                             priorityName,
                             rule,
                             ruleUri,
+                            run,
                             providerType,
                             providerName);
 
@@ -1395,6 +1459,7 @@
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
+                    var run = "Run";
 
                     // When
                     var issue =
@@ -1411,6 +1476,7 @@
                             priorityName,
                             rule,
                             ruleUri,
+                            run,
                             providerType,
                             providerName);
 
@@ -1436,6 +1502,7 @@
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
+                    var run = "Run";
 
                     // When
                     var issue =
@@ -1452,6 +1519,7 @@
                             priorityName,
                             rule,
                             ruleUri,
+                            run,
                             providerType,
                             providerName);
 
@@ -1477,6 +1545,7 @@
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
+                    var run = "Run";
 
                     // When
                     var issue =
@@ -1493,6 +1562,7 @@
                             priorityName,
                             rule,
                             ruleUri,
+                            run,
                             providerType,
                             providerName);
 
@@ -1518,6 +1588,7 @@
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
+                    var run = "Run";
 
                     // When
                     var issue =
@@ -1534,6 +1605,7 @@
                             priorityName,
                             rule,
                             ruleUri,
+                            run,
                             providerType,
                             providerName);
 
@@ -1564,6 +1636,7 @@
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
+                    var run = "Run";
 
                     // When
                     var issue =
@@ -1580,6 +1653,7 @@
                             priorityName,
                             rule,
                             ruleUri,
+                            run,
                             providerType,
                             providerName);
 
@@ -1608,6 +1682,7 @@
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
+                    var run = "Run";
 
                     // When
                     var issue =
@@ -1624,6 +1699,7 @@
                             priorityName,
                             rule,
                             ruleUri,
+                            run,
                             providerType,
                             providerName);
 
@@ -1649,6 +1725,7 @@
                     Uri ruleUri = null;
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
+                    var run = "Run";
 
                     // When
                     var issue =
@@ -1665,11 +1742,60 @@
                             priorityName,
                             rule,
                             ruleUri,
+                            run,
                             providerType,
                             providerName);
 
                     // Then
                     issue.RuleUrl.ShouldBe(ruleUri);
+                }
+            }
+
+            public sealed class TheRunArgument
+            {
+                [Theory]
+                [InlineData(null)]
+                [InlineData("")]
+                [InlineData("run")]
+                public void Should_Set_Run(string run)
+                {
+                    // Given
+                    var projectPath = @"src\foo.csproj";
+                    var projectName = "foo";
+                    var filePath = @"src\foo.cs";
+                    var line = 10;
+                    var column = 50;
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
+                    var priority = 1;
+                    var priorityName = "Warning";
+                    var rule = "Rule";
+                    var ruleUri = new Uri("https://google.com");
+                    var providerType = "ProviderType";
+                    var providerName = "ProviderName";
+
+                    // When
+                    var issue =
+                        new Issue(
+                            projectPath,
+                            projectName,
+                            filePath,
+                            line,
+                            column,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
+                            priority,
+                            priorityName,
+                            rule,
+                            ruleUri,
+                            run,
+                            providerType,
+                            providerName);
+
+                    // Then
+                    issue.Run.ShouldBe(run);
                 }
             }
 
@@ -1693,6 +1819,7 @@
                     var ruleUri = new Uri("https://google.com");
                     string providerType = null;
                     var providerName = "ProviderName";
+                    var run = "Run";
 
                     // When
                     var result = Record.Exception(() =>
@@ -1709,6 +1836,7 @@
                             priorityName,
                             rule,
                             ruleUri,
+                            run,
                             providerType,
                             providerName));
 
@@ -1734,6 +1862,7 @@
                     var ruleUri = new Uri("https://google.com");
                     var providerType = string.Empty;
                     var providerName = "ProviderName";
+                    var run = "Run";
 
                     // When
                     var result = Record.Exception(() =>
@@ -1750,6 +1879,7 @@
                             priorityName,
                             rule,
                             ruleUri,
+                            run,
                             providerType,
                             providerName));
 
@@ -1775,6 +1905,7 @@
                     var ruleUri = new Uri("https://google.com");
                     var providerType = " ";
                     var providerName = "ProviderName";
+                    var run = "Run";
 
                     // When
                     var result = Record.Exception(() =>
@@ -1791,6 +1922,7 @@
                             priorityName,
                             rule,
                             ruleUri,
+                            run,
                             providerType,
                             providerName));
 
@@ -1816,6 +1948,7 @@
                     var rule = "Rule";
                     var ruleUri = new Uri("https://google.com");
                     var providerName = "ProviderName";
+                    var run = "Run";
 
                     // When
                     var issue =
@@ -1832,6 +1965,7 @@
                             priorityName,
                             rule,
                             ruleUri,
+                            run,
                             providerType,
                             providerName);
 
@@ -1860,6 +1994,7 @@
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     string providerName = null;
+                    var run = "Run";
 
                     // When
                     var result = Record.Exception(() =>
@@ -1876,6 +2011,7 @@
                             priorityName,
                             rule,
                             ruleUri,
+                            run,
                             providerType,
                             providerName));
 
@@ -1901,6 +2037,7 @@
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = string.Empty;
+                    var run = "Run";
 
                     // When
                     var result = Record.Exception(() =>
@@ -1917,6 +2054,7 @@
                             priorityName,
                             rule,
                             ruleUri,
+                            run,
                             providerType,
                             providerName));
 
@@ -1942,6 +2080,7 @@
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = " ";
+                    var run = "Run";
 
                     // When
                     var result = Record.Exception(() =>
@@ -1958,6 +2097,7 @@
                             priorityName,
                             rule,
                             ruleUri,
+                            run,
                             providerType,
                             providerName));
 
@@ -1983,6 +2123,7 @@
                     var rule = "Rule";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
+                    var run = "Run";
 
                     // When
                     var issue =
@@ -1999,6 +2140,7 @@
                             priorityName,
                             rule,
                             ruleUri,
+                            run,
                             providerType,
                             providerName);
 

@@ -14,6 +14,7 @@
         {
             this.ProviderType = providerType;
             this.ProviderName = providerName;
+            this.Run = "Test Run";
             this.ProjectFileRelativePath = @"src\project.file";
             this.ProjectName = "ProjectName";
             this.AffectedFileRelativePath = @"src\source.file";
@@ -28,6 +29,7 @@
             this.RuleUrl = new Uri("https://google.com");
 
             this.IssueBuilder
+                .ForRun(this.Run)
                 .WithMessageInHtmlFormat(this.MessageHtml)
                 .WithMessageInMarkdownFormat(this.MessageMarkdown)
                 .InProject(this.ProjectFileRelativePath, this.ProjectName)
@@ -44,6 +46,8 @@
         public string ProviderType { get; private set; }
 
         public string ProviderName { get; private set; }
+
+        public string Run { get; private set; }
 
         public string ProjectFileRelativePath { get; private set; }
 

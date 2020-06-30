@@ -21,6 +21,7 @@
         private string priorityName;
         private string rule;
         private Uri ruleUrl;
+        private string run;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="IssueBuilder"/> class.
@@ -265,6 +266,20 @@
         }
 
         /// <summary>
+        /// Sets the name of the run where the issue was reported.
+        /// </summary>
+        /// <param name="run">The name of the run where the issue was reported.</param>
+        /// <returns>Issue Builder instance.</returns>
+        public IssueBuilder ForRun(string run)
+        {
+            run.NotNullOrWhiteSpace(nameof(run));
+
+            this.run = run;
+
+            return this;
+        }
+
+        /// <summary>
         /// Creates a new <see cref="IIssue"/>.
         /// </summary>
         /// <returns>New issue object.</returns>
@@ -284,6 +299,7 @@
                     this.priorityName,
                     this.rule,
                     this.ruleUrl,
+                    this.run,
                     this.providerType,
                     this.providerName);
         }

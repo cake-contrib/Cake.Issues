@@ -988,5 +988,67 @@
                 issue.RuleUrl.ToString().ShouldBe(ruleUri);
             }
         }
+
+        public sealed class TheForRunMethod
+        {
+            [Fact]
+            public void Should_Throw_If_Run_Is_Null()
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+                string run = null;
+
+                // When
+                var result = Record.Exception(() =>
+                    fixture.IssueBuilder.ForRun(run));
+
+                // Then
+                result.IsArgumentNullException("run");
+            }
+
+            [Fact]
+            public void Should_Throw_If_Run_Is_Empty()
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+                string run = string.Empty;
+
+                // When
+                var result = Record.Exception(() =>
+                    fixture.IssueBuilder.ForRun(run));
+
+                // Then
+                result.IsArgumentException("run");
+            }
+
+            [Fact]
+            public void Should_Throw_If_Run_Is_WhiteSpace()
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+                string run = " ";
+
+                // When
+                var result = Record.Exception(() =>
+                    fixture.IssueBuilder.ForRun(run));
+
+                // Then
+                result.IsArgumentException("run");
+            }
+
+            [Theory]
+            [InlineData("run")]
+            public void Should_Set_Run(string run)
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+
+                // When
+                var issue = fixture.IssueBuilder.ForRun(run).Create();
+
+                // Then
+                issue.Run.ToString().ShouldBe(run);
+            }
+        }
     }
 }

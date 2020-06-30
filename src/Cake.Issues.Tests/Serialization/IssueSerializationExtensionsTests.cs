@@ -114,6 +114,24 @@
             }
 
             [Fact]
+            public void Should_Give_Correct_Result_For_Run_After_Roundtrip()
+            {
+                // Given
+                var run = "run";
+                var issue =
+                    IssueBuilder
+                        .NewIssue("message", "providerType", "providerName")
+                        .ForRun(run)
+                        .Create();
+
+                // When
+                var result = issue.SerializeToJsonString().DeserializeToIssue();
+
+                // Then
+                result.Run.ShouldBe(run);
+            }
+
+            [Fact]
             public void Should_Give_Correct_Result_For_ProjectFileRelativePath_After_Roundtrip()
             {
                 // Given
@@ -423,6 +441,34 @@
                 result.Count().ShouldBe(2);
                 result.First().ProviderName.ShouldBe(providerName1);
                 result.Last().ProviderName.ShouldBe(providerName2);
+            }
+
+            [Fact]
+            public void Should_Give_Correct_Result_For_Run_After_Roundtrip()
+            {
+                // Given
+                var run1 = "run1";
+                var run2 = "run2";
+                var issues =
+                    new List<IIssue>
+                    {
+                        IssueBuilder
+                          .NewIssue("message1", "providerType1", "providerName1")
+                            .ForRun(run1)
+                            .Create(),
+                        IssueBuilder
+                            .NewIssue("message2", "providerType2", "providerName2")
+                            .ForRun(run2)
+                            .Create(),
+                    };
+
+                // When
+                var result = issues.SerializeToJsonString().DeserializeToIssues();
+
+                // Then
+                result.Count().ShouldBe(2);
+                result.First().Run.ShouldBe(run1);
+                result.Last().Run.ShouldBe(run2);
             }
 
             [Fact]
@@ -848,6 +894,36 @@
 
                     // Then
                     result.ProviderName.ShouldBe(providerName);
+                }
+                finally
+                {
+                    if (System.IO.File.Exists(filePath.FullPath))
+                    {
+                        System.IO.File.Delete(filePath.FullPath);
+                    }
+                }
+            }
+
+            [Fact]
+            public void Should_Give_Correct_Result_For_Run_After_Roundtrip()
+            {
+                // Given
+                var run = "run";
+                var issue =
+                    IssueBuilder
+                        .NewIssue("message", "providerType", "providerName")
+                        .ForRun(run)
+                        .Create();
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+
+                try
+                {
+                    // When
+                    issue.SerializeToJsonFile(filePath);
+                    var result = filePath.DeserializeToIssue();
+
+                    // Then
+                    result.Run.ShouldBe(run);
                 }
                 finally
                 {
@@ -1343,6 +1419,46 @@
                     result.Count().ShouldBe(2);
                     result.First().ProviderName.ShouldBe(providerName1);
                     result.Last().ProviderName.ShouldBe(providerName2);
+                }
+                finally
+                {
+                    if (System.IO.File.Exists(filePath.FullPath))
+                    {
+                        System.IO.File.Delete(filePath.FullPath);
+                    }
+                }
+            }
+
+            [Fact]
+            public void Should_Give_Correct_Result_For_Run_After_Roundtrip()
+            {
+                // Given
+                var run1 = "run1";
+                var run2 = "run2";
+                var issues =
+                    new List<IIssue>
+                    {
+                        IssueBuilder
+                          .NewIssue("message1", "providerType1", "providerName1")
+                            .ForRun(run1)
+                            .Create(),
+                        IssueBuilder
+                            .NewIssue("message2", "providerType2", "providerName2")
+                            .ForRun(run2)
+                            .Create(),
+                    };
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+
+                try
+                {
+                    // When
+                    issues.SerializeToJsonFile(filePath);
+                    var result = filePath.DeserializeToIssues();
+
+                    // Then
+                    result.Count().ShouldBe(2);
+                    result.First().Run.ShouldBe(run1);
+                    result.Last().Run.ShouldBe(run2);
                 }
                 finally
                 {

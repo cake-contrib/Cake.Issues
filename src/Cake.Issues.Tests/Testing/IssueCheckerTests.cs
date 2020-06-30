@@ -144,6 +144,7 @@
                         issue,
                         fixture.ProviderType,
                         fixture.ProviderName,
+                        fixture.Run,
                         fixture.ProjectFileRelativePath,
                         fixture.ProjectName,
                         fixture.AffectedFileRelativePath,
@@ -172,6 +173,7 @@
                     fixture.Issue,
                     fixture.ProviderType,
                     fixture.ProviderName,
+                    fixture.Run,
                     fixture.ProjectFileRelativePath,
                     fixture.ProjectName,
                     fixture.AffectedFileRelativePath,
@@ -204,6 +206,7 @@
                         fixture.Issue,
                         expectedValue,
                         fixture.ProviderName,
+                        fixture.Run,
                         fixture.ProjectFileRelativePath,
                         fixture.ProjectName,
                         fixture.AffectedFileRelativePath,
@@ -238,6 +241,7 @@
                         fixture.Issue,
                         fixture.ProviderType,
                         expectedValue,
+                        fixture.Run,
                         fixture.ProjectFileRelativePath,
                         fixture.ProjectName,
                         fixture.AffectedFileRelativePath,
@@ -257,6 +261,45 @@
             }
 
             [Theory]
+            [InlineData("Run", "Foo")]
+            [InlineData(null, "Foo")]
+            [InlineData("", "Foo")]
+            [InlineData(" ", "Foo")]
+            public void Should_Throw_If_Run_Is_Different(string expectedValue, string actualValue)
+            {
+                // Given
+                var fixture = new IssueCheckerFixture();
+                var issue =
+                    fixture.IssueBuilder
+                        .ForRun(actualValue)
+                        .Create();
+
+                // When
+                var result = Record.Exception(() =>
+                    IssueChecker.Check(
+                        fixture.Issue,
+                        fixture.ProviderType,
+                        fixture.ProviderName,
+                        expectedValue,
+                        fixture.ProjectFileRelativePath,
+                        fixture.ProjectName,
+                        fixture.AffectedFileRelativePath,
+                        fixture.Line,
+                        fixture.Column,
+                        fixture.MessageText,
+                        fixture.MessageHtml,
+                        fixture.MessageMarkdown,
+                        fixture.Priority,
+                        fixture.PriorityName,
+                        fixture.Rule,
+                        fixture.RuleUrl));
+
+                // Then
+                result.ShouldBeOfType<Exception>();
+                result.Message.ShouldStartWith("Expected issue.Run");
+            }
+
+            [Theory]
             [InlineData(@"src\project.file", @"src\foo")]
             public void Should_Throw_If_ProjectFileRelativePath_Is_Different(string expectedValue, string actualValue)
             {
@@ -273,6 +316,7 @@
                         issue,
                         fixture.ProviderType,
                         fixture.ProviderName,
+                        fixture.Run,
                         expectedValue,
                         fixture.ProjectName,
                         fixture.AffectedFileRelativePath,
@@ -311,6 +355,7 @@
                         issue,
                         fixture.ProviderType,
                         fixture.ProviderName,
+                        fixture.Run,
                         fixture.ProjectFileRelativePath,
                         expectedValue,
                         fixture.AffectedFileRelativePath,
@@ -346,6 +391,7 @@
                         issue,
                         fixture.ProviderType,
                         fixture.ProviderName,
+                        fixture.Run,
                         fixture.ProjectFileRelativePath,
                         fixture.ProjectName,
                         expectedValue,
@@ -383,6 +429,7 @@
                         issue,
                         fixture.ProviderType,
                         fixture.ProviderName,
+                        fixture.Run,
                         fixture.ProjectFileRelativePath,
                         fixture.ProjectName,
                         fixture.AffectedFileRelativePath,
@@ -420,6 +467,7 @@
                         issue,
                         fixture.ProviderType,
                         fixture.ProviderName,
+                        fixture.Run,
                         fixture.ProjectFileRelativePath,
                         fixture.ProjectName,
                         fixture.AffectedFileRelativePath,
@@ -454,6 +502,7 @@
                         fixture.Issue,
                         fixture.ProviderType,
                         fixture.ProviderName,
+                        fixture.Run,
                         fixture.ProjectFileRelativePath,
                         fixture.ProjectName,
                         fixture.AffectedFileRelativePath,
@@ -492,6 +541,7 @@
                         fixture.Issue,
                         fixture.ProviderType,
                         fixture.ProviderName,
+                        fixture.Run,
                         fixture.ProjectFileRelativePath,
                         fixture.ProjectName,
                         fixture.AffectedFileRelativePath,
@@ -530,6 +580,7 @@
                         fixture.Issue,
                         fixture.ProviderType,
                         fixture.ProviderName,
+                        fixture.Run,
                         fixture.ProjectFileRelativePath,
                         fixture.ProjectName,
                         fixture.AffectedFileRelativePath,
@@ -565,6 +616,7 @@
                         issue,
                         fixture.ProviderType,
                         fixture.ProviderName,
+                        fixture.Run,
                         fixture.ProjectFileRelativePath,
                         fixture.ProjectName,
                         fixture.AffectedFileRelativePath,
@@ -603,6 +655,7 @@
                         issue,
                         fixture.ProviderType,
                         fixture.ProviderName,
+                        fixture.Run,
                         fixture.ProjectFileRelativePath,
                         fixture.ProjectName,
                         fixture.AffectedFileRelativePath,
@@ -641,6 +694,7 @@
                         issue,
                         fixture.ProviderType,
                         fixture.ProviderName,
+                        fixture.Run,
                         fixture.ProjectFileRelativePath,
                         fixture.ProjectName,
                         fixture.AffectedFileRelativePath,
@@ -676,6 +730,7 @@
                         issue,
                         fixture.ProviderType,
                         fixture.ProviderName,
+                        fixture.Run,
                         fixture.ProjectFileRelativePath,
                         fixture.ProjectName,
                         fixture.AffectedFileRelativePath,

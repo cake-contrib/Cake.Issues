@@ -34,6 +34,7 @@
         /// <c>null</c> or <see cref="string.Empty"/> if issue has no specific rule ID.</param>
         /// <param name="ruleUrl">The URL containing information about the failing rule.
         /// <c>null</c> if no URL is available.</param>
+        /// <param name="run">Gets the description of the run.</param>
         /// <param name="providerType">The type of the issue provider.</param>
         /// <param name="providerName">The human friendly name of the issue provider.</param>
         public Issue(
@@ -49,6 +50,7 @@
             string priorityName,
             string rule,
             Uri ruleUrl,
+            string run,
             string providerType,
             string providerName)
         {
@@ -114,6 +116,7 @@
             this.PriorityName = priorityName;
             this.Rule = rule;
             this.RuleUrl = ruleUrl;
+            this.Run = run;
             this.ProviderType = providerType;
             this.ProviderName = providerName;
         }
@@ -153,6 +156,9 @@
 
         /// <inheritdoc/>
         public Uri RuleUrl { get; }
+
+        /// <inheritdoc/>
+        public string Run { get; }
 
         /// <inheritdoc/>
         public string ProviderType { get; }

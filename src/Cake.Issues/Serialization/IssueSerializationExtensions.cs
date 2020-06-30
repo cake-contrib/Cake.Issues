@@ -92,6 +92,7 @@
                 PriorityName = issue.PriorityName,
                 Rule = issue.Rule,
                 RuleUrl = issue.RuleUrl?.ToString(),
+                Run = issue.Run,
                 ProviderType = issue.ProviderType,
                 ProviderName = issue.ProviderName,
             };

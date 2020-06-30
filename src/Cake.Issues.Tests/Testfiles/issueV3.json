@@ -12,6 +12,7 @@
   "ProjectName": "Bar",
   "ProviderName": "Test Provider",
   "ProviderType": "TestProvider",
+  "Run":  "TestRun",
   "Rule": "Rule",
   "RuleUrl": "https://google.com"
 }

@@ -39,6 +39,7 @@
                 serializableIssue.PriorityName,
                 serializableIssue.Rule,
                 ruleUrl,
+                serializableIssue.Run,
                 serializableIssue.ProviderType,
                 serializableIssue.ProviderName);
 

@@ -75,5 +75,9 @@
         /// <inheritdoc cref="IIssue.ProviderName" />
         [DataMember]
         public string ProviderName { get; set; }
+
+        /// <inheritdoc cref="IIssue.Run" />
+        [DataMember]
+        public string Run { get; set; }
     }
 }
