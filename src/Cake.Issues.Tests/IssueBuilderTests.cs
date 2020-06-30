@@ -608,6 +608,7 @@
 
         public sealed class TheInFileLineColumnMethod
         {
+            [Fact]
             public void Should_Throw_If_Line_Is_Negative()
             {
                 // Given
