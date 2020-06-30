@@ -21,6 +21,8 @@
         /// <c>null</c> or <see cref="string.Empty"/> if issue is not related to a change in a file.</param>
         /// <param name="line">The line in the file where the issues has occurred.
         /// <c>null</c> if the issue affects the whole file or an asssembly.</param>
+        /// <param name="column">The column in the file where the issues has occurred.
+        /// <c>null</c> if the issue affects the whole file or an asssembly.</param>
         /// <param name="messageText">The message of the issue in plain text format.</param>
         /// <param name="messageHtml">The message of the issue in Html format.</param>
         /// <param name="messageMarkdown">The message of the issue in Markdown format.</param>
@@ -39,6 +41,7 @@
             string projectName,
             string affectedFileRelativePath,
             int? line,
+            int? column,
             string messageText,
             string messageHtml,
             string messageMarkdown,
@@ -50,6 +53,7 @@
             string providerName)
         {
             line?.NotNegativeOrZero(nameof(line));
+            column?.NotNegativeOrZero(nameof(column));
             messageText.NotNullOrWhiteSpace(nameof(messageText));
             providerType.NotNullOrWhiteSpace(nameof(providerType));
             providerName.NotNullOrWhiteSpace(nameof(providerName));
@@ -95,8 +99,14 @@
                 throw new ArgumentOutOfRangeException(nameof(line), "Cannot specify a line while not specifying a file.");
             }
 
+            if (!line.HasValue && column.HasValue)
+            {
+                throw new ArgumentOutOfRangeException(nameof(column), $"Cannot specify a column while not specifying a line.");
+            }
+
             this.ProjectName = projectName;
             this.Line = line;
+            this.Column = column;
             this.MessageText = messageText;
             this.MessageHtml = messageHtml;
             this.MessageMarkdown = messageMarkdown;
@@ -119,6 +129,9 @@
 
         /// <inheritdoc/>
         public int? Line { get; }
+
+        /// <inheritdoc/>
+        public int? Column { get; }
 
         /// <inheritdoc/>
         public string MessageText { get; }

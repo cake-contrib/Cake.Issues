@@ -45,6 +45,7 @@
                 expectedIssue.ProjectName,
                 expectedIssue.AffectedFileRelativePath?.ToString(),
                 expectedIssue.Line,
+                expectedIssue.Column,
                 expectedIssue.MessageText,
                 expectedIssue.MessageHtml,
                 expectedIssue.MessageMarkdown,
@@ -68,6 +69,8 @@
         /// <c>null</c> if the issue is not expected to be related to a change in a file.</param>
         /// <param name="line">Expected line number.
         /// <c>null</c> if the issue is not expected to be related to a file or specific line.</param>
+        /// <param name="column">Expected column.
+        /// <c>null</c> if the issue is not expected to be related to a file or specific column.</param>
         /// <param name="messageText">Expected message in plain text format.</param>
         /// <param name="messageHtml">Expected message in HTML format.</param>
         /// <param name="messageMarkdown">Expected message in Markdown format.</param>
@@ -87,6 +90,7 @@
             string projectName,
             string affectedFileRelativePath,
             int? line,
+            int? column,
             string messageText,
             string messageHtml,
             string messageMarkdown,
@@ -165,6 +169,12 @@
             {
                 throw new Exception(
                     $"Expected issue.Line to be '{line}' but was '{issue.Line}'.");
+            }
+
+            if (issue.Column != column)
+            {
+                throw new Exception(
+                    $"Expected issue.Column to be '{column}' but was '{issue.Column}'.");
             }
 
             if (issue.MessageText != messageText)

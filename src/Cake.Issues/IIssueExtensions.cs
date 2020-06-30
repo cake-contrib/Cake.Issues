@@ -148,6 +148,10 @@
         ///         <description>The value of <see cref="IIssue.Line"/>.</description>
         ///     </item>
         ///     <item>
+        ///         <term>{Column}</term>
+        ///         <description>The value of <see cref="IIssue.Column"/>.</description>
+        ///     </item>
+        ///     <item>
         ///         <term>{Rule}</term>
         ///         <description>The value of <see cref="IIssue.Rule"/>.</description>
         ///     </item>
@@ -191,6 +195,7 @@
                     .Replace("{FileDirectory}", issue.FileDirectory())
                     .Replace("{FileName}", issue.FileName())
                     .Replace("{Line}", issue.Line?.ToString())
+                    .Replace("{Column}", issue.Column?.ToString())
                     .Replace("{Rule}", issue.Rule)
                     .Replace("{RuleUrl}", issue.RuleUrl?.ToString())
                     .Replace("{MessageText}", issue.Message(IssueCommentFormat.PlainText))

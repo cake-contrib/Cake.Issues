@@ -1,0 +1,17 @@
+{
+  "Version": 3,
+  "AffectedFileRelativePath": "src\/Foo\/Bar.cs",
+  "Line": 42,
+  "Column": 23,
+  "MessageText": "Something went wrong.",
+  "MessageHtml": "Something went <b>wrong</b>.",
+  "MessageMarkdown": "Something went **wrong**.",
+  "Priority": 300,
+  "PriorityName": "Warning",
+  "ProjectFileRelativePath": "src\/Foo\/Bar.csproj",
+  "ProjectName": "Bar",
+  "ProviderName": "Test Provider",
+  "ProviderType": "TestProvider",
+  "Rule": "Rule",
+  "RuleUrl": "https://google.com"
+}
