@@ -158,7 +158,7 @@
         public Uri RuleUrl { get; }
 
         /// <inheritdoc/>
-        public string Run { get; }
+        public string Run { get; set; }
 
         /// <inheritdoc/>
         public string ProviderType { get; }

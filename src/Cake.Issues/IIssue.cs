@@ -80,10 +80,10 @@
         Uri RuleUrl { get; }
 
         /// <summary>
-        /// Gets the description of the run.
+        /// Gets or sets the description of the run.
         /// Can be <c>null</c> or <see cref="string.Empty"/> if no run information is provided.
         /// </summary>
-        string Run { get; }
+        string Run { get; set; }
 
         /// <summary>
         /// Gets the type of the issue provider.
