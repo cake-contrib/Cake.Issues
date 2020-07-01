@@ -330,7 +330,6 @@
                 issues.ShouldContain(issue2);
                 issue2.Run.ShouldBe(run);
             }
-
         }
     }
 }

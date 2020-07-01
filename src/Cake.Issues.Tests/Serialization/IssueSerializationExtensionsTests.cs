@@ -27,6 +27,23 @@
             }
 
             [Fact]
+            public void Should_Give_Correct_Result_For_Identifier_After_Roundtrip()
+            {
+                // Given
+                var identifier = "identifier";
+                var issue =
+                    IssueBuilder
+                        .NewIssue(identifier, "message", "providerType", "providerName")
+                        .Create();
+
+                // When
+                var result = issue.SerializeToJsonString().DeserializeToIssue();
+
+                // Then
+                result.Identifier.ShouldBe(identifier);
+            }
+
+            [Fact]
             public void Should_Give_Correct_Result_For_MessageText_After_Roundtrip()
             {
                 // Given
@@ -307,6 +324,32 @@
 
                 // Then
                 result.IsArgumentNullException("issues");
+            }
+
+            [Fact]
+            public void Should_Give_Correct_Result_For_Identifier_After_Roundtrip()
+            {
+                // Given
+                var identifier1 = "identifier1";
+                var identifier2 = "identifier2";
+                var issues =
+                    new List<IIssue>
+                    {
+                        IssueBuilder
+                          .NewIssue(identifier1, "messageText1", "providerType1", "providerName1")
+                            .Create(),
+                        IssueBuilder
+                            .NewIssue(identifier2, "messageText2", "providerType2", "providerName2")
+                            .Create(),
+                    };
+
+                // When
+                var result = issues.SerializeToJsonString().DeserializeToIssues();
+
+                // Then
+                result.Count().ShouldBe(2);
+                result.First().Identifier.ShouldBe(identifier1);
+                result.Last().Identifier.ShouldBe(identifier2);
             }
 
             [Fact]
@@ -755,6 +798,35 @@
 
                 // Then
                 result.IsArgumentNullException("filePath");
+            }
+
+            [Fact]
+            public void Should_Give_Correct_Result_For_Identifier_After_Roundtrip()
+            {
+                // Given
+                var identifier = "identifier";
+                var issue =
+                    IssueBuilder
+                        .NewIssue(identifier, "messageText", "providerType", "providerName")
+                        .Create();
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+
+                try
+                {
+                    // When
+                    issue.SerializeToJsonFile(filePath);
+                    var result = filePath.DeserializeToIssue();
+
+                    // Then
+                    result.Identifier.ShouldBe(identifier);
+                }
+                finally
+                {
+                    if (System.IO.File.Exists(filePath.FullPath))
+                    {
+                        System.IO.File.Delete(filePath.FullPath);
+                    }
+                }
             }
 
             [Fact]
@@ -1233,6 +1305,44 @@
 
                 // Then
                 result.IsArgumentNullException("filePath");
+            }
+
+            [Fact]
+            public void Should_Give_Correct_Result_For_Identifier_After_Roundtrip()
+            {
+                // Given
+                var identifier1 = "identifier1";
+                var identifier2 = "identifier2";
+                var issues =
+                    new List<IIssue>
+                    {
+                        IssueBuilder
+                          .NewIssue(identifier1, "messageText1", "providerType1", "providerName1")
+                            .Create(),
+                        IssueBuilder
+                            .NewIssue(identifier2, "messageText2", "providerType2", "providerName2")
+                            .Create(),
+                    };
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+
+                try
+                {
+                    // When
+                    issues.SerializeToJsonFile(filePath);
+                    var result = filePath.DeserializeToIssues();
+
+                    // Then
+                    result.Count().ShouldBe(2);
+                    result.First().Identifier.ShouldBe(identifier1);
+                    result.Last().Identifier.ShouldBe(identifier2);
+                }
+                finally
+                {
+                    if (System.IO.File.Exists(filePath.FullPath))
+                    {
+                        System.IO.File.Delete(filePath.FullPath);
+                    }
+                }
             }
 
             [Fact]

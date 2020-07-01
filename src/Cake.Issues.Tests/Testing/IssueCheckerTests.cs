@@ -145,6 +145,7 @@
                         fixture.ProviderType,
                         fixture.ProviderName,
                         fixture.Run,
+                        fixture.Identifier,
                         fixture.ProjectFileRelativePath,
                         fixture.ProjectName,
                         fixture.AffectedFileRelativePath,
@@ -174,6 +175,7 @@
                     fixture.ProviderType,
                     fixture.ProviderName,
                     fixture.Run,
+                    fixture.Identifier,
                     fixture.ProjectFileRelativePath,
                     fixture.ProjectName,
                     fixture.AffectedFileRelativePath,
@@ -198,7 +200,7 @@
             public void Should_Throw_If_ProviderType_Is_Different(string expectedValue, string actualValue)
             {
                 // Given
-                var fixture = new IssueCheckerFixture("Message", actualValue, "ProviderName");
+                var fixture = new IssueCheckerFixture("Identifier", "Message", actualValue, "ProviderName");
 
                 // When
                 var result = Record.Exception(() =>
@@ -207,6 +209,7 @@
                         expectedValue,
                         fixture.ProviderName,
                         fixture.Run,
+                        fixture.Identifier,
                         fixture.ProjectFileRelativePath,
                         fixture.ProjectName,
                         fixture.AffectedFileRelativePath,
@@ -233,7 +236,7 @@
             public void Should_Throw_If_ProviderName_Is_Different(string expectedValue, string actualValue)
             {
                 // Given
-                var fixture = new IssueCheckerFixture("Message", "ProviderType", actualValue);
+                var fixture = new IssueCheckerFixture("Identifier", "Message", "ProviderType", actualValue);
 
                 // When
                 var result = Record.Exception(() =>
@@ -242,6 +245,7 @@
                         fixture.ProviderType,
                         expectedValue,
                         fixture.Run,
+                        fixture.Identifier,
                         fixture.ProjectFileRelativePath,
                         fixture.ProjectName,
                         fixture.AffectedFileRelativePath,
@@ -281,6 +285,7 @@
                         fixture.ProviderType,
                         fixture.ProviderName,
                         expectedValue,
+                        fixture.Identifier,
                         fixture.ProjectFileRelativePath,
                         fixture.ProjectName,
                         fixture.AffectedFileRelativePath,
@@ -297,6 +302,42 @@
                 // Then
                 result.ShouldBeOfType<Exception>();
                 result.Message.ShouldStartWith("Expected issue.Run");
+            }
+
+            [Theory]
+            [InlineData("Message", "Foo")]
+            [InlineData(null, "Foo")]
+            [InlineData("", "Foo")]
+            [InlineData(" ", "Foo")]
+            public void Should_Throw_If_Identifier_Is_Different(string expectedValue, string actualValue)
+            {
+                // Given
+                var fixture = new IssueCheckerFixture(actualValue, "Message", "ProviderType", "ProviderName");
+
+                // When
+                var result = Record.Exception(() =>
+                    IssueChecker.Check(
+                        fixture.Issue,
+                        fixture.ProviderType,
+                        fixture.ProviderName,
+                        fixture.Run,
+                        expectedValue,
+                        fixture.ProjectFileRelativePath,
+                        fixture.ProjectName,
+                        fixture.AffectedFileRelativePath,
+                        fixture.Line,
+                        fixture.Column,
+                        fixture.MessageText,
+                        fixture.MessageHtml,
+                        fixture.MessageMarkdown,
+                        fixture.Priority,
+                        fixture.PriorityName,
+                        fixture.Rule,
+                        fixture.RuleUrl));
+
+                // Then
+                result.ShouldBeOfType<Exception>();
+                result.Message.ShouldStartWith("Expected issue.Identifier");
             }
 
             [Theory]
@@ -317,6 +358,7 @@
                         fixture.ProviderType,
                         fixture.ProviderName,
                         fixture.Run,
+                        fixture.Identifier,
                         expectedValue,
                         fixture.ProjectName,
                         fixture.AffectedFileRelativePath,
@@ -356,6 +398,7 @@
                         fixture.ProviderType,
                         fixture.ProviderName,
                         fixture.Run,
+                        fixture.Identifier,
                         fixture.ProjectFileRelativePath,
                         expectedValue,
                         fixture.AffectedFileRelativePath,
@@ -392,6 +435,7 @@
                         fixture.ProviderType,
                         fixture.ProviderName,
                         fixture.Run,
+                        fixture.Identifier,
                         fixture.ProjectFileRelativePath,
                         fixture.ProjectName,
                         expectedValue,
@@ -430,6 +474,7 @@
                         fixture.ProviderType,
                         fixture.ProviderName,
                         fixture.Run,
+                        fixture.Identifier,
                         fixture.ProjectFileRelativePath,
                         fixture.ProjectName,
                         fixture.AffectedFileRelativePath,
@@ -468,6 +513,7 @@
                         fixture.ProviderType,
                         fixture.ProviderName,
                         fixture.Run,
+                        fixture.Identifier,
                         fixture.ProjectFileRelativePath,
                         fixture.ProjectName,
                         fixture.AffectedFileRelativePath,
@@ -494,7 +540,7 @@
             public void Should_Throw_If_MessageText_Is_Different(string expectedValue, string actualValue)
             {
                 // Given
-                var fixture = new IssueCheckerFixture(actualValue, "ProviderType", "ProviderName");
+                var fixture = new IssueCheckerFixture("Identifier", actualValue, "ProviderType", "ProviderName");
 
                 // When
                 var result = Record.Exception(() =>
@@ -503,6 +549,7 @@
                         fixture.ProviderType,
                         fixture.ProviderName,
                         fixture.Run,
+                        fixture.Identifier,
                         fixture.ProjectFileRelativePath,
                         fixture.ProjectName,
                         fixture.AffectedFileRelativePath,
@@ -542,6 +589,7 @@
                         fixture.ProviderType,
                         fixture.ProviderName,
                         fixture.Run,
+                        fixture.Identifier,
                         fixture.ProjectFileRelativePath,
                         fixture.ProjectName,
                         fixture.AffectedFileRelativePath,
@@ -581,6 +629,7 @@
                         fixture.ProviderType,
                         fixture.ProviderName,
                         fixture.Run,
+                        fixture.Identifier,
                         fixture.ProjectFileRelativePath,
                         fixture.ProjectName,
                         fixture.AffectedFileRelativePath,
@@ -617,6 +666,7 @@
                         fixture.ProviderType,
                         fixture.ProviderName,
                         fixture.Run,
+                        fixture.Identifier,
                         fixture.ProjectFileRelativePath,
                         fixture.ProjectName,
                         fixture.AffectedFileRelativePath,
@@ -656,6 +706,7 @@
                         fixture.ProviderType,
                         fixture.ProviderName,
                         fixture.Run,
+                        fixture.Identifier,
                         fixture.ProjectFileRelativePath,
                         fixture.ProjectName,
                         fixture.AffectedFileRelativePath,
@@ -695,6 +746,7 @@
                         fixture.ProviderType,
                         fixture.ProviderName,
                         fixture.Run,
+                        fixture.Identifier,
                         fixture.ProjectFileRelativePath,
                         fixture.ProjectName,
                         fixture.AffectedFileRelativePath,
@@ -731,6 +783,7 @@
                         fixture.ProviderType,
                         fixture.ProviderName,
                         fixture.Run,
+                        fixture.Identifier,
                         fixture.ProjectFileRelativePath,
                         fixture.ProjectName,
                         fixture.AffectedFileRelativePath,

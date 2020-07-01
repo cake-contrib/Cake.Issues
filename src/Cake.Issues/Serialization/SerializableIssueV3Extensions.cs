@@ -27,6 +27,7 @@
             }
 
             return new Issue(
+                serializableIssue.Identifier,
                 serializableIssue.ProjectFileRelativePath,
                 serializableIssue.ProjectName,
                 serializableIssue.AffectedFileRelativePath,

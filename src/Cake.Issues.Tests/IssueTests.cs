@@ -9,6 +9,189 @@
     {
         public sealed class TheCtor
         {
+            public sealed class TheIdentifierArgument
+            {
+                [Fact]
+                public void Should_Throw_If_Identifier_Is_Null()
+                {
+                    // Given
+                    string identifier = null;
+                    var projectPath = @"src\foo.csproj";
+                    var projectName = "foo";
+                    var filePath = @"src\foo.cs";
+                    var line = 10;
+                    var column = 50;
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
+                    var priority = 1;
+                    var priorityName = "Warning";
+                    var rule = "Rule";
+                    var ruleUri = new Uri("https://google.com");
+                    var providerType = "ProviderType";
+                    var providerName = "ProviderName";
+                    var run = "Run";
+
+                    // When
+                    var result = Record.Exception(() =>
+                        new Issue(
+                            identifier,
+                            projectPath,
+                            projectName,
+                            filePath,
+                            line,
+                            column,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
+                            priority,
+                            priorityName,
+                            rule,
+                            ruleUri,
+                            run,
+                            providerType,
+                            providerName));
+
+                    // Then
+                    result.IsArgumentNullException("identifier");
+                }
+
+                [Fact]
+                public void Should_Throw_If_Identifier_Is_Empty()
+                {
+                    // Given
+                    var identifier = string.Empty;
+                    var projectPath = @"src\foo.csproj";
+                    var projectName = "foo";
+                    var filePath = @"src\foo.cs";
+                    var line = 10;
+                    var column = 50;
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
+                    var priority = 1;
+                    var priorityName = "Warning";
+                    var rule = "Rule";
+                    var ruleUri = new Uri("https://google.com");
+                    var providerType = "ProviderType";
+                    var providerName = "ProviderName";
+                    var run = "Run";
+
+                    // When
+                    var result = Record.Exception(() =>
+                        new Issue(
+                            identifier,
+                            projectPath,
+                            projectName,
+                            filePath,
+                            line,
+                            column,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
+                            priority,
+                            priorityName,
+                            rule,
+                            ruleUri,
+                            run,
+                            providerType,
+                            providerName));
+
+                    // Then
+                    result.IsArgumentOutOfRangeException("identifier");
+                }
+
+                [Fact]
+                public void Should_Throw_If_Identifier_Is_WhiteSpace()
+                {
+                    // Given
+                    var identifier = " ";
+                    var projectPath = @"src\foo.csproj";
+                    var projectName = "foo";
+                    var filePath = @"src\foo.cs";
+                    var line = 10;
+                    var column = 50;
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
+                    var priority = 1;
+                    var priorityName = "Warning";
+                    var rule = "Rule";
+                    var ruleUri = new Uri("https://google.com");
+                    var providerType = "ProviderType";
+                    var providerName = "ProviderName";
+                    var run = "Run";
+
+                    // When
+                    var result = Record.Exception(() =>
+                        new Issue(
+                            identifier,
+                            projectPath,
+                            projectName,
+                            filePath,
+                            line,
+                            column,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
+                            priority,
+                            priorityName,
+                            rule,
+                            ruleUri,
+                            run,
+                            providerType,
+                            providerName));
+
+                    // Then
+                    result.IsArgumentOutOfRangeException("identifier");
+                }
+
+                [Theory]
+                [InlineData("identifier")]
+                public void Should_Set_Identifier(string identifier)
+                {
+                    // Given
+                    var projectPath = @"src\foo.csproj";
+                    var projectName = "foo";
+                    var filePath = @"src\foo.cs";
+                    var line = 10;
+                    var column = 50;
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
+                    var priority = 1;
+                    var priorityName = "Warning";
+                    var rule = "Rule";
+                    var ruleUri = new Uri("https://google.com");
+                    var providerType = "ProviderType";
+                    var providerName = "ProviderName";
+                    var run = "Run";
+
+                    // When
+                    var issue =
+                        new Issue(
+                            identifier,
+                            projectPath,
+                            projectName,
+                            filePath,
+                            line,
+                            column,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
+                            priority,
+                            priorityName,
+                            rule,
+                            ruleUri,
+                            run,
+                            providerType,
+                            providerName);
+
+                    // Then
+                    issue.Identifier.ShouldBe(identifier);
+                }
+            }
+
             public sealed class TheProjectFileRelativePathArgument
             {
                 [Theory]
@@ -16,6 +199,7 @@
                 public void Should_Throw_If_Project_Path_Is_Invalid(string projectPath)
                 {
                     // Given
+                    var identifier = "identifier";
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 100;
@@ -34,6 +218,7 @@
                     // When
                     var result = Record.Exception(() =>
                         new Issue(
+                            identifier,
                             projectPath,
                             projectName,
                             filePath,
@@ -61,6 +246,7 @@
                 public void Should_Throw_If_File_Path_Is_Absolute(string projectPath)
                 {
                     // Given
+                    var identifier = "identifier";
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 100;
@@ -79,6 +265,7 @@
                     // When
                     var result = Record.Exception(() =>
                         new Issue(
+                            identifier,
                             projectPath,
                             projectName,
                             filePath,
@@ -103,6 +290,7 @@
                 public void Should_Handle_Project_Paths_Which_Are_Null()
                 {
                     // Given
+                    var identifier = "identifier";
                     string projectPath = null;
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
@@ -122,6 +310,7 @@
                     // When
                     var issue =
                         new Issue(
+                            identifier,
                             projectPath,
                             projectName,
                             filePath,
@@ -146,6 +335,7 @@
                 public void Should_Handle_Project_Paths_Which_Are_Empty()
                 {
                     // Given
+                    var identifier = "identifier";
                     var projectPath = string.Empty;
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
@@ -165,6 +355,7 @@
                     // When
                     var issue =
                         new Issue(
+                            identifier,
                             projectPath,
                             projectName,
                             filePath,
@@ -189,6 +380,7 @@
                 public void Should_Handle_Project_Paths_Which_Are_WhiteSpace()
                 {
                     // Given
+                    var identifier = "identifier";
                     var projectPath = " ";
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
@@ -208,6 +400,7 @@
                     // When
                     var issue =
                         new Issue(
+                            identifier,
                             projectPath,
                             projectName,
                             filePath,
@@ -233,6 +426,7 @@
                 public void Should_Set_ProjectFileRelativePath(string projectPath)
                 {
                     // Given
+                    var identifier = "identifier";
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
@@ -251,6 +445,7 @@
                     // When
                     var issue =
                         new Issue(
+                            identifier,
                             projectPath,
                             projectName,
                             filePath,
@@ -278,6 +473,7 @@
                 public void Should_Handle_Projects_Which_Are_Null()
                 {
                     // Given
+                    var identifier = "identifier";
                     var projectPath = @"src\foo.csproj";
                     string projectName = null;
                     var filePath = @"src\foo.cs";
@@ -297,6 +493,7 @@
                     // When
                     var issue =
                         new Issue(
+                            identifier,
                             projectPath,
                             projectName,
                             filePath,
@@ -321,6 +518,7 @@
                 public void Should_Handle_Projects_Which_Are_Empty()
                 {
                     // Given
+                    var identifier = "identifier";
                     var projectPath = @"src\foo.csproj";
                     var projectName = string.Empty;
                     var filePath = @"src\foo.cs";
@@ -340,6 +538,7 @@
                     // When
                     var issue =
                         new Issue(
+                            identifier,
                             projectPath,
                             projectName,
                             filePath,
@@ -364,6 +563,7 @@
                 public void Should_Handle_Projects_Which_Are_WhiteSpace()
                 {
                     // Given
+                    var identifier = "identifier";
                     var projectPath = @"src\foo.csproj";
                     var projectName = " ";
                     var filePath = @"src\foo.cs";
@@ -383,6 +583,7 @@
                     // When
                     var issue =
                         new Issue(
+                            identifier,
                             projectPath,
                             projectName,
                             filePath,
@@ -408,6 +609,7 @@
                 public void Should_Set_ProjectName(string projectName)
                 {
                     // Given
+                    var identifier = "identifier";
                     var projectPath = @"src\foo.csproj";
                     var filePath = @"src\foo.cs";
                     var line = 10;
@@ -426,6 +628,7 @@
                     // When
                     var issue =
                         new Issue(
+                            identifier,
                             projectPath,
                             projectName,
                             filePath,
@@ -454,6 +657,7 @@
                 public void Should_Throw_If_File_Path_Is_Invalid(string filePath)
                 {
                     // Given
+                    var identifier = "identifier";
                     var projectPath = @"src\foo.csproj";
                     var projectName = "foo";
                     var line = 100;
@@ -472,6 +676,7 @@
                     // When
                     var result = Record.Exception(() =>
                         new Issue(
+                            identifier,
                             projectPath,
                             projectName,
                             filePath,
@@ -499,6 +704,7 @@
                 public void Should_Throw_If_File_Path_Is_Absolute(string filePath)
                 {
                     // Given
+                    var identifier = "identifier";
                     var projectPath = @"src\foo.csproj";
                     var projectName = "foo";
                     var line = 100;
@@ -517,6 +723,7 @@
                     // When
                     var result = Record.Exception(() =>
                         new Issue(
+                            identifier,
                             projectPath,
                             projectName,
                             filePath,
@@ -541,6 +748,7 @@
                 public void Should_Handle_File_Paths_Which_Are_Null()
                 {
                     // Given
+                    var identifier = "identifier";
                     var projectPath = @"src\foo.csproj";
                     var projectName = "foo";
                     string filePath = null;
@@ -560,6 +768,7 @@
                     // When
                     var issue =
                         new Issue(
+                            identifier,
                             projectPath,
                             projectName,
                             filePath,
@@ -584,6 +793,7 @@
                 public void Should_Handle_File_Paths_Which_Are_Empty()
                 {
                     // Given
+                    var identifier = "identifier";
                     var projectPath = @"src\foo.csproj";
                     var projectName = "foo";
                     var filePath = string.Empty;
@@ -603,6 +813,7 @@
                     // When
                     var issue =
                         new Issue(
+                            identifier,
                             projectPath,
                             projectName,
                             filePath,
@@ -627,6 +838,7 @@
                 public void Should_Handle_File_Paths_Which_Are_WhiteSpace()
                 {
                     // Given
+                    var identifier = "identifier";
                     var projectPath = @"src\foo.csproj";
                     var projectName = "foo";
                     var filePath = " ";
@@ -646,6 +858,7 @@
                     // When
                     var issue =
                         new Issue(
+                            identifier,
                             projectPath,
                             projectName,
                             filePath,
@@ -679,6 +892,7 @@
                 public void Should_Set_File_Path(string filePath, string expectedFilePath)
                 {
                     // Given
+                    var identifier = "identifier";
                     var projectPath = @"src\foo.csproj";
                     var projectName = "foo";
                     var line = 10;
@@ -697,6 +911,7 @@
                     // When
                     var issue =
                         new Issue(
+                            identifier,
                             projectPath,
                             projectName,
                             filePath,
@@ -725,6 +940,7 @@
                 public void Should_Throw_If_Line_Is_Negative()
                 {
                     // Given
+                    var identifier = "identifier";
                     var projectPath = @"src\foo.csproj";
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
@@ -744,6 +960,7 @@
                     // When
                     var result = Record.Exception(() =>
                         new Issue(
+                            identifier,
                             projectPath,
                             projectName,
                             filePath,
@@ -768,6 +985,7 @@
                 public void Should_Throw_If_Line_Is_Zero()
                 {
                     // Given
+                    var identifier = "identifier";
                     var projectPath = @"src\foo.csproj";
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
@@ -787,6 +1005,7 @@
                     // When
                     var result = Record.Exception(() =>
                         new Issue(
+                            identifier,
                             projectPath,
                             projectName,
                             filePath,
@@ -811,6 +1030,7 @@
                 public void Should_Throw_If_Line_Is_Set_But_No_File()
                 {
                     // Given
+                    var identifier = "identifier";
                     var projectPath = @"src\foo.csproj";
                     var projectName = "foo";
                     string filePath = null;
@@ -830,6 +1050,7 @@
                     // When
                     var result = Record.Exception(() =>
                         new Issue(
+                            identifier,
                             projectPath,
                             projectName,
                             filePath,
@@ -854,6 +1075,7 @@
                 public void Should_Handle_Line_Which_Is_Null()
                 {
                     // Given
+                    var identifier = "identifier";
                     var projectPath = @"src\foo.csproj";
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
@@ -873,6 +1095,7 @@
                     // When
                     var issue =
                         new Issue(
+                            identifier,
                             projectPath,
                             projectName,
                             filePath,
@@ -899,6 +1122,7 @@
                 public void Should_Set_Line(int line)
                 {
                     // Given
+                    var identifier = "identifier";
                     var projectPath = @"src\foo.csproj";
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
@@ -917,6 +1141,7 @@
                     // When
                     var issue =
                         new Issue(
+                            identifier,
                             projectPath,
                             projectName,
                             filePath,
@@ -944,6 +1169,7 @@
                 public void Should_Throw_If_Column_Is_Negative()
                 {
                     // Given
+                    var identifier = "identifier";
                     var projectPath = @"src\foo.csproj";
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
@@ -963,6 +1189,7 @@
                     // When
                     var result = Record.Exception(() =>
                         new Issue(
+                            identifier,
                             projectPath,
                             projectName,
                             filePath,
@@ -987,6 +1214,7 @@
                 public void Should_Throw_If_Column_Is_Zero()
                 {
                     // Given
+                    var identifier = "identifier";
                     var projectPath = @"src\foo.csproj";
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
@@ -1006,6 +1234,7 @@
                     // When
                     var result = Record.Exception(() =>
                         new Issue(
+                            identifier,
                             projectPath,
                             projectName,
                             filePath,
@@ -1030,6 +1259,7 @@
                 public void Should_Throw_If_Column_Is_Set_But_No_Line()
                 {
                     // Given
+                    var identifier = "identifier";
                     var projectPath = @"src\foo.csproj";
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
@@ -1049,6 +1279,7 @@
                     // When
                     var result = Record.Exception(() =>
                         new Issue(
+                            identifier,
                             projectPath,
                             projectName,
                             filePath,
@@ -1076,6 +1307,7 @@
                 public void Should_Set_Column(int? column)
                 {
                     // Given
+                    var identifier = "identifier";
                     var projectPath = @"src\foo.csproj";
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
@@ -1094,6 +1326,7 @@
                     // When
                     var issue =
                         new Issue(
+                            identifier,
                             projectPath,
                             projectName,
                             filePath,
@@ -1121,6 +1354,7 @@
                 public void Should_Throw_If_MessageText_Is_Null()
                 {
                     // Given
+                    var identifier = "identifier";
                     var projectPath = @"src\foo.csproj";
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
@@ -1140,6 +1374,7 @@
                     // When
                     var result = Record.Exception(() =>
                         new Issue(
+                            identifier,
                             projectPath,
                             projectName,
                             filePath,
@@ -1164,6 +1399,7 @@
                 public void Should_Throw_If_MessageText_Is_Empty()
                 {
                     // Given
+                    var identifier = "identifier";
                     var projectPath = @"src\foo.csproj";
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
@@ -1183,6 +1419,7 @@
                     // When
                     var result = Record.Exception(() =>
                         new Issue(
+                            identifier,
                             projectPath,
                             projectName,
                             filePath,
@@ -1207,6 +1444,7 @@
                 public void Should_Throw_If_MessageText_Is_WhiteSpace()
                 {
                     // Given
+                    var identifier = "identifier";
                     var projectPath = @"src\foo.csproj";
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
@@ -1226,6 +1464,7 @@
                     // When
                     var result = Record.Exception(() =>
                         new Issue(
+                            identifier,
                             projectPath,
                             projectName,
                             filePath,
@@ -1251,6 +1490,7 @@
                 public void Should_Set_MessageText(string messageText)
                 {
                     // Given
+                    var identifier = "identifier";
                     var projectPath = @"src\foo.csproj";
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
@@ -1269,6 +1509,7 @@
                     // When
                     var issue =
                         new Issue(
+                            identifier,
                             projectPath,
                             projectName,
                             filePath,
@@ -1300,6 +1541,7 @@
                 public void Should_Set_MessageHtml(string messageHtml)
                 {
                     // Given
+                    var identifier = "identifier";
                     var projectPath = @"src\foo.csproj";
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
@@ -1318,6 +1560,7 @@
                     // When
                     var issue =
                         new Issue(
+                            identifier,
                             projectPath,
                             projectName,
                             filePath,
@@ -1349,6 +1592,7 @@
                 public void Should_Set_MessageHtml(string messageMarkdown)
                 {
                     // Given
+                    var identifier = "identifier";
                     var projectPath = @"src\foo.csproj";
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
@@ -1367,6 +1611,7 @@
                     // When
                     var issue =
                         new Issue(
+                            identifier,
                             projectPath,
                             projectName,
                             filePath,
@@ -1400,6 +1645,7 @@
                 public void Should_Set_Priority(int? priority)
                 {
                     // Given
+                    var identifier = "identifier";
                     var projectPath = @"src\foo.csproj";
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
@@ -1418,6 +1664,7 @@
                     // When
                     var issue =
                         new Issue(
+                            identifier,
                             projectPath,
                             projectName,
                             filePath,
@@ -1445,6 +1692,7 @@
                 public void Should_Handle_PriorityNames_Which_Are_Null()
                 {
                     // Given
+                    var identifier = "identifier";
                     var projectPath = @"src\foo.csproj";
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
@@ -1464,6 +1712,7 @@
                     // When
                     var issue =
                         new Issue(
+                            identifier,
                             projectPath,
                             projectName,
                             filePath,
@@ -1488,6 +1737,7 @@
                 public void Should_Handle_PriorityNames_Which_Are_Empty()
                 {
                     // Given
+                    var identifier = "identifier";
                     var projectPath = @"src\foo.csproj";
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
@@ -1507,6 +1757,7 @@
                     // When
                     var issue =
                         new Issue(
+                            identifier,
                             projectPath,
                             projectName,
                             filePath,
@@ -1531,6 +1782,7 @@
                 public void Should_Handle_PriorityNames_Which_Are_WhiteSpace()
                 {
                     // Given
+                    var identifier = "identifier";
                     var projectPath = @"src\foo.csproj";
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
@@ -1550,6 +1802,7 @@
                     // When
                     var issue =
                         new Issue(
+                            identifier,
                             projectPath,
                             projectName,
                             filePath,
@@ -1575,6 +1828,7 @@
                 public void Should_Set_Priority_Name(string priorityName)
                 {
                     // Given
+                    var identifier = "identifier";
                     var projectPath = @"src\foo.csproj";
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
@@ -1593,6 +1847,7 @@
                     // When
                     var issue =
                         new Issue(
+                            identifier,
                             projectPath,
                             projectName,
                             filePath,
@@ -1623,6 +1878,7 @@
                 public void Should_Set_Rule(string rule)
                 {
                     // Given
+                    var identifier = "identifier";
                     var projectPath = @"src\foo.csproj";
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
@@ -1641,6 +1897,7 @@
                     // When
                     var issue =
                         new Issue(
+                            identifier,
                             projectPath,
                             projectName,
                             filePath,
@@ -1668,6 +1925,7 @@
                 public void Should_Set_Rule_Url()
                 {
                     // Given
+                    var identifier = "identifier";
                     var projectPath = @"src\foo.csproj";
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
@@ -1687,6 +1945,7 @@
                     // When
                     var issue =
                         new Issue(
+                            identifier,
                             projectPath,
                             projectName,
                             filePath,
@@ -1711,6 +1970,7 @@
                 public void Should_Set_Rule_Url_If_Null()
                 {
                     // Given
+                    var identifier = "identifier";
                     var projectPath = @"src\foo.csproj";
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
@@ -1730,6 +1990,7 @@
                     // When
                     var issue =
                         new Issue(
+                            identifier,
                             projectPath,
                             projectName,
                             filePath,
@@ -1760,6 +2021,7 @@
                 public void Should_Set_Run(string run)
                 {
                     // Given
+                    var identifier = "identifier";
                     var projectPath = @"src\foo.csproj";
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
@@ -1778,6 +2040,7 @@
                     // When
                     var issue =
                         new Issue(
+                            identifier,
                             projectPath,
                             projectName,
                             filePath,
@@ -1805,6 +2068,7 @@
                 public void Should_Throw_If_Provider_Type_Is_Null()
                 {
                     // Given
+                    var identifier = "identifier";
                     var projectPath = @"src\foo.csproj";
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
@@ -1824,6 +2088,7 @@
                     // When
                     var result = Record.Exception(() =>
                         new Issue(
+                            identifier,
                             projectPath,
                             projectName,
                             filePath,
@@ -1848,6 +2113,7 @@
                 public void Should_Throw_If_Provider_Type_Is_Empty()
                 {
                     // Given
+                    var identifier = "identifier";
                     var projectPath = @"src\foo.csproj";
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
@@ -1867,6 +2133,7 @@
                     // When
                     var result = Record.Exception(() =>
                         new Issue(
+                            identifier,
                             projectPath,
                             projectName,
                             filePath,
@@ -1891,6 +2158,7 @@
                 public void Should_Throw_If_Provider_Type_Is_WhiteSpace()
                 {
                     // Given
+                    var identifier = "identifier";
                     var projectPath = @"src\foo.csproj";
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
@@ -1910,6 +2178,7 @@
                     // When
                     var result = Record.Exception(() =>
                         new Issue(
+                            identifier,
                             projectPath,
                             projectName,
                             filePath,
@@ -1935,6 +2204,7 @@
                 public void Should_Set_ProviderType(string providerType)
                 {
                     // Given
+                    var identifier = "identifier";
                     var projectPath = @"src\foo.csproj";
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
@@ -1953,6 +2223,7 @@
                     // When
                     var issue =
                         new Issue(
+                            identifier,
                             projectPath,
                             projectName,
                             filePath,
@@ -1980,6 +2251,7 @@
                 public void Should_Throw_If_Provider_Name_Is_Null()
                 {
                     // Given
+                    var identifier = "identifier";
                     var projectPath = @"src\foo.csproj";
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
@@ -1999,6 +2271,7 @@
                     // When
                     var result = Record.Exception(() =>
                         new Issue(
+                            identifier,
                             projectPath,
                             projectName,
                             filePath,
@@ -2023,6 +2296,7 @@
                 public void Should_Throw_If_Provider_Name_Is_Empty()
                 {
                     // Given
+                    var identifier = "identifier";
                     var projectPath = @"src\foo.csproj";
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
@@ -2042,6 +2316,7 @@
                     // When
                     var result = Record.Exception(() =>
                         new Issue(
+                            identifier,
                             projectPath,
                             projectName,
                             filePath,
@@ -2066,6 +2341,7 @@
                 public void Should_Throw_If_Provider_Name_Is_WhiteSpace()
                 {
                     // Given
+                    var identifier = "identifier";
                     var projectPath = @"src\foo.csproj";
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
@@ -2085,6 +2361,7 @@
                     // When
                     var result = Record.Exception(() =>
                         new Issue(
+                            identifier,
                             projectPath,
                             projectName,
                             filePath,
@@ -2110,6 +2387,7 @@
                 public void Should_Set_ProviderName(string providerName)
                 {
                     // Given
+                    var identifier = "identifier";
                     var projectPath = @"src\foo.csproj";
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
@@ -2128,6 +2406,7 @@
                     // When
                     var issue =
                         new Issue(
+                            identifier,
                             projectPath,
                             projectName,
                             filePath,

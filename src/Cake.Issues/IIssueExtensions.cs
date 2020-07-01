@@ -108,6 +108,10 @@
         ///         <description>The value of <see cref="IIssue.ProviderName"/>.</description>
         ///     </item>
         ///     <item>
+        ///         <term>{Identifier}</term>
+        ///         <description>The value of <see cref="IIssue.Identifier"/>.</description>
+        ///     </item>
+        ///     <item>
         ///         <term>{Priority}</term>
         ///         <description>The value of <see cref="IIssue.Priority"/>.</description>
         ///     </item>
@@ -186,6 +190,7 @@
                 pattern
                     .Replace("{ProviderType}", issue.ProviderType)
                     .Replace("{ProviderName}", issue.ProviderName)
+                    .Replace("{Identifier}", issue.Identifier)
                     .Replace("{Priority}", issue.Priority?.ToString())
                     .Replace("{PriorityName}", issue.PriorityName)
                     .Replace("{ProjectPath}", issue.ProjectPath())

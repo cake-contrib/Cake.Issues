@@ -298,6 +298,7 @@
             [InlineData("foo {ProviderType} bar", "foo ProviderType Foo bar")]
             [InlineData("foo {ProviderName} bar", "foo ProviderName Foo bar")]
             [InlineData("foo {Run} bar", "foo Run bar")]
+            [InlineData("foo {Identifier} bar", "foo Identifier Foo bar")]
             [InlineData("foo {Priority} bar", "foo 400 bar")]
             [InlineData("foo {PriorityName} bar", "foo Error bar")]
             [InlineData("foo {ProjectPath} bar", "foo src/Cake.Issues/Cake.Issues.csproj bar")]
@@ -318,7 +319,7 @@
                 // Given
                 var issue =
                     IssueBuilder
-                        .NewIssue("MessageText Foo", "ProviderType Foo", "ProviderName Foo")
+                        .NewIssue("Identifier Foo", "MessageText Foo", "ProviderType Foo", "ProviderName Foo")
                         .ForRun("Run")
                         .WithMessageInHtmlFormat("MessageHtml Foo")
                         .WithMessageInMarkdownFormat("MessageMarkdown Foo")

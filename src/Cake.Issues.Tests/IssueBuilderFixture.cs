@@ -3,14 +3,14 @@
     internal class IssueBuilderFixture
     {
         public IssueBuilderFixture()
-            : this("Message", "ProviderType", "ProviderName")
+            : this("Identifier", "Message", "ProviderType", "ProviderName")
         {
         }
 
-        public IssueBuilderFixture(string messageText, string providerType, string providerName)
+        public IssueBuilderFixture(string identifier, string messageText, string providerType, string providerName)
         {
             this.IssueBuilder =
-                IssueBuilder.NewIssue(messageText, providerType, providerName);
+                IssueBuilder.NewIssue(identifier, messageText, providerType, providerName);
         }
 
         public IssueBuilder IssueBuilder { get; private set; }

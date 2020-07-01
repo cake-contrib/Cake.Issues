@@ -80,6 +80,7 @@
 
             return new SerializableIssueV3
             {
+                Identifier = issue.Identifier,
                 ProjectFileRelativePath = issue.ProjectFileRelativePath?.FullPath,
                 ProjectName = issue.ProjectName,
                 AffectedFileRelativePath = issue.AffectedFileRelativePath?.FullPath,
