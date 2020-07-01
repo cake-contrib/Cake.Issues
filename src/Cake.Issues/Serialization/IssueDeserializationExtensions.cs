@@ -123,15 +123,12 @@
             if (data.ContainsKey("Version"))
             {
                 var version = (int)data["Version"];
-                switch (version)
+                return version switch
                 {
-                    case 2:
-                        return JsonMapper.ToObject<SerializableIssueV2>(data.ToJson()).ToIssue();
-                    case 3:
-                        return JsonMapper.ToObject<SerializableIssueV3>(data.ToJson()).ToIssue();
-                    default:
-                        throw new Exception($"Not supported issue serialization format {version}");
-                }
+                    2 => JsonMapper.ToObject<SerializableIssueV2>(data.ToJson()).ToIssue(),
+                    3 => JsonMapper.ToObject<SerializableIssueV3>(data.ToJson()).ToIssue(),
+                    _ => throw new Exception($"Not supported issue serialization format {version}"),
+                };
             }
             else
             {

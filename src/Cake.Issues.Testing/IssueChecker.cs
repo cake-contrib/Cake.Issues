@@ -126,7 +126,7 @@
                 if (issue.ProjectFileRelativePath.ToString() != new FilePath(projectFileRelativePath).ToString())
                 {
                     throw new Exception(
-                        $"Expected issue.ProjectFileRelativePath to be '{projectFileRelativePath}' but was '{issue.ProjectFileRelativePath.ToString()}'.");
+                        $"Expected issue.ProjectFileRelativePath to be '{projectFileRelativePath}' but was '{issue.ProjectFileRelativePath}'.");
                 }
 
                 if (!issue.ProjectFileRelativePath.IsRelative)
@@ -155,7 +155,7 @@
                 if (issue.AffectedFileRelativePath.ToString() != new FilePath(affectedFileRelativePath).ToString())
                 {
                     throw new Exception(
-                        $"Expected issue.AffectedFileRelativePath to be '{affectedFileRelativePath}' but was '{issue.AffectedFileRelativePath.ToString()}'.");
+                        $"Expected issue.AffectedFileRelativePath to be '{affectedFileRelativePath}' but was '{issue.AffectedFileRelativePath}'.");
                 }
 
                 if (!issue.AffectedFileRelativePath.IsRelative)

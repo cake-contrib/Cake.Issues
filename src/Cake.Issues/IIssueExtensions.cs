@@ -20,17 +20,13 @@
         {
             issue.NotNull(nameof(issue));
 
-            switch (format)
+            return format switch
             {
-                case IssueCommentFormat.PlainText:
-                    return issue.MessageText;
-                case IssueCommentFormat.Html:
-                    return !string.IsNullOrEmpty(issue.MessageHtml) ? issue.MessageHtml : issue.MessageText;
-                case IssueCommentFormat.Markdown:
-                    return !string.IsNullOrEmpty(issue.MessageMarkdown) ? issue.MessageMarkdown : issue.MessageText;
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(format));
-            }
+                IssueCommentFormat.PlainText => issue.MessageText,
+                IssueCommentFormat.Html => !string.IsNullOrEmpty(issue.MessageHtml) ? issue.MessageHtml : issue.MessageText,
+                IssueCommentFormat.Markdown => !string.IsNullOrEmpty(issue.MessageMarkdown) ? issue.MessageMarkdown : issue.MessageText,
+                _ => throw new ArgumentOutOfRangeException(nameof(format)),
+            };
         }
 
         /// <summary>
