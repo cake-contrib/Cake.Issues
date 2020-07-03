@@ -358,6 +358,25 @@
             }
 
             [Fact]
+            public void Should_Return_False_If_Run_Is_Different()
+            {
+                // Given
+                var issue1 =
+                    IssueBuilder
+                        .NewIssue("message", "providerType", "providerName")
+                        .ForRun("run1")
+                        .Create();
+                var issue2 =
+                    IssueBuilder
+                        .NewIssue("message", "providerType", "providerName")
+                        .ForRun("run2")
+                        .Create();
+
+                // When / Then
+                CompareIssues(issue1, issue2, false);
+            }
+
+            [Fact]
             public void Should_Return_True_If_Same_Reference()
             {
                 // Given
@@ -712,6 +731,25 @@
             }
 
             [Fact]
+            public void Should_Return_True_If_Run_Is_Same()
+            {
+                // Given
+                var issue1 =
+                    IssueBuilder
+                        .NewIssue("message", "providerType", "providerName")
+                        .ForRun("run")
+                        .Create();
+                var issue2 =
+                    IssueBuilder
+                        .NewIssue("message", "providerType", "providerName")
+                        .ForRun("run")
+                        .Create();
+
+                // When / Then
+                CompareIssues(issue1, issue2, true);
+            }
+
+            [Fact]
             public void Should_Remove_Identical_Issues_From_List_Of_Issues()
             {
                 // Given
@@ -1009,6 +1047,25 @@
                 var issue2 =
                     IssueBuilder
                         .NewIssue("message", "providerType", "providerName2")
+                        .Create();
+
+                // When / Then
+                CompareIssues(issue1, issue2, false);
+            }
+
+            [Fact]
+            public void Should_Return_False_If_Run_Is_Different()
+            {
+                // Given
+                var issue1 =
+                    IssueBuilder
+                        .NewIssue("message", "providerType", "providerName")
+                        .ForRun("run1")
+                        .Create();
+                var issue2 =
+                    IssueBuilder
+                        .NewIssue("message", "providerType", "providerName")
+                        .ForRun("run2")
                         .Create();
 
                 // When / Then
@@ -1457,6 +1514,25 @@
                 var issue2 =
                     IssueBuilder
                         .NewIssue("message", "providerType", "providerName")
+                        .Create();
+
+                // When / Then
+                CompareIssues(issue1, issue2, true);
+            }
+
+            [Fact]
+            public void Should_Return_True_If_Run_Is_Same()
+            {
+                // Given
+                var issue1 =
+                    IssueBuilder
+                        .NewIssue("message", "providerType", "providerName")
+                        .ForRun("run")
+                        .Create();
+                var issue2 =
+                    IssueBuilder
+                        .NewIssue("message", "providerType", "providerName")
+                        .ForRun("run")
                         .Create();
 
                 // When / Then

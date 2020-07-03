@@ -41,6 +41,7 @@
                 issueToCheck,
                 expectedIssue.ProviderType,
                 expectedIssue.ProviderName,
+                expectedIssue.Run,
                 expectedIssue.ProjectFileRelativePath?.ToString(),
                 expectedIssue.ProjectName,
                 expectedIssue.AffectedFileRelativePath?.ToString(),
@@ -61,6 +62,7 @@
         /// <param name="issue">Issue which should be checked.</param>
         /// <param name="providerType">Expected type of the issue provider.</param>
         /// <param name="providerName">Expected human friendly name of the issue provider.</param>
+        /// <param name="run">Expected name of the run which reported the issue.</param>
         /// <param name="projectFileRelativePath">Expected relative path of the project file.
         /// <c>null</c> if the issue is not expected to be related to a project.</param>
         /// <param name="projectName">Expected project name.
@@ -86,6 +88,7 @@
             IIssue issue,
             string providerType,
             string providerName,
+            string run,
             string projectFileRelativePath,
             string projectName,
             string affectedFileRelativePath,
@@ -111,6 +114,12 @@
             {
                 throw new Exception(
                     $"Expected issue.ProviderName to be '{providerName}' but was '{issue.ProviderName}'.");
+            }
+
+            if (issue.Run != run)
+            {
+                throw new Exception(
+                    $"Expected issue.Run to be '{run}' but was '{issue.Run}'.");
             }
 
             if (issue.ProjectFileRelativePath == null)

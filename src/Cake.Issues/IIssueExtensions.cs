@@ -156,6 +156,10 @@
         ///         <description>The value of <see cref="IIssue.RuleUrl"/>.</description>
         ///     </item>
         ///     <item>
+        ///         <term>{Run}</term>
+        ///         <description>The value of <see cref="IIssue.Run"/>.</description>
+        ///     </item>
+        ///     <item>
         ///         <term>{MessageText}</term>
         ///         <description>The value of <see cref="IIssue.MessageText"/>.</description>
         ///     </item>
@@ -194,6 +198,7 @@
                     .Replace("{Column}", issue.Column?.ToString())
                     .Replace("{Rule}", issue.Rule)
                     .Replace("{RuleUrl}", issue.RuleUrl?.ToString())
+                    .Replace("{Run}", issue.Run)
                     .Replace("{MessageText}", issue.Message(IssueCommentFormat.PlainText))
                     .Replace("{MessageHtml}", issue.Message(IssueCommentFormat.Html))
                     .Replace("{MessageMarkdown}", issue.Message(IssueCommentFormat.Markdown));

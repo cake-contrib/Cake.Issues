@@ -288,6 +288,49 @@
                 issues.ShouldContain(issue3);
                 issues.ShouldContain(issue4);
             }
+
+            [Fact]
+            public void Should_Set_Run_Property()
+            {
+                // Given
+                var issue1 =
+                    IssueBuilder
+                        .NewIssue("Foo", "ProviderTypeFoo", "ProviderNameFoo")
+                        .InFile(@"src\Cake.Issues.Tests\FakeIssueProvider.cs", 10)
+                        .OfRule("Foo")
+                        .WithPriority(IssuePriority.Warning)
+                        .Create();
+                var issue2 =
+                    IssueBuilder
+                        .NewIssue("Bar", "ProviderTypeBar", "ProviderNameBar")
+                        .InFile(@"src\Cake.Issues.Tests\FakeIssueProvider.cs", 12)
+                        .OfRule("Bar")
+                        .WithPriority(IssuePriority.Warning)
+                        .Create();
+                var fixture = new IssuesFixture();
+                fixture.IssueProviders.Clear();
+                fixture.IssueProviders.Add(
+                    new FakeIssueProvider(
+                        fixture.Log,
+                        new List<IIssue>
+                        {
+                            issue1,
+                            issue2,
+                        }));
+                var run = "Run";
+                fixture.Settings.Run = run;
+
+                // When
+                var issues = fixture.ReadIssues().ToList();
+
+                // Then
+                issues.Count.ShouldBe(2);
+                issues.ShouldContain(issue1);
+                issue1.Run.ShouldBe(run);
+                issues.ShouldContain(issue2);
+                issue2.Run.ShouldBe(run);
+            }
+
         }
     }
 }

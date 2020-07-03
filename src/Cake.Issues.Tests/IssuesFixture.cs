@@ -20,7 +20,7 @@
 
         public IList<FakeIssueProvider> IssueProviders { get; set; }
 
-        public RepositorySettings Settings { get; set; }
+        public ReadIssuesSettings Settings { get; set; }
 
         public IEnumerable<IIssue> ReadIssues()
         {

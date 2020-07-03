@@ -145,6 +145,7 @@
                         "Something went wrong.",
                         "TestProvider",
                         "Test Provider")
+                        .ForRun("TestRun")
                         .WithMessageInHtmlFormat("Something went <b>wrong</b>.")
                         .WithMessageInMarkdownFormat("Something went **wrong**.")
                         .InProject(@"src\Foo\Bar.csproj", "Bar")
