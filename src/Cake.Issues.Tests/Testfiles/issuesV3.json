@@ -1,6 +1,7 @@
 [
   {
     "Version": 3,
+    "Identifier": "Identifier1",
     "AffectedFileRelativePath": "src\/Foo\/Bar.cs",
     "Line": 42,
     "Column": 23,
@@ -18,6 +19,7 @@
   },
   {
     "Version": 3,
+    "Identifier": "Identifier2",
     "AffectedFileRelativePath": "src\/Foo\/Bar2.cs",
     "Line": null,
     "Column": null,

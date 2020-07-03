@@ -62,6 +62,7 @@
             }
 
             return
+                (x.Identifier == y.Identifier) &&
                 (this.compareOnlyPersistentProperties || x.ProjectFileRelativePath?.FullPath == y.ProjectFileRelativePath?.FullPath) &&
                 (x.ProjectName == y.ProjectName) &&
                 (this.compareOnlyPersistentProperties || x.AffectedFileRelativePath?.FullPath == y.AffectedFileRelativePath?.FullPath) &&
@@ -91,6 +92,7 @@
             {
                 return
                     GetHashCode(
+                        obj.Identifier,
                         obj.ProjectName,
                         obj.MessageText,
                         obj.MessageHtml,
@@ -107,6 +109,7 @@
             {
                 return
                     GetHashCode(
+                        obj.Identifier,
                         obj.ProjectFileRelativePath?.ToString(),
                         obj.ProjectName,
                         obj.AffectedFileRelativePath?.ToString(),

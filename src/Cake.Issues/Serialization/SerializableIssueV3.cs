@@ -20,6 +20,10 @@
             }
         }
 
+        /// <inheritdoc cref="IIssue.Identifier" />
+        [DataMember]
+        public string Identifier { get; set; }
+
         /// <inheritdoc cref="IIssue.ProjectFileRelativePath" />
         [DataMember]
         public string ProjectFileRelativePath { get; set; }

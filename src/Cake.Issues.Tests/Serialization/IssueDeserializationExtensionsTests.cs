@@ -142,6 +142,7 @@
                 IssueChecker.Check(
                     result,
                     IssueBuilder.NewIssue(
+                        "Identifier",
                         "Something went wrong.",
                         "TestProvider",
                         "Test Provider")
@@ -265,6 +266,7 @@
                 IssueChecker.Check(
                     result[0],
                     IssueBuilder.NewIssue(
+                        "Identifier1",
                         "Something went wrong.",
                         "TestProvider",
                         "Test Provider")
@@ -277,6 +279,7 @@
                 IssueChecker.Check(
                     result[1],
                     IssueBuilder.NewIssue(
+                        "Identifier2",
                         "Something went wrong again.",
                         "TestProvider",
                         "Test Provider")

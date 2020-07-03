@@ -9,6 +9,12 @@
     public interface IIssue
     {
         /// <summary>
+        /// Gets the identifier for the message.
+        /// The identifier can be used to identify the same issue across multiple runs.
+        /// </summary>
+        string Identifier { get;  }
+
+        /// <summary>
         /// Gets the path to the project to which the file affected by the issue belongs.
         /// The path is relative to the repository root.
         /// Can be <c>null</c> if issue is not related to a project.

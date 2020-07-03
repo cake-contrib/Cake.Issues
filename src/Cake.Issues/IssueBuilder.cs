@@ -7,6 +7,7 @@
     /// </summary>
     public class IssueBuilder
     {
+        private readonly string identifier;
         private readonly string providerType;
         private readonly string providerName;
         private readonly string messageText;
@@ -26,44 +27,36 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="IssueBuilder"/> class.
         /// </summary>
+        /// <param name="identifier">The identifier of the message.</param>
         /// <param name="message">The message of the issue in plain text format.</param>
         /// <param name="providerType">The type of the issue provider.</param>
         /// <param name="providerName">The human friendly name of the issue provider.</param>
         private IssueBuilder(
+            string identifier,
             string message,
             string providerType,
             string providerName)
         {
+#pragma warning disable SA1123 // Do not place regions within elements
+            #region DupFinder Exclusion
+#pragma warning restore SA1123 // Do not place regions within elements
+
+            identifier.NotNullOrWhiteSpace(nameof(identifier));
             message.NotNullOrWhiteSpace(nameof(message));
             providerType.NotNullOrWhiteSpace(nameof(providerType));
             providerName.NotNullOrWhiteSpace(nameof(providerName));
 
+            #endregion
+
+            this.identifier = identifier;
             this.messageText = message;
             this.providerType = providerType;
             this.providerName = providerName;
         }
 
         /// <summary>
-        /// Initiates the creation of a new <see cref="IIssue"/>.
-        /// </summary>
-        /// <param name="message">The message of the issue in plain text format.</param>
-        /// <param name="providerType">The type of the issue provider.</param>
-        /// <param name="providerName">The human friendly name of the issue provider.</param>
-        /// <returns>Builder class for creating a new issue.</returns>
-        public static IssueBuilder NewIssue(
-            string message,
-            string providerType,
-            string providerName)
-        {
-            message.NotNullOrWhiteSpace(nameof(message));
-            providerType.NotNullOrWhiteSpace(nameof(providerType));
-            providerName.NotNullOrWhiteSpace(nameof(providerName));
-
-            return new IssueBuilder(message, providerType, providerName);
-        }
-
-        /// <summary>
-        /// Initiates the creation of a new <see cref="IIssue"/>.
+        /// Initiates the creation of a new <see cref="IIssue"/> with <paramref name="message"/>
+        /// as identifier.
         /// </summary>
         /// <typeparam name="T">Type of the issue provider which has the issue created.</typeparam>
         /// <param name="message">The message of the issue in plain text format.</param>
@@ -81,7 +74,78 @@
 
             message.NotNullOrWhiteSpace(nameof(message));
 
-            return new IssueBuilder(message, typeof(T).FullName, issueProvider.ProviderName);
+            return NewIssue(message, message, issueProvider);
+        }
+
+        /// <summary>
+        /// Initiates the creation of a new <see cref="IIssue"/>.
+        /// </summary>
+        /// <typeparam name="T">Type of the issue provider which has the issue created.</typeparam>
+        /// <param name="identifier">The identifier of the message.</param>
+        /// <param name="message">The message of the issue in plain text format.</param>
+        /// <param name="issueProvider">Issue provider which has the issue created.</param>
+        /// <returns>Builder class for creating a new issue.</returns>
+        public static IssueBuilder NewIssue<T>(
+            string identifier,
+            string message,
+            T issueProvider)
+            where T : IIssueProvider
+        {
+            if (issueProvider == null)
+            {
+                throw new ArgumentNullException(nameof(issueProvider));
+            }
+
+            message.NotNullOrWhiteSpace(nameof(message));
+
+            return NewIssue(identifier, message, typeof(T).FullName, issueProvider.ProviderName);
+        }
+
+        /// <summary>
+        /// Initiates the creation of a new <see cref="IIssue"/> with <paramref name="message"/> as identifier.
+        /// </summary>
+        /// <param name="message">The message of the issue in plain text format.</param>
+        /// <param name="providerType">The type of the issue provider.</param>
+        /// <param name="providerName">The human friendly name of the issue provider.</param>
+        /// <returns>Builder class for creating a new issue.</returns>
+        public static IssueBuilder NewIssue(
+            string message,
+            string providerType,
+            string providerName)
+        {
+            message.NotNullOrWhiteSpace(nameof(message));
+            providerType.NotNullOrWhiteSpace(nameof(providerType));
+            providerName.NotNullOrWhiteSpace(nameof(providerName));
+
+            return NewIssue(message, message, providerType, providerName);
+        }
+
+        /// <summary>
+        /// Initiates the creation of a new <see cref="IIssue"/>.
+        /// </summary>
+        /// <param name="identifier">The identifier of the message.</param>
+        /// <param name="message">The message of the issue in plain text format.</param>
+        /// <param name="providerType">The type of the issue provider.</param>
+        /// <param name="providerName">The human friendly name of the issue provider.</param>
+        /// <returns>Builder class for creating a new issue.</returns>
+        public static IssueBuilder NewIssue(
+            string identifier,
+            string message,
+            string providerType,
+            string providerName)
+        {
+#pragma warning disable SA1123 // Do not place regions within elements
+            #region DupFinder Exclusion
+#pragma warning restore SA1123 // Do not place regions within elements
+
+            identifier.NotNullOrWhiteSpace(nameof(identifier));
+            message.NotNullOrWhiteSpace(nameof(message));
+            providerType.NotNullOrWhiteSpace(nameof(providerType));
+            providerName.NotNullOrWhiteSpace(nameof(providerName));
+
+            #endregion
+
+            return new IssueBuilder(identifier, message, providerType, providerName);
         }
 
         /// <summary>
@@ -287,6 +351,7 @@
         {
             return
                 new Issue(
+                    this.identifier,
                     this.projectFileRelativePath,
                     this.projectName,
                     this.filePath,

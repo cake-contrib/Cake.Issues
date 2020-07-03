@@ -8,7 +8,7 @@
 
     public sealed class IssueBuilderTests
     {
-        public sealed class TheNewIssueMethod
+        public sealed class TheNewIssueMethodWithMessageAsIdentifier
         {
             [Fact]
             public void Should_Throw_If_Message_Is_Null()
@@ -153,9 +153,364 @@
                 // Then
                 result.IsArgumentOutOfRangeException("providerName");
             }
+
+            [Fact]
+            public void Should_Set_Identifier()
+            {
+                // Given
+                var message = "Message";
+                var providerType = "ProviderType";
+                var providerName = "ProviderName";
+
+                // When
+                var result =
+                    IssueBuilder
+                        .NewIssue(message, providerType, providerName)
+                        .Create();
+
+                // Then
+                result.Identifier.ShouldBe(message);
+            }
+
+            [Fact]
+            public void Should_Set_Message()
+            {
+                // Given
+                var message = "Message";
+                var providerType = "ProviderType";
+                var providerName = "ProviderName";
+
+                // When
+                var result =
+                    IssueBuilder
+                        .NewIssue(message, providerType, providerName)
+                        .Create();
+
+                // Then
+                result.MessageText.ShouldBe(message);
+            }
+
+            [Fact]
+            public void Should_Set_ProviderType()
+            {
+                // Given
+                var message = "Message";
+                var providerType = "ProviderType";
+                var providerName = "ProviderName";
+
+                // When
+                var result =
+                    IssueBuilder
+                        .NewIssue(message, providerType, providerName)
+                        .Create();
+
+                // Then
+                result.ProviderType.ShouldBe(providerType);
+            }
+
+            [Fact]
+            public void Should_Set_ProviderName()
+            {
+                // Given
+                var message = "Message";
+                var providerType = "ProviderType";
+                var providerName = "ProviderName";
+
+                // When
+                var result =
+                    IssueBuilder
+                        .NewIssue(message, providerType, providerName)
+                        .Create();
+
+                // Then
+                result.ProviderName.ShouldBe(providerName);
+            }
         }
 
-        public sealed class TheNewIssueOfTMethod
+        public sealed class TheNewIssueMethod
+        {
+            [Fact]
+            public void Should_Throw_If_Identifier_Is_Null()
+            {
+                // Given
+                string identifier = null;
+                var message = "Message";
+                var providerType = "ProviderType";
+                var providerName = "ProviderName";
+
+                // When
+                var result = Record.Exception(() =>
+                    IssueBuilder.NewIssue(identifier, message, providerType, providerName));
+
+                // Then
+                result.IsArgumentNullException("identifier");
+            }
+
+            [Fact]
+            public void Should_Throw_If_Identifier_Is_Empty()
+            {
+                // Given
+                var identifier = string.Empty;
+                var message = "Message";
+                var providerType = "ProviderType";
+                var providerName = "ProviderName";
+
+                // When
+                var result = Record.Exception(() =>
+                    IssueBuilder.NewIssue(identifier, message, providerType, providerName));
+
+                // Then
+                result.IsArgumentOutOfRangeException("identifier");
+            }
+
+            [Fact]
+            public void Should_Throw_If_Identifier_Is_WhiteSpace()
+            {
+                // Given
+                var identifier = " ";
+                var message = "Message";
+                var providerType = "ProviderType";
+                var providerName = "ProviderName";
+
+                // When
+                var result = Record.Exception(() =>
+                    IssueBuilder.NewIssue(identifier, message, providerType, providerName));
+
+                // Then
+                result.IsArgumentOutOfRangeException("identifier");
+            }
+
+            [Fact]
+            public void Should_Throw_If_Message_Is_Null()
+            {
+                // Given
+                var identifier = "Identifier";
+                string message = null;
+                var providerType = "ProviderType";
+                var providerName = "ProviderName";
+
+                // When
+                var result = Record.Exception(() =>
+                    IssueBuilder.NewIssue(identifier, message, providerType, providerName));
+
+                // Then
+                result.IsArgumentNullException("message");
+            }
+
+            [Fact]
+            public void Should_Throw_If_Message_Is_Empty()
+            {
+                // Given
+                var identifier = "Identifier";
+                var message = string.Empty;
+                var providerType = "ProviderType";
+                var providerName = "ProviderName";
+
+                // When
+                var result = Record.Exception(() =>
+                    IssueBuilder.NewIssue(identifier, message, providerType, providerName));
+
+                // Then
+                result.IsArgumentOutOfRangeException("message");
+            }
+
+            [Fact]
+            public void Should_Throw_If_Message_Is_WhiteSpace()
+            {
+                // Given
+                var identifier = "Identifier";
+                var message = " ";
+                var providerType = "ProviderType";
+                var providerName = "ProviderName";
+
+                // When
+                var result = Record.Exception(() =>
+                    IssueBuilder.NewIssue(identifier, message, providerType, providerName));
+
+                // Then
+                result.IsArgumentOutOfRangeException("message");
+            }
+
+            [Fact]
+            public void Should_Throw_If_ProviderType_Is_Null()
+            {
+                // Given
+                var identifier = "Identifier";
+                var message = "Message";
+                string providerType = null;
+                var providerName = "ProviderName";
+
+                // When
+                var result = Record.Exception(() =>
+                    IssueBuilder.NewIssue(identifier, message, providerType, providerName));
+
+                // Then
+                result.IsArgumentNullException("providerType");
+            }
+
+            [Fact]
+            public void Should_Throw_If_ProviderType_Is_Empty()
+            {
+                // Given
+                var identifier = "Identifier";
+                var message = "Message";
+                var providerType = string.Empty;
+                var providerName = "ProviderName";
+
+                // When
+                var result = Record.Exception(() =>
+                    IssueBuilder.NewIssue(identifier, message, providerType, providerName));
+
+                // Then
+                result.IsArgumentOutOfRangeException("providerType");
+            }
+
+            [Fact]
+            public void Should_Throw_If_ProviderType_Is_WhiteSpace()
+            {
+                // Given
+                var identifier = "Identifier";
+                var message = "Message";
+                var providerType = " ";
+                var providerName = "ProviderName";
+
+                // When
+                var result = Record.Exception(() =>
+                    IssueBuilder.NewIssue(identifier, message, providerType, providerName));
+
+                // Then
+                result.IsArgumentOutOfRangeException("providerType");
+            }
+
+            [Fact]
+            public void Should_Throw_If_ProviderName_Is_Null()
+            {
+                // Given
+                var identifier = "Identifier";
+                var message = "Message";
+                var providerType = "ProviderType";
+                string providerName = null;
+
+                // When
+                var result = Record.Exception(() =>
+                    IssueBuilder.NewIssue(identifier, message, providerType, providerName));
+
+                // Then
+                result.IsArgumentNullException("providerName");
+            }
+
+            [Fact]
+            public void Should_Throw_If_ProviderName_Is_Empty()
+            {
+                // Given
+                var identifier = "Identifier";
+                var message = "Message";
+                var providerType = "ProviderType";
+                var providerName = string.Empty;
+
+                // When
+                var result = Record.Exception(() =>
+                    IssueBuilder.NewIssue(identifier, message, providerType, providerName));
+
+                // Then
+                result.IsArgumentOutOfRangeException("providerName");
+            }
+
+            [Fact]
+            public void Should_Throw_If_ProviderName_Is_WhiteSpace()
+            {
+                // Given
+                var identifier = "Identifier";
+                var message = "Message";
+                var providerType = "ProviderType";
+                var providerName = " ";
+
+                // When
+                var result = Record.Exception(() =>
+                    IssueBuilder.NewIssue(identifier, message, providerType, providerName));
+
+                // Then
+                result.IsArgumentOutOfRangeException("providerName");
+            }
+
+            [Fact]
+            public void Should_Set_Identifier()
+            {
+                // Given
+                var identifier = "Identifier";
+                var message = "Message";
+                var providerType = "ProviderType";
+                var providerName = "ProviderName";
+
+                // When
+                var result =
+                    IssueBuilder
+                        .NewIssue(identifier, message, providerType, providerName)
+                        .Create();
+
+                // Then
+                result.Identifier.ShouldBe(identifier);
+            }
+
+            [Fact]
+            public void Should_Set_Message()
+            {
+                // Given
+                var identifier = "Identifier";
+                var message = "Message";
+                var providerType = "ProviderType";
+                var providerName = "ProviderName";
+
+                // When
+                var result =
+                    IssueBuilder
+                        .NewIssue(identifier, message, providerType, providerName)
+                        .Create();
+
+                // Then
+                result.MessageText.ShouldBe(message);
+            }
+
+            [Fact]
+            public void Should_Set_ProviderType()
+            {
+                // Given
+                var identifier = "Identifier";
+                var message = "Message";
+                var providerType = "ProviderType";
+                var providerName = "ProviderName";
+
+                // When
+                var result =
+                    IssueBuilder
+                        .NewIssue(identifier, message, providerType, providerName)
+                        .Create();
+
+                // Then
+                result.ProviderType.ShouldBe(providerType);
+            }
+
+            [Fact]
+            public void Should_Set_ProviderName()
+            {
+                // Given
+                var identifier = "Identifier";
+                var message = "Message";
+                var providerType = "ProviderType";
+                var providerName = "ProviderName";
+
+                // When
+                var result =
+                    IssueBuilder
+                        .NewIssue(identifier, message, providerType, providerName)
+                        .Create();
+
+                // Then
+                result.ProviderName.ShouldBe(providerName);
+            }
+        }
+
+        public sealed class TheNewIssueOfTMethodWithMessageAsIdentifier
         {
             [Fact]
             public void Should_Throw_If_Message_Is_Null()
@@ -215,6 +570,261 @@
 
                 // Then
                 result.IsArgumentNullException("issueProvider");
+            }
+
+            [Fact]
+            public void Should_Set_Identifier()
+            {
+                // Given
+                var message = "Message";
+                var issueProvider = new FakeIssueProvider(new FakeLog());
+
+                // When
+                var result =
+                    IssueBuilder
+                        .NewIssue(message, issueProvider)
+                        .Create();
+
+                // Then
+                result.Identifier.ShouldBe(message);
+            }
+
+            [Fact]
+            public void Should_Set_Message()
+            {
+                // Given
+                var message = "Message";
+                var issueProvider = new FakeIssueProvider(new FakeLog());
+
+                // When
+                var result =
+                    IssueBuilder
+                        .NewIssue(message, issueProvider)
+                        .Create();
+
+                // Then
+                result.MessageText.ShouldBe(message);
+            }
+
+            [Fact]
+            public void Should_Set_ProviderType()
+            {
+                // Given
+                var message = "Message";
+                var issueProvider = new FakeIssueProvider(new FakeLog());
+
+                // When
+                var result =
+                    IssueBuilder
+                        .NewIssue(message, issueProvider)
+                        .Create();
+
+                // Then
+                result.ProviderType.ShouldBe(issueProvider.GetType().FullName);
+            }
+
+            [Fact]
+            public void Should_Set_ProviderName()
+            {
+                // Given
+                var message = "Message";
+                var issueProvider = new FakeIssueProvider(new FakeLog());
+
+                // When
+                var result =
+                    IssueBuilder
+                        .NewIssue(message, issueProvider)
+                        .Create();
+
+                // Then
+                result.ProviderName.ShouldBe(issueProvider.ProviderName);
+            }
+        }
+
+        public sealed class TheNewIssueOfTMethod
+        {
+            [Fact]
+            public void Should_Throw_If_Identifier_Is_Null()
+            {
+                // Given
+                string identifier = null;
+                var message = "Message";
+                var issueProvider = new FakeIssueProvider(new FakeLog());
+
+                // When
+                var result = Record.Exception(() =>
+                    IssueBuilder.NewIssue(identifier, message, issueProvider));
+
+                // Then
+                result.IsArgumentNullException("identifier");
+            }
+
+            [Fact]
+            public void Should_Throw_If_Identifier_Is_Empty()
+            {
+                // Given
+                var identifier = string.Empty;
+                var message = "Message";
+                var issueProvider = new FakeIssueProvider(new FakeLog());
+
+                // When
+                var result = Record.Exception(() =>
+                    IssueBuilder.NewIssue(identifier, message, issueProvider));
+
+                // Then
+                result.IsArgumentOutOfRangeException("identifier");
+            }
+
+            [Fact]
+            public void Should_Throw_If_Identifier_Is_WhiteSpace()
+            {
+                // Given
+                var identifier = " ";
+                var message = "Message";
+                var issueProvider = new FakeIssueProvider(new FakeLog());
+
+                // When
+                var result = Record.Exception(() =>
+                    IssueBuilder.NewIssue(identifier, message, issueProvider));
+
+                // Then
+                result.IsArgumentOutOfRangeException("identifier");
+            }
+
+            [Fact]
+            public void Should_Throw_If_Message_Is_Null()
+            {
+                // Given
+                var identifier = "Identifier";
+                string message = null;
+                var issueProvider = new FakeIssueProvider(new FakeLog());
+
+                // When
+                var result = Record.Exception(() =>
+                    IssueBuilder.NewIssue(identifier, message, issueProvider));
+
+                // Then
+                result.IsArgumentNullException("message");
+            }
+
+            [Fact]
+            public void Should_Throw_If_Message_Is_Empty()
+            {
+                // Given
+                var identifier = "Identifier";
+                var message = string.Empty;
+                var issueProvider = new FakeIssueProvider(new FakeLog());
+
+                // When
+                var result = Record.Exception(() =>
+                    IssueBuilder.NewIssue(identifier, message, issueProvider));
+
+                // Then
+                result.IsArgumentOutOfRangeException("message");
+            }
+
+            [Fact]
+            public void Should_Throw_If_Message_Is_WhiteSpace()
+            {
+                // Given
+                var identifier = "Identifier";
+                var message = " ";
+                var issueProvider = new FakeIssueProvider(new FakeLog());
+
+                // When
+                var result = Record.Exception(() =>
+                    IssueBuilder.NewIssue(identifier, message, issueProvider));
+
+                // Then
+                result.IsArgumentOutOfRangeException("message");
+            }
+
+            [Fact]
+            public void Should_Throw_If_IssueProvider_Is_Null()
+            {
+                // Given
+                var identifier = "Identifier";
+                var message = "Message";
+                IIssueProvider issueProvider = null;
+
+                // When
+                var result = Record.Exception(() =>
+                    IssueBuilder.NewIssue(identifier, message, issueProvider));
+
+                // Then
+                result.IsArgumentNullException("issueProvider");
+            }
+
+            [Fact]
+            public void Should_Set_Identifier()
+            {
+                // Given
+                var identifier = "Identifier";
+                var message = "Message";
+                var issueProvider = new FakeIssueProvider(new FakeLog());
+
+                // When
+                var result =
+                    IssueBuilder
+                        .NewIssue(identifier, message, issueProvider)
+                        .Create();
+
+                // Then
+                result.Identifier.ShouldBe(identifier);
+            }
+
+            [Fact]
+            public void Should_Set_Message()
+            {
+                // Given
+                var identifier = "Identifier";
+                var message = "Message";
+                var issueProvider = new FakeIssueProvider(new FakeLog());
+
+                // When
+                var result =
+                    IssueBuilder
+                        .NewIssue(identifier, message, issueProvider)
+                        .Create();
+
+                // Then
+                result.MessageText.ShouldBe(message);
+            }
+
+            [Fact]
+            public void Should_Set_ProviderType()
+            {
+                // Given
+                var identifier = "Identifier";
+                var message = "Message";
+                var issueProvider = new FakeIssueProvider(new FakeLog());
+
+                // When
+                var result =
+                    IssueBuilder
+                        .NewIssue(identifier, message, issueProvider)
+                        .Create();
+
+                // Then
+                result.ProviderType.ShouldBe(issueProvider.GetType().FullName);
+            }
+
+            [Fact]
+            public void Should_Set_ProviderName()
+            {
+                // Given
+                var identifier = "Identifier";
+                var message = "Message";
+                var issueProvider = new FakeIssueProvider(new FakeLog());
+
+                // When
+                var result =
+                    IssueBuilder
+                        .NewIssue(identifier, message, issueProvider)
+                        .Create();
+
+                // Then
+                result.ProviderName.ShouldBe(issueProvider.ProviderName);
             }
         }
 

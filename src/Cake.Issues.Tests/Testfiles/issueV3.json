@@ -1,5 +1,6 @@
 {
   "Version": 3,
+  "Identifier":  "Identifier",
   "AffectedFileRelativePath": "src\/Foo\/Bar.cs",
   "Line": 42,
   "Column": 23,

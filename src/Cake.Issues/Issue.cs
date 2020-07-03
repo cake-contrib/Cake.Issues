@@ -11,6 +11,8 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="Issue"/> class.
         /// </summary>
+        /// <param name="identifier">The identifier of the issue.
+        /// The identifier needs to be identical across multiple runs of an issue provider for the same issue.</param>
         /// <param name="projectFileRelativePath">The path to the project to which the file affected by the issue belongs.
         /// The path needs to be relative to the repository root.
         /// Can be <c>null</c> or <see cref="string.Empty"/> if issue is not related to a project.</param>
@@ -38,6 +40,7 @@
         /// <param name="providerType">The type of the issue provider.</param>
         /// <param name="providerName">The human friendly name of the issue provider.</param>
         public Issue(
+            string identifier,
             string projectFileRelativePath,
             string projectName,
             string affectedFileRelativePath,
@@ -54,6 +57,7 @@
             string providerType,
             string providerName)
         {
+            identifier.NotNullOrWhiteSpace(nameof(identifier));
             line?.NotNegativeOrZero(nameof(line));
             column?.NotNegativeOrZero(nameof(column));
             messageText.NotNullOrWhiteSpace(nameof(messageText));
@@ -106,6 +110,7 @@
                 throw new ArgumentOutOfRangeException(nameof(column), $"Cannot specify a column while not specifying a line.");
             }
 
+            this.Identifier = identifier;
             this.ProjectName = projectName;
             this.Line = line;
             this.Column = column;
@@ -120,6 +125,9 @@
             this.ProviderType = providerType;
             this.ProviderName = providerName;
         }
+
+        /// <inheritdoc/>
+        public string Identifier { get; }
 
         /// <inheritdoc/>
         public FilePath ProjectFileRelativePath { get; }
