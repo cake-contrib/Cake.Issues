@@ -221,6 +221,24 @@
             }
 
             [Fact]
+            public void Should_Give_Correct_Result_For_EndLine_After_Roundtrip()
+            {
+                // Given
+                var endLine = 420;
+                var issue =
+                    IssueBuilder
+                        .NewIssue("message", "providerType", "providerName")
+                        .InFile(@"src/foo.bar", 42, endLine, null, null)
+                        .Create();
+
+                // When
+                var result = issue.SerializeToJsonString().DeserializeToIssue();
+
+                // Then
+                result.EndLine.ShouldBe(endLine);
+            }
+
+            [Fact]
             public void Should_Give_Correct_Result_For_Column_After_Roundtrip()
             {
                 // Given
@@ -236,6 +254,24 @@
 
                 // Then
                 result.Column.ShouldBe(column);
+            }
+
+            [Fact]
+            public void Should_Give_Correct_Result_For_EndColumn_After_Roundtrip()
+            {
+                // Given
+                var endColumn = 230;
+                var issue =
+                    IssueBuilder
+                        .NewIssue("message", "providerType", "providerName")
+                        .InFile(@"src/foo.bar", 42, 420, 23, endColumn)
+                        .Create();
+
+                // When
+                var result = issue.SerializeToJsonString().DeserializeToIssue();
+
+                // Then
+                result.EndColumn.ShouldBe(endColumn);
             }
 
             [Fact]
@@ -627,6 +663,34 @@
             }
 
             [Fact]
+            public void Should_Give_Correct_Result_For_EndLine_After_Roundtrip()
+            {
+                // Given
+                var endLine1 = 230;
+                var endLine2 = 420;
+                var issues =
+                    new List<IIssue>
+                    {
+                        IssueBuilder
+                          .NewIssue("message1", "providerType1", "providerName1")
+                            .InFile(@"src/foo.bar", 23, endLine1, null, null)
+                            .Create(),
+                        IssueBuilder
+                            .NewIssue("message2", "providerType2", "providerName2")
+                            .InFile(@"src/foo.bar", 42, endLine2, null, null)
+                            .Create(),
+                    };
+
+                // When
+                var result = issues.SerializeToJsonString().DeserializeToIssues();
+
+                // Then
+                result.Count().ShouldBe(2);
+                result.First().EndLine.ShouldBe(endLine1);
+                result.Last().EndLine.ShouldBe(endLine2);
+            }
+
+            [Fact]
             public void Should_Give_Correct_Result_For_Column_After_Roundtrip()
             {
                 // Given
@@ -652,6 +716,34 @@
                 result.Count().ShouldBe(2);
                 result.First().Column.ShouldBe(column1);
                 result.Last().Column.ShouldBe(column2);
+            }
+
+            [Fact]
+            public void Should_Give_Correct_Result_For_EndColumn_After_Roundtrip()
+            {
+                // Given
+                var endColumn1 = 230;
+                var endColumn2 = 420;
+                var issues =
+                    new List<IIssue>
+                    {
+                        IssueBuilder
+                          .NewIssue("message1", "providerType1", "providerName1")
+                            .InFile(@"src/foo.bar", 5, 50, 23, endColumn1)
+                            .Create(),
+                        IssueBuilder
+                            .NewIssue("message2", "providerType2", "providerName2")
+                            .InFile(@"src/foo.bar", 5, 50, 42, endColumn2)
+                            .Create(),
+                    };
+
+                // When
+                var result = issues.SerializeToJsonString().DeserializeToIssues();
+
+                // Then
+                result.Count().ShouldBe(2);
+                result.First().EndColumn.ShouldBe(endColumn1);
+                result.Last().EndColumn.ShouldBe(endColumn2);
             }
 
             [Fact]
@@ -1127,6 +1219,36 @@
             }
 
             [Fact]
+            public void Should_Give_Correct_Result_For_EndLine_After_Roundtrip()
+            {
+                // Given
+                var endLine = 420;
+                var issue =
+                    IssueBuilder
+                        .NewIssue("message", "providerType", "providerName")
+                        .InFile(@"src/foo.bar", 42, endLine, null, null)
+                        .Create();
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+
+                try
+                {
+                    // When
+                    issue.SerializeToJsonFile(filePath);
+                    var result = filePath.DeserializeToIssue();
+
+                    // Then
+                    result.EndLine.ShouldBe(endLine);
+                }
+                finally
+                {
+                    if (System.IO.File.Exists(filePath.FullPath))
+                    {
+                        System.IO.File.Delete(filePath.FullPath);
+                    }
+                }
+            }
+
+            [Fact]
             public void Should_Give_Correct_Result_For_Column_After_Roundtrip()
             {
                 // Given
@@ -1146,6 +1268,36 @@
 
                     // Then
                     result.Column.ShouldBe(column);
+                }
+                finally
+                {
+                    if (System.IO.File.Exists(filePath.FullPath))
+                    {
+                        System.IO.File.Delete(filePath.FullPath);
+                    }
+                }
+            }
+
+            [Fact]
+            public void Should_Give_Correct_Result_For_EndColumn_After_Roundtrip()
+            {
+                // Given
+                var endColumn = 230;
+                var issue =
+                    IssueBuilder
+                        .NewIssue("message", "providerType", "providerName")
+                        .InFile(@"src/foo.bar", 42, 50, 1, endColumn)
+                        .Create();
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+
+                try
+                {
+                    // When
+                    issue.SerializeToJsonFile(filePath);
+                    var result = filePath.DeserializeToIssue();
+
+                    // Then
+                    result.EndColumn.ShouldBe(endColumn);
                 }
                 finally
                 {
@@ -1740,6 +1892,46 @@
             }
 
             [Fact]
+            public void Should_Give_Correct_Result_For_EndLine_After_Roundtrip()
+            {
+                // Given
+                var endLine1 = 230;
+                var endLine2 = 420;
+                var issues =
+                    new List<IIssue>
+                    {
+                        IssueBuilder
+                          .NewIssue("message1", "providerType1", "providerName1")
+                            .InFile(@"src/foo.bar", 23, endLine1, null, null)
+                            .Create(),
+                        IssueBuilder
+                            .NewIssue("message2", "providerType2", "providerName2")
+                            .InFile(@"src/foo.bar", 42, endLine2, null, null)
+                            .Create(),
+                    };
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+
+                try
+                {
+                    // When
+                    issues.SerializeToJsonFile(filePath);
+                    var result = filePath.DeserializeToIssues();
+
+                    // Then
+                    result.Count().ShouldBe(2);
+                    result.First().EndLine.ShouldBe(endLine1);
+                    result.Last().EndLine.ShouldBe(endLine2);
+                }
+                finally
+                {
+                    if (System.IO.File.Exists(filePath.FullPath))
+                    {
+                        System.IO.File.Delete(filePath.FullPath);
+                    }
+                }
+            }
+
+            [Fact]
             public void Should_Give_Correct_Result_For_Column_After_Roundtrip()
             {
                 // Given
@@ -1769,6 +1961,46 @@
                     result.Count().ShouldBe(2);
                     result.First().Column.ShouldBe(column1);
                     result.Last().Column.ShouldBe(column2);
+                }
+                finally
+                {
+                    if (System.IO.File.Exists(filePath.FullPath))
+                    {
+                        System.IO.File.Delete(filePath.FullPath);
+                    }
+                }
+            }
+
+            [Fact]
+            public void Should_Give_Correct_Result_For_EndColumn_After_Roundtrip()
+            {
+                // Given
+                var endColumn1 = 23;
+                var endColumn2 = 42;
+                var issues =
+                    new List<IIssue>
+                    {
+                        IssueBuilder
+                          .NewIssue("message1", "providerType1", "providerName1")
+                            .InFile(@"src/foo.bar", 5, 50, 1, endColumn1)
+                            .Create(),
+                        IssueBuilder
+                            .NewIssue("message2", "providerType2", "providerName2")
+                            .InFile(@"src/foo.bar", 5, 50, 1, endColumn2)
+                            .Create(),
+                    };
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+
+                try
+                {
+                    // When
+                    issues.SerializeToJsonFile(filePath);
+                    var result = filePath.DeserializeToIssues();
+
+                    // Then
+                    result.Count().ShouldBe(2);
+                    result.First().EndColumn.ShouldBe(endColumn1);
+                    result.Last().EndColumn.ShouldBe(endColumn2);
                 }
                 finally
                 {

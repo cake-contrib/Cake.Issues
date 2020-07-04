@@ -308,7 +308,9 @@
             [InlineData("foo {FileDirectory} bar", "foo src/Cake.Issues bar")]
             [InlineData("foo {FileName} bar", "foo foo.cs bar")]
             [InlineData("foo {Line} bar", "foo 42 bar")]
+            [InlineData("foo {EndLine} bar", "foo 420 bar")]
             [InlineData("foo {Column} bar", "foo 23 bar")]
+            [InlineData("foo {EndColumn} bar", "foo 230 bar")]
             [InlineData("foo {Rule} bar", "foo Rule Foo bar")]
             [InlineData("foo {RuleUrl} bar", "foo https://google.com/ bar")]
             [InlineData("foo {MessageText} bar", "foo MessageText Foo bar")]
@@ -323,7 +325,7 @@
                         .ForRun("Run")
                         .WithMessageInHtmlFormat("MessageHtml Foo")
                         .WithMessageInMarkdownFormat("MessageMarkdown Foo")
-                        .InFile(@"src/Cake.Issues/foo.cs", 42, 23)
+                        .InFile(@"src/Cake.Issues/foo.cs", 42, 420, 23, 230)
                         .InProject(@"src/Cake.Issues/Cake.Issues.csproj", "Cake.Issues")
                         .OfRule("Rule Foo", new Uri("https://google.com"))
                         .WithPriority(IssuePriority.Error)

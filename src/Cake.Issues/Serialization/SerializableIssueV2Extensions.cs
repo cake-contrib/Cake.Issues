@@ -33,6 +33,8 @@
                 serializableIssue.AffectedFileRelativePath,
                 serializableIssue.Line,
                 null,
+                null,
+                null,
                 serializableIssue.MessageText,
                 serializableIssue.MessageHtml,
                 serializableIssue.MessageMarkdown,

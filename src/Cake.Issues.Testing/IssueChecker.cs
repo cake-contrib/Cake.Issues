@@ -47,7 +47,9 @@
                 expectedIssue.ProjectName,
                 expectedIssue.AffectedFileRelativePath?.ToString(),
                 expectedIssue.Line,
+                expectedIssue.EndLine,
                 expectedIssue.Column,
+                expectedIssue.EndColumn,
                 expectedIssue.MessageText,
                 expectedIssue.MessageHtml,
                 expectedIssue.MessageMarkdown,
@@ -73,8 +75,12 @@
         /// <c>null</c> if the issue is not expected to be related to a change in a file.</param>
         /// <param name="line">Expected line number.
         /// <c>null</c> if the issue is not expected to be related to a file or specific line.</param>
+        /// <param name="endLine">Expected end of line range.
+        /// <c>null</c> if the issue is not expected to be related to a file, specific line or range of lines.</param>
         /// <param name="column">Expected column.
         /// <c>null</c> if the issue is not expected to be related to a file or specific column.</param>
+        /// <param name="endColumn">Expected end of column range.
+        /// <c>null</c> if the issue is not expected to be related to a file, specific column or range of columns.</param>
         /// <param name="messageText">Expected message in plain text format.</param>
         /// <param name="messageHtml">Expected message in HTML format.</param>
         /// <param name="messageMarkdown">Expected message in Markdown format.</param>
@@ -96,7 +102,9 @@
             string projectName,
             string affectedFileRelativePath,
             int? line,
+            int? endLine,
             int? column,
+            int? endColumn,
             string messageText,
             string messageHtml,
             string messageMarkdown,
@@ -189,10 +197,22 @@
                     $"Expected issue.Line to be '{line}' but was '{issue.Line}'.");
             }
 
+            if (issue.EndLine != endLine)
+            {
+                throw new Exception(
+                    $"Expected issue.EndLine to be '{endLine}' but was '{issue.EndLine}'.");
+            }
+
             if (issue.Column != column)
             {
                 throw new Exception(
                     $"Expected issue.Column to be '{column}' but was '{issue.Column}'.");
+            }
+
+            if (issue.EndColumn != endColumn)
+            {
+                throw new Exception(
+                    $"Expected issue.EndColumn to be '{endColumn}' but was '{issue.EndColumn}'.");
             }
 
             if (issue.MessageText != messageText)

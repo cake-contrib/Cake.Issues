@@ -148,8 +148,16 @@
         ///         <description>The value of <see cref="IIssue.Line"/>.</description>
         ///     </item>
         ///     <item>
+        ///         <term>{EndLine}</term>
+        ///         <description>The value of <see cref="IIssue.EndLine"/>.</description>
+        ///     </item>
+        ///     <item>
         ///         <term>{Column}</term>
         ///         <description>The value of <see cref="IIssue.Column"/>.</description>
+        ///     </item>
+        ///     <item>
+        ///         <term>{EndColumn}</term>
+        ///         <description>The value of <see cref="IIssue.EndColumn"/>.</description>
         ///     </item>
         ///     <item>
         ///         <term>{Rule}</term>
@@ -200,7 +208,9 @@
                     .Replace("{FileDirectory}", issue.FileDirectory())
                     .Replace("{FileName}", issue.FileName())
                     .Replace("{Line}", issue.Line?.ToString())
+                    .Replace("{EndLine}", issue.EndLine?.ToString())
                     .Replace("{Column}", issue.Column?.ToString())
+                    .Replace("{EndColumn}", issue.EndColumn?.ToString())
                     .Replace("{Rule}", issue.Rule)
                     .Replace("{RuleUrl}", issue.RuleUrl?.ToString())
                     .Replace("{Run}", issue.Run)

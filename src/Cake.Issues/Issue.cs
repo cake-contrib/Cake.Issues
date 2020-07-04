@@ -23,8 +23,12 @@
         /// <c>null</c> or <see cref="string.Empty"/> if issue is not related to a change in a file.</param>
         /// <param name="line">The line in the file where the issues has occurred.
         /// <c>null</c> if the issue affects the whole file or an asssembly.</param>
+        /// <param name="endLine">The end of the line range in the file where the issues has occurred.
+        /// <c>null</c> if the issue affects the whole file, an asssembly or only a single line.</param>
         /// <param name="column">The column in the file where the issues has occurred.
         /// <c>null</c> if the issue affects the whole file or an asssembly.</param>
+        /// <param name="endColumn">The end of the column range in the file where the issues has occurred.
+        /// <c>null</c> if the issue affects the whole file, an asssembly or only a single column.</param>
         /// <param name="messageText">The message of the issue in plain text format.</param>
         /// <param name="messageHtml">The message of the issue in Html format.</param>
         /// <param name="messageMarkdown">The message of the issue in Markdown format.</param>
@@ -45,7 +49,9 @@
             string projectName,
             string affectedFileRelativePath,
             int? line,
+            int? endLine,
             int? column,
+            int? endColumn,
             string messageText,
             string messageHtml,
             string messageMarkdown,
@@ -59,7 +65,9 @@
         {
             identifier.NotNullOrWhiteSpace(nameof(identifier));
             line?.NotNegativeOrZero(nameof(line));
+            endLine?.NotNegativeOrZero(nameof(endLine));
             column?.NotNegativeOrZero(nameof(column));
+            endColumn?.NotNegativeOrZero(nameof(endColumn));
             messageText.NotNullOrWhiteSpace(nameof(messageText));
             providerType.NotNullOrWhiteSpace(nameof(providerType));
             providerName.NotNullOrWhiteSpace(nameof(providerName));
@@ -105,15 +113,37 @@
                 throw new ArgumentOutOfRangeException(nameof(line), "Cannot specify a line while not specifying a file.");
             }
 
-            if (!line.HasValue && column.HasValue)
+            if (!line.HasValue && (column.HasValue || endColumn.HasValue))
             {
                 throw new ArgumentOutOfRangeException(nameof(column), $"Cannot specify a column while not specifying a line.");
+            }
+
+            if (!line.HasValue && endLine.HasValue)
+            {
+                throw new ArgumentOutOfRangeException(nameof(endLine), $"Cannot specify the end of line range while not specifying start of line range.");
+            }
+
+            if (line.HasValue && endLine.HasValue && line.Value > endLine.Value)
+            {
+                throw new ArgumentOutOfRangeException(nameof(endLine), $"Line range needs to end after start of range.");
+            }
+
+            if (!column.HasValue && endColumn.HasValue)
+            {
+                throw new ArgumentOutOfRangeException(nameof(endColumn), $"Cannot specify the end of column range while not specifying start of column range.");
+            }
+
+            if (column.HasValue && endColumn.HasValue && column.Value > endColumn.Value)
+            {
+                throw new ArgumentOutOfRangeException(nameof(endColumn), $"Column range needs to end after start of range.");
             }
 
             this.Identifier = identifier;
             this.ProjectName = projectName;
             this.Line = line;
+            this.EndLine = endLine;
             this.Column = column;
+            this.EndColumn = endColumn;
             this.MessageText = messageText;
             this.MessageHtml = messageHtml;
             this.MessageMarkdown = messageMarkdown;
@@ -142,7 +172,13 @@
         public int? Line { get; }
 
         /// <inheritdoc/>
+        public int? EndLine { get; }
+
+        /// <inheritdoc/>
         public int? Column { get; }
+
+        /// <inheritdoc/>
+        public int? EndColumn { get; }
 
         /// <inheritdoc/>
         public string MessageText { get; }

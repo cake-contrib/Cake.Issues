@@ -150,7 +150,7 @@
                         .WithMessageInHtmlFormat("Something went <b>wrong</b>.")
                         .WithMessageInMarkdownFormat("Something went **wrong**.")
                         .InProject(@"src\Foo\Bar.csproj", "Bar")
-                        .InFile(@"src\Foo\Bar.cs", 42, 23)
+                        .InFile(@"src\Foo\Bar.cs", 42, 420, 23, 230)
                         .OfRule("Rule", new Uri("https://google.com"))
                         .WithPriority(IssuePriority.Warning));
             }
@@ -273,7 +273,7 @@
                         .WithMessageInHtmlFormat("Something went <b>wrong</b>.")
                         .WithMessageInMarkdownFormat("Something went **wrong**.")
                         .InProject(@"src\Foo\Bar.csproj", "Bar")
-                        .InFile(@"src\Foo\Bar.cs", 42, 23)
+                        .InFile(@"src\Foo\Bar.cs", 42, 420, 23, 230)
                         .OfRule("Rule", new Uri("https://google.com"))
                         .WithPriority(IssuePriority.Warning));
                 IssueChecker.Check(

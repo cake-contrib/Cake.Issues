@@ -17,7 +17,9 @@
         private string projectName;
         private string filePath;
         private int? line;
+        private int? endLine;
         private int? column;
+        private int? endColumn;
         private int? priority;
         private string priorityName;
         private string rule;
@@ -245,8 +247,7 @@
         {
             line?.NotNegativeOrZero(nameof(line));
 
-            this.filePath = filePath;
-            this.line = line;
+            this.InFile(filePath, line, null);
 
             return this;
         }
@@ -267,9 +268,38 @@
             line?.NotNegativeOrZero(nameof(line));
             column?.NotNegativeOrZero(nameof(column));
 
+            this.InFile(filePath, line, null, column, null);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Sets the path to the file affected by the issue and the line and column in the file where the issues has occurred.
+        /// </summary>
+        /// <param name="filePath">The path to the file affacted by the issue.
+        /// The path needs to be relative to the repository root.
+        /// <c>null</c> or <see cref="string.Empty"/> if issue is not related to a change in a file.</param>
+        /// <param name="startLine">The line in the file where the issues has occurred.
+        /// <c>null</c> if the issue affects the whole file or an asssembly.</param>
+        /// <param name="endLine">The end of the line range in the file where the issues has occurred.
+        /// <c>null</c> if the issue affects the whole file, an asssembly or only a single line.</param>
+        /// <param name="startColumn">The column in the file where the issues has occurred.
+        /// <c>null</c> if the issue affects the whole file or an asssembly.</param>
+        /// <param name="endColumn">The end of the column range in the file where the issues has occurred.
+        /// <c>null</c> if the issue affects the whole file, an asssembly or only a single column.</param>
+        /// <returns>Issue Builder instance.</returns>
+        public IssueBuilder InFile(string filePath, int? startLine, int? endLine, int? startColumn, int? endColumn)
+        {
+            startLine?.NotNegativeOrZero(nameof(startLine));
+            endLine?.NotNegativeOrZero(nameof(endLine));
+            startColumn?.NotNegativeOrZero(nameof(startColumn));
+            endColumn?.NotNegativeOrZero(nameof(endColumn));
+
             this.filePath = filePath;
-            this.line = line;
-            this.column = column;
+            this.line = startLine;
+            this.endLine = endLine;
+            this.column = startColumn;
+            this.endColumn = endColumn;
 
             return this;
         }
@@ -356,7 +386,9 @@
                     this.projectName,
                     this.filePath,
                     this.line,
+                    this.endLine,
                     this.column,
+                    this.endColumn,
                     this.messageText,
                     this.messageHtml,
                     this.messageMarkdown,

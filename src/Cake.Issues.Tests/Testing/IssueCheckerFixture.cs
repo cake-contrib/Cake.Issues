@@ -20,7 +20,9 @@
             this.ProjectName = "ProjectName";
             this.AffectedFileRelativePath = @"src\source.file";
             this.Line = 42;
+            this.EndLine = 420;
             this.Column = 23;
+            this.EndColumn = 230;
             this.MessageText = messageText;
             this.MessageHtml = "messageHtml";
             this.MessageMarkdown = "messageMarkdown";
@@ -34,7 +36,7 @@
                 .WithMessageInHtmlFormat(this.MessageHtml)
                 .WithMessageInMarkdownFormat(this.MessageMarkdown)
                 .InProject(this.ProjectFileRelativePath, this.ProjectName)
-                .InFile(this.AffectedFileRelativePath, this.Line, this.Column)
+                .InFile(this.AffectedFileRelativePath, this.Line, this.EndLine, this.Column, this.EndColumn)
                 .OfRule(this.Rule, this.RuleUrl)
                 .WithPriority(this.Priority, this.PriorityName);
 
@@ -60,7 +62,11 @@
 
         public int Line { get; private set; }
 
+        public int EndLine { get; private set; }
+
         public int Column { get; private set; }
+
+        public int EndColumn { get; private set; }
 
         public string MessageText { get; private set; }
 

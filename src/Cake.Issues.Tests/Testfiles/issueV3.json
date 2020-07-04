@@ -1,9 +1,11 @@
 {
   "Version": 3,
-  "Identifier":  "Identifier",
+  "Identifier": "Identifier",
   "AffectedFileRelativePath": "src\/Foo\/Bar.cs",
   "Line": 42,
+  "EndLine": 420,
   "Column": 23,
+  "EndColumn": 230,
   "MessageText": "Something went wrong.",
   "MessageHtml": "Something went <b>wrong</b>.",
   "MessageMarkdown": "Something went **wrong**.",
@@ -13,7 +15,7 @@
   "ProjectName": "Bar",
   "ProviderName": "Test Provider",
   "ProviderType": "TestProvider",
-  "Run":  "TestRun",
+  "Run": "TestRun",
   "Rule": "Rule",
   "RuleUrl": "https://google.com"
 }
