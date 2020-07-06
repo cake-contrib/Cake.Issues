@@ -40,9 +40,17 @@
         [DataMember]
         public int? Line { get; set; }
 
+        /// <inheritdoc cref="IIssue.EndLine" />
+        [DataMember]
+        public int? EndLine { get; set; }
+
         /// <inheritdoc cref="IIssue.Column" />
         [DataMember]
         public int? Column { get; set; }
+
+        /// <inheritdoc cref="IIssue.EndColumn" />
+        [DataMember]
+        public int? EndColumn { get; set; }
 
         /// <inheritdoc cref="IIssue.MessageText" />
         [DataMember]

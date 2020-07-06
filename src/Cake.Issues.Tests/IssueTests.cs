@@ -20,7 +20,9 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var endLine = 12;
                     var column = 50;
+                    var endColumn = 55;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -40,7 +42,9 @@
                             projectName,
                             filePath,
                             line,
+                            endLine,
                             column,
+                            endColumn,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -65,7 +69,9 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var endLine = 12;
                     var column = 50;
+                    var endColumn = 55;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -85,7 +91,9 @@
                             projectName,
                             filePath,
                             line,
+                            endLine,
                             column,
+                            endColumn,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -110,7 +118,9 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var endLine = 12;
                     var column = 50;
+                    var endColumn = 55;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -130,7 +140,9 @@
                             projectName,
                             filePath,
                             line,
+                            endLine,
                             column,
+                            endColumn,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -155,7 +167,9 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var endLine = 12;
                     var column = 50;
+                    var endColumn = 55;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -175,7 +189,9 @@
                             projectName,
                             filePath,
                             line,
+                            endLine,
                             column,
+                            endColumn,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -202,8 +218,10 @@
                     var identifier = "identifier";
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
-                    var line = 100;
+                    var line = 10;
+                    var endLine = 12;
                     var column = 50;
+                    var endColumn = 55;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -223,7 +241,9 @@
                             projectName,
                             filePath,
                             line,
+                            endLine,
                             column,
+                            endColumn,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -249,8 +269,10 @@
                     var identifier = "identifier";
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
-                    var line = 100;
+                    var line = 10;
+                    var endLine = 12;
                     var column = 50;
+                    var endColumn = 55;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -270,7 +292,9 @@
                             projectName,
                             filePath,
                             line,
+                            endLine,
                             column,
+                            endColumn,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -295,7 +319,9 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var endLine = 12;
                     var column = 50;
+                    var endColumn = 55;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -315,7 +341,9 @@
                             projectName,
                             filePath,
                             line,
+                            endLine,
                             column,
+                            endColumn,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -340,7 +368,9 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var endLine = 12;
                     var column = 50;
+                    var endColumn = 55;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -360,7 +390,9 @@
                             projectName,
                             filePath,
                             line,
+                            endLine,
                             column,
+                            endColumn,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -385,7 +417,9 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var endLine = 12;
                     var column = 50;
+                    var endColumn = 55;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -405,7 +439,9 @@
                             projectName,
                             filePath,
                             line,
+                            endLine,
                             column,
+                            endColumn,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -430,7 +466,9 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var endLine = 12;
                     var column = 50;
+                    var endColumn = 55;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -450,7 +488,9 @@
                             projectName,
                             filePath,
                             line,
+                            endLine,
                             column,
+                            endColumn,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -478,7 +518,9 @@
                     string projectName = null;
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var endLine = 12;
                     var column = 50;
+                    var endColumn = 55;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -498,7 +540,9 @@
                             projectName,
                             filePath,
                             line,
+                            endLine,
                             column,
+                            endColumn,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -523,7 +567,9 @@
                     var projectName = string.Empty;
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var endLine = 12;
                     var column = 50;
+                    var endColumn = 55;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -543,7 +589,9 @@
                             projectName,
                             filePath,
                             line,
+                            endLine,
                             column,
+                            endColumn,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -568,7 +616,9 @@
                     var projectName = " ";
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var endLine = 12;
                     var column = 50;
+                    var endColumn = 55;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -588,7 +638,9 @@
                             projectName,
                             filePath,
                             line,
+                            endLine,
                             column,
+                            endColumn,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -613,7 +665,9 @@
                     var projectPath = @"src\foo.csproj";
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var endLine = 12;
                     var column = 50;
+                    var endColumn = 55;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -633,7 +687,9 @@
                             projectName,
                             filePath,
                             line,
+                            endLine,
                             column,
+                            endColumn,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -660,8 +716,10 @@
                     var identifier = "identifier";
                     var projectPath = @"src\foo.csproj";
                     var projectName = "foo";
-                    var line = 100;
+                    var line = 10;
+                    var endLine = 12;
                     var column = 50;
+                    var endColumn = 55;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -681,7 +739,9 @@
                             projectName,
                             filePath,
                             line,
+                            endLine,
                             column,
+                            endColumn,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -707,8 +767,10 @@
                     var identifier = "identifier";
                     var projectPath = @"src\foo.csproj";
                     var projectName = "foo";
-                    var line = 100;
+                    var line = 10;
+                    var endLine = 12;
                     var column = 50;
+                    var endColumn = 55;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -728,7 +790,9 @@
                             projectName,
                             filePath,
                             line,
+                            endLine,
                             column,
+                            endColumn,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -753,7 +817,9 @@
                     var projectName = "foo";
                     string filePath = null;
                     int? line = null;
+                    int? endLine = null;
                     int? column = null;
+                    int? endColumn = null;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -773,7 +839,9 @@
                             projectName,
                             filePath,
                             line,
+                            endLine,
                             column,
+                            endColumn,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -798,7 +866,9 @@
                     var projectName = "foo";
                     var filePath = string.Empty;
                     int? line = null;
+                    int? endLine = null;
                     int? column = null;
+                    int? endColumn = null;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -818,7 +888,9 @@
                             projectName,
                             filePath,
                             line,
+                            endLine,
                             column,
+                            endColumn,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -843,7 +915,9 @@
                     var projectName = "foo";
                     var filePath = " ";
                     int? line = null;
+                    int? endLine = null;
                     int? column = null;
+                    int? endColumn = null;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -863,7 +937,9 @@
                             projectName,
                             filePath,
                             line,
+                            endLine,
                             column,
+                            endColumn,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -896,7 +972,9 @@
                     var projectPath = @"src\foo.csproj";
                     var projectName = "foo";
                     var line = 10;
+                    var endLine = 12;
                     var column = 50;
+                    var endColumn = 55;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -916,7 +994,9 @@
                             projectName,
                             filePath,
                             line,
+                            endLine,
                             column,
+                            endColumn,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -945,7 +1025,9 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = -1;
-                    var column = 50;
+                    int? endLine = null;
+                    int? column = null;
+                    int? endColumn = null;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -965,7 +1047,9 @@
                             projectName,
                             filePath,
                             line,
+                            endLine,
                             column,
+                            endColumn,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -990,7 +1074,9 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 0;
-                    var column = 50;
+                    int? endLine = null;
+                    int? column = null;
+                    int? endColumn = null;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -1010,7 +1096,9 @@
                             projectName,
                             filePath,
                             line,
+                            endLine,
                             column,
+                            endColumn,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -1035,7 +1123,9 @@
                     var projectName = "foo";
                     string filePath = null;
                     var line = 10;
-                    var column = 50;
+                    int? endLine = null;
+                    int? column = null;
+                    int? endColumn = null;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -1055,7 +1145,9 @@
                             projectName,
                             filePath,
                             line,
+                            endLine,
                             column,
+                            endColumn,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -1080,7 +1172,9 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     int? line = null;
+                    int? endLine = null;
                     int? column = null;
+                    int? endColumn = null;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -1100,7 +1194,9 @@
                             projectName,
                             filePath,
                             line,
+                            endLine,
                             column,
+                            endColumn,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -1126,7 +1222,9 @@
                     var projectPath = @"src\foo.csproj";
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
+                    int? endLine = null;
                     var column = 50;
+                    var endColumn = 55;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -1146,7 +1244,9 @@
                             projectName,
                             filePath,
                             line,
+                            endLine,
                             column,
+                            endColumn,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -1163,18 +1263,20 @@
                 }
             }
 
-            public sealed class TheColumnArgument
+            public sealed class TheEndLineArgument
             {
                 [Fact]
-                public void Should_Throw_If_Column_Is_Negative()
+                public void Should_Throw_If_EndLine_Is_Negative()
                 {
                     // Given
                     var identifier = "identifier";
                     var projectPath = @"src\foo.csproj";
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
-                    var line = 100;
-                    var column = -1;
+                    var line = 10;
+                    var endLine = -1;
+                    int? column = null;
+                    int? endColumn = null;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -1194,7 +1296,356 @@
                             projectName,
                             filePath,
                             line,
+                            endLine,
                             column,
+                            endColumn,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
+                            priority,
+                            priorityName,
+                            rule,
+                            ruleUri,
+                            run,
+                            providerType,
+                            providerName));
+
+                    // Then
+                    result.IsArgumentOutOfRangeException("endLine");
+                }
+
+                [Fact]
+                public void Should_Throw_If_EndLine_Is_Zero()
+                {
+                    // Given
+                    var identifier = "identifier";
+                    var projectPath = @"src\foo.csproj";
+                    var projectName = "foo";
+                    var filePath = @"src\foo.cs";
+                    var line = 10;
+                    var endLine = 0;
+                    int? column = null;
+                    int? endColumn = null;
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
+                    var priority = 1;
+                    var priorityName = "Warning";
+                    var rule = "Rule";
+                    var ruleUri = new Uri("https://google.com");
+                    var providerType = "ProviderType";
+                    var providerName = "ProviderName";
+                    var run = "Run";
+
+                    // When
+                    var result = Record.Exception(() =>
+                        new Issue(
+                            identifier,
+                            projectPath,
+                            projectName,
+                            filePath,
+                            line,
+                            endLine,
+                            column,
+                            endColumn,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
+                            priority,
+                            priorityName,
+                            rule,
+                            ruleUri,
+                            run,
+                            providerType,
+                            providerName));
+
+                    // Then
+                    result.IsArgumentOutOfRangeException("endLine");
+                }
+
+                [Fact]
+                public void Should_Throw_If_EndLine_Is_Set_But_No_Line()
+                {
+                    // Given
+                    var identifier = "identifier";
+                    var projectPath = @"src\foo.csproj";
+                    var projectName = "foo";
+                    var filePath = @"src\foo.cs";
+                    int? line = null;
+                    var endLine = 12;
+                    int? column = null;
+                    int? endColumn = null;
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
+                    var priority = 1;
+                    var priorityName = "Warning";
+                    var rule = "Rule";
+                    var ruleUri = new Uri("https://google.com");
+                    var providerType = "ProviderType";
+                    var providerName = "ProviderName";
+                    var run = "Run";
+
+                    // When
+                    var result = Record.Exception(() =>
+                        new Issue(
+                            identifier,
+                            projectPath,
+                            projectName,
+                            filePath,
+                            line,
+                            endLine,
+                            column,
+                            endColumn,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
+                            priority,
+                            priorityName,
+                            rule,
+                            ruleUri,
+                            run,
+                            providerType,
+                            providerName));
+
+                    // Then
+                    result.IsArgumentOutOfRangeException("endLine");
+                }
+
+                [Fact]
+                public void Should_Throw_If_EndLine_Is_Smaller_Line()
+                {
+                    // Given
+                    var identifier = "identifier";
+                    var projectPath = @"src\foo.csproj";
+                    var projectName = "foo";
+                    var filePath = @"src\foo.cs";
+                    var line = 100;
+                    var endLine = 12;
+                    int? column = null;
+                    int? endColumn = null;
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
+                    var priority = 1;
+                    var priorityName = "Warning";
+                    var rule = "Rule";
+                    var ruleUri = new Uri("https://google.com");
+                    var providerType = "ProviderType";
+                    var providerName = "ProviderName";
+                    var run = "Run";
+
+                    // When
+                    var result = Record.Exception(() =>
+                        new Issue(
+                            identifier,
+                            projectPath,
+                            projectName,
+                            filePath,
+                            line,
+                            endLine,
+                            column,
+                            endColumn,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
+                            priority,
+                            priorityName,
+                            rule,
+                            ruleUri,
+                            run,
+                            providerType,
+                            providerName));
+
+                    // Then
+                    result.IsArgumentOutOfRangeException("endLine");
+                }
+
+                [Fact]
+                public void Should_Handle_EndLine_Which_Is_Null()
+                {
+                    // Given
+                    var identifier = "identifier";
+                    var projectPath = @"src\foo.csproj";
+                    var projectName = "foo";
+                    var filePath = @"src\foo.cs";
+                    var line = 10;
+                    int? endLine = null;
+                    int? column = null;
+                    int? endColumn = null;
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
+                    var priority = 1;
+                    var priorityName = "Warning";
+                    var rule = "Rule";
+                    var ruleUri = new Uri("https://google.com");
+                    var providerType = "ProviderType";
+                    var providerName = "ProviderName";
+                    var run = "Run";
+
+                    // When
+                    var issue =
+                        new Issue(
+                            identifier,
+                            projectPath,
+                            projectName,
+                            filePath,
+                            line,
+                            endLine,
+                            column,
+                            endColumn,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
+                            priority,
+                            priorityName,
+                            rule,
+                            ruleUri,
+                            run,
+                            providerType,
+                            providerName);
+
+                    // Then
+                    issue.EndLine.ShouldBe(endLine);
+                }
+
+                [Fact]
+                public void Should_Handle_EndLine_Which_Is_Equals_Line()
+                {
+                    // Given
+                    var identifier = "identifier";
+                    var projectPath = @"src\foo.csproj";
+                    var projectName = "foo";
+                    var filePath = @"src\foo.cs";
+                    var line = 10;
+                    var endLine = 10;
+                    int? column = null;
+                    int? endColumn = null;
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
+                    var priority = 1;
+                    var priorityName = "Warning";
+                    var rule = "Rule";
+                    var ruleUri = new Uri("https://google.com");
+                    var providerType = "ProviderType";
+                    var providerName = "ProviderName";
+                    var run = "Run";
+
+                    // When
+                    var issue =
+                        new Issue(
+                            identifier,
+                            projectPath,
+                            projectName,
+                            filePath,
+                            line,
+                            endLine,
+                            column,
+                            endColumn,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
+                            priority,
+                            priorityName,
+                            rule,
+                            ruleUri,
+                            run,
+                            providerType,
+                            providerName);
+
+                    // Then
+                    issue.EndLine.ShouldBe(endLine);
+                }
+
+                [Theory]
+                [InlineData(1)]
+                [InlineData(int.MaxValue)]
+                public void Should_Set_EndLine(int endLine)
+                {
+                    // Given
+                    var identifier = "identifier";
+                    var projectPath = @"src\foo.csproj";
+                    var projectName = "foo";
+                    var filePath = @"src\foo.cs";
+                    var line = 1;
+                    var column = 50;
+                    var endColumn = 55;
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
+                    var priority = 1;
+                    var priorityName = "Warning";
+                    var rule = "Rule";
+                    var ruleUri = new Uri("https://google.com");
+                    var providerType = "ProviderType";
+                    var providerName = "ProviderName";
+                    var run = "Run";
+
+                    // When
+                    var issue =
+                        new Issue(
+                            identifier,
+                            projectPath,
+                            projectName,
+                            filePath,
+                            line,
+                            endLine,
+                            column,
+                            endColumn,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
+                            priority,
+                            priorityName,
+                            rule,
+                            ruleUri,
+                            run,
+                            providerType,
+                            providerName);
+
+                    // Then
+                    issue.EndLine.ShouldBe(endLine);
+                }
+            }
+
+            public sealed class TheColumnArgument
+            {
+                [Fact]
+                public void Should_Throw_If_Column_Is_Negative()
+                {
+                    // Given
+                    var identifier = "identifier";
+                    var projectPath = @"src\foo.csproj";
+                    var projectName = "foo";
+                    var filePath = @"src\foo.cs";
+                    var line = 10;
+                    var endLine = 12;
+                    var column = -1;
+                    int? endColumn = null;
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
+                    var priority = 1;
+                    var priorityName = "Warning";
+                    var rule = "Rule";
+                    var ruleUri = new Uri("https://google.com");
+                    var providerType = "ProviderType";
+                    var providerName = "ProviderName";
+                    var run = "Run";
+
+                    // When
+                    var result = Record.Exception(() =>
+                        new Issue(
+                            identifier,
+                            projectPath,
+                            projectName,
+                            filePath,
+                            line,
+                            endLine,
+                            column,
+                            endColumn,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -1218,8 +1669,10 @@
                     var projectPath = @"src\foo.csproj";
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
-                    var line = 100;
+                    var line = 10;
+                    var endLine = 12;
                     var column = 0;
+                    int? endColumn = null;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -1239,7 +1692,9 @@
                             projectName,
                             filePath,
                             line,
+                            endLine,
                             column,
+                            endColumn,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -1264,7 +1719,9 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     int? line = null;
+                    int? endLine = null;
                     var column = 50;
+                    int? endColumn = null;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -1284,7 +1741,9 @@
                             projectName,
                             filePath,
                             line,
+                            endLine,
                             column,
+                            endColumn,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -1300,18 +1759,18 @@
                     result.IsArgumentOutOfRangeException("column");
                 }
 
-                [Theory]
-                [InlineData(null)]
-                [InlineData(1)]
-                [InlineData(int.MaxValue)]
-                public void Should_Set_Column(int? column)
+                [Fact]
+                public void Should_Handle_Column_Which_Is_Null()
                 {
                     // Given
                     var identifier = "identifier";
                     var projectPath = @"src\foo.csproj";
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
-                    var line = 100;
+                    var line = 10;
+                    var endLine = 12;
+                    int? column = null;
+                    int? endColumn = null;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -1331,7 +1790,60 @@
                             projectName,
                             filePath,
                             line,
+                            endLine,
                             column,
+                            endColumn,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
+                            priority,
+                            priorityName,
+                            rule,
+                            ruleUri,
+                            run,
+                            providerType,
+                            providerName);
+
+                    // Then
+                    issue.Column.ShouldBe(column);
+                }
+
+                [Theory]
+                [InlineData(null)]
+                [InlineData(1)]
+                [InlineData(int.MaxValue)]
+                public void Should_Set_Column(int? column)
+                {
+                    // Given
+                    var identifier = "identifier";
+                    var projectPath = @"src\foo.csproj";
+                    var projectName = "foo";
+                    var filePath = @"src\foo.cs";
+                    var line = 10;
+                    var endLine = 12;
+                    int? endColumn = null;
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
+                    var priority = 1;
+                    var priorityName = "Warning";
+                    var rule = "Rule";
+                    var ruleUri = new Uri("https://google.com");
+                    var providerType = "ProviderType";
+                    var providerName = "ProviderName";
+                    var run = "Run";
+
+                    // When
+                    var issue =
+                        new Issue(
+                            identifier,
+                            projectPath,
+                            projectName,
+                            filePath,
+                            line,
+                            endLine,
+                            column,
+                            endColumn,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -1348,6 +1860,354 @@
                 }
             }
 
+            public sealed class TheEndColumnArgument
+            {
+                [Fact]
+                public void Should_Throw_If_EndColumn_Is_Negative()
+                {
+                    // Given
+                    var identifier = "identifier";
+                    var projectPath = @"src\foo.csproj";
+                    var projectName = "foo";
+                    var filePath = @"src\foo.cs";
+                    var line = 10;
+                    var endLine = 12;
+                    var column = 50;
+                    var endColumn = -1;
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
+                    var priority = 1;
+                    var priorityName = "Warning";
+                    var rule = "Rule";
+                    var ruleUri = new Uri("https://google.com");
+                    var providerType = "ProviderType";
+                    var providerName = "ProviderName";
+                    var run = "Run";
+
+                    // When
+                    var result = Record.Exception(() =>
+                        new Issue(
+                            identifier,
+                            projectPath,
+                            projectName,
+                            filePath,
+                            line,
+                            endLine,
+                            column,
+                            endColumn,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
+                            priority,
+                            priorityName,
+                            rule,
+                            ruleUri,
+                            run,
+                            providerType,
+                            providerName));
+
+                    // Then
+                    result.IsArgumentOutOfRangeException("endColumn");
+                }
+
+                [Fact]
+                public void Should_Throw_If_EndColumn_Is_Zero()
+                {
+                    // Given
+                    var identifier = "identifier";
+                    var projectPath = @"src\foo.csproj";
+                    var projectName = "foo";
+                    var filePath = @"src\foo.cs";
+                    var line = 10;
+                    var endLine = 12;
+                    var column = 50;
+                    var endColumn = 0;
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
+                    var priority = 1;
+                    var priorityName = "Warning";
+                    var rule = "Rule";
+                    var ruleUri = new Uri("https://google.com");
+                    var providerType = "ProviderType";
+                    var providerName = "ProviderName";
+                    var run = "Run";
+
+                    // When
+                    var result = Record.Exception(() =>
+                        new Issue(
+                            identifier,
+                            projectPath,
+                            projectName,
+                            filePath,
+                            line,
+                            endLine,
+                            column,
+                            endColumn,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
+                            priority,
+                            priorityName,
+                            rule,
+                            ruleUri,
+                            run,
+                            providerType,
+                            providerName));
+
+                    // Then
+                    result.IsArgumentOutOfRangeException("endColumn");
+                }
+
+                [Fact]
+                public void Should_Throw_If_EndColumn_Is_Set_But_No_Column()
+                {
+                    // Given
+                    var identifier = "identifier";
+                    var projectPath = @"src\foo.csproj";
+                    var projectName = "foo";
+                    var filePath = @"src\foo.cs";
+                    var line = 10;
+                    var endLine = 12;
+                    int? column = null;
+                    var endColumn = 55;
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
+                    var priority = 1;
+                    var priorityName = "Warning";
+                    var rule = "Rule";
+                    var ruleUri = new Uri("https://google.com");
+                    var providerType = "ProviderType";
+                    var providerName = "ProviderName";
+                    var run = "Run";
+
+                    // When
+                    var result = Record.Exception(() =>
+                        new Issue(
+                            identifier,
+                            projectPath,
+                            projectName,
+                            filePath,
+                            line,
+                            endLine,
+                            column,
+                            endColumn,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
+                            priority,
+                            priorityName,
+                            rule,
+                            ruleUri,
+                            run,
+                            providerType,
+                            providerName));
+
+                    // Then
+                    result.IsArgumentOutOfRangeException("endColumn");
+                }
+
+                [Fact]
+                public void Should_Throw_If_EndColumn_Is_Smaller_Column()
+                {
+                    // Given
+                    var identifier = "identifier";
+                    var projectPath = @"src\foo.csproj";
+                    var projectName = "foo";
+                    var filePath = @"src\foo.cs";
+                    var line = 10;
+                    var endLine = 12;
+                    var column = 50;
+                    var endColumn = 5;
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
+                    var priority = 1;
+                    var priorityName = "Warning";
+                    var rule = "Rule";
+                    var ruleUri = new Uri("https://google.com");
+                    var providerType = "ProviderType";
+                    var providerName = "ProviderName";
+                    var run = "Run";
+
+                    // When
+                    var result = Record.Exception(() =>
+                        new Issue(
+                            identifier,
+                            projectPath,
+                            projectName,
+                            filePath,
+                            line,
+                            endLine,
+                            column,
+                            endColumn,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
+                            priority,
+                            priorityName,
+                            rule,
+                            ruleUri,
+                            run,
+                            providerType,
+                            providerName));
+
+                    // Then
+                    result.IsArgumentOutOfRangeException("endColumn");
+                }
+
+                [Fact]
+                public void Should_Handle_EndColumn_Which_Is_Null()
+                {
+                    // Given
+                    var identifier = "identifier";
+                    var projectPath = @"src\foo.csproj";
+                    var projectName = "foo";
+                    var filePath = @"src\foo.cs";
+                    var line = 10;
+                    var endLine = 12;
+                    int? column = null;
+                    int? endColumn = null;
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
+                    var priority = 1;
+                    var priorityName = "Warning";
+                    var rule = "Rule";
+                    var ruleUri = new Uri("https://google.com");
+                    var providerType = "ProviderType";
+                    var providerName = "ProviderName";
+                    var run = "Run";
+
+                    // When
+                    var issue =
+                        new Issue(
+                            identifier,
+                            projectPath,
+                            projectName,
+                            filePath,
+                            line,
+                            endLine,
+                            column,
+                            endColumn,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
+                            priority,
+                            priorityName,
+                            rule,
+                            ruleUri,
+                            run,
+                            providerType,
+                            providerName);
+
+                    // Then
+                    issue.EndColumn.ShouldBe(endColumn);
+                }
+
+                [Fact]
+                public void Should_Handle_EndColumn_Which_Is_Equals_Column()
+                {
+                    // Given
+                    var identifier = "identifier";
+                    var projectPath = @"src\foo.csproj";
+                    var projectName = "foo";
+                    var filePath = @"src\foo.cs";
+                    var line = 10;
+                    var endLine = 12;
+                    var column = 50;
+                    var endColumn = 50;
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
+                    var priority = 1;
+                    var priorityName = "Warning";
+                    var rule = "Rule";
+                    var ruleUri = new Uri("https://google.com");
+                    var providerType = "ProviderType";
+                    var providerName = "ProviderName";
+                    var run = "Run";
+
+                    // When
+                    var issue =
+                        new Issue(
+                            identifier,
+                            projectPath,
+                            projectName,
+                            filePath,
+                            line,
+                            endLine,
+                            column,
+                            endColumn,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
+                            priority,
+                            priorityName,
+                            rule,
+                            ruleUri,
+                            run,
+                            providerType,
+                            providerName);
+
+                    // Then
+                    issue.EndColumn.ShouldBe(endColumn);
+                }
+
+                [Theory]
+                [InlineData(null)]
+                [InlineData(1)]
+                [InlineData(int.MaxValue)]
+                public void Should_Set_EndColumn(int? endColumn)
+                {
+                    // Given
+                    var identifier = "identifier";
+                    var projectPath = @"src\foo.csproj";
+                    var projectName = "foo";
+                    var filePath = @"src\foo.cs";
+                    var line = 10;
+                    var endLine = 12;
+                    var column = 1;
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
+                    var priority = 1;
+                    var priorityName = "Warning";
+                    var rule = "Rule";
+                    var ruleUri = new Uri("https://google.com");
+                    var providerType = "ProviderType";
+                    var providerName = "ProviderName";
+                    var run = "Run";
+
+                    // When
+                    var issue =
+                        new Issue(
+                            identifier,
+                            projectPath,
+                            projectName,
+                            filePath,
+                            line,
+                            endLine,
+                            column,
+                            endColumn,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
+                            priority,
+                            priorityName,
+                            rule,
+                            ruleUri,
+                            run,
+                            providerType,
+                            providerName);
+
+                    // Then
+                    issue.EndColumn.ShouldBe(endColumn);
+                }
+            }
+
             public sealed class TheMessageTextArgument
             {
                 [Fact]
@@ -1359,7 +2219,9 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var endLine = 12;
                     var column = 50;
+                    var endColumn = 55;
                     string messageText = null;
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -1379,7 +2241,9 @@
                             projectName,
                             filePath,
                             line,
+                            endLine,
                             column,
+                            endColumn,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -1404,7 +2268,9 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var endLine = 12;
                     var column = 50;
+                    var endColumn = 55;
                     var messageText = string.Empty;
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -1424,7 +2290,9 @@
                             projectName,
                             filePath,
                             line,
+                            endLine,
                             column,
+                            endColumn,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -1449,7 +2317,9 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var endLine = 12;
                     var column = 50;
+                    var endColumn = 55;
                     var messageText = " ";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -1469,7 +2339,9 @@
                             projectName,
                             filePath,
                             line,
+                            endLine,
                             column,
+                            endColumn,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -1495,7 +2367,9 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var endLine = 12;
                     var column = 50;
+                    var endColumn = 55;
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
                     var priority = 1;
@@ -1514,7 +2388,9 @@
                             projectName,
                             filePath,
                             line,
+                            endLine,
                             column,
+                            endColumn,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -1546,7 +2422,9 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var endLine = 12;
                     var column = 50;
+                    var endColumn = 55;
                     var messageText = "MessageText";
                     var messageMarkdown = "MessageMarkdown";
                     var priority = 1;
@@ -1565,7 +2443,9 @@
                             projectName,
                             filePath,
                             line,
+                            endLine,
                             column,
+                            endColumn,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -1597,7 +2477,9 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var endLine = 12;
                     var column = 50;
+                    var endColumn = 55;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var priority = 1;
@@ -1616,7 +2498,9 @@
                             projectName,
                             filePath,
                             line,
+                            endLine,
                             column,
+                            endColumn,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -1650,7 +2534,9 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var endLine = 12;
                     var column = 50;
+                    var endColumn = 55;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -1669,7 +2555,9 @@
                             projectName,
                             filePath,
                             line,
+                            endLine,
                             column,
+                            endColumn,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -1697,7 +2585,9 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var endLine = 12;
                     var column = 50;
+                    var endColumn = 55;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -1717,7 +2607,9 @@
                             projectName,
                             filePath,
                             line,
+                            endLine,
                             column,
+                            endColumn,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -1742,7 +2634,9 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var endLine = 12;
                     var column = 50;
+                    var endColumn = 55;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -1762,7 +2656,9 @@
                             projectName,
                             filePath,
                             line,
+                            endLine,
                             column,
+                            endColumn,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -1787,7 +2683,9 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var endLine = 12;
                     var column = 50;
+                    var endColumn = 55;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -1807,7 +2705,9 @@
                             projectName,
                             filePath,
                             line,
+                            endLine,
                             column,
+                            endColumn,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -1833,7 +2733,9 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var endLine = 12;
                     var column = 50;
+                    var endColumn = 55;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -1852,7 +2754,9 @@
                             projectName,
                             filePath,
                             line,
+                            endLine,
                             column,
+                            endColumn,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -1883,7 +2787,9 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var endLine = 12;
                     var column = 50;
+                    var endColumn = 55;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -1902,7 +2808,9 @@
                             projectName,
                             filePath,
                             line,
+                            endLine,
                             column,
+                            endColumn,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -1930,7 +2838,9 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var endLine = 12;
                     var column = 50;
+                    var endColumn = 55;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -1950,7 +2860,9 @@
                             projectName,
                             filePath,
                             line,
+                            endLine,
                             column,
+                            endColumn,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -1975,7 +2887,9 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var endLine = 12;
                     var column = 50;
+                    var endColumn = 55;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -1995,7 +2909,9 @@
                             projectName,
                             filePath,
                             line,
+                            endLine,
                             column,
+                            endColumn,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -2026,7 +2942,9 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var endLine = 12;
                     var column = 50;
+                    var endColumn = 55;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -2045,7 +2963,9 @@
                             projectName,
                             filePath,
                             line,
+                            endLine,
                             column,
+                            endColumn,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -2073,7 +2993,9 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var endLine = 12;
                     var column = 50;
+                    var endColumn = 55;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -2093,7 +3015,9 @@
                             projectName,
                             filePath,
                             line,
+                            endLine,
                             column,
+                            endColumn,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -2118,7 +3042,9 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var endLine = 12;
                     var column = 50;
+                    var endColumn = 55;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -2138,7 +3064,9 @@
                             projectName,
                             filePath,
                             line,
+                            endLine,
                             column,
+                            endColumn,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -2163,7 +3091,9 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var endLine = 12;
                     var column = 50;
+                    var endColumn = 55;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -2183,7 +3113,9 @@
                             projectName,
                             filePath,
                             line,
+                            endLine,
                             column,
+                            endColumn,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -2209,7 +3141,9 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var endLine = 12;
                     var column = 50;
+                    var endColumn = 55;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -2228,7 +3162,9 @@
                             projectName,
                             filePath,
                             line,
+                            endLine,
                             column,
+                            endColumn,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -2256,7 +3192,9 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var endLine = 12;
                     var column = 50;
+                    var endColumn = 55;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -2276,7 +3214,9 @@
                             projectName,
                             filePath,
                             line,
+                            endLine,
                             column,
+                            endColumn,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -2301,7 +3241,9 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var endLine = 12;
                     var column = 50;
+                    var endColumn = 55;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -2321,7 +3263,9 @@
                             projectName,
                             filePath,
                             line,
+                            endLine,
                             column,
+                            endColumn,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -2346,7 +3290,9 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var endLine = 12;
                     var column = 50;
+                    var endColumn = 55;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -2366,7 +3312,9 @@
                             projectName,
                             filePath,
                             line,
+                            endLine,
                             column,
+                            endColumn,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -2392,7 +3340,9 @@
                     var projectName = "foo";
                     var filePath = @"src\foo.cs";
                     var line = 10;
+                    var endLine = 12;
                     var column = 50;
+                    var endColumn = 55;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -2411,7 +3361,9 @@
                             projectName,
                             filePath,
                             line,
+                            endLine,
                             column,
+                            endColumn,
                             messageText,
                             messageHtml,
                             messageMarkdown,

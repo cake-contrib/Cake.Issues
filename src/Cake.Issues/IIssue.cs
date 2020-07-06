@@ -41,10 +41,22 @@
         int? Line { get; }
 
         /// <summary>
+        /// Gets the end of the line range in the file where the issues has occurred.
+        /// <c>null</c> if the issue affects the whole file, an asssembly or only a single line.
+        /// </summary>
+        int? EndLine { get; }
+
+        /// <summary>
         /// Gets the column in the file where the issues has occurred.
         /// <c>null</c> if the issue affects the whole file or an asssembly.
         /// </summary>
         int? Column { get; }
+
+        /// <summary>
+        /// Gets the end of the column range in the file where the issues has occurred.
+        /// <c>null</c> if the issue affects the whole file, an asssembly or only a single column.
+        /// </summary>
+        int? EndColumn { get; }
 
         /// <summary>
         /// Gets the message of the issue in text format.

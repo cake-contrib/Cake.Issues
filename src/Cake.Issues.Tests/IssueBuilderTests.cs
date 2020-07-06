@@ -1275,6 +1275,19 @@
             }
 
             [Fact]
+            public void Should_Handle_Line_Which_Is_Null()
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+
+                // When
+                var issue = fixture.IssueBuilder.InFile("foo", null, null).Create();
+
+                // Then
+                issue.Line.ShouldBe(null);
+            }
+
+            [Fact]
             public void Should_Handle_Column_Which_Is_Null()
             {
                 // Given
@@ -1338,6 +1351,256 @@
 
                 // Then
                 issue.Column.ShouldBe(column);
+            }
+        }
+
+        public sealed class TheInFileLineRangeColumnRangeMethod
+        {
+            [Fact]
+            public void Should_Throw_If_StartLine_Is_Negative()
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+
+                // When
+                var result = Record.Exception(() =>
+                    fixture.IssueBuilder.InFile("foo", -1, 50, 1, 10));
+
+                // Then
+                result.IsArgumentOutOfRangeException("startLine");
+            }
+
+            [Fact]
+            public void Should_Throw_If_StartLine_Is_Zero()
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+
+                // When
+                var result = Record.Exception(() =>
+                    fixture.IssueBuilder.InFile("foo", 0, 50, 1, 10));
+
+                // Then
+                result.IsArgumentOutOfRangeException("startLine");
+            }
+
+            [Fact]
+            public void Should_Throw_If_EndLine_Is_Negative()
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+
+                // When
+                var result = Record.Exception(() =>
+                    fixture.IssueBuilder.InFile("foo", 5, -1, 1, 10));
+
+                // Then
+                result.IsArgumentOutOfRangeException("endLine");
+            }
+
+            [Fact]
+            public void Should_Throw_If_EndLine_Is_Zero()
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+
+                // When
+                var result = Record.Exception(() =>
+                    fixture.IssueBuilder.InFile("foo", 5, 0, 1, 10));
+
+                // Then
+                result.IsArgumentOutOfRangeException("endLine");
+            }
+
+            [Fact]
+            public void Should_Throw_If_StartColumn_Is_Negative()
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+
+                // When
+                var result = Record.Exception(() =>
+                    fixture.IssueBuilder.InFile("foo", 5, 50, -1, 10));
+
+                // Then
+                result.IsArgumentOutOfRangeException("startColumn");
+            }
+
+            [Fact]
+            public void Should_Throw_If_StartColumn_Is_Zero()
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+
+                // When
+                var result = Record.Exception(() =>
+                    fixture.IssueBuilder.InFile("foo", 5, 50, 0, 10));
+
+                // Then
+                result.IsArgumentOutOfRangeException("startColumn");
+            }
+
+            [Fact]
+            public void Should_Throw_If_EndColumn_Is_Negative()
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+
+                // When
+                var result = Record.Exception(() =>
+                    fixture.IssueBuilder.InFile("foo", 5, 50, 1, -1));
+
+                // Then
+                result.IsArgumentOutOfRangeException("endColumn");
+            }
+
+            [Fact]
+            public void Should_Throw_If_EndColumn_Is_Zero()
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+
+                // When
+                var result = Record.Exception(() =>
+                    fixture.IssueBuilder.InFile("foo", 5, 50, 1, 0));
+
+                // Then
+                result.IsArgumentOutOfRangeException("endColumn");
+            }
+
+            [Fact]
+            public void Should_Handle_StartLine_Which_Is_Null()
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+
+                // When
+                var issue = fixture.IssueBuilder.InFile("foo", null, null, null, null).Create();
+
+                // Then
+                issue.Line.ShouldBe(null);
+            }
+
+            [Fact]
+            public void Should_Handle_EndLine_Which_Is_Null()
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+
+                // When
+                var issue = fixture.IssueBuilder.InFile("foo", 5, null, null, null).Create();
+
+                // Then
+                issue.EndLine.ShouldBe(null);
+            }
+
+            [Fact]
+            public void Should_Handle_StartColumn_Which_Is_Null()
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+
+                // When
+                var issue = fixture.IssueBuilder.InFile("foo", 5, 50, null, null).Create();
+
+                // Then
+                issue.Column.ShouldBe(null);
+            }
+
+            [Fact]
+            public void Should_Handle_EndColumn_Which_Is_Null()
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+
+                // When
+                var issue = fixture.IssueBuilder.InFile("foo", 5, 50, 1, null).Create();
+
+                // Then
+                issue.EndColumn.ShouldBe(null);
+            }
+
+            [Theory]
+            [InlineData(@"foo", @"foo")]
+            [InlineData(@"foo\bar", @"foo/bar")]
+            [InlineData(@"foo/bar", @"foo/bar")]
+            [InlineData(@"foo\bar\", @"foo/bar")]
+            [InlineData(@"foo/bar/", @"foo/bar")]
+            [InlineData(@".\foo", @"foo")]
+            [InlineData(@"./foo", @"foo")]
+            [InlineData(@"foo\..\bar", @"foo/../bar")]
+            [InlineData(@"foo/../bar", @"foo/../bar")]
+            public void Should_Set_FilePath(string filePath, string expectedFilePath)
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+
+                // When
+                var issue = fixture.IssueBuilder.InFile(filePath, 5, 50, 1, 10).Create();
+
+                // Then
+                issue.AffectedFileRelativePath.ToString().ShouldBe(expectedFilePath);
+                issue.AffectedFileRelativePath.IsRelative.ShouldBe(true, "File path was not set as relative.");
+            }
+
+            [Theory]
+            [InlineData(1)]
+            [InlineData(int.MaxValue)]
+            public void Should_Set_StartLine(int startLine)
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+
+                // When
+                var issue = fixture.IssueBuilder.InFile("foo", startLine, null, 1, 10).Create();
+
+                // Then
+                issue.Line.ShouldBe(startLine);
+            }
+
+            [Theory]
+            [InlineData(1)]
+            [InlineData(int.MaxValue)]
+            public void Should_Set_EndLine(int endLine)
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+
+                // When
+                var issue = fixture.IssueBuilder.InFile("foo", 1, endLine, 1, 10).Create();
+
+                // Then
+                issue.EndLine.ShouldBe(endLine);
+            }
+
+            [Theory]
+            [InlineData(1)]
+            [InlineData(int.MaxValue)]
+            public void Should_Set_StartColumn(int startColumn)
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+
+                // When
+                var issue = fixture.IssueBuilder.InFile("foo", 5, 50, startColumn, null).Create();
+
+                // Then
+                issue.Column.ShouldBe(startColumn);
+            }
+
+            [Theory]
+            [InlineData(1)]
+            [InlineData(int.MaxValue)]
+            public void Should_Set_EndColumn(int endColumn)
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+
+                // When
+                var issue = fixture.IssueBuilder.InFile("foo", 5, 50, 1, endColumn).Create();
+
+                // Then
+                issue.EndColumn.ShouldBe(endColumn);
             }
         }
 

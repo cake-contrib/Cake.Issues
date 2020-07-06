@@ -39,7 +39,13 @@
         /// <description><see cref="IIssue.Line"/></description>
         /// </item>
         /// <item>
+        /// <description><see cref="IIssue.EndLine"/></description>
+        /// </item>
+        /// <item>
         /// <description><see cref="IIssue.Column"/></description>
+        /// </item>
+        /// <item>
+        /// <description><see cref="IIssue.EndColumn"/></description>
         /// </item>
         /// </list>
         /// </remarks>
@@ -67,7 +73,9 @@
                 (x.ProjectName == y.ProjectName) &&
                 (this.compareOnlyPersistentProperties || x.AffectedFileRelativePath?.FullPath == y.AffectedFileRelativePath?.FullPath) &&
                 (this.compareOnlyPersistentProperties || x.Line == y.Line) &&
+                (this.compareOnlyPersistentProperties || x.EndLine == y.EndLine) &&
                 (this.compareOnlyPersistentProperties || x.Column == y.Column) &&
+                (this.compareOnlyPersistentProperties || x.EndColumn == y.EndColumn) &&
                 (x.MessageText == y.MessageText) &&
                 (x.MessageHtml == y.MessageHtml) &&
                 (x.MessageMarkdown == y.MessageMarkdown) &&
@@ -114,7 +122,9 @@
                         obj.ProjectName,
                         obj.AffectedFileRelativePath?.ToString(),
                         obj.Line,
+                        obj.EndLine,
                         obj.Column,
+                        obj.EndColumn,
                         obj.MessageText,
                         obj.MessageHtml,
                         obj.MessageMarkdown,

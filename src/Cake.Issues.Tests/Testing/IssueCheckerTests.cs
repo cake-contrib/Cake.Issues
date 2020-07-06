@@ -150,7 +150,9 @@
                         fixture.ProjectName,
                         fixture.AffectedFileRelativePath,
                         fixture.Line,
+                        fixture.EndLine,
                         fixture.Column,
+                        fixture.EndColumn,
                         fixture.MessageText,
                         fixture.MessageHtml,
                         fixture.MessageMarkdown,
@@ -180,7 +182,9 @@
                     fixture.ProjectName,
                     fixture.AffectedFileRelativePath,
                     fixture.Line,
+                    fixture.EndLine,
                     fixture.Column,
+                    fixture.EndColumn,
                     fixture.MessageText,
                     fixture.MessageHtml,
                     fixture.MessageMarkdown,
@@ -214,7 +218,9 @@
                         fixture.ProjectName,
                         fixture.AffectedFileRelativePath,
                         fixture.Line,
+                        fixture.EndLine,
                         fixture.Column,
+                        fixture.EndColumn,
                         fixture.MessageText,
                         fixture.MessageHtml,
                         fixture.MessageMarkdown,
@@ -250,7 +256,9 @@
                         fixture.ProjectName,
                         fixture.AffectedFileRelativePath,
                         fixture.Line,
+                        fixture.EndLine,
                         fixture.Column,
+                        fixture.EndColumn,
                         fixture.MessageText,
                         fixture.MessageHtml,
                         fixture.MessageMarkdown,
@@ -290,7 +298,9 @@
                         fixture.ProjectName,
                         fixture.AffectedFileRelativePath,
                         fixture.Line,
+                        fixture.EndLine,
                         fixture.Column,
+                        fixture.EndColumn,
                         fixture.MessageText,
                         fixture.MessageHtml,
                         fixture.MessageMarkdown,
@@ -326,7 +336,9 @@
                         fixture.ProjectName,
                         fixture.AffectedFileRelativePath,
                         fixture.Line,
+                        fixture.EndLine,
                         fixture.Column,
+                        fixture.EndColumn,
                         fixture.MessageText,
                         fixture.MessageHtml,
                         fixture.MessageMarkdown,
@@ -363,7 +375,9 @@
                         fixture.ProjectName,
                         fixture.AffectedFileRelativePath,
                         fixture.Line,
+                        fixture.EndLine,
                         fixture.Column,
+                        fixture.EndColumn,
                         fixture.MessageText,
                         fixture.MessageHtml,
                         fixture.MessageMarkdown,
@@ -403,7 +417,9 @@
                         expectedValue,
                         fixture.AffectedFileRelativePath,
                         fixture.Line,
+                        fixture.EndLine,
                         fixture.Column,
+                        fixture.EndColumn,
                         fixture.MessageText,
                         fixture.MessageHtml,
                         fixture.MessageMarkdown,
@@ -440,7 +456,9 @@
                         fixture.ProjectName,
                         expectedValue,
                         fixture.Line,
+                        fixture.EndLine,
                         fixture.Column,
+                        fixture.EndColumn,
                         fixture.MessageText,
                         fixture.MessageHtml,
                         fixture.MessageMarkdown,
@@ -464,7 +482,7 @@
                 var fixture = new IssueCheckerFixture();
                 var issue =
                     fixture.IssueBuilder
-                        .InFile(fixture.AffectedFileRelativePath, actualValue, null)
+                        .InFile(fixture.AffectedFileRelativePath, actualValue)
                         .Create();
 
                 // When
@@ -480,6 +498,8 @@
                         fixture.AffectedFileRelativePath,
                         expectedValue,
                         null,
+                        null,
+                        null,
                         fixture.MessageText,
                         fixture.MessageHtml,
                         fixture.MessageMarkdown,
@@ -494,16 +514,16 @@
             }
 
             [Theory]
-            [InlineData(42, 23)]
-            [InlineData(null, 42)]
-            [InlineData(42, null)]
-            public void Should_Throw_If_Column_Is_Different(int? expectedValue, int? actualValue)
+            [InlineData(420, 230)]
+            [InlineData(null, 420)]
+            [InlineData(420, null)]
+            public void Should_Throw_If_EndLine_Is_Different(int? expectedValue, int? actualValue)
             {
                 // Given
                 var fixture = new IssueCheckerFixture();
                 var issue =
                     fixture.IssueBuilder
-                        .InFile(fixture.AffectedFileRelativePath, fixture.Line, actualValue)
+                        .InFile(fixture.AffectedFileRelativePath, fixture.Line, actualValue, fixture.Column, fixture.EndColumn)
                         .Create();
 
                 // When
@@ -519,6 +539,49 @@
                         fixture.AffectedFileRelativePath,
                         fixture.Line,
                         expectedValue,
+                        fixture.Column,
+                        fixture.EndColumn,
+                        fixture.MessageText,
+                        fixture.MessageHtml,
+                        fixture.MessageMarkdown,
+                        fixture.Priority,
+                        fixture.PriorityName,
+                        fixture.Rule,
+                        fixture.RuleUrl));
+
+                // Then
+                result.ShouldBeOfType<Exception>();
+                result.Message.ShouldStartWith("Expected issue.EndLine");
+            }
+
+            [Theory]
+            [InlineData(42, 23)]
+            [InlineData(null, 42)]
+            [InlineData(42, null)]
+            public void Should_Throw_If_Column_Is_Different(int? expectedValue, int? actualValue)
+            {
+                // Given
+                var fixture = new IssueCheckerFixture();
+                var issue =
+                    fixture.IssueBuilder
+                        .InFile(fixture.AffectedFileRelativePath, fixture.Line, fixture.EndLine, actualValue, null)
+                        .Create();
+
+                // When
+                var result = Record.Exception(() =>
+                    IssueChecker.Check(
+                        issue,
+                        fixture.ProviderType,
+                        fixture.ProviderName,
+                        fixture.Run,
+                        fixture.Identifier,
+                        fixture.ProjectFileRelativePath,
+                        fixture.ProjectName,
+                        fixture.AffectedFileRelativePath,
+                        fixture.Line,
+                        fixture.EndLine,
+                        expectedValue,
+                        null,
                         fixture.MessageText,
                         fixture.MessageHtml,
                         fixture.MessageMarkdown,
@@ -530,6 +593,47 @@
                 // Then
                 result.ShouldBeOfType<Exception>();
                 result.Message.ShouldStartWith("Expected issue.Column");
+            }
+
+            [Theory]
+            [InlineData(42, 23)]
+            [InlineData(null, 42)]
+            [InlineData(42, null)]
+            public void Should_Throw_If_EndColumn_Is_Different(int? expectedValue, int? actualValue)
+            {
+                // Given
+                var fixture = new IssueCheckerFixture();
+                var issue =
+                    fixture.IssueBuilder
+                        .InFile(fixture.AffectedFileRelativePath, fixture.Line, fixture.EndLine, fixture.Column, actualValue)
+                        .Create();
+
+                // When
+                var result = Record.Exception(() =>
+                    IssueChecker.Check(
+                        issue,
+                        fixture.ProviderType,
+                        fixture.ProviderName,
+                        fixture.Run,
+                        fixture.Identifier,
+                        fixture.ProjectFileRelativePath,
+                        fixture.ProjectName,
+                        fixture.AffectedFileRelativePath,
+                        fixture.Line,
+                        fixture.EndLine,
+                        fixture.Column,
+                        expectedValue,
+                        fixture.MessageText,
+                        fixture.MessageHtml,
+                        fixture.MessageMarkdown,
+                        fixture.Priority,
+                        fixture.PriorityName,
+                        fixture.Rule,
+                        fixture.RuleUrl));
+
+                // Then
+                result.ShouldBeOfType<Exception>();
+                result.Message.ShouldStartWith("Expected issue.EndColumn");
             }
 
             [Theory]
@@ -554,7 +658,9 @@
                         fixture.ProjectName,
                         fixture.AffectedFileRelativePath,
                         fixture.Line,
+                        fixture.EndLine,
                         fixture.Column,
+                        fixture.EndColumn,
                         expectedValue,
                         fixture.MessageHtml,
                         fixture.MessageMarkdown,
@@ -594,7 +700,9 @@
                         fixture.ProjectName,
                         fixture.AffectedFileRelativePath,
                         fixture.Line,
+                        fixture.EndLine,
                         fixture.Column,
+                        fixture.EndColumn,
                         fixture.MessageText,
                         expectedValue,
                         fixture.MessageMarkdown,
@@ -634,7 +742,9 @@
                         fixture.ProjectName,
                         fixture.AffectedFileRelativePath,
                         fixture.Line,
+                        fixture.EndLine,
                         fixture.Column,
+                        fixture.EndColumn,
                         fixture.MessageText,
                         fixture.MessageHtml,
                         expectedValue,
@@ -671,7 +781,9 @@
                         fixture.ProjectName,
                         fixture.AffectedFileRelativePath,
                         fixture.Line,
+                        fixture.EndLine,
                         fixture.Column,
+                        fixture.EndColumn,
                         fixture.MessageText,
                         fixture.MessageHtml,
                         fixture.MessageMarkdown,
@@ -711,7 +823,9 @@
                         fixture.ProjectName,
                         fixture.AffectedFileRelativePath,
                         fixture.Line,
+                        fixture.EndLine,
                         fixture.Column,
+                        fixture.EndColumn,
                         fixture.MessageText,
                         fixture.MessageHtml,
                         fixture.MessageMarkdown,
@@ -751,7 +865,9 @@
                         fixture.ProjectName,
                         fixture.AffectedFileRelativePath,
                         fixture.Line,
+                        fixture.EndLine,
                         fixture.Column,
+                        fixture.EndColumn,
                         fixture.MessageText,
                         fixture.MessageHtml,
                         fixture.MessageMarkdown,
@@ -788,7 +904,9 @@
                         fixture.ProjectName,
                         fixture.AffectedFileRelativePath,
                         fixture.Line,
+                        fixture.EndLine,
                         fixture.Column,
+                        fixture.EndColumn,
                         fixture.MessageText,
                         fixture.MessageHtml,
                         fixture.MessageMarkdown,
