@@ -237,7 +237,7 @@ namespace Cake.Issues.PullRequests
             var threadsWithIssues = new Dictionary<IIssue, IssueCommentInfo>();
             foreach (var issue in issues)
             {
-                var (activeComments, wontFixComments, resolvedComments, threads) =
+                var (activeComments, wontFixComments, resolvedComments) =
                     this.GetMatchingComments(
                         issue,
                         existingThreads);
@@ -276,8 +276,7 @@ namespace Cake.Issues.PullRequests
         /// <returns>Comments for the issue.</returns>
         private (IEnumerable<IPullRequestDiscussionComment> activeComments,
                 IEnumerable<IPullRequestDiscussionComment> wontFixComments,
-                IEnumerable<IPullRequestDiscussionComment> resolvedComments,
-                IEnumerable<IPullRequestDiscussionThread> threads) GetMatchingComments(
+                IEnumerable<IPullRequestDiscussionComment> resolvedComments) GetMatchingComments(
             IIssue issue,
             IReadOnlyCollection<IPullRequestDiscussionThread> existingThreads)
         {
@@ -302,7 +301,6 @@ namespace Cake.Issues.PullRequests
             var activeComments = new List<IPullRequestDiscussionComment>();
             var wontFixComments = new List<IPullRequestDiscussionComment>();
             var resolvedComments = new List<IPullRequestDiscussionComment>();
-            var threads = new List<IPullRequestDiscussionThread>();
             foreach (var thread in matchingThreads)
             {
                 // Select comments from this thread that are not deleted and that match the given message.
@@ -347,11 +345,9 @@ namespace Cake.Issues.PullRequests
                         "Thread has unknown status und matching comment(s) are ignored.");
                     continue;
                 }
-
-                threads.Add(thread);
             }
 
-            return (activeComments, wontFixComments, resolvedComments, threads);
+            return (activeComments, wontFixComments, resolvedComments);
         }
 
         /// <summary>
@@ -422,7 +418,7 @@ namespace Cake.Issues.PullRequests
         /// Marks resolved comment threads created by this logic with active issues as active.
         /// </summary>
         /// <param name="discussionThreadsCapability">Pull request system capability for working with discussion threads.</param>
-        /// <param name="existantThreads">Existing discussion threads on the pull request.</param>
+        /// <param name="existingThreads">Existing discussion threads on the pull request.</param>
         /// <param name="issueComments">Issues and their related existing comments on the pull request.</param>
         /// <param name="reportIssuesToPullRequestSettings">Settings for posting the issues.</param>
         private void ReopenExistingComments(

@@ -48,7 +48,7 @@ namespace Cake.Issues.PullRequests
         /// <param name="issues">Found issues.</param>
         /// <param name="issueComments">List of existing comments on the pull request or null if the
         /// pull request system doesn't support discussions.</param>
-        /// <param name="existingThreads">List of threads which were reported by Cake.Issues</param>
+        /// <param name="existingThreads">List of threads which were reported by Cake.Issues.</param>
         /// <returns>List of filtered issues.</returns>
         public IEnumerable<IIssue> FilterIssues(
             IEnumerable<IIssue> issues,
