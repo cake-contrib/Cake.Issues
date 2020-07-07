@@ -71,6 +71,12 @@
                     continue;
                 }
 
+                // Read affected column from the warning.
+                if (!TryGetColumn(warning, out var column))
+                {
+                    continue;
+                }
+
                 // Read rule code from the warning.
                 if (!TryGetRule(warning, out string rule))
                 {
@@ -90,7 +96,7 @@
                         .NewIssue(warning.Value, issueProvider)
                         .WithPriority(IssuePriority.Warning)
                         .InProject(projectFileRelativePath, System.IO.Path.GetFileNameWithoutExtension(projectFileRelativePath))
-                        .InFile(fileName, line)
+                        .InFile(fileName, line, column)
                         .OfRule(rule, ruleUrl)
                         .Create());
             }
@@ -122,6 +128,35 @@
             if (line <= 0)
             {
                 line = null;
+            }
+
+            return true;
+        }
+
+        /// <summary>
+        /// Reads the affected column from a warning logged in a MsBuild log.
+        /// </summary>
+        /// <param name="warning">Warning element from MsBuild log.</param>
+        /// <param name="column">Returns column.</param>
+        /// <returns>True if the column could be parsed.</returns>
+        private static bool TryGetColumn(XElement warning, out int? column)
+        {
+            column = null;
+
+            var columnAttr = warning.Attribute("column");
+
+            var columnValue = columnAttr?.Value;
+            if (string.IsNullOrWhiteSpace(columnValue))
+            {
+                return false;
+            }
+
+            column = int.Parse(columnValue, CultureInfo.InvariantCulture);
+
+            // Convert negative column numbers or column number 0 to null
+            if (column <= 0)
+            {
+                column = null;
             }
 
             return true;

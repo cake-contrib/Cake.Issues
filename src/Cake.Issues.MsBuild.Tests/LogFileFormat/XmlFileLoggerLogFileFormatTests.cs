@@ -47,7 +47,7 @@
                         "Cake.Issues.MsBuild.MsBuildIssuesProvider",
                         "MSBuild")
                         .InProject(@"src\ClassLibrary1\ClassLibrary1.csproj", "ClassLibrary1")
-                        .InFile(@"src\ClassLibrary1\Class1.cs", 13)
+                        .InFile(@"src\ClassLibrary1\Class1.cs", 13, 17)
                         .OfRule("CS0219")
                         .WithPriority(IssuePriority.Warning));
                 IssueChecker.Check(
@@ -57,7 +57,7 @@
                         "Cake.Issues.MsBuild.MsBuildIssuesProvider",
                         "MSBuild")
                         .InProject(@"src\ClassLibrary1\ClassLibrary1.csproj", "ClassLibrary1")
-                        .InFile(@"src\ClassLibrary1\Class1.cs", 1)
+                        .InFile(@"src\ClassLibrary1\Class1.cs", 1, 1)
                         .OfRule("SA1652", new Uri("https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1652.md"))
                         .WithPriority(IssuePriority.Warning));
                 IssueChecker.Check(
@@ -67,7 +67,7 @@
                         "Cake.Issues.MsBuild.MsBuildIssuesProvider",
                         "MSBuild")
                         .InProject(@"src\ClassLibrary1\ClassLibrary1.csproj", "ClassLibrary1")
-                        .InFile(@"src\ClassLibrary1\Class1.cs", 1)
+                        .InFile(@"src\ClassLibrary1\Class1.cs", 1, 1)
                         .OfRule("SA1633", new Uri("https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1633.md"))
                         .WithPriority(IssuePriority.Warning));
                 IssueChecker.Check(
@@ -77,7 +77,7 @@
                         "Cake.Issues.MsBuild.MsBuildIssuesProvider",
                         "MSBuild")
                         .InProject(@"src\ClassLibrary1\ClassLibrary1.csproj", "ClassLibrary1")
-                        .InFile(@"src\ClassLibrary1\Class1.cs", 1)
+                        .InFile(@"src\ClassLibrary1\Class1.cs", 1, 1)
                         .OfRule("SA1200", new Uri("https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1200.md"))
                         .WithPriority(IssuePriority.Warning));
                 IssueChecker.Check(
@@ -87,7 +87,7 @@
                         "Cake.Issues.MsBuild.MsBuildIssuesProvider",
                         "MSBuild")
                         .InProject(@"src\ClassLibrary1\ClassLibrary1.csproj", "ClassLibrary1")
-                        .InFile(@"src\ClassLibrary1\Class1.cs", 2)
+                        .InFile(@"src\ClassLibrary1\Class1.cs", 2, 1)
                         .OfRule("SA1200", new Uri("https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1200.md"))
                         .WithPriority(IssuePriority.Warning));
                 IssueChecker.Check(
@@ -97,7 +97,7 @@
                         "Cake.Issues.MsBuild.MsBuildIssuesProvider",
                         "MSBuild")
                         .InProject(@"src\ClassLibrary1\ClassLibrary1.csproj", "ClassLibrary1")
-                        .InFile(@"src\ClassLibrary1\Class1.cs", 3)
+                        .InFile(@"src\ClassLibrary1\Class1.cs", 3, 1)
                         .OfRule("SA1200", new Uri("https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1200.md"))
                         .WithPriority(IssuePriority.Warning));
                 IssueChecker.Check(
@@ -107,7 +107,7 @@
                         "Cake.Issues.MsBuild.MsBuildIssuesProvider",
                         "MSBuild")
                         .InProject(@"src\ClassLibrary1\ClassLibrary1.csproj", "ClassLibrary1")
-                        .InFile(@"src\ClassLibrary1\Class1.cs", 4)
+                        .InFile(@"src\ClassLibrary1\Class1.cs", 4, 1)
                         .OfRule("SA1200", new Uri("https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1200.md"))
                         .WithPriority(IssuePriority.Warning));
                 IssueChecker.Check(
@@ -117,7 +117,7 @@
                         "Cake.Issues.MsBuild.MsBuildIssuesProvider",
                         "MSBuild")
                         .InProject(@"src\ClassLibrary1\ClassLibrary1.csproj", "ClassLibrary1")
-                        .InFile(@"src\ClassLibrary1\Class1.cs", 5)
+                        .InFile(@"src\ClassLibrary1\Class1.cs", 5, 1)
                         .OfRule("SA1200", new Uri("https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1200.md"))
                         .WithPriority(IssuePriority.Warning));
                 IssueChecker.Check(
@@ -127,7 +127,7 @@
                         "Cake.Issues.MsBuild.MsBuildIssuesProvider",
                         "MSBuild")
                         .InProject(@"src\ClassLibrary1\ClassLibrary1.csproj", "ClassLibrary1")
-                        .InFile(@"src\ClassLibrary1\Properties\AssemblyInfo.cs", 1)
+                        .InFile(@"src\ClassLibrary1\Properties\AssemblyInfo.cs", 1, 1)
                         .OfRule("SA1652", new Uri("https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1652.md"))
                         .WithPriority(IssuePriority.Warning));
                 IssueChecker.Check(
@@ -137,7 +137,7 @@
                         "Cake.Issues.MsBuild.MsBuildIssuesProvider",
                         "MSBuild")
                         .InProject(@"src\ClassLibrary1\ClassLibrary1.csproj", "ClassLibrary1")
-                        .InFile(@"src\ClassLibrary1\Properties\AssemblyInfo.cs", 1)
+                        .InFile(@"src\ClassLibrary1\Properties\AssemblyInfo.cs", 1, 1)
                         .OfRule("SA1633", new Uri("https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1633.md"))
                         .WithPriority(IssuePriority.Warning));
                 IssueChecker.Check(
@@ -147,7 +147,7 @@
                         "Cake.Issues.MsBuild.MsBuildIssuesProvider",
                         "MSBuild")
                         .InProject(@"src\ClassLibrary1\ClassLibrary1.csproj", "ClassLibrary1")
-                        .InFile(@"src\ClassLibrary1\Properties\AssemblyInfo.cs", 5)
+                        .InFile(@"src\ClassLibrary1\Properties\AssemblyInfo.cs", 5, 77)
                         .OfRule("SA1028", new Uri("https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1028.md"))
                         .WithPriority(IssuePriority.Warning));
                 IssueChecker.Check(
@@ -157,7 +157,7 @@
                         "Cake.Issues.MsBuild.MsBuildIssuesProvider",
                         "MSBuild")
                         .InProject(@"src\ClassLibrary1\ClassLibrary1.csproj", "ClassLibrary1")
-                        .InFile(@"src\ClassLibrary1\Properties\AssemblyInfo.cs", 17)
+                        .InFile(@"src\ClassLibrary1\Properties\AssemblyInfo.cs", 17, 76)
                         .OfRule("SA1028", new Uri("https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1028.md"))
                         .WithPriority(IssuePriority.Warning));
                 IssueChecker.Check(
@@ -167,7 +167,7 @@
                         "Cake.Issues.MsBuild.MsBuildIssuesProvider",
                         "MSBuild")
                         .InProject(@"src\ClassLibrary1\ClassLibrary1.csproj", "ClassLibrary1")
-                        .InFile(@"src\ClassLibrary1\Properties\AssemblyInfo.cs", 18)
+                        .InFile(@"src\ClassLibrary1\Properties\AssemblyInfo.cs", 18, 74)
                         .OfRule("SA1028", new Uri("https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1028.md"))
                         .WithPriority(IssuePriority.Warning));
                 IssueChecker.Check(
@@ -177,7 +177,7 @@
                         "Cake.Issues.MsBuild.MsBuildIssuesProvider",
                         "MSBuild")
                         .InProject(@"src\ClassLibrary1\ClassLibrary1.csproj", "ClassLibrary1")
-                        .InFile(@"src\ClassLibrary1\Properties\AssemblyInfo.cs", 28)
+                        .InFile(@"src\ClassLibrary1\Properties\AssemblyInfo.cs", 28, 22)
                         .OfRule("SA1028", new Uri("https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1028.md"))
                         .WithPriority(IssuePriority.Warning));
                 IssueChecker.Check(
@@ -187,7 +187,7 @@
                         "Cake.Issues.MsBuild.MsBuildIssuesProvider",
                         "MSBuild")
                         .InProject(@"src\ClassLibrary1\ClassLibrary1.csproj", "ClassLibrary1")
-                        .InFile(@"src\ClassLibrary1\Properties\AssemblyInfo.cs", 32)
+                        .InFile(@"src\ClassLibrary1\Properties\AssemblyInfo.cs", 32, 84)
                         .OfRule("SA1028", new Uri("https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1028.md"))
                         .WithPriority(IssuePriority.Warning));
                 IssueChecker.Check(
@@ -271,7 +271,7 @@
                         "Cake.Issues.MsBuild.MsBuildIssuesProvider",
                         "MSBuild")
                         .InProjectOfName(string.Empty)
-                        .InFile(@"src\Cake.Issues.MsBuild.Tests\MsBuildIssuesProviderTests.cs", 13)
+                        .InFile(@"src\Cake.Issues.MsBuild.Tests\MsBuildIssuesProviderTests.cs", 13, 17)
                         .OfRule("CS0219")
                         .WithPriority(IssuePriority.Warning));
             }
@@ -339,7 +339,7 @@
                         "Cake.Issues.MsBuild.MsBuildIssuesProvider",
                         "MSBuild")
                         .InProjectOfName(string.Empty)
-                        .InFile(@"src\Cake.Issues.MsBuild.Tests\MsBuildIssuesProviderTests.cs", 21)
+                        .InFile(@"src\Cake.Issues.MsBuild.Tests\MsBuildIssuesProviderTests.cs", 21, 1)
                         .WithPriority(IssuePriority.Warning));
             }
 
