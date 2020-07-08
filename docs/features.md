@@ -22,7 +22,8 @@ The [Cake.Issues.MsBuild addin] provides the following features.
 |--------------------------------------------------------------------|-----------------------------------|---------------------------------------|
 | <span class="glyphicon glyphicon-ok" style="color:green"></span>   | `IIssue.ProviderType`             |                                       |
 | <span class="glyphicon glyphicon-ok" style="color:green"></span>   | `IIssue.ProviderName`             |                                       |
-| <span class="glyphicon glyphicon-remove" style="color:red"></span> | `IIssue.Run`                      |                                       |
+| <span class="glyphicon glyphicon-remove" style="color:red"></span> | `IIssue.Run`                      | Can be set while reading issues       |
+| <span class="glyphicon glyphicon-ok" style="color:green"></span>   | `IIssue.Identifier`               | Set to `IIssue.MessageText`           |
 | <span class="glyphicon glyphicon-ok" style="color:green"></span>   | `IIssue.ProjectName`              |                                       |
 | <span class="glyphicon glyphicon-ok" style="color:green"></span>   | `IIssue.ProjectFileRelativePath`  |                                       |
 | <span class="glyphicon glyphicon-ok" style="color:green"></span>   | `IIssue.AffectedFileRelativePath` |                                       |
