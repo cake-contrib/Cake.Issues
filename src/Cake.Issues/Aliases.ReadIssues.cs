@@ -99,13 +99,13 @@
         /// <param name="settings">The settings.</param>
         /// <returns>Issues reported by issue provider.</returns>
         /// <example>
-        /// <para>Read issues reported by JetBrains inspect code and format comments in Markdown:</para>
+        /// <para>Read issues reported by JetBrains inspect code and set run information:</para>
         /// <code>
         /// <![CDATA[
         ///     var settings =
         ///         new ReadIssuesSettings(@"c:\repo")
         ///         {
-        ///             Format = IssueCommentFormat.Markdown
+        ///             Run = "My run"
         ///         };
         ///
         ///     var issues =
@@ -142,13 +142,13 @@
         /// <returns>Issues reported by all issue providers.</returns>
         /// <example>
         /// <para>Read issues reported as MsBuild warnings and issues reported by JetBrains inspect code
-        /// with comments formatted as Markdown:</para>
+        /// and set run information:</para>
         /// <code>
         /// <![CDATA[
         ///     var settings =
         ///         new ReadIssuesSettings(@"c:\repo")
         ///         {
-        ///             Format = IssueCommentFormat.Markdown
+        ///             Run = "My run"
         ///         };
         ///
         ///     var issues =
