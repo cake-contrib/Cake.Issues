@@ -121,7 +121,7 @@
         public static IEnumerable<IIssue> ReadIssues(
             this ICakeContext context,
             IIssueProvider issueProvider,
-            ReadIssuesSettings settings)
+            IReadIssuesSettings settings)
         {
             context.NotNull(nameof(context));
             issueProvider.NotNull(nameof(issueProvider));
@@ -170,7 +170,7 @@
         public static IEnumerable<IIssue> ReadIssues(
             this ICakeContext context,
             IEnumerable<IIssueProvider> issueProviders,
-            ReadIssuesSettings settings)
+            IReadIssuesSettings settings)
         {
             context.NotNull(nameof(context));
             settings.NotNull(nameof(settings));

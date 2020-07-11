@@ -31,7 +31,7 @@
         /// <inheritdoc/>
         public abstract IEnumerable<IIssue> ReadIssues(
             TIssueProvider issueProvider,
-            RepositorySettings repositorySettings,
+            IRepositorySettings repositorySettings,
             TSettings issueProviderSettings);
     }
 }

@@ -6,7 +6,7 @@
     /// <summary>
     /// Base class for all issue provider implementations.
     /// </summary>
-    public abstract class BaseIssueProvider : BaseIssueComponent<RepositorySettings>, IIssueProvider
+    public abstract class BaseIssueProvider : BaseIssueComponent<IRepositorySettings>, IIssueProvider
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="BaseIssueProvider"/> class.

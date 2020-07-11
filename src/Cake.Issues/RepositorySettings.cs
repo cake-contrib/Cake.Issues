@@ -5,7 +5,7 @@
     /// <summary>
     /// Settings containing a path to a repository.
     /// </summary>
-    public class RepositorySettings
+    public class RepositorySettings : IRepositorySettings
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="RepositorySettings"/> class.

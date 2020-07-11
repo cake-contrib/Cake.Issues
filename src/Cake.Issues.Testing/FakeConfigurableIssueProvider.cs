@@ -48,7 +48,7 @@
         /// <summary>
         /// Gets the repository settings.
         /// </summary>
-        public RepositorySettings RepositorySettings => this.Settings;
+        public IRepositorySettings RepositorySettings => this.Settings;
 
         /// <summary>
         /// Gets the issue provider settings.

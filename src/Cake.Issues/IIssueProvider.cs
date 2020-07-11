@@ -5,7 +5,7 @@
     /// <summary>
     /// Interface describing a provider for issues.
     /// </summary>
-    public interface IIssueProvider : IBaseIssueComponent<RepositorySettings>
+    public interface IIssueProvider : IBaseIssueComponent<IRepositorySettings>
     {
         /// <summary>
         /// Gets the human friendly name of the issue provider.

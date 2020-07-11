@@ -8,7 +8,7 @@
     /// </summary>
     /// <typeparam name="T">Type of settings.</typeparam>
     public abstract class BaseIssueComponent<T> : IBaseIssueComponent<T>
-        where T : RepositorySettings
+        where T : class, IRepositorySettings
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="BaseIssueComponent{T}"/> class.
