@@ -251,7 +251,7 @@
 
         /// <summary>
         /// Settings for having issues linked to files.
-        /// Value needs to be an instance of <see cref="FileLinkSettings"/>.
+        /// Value needs to be an instance of <see cref="Cake.Issues.FileLinkSettings"/>.
         /// Default value is <c>null</c>.
         /// </summary>
         FileLinkSettings,
