@@ -49,7 +49,11 @@
             issues.NotNullOrEmptyElement(nameof(issues));
 
             // ReSharper disable once PossibleMultipleEnumeration
-            return context.ReportIssuesToPullRequest(issues, pullRequestSystem, new ReportIssuesToPullRequestSettings(repositoryRoot));
+            return
+                context.ReportIssuesToPullRequest(
+                    issues,
+                    pullRequestSystem,
+                    new ReportIssuesToPullRequestSettings(repositoryRoot));
         }
 
         /// <summary>
@@ -86,7 +90,7 @@
             this ICakeContext context,
             IEnumerable<IIssue> issues,
             IPullRequestSystem pullRequestSystem,
-            ReportIssuesToPullRequestSettings settings)
+            IReportIssuesToPullRequestSettings settings)
         {
             context.NotNull(nameof(context));
             pullRequestSystem.NotNull(nameof(pullRequestSystem));
@@ -98,11 +102,10 @@
             var orchestrator =
                 new Orchestrator(
                     context.Log,
-                    pullRequestSystem,
-                    settings);
+                    pullRequestSystem);
 
             // ReSharper disable once PossibleMultipleEnumeration
-            return orchestrator.Run(issues);
+            return orchestrator.Run(issues, settings);
         }
 
         /// <summary>
@@ -146,7 +149,7 @@
                 context.ReportIssuesToPullRequest(
                     issueProvider,
                     pullRequestSystem,
-                    new ReportIssuesToPullRequestSettings(repositoryRoot));
+                    new ReportIssuesToPullRequestFromIssueProviderSettings(repositoryRoot));
         }
 
         /// <summary>
@@ -198,7 +201,7 @@
                 context.ReportIssuesToPullRequest(
                     issueProviders,
                     pullRequestSystem,
-                    new ReportIssuesToPullRequestSettings(repositoryRoot));
+                    new ReportIssuesToPullRequestFromIssueProviderSettings(repositoryRoot));
         }
 
         /// <summary>
@@ -214,7 +217,7 @@
         /// <code>
         /// <![CDATA[
         ///     var settings =
-        ///         new ReportIssuesToPullRequestSettings(@"C:\repo")
+        ///         new ReportIssuesToPullRequestFromIssueProviderSettings(@"C:\repo")
         ///         {
         ///             MaxIssuesToPost = 10
         ///         };
@@ -237,7 +240,7 @@
             this ICakeContext context,
             IIssueProvider issueProvider,
             IPullRequestSystem pullRequestSystem,
-            ReportIssuesToPullRequestSettings settings)
+            IReportIssuesToPullRequestFromIssueProviderSettings settings)
         {
             context.NotNull(nameof(context));
             issueProvider.NotNull(nameof(issueProvider));
@@ -264,7 +267,7 @@
         /// <code>
         /// <![CDATA[
         ///     var settings =
-        ///         new ReportIssuesToPullRequestSettings(@"C:\repo")
+        ///         new ReportIssuesToPullRequestFromIssueProviderSettings(@"C:\repo")
         ///         {
         ///             MaxIssuesToPost = 10
         ///         };
@@ -292,7 +295,7 @@
             this ICakeContext context,
             IEnumerable<IIssueProvider> issueProviders,
             IPullRequestSystem pullRequestSystem,
-            ReportIssuesToPullRequestSettings settings)
+            IReportIssuesToPullRequestFromIssueProviderSettings settings)
         {
             context.NotNull(nameof(context));
             pullRequestSystem.NotNull(nameof(pullRequestSystem));
@@ -304,11 +307,10 @@
             var orchestrator =
                 new Orchestrator(
                     context.Log,
-                    pullRequestSystem,
-                    settings);
+                    pullRequestSystem);
 
             // ReSharper disable once PossibleMultipleEnumeration
-            return orchestrator.Run(issueProviders);
+            return orchestrator.Run(issueProviders, settings);
         }
     }
 }

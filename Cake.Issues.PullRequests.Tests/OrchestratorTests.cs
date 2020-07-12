@@ -15,14 +15,14 @@ namespace Cake.Issues.PullRequests.Tests
             public void Should_Throw_If_Log_Is_Null()
             {
                 // Given
-                var fixture = new PullRequestsFixture
+                var fixture = new OrchestratorForIssuesFixture()
                 {
                     Log = null
                 };
                 var issues = new List<IIssue>();
 
                 // When
-                var result = Record.Exception(() => fixture.RunOrchestratorForIssues(issues));
+                var result = Record.Exception(() => fixture.RunOrchestrator(issues));
 
                 // Then
                 result.IsArgumentNullException("log");
@@ -32,11 +32,11 @@ namespace Cake.Issues.PullRequests.Tests
             public void Should_Throw_If_Issues_Are_Null()
             {
                 // Given
-                var fixture = new PullRequestsFixture();
+                var fixture = new OrchestratorForIssuesFixture();
                 List<IIssue> issues = null;
 
                 // When
-                var result = Record.Exception(() => fixture.RunOrchestratorForIssues(issues));
+                var result = Record.Exception(() => fixture.RunOrchestrator(issues));
 
                 // Then
                 result.IsArgumentNullException("issues");
@@ -46,11 +46,11 @@ namespace Cake.Issues.PullRequests.Tests
             public void Should_Throw_If_Issue_Is_Null()
             {
                 // Given
-                var fixture = new PullRequestsFixture();
+                var fixture = new OrchestratorForIssuesFixture();
                 var issues = new List<IIssue> { null };
 
                 // When
-                var result = Record.Exception(() => fixture.RunOrchestratorForIssues(issues));
+                var result = Record.Exception(() => fixture.RunOrchestrator(issues));
 
                 // Then
                 result.IsArgumentOutOfRangeException("issues");
@@ -60,14 +60,14 @@ namespace Cake.Issues.PullRequests.Tests
             public void Should_Throw_If_Pull_Request_System_Is_Null()
             {
                 // Given
-                var fixture = new PullRequestsFixture
+                var fixture = new OrchestratorForIssuesFixture
                 {
                     PullRequestSystem = null
                 };
                 var issues = new List<IIssue>();
 
                 // When
-                var result = Record.Exception(() => fixture.RunOrchestratorForIssues(issues));
+                var result = Record.Exception(() => fixture.RunOrchestrator(issues));
 
                 // Then
                 result.IsArgumentNullException("pullRequestSystem");
@@ -77,14 +77,14 @@ namespace Cake.Issues.PullRequests.Tests
             public void Should_Throw_If_Settings_Are_Null()
             {
                 // Given
-                var fixture = new PullRequestsFixture
+                var fixture = new OrchestratorForIssuesFixture
                 {
                     Settings = null
                 };
                 var issues = new List<IIssue>();
 
                 // When
-                var result = Record.Exception(() => fixture.RunOrchestratorForIssues(issues));
+                var result = Record.Exception(() => fixture.RunOrchestrator(issues));
 
                 // Then
                 result.IsArgumentNullException("settings");
@@ -94,11 +94,11 @@ namespace Cake.Issues.PullRequests.Tests
             public void Should_Initialize_Pull_Request_System()
             {
                 // Given
-                var fixture = new PullRequestsFixture();
+                var fixture = new OrchestratorForIssuesFixture();
                 var issues = new List<IIssue>();
 
                 // When
-                fixture.RunOrchestratorForIssues(issues);
+                fixture.RunOrchestrator(issues);
 
                 // Then
                 fixture.PullRequestSystem.Settings.ShouldBe(fixture.Settings);
@@ -108,11 +108,11 @@ namespace Cake.Issues.PullRequests.Tests
             public void Should_Not_Throw_If_Issues_Are_Empry()
             {
                 // Given
-                var fixture = new PullRequestsFixture();
+                var fixture = new OrchestratorForIssuesFixture();
                 var issues = new List<IIssue>();
 
                 // When
-                var result = fixture.RunOrchestratorForIssues(issues);
+                var result = fixture.RunOrchestrator(issues);
 
                 // Then
                 result.ReportedIssues.ShouldBeEmpty();
@@ -126,13 +126,13 @@ namespace Cake.Issues.PullRequests.Tests
             public void Should_Throw_If_Log_Is_Null()
             {
                 // Given
-                var fixture = new PullRequestsFixture
+                var fixture = new OrchestratorForIssueProvidersFixture()
                 {
                     Log = null
                 };
 
                 // When
-                var result = Record.Exception(() => fixture.RunOrchestratorForIssueProviders());
+                var result = Record.Exception(() => fixture.RunOrchestrator());
 
                 // Then
                 result.IsArgumentNullException("log");
@@ -142,13 +142,13 @@ namespace Cake.Issues.PullRequests.Tests
             public void Should_Throw_If_Issue_Provider_List_Is_Null()
             {
                 // Given
-                var fixture = new PullRequestsFixture
+                var fixture = new OrchestratorForIssueProvidersFixture
                 {
                     IssueProviders = null
                 };
 
                 // When
-                var result = Record.Exception(() => fixture.RunOrchestratorForIssueProviders());
+                var result = Record.Exception(() => fixture.RunOrchestrator());
 
                 // Then
                 result.IsArgumentNullException("issueProviders");
@@ -158,11 +158,11 @@ namespace Cake.Issues.PullRequests.Tests
             public void Should_Throw_If_Issue_Provider_List_Is_Empty()
             {
                 // Given
-                var fixture = new PullRequestsFixture();
+                var fixture = new OrchestratorForIssueProvidersFixture();
                 fixture.IssueProviders.Clear();
 
                 // When
-                var result = Record.Exception(() => fixture.RunOrchestratorForIssueProviders());
+                var result = Record.Exception(() => fixture.RunOrchestrator());
 
                 // Then
                 result.IsArgumentException("issueProviders");
@@ -172,12 +172,12 @@ namespace Cake.Issues.PullRequests.Tests
             public void Should_Throw_If_Issue_Provider_Is_Null()
             {
                 // Given
-                var fixture = new PullRequestsFixture();
+                var fixture = new OrchestratorForIssueProvidersFixture();
                 fixture.IssueProviders.Clear();
                 fixture.IssueProviders.Add(null);
 
                 // When
-                var result = Record.Exception(() => fixture.RunOrchestratorForIssueProviders());
+                var result = Record.Exception(() => fixture.RunOrchestrator());
 
                 // Then
                 result.IsArgumentOutOfRangeException("issueProviders");
@@ -187,13 +187,13 @@ namespace Cake.Issues.PullRequests.Tests
             public void Should_Throw_If_Pull_Request_System_Is_Null()
             {
                 // Given
-                var fixture = new PullRequestsFixture
+                var fixture = new OrchestratorForIssueProvidersFixture
                 {
                     PullRequestSystem = null
                 };
 
                 // When
-                var result = Record.Exception(() => fixture.RunOrchestratorForIssueProviders());
+                var result = Record.Exception(() => fixture.RunOrchestrator());
 
                 // Then
                 result.IsArgumentNullException("pullRequestSystem");
@@ -203,13 +203,13 @@ namespace Cake.Issues.PullRequests.Tests
             public void Should_Throw_If_Settings_Are_Null()
             {
                 // Given
-                var fixture = new PullRequestsFixture
+                var fixture = new OrchestratorForIssueProvidersFixture
                 {
                     Settings = null
                 };
 
                 // When
-                var result = Record.Exception(() => fixture.RunOrchestratorForIssueProviders());
+                var result = Record.Exception(() => fixture.RunOrchestrator());
 
                 // Then
                 result.IsArgumentNullException("settings");
@@ -219,10 +219,10 @@ namespace Cake.Issues.PullRequests.Tests
             public void Should_Initialize_Pull_Request_System()
             {
                 // Given
-                var fixture = new PullRequestsFixture();
+                var fixture = new OrchestratorForIssueProvidersFixture();
 
                 // When
-                fixture.RunOrchestratorForIssueProviders();
+                fixture.RunOrchestrator();
 
                 // Then
                 fixture.PullRequestSystem.Settings.ShouldBe(fixture.Settings);
@@ -243,7 +243,7 @@ namespace Cake.Issues.PullRequests.Tests
                         .WithPriority(IssuePriority.Warning)
                         .Create();
 
-                var fixture = new PullRequestsFixture();
+                var fixture = new OrchestratorForIssueProvidersFixture();
 
                 fixture.IssueProviders.Clear();
                 fixture.IssueProviders.Add(
@@ -255,7 +255,7 @@ namespace Cake.Issues.PullRequests.Tests
                         }));
 
                 // When
-                fixture.RunOrchestratorForIssueProviders();
+                fixture.RunOrchestrator();
 
                 // Then
                 fixture.PullRequestSystem.PostedIssues.ShouldContain(issueToPost);
@@ -276,7 +276,7 @@ namespace Cake.Issues.PullRequests.Tests
                         .WithPriority(IssuePriority.Warning)
                         .Create();
 
-                var fixture = new PullRequestsFixture();
+                var fixture = new OrchestratorForIssueProvidersFixture();
 
                 fixture.IssueProviders.Clear();
                 fixture.IssueProviders.Add(
@@ -288,7 +288,7 @@ namespace Cake.Issues.PullRequests.Tests
                         }));
 
                 // When
-                fixture.RunOrchestratorForIssueProviders();
+                fixture.RunOrchestrator();
 
                 // Then
                 fixture.PullRequestSystem.PostedIssues.ShouldContain(issueToPost);
@@ -317,7 +317,7 @@ namespace Cake.Issues.PullRequests.Tests
                         .WithPriority(IssuePriority.Warning)
                         .Create();
 
-                var fixture = new PullRequestsFixture();
+                var fixture = new OrchestratorForIssueProvidersFixture();
 
                 fixture.IssueProviders.Clear();
                 fixture.IssueProviders.Add(
@@ -328,10 +328,10 @@ namespace Cake.Issues.PullRequests.Tests
                             postedIssue, reportedIssue
                         }));
 
-                fixture.ReportIssuesToPullRequestSettings.MaxIssuesToPost = 1;
+                fixture.Settings.MaxIssuesToPost = 1;
 
                 // When
-                var result = fixture.RunOrchestratorForIssueProviders();
+                var result = fixture.RunOrchestrator();
 
                 // Then
                 result.ReportedIssues.Count().ShouldBe(2);
@@ -360,7 +360,7 @@ namespace Cake.Issues.PullRequests.Tests
                         .WithPriority(IssuePriority.Warning)
                         .Create();
 
-                var fixture = new PullRequestsFixture();
+                var fixture = new OrchestratorForIssueProvidersFixture();
                 fixture.PullRequestSystem.ShouldFailOnInitialization = true;
 
                 fixture.IssueProviders.Clear();
@@ -372,10 +372,10 @@ namespace Cake.Issues.PullRequests.Tests
                             firstIssue, secondIssue
                         }));
 
-                fixture.ReportIssuesToPullRequestSettings.MaxIssuesToPost = 1;
+                fixture.Settings.MaxIssuesToPost = 1;
 
                 // When
-                var result = fixture.RunOrchestratorForIssueProviders();
+                var result = fixture.RunOrchestrator();
 
                 // Then
                 result.ReportedIssues.Count().ShouldBe(2);
@@ -403,7 +403,7 @@ namespace Cake.Issues.PullRequests.Tests
                         .WithPriority(IssuePriority.Warning)
                         .Create();
 
-                var fixture = new PullRequestsFixture();
+                var fixture = new OrchestratorForIssueProvidersFixture();
 
                 fixture.IssueProviders.Clear();
                 fixture.IssueProviders.Add(
@@ -414,10 +414,10 @@ namespace Cake.Issues.PullRequests.Tests
                             issue1, issue2
                         }));
 
-                fixture.ReportIssuesToPullRequestSettings.MaxIssuesToPost = 1;
+                fixture.Settings.MaxIssuesToPost = 1;
 
                 // When
-                var result = fixture.RunOrchestratorForIssueProviders();
+                var result = fixture.RunOrchestrator();
 
                 // Then
                 result.ReportedIssues.Count().ShouldBe(2);
@@ -446,7 +446,7 @@ namespace Cake.Issues.PullRequests.Tests
                         .WithPriority(IssuePriority.Error)
                         .Create();
 
-                var fixture = new PullRequestsFixture();
+                var fixture = new OrchestratorForIssueProvidersFixture();
 
                 fixture.IssueProviders.Clear();
                 fixture.IssueProviders.Add(
@@ -457,10 +457,10 @@ namespace Cake.Issues.PullRequests.Tests
                             issue1, issue2
                         }));
 
-                fixture.ReportIssuesToPullRequestSettings.MaxIssuesToPost = 1;
+                fixture.Settings.MaxIssuesToPost = 1;
 
                 // When
-                var result = fixture.RunOrchestratorForIssueProviders();
+                var result = fixture.RunOrchestrator();
 
                 // Then
                 result.ReportedIssues.Count().ShouldBe(2);
@@ -488,7 +488,7 @@ namespace Cake.Issues.PullRequests.Tests
                         .WithPriority(IssuePriority.Warning)
                         .Create();
 
-                var fixture = new PullRequestsFixture();
+                var fixture = new OrchestratorForIssueProvidersFixture();
 
                 fixture.IssueProviders.Clear();
                 fixture.IssueProviders.Add(
@@ -499,10 +499,10 @@ namespace Cake.Issues.PullRequests.Tests
                             issue1, issue2
                         }));
 
-                fixture.ReportIssuesToPullRequestSettings.MaxIssuesToPost = 1;
+                fixture.Settings.MaxIssuesToPost = 1;
 
                 // When
-                var result = fixture.RunOrchestratorForIssueProviders();
+                var result = fixture.RunOrchestrator();
 
                 // Then
                 result.ReportedIssues.Count().ShouldBe(2);
@@ -545,7 +545,7 @@ namespace Cake.Issues.PullRequests.Tests
                         .WithPriority(IssuePriority.Warning)
                         .Create();
 
-                var fixture = new PullRequestsFixture();
+                var fixture = new OrchestratorForIssueProvidersFixture();
 
                 fixture.IssueProviders.Clear();
                 fixture.IssueProviders.Add(
@@ -556,10 +556,10 @@ namespace Cake.Issues.PullRequests.Tests
                             issue1, issue2, issue3, issue4
                         }));
 
-                fixture.ReportIssuesToPullRequestSettings.MaxIssuesToPostForEachIssueProvider = 1;
+                fixture.Settings.MaxIssuesToPostForEachIssueProvider = 1;
 
                 // When
-                var result = fixture.RunOrchestratorForIssueProviders();
+                var result = fixture.RunOrchestrator();
 
                 // Then
                 result.ReportedIssues.Count().ShouldBe(4);
@@ -604,7 +604,7 @@ namespace Cake.Issues.PullRequests.Tests
                         .WithPriority(IssuePriority.Warning)
                         .Create();
 
-                var fixture = new PullRequestsFixture();
+                var fixture = new OrchestratorForIssueProvidersFixture();
 
                 fixture.IssueProviders.Clear();
                 fixture.IssueProviders.Add(
@@ -615,10 +615,10 @@ namespace Cake.Issues.PullRequests.Tests
                             issue1, issue2, issue3, issue4
                         }));
 
-                fixture.ReportIssuesToPullRequestSettings.MaxIssuesToPostForEachIssueProvider = 1;
+                fixture.Settings.MaxIssuesToPostForEachIssueProvider = 1;
 
                 // When
-                var result = fixture.RunOrchestratorForIssueProviders();
+                var result = fixture.RunOrchestrator();
 
                 // Then
                 result.ReportedIssues.Count().ShouldBe(4);
@@ -661,7 +661,7 @@ namespace Cake.Issues.PullRequests.Tests
                         .WithPriority(IssuePriority.Warning)
                         .Create();
 
-                var fixture = new PullRequestsFixture();
+                var fixture = new OrchestratorForIssueProvidersFixture();
 
                 fixture.IssueProviders.Clear();
                 fixture.IssueProviders.Add(
@@ -672,10 +672,10 @@ namespace Cake.Issues.PullRequests.Tests
                             issue1, issue2, issue3, issue4
                         }));
 
-                fixture.ReportIssuesToPullRequestSettings.MaxIssuesToPostForEachIssueProvider = 1;
+                fixture.Settings.MaxIssuesToPostForEachIssueProvider = 1;
 
                 // When
-                var result = fixture.RunOrchestratorForIssueProviders();
+                var result = fixture.RunOrchestrator();
 
                 // Then
                 result.ReportedIssues.Count().ShouldBe(4);
@@ -703,7 +703,7 @@ namespace Cake.Issues.PullRequests.Tests
                         .Create();
 
                 var fixture =
-                    new PullRequestsFixture(
+                    new OrchestratorForIssueProvidersFixture(
                         (builder, settings) => builder
                             .WithCheckingCommitIdCapability());
 
@@ -718,11 +718,11 @@ namespace Cake.Issues.PullRequests.Tests
 
                 fixture.PullRequestSystem.CheckingCommitIdCapability.LastSourceCommitId =
                     "9ebcec39e16c39b5ffcb10f253d0c2bcf8438cf6";
-                fixture.ReportIssuesToPullRequestSettings.CommitId =
+                fixture.Settings.CommitId =
                     "15c54be6435cfb6b6973896d7be79f1d9b7497a9";
 
                 // When
-                var result = fixture.RunOrchestratorForIssueProviders();
+                var result = fixture.RunOrchestrator();
 
                 // Then
                 fixture.PullRequestSystem.PostedIssues.ShouldBeEmpty();
@@ -752,7 +752,7 @@ namespace Cake.Issues.PullRequests.Tests
                         .Create();
 
                 var fixture =
-                    new PullRequestsFixture(
+                    new OrchestratorForIssueProvidersFixture(
                         (builder, settings) => builder
                             .WithDiscussionThreadsCapability(
                                 new List<IPullRequestDiscussionThread>()));
@@ -766,10 +766,10 @@ namespace Cake.Issues.PullRequests.Tests
                             issue1, issue2
                         }));
 
-                fixture.ReportIssuesToPullRequestSettings.MaxIssuesToPostAcrossRuns = 1;
+                fixture.Settings.MaxIssuesToPostAcrossRuns = 1;
 
                 // When
-                var result = fixture.RunOrchestratorForIssueProviders();
+                var result = fixture.RunOrchestrator();
 
                 // Then
                 result.ReportedIssues.Count().ShouldBe(2);
@@ -799,7 +799,7 @@ namespace Cake.Issues.PullRequests.Tests
                         .Create();
 
                 var fixture =
-                    new PullRequestsFixture(
+                    new OrchestratorForIssueProvidersFixture(
                         (builder, settings) => builder
                             .WithDiscussionThreadsCapability(
                                 new List<IPullRequestDiscussionThread>()));
@@ -813,10 +813,10 @@ namespace Cake.Issues.PullRequests.Tests
                             issue1, issue2
                         }));
 
-                fixture.ReportIssuesToPullRequestSettings.MaxIssuesToPostAcrossRuns = 1;
+                fixture.Settings.MaxIssuesToPostAcrossRuns = 1;
 
                 // When
-                var result = fixture.RunOrchestratorForIssueProviders();
+                var result = fixture.RunOrchestrator();
 
                 // Then
                 result.ReportedIssues.Count().ShouldBe(2);
@@ -846,7 +846,7 @@ namespace Cake.Issues.PullRequests.Tests
                         .Create();
 
                 var fixture =
-                    new PullRequestsFixture(
+                    new OrchestratorForIssueProvidersFixture(
                         (builder, settings) => builder
                             .WithDiscussionThreadsCapability(
                                 new List<IPullRequestDiscussionThread>()));
@@ -860,10 +860,10 @@ namespace Cake.Issues.PullRequests.Tests
                             issue1, issue2
                         }));
 
-                fixture.ReportIssuesToPullRequestSettings.MaxIssuesToPostAcrossRuns = 1;
+                fixture.Settings.MaxIssuesToPostAcrossRuns = 1;
 
                 // When
-                var result = fixture.RunOrchestratorForIssueProviders();
+                var result = fixture.RunOrchestrator();
 
                 // Then
                 result.ReportedIssues.Count().ShouldBe(2);
@@ -901,7 +901,7 @@ namespace Cake.Issues.PullRequests.Tests
                         .Create();
 
                 var fixture =
-                    new PullRequestsFixture(
+                    new OrchestratorForIssueProvidersFixture(
                         (builder, settings) => builder
                             .WithDiscussionThreadsCapability(
                                 new List<IPullRequestDiscussionThread>
@@ -941,10 +941,10 @@ namespace Cake.Issues.PullRequests.Tests
                             issue1, issue2, issue3
                         }));
 
-                fixture.ReportIssuesToPullRequestSettings.MaxIssuesToPostAcrossRuns = 2;
+                fixture.Settings.MaxIssuesToPostAcrossRuns = 2;
 
                 // When
-                var result = fixture.RunOrchestratorForIssueProviders();
+                var result = fixture.RunOrchestrator();
 
                 // Then
                 result.ReportedIssues.Count().ShouldBe(3);
@@ -974,7 +974,7 @@ namespace Cake.Issues.PullRequests.Tests
                         .Create();
 
                 var fixture =
-                    new PullRequestsFixture(
+                    new OrchestratorForIssueProvidersFixture(
                         (builder, settings) => builder
                             .WithDiscussionThreadsCapability(
                                 new List<IPullRequestDiscussionThread>
@@ -1007,10 +1007,10 @@ namespace Cake.Issues.PullRequests.Tests
                             issue1, issue2
                         }));
 
-                fixture.ReportIssuesToPullRequestSettings.MaxIssuesToPostAcrossRuns = 2;
+                fixture.Settings.MaxIssuesToPostAcrossRuns = 2;
 
                 // When
-                var result = fixture.RunOrchestratorForIssueProviders();
+                var result = fixture.RunOrchestrator();
 
                 // Then
                 result.ReportedIssues.Count().ShouldBe(2);
@@ -1041,7 +1041,7 @@ namespace Cake.Issues.PullRequests.Tests
                         .Create();
 
                 var fixture =
-                    new PullRequestsFixture(
+                    new OrchestratorForIssueProvidersFixture(
                         (builder, settings) => builder
                             .WithDiscussionThreadsCapability(
                                 new List<IPullRequestDiscussionThread>
@@ -1069,10 +1069,10 @@ namespace Cake.Issues.PullRequests.Tests
                             issue1, issue2
                         }));
 
-                fixture.ReportIssuesToPullRequestSettings.MaxIssuesToPostAcrossRuns = 2;
+                fixture.Settings.MaxIssuesToPostAcrossRuns = 2;
 
                 // When
-                var result = fixture.RunOrchestratorForIssueProviders();
+                var result = fixture.RunOrchestrator();
 
                 // Then
                 result.ReportedIssues.Count().ShouldBe(2);
@@ -1103,7 +1103,7 @@ namespace Cake.Issues.PullRequests.Tests
                         .Create();
 
                 var fixture =
-                    new PullRequestsFixture(
+                    new OrchestratorForIssueProvidersFixture(
                         (builder, settings) => builder
                             .WithDiscussionThreadsCapability(
                                 new List<IPullRequestDiscussionThread>
@@ -1135,7 +1135,7 @@ namespace Cake.Issues.PullRequests.Tests
                         }));
 
                 // When
-                var result = fixture.RunOrchestratorForIssueProviders();
+                var result = fixture.RunOrchestrator();
 
                 // Then
                 result.ReportedIssues.Count().ShouldBe(2);
@@ -1173,7 +1173,7 @@ namespace Cake.Issues.PullRequests.Tests
                         .Create();
 
                 var fixture =
-                    new PullRequestsFixture(
+                    new OrchestratorForIssueProvidersFixture(
                         (builder, settings) => builder
                             .WithDiscussionThreadsCapability(
                                 new List<IPullRequestDiscussionThread>
@@ -1206,7 +1206,7 @@ namespace Cake.Issues.PullRequests.Tests
                         }));
 
                 // When
-                var result = fixture.RunOrchestratorForIssueProviders();
+                var result = fixture.RunOrchestrator();
 
                 // Then
                 result.ReportedIssues.Count().ShouldBe(2);
@@ -1242,7 +1242,7 @@ namespace Cake.Issues.PullRequests.Tests
                         .Create();
 
                 var fixture =
-                    new PullRequestsFixture(
+                    new OrchestratorForIssueProvidersFixture(
                         (builder, settings) => builder
                             .WithDiscussionThreadsCapability(
                                 new List<IPullRequestDiscussionThread>
@@ -1275,7 +1275,7 @@ namespace Cake.Issues.PullRequests.Tests
                         }));
 
                 // When
-                var result = fixture.RunOrchestratorForIssueProviders();
+                var result = fixture.RunOrchestrator();
 
                 // Then
                 result.ReportedIssues.Count().ShouldBe(2);
@@ -1306,7 +1306,7 @@ namespace Cake.Issues.PullRequests.Tests
                         .Create();
 
                 var fixture =
-                    new PullRequestsFixture(
+                    new OrchestratorForIssueProvidersFixture(
                         (builder, settings) => builder
                             .WithDiscussionThreadsCapability(
                                 new List<IPullRequestDiscussionThread>
@@ -1338,7 +1338,7 @@ namespace Cake.Issues.PullRequests.Tests
                         }));
 
                 // When
-                var result = fixture.RunOrchestratorForIssueProviders();
+                var result = fixture.RunOrchestrator();
 
                 // Then
                 result.ReportedIssues.Count().ShouldBe(1);
@@ -1360,7 +1360,7 @@ namespace Cake.Issues.PullRequests.Tests
             {
                 // Given
                 var fixture =
-                    new PullRequestsFixture(
+                    new OrchestratorForIssueProvidersFixture(
                         (builder, settings) => builder
                             .WithDiscussionThreadsCapability(
                                 new List<IPullRequestDiscussionThread>
@@ -1400,7 +1400,7 @@ namespace Cake.Issues.PullRequests.Tests
                         }));
 
                 // When
-                fixture.RunOrchestratorForIssueProviders();
+                fixture.RunOrchestrator();
 
                 // Then
                 fixture.PullRequestSystem.DiscussionThreadsCapability.ResolvedThreads.ShouldContain(threadToResolve);
@@ -1412,7 +1412,7 @@ namespace Cake.Issues.PullRequests.Tests
             {
                 // Given
                 var fixture =
-                    new PullRequestsFixture(
+                    new OrchestratorForIssueProvidersFixture(
                         (builder, settings) => builder
                             .WithDiscussionThreadsCapability(
                                 new List<IPullRequestDiscussionThread>
@@ -1452,7 +1452,7 @@ namespace Cake.Issues.PullRequests.Tests
                         }));
 
                 // When
-                fixture.RunOrchestratorForIssueProviders();
+                fixture.RunOrchestrator();
 
                 // Then
                 fixture.PullRequestSystem.DiscussionThreadsCapability.ResolvedThreads.ShouldBeEmpty();
@@ -1463,7 +1463,7 @@ namespace Cake.Issues.PullRequests.Tests
             {
                 // Given
                 var fixture =
-                    new PullRequestsFixture(
+                    new OrchestratorForIssueProvidersFixture(
                         (builder, settings) => builder
                             .WithDiscussionThreadsCapability(
                                 new List<IPullRequestDiscussionThread>
@@ -1504,7 +1504,7 @@ namespace Cake.Issues.PullRequests.Tests
                         }));
 
                 // When
-                fixture.RunOrchestratorForIssueProviders();
+                fixture.RunOrchestrator();
 
                 // Then
                 fixture.PullRequestSystem.DiscussionThreadsCapability.ReopenedThreads.ShouldContain(threadToReopen);
@@ -1516,7 +1516,7 @@ namespace Cake.Issues.PullRequests.Tests
             {
                 // Given
                 var fixture =
-                    new PullRequestsFixture(
+                    new OrchestratorForIssueProvidersFixture(
                         (builder, settings) => builder
                             .WithDiscussionThreadsCapability(
                                 new List<IPullRequestDiscussionThread>
@@ -1557,7 +1557,7 @@ namespace Cake.Issues.PullRequests.Tests
                         }));
 
                 // When
-                fixture.RunOrchestratorForIssueProviders();
+                fixture.RunOrchestrator();
 
                 // Then
                 fixture.PullRequestSystem.DiscussionThreadsCapability.ReopenedThreads.ShouldBeEmpty();
@@ -1568,7 +1568,7 @@ namespace Cake.Issues.PullRequests.Tests
             {
                 // Given
                 var fixture =
-                    new PullRequestsFixture(
+                    new OrchestratorForIssueProvidersFixture(
                         (builder, settings) => builder
                             .WithDiscussionThreadsCapability(
                                 new List<IPullRequestDiscussionThread>()));
@@ -1588,7 +1588,7 @@ namespace Cake.Issues.PullRequests.Tests
                         }));
 
                 // When
-                fixture.RunOrchestratorForIssueProviders();
+                fixture.RunOrchestrator();
 
                 // Then
                 fixture.Log.Entries.ShouldContain(x => x.Message == "No existings threads to resolve.");
@@ -1600,7 +1600,7 @@ namespace Cake.Issues.PullRequests.Tests
             {
                 // Given
                 var fixture =
-                    new PullRequestsFixture(
+                    new OrchestratorForIssueProvidersFixture(
                         (builder, settings) => builder
                             .WithDiscussionThreadsCapability(
                                 new List<IPullRequestDiscussionThread>
@@ -1637,7 +1637,7 @@ namespace Cake.Issues.PullRequests.Tests
                         }));
 
                 // When
-                fixture.RunOrchestratorForIssueProviders();
+                fixture.RunOrchestrator();
 
                 // Then
                 fixture.Log.Entries.ShouldContain(x => x.Message == "Thread has unknown status und matching comment(s) are ignored.");
@@ -1666,7 +1666,7 @@ namespace Cake.Issues.PullRequests.Tests
                         .Create();
 
                 var fixture =
-                    new PullRequestsFixture(
+                    new OrchestratorForIssueProvidersFixture(
                         (builder, settings) => builder
                             .WithFilteringByModifiedFilesCapability(
                                 new List<FilePath>
@@ -1685,7 +1685,7 @@ namespace Cake.Issues.PullRequests.Tests
                         }));
 
                 // When
-                var result = fixture.RunOrchestratorForIssueProviders();
+                var result = fixture.RunOrchestrator();
 
                 // Then
                 result.ReportedIssues.Count().ShouldBe(2);
@@ -1706,7 +1706,7 @@ namespace Cake.Issues.PullRequests.Tests
             {
                 // Given
                 var fixture =
-                    new PullRequestsFixture(
+                    new OrchestratorForIssueProvidersFixture(
                         (builder, settings) => builder
                             .WithFilteringByModifiedFilesCapability(
                                 new List<FilePath>()));
@@ -1732,7 +1732,7 @@ namespace Cake.Issues.PullRequests.Tests
                         }));
 
                 // When
-                fixture.RunOrchestratorForIssueProviders();
+                fixture.RunOrchestrator();
 
                 // Then
                 fixture.Log.Entries.ShouldContain(x => x.Message == "All issues were filtered. Nothing new to post.");

@@ -5,9 +5,9 @@
     using Cake.Core.IO;
 
     /// <summary>
-    /// Settings affecting how issues are reported to pull requests.
+    /// Settings affecting how issues read from issue provider are reported to pull requests.
     /// </summary>
-    public class ReportIssuesToPullRequestSettings : RepositorySettings, IReportIssuesToPullRequestSettings
+    public class ReportIssuesToPullRequestFromIssueProviderSettings : ReadIssuesSettings, IReportIssuesToPullRequestFromIssueProviderSettings
     {
 #pragma warning disable SA1124 // Do not use regions
         #region DupFinder Exclusion
@@ -17,10 +17,10 @@
         #endregion
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ReportIssuesToPullRequestSettings"/> class.
+        /// Initializes a new instance of the <see cref="ReportIssuesToPullRequestFromIssueProviderSettings"/> class.
         /// </summary>
         /// <param name="repositoryRoot">Root path of the repository.</param>
-        public ReportIssuesToPullRequestSettings(DirectoryPath repositoryRoot)
+        public ReportIssuesToPullRequestFromIssueProviderSettings(DirectoryPath repositoryRoot)
             : base(repositoryRoot)
         {
         }

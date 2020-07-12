@@ -14,8 +14,6 @@ namespace Cake.Issues.PullRequests
     {
         private readonly ICakeLog log;
         private readonly IPullRequestSystem pullRequestSystem;
-        private readonly ReportIssuesToPullRequestSettings settings;
-        private readonly bool pullRequestSystemInitialized;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Orchestrator"/> class.
@@ -23,11 +21,9 @@ namespace Cake.Issues.PullRequests
         /// <param name="log">Cake log instance.</param>
         /// <param name="pullRequestSystem">Object for accessing pull request system.
         /// <c>null</c> if only issues should be read.</param>
-        /// <param name="settings">Settings.</param>
         public Orchestrator(
             ICakeLog log,
-            IPullRequestSystem pullRequestSystem,
-            ReportIssuesToPullRequestSettings settings)
+            IPullRequestSystem pullRequestSystem)
         {
 #pragma warning disable SA1123 // Do not place regions within elements
             #region DupFinder Exclusion
@@ -35,21 +31,11 @@ namespace Cake.Issues.PullRequests
 
             log.NotNull(nameof(log));
             pullRequestSystem.NotNull(nameof(pullRequestSystem));
-            settings.NotNull(nameof(settings));
 
             this.log = log;
             this.pullRequestSystem = pullRequestSystem;
-            this.settings = settings;
 
             #endregion
-
-            // Initialize pull request system.
-            this.log.Verbose("Initialize pull request system...");
-            this.pullRequestSystemInitialized = this.pullRequestSystem.Initialize(this.settings);
-            if (!this.pullRequestSystemInitialized)
-            {
-                this.log.Warning("Error initializing the pull request system.");
-            }
         }
 
         /// <summary>
@@ -58,17 +44,21 @@ namespace Cake.Issues.PullRequests
         /// of the pull request.
         /// </summary>
         /// <param name="issueProviders">List of issue providers to use.</param>
+        /// <param name="settings">Settings.</param>
         /// <returns>Information about the reported and written issues.</returns>
-        public PullRequestIssueResult Run(IEnumerable<IIssueProvider> issueProviders)
+        public PullRequestIssueResult Run(
+            IEnumerable<IIssueProvider> issueProviders,
+            IReportIssuesToPullRequestFromIssueProviderSettings settings)
         {
             // ReSharper disable once PossibleMultipleEnumeration
             issueProviders.NotNullOrEmptyOrEmptyElement(nameof(issueProviders));
+            settings.NotNull(nameof(settings));
 
             // ReSharper disable once PossibleMultipleEnumeration
             var issuesReader =
-                new IssuesReader(this.log, issueProviders, this.settings);
+                new IssuesReader(this.log, issueProviders, settings);
 
-            return this.Run(issuesReader.ReadIssues());
+            return this.Run(issuesReader.ReadIssues(), settings);
         }
 
         /// <summary>
@@ -77,19 +67,23 @@ namespace Cake.Issues.PullRequests
         /// of the pull request.
         /// </summary>
         /// <param name="issues">Issues which should be reported.</param>
+        /// <param name="settings">Settings.</param>
         /// <returns>Information about the reported and written issues.</returns>
-        public PullRequestIssueResult Run(IEnumerable<IIssue> issues)
+        public PullRequestIssueResult Run(
+            IEnumerable<IIssue> issues,
+            IReportIssuesToPullRequestSettings settings)
         {
             issues.NotNullOrEmptyElement(nameof(issues));
+            settings.NotNull(nameof(settings));
 
             // Don't process issues if pull request system could not be initialized.
-            if (!this.pullRequestSystemInitialized)
+            if (!this.InitializePullRequestSystem(settings))
             {
                 return new PullRequestIssueResult(issues, new List<IIssue>());
             }
 
             this.log.Information("Processing {0} new issues", issues.Count());
-            var postedIssues = this.PostAndResolveComments(this.settings, issues.ToList());
+            var postedIssues = this.PostAndResolveComments(settings, issues.ToList());
 
             return new PullRequestIssueResult(issues, postedIssues);
         }
@@ -112,6 +106,24 @@ namespace Cake.Issues.PullRequests
         }
 
         /// <summary>
+        /// Initializes the pull request system.
+        /// </summary>
+        /// <param name="settings">Settings for posting issues.</param>
+        /// <returns><c>True</c> if pull request system could be initialized.</returns>
+        private bool InitializePullRequestSystem(IReportIssuesToPullRequestSettings settings)
+        {
+            // Initialize pull request system.
+            this.log.Verbose("Initialize pull request system...");
+            var result = this.pullRequestSystem.Initialize(settings);
+            if (!result)
+            {
+                this.log.Warning("Error initializing the pull request system.");
+            }
+
+            return result;
+        }
+
+        /// <summary>
         /// Posts new issues, ignoring duplicate comments and resolves comments that were open in an old iteration
         /// of the pull request.
         /// </summary>
@@ -119,9 +131,10 @@ namespace Cake.Issues.PullRequests
         /// <param name="issues">Issues to post.</param>
         /// <returns>Issues reported to the pull request.</returns>
         private IEnumerable<IIssue> PostAndResolveComments(
-            ReportIssuesToPullRequestSettings reportIssuesToPullRequestSettings,
+            IReportIssuesToPullRequestSettings reportIssuesToPullRequestSettings,
             IList<IIssue> issues)
         {
+            reportIssuesToPullRequestSettings.NotNull(nameof(reportIssuesToPullRequestSettings));
             issues.NotNull(nameof(issues));
 
             IDictionary<IIssue, IssueCommentInfo> issueComments = null;
@@ -361,7 +374,7 @@ namespace Cake.Issues.PullRequests
             ISupportDiscussionThreads discussionThreadsCapability,
             IReadOnlyCollection<IPullRequestDiscussionThread> existingThreads,
             IDictionary<IIssue, IssueCommentInfo> issueComments,
-            ReportIssuesToPullRequestSettings reportIssuesToPullRequestSettings)
+            IReportIssuesToPullRequestSettings reportIssuesToPullRequestSettings)
         {
             existingThreads.NotNull(nameof(existingThreads));
             issueComments.NotNull(nameof(issueComments));
@@ -390,7 +403,7 @@ namespace Cake.Issues.PullRequests
         private IEnumerable<IPullRequestDiscussionThread> GetThreadsToResolve(
             IReadOnlyCollection<IPullRequestDiscussionThread> existingThreads,
             IDictionary<IIssue, IssueCommentInfo> issueComments,
-            ReportIssuesToPullRequestSettings reportIssuesToPullRequestSettings)
+            IReportIssuesToPullRequestSettings reportIssuesToPullRequestSettings)
         {
             existingThreads.NotNull(nameof(existingThreads));
             issueComments.NotNull(nameof(issueComments));
@@ -425,7 +438,7 @@ namespace Cake.Issues.PullRequests
             ISupportDiscussionThreads discussionThreadsCapability,
             IReadOnlyCollection<IPullRequestDiscussionThread> existingThreads,
             IDictionary<IIssue, IssueCommentInfo> issueComments,
-            ReportIssuesToPullRequestSettings reportIssuesToPullRequestSettings)
+            IReportIssuesToPullRequestSettings reportIssuesToPullRequestSettings)
         {
             existingThreads.NotNull(nameof(existingThreads));
             issueComments.NotNull(nameof(issueComments));
@@ -454,7 +467,7 @@ namespace Cake.Issues.PullRequests
         private IEnumerable<IPullRequestDiscussionThread> GetThreadsToReopen(
             IReadOnlyCollection<IPullRequestDiscussionThread> existingThreads,
             IDictionary<IIssue, IssueCommentInfo> issueComments,
-            ReportIssuesToPullRequestSettings reportIssuesToPullRequestSettings)
+            IReportIssuesToPullRequestSettings reportIssuesToPullRequestSettings)
         {
             existingThreads.NotNull(nameof(existingThreads));
             issueComments.NotNull(nameof(issueComments));

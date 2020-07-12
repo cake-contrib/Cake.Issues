@@ -5,7 +5,7 @@
     /// <summary>
     /// Interface describing a pull request server.
     /// </summary>
-    public interface IPullRequestSystem : IBaseIssueComponent<ReportIssuesToPullRequestSettings>
+    public interface IPullRequestSystem : IBaseIssueComponent<IReportIssuesToPullRequestSettings>
     {
         /// <summary>
         /// Adds a capability.

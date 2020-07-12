@@ -14,7 +14,7 @@ namespace Cake.Issues.PullRequests
     {
         private readonly ICakeLog log;
         private readonly IPullRequestSystem pullRequestSystem;
-        private readonly ReportIssuesToPullRequestSettings settings;
+        private readonly IReportIssuesToPullRequestSettings settings;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="IssueFilterer"/> class.
@@ -25,7 +25,7 @@ namespace Cake.Issues.PullRequests
         public IssueFilterer(
             ICakeLog log,
             IPullRequestSystem pullRequestSystem,
-            ReportIssuesToPullRequestSettings settings)
+            IReportIssuesToPullRequestSettings settings)
         {
 #pragma warning disable SA1123 // Do not place regions within elements
             #region DupFinder Exclusion

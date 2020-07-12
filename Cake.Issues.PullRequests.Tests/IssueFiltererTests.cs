@@ -15,7 +15,7 @@
             public void Should_Throw_If_Log_Is_Null()
             {
                 // Given
-                var fixture = new PullRequestsFixture
+                var fixture = new IssueFiltererFixture
                 {
                     Log = null
                 };
@@ -31,7 +31,7 @@
             public void Should_Throw_If_Pull_Request_System_Is_Null()
             {
                 // Given
-                var fixture = new PullRequestsFixture
+                var fixture = new IssueFiltererFixture
                 {
                     PullRequestSystem = null
                 };
@@ -47,7 +47,7 @@
             public void Should_Throw_If_Settings_Are_Null()
             {
                 // Given
-                var fixture = new PullRequestsFixture
+                var fixture = new IssueFiltererFixture
                 {
                     Settings = null
                 };
@@ -66,7 +66,7 @@
             public void Should_Throw_If_Issues_Are_Null()
             {
                 // Given
-                var fixture = new PullRequestsFixture();
+                var fixture = new IssueFiltererFixture();
 
                 // When
                 var result = Record.Exception(() => fixture.FilterIssues(null, new Dictionary<IIssue, IssueCommentInfo>()));
@@ -79,7 +79,7 @@
             public void Should_Not_Throw_If_Issue_Comments_Are_Null()
             {
                 // Given
-                var fixture = new PullRequestsFixture();
+                var fixture = new IssueFiltererFixture();
 
                 // When
                 fixture.FilterIssues(new List<IIssue>(), null);
@@ -92,8 +92,8 @@
             {
                 // Given
                 var fixture =
-                    new PullRequestsFixture();
-                fixture.ReportIssuesToPullRequestSettings.IssueFilters.Add(x => x.Where(issue => issue.Rule != "Bar"));
+                    new IssueFiltererFixture();
+                fixture.Settings.IssueFilters.Add(x => x.Where(issue => issue.Rule != "Bar"));
 
                 var issue1 =
                     IssueBuilder
@@ -131,7 +131,7 @@
                 {
                     // Given
                     var fixture =
-                        new PullRequestsFixture(
+                        new IssueFiltererFixture(
                             (builder, settings) => builder
                                 .WithFilteringByModifiedFilesCapability(
                                     new List<FilePath>
@@ -162,7 +162,7 @@
                 {
                     // Given
                     var fixture =
-                        new PullRequestsFixture(
+                        new IssueFiltererFixture(
                             (builder, settings) => builder
                                 .WithFilteringByModifiedFilesCapability(
                                     new List<FilePath>
@@ -207,7 +207,7 @@
                 public void Should_Filter_Issues_With_Existing_Active_Comment()
                 {
                     // Given
-                    var fixture = new PullRequestsFixture();
+                    var fixture = new IssueFiltererFixture();
 
                     var issue1 =
                         IssueBuilder
@@ -258,7 +258,7 @@
                 public void Should_Filter_Issues_With_Existing_WontFix_Comment()
                 {
                     // Given
-                    var fixture = new PullRequestsFixture();
+                    var fixture = new IssueFiltererFixture();
 
                     var issue1 =
                         IssueBuilder
@@ -309,7 +309,7 @@
                 public void Should_Filter_Issues_With_Existing_Resolved_Comment()
                 {
                     // Given
-                    var fixture = new PullRequestsFixture();
+                    var fixture = new IssueFiltererFixture();
 
                     var issue1 =
                         IssueBuilder
@@ -365,8 +365,8 @@
                     public void Should_Limit_Messages_To_Maximum()
                     {
                         // Given
-                        var fixture = new PullRequestsFixture();
-                        fixture.ReportIssuesToPullRequestSettings.MaxIssuesToPost = 1;
+                        var fixture = new IssueFiltererFixture();
+                        fixture.Settings.MaxIssuesToPost = 1;
 
                         var issue1 =
                             IssueBuilder
@@ -402,8 +402,8 @@
                     public void Should_Limit_Messages_To_Maximum_By_Priority()
                     {
                         // Given
-                        var fixture = new PullRequestsFixture();
-                        fixture.ReportIssuesToPullRequestSettings.MaxIssuesToPost = 1;
+                        var fixture = new IssueFiltererFixture();
+                        fixture.Settings.MaxIssuesToPost = 1;
 
                         var issue1 =
                             IssueBuilder
@@ -439,8 +439,8 @@
                     public void Should_Limit_Messages_To_Maximum_By_FilePath()
                     {
                         // Given
-                        var fixture = new PullRequestsFixture();
-                        fixture.ReportIssuesToPullRequestSettings.MaxIssuesToPost = 1;
+                        var fixture = new IssueFiltererFixture();
+                        fixture.Settings.MaxIssuesToPost = 1;
 
                         var issue1 =
                             IssueBuilder
@@ -478,8 +478,8 @@
                     public void Should_Limit_Messages_To_Maximum()
                     {
                         // Given
-                        var fixture = new PullRequestsFixture();
-                        fixture.ReportIssuesToPullRequestSettings.MaxIssuesToPostAcrossRuns = 2;
+                        var fixture = new IssueFiltererFixture();
+                        fixture.Settings.MaxIssuesToPostAcrossRuns = 2;
 
                         var issue1 =
                             IssueBuilder
@@ -530,8 +530,8 @@
                     public void Should_Limit_Messages_To_Maximum_By_Priority()
                     {
                         // Given
-                        var fixture = new PullRequestsFixture();
-                        fixture.ReportIssuesToPullRequestSettings.MaxIssuesToPostAcrossRuns = 2;
+                        var fixture = new IssueFiltererFixture();
+                        fixture.Settings.MaxIssuesToPostAcrossRuns = 2;
 
                         var issue1 =
                             IssueBuilder
@@ -582,8 +582,8 @@
                     public void Should_Limit_Messages_To_Maximum_By_FilePath()
                     {
                         // Given
-                        var fixture = new PullRequestsFixture();
-                        fixture.ReportIssuesToPullRequestSettings.MaxIssuesToPostAcrossRuns = 2;
+                        var fixture = new IssueFiltererFixture();
+                        fixture.Settings.MaxIssuesToPostAcrossRuns = 2;
 
                         var issue1 =
                             IssueBuilder
@@ -636,8 +636,8 @@
                     public void Should_Limit_Messages_To_Maximum()
                     {
                         // Given
-                        var fixture = new PullRequestsFixture();
-                        fixture.ReportIssuesToPullRequestSettings.MaxIssuesToPostForEachIssueProvider = 1;
+                        var fixture = new IssueFiltererFixture();
+                        fixture.Settings.MaxIssuesToPostForEachIssueProvider = 1;
 
                         var issue1 =
                             IssueBuilder
@@ -689,8 +689,8 @@
                     public void Should_Limit_Messages_To_Maximum_By_Priority()
                     {
                         // Given
-                        var fixture = new PullRequestsFixture();
-                        fixture.ReportIssuesToPullRequestSettings.MaxIssuesToPostForEachIssueProvider = 1;
+                        var fixture = new IssueFiltererFixture();
+                        fixture.Settings.MaxIssuesToPostForEachIssueProvider = 1;
 
                         var issue1 =
                             IssueBuilder
@@ -742,8 +742,8 @@
                     public void Should_Limit_Messages_To_Maximum_By_FilePath()
                     {
                         // Given
-                        var fixture = new PullRequestsFixture();
-                        fixture.ReportIssuesToPullRequestSettings.MaxIssuesToPostForEachIssueProvider = 1;
+                        var fixture = new IssueFiltererFixture();
+                        fixture.Settings.MaxIssuesToPostForEachIssueProvider = 1;
 
                         var issue1 =
                             IssueBuilder

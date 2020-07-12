@@ -27,7 +27,7 @@
         /// <summary>
         /// Gets the settings which should be used.
         /// </summary>
-        public new ReportIssuesToPullRequestSettings Settings => base.Settings;
+        public new IReportIssuesToPullRequestSettings Settings => base.Settings;
 
         /// <summary>
         /// Gets the <see cref="FakeCheckingCommitIdCapability"/> if it is enabled or null.
@@ -58,7 +58,7 @@
         public bool ShouldFailOnInitialization { get; set; } = false;
 
         /// <inheritdoc />
-        public override bool Initialize(ReportIssuesToPullRequestSettings settings)
+        public override bool Initialize(IReportIssuesToPullRequestSettings settings)
         {
             var result = base.Initialize(settings);
 

@@ -8,7 +8,7 @@
     /// Base class for all pull request system implementations.
     /// </summary>
     public abstract class BasePullRequestSystem
-        : BaseIssueComponent<ReportIssuesToPullRequestSettings>, IPullRequestSystem
+        : BaseIssueComponent<IReportIssuesToPullRequestSettings>, IPullRequestSystem
     {
         private readonly List<IPullRequestSystemCapability> capabilities = new List<IPullRequestSystemCapability>();
 
