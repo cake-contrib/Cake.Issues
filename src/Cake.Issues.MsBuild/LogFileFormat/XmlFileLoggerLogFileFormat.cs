@@ -24,7 +24,7 @@
         /// <inheritdoc/>
         public override IEnumerable<IIssue> ReadIssues(
             MsBuildIssuesProvider issueProvider,
-            RepositorySettings repositorySettings,
+            IRepositorySettings repositorySettings,
             MsBuildIssuesSettings issueProviderSettings)
         {
 #pragma warning disable SA1123 // Do not place regions within elements
@@ -190,7 +190,7 @@
         /// <returns>True if the project could be parsed.</returns>
         private bool TryGetProject(
             XElement warning,
-            RepositorySettings repositorySettings,
+            IRepositorySettings repositorySettings,
             out string project)
         {
             project = string.Empty;
@@ -228,7 +228,7 @@
         /// <returns>True if the file path could be parsed.</returns>
         private bool TryGetFile(
             XElement warning,
-            RepositorySettings repositorySettings,
+            IRepositorySettings repositorySettings,
             out string fileName)
         {
             fileName = string.Empty;

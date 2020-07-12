@@ -23,7 +23,7 @@
         /// <inheritdoc/>
         public override IEnumerable<IIssue> ReadIssues(
             MsBuildIssuesProvider issueProvider,
-            RepositorySettings repositorySettings,
+            IRepositorySettings repositorySettings,
             MsBuildIssuesSettings issueProviderSettings)
         {
 #pragma warning disable SA1123 // Do not place regions within elements
@@ -110,7 +110,7 @@
         /// <returns>Relative path to the project.</returns>
         private string GetProject(
             BuildWarningEventArgs warning,
-            RepositorySettings repositorySettings)
+            IRepositorySettings repositorySettings)
         {
             var project = warning.ProjectFile;
 
@@ -127,7 +127,7 @@
         /// <returns>True if the file path could be parsed.</returns>
         private bool TryGetFile(
             BuildWarningEventArgs warning,
-            RepositorySettings repositorySettings,
+            IRepositorySettings repositorySettings,
             out string fileName)
         {
             fileName = warning.File;

@@ -22,7 +22,7 @@
         /// <param name="filePath">Full file path.</param>
         /// <param name="repositorySettings">Repository settings.</param>
         /// <returns>Tuple containing a value if validation was successful, and file path relative to repository root.</returns>
-        protected (bool Valid, string FilePath) ValidateFilePath(string filePath, RepositorySettings repositorySettings)
+        protected (bool Valid, string FilePath) ValidateFilePath(string filePath, IRepositorySettings repositorySettings)
         {
             filePath.NotNullOrWhiteSpace(nameof(filePath));
             repositorySettings.NotNull(nameof(repositorySettings));
@@ -48,7 +48,7 @@
         /// <param name="filePath">Full file path.</param>
         /// <param name="repositorySettings">Repository settings.</param>
         /// <returns>True if file is in repository, false otherwise.</returns>
-        protected bool CheckIfFileIsInRepository(string filePath, RepositorySettings repositorySettings)
+        protected bool CheckIfFileIsInRepository(string filePath, IRepositorySettings repositorySettings)
         {
             filePath.NotNullOrWhiteSpace(nameof(filePath));
             repositorySettings.NotNull(nameof(repositorySettings));
@@ -72,7 +72,7 @@
         /// <param name="filePath">Full file path.</param>
         /// <param name="repositorySettings">Repository settings.</param>
         /// <returns>File path relative to the repository root.</returns>
-        protected string MakeFilePathRelativeToRepositoryRoot(string filePath, RepositorySettings repositorySettings)
+        protected string MakeFilePathRelativeToRepositoryRoot(string filePath, IRepositorySettings repositorySettings)
         {
             filePath.NotNullOrWhiteSpace(nameof(filePath));
             repositorySettings.NotNull(nameof(repositorySettings));

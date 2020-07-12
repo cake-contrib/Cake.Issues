@@ -11,17 +11,17 @@
         {
         }
 
-        public new (bool Valid, string FilePath) ValidateFilePath(string filePath, RepositorySettings repositorySettings)
+        public new (bool Valid, string FilePath) ValidateFilePath(string filePath, IRepositorySettings repositorySettings)
         {
             return base.ValidateFilePath(filePath, repositorySettings);
         }
 
-        public new bool CheckIfFileIsInRepository(string filePath, RepositorySettings repositorySettings)
+        public new bool CheckIfFileIsInRepository(string filePath, IRepositorySettings repositorySettings)
         {
             return base.CheckIfFileIsInRepository(filePath, repositorySettings);
         }
 
-        public new string MakeFilePathRelativeToRepositoryRoot(string filePath, RepositorySettings repositorySettings)
+        public new string MakeFilePathRelativeToRepositoryRoot(string filePath, IRepositorySettings repositorySettings)
         {
             return base.MakeFilePathRelativeToRepositoryRoot(filePath, repositorySettings);
         }
@@ -33,7 +33,7 @@
 
         public override IEnumerable<IIssue> ReadIssues(
             MsBuildIssuesProvider issueProvider,
-            RepositorySettings repositorySettings,
+            IRepositorySettings repositorySettings,
             MsBuildIssuesSettings issueProviderSettings)
         {
             throw new NotImplementedException();
