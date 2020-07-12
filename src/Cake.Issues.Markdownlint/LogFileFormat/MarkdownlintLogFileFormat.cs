@@ -4,7 +4,6 @@
     using System.IO;
     using System.Linq;
     using System.Runtime.Serialization.Json;
-    using System.Text;
     using Cake.Core.Diagnostics;
 
     /// <summary>
@@ -24,7 +23,7 @@
         /// <inheritdoc />
         public override IEnumerable<IIssue> ReadIssues(
             MarkdownlintIssuesProvider issueProvider,
-            RepositorySettings repositorySettings,
+            IRepositorySettings repositorySettings,
             MarkdownlintIssuesSettings markdownlintIssuesSettings)
         {
             issueProvider.NotNull(nameof(issueProvider));
