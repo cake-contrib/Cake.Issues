@@ -23,7 +23,7 @@
         /// <inheritdoc />
         public override IEnumerable<IIssue> ReadIssues(
             EsLintIssuesProvider issueProvider,
-            RepositorySettings repositorySettings,
+            IRepositorySettings repositorySettings,
             EsLintIssuesSettings esLintsettings)
         {
             issueProvider.NotNull(nameof(issueProvider));
@@ -58,7 +58,7 @@
 
         private static string GetRelativeFilePath(
             string absoluteFilePath,
-            RepositorySettings repositorySettings)
+            IRepositorySettings repositorySettings)
         {
             // Make path relative to repository root.
             var relativeFilePath = absoluteFilePath.Substring(repositorySettings.RepositoryRoot.FullPath.Length);
