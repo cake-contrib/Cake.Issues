@@ -36,7 +36,7 @@ Task("Create-IssueReport").Does(() =>
         );
     MSBuild(repoRootFolder.CombineWithFilePath("MySolution.sln"), settings);
 
-    // Create HTML report using Diagnostic template.
+    // Create SARIF report.
     CreateIssueReport(
         new List<IIssueProvider>
         {
