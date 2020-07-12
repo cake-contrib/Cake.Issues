@@ -31,7 +31,7 @@
                 // Given
                 var fixture = new IssueReportFormatFixture
                 {
-                    Settings = null,
+                    CreateIssueReportSettings = null,
                 };
 
                 // When
@@ -55,7 +55,7 @@
                 fixture.CreateReport(issueProviders);
 
                 // Then
-                fixture.IssueReportFormat.Settings.ShouldBe(fixture.Settings);
+                fixture.IssueReportFormat.Settings.ShouldBe(fixture.CreateIssueReportFromIssueProviderSettings);
             }
 
             [Fact]
@@ -110,7 +110,7 @@
                 fixture.CreateReport(issues);
 
                 // Then
-                fixture.IssueReportFormat.Settings.ShouldBe(fixture.Settings);
+                fixture.IssueReportFormat.Settings.ShouldBe(fixture.CreateIssueReportSettings);
             }
 
             [Fact]

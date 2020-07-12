@@ -3,16 +3,16 @@
     using Cake.Core.IO;
 
     /// <summary>
-    /// Setting affecting how reports are created which are built passing issues.
+    /// Setting affecting how reports are created which are built passing issue providers.
     /// </summary>
-    public class CreateIssueReportSettings : RepositorySettings, ICreateIssueReportSettings
+    public class CreateIssueReportFromIssueProviderSettings : ReadIssuesSettings, ICreateIssueReportFromIssueProviderSettings
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="CreateIssueReportSettings"/> class.
+        /// Initializes a new instance of the <see cref="CreateIssueReportFromIssueProviderSettings"/> class.
         /// </summary>
         /// <param name="repositoryRoot">Root path of the repository.</param>
         /// <param name="outputFilePath">Path of the generated report file.</param>
-        public CreateIssueReportSettings(DirectoryPath repositoryRoot, FilePath outputFilePath)
+        public CreateIssueReportFromIssueProviderSettings(DirectoryPath repositoryRoot, FilePath outputFilePath)
             : base(repositoryRoot)
         {
             outputFilePath.NotNull(nameof(outputFilePath));

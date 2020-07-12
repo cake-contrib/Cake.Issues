@@ -55,7 +55,7 @@
                 context.CreateIssueReport(
                     issueProvider,
                     reportFormat,
-                    new CreateIssueReportSettings(repositoryRoot, outputFilePath));
+                    new CreateIssueReportFromIssueProviderSettings(repositoryRoot, outputFilePath));
         }
 
         /// <summary>
@@ -71,7 +71,9 @@
         /// <code>
         /// <![CDATA[
         ///     var settings =
-        ///         new CreateIssueReportSettings(@"c:\repo", @"c:\report.html");
+        ///         new CreateIssueReportFromIssueProviderSettings(
+        ///             @"c:\repo",
+        ///             @"c:\report.html");
         ///
         ///     CreateIssueReport(
         ///         new List<IIssueProvider>
@@ -89,16 +91,19 @@
             this ICakeContext context,
             IIssueProvider issueProvider,
             IIssueReportFormat reportFormat,
-            CreateIssueReportSettings settings)
+            ICreateIssueReportFromIssueProviderSettings settings)
         {
             context.NotNull(nameof(context));
             reportFormat.NotNull(nameof(reportFormat));
 
             issueProvider.NotNull(nameof(issueProvider));
 
-            var issueReportCreator = new IssueReportCreator(context.Log, settings);
+            var issueReportCreator = new IssueReportCreator(context.Log);
 
-            return issueReportCreator.CreateReport(new List<IIssueProvider> { issueProvider }, reportFormat);
+            return issueReportCreator.CreateReport(
+                new List<IIssueProvider> { issueProvider },
+                reportFormat,
+                settings);
         }
 
         /// <summary>
@@ -153,7 +158,7 @@
                 context.CreateIssueReport(
                     issueProviders,
                     reportFormat,
-                    new CreateIssueReportSettings(repositoryRoot, outputFilePath));
+                    new CreateIssueReportFromIssueProviderSettings(repositoryRoot, outputFilePath));
         }
 
         /// <summary>
@@ -169,7 +174,9 @@
         /// <code>
         /// <![CDATA[
         ///     var settings =
-        ///         new CreateIssueReportSettings(@"c:\repo", @"c:\report.html");
+        ///         new CreateIssueReportFromIssueProviderSettings(
+        ///             @"c:\repo",
+        ///             @"c:\report.html");
         ///
         ///     CreateIssueReport(
         ///         new List<IIssueProvider>
@@ -192,7 +199,7 @@
             this ICakeContext context,
             IEnumerable<IIssueProvider> issueProviders,
             IIssueReportFormat reportFormat,
-            CreateIssueReportSettings settings)
+            ICreateIssueReportFromIssueProviderSettings settings)
         {
             context.NotNull(nameof(context));
             reportFormat.NotNull(nameof(reportFormat));
@@ -200,10 +207,10 @@
             // ReSharper disable once PossibleMultipleEnumeration
             issueProviders.NotNullOrEmptyOrEmptyElement(nameof(issueProviders));
 
-            var issueReportCreator = new IssueReportCreator(context.Log, settings);
+            var issueReportCreator = new IssueReportCreator(context.Log);
 
             // ReSharper disable once PossibleMultipleEnumeration
-            return issueReportCreator.CreateReport(issueProviders, reportFormat);
+            return issueReportCreator.CreateReport(issueProviders, reportFormat, settings);
         }
 
         /// <summary>
@@ -281,7 +288,7 @@
             this ICakeContext context,
             IEnumerable<IIssue> issues,
             IIssueReportFormat reportFormat,
-            CreateIssueReportSettings settings)
+            ICreateIssueReportSettings settings)
         {
             context.NotNull(nameof(context));
 
@@ -291,10 +298,10 @@
             reportFormat.NotNull(nameof(reportFormat));
             settings.NotNull(nameof(settings));
 
-            var issueReportCreator = new IssueReportCreator(context.Log, settings);
+            var issueReportCreator = new IssueReportCreator(context.Log);
 
             // ReSharper disable once PossibleMultipleEnumeration
-            return issueReportCreator.CreateReport(issues, reportFormat);
+            return issueReportCreator.CreateReport(issues, reportFormat, settings);
         }
     }
 }

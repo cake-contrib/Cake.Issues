@@ -20,7 +20,7 @@
 
         public new ICakeLog Log => base.Log;
 
-        public new RepositorySettings Settings => base.Settings;
+        public new ICreateIssueReportSettings Settings => base.Settings;
 
         /// <summary>
         /// Gets or sets a value indicating whether the report format should return false during <see cref="Initialize"/>.
@@ -28,7 +28,7 @@
         public bool ShouldFailOnInitialization { get; set; } = false;
 
         /// <inheritdoc />
-        public override bool Initialize(CreateIssueReportSettings settings)
+        public override bool Initialize(ICreateIssueReportSettings settings)
         {
             var result = base.Initialize(settings);
 

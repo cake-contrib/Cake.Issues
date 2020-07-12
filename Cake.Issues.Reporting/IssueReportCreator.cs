@@ -10,22 +10,16 @@
     internal class IssueReportCreator
     {
         private readonly ICakeLog log;
-        private readonly CreateIssueReportSettings settings;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="IssueReportCreator"/> class.
         /// </summary>
         /// <param name="log">Cake log instance.</param>
-        /// <param name="settings">Settings to use.</param>
-        public IssueReportCreator(
-            ICakeLog log,
-            CreateIssueReportSettings settings)
+        public IssueReportCreator(ICakeLog log)
         {
             log.NotNull(nameof(log));
-            settings.NotNull(nameof(settings));
 
             this.log = log;
-            this.settings = settings;
         }
 
         /// <summary>
@@ -33,16 +27,21 @@
         /// </summary>
         /// <param name="issueProviders">Issue providers which should be used to get the issues.</param>
         /// <param name="reportFormat">Report format to use.</param>
+        /// <param name="settings">Settings to use.</param>
         /// <returns>Path to the created report or <c>null</c> if report could not be created.</returns>
-        public FilePath CreateReport(IEnumerable<IIssueProvider> issueProviders, IIssueReportFormat reportFormat)
+        public FilePath CreateReport(
+            IEnumerable<IIssueProvider> issueProviders,
+            IIssueReportFormat reportFormat,
+            ICreateIssueReportFromIssueProviderSettings settings)
         {
             issueProviders.NotNullOrEmptyOrEmptyElement(nameof(issueProviders));
             reportFormat.NotNull(nameof(reportFormat));
+            settings.NotNull(nameof(settings));
 
-            var issuesReader = new IssuesReader(this.log, issueProviders, this.settings);
+            var issuesReader = new IssuesReader(this.log, issueProviders, settings);
             var issues = issuesReader.ReadIssues();
 
-            return this.CreateReport(issues, reportFormat);
+            return this.CreateReport(issues, reportFormat, settings);
         }
 
         /// <summary>
@@ -50,15 +49,21 @@
         /// </summary>
         /// <param name="issues">Issues for which the report should be created.</param>
         /// <param name="reportFormat">Report format to use.</param>
+        /// <param name="settings">Settings to use.</param>
         /// <returns>Path to the created report or <c>null</c> if report could not be created.</returns>
-        public FilePath CreateReport(IEnumerable<IIssue> issues, IIssueReportFormat reportFormat)
+        public FilePath CreateReport(
+            IEnumerable<IIssue> issues,
+            IIssueReportFormat reportFormat,
+            ICreateIssueReportSettings settings)
         {
             issues.NotNullOrEmptyElement(nameof(issues));
             reportFormat.NotNull(nameof(reportFormat));
+            settings.NotNull(nameof(settings));
 
             var reportFormatName = reportFormat.GetType().Name;
             this.log.Verbose("Initialize report format {0}...", reportFormatName);
-            if (!reportFormat.Initialize(this.settings))
+
+            if (!reportFormat.Initialize(settings))
             {
                 this.log.Warning("Error initializing report format {0}.", reportFormatName);
                 return null;
