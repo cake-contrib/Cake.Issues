@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Cake.Issues.IIssue>
+﻿@inherits IEnumerable<Cake.Issues.IIssue>
 
 @using System.Collections.Generic
 @using System.Linq
@@ -109,7 +109,7 @@
     @if (ideIntegrationSettings != null && !string.IsNullOrWhiteSpace(ideIntegrationSettings.JavaScript))
     {
         <script type="text/javascript">
-            @Raw(ideIntegrationSettings.JavaScript)
+            @Html.Raw(ideIntegrationSettings.JavaScript)
         </script>
     }
 
@@ -141,7 +141,7 @@
     </div>
 
     <script type="text/javascript">
-    var issues = @Raw(issues.SerializeToJsonString());
+    var issues = @Html.Raw(issues.SerializeToJsonString());
     </script>
 
     <script type="text/javascript">
@@ -167,7 +167,7 @@
                                     }],
                                     onItemClick: function (e) {
                                         if (e.itemData.action === "openInIde") {
-                                            @Raw(ideIntegrationSettings.GetOpenInIdeCall("filePath", "line"))
+                                            @Html.Raw(ideIntegrationSettings.GetOpenInIdeCall("filePath", "line"))
                                         }
                                     }
                                 });
