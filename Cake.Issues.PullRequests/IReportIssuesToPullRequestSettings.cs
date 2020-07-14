@@ -18,8 +18,7 @@
         /// <see cref="IIssueProvider"/>.
         /// Issues are filtered by <see cref="IIssue.Priority"/> and issues with an <see cref="IIssue.AffectedFileRelativePath"/>
         /// are prioritized.
-        /// Set to <c>null</c> to not set a global limit.
-        /// Default is to not set a global limit.
+        /// Default is <c>null</c> which won't set a global limit.
         /// Use <see cref="MaxIssuesToPostForEachIssueProvider"/> to set the limit for each issue provider
         /// and <see cref="MaxIssuesToPostAcrossRuns"/> to set a limit across multiple runs.
         /// </summary>
@@ -30,8 +29,7 @@
         /// <see cref="IIssueProvider"/> and across multiple runs.
         /// Issues are filtered by <see cref="IIssue.Priority"/> and issues with an <see cref="IIssue.AffectedFileRelativePath"/>
         /// are prioritized.
-        /// Set to <c>null</c> to not set a limit across multiple runs.
-        /// Default is to not set a limit across multiple runs.
+        /// Default is <c>null</c> which won't set a limit across multiple runs.
         /// Use <see cref="MaxIssuesToPost"/> to set a limit for a single run.
         /// </summary>
         int? MaxIssuesToPostAcrossRuns { get; set; }
@@ -41,7 +39,7 @@
         /// <see cref="IIssueProvider"/>.
         /// Issues are filtered by <see cref="IIssue.Priority"/> and issues with an <see cref="IIssue.AffectedFileRelativePath"/>
         /// are prioritized.
-        /// Set to <c>null</c> to not limit issues per issue provider.
+        /// <c>null</c> won't limit issues per issue provider.
         /// Default is to filter to 100 issues for each issue provider.
         /// Use <see cref="MaxIssuesToPost"/> to set the global limit over all issue providers.
         /// </summary>
