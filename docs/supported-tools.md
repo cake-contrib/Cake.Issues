@@ -15,8 +15,12 @@ Cake.Issues.Recipe supports reading issues from output of the following tools:
 | MsBuild                           | [MSBuild Extension Pack XmlFileLogger] | `IssuesParameters.InputFiles.MsBuildXmlFileLoggerLogFilePath` |
 | MsBuild                           | Binary Log File                        | `IssuesParameters.InputFiles.MsBuildBinaryLogFilePath`        |
 | JetBrains InspectCode (ReSharper) |                                        | `IssuesParameters.InputFiles.InspectCodeLogFilePath`          |
+| markdownlint                      | [markdownlint-cli]                     | `IssuesParameters.InputFiles.MarkdownlintCliLogFilePath`      |
+| markdownlint                      | [markdownlint] version 1               | `IssuesParameters.InputFiles.MarkdownlintV1LogFilePath`       |
 
 [MSBuild Extension Pack XmlFileLogger]: http://www.msbuildextensionpack.com/help/4.0.5.0/html/242ab4fd-c2e2-f6aa-325b-7588725aed24.htm
+[markdownlint-cli]: https://github.com/igorshubovych/markdownlint-cli
+[markdownlint]: https://github.com/DavidAnson/markdownlint
 
 # Build systems
 
