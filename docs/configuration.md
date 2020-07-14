@@ -22,6 +22,7 @@ and behavior of Cake.Issues.Recipe.
 | `IssuesParameters.InputFiles.MsBuildBinaryLogFilePath`        | `null`        | Path to the MSBuild binary log file.                   |
 | `IssuesParameters.InputFiles.InspectCodeLogFilePath`          | `null`        | Path to the JetBrains InspectCode log file.            |
 | `IssuesParameters.InputFiles.MarkdownlintCliLogFilePath`      | `null`        | Path to the markdownlint-cli log file.                 |
+| `IssuesParameters.InputFiles.MarkdownlintV1LogFilePath`       | `null`        | Path to the markdownlint log file in version 1.        |
 
 # Report creation
 
