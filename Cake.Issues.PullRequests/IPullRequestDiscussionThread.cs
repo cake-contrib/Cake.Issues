@@ -36,6 +36,11 @@
         string CommentSource { get; set; }
 
         /// <summary>
+        /// Gets or sets the value to identify the comment across multiple runs.
+        /// </summary>
+        string CommentIdentifier { get; set; }
+
+        /// <summary>
         /// Gets all the comments of this thread.
         /// </summary>
         IList<IPullRequestDiscussionComment> Comments { get; }

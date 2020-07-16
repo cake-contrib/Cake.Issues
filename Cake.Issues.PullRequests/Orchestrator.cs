@@ -279,7 +279,7 @@ namespace Cake.Issues.PullRequests
         /// * The thread is active.
         /// * The thread is for the same file.
         /// * The thread was created by the same logic, i.e. the same <see cref="IPullRequestDiscussionThread.CommentSource"/>.
-        /// * The comment contains the same content.
+        /// * The thread was created for the same issue, i.e. the same <see cref="IPullRequestDiscussionThread.CommentIdentifier"/>.
         /// </summary>
         /// <remarks>
         /// The line cannot be used since comments can move around.
@@ -296,10 +296,10 @@ namespace Cake.Issues.PullRequests
             issue.NotNull(nameof(issue));
             existingThreads.NotNull(nameof(existingThreads));
 
-            // Select threads that point to the same file and have been marked with the given comment source.
+            // Select threads that point to the same file and issue identifier.
             var matchingThreads =
                 existingThreads
-                    .Where(x => FilePathsAreMatching(issue, x))
+                    .Where(x => FilePathsAreMatching(issue, x) && x.CommentIdentifier == issue.Identifier)
                     .ToList();
 
             if (matchingThreads.Any())
@@ -321,8 +321,7 @@ namespace Cake.Issues.PullRequests
                     (from comment in thread.Comments
                     where
                         comment != null &&
-                        !comment.IsDeleted &&
-                        comment.Content == issue.MessageText
+                        !comment.IsDeleted
                     select
                         comment).ToList();
 

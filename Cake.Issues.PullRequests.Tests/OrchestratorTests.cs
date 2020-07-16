@@ -917,7 +917,10 @@ namespace Cake.Issues.PullRequests.Tests
                                                 Content = "Message Foo",
                                                 IsDeleted = false
                                             }
-                                        }),
+                                        })
+                                    {
+                                        CommentIdentifier = "Message Foo"
+                                    },
                                     new PullRequestDiscussionThread(
                                         2,
                                         PullRequestDiscussionStatus.Active,
@@ -930,6 +933,9 @@ namespace Cake.Issues.PullRequests.Tests
                                                 IsDeleted = false
                                             },
                                         })
+                                    {
+                                        CommentIdentifier = "Message Bar"
+                                    }
                                 }));
 
                 fixture.IssueProviders.Clear();
@@ -1121,6 +1127,7 @@ namespace Cake.Issues.PullRequests.Tests
                                             }
                                         })
                                     {
+                                        CommentIdentifier = "Message Foo",
                                         CommentSource = settings.CommentSource,
                                     }
                                 }));
@@ -1191,6 +1198,7 @@ namespace Cake.Issues.PullRequests.Tests
                                             }
                                         })
                                     {
+                                        CommentIdentifier = "Message Foo",
                                         CommentSource = settings.CommentSource,
                                         Resolution = PullRequestDiscussionResolution.WontFix
                                     }
@@ -1260,6 +1268,7 @@ namespace Cake.Issues.PullRequests.Tests
                                             }
                                         })
                                     {
+                                        CommentIdentifier = "Message Foo",
                                         CommentSource = settings.CommentSource,
                                     }
                                 }));
@@ -1324,6 +1333,7 @@ namespace Cake.Issues.PullRequests.Tests
                                             }
                                         })
                                     {
+                                        CommentIdentifier = "Foo",
                                         CommentSource = "DifferentCommentSource",
                                     }
                                 }));
@@ -1378,6 +1388,7 @@ namespace Cake.Issues.PullRequests.Tests
                                             }
                                         })
                                     {
+                                        CommentIdentifier = "Bar",
                                         CommentSource = settings.CommentSource
                                     }
                                 }));
@@ -1430,6 +1441,7 @@ namespace Cake.Issues.PullRequests.Tests
                                             }
                                         })
                                     {
+                                        CommentIdentifier = "Bar",
                                         CommentSource = "DifferentCommentSource"
                                     }
                                 }));
@@ -1481,6 +1493,7 @@ namespace Cake.Issues.PullRequests.Tests
                                             }
                                         })
                                     {
+                                        CommentIdentifier = "Message Foo",
                                         CommentSource = settings.CommentSource,
                                         Resolution = PullRequestDiscussionResolution.Resolved
                                     }
@@ -1534,6 +1547,7 @@ namespace Cake.Issues.PullRequests.Tests
                                             }
                                         })
                                     {
+                                        CommentIdentifier = "Message Foo",
                                         CommentSource = "DifferentCommentSource",
                                         Resolution = PullRequestDiscussionResolution.Resolved
                                     }
@@ -1617,6 +1631,9 @@ namespace Cake.Issues.PullRequests.Tests
                                                 IsDeleted = false
                                             }
                                         })
+                                    {
+                                        CommentIdentifier = "Message Foo"
+                                    }
                                 }));
 
                 var threadToReopen =

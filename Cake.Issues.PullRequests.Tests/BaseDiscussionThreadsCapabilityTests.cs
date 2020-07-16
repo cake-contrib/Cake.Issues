@@ -120,6 +120,7 @@
                                 }
                             })
                         {
+                            CommentIdentifier = "Message Foo",
                             CommentSource = settings.CommentSource,
                         }
                     };
@@ -163,34 +164,36 @@
                 var settings = new ReportIssuesToPullRequestSettings(@"c:\repo");
                 var discussionThread1 =
                     new PullRequestDiscussionThread(
-                            1,
-                            PullRequestDiscussionStatus.Active,
-                            new FilePath(@"src\Cake.Issues.Tests\Foo.cs"),
-                            new List<IPullRequestDiscussionComment>
+                        1,
+                        PullRequestDiscussionStatus.Active,
+                        new FilePath(@"src\Cake.Issues.Tests\Foo.cs"),
+                        new List<IPullRequestDiscussionComment>
+                        {
+                            new PullRequestDiscussionComment()
                             {
-                                new PullRequestDiscussionComment()
-                                {
-                                    Content = "Message Foo",
-                                    IsDeleted = false
-                                }
-                            })
+                                Content = "Message Foo",
+                                IsDeleted = false
+                            }
+                        })
                     {
+                        CommentIdentifier = "Message Foo",
                         CommentSource = settings.CommentSource,
                     };
                 var discussionThread2 =
                     new PullRequestDiscussionThread(
-                            1,
-                            PullRequestDiscussionStatus.Active,
-                            new FilePath(@"src\Cake.Issues.Tests\Bar.cs"),
-                            new List<IPullRequestDiscussionComment>
+                        1,
+                        PullRequestDiscussionStatus.Active,
+                        new FilePath(@"src\Cake.Issues.Tests\Bar.cs"),
+                        new List<IPullRequestDiscussionComment>
+                        {
+                            new PullRequestDiscussionComment()
                             {
-                                new PullRequestDiscussionComment()
-                                {
-                                    Content = "Message Bar",
-                                    IsDeleted = false
-                                }
-                            })
+                                Content = "Message Bar",
+                                IsDeleted = false
+                            }
+                        })
                     {
+                        CommentIdentifier = "Message Bar",
                         CommentSource = settings.CommentSource,
                     };
                 var discussionThreads =
@@ -242,18 +245,19 @@
                 var settings = new ReportIssuesToPullRequestSettings(@"c:\repo");
                 var discussionThread1 =
                     new PullRequestDiscussionThread(
-                            1,
-                            PullRequestDiscussionStatus.Active,
-                            new FilePath(@"src\Cake.Issues.Tests\Foo.cs"),
-                            new List<IPullRequestDiscussionComment>
+                        1,
+                        PullRequestDiscussionStatus.Active,
+                        new FilePath(@"src\Cake.Issues.Tests\Foo.cs"),
+                        new List<IPullRequestDiscussionComment>
+                        {
+                            new PullRequestDiscussionComment()
                             {
-                                new PullRequestDiscussionComment()
-                                {
-                                    Content = "Message Foo",
-                                    IsDeleted = false
-                                }
-                            })
+                                Content = "Message Foo",
+                                IsDeleted = false
+                            }
+                        })
                     {
+                        CommentIdentifier = "Message Foo",
                         CommentSource = settings.CommentSource,
                     };
                 var discussionThread2 =
