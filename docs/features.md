@@ -28,7 +28,7 @@ The [Cake.Issues.EsLint addin] provides the following features.
 | <span class="glyphicon glyphicon-ok" style="color:green"></span>   | `IIssue.AffectedFileRelativePath` |                                 |
 | <span class="glyphicon glyphicon-ok" style="color:green"></span>   | `IIssue.Line`                     |                                 |
 | <span class="glyphicon glyphicon-remove" style="color:red"></span> | `IIssue.EndLine`                  |                                 |
-| <span class="glyphicon glyphicon-remove" style="color:red"></span> | `IIssue.Column`                   |                                 |
+| <span class="glyphicon glyphicon-ok" style="color:green"></span>   | `IIssue.Column`                   |                                 |
 | <span class="glyphicon glyphicon-remove" style="color:red"></span> | `IIssue.EndColumn`                |                                 |
 | <span class="glyphicon glyphicon-ok" style="color:green"></span>   | `IIssue.MessageText`              |                                 |
 | <span class="glyphicon glyphicon-remove" style="color:red"></span> | `IIssue.MessageHtml`              |                                 |
