@@ -238,6 +238,9 @@
             // Add a custom property to be able to distinguish all comments created this way.
             thread.SetCommentSource(commentSource);
 
+            // Add custom property for identifying the comment for subsequent runs
+            thread.SetCommentIdentifier(issue.Identifier);
+
             // Add a custom property to be able to return issue message from existing threads,
             // without any formatting done by this addin, back to Cake.Issues.PullRequests.
             thread.SetIssueMessage(issue.MessageText);

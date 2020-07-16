@@ -9,6 +9,7 @@
     internal static class AzureDevOpsPullRequestCommentThreadExtensions
     {
         private const string CommentSourcePropertyName = "CakeIssuesCommentSource";
+        private const string CommentIdentifierPropertyName = "CakeIssuesCommentIdentifier";
         private const string IssueMessagePropertyName = "CakeIssuesIssueMessage";
 
         /// <summary>
@@ -27,6 +28,7 @@
                 thread.Comments.Select(x => x.ToPullRequestDiscussionComment()))
             {
                 CommentSource = thread.GetCommentSource(),
+                CommentIdentifier = thread.GetCommentIdentifier(),
                 Resolution = thread.Status.ToPullRequestDiscussionResolution(),
             };
         }
@@ -67,6 +69,30 @@
             thread.NotNull(nameof(thread));
 
             return thread.GetCommentSource() == value;
+        }
+
+        /// <summary>
+        /// Gets the comment identifier to identify the issue for which the comment was created.
+        /// </summary>
+        /// <param name="thread">Thread to get the value from.</param>
+        /// <returns>Comment identifier value.</returns>
+        public static string GetCommentIdentifier(this AzureDevOpsPullRequestCommentThread thread)
+        {
+            thread.NotNull(nameof(thread));
+
+            return thread.GetValue<string>(CommentIdentifierPropertyName);
+        }
+
+        /// <summary>
+        /// Sets the comment identifier value used to identify the issue for which the comment was created.
+        /// </summary>
+        /// <param name="thread">Thread for which the value should be set.</param>
+        /// <param name="value">Value to set as comment identifier.</param>
+        public static void SetCommentIdentifier(this AzureDevOpsPullRequestCommentThread thread, string value)
+        {
+            thread.NotNull(nameof(thread));
+
+            thread.SetValue(CommentIdentifierPropertyName, value);
         }
 
         /// <summary>
