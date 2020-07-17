@@ -63,7 +63,7 @@
         AzureDevOpsPullRequest IAzureDevOpsPullRequestSystem.AzureDevOpsPullRequest => this.azureDevOpsPullRequest;
 
         /// <inheritdoc/>
-        public override bool Initialize(ReportIssuesToPullRequestSettings settings)
+        public override bool Initialize(IReportIssuesToPullRequestSettings settings)
         {
             // Fail initialization if no pull request could be found.
             return base.Initialize(settings) && this.azureDevOpsPullRequest.HasPullRequestLoaded;
