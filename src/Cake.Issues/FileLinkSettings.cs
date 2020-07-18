@@ -10,7 +10,9 @@
         /// <summary>
         /// Gets or sets the pattern which should be used to link issues to files.
         /// Fields in the form <c>{FieldName}</c> are replaced with the value of the issue.
-        /// All fields of <see cref="IIssue"/> supported.
+        /// All fields of <see cref="IIssue"/> are supported.
+        /// See <see cref="FileLinkSettingsExtensions.GetFileLink(FileLinkSettings, IIssue)"/>
+        /// to receive the resolved URL to the file.
         /// </summary>
         public string FileLinkPattern { get; set; }
 
