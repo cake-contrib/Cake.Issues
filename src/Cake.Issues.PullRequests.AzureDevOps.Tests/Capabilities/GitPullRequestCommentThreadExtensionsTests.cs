@@ -242,6 +242,32 @@
                 result.CommentSource.ShouldBe(commentSource);
             }
 
+            [Fact]
+            public void Should_Set_Correct_ProviderType()
+            {
+                // Given
+                var id = 123;
+                var status = AzureDevOpsCommentThreadStatus.Active;
+                var filePath = "/foo.cs";
+                var providerType = "foo";
+                var thread =
+                    new AzureDevOpsPullRequestCommentThread
+                    {
+                        Id = id,
+                        Status = status,
+                        FilePath = filePath,
+                        Comments = new List<AzureDevOpsComment>(),
+                        Properties = new Dictionary<string, object>(),
+                    };
+                thread.SetProviderType(providerType);
+
+                // When
+                var result = thread.ToPullRequestDiscussionThread();
+
+                // Then
+                result.ProviderType.ShouldBe(providerType);
+            }
+
             [Theory]
             [InlineData(
                 AzureDevOpsCommentThreadStatus.Unknown,
@@ -349,6 +375,66 @@
             }
         }
 
+        public sealed class TheGetProviderTypeExtension
+        {
+            [Fact]
+            public void Should_Throw_If_Thread_Is_Null()
+            {
+                // Given
+                AzureDevOpsPullRequestCommentThread thread = null;
+
+                // When
+                var result = Record.Exception(() => thread.GetProviderType());
+
+                // Then
+                result.IsArgumentNullException("thread");
+            }
+
+            [Fact]
+            public void Should_Not_Throw_If_Properties_Are_Null()
+            {
+                // Given
+                var thread =
+                    new AzureDevOpsPullRequestCommentThread
+                    {
+                        Id = 123,
+                        Status = AzureDevOpsCommentThreadStatus.Active,
+                        FilePath = "/foo.cs",
+                        Comments = new List<AzureDevOpsComment>(),
+                        Properties = null,
+                    };
+
+                // When
+                var result = thread.GetProviderType();
+
+                // Then
+                result.ShouldBe(default);
+            }
+
+            [Fact]
+            public void Should_Return_ProviderType()
+            {
+                // Given
+                var providerType = "fooProv";
+                var thread =
+                    new AzureDevOpsPullRequestCommentThread
+                    {
+                        Id = 123,
+                        Status = AzureDevOpsCommentThreadStatus.Active,
+                        FilePath = "/foo.cs",
+                        Comments = new List<AzureDevOpsComment>(),
+                        Properties = new Dictionary<string, object>(),
+                    };
+                thread.SetProviderType(providerType);
+
+                // When
+                var result = thread.GetProviderType();
+
+                // Then
+                result.ShouldBe(providerType);
+            }
+        }
+
         public sealed class TheSetCommentSourceExtension
         {
             [Fact]
@@ -407,6 +493,67 @@
 
                 // Then
                 thread.GetCommentSource().ShouldBe(commentSource);
+            }
+        }
+
+        public sealed class TheSetProviderTypeExtension
+        {
+            [Fact]
+            public void Should_Throw_If_Thread_Is_Null()
+            {
+                // Given
+                AzureDevOpsPullRequestCommentThread thread = null;
+                var value = "foo";
+
+                // When
+                var result = Record.Exception(() => thread.SetProviderType(value));
+
+                // Then
+                result.IsArgumentNullException("thread");
+            }
+
+            [Fact]
+            public void Should_Throw_If_Properties_Are_Null()
+            {
+                // Given
+                var thread =
+                    new AzureDevOpsPullRequestCommentThread
+                    {
+                        Id = 123,
+                        Status = AzureDevOpsCommentThreadStatus.Active,
+                        FilePath = "/foo.cs",
+                        Comments = new List<AzureDevOpsComment>(),
+                        Properties = null,
+                    };
+                var value = "foo";
+
+                // When
+                var result = Record.Exception(() => thread.SetProviderType(value));
+
+                // Then
+                result.IsInvalidOperationException("Properties collection is not created.");
+            }
+
+            [Fact]
+            public void Should_Set_ProviderType()
+            {
+                // Given
+                var providerType = "provType";
+                var thread =
+                    new AzureDevOpsPullRequestCommentThread
+                    {
+                        Id = 123,
+                        Status = AzureDevOpsCommentThreadStatus.Active,
+                        FilePath = "/foo.cs",
+                        Comments = new List<AzureDevOpsComment>(),
+                        Properties = new Dictionary<string, object>(),
+                    };
+
+                // When
+                thread.SetProviderType(providerType);
+
+                // Then
+                thread.GetProviderType().ShouldBe(providerType);
             }
         }
 

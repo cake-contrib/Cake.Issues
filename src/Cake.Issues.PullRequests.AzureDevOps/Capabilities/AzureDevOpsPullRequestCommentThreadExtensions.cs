@@ -11,6 +11,7 @@
         private const string CommentSourcePropertyName = "CakeIssuesCommentSource";
         private const string CommentIdentifierPropertyName = "CakeIssuesCommentIdentifier";
         private const string IssueMessagePropertyName = "CakeIssuesIssueMessage";
+        private const string ProviderTypePropertyName = "CakeIssuesProviderType";
 
         /// <summary>
         /// Converts a <see cref="AzureDevOpsPullRequestCommentThread"/> from Azure DevOps to a <see cref="IPullRequestDiscussionThread"/> as used in this addin.
@@ -29,12 +30,13 @@
             {
                 CommentSource = thread.GetCommentSource(),
                 CommentIdentifier = thread.GetCommentIdentifier(),
+                ProviderType = thread.GetProviderType(),
                 Resolution = thread.Status.ToPullRequestDiscussionResolution(),
             };
         }
 
         /// <summary>
-        /// Gets the comment source value used to decorate comments created by this addin.
+        /// Gets the comment source value used to decorate comments created by this add-in.
         /// </summary>
         /// <param name="thread">Thread to get the value from.</param>
         /// <returns>Comment source value.</returns>
@@ -46,7 +48,7 @@
         }
 
         /// <summary>
-        /// Sets the comment sourc e value used to decorate comments created by this addin.
+        /// Sets the comment source value used to decorate comments created by this addin.
         /// </summary>
         /// <param name="thread">Thread for which the value should be set.</param>
         /// <param name="value">Value to set as comment source.</param>
@@ -118,6 +120,30 @@
             thread.NotNull(nameof(thread));
 
             thread.SetValue(IssueMessagePropertyName, value);
+        }
+
+        /// <summary>
+        /// Gets the provider type value used to identify specific provider origins later on when reading back existing issues.
+        /// </summary>
+        /// <param name="thread">Thread to get the value from.</param>
+        /// <returns>Comment source value.</returns>
+        public static string GetProviderType(this AzureDevOpsPullRequestCommentThread thread)
+        {
+            thread.NotNull(nameof(thread));
+
+            return thread.GetValue<string>(ProviderTypePropertyName);
+        }
+
+        /// <summary>
+        /// Sets the provider type value used to identify specific provider origins later on when reading back existing issues.
+        /// </summary>
+        /// <param name="thread">Thread for which the value should be set.</param>
+        /// <param name="value">Value to set as comment source.</param>
+        public static void SetProviderType(this AzureDevOpsPullRequestCommentThread thread, string value)
+        {
+            thread.NotNull(nameof(thread));
+
+            thread.SetValue(ProviderTypePropertyName, value);
         }
     }
 }
