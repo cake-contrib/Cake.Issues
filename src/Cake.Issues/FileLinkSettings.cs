@@ -8,13 +8,24 @@
     public class FileLinkSettings
     {
         /// <summary>
-        /// Gets or sets the pattern which should be used to link issues to files.
+        /// Initializes a new instance of the <see cref="FileLinkSettings"/> class.
+        /// </summary>
+        /// <param name="fileLinkPattern">Pattern which should be used to link issues to files.</param>
+        public FileLinkSettings(string fileLinkPattern)
+        {
+            fileLinkPattern.NotNullOrWhiteSpace(nameof(fileLinkPattern));
+
+            this.FileLinkPattern = fileLinkPattern;
+        }
+
+        /// <summary>
+        /// Gets the pattern which should be used to link issues to files.
         /// Fields in the form <c>{FieldName}</c> are replaced with the value of the issue.
         /// All fields of <see cref="IIssue"/> are supported.
         /// See <see cref="FileLinkSettingsExtensions.GetFileLink(FileLinkSettings, IIssue)"/>
         /// to receive the resolved URL to the file.
         /// </summary>
-        public string FileLinkPattern { get; set; }
+        public string FileLinkPattern { get; }
 
         /// <summary>
         /// Returns settings for linking to files hosted in GitHub.
@@ -33,11 +44,9 @@
             repositoryUrl.NotNull(nameof(repositoryUrl));
             branch.NotNullOrWhiteSpace(nameof(branch));
 
-            return new FileLinkSettings()
-            {
-                FileLinkPattern =
-                    repositoryUrl.Append("blob", branch, rootPath, "{FilePath}#L{Line}").ToString(),
-            };
+            return
+                new FileLinkSettings(
+                    repositoryUrl.Append("blob", branch, rootPath, "{FilePath}#L{Line}").ToString());
         }
 
         /// <summary>
@@ -62,11 +71,9 @@
                 rootPath = rootPath.Trim('/') + "/";
             }
 
-            return new FileLinkSettings()
-            {
-                FileLinkPattern =
-                    repositoryUrl.ToString().TrimEnd('/') + "?path=" + rootPath + "{FilePath}&version=GB" + branch + "&line={Line}",
-            };
+            return
+                new FileLinkSettings(
+                    repositoryUrl.ToString().TrimEnd('/') + "?path=" + rootPath + "{FilePath}&version=GB" + branch + "&line={Line}");
         }
     }
 }
