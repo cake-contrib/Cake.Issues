@@ -3,7 +3,7 @@
     using System;
 
     /// <summary>
-    /// Interface describing a pull request server.
+    /// Extensions for the <see cref="ISupportCheckingCommitId"/> interface.
     /// </summary>
     public static class ISupportCheckingCommitIdExtensions
     {
