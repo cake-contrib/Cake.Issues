@@ -34,9 +34,17 @@
 
                 var pullRequestThread = thread.ToPullRequestDiscussionThread();
 
+                // Comment identifier was introduced with Cake.Issues 0.9.0.
+                // To also support pull request written by previous versions of Cake.Issues
+                // we return the message without additional formatting in case no
+                // identifier was set on the thread.
+                if (string.IsNullOrEmpty(pullRequestThread.CommentIdentifier))
+                {
+                    pullRequestThread.CommentIdentifier = thread.GetIssueMessage();
+                }
+
                 // Assuming that the first comment is the one written by this addin, we replace the content
-                // containing additional formatting done by this addin with the original issue message to
-                // allow Cake.Issues.PullRequests to do a proper comparison to find out which issues already were posted.
+                // containing additional formatting done by this addin with the original issue message.
                 pullRequestThread.Comments.First().Content = thread.GetIssueMessage();
 
                 threadList.Add(pullRequestThread);
