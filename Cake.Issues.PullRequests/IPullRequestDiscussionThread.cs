@@ -36,6 +36,12 @@
         string CommentSource { get; set; }
 
         /// <summary>
+        /// Gets or sets a the provider type which reported the issue.
+        /// This value is used to identify the comment in subsequent runs.
+        /// </summary>
+        string ProviderType { get; set; }
+
+        /// <summary>
         /// Gets or sets the value to identify the comment across multiple runs.
         /// </summary>
         string CommentIdentifier { get; set; }
