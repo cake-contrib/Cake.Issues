@@ -1,7 +1,5 @@
 ﻿namespace Cake.Issues
 {
-    using Cake.Core.IO;
-
     /// <summary>
     /// Interface for settings for reading issues.
     /// </summary>

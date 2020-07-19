@@ -16,9 +16,7 @@
         {
         }
 
-        /// <summary>
-        /// Gets or sets the name of the run.
-        /// </summary>
+        /// <inheritdoc/>
         public string Run { get; set; }
     }
 }

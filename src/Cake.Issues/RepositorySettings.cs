@@ -18,9 +18,7 @@
             this.RepositoryRoot = repositoryRoot;
         }
 
-        /// <summary>
-        /// Gets the Root path of the repository.
-        /// </summary>
+        /// <inheritdoc/>
         public DirectoryPath RepositoryRoot { get; }
     }
 }
