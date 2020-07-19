@@ -23,7 +23,7 @@
         }
 
         /// <inheritdoc/>
-        protected override IEnumerable<IIssue> InternalReadIssues()
+        protected override IEnumerable<IIssue> InternalReadIssues(FileLinkSettings fileLinkSettings)
         {
             return
                 this.IssueProviderSettings.Format.ReadIssues(

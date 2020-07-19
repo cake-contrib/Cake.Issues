@@ -19,7 +19,7 @@
         protected BaseIssueProviderFixture()
         {
             this.Log = new FakeLog { Verbosity = Verbosity.Normal };
-            this.RepositorySettings = new RepositorySettings(@"c:\repo");
+            this.ReadIssuesSettings = new ReadIssuesSettings(@"c:\repo");
         }
 
         /// <summary>
@@ -30,7 +30,7 @@
         /// <summary>
         /// Gets or sets the repository settings.
         /// </summary>
-        public RepositorySettings RepositorySettings { get; set; }
+        public ReadIssuesSettings ReadIssuesSettings { get; set; }
 
         /// <summary>
         /// Calls <see cref="BaseIssueProvider.ReadIssues()"/>.
@@ -67,12 +67,12 @@
                     typeof(T),
                     this.GetCreateIssueProviderArguments().ToArray());
 
-            if (this.RepositorySettings == null)
+            if (this.ReadIssuesSettings == null)
             {
-                throw new InvalidOperationException("No repository settings set.");
+                throw new InvalidOperationException("No settings for reading issues set.");
             }
 
-            provider.Initialize(this.RepositorySettings);
+            provider.Initialize(this.ReadIssuesSettings);
             return provider;
         }
     }

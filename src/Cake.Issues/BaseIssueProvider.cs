@@ -6,7 +6,7 @@
     /// <summary>
     /// Base class for all issue provider implementations.
     /// </summary>
-    public abstract class BaseIssueProvider : BaseIssueComponent<IRepositorySettings>, IIssueProvider
+    public abstract class BaseIssueProvider : BaseIssueComponent<IReadIssuesSettings>, IIssueProvider
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="BaseIssueProvider"/> class.
@@ -25,14 +25,15 @@
         {
             this.AssertInitialized();
 
-            return this.InternalReadIssues();
+            return this.InternalReadIssues(this.Settings.FileLinkSettings);
         }
 
         /// <summary>
         /// Gets all issues.
         /// Compared to <see cref="ReadIssues"/> it is safe to access Settings from this method.
         /// </summary>
+        /// <param name="fileLinkSettings">Settings which can be used for resolving links to source files.</param>
         /// <returns>List of issues.</returns>
-        protected abstract IEnumerable<IIssue> InternalReadIssues();
+        protected abstract IEnumerable<IIssue> InternalReadIssues(FileLinkSettings fileLinkSettings);
     }
 }
