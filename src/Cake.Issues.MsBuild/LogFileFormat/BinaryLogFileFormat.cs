@@ -60,6 +60,9 @@
                     }
 
                     var line = GetLine(buildWarning);
+                    var endLine = GetEndLine(buildWarning);
+                    var column = GetColumn(buildWarning);
+                    var endColumn = GetEndColumn(buildWarning);
                     var rule = buildWarning.Code;
 
                     // Determine rule URL.
@@ -75,7 +78,7 @@
                             .NewIssue(buildWarning.Message, issueProvider)
                             .WithPriority(IssuePriority.Warning)
                             .InProject(projectFileRelativePath, System.IO.Path.GetFileNameWithoutExtension(projectFileRelativePath))
-                            .InFile(fileName, line)
+                            .InFile(fileName, line, endLine, column, endColumn)
                             .OfRule(rule, ruleUrl)
                             .Create());
                 }
@@ -100,6 +103,60 @@
             }
 
             return line;
+        }
+
+        /// <summary>
+        /// Reads the end of line range from a warning logged in a MsBuild log.
+        /// </summary>
+        /// <param name="warning">Warning element from MsBuild log.</param>
+        /// <returns>End of line range or null if warning is not related to a file.</returns>
+        private static int? GetEndLine(BuildWarningEventArgs warning)
+        {
+            var endLine = warning.EndLineNumber;
+
+            // Convert negative line numbers or line number 0 to null
+            if (endLine <= 0)
+            {
+                return null;
+            }
+
+            return endLine;
+        }
+
+        /// <summary>
+        /// Reads the affected column from a warning logged in a MsBuild log.
+        /// </summary>
+        /// <param name="warning">Warning element from MsBuild log.</param>
+        /// <returns>Column number or null if warning is not related to a file.</returns>
+        private static int? GetColumn(BuildWarningEventArgs warning)
+        {
+            var column = warning.ColumnNumber;
+
+            // Convert negative column numbers or column number 0 to null
+            if (column <= 0)
+            {
+                return null;
+            }
+
+            return column;
+        }
+
+        /// <summary>
+        /// Reads the end of column range from a warning logged in a MsBuild log.
+        /// </summary>
+        /// <param name="warning">Warning element from MsBuild log.</param>
+        /// <returns>End of column range or null if warning is not related to a file.</returns>
+        private static int? GetEndColumn(BuildWarningEventArgs warning)
+        {
+            var endColumn = warning.EndColumnNumber;
+
+            // Convert negative column numbers or column number 0 to null
+            if (endColumn <= 0)
+            {
+                return null;
+            }
+
+            return endColumn;
         }
 
         /// <summary>
