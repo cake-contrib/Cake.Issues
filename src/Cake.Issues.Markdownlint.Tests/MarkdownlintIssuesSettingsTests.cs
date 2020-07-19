@@ -18,7 +18,7 @@
             {
                 // Given
                 FilePath logFilePath = null;
-                var format = new MarkdownlintLogFileFormat(new FakeLog());
+                var format = new MarkdownlintV1LogFileFormat(new FakeLog());
 
                 // When
                 var result = Record.Exception(() =>
@@ -34,7 +34,7 @@
                 // Given
                 BaseMarkdownlintLogFileFormat format = null;
 
-                using (var tempFile = new ResourceTempFile("Cake.Issues.Markdownlint.Tests.Testfiles.MarkdownlintLogFileFormat.markdownlint.json"))
+                using (var tempFile = new ResourceTempFile("Cake.Issues.Markdownlint.Tests.Testfiles.MarkdownlintV1LogFileFormat.markdownlint.json"))
                 {
                     // When
                     var result = Record.Exception(() =>
@@ -50,7 +50,7 @@
             {
                 // Given
                 byte[] logFileContent = null;
-                var format = new MarkdownlintLogFileFormat(new FakeLog());
+                var format = new MarkdownlintV1LogFileFormat(new FakeLog());
 
                 // When
                 var result = Record.Exception(() =>
@@ -80,7 +80,7 @@
             {
                 // Given
                 var logFileContent = "Foo".ToByteArray();
-                var format = new MarkdownlintLogFileFormat(new FakeLog());
+                var format = new MarkdownlintV1LogFileFormat(new FakeLog());
 
                 // When
                 var settings = new MarkdownlintIssuesSettings(logFileContent, format);
@@ -94,7 +94,7 @@
             {
                 // Given
                 byte[] logFileContent = Array.Empty<byte>();
-                var format = new MarkdownlintLogFileFormat(new FakeLog());
+                var format = new MarkdownlintV1LogFileFormat(new FakeLog());
 
                 // When
                 var settings = new MarkdownlintIssuesSettings(logFileContent, format);
@@ -107,8 +107,8 @@
             public void Should_Set_LogFileContent_From_LogFilePath()
             {
                 // Given
-                var format = new MarkdownlintLogFileFormat(new FakeLog());
-                using (var tempFile = new ResourceTempFile("Cake.Issues.Markdownlint.Tests.Testfiles.MarkdownlintLogFileFormat.markdownlint.json"))
+                var format = new MarkdownlintV1LogFileFormat(new FakeLog());
+                using (var tempFile = new ResourceTempFile("Cake.Issues.Markdownlint.Tests.Testfiles.MarkdownlintV1LogFileFormat.markdownlint.json"))
                 {
                     // When
                     var settings = new MarkdownlintIssuesSettings(tempFile.FileName, format);
