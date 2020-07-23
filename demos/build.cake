@@ -3,7 +3,8 @@
 #addin "Cake.Issues.Markdownlint&prerelease"
 #addin "Cake.Issues.InspectCode&prerelease"
 #addin "Cake.Issues.Reporting&prerelease"
-#addin "Cake.Issues.Reporting.Generic&prerelease"
+
+#reference "./tools/Addins/Cake.Issues.Reporting.Generic/lib/net461/Cake.Issues.Reporting.Generic.dll"
 
 #load build/build/build.cake
 #load build/analyze/analyze.cake
