@@ -10,7 +10,7 @@ Task("Create-Reports-HtmlDxDataGrid-File-Linking")
             settings => settings
                 .WithOption(
                     HtmlDxDataGridOption.FileLinkSettings,
-                    GenericIssueReportFileLinkSettingsForGitHub(
+                    IssueFileLinkSettingsForGitHub(
                         new System.Uri("https://github.com/cake-contrib/Cake.Issues.Website"),
                         "develop",
                         "demos"))),
