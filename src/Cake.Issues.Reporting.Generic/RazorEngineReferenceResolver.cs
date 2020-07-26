@@ -41,10 +41,7 @@
 
             if (result == null)
             {
-                throw new InvalidOperationException(
-                    string.Format(
-                        "Could not find loaded assembly {0}.",
-                        find));
+                throw new InvalidOperationException($"Could not find loaded assembly {find}.");
             }
 
             return result;

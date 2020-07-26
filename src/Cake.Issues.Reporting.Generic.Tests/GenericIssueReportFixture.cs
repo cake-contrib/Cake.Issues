@@ -23,8 +23,12 @@
                 GenericIssueReportFormatSettings.FromContent(templateContent);
         }
 
+        // ReSharper disable once MemberCanBePrivate.Global
+        // ReSharper disable once AutoPropertyCanBeMadeGetOnly.Global
         public FakeLog Log { get; set; }
 
+        // ReSharper disable once MemberCanBePrivate.Global
+        // ReSharper disable once AutoPropertyCanBeMadeGetOnly.Global
         public GenericIssueReportFormatSettings GenericIssueReportFormatSettings { get; set; }
 
         public string CreateReport(IEnumerable<IIssue> issues)
@@ -76,7 +80,7 @@
                     });
 
             // Then
-            // Currently only checks if genertions failed or not without checking actual output.
+            // Currently only checks if generation failed or not without checking actual output.
             result.ShouldNotBeNull();
         }
     }

@@ -1,6 +1,7 @@
 ﻿namespace Cake.Issues.Reporting.Generic
 {
     using System;
+    using System.Diagnostics.CodeAnalysis;
     using Cake.Core;
     using Cake.Core.Annotations;
     using Cake.Core.IO;
@@ -9,6 +10,9 @@
     /// Contains functionality for creating issue reports in any text based format (HTML, Markdown, ...).
     /// </summary>
     [CakeAliasCategory(IssuesAliasConstants.MainCakeAliasCategory)]
+    [SuppressMessage("ReSharper", "UnusedMember.Global", Justification = "Aliases are not used in addin code")]
+    [SuppressMessage("ReSharper", "MemberCanBePrivate.Global", Justification = "Aliases are called by Cake scripts")]
+    [SuppressMessage("ReSharper", "UnusedType.Global", Justification = "Class will be loaded by Cake")]
     public static class GenericIssueReportFormatAliases
     {
         /// <summary>

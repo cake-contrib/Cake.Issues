@@ -244,7 +244,7 @@
         SortedColumns,
 
         /// <summary>
-        /// List of <see cref="HtmlDxDataGridColumnDescription"/> for additional columsn which should be added to the grid.
+        /// List of <see cref="HtmlDxDataGridColumnDescription"/> for additional columns which should be added to the grid.
         /// Default value is an empty list.
         /// </summary>
         AdditionalColumns,

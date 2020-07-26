@@ -1,9 +1,12 @@
 ﻿namespace Cake.Issues.Reporting.Generic.Tests
 {
+    using System.Diagnostics.CodeAnalysis;
     using Cake.Issues.Testing;
     using Shouldly;
     using Xunit;
 
+    [SuppressMessage("ReSharper", "ClassNeverInstantiated.Global", Justification = "Instantiated by test runner")]
+    [SuppressMessage("ReSharper", "ExpressionIsAlwaysNull", Justification = "By design for null tests")]
     public sealed class GenericIssueReportFormatSettingsExtensionsTests
     {
         public sealed class TheWithOptionWithStringKeyMethod
@@ -39,7 +42,7 @@
             }
         }
 
-        public sealed class TheWithOptionWithEnumgKeyMethod
+        public sealed class TheWithOptionWithEnumKeyMethod
         {
             [Fact]
             public void Should_Throw_If_Settings_Are_Null()
