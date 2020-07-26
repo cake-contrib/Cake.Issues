@@ -1,5 +1,6 @@
 ﻿namespace Cake.Issues.Reporting.Generic
 {
+    using System;
     using System.Collections.Generic;
     using System.IO;
     using Cake.Core.IO;
@@ -17,6 +18,11 @@
         {
             using (var stream = this.GetType().Assembly.GetManifestResourceStream("Cake.Issues.Reporting.Generic.Templates." + template.GetTemplateResourceName()))
             {
+                if (stream == null)
+                {
+                    throw new ApplicationException($"Could not load resource {template}");
+                }
+
                 using (var sr = new StreamReader(stream))
                 {
                     this.Template = sr.ReadToEnd();
@@ -55,7 +61,7 @@
         /// <summary>
         /// Gets the template to use for generating the report.
         /// </summary>
-        public string Template { get; private set; }
+        public string Template { get; }
 
         /// <summary>
         /// Gets the options to use for generating the report.

@@ -1,11 +1,14 @@
 ﻿namespace Cake.Issues.Reporting.Generic.Tests
 {
     using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
     using System.Dynamic;
     using Cake.Issues.Testing;
     using Shouldly;
     using Xunit;
 
+    [SuppressMessage("ReSharper", "ClassNeverInstantiated.Global", Justification = "Instantiated by test runner")]
+    [SuppressMessage("ReSharper", "ExpressionIsAlwaysNull", Justification = "By design for null tests")]
     public sealed class ExpandoObjectExtensionsTests
     {
         public sealed class TheSerializeToJsonStringExtensionForAnObject

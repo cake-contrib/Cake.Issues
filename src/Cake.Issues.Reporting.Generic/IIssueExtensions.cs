@@ -2,11 +2,14 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
+
     using System.Dynamic;
 
     /// <summary>
     /// Extension for <see cref="IIssue"/>.
     /// </summary>
+    [SuppressMessage("ReSharper", "InconsistentNaming", Justification = "Follows name of the interface which is extended")]
     public static class IIssueExtensions
     {
         /// <summary>
@@ -128,26 +131,14 @@
 
             if (addMessageHtml)
             {
-                if (fallbackToTextMessageIfHtmlMessageNotAvailable)
-                {
-                    result.MessageHtml = issue.Message(IssueCommentFormat.Html);
-                }
-                else
-                {
-                    result.MessageHtml = issue.MessageHtml;
-                }
+                result.MessageHtml =
+                    fallbackToTextMessageIfHtmlMessageNotAvailable ? issue.Message(IssueCommentFormat.Html) : issue.MessageHtml;
             }
 
             if (addMessageMarkdown)
             {
-                if (fallbackToTextMessageIfMarkdownMessageNotAvailable)
-                {
-                    result.MessageMarkdown = issue.Message(IssueCommentFormat.Markdown);
-                }
-                else
-                {
-                    result.MessageMarkdown = issue.MessageMarkdown;
-                }
+                result.MessageMarkdown =
+                    fallbackToTextMessageIfMarkdownMessageNotAvailable ? issue.Message(IssueCommentFormat.Markdown) : issue.MessageMarkdown;
             }
 
             if (fileLinkSettings != null && !string.IsNullOrEmpty(fileLinkSettings.FileLinkPattern))
