@@ -292,7 +292,7 @@
             [InlineData("http://foo", "http://bar")]
             [InlineData("http://foo", null)]
             [InlineData(null, "http://foo")]
-            public void Should_Return_False_If_RuleUlr_Is_Different(string ruleUrl1, string ruleUrl2)
+            public void Should_Return_False_If_RuleUrl_Is_Different(string ruleUrl1, string ruleUrl2)
             {
                 // Given
                 var issueBuilder =
@@ -665,7 +665,7 @@
             [InlineData("http://foo", "http://foo")]
             [InlineData("http://foo", "http://Foo")]
             [InlineData(null, null)]
-            public void Should_Return_True_If_RuleUlr_Is_Same(string ruleUrl1, string ruleUrl2)
+            public void Should_Return_True_If_RuleUrl_Is_Same(string ruleUrl1, string ruleUrl2)
             {
                 // Given
                 var issueBuilder =
@@ -988,7 +988,7 @@
             [InlineData("http://foo", "http://bar")]
             [InlineData("http://foo", null)]
             [InlineData(null, "http://foo")]
-            public void Should_Return_False_If_RuleUlr_Is_Different(string ruleUrl1, string ruleUrl2)
+            public void Should_Return_False_If_RuleUrl_Is_Different(string ruleUrl1, string ruleUrl2)
             {
                 // Given
                 var issueBuilder =
@@ -1455,7 +1455,7 @@
             [InlineData("http://foo", "http://foo")]
             [InlineData("http://foo", "http://Foo")]
             [InlineData(null, null)]
-            public void Should_Return_True_If_RuleUlr_Is_Same(string ruleUrl1, string ruleUrl2)
+            public void Should_Return_True_If_RuleUrl_Is_Same(string ruleUrl1, string ruleUrl2)
             {
                 // Given
                 var issueBuilder =
