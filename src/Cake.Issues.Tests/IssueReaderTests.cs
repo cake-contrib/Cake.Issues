@@ -330,6 +330,59 @@
                 issues.ShouldContain(issue2);
                 issue2.Run.ShouldBe(run);
             }
+
+            [Fact]
+            public void Should_Set_FileLink_Property()
+            {
+                // Given
+                var filePath1 = @"src\Cake.Issues.Tests\Foo.cs";
+                var line1 = 10;
+                var issue1 =
+                    IssueBuilder
+                        .NewIssue("Foo", "ProviderTypeFoo", "ProviderNameFoo")
+                        .InFile(filePath1, line1)
+                        .OfRule("Foo")
+                        .WithPriority(IssuePriority.Warning)
+                        .Create();
+                var filePath2 = @"src\Cake.Issues.Tests\Bar.cs";
+                var line2 = 12;
+                var issue2 =
+                    IssueBuilder
+                        .NewIssue("Bar", "ProviderTypeBar", "ProviderNameBar")
+                        .InFile(filePath2, line2)
+                        .OfRule("Bar")
+                        .WithPriority(IssuePriority.Warning)
+                        .Create();
+                var fixture = new IssuesFixture();
+                fixture.IssueProviders.Clear();
+                fixture.IssueProviders.Add(
+                    new FakeIssueProvider(
+                        fixture.Log,
+                        new List<IIssue>
+                        {
+                            issue1,
+                            issue2,
+                        }));
+                var repoUrl = "https://github.com/cake-contrib/Cake.Issues.Website";
+                var branch = "develop";
+                fixture.Settings.FileLinkSettings =
+                    FileLinkSettings.GitHub(
+                        new System.Uri(repoUrl),
+                        branch,
+                        null);
+
+                // When
+                var issues = fixture.ReadIssues().ToList();
+
+                // Then
+                issues.Count.ShouldBe(2);
+                issues.ShouldContain(issue1);
+                issue1.FileLink.ToString()
+                    .ShouldBe($"{repoUrl}/blob/{branch}/{filePath1.Replace(@"\", "/")}#L{line1}");
+                issues.ShouldContain(issue2);
+                issue2.FileLink.ToString()
+                    .ShouldBe($"{repoUrl}/blob/{branch}/{filePath2.Replace(@"\", "/")}#L{line2}");
+            }
         }
     }
 }

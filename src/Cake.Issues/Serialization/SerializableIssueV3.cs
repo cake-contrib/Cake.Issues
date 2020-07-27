@@ -52,6 +52,10 @@
         [DataMember]
         public int? EndColumn { get; set; }
 
+        /// <inheritdoc cref="IIssue.FileLink" />
+        [DataMember]
+        public string FileLink { get; set; }
+
         /// <inheritdoc cref="IIssue.MessageText" />
         [DataMember]
         public string MessageText { get; set; }

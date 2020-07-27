@@ -59,6 +59,12 @@
         int? EndColumn { get; }
 
         /// <summary>
+        /// Gets or sets a link to the position in the file where the issue ocurred.
+        /// <c>null</c> if <see cref="IReadIssuesSettings.FileLinkSettings"/> was not set while reading issue.
+        /// </summary>
+        Uri FileLink { get; set; }
+
+        /// <summary>
         /// Gets the message of the issue in text format.
         /// </summary>
         string MessageText { get; }

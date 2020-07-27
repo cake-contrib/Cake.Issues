@@ -1604,6 +1604,38 @@
             }
         }
 
+        public sealed class TheWithFileLinkMethod
+        {
+            [Fact]
+            public void Should_Throw_If_FileLink_Is_Null()
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+                Uri fileLink = null;
+
+                // When
+                var result = Record.Exception(() =>
+                    fixture.IssueBuilder.WithFileLink(fileLink));
+
+                // Then
+                result.IsArgumentNullException("fileLink");
+            }
+
+            [Theory]
+            [InlineData("https://google.com/")]
+            public void Should_Set_FileLink(string fileLink)
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+
+                // When
+                var issue = fixture.IssueBuilder.WithFileLink(new Uri(fileLink)).Create();
+
+                // Then
+                issue.FileLink.ToString().ShouldBe(fileLink);
+            }
+        }
+
         public sealed class TheWithPriorityMethod
         {
             [Fact]

@@ -155,6 +155,41 @@
                 CompareIssues(issue1, issue2, false);
             }
 
+            [Theory]
+            [InlineData("http://foo", "http://bar")]
+            [InlineData("http://foo", null)]
+            [InlineData(null, "http://foo")]
+            public void Should_Return_False_If_FileLink_Is_Different(string fileLink1, string fileLink2)
+            {
+                // Given
+                var issueBuilder =
+                    IssueBuilder
+                        .NewIssue("message", "providerType", "providerName");
+                if (!string.IsNullOrEmpty(fileLink1))
+                {
+                    issueBuilder =
+                        issueBuilder
+                            .WithFileLink(new Uri(fileLink1));
+                }
+
+                var issue1 = issueBuilder.Create();
+
+                issueBuilder =
+                    IssueBuilder
+                        .NewIssue("message", "providerType", "providerName");
+                if (!string.IsNullOrEmpty(fileLink2))
+                {
+                    issueBuilder =
+                        issueBuilder
+                            .WithFileLink(new Uri(fileLink2));
+                }
+
+                var issue2 = issueBuilder.Create();
+
+                // When / Then
+                CompareIssues(issue1, issue2, false);
+            }
+
             [Fact]
             public void Should_Return_False_If_MessageText_Is_Different()
             {
@@ -527,6 +562,41 @@
                         .NewIssue("message", "providerType", "providerName")
                         .InFile("foo", 42, column2)
                         .Create();
+
+                // When / Then
+                CompareIssues(issue1, issue2, true);
+            }
+
+            [Theory]
+            [InlineData("http://foo", "http://foo")]
+            [InlineData("http://foo", "http://Foo")]
+            [InlineData(null, null)]
+            public void Should_Return_True_If_FileLink_Is_Same(string fileLink1, string fileLink2)
+            {
+                // Given
+                var issueBuilder =
+                    IssueBuilder
+                        .NewIssue("message", "providerType", "providerName");
+                if (!string.IsNullOrEmpty(fileLink1))
+                {
+                    issueBuilder =
+                        issueBuilder
+                            .WithFileLink(new Uri(fileLink1));
+                }
+
+                var issue1 = issueBuilder.Create();
+
+                issueBuilder =
+                    IssueBuilder
+                        .NewIssue("message", "providerType", "providerName");
+                if (!string.IsNullOrEmpty(fileLink2))
+                {
+                    issueBuilder =
+                        issueBuilder
+                            .WithFileLink(new Uri(fileLink2));
+                }
+
+                var issue2 = issueBuilder.Create();
 
                 // When / Then
                 CompareIssues(issue1, issue2, true);
@@ -1317,6 +1387,76 @@
                         .NewIssue("message", "providerType", "providerName")
                         .InFile("foo", 42, column2)
                         .Create();
+
+                // When / Then
+                CompareIssues(issue1, issue2, true);
+            }
+
+            [Theory]
+            [InlineData("http://foo", "http://bar")]
+            [InlineData("http://foo", null)]
+            [InlineData(null, "http://foo")]
+            public void Should_Return_True_If_FileLink_Is_Different(string fileLink1, string fileLink2)
+            {
+                // Given
+                var issueBuilder =
+                    IssueBuilder
+                        .NewIssue("message", "providerType", "providerName");
+                if (!string.IsNullOrEmpty(fileLink1))
+                {
+                    issueBuilder =
+                        issueBuilder
+                            .WithFileLink(new Uri(fileLink1));
+                }
+
+                var issue1 = issueBuilder.Create();
+
+                issueBuilder =
+                    IssueBuilder
+                        .NewIssue("message", "providerType", "providerName");
+                if (!string.IsNullOrEmpty(fileLink2))
+                {
+                    issueBuilder =
+                        issueBuilder
+                            .WithFileLink(new Uri(fileLink2));
+                }
+
+                var issue2 = issueBuilder.Create();
+
+                // When / Then
+                CompareIssues(issue1, issue2, true);
+            }
+
+            [Theory]
+            [InlineData("http://foo", "http://foo")]
+            [InlineData("http://foo", "http://Foo")]
+            [InlineData(null, null)]
+            public void Should_Return_True_If_FileLink_Is_Same(string fileLink1, string fileLink2)
+            {
+                // Given
+                var issueBuilder =
+                    IssueBuilder
+                        .NewIssue("message", "providerType", "providerName");
+                if (!string.IsNullOrEmpty(fileLink1))
+                {
+                    issueBuilder =
+                        issueBuilder
+                            .WithFileLink(new Uri(fileLink1));
+                }
+
+                var issue1 = issueBuilder.Create();
+
+                issueBuilder =
+                    IssueBuilder
+                        .NewIssue("message", "providerType", "providerName");
+                if (!string.IsNullOrEmpty(fileLink2))
+                {
+                    issueBuilder =
+                        issueBuilder
+                            .WithFileLink(new Uri(fileLink2));
+                }
+
+                var issue2 = issueBuilder.Create();
 
                 // When / Then
                 CompareIssues(issue1, issue2, true);

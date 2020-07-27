@@ -275,6 +275,24 @@
             }
 
             [Fact]
+            public void Should_Give_Correct_Result_For_FileLink_After_Roundtrip()
+            {
+                // Given
+                var fileLink = "https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12";
+                var issue =
+                    IssueBuilder
+                        .NewIssue("message", "providerType", "providerName")
+                        .WithFileLink(new Uri(fileLink))
+                        .Create();
+
+                // When
+                var result = issue.SerializeToJsonString().DeserializeToIssue();
+
+                // Then
+                result.FileLink.ToString().ShouldBe(fileLink);
+            }
+
+            [Fact]
             public void Should_Give_Correct_Result_For_Priority_After_Roundtrip()
             {
                 // Given
@@ -744,6 +762,34 @@
                 result.Count().ShouldBe(2);
                 result.First().EndColumn.ShouldBe(endColumn1);
                 result.Last().EndColumn.ShouldBe(endColumn2);
+            }
+
+            [Fact]
+            public void Should_Give_Correct_Result_For_FileLink_After_Roundtrip()
+            {
+                // Given
+                var fileLink1 = "https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12";
+                var fileLink2 = "https://github.com/myorg/myrepo/blob/develop/src/bar.cs#L23-L42";
+                var issues =
+                    new List<IIssue>
+                    {
+                        IssueBuilder
+                          .NewIssue("message1", "providerType1", "providerName1")
+                            .WithFileLink(new Uri(fileLink1))
+                            .Create(),
+                        IssueBuilder
+                            .NewIssue("message2", "providerType2", "providerName2")
+                            .WithFileLink(new Uri(fileLink2))
+                            .Create(),
+                    };
+
+                // When
+                var result = issues.SerializeToJsonString().DeserializeToIssues();
+
+                // Then
+                result.Count().ShouldBe(2);
+                result.First().FileLink.ToString().ShouldBe(fileLink1);
+                result.Last().FileLink.ToString().ShouldBe(fileLink2);
             }
 
             [Fact]
@@ -1298,6 +1344,36 @@
 
                     // Then
                     result.EndColumn.ShouldBe(endColumn);
+                }
+                finally
+                {
+                    if (System.IO.File.Exists(filePath.FullPath))
+                    {
+                        System.IO.File.Delete(filePath.FullPath);
+                    }
+                }
+            }
+
+            [Fact]
+            public void Should_Give_Correct_Result_For_FileLink_After_Roundtrip()
+            {
+                // Given
+                var fileLink = "https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12";
+                var issue =
+                    IssueBuilder
+                        .NewIssue("message", "providerType", "providerName")
+                        .WithFileLink(new Uri(fileLink))
+                        .Create();
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+
+                try
+                {
+                    // When
+                    issue.SerializeToJsonFile(filePath);
+                    var result = filePath.DeserializeToIssue();
+
+                    // Then
+                    result.FileLink.ToString().ShouldBe(fileLink);
                 }
                 finally
                 {
@@ -2001,6 +2077,46 @@
                     result.Count().ShouldBe(2);
                     result.First().EndColumn.ShouldBe(endColumn1);
                     result.Last().EndColumn.ShouldBe(endColumn2);
+                }
+                finally
+                {
+                    if (System.IO.File.Exists(filePath.FullPath))
+                    {
+                        System.IO.File.Delete(filePath.FullPath);
+                    }
+                }
+            }
+
+            [Fact]
+            public void Should_Give_Correct_Result_For_FileLink_After_Roundtrip()
+            {
+                // Given
+                var fileLink1 = "https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12";
+                var fileLink2 = "https://github.com/myorg/myrepo/blob/develop/src/bar.cs#L23-L42";
+                var issues =
+                    new List<IIssue>
+                    {
+                        IssueBuilder
+                          .NewIssue("message1", "providerType1", "providerName1")
+                            .WithFileLink(new Uri(fileLink1))
+                            .Create(),
+                        IssueBuilder
+                            .NewIssue("message2", "providerType2", "providerName2")
+                            .WithFileLink(new Uri(fileLink2))
+                            .Create(),
+                    };
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+
+                try
+                {
+                    // When
+                    issues.SerializeToJsonFile(filePath);
+                    var result = filePath.DeserializeToIssues();
+
+                    // Then
+                    result.Count().ShouldBe(2);
+                    result.First().FileLink.ToString().ShouldBe(fileLink1);
+                    result.Last().FileLink.ToString().ShouldBe(fileLink2);
                 }
                 finally
                 {

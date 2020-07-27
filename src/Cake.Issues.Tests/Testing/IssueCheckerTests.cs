@@ -153,6 +153,7 @@
                         fixture.EndLine,
                         fixture.Column,
                         fixture.EndColumn,
+                        fixture.FileLink,
                         fixture.MessageText,
                         fixture.MessageHtml,
                         fixture.MessageMarkdown,
@@ -185,6 +186,7 @@
                     fixture.EndLine,
                     fixture.Column,
                     fixture.EndColumn,
+                    fixture.FileLink,
                     fixture.MessageText,
                     fixture.MessageHtml,
                     fixture.MessageMarkdown,
@@ -221,6 +223,7 @@
                         fixture.EndLine,
                         fixture.Column,
                         fixture.EndColumn,
+                        fixture.FileLink,
                         fixture.MessageText,
                         fixture.MessageHtml,
                         fixture.MessageMarkdown,
@@ -259,6 +262,7 @@
                         fixture.EndLine,
                         fixture.Column,
                         fixture.EndColumn,
+                        fixture.FileLink,
                         fixture.MessageText,
                         fixture.MessageHtml,
                         fixture.MessageMarkdown,
@@ -301,6 +305,7 @@
                         fixture.EndLine,
                         fixture.Column,
                         fixture.EndColumn,
+                        fixture.FileLink,
                         fixture.MessageText,
                         fixture.MessageHtml,
                         fixture.MessageMarkdown,
@@ -339,6 +344,7 @@
                         fixture.EndLine,
                         fixture.Column,
                         fixture.EndColumn,
+                        fixture.FileLink,
                         fixture.MessageText,
                         fixture.MessageHtml,
                         fixture.MessageMarkdown,
@@ -378,6 +384,7 @@
                         fixture.EndLine,
                         fixture.Column,
                         fixture.EndColumn,
+                        fixture.FileLink,
                         fixture.MessageText,
                         fixture.MessageHtml,
                         fixture.MessageMarkdown,
@@ -420,6 +427,7 @@
                         fixture.EndLine,
                         fixture.Column,
                         fixture.EndColumn,
+                        fixture.FileLink,
                         fixture.MessageText,
                         fixture.MessageHtml,
                         fixture.MessageMarkdown,
@@ -459,6 +467,7 @@
                         fixture.EndLine,
                         fixture.Column,
                         fixture.EndColumn,
+                        fixture.FileLink,
                         fixture.MessageText,
                         fixture.MessageHtml,
                         fixture.MessageMarkdown,
@@ -500,6 +509,7 @@
                         null,
                         null,
                         null,
+                        fixture.FileLink,
                         fixture.MessageText,
                         fixture.MessageHtml,
                         fixture.MessageMarkdown,
@@ -541,6 +551,7 @@
                         expectedValue,
                         fixture.Column,
                         fixture.EndColumn,
+                        fixture.FileLink,
                         fixture.MessageText,
                         fixture.MessageHtml,
                         fixture.MessageMarkdown,
@@ -582,6 +593,7 @@
                         fixture.EndLine,
                         expectedValue,
                         null,
+                        fixture.FileLink,
                         fixture.MessageText,
                         fixture.MessageHtml,
                         fixture.MessageMarkdown,
@@ -623,6 +635,7 @@
                         fixture.EndLine,
                         fixture.Column,
                         expectedValue,
+                        fixture.FileLink,
                         fixture.MessageText,
                         fixture.MessageHtml,
                         fixture.MessageMarkdown,
@@ -634,6 +647,47 @@
                 // Then
                 result.ShouldBeOfType<Exception>();
                 result.Message.ShouldStartWith("Expected issue.EndColumn");
+            }
+
+            [Theory]
+            [InlineData("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12", "https://github.com/foo/bar/blob/develop/src/bar.cs")]
+            [InlineData("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12", "https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L13")]
+            public void Should_Throw_If_FileLink_Is_Different(string expectedValue, string actualValue)
+            {
+                // Given
+                var fixture = new IssueCheckerFixture();
+                var issue =
+                    fixture.IssueBuilder
+                        .WithFileLink(new Uri(actualValue))
+                        .Create();
+
+                // When
+                var result = Record.Exception(() =>
+                    IssueChecker.Check(
+                        issue,
+                        fixture.ProviderType,
+                        fixture.ProviderName,
+                        fixture.Run,
+                        fixture.Identifier,
+                        fixture.ProjectFileRelativePath,
+                        fixture.ProjectName,
+                        fixture.AffectedFileRelativePath,
+                        fixture.Line,
+                        fixture.EndLine,
+                        fixture.Column,
+                        fixture.EndColumn,
+                        new Uri(expectedValue),
+                        fixture.MessageText,
+                        fixture.MessageHtml,
+                        fixture.MessageMarkdown,
+                        fixture.Priority,
+                        fixture.PriorityName,
+                        fixture.Rule,
+                        fixture.RuleUrl));
+
+                // Then
+                result.ShouldBeOfType<Exception>();
+                result.Message.ShouldStartWith("Expected issue.FileLink");
             }
 
             [Theory]
@@ -661,6 +715,7 @@
                         fixture.EndLine,
                         fixture.Column,
                         fixture.EndColumn,
+                        fixture.FileLink,
                         expectedValue,
                         fixture.MessageHtml,
                         fixture.MessageMarkdown,
@@ -703,6 +758,7 @@
                         fixture.EndLine,
                         fixture.Column,
                         fixture.EndColumn,
+                        fixture.FileLink,
                         fixture.MessageText,
                         expectedValue,
                         fixture.MessageMarkdown,
@@ -745,6 +801,7 @@
                         fixture.EndLine,
                         fixture.Column,
                         fixture.EndColumn,
+                        fixture.FileLink,
                         fixture.MessageText,
                         fixture.MessageHtml,
                         expectedValue,
@@ -784,6 +841,7 @@
                         fixture.EndLine,
                         fixture.Column,
                         fixture.EndColumn,
+                        fixture.FileLink,
                         fixture.MessageText,
                         fixture.MessageHtml,
                         fixture.MessageMarkdown,
@@ -826,6 +884,7 @@
                         fixture.EndLine,
                         fixture.Column,
                         fixture.EndColumn,
+                        fixture.FileLink,
                         fixture.MessageText,
                         fixture.MessageHtml,
                         fixture.MessageMarkdown,
@@ -868,6 +927,7 @@
                         fixture.EndLine,
                         fixture.Column,
                         fixture.EndColumn,
+                        fixture.FileLink,
                         fixture.MessageText,
                         fixture.MessageHtml,
                         fixture.MessageMarkdown,
@@ -907,6 +967,7 @@
                         fixture.EndLine,
                         fixture.Column,
                         fixture.EndColumn,
+                        fixture.FileLink,
                         fixture.MessageText,
                         fixture.MessageHtml,
                         fixture.MessageMarkdown,
