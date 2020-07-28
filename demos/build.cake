@@ -29,7 +29,7 @@ public class BuildData
         this.SourceFolder = this.RepoRootFolder.Combine("src");
         this.DocsFolder = this.RepoRootFolder.Combine("docs");
         this.TemplateGalleryFolder = this.RepoRootFolder.Combine("../docs/templates");
-        this.MsBuildLogFilePath = this.RepoRootFolder.CombineWithFilePath("msbuild.log");
+        this.MsBuildLogFilePath = this.RepoRootFolder.CombineWithFilePath("msbuild.binlog");
         this.InspectCodeLogFilePath = this.RepoRootFolder.CombineWithFilePath("inspectCode.log");
         this.MarkdownLintLogFilePath = this.RepoRootFolder.CombineWithFilePath("markdown.log");
         this.Issues = new List<IIssue>();

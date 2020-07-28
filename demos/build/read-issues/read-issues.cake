@@ -8,7 +8,7 @@ Task("Read-Issues")
         {
             MsBuildIssuesFromFilePath(
                 data.MsBuildLogFilePath,
-                MsBuildXmlFileLoggerFormat),
+                MsBuildBinaryLogFileFormat),
             MarkdownlintIssuesFromFilePath(
                 data.MarkdownLintLogFilePath,
                 MarkdownlintCliLogFileFormat)
