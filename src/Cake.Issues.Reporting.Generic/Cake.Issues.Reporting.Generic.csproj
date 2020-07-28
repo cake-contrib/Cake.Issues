@@ -1,7 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <!-- net461 caused issues, while netstandard2.0 caused issues running .NET Core tool on macOS.
+    Therefore targeting netstandard2.0 for .NET Framework and netcoreappX for .NET Core -->
+    <TargetFrameworks>netstandard2.0;netcoreapp2.0;netcoreapp2.1;netcoreapp3.0</TargetFrameworks>
     <Description>Support for creating issue reports in any text based format (HTML, Markdown, ...) from the Cake.Issues Addin for Cake Build Automation System</Description>
     <Copyright>Copyright © Pascal Berger and contributors</Copyright>
     <Product>Cake.Issues</Product>
@@ -12,12 +14,6 @@
     <DebugSymbols>true</DebugSymbols>
     <CodeAnalysisRuleSet>..\Cake.Issues.Reporting.Generic.ruleset</CodeAnalysisRuleSet>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
-    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Cake.Issues.Reporting.Generic.xml</DocumentationFile>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard2.0|AnyCPU'">
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Cake.Issues.Reporting.Generic.xml</DocumentationFile>
   </PropertyGroup>
 
