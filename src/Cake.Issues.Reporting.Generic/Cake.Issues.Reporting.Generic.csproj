@@ -1,7 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net461</TargetFrameworks>
+    <!-- net461 caused issues, while netstandard2.0 caused issues running .NET Core tool on macOS.
+    Therefore targeting netstandard2.0 for .NET Framework and netcoreappX for .NET Core -->
+    <TargetFrameworks>netstandard2.0;netcoreapp2.0;netcoreapp2.1;netcoreapp3.0</TargetFrameworks>
     <Description>Support for creating issue reports in any text based format (HTML, Markdown, ...) from the Cake.Issues Addin for Cake Build Automation System</Description>
     <Copyright>Copyright © Pascal Berger and contributors</Copyright>
     <Product>Cake.Issues</Product>
@@ -11,12 +13,7 @@
     <DebugType>full</DebugType>
     <DebugSymbols>true</DebugSymbols>
     <CodeAnalysisRuleSet>..\Cake.Issues.Reporting.Generic.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net461|AnyCPU'">
-    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Cake.Issues.Reporting.Generic.xml</DocumentationFile>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net461|AnyCPU'">
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Cake.Issues.Reporting.Generic.xml</DocumentationFile>
   </PropertyGroup>
 
@@ -27,13 +24,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Gazorator" Version="0.5.2" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageReference Include="Cake.Core" Version="0.33.0" />
     <PackageReference Include="Cake.Issues" Version="0.9.0-beta0002" />
     <PackageReference Include="Cake.Issues.Reporting" Version="0.9.0-beta0001" />
-    <PackageReference Include="RazorEngine">
-      <Version>3.10.0</Version>
-    </PackageReference>
     <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers">
       <PrivateAssets>all</PrivateAssets>
       <Version>3.0.0</Version>
@@ -47,5 +42,4 @@
       <Version>1.1.118</Version>
     </PackageReference>
   </ItemGroup>
-
 </Project>
