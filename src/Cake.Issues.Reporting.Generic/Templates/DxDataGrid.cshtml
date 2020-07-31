@@ -49,11 +49,11 @@
     FileLinkSettings fileLinkSettings = ViewBagHelper.ValueOrDefault(ViewBag.FileLinkSettings, new FileLinkSettings());
     IdeIntegrationSettings ideIntegrationSettings = ViewBagHelper.ValueOrDefault<IdeIntegrationSettings>(ViewBag.IdeIntegrationSettings, null);
     List<HtmlDxDataGridColumnDescription> additionalColumns = ViewBagHelper.ValueOrDefault(ViewBag.AdditionalColumns, new List<HtmlDxDataGridColumnDescription>());
-    string jQueryLocation = ViewBagHelper.ValueOrDefault(ViewBag.JQueryLocation, "https://ajax.aspnetcdn.com/ajax/jquery/");
-    string jQueryVersion = ViewBagHelper.ValueOrDefault(ViewBag.JQueryVersion, "3.4.1");
-    string JSZipLocation = ViewBagHelper.ValueOrDefault(ViewBag.JSZipLocation, "https://cdnjs.cloudflare.com/ajax/libs/jszip/3.2.2/");
-    string devExtremeLocation = ViewBagHelper.ValueOrDefault(ViewBag.DevExtremeLocation, "https://cdn3.devexpress.com/jslib/");
-    string devExtremeVersion = ViewBagHelper.ValueOrDefault(ViewBag.DevExtremeVersion, "19.2.5");
+    string jQueryLocation = ViewBagHelper.ValueOrDefault(ViewBag.JQueryLocation, "https://ajax.aspnetcdn.com/ajax/jquery/").Trim();
+    string jQueryVersion = ViewBagHelper.ValueOrDefault(ViewBag.JQueryVersion, "3.4.1").Trim();
+    string JSZipLocation = ViewBagHelper.ValueOrDefault(ViewBag.JSZipLocation, "https://cdnjs.cloudflare.com/ajax/libs/jszip/3.2.2/").Trim();
+    string devExtremeLocation = ViewBagHelper.ValueOrDefault(ViewBag.DevExtremeLocation, "https://cdn3.devexpress.com/jslib/").Trim();
+    string devExtremeVersion = ViewBagHelper.ValueOrDefault(ViewBag.DevExtremeVersion, "19.2.5").Trim();
 }
 
 @{
@@ -95,16 +95,16 @@
     <title>@title</title>
 
     @* DevExtreme dependencies *@
-    <script type="text/javascript" src="@(jQueryLocation)jquery-@(jQueryVersion).min.js"></script>
+    <script type="text/javascript" src="@($"{jQueryLocation}jquery-{jQueryVersion}.min.js")"></script>
     @if (enableExporting)
     {
-        <script type="text/javascript" src="@(JSZipLocation)jszip.min.js"></script>
+        <script type="text/javascript" src="@($"{JSZipLocation}jszip.min.js")"></script>
     }
     @* DevExtreme themes *@
-    <link rel="stylesheet" type="text/css" href="@(devExtremeLocation)@(devExtremeVersion)/css/dx.common.css" />
-    <link rel="stylesheet" type="text/css" href="@(devExtremeLocation)@(devExtremeVersion)/css/@(theme.GetCssFileName())" />
+    <link rel="stylesheet" type="text/css" href="@($"{devExtremeLocation}{devExtremeVersion}/css/dx.common.css")" />
+    <link rel="stylesheet" type="text/css" href="@($"{devExtremeLocation}{devExtremeVersion}/css/{theme.GetCssFileName()}")" />
     @* DevExtreme library *@
-    <script type="text/javascript" src="@(devExtremeLocation)@(devExtremeVersion)/js/dx.all.js"></script>
+    <script type="text/javascript" src="@($"{devExtremeLocation}{devExtremeVersion}/js/dx.all.js")"></script>
     @* Additional JavaScript for IDE integration *@
     @if (ideIntegrationSettings != null && !string.IsNullOrWhiteSpace(ideIntegrationSettings.JavaScript))
     {
