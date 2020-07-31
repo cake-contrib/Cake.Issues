@@ -26,6 +26,12 @@
                 ruleUrl = new Uri(serializableIssue.RuleUrl);
             }
 
+            Uri fileLink = null;
+            if (!string.IsNullOrWhiteSpace(serializableIssue.FileLink))
+            {
+                fileLink = new Uri(serializableIssue.FileLink);
+            }
+
             return new Issue(
                 serializableIssue.Identifier,
                 serializableIssue.ProjectFileRelativePath,
@@ -35,6 +41,7 @@
                 serializableIssue.EndLine,
                 serializableIssue.Column,
                 serializableIssue.EndColumn,
+                fileLink,
                 serializableIssue.MessageText,
                 serializableIssue.MessageHtml,
                 serializableIssue.MessageMarkdown,

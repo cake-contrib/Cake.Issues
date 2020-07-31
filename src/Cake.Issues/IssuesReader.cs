@@ -59,7 +59,15 @@
                         currentIssues.Count,
                         providerName);
 
-                    currentIssues.ForEach(x => x.Run = this.settings.Run);
+                    currentIssues.ForEach(x =>
+                    {
+                        x.Run = this.settings.Run;
+
+                        if (this.settings.FileLinkSettings != null)
+                        {
+                            x.FileLink = this.settings.FileLinkSettings.GetFileLink(x);
+                        }
+                    });
 
                     issues.AddRange(currentIssues);
                 }

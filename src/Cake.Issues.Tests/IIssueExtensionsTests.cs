@@ -311,6 +311,7 @@
             [InlineData("foo {EndLine} bar", "foo 420 bar")]
             [InlineData("foo {Column} bar", "foo 23 bar")]
             [InlineData("foo {EndColumn} bar", "foo 230 bar")]
+            [InlineData("foo {FileLink} bar", "foo https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12 bar")]
             [InlineData("foo {Rule} bar", "foo Rule Foo bar")]
             [InlineData("foo {RuleUrl} bar", "foo https://google.com/ bar")]
             [InlineData("foo {MessageText} bar", "foo MessageText Foo bar")]
@@ -327,6 +328,7 @@
                         .WithMessageInMarkdownFormat("MessageMarkdown Foo")
                         .InFile(@"src/Cake.Issues/foo.cs", 42, 420, 23, 230)
                         .InProject(@"src/Cake.Issues/Cake.Issues.csproj", "Cake.Issues")
+                        .WithFileLink(new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12"))
                         .OfRule("Rule Foo", new Uri("https://google.com"))
                         .WithPriority(IssuePriority.Error)
                         .Create();

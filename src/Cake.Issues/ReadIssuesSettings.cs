@@ -18,5 +18,8 @@
 
         /// <inheritdoc/>
         public string Run { get; set; }
+
+        /// <inheritdoc/>
+        public FileLinkSettings FileLinkSettings { get; set; }
     }
 }

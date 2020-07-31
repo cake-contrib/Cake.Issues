@@ -29,6 +29,8 @@
         /// <c>null</c> if the issue affects the whole file or an asssembly.</param>
         /// <param name="endColumn">The end of the column range in the file where the issues has occurred.
         /// <c>null</c> if the issue affects the whole file, an asssembly or only a single column.</param>
+        /// <param name="fileLink">Link to the position in the file where the issue ocurred.
+        /// <c>null</c> if no link is available.</param>
         /// <param name="messageText">The message of the issue in plain text format.</param>
         /// <param name="messageHtml">The message of the issue in Html format.</param>
         /// <param name="messageMarkdown">The message of the issue in Markdown format.</param>
@@ -52,6 +54,7 @@
             int? endLine,
             int? column,
             int? endColumn,
+            Uri fileLink,
             string messageText,
             string messageHtml,
             string messageMarkdown,
@@ -144,6 +147,7 @@
             this.EndLine = endLine;
             this.Column = column;
             this.EndColumn = endColumn;
+            this.FileLink = fileLink;
             this.MessageText = messageText;
             this.MessageHtml = messageHtml;
             this.MessageMarkdown = messageMarkdown;
@@ -179,6 +183,9 @@
 
         /// <inheritdoc/>
         public int? EndColumn { get; }
+
+        /// <inheritdoc/>
+        public Uri FileLink { get; set; }
 
         /// <inheritdoc/>
         public string MessageText { get; }

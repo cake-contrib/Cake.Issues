@@ -82,7 +82,7 @@
                 var result = new FakeMultiFormatIssueProviderFixture("Build.log");
 
                 // Then
-                result.RepositorySettings.ShouldNotBeNull();
+                result.ReadIssuesSettings.ShouldNotBeNull();
             }
 
             [Fact]
@@ -136,14 +136,14 @@
                 // Given
                 var fixture = new FakeMultiFormatIssueProviderFixture("Build.log")
                 {
-                    RepositorySettings = null,
+                    ReadIssuesSettings = null,
                 };
 
                 // When
                 var result = Record.Exception(() => fixture.ReadIssues());
 
                 // Then
-                result.IsInvalidOperationException("No repository settings set.");
+                result.IsInvalidOperationException("No settings for reading issues set.");
             }
 
             [Fact]

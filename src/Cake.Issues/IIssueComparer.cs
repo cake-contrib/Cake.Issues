@@ -47,6 +47,9 @@
         /// <item>
         /// <description><see cref="IIssue.EndColumn"/></description>
         /// </item>
+        /// <item>
+        /// <description><see cref="IIssue.FileLink"/></description>
+        /// </item>
         /// </list>
         /// </remarks>
         public IIssueComparer(bool compareOnlyPersistentProperties)
@@ -76,6 +79,7 @@
                 (this.compareOnlyPersistentProperties || x.EndLine == y.EndLine) &&
                 (this.compareOnlyPersistentProperties || x.Column == y.Column) &&
                 (this.compareOnlyPersistentProperties || x.EndColumn == y.EndColumn) &&
+                (this.compareOnlyPersistentProperties || x.FileLink == y.FileLink) &&
                 (x.MessageText == y.MessageText) &&
                 (x.MessageHtml == y.MessageHtml) &&
                 (x.MessageMarkdown == y.MessageMarkdown) &&
@@ -125,6 +129,7 @@
                         obj.EndLine,
                         obj.Column,
                         obj.EndColumn,
+                        obj.FileLink,
                         obj.MessageText,
                         obj.MessageHtml,
                         obj.MessageMarkdown,

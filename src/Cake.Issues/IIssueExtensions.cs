@@ -160,6 +160,10 @@
         ///         <description>The value of <see cref="IIssue.EndColumn"/>.</description>
         ///     </item>
         ///     <item>
+        ///         <term>{FileLink}</term>
+        ///         <description>The value of <see cref="IIssue.FileLink"/>.</description>
+        ///     </item>
+        ///     <item>
         ///         <term>{Rule}</term>
         ///         <description>The value of <see cref="IIssue.Rule"/>.</description>
         ///     </item>
@@ -211,6 +215,7 @@
                     .Replace("{EndLine}", issue.EndLine?.ToString())
                     .Replace("{Column}", issue.Column?.ToString())
                     .Replace("{EndColumn}", issue.EndColumn?.ToString())
+                    .Replace("{FileLink}", issue.FileLink?.ToString())
                     .Replace("{Rule}", issue.Rule)
                     .Replace("{RuleUrl}", issue.RuleUrl?.ToString())
                     .Replace("{Run}", issue.Run)
