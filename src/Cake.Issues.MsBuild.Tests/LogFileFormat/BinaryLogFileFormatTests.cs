@@ -34,7 +34,7 @@
                 // Given
                 var fixture = new MsBuildIssuesProviderFixture<BinaryLogFileFormat>("FullLog.binlog")
                 {
-                    RepositorySettings = new RepositorySettings(@"C:\projects\cake-issues-demo\"),
+                    ReadIssuesSettings = new ReadIssuesSettings(@"C:\projects\cake-issues-demo\"),
                 };
 
                 // When

@@ -374,14 +374,14 @@
             {
                 var fixture = new MsBuildIssuesProviderFixture<XmlFileLoggerLogFileFormat>("IssueWithAbsoluteFileNameAndWithoutTask.xml");
 
-                var repoRootCreated = !Directory.Exists(fixture.RepositorySettings.RepositoryRoot.FullPath);
-                Directory.CreateDirectory(fixture.RepositorySettings.RepositoryRoot.FullPath);
+                var repoRootCreated = !Directory.Exists(fixture.ReadIssuesSettings.RepositoryRoot.FullPath);
+                Directory.CreateDirectory(fixture.ReadIssuesSettings.RepositoryRoot.FullPath);
                 try
                 {
                     var oldWorkingDirectory = Directory.GetCurrentDirectory();
                     try
                     {
-                        Directory.SetCurrentDirectory(fixture.RepositorySettings.RepositoryRoot.FullPath);
+                        Directory.SetCurrentDirectory(fixture.ReadIssuesSettings.RepositoryRoot.FullPath);
 
                         // When
                         var issues = fixture.ReadIssues().ToList();
@@ -398,7 +398,7 @@
                 {
                     if (repoRootCreated)
                     {
-                        Directory.Delete(fixture.RepositorySettings.RepositoryRoot.FullPath);
+                        Directory.Delete(fixture.ReadIssuesSettings.RepositoryRoot.FullPath);
                     }
                 }
             }
