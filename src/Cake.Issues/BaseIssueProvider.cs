@@ -25,15 +25,14 @@
         {
             this.AssertInitialized();
 
-            return this.InternalReadIssues(this.Settings.FileLinkSettings);
+            return this.InternalReadIssues();
         }
 
         /// <summary>
         /// Gets all issues.
         /// Compared to <see cref="ReadIssues"/> it is safe to access Settings from this method.
         /// </summary>
-        /// <param name="fileLinkSettings">Settings which can be used for resolving links to source files.</param>
         /// <returns>List of issues.</returns>
-        protected abstract IEnumerable<IIssue> InternalReadIssues(FileLinkSettings fileLinkSettings);
+        protected abstract IEnumerable<IIssue> InternalReadIssues();
     }
 }
