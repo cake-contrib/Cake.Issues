@@ -74,7 +74,7 @@
         protected GitRepositoryIssuesSettings IssueProviderSettings { get; private set; }
 
         /// <inheritdoc />
-        protected override IEnumerable<IIssue> InternalReadIssues()
+        protected override IEnumerable<IIssue> InternalReadIssues(FileLinkSettings fileLinkSettings)
         {
             var result = new List<IIssue>();
 
