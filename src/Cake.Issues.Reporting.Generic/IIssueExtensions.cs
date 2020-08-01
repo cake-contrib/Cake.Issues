@@ -141,9 +141,9 @@
                     fallbackToTextMessageIfMarkdownMessageNotAvailable ? issue.Message(IssueCommentFormat.Markdown) : issue.MessageMarkdown;
             }
 
-            if (fileLinkSettings != null && !string.IsNullOrEmpty(fileLinkSettings.FileLinkPattern))
+            if (fileLinkSettings != null)
             {
-                result.FileLink = fileLinkSettings.FileLinkPattern.ReplaceIssuePattern(issue);
+                result.FileLink = fileLinkSettings.GetFileLink(issue);
             }
 
             if (additionalValues != null)
