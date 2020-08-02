@@ -367,7 +367,7 @@
                 var repoUrl = "https://github.com/cake-contrib/Cake.Issues.Website";
                 var branch = "develop";
                 fixture.Settings.FileLinkSettings =
-                    FileLinkSettings.GitHub(
+                    FileLinkSettings.GitHubBranch(
                         new System.Uri(repoUrl),
                         branch,
                         null);

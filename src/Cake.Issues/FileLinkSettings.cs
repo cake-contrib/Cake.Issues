@@ -28,7 +28,7 @@
         public string FileLinkPattern { get; }
 
         /// <summary>
-        /// Returns settings for linking to files hosted in GitHub.
+        /// Returns settings for linking to files hosted in GitHub on a specific branch.
         /// </summary>
         /// <param name="repositoryUrl">Full URL of the Git repository,
         /// eg. <code>https://github.com/cake-contrib/Cake.Issues</code>.</param>
@@ -36,7 +36,7 @@
         /// <param name="rootPath">Root path of the files.
         /// <c>null</c> or <see cref="string.Empty"/> if files are in the root of the repository.</param>
         /// <returns>Settings for linking to files hosted in GitHub.</returns>
-        public static FileLinkSettings GitHub(
+        public static FileLinkSettings GitHubBranch(
             Uri repositoryUrl,
             string branch,
             string rootPath)
@@ -50,7 +50,29 @@
         }
 
         /// <summary>
-        /// Returns settings for linking to files hosted in Azure DevOps.
+        /// Returns settings for linking to files hosted in GitHub for a specific commit.
+        /// </summary>
+        /// <param name="repositoryUrl">Full URL of the Git repository,
+        /// eg. <code>https://github.com/cake-contrib/Cake.Issues</code>.</param>
+        /// <param name="commitId">The commit id on which the file linking will be based on.</param>
+        /// <param name="rootPath">Root path of the files.
+        /// <c>null</c> or <see cref="string.Empty"/> if files are in the root of the repository.</param>
+        /// <returns>Settings for linking to files hosted in GitHub.</returns>
+        public static FileLinkSettings GitHubCommit(
+            Uri repositoryUrl,
+            string commitId,
+            string rootPath)
+        {
+            repositoryUrl.NotNull(nameof(repositoryUrl));
+            commitId.NotNullOrWhiteSpace(nameof(commitId));
+
+            return
+                new FileLinkSettings(
+                    repositoryUrl.Append("blob", commitId, rootPath, "{FilePath}#L{Line}").ToString());
+        }
+
+        /// <summary>
+        /// Returns settings for linking to files hosted in Azure DevOps on a specific branch.
         /// </summary>
         /// <param name="repositoryUrl">Full URL of the Git repository,
         /// e.g. <code>https://dev.azure.com/myorganization/_git/myrepo</code>.</param>
@@ -58,7 +80,7 @@
         /// <param name="rootPath">Root path of the files.
         /// <c>null</c> or <see cref="string.Empty"/> if files are in the root of the repository.</param>
         /// <returns>Settings for linking to files hosted in Azure DevOps.</returns>
-        public static FileLinkSettings AzureDevOps(
+        public static FileLinkSettings AzureDevOpsBranch(
             Uri repositoryUrl,
             string branch,
             string rootPath)
@@ -76,6 +98,39 @@
                     repositoryUrl.ToString().TrimEnd('/') +
                     "?path=" + rootPath + "{FilePath}" +
                     "&version=GB" + branch +
+                    "&line={Line}" +
+                    "&lineEnd={EndLine}" +
+                    "&lineStartColumn={Column}" +
+                    "&lineEndColumn={EndColumn}");
+        }
+
+        /// <summary>
+        /// Returns settings for linking to files hosted in Azure DevOps for a specific commit id.
+        /// </summary>
+        /// <param name="repositoryUrl">Full URL of the Git repository,
+        /// e.g. <code>https://dev.azure.com/myorganization/_git/myrepo</code>.</param>
+        /// <param name="commitId">The commit id on which the file linking will be based on.</param>
+        /// <param name="rootPath">Root path of the files.
+        /// <c>null</c> or <see cref="string.Empty"/> if files are in the root of the repository.</param>
+        /// <returns>Settings for linking to files hosted in Azure DevOps.</returns>
+        public static FileLinkSettings AzureDevOpsCommit(
+            Uri repositoryUrl,
+            string commitId,
+            string rootPath)
+        {
+            repositoryUrl.NotNull(nameof(repositoryUrl));
+            commitId.NotNullOrWhiteSpace(nameof(commitId));
+
+            if (!string.IsNullOrWhiteSpace(rootPath))
+            {
+                rootPath = rootPath.Trim('/') + "/";
+            }
+
+            return
+                new FileLinkSettings(
+                    repositoryUrl.ToString().TrimEnd('/') +
+                    "?path=" + rootPath + "{FilePath}" +
+                    "&version=GC" + commitId +
                     "&line={Line}" +
                     "&lineEnd={EndLine}" +
                     "&lineStartColumn={Column}" +
