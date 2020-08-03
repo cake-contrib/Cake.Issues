@@ -337,10 +337,11 @@
                 // Given
                 var filePath1 = @"src\Cake.Issues.Tests\Foo.cs";
                 var line1 = 10;
+                var endLine1 = 12;
                 var issue1 =
                     IssueBuilder
                         .NewIssue("Foo", "ProviderTypeFoo", "ProviderNameFoo")
-                        .InFile(filePath1, line1)
+                        .InFile(filePath1, line1, endLine1, 1, 1)
                         .OfRule("Foo")
                         .WithPriority(IssuePriority.Warning)
                         .Create();
@@ -378,10 +379,10 @@
                 issues.Count.ShouldBe(2);
                 issues.ShouldContain(issue1);
                 issue1.FileLink.ToString()
-                    .ShouldBe($"{repoUrl}/blob/{branch}/{filePath1.Replace(@"\", "/")}#L{line1}");
+                    .ShouldBe($"{repoUrl}/blob/{branch}/{filePath1.Replace(@"\", "/")}#L{line1}-L{endLine1}");
                 issues.ShouldContain(issue2);
                 issue2.FileLink.ToString()
-                    .ShouldBe($"{repoUrl}/blob/{branch}/{filePath2.Replace(@"\", "/")}#L{line2}");
+                    .ShouldBe($"{repoUrl}/blob/{branch}/{filePath2.Replace(@"\", "/")}#L{line2}-L");
             }
         }
     }

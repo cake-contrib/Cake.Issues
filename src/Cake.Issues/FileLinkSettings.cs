@@ -46,7 +46,7 @@
 
             return
                 new FileLinkSettings(
-                    repositoryUrl.Append("blob", branch, rootPath, "{FilePath}#L{Line}").ToString());
+                    repositoryUrl.Append("blob", branch, rootPath, "{FilePath}#L{Line}-L{EndLine}").ToString());
         }
 
         /// <summary>
@@ -73,7 +73,13 @@
 
             return
                 new FileLinkSettings(
-                    repositoryUrl.ToString().TrimEnd('/') + "?path=" + rootPath + "{FilePath}&version=GB" + branch + "&line={Line}");
+                    repositoryUrl.ToString().TrimEnd('/') +
+                    "?path=" + rootPath + "{FilePath}" +
+                    "&version=GB" + branch +
+                    "&line={Line}" +
+                    "&lineEnd={EndLine}" +
+                    "&lineStartColumn={Column}" +
+                    "&lineEndColumn={EndColumn}");
         }
     }
 }

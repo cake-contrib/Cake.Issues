@@ -74,12 +74,12 @@
             }
 
             [Theory]
-            [InlineData("https://github.com/cake-contrib/Cake.Issues.Website", "master", null, "https://github.com/cake-contrib/Cake.Issues.Website/blob/master/{FilePath}#L{Line}")]
-            [InlineData("https://github.com/cake-contrib/Cake.Issues.Website/", "master", null, "https://github.com/cake-contrib/Cake.Issues.Website/blob/master/{FilePath}#L{Line}")]
-            [InlineData("https://github.com/cake-contrib/Cake.Issues.Website", "master", "foo", "https://github.com/cake-contrib/Cake.Issues.Website/blob/master/foo/{FilePath}#L{Line}")]
-            [InlineData("https://github.com/cake-contrib/Cake.Issues.Website", "master", "/foo", "https://github.com/cake-contrib/Cake.Issues.Website/blob/master/foo/{FilePath}#L{Line}")]
-            [InlineData("https://github.com/cake-contrib/Cake.Issues.Website", "master", "foo/", "https://github.com/cake-contrib/Cake.Issues.Website/blob/master/foo/{FilePath}#L{Line}")]
-            [InlineData("https://github.com/cake-contrib/Cake.Issues.Website", "master", "foo/bar", "https://github.com/cake-contrib/Cake.Issues.Website/blob/master/foo/bar/{FilePath}#L{Line}")]
+            [InlineData("https://github.com/cake-contrib/Cake.Issues.Website", "master", null, "https://github.com/cake-contrib/Cake.Issues.Website/blob/master/{FilePath}#L{Line}-L{EndLine}")]
+            [InlineData("https://github.com/cake-contrib/Cake.Issues.Website/", "master", null, "https://github.com/cake-contrib/Cake.Issues.Website/blob/master/{FilePath}#L{Line}-L{EndLine}")]
+            [InlineData("https://github.com/cake-contrib/Cake.Issues.Website", "master", "foo", "https://github.com/cake-contrib/Cake.Issues.Website/blob/master/foo/{FilePath}#L{Line}-L{EndLine}")]
+            [InlineData("https://github.com/cake-contrib/Cake.Issues.Website", "master", "/foo", "https://github.com/cake-contrib/Cake.Issues.Website/blob/master/foo/{FilePath}#L{Line}-L{EndLine}")]
+            [InlineData("https://github.com/cake-contrib/Cake.Issues.Website", "master", "foo/", "https://github.com/cake-contrib/Cake.Issues.Website/blob/master/foo/{FilePath}#L{Line}-L{EndLine}")]
+            [InlineData("https://github.com/cake-contrib/Cake.Issues.Website", "master", "foo/bar", "https://github.com/cake-contrib/Cake.Issues.Website/blob/master/foo/bar/{FilePath}#L{Line}-L{EndLine}")]
             public void Should_Set_Correct_FileLinkPattern(string repositoryUrl, string branch, string rootPath, string expectedPattern)
             {
                 // Given
@@ -159,13 +159,13 @@
             }
 
             [Theory]
-            [InlineData("http://myserver:8080/tfs/defaultcollection/myproject/_git/myrepository", "master", null, "http://myserver:8080/tfs/defaultcollection/myproject/_git/myrepository?path={FilePath}&version=GBmaster&line={Line}")]
-            [InlineData("http://myserver:8080/tfs/defaultcollection/myproject/_git/myrepository/", "master", null, "http://myserver:8080/tfs/defaultcollection/myproject/_git/myrepository?path={FilePath}&version=GBmaster&line={Line}")]
-            [InlineData("http://myserver:8080/tfs/defaultcollection/myproject/_git/myrepository", "master", "foo", "http://myserver:8080/tfs/defaultcollection/myproject/_git/myrepository?path=foo/{FilePath}&version=GBmaster&line={Line}")]
-            [InlineData("http://myserver:8080/tfs/defaultcollection/myproject/_git/myrepository", "master", "/foo", "http://myserver:8080/tfs/defaultcollection/myproject/_git/myrepository?path=foo/{FilePath}&version=GBmaster&line={Line}")]
-            [InlineData("http://myserver:8080/tfs/defaultcollection/myproject/_git/myrepository", "master", "foo/", "http://myserver:8080/tfs/defaultcollection/myproject/_git/myrepository?path=foo/{FilePath}&version=GBmaster&line={Line}")]
-            [InlineData("http://myserver:8080/tfs/defaultcollection/myproject/_git/myrepository", "master", "foo/bar", "http://myserver:8080/tfs/defaultcollection/myproject/_git/myrepository?path=foo/bar/{FilePath}&version=GBmaster&line={Line}")]
-            [InlineData("https://dev.azure.com/myorganization/_git/myrepo", "master", "foo/bar", "https://dev.azure.com/myorganization/_git/myrepo?path=foo/bar/{FilePath}&version=GBmaster&line={Line}")]
+            [InlineData("http://myserver:8080/tfs/defaultcollection/myproject/_git/myrepository", "master", null, "http://myserver:8080/tfs/defaultcollection/myproject/_git/myrepository?path={FilePath}&version=GBmaster&line={Line}&lineEnd={EndLine}&lineStartColumn={Column}&lineEndColumn={EndColumn}")]
+            [InlineData("http://myserver:8080/tfs/defaultcollection/myproject/_git/myrepository/", "master", null, "http://myserver:8080/tfs/defaultcollection/myproject/_git/myrepository?path={FilePath}&version=GBmaster&line={Line}&lineEnd={EndLine}&lineStartColumn={Column}&lineEndColumn={EndColumn}")]
+            [InlineData("http://myserver:8080/tfs/defaultcollection/myproject/_git/myrepository", "master", "foo", "http://myserver:8080/tfs/defaultcollection/myproject/_git/myrepository?path=foo/{FilePath}&version=GBmaster&line={Line}&lineEnd={EndLine}&lineStartColumn={Column}&lineEndColumn={EndColumn}")]
+            [InlineData("http://myserver:8080/tfs/defaultcollection/myproject/_git/myrepository", "master", "/foo", "http://myserver:8080/tfs/defaultcollection/myproject/_git/myrepository?path=foo/{FilePath}&version=GBmaster&line={Line}&lineEnd={EndLine}&lineStartColumn={Column}&lineEndColumn={EndColumn}")]
+            [InlineData("http://myserver:8080/tfs/defaultcollection/myproject/_git/myrepository", "master", "foo/", "http://myserver:8080/tfs/defaultcollection/myproject/_git/myrepository?path=foo/{FilePath}&version=GBmaster&line={Line}&lineEnd={EndLine}&lineStartColumn={Column}&lineEndColumn={EndColumn}")]
+            [InlineData("http://myserver:8080/tfs/defaultcollection/myproject/_git/myrepository", "master", "foo/bar", "http://myserver:8080/tfs/defaultcollection/myproject/_git/myrepository?path=foo/bar/{FilePath}&version=GBmaster&line={Line}&lineEnd={EndLine}&lineStartColumn={Column}&lineEndColumn={EndColumn}")]
+            [InlineData("https://dev.azure.com/myorganization/_git/myrepo", "master", "foo/bar", "https://dev.azure.com/myorganization/_git/myrepo?path=foo/bar/{FilePath}&version=GBmaster&line={Line}&lineEnd={EndLine}&lineStartColumn={Column}&lineEndColumn={EndColumn}")]
             public void Should_Set_Correct_FileLinkPattern(string repositoryUrl, string branch, string rootPath, string expectedPattern)
             {
                 // Given
