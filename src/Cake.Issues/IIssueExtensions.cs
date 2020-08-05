@@ -93,10 +93,10 @@
         /// Returns a string with all patterns replaced by the values of <paramref name="issue"/>.
         /// </summary>
         /// <param name="pattern">Pattern whose values should be replaced.
-        /// The following patterns are supported:
+        /// The following tokens are supported:
         /// <list type="table">
         ///     <listheader>
-        ///         <term>Pattern</term>
+        ///         <term>Token</term>
         ///         <description>Description</description>
         ///     </listheader>
         ///     <item>
