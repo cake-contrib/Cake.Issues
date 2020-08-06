@@ -367,10 +367,7 @@
                 var repoUrl = "https://github.com/cake-contrib/Cake.Issues.Website";
                 var branch = "develop";
                 fixture.Settings.FileLinkSettings =
-                    FileLinkSettings.GitHubBranch(
-                        new System.Uri(repoUrl),
-                        branch,
-                        null);
+                    FileLinkSettings.ForGitHub(new System.Uri(repoUrl)).Branch(branch);
 
                 // When
                 var issues = fixture.ReadIssues().ToList();
@@ -382,7 +379,7 @@
                     .ShouldBe($"{repoUrl}/blob/{branch}/{filePath1.Replace(@"\", "/")}#L{line1}-L{endLine1}");
                 issues.ShouldContain(issue2);
                 issue2.FileLink.ToString()
-                    .ShouldBe($"{repoUrl}/blob/{branch}/{filePath2.Replace(@"\", "/")}#L{line2}-L");
+                    .ShouldBe($"{repoUrl}/blob/{branch}/{filePath2.Replace(@"\", "/")}#L{line2}");
             }
         }
     }

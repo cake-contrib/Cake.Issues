@@ -40,7 +40,7 @@
         /// eg. <code>https://github.com/cake-contrib/Cake.Issues.Reporting.Generic</code>.</param>
         /// <param name="branch">Name of the branch on which the file linking will be based on.</param>
         /// <param name="rootPath">Root path of the files.
-        /// <c>null</c> or <see cref="string.Empty"/> if files are in the root of the repository.</param>
+        /// <c>null</c> if files are in the root of the repository.</param>
         /// <returns>Settings for linking to files hosted in GitHub.</returns>
         [CakeMethodAlias]
         [CakeAliasCategory(IssuesAliasConstants.FileLinkingCakeAliasCategory)]
@@ -54,7 +54,11 @@
             repositoryUrl.NotNull(nameof(repositoryUrl));
             branch.NotNullOrWhiteSpace(nameof(branch));
 
-            return FileLinkSettings.GitHubBranch(repositoryUrl, branch, rootPath);
+            return
+                FileLinkSettings
+                    .ForGitHub(repositoryUrl)
+                    .Branch(branch)
+                    .WithRootPath(rootPath);
         }
 
         /// <summary>
@@ -102,7 +106,11 @@
             repositoryUrl.NotNull(nameof(repositoryUrl));
             commitId.NotNullOrWhiteSpace(nameof(commitId));
 
-            return FileLinkSettings.GitHubCommit(repositoryUrl, commitId, rootPath);
+            return
+                FileLinkSettings
+                    .ForGitHub(repositoryUrl)
+                    .Commit(commitId)
+                    .WithRootPath(rootPath);
         }
 
         /// <summary>
@@ -137,7 +145,7 @@
         /// eg. <code>https://dev.azure.com/myorganization/_git/myrepo</code>.</param>
         /// <param name="branch">Name of the branch on which the file linking will be based on.</param>
         /// <param name="rootPath">Root path of the files.
-        /// <c>null</c> or <see cref="string.Empty"/> if files are in the root of the repository.</param>
+        /// <c>null</c> if files are in the root of the repository.</param>
         /// <returns>Settings for linking files hosted on Azure DevOps.</returns>
         [CakeMethodAlias]
         [CakeAliasCategory(IssuesAliasConstants.FileLinkingCakeAliasCategory)]
@@ -151,7 +159,11 @@
             repositoryUrl.NotNull(nameof(repositoryUrl));
             branch.NotNullOrWhiteSpace(nameof(branch));
 
-            return FileLinkSettings.AzureDevOpsBranch(repositoryUrl, branch, rootPath);
+            return
+                FileLinkSettings
+                    .ForAzureDevOps(repositoryUrl)
+                    .Branch(branch)
+                    .WithRootPath(rootPath);
         }
 
         /// <summary>
@@ -186,7 +198,7 @@
         /// eg. <code>https://dev.azure.com/myorganization/_git/myrepo</code>.</param>
         /// <param name="commitId">The commit id on which the file linking will be based on.</param>
         /// <param name="rootPath">Root path of the files.
-        /// <c>null</c> or <see cref="string.Empty"/> if files are in the root of the repository.</param>
+        /// <c>null</c> if files are in the root of the repository.</param>
         /// <returns>Settings for linking files hosted on Azure DevOps.</returns>
         [CakeMethodAlias]
         [CakeAliasCategory(IssuesAliasConstants.FileLinkingCakeAliasCategory)]
@@ -200,7 +212,11 @@
             repositoryUrl.NotNull(nameof(repositoryUrl));
             commitId.NotNullOrWhiteSpace(nameof(commitId));
 
-            return FileLinkSettings.AzureDevOpsCommit(repositoryUrl, commitId, rootPath);
+            return
+                FileLinkSettings
+                    .ForAzureDevOps(repositoryUrl)
+                    .Commit(commitId)
+                    .WithRootPath(rootPath);
         }
     }
 }
