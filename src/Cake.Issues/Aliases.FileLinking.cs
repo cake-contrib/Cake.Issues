@@ -10,6 +10,78 @@
     public static partial class Aliases
     {
         /// <summary>
+        /// Gets an instance of the file link settings for linking to files
+        /// based on a custom pattern.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <param name="pattern">Pattern of the file link.
+        /// See <see cref="IIssueExtensions.ReplaceIssuePattern(string, IIssue)"/>
+        /// for a list of tokens supported in the pattern.</param>
+        /// <returns>Settings for linking files.</returns>
+        /// <example>
+        /// <para>Creates file link settings to an internal source hosting site:</para>
+        /// <code>
+        /// <![CDATA[
+        ///     var fileLinkSettings =
+        ///         IssueFileLinkSettings("https://awesomesource/{FilePath}?line={Line}");
+        /// ]]>
+        /// </code>
+        /// </example>
+        [CakeMethodAlias]
+        [CakeAliasCategory(IssuesAliasConstants.FileLinkingCakeAliasCategory)]
+        public static FileLinkSettings IssueFileLinkSettings(
+            this ICakeContext context,
+            string pattern)
+        {
+            context.NotNull(nameof(context));
+            pattern.NotNullOrWhiteSpace(nameof(pattern));
+
+            return FileLinkSettings.ForPattern(pattern);
+        }
+
+        /// <summary>
+        /// Gets an instance of the file link settings for linking to files
+        /// based on a custom action.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <param name="builder">Callback called for building the file link.</param>
+        /// <returns>File link settings.</returns>
+        /// <returns>Settings for linking files.</returns>
+        /// <example>
+        /// <para>Creates file link settings to an internal source hosting site with
+        /// parameters set dynamically, based on values of the issue:</para>
+        /// <code>
+        /// <![CDATA[
+        ///     var fileLinkSettings =
+        ///         IssueFileLinkSettings(issue =>
+        ///         {
+        ///             var result =
+        ///                 new Uri("https://awesomesource/")
+        ///                     .Append(issue.FilePath());
+        ///
+        ///             if (issue.Line.HasValue)
+        ///             {
+        ///                 result = result.Append("?line={issue.Line.Value}")
+        ///             }
+        ///
+        ///             return result;
+        ///         });
+        /// ]]>
+        /// </code>
+        /// </example>
+        [CakeMethodAlias]
+        [CakeAliasCategory(IssuesAliasConstants.FileLinkingCakeAliasCategory)]
+        public static FileLinkSettings IssueFileLinkSettings(
+            this ICakeContext context,
+            Func<IIssue, Uri> builder)
+        {
+            context.NotNull(nameof(context));
+            builder.NotNull(nameof(builder));
+
+            return FileLinkSettings.ForAction(builder);
+        }
+
+        /// <summary>
         /// Gets an instance of the file link settings for linking files hosted on GitHub on a specific branch.
         /// </summary>
         /// <param name="context">The context.</param>

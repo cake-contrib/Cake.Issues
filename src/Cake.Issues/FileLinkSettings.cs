@@ -36,6 +36,37 @@
         }
 
         /// <summary>
+        /// Returns settings to link files based on a custom pattern.
+        /// </summary>
+        /// <param name="pattern">Pattern of the file link.
+        /// See <see cref="IIssueExtensions.ReplaceIssuePattern(string, IIssue)"/>
+        /// for a list of tokens supported in the pattern.</param>
+        /// <returns>File link settings.</returns>
+        internal static FileLinkSettings ForPattern(string pattern)
+        {
+            pattern.NotNullOrWhiteSpace(nameof(pattern));
+
+            return
+                new FileLinkSettings(
+                    (issue, values) =>
+                    {
+                        return new Uri(pattern.ReplaceIssuePattern(issue));
+                    });
+        }
+
+        /// <summary>
+        /// Returns settings to link files based on a custom pattern.
+        /// </summary>
+        /// <param name="builder">Callback called for building the file link.</param>
+        /// <returns>File link settings.</returns>
+        internal static FileLinkSettings ForAction(Func<IIssue, Uri> builder)
+        {
+            builder.NotNull(nameof(builder));
+
+            return new FileLinkSettings((issue, values) => builder(issue));
+        }
+
+        /// <summary>
         /// Returns builder class for settings for linking to files hosted in GitHub.
         /// </summary>
         /// <param name="repositoryUrl">Full URL of the Git repository,
