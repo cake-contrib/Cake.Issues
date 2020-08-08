@@ -1,6 +1,6 @@
 Task("Create-Reports-HtmlDxDataGrid-File-Linking")
     .Description("Creates HtmlDxDataGrid demo report showing how to have issues linked to file")
-    .IsDependentOn("Read-Issues")
+    .IsDependentOn("Analyze")
     .Does<BuildData>(data =>
 {
     CreateIssueReport(

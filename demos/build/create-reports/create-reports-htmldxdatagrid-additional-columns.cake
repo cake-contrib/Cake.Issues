@@ -1,6 +1,6 @@
 Task("Create-Reports-HtmlDxDataGrid-Additional-Columns")
     .Description("Creates HtmlDxDataGrid demo report showing how to add additional columns to a report")
-    .IsDependentOn("Read-Issues")
+    .IsDependentOn("Analyze")
     .Does<BuildData>(data =>
 {
     CreateIssueReport(

@@ -76,6 +76,20 @@
         ProviderNameSortOrder,
 
         /// <summary>
+        /// Flag if the <see cref="ReportColumn.Run"/> column should be visible or not.
+        /// Either <c>true</c> or <c>false</c>.
+        /// Default value is <c>true</c> if any issue contains run information, otherwise <c>false</c>.
+        /// </summary>
+        RunVisible,
+
+        /// <summary>
+        /// Sort order of the <see cref="ReportColumn.Run"/> column if it is part of <see cref="SortedColumns"/>.
+        /// See <see cref="ColumnSortOrder"/> for possible values.
+        /// Default value is <see cref="ColumnSortOrder.Ascending"/>.
+        /// </summary>
+        RunSortOrder,
+
+        /// <summary>
         /// Flag if the <see cref="ReportColumn.Priority"/> column should be visible or not.
         /// Either <c>true</c> or <c>false</c>.
         /// Default value is <c>false</c>.
@@ -232,7 +246,7 @@
         /// <summary>
         /// List of <see cref="ReportColumn"/> which should be grouped.
         /// Grouped columns are always visible.
-        /// Default value is <see cref="ReportColumn.ProviderName"/>.
+        /// Default value is <see cref="ReportColumn.ProviderName"/> and <see cref="ReportColumn.Run"/>.
         /// </summary>
         GroupedColumns,
 

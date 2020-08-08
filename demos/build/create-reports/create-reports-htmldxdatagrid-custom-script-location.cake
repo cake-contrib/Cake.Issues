@@ -1,6 +1,6 @@
 Task("Create-Reports-HtmlDxDataGrid-Custom-Script-Location")
     .Description("Creates HtmlDxDataGrid demo report showing how to use custom script location and version")
-    .IsDependentOn("Read-Issues")
+    .IsDependentOn("Analyze")
     .Does<BuildData>(data =>
 {
     CreateIssueReport(

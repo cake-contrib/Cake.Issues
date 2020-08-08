@@ -1,6 +1,6 @@
 Task("Create-Reports-HtmlDxDataGrid-Sorting")
     .Description("Creates HtmlDxDataGrid demo report showing how to change column sorting")
-    .IsDependentOn("Read-Issues")
+    .IsDependentOn("Analyze")
     .Does<BuildData>(data =>
 {
     CreateIssueReport(

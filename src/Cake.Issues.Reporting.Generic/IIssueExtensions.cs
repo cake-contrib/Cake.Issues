@@ -18,6 +18,7 @@
         /// <param name="issue">Issue for which the dynamic object should be returned.</param>
         /// <param name="addProviderType">Flag if value of <see cref="IIssue.ProviderType"/> should be added.</param>
         /// <param name="addProviderName">Flag if value of <see cref="IIssue.ProviderName"/> should be added.</param>
+        /// <param name="addRun">Flag if value of <see cref="IIssue.Run"/> should be added.</param>
         /// <param name="addPriority">Flag if value of <see cref="IIssue.Priority"/> should be added.</param>
         /// <param name="addPriorityName">Flag if value of <see cref="IIssue.PriorityName"/> should be added.</param>
         /// <param name="addProjectPath">Flag if value of <see cref="Cake.Issues.IIssueExtensions.ProjectPath"/> should be added.</param>
@@ -42,6 +43,7 @@
             this IIssue issue,
             bool addProviderType = true,
             bool addProviderName = true,
+            bool addRun = true,
             bool addPriority = true,
             bool addPriorityName = true,
             bool addProjectPath = true,
@@ -72,6 +74,11 @@
             if (addProviderName)
             {
                 result.ProviderName = issue.ProviderName;
+            }
+
+            if (addRun)
+            {
+                result.Run = issue.Run;
             }
 
             if (addPriority)

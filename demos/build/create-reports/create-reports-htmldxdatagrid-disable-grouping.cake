@@ -1,6 +1,6 @@
 Task("Create-Reports-HtmlDxDataGrid-Disable-Grouping")
     .Description("Creates HtmlDxDataGrid demo report showing how to disable grouping functionality")
-    .IsDependentOn("Read-Issues")
+    .IsDependentOn("Analyze")
     .Does<BuildData>(data =>
 {
     CreateIssueReport(

@@ -5,9 +5,19 @@ Task("Run-InspectCode")
     .WithCriteria((context) => context.IsRunningOnWindows(), "InspectCode is only supported on Windows.")
     .Does<BuildData>(data =>
 {
+    var inspectCodeLogFilePath =
+        data.RepoRootFolder.CombineWithFilePath("inspectCode.log");
+
+    // Run InspectCode
     var settings = new InspectCodeSettings() {
-        OutputFile = data.InspectCodeLogFilePath
+        OutputFile = inspectCodeLogFilePath
     };
 
     InspectCode(data.SourceFolder.CombineWithFilePath("ClassLibrary1.sln"), settings);
+
+    // Read issues
+    data.Issues.AddRange(
+        ReadIssues(
+            InspectCodeIssuesFromFilePath(inspectCodeLogFilePath),
+            data.RepoRootFolder));
 });

@@ -7,7 +7,6 @@
 
 #load build/build/build.cake
 #load build/analyze/analyze.cake
-#load build/read-issues/read-issues.cake
 #load build/create-reports/create-reports.cake
 
 var target = Argument("target", "Default");
@@ -18,9 +17,6 @@ public class BuildData
 	public DirectoryPath SourceFolder { get; }
 	public DirectoryPath DocsFolder { get; }
 	public DirectoryPath TemplateGalleryFolder { get; }
-	public FilePath MsBuildLogFilePath { get; }
-	public FilePath InspectCodeLogFilePath { get; }
-	public FilePath MarkdownLintLogFilePath { get; }
 	public List<IIssue> Issues { get; }
 
 	public BuildData(ICakeContext context)
@@ -29,9 +25,6 @@ public class BuildData
         this.SourceFolder = this.RepoRootFolder.Combine("src");
         this.DocsFolder = this.RepoRootFolder.Combine("docs");
         this.TemplateGalleryFolder = this.RepoRootFolder.Combine("../docs/templates");
-        this.MsBuildLogFilePath = this.RepoRootFolder.CombineWithFilePath("msbuild.binlog");
-        this.InspectCodeLogFilePath = this.RepoRootFolder.CombineWithFilePath("inspectCode.log");
-        this.MarkdownLintLogFilePath = this.RepoRootFolder.CombineWithFilePath("markdown.log");
         this.Issues = new List<IIssue>();
 	}
 }

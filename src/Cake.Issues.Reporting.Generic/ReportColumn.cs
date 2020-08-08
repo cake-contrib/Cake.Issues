@@ -72,5 +72,10 @@
         /// depending on the report.
         /// </summary>
         Message = 1300,
+
+        /// <summary>
+        /// Column for the <see cref="IIssue.Run"/> field.
+        /// </summary>
+        Run = 1400,
     }
 }

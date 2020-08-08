@@ -1,6 +1,6 @@
 Task("Create-Reports-HtmlDxDataGrid-Hide-Columns")
     .Description("Creates HtmlDxDataGrid demo report showing how to hide columns")
-    .IsDependentOn("Read-Issues")
+    .IsDependentOn("Analyze")
     .Does<BuildData>(data =>
 {
     CreateIssueReport(

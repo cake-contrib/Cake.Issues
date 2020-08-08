@@ -1,6 +1,6 @@
 Task("Create-Reports-HtmlDxDataGrid-Custom-Export-Filename")
     .Description("Creates HtmlDxDataGrid demo report showing how to change default name of exported file")
-    .IsDependentOn("Read-Issues")
+    .IsDependentOn("Analyze")
     .Does<BuildData>(data =>
 {
     CreateIssueReport(

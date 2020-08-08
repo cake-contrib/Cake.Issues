@@ -22,6 +22,8 @@
     ColumnSortOrder providerTypeSortOrder = ViewBagHelper.ValueOrDefault(ViewBag.ProviderTypeSortOder, ColumnSortOrder.Ascending);
     bool providerNameVisible = ViewBagHelper.ValueOrDefault(ViewBag.ProviderNameVisible, true);
     ColumnSortOrder providerNameSortOrder = ViewBagHelper.ValueOrDefault(ViewBag.ProviderNameSortOder, ColumnSortOrder.Ascending);
+    bool runVisible = ViewBagHelper.ValueOrDefault(ViewBag.RunVisible, Model.Any(x => !string.IsNullOrWhiteSpace(x.Run)));
+    ColumnSortOrder runSortOrder = ViewBagHelper.ValueOrDefault(ViewBag.RunSortOder, ColumnSortOrder.Ascending);
     bool priorityVisible = ViewBagHelper.ValueOrDefault(ViewBag.PriorityVisible, false);
     ColumnSortOrder prioritySortOrder = ViewBagHelper.ValueOrDefault(ViewBag.PrioritySortOrder, ColumnSortOrder.Descending);
     bool priorityNameVisible = ViewBagHelper.ValueOrDefault(ViewBag.PriorityNameVisible, true);
@@ -44,7 +46,7 @@
     ColumnSortOrder ruleUrlSortOrder = ViewBagHelper.ValueOrDefault(ViewBag.RuleUrlSortOder, ColumnSortOrder.Ascending);
     bool messageVisible = ViewBagHelper.ValueOrDefault(ViewBag.MessageVisible, true);
     ColumnSortOrder messageSortOrder = ViewBagHelper.ValueOrDefault(ViewBag.MessageSortOder, ColumnSortOrder.Ascending);
-    var groupedColumns = ViewBagHelper.ValueOrDefault(ViewBag.GroupedColumns, new List<ReportColumn> { ReportColumn.ProviderName });
+    var groupedColumns = ViewBagHelper.ValueOrDefault(ViewBag.GroupedColumns, new List<ReportColumn> { ReportColumn.ProviderName, ReportColumn.Run });
     var sortedColumns = ViewBagHelper.ValueOrDefault(ViewBag.SortedColumns, new List<ReportColumn> { ReportColumn.PriorityName, ReportColumn.ProjectName, ReportColumn.FileDirectory, ReportColumn.FileName, ReportColumn.Line });
     FileLinkSettings fileLinkSettings = ViewBagHelper.ValueOrDefault<FileLinkSettings>(ViewBag.FileLinkSettings, null);
     IdeIntegrationSettings ideIntegrationSettings = ViewBagHelper.ValueOrDefault<IdeIntegrationSettings>(ViewBag.IdeIntegrationSettings, null);
@@ -64,6 +66,7 @@
             issue.GetExpandoObject(
                 addProviderType: providerTypeVisible,
                 addProviderName: providerNameVisible,
+                addRun: runVisible,
                 addPriority: priorityVisible || priorityNameVisible,
                 addPriorityName: priorityNameVisible,
                 addProjectPath: projectPathVisible,
@@ -234,6 +237,24 @@
                                 {
                                     @:sortIndex: @sortedColumns.IndexOf(ReportColumn.ProviderName),
                                     @:sortOrder: "@providerNameSortOrder.ToShortString()",
+                                }
+                            },
+                        </text>
+                    }
+                    @if (runVisible)
+                    {
+                        <text>
+                            {
+                                dataField: "Run",
+                                visibleIndex: @((int)ReportColumn.Run),
+                                @if (groupedColumns.Contains(ReportColumn.Run))
+                                {
+                                    @:groupIndex: @groupedColumns.IndexOf(ReportColumn.Run),
+                                }
+                                @if (sortedColumns.Contains(ReportColumn.Run))
+                                {
+                                    @:sortIndex: @sortedColumns.IndexOf(ReportColumn.Run),
+                                    @:sortOrder: "@runSortOrder.ToShortString()",
                                 }
                             },
                         </text>

@@ -1,6 +1,6 @@
 Task("Create-Reports-HtmlDxDataGrid-Theme-MaterialTealDarkCompact")
     .Description("Creates HtmlDxDataGrid demo report for Material Teal Dark Compact theme")
-    .IsDependentOn("Read-Issues")
+    .IsDependentOn("Analyze")
     .Does<BuildData>(data =>
 {
     CreateIssueReport(

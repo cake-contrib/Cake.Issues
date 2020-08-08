@@ -1,6 +1,6 @@
 Task("Create-Reports-HtmlDxDataGrid-Change-Title")
     .Description("Creates HtmlDxDataGrid demo report showing how to change report title")
-    .IsDependentOn("Read-Issues")
+    .IsDependentOn("Analyze")
     .Does<BuildData>(data =>
 {
     CreateIssueReport(

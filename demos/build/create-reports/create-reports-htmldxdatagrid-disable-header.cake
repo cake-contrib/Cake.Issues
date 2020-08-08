@@ -1,6 +1,6 @@
 Task("Create-Reports-HtmlDxDataGrid-Disable-Header")
     .Description("Creates HtmlDxDataGrid demo report showing how to disable the report header")
-    .IsDependentOn("Read-Issues")
+    .IsDependentOn("Analyze")
     .Does<BuildData>(data =>
 {
     CreateIssueReport(

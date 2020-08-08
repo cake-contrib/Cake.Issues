@@ -243,6 +243,40 @@
             }
         }
 
+        public sealed class TheRunVisibleOption
+        {
+            [Theory]
+            [InlineData(true)]
+            [InlineData(false)]
+            public void Should_Not_Fail_On_Report_Creation(bool value)
+            {
+                // Given
+                var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+
+                // When / Then
+                fixture.TestReportCreation(
+                    settings =>
+                        settings.WithOption(HtmlDxDataGridOption.RunVisible, value));
+            }
+        }
+
+        public sealed class TheRunSortOrderOption
+        {
+            [Theory]
+            [InlineData(ColumnSortOrder.Ascending)]
+            [InlineData(ColumnSortOrder.Descending)]
+            public void Should_Not_Fail_On_Report_Creation(ColumnSortOrder value)
+            {
+                // Given
+                var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+
+                // When / Then
+                fixture.TestReportCreation(
+                    settings =>
+                        settings.WithOption(HtmlDxDataGridOption.RunSortOrder, value));
+            }
+        }
+
         public sealed class ThePriorityVisibleOption
         {
             [Theory]

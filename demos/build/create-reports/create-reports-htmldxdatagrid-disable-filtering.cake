@@ -1,6 +1,6 @@
 Task("Create-Reports-HtmlDxDataGrid-Disable-Filtering")
     .Description("Creates HtmlDxDataGrid demo report showing how to disable filtering functionality")
-    .IsDependentOn("Read-Issues")
+    .IsDependentOn("Analyze")
     .Does<BuildData>(data =>
 {
     CreateIssueReport(
