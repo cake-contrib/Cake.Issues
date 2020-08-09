@@ -858,7 +858,7 @@
             }
         }
 
-        public sealed class TheJSZipLocationOption
+        public sealed class TheJsZipLocationOption
         {
             [Fact]
             public void Should_Not_Fail_On_Report_Creation()
@@ -870,7 +870,24 @@
                 fixture.TestReportCreation(
                     settings =>
                         settings.WithOption(
-                            HtmlDxDataGridOption.JSZipLocation,
+                            HtmlDxDataGridOption.JsZipLocation,
+                            "foo"));
+            }
+        }
+
+        public sealed class TheJsZipVersionOption
+        {
+            [Fact]
+            public void Should_Not_Fail_On_Report_Creation()
+            {
+                // Given
+                var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+
+                // When / Then
+                fixture.TestReportCreation(
+                    settings =>
+                        settings.WithOption(
+                            HtmlDxDataGridOption.JsZipVersion,
                             "foo"));
             }
         }

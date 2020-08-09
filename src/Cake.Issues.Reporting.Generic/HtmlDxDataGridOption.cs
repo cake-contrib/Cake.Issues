@@ -341,14 +341,22 @@
 
         /// <summary>
         /// Location where JSZip can be found.
+        /// Below the location there needs to be a folder matching <see cref="JsZipVersion"/>.
         /// The following files need to be available:
         /// <list type="bullet">
         /// <item>
-        /// <description><c>{JSZipLocation}/jszip.min.js</c></description>
+        /// <description><c>{JsZipLocation}/{JsZipVersion}/jszip.min.js</c></description>
         /// </item>
         /// </list>
-        /// Default value is <c>https://cdnjs.cloudflare.com/ajax/libs/jszip/3.2.2/</c>.
+        /// Default value is <c>https://cdnjs.cloudflare.com/ajax/libs/jszip/</c>.
         /// </summary>
-        JSZipLocation,
+        JsZipLocation,
+
+        /// <summary>
+        /// Version of JsZip which should be used.
+        /// This version needs to match the version required by the selected <see cref="DevExtremeVersion"/>.
+        /// Default value is <c>3.2.2</c>.
+        /// </summary>
+        JsZipVersion,
     }
 }

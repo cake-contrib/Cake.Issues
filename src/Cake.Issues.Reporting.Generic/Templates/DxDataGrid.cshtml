@@ -53,7 +53,8 @@
     List<HtmlDxDataGridColumnDescription> additionalColumns = ViewBagHelper.ValueOrDefault(ViewBag.AdditionalColumns, new List<HtmlDxDataGridColumnDescription>());
     string jQueryLocation = ViewBagHelper.ValueOrDefault(ViewBag.JQueryLocation, "https://ajax.aspnetcdn.com/ajax/jquery/").Trim();
     string jQueryVersion = ViewBagHelper.ValueOrDefault(ViewBag.JQueryVersion, "3.5.9").Trim();
-    string JSZipLocation = ViewBagHelper.ValueOrDefault(ViewBag.JSZipLocation, "https://cdnjs.cloudflare.com/ajax/libs/jszip/3.2.2/").Trim();
+    string jsZipLocation = ViewBagHelper.ValueOrDefault(ViewBag.JsZipLocation, "https://cdnjs.cloudflare.com/ajax/libs/jszip/").Trim();
+    string jsZipVersion = ViewBagHelper.ValueOrDefault(ViewBag.JsZipVersion, "3.2.2").Trim();
     string devExtremeLocation = ViewBagHelper.ValueOrDefault(ViewBag.DevExtremeLocation, "https://cdn3.devexpress.com/jslib/").Trim();
     string devExtremeVersion = ViewBagHelper.ValueOrDefault(ViewBag.DevExtremeVersion, "20.1.6").Trim();
 }
@@ -86,6 +87,11 @@
         jQueryLocation += "/";
     }
 
+    if (!jsZipLocation.EndsWith("/"))
+    {
+        jsZipLocation += "/";
+    }
+
     if (!devExtremeLocation.EndsWith("/"))
     {
         devExtremeLocation += "/";
@@ -101,7 +107,7 @@
     <script type="text/javascript" src="@($"{jQueryLocation}jquery-{jQueryVersion}.min.js")"></script>
     @if (enableExporting)
     {
-        <script type="text/javascript" src="@($"{JSZipLocation}jszip.min.js")"></script>
+        <script type="text/javascript" src="@($"{jsZipLocation}{jsZipVersion}/jszip.min.js")"></script>
     }
     @* DevExtreme themes *@
     <link rel="stylesheet" type="text/css" href="@($"{devExtremeLocation}{devExtremeVersion}/css/dx.common.css")" />
