@@ -8,6 +8,53 @@
     public static class IIssueExtensions
     {
         /// <summary>
+        /// Returns the line and column range in the format <c>{Line}:{Column}-{EndLine}:{EndColumn}</c>.
+        /// </summary>
+        /// <param name="issue">Issue for which the line and column range should be returned.</param>
+        /// <returns>Line and column range.</returns>
+        public static string LineRange(this IIssue issue)
+        {
+            issue.NotNull(nameof(issue));
+
+            return issue.LineRange(true);
+        }
+
+        /// <summary>
+        /// Returns the line range in the format <c>{Line}:{Column}-{EndLine}:{EndColumn}</c>.
+        /// </summary>
+        /// <param name="issue">Issue for which the line range should be returned.</param>
+        /// <param name="addColumn">Flag if column information should also be returned.</param>
+        /// <returns>Line and column range.</returns>
+        public static string LineRange(this IIssue issue, bool addColumn)
+        {
+            issue.NotNull(nameof(issue));
+
+            string result = string.Empty;
+
+            if (issue.Line.HasValue)
+            {
+                result += issue.Line.ToString();
+
+                if (addColumn && issue.Column.HasValue)
+                {
+                    result += $":{issue.Column.Value}";
+                }
+
+                if (issue.EndLine.HasValue)
+                {
+                    result += $"-{issue.EndLine.Value}";
+
+                    if (addColumn && issue.EndColumn.HasValue)
+                    {
+                        result += $":{issue.EndColumn.Value}";
+                    }
+                }
+            }
+
+            return result;
+        }
+
+        /// <summary>
         /// Gets the message of the issue in a specific format.
         /// If the message is not available in the specific format, the message in
         /// text format will be returned.

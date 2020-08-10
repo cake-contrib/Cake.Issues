@@ -7,6 +7,98 @@
 
     public sealed class IIssueExtensionsTests
     {
+        public sealed class TheLineRangeExtension
+        {
+            [Fact]
+            public void Should_Throw_If_Issue_Is_Null()
+            {
+                // Given
+                IIssue issue = null;
+
+                // When
+                var result = Record.Exception(() => issue.LineRange());
+
+                // Then
+                result.IsArgumentNullException("issue");
+            }
+
+            [Theory]
+            [InlineData(null, null, null, null, "")]
+            [InlineData(10, null, null, null, "10")]
+            [InlineData(23, 42, null, null, "23-42")]
+            [InlineData(23, 42, 5, null, "23:5-42")]
+            [InlineData(23, 42, 5, 10, "23:5-42:10")]
+            public void Should_Return_Correct_LineRange(
+                int? startLine,
+                int? endLine,
+                int? startColumn,
+                int? endColumn,
+                string expectedLineRange)
+            {
+                // Given
+                var issue =
+                    IssueBuilder
+                        .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                        .InFile("foo.ch", startLine, endLine, startColumn, endColumn)
+                        .Create();
+
+                // When
+                var result = issue.LineRange();
+
+                // Then
+                result.ShouldBe(expectedLineRange);
+            }
+        }
+
+        public sealed class TheLineRangeExtensionWithAddColumnParameter
+        {
+            [Fact]
+            public void Should_Throw_If_Issue_Is_Null()
+            {
+                // Given
+                IIssue issue = null;
+
+                // When
+                var result = Record.Exception(() => issue.LineRange(false));
+
+                // Then
+                result.IsArgumentNullException("issue");
+            }
+
+            [Theory]
+            [InlineData(null, null, null, null, true, "")]
+            [InlineData(10, null, null, null, true, "10")]
+            [InlineData(23, 42, null, null, true, "23-42")]
+            [InlineData(23, 42, 5, null, true, "23:5-42")]
+            [InlineData(23, 42, 5, 10, true, "23:5-42:10")]
+            [InlineData(null, null, null, null, false, "")]
+            [InlineData(10, null, null, null, false, "10")]
+            [InlineData(23, 42, null, null, false, "23-42")]
+            [InlineData(23, 42, 5, null, false, "23-42")]
+            [InlineData(23, 42, 5, 10, false, "23-42")]
+            public void Should_Return_Correct_LineRange(
+                int? startLine,
+                int? endLine,
+                int? startColumn,
+                int? endColumn,
+                bool addColumnInformation,
+                string expectedLineRange)
+            {
+                // Given
+                var issue =
+                    IssueBuilder
+                        .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                        .InFile("foo.ch", startLine, endLine, startColumn, endColumn)
+                        .Create();
+
+                // When
+                var result = issue.LineRange(addColumnInformation);
+
+                // Then
+                result.ShouldBe(expectedLineRange);
+            }
+        }
+
         public sealed class TheProjectPathExtension
         {
             [Fact]
