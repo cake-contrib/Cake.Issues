@@ -128,7 +128,7 @@
 
             if (addRuleUrl)
             {
-                result.RuleUrl = issue.RuleUrl;
+                result.RuleUrl = issue.RuleUrl?.ToString();
             }
 
             if (addMessageText)
@@ -150,7 +150,7 @@
 
             if (fileLinkSettings != null)
             {
-                result.FileLink = fileLinkSettings.GetFileLink(issue);
+                result.FileLink = fileLinkSettings.GetFileLink(issue)?.ToString();
             }
 
             if (additionalValues != null)
