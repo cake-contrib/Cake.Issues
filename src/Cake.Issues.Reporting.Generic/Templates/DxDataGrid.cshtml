@@ -48,7 +48,6 @@
     ColumnSortOrder messageSortOrder = ViewBagHelper.ValueOrDefault(ViewBag.MessageSortOder, ColumnSortOrder.Ascending);
     var groupedColumns = ViewBagHelper.ValueOrDefault(ViewBag.GroupedColumns, new List<ReportColumn> { ReportColumn.ProviderName, ReportColumn.Run });
     var sortedColumns = ViewBagHelper.ValueOrDefault(ViewBag.SortedColumns, new List<ReportColumn> { ReportColumn.PriorityName, ReportColumn.ProjectName, ReportColumn.FileDirectory, ReportColumn.FileName, ReportColumn.Line });
-    FileLinkSettings fileLinkSettings = ViewBagHelper.ValueOrDefault<FileLinkSettings>(ViewBag.FileLinkSettings, null);
     IdeIntegrationSettings ideIntegrationSettings = ViewBagHelper.ValueOrDefault<IdeIntegrationSettings>(ViewBag.IdeIntegrationSettings, null);
     List<HtmlDxDataGridColumnDescription> additionalColumns = ViewBagHelper.ValueOrDefault(ViewBag.AdditionalColumns, new List<HtmlDxDataGridColumnDescription>());
     string jQueryLocation = ViewBagHelper.ValueOrDefault(ViewBag.JQueryLocation, "https://ajax.aspnetcdn.com/ajax/jquery/").Trim();
@@ -75,11 +74,11 @@
                 addFilePath: filePathVisible || ideIntegrationSettings != null,
                 addFileDirectory: fileDirectoryVisible,
                 addFileName: fileNameVisible,
+                addFileLink: true,
                 addLine: lineVisible || ideIntegrationSettings != null,
                 addRule: ruleVisible,
                 addRuleUrl: ruleVisible || ruleUrlVisible,
                 addMessageHtml: messageVisible,
-                fileLinkSettings: fileLinkSettings,
                 additionalValues: additionalColumns.ToDictionary(x => x.Id, x => x.ValueRetriever));
 
     if (!jQueryLocation.EndsWith("/"))
@@ -444,22 +443,17 @@
                                     @:sortIndex: @sortedColumns.IndexOf(ReportColumn.Line),
                                     @:sortOrder: "@lineSortOrder.ToShortString()",
                                 }
-                                @if (fileLinkSettings != null)
-                                {
-                                    <text>
-                                        cellTemplate: function (container, options) {
-                                            if (options.data["FileLink"]) {
-                                                $('<a>', {
-                                                    text: options.value,
-                                                    href: options.data["FileLink"],
-                                                    target: "_blank"
-                                                }).appendTo(container);
-                                            }
-                                            else {
-                                                container.text(options.value);
-                                            }
-                                        }
-                                    </text>
+                                cellTemplate: function (container, options) {
+                                    if (options.data["FileLink"]) {
+                                        $('<a>', {
+                                            text: options.value,
+                                            href: options.data["FileLink"],
+                                            target: "_blank"
+                                        }).appendTo(container);
+                                    }
+                                    else {
+                                        container.text(options.value);
+                                    }
                                 }
                             },
                         </text>

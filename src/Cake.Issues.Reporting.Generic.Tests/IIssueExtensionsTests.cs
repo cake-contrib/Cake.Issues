@@ -339,6 +339,41 @@
             }
 
             [Fact]
+            public void Should_Set_FileLink_If_Flag_Is_Set()
+            {
+                // Given
+                var fileLink = new Uri("https://github.com");
+                var issue =
+                    IssueBuilder
+                        .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                        .WithFileLink(fileLink)
+                        .Create();
+
+                // When
+                dynamic result = issue.GetExpandoObject(addFileLink: true);
+
+                // Then
+                Assert.Equal(result.FileLink.ToString(), fileLink.ToString());
+            }
+
+            [Fact]
+            public void Should_Not_Set_FileLink_If_Flag_Is_Not_Set()
+            {
+                // Given
+                var issue =
+                    IssueBuilder
+                        .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                        .Create();
+
+                // When
+                dynamic expando = issue.GetExpandoObject(addFileLink: false);
+                var result = Record.Exception(() => expando.FileLink);
+
+                // Then
+                result.IsRuntimeBinderException("'System.Dynamic.ExpandoObject' does not contain a definition for 'FileLink'");
+            }
+
+            [Fact]
             public void Should_Set_Line_If_Flag_Is_Set()
             {
                 // Given

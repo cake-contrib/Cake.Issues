@@ -26,6 +26,7 @@
         /// <param name="addFilePath">Flag if value of <see cref="IIssue.AffectedFileRelativePath"/> should be added.</param>
         /// <param name="addFileDirectory">Flag if value of <see cref="Cake.Issues.IIssueExtensions.FileDirectory"/> should be added.</param>
         /// <param name="addFileName">Flag if value of <see cref="Cake.Issues.IIssueExtensions.FileName"/> should be added.</param>
+        /// <param name="addFileLink">Flag if value of <see cref="IIssue.FileLink"/> should be added.</param>
         /// <param name="addLine">Flag if value of <see cref="IIssue.Line"/> should be added.</param>
         /// <param name="addRule">Flag if value of <see cref="IIssue.Rule"/> should be added.</param>
         /// <param name="addRuleUrl">Flag if value of <see cref="IIssue.RuleUrl"/> should be added.</param>
@@ -36,7 +37,6 @@
         /// <param name="addMessageMarkdown">Flag if value of <see cref="IIssue.MessageMarkdown"/> should be added.</param>
         /// <param name="fallbackToTextMessageIfMarkdownMessageNotAvailable">Flag if value of <see cref="IIssue.MessageText"/> should be
         /// returned if <see cref="IIssue.MessageMarkdown"/> is not available.</param>
-        /// <param name="fileLinkSettings">Settings for file linking.</param>
         /// <param name="additionalValues">Additional values which should be added to the object.</param>
         /// <returns>Dynamic object containing the properties of the issue.</returns>
         public static ExpandoObject GetExpandoObject(
@@ -51,6 +51,7 @@
             bool addFilePath = true,
             bool addFileDirectory = true,
             bool addFileName = true,
+            bool addFileLink = true,
             bool addLine = true,
             bool addRule = true,
             bool addRuleUrl = true,
@@ -59,7 +60,6 @@
             bool fallbackToTextMessageIfHtmlMessageNotAvailable = true,
             bool addMessageMarkdown = false,
             bool fallbackToTextMessageIfMarkdownMessageNotAvailable = true,
-            FileLinkSettings fileLinkSettings = null,
             IDictionary<string, Func<IIssue, object>> additionalValues = null)
         {
             issue.NotNull(nameof(issue));
@@ -116,6 +116,11 @@
                 result.FileName = issue.FileName();
             }
 
+            if (addFileLink)
+            {
+                result.FileLink = issue.FileLink?.ToString();
+            }
+
             if (addLine)
             {
                 result.Line = issue.Line;
@@ -146,11 +151,6 @@
             {
                 result.MessageMarkdown =
                     fallbackToTextMessageIfMarkdownMessageNotAvailable ? issue.Message(IssueCommentFormat.Markdown) : issue.MessageMarkdown;
-            }
-
-            if (fileLinkSettings != null)
-            {
-                result.FileLink = fileLinkSettings.GetFileLink(issue)?.ToString();
             }
 
             if (additionalValues != null)

@@ -717,26 +717,6 @@
             }
         }
 
-        public sealed class TheFileLinkSettingsOption
-        {
-            [Fact]
-            public void Should_Not_Fail_On_Report_Creation()
-            {
-                // Given
-                var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
-
-                // When / Then
-                fixture.TestReportCreation(
-                    settings =>
-                        settings.WithOption(
-                            HtmlDxDataGridOption.FileLinkSettings,
-                            FileLinkSettings.GitHub(
-                                new Uri("https://github.com/cake-contrib/Cake.Issues.Reporting.Generic"),
-                                "master",
-                                null)));
-            }
-        }
-
         public sealed class TheJQueryLocationOption
         {
             [Fact]
