@@ -30,16 +30,22 @@
         /// of the file at runtime.</param>
         /// <param name="lineExpression">Expression which should be used to get the line number at runtime.</param>
         /// <param name="endLineExpression">Expression which should be used to get the end of the line range at runtime.</param>
+        /// <param name="columnExpression">Expression which should be used to get the column number at runtime.</param>
+        /// <param name="endColumnExpression">Expression which should be used to get the end of the column range at runtime.</param>
         /// <returns>JavaScript which should be called to open the file affected by an issue in an IDE
         /// with all patterns replaced.</returns>
         public string GetOpenInIdeCall(
             string filePathExpression,
             string lineExpression,
-            string endLineExpression)
+            string endLineExpression,
+            string columnExpression,
+            string endColumnExpression)
         {
             filePathExpression.NotNullOrWhiteSpace(nameof(filePathExpression));
             lineExpression.NotNullOrWhiteSpace(nameof(lineExpression));
             endLineExpression.NotNullOrWhiteSpace(nameof(endLineExpression));
+            columnExpression.NotNullOrWhiteSpace(nameof(columnExpression));
+            endColumnExpression.NotNullOrWhiteSpace(nameof(endColumnExpression));
 
             if (string.IsNullOrWhiteSpace(this.OpenInIdeCall))
             {
@@ -50,7 +56,9 @@
                 this.OpenInIdeCall
                     .Replace("{FilePath}", filePathExpression)
                     .Replace("{Line}", lineExpression)
-                    .Replace("{EndLine}", endLineExpression);
+                    .Replace("{EndLine}", endLineExpression)
+                    .Replace("{Column}", columnExpression)
+                    .Replace("{EndColumn}", endColumnExpression);
         }
     }
 }

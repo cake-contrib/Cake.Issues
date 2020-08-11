@@ -42,6 +42,10 @@
     ColumnSortOrder lineSortOrder = ViewBagHelper.ValueOrDefault(ViewBag.LineSortOder, ColumnSortOrder.Ascending);
     bool endLineVisible = ViewBagHelper.ValueOrDefault(ViewBag.EndLineVisible, false);
     ColumnSortOrder endLineSortOrder = ViewBagHelper.ValueOrDefault(ViewBag.EndLineSortOder, ColumnSortOrder.Ascending);
+    bool columnVisible = ViewBagHelper.ValueOrDefault(ViewBag.ColumnVisible, false);
+    ColumnSortOrder columnSortOrder = ViewBagHelper.ValueOrDefault(ViewBag.ColumnSortOder, ColumnSortOrder.Ascending);
+    bool endColumnVisible = ViewBagHelper.ValueOrDefault(ViewBag.EndColumnVisible, false);
+    ColumnSortOrder endColumnSortOrder = ViewBagHelper.ValueOrDefault(ViewBag.EndColumnSortOder, ColumnSortOrder.Ascending);
     bool locationVisible = ViewBagHelper.ValueOrDefault(ViewBag.LocationVisible, true);
     ColumnSortOrder locationSortOrder = ViewBagHelper.ValueOrDefault(ViewBag.LocationSortOder, ColumnSortOrder.Ascending);
     bool ruleVisible = ViewBagHelper.ValueOrDefault(ViewBag.RuleVisible, true);
@@ -84,6 +88,8 @@
                 addFileLink: true,
                 addLine: lineVisible || ideIntegrationSettings != null,
                 addEndLine: endLineVisible || ideIntegrationSettings != null,
+                addColumn: columnVisible || ideIntegrationSettings != null,
+                addEndColumn: endColumnVisible || ideIntegrationSettings != null,
                 addLocation: locationVisible,
                 addRule: ruleVisible,
                 addRuleUrl: ruleVisible || ruleUrlVisible,
@@ -152,7 +158,7 @@
             {
                 <text>
                     @* Creates the menu in the file column *@
-                    function getFileCellMenuElement(filePath, line, endLine) {
+                    function getFileCellMenuElement(filePath, line, endLine, column, endColumn) {
                         var element =
                             $('<div>')
                                 .css("float", "right")
@@ -169,7 +175,7 @@
                                     }],
                                     onItemClick: function (e) {
                                         if (e.itemData.action === "openInIde") {
-                                            @Html.Raw(ideIntegrationSettings.GetOpenInIdeCall("filePath", "line", "endLine"))
+                                            @Html.Raw(ideIntegrationSettings.GetOpenInIdeCall("filePath", "line", "endLine", "column", "endColumn"))
                                         }
                                     }
                                 });
@@ -411,7 +417,7 @@
                                     @if (ideIntegrationSettings != null && !string.IsNullOrWhiteSpace(ideIntegrationSettings.OpenInIdeCall))
                                     {
                                         <text>
-                                            getFileCellMenuElement(options.data["FilePath"], options.data["Line"] options.data["EndLine"])
+                                            getFileCellMenuElement(options.data["FilePath"], options.data["Line"], options.data["EndLine"], options.data["Column"], options.data["EndColumn"])
                                                 .appendTo(container);
                                         </text>
                                     }
@@ -469,6 +475,72 @@
                                 {
                                     @:sortIndex: @sortedColumns.IndexOf(ReportColumn.EndLine),
                                     @:sortOrder: "@endLineSortOrder.ToShortString()",
+                                }
+                                cellTemplate: function (container, options) {
+                                    if (options.data["FileLink"]) {
+                                        $('<a>', {
+                                            text: options.value,
+                                            href: options.data["FileLink"],
+                                            target: "_blank"
+                                        }).appendTo(container);
+                                    }
+                                    else {
+                                        container.text(options.value);
+                                    }
+                                }
+                            },
+                        </text>
+                    }
+                    @if (columnVisible)
+                    {
+                        <text>
+                            {
+                                dataField: "Column",
+                                allowFiltering: false,
+                                allowGrouping: false,
+                                width: "70px",
+                                visibleIndex: @((int)ReportColumn.Column),
+                                @if (groupedColumns.Contains(ReportColumn.Column))
+                                {
+                                    @:groupIndex: @groupedColumns.IndexOf(ReportColumn.Column),
+                                }
+                                @if (sortedColumns.Contains(ReportColumn.Column))
+                                {
+                                    @:sortIndex: @sortedColumns.IndexOf(ReportColumn.Column),
+                                    @:sortOrder: "@columnSortOrder.ToShortString()",
+                                }
+                                cellTemplate: function (container, options) {
+                                    if (options.data["FileLink"]) {
+                                        $('<a>', {
+                                            text: options.value,
+                                            href: options.data["FileLink"],
+                                            target: "_blank"
+                                        }).appendTo(container);
+                                    }
+                                    else {
+                                        container.text(options.value);
+                                    }
+                                }
+                            },
+                        </text>
+                    }
+                    @if (endColumnVisible)
+                    {
+                        <text>
+                            {
+                                dataField: "EndColumn",
+                                allowFiltering: false,
+                                allowGrouping: false,
+                                width: "70px",
+                                visibleIndex: @((int)ReportColumn.EndColumn),
+                                @if (groupedColumns.Contains(ReportColumn.EndColumn))
+                                {
+                                    @:groupIndex: @groupedColumns.IndexOf(ReportColumn.EndColumn),
+                                }
+                                @if (sortedColumns.Contains(ReportColumn.EndColumn))
+                                {
+                                    @:sortIndex: @sortedColumns.IndexOf(ReportColumn.EndColumn),
+                                    @:sortOrder: "@endColumnSortOrder.ToShortString()",
                                 }
                                 cellTemplate: function (container, options) {
                                     if (options.data["FileLink"]) {

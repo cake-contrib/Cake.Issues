@@ -216,6 +216,34 @@
         EndLineSortOrder,
 
         /// <summary>
+        /// Flag if the <see cref="ReportColumn.Column"/> column should be visible or not.
+        /// Either <c>true</c> or <c>false</c>.
+        /// Default value is <c>false</c>.
+        /// </summary>
+        ColumnVisible,
+
+        /// <summary>
+        /// Sort order of the <see cref="ReportColumn.Column"/> column if it is part of <see cref="SortedColumns"/>.
+        /// See <see cref="ColumnSortOrder"/> for possible values.
+        /// Default value is <see cref="ColumnSortOrder.Ascending"/>.
+        /// </summary>
+        ColumnSortOrder,
+
+        /// <summary>
+        /// Flag if the <see cref="ReportColumn.EndColumn"/> column should be visible or not.
+        /// Either <c>true</c> or <c>false</c>.
+        /// Default value is <c>false</c>.
+        /// </summary>
+        EndColumnVisible,
+
+        /// <summary>
+        /// Sort order of the <see cref="ReportColumn.EndColumn"/> column if it is part of <see cref="SortedColumns"/>.
+        /// See <see cref="ColumnSortOrder"/> for possible values.
+        /// Default value is <see cref="ColumnSortOrder.Ascending"/>.
+        /// </summary>
+        EndColumnSortOrder,
+
+        /// <summary>
         /// Flag if the <see cref="ReportColumn.Location"/> column should be visible or not.
         /// Either <c>true</c> or <c>false</c>.
         /// Default value is <c>true</c>.
