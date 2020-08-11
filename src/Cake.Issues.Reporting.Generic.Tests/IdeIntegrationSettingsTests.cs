@@ -18,10 +18,11 @@
                 var ideIntegrationSettings = new IdeIntegrationSettings();
                 string filePathExpression = null;
                 var lineExpression = "line";
+                var endLineExpression = "endLine";
 
                 // When
                 var result = Record.Exception(() =>
-                    ideIntegrationSettings.GetOpenInIdeCall(filePathExpression, lineExpression));
+                    ideIntegrationSettings.GetOpenInIdeCall(filePathExpression, lineExpression, endLineExpression));
 
                 // Then
                 result.IsArgumentNullException("filePathExpression");
@@ -34,10 +35,11 @@
                 var ideIntegrationSettings = new IdeIntegrationSettings();
                 var filePathExpression = string.Empty;
                 var lineExpression = "line";
+                var endLineExpression = "endLine";
 
                 // When
                 var result = Record.Exception(() =>
-                    ideIntegrationSettings.GetOpenInIdeCall(filePathExpression, lineExpression));
+                    ideIntegrationSettings.GetOpenInIdeCall(filePathExpression, lineExpression, endLineExpression));
 
                 // Then
                 result.IsArgumentOutOfRangeException("filePathExpression");
@@ -50,10 +52,11 @@
                 var ideIntegrationSettings = new IdeIntegrationSettings();
                 var filePathExpression = " ";
                 var lineExpression = "line";
+                var endLineExpression = "endLine";
 
                 // When
                 var result = Record.Exception(() =>
-                    ideIntegrationSettings.GetOpenInIdeCall(filePathExpression, lineExpression));
+                    ideIntegrationSettings.GetOpenInIdeCall(filePathExpression, lineExpression, endLineExpression));
 
                 // Then
                 result.IsArgumentOutOfRangeException("filePathExpression");
@@ -66,10 +69,11 @@
                 var ideIntegrationSettings = new IdeIntegrationSettings();
                 var filePathExpression = "file";
                 string lineExpression = null;
+                var endLineExpression = "endLine";
 
                 // When
                 var result = Record.Exception(() =>
-                    ideIntegrationSettings.GetOpenInIdeCall(filePathExpression, lineExpression));
+                    ideIntegrationSettings.GetOpenInIdeCall(filePathExpression, lineExpression, endLineExpression));
 
                 // Then
                 result.IsArgumentNullException("lineExpression");
@@ -82,10 +86,11 @@
                 var ideIntegrationSettings = new IdeIntegrationSettings();
                 var filePathExpression = "file";
                 var lineExpression = string.Empty;
+                var endLineExpression = "endLine";
 
                 // When
                 var result = Record.Exception(() =>
-                    ideIntegrationSettings.GetOpenInIdeCall(filePathExpression, lineExpression));
+                    ideIntegrationSettings.GetOpenInIdeCall(filePathExpression, lineExpression, endLineExpression));
 
                 // Then
                 result.IsArgumentOutOfRangeException("lineExpression");
@@ -98,13 +103,65 @@
                 var ideIntegrationSettings = new IdeIntegrationSettings();
                 var filePathExpression = "file";
                 var lineExpression = " ";
+                var endLineExpression = "endLine";
 
                 // When
                 var result = Record.Exception(() =>
-                    ideIntegrationSettings.GetOpenInIdeCall(filePathExpression, lineExpression));
+                    ideIntegrationSettings.GetOpenInIdeCall(filePathExpression, lineExpression, endLineExpression));
 
                 // Then
                 result.IsArgumentOutOfRangeException("lineExpression");
+            }
+
+            [Fact]
+            public void Should_Throw_If_EndLineExpression_Is_Null()
+            {
+                // Given
+                var ideIntegrationSettings = new IdeIntegrationSettings();
+                var filePathExpression = "file";
+                var lineExpression = "line";
+                string endLineExpression = null;
+
+                // When
+                var result = Record.Exception(() =>
+                    ideIntegrationSettings.GetOpenInIdeCall(filePathExpression, lineExpression, endLineExpression));
+
+                // Then
+                result.IsArgumentNullException("endLineExpression");
+            }
+
+            [Fact]
+            public void Should_Throw_If_EndLineExpression_Is_Empty()
+            {
+                // Given
+                var ideIntegrationSettings = new IdeIntegrationSettings();
+                var filePathExpression = "file";
+                var lineExpression = "line";
+                var endLineExpression = string.Empty;
+
+                // When
+                var result = Record.Exception(() =>
+                    ideIntegrationSettings.GetOpenInIdeCall(filePathExpression, lineExpression, endLineExpression));
+
+                // Then
+                result.IsArgumentOutOfRangeException("endLineExpression");
+            }
+
+            [Fact]
+            public void Should_Throw_If_EndLineExpression_Is_WhiteSpace()
+            {
+                // Given
+                var ideIntegrationSettings = new IdeIntegrationSettings();
+                var filePathExpression = "file";
+                var lineExpression = "line";
+                var endLineExpression = " ";
+
+                // When
+                var result = Record.Exception(() =>
+                    ideIntegrationSettings.GetOpenInIdeCall(filePathExpression, lineExpression, endLineExpression));
+
+                // Then
+                result.IsArgumentOutOfRangeException("endLineExpression");
             }
 
             [Fact]
@@ -114,9 +171,10 @@
                 var ideIntegrationSettings = new IdeIntegrationSettings();
                 var filePathExpression = "file";
                 var lineExpression = "line";
+                var endLineExpression = "endLine";
 
                 // When
-                var result = ideIntegrationSettings.GetOpenInIdeCall(filePathExpression, lineExpression);
+                var result = ideIntegrationSettings.GetOpenInIdeCall(filePathExpression, lineExpression, endLineExpression);
 
                 // Then
                 result.ShouldBeNull();
@@ -133,9 +191,10 @@
                     };
                 var filePathExpression = "file";
                 var lineExpression = "line";
+                var endLineExpression = "endLine";
 
                 // When
-                var result = ideIntegrationSettings.GetOpenInIdeCall(filePathExpression, lineExpression);
+                var result = ideIntegrationSettings.GetOpenInIdeCall(filePathExpression, lineExpression, endLineExpression);
 
                 // Then
                 result.ShouldBe("FoofileBar");
@@ -152,12 +211,33 @@
                     };
                 var filePathExpression = "file";
                 var lineExpression = "line";
+                var endLineExpression = "endLine";
 
                 // When
-                var result = ideIntegrationSettings.GetOpenInIdeCall(filePathExpression, lineExpression);
+                var result = ideIntegrationSettings.GetOpenInIdeCall(filePathExpression, lineExpression, endLineExpression);
 
                 // Then
                 result.ShouldBe("FoolineBar");
+            }
+
+            [Fact]
+            public void Should_Replace_EndLine_Token()
+            {
+                // Given
+                var ideIntegrationSettings =
+                    new IdeIntegrationSettings
+                    {
+                        OpenInIdeCall = "Foo{EndLine}Bar",
+                    };
+                var filePathExpression = "file";
+                var lineExpression = "line";
+                var endLineExpression = "endLine";
+
+                // When
+                var result = ideIntegrationSettings.GetOpenInIdeCall(filePathExpression, lineExpression, endLineExpression);
+
+                // Then
+                result.ShouldBe("FooendLineBar");
             }
         }
     }

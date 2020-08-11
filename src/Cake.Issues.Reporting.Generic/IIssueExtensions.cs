@@ -28,6 +28,8 @@
         /// <param name="addFileName">Flag if value of <see cref="Cake.Issues.IIssueExtensions.FileName"/> should be added.</param>
         /// <param name="addFileLink">Flag if value of <see cref="IIssue.FileLink"/> should be added.</param>
         /// <param name="addLine">Flag if value of <see cref="IIssue.Line"/> should be added.</param>
+        /// <param name="addEndLine">Flag if value of <see cref="IIssue.EndLine"/> should be added.</param>
+        /// <param name="addLocation">Flag if value of <see cref="Cake.Issues.IIssueExtensions.LineRange(IIssue)"/> should be added.</param>
         /// <param name="addRule">Flag if value of <see cref="IIssue.Rule"/> should be added.</param>
         /// <param name="addRuleUrl">Flag if value of <see cref="IIssue.RuleUrl"/> should be added.</param>
         /// <param name="addMessageText">Flag if value of <see cref="IIssue.MessageText"/> should be added.</param>
@@ -53,6 +55,8 @@
             bool addFileName = true,
             bool addFileLink = true,
             bool addLine = true,
+            bool addEndLine = true,
+            bool addLocation = true,
             bool addRule = true,
             bool addRuleUrl = true,
             bool addMessageText = true,
@@ -124,6 +128,16 @@
             if (addLine)
             {
                 result.Line = issue.Line;
+            }
+
+            if (addEndLine)
+            {
+                result.EndLine = issue.EndLine;
+            }
+
+            if (addLocation)
+            {
+                result.Location = issue.LineRange();
             }
 
             if (addRule)

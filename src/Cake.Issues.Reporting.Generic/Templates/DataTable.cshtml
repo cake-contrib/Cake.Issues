@@ -80,7 +80,7 @@
                     <th scope="col">Project</th>
                     <th scope="col">Directory</th>
                     <th scope="col">File</th>
-                    <th scope="col">Line</th>
+                    <th scope="col">Location</th>
                     <th scope="col">Rule</th>
                     <th scope="col">Message</th>
                 </tr>
@@ -93,7 +93,7 @@
                         <td>@issue.ProjectName</td>
                         <td>@issue.FileDirectory()</td>
                         <td>@issue.FileName()</td>
-                        <td>@issue.Line</td>
+                        <td>@issue.LineRange()</td>
                         <td>
                             @if (issue.RuleUrl != null)
                             {

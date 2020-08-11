@@ -9,7 +9,7 @@ Template for a HTML report containing a rich data grid with sorting, filtering, 
 
 # Features
 
-* Table with `Provider`, `Severity`, `Project`, `Path`, `File`, `Line`, `Rule`, `Message` by default.
+* Table with `Provider`, `Severity`, `Project`, `Path`, `File`, `Location`, `Rule`, `Message` by default.
 * Support for grouping by multiple columns by user.
 * Total number of issues by each group level.
 * Each column sortable by user.

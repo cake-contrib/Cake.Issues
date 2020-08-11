@@ -29,12 +29,17 @@
         /// <param name="filePathExpression">Expression which should be used to get the path and name
         /// of the file at runtime.</param>
         /// <param name="lineExpression">Expression which should be used to get the line number at runtime.</param>
+        /// <param name="endLineExpression">Expression which should be used to get the end of the line range at runtime.</param>
         /// <returns>JavaScript which should be called to open the file affected by an issue in an IDE
         /// with all patterns replaced.</returns>
-        public string GetOpenInIdeCall(string filePathExpression, string lineExpression)
+        public string GetOpenInIdeCall(
+            string filePathExpression,
+            string lineExpression,
+            string endLineExpression)
         {
             filePathExpression.NotNullOrWhiteSpace(nameof(filePathExpression));
             lineExpression.NotNullOrWhiteSpace(nameof(lineExpression));
+            endLineExpression.NotNullOrWhiteSpace(nameof(endLineExpression));
 
             if (string.IsNullOrWhiteSpace(this.OpenInIdeCall))
             {
@@ -44,7 +49,8 @@
             return
                 this.OpenInIdeCall
                     .Replace("{FilePath}", filePathExpression)
-                    .Replace("{Line}", lineExpression);
+                    .Replace("{Line}", lineExpression)
+                    .Replace("{EndLine}", endLineExpression);
         }
     }
 }

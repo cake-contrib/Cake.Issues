@@ -57,6 +57,16 @@
         Line = 1000,
 
         /// <summary>
+        /// Column for the <see cref="IIssue.EndLine"/> field.
+        /// </summary>
+        EndLine = 1010,
+
+        /// <summary>
+        /// Column for the value returned by <see cref="Cake.Issues.IIssueExtensions.LineRange(IIssue)"/>.
+        /// </summary>
+        Location = 1050,
+
+        /// <summary>
         /// Column for the <see cref="IIssue.Rule"/> field.
         /// </summary>
         Rule = 1100,

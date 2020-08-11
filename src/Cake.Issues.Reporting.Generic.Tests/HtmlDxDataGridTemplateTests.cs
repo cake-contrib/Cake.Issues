@@ -549,6 +549,74 @@
             }
         }
 
+        public sealed class TheEndLineVisibleOption
+        {
+            [Theory]
+            [InlineData(true)]
+            [InlineData(false)]
+            public void Should_Not_Fail_On_Report_Creation(bool value)
+            {
+                // Given
+                var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+
+                // When / Then
+                fixture.TestReportCreation(
+                    settings =>
+                        settings.WithOption(HtmlDxDataGridOption.EndLineVisible, value));
+            }
+        }
+
+        public sealed class TheEndLineSortOrderOption
+        {
+            [Theory]
+            [InlineData(ColumnSortOrder.Ascending)]
+            [InlineData(ColumnSortOrder.Descending)]
+            public void Should_Not_Fail_On_Report_Creation(ColumnSortOrder value)
+            {
+                // Given
+                var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+
+                // When / Then
+                fixture.TestReportCreation(
+                    settings =>
+                        settings.WithOption(HtmlDxDataGridOption.EndLineSortOrder, value));
+            }
+        }
+
+        public sealed class TheLocationVisibleOption
+        {
+            [Theory]
+            [InlineData(true)]
+            [InlineData(false)]
+            public void Should_Not_Fail_On_Report_Creation(bool value)
+            {
+                // Given
+                var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+
+                // When / Then
+                fixture.TestReportCreation(
+                    settings =>
+                        settings.WithOption(HtmlDxDataGridOption.LocationVisible, value));
+            }
+        }
+
+        public sealed class TheLocationSortOrderOption
+        {
+            [Theory]
+            [InlineData(ColumnSortOrder.Ascending)]
+            [InlineData(ColumnSortOrder.Descending)]
+            public void Should_Not_Fail_On_Report_Creation(ColumnSortOrder value)
+            {
+                // Given
+                var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+
+                // When / Then
+                fixture.TestReportCreation(
+                    settings =>
+                        settings.WithOption(HtmlDxDataGridOption.LocationSortOrder, value));
+            }
+        }
+
         public sealed class TheLRuleVisibleOption
         {
             [Theory]
