@@ -62,7 +62,7 @@
                         // in Markdown format.
                         IssueBuilder
                             .NewIssue("Message Bar.", "ProviderType Bar", "ProviderName Bar")
-                            .InFile(@"src\Cake.Issues.Reporting.Sarif.Tests\SarifIssueReportGeneratorTests.cs", 12)
+                            .InFile(@"src\Cake.Issues.Reporting.Sarif.Tests\SarifIssueReportGeneratorTests.cs", 12, 5)
                             .OfRule("Rule Bar", new Uri("https://www.example.come/rules/bar.html"))
                             .WithPriority(IssuePriority.Warning)
                             .WithMessageInMarkdownFormat("Message Bar -- now in **Markdown**!")
@@ -73,7 +73,7 @@
                         // result's property bag.
                         IssueBuilder
                             .NewIssue("Message Bar 2.", "ProviderType Bar", "ProviderName Bar")
-                            .InFile(@"src\Cake.Issues.Reporting.Sarif.Tests\SarifIssueReportGeneratorTests.cs", 42)
+                            .InFile(@"src\Cake.Issues.Reporting.Sarif.Tests\SarifIssueReportGeneratorTests.cs", 23, 42, 5, 10)
                             .OfRule(null, new Uri("https://www.example.come/rules/bar2.html"))
                             .WithPriority(IssuePriority.Warning)
                             .Create(),
@@ -145,6 +145,15 @@
                 result.RuleId.ShouldBeNull();
                 result.RuleIndex.ShouldBe(-1);
                 result.GetProperty(SarifIssueReportGenerator.RuleUrlPropertyName).ShouldBe("https://www.example.come/rules/bar2.html");
+                result.Message.Text.ShouldBe("Message Bar 2.");
+                result.Level.ShouldBe(FailureLevel.Warning);
+                result.Kind.ShouldBe(ResultKind.Fail);
+
+                result.Locations.Count.ShouldBe(1);
+                physicalLocation = result.Locations[0].PhysicalLocation;
+                physicalLocation.ArtifactLocation.Uri.OriginalString.ShouldBe("src/Cake.Issues.Reporting.Sarif.Tests/SarifIssueReportGeneratorTests.cs");
+                physicalLocation.Region.StartLine.ShouldBe(23);
+                physicalLocation.Region.EndLine.ShouldBe(42);
 
                 run.OriginalUriBaseIds.Count.ShouldBe(1);
                 run.OriginalUriBaseIds[SarifIssueReportGenerator.RepoRootUriBaseId].Uri.LocalPath.ShouldBe(SarifIssueReportFixture.RepositoryRootPath);

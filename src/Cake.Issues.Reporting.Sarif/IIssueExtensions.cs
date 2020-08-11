@@ -102,6 +102,11 @@
                     {
                         StartLine = issue.Line.Value,
                     };
+
+                if (issue.EndLine.HasValue)
+                {
+                    result.PhysicalLocation.Region.EndLine = issue.EndLine.Value;
+                }
             }
 
             return result;
