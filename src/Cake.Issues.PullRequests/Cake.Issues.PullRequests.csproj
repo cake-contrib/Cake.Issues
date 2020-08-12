@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <IsPackable>false</IsPackable>
+    <Product>Cake.Issues</Product>
+    <Copyright>Copyright © BBT Software AG and contributors</Copyright>
+    <Description>Addin for the Cake build automation system for writing code analyzer or linter issues as comments to pull requests</Description>
+    <Authors>BBT Software AG</Authors>
+    <Company>BBT Software AG</Company>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <CodeAnalysisRuleSet>..\Cake.Issues.PullRequests.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
+    <DocumentationFile>bin\Debug\netstandard2.0\Cake.Issues.PullRequests.xml</DocumentationFile>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard2.0|AnyCPU'">
+    <DocumentationFile>bin\Release\netstandard2.0\Cake.Issues.PullRequests.xml</DocumentationFile>
+  </PropertyGroup>
+
+   <ItemGroup>
+    <PackageReference Include="Cake.Core" Version="0.33.0" />
+    <PackageReference Include="Cake.Issues" Version="0.9.0-beta0004" />
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.0.0" />
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118" />  
+  </ItemGroup>
+</Project>
