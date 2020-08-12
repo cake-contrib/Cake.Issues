@@ -138,6 +138,7 @@
                 physicalLocation = result.Locations[0].PhysicalLocation;
                 physicalLocation.ArtifactLocation.Uri.OriginalString.ShouldBe("src/Cake.Issues.Reporting.Sarif.Tests/SarifIssueReportGeneratorTests.cs");
                 physicalLocation.Region.StartLine.ShouldBe(12);
+                physicalLocation.Region.StartColumn.ShouldBe(5);
 
                 // This run also includes an issue with a rule URL but no rule name, so we'll find
                 // the rule URL in the result's property bag.
@@ -154,6 +155,8 @@
                 physicalLocation.ArtifactLocation.Uri.OriginalString.ShouldBe("src/Cake.Issues.Reporting.Sarif.Tests/SarifIssueReportGeneratorTests.cs");
                 physicalLocation.Region.StartLine.ShouldBe(23);
                 physicalLocation.Region.EndLine.ShouldBe(42);
+                physicalLocation.Region.StartColumn.ShouldBe(5);
+                physicalLocation.Region.EndColumn.ShouldBe(10);
 
                 run.OriginalUriBaseIds.Count.ShouldBe(1);
                 run.OriginalUriBaseIds[SarifIssueReportGenerator.RepoRootUriBaseId].Uri.LocalPath.ShouldBe(SarifIssueReportFixture.RepositoryRootPath);
