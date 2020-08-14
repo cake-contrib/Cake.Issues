@@ -5,7 +5,7 @@
     /// <summary>
     /// Class for building settings for file links of files hosted on GitHub.
     /// </summary>
-    internal class GitHubFileLinkSettingsBuilder
+    public class GitHubFileLinkSettingsBuilder
     {
         private readonly Uri repositoryUrl;
 

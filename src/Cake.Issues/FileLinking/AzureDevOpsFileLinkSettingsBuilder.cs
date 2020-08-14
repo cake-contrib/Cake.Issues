@@ -6,7 +6,7 @@
     /// <summary>
     /// Class for building settings for file links of files hosted on Azure DevOps.
     /// </summary>
-    internal class AzureDevOpsFileLinkSettingsBuilder
+    public class AzureDevOpsFileLinkSettingsBuilder
     {
         private readonly Uri repositoryUrl;
 

@@ -6,7 +6,7 @@
     /// <summary>
     /// Class containing builder for optional settings for linking to files.
     /// </summary>
-    internal class FileLinkOptionalSettingsBuilder : FileLinkSettings
+    public class FileLinkOptionalSettingsBuilder : FileLinkSettings
     {
         private readonly Func<IIssue, IDictionary<string, string>, Uri> builder;
 
