@@ -2,7 +2,7 @@
 {
     using System;
     using Cake.AzureDevOps.Authentication;
-    using Cake.AzureDevOps.PullRequest;
+    using Cake.AzureDevOps.Repos.PullRequest;
 
     /// <summary>
     /// Settings for <see cref="AzureDevOpsPullRequestSystemAliases"/>.

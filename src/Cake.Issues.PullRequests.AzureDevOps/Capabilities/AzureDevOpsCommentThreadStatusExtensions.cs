@@ -1,6 +1,6 @@
 ﻿namespace Cake.Issues.PullRequests.AzureDevOps.Capabilities
 {
-    using Cake.AzureDevOps.PullRequest.CommentThread;
+    using Cake.AzureDevOps.Repos.PullRequest.CommentThread;
 
     /// <summary>
     /// Extensions for <see cref="AzureDevOpsCommentThreadStatus"/> enumeration.

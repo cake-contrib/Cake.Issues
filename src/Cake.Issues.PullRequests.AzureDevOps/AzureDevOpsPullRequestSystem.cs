@@ -4,8 +4,8 @@
     using System.Collections.Generic;
     using System.Globalization;
     using System.Linq;
-    using Cake.AzureDevOps.PullRequest;
-    using Cake.AzureDevOps.PullRequest.CommentThread;
+    using Cake.AzureDevOps.Repos.PullRequest;
+    using Cake.AzureDevOps.Repos.PullRequest.CommentThread;
     using Cake.Core.Diagnostics;
     using Cake.Core.IO;
     using Cake.Issues.PullRequests.AzureDevOps.Capabilities;

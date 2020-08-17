@@ -1,6 +1,6 @@
 ﻿namespace Cake.Issues.PullRequests.AzureDevOps
 {
-    using Cake.AzureDevOps.PullRequest;
+    using Cake.AzureDevOps.Repos.PullRequest;
 
     /// <summary>
     /// Interface for writing issues to Azure DevOps pull requests.

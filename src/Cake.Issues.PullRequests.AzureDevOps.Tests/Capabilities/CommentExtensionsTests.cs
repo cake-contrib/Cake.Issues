@@ -1,6 +1,6 @@
 ﻿namespace Cake.Issues.PullRequests.AzureDevOps.Tests.Capabilities
 {
-    using Cake.AzureDevOps.PullRequest.CommentThread;
+    using Cake.AzureDevOps.Repos.PullRequest.CommentThread;
     using Cake.Issues.PullRequests.AzureDevOps.Capabilities;
     using Cake.Issues.Testing;
     using Shouldly;
