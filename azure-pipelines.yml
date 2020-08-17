@@ -14,5 +14,5 @@ jobs:
   pool:
     vmImage: 'vs2017-win2016'
   steps:
-  - powershell: ./build.ps1
+  - powershell: ./build.ps1 -target Buildserver
     displayName: 'Cake Build'
