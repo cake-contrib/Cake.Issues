@@ -1,5 +1,3 @@
-#addin "Cake.Markdownlint"
-
 Task("Lint-Documentation")
     .IsDependentOn("Lint-DemoDocumentation")
     .IsDependentOn("Lint-TemplateGalleryDocumentation");

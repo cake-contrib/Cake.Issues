@@ -1,9 +1,13 @@
+#addin "Cake.Markdownlint"
 #addin "Cake.Issues&prerelease"
 #addin "Cake.Issues.MsBuild&prerelease"
 #addin "Cake.Issues.Markdownlint&prerelease"
+#addin "Cake.Issues.DupFinder&prerelease"
 #addin "Cake.Issues.InspectCode&prerelease"
 #addin "Cake.Issues.Reporting&prerelease"
 #addin "Cake.Issues.Reporting.Generic&prerelease"
+
+#tool "nuget:?package=JetBrains.ReSharper.CommandLineTools"
 
 #load build/build/build.cake
 #load build/analyze/analyze.cake
