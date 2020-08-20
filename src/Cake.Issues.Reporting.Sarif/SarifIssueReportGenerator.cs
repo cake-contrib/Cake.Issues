@@ -57,7 +57,7 @@
             if (issues.Any())
             {
                 log.Runs = new List<Run>();
-                foreach (var issueGroup in from issue in issues group issue by issue.ProviderType)
+                foreach (var issueGroup in from issue in issues group issue by new { issue.ProviderType, issue.Run })
                 {
                     this.rules = new List<ReportingDescriptor>();
                     this.ruleIndices = new Dictionary<string, int>();
@@ -70,7 +70,7 @@
                                     Driver =
                                         new ToolComponent
                                         {
-                                            Name = issueGroup.Key,
+                                            Name = issueGroup.Key.ProviderType,
                                         },
                                 },
                             Results =
@@ -85,6 +85,15 @@
                                     },
                             },
                         };
+
+                    if (!string.IsNullOrEmpty(issueGroup.Key.Run))
+                    {
+                        run.AutomationDetails =
+                            new RunAutomationDetails
+                            {
+                                Id = issueGroup.Key.Run,
+                            };
+                    }
 
                     if (this.rules.Any())
                     {
