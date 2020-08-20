@@ -27,6 +27,23 @@
             }
 
             [Fact]
+            public void Should_Give_Correct_Result_For_Identifier_After_Roundtrip()
+            {
+                // Given
+                var identifier = "identifier";
+                var issue =
+                    IssueBuilder
+                        .NewIssue(identifier, "message", "providerType", "providerName")
+                        .Create();
+
+                // When
+                var result = issue.SerializeToJsonString().DeserializeToIssue();
+
+                // Then
+                result.Identifier.ShouldBe(identifier);
+            }
+
+            [Fact]
             public void Should_Give_Correct_Result_For_MessageText_After_Roundtrip()
             {
                 // Given
@@ -114,6 +131,24 @@
             }
 
             [Fact]
+            public void Should_Give_Correct_Result_For_Run_After_Roundtrip()
+            {
+                // Given
+                var run = "run";
+                var issue =
+                    IssueBuilder
+                        .NewIssue("message", "providerType", "providerName")
+                        .ForRun(run)
+                        .Create();
+
+                // When
+                var result = issue.SerializeToJsonString().DeserializeToIssue();
+
+                // Then
+                result.Run.ShouldBe(run);
+            }
+
+            [Fact]
             public void Should_Give_Correct_Result_For_ProjectFileRelativePath_After_Roundtrip()
             {
                 // Given
@@ -183,6 +218,78 @@
 
                 // Then
                 result.Line.ShouldBe(line);
+            }
+
+            [Fact]
+            public void Should_Give_Correct_Result_For_EndLine_After_Roundtrip()
+            {
+                // Given
+                var endLine = 420;
+                var issue =
+                    IssueBuilder
+                        .NewIssue("message", "providerType", "providerName")
+                        .InFile(@"src/foo.bar", 42, endLine, null, null)
+                        .Create();
+
+                // When
+                var result = issue.SerializeToJsonString().DeserializeToIssue();
+
+                // Then
+                result.EndLine.ShouldBe(endLine);
+            }
+
+            [Fact]
+            public void Should_Give_Correct_Result_For_Column_After_Roundtrip()
+            {
+                // Given
+                var column = 23;
+                var issue =
+                    IssueBuilder
+                        .NewIssue("message", "providerType", "providerName")
+                        .InFile(@"src/foo.bar", 42, column)
+                        .Create();
+
+                // When
+                var result = issue.SerializeToJsonString().DeserializeToIssue();
+
+                // Then
+                result.Column.ShouldBe(column);
+            }
+
+            [Fact]
+            public void Should_Give_Correct_Result_For_EndColumn_After_Roundtrip()
+            {
+                // Given
+                var endColumn = 230;
+                var issue =
+                    IssueBuilder
+                        .NewIssue("message", "providerType", "providerName")
+                        .InFile(@"src/foo.bar", 42, 420, 23, endColumn)
+                        .Create();
+
+                // When
+                var result = issue.SerializeToJsonString().DeserializeToIssue();
+
+                // Then
+                result.EndColumn.ShouldBe(endColumn);
+            }
+
+            [Fact]
+            public void Should_Give_Correct_Result_For_FileLink_After_Roundtrip()
+            {
+                // Given
+                var fileLink = "https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12";
+                var issue =
+                    IssueBuilder
+                        .NewIssue("message", "providerType", "providerName")
+                        .WithFileLink(new Uri(fileLink))
+                        .Create();
+
+                // When
+                var result = issue.SerializeToJsonString().DeserializeToIssue();
+
+                // Then
+                result.FileLink.ToString().ShouldBe(fileLink);
             }
 
             [Fact]
@@ -271,6 +378,32 @@
 
                 // Then
                 result.IsArgumentNullException("issues");
+            }
+
+            [Fact]
+            public void Should_Give_Correct_Result_For_Identifier_After_Roundtrip()
+            {
+                // Given
+                var identifier1 = "identifier1";
+                var identifier2 = "identifier2";
+                var issues =
+                    new List<IIssue>
+                    {
+                        IssueBuilder
+                          .NewIssue(identifier1, "messageText1", "providerType1", "providerName1")
+                            .Create(),
+                        IssueBuilder
+                            .NewIssue(identifier2, "messageText2", "providerType2", "providerName2")
+                            .Create(),
+                    };
+
+                // When
+                var result = issues.SerializeToJsonString().DeserializeToIssues();
+
+                // Then
+                result.Count().ShouldBe(2);
+                result.First().Identifier.ShouldBe(identifier1);
+                result.Last().Identifier.ShouldBe(identifier2);
             }
 
             [Fact]
@@ -408,6 +541,34 @@
             }
 
             [Fact]
+            public void Should_Give_Correct_Result_For_Run_After_Roundtrip()
+            {
+                // Given
+                var run1 = "run1";
+                var run2 = "run2";
+                var issues =
+                    new List<IIssue>
+                    {
+                        IssueBuilder
+                          .NewIssue("message1", "providerType1", "providerName1")
+                            .ForRun(run1)
+                            .Create(),
+                        IssueBuilder
+                            .NewIssue("message2", "providerType2", "providerName2")
+                            .ForRun(run2)
+                            .Create(),
+                    };
+
+                // When
+                var result = issues.SerializeToJsonString().DeserializeToIssues();
+
+                // Then
+                result.Count().ShouldBe(2);
+                result.First().Run.ShouldBe(run1);
+                result.Last().Run.ShouldBe(run2);
+            }
+
+            [Fact]
             public void Should_Give_Correct_Result_For_ProjectFileRelativePath_After_Roundtrip()
             {
                 // Given
@@ -517,6 +678,118 @@
                 result.Count().ShouldBe(2);
                 result.First().Line.ShouldBe(line1);
                 result.Last().Line.ShouldBe(line2);
+            }
+
+            [Fact]
+            public void Should_Give_Correct_Result_For_EndLine_After_Roundtrip()
+            {
+                // Given
+                var endLine1 = 230;
+                var endLine2 = 420;
+                var issues =
+                    new List<IIssue>
+                    {
+                        IssueBuilder
+                          .NewIssue("message1", "providerType1", "providerName1")
+                            .InFile(@"src/foo.bar", 23, endLine1, null, null)
+                            .Create(),
+                        IssueBuilder
+                            .NewIssue("message2", "providerType2", "providerName2")
+                            .InFile(@"src/foo.bar", 42, endLine2, null, null)
+                            .Create(),
+                    };
+
+                // When
+                var result = issues.SerializeToJsonString().DeserializeToIssues();
+
+                // Then
+                result.Count().ShouldBe(2);
+                result.First().EndLine.ShouldBe(endLine1);
+                result.Last().EndLine.ShouldBe(endLine2);
+            }
+
+            [Fact]
+            public void Should_Give_Correct_Result_For_Column_After_Roundtrip()
+            {
+                // Given
+                var column1 = 23;
+                var column2 = 42;
+                var issues =
+                    new List<IIssue>
+                    {
+                        IssueBuilder
+                          .NewIssue("message1", "providerType1", "providerName1")
+                            .InFile(@"src/foo.bar", 123, column1)
+                            .Create(),
+                        IssueBuilder
+                            .NewIssue("message2", "providerType2", "providerName2")
+                            .InFile(@"src/foo.bar", 123, column2)
+                            .Create(),
+                    };
+
+                // When
+                var result = issues.SerializeToJsonString().DeserializeToIssues();
+
+                // Then
+                result.Count().ShouldBe(2);
+                result.First().Column.ShouldBe(column1);
+                result.Last().Column.ShouldBe(column2);
+            }
+
+            [Fact]
+            public void Should_Give_Correct_Result_For_EndColumn_After_Roundtrip()
+            {
+                // Given
+                var endColumn1 = 230;
+                var endColumn2 = 420;
+                var issues =
+                    new List<IIssue>
+                    {
+                        IssueBuilder
+                          .NewIssue("message1", "providerType1", "providerName1")
+                            .InFile(@"src/foo.bar", 5, 50, 23, endColumn1)
+                            .Create(),
+                        IssueBuilder
+                            .NewIssue("message2", "providerType2", "providerName2")
+                            .InFile(@"src/foo.bar", 5, 50, 42, endColumn2)
+                            .Create(),
+                    };
+
+                // When
+                var result = issues.SerializeToJsonString().DeserializeToIssues();
+
+                // Then
+                result.Count().ShouldBe(2);
+                result.First().EndColumn.ShouldBe(endColumn1);
+                result.Last().EndColumn.ShouldBe(endColumn2);
+            }
+
+            [Fact]
+            public void Should_Give_Correct_Result_For_FileLink_After_Roundtrip()
+            {
+                // Given
+                var fileLink1 = "https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12";
+                var fileLink2 = "https://github.com/myorg/myrepo/blob/develop/src/bar.cs#L23-L42";
+                var issues =
+                    new List<IIssue>
+                    {
+                        IssueBuilder
+                          .NewIssue("message1", "providerType1", "providerName1")
+                            .WithFileLink(new Uri(fileLink1))
+                            .Create(),
+                        IssueBuilder
+                            .NewIssue("message2", "providerType2", "providerName2")
+                            .WithFileLink(new Uri(fileLink2))
+                            .Create(),
+                    };
+
+                // When
+                var result = issues.SerializeToJsonString().DeserializeToIssues();
+
+                // Then
+                result.Count().ShouldBe(2);
+                result.First().FileLink.ToString().ShouldBe(fileLink1);
+                result.Last().FileLink.ToString().ShouldBe(fileLink2);
             }
 
             [Fact]
@@ -663,6 +936,35 @@
 
                 // Then
                 result.IsArgumentNullException("filePath");
+            }
+
+            [Fact]
+            public void Should_Give_Correct_Result_For_Identifier_After_Roundtrip()
+            {
+                // Given
+                var identifier = "identifier";
+                var issue =
+                    IssueBuilder
+                        .NewIssue(identifier, "messageText", "providerType", "providerName")
+                        .Create();
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+
+                try
+                {
+                    // When
+                    issue.SerializeToJsonFile(filePath);
+                    var result = filePath.DeserializeToIssue();
+
+                    // Then
+                    result.Identifier.ShouldBe(identifier);
+                }
+                finally
+                {
+                    if (System.IO.File.Exists(filePath.FullPath))
+                    {
+                        System.IO.File.Delete(filePath.FullPath);
+                    }
+                }
             }
 
             [Fact]
@@ -813,6 +1115,36 @@
             }
 
             [Fact]
+            public void Should_Give_Correct_Result_For_Run_After_Roundtrip()
+            {
+                // Given
+                var run = "run";
+                var issue =
+                    IssueBuilder
+                        .NewIssue("message", "providerType", "providerName")
+                        .ForRun(run)
+                        .Create();
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+
+                try
+                {
+                    // When
+                    issue.SerializeToJsonFile(filePath);
+                    var result = filePath.DeserializeToIssue();
+
+                    // Then
+                    result.Run.ShouldBe(run);
+                }
+                finally
+                {
+                    if (System.IO.File.Exists(filePath.FullPath))
+                    {
+                        System.IO.File.Delete(filePath.FullPath);
+                    }
+                }
+            }
+
+            [Fact]
             public void Should_Give_Correct_Result_For_ProjectFileRelativePath_After_Roundtrip()
             {
                 // Given
@@ -922,6 +1254,126 @@
 
                     // Then
                     result.Line.ShouldBe(line);
+                }
+                finally
+                {
+                    if (System.IO.File.Exists(filePath.FullPath))
+                    {
+                        System.IO.File.Delete(filePath.FullPath);
+                    }
+                }
+            }
+
+            [Fact]
+            public void Should_Give_Correct_Result_For_EndLine_After_Roundtrip()
+            {
+                // Given
+                var endLine = 420;
+                var issue =
+                    IssueBuilder
+                        .NewIssue("message", "providerType", "providerName")
+                        .InFile(@"src/foo.bar", 42, endLine, null, null)
+                        .Create();
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+
+                try
+                {
+                    // When
+                    issue.SerializeToJsonFile(filePath);
+                    var result = filePath.DeserializeToIssue();
+
+                    // Then
+                    result.EndLine.ShouldBe(endLine);
+                }
+                finally
+                {
+                    if (System.IO.File.Exists(filePath.FullPath))
+                    {
+                        System.IO.File.Delete(filePath.FullPath);
+                    }
+                }
+            }
+
+            [Fact]
+            public void Should_Give_Correct_Result_For_Column_After_Roundtrip()
+            {
+                // Given
+                var column = 23;
+                var issue =
+                    IssueBuilder
+                        .NewIssue("message", "providerType", "providerName")
+                        .InFile(@"src/foo.bar", 42, column)
+                        .Create();
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+
+                try
+                {
+                    // When
+                    issue.SerializeToJsonFile(filePath);
+                    var result = filePath.DeserializeToIssue();
+
+                    // Then
+                    result.Column.ShouldBe(column);
+                }
+                finally
+                {
+                    if (System.IO.File.Exists(filePath.FullPath))
+                    {
+                        System.IO.File.Delete(filePath.FullPath);
+                    }
+                }
+            }
+
+            [Fact]
+            public void Should_Give_Correct_Result_For_EndColumn_After_Roundtrip()
+            {
+                // Given
+                var endColumn = 230;
+                var issue =
+                    IssueBuilder
+                        .NewIssue("message", "providerType", "providerName")
+                        .InFile(@"src/foo.bar", 42, 50, 1, endColumn)
+                        .Create();
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+
+                try
+                {
+                    // When
+                    issue.SerializeToJsonFile(filePath);
+                    var result = filePath.DeserializeToIssue();
+
+                    // Then
+                    result.EndColumn.ShouldBe(endColumn);
+                }
+                finally
+                {
+                    if (System.IO.File.Exists(filePath.FullPath))
+                    {
+                        System.IO.File.Delete(filePath.FullPath);
+                    }
+                }
+            }
+
+            [Fact]
+            public void Should_Give_Correct_Result_For_FileLink_After_Roundtrip()
+            {
+                // Given
+                var fileLink = "https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12";
+                var issue =
+                    IssueBuilder
+                        .NewIssue("message", "providerType", "providerName")
+                        .WithFileLink(new Uri(fileLink))
+                        .Create();
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+
+                try
+                {
+                    // When
+                    issue.SerializeToJsonFile(filePath);
+                    var result = filePath.DeserializeToIssue();
+
+                    // Then
+                    result.FileLink.ToString().ShouldBe(fileLink);
                 }
                 finally
                 {
@@ -1081,6 +1533,44 @@
 
                 // Then
                 result.IsArgumentNullException("filePath");
+            }
+
+            [Fact]
+            public void Should_Give_Correct_Result_For_Identifier_After_Roundtrip()
+            {
+                // Given
+                var identifier1 = "identifier1";
+                var identifier2 = "identifier2";
+                var issues =
+                    new List<IIssue>
+                    {
+                        IssueBuilder
+                          .NewIssue(identifier1, "messageText1", "providerType1", "providerName1")
+                            .Create(),
+                        IssueBuilder
+                            .NewIssue(identifier2, "messageText2", "providerType2", "providerName2")
+                            .Create(),
+                    };
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+
+                try
+                {
+                    // When
+                    issues.SerializeToJsonFile(filePath);
+                    var result = filePath.DeserializeToIssues();
+
+                    // Then
+                    result.Count().ShouldBe(2);
+                    result.First().Identifier.ShouldBe(identifier1);
+                    result.Last().Identifier.ShouldBe(identifier2);
+                }
+                finally
+                {
+                    if (System.IO.File.Exists(filePath.FullPath))
+                    {
+                        System.IO.File.Delete(filePath.FullPath);
+                    }
+                }
             }
 
             [Fact]
@@ -1278,6 +1768,46 @@
             }
 
             [Fact]
+            public void Should_Give_Correct_Result_For_Run_After_Roundtrip()
+            {
+                // Given
+                var run1 = "run1";
+                var run2 = "run2";
+                var issues =
+                    new List<IIssue>
+                    {
+                        IssueBuilder
+                          .NewIssue("message1", "providerType1", "providerName1")
+                            .ForRun(run1)
+                            .Create(),
+                        IssueBuilder
+                            .NewIssue("message2", "providerType2", "providerName2")
+                            .ForRun(run2)
+                            .Create(),
+                    };
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+
+                try
+                {
+                    // When
+                    issues.SerializeToJsonFile(filePath);
+                    var result = filePath.DeserializeToIssues();
+
+                    // Then
+                    result.Count().ShouldBe(2);
+                    result.First().Run.ShouldBe(run1);
+                    result.Last().Run.ShouldBe(run2);
+                }
+                finally
+                {
+                    if (System.IO.File.Exists(filePath.FullPath))
+                    {
+                        System.IO.File.Delete(filePath.FullPath);
+                    }
+                }
+            }
+
+            [Fact]
             public void Should_Give_Correct_Result_For_ProjectFileRelativePath_After_Roundtrip()
             {
                 // Given
@@ -1427,6 +1957,166 @@
                     result.Count().ShouldBe(2);
                     result.First().Line.ShouldBe(line1);
                     result.Last().Line.ShouldBe(line2);
+                }
+                finally
+                {
+                    if (System.IO.File.Exists(filePath.FullPath))
+                    {
+                        System.IO.File.Delete(filePath.FullPath);
+                    }
+                }
+            }
+
+            [Fact]
+            public void Should_Give_Correct_Result_For_EndLine_After_Roundtrip()
+            {
+                // Given
+                var endLine1 = 230;
+                var endLine2 = 420;
+                var issues =
+                    new List<IIssue>
+                    {
+                        IssueBuilder
+                          .NewIssue("message1", "providerType1", "providerName1")
+                            .InFile(@"src/foo.bar", 23, endLine1, null, null)
+                            .Create(),
+                        IssueBuilder
+                            .NewIssue("message2", "providerType2", "providerName2")
+                            .InFile(@"src/foo.bar", 42, endLine2, null, null)
+                            .Create(),
+                    };
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+
+                try
+                {
+                    // When
+                    issues.SerializeToJsonFile(filePath);
+                    var result = filePath.DeserializeToIssues();
+
+                    // Then
+                    result.Count().ShouldBe(2);
+                    result.First().EndLine.ShouldBe(endLine1);
+                    result.Last().EndLine.ShouldBe(endLine2);
+                }
+                finally
+                {
+                    if (System.IO.File.Exists(filePath.FullPath))
+                    {
+                        System.IO.File.Delete(filePath.FullPath);
+                    }
+                }
+            }
+
+            [Fact]
+            public void Should_Give_Correct_Result_For_Column_After_Roundtrip()
+            {
+                // Given
+                var column1 = 23;
+                var column2 = 42;
+                var issues =
+                    new List<IIssue>
+                    {
+                        IssueBuilder
+                          .NewIssue("message1", "providerType1", "providerName1")
+                            .InFile(@"src/foo.bar", 123, column1)
+                            .Create(),
+                        IssueBuilder
+                            .NewIssue("message2", "providerType2", "providerName2")
+                            .InFile(@"src/foo.bar", 123, column2)
+                            .Create(),
+                    };
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+
+                try
+                {
+                    // When
+                    issues.SerializeToJsonFile(filePath);
+                    var result = filePath.DeserializeToIssues();
+
+                    // Then
+                    result.Count().ShouldBe(2);
+                    result.First().Column.ShouldBe(column1);
+                    result.Last().Column.ShouldBe(column2);
+                }
+                finally
+                {
+                    if (System.IO.File.Exists(filePath.FullPath))
+                    {
+                        System.IO.File.Delete(filePath.FullPath);
+                    }
+                }
+            }
+
+            [Fact]
+            public void Should_Give_Correct_Result_For_EndColumn_After_Roundtrip()
+            {
+                // Given
+                var endColumn1 = 23;
+                var endColumn2 = 42;
+                var issues =
+                    new List<IIssue>
+                    {
+                        IssueBuilder
+                          .NewIssue("message1", "providerType1", "providerName1")
+                            .InFile(@"src/foo.bar", 5, 50, 1, endColumn1)
+                            .Create(),
+                        IssueBuilder
+                            .NewIssue("message2", "providerType2", "providerName2")
+                            .InFile(@"src/foo.bar", 5, 50, 1, endColumn2)
+                            .Create(),
+                    };
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+
+                try
+                {
+                    // When
+                    issues.SerializeToJsonFile(filePath);
+                    var result = filePath.DeserializeToIssues();
+
+                    // Then
+                    result.Count().ShouldBe(2);
+                    result.First().EndColumn.ShouldBe(endColumn1);
+                    result.Last().EndColumn.ShouldBe(endColumn2);
+                }
+                finally
+                {
+                    if (System.IO.File.Exists(filePath.FullPath))
+                    {
+                        System.IO.File.Delete(filePath.FullPath);
+                    }
+                }
+            }
+
+            [Fact]
+            public void Should_Give_Correct_Result_For_FileLink_After_Roundtrip()
+            {
+                // Given
+                var fileLink1 = "https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12";
+                var fileLink2 = "https://github.com/myorg/myrepo/blob/develop/src/bar.cs#L23-L42";
+                var issues =
+                    new List<IIssue>
+                    {
+                        IssueBuilder
+                          .NewIssue("message1", "providerType1", "providerName1")
+                            .WithFileLink(new Uri(fileLink1))
+                            .Create(),
+                        IssueBuilder
+                            .NewIssue("message2", "providerType2", "providerName2")
+                            .WithFileLink(new Uri(fileLink2))
+                            .Create(),
+                    };
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+
+                try
+                {
+                    // When
+                    issues.SerializeToJsonFile(filePath);
+                    var result = filePath.DeserializeToIssues();
+
+                    // Then
+                    result.Count().ShouldBe(2);
+                    result.First().FileLink.ToString().ShouldBe(fileLink1);
+                    result.Last().FileLink.ToString().ShouldBe(fileLink2);
                 }
                 finally
                 {

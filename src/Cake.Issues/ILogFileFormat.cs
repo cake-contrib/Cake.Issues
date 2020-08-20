@@ -20,7 +20,7 @@
         /// <returns>List of issues.</returns>
         IEnumerable<IIssue> ReadIssues(
             TIssueProvider issueProvider,
-            RepositorySettings repositorySettings,
+            IRepositorySettings repositorySettings,
             TSettings issueProviderSettings);
     }
 }

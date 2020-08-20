@@ -9,6 +9,12 @@
     public interface IIssue
     {
         /// <summary>
+        /// Gets the identifier for the message.
+        /// The identifier can be used to identify the same issue across multiple runs.
+        /// </summary>
+        string Identifier { get;  }
+
+        /// <summary>
         /// Gets the path to the project to which the file affected by the issue belongs.
         /// The path is relative to the repository root.
         /// Can be <c>null</c> if issue is not related to a project.
@@ -33,6 +39,30 @@
         /// <c>null</c> if the issue affects the whole file or an asssembly.
         /// </summary>
         int? Line { get; }
+
+        /// <summary>
+        /// Gets the end of the line range in the file where the issues has occurred.
+        /// <c>null</c> if the issue affects the whole file, an asssembly or only a single line.
+        /// </summary>
+        int? EndLine { get; }
+
+        /// <summary>
+        /// Gets the column in the file where the issues has occurred.
+        /// <c>null</c> if the issue affects the whole file or an asssembly.
+        /// </summary>
+        int? Column { get; }
+
+        /// <summary>
+        /// Gets the end of the column range in the file where the issues has occurred.
+        /// <c>null</c> if the issue affects the whole file, an asssembly or only a single column.
+        /// </summary>
+        int? EndColumn { get; }
+
+        /// <summary>
+        /// Gets or sets a link to the position in the file where the issue ocurred.
+        /// <c>null</c> if <see cref="IReadIssuesSettings.FileLinkSettings"/> was not set while reading issue.
+        /// </summary>
+        Uri FileLink { get; set; }
 
         /// <summary>
         /// Gets the message of the issue in text format.
@@ -72,6 +102,12 @@
         /// Can be <c>null</c> if the issue provider provides no URL.
         /// </summary>
         Uri RuleUrl { get; }
+
+        /// <summary>
+        /// Gets or sets the description of the run.
+        /// Can be <c>null</c> or <see cref="string.Empty"/> if no run information is provided.
+        /// </summary>
+        string Run { get; set; }
 
         /// <summary>
         /// Gets the type of the issue provider.

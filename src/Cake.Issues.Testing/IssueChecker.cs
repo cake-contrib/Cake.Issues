@@ -41,10 +41,16 @@
                 issueToCheck,
                 expectedIssue.ProviderType,
                 expectedIssue.ProviderName,
+                expectedIssue.Run,
+                expectedIssue.Identifier,
                 expectedIssue.ProjectFileRelativePath?.ToString(),
                 expectedIssue.ProjectName,
                 expectedIssue.AffectedFileRelativePath?.ToString(),
                 expectedIssue.Line,
+                expectedIssue.EndLine,
+                expectedIssue.Column,
+                expectedIssue.EndColumn,
+                expectedIssue.FileLink,
                 expectedIssue.MessageText,
                 expectedIssue.MessageHtml,
                 expectedIssue.MessageMarkdown,
@@ -60,6 +66,8 @@
         /// <param name="issue">Issue which should be checked.</param>
         /// <param name="providerType">Expected type of the issue provider.</param>
         /// <param name="providerName">Expected human friendly name of the issue provider.</param>
+        /// <param name="run">Expected name of the run which reported the issue.</param>
+        /// <param name="identifier">Expected identifier of the issue.</param>
         /// <param name="projectFileRelativePath">Expected relative path of the project file.
         /// <c>null</c> if the issue is not expected to be related to a project.</param>
         /// <param name="projectName">Expected project name.
@@ -68,6 +76,14 @@
         /// <c>null</c> if the issue is not expected to be related to a change in a file.</param>
         /// <param name="line">Expected line number.
         /// <c>null</c> if the issue is not expected to be related to a file or specific line.</param>
+        /// <param name="endLine">Expected end of line range.
+        /// <c>null</c> if the issue is not expected to be related to a file, specific line or range of lines.</param>
+        /// <param name="column">Expected column.
+        /// <c>null</c> if the issue is not expected to be related to a file or specific column.</param>
+        /// <param name="endColumn">Expected end of column range.
+        /// <c>null</c> if the issue is not expected to be related to a file, specific column or range of columns.</param>
+        /// <param name="fileLink">Expected file link.
+        /// <c>null</c> if the issue is not expected to have a file link.</param>
         /// <param name="messageText">Expected message in plain text format.</param>
         /// <param name="messageHtml">Expected message in HTML format.</param>
         /// <param name="messageMarkdown">Expected message in Markdown format.</param>
@@ -83,10 +99,16 @@
             IIssue issue,
             string providerType,
             string providerName,
+            string run,
+            string identifier,
             string projectFileRelativePath,
             string projectName,
             string affectedFileRelativePath,
             int? line,
+            int? endLine,
+            int? column,
+            int? endColumn,
+            Uri fileLink,
             string messageText,
             string messageHtml,
             string messageMarkdown,
@@ -109,6 +131,18 @@
                     $"Expected issue.ProviderName to be '{providerName}' but was '{issue.ProviderName}'.");
             }
 
+            if (issue.Run != run)
+            {
+                throw new Exception(
+                    $"Expected issue.Run to be '{run}' but was '{issue.Run}'.");
+            }
+
+            if (issue.Identifier != identifier)
+            {
+                throw new Exception(
+                    $"Expected issue.Identifier to be '{identifier}' but was '{issue.Identifier}'.");
+            }
+
             if (issue.ProjectFileRelativePath == null)
             {
                 if (projectFileRelativePath != null)
@@ -122,7 +156,7 @@
                 if (issue.ProjectFileRelativePath.ToString() != new FilePath(projectFileRelativePath).ToString())
                 {
                     throw new Exception(
-                        $"Expected issue.ProjectFileRelativePath to be '{projectFileRelativePath}' but was '{issue.ProjectFileRelativePath.ToString()}'.");
+                        $"Expected issue.ProjectFileRelativePath to be '{projectFileRelativePath}' but was '{issue.ProjectFileRelativePath}'.");
                 }
 
                 if (!issue.ProjectFileRelativePath.IsRelative)
@@ -151,7 +185,7 @@
                 if (issue.AffectedFileRelativePath.ToString() != new FilePath(affectedFileRelativePath).ToString())
                 {
                     throw new Exception(
-                        $"Expected issue.AffectedFileRelativePath to be '{affectedFileRelativePath}' but was '{issue.AffectedFileRelativePath.ToString()}'.");
+                        $"Expected issue.AffectedFileRelativePath to be '{affectedFileRelativePath}' but was '{issue.AffectedFileRelativePath}'.");
                 }
 
                 if (!issue.AffectedFileRelativePath.IsRelative)
@@ -165,6 +199,30 @@
             {
                 throw new Exception(
                     $"Expected issue.Line to be '{line}' but was '{issue.Line}'.");
+            }
+
+            if (issue.EndLine != endLine)
+            {
+                throw new Exception(
+                    $"Expected issue.EndLine to be '{endLine}' but was '{issue.EndLine}'.");
+            }
+
+            if (issue.Column != column)
+            {
+                throw new Exception(
+                    $"Expected issue.Column to be '{column}' but was '{issue.Column}'.");
+            }
+
+            if (issue.EndColumn != endColumn)
+            {
+                throw new Exception(
+                    $"Expected issue.EndColumn to be '{endColumn}' but was '{issue.EndColumn}'.");
+            }
+
+            if (issue.FileLink?.ToString() != fileLink?.ToString())
+            {
+                throw new Exception(
+                    $"Expected issue.FileLink to be '{fileLink}' but was '{issue.FileLink}'.");
             }
 
             if (issue.MessageText != messageText)

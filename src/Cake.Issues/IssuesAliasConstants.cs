@@ -26,6 +26,11 @@
         public const string SerializationCakeAliasCategory = "Issue Serialization";
 
         /// <summary>
+        /// Category to use for all Cake aliases providing functionality for linking to files.
+        /// </summary>
+        public const string FileLinkingCakeAliasCategory = "File Linking";
+
+        /// <summary>
         /// Category to use for all Cake aliases creating issue providers.
         /// </summary>
         public const string IssueProviderCakeAliasCategory = "Issue Providers";

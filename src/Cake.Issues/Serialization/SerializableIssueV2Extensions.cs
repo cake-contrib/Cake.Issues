@@ -27,10 +27,15 @@
             }
 
             return new Issue(
+                serializableIssue.MessageText,
                 serializableIssue.ProjectFileRelativePath,
                 serializableIssue.ProjectName,
                 serializableIssue.AffectedFileRelativePath,
                 serializableIssue.Line,
+                null,
+                null,
+                null,
+                null,
                 serializableIssue.MessageText,
                 serializableIssue.MessageHtml,
                 serializableIssue.MessageMarkdown,
@@ -38,6 +43,7 @@
                 serializableIssue.PriorityName,
                 serializableIssue.Rule,
                 ruleUrl,
+                null,
                 serializableIssue.ProviderType,
                 serializableIssue.ProviderName);
 

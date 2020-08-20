@@ -5,7 +5,7 @@
     /// <summary>
     /// Settings for reading issues.
     /// </summary>
-    public class ReadIssuesSettings : RepositorySettings
+    public class ReadIssuesSettings : RepositorySettings, IReadIssuesSettings
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ReadIssuesSettings"/> class.
@@ -15,5 +15,11 @@
             : base(repositoryRoot)
         {
         }
+
+        /// <inheritdoc/>
+        public string Run { get; set; }
+
+        /// <inheritdoc/>
+        public FileLinkSettings FileLinkSettings { get; set; }
     }
 }

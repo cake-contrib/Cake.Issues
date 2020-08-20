@@ -8,6 +8,53 @@
     public static class IIssueExtensions
     {
         /// <summary>
+        /// Returns the line and column range in the format <c>{Line}:{Column}-{EndLine}:{EndColumn}</c>.
+        /// </summary>
+        /// <param name="issue">Issue for which the line and column range should be returned.</param>
+        /// <returns>Line and column range.</returns>
+        public static string LineRange(this IIssue issue)
+        {
+            issue.NotNull(nameof(issue));
+
+            return issue.LineRange(true);
+        }
+
+        /// <summary>
+        /// Returns the line range in the format <c>{Line}:{Column}-{EndLine}:{EndColumn}</c>.
+        /// </summary>
+        /// <param name="issue">Issue for which the line range should be returned.</param>
+        /// <param name="addColumn">Flag if column information should also be returned.</param>
+        /// <returns>Line and column range.</returns>
+        public static string LineRange(this IIssue issue, bool addColumn)
+        {
+            issue.NotNull(nameof(issue));
+
+            string result = string.Empty;
+
+            if (issue.Line.HasValue)
+            {
+                result += issue.Line.ToString();
+
+                if (addColumn && issue.Column.HasValue)
+                {
+                    result += $":{issue.Column.Value}";
+                }
+
+                if (issue.EndLine.HasValue)
+                {
+                    result += $"-{issue.EndLine.Value}";
+
+                    if (addColumn && issue.EndColumn.HasValue)
+                    {
+                        result += $":{issue.EndColumn.Value}";
+                    }
+                }
+            }
+
+            return result;
+        }
+
+        /// <summary>
         /// Gets the message of the issue in a specific format.
         /// If the message is not available in the specific format, the message in
         /// text format will be returned.
@@ -20,17 +67,13 @@
         {
             issue.NotNull(nameof(issue));
 
-            switch (format)
+            return format switch
             {
-                case IssueCommentFormat.PlainText:
-                    return issue.MessageText;
-                case IssueCommentFormat.Html:
-                    return !string.IsNullOrEmpty(issue.MessageHtml) ? issue.MessageHtml : issue.MessageText;
-                case IssueCommentFormat.Markdown:
-                    return !string.IsNullOrEmpty(issue.MessageMarkdown) ? issue.MessageMarkdown : issue.MessageText;
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(format));
-            }
+                IssueCommentFormat.PlainText => issue.MessageText,
+                IssueCommentFormat.Html => !string.IsNullOrEmpty(issue.MessageHtml) ? issue.MessageHtml : issue.MessageText,
+                IssueCommentFormat.Markdown => !string.IsNullOrEmpty(issue.MessageMarkdown) ? issue.MessageMarkdown : issue.MessageText,
+                _ => throw new ArgumentOutOfRangeException(nameof(format)),
+            };
         }
 
         /// <summary>
@@ -97,10 +140,10 @@
         /// Returns a string with all patterns replaced by the values of <paramref name="issue"/>.
         /// </summary>
         /// <param name="pattern">Pattern whose values should be replaced.
-        /// The following patterns are supported:
+        /// The following tokens are supported:
         /// <list type="table">
         ///     <listheader>
-        ///         <term>Pattern</term>
+        ///         <term>Token</term>
         ///         <description>Description</description>
         ///     </listheader>
         ///     <item>
@@ -110,6 +153,10 @@
         ///     <item>
         ///         <term>{ProviderName}</term>
         ///         <description>The value of <see cref="IIssue.ProviderName"/>.</description>
+        ///     </item>
+        ///     <item>
+        ///         <term>{Identifier}</term>
+        ///         <description>The value of <see cref="IIssue.Identifier"/>.</description>
         ///     </item>
         ///     <item>
         ///         <term>{Priority}</term>
@@ -148,12 +195,32 @@
         ///         <description>The value of <see cref="IIssue.Line"/>.</description>
         ///     </item>
         ///     <item>
+        ///         <term>{EndLine}</term>
+        ///         <description>The value of <see cref="IIssue.EndLine"/>.</description>
+        ///     </item>
+        ///     <item>
+        ///         <term>{Column}</term>
+        ///         <description>The value of <see cref="IIssue.Column"/>.</description>
+        ///     </item>
+        ///     <item>
+        ///         <term>{EndColumn}</term>
+        ///         <description>The value of <see cref="IIssue.EndColumn"/>.</description>
+        ///     </item>
+        ///     <item>
+        ///         <term>{FileLink}</term>
+        ///         <description>The value of <see cref="IIssue.FileLink"/>.</description>
+        ///     </item>
+        ///     <item>
         ///         <term>{Rule}</term>
         ///         <description>The value of <see cref="IIssue.Rule"/>.</description>
         ///     </item>
         ///     <item>
         ///         <term>{RuleUrl}</term>
         ///         <description>The value of <see cref="IIssue.RuleUrl"/>.</description>
+        ///     </item>
+        ///     <item>
+        ///         <term>{Run}</term>
+        ///         <description>The value of <see cref="IIssue.Run"/>.</description>
         ///     </item>
         ///     <item>
         ///         <term>{MessageText}</term>
@@ -182,6 +249,7 @@
                 pattern
                     .Replace("{ProviderType}", issue.ProviderType)
                     .Replace("{ProviderName}", issue.ProviderName)
+                    .Replace("{Identifier}", issue.Identifier)
                     .Replace("{Priority}", issue.Priority?.ToString())
                     .Replace("{PriorityName}", issue.PriorityName)
                     .Replace("{ProjectPath}", issue.ProjectPath())
@@ -191,8 +259,13 @@
                     .Replace("{FileDirectory}", issue.FileDirectory())
                     .Replace("{FileName}", issue.FileName())
                     .Replace("{Line}", issue.Line?.ToString())
+                    .Replace("{EndLine}", issue.EndLine?.ToString())
+                    .Replace("{Column}", issue.Column?.ToString())
+                    .Replace("{EndColumn}", issue.EndColumn?.ToString())
+                    .Replace("{FileLink}", issue.FileLink?.ToString())
                     .Replace("{Rule}", issue.Rule)
                     .Replace("{RuleUrl}", issue.RuleUrl?.ToString())
+                    .Replace("{Run}", issue.Run)
                     .Replace("{MessageText}", issue.Message(IssueCommentFormat.PlainText))
                     .Replace("{MessageHtml}", issue.Message(IssueCommentFormat.Html))
                     .Replace("{MessageMarkdown}", issue.Message(IssueCommentFormat.Markdown));

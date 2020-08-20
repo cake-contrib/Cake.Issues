@@ -38,6 +38,18 @@
         /// <item>
         /// <description><see cref="IIssue.Line"/></description>
         /// </item>
+        /// <item>
+        /// <description><see cref="IIssue.EndLine"/></description>
+        /// </item>
+        /// <item>
+        /// <description><see cref="IIssue.Column"/></description>
+        /// </item>
+        /// <item>
+        /// <description><see cref="IIssue.EndColumn"/></description>
+        /// </item>
+        /// <item>
+        /// <description><see cref="IIssue.FileLink"/></description>
+        /// </item>
         /// </list>
         /// </remarks>
         public IIssueComparer(bool compareOnlyPersistentProperties)
@@ -59,10 +71,15 @@
             }
 
             return
+                (x.Identifier == y.Identifier) &&
                 (this.compareOnlyPersistentProperties || x.ProjectFileRelativePath?.FullPath == y.ProjectFileRelativePath?.FullPath) &&
                 (x.ProjectName == y.ProjectName) &&
                 (this.compareOnlyPersistentProperties || x.AffectedFileRelativePath?.FullPath == y.AffectedFileRelativePath?.FullPath) &&
                 (this.compareOnlyPersistentProperties || x.Line == y.Line) &&
+                (this.compareOnlyPersistentProperties || x.EndLine == y.EndLine) &&
+                (this.compareOnlyPersistentProperties || x.Column == y.Column) &&
+                (this.compareOnlyPersistentProperties || x.EndColumn == y.EndColumn) &&
+                (this.compareOnlyPersistentProperties || x.FileLink == y.FileLink) &&
                 (x.MessageText == y.MessageText) &&
                 (x.MessageHtml == y.MessageHtml) &&
                 (x.MessageMarkdown == y.MessageMarkdown) &&
@@ -70,6 +87,7 @@
                 (x.PriorityName == y.PriorityName) &&
                 (x.Rule == y.Rule) &&
                 (x.RuleUrl?.ToString() == y.RuleUrl?.ToString()) &&
+                (x.Run == y.Run) &&
                 (x.ProviderType == y.ProviderType) &&
                 (x.ProviderName == y.ProviderName);
         }
@@ -86,6 +104,7 @@
             {
                 return
                     GetHashCode(
+                        obj.Identifier,
                         obj.ProjectName,
                         obj.MessageText,
                         obj.MessageHtml,
@@ -94,6 +113,7 @@
                         obj.PriorityName,
                         obj.Rule,
                         obj.RuleUrl,
+                        obj.Run,
                         obj.ProviderType,
                         obj.ProviderName);
             }
@@ -101,10 +121,15 @@
             {
                 return
                     GetHashCode(
+                        obj.Identifier,
                         obj.ProjectFileRelativePath?.ToString(),
                         obj.ProjectName,
                         obj.AffectedFileRelativePath?.ToString(),
                         obj.Line,
+                        obj.EndLine,
+                        obj.Column,
+                        obj.EndColumn,
+                        obj.FileLink,
                         obj.MessageText,
                         obj.MessageHtml,
                         obj.MessageMarkdown,
@@ -112,6 +137,7 @@
                         obj.PriorityName,
                         obj.Rule,
                         obj.RuleUrl,
+                        obj.Run,
                         obj.ProviderType,
                         obj.ProviderName);
             }

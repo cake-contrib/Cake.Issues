@@ -7,6 +7,7 @@
     /// </summary>
     public class IssueBuilder
     {
+        private readonly string identifier;
         private readonly string providerType;
         private readonly string providerName;
         private readonly string messageText;
@@ -16,52 +17,49 @@
         private string projectName;
         private string filePath;
         private int? line;
+        private int? endLine;
+        private int? column;
+        private int? endColumn;
+        private Uri fileLink;
         private int? priority;
         private string priorityName;
         private string rule;
         private Uri ruleUrl;
+        private string run;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="IssueBuilder"/> class.
         /// </summary>
+        /// <param name="identifier">The identifier of the message.</param>
         /// <param name="message">The message of the issue in plain text format.</param>
         /// <param name="providerType">The type of the issue provider.</param>
         /// <param name="providerName">The human friendly name of the issue provider.</param>
         private IssueBuilder(
+            string identifier,
             string message,
             string providerType,
             string providerName)
         {
+#pragma warning disable SA1123 // Do not place regions within elements
+            #region DupFinder Exclusion
+#pragma warning restore SA1123 // Do not place regions within elements
+
+            identifier.NotNullOrWhiteSpace(nameof(identifier));
             message.NotNullOrWhiteSpace(nameof(message));
             providerType.NotNullOrWhiteSpace(nameof(providerType));
             providerName.NotNullOrWhiteSpace(nameof(providerName));
 
+            #endregion
+
+            this.identifier = identifier;
             this.messageText = message;
             this.providerType = providerType;
             this.providerName = providerName;
         }
 
         /// <summary>
-        /// Initiates the creation of a new <see cref="IIssue"/>.
-        /// </summary>
-        /// <param name="message">The message of the issue in plain text format.</param>
-        /// <param name="providerType">The type of the issue provider.</param>
-        /// <param name="providerName">The human friendly name of the issue provider.</param>
-        /// <returns>Builder class for creating a new issue.</returns>
-        public static IssueBuilder NewIssue(
-            string message,
-            string providerType,
-            string providerName)
-        {
-            message.NotNullOrWhiteSpace(nameof(message));
-            providerType.NotNullOrWhiteSpace(nameof(providerType));
-            providerName.NotNullOrWhiteSpace(nameof(providerName));
-
-            return new IssueBuilder(message, providerType, providerName);
-        }
-
-        /// <summary>
-        /// Initiates the creation of a new <see cref="IIssue"/>.
+        /// Initiates the creation of a new <see cref="IIssue"/> with <paramref name="message"/>
+        /// as identifier.
         /// </summary>
         /// <typeparam name="T">Type of the issue provider which has the issue created.</typeparam>
         /// <param name="message">The message of the issue in plain text format.</param>
@@ -79,7 +77,78 @@
 
             message.NotNullOrWhiteSpace(nameof(message));
 
-            return new IssueBuilder(message, typeof(T).FullName, issueProvider.ProviderName);
+            return NewIssue(message, message, issueProvider);
+        }
+
+        /// <summary>
+        /// Initiates the creation of a new <see cref="IIssue"/>.
+        /// </summary>
+        /// <typeparam name="T">Type of the issue provider which has the issue created.</typeparam>
+        /// <param name="identifier">The identifier of the message.</param>
+        /// <param name="message">The message of the issue in plain text format.</param>
+        /// <param name="issueProvider">Issue provider which has the issue created.</param>
+        /// <returns>Builder class for creating a new issue.</returns>
+        public static IssueBuilder NewIssue<T>(
+            string identifier,
+            string message,
+            T issueProvider)
+            where T : IIssueProvider
+        {
+            if (issueProvider == null)
+            {
+                throw new ArgumentNullException(nameof(issueProvider));
+            }
+
+            message.NotNullOrWhiteSpace(nameof(message));
+
+            return NewIssue(identifier, message, typeof(T).FullName, issueProvider.ProviderName);
+        }
+
+        /// <summary>
+        /// Initiates the creation of a new <see cref="IIssue"/> with <paramref name="message"/> as identifier.
+        /// </summary>
+        /// <param name="message">The message of the issue in plain text format.</param>
+        /// <param name="providerType">The type of the issue provider.</param>
+        /// <param name="providerName">The human friendly name of the issue provider.</param>
+        /// <returns>Builder class for creating a new issue.</returns>
+        public static IssueBuilder NewIssue(
+            string message,
+            string providerType,
+            string providerName)
+        {
+            message.NotNullOrWhiteSpace(nameof(message));
+            providerType.NotNullOrWhiteSpace(nameof(providerType));
+            providerName.NotNullOrWhiteSpace(nameof(providerName));
+
+            return NewIssue(message, message, providerType, providerName);
+        }
+
+        /// <summary>
+        /// Initiates the creation of a new <see cref="IIssue"/>.
+        /// </summary>
+        /// <param name="identifier">The identifier of the message.</param>
+        /// <param name="message">The message of the issue in plain text format.</param>
+        /// <param name="providerType">The type of the issue provider.</param>
+        /// <param name="providerName">The human friendly name of the issue provider.</param>
+        /// <returns>Builder class for creating a new issue.</returns>
+        public static IssueBuilder NewIssue(
+            string identifier,
+            string message,
+            string providerType,
+            string providerName)
+        {
+#pragma warning disable SA1123 // Do not place regions within elements
+            #region DupFinder Exclusion
+#pragma warning restore SA1123 // Do not place regions within elements
+
+            identifier.NotNullOrWhiteSpace(nameof(identifier));
+            message.NotNullOrWhiteSpace(nameof(message));
+            providerType.NotNullOrWhiteSpace(nameof(providerType));
+            providerName.NotNullOrWhiteSpace(nameof(providerName));
+
+            #endregion
+
+            return new IssueBuilder(identifier, message, providerType, providerName);
         }
 
         /// <summary>
@@ -179,8 +248,73 @@
         {
             line?.NotNegativeOrZero(nameof(line));
 
+            this.InFile(filePath, line, null);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Sets the path to the file affected by the issue and the line and column in the file where the issues has occurred.
+        /// </summary>
+        /// <param name="filePath">The path to the file affacted by the issue.
+        /// The path needs to be relative to the repository root.
+        /// <c>null</c> or <see cref="string.Empty"/> if issue is not related to a change in a file.</param>
+        /// <param name="line">The line in the file where the issues has occurred.
+        /// <c>null</c> if the issue affects the whole file or an asssembly.</param>
+        /// <param name="column">The column in the file where the issues has occurred.
+        /// <c>null</c> if the issue affects the whole file or an asssembly.</param>
+        /// <returns>Issue Builder instance.</returns>
+        public IssueBuilder InFile(string filePath, int? line, int? column)
+        {
+            line?.NotNegativeOrZero(nameof(line));
+            column?.NotNegativeOrZero(nameof(column));
+
+            this.InFile(filePath, line, null, column, null);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Sets the path to the file affected by the issue and the line and column in the file where the issues has occurred.
+        /// </summary>
+        /// <param name="filePath">The path to the file affacted by the issue.
+        /// The path needs to be relative to the repository root.
+        /// <c>null</c> or <see cref="string.Empty"/> if issue is not related to a change in a file.</param>
+        /// <param name="startLine">The line in the file where the issues has occurred.
+        /// <c>null</c> if the issue affects the whole file or an asssembly.</param>
+        /// <param name="endLine">The end of the line range in the file where the issues has occurred.
+        /// <c>null</c> if the issue affects the whole file, an asssembly or only a single line.</param>
+        /// <param name="startColumn">The column in the file where the issues has occurred.
+        /// <c>null</c> if the issue affects the whole file or an asssembly.</param>
+        /// <param name="endColumn">The end of the column range in the file where the issues has occurred.
+        /// <c>null</c> if the issue affects the whole file, an asssembly or only a single column.</param>
+        /// <returns>Issue Builder instance.</returns>
+        public IssueBuilder InFile(string filePath, int? startLine, int? endLine, int? startColumn, int? endColumn)
+        {
+            startLine?.NotNegativeOrZero(nameof(startLine));
+            endLine?.NotNegativeOrZero(nameof(endLine));
+            startColumn?.NotNegativeOrZero(nameof(startColumn));
+            endColumn?.NotNegativeOrZero(nameof(endColumn));
+
             this.filePath = filePath;
-            this.line = line;
+            this.line = startLine;
+            this.endLine = endLine;
+            this.column = startColumn;
+            this.endColumn = endColumn;
+
+            return this;
+        }
+
+        /// <summary>
+        /// Sets the the link to the position in the file where the issue ocurred.
+        /// </summary>
+        /// <param name="fileLink">Link to the position in the file where the issue ocurred.</param>
+        /// <returns>Issue Builder instance.</returns>
+        public IssueBuilder WithFileLink(Uri fileLink)
+        {
+            fileLink.NotNull(nameof(fileLink));
+
+            this.fileLink = fileLink;
 
             return this;
         }
@@ -241,6 +375,20 @@
         }
 
         /// <summary>
+        /// Sets the name of the run where the issue was reported.
+        /// </summary>
+        /// <param name="run">The name of the run where the issue was reported.</param>
+        /// <returns>Issue Builder instance.</returns>
+        public IssueBuilder ForRun(string run)
+        {
+            run.NotNullOrWhiteSpace(nameof(run));
+
+            this.run = run;
+
+            return this;
+        }
+
+        /// <summary>
         /// Creates a new <see cref="IIssue"/>.
         /// </summary>
         /// <returns>New issue object.</returns>
@@ -248,10 +396,15 @@
         {
             return
                 new Issue(
+                    this.identifier,
                     this.projectFileRelativePath,
                     this.projectName,
                     this.filePath,
                     this.line,
+                    this.endLine,
+                    this.column,
+                    this.endColumn,
+                    this.fileLink,
                     this.messageText,
                     this.messageHtml,
                     this.messageMarkdown,
@@ -259,6 +412,7 @@
                     this.priorityName,
                     this.rule,
                     this.ruleUrl,
+                    this.run,
                     this.providerType,
                     this.providerName);
         }

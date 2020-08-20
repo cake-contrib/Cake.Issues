@@ -110,7 +110,7 @@
                         "Foo".ToByteArray(),
                         format);
                 var provider = new FakeMultiFormatIssueProvider(log, settings);
-                provider.Initialize(new RepositorySettings(@"c:\repo"));
+                provider.Initialize(new ReadIssuesSettings(@"c:\repo"));
 
                 // When
                 var result = provider.ReadIssues();

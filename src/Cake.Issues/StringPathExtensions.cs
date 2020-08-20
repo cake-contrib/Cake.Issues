@@ -103,7 +103,7 @@ namespace Cake.Issues
         /// <param name="value">String to which <paramref name="ending"/> should be added.</param>
         /// <param name="ending">String which should be added to <paramref name="value"/>.</param>
         /// <returns><paramref name="value"/> with the minimal concatenation of <paramref name="ending"/>.</returns>
-        internal static string WithEnding(this string value, string ending)
+        public static string WithEnding(this string value, string ending)
         {
             if (value == null)
             {

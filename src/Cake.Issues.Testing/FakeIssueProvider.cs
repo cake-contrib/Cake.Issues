@@ -42,7 +42,7 @@
         /// <summary>
         /// Gets the settings.
         /// </summary>
-        public new RepositorySettings Settings => base.Settings;
+        public new IRepositorySettings Settings => base.Settings;
 
         /// <inheritdoc/>
         public override string ProviderName => "Fake Issue Provider";

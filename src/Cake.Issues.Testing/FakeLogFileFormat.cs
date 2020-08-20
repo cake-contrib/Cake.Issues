@@ -42,7 +42,7 @@
         /// <inheritdoc/>
         public override IEnumerable<IIssue> ReadIssues(
             FakeMultiFormatIssueProvider issueProvider,
-            RepositorySettings repositorySettings,
+            IRepositorySettings repositorySettings,
             FakeMultiFormatIssueProviderSettings issueProviderSettings)
         {
             return this.issues;
