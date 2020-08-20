@@ -20,6 +20,7 @@
         private int? endLine;
         private int? column;
         private int? endColumn;
+        private Uri fileLink;
         private int? priority;
         private string priorityName;
         private string rule;
@@ -305,6 +306,20 @@
         }
 
         /// <summary>
+        /// Sets the the link to the position in the file where the issue ocurred.
+        /// </summary>
+        /// <param name="fileLink">Link to the position in the file where the issue ocurred.</param>
+        /// <returns>Issue Builder instance.</returns>
+        public IssueBuilder WithFileLink(Uri fileLink)
+        {
+            fileLink.NotNull(nameof(fileLink));
+
+            this.fileLink = fileLink;
+
+            return this;
+        }
+
+        /// <summary>
         /// Sets the priority of the issue.
         /// </summary>
         /// <param name="priority">The priority of the issue.</param>
@@ -389,6 +404,7 @@
                     this.endLine,
                     this.column,
                     this.endColumn,
+                    this.fileLink,
                     this.messageText,
                     this.messageHtml,
                     this.messageMarkdown,

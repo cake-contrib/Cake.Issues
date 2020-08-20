@@ -1,70 +1,95 @@
 ﻿namespace Cake.Issues
 {
     using System;
+    using System.Collections.Generic;
+    using Cake.Issues.FileLinking;
 
     /// <summary>
     /// Settings how issues should be linked to files.
     /// </summary>
     public class FileLinkSettings
     {
-        /// <summary>
-        /// Gets or sets the pattern which should be used to link issues to files.
-        /// Fields in the form <c>{FieldName}</c> are replaced with the value of the issue.
-        /// All fields of <see cref="IIssue"/> supported.
-        /// </summary>
-        public string FileLinkPattern { get; set; }
+        private readonly Func<IIssue, IDictionary<string, string>, Uri> builder;
 
         /// <summary>
-        /// Returns settings for linking to files hosted in GitHub.
+        /// Initializes a new instance of the <see cref="FileLinkSettings"/> class.
         /// </summary>
-        /// <param name="repositoryUrl">Full URL of the Git repository,
-        /// eg. <code>https://github.com/cake-contrib/Cake.Issues</code>.</param>
-        /// <param name="branch">Name of the branch.</param>
-        /// <param name="rootPath">Root path of the files.
-        /// <c>null</c> or <see cref="string.Empty"/> if files are in the root of the repository.</param>
-        /// <returns>Settings for linking to files hosted in GitHub.</returns>
-        public static FileLinkSettings GitHub(
-            Uri repositoryUrl,
-            string branch,
-            string rootPath)
+        /// <param name="builder">Callback called for building the file link.</param>
+        internal FileLinkSettings(Func<IIssue, IDictionary<string, string>, Uri> builder)
         {
-            repositoryUrl.NotNull(nameof(repositoryUrl));
-            branch.NotNullOrWhiteSpace(nameof(branch));
+            builder.NotNull(nameof(builder));
 
-            return new FileLinkSettings()
-            {
-                FileLinkPattern =
-                    repositoryUrl.Append("blob", branch, rootPath, "{FilePath}#L{Line}").ToString(),
-            };
+            this.builder = builder;
         }
 
         /// <summary>
-        /// Returns settings for linking to files hosted in Azure DevOps.
+        /// Returns settings to link files based on a custom pattern.
+        /// </summary>
+        /// <param name="pattern">Pattern of the file link.
+        /// See <see cref="IIssueExtensions.ReplaceIssuePattern(string, IIssue)"/>
+        /// for a list of tokens supported in the pattern.</param>
+        /// <returns>File link settings.</returns>
+        public static FileLinkSettings ForPattern(string pattern)
+        {
+            pattern.NotNullOrWhiteSpace(nameof(pattern));
+
+            return
+                new FileLinkSettings(
+                    (issue, values) =>
+                    {
+                        return new Uri(pattern.ReplaceIssuePattern(issue));
+                    });
+        }
+
+        /// <summary>
+        /// Returns settings to link files based on a custom pattern.
+        /// </summary>
+        /// <param name="builder">Callback called for building the file link.</param>
+        /// <returns>File link settings.</returns>
+        public static FileLinkSettings ForAction(Func<IIssue, Uri> builder)
+        {
+            builder.NotNull(nameof(builder));
+
+            return new FileLinkSettings((issue, values) => builder(issue));
+        }
+
+        /// <summary>
+        /// Returns builder class for settings for linking to files hosted in GitHub.
+        /// </summary>
+        /// <param name="repositoryUrl">Full URL of the Git repository,
+        /// eg. <code>https://github.com/cake-contrib/Cake.Issues</code>.</param>
+        /// <returns>Builder class for the settings.</returns>
+        public static GitHubFileLinkSettingsBuilder ForGitHub(Uri repositoryUrl)
+        {
+            repositoryUrl.NotNull(nameof(repositoryUrl));
+
+            return new GitHubFileLinkSettingsBuilder(repositoryUrl);
+        }
+
+        /// <summary>
+        /// Returns builder class for settings for linking to files hosted in Azure DevOps.
         /// </summary>
         /// <param name="repositoryUrl">Full URL of the Git repository,
         /// e.g. <code>https://dev.azure.com/myorganization/_git/myrepo</code>.</param>
-        /// <param name="branch">Name of the branch.</param>
-        /// <param name="rootPath">Root path of the files.
-        /// <c>null</c> or <see cref="string.Empty"/> if files are in the root of the repository.</param>
-        /// <returns>Settings for linking to files hosted in Azure DevOps.</returns>
-        public static FileLinkSettings AzureDevOps(
-            Uri repositoryUrl,
-            string branch,
-            string rootPath)
+        /// <returns>Builder class for the settings.</returns>
+        public static AzureDevOpsFileLinkSettingsBuilder ForAzureDevOps(Uri repositoryUrl)
         {
             repositoryUrl.NotNull(nameof(repositoryUrl));
-            branch.NotNullOrWhiteSpace(nameof(branch));
 
-            if (!string.IsNullOrWhiteSpace(rootPath))
-            {
-                rootPath = rootPath.Trim('/') + "/";
-            }
+            return new AzureDevOpsFileLinkSettingsBuilder(repositoryUrl);
+        }
 
-            return new FileLinkSettings()
-            {
-                FileLinkPattern =
-                    repositoryUrl.ToString().TrimEnd('/') + "?path=" + rootPath + "{FilePath}&version=GB" + branch + "&line={Line}",
-            };
+        /// <summary>
+        /// Returns the URL to the file on the source code hosting system
+        /// for the issue <paramref name="issue"/>.
+        /// </summary>
+        /// <param name="issue">Issue for which the link should be returned.</param>
+        /// <returns>URL to the file on the source code hosting system.</returns>
+        public Uri GetFileLink(IIssue issue)
+        {
+            issue.NotNull(nameof(issue));
+
+            return this.builder(issue, new Dictionary<string, string>());
         }
     }
 }

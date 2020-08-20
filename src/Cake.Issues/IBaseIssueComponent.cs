@@ -7,7 +7,7 @@
     /// </summary>
     /// <typeparam name="T">Type of settings.</typeparam>
     public interface IBaseIssueComponent<in T>
-        where T : RepositorySettings
+        where T : IRepositorySettings
     {
         /// <summary>
         /// Initializes the component.

@@ -11,7 +11,7 @@
     {
         private readonly ICakeLog log;
         private readonly List<IIssueProvider> issueProviders = new List<IIssueProvider>();
-        private readonly ReadIssuesSettings settings;
+        private readonly IReadIssuesSettings settings;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="IssuesReader"/> class.
@@ -22,7 +22,7 @@
         public IssuesReader(
             ICakeLog log,
             IEnumerable<IIssueProvider> issueProviders,
-            ReadIssuesSettings settings)
+            IReadIssuesSettings settings)
         {
             log.NotNull(nameof(log));
             settings.NotNull(nameof(settings));
@@ -59,7 +59,15 @@
                         currentIssues.Count,
                         providerName);
 
-                    currentIssues.ForEach(x => x.Run = this.settings.Run);
+                    currentIssues.ForEach(x =>
+                    {
+                        x.Run = this.settings.Run;
+
+                        if (this.settings.FileLinkSettings != null)
+                        {
+                            x.FileLink = this.settings.FileLinkSettings.GetFileLink(x);
+                        }
+                    });
 
                     issues.AddRange(currentIssues);
                 }

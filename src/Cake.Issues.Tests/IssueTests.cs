@@ -23,6 +23,7 @@
                     var endLine = 12;
                     var column = 50;
                     var endColumn = 55;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -45,6 +46,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -72,6 +74,7 @@
                     var endLine = 12;
                     var column = 50;
                     var endColumn = 55;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -94,6 +97,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -121,6 +125,7 @@
                     var endLine = 12;
                     var column = 50;
                     var endColumn = 55;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -143,6 +148,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -170,6 +176,7 @@
                     var endLine = 12;
                     var column = 50;
                     var endColumn = 55;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -192,6 +199,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -222,6 +230,7 @@
                     var endLine = 12;
                     var column = 50;
                     var endColumn = 55;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -244,6 +253,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -273,6 +283,7 @@
                     var endLine = 12;
                     var column = 50;
                     var endColumn = 55;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -295,6 +306,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -322,6 +334,7 @@
                     var endLine = 12;
                     var column = 50;
                     var endColumn = 55;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -344,6 +357,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -371,6 +385,7 @@
                     var endLine = 12;
                     var column = 50;
                     var endColumn = 55;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -393,6 +408,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -420,6 +436,7 @@
                     var endLine = 12;
                     var column = 50;
                     var endColumn = 55;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -442,6 +459,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -469,6 +487,7 @@
                     var endLine = 12;
                     var column = 50;
                     var endColumn = 55;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -491,6 +510,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -521,6 +541,7 @@
                     var endLine = 12;
                     var column = 50;
                     var endColumn = 55;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -543,6 +564,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -570,6 +592,7 @@
                     var endLine = 12;
                     var column = 50;
                     var endColumn = 55;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -592,6 +615,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -619,6 +643,7 @@
                     var endLine = 12;
                     var column = 50;
                     var endColumn = 55;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -641,6 +666,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -668,6 +694,7 @@
                     var endLine = 12;
                     var column = 50;
                     var endColumn = 55;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -690,6 +717,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -720,6 +748,7 @@
                     var endLine = 12;
                     var column = 50;
                     var endColumn = 55;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -742,6 +771,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -771,6 +801,7 @@
                     var endLine = 12;
                     var column = 50;
                     var endColumn = 55;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -793,6 +824,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -820,6 +852,7 @@
                     int? endLine = null;
                     int? column = null;
                     int? endColumn = null;
+                    Uri fileLink = null;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -842,6 +875,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -869,6 +903,7 @@
                     int? endLine = null;
                     int? column = null;
                     int? endColumn = null;
+                    Uri fileLink = null;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -891,6 +926,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -918,6 +954,7 @@
                     int? endLine = null;
                     int? column = null;
                     int? endColumn = null;
+                    Uri fileLink = null;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -940,6 +977,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -975,6 +1013,7 @@
                     var endLine = 12;
                     var column = 50;
                     var endColumn = 55;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -997,6 +1036,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -1028,6 +1068,7 @@
                     int? endLine = null;
                     int? column = null;
                     int? endColumn = null;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -1050,6 +1091,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -1077,6 +1119,7 @@
                     int? endLine = null;
                     int? column = null;
                     int? endColumn = null;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -1099,6 +1142,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -1126,6 +1170,7 @@
                     int? endLine = null;
                     int? column = null;
                     int? endColumn = null;
+                    Uri fileLink = null;
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -1148,6 +1193,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -1175,6 +1221,7 @@
                     int? endLine = null;
                     int? column = null;
                     int? endColumn = null;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -1197,6 +1244,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -1225,6 +1273,7 @@
                     int? endLine = null;
                     var column = 50;
                     var endColumn = 55;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -1247,6 +1296,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -1277,6 +1327,7 @@
                     var endLine = -1;
                     int? column = null;
                     int? endColumn = null;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -1299,6 +1350,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -1326,6 +1378,7 @@
                     var endLine = 0;
                     int? column = null;
                     int? endColumn = null;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -1348,6 +1401,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -1375,6 +1429,7 @@
                     var endLine = 12;
                     int? column = null;
                     int? endColumn = null;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -1397,6 +1452,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -1424,6 +1480,7 @@
                     var endLine = 12;
                     int? column = null;
                     int? endColumn = null;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -1446,6 +1503,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -1473,6 +1531,7 @@
                     int? endLine = null;
                     int? column = null;
                     int? endColumn = null;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -1495,6 +1554,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -1522,6 +1582,7 @@
                     var endLine = 10;
                     int? column = null;
                     int? endColumn = null;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -1544,6 +1605,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -1572,6 +1634,7 @@
                     var line = 1;
                     var column = 50;
                     var endColumn = 55;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -1594,6 +1657,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -1624,6 +1688,7 @@
                     var endLine = 12;
                     var column = -1;
                     int? endColumn = null;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -1646,6 +1711,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -1673,6 +1739,7 @@
                     var endLine = 12;
                     var column = 0;
                     int? endColumn = null;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -1695,6 +1762,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -1722,6 +1790,7 @@
                     int? endLine = null;
                     var column = 50;
                     int? endColumn = null;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -1744,6 +1813,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -1771,6 +1841,7 @@
                     var endLine = 12;
                     int? column = null;
                     int? endColumn = null;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -1793,6 +1864,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -1822,6 +1894,7 @@
                     var line = 10;
                     var endLine = 12;
                     int? endColumn = null;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -1844,6 +1917,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -1874,6 +1948,7 @@
                     var endLine = 12;
                     var column = 50;
                     var endColumn = -1;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -1896,6 +1971,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -1923,6 +1999,7 @@
                     var endLine = 12;
                     var column = 50;
                     var endColumn = 0;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -1945,6 +2022,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -1972,6 +2050,7 @@
                     var endLine = 12;
                     int? column = null;
                     var endColumn = 55;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -1994,6 +2073,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -2021,6 +2101,7 @@
                     var endLine = 12;
                     var column = 50;
                     var endColumn = 5;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -2043,6 +2124,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -2070,6 +2152,7 @@
                     var endLine = 12;
                     int? column = null;
                     int? endColumn = null;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -2092,6 +2175,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -2119,6 +2203,7 @@
                     var endLine = 12;
                     var column = 50;
                     var endColumn = 50;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -2141,6 +2226,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -2170,6 +2256,7 @@
                     var line = 10;
                     var endLine = 12;
                     var column = 1;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -2192,6 +2279,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -2205,6 +2293,111 @@
 
                     // Then
                     issue.EndColumn.ShouldBe(endColumn);
+                }
+            }
+
+            public sealed class TheFileLinkArgument
+            {
+                [Fact]
+                public void Should_Set_FileLink()
+                {
+                    // Given
+                    var identifier = "identifier";
+                    var projectPath = @"src\foo.csproj";
+                    var projectName = "foo";
+                    var filePath = @"src\foo.cs";
+                    var line = 10;
+                    var endLine = 12;
+                    var column = 50;
+                    var endColumn = 55;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
+                    var priority = 1;
+                    var priorityName = "Warning";
+                    var rule = "Rule";
+                    var ruleUri = new Uri("https://google.com");
+                    var providerType = "ProviderType";
+                    var providerName = "ProviderName";
+                    var run = "Run";
+
+                    // When
+                    var issue =
+                        new Issue(
+                            identifier,
+                            projectPath,
+                            projectName,
+                            filePath,
+                            line,
+                            endLine,
+                            column,
+                            endColumn,
+                            fileLink,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
+                            priority,
+                            priorityName,
+                            rule,
+                            ruleUri,
+                            run,
+                            providerType,
+                            providerName);
+
+                    // Then
+                    issue.FileLink.ShouldBe(fileLink);
+                }
+
+                [Fact]
+                public void Should_Set_FileLink_If_Null()
+                {
+                    // Given
+                    var identifier = "identifier";
+                    var projectPath = @"src\foo.csproj";
+                    var projectName = "foo";
+                    var filePath = @"src\foo.cs";
+                    var line = 10;
+                    var endLine = 12;
+                    var column = 50;
+                    var endColumn = 55;
+                    Uri fileLink = null;
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
+                    var priority = 1;
+                    var priorityName = "Warning";
+                    var rule = "Rule";
+                    var ruleUri = new Uri("https://google.com");
+                    var providerType = "ProviderType";
+                    var providerName = "ProviderName";
+                    var run = "Run";
+
+                    // When
+                    var issue =
+                        new Issue(
+                            identifier,
+                            projectPath,
+                            projectName,
+                            filePath,
+                            line,
+                            endLine,
+                            column,
+                            endColumn,
+                            fileLink,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
+                            priority,
+                            priorityName,
+                            rule,
+                            ruleUri,
+                            run,
+                            providerType,
+                            providerName);
+
+                    // Then
+                    issue.FileLink.ShouldBe(fileLink);
                 }
             }
 
@@ -2222,6 +2415,7 @@
                     var endLine = 12;
                     var column = 50;
                     var endColumn = 55;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     string messageText = null;
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -2244,6 +2438,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -2271,6 +2466,7 @@
                     var endLine = 12;
                     var column = 50;
                     var endColumn = 55;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     var messageText = string.Empty;
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -2293,6 +2489,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -2320,6 +2517,7 @@
                     var endLine = 12;
                     var column = 50;
                     var endColumn = 55;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     var messageText = " ";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -2342,6 +2540,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -2370,6 +2569,7 @@
                     var endLine = 12;
                     var column = 50;
                     var endColumn = 55;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
                     var priority = 1;
@@ -2391,6 +2591,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -2425,6 +2626,7 @@
                     var endLine = 12;
                     var column = 50;
                     var endColumn = 55;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     var messageText = "MessageText";
                     var messageMarkdown = "MessageMarkdown";
                     var priority = 1;
@@ -2446,6 +2648,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -2480,6 +2683,7 @@
                     var endLine = 12;
                     var column = 50;
                     var endColumn = 55;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var priority = 1;
@@ -2501,6 +2705,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -2537,6 +2742,7 @@
                     var endLine = 12;
                     var column = 50;
                     var endColumn = 55;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -2558,6 +2764,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -2588,6 +2795,7 @@
                     var endLine = 12;
                     var column = 50;
                     var endColumn = 55;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -2610,6 +2818,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -2637,6 +2846,7 @@
                     var endLine = 12;
                     var column = 50;
                     var endColumn = 55;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -2659,6 +2869,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -2686,6 +2897,7 @@
                     var endLine = 12;
                     var column = 50;
                     var endColumn = 55;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -2708,6 +2920,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -2736,6 +2949,7 @@
                     var endLine = 12;
                     var column = 50;
                     var endColumn = 55;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -2757,6 +2971,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -2790,6 +3005,7 @@
                     var endLine = 12;
                     var column = 50;
                     var endColumn = 55;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -2811,6 +3027,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -2841,6 +3058,7 @@
                     var endLine = 12;
                     var column = 50;
                     var endColumn = 55;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -2863,6 +3081,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -2890,6 +3109,7 @@
                     var endLine = 12;
                     var column = 50;
                     var endColumn = 55;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -2912,6 +3132,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -2945,6 +3166,7 @@
                     var endLine = 12;
                     var column = 50;
                     var endColumn = 55;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -2966,6 +3188,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -2996,6 +3219,7 @@
                     var endLine = 12;
                     var column = 50;
                     var endColumn = 55;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -3018,6 +3242,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -3045,6 +3270,7 @@
                     var endLine = 12;
                     var column = 50;
                     var endColumn = 55;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -3067,6 +3293,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -3094,6 +3321,7 @@
                     var endLine = 12;
                     var column = 50;
                     var endColumn = 55;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -3116,6 +3344,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -3144,6 +3373,7 @@
                     var endLine = 12;
                     var column = 50;
                     var endColumn = 55;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -3165,6 +3395,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -3195,6 +3426,7 @@
                     var endLine = 12;
                     var column = 50;
                     var endColumn = 55;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -3217,6 +3449,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -3244,6 +3477,7 @@
                     var endLine = 12;
                     var column = 50;
                     var endColumn = 55;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -3266,6 +3500,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -3293,6 +3528,7 @@
                     var endLine = 12;
                     var column = 50;
                     var endColumn = 55;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -3315,6 +3551,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,
@@ -3343,6 +3580,7 @@
                     var endLine = 12;
                     var column = 50;
                     var endColumn = 55;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     var messageText = "MessageText";
                     var messageHtml = "MessageHtml";
                     var messageMarkdown = "MessageMarkdown";
@@ -3364,6 +3602,7 @@
                             endLine,
                             column,
                             endColumn,
+                            fileLink,
                             messageText,
                             messageHtml,
                             messageMarkdown,

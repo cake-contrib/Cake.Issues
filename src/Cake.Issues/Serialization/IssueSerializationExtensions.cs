@@ -88,6 +88,7 @@
                 EndLine = issue.EndLine,
                 Column = issue.Column,
                 EndColumn = issue.EndColumn,
+                FileLink = issue.FileLink?.ToString(),
                 MessageText = issue.MessageText,
                 MessageMarkdown = issue.MessageMarkdown,
                 MessageHtml = issue.MessageHtml,

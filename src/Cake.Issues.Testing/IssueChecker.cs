@@ -50,6 +50,7 @@
                 expectedIssue.EndLine,
                 expectedIssue.Column,
                 expectedIssue.EndColumn,
+                expectedIssue.FileLink,
                 expectedIssue.MessageText,
                 expectedIssue.MessageHtml,
                 expectedIssue.MessageMarkdown,
@@ -81,6 +82,8 @@
         /// <c>null</c> if the issue is not expected to be related to a file or specific column.</param>
         /// <param name="endColumn">Expected end of column range.
         /// <c>null</c> if the issue is not expected to be related to a file, specific column or range of columns.</param>
+        /// <param name="fileLink">Expected file link.
+        /// <c>null</c> if the issue is not expected to have a file link.</param>
         /// <param name="messageText">Expected message in plain text format.</param>
         /// <param name="messageHtml">Expected message in HTML format.</param>
         /// <param name="messageMarkdown">Expected message in Markdown format.</param>
@@ -105,6 +108,7 @@
             int? endLine,
             int? column,
             int? endColumn,
+            Uri fileLink,
             string messageText,
             string messageHtml,
             string messageMarkdown,
@@ -213,6 +217,12 @@
             {
                 throw new Exception(
                     $"Expected issue.EndColumn to be '{endColumn}' but was '{issue.EndColumn}'.");
+            }
+
+            if (issue.FileLink?.ToString() != fileLink?.ToString())
+            {
+                throw new Exception(
+                    $"Expected issue.FileLink to be '{fileLink}' but was '{issue.FileLink}'.");
             }
 
             if (issue.MessageText != messageText)

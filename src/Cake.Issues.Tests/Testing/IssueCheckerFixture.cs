@@ -23,6 +23,7 @@
             this.EndLine = 420;
             this.Column = 23;
             this.EndColumn = 230;
+            this.FileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
             this.MessageText = messageText;
             this.MessageHtml = "messageHtml";
             this.MessageMarkdown = "messageMarkdown";
@@ -37,6 +38,7 @@
                 .WithMessageInMarkdownFormat(this.MessageMarkdown)
                 .InProject(this.ProjectFileRelativePath, this.ProjectName)
                 .InFile(this.AffectedFileRelativePath, this.Line, this.EndLine, this.Column, this.EndColumn)
+                .WithFileLink(this.FileLink)
                 .OfRule(this.Rule, this.RuleUrl)
                 .WithPriority(this.Priority, this.PriorityName);
 
@@ -67,6 +69,8 @@
         public int Column { get; private set; }
 
         public int EndColumn { get; private set; }
+
+        public Uri FileLink { get; private set; }
 
         public string MessageText { get; private set; }
 

@@ -31,7 +31,7 @@
                 var result = new FakeIssueProviderFixture();
 
                 // Then
-                result.RepositorySettings.ShouldNotBeNull();
+                result.ReadIssuesSettings.ShouldNotBeNull();
             }
         }
 
@@ -59,14 +59,14 @@
                 // Given
                 var fixture = new FakeIssueProviderFixture
                 {
-                    RepositorySettings = null,
+                    ReadIssuesSettings = null,
                 };
 
                 // When
                 var result = Record.Exception(() => fixture.ReadIssues());
 
                 // Then
-                result.IsInvalidOperationException("No repository settings set.");
+                result.IsInvalidOperationException("No settings for reading issues set.");
             }
 
             [Fact]

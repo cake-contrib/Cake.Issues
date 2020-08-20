@@ -35,6 +35,7 @@
                 null,
                 null,
                 null,
+                null,
                 serializableIssue.MessageText,
                 serializableIssue.MessageHtml,
                 serializableIssue.MessageMarkdown,
