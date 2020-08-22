@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Linq;
-    using Cake.AzureDevOps.PullRequest.CommentThread;
+    using Cake.AzureDevOps.Repos.PullRequest.CommentThread;
     using Cake.Issues.PullRequests.AzureDevOps.Capabilities;
     using Cake.Issues.Testing;
     using Shouldly;
