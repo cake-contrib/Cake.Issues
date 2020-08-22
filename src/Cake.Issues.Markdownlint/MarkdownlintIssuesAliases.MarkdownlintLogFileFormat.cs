@@ -10,18 +10,18 @@
     public static partial class MarkdownlintIssuesAliases
     {
         /// <summary>
-        /// Gets an instance for the log format as written by Markdownlint.
+        /// Gets an instance for the log format as written by Markdownlint with <c>options.resultVersion</c> set to 1.
         /// </summary>
         /// <param name="context">The context.</param>
-        /// <returns>Instance for the Markdownlint log format.</returns>
+        /// <returns>Instance for the Markdownlint V1 log format.</returns>
         [CakePropertyAlias]
         [CakeAliasCategory(IssuesAliasConstants.IssueProviderCakeAliasCategory)]
-        public static BaseMarkdownlintLogFileFormat MarkdownlintLogFileFormat(
+        public static BaseMarkdownlintLogFileFormat MarkdownlintV1LogFileFormat(
             this ICakeContext context)
         {
             context.NotNull(nameof(context));
 
-            return new MarkdownlintLogFileFormat(context.Log);
+            return new MarkdownlintV1LogFileFormat(context.Log);
         }
     }
 }

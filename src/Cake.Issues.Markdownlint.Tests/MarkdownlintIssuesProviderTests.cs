@@ -21,7 +21,7 @@
                 var result = Record.Exception(() =>
                     new MarkdownlintIssuesProvider(
                         log,
-                        new MarkdownlintIssuesSettings("Foo".ToByteArray(), new MarkdownlintLogFileFormat(new FakeLog()))));
+                        new MarkdownlintIssuesSettings("Foo".ToByteArray(), new MarkdownlintV1LogFileFormat(new FakeLog()))));
 
                 // Then
                 result.IsArgumentNullException("log");

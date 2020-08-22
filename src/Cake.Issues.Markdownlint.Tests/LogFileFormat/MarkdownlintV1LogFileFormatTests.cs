@@ -7,7 +7,7 @@
     using Shouldly;
     using Xunit;
 
-    public sealed class MarkdownlintLogFileFormatTests
+    public sealed class MarkdownlintV1LogFileFormatTests
     {
         public sealed class TheCtor
         {
@@ -15,7 +15,7 @@
             public void Should_Throw_If_Log_Is_Null()
             {
                 // Given / When
-                var result = Record.Exception(() => new MarkdownlintLogFileFormat(null));
+                var result = Record.Exception(() => new MarkdownlintV1LogFileFormat(null));
 
                 // Then
                 result.IsArgumentNullException("log");
@@ -28,7 +28,7 @@
             public void Should_Read_Issues_Correct()
             {
                 // Given
-                var fixture = new MarkdownlintIssuesProviderFixture<MarkdownlintLogFileFormat>("markdownlint.json");
+                var fixture = new MarkdownlintIssuesProviderFixture<MarkdownlintV1LogFileFormat>("markdownlint.json");
 
                 // When
                 var issues = fixture.ReadIssues().ToList();
