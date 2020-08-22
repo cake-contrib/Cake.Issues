@@ -21,6 +21,7 @@ and behavior of Cake.Issues.Recipe.
 | `IssuesParameters.InputFiles.MsBuildXmlFileLoggerLogFilePath` | `null`        | Path to the MSBuild log file created by XmlFileLogger. |
 | `IssuesParameters.InputFiles.MsBuildBinaryLogFilePath`        | `null`        | Path to the MSBuild binary log file.                   |
 | `IssuesParameters.InputFiles.InspectCodeLogFilePath`          | `null`        | Path to the JetBrains InspectCode log file.            |
+| `IssuesParameters.InputFiles.DupFinderLogFilePath`            | `null`        | Path to the JetBrains dupFinder log file.              |
 | `IssuesParameters.InputFiles.MarkdownlintCliLogFilePath`      | `null`        | Path to the markdownlint-cli log file.                 |
 | `IssuesParameters.InputFiles.MarkdownlintV1LogFilePath`       | `null`        | Path to the markdownlint log file in version 1.        |
 
