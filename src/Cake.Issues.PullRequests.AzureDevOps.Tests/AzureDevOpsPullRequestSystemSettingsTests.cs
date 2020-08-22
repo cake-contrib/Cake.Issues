@@ -1,6 +1,7 @@
 ﻿namespace Cake.Issues.PullRequests.AzureDevOps.Tests
 {
     using System;
+    using Cake.AzureDevOps.Authentication;
     using Cake.Issues.Testing;
     using Xunit;
 
@@ -12,7 +13,7 @@
             public void Should_Throw_If_RepositoryUrl_For_SourceRefName_Is_Null()
             {
                 // Given / When
-                var result = Record.Exception(() => new AzureDevOpsPullRequestSystemSettings(null, "foo", null));
+                var result = Record.Exception(() => new AzureDevOpsPullRequestSystemSettings(null, "foo", new AzureDevOpsNtlmCredentials()));
 
                 // Then
                 result.IsArgumentNullException("repositoryUrl");
@@ -22,7 +23,7 @@
             public void Should_Throw_If_SourceRefName_Is_Null()
             {
                 // Given / When
-                var result = Record.Exception(() => new AzureDevOpsPullRequestSystemSettings(new Uri("http://example.com"), null, null));
+                var result = Record.Exception(() => new AzureDevOpsPullRequestSystemSettings(new Uri("http://example.com"), null, new AzureDevOpsNtlmCredentials()));
 
                 // Then
                 result.IsArgumentNullException("sourceRefName");
@@ -32,7 +33,7 @@
             public void Should_Throw_If_SourceRefName_Is_Empty()
             {
                 // Given / When
-                var result = Record.Exception(() => new AzureDevOpsPullRequestSystemSettings(new Uri("http://example.com"), string.Empty, null));
+                var result = Record.Exception(() => new AzureDevOpsPullRequestSystemSettings(new Uri("http://example.com"), string.Empty, new AzureDevOpsNtlmCredentials()));
 
                 // Then
                 result.IsArgumentOutOfRangeException("sourceRefName");
@@ -42,7 +43,7 @@
             public void Should_Throw_If_SourceRefName_Is_WhiteSpace()
             {
                 // Given / When
-                var result = Record.Exception(() => new AzureDevOpsPullRequestSystemSettings(new Uri("http://example.com"), " ", null));
+                var result = Record.Exception(() => new AzureDevOpsPullRequestSystemSettings(new Uri("http://example.com"), " ", new AzureDevOpsNtlmCredentials()));
 
                 // Then
                 result.IsArgumentOutOfRangeException("sourceRefName");
@@ -52,7 +53,7 @@
             public void Should_Throw_If_RepositoryUrl_For_PullRequestId_Is_Null()
             {
                 // Given / When
-                var result = Record.Exception(() => new AzureDevOpsPullRequestSystemSettings(null, 0, null));
+                var result = Record.Exception(() => new AzureDevOpsPullRequestSystemSettings(null, 0, new AzureDevOpsNtlmCredentials()));
 
                 // Then
                 result.IsArgumentNullException("repositoryUrl");
