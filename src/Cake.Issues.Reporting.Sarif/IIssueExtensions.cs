@@ -102,6 +102,21 @@
                     {
                         StartLine = issue.Line.Value,
                     };
+
+                if (issue.EndLine.HasValue)
+                {
+                    result.PhysicalLocation.Region.EndLine = issue.EndLine.Value;
+                }
+
+                if (issue.Column.HasValue)
+                {
+                    result.PhysicalLocation.Region.StartColumn = issue.Column.Value;
+                }
+
+                if (issue.EndColumn.HasValue)
+                {
+                    result.PhysicalLocation.Region.EndColumn = issue.EndColumn.Value;
+                }
             }
 
             return result;
