@@ -14,8 +14,8 @@
             docRootPath.NotNull(nameof(docRootPath));
 
             this.docRootPath = docRootPath;
-            this.RepositorySettings =
-                new RepositorySettings(@"c:\Source\Cake.Issues");
+            this.ReadIssuesSettings =
+                new ReadIssuesSettings(@"c:\Source\Cake.Issues");
         }
 
         protected override string FileResourceNamespace => "Cake.Issues.DocFx.Tests.Testfiles.";
