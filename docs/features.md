@@ -31,6 +31,7 @@ The [Cake.Issues.MsBuild addin] provides the following features.
 | <span class="glyphicon glyphicon-remove" style="color:red"></span> | `IIssue.EndLine`                  |                                       |
 | <span class="glyphicon glyphicon-ok" style="color:orange"></span>  | `IIssue.Column`                   | Only for [MsBuildXmlFileLoggerFormat] |
 | <span class="glyphicon glyphicon-remove" style="color:red"></span> | `IIssue.EndColumn`                |                                       |
+| <span class="glyphicon glyphicon-remove" style="color:red"></span> | `IIssue.FileLink`                 | Can be set while reading issues       |
 | <span class="glyphicon glyphicon-ok" style="color:green"></span>   | `IIssue.MessageText`              |                                       |
 | <span class="glyphicon glyphicon-remove" style="color:red"></span> | `IIssue.MessageHtml`              |                                       |
 | <span class="glyphicon glyphicon-remove" style="color:red"></span> | `IIssue.MessageMarkdown`          |                                       |
