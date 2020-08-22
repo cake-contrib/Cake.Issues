@@ -9,8 +9,8 @@
         public EsLintIssuesProviderFixture(string fileResourceName)
             : base(fileResourceName)
         {
-            this.RepositorySettings =
-                new RepositorySettings(@"c:\Source\Cake.Issues");
+            this.ReadIssuesSettings =
+                new ReadIssuesSettings(@"c:\Source\Cake.Issues");
         }
 
         protected override string FileResourceNamespace => "Cake.Issues.EsLint.Tests.Testfiles." + typeof(T).Name + ".";

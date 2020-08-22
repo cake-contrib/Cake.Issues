@@ -22,7 +22,7 @@
         {
             context.NotNull(nameof(context));
 
-            return typeof(EsLintIssuesProvider).FullName;
+            return EsLintIssuesProvider.ProviderTypeName;
         }
 
         /// <summary>

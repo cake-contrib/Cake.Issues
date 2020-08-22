@@ -41,7 +41,7 @@
                         "'addOne' is defined but never used.",
                         "Cake.Issues.EsLint.EsLintIssuesProvider",
                         "ESLint")
-                        .InFile(@"src\Cake.Issues.EsLint.Tests\Testfiles\fullOfProblems.js", 1)
+                        .InFile(@"src\Cake.Issues.EsLint.Tests\Testfiles\fullOfProblems.js", 1, 10)
                         .OfRule("no-unused-vars", new Uri("http://eslint.org/docs/rules/no-unused-vars"))
                         .WithPriority(IssuePriority.Error)
                         .Create());
@@ -51,7 +51,7 @@
                         "Use the isNaN function to compare with NaN.",
                         "Cake.Issues.EsLint.EsLintIssuesProvider",
                         "ESLint")
-                        .InFile(@"src\Cake.Issues.EsLint.Tests\Testfiles\fullOfProblems.js", 2)
+                        .InFile(@"src\Cake.Issues.EsLint.Tests\Testfiles\fullOfProblems.js", 2, 9)
                         .OfRule("use-isnan", new Uri("http://eslint.org/docs/rules/use-isnan"))
                         .WithPriority(IssuePriority.Error)
                         .Create());
@@ -61,7 +61,7 @@
                         "Unexpected space before unary operator '++'.",
                         "Cake.Issues.EsLint.EsLintIssuesProvider",
                         "ESLint")
-                        .InFile(@"src\Cake.Issues.EsLint.Tests\Testfiles\fullOfProblems.js", 3)
+                        .InFile(@"src\Cake.Issues.EsLint.Tests\Testfiles\fullOfProblems.js", 3, 16)
                         .OfRule("space-unary-ops", new Uri("http://eslint.org/docs/rules/space-unary-ops"))
                         .WithPriority(IssuePriority.Error)
                         .Create());
@@ -71,7 +71,7 @@
                         "Missing semicolon.",
                         "Cake.Issues.EsLint.EsLintIssuesProvider",
                         "ESLint")
-                        .InFile(@"src\Cake.Issues.EsLint.Tests\Testfiles\fullOfProblems.js", 3)
+                        .InFile(@"src\Cake.Issues.EsLint.Tests\Testfiles\fullOfProblems.js", 3, 20)
                         .OfRule("semi", new Uri("http://eslint.org/docs/rules/semi"))
                         .WithPriority(IssuePriority.Warning)
                         .Create());
@@ -81,7 +81,7 @@
                         "Unnecessary 'else' after 'return'.",
                         "Cake.Issues.EsLint.EsLintIssuesProvider",
                         "ESLint")
-                        .InFile(@"src\Cake.Issues.EsLint.Tests\Testfiles\fullOfProblems.js", 4)
+                        .InFile(@"src\Cake.Issues.EsLint.Tests\Testfiles\fullOfProblems.js", 4, 12)
                         .OfRule("no-else-return", new Uri("http://eslint.org/docs/rules/no-else-return"))
                         .WithPriority(IssuePriority.Warning)
                         .Create());
@@ -91,7 +91,7 @@
                         "Expected indentation of 8 spaces but found 6.",
                         "Cake.Issues.EsLint.EsLintIssuesProvider",
                         "ESLint")
-                        .InFile(@"src\Cake.Issues.EsLint.Tests\Testfiles\fullOfProblems.js", 5)
+                        .InFile(@"src\Cake.Issues.EsLint.Tests\Testfiles\fullOfProblems.js", 5, 1)
                         .OfRule("indent", new Uri("http://eslint.org/docs/rules/indent"))
                         .WithPriority(IssuePriority.Warning)
                         .Create());
@@ -101,7 +101,7 @@
                         "Function 'addOne' expected a return value.",
                         "Cake.Issues.EsLint.EsLintIssuesProvider",
                         "ESLint")
-                        .InFile(@"src\Cake.Issues.EsLint.Tests\Testfiles\fullOfProblems.js", 5)
+                        .InFile(@"src\Cake.Issues.EsLint.Tests\Testfiles\fullOfProblems.js", 5, 7)
                         .OfRule("consistent-return", new Uri("http://eslint.org/docs/rules/consistent-return"))
                         .WithPriority(IssuePriority.Error)
                         .Create());
@@ -111,7 +111,7 @@
                         "Missing semicolon.",
                         "Cake.Issues.EsLint.EsLintIssuesProvider",
                         "ESLint")
-                        .InFile(@"src\Cake.Issues.EsLint.Tests\Testfiles\fullOfProblems.js", 5)
+                        .InFile(@"src\Cake.Issues.EsLint.Tests\Testfiles\fullOfProblems.js", 5, 13)
                         .OfRule("semi", new Uri("http://eslint.org/docs/rules/semi"))
                         .WithPriority(IssuePriority.Warning)
                         .Create());
@@ -121,7 +121,7 @@
                         "Unnecessary semicolon.",
                         "Cake.Issues.EsLint.EsLintIssuesProvider",
                         "ESLint")
-                        .InFile(@"src\Cake.Issues.EsLint.Tests\Testfiles\fullOfProblems.js", 7)
+                        .InFile(@"src\Cake.Issues.EsLint.Tests\Testfiles\fullOfProblems.js", 7, 2)
                         .OfRule("no-extra-semi", new Uri("http://eslint.org/docs/rules/no-extra-semi"))
                         .WithPriority(IssuePriority.Error)
                         .Create());
