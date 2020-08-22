@@ -5,6 +5,7 @@
 @{
     List<Tuple<string, string>> pages = new List<Tuple<string, string>>
     {
+        Tuple.Create("News", Context.GetLink("news")),
         Tuple.Create("Documentation", Context.GetLink("docs")),
         Tuple.Create("Reference", Context.GetLink("dsl")),
         Tuple.Create("Addins", Context.GetLink("addins")),

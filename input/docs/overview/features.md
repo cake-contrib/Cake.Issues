@@ -21,7 +21,9 @@ Addin for creating and reading issues providing the following functionality:
 * [NewIssue] alias for creating issues in the build script.
 * [ReadIssues] aliases for reading issues from an issue provider.
 * Support for reading issues from multiple issue providers.
-* Support for reading issues in specific format (Plain text, Markdown, HTML) if supported by issue provider.
+* Support for reading issues in multiple formats (Plain text, Markdown, HTML) if supported by issue provider.
+* Support for creating links to file & location on source code hosting system (GitHub, Azure Repos, etc).
+* Support for passing additional run information to identify specific runs.
 
 ## Cake.Issues.Reporting
 
@@ -37,8 +39,9 @@ Addin for writing issues as comments to pull requests providing the following fu
 * [ReportIssuesToPullRequest] aliases for writing issues as comments to pull requests.
 * Support for reporting issues from multiple issue providers.
 * Support for passing custom issue filter routines in `ReportIssuesToPullRequestSettings.IssueFilters`.
-* Limit number of maximum issues to post globally or per issue provider by setting
-  `ReportIssuesToPullRequestSettings.MaxIssuesToPostForEachIssueProvider` or `ReportIssuesToPullRequestSettings.MaxIssuesToPost`.
+* Advanced support to limit number of maximum issues per run, across multiple runs or per issue provider by setting
+  `ReportIssuesToPullRequestSettings.MaxIssuesToPost`, `ReportIssuesToPullRequestSettings.MaxIssuesToPostAcrossRuns`,
+  `ReportIssuesToPullRequestSettings.MaxIssuesToPostForEachIssueProvider` and `ReportIssuesToPullRequestSettings.ProviderIssueLimits`.
 * Returns all issues as provided by the issue providers and the issues reported to the pull request.
 
 Concrete pull request systems can implement optional capabilities which will provide the following functionality:
@@ -50,7 +53,7 @@ Concrete pull request systems can implement optional capabilities which will pro
 * Support for discussion threads ([BaseDiscussionThreadsCapability])
   * Automatic resolving of issues fixed in subsequent commits.
   * Automatic reopening of still existing issues which are already closed on pull request.
-  * Comparing issues by content to not rely on line numbers.
+  * Comparing issues by identifier to not rely on message or line numbers.
 
 # Supported Issue Providers
 
