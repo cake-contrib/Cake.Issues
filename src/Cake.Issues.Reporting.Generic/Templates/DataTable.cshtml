@@ -52,17 +52,26 @@
     @{
         var groupedIssues =
             from issue in Model
-            group issue by issue.ProviderType;
+            group issue by new { issue.ProviderType, issue.Run };
     }
 
     @foreach (var group in groupedIssues)
     {
-        if (groupedIssues.Count() > 1)
+        var title = group.First().ProviderName;
+        var tableId = group.Key.ProviderType;
+
+        if (!string.IsNullOrWhiteSpace(group.Key.Run))
         {
-            <h2>@group.First().ProviderName</h2>
+            title += " - " + group.Key.Run;
+            tableId += group.Key.Run;
         }
 
-        var tableId = group.Key.Replace(".", "-").ToLower();
+        tableId = tableId.SanitizeHtmlIdAttribute();
+
+        if (groupedIssues.Count() > 1)
+        {
+            <h2>@title</h2>
+        }
 
         <table id="@tableId">
             <thead>
@@ -71,7 +80,7 @@
                     <th scope="col">Project</th>
                     <th scope="col">Directory</th>
                     <th scope="col">File</th>
-                    <th scope="col">Line</th>
+                    <th scope="col">Location</th>
                     <th scope="col">Rule</th>
                     <th scope="col">Message</th>
                 </tr>
@@ -84,7 +93,7 @@
                         <td>@issue.ProjectName</td>
                         <td>@issue.FileDirectory()</td>
                         <td>@issue.FileName()</td>
-                        <td>@issue.Line</td>
+                        <td>@issue.LineRange()</td>
                         <td>
                             @if (issue.RuleUrl != null)
                             {

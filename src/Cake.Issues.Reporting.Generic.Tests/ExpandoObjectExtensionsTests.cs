@@ -41,7 +41,7 @@
                 var result = expandoObject.SerializeToJsonString();
 
                 // Then
-                result.ShouldBe("{\"ProviderType\":\"providerType\",\"ProviderName\":\"providerName\",\"Priority\":null,\"PriorityName\":null,\"ProjectPath\":null,\"ProjectName\":null,\"FilePath\":null,\"FileDirectory\":null,\"FileName\":null,\"Line\":null,\"Rule\":null,\"RuleUrl\":null,\"MessageText\":\"message\"}");
+                result.ShouldBe("{\"ProviderType\":\"providerType\",\"ProviderName\":\"providerName\",\"Run\":null,\"Priority\":null,\"PriorityName\":null,\"ProjectPath\":null,\"ProjectName\":null,\"FilePath\":null,\"FileDirectory\":null,\"FileName\":null,\"FileLink\":null,\"Line\":null,\"EndLine\":null,\"Column\":null,\"EndColumn\":null,\"Location\":\"\",\"Rule\":null,\"RuleUrl\":null,\"MessageText\":\"message\"}");
             }
         }
 
@@ -81,7 +81,7 @@
                 var result = expandoObjects.SerializeToJsonString();
 
                 // Then
-                result.ShouldBe("[{\"ProviderType\":\"providerType1\",\"ProviderName\":\"providerName1\",\"Priority\":null,\"PriorityName\":null,\"ProjectPath\":null,\"ProjectName\":null,\"FilePath\":null,\"FileDirectory\":null,\"FileName\":null,\"Line\":null,\"Rule\":null,\"RuleUrl\":null,\"MessageText\":\"message1\"},{\"ProviderType\":\"providerType1\",\"ProviderName\":\"providerName1\",\"Priority\":null,\"PriorityName\":null,\"ProjectPath\":null,\"ProjectName\":null,\"FilePath\":null,\"FileDirectory\":null,\"FileName\":null,\"Line\":null,\"Rule\":null,\"RuleUrl\":null,\"MessageText\":\"message1\"}]");
+                result.ShouldBe("[{\"ProviderType\":\"providerType1\",\"ProviderName\":\"providerName1\",\"Run\":null,\"Priority\":null,\"PriorityName\":null,\"ProjectPath\":null,\"ProjectName\":null,\"FilePath\":null,\"FileDirectory\":null,\"FileName\":null,\"FileLink\":null,\"Line\":null,\"EndLine\":null,\"Column\":null,\"EndColumn\":null,\"Location\":\"\",\"Rule\":null,\"RuleUrl\":null,\"MessageText\":\"message1\"},{\"ProviderType\":\"providerType1\",\"ProviderName\":\"providerName1\",\"Run\":null,\"Priority\":null,\"PriorityName\":null,\"ProjectPath\":null,\"ProjectName\":null,\"FilePath\":null,\"FileDirectory\":null,\"FileName\":null,\"FileLink\":null,\"Line\":null,\"EndLine\":null,\"Column\":null,\"EndColumn\":null,\"Location\":\"\",\"Rule\":null,\"RuleUrl\":null,\"MessageText\":\"message1\"}]");
             }
         }
     }

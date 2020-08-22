@@ -1,6 +1,6 @@
 Task("Create-Reports-HtmlDxDataGrid-Grouping")
     .Description("Creates HtmlDxDataGrid demo report showing how to define column grouping")
-    .IsDependentOn("Read-Issues")
+    .IsDependentOn("Analyze")
     .Does<BuildData>(data =>
 {
     CreateIssueReport(

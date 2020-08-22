@@ -1,6 +1,6 @@
 Task("Create-Reports-HtmlDataTable-Default")
     .Description("Creates HtmlDataTable default demo report")
-    .IsDependentOn("Read-Issues")
+    .IsDependentOn("Analyze")
     .Does<BuildData>(data =>
 {
     CreateIssueReport(

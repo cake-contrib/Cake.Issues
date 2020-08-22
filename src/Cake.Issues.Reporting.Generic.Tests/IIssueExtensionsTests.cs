@@ -339,6 +339,41 @@
             }
 
             [Fact]
+            public void Should_Set_FileLink_If_Flag_Is_Set()
+            {
+                // Given
+                var fileLink = new Uri("https://github.com");
+                var issue =
+                    IssueBuilder
+                        .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                        .WithFileLink(fileLink)
+                        .Create();
+
+                // When
+                dynamic result = issue.GetExpandoObject(addFileLink: true);
+
+                // Then
+                Assert.Equal(result.FileLink.ToString(), fileLink.ToString());
+            }
+
+            [Fact]
+            public void Should_Not_Set_FileLink_If_Flag_Is_Not_Set()
+            {
+                // Given
+                var issue =
+                    IssueBuilder
+                        .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                        .Create();
+
+                // When
+                dynamic expando = issue.GetExpandoObject(addFileLink: false);
+                var result = Record.Exception(() => expando.FileLink);
+
+                // Then
+                result.IsRuntimeBinderException("'System.Dynamic.ExpandoObject' does not contain a definition for 'FileLink'");
+            }
+
+            [Fact]
             public void Should_Set_Line_If_Flag_Is_Set()
             {
                 // Given
@@ -372,6 +407,158 @@
 
                 // Then
                 result.IsRuntimeBinderException("'System.Dynamic.ExpandoObject' does not contain a definition for 'Line'");
+            }
+
+            [Fact]
+            public void Should_Set_EndLine_If_Flag_Is_Set()
+            {
+                // Given
+                var filePath = @"src\Cake.Issues.Reporting.Generic.Tests\Foo.cs";
+                var line = 23;
+                var endLine = 42;
+                var issue =
+                    IssueBuilder
+                        .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                        .InFile(filePath, line, endLine, null, null)
+                        .Create();
+
+                // When
+                dynamic result = issue.GetExpandoObject(addEndLine: true);
+
+                // Then
+                Assert.Equal(result.EndLine, endLine);
+            }
+
+            [Fact]
+            public void Should_Not_Set_EndLine_If_Flag_Is_Not_Set()
+            {
+                // Given
+                var issue =
+                    IssueBuilder
+                        .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                        .Create();
+
+                // When
+                dynamic expando = issue.GetExpandoObject(addEndLine: false);
+                var result = Record.Exception(() => expando.EndLine);
+
+                // Then
+                result.IsRuntimeBinderException("'System.Dynamic.ExpandoObject' does not contain a definition for 'EndLine'");
+            }
+
+            [Fact]
+            public void Should_Set_Column_If_Flag_Is_Set()
+            {
+                // Given
+                var filePath = @"src\Cake.Issues.Reporting.Generic.Tests\Foo.cs";
+                var line = 23;
+                var endLine = 42;
+                var column = 5;
+                var endColumn = 10;
+                var issue =
+                    IssueBuilder
+                        .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                        .InFile(filePath, line, endLine, column, endColumn)
+                        .Create();
+
+                // When
+                dynamic result = issue.GetExpandoObject(addColumn: true);
+
+                // Then
+                Assert.Equal(result.Column, column);
+            }
+
+            [Fact]
+            public void Should_Not_Set_Column_If_Flag_Is_Not_Set()
+            {
+                // Given
+                var issue =
+                    IssueBuilder
+                        .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                        .Create();
+
+                // When
+                dynamic expando = issue.GetExpandoObject(addColumn: false);
+                var result = Record.Exception(() => expando.Column);
+
+                // Then
+                result.IsRuntimeBinderException("'System.Dynamic.ExpandoObject' does not contain a definition for 'Column'");
+            }
+
+            [Fact]
+            public void Should_Set_EndColumn_If_Flag_Is_Set()
+            {
+                // Given
+                var filePath = @"src\Cake.Issues.Reporting.Generic.Tests\Foo.cs";
+                var line = 23;
+                var endLine = 42;
+                var column = 5;
+                var endColumn = 10;
+                var issue =
+                    IssueBuilder
+                        .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                        .InFile(filePath, line, endLine, column, endColumn)
+                        .Create();
+
+                // When
+                dynamic result = issue.GetExpandoObject(addEndColumn: true);
+
+                // Then
+                Assert.Equal(result.EndColumn, endColumn);
+            }
+
+            [Fact]
+            public void Should_Not_Set_EndColumn_If_Flag_Is_Not_Set()
+            {
+                // Given
+                var issue =
+                    IssueBuilder
+                        .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                        .Create();
+
+                // When
+                dynamic expando = issue.GetExpandoObject(addEndColumn: false);
+                var result = Record.Exception(() => expando.EndColumn);
+
+                // Then
+                result.IsRuntimeBinderException("'System.Dynamic.ExpandoObject' does not contain a definition for 'EndColumn'");
+            }
+
+            [Fact]
+            public void Should_Set_Location_If_Flag_Is_Set()
+            {
+                // Given
+                var filePath = @"src\Cake.Issues.Reporting.Generic.Tests\Foo.cs";
+                var line = 23;
+                var endLine = 42;
+                var issue =
+                    IssueBuilder
+                        .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                        .InFile(filePath, line, endLine, null, null)
+                        .Create();
+
+                // When
+                dynamic result = issue.GetExpandoObject(addLocation: true);
+
+                // Then
+                Assert.Equal(result.Location, $"{line}-{endLine}");
+            }
+
+            [Fact]
+            public void Should_Not_Set_Location_If_Flag_Is_Not_Set()
+            {
+                // Given
+                var issue =
+                    IssueBuilder
+                        .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                        .Create();
+
+                // When
+                dynamic expando = issue.GetExpandoObject(addLocation: false);
+                var result = Record.Exception(() => expando.Location);
+
+                // Then
+                result.IsRuntimeBinderException("'System.Dynamic.ExpandoObject' does not contain a definition for 'Location'");
             }
 
             [Fact]

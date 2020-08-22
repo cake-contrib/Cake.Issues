@@ -1,6 +1,6 @@
 Task("Create-Reports-HtmlDxDataGrid-Enable-Exporting")
     .Description("Creates HtmlDxDataGrid demo report showing how to enable exporting functionality")
-    .IsDependentOn("Read-Issues")
+    .IsDependentOn("Analyze")
     .Does<BuildData>(data =>
 {
     CreateIssueReport(
