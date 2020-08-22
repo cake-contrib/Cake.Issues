@@ -23,7 +23,7 @@
         /// <inheritdoc />
         public override IEnumerable<IIssue> ReadIssues(
             MarkdownlintIssuesProvider issueProvider,
-            RepositorySettings repositorySettings,
+            IRepositorySettings repositorySettings,
             MarkdownlintIssuesSettings markdownlintIssuesSettings)
         {
             issueProvider.NotNull(nameof(issueProvider));
@@ -65,7 +65,7 @@
         /// <returns>True if the file path could be parsed.</returns>
         private bool TryGetFile(
             GroupCollection values,
-            RepositorySettings repositorySettings,
+            IRepositorySettings repositorySettings,
             out string fileName)
         {
             fileName = values["filePath"].Value;

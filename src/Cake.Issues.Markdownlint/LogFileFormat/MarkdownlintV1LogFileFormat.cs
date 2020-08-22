@@ -4,19 +4,18 @@
     using System.IO;
     using System.Linq;
     using System.Runtime.Serialization.Json;
-    using System.Text;
     using Cake.Core.Diagnostics;
 
     /// <summary>
-    /// Logfile format as written by Markdownlint.
+    /// Logfile format as written by Markdownlint with <c>options.resultVersion</c> set to 1.
     /// </summary>
-    internal class MarkdownlintLogFileFormat : BaseMarkdownlintLogFileFormat
+    internal class MarkdownlintV1LogFileFormat : BaseMarkdownlintLogFileFormat
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="MarkdownlintLogFileFormat"/> class.
+        /// Initializes a new instance of the <see cref="MarkdownlintV1LogFileFormat"/> class.
         /// </summary>
         /// <param name="log">The Cake log instance.</param>
-        public MarkdownlintLogFileFormat(ICakeLog log)
+        public MarkdownlintV1LogFileFormat(ICakeLog log)
             : base(log)
         {
         }
@@ -24,7 +23,7 @@
         /// <inheritdoc />
         public override IEnumerable<IIssue> ReadIssues(
             MarkdownlintIssuesProvider issueProvider,
-            RepositorySettings repositorySettings,
+            IRepositorySettings repositorySettings,
             MarkdownlintIssuesSettings markdownlintIssuesSettings)
         {
             issueProvider.NotNull(nameof(issueProvider));
