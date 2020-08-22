@@ -1,6 +1,7 @@
 ﻿namespace Cake.Issues.Reporting.Generic.Tests
 {
     using System;
+    using System.Diagnostics.CodeAnalysis;
     using System.IO;
     using System.Linq;
     using System.Text;
@@ -9,6 +10,8 @@
     using Shouldly;
     using Xunit;
 
+    [SuppressMessage("ReSharper", "ClassNeverInstantiated.Global", Justification = "Instantiated by test runner")]
+    [SuppressMessage("ReSharper", "ExpressionIsAlwaysNull", Justification = "By design for null tests")]
     public sealed class GenericIssueReportFormatSettingsTests
     {
         public sealed class TheCtor
@@ -106,6 +109,11 @@
                     using (var ms = new MemoryStream())
                     using (var stream = this.GetType().Assembly.GetManifestResourceStream("Cake.Issues.Reporting.Generic.Tests.Templates.TestTemplate.cshtml"))
                     {
+                        if (stream == null)
+                        {
+                            throw new ApplicationException("Resource 'Cake.Issues.Reporting.Generic.Tests.Templates.TestTemplate.cshtml' not found.");
+                        }
+
                         stream.CopyTo(ms);
                         var data = ms.ToArray();
 

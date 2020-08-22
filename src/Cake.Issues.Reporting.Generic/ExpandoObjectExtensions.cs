@@ -31,6 +31,7 @@
         /// <returns>Serialized objects.</returns>
         public static string SerializeToJsonString(this IEnumerable<ExpandoObject> expandoObjects)
         {
+            // ReSharper disable PossibleMultipleEnumeration
             expandoObjects.NotNull(nameof(expandoObjects));
 
             return
@@ -39,6 +40,8 @@
                         expandoObjects
                             .Select(x => new Dictionary<string, object>(x))
                             .ToArray());
+
+            // ReSharper restore PossibleMultipleEnumeration
         }
     }
 }

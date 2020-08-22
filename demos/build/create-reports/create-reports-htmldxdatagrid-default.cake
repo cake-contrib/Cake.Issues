@@ -1,6 +1,6 @@
 Task("Create-Reports-HtmlDxDataGrid-Default")
     .Description("Creates HtmlDxDataGrid default demo report")
-    .IsDependentOn("Read-Issues")
+    .IsDependentOn("Analyze")
     .Does<BuildData>(data =>
 {
     CreateIssueReport(

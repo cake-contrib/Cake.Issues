@@ -16,7 +16,7 @@
         Dark,
 
         /// <summary>
-        /// Hight contrast theme.
+        /// High contrast theme.
         /// </summary>
         Contrast,
 

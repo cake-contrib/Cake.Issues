@@ -1,7 +1,6 @@
 ﻿namespace Cake.Issues.Reporting.Generic
 {
     using System;
-    using System.Collections.Generic;
 
     /// <summary>
     /// Description of a column in the <see cref="GenericIssueReportTemplate.HtmlDxDataGrid"/> template.

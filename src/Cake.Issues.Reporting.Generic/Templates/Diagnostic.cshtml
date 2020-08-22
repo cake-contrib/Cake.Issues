@@ -1,4 +1,7 @@
-﻿@model IEnumerable<Cake.Issues.IIssue>
+﻿@inherits IEnumerable<Cake.Issues.IIssue>
+
+@using System.Collections.Generic
+@using System.Linq
 
 <!DOCTYPE html>
 
@@ -15,6 +18,9 @@
                 <th scope="col">ProjectName</th>
                 <th scope="col">AffectedFileRelativePath</th>
                 <th scope="col">Line</th>
+                <th scope="col">EndLine</th>
+                <th scope="col">Column</th>
+                <th scope="col">EndColumn</th>
                 <th scope="col">MessageText</th>
                 <th scope="col">MessageHtml</th>
                 <th scope="col">MessageMarkdown</th>
@@ -22,6 +28,7 @@
                 <th scope="col">PriorityName</th>
                 <th scope="col">Rule</th>
                 <th scope="col">RuleUrl</th>
+                <th scope="col">Run</th>
                 <th scope="col">ProviderType</th>
                 <th scope="col">ProviderName</th>
             </tr>
@@ -34,6 +41,9 @@
                 <td>@issue.ProjectName</td>
                 <td>@issue.AffectedFileRelativePath</td>
                 <td>@issue.Line</td>
+                <td>@issue.EndLine</td>
+                <td>@issue.Column</td>
+                <td>@issue.EndColumn</td>
                 <td>@issue.MessageText</td>
                 <td>@issue.MessageHtml</td>
                 <td>@issue.MessageMarkdown</td>
@@ -41,6 +51,7 @@
                 <td>@issue.PriorityName</td>
                 <td>@issue.Rule</td>
                 <td>@issue.RuleUrl</td>
+                <td>@issue.Run</td>
                 <td>@issue.ProviderType</td>
                 <td>@issue.ProviderName</td>
             </tr>

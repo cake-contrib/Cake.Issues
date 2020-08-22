@@ -1,11 +1,14 @@
 ﻿namespace Cake.Issues.Reporting.Generic.Tests
 {
     using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
     using Cake.Issues.Testing;
     using Cake.Testing;
     using Shouldly;
     using Xunit;
 
+    [SuppressMessage("ReSharper", "ClassNeverInstantiated.Global", Justification = "Instantiated by test runner")]
+    [SuppressMessage("ReSharper", "ExpressionIsAlwaysNull", Justification = "By design for null tests")]
     public sealed class GenericIssueReportGeneratorTests
     {
         public sealed class TheCtor
@@ -67,7 +70,7 @@
                     };
 
                 // When
-                var result = fixture.CreateReport(issues);
+                fixture.CreateReport(issues);
 
                 // Then
                 // No additional tests. We only check if template can be compiled.

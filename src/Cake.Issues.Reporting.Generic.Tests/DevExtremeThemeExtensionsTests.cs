@@ -2,9 +2,12 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
     using Shouldly;
     using Xunit;
 
+    [SuppressMessage("ReSharper", "ClassNeverInstantiated.Global", Justification = "Instantiated by test runner")]
+    [SuppressMessage("ReSharper", "ExpressionIsAlwaysNull", Justification = "By design for null tests")]
     public sealed class DevExtremeThemeExtensionsTests
     {
         public sealed class TheGetCssFileNameMethod
@@ -13,7 +16,7 @@
             {
                 foreach (var number in Enum.GetValues(typeof(DevExtremeTheme)))
                 {
-                    yield return new object[] { number };
+                    yield return new[] { number };
                 }
             }
 

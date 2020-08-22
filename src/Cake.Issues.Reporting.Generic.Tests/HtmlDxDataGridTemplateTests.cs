@@ -2,11 +2,14 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
     using System.Linq;
     using HtmlAgilityPack;
     using Shouldly;
     using Xunit;
 
+    [SuppressMessage("ReSharper", "ClassNeverInstantiated.Global", Justification = "Instantiated by test runner")]
+    [SuppressMessage("ReSharper", "ExpressionIsAlwaysNull", Justification = "By design for null tests")]
     public sealed class HtmlDxDataGridTemplateTests
     {
         public sealed class TheTitleOption
@@ -26,7 +29,7 @@
                 // Then
                 var doc = new HtmlDocument();
                 doc.LoadHtml(result);
-                var titleElements = doc.DocumentNode.Descendants("title");
+                var titleElements = doc.DocumentNode.Descendants("title").ToList();
                 titleElements.ShouldHaveSingleItem();
                 titleElements.Single().InnerText.ShouldBe(title);
             }
@@ -46,7 +49,7 @@
                 // Then
                 var doc = new HtmlDocument();
                 doc.LoadHtml(result);
-                var headingElements = doc.DocumentNode.Descendants("h1");
+                var headingElements = doc.DocumentNode.Descendants("h1").ToList();
                 headingElements.ShouldHaveSingleItem();
                 headingElements.Single().InnerText.ShouldBe(title);
             }
@@ -56,10 +59,9 @@
         {
             public static IEnumerable<object[]> DevExtremeThemes()
             {
-                foreach (var number in Enum.GetValues(typeof(DevExtremeTheme)))
-                {
-                    yield return new object[] { number };
-                }
+                return
+                    from object number in Enum.GetValues(typeof(DevExtremeTheme))
+                    select new[] { number };
             }
 
             [Theory]
@@ -79,7 +81,7 @@
                 doc.LoadHtml(result);
                 var stylesheetElements = doc.DocumentNode.SelectNodes("//link[@rel='stylesheet']");
                 stylesheetElements.Count.ShouldBe(2);
-                stylesheetElements.ShouldContain(x => x.Attributes["href"].Value.EndsWith(DevExtremeThemeExtensions.GetCssFileName(theme)));
+                stylesheetElements.ShouldContain(x => x.Attributes["href"].Value.EndsWith(theme.GetCssFileName()));
             }
         }
 
@@ -238,6 +240,40 @@
                 fixture.TestReportCreation(
                     settings =>
                         settings.WithOption(HtmlDxDataGridOption.ProviderNameSortOrder, value));
+            }
+        }
+
+        public sealed class TheRunVisibleOption
+        {
+            [Theory]
+            [InlineData(true)]
+            [InlineData(false)]
+            public void Should_Not_Fail_On_Report_Creation(bool value)
+            {
+                // Given
+                var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+
+                // When / Then
+                fixture.TestReportCreation(
+                    settings =>
+                        settings.WithOption(HtmlDxDataGridOption.RunVisible, value));
+            }
+        }
+
+        public sealed class TheRunSortOrderOption
+        {
+            [Theory]
+            [InlineData(ColumnSortOrder.Ascending)]
+            [InlineData(ColumnSortOrder.Descending)]
+            public void Should_Not_Fail_On_Report_Creation(ColumnSortOrder value)
+            {
+                // Given
+                var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+
+                // When / Then
+                fixture.TestReportCreation(
+                    settings =>
+                        settings.WithOption(HtmlDxDataGridOption.RunSortOrder, value));
             }
         }
 
@@ -513,6 +549,74 @@
             }
         }
 
+        public sealed class TheEndLineVisibleOption
+        {
+            [Theory]
+            [InlineData(true)]
+            [InlineData(false)]
+            public void Should_Not_Fail_On_Report_Creation(bool value)
+            {
+                // Given
+                var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+
+                // When / Then
+                fixture.TestReportCreation(
+                    settings =>
+                        settings.WithOption(HtmlDxDataGridOption.EndLineVisible, value));
+            }
+        }
+
+        public sealed class TheEndLineSortOrderOption
+        {
+            [Theory]
+            [InlineData(ColumnSortOrder.Ascending)]
+            [InlineData(ColumnSortOrder.Descending)]
+            public void Should_Not_Fail_On_Report_Creation(ColumnSortOrder value)
+            {
+                // Given
+                var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+
+                // When / Then
+                fixture.TestReportCreation(
+                    settings =>
+                        settings.WithOption(HtmlDxDataGridOption.EndLineSortOrder, value));
+            }
+        }
+
+        public sealed class TheLocationVisibleOption
+        {
+            [Theory]
+            [InlineData(true)]
+            [InlineData(false)]
+            public void Should_Not_Fail_On_Report_Creation(bool value)
+            {
+                // Given
+                var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+
+                // When / Then
+                fixture.TestReportCreation(
+                    settings =>
+                        settings.WithOption(HtmlDxDataGridOption.LocationVisible, value));
+            }
+        }
+
+        public sealed class TheLocationSortOrderOption
+        {
+            [Theory]
+            [InlineData(ColumnSortOrder.Ascending)]
+            [InlineData(ColumnSortOrder.Descending)]
+            public void Should_Not_Fail_On_Report_Creation(ColumnSortOrder value)
+            {
+                // Given
+                var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+
+                // When / Then
+                fixture.TestReportCreation(
+                    settings =>
+                        settings.WithOption(HtmlDxDataGridOption.LocationSortOrder, value));
+            }
+        }
+
         public sealed class TheLRuleVisibleOption
         {
             [Theory]
@@ -673,31 +777,11 @@
                             HtmlDxDataGridOption.AdditionalColumns,
                             new List<HtmlDxDataGridColumnDescription>
                             {
-                                new HtmlDxDataGridColumnDescription("MyCustomColumn", x => { return "Foo"; })
+                                new HtmlDxDataGridColumnDescription("MyCustomColumn", x => "Foo")
                                 {
                                     Caption = "Custom Value",
                                 },
                             }));
-            }
-        }
-
-        public sealed class TheFileLinkSettingsOption
-        {
-            [Fact]
-            public void Should_Not_Fail_On_Report_Creation()
-            {
-                // Given
-                var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
-
-                // When / Then
-                fixture.TestReportCreation(
-                    settings =>
-                        settings.WithOption(
-                            HtmlDxDataGridOption.FileLinkSettings,
-                            FileLinkSettings.GitHub(
-                                new Uri("https://github.com/cake-contrib/Cake.Issues.Reporting.Generic"),
-                                "master",
-                                null)));
             }
         }
 
@@ -822,7 +906,7 @@
             }
         }
 
-        public sealed class TheJSZipLocationOption
+        public sealed class TheJsZipLocationOption
         {
             [Fact]
             public void Should_Not_Fail_On_Report_Creation()
@@ -834,7 +918,24 @@
                 fixture.TestReportCreation(
                     settings =>
                         settings.WithOption(
-                            HtmlDxDataGridOption.JSZipLocation,
+                            HtmlDxDataGridOption.JsZipLocation,
+                            "foo"));
+            }
+        }
+
+        public sealed class TheJsZipVersionOption
+        {
+            [Fact]
+            public void Should_Not_Fail_On_Report_Creation()
+            {
+                // Given
+                var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+
+                // When / Then
+                fixture.TestReportCreation(
+                    settings =>
+                        settings.WithOption(
+                            HtmlDxDataGridOption.JsZipVersion,
                             "foo"));
             }
         }

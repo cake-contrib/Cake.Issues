@@ -1,7 +1,7 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net461</TargetFrameworks>
+    <TargetFrameworks>netcoreapp2.1;netcoreapp3.0</TargetFrameworks>
     <IsPackable>false</IsPackable>
     <Description>Tests for the Cake.Issues.Reporting.Generic addin</Description>
     <Copyright>Copyright © Pascal Berger and contributors</Copyright>
@@ -13,14 +13,29 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <!-- To disable parallelization in xunit builds while running "dotnet test" a configuration file is required. -->
+    <!-- For disabling parallelization in test execution inside Visual Studio see DisableTestParallelization attribute. -->
+    <Content Include="xunit.runner.json" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+  <ItemGroup>
     <EmbeddedResource Include="Templates\TestTemplate.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="coverlet.msbuild" Version="2.9.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.6.1" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageReference Include="Cake.Testing" Version="0.33.0" />
-    <PackageReference Include="Cake.Issues.Testing" Version="0.8.0" />
-    <PackageReference Include="HtmlAgilityPack" Version="1.11.17" />
+    <PackageReference Include="Cake.Issues.Testing" Version="0.9.0" />
+    <PackageReference Include="HtmlAgilityPack" Version="1.11.24" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Shouldly" Version="3.0.2" />
     <PackageReference Include="StyleCop.Analyzers">
       <Version>1.1.118</Version>
@@ -29,7 +44,7 @@
       <Version>2.4.1</Version>
     </PackageReference>
     <PackageReference Include="xunit.runner.visualstudio">
-      <Version>2.4.1</Version>
+      <Version>2.4.2</Version>
     </PackageReference>
   </ItemGroup>
 

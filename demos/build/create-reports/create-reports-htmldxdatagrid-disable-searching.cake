@@ -1,6 +1,6 @@
 Task("Create-Reports-HtmlDxDataGrid-Disable-Searching")
     .Description("Creates HtmlDxDataGrid demo report showing how to disable searching functionality")
-    .IsDependentOn("Read-Issues")
+    .IsDependentOn("Analyze")
     .Does<BuildData>(data =>
 {
     CreateIssueReport(

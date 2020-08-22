@@ -76,6 +76,20 @@
         ProviderNameSortOrder,
 
         /// <summary>
+        /// Flag if the <see cref="ReportColumn.Run"/> column should be visible or not.
+        /// Either <c>true</c> or <c>false</c>.
+        /// Default value is <c>true</c> if any issue contains run information, otherwise <c>false</c>.
+        /// </summary>
+        RunVisible,
+
+        /// <summary>
+        /// Sort order of the <see cref="ReportColumn.Run"/> column if it is part of <see cref="SortedColumns"/>.
+        /// See <see cref="ColumnSortOrder"/> for possible values.
+        /// Default value is <see cref="ColumnSortOrder.Ascending"/>.
+        /// </summary>
+        RunSortOrder,
+
+        /// <summary>
         /// Flag if the <see cref="ReportColumn.Priority"/> column should be visible or not.
         /// Either <c>true</c> or <c>false</c>.
         /// Default value is <c>false</c>.
@@ -176,7 +190,7 @@
         /// <summary>
         /// Flag if the <see cref="ReportColumn.Line"/> column should be visible or not.
         /// Either <c>true</c> or <c>false</c>.
-        /// Default value is <c>true</c>.
+        /// Default value is <c>false</c>.
         /// </summary>
         LineVisible,
 
@@ -186,6 +200,62 @@
         /// Default value is <see cref="ColumnSortOrder.Ascending"/>.
         /// </summary>
         LineSortOrder,
+
+        /// <summary>
+        /// Flag if the <see cref="ReportColumn.EndLine"/> column should be visible or not.
+        /// Either <c>true</c> or <c>false</c>.
+        /// Default value is <c>false</c>.
+        /// </summary>
+        EndLineVisible,
+
+        /// <summary>
+        /// Sort order of the <see cref="ReportColumn.EndLine"/> column if it is part of <see cref="SortedColumns"/>.
+        /// See <see cref="ColumnSortOrder"/> for possible values.
+        /// Default value is <see cref="ColumnSortOrder.Ascending"/>.
+        /// </summary>
+        EndLineSortOrder,
+
+        /// <summary>
+        /// Flag if the <see cref="ReportColumn.Column"/> column should be visible or not.
+        /// Either <c>true</c> or <c>false</c>.
+        /// Default value is <c>false</c>.
+        /// </summary>
+        ColumnVisible,
+
+        /// <summary>
+        /// Sort order of the <see cref="ReportColumn.Column"/> column if it is part of <see cref="SortedColumns"/>.
+        /// See <see cref="ColumnSortOrder"/> for possible values.
+        /// Default value is <see cref="ColumnSortOrder.Ascending"/>.
+        /// </summary>
+        ColumnSortOrder,
+
+        /// <summary>
+        /// Flag if the <see cref="ReportColumn.EndColumn"/> column should be visible or not.
+        /// Either <c>true</c> or <c>false</c>.
+        /// Default value is <c>false</c>.
+        /// </summary>
+        EndColumnVisible,
+
+        /// <summary>
+        /// Sort order of the <see cref="ReportColumn.EndColumn"/> column if it is part of <see cref="SortedColumns"/>.
+        /// See <see cref="ColumnSortOrder"/> for possible values.
+        /// Default value is <see cref="ColumnSortOrder.Ascending"/>.
+        /// </summary>
+        EndColumnSortOrder,
+
+        /// <summary>
+        /// Flag if the <see cref="ReportColumn.Location"/> column should be visible or not.
+        /// Either <c>true</c> or <c>false</c>.
+        /// Default value is <c>true</c>.
+        /// </summary>
+        LocationVisible,
+
+        /// <summary>
+        /// Sort order of the <see cref="ReportColumn.Location"/> column if it is part of <see cref="SortedColumns"/>.
+        /// See <see cref="ColumnSortOrder"/> for possible values.
+        /// Default value is <see cref="ColumnSortOrder.Ascending"/>.
+        /// </summary>
+        LocationSortOrder,
 
         /// <summary>
         /// Flag if the <see cref="ReportColumn.Rule"/> column should be visible or not.
@@ -232,7 +302,7 @@
         /// <summary>
         /// List of <see cref="ReportColumn"/> which should be grouped.
         /// Grouped columns are always visible.
-        /// Default value is <see cref="ReportColumn.ProviderName"/>.
+        /// Default value is <see cref="ReportColumn.ProviderName"/> and <see cref="ReportColumn.Run"/>.
         /// </summary>
         GroupedColumns,
 
@@ -244,17 +314,10 @@
         SortedColumns,
 
         /// <summary>
-        /// List of <see cref="HtmlDxDataGridColumnDescription"/> for additional columsn which should be added to the grid.
+        /// List of <see cref="HtmlDxDataGridColumnDescription"/> for additional columns which should be added to the grid.
         /// Default value is an empty list.
         /// </summary>
         AdditionalColumns,
-
-        /// <summary>
-        /// Settings for having issues linked to files.
-        /// Value needs to be an instance of <see cref="FileLinkSettings"/>.
-        /// Default value is <c>null</c>.
-        /// </summary>
-        FileLinkSettings,
 
         /// <summary>
         /// Location where jQuery can be found.
@@ -271,7 +334,7 @@
         /// <summary>
         /// Version of jQuery which should be used.
         /// This version needs to match the version required by the selected <see cref="DevExtremeVersion"/>.
-        /// Default value is <c>3.4.1</c>.
+        /// Default value is <c>3.5.0</c>.
         /// </summary>
         JQueryVersion,
 
@@ -298,7 +361,7 @@
         /// <summary>
         /// Version of the DevExtreme libraries which should be used.
         /// If setting this the matching <see cref="JQueryVersion"/> needs to also be set.
-        /// Default value is <c>19.2.5</c>.
+        /// Default value is <c>20.1.6</c>.
         /// </summary>
         DevExtremeVersion,
 
@@ -327,14 +390,22 @@
 
         /// <summary>
         /// Location where JSZip can be found.
+        /// Below the location there needs to be a folder matching <see cref="JsZipVersion"/>.
         /// The following files need to be available:
         /// <list type="bullet">
         /// <item>
-        /// <description><c>{JSZipLocation}/jszip.min.js</c></description>
+        /// <description><c>{JsZipLocation}/{JsZipVersion}/jszip.min.js</c></description>
         /// </item>
         /// </list>
-        /// Default value is <c>https://cdnjs.cloudflare.com/ajax/libs/jszip/3.2.2/</c>.
+        /// Default value is <c>https://cdnjs.cloudflare.com/ajax/libs/jszip/</c>.
         /// </summary>
-        JSZipLocation,
+        JsZipLocation,
+
+        /// <summary>
+        /// Version of JsZip which should be used.
+        /// This version needs to match the version required by the selected <see cref="DevExtremeVersion"/>.
+        /// Default value is <c>3.2.2</c>.
+        /// </summary>
+        JsZipVersion,
     }
 }

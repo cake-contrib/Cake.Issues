@@ -9,7 +9,7 @@ Template for a HTML report containing a rich data grid with sorting, filtering, 
 
 # Features
 
-* Table with `Provider`, `Severity`, `Project`, `Path`, `File`, `Line`, `Rule`, `Message` by default.
+* Table with `Provider`, `Severity`, `Project`, `Path`, `File`, `Location`, `Rule`, `Message` by default.
 * Support for grouping by multiple columns by user.
 * Total number of issues by each group level.
 * Each column sortable by user.
@@ -208,8 +208,6 @@ CreateIssueReport(
   (<a href="https://github.com/cake-contrib/Cake.Issues.Reporting.Generic/blob/develop/demos/build/create-reports/create-reports-htmldxdatagrid-change-title.cake" target="_blank">Source Code</a>)
 * <a href="htmldxdatagrid-demo-disableheader.html" target="_blank">Disable header</a>
   (<a href="https://github.com/cake-contrib/Cake.Issues.Reporting.Generic/blob/develop/demos/build/create-reports/create-reports-htmldxdatagrid-disable-header.cake" target="_blank">Source Code</a>)
-* <a href="htmldxdatagrid-demo-filelinking.html" target="_blank">File linking</a>
-  (<a href="https://github.com/cake-contrib/Cake.Issues.Reporting.Generic/blob/develop/demos/build/create-reports/create-reports-htmldxdatagrid-file-linking.cake" target="_blank">Source Code</a>)
 * <a href="htmldxdatagrid-demo-disablefiltering.html" target="_blank">Disable filtering</a>
   (<a href="https://github.com/cake-contrib/Cake.Issues.Reporting.Generic/blob/develop/demos/build/create-reports/create-reports-htmldxdatagrid-disable-filtering.cake" target="_blank">Source Code</a>)
 * <a href="htmldxdatagrid-demo-disablesearching.html" target="_blank">Disable searching</a>
