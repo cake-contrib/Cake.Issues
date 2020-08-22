@@ -9,7 +9,7 @@
         public MsBuildIssuesProviderFixture(string fileResourceName)
             : base(fileResourceName)
         {
-            this.RepositorySettings = new RepositorySettings(@"c:\Source\Cake.Issues.MsBuild");
+            this.ReadIssuesSettings = new ReadIssuesSettings(@"c:\Source\Cake.Issues.MsBuild");
         }
 
         protected override string FileResourceNamespace => "Cake.Issues.MsBuild.Tests.Testfiles." + typeof(T).Name + ".";
