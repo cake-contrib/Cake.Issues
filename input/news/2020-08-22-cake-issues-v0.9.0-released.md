@@ -188,7 +188,7 @@ For details see release notes of the individual addins:
 * [Cake.Issues.Reporting 0.9.0](https://github.com/cake-contrib/Cake.Issues.Reporting/releases/tag/0.9.0)
 * [Cake.Issues.Reporting.Generic 0.9.0](https://github.com/cake-contrib/Cake.Issues.Reporting.Generic/releases/tag/0.9.0)
 * [Cake.Issues.Reporting.Sarif 0.9.0](https://github.com/cake-contrib/Cake.Issues.Reporting.Sarif/releases/tag/0.9.0)
-* [Cake.Issues.Recipe 0.9.0](https://github.com/cake-contrib/Cake.Issues.Recipe/releases/tag/0.9.0)
+* [Cake.Issues.Recipe 0.4.0](https://github.com/cake-contrib/Cake.Issues.Recipe/releases/tag/0.4.0)
 
 [File linking]: #file-linking
 [Support for passing additional run information]: #support-for-passing-additional-run-information
