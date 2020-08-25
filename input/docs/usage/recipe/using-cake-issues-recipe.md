@@ -1,6 +1,6 @@
 ---
 Order: 10
-Title: Basic usage
+Title: Using Cake.Issues.Recipe
 Description: Basic usage of Cake.Issues.Recipe.
 ---
 The [Cake.Issues.Recipe] package can be used to easily add issue management functionality to your build script.
