@@ -1,6 +1,6 @@
 ---
 Order: 10
-Title: Basic usage
+Title: Creating issues
 Description: Usage instructions how to create issues.
 ---
 The `Cake.Issues` addin can be used to create issues directly in the build script.
