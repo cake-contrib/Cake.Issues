@@ -1,6 +1,6 @@
 ---
 Order: 10
-Title: Basic usage
+Title: Creating reports
 Description: Usage instructions how to create reports.
 ---
 To create report for issues you need to import the following core addins:

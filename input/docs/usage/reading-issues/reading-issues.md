@@ -1,6 +1,6 @@
 ---
 Order: 10
-Title: Basic usage
+Title: Reading issues
 Description: Usage instructions how to read issues.
 ---
 The `Cake.Issues` addin can be used to aggregate issues from different sources.

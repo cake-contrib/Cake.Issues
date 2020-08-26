@@ -1,6 +1,6 @@
 ---
 Order: 10
-Title: Basic usage
+Title: Report issues to pull requests
 Description: Usage instructions how to report issues to pull requests.
 ---
 To use report issues to pull requests you need to import the following core addins:
