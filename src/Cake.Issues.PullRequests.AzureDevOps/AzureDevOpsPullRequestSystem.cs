@@ -114,9 +114,9 @@
 
             properties.Add("Microsoft.VisualStudio.Services.CodeReview.ItemPath", "/" + issue.AffectedFileRelativePath);
             properties.Add("Microsoft.VisualStudio.Services.CodeReview.Right.StartLine", issue.Line);
-            properties.Add("Microsoft.VisualStudio.Services.CodeReview.Right.EndLine", issue.Line);
-            properties.Add("Microsoft.VisualStudio.Services.CodeReview.Right.StartOffset", 0);
-            properties.Add("Microsoft.VisualStudio.Services.CodeReview.Right.EndOffset", 1);
+            properties.Add("Microsoft.VisualStudio.Services.CodeReview.Right.EndLine", issue.EndLine ?? issue.Line);
+            properties.Add("Microsoft.VisualStudio.Services.CodeReview.Right.StartOffset", issue.Column ?? 0);
+            properties.Add("Microsoft.VisualStudio.Services.CodeReview.Right.EndOffset", issue.EndColumn ?? 1);
             properties.Add("Microsoft.VisualStudio.Services.CodeReview.FirstComparingIteration", iterationId);
             properties.Add("Microsoft.VisualStudio.Services.CodeReview.SecondComparingIteration", iterationId);
             properties.Add("Microsoft.VisualStudio.Services.CodeReview.ChangeTrackingId", changeTrackingId);
