@@ -26,6 +26,7 @@
         private string rule;
         private Uri ruleUrl;
         private string run;
+        private FileLinkSettings fileLinkSettings;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="IssueBuilder"/> class.
@@ -320,6 +321,20 @@
         }
 
         /// <summary>
+        /// Sets a <see cref="FileLinkSettings"/> to create the link of the position in the file where the issue ocurred.
+        /// </summary>
+        /// <param name="fileLinkSettings">Settings to create the link of the position in the file where the issue ocurred.</param>
+        /// <returns>Issue Builder instance.</returns>
+        public IssueBuilder WithFileLinkSettings(FileLinkSettings fileLinkSettings)
+        {
+            fileLinkSettings.NotNull(nameof(fileLinkSettings));
+
+            this.fileLinkSettings = fileLinkSettings;
+
+            return this;
+        }
+
+        /// <summary>
         /// Sets the priority of the issue.
         /// </summary>
         /// <param name="priority">The priority of the issue.</param>
@@ -394,27 +409,39 @@
         /// <returns>New issue object.</returns>
         public IIssue Create()
         {
-            return
-                new Issue(
-                    this.identifier,
-                    this.projectFileRelativePath,
-                    this.projectName,
-                    this.filePath,
-                    this.line,
-                    this.endLine,
-                    this.column,
-                    this.endColumn,
-                    this.fileLink,
-                    this.messageText,
-                    this.messageHtml,
-                    this.messageMarkdown,
-                    this.priority,
-                    this.priorityName,
-                    this.rule,
-                    this.ruleUrl,
-                    this.run,
-                    this.providerType,
-                    this.providerName);
+            var issue = this.CreateIssue(this.fileLink);
+
+            if (this.fileLink != null || this.fileLinkSettings == null)
+            {
+                return issue;
+            }
+
+            // Recreate the issue here to pass the resolved file link this time.
+            return this.CreateIssue(this.fileLinkSettings.GetFileLink(issue));
+        }
+
+        private Issue CreateIssue(Uri fileLink)
+        {
+            return new Issue(
+                this.identifier,
+                this.projectFileRelativePath,
+                this.projectName,
+                this.filePath,
+                this.line,
+                this.endLine,
+                this.column,
+                this.endColumn,
+                fileLink,
+                this.messageText,
+                this.messageHtml,
+                this.messageMarkdown,
+                this.priority,
+                this.priorityName,
+                this.rule,
+                this.ruleUrl,
+                this.run,
+                this.providerType,
+                this.providerName);
         }
     }
 }
