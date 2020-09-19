@@ -1636,6 +1636,67 @@
             }
         }
 
+        public sealed class TheWithFileLinkSettingsMethod
+        {
+            [Fact]
+            public void Should_Throw_If_FileLinkSettings_Are_Null()
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+                FileLinkSettings fileLinkSettings = null;
+
+                // When
+                var result = Record.Exception(() =>
+                    fixture.IssueBuilder.WithFileLinkSettings(fileLinkSettings));
+
+                // Then
+                result.IsArgumentNullException("fileLinkSettings");
+            }
+
+
+            [Fact]
+            public void Should_Resolve_FileLink_When_FileLinkSettings_Were_Provided()
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+                var fileLinkSettings =
+                    FileLinkSettings
+                        .ForAzureDevOps(new Uri("https://test.com/tfs/myrepo"))
+                        .Branch("dev");
+
+                // When
+                var issue = 
+                    fixture.IssueBuilder
+                        .InFile("fooPath", 10, 20, 1, 10)
+                        .WithFileLinkSettings(fileLinkSettings).Create();
+
+                // Then
+                issue.FileLink.ShouldBe(new Uri("https://test.com/tfs/myrepo?path=/fooPath&version=GBdev&line=10&lineEnd=20&lineStartColumn=1&lineEndColumn=10"));
+            }
+
+            [Fact]
+            public void Should_Use_FileLink_When_Both_FileLink_And_FileLinkSettings_Were_Provided()
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+                var fileLinkSettings =
+                    FileLinkSettings
+                        .ForAzureDevOps(new Uri("https://test.com/tfs/myrepo"))
+                        .Branch("dev");
+
+                // When
+                var issue =
+                    fixture.IssueBuilder
+                        .InFile("fooPath", 10, 20, 1, 10)
+                        .WithFileLink(new Uri("https://this-will-win.com/"))
+                        .WithFileLinkSettings(fileLinkSettings)
+                        .Create();
+
+                // Then
+                issue.FileLink.ShouldBe(new Uri("https://this-will-win.com/"));
+            }
+        }
+
         public sealed class TheWithPriorityMethod
         {
             [Fact]
