@@ -1,5 +1,5 @@
 ---
-title: Cake v0.9.0 Released
+title: Cake Issues v0.9.0 Released
 category: Release Notes
 ---
 
