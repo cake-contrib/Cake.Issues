@@ -4,7 +4,7 @@ category: Release Notes
 ---
 
 Version 0.9.1 of Cake Issues and Cake.Issues.PullRequests.AzureDevOps have been released.
-These are a minor releases containing improvements and bug fixes.
+These are minor releases containing improvements and bug fixes.
 
 <!--excerpt-->
 
