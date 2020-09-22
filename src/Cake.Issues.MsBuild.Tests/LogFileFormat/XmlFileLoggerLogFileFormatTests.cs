@@ -402,6 +402,62 @@
                     }
                 }
             }
+
+            [Fact]
+            public void Should_Read_Errors()
+            {
+                // Given
+                var fixture = new MsBuildIssuesProviderFixture<XmlFileLoggerLogFileFormat>("IssueWithError.xml");
+
+                // When
+                var issues = fixture.ReadIssues().ToList();
+
+                // Then
+                issues.Count.ShouldBe(1);
+                IssueChecker.Check(
+                    issues[0],
+                    IssueBuilder.NewIssue(
+                            @"'ConfigurationManager.GetSortedConfigFiles(String)': not all code paths return a value",
+                            "Cake.Issues.MsBuild.MsBuildIssuesProvider",
+                            "MSBuild")
+                        .InProjectOfName(string.Empty)
+                        .InFile(@"src\Cake.Issues.MsBuild.Tests\MsBuildIssuesProviderTests.cs", 1311)
+                        .OfRule("CS0161", null)
+                        .WithPriority(IssuePriority.Error));
+            }
+
+            [Fact]
+            public void Should_Read_Both_Warnings_And_Errors()
+            {
+                // Given
+                var fixture = new MsBuildIssuesProviderFixture<XmlFileLoggerLogFileFormat>("IssueWithBothWarningAndErrors.xml");
+
+                // When
+                var issues = fixture.ReadIssues().ToList();
+
+                // Then
+                issues.Count.ShouldBe(2);
+                IssueChecker.Check(
+                    issues[0],
+                    IssueBuilder.NewIssue(
+                            @"Microsoft.Usage : 'ConfigurationManager.GetSortedConfigFiles(String)' creates an exception of type 'ApplicationException', an exception type that is not sufficiently specific and should never be raised by user code. If this exception instance might be thrown, use a different exception type.",
+                            "Cake.Issues.MsBuild.MsBuildIssuesProvider",
+                            "MSBuild")
+                        .InProjectOfName(string.Empty)
+                        .InFile(@"src\Cake.Issues.MsBuild.Tests\MsBuildIssuesProviderTests.cs", 1311)
+                        .OfRule("CA2201", new Uri("https://www.google.com/search?q=\"CA2201:\"+site:docs.microsoft.com"))
+                        .WithPriority(IssuePriority.Warning));
+                IssueChecker.Check(
+                    issues[1],
+                    IssueBuilder.NewIssue(
+                            @"'ConfigurationManager.GetSortedConfigFiles(String)': not all code paths return a value",
+                            "Cake.Issues.MsBuild.MsBuildIssuesProvider",
+                            "MSBuild")
+                        .InProjectOfName(string.Empty)
+                        .InFile(@"src\Cake.Issues.MsBuild.Tests\MsBuildIssuesProviderTests.cs", 1311)
+                        .OfRule("CS0161", null)
+                        .WithPriority(IssuePriority.Error));
+            }
         }
     }
 }

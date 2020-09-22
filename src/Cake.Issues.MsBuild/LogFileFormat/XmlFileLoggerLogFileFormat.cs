@@ -44,41 +44,44 @@
             var filtered = string.Concat(raw.Where(c => !char.IsControl(c)));
             var logDocument = XDocument.Parse(filtered);
 
-            // Loop through all warning tags.
-            foreach (var warning in logDocument.Descendants("warning"))
+            // Loop through all warning and error tags.
+            var elements = new List<XElement>(logDocument.Descendants("warning"));
+            elements.AddRange(logDocument.Descendants("error"));
+
+            foreach (var element in elements)
             {
                 // Ignore warnings without a message.
-                if (string.IsNullOrWhiteSpace(warning.Value))
+                if (string.IsNullOrWhiteSpace(element.Value))
                 {
                     continue;
                 }
 
                 // Read affected project from the warning.
-                if (!this.TryGetProject(warning, repositorySettings, out string projectFileRelativePath))
+                if (!this.TryGetProject(element, repositorySettings, out string projectFileRelativePath))
                 {
                     continue;
                 }
 
                 // Read affected file from the warning.
-                if (!this.TryGetFile(warning, repositorySettings, out string fileName))
+                if (!this.TryGetFile(element, repositorySettings, out string fileName))
                 {
                     continue;
                 }
 
                 // Read affected line from the warning.
-                if (!TryGetLine(warning, out var line))
+                if (!TryGetLine(element, out var line))
                 {
                     continue;
                 }
 
                 // Read affected column from the warning.
-                if (!TryGetColumn(warning, out var column))
+                if (!TryGetColumn(element, out var column))
                 {
                     continue;
                 }
 
                 // Read rule code from the warning.
-                if (!TryGetRule(warning, out string rule))
+                if (!TryGetRule(element, out string rule))
                 {
                     continue;
                 }
@@ -90,11 +93,13 @@
                     ruleUrl = MsBuildRuleUrlResolver.Instance.ResolveRuleUrl(rule);
                 }
 
+                var priority = element.Name.LocalName == "error" ? IssuePriority.Error : IssuePriority.Warning;
+
                 // Build issue.
                 result.Add(
                     IssueBuilder
-                        .NewIssue(warning.Value, issueProvider)
-                        .WithPriority(IssuePriority.Warning)
+                        .NewIssue(element.Value, issueProvider)
+                        .WithPriority(priority)
                         .InProject(projectFileRelativePath, System.IO.Path.GetFileNameWithoutExtension(projectFileRelativePath))
                         .InFile(fileName, line, column)
                         .OfRule(rule, ruleUrl)
