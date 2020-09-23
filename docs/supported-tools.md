@@ -28,15 +28,17 @@ Cake.Issues.Recipe supports reading issues from output of the following tools:
 
 Cake.Issues.Recipe integrates with the following build systems:
 
-| Build System                   | Write issues to build server                                                      | Issues summary                                                     | Full issues report                                               |
-|--------------------------------|-----------------------------------------------------------------------------------|--------------------------------------------------------------------|------------------------------------------------------------------|
-| AppVeyor                       | <span class="glyphicon glyphicon-ok" style="color:green"></span>                  | <span class="glyphicon glyphicon-remove" style="color:red"></span> | <span class="glyphicon glyphicon-ok" style="color:green"></span> |
-| Azure Pipelines (Azure DevOps) | <span class="glyphicon glyphicon-ok" style="color:orange"></span> (Only first 10) | <span class="glyphicon glyphicon-ok" style="color:green"></span>   | <span class="glyphicon glyphicon-ok" style="color:green"></span> |
+| Build System                   | Write issues to build server                                                      | Issues summary                                                     | Full issues report                                                 |
+|--------------------------------|-----------------------------------------------------------------------------------|--------------------------------------------------------------------|--------------------------------------------------------------------|
+| AppVeyor                       | <span class="glyphicon glyphicon-ok" style="color:green"></span>                  | <span class="glyphicon glyphicon-remove" style="color:red"></span> | <span class="glyphicon glyphicon-ok" style="color:green"></span>   |
+| Azure Pipelines (Azure DevOps) | <span class="glyphicon glyphicon-ok" style="color:orange"></span> (Only first 10) | <span class="glyphicon glyphicon-ok" style="color:green"></span>   | <span class="glyphicon glyphicon-ok" style="color:green"></span>   |
+| GitHub Actions                 | <span class="glyphicon glyphicon-ok" style="color:green"></span>                  | <span class="glyphicon glyphicon-remove" style="color:red"></span> | <span class="glyphicon glyphicon-remove" style="color:red"></span> |
 
 # Pull request systems
 
 Cake.Issues.Recipe integrates with the following pull request systems:
 
-| Pull Request System        | Write issues to pull requests                                    | Set pull request status                                          |
-|----------------------------|------------------------------------------------------------------|------------------------------------------------------------------|
-| Azure Repos (Azure DevOps) | <span class="glyphicon glyphicon-ok" style="color:green"></span> | <span class="glyphicon glyphicon-ok" style="color:green"></span> |
+| Pull Request System        | Write issues to pull requests                                                                      | Set pull request status                                            |
+|----------------------------|----------------------------------------------------------------------------------------------------|--------------------------------------------------------------------|
+| Azure Repos (Azure DevOps) | <span class="glyphicon glyphicon-ok" style="color:green"></span>                                   | <span class="glyphicon glyphicon-ok" style="color:green"></span>   |
+| GitHub                     | <span class="glyphicon glyphicon-ok" style="color:orange"></span> (When build from GitHub Actions) | <span class="glyphicon glyphicon-remove" style="color:red"></span> |
