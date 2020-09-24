@@ -1,4 +1,4 @@
-﻿namespace Cake.Issues.PullRequests.GitHub.Tests
+﻿namespace Cake.Issues.PullRequests.GitHubActions.Tests
 {
     using System;
     using Cake.Issues.Testing;
@@ -6,7 +6,7 @@
     using Shouldly;
     using Xunit;
 
-    public sealed class GitHubPullRequestSettingsTests
+    public sealed class GitHubActionsBuildSettingsTests
     {
         public sealed class TheCtor
         {

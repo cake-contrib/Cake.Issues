@@ -1,54 +1,54 @@
-﻿namespace Cake.Issues.PullRequests.GitHub
+﻿namespace Cake.Issues.PullRequests.GitHubActions
 {
     using Cake.Core;
     using Cake.Core.Annotations;
 
     /// <summary>
-    /// Contains functionality related to writing code analysis issues to GitHub pull requests.
+    /// Contains functionality related to writing code analysis issues to GitHub Actions.
     /// </summary>
     [CakeAliasCategory(IssuesAliasConstants.MainCakeAliasCategory)]
-    public static class GitHubPullRequestAliases
+    public static class GitHubActionsBuildsAliases
     {
         /// <summary>
-        /// Gets an object for writing issues to GitHub pull requests using the default settings.
+        /// Gets an object for writing issues to GitHub Actions using the default settings.
         /// </summary>
         /// <param name="context">The context.</param>
-        /// <returns>Object for writing issues to GitHub pull requests.</returns>
+        /// <returns>Object for writing issues to GitHub Actions.</returns>
         /// <example>
-        /// <para>Report code analysis issues reported as MsBuild warnings to a GitHub pull request:</para>
+        /// <para>Report code analysis issues reported as MsBuild warnings to GitHub Actions:</para>
         /// <code>
         /// <![CDATA[
         ///     ReportCodeAnalysisIssuesToPullRequest(
         ///         MsBuildCodeAnalysis(
         ///             @"c:\build\msbuild.log",
         ///             MsBuildXmlFileLoggerFormat),
-        ///         GitHubPullRequests(),
+        ///         GitHubActionsBuilds(),
         ///         @"c:\repo");
         /// ]]>
         /// </code>
         /// </example>
         [CakeMethodAlias]
         [CakeAliasCategory(PullRequestsAliasConstants.PullRequestSystemCakeAliasCategory)]
-        public static IPullRequestSystem GitHubPullRequests(
+        public static IPullRequestSystem GitHubActionsBuilds(
             this ICakeContext context)
         {
             context.NotNull(nameof(context));
 
-            return new GitHubPullRequestSystem(context, new GitHubPullRequestSettings());
+            return new GitHubActionsPullRequestSystem(context, new GitHubActionsBuildSettings());
         }
 
         /// <summary>
-        /// Gets an object for writing issues to GitHub pull requests using the specified settings.
+        /// Gets an object for writing issues to GitHub Actions using the specified settings.
         /// </summary>
         /// <param name="context">The context.</param>
-        /// <param name="settings">Settings for writing issues to GitHub pull requests.</param>
-        /// <returns>Object for writing issues to GitHub pull requests.</returns>
+        /// <param name="settings">Settings for writing issues to GitHub Actions.</param>
+        /// <returns>Object for writing issues to GitHub Actions.</returns>
         /// <example>
-        /// <para>Report code analysis issues reported as MsBuild warnings to a GitHub pull request:</para>
+        /// <para>Report code analysis issues reported as MsBuild warnings to GitHub Actions:</para>
         /// <code>
         /// <![CDATA[
-        ///     var gitHubSettings =
-        ///         new GitHubPullRequestSettings
+        ///     var gitHubActionsSettings =
+        ///         new GitHubActionsBuildSettings
         ///         {
         ///         };
         ///
@@ -56,21 +56,21 @@
         ///         MsBuildCodeAnalysis(
         ///             @"c:\build\msbuild.log",
         ///             MsBuildXmlFileLoggerFormat),
-        ///         GitHubPullRequests(gitHubSettings),
+        ///         GitHubActionsBuilds(gitHubActionsSettings),
         ///         @"c:\repo");
         /// ]]>
         /// </code>
         /// </example>
         [CakeMethodAlias]
         [CakeAliasCategory(PullRequestsAliasConstants.PullRequestSystemCakeAliasCategory)]
-        public static IPullRequestSystem GitHubPullRequests(
+        public static IPullRequestSystem GitHubActionsBuilds(
             this ICakeContext context,
-            GitHubPullRequestSettings settings)
+            GitHubActionsBuildSettings settings)
         {
             context.NotNull(nameof(context));
             settings.NotNull(nameof(settings));
 
-            return new GitHubPullRequestSystem(context, settings);
+            return new GitHubActionsPullRequestSystem(context, settings);
         }
     }
 }
