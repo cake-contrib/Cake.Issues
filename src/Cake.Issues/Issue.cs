@@ -1,6 +1,7 @@
 ﻿namespace Cake.Issues
 {
     using System;
+    using System.Collections.Generic;
     using Cake.Core.IO;
 
     /// <summary>
@@ -45,6 +46,7 @@
         /// <param name="run">Gets the description of the run.</param>
         /// <param name="providerType">The type of the issue provider.</param>
         /// <param name="providerName">The human friendly name of the issue provider.</param>
+        /// <param name="additionalInformation">Custom information regarding the issue.</param>
         public Issue(
             string identifier,
             string projectFileRelativePath,
@@ -64,7 +66,8 @@
             Uri ruleUrl,
             string run,
             string providerType,
-            string providerName)
+            string providerName,
+            IReadOnlyDictionary<string, string> additionalInformation)
         {
             identifier.NotNullOrWhiteSpace(nameof(identifier));
             line?.NotNegativeOrZero(nameof(line));
@@ -158,6 +161,7 @@
             this.Run = run;
             this.ProviderType = providerType;
             this.ProviderName = providerName;
+            this.AdditionalInformation = additionalInformation ?? new Dictionary<string, string>();
         }
 
         /// <inheritdoc/>
@@ -216,5 +220,8 @@
 
         /// <inheritdoc/>
         public string ProviderName { get; }
+
+        /// <inheritdoc/>
+        public IReadOnlyDictionary<string, string> AdditionalInformation { get; }
     }
 }

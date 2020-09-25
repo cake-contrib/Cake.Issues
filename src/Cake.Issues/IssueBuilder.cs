@@ -1,6 +1,7 @@
 ﻿namespace Cake.Issues
 {
     using System;
+    using System.Collections.Generic;
 
     /// <summary>
     /// Class to create instances of <see cref="IIssue"/> with a fluent API.
@@ -27,6 +28,7 @@
         private Uri ruleUrl;
         private string run;
         private FileLinkSettings fileLinkSettings;
+        private Dictionary<string, string> additionalInformation = new Dictionary<string, string>();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="IssueBuilder"/> class.
@@ -307,6 +309,38 @@
         }
 
         /// <summary>
+        /// Sets additional information regarding the issue.
+        /// </summary>
+        /// <param name="key">Key for the additional information to be assigned to.</param>
+        /// <param name="value">The additional information to be set.</param>
+        /// <returns>Issue Builder instance.</returns>
+        public IssueBuilder WithAdditionalInformation(string key, string value)
+        {
+            key.NotNullOrWhiteSpace(nameof(key));
+
+            if (this.additionalInformation.ContainsKey(key))
+            {
+                throw new ArgumentException("You can't assign a value to the same key twice.", nameof(key));
+            }
+
+            this.additionalInformation.Add(key, value);
+            return this;
+        }
+
+        /// <summary>
+        /// Sets additional information regarding the issue.
+        /// </summary>
+        /// <param name="additionalInformation">The additional information to be assigned to the issue.</param>
+        /// <returns>Issue Builder instance.</returns>
+        public IssueBuilder WithAdditionalInformation(IDictionary<string, string> additionalInformation)
+        {
+            additionalInformation.NotNull(nameof(additionalInformation));
+
+            this.additionalInformation = new Dictionary<string, string>(additionalInformation);
+            return this;
+        }
+
+        /// <summary>
         /// Sets the the link to the position in the file where the issue ocurred.
         /// </summary>
         /// <param name="fileLink">Link to the position in the file where the issue ocurred.</param>
@@ -441,7 +475,8 @@
                 this.ruleUrl,
                 this.run,
                 this.providerType,
-                this.providerName);
+                this.providerName,
+                this.additionalInformation);
         }
     }
 }

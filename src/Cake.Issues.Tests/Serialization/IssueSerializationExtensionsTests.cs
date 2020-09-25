@@ -1145,6 +1145,36 @@
             }
 
             [Fact]
+            public void Should_Give_Correct_Result_For_AdditionalInformation_After_Roundtrip()
+            {
+                // Given
+                var issue =
+                    IssueBuilder
+                        .NewIssue("message", "providerType", "providerName")
+                        .WithAdditionalInformation("Foo", "Bar")
+                        .Create();
+
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+
+                try
+                {
+                    // When
+                    issue.SerializeToJsonFile(filePath);
+                    var result = filePath.DeserializeToIssue();
+
+                    // Then
+                    result.AdditionalInformation.ShouldContain(new KeyValuePair<string, string>("Foo", "Bar"));
+                }
+                finally
+                {
+                    if (System.IO.File.Exists(filePath.FullPath))
+                    {
+                        System.IO.File.Delete(filePath.FullPath);
+                    }
+                }
+            }
+
+            [Fact]
             public void Should_Give_Correct_Result_For_ProjectFileRelativePath_After_Roundtrip()
             {
                 // Given

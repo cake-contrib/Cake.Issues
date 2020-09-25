@@ -1,6 +1,7 @@
 ﻿namespace Cake.Issues
 {
     using System.Collections.Generic;
+    using System.Linq;
 
     /// <summary>
     /// Comparer to compare if two issues are identical.
@@ -89,7 +90,8 @@
                 (x.RuleUrl?.ToString() == y.RuleUrl?.ToString()) &&
                 (x.Run == y.Run) &&
                 (x.ProviderType == y.ProviderType) &&
-                (x.ProviderName == y.ProviderName);
+                (x.ProviderName == y.ProviderName) &&
+                DictionaryContentEquals(x.AdditionalInformation, y.AdditionalInformation);
         }
 
         /// <inheritdoc/>
@@ -115,7 +117,9 @@
                         obj.RuleUrl,
                         obj.Run,
                         obj.ProviderType,
-                        obj.ProviderName);
+                        obj.ProviderName) +
+                    GetDictionaryHashCode(
+                        obj.AdditionalInformation);
             }
             else
             {
@@ -139,7 +143,9 @@
                         obj.RuleUrl,
                         obj.Run,
                         obj.ProviderType,
-                        obj.ProviderName);
+                        obj.ProviderName) +
+                    GetDictionaryHashCode(
+                        obj.AdditionalInformation);
             }
         }
 
@@ -156,6 +162,42 @@
 
                 return hash;
             }
+        }
+
+        private static int GetDictionaryHashCode(IReadOnlyDictionary<string, string> dictionary)
+        {
+            var hash = 17;
+            foreach (var kvp in dictionary.OrderBy(p => p.Key))
+            {
+                hash ^= kvp.Key.GetHashCode();
+                hash ^= kvp.Value.GetHashCode();
+            }
+
+            return hash;
+        }
+
+        private static bool DictionaryContentEquals(
+            IReadOnlyDictionary<string, string> dictionary,
+            IReadOnlyDictionary<string, string> anotherDictionary)
+        {
+            if (dictionary == null && anotherDictionary == null)
+            {
+                return true;
+            }
+
+            if (dictionary == null)
+            {
+                return false;
+            }
+
+            if (anotherDictionary == null)
+            {
+                return false;
+            }
+
+            return
+                dictionary.Count == anotherDictionary.Count &&
+                !dictionary.Except(anotherDictionary).Any();
         }
     }
 }

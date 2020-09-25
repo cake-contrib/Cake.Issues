@@ -1,19 +1,18 @@
 ﻿namespace Cake.Issues.Serialization
 {
     using System;
-    using System.Collections.Generic;
 
     /// <summary>
-    /// Extensions for <see cref="SerializableIssue"/>.
+    /// Extensions for <see cref="SerializableIssueV4"/>.
     /// </summary>
-    internal static class SerializableIssueExtensions
+    internal static class SerializableIssueV4Extensions
     {
         /// <summary>
-        /// Converts a <see cref="SerializableIssue"/> to an <see cref="Issue"/>.
+        /// Converts a <see cref="SerializableIssueV4"/> to an <see cref="Issue"/>.
         /// </summary>
         /// <param name="serializableIssue">Issue which should be converted.</param>
         /// <returns>Converted issue.</returns>
-        internal static Issue ToIssue(this SerializableIssue serializableIssue)
+        internal static Issue ToIssue(this SerializableIssueV4 serializableIssue)
         {
 #pragma warning disable SA1123 // Do not place regions within elements
             #region DupFinder Exclusion
@@ -27,27 +26,33 @@
                 ruleUrl = new Uri(serializableIssue.RuleUrl);
             }
 
+            Uri fileLink = null;
+            if (!string.IsNullOrWhiteSpace(serializableIssue.FileLink))
+            {
+                fileLink = new Uri(serializableIssue.FileLink);
+            }
+
             return new Issue(
-                serializableIssue.Message,
+                serializableIssue.Identifier,
                 serializableIssue.ProjectFileRelativePath,
                 serializableIssue.ProjectName,
                 serializableIssue.AffectedFileRelativePath,
                 serializableIssue.Line,
-                null,
-                null,
-                null,
-                null,
-                serializableIssue.Message,
-                null,
-                null,
+                serializableIssue.EndLine,
+                serializableIssue.Column,
+                serializableIssue.EndColumn,
+                fileLink,
+                serializableIssue.MessageText,
+                serializableIssue.MessageHtml,
+                serializableIssue.MessageMarkdown,
                 serializableIssue.Priority,
                 serializableIssue.PriorityName,
                 serializableIssue.Rule,
                 ruleUrl,
-                null,
+                serializableIssue.Run,
                 serializableIssue.ProviderType,
                 serializableIssue.ProviderName,
-                new Dictionary<string, string>());
+                serializableIssue.AdditionalInformation);
 
             #endregion
         }

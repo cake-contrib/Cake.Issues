@@ -409,6 +409,8 @@
             [InlineData("foo {MessageText} bar", "foo MessageText Foo bar")]
             [InlineData("foo {MessageHtml} bar", "foo MessageHtml Foo bar")]
             [InlineData("foo {MessageMarkdown} bar", "foo MessageMarkdown Foo bar")]
+            [InlineData("foo {AdditionalInformation:cost} bar", "foo 1000 bar")]
+            [InlineData("foo {AdditionalInformation:cost} {AdditionalInformation:notExistantKey} bar", "foo 1000 {AdditionalInformation:notExistantKey} bar")]
             public void Should_Replace_Tokens(string pattern, string expectedResult)
             {
                 // Given
@@ -423,6 +425,7 @@
                         .WithFileLink(new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12"))
                         .OfRule("Rule Foo", new Uri("https://google.com"))
                         .WithPriority(IssuePriority.Error)
+                        .WithAdditionalInformation("cost", "1000")
                         .Create();
 
                 // When

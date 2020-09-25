@@ -1,6 +1,7 @@
 ﻿namespace Cake.Issues
 {
     using System;
+    using System.Collections.Generic;
     using Cake.Core.IO;
 
     /// <summary>
@@ -118,5 +119,10 @@
         /// Gets the human friendly name of the issue provider.
         /// </summary>
         string ProviderName { get; }
+
+        /// <summary>
+        /// Gets a dictionary with additional information regarding the issue.
+        /// </summary>
+        IReadOnlyDictionary<string, string> AdditionalInformation { get; }
     }
 }

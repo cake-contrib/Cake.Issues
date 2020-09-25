@@ -127,6 +127,7 @@
                 {
                     2 => JsonMapper.ToObject<SerializableIssueV2>(data.ToJson()).ToIssue(),
                     3 => JsonMapper.ToObject<SerializableIssueV3>(data.ToJson()).ToIssue(),
+                    4 => JsonMapper.ToObject<SerializableIssueV4>(data.ToJson()).ToIssue(),
                     _ => throw new Exception($"Not supported issue serialization format {version}"),
                 };
             }
