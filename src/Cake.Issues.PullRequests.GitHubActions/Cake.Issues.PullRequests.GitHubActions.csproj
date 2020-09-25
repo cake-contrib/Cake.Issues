@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Description>Addin for writing code analyzer or linter issues to GitHub</Description>
+    <Description>Addin for writing code analyzer or linter issues to GitHub Actions</Description>
     <Authors>Pascal Berger</Authors>
     <Copyright>Copyright © Pascal Berger and contributors</Copyright>
   </PropertyGroup>
@@ -10,15 +10,15 @@
   <PropertyGroup>
     <DebugType>full</DebugType>
     <DebugSymbols>true</DebugSymbols>
-    <CodeAnalysisRuleSet>..\Cake.Issues.PullRequests.GitHub.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>..\Cake.Issues.PullRequests.GitHubActions.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
-    <DocumentationFile>bin\Debug\netstandard2.0\Cake.Issues.PullRequests.GitHub.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\netstandard2.0\Cake.Issues.PullRequests.GitHubActions.xml</DocumentationFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard2.0|AnyCPU'">
-    <DocumentationFile>bin\Release\netstandard2.0\Cake.Issues.PullRequests.GitHub.xml</DocumentationFile>
+    <DocumentationFile>bin\Release\netstandard2.0\Cake.Issues.PullRequests.GitHubActions.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

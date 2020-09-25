@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<RuleSet Name="Ruleset for Cake.Issues.PullRequests.GitHub" Description="Rules valid for Cake.Issues.PullRequests.GitHub" ToolsVersion="14.0">
+<RuleSet Name="Ruleset for Cake.Issues.PullRequests.GitHubActions" Description="Rules valid for Cake.Issues.PullRequests.GitHubActions" ToolsVersion="14.0">
   <IncludeAll Action="Warning" />
   <Rules AnalyzerId="Microsoft.Analyzers.ManagedCodeAnalysis" RuleNamespace="Microsoft.Rules.Managed">
     <Rule Id="CA1000" Action="None" />
