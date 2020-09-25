@@ -6,10 +6,9 @@
     public class GitHubActionsBuildSettings
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="GitHubActionsBuildSettings"/> class.
+        /// Gets or sets a value indicating whether issues should be grouped by issue provider and run information.
+        /// Enabled by default.
         /// </summary>
-        public GitHubActionsBuildSettings()
-        {
-        }
+        public bool GroupIssues { get; set; } = true;
     }
 }
