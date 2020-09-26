@@ -41,6 +41,6 @@ Task("ReportIssuesToAppVeyor").Does(() =>
 
 The output will look similar to this:
 
-![AppVeyor messages](appveyor-messages.png "AppVeyor messages")
+![AppVeyor messages](../appveyor-messages.png "AppVeyor messages")
 
 [AppVeyorBuilds]: ../../../../api/Cake.Issues.PullRequests.AppVeyor/AppVeyorBuildsAliases/
