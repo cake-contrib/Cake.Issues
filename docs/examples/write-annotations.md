@@ -41,14 +41,14 @@ Task("ReportIssuesToGitHubActions").Does(() =>
 
 The output will show up in the build log grouped by issue provider / run:
 
-![Log output](githubactions-log-output.png "Log output")
+![Log output](../githubactions-log-output.png "Log output")
 
 Additionally the issues show up as annotations:
 
-![Annotations](githubactions-annotations.png "Annotations")
+![Annotations](../githubactions-annotations.png "Annotations")
 
 Having issues available as annotations also means that they will be shown in pull requests on the related file / position:
 
-![Pull request integration](githubactions-pullrequest-integration.png "Pull request integration")
+![Pull request integration](../githubactions-pullrequest-integration.png "Pull request integration")
 
 [GitHubActionsBuilds]: ../../../../api/Cake.Issues.PullRequests.GitHubActions/GitHubActionsBuildsAliases/
