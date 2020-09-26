@@ -13,6 +13,11 @@
         string ProviderName { get; }
 
         /// <summary>
+        /// Gets the type of the issue provider.
+        /// </summary>
+        string ProviderType { get; }
+
+        /// <summary>
         /// Gets all issues.
         /// </summary>
         /// <returns>List of issues.</returns>

@@ -620,7 +620,7 @@
                         .Create();
 
                 // Then
-                result.ProviderType.ShouldBe(issueProvider.GetType().FullName);
+                result.ProviderType.ShouldBe(issueProvider.ProviderType);
             }
 
             [Fact]
@@ -806,7 +806,7 @@
                         .Create();
 
                 // Then
-                result.ProviderType.ShouldBe(issueProvider.GetType().FullName);
+                result.ProviderType.ShouldBe(issueProvider.ProviderType);
             }
 
             [Fact]

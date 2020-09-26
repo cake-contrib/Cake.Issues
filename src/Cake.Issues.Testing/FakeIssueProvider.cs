@@ -48,6 +48,9 @@
         public override string ProviderName => "Fake Issue Provider";
 
         /// <inheritdoc/>
+        public override string ProviderType => typeof(FakeIssueProvider).FullName;
+
+        /// <inheritdoc/>
         protected override IEnumerable<IIssue> InternalReadIssues()
         {
             return this.issues;
