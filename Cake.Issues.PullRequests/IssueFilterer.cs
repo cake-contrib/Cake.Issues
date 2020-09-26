@@ -252,8 +252,9 @@ namespace Cake.Issues.PullRequests
             // Apply issue limits per provider for this run
             foreach (var currentProviderLimitPair in this.settings.ProviderIssueLimits)
             {
-                var currentProviderTypeMaxLimit = (currentProviderLimitPair.Value?.MaxIssuesToPost).GetValueOrDefault();
-                if (currentProviderTypeMaxLimit <= 0)
+                var currentProviderTypeMaxLimit = currentProviderLimitPair.Value?.MaxIssuesToPost;
+                if (!currentProviderTypeMaxLimit.HasValue ||
+                    currentProviderTypeMaxLimit < 0)
                 {
                     continue;
                 }
@@ -271,7 +272,7 @@ namespace Cake.Issues.PullRequests
 
                 var countBefore = result.Count;
                 result = result.Where(p => p.ProviderType != currentProviderType)
-                    .Concat(newIssuesForProviderType.Take(currentProviderTypeMaxLimit))
+                    .Concat(newIssuesForProviderType.Take(currentProviderTypeMaxLimit.Value))
                     .ToList();
 
                 var issuesFilteredCount = countBefore - result.Count;
@@ -303,18 +304,24 @@ namespace Cake.Issues.PullRequests
             // Apply issue limits per provider across mulitple runs
             foreach (var currentProviderLimitPair in this.settings.ProviderIssueLimits)
             {
-                var currentProviderTypeMaxLimit = (currentProviderLimitPair.Value?.MaxIssuesToPostAcrossRuns).GetValueOrDefault();
-                if (currentProviderTypeMaxLimit <= 0)
+                var currentProviderTypeMaxLimit = currentProviderLimitPair.Value?.MaxIssuesToPostAcrossRuns;
+                if (!currentProviderTypeMaxLimit.HasValue ||
+                    currentProviderTypeMaxLimit < 0)
                 {
                     continue;
                 }
 
                 var currentProviderType = currentProviderLimitPair.Key;
-
                 var existingThreadCountForProvider =
                     existingThreads.Count(p => p.ProviderType == currentProviderType);
+
                 var maxIssuesLeftToTakeForProviderType =
-                    currentProviderTypeMaxLimit - existingThreadCountForProvider;
+                    currentProviderTypeMaxLimit.Value - existingThreadCountForProvider;
+                if (maxIssuesLeftToTakeForProviderType < 0)
+                {
+                    maxIssuesLeftToTakeForProviderType = 0;
+                }
+
                 var newIssuesForProviderType =
                     result.Where(p => p.ProviderType == currentProviderType)
                         .SortWithDefaultPriorization()
