@@ -40,8 +40,5 @@
 
         /// <inheritdoc/>
         public override string ProviderName => "Fake Issue Provider";
-
-        /// <inheritdoc/>
-        public override string ProviderType => typeof(FakeMultiFormatIssueProvider).FullName;
     }
 }
