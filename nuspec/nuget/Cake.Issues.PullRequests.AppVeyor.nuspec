@@ -8,12 +8,12 @@
     <owners>pascalberger, cake-contrib</owners>
     <summary>AppVeyor support for the Cake.Issues addin for Cake Build Automation System</summary>
     <description>
-      AppVeyor support for the Cake.Issues addin for Cake allows you to write found issues as message to AppVeyor builds.
+AppVeyor support for the Cake.Issues addin for Cake allows you to write found issues as message to AppVeyor builds.
 
-      This addin provides the aliases for writing to AppVeyor builds.
-      It also requires the core Cake.Issues and Cake.Issues.PullRequests addins and one or more issue providers.
+This addin provides the aliases for writing to AppVeyor builds.
+It also requires the core Cake.Issues and Cake.Issues.PullRequests addins and one or more issue providers.
 
-      See the Project Site for an overview of the whole ecosystem of addins for working with issues in Cake scripts.
+See the Project Site for an overview of the whole ecosystem of addins for working with issues in Cake scripts.
     </description>
     <license type="expression">MIT</license>
     <projectUrl>https://cakeissues.net</projectUrl>
