@@ -102,7 +102,7 @@
 
             message.NotNullOrWhiteSpace(nameof(message));
 
-            return NewIssue(identifier, message, typeof(T).FullName, issueProvider.ProviderName);
+            return NewIssue(identifier, message, issueProvider.ProviderType, issueProvider.ProviderName);
         }
 
         /// <summary>
