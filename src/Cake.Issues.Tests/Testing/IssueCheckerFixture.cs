@@ -1,6 +1,7 @@
 ﻿namespace Cake.Issues.Tests
 {
     using System;
+    using System.Collections.Generic;
 
     internal class IssueCheckerFixture : IssueBuilderFixture
     {
@@ -31,6 +32,7 @@
             this.PriorityName = "PriorityName";
             this.Rule = "Rule";
             this.RuleUrl = new Uri("https://google.com");
+            this.AdditionalInformation = new Dictionary<string, string>();
 
             this.IssueBuilder
                 .ForRun(this.Run)
@@ -40,7 +42,8 @@
                 .InFile(this.AffectedFileRelativePath, this.Line, this.EndLine, this.Column, this.EndColumn)
                 .WithFileLink(this.FileLink)
                 .OfRule(this.Rule, this.RuleUrl)
-                .WithPriority(this.Priority, this.PriorityName);
+                .WithPriority(this.Priority, this.PriorityName)
+                .WithAdditionalInformation(this.AdditionalInformation);
 
             this.Issue =
                 this.IssueBuilder.Create();
@@ -85,5 +88,7 @@
         public string Rule { get; private set; }
 
         public Uri RuleUrl { get; private set; }
+
+        public Dictionary<string, string> AdditionalInformation { get; private set; }
     }
 }

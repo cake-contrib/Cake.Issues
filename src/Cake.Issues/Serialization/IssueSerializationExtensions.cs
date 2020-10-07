@@ -70,15 +70,15 @@
         }
 
         /// <summary>
-        /// Converts an <see cref="IIssue"/> to a <see cref="SerializableIssueV3"/>.
+        /// Converts an <see cref="IIssue"/> to a <see cref="SerializableIssueV4"/>.
         /// </summary>
         /// <param name="issue">Issue which should be converted.</param>
         /// <returns>Converted issue.</returns>
-        internal static SerializableIssueV3 ToSerializableIssue(this IIssue issue)
+        internal static SerializableIssueV4 ToSerializableIssue(this IIssue issue)
         {
             issue.NotNull(nameof(issue));
 
-            return new SerializableIssueV3
+            return new SerializableIssueV4
             {
                 Identifier = issue.Identifier,
                 ProjectFileRelativePath = issue.ProjectFileRelativePath?.FullPath,
@@ -99,6 +99,7 @@
                 Run = issue.Run,
                 ProviderType = issue.ProviderType,
                 ProviderName = issue.ProviderName,
+                AdditionalInformation = issue.AdditionalInformation.ToDictionary(p => p.Key, p => p.Value),
             };
         }
     }

@@ -784,6 +784,61 @@
             }
 
             [Fact]
+            public void Should_Return_True_If_AdditionalInformation_Is_Same()
+            {
+                var id = "123";
+                var lastname = "Kelso";
+                var firstName = "Haley";
+
+                // Given
+                var issue1 =
+                    IssueBuilder
+                        .NewIssue("message", "providerType", "providerName")
+                        .WithAdditionalInformation("Id", id)
+                        .WithAdditionalInformation("Lastname", lastname)
+                        .WithAdditionalInformation("Firstname", firstName)
+                        .Create();
+                var issue2 =
+                    IssueBuilder
+                        .NewIssue("message", "providerType", "providerName")
+                        .WithAdditionalInformation("Id", id)
+                        .WithAdditionalInformation("Lastname", lastname)
+                        .WithAdditionalInformation("Firstname", firstName)
+                        .Create();
+
+                // When / Then
+                CompareIssues(issue1, issue2, true);
+            }
+
+            [Fact]
+            public void Should_Return_False_If_AdditionalInformation_Is_Not_Same()
+            {
+                var id = "123";
+                var lastname = "Kelso";
+                var correctFirstName = "Haley";
+                var wrongFirstName = "Michael";
+
+                // Given
+                var issue1 =
+                    IssueBuilder
+                        .NewIssue("message", "providerType", "providerName")
+                        .WithAdditionalInformation("Id", id)
+                        .WithAdditionalInformation("Lastname", lastname)
+                        .WithAdditionalInformation("Firstname", correctFirstName)
+                        .Create();
+                var issue2 =
+                    IssueBuilder
+                        .NewIssue("message", "providerType", "providerName")
+                        .WithAdditionalInformation("Id", id)
+                        .WithAdditionalInformation("Lastname", lastname)
+                        .WithAdditionalInformation("Firstname", wrongFirstName)
+                        .Create();
+
+                // When / Then
+                CompareIssues(issue1, issue2, false);
+            }
+
+            [Fact]
             public void Should_Return_True_If_ProviderName_Is_Same()
             {
                 // Given

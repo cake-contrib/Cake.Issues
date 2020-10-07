@@ -1,6 +1,7 @@
 ﻿namespace Cake.Issues.Tests.Testing
 {
     using System;
+    using System.Collections.Generic;
     using Cake.Issues.Testing;
     using Shouldly;
     using Xunit;
@@ -160,7 +161,8 @@
                         fixture.Priority,
                         fixture.PriorityName,
                         fixture.Rule,
-                        fixture.RuleUrl));
+                        fixture.RuleUrl,
+                        fixture.AdditionalInformation));
 
                 // Then
                 result.IsArgumentNullException("issue");
@@ -193,7 +195,8 @@
                     fixture.Priority,
                     fixture.PriorityName,
                     fixture.Rule,
-                    fixture.RuleUrl);
+                    fixture.RuleUrl,
+                    fixture.AdditionalInformation);
 
                 // Then
             }
@@ -230,7 +233,8 @@
                         fixture.Priority,
                         fixture.PriorityName,
                         fixture.Rule,
-                        fixture.RuleUrl));
+                        fixture.RuleUrl,
+                        fixture.AdditionalInformation));
 
                 // Then
                 result.ShouldBeOfType<Exception>();
@@ -269,7 +273,8 @@
                         fixture.Priority,
                         fixture.PriorityName,
                         fixture.Rule,
-                        fixture.RuleUrl));
+                        fixture.RuleUrl,
+                        fixture.AdditionalInformation));
 
                 // Then
                 result.ShouldBeOfType<Exception>();
@@ -312,7 +317,8 @@
                         fixture.Priority,
                         fixture.PriorityName,
                         fixture.Rule,
-                        fixture.RuleUrl));
+                        fixture.RuleUrl,
+                        fixture.AdditionalInformation));
 
                 // Then
                 result.ShouldBeOfType<Exception>();
@@ -351,7 +357,8 @@
                         fixture.Priority,
                         fixture.PriorityName,
                         fixture.Rule,
-                        fixture.RuleUrl));
+                        fixture.RuleUrl,
+                        fixture.AdditionalInformation));
 
                 // Then
                 result.ShouldBeOfType<Exception>();
@@ -391,7 +398,8 @@
                         fixture.Priority,
                         fixture.PriorityName,
                         fixture.Rule,
-                        fixture.RuleUrl));
+                        fixture.RuleUrl,
+                        fixture.AdditionalInformation));
 
                 // Then
                 result.ShouldBeOfType<Exception>();
@@ -434,7 +442,8 @@
                         fixture.Priority,
                         fixture.PriorityName,
                         fixture.Rule,
-                        fixture.RuleUrl));
+                        fixture.RuleUrl,
+                        fixture.AdditionalInformation));
 
                 // Then
                 result.ShouldBeOfType<Exception>();
@@ -474,7 +483,8 @@
                         fixture.Priority,
                         fixture.PriorityName,
                         fixture.Rule,
-                        fixture.RuleUrl));
+                        fixture.RuleUrl,
+                        fixture.AdditionalInformation));
 
                 // Then
                 result.ShouldBeOfType<Exception>();
@@ -516,7 +526,8 @@
                         fixture.Priority,
                         fixture.PriorityName,
                         fixture.Rule,
-                        fixture.RuleUrl));
+                        fixture.RuleUrl,
+                        fixture.AdditionalInformation));
 
                 // Then
                 result.ShouldBeOfType<Exception>();
@@ -558,7 +569,8 @@
                         fixture.Priority,
                         fixture.PriorityName,
                         fixture.Rule,
-                        fixture.RuleUrl));
+                        fixture.RuleUrl,
+                        fixture.AdditionalInformation));
 
                 // Then
                 result.ShouldBeOfType<Exception>();
@@ -600,7 +612,8 @@
                         fixture.Priority,
                         fixture.PriorityName,
                         fixture.Rule,
-                        fixture.RuleUrl));
+                        fixture.RuleUrl,
+                        fixture.AdditionalInformation));
 
                 // Then
                 result.ShouldBeOfType<Exception>();
@@ -642,7 +655,8 @@
                         fixture.Priority,
                         fixture.PriorityName,
                         fixture.Rule,
-                        fixture.RuleUrl));
+                        fixture.RuleUrl,
+                        fixture.AdditionalInformation));
 
                 // Then
                 result.ShouldBeOfType<Exception>();
@@ -683,7 +697,8 @@
                         fixture.Priority,
                         fixture.PriorityName,
                         fixture.Rule,
-                        fixture.RuleUrl));
+                        fixture.RuleUrl,
+                        fixture.AdditionalInformation));
 
                 // Then
                 result.ShouldBeOfType<Exception>();
@@ -722,7 +737,8 @@
                         fixture.Priority,
                         fixture.PriorityName,
                         fixture.Rule,
-                        fixture.RuleUrl));
+                        fixture.RuleUrl,
+                        fixture.AdditionalInformation));
 
                 // Then
                 result.ShouldBeOfType<Exception>();
@@ -765,7 +781,8 @@
                         fixture.Priority,
                         fixture.PriorityName,
                         fixture.Rule,
-                        fixture.RuleUrl));
+                        fixture.RuleUrl,
+                        fixture.AdditionalInformation));
 
                 // Then
                 result.ShouldBeOfType<Exception>();
@@ -808,7 +825,8 @@
                         fixture.Priority,
                         fixture.PriorityName,
                         fixture.Rule,
-                        fixture.RuleUrl));
+                        fixture.RuleUrl,
+                        fixture.AdditionalInformation));
 
                 // Then
                 result.ShouldBeOfType<Exception>();
@@ -848,7 +866,8 @@
                         (int)expectedValue,
                         fixture.PriorityName,
                         fixture.Rule,
-                        fixture.RuleUrl));
+                        fixture.RuleUrl,
+                        fixture.AdditionalInformation));
 
                 // Then
                 result.ShouldBeOfType<Exception>();
@@ -891,7 +910,8 @@
                         fixture.Priority,
                         expectedValue,
                         fixture.Rule,
-                        fixture.RuleUrl));
+                        fixture.RuleUrl,
+                        fixture.AdditionalInformation));
 
                 // Then
                 result.ShouldBeOfType<Exception>();
@@ -934,7 +954,8 @@
                         fixture.Priority,
                         fixture.PriorityName,
                         expectedValue,
-                        fixture.RuleUrl));
+                        fixture.RuleUrl,
+                        fixture.AdditionalInformation));
 
                 // Then
                 result.ShouldBeOfType<Exception>();
@@ -974,11 +995,176 @@
                         fixture.Priority,
                         fixture.PriorityName,
                         fixture.Rule,
-                        new Uri(expectedValue)));
+                        new Uri(expectedValue),
+                        fixture.AdditionalInformation));
 
                 // Then
                 result.ShouldBeOfType<Exception>();
                 result.Message.ShouldStartWith("Expected issue.RuleUrl");
+            }
+
+            [Theory]
+            [InlineData("author", "george", "author", "tom")]
+            public void Should_Throw_If_AdditionalInformation_Is_Different(string expectedKey, string expectedValue, string actualKey, string actualValue)
+            {
+                // Given
+                var fixture = new IssueCheckerFixture();
+                var issue =
+                    fixture.IssueBuilder
+                        .WithAdditionalInformation(actualKey, actualValue)
+                        .Create();
+
+                // When
+                var result = Record.Exception(() =>
+                    IssueChecker.Check(
+                        issue,
+                        fixture.ProviderType,
+                        fixture.ProviderName,
+                        fixture.Run,
+                        fixture.Identifier,
+                        fixture.ProjectFileRelativePath,
+                        fixture.ProjectName,
+                        fixture.AffectedFileRelativePath,
+                        fixture.Line,
+                        fixture.EndLine,
+                        fixture.Column,
+                        fixture.EndColumn,
+                        fixture.FileLink,
+                        fixture.MessageText,
+                        fixture.MessageHtml,
+                        fixture.MessageMarkdown,
+                        fixture.Priority,
+                        fixture.PriorityName,
+                        fixture.Rule,
+                        fixture.RuleUrl,
+                        new Dictionary<string, string>
+                        {
+                            { expectedKey, expectedValue },
+                        }));
+
+                // Then
+                result.ShouldBeOfType<Exception>();
+                result.Message.ShouldStartWith("Expected issue.AdditionalInformation");
+            }
+
+            [Fact]
+            public void Should_Throw_If_AdditionalInformation_Has_Other_Items_Than_Expected()
+            {
+                // Given
+                var fixture = new IssueCheckerFixture();
+
+                var actual = new Dictionary<string, string>
+                {
+                    {
+                        "Key",
+                        "Value"
+                    },
+                    {
+                        "UnexpectedKey",
+                        "UnexpectedValue"
+                    },
+                };
+                var expected = new Dictionary<string, string>
+                {
+                    {
+                        "Key",
+                        "Value"
+                    },
+                };
+
+                var issue =
+                    fixture.IssueBuilder
+                        .WithAdditionalInformation(actual)
+                        .Create();
+
+                // When
+                var result = Record.Exception(() =>
+                    IssueChecker.Check(
+                        issue,
+                        fixture.ProviderType,
+                        fixture.ProviderName,
+                        fixture.Run,
+                        fixture.Identifier,
+                        fixture.ProjectFileRelativePath,
+                        fixture.ProjectName,
+                        fixture.AffectedFileRelativePath,
+                        fixture.Line,
+                        fixture.EndLine,
+                        fixture.Column,
+                        fixture.EndColumn,
+                        fixture.FileLink,
+                        fixture.MessageText,
+                        fixture.MessageHtml,
+                        fixture.MessageMarkdown,
+                        fixture.Priority,
+                        fixture.PriorityName,
+                        fixture.Rule,
+                        fixture.RuleUrl,
+                        expected));
+
+                // Then
+                result.ShouldBeOfType<Exception>();
+                result.Message.ShouldStartWith("issue.AdditionalInformation contains an item with the key");
+            }
+
+            [Fact]
+            public void Should_Throw_If_AdditionalInformation_Lacks_An_Item()
+            {
+                // Given
+                var fixture = new IssueCheckerFixture();
+
+                var actual = new Dictionary<string, string>
+                {
+                    {
+                        "Key",
+                        "Value"
+                    },
+                };
+                var expected = new Dictionary<string, string>
+                {
+                    {
+                        "Key",
+                        "Value"
+                    },
+                    {
+                        "ExpectedKey",
+                        "ExpectedValue"
+                    },
+                };
+
+                var issue =
+                    fixture.IssueBuilder
+                        .WithAdditionalInformation(actual)
+                        .Create();
+
+                // When
+                var result = Record.Exception(() =>
+                    IssueChecker.Check(
+                        issue,
+                        fixture.ProviderType,
+                        fixture.ProviderName,
+                        fixture.Run,
+                        fixture.Identifier,
+                        fixture.ProjectFileRelativePath,
+                        fixture.ProjectName,
+                        fixture.AffectedFileRelativePath,
+                        fixture.Line,
+                        fixture.EndLine,
+                        fixture.Column,
+                        fixture.EndColumn,
+                        fixture.FileLink,
+                        fixture.MessageText,
+                        fixture.MessageHtml,
+                        fixture.MessageMarkdown,
+                        fixture.Priority,
+                        fixture.PriorityName,
+                        fixture.Rule,
+                        fixture.RuleUrl,
+                        expected));
+
+                // Then
+                result.ShouldBeOfType<Exception>();
+                result.Message.ShouldStartWith("Expected issue.AdditionalInformation to have an item with the key");
             }
         }
     }

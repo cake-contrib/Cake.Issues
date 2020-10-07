@@ -1,6 +1,8 @@
 ﻿namespace Cake.Issues.Testing
 {
     using System;
+    using System.Collections.Generic;
+    using System.Linq;
     using Cake.Core.IO;
 
     /// <summary>
@@ -57,7 +59,8 @@
                 expectedIssue.Priority,
                 expectedIssue.PriorityName,
                 expectedIssue.Rule,
-                expectedIssue.RuleUrl);
+                expectedIssue.RuleUrl,
+                expectedIssue.AdditionalInformation);
         }
 
         /// <summary>
@@ -95,6 +98,7 @@
         /// <c>null</c> or <see cref="string.Empty"/> if no rule identifier is expected.</param>
         /// <param name="ruleUrl">Expected URL containing information about the failing rule.
         /// <c>null</c> if no rule Url is expected.</param>
+        /// <param name="additionalInformation">Custom information regarding the issue.</param>
         public static void Check(
             IIssue issue,
             string providerType,
@@ -115,7 +119,8 @@
             int? priority,
             string priorityName,
             string rule,
-            Uri ruleUrl)
+            Uri ruleUrl,
+            IReadOnlyDictionary<string, string> additionalInformation)
         {
             issue.NotNull(nameof(issue));
 
@@ -265,6 +270,49 @@
             {
                 throw new Exception(
                     $"Expected issue.RuleUrl to be '{ruleUrl?.ToString()}' but was '{issue.RuleUrl?.ToString()}'.");
+            }
+
+            CheckAdditionalInformation(additionalInformation, issue.AdditionalInformation);
+        }
+
+        /// <summary>
+        /// Checks additional informations passed to an issue.
+        /// </summary>
+        /// <param name="expected">Expected additional information.</param>
+        /// <param name="actual">Actual additional information.</param>
+        private static void CheckAdditionalInformation(
+            IReadOnlyDictionary<string, string> expected,
+            IReadOnlyDictionary<string, string> actual)
+        {
+            if (expected == null && actual == null)
+            {
+                return;
+            }
+
+            if (expected == null)
+            {
+                throw new Exception(
+                    $"Expected issue.AdditionalInformation to be null but was not null.");
+            }
+
+            if (actual == null)
+            {
+                throw new Exception(
+                    $"Expected issue.AdditionalInformation to be not null but was null.");
+            }
+
+            var expectedItemsNotFound = expected.Except(actual).ToArray();
+            if (expectedItemsNotFound.Any())
+            {
+                throw new Exception(
+                    $"Expected issue.AdditionalInformation to have an item with the key '{expectedItemsNotFound.First()}' and value '{expectedItemsNotFound.First()}'");
+            }
+
+            var actualItemsContainsInvalidItem = actual.Except(expected).ToArray();
+            if (actualItemsContainsInvalidItem.Any())
+            {
+                throw new Exception(
+                    $"issue.AdditionalInformation contains an item with the key '{actualItemsContainsInvalidItem.First()}' and value '{actualItemsContainsInvalidItem.First()}' that was not expected");
             }
         }
     }
