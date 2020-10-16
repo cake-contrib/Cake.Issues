@@ -1,5 +1,5 @@
 ---
-Order: 20
+Order: 30
 Description: Requirements for using Cake.Issues.
 ---
 The requirements for core addins are listed in the release notes for any specific version:

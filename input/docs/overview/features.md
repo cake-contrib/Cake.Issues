@@ -1,5 +1,5 @@
 ---
-Order: 10
+Order: 20
 Description: Overview about core features.
 ---
 The Cake Issues addins for Cake allows you to read issues from any analyzer or linter,
@@ -28,7 +28,7 @@ Addin for creating and reading issues providing the following functionality:
 ## Cake.Issues.Reporting
 
 Addin for creating reports providing the following functionality:
-  
+
 * [CreateIssueReport] aliases for creating reports about issues.
 * Support for creating reports with issues from multiple issue providers.
 
