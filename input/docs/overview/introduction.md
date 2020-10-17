@@ -19,7 +19,7 @@ for issue management in Cake build scripts.
 
 Unlike other Cake addins, the Cake Issues addin consists of over 15 different addins,
 working together and providing over 75 aliases which can be used in Cake build scripts to work with issues.
-The addins are built in a modular architecture and are providing different extension points which allows to easily
+The addins are built in a [modular architecture] and are providing different [extension points] which allows to easily
 enhance them for supporting additional analyzers, linters, report formats and code review systems.
 
 <a class="btn btn-primary btn-lg" href="https://gitpitch.com/pascalberger/Cake.Issues-Presentation" target="_blank" role="button">
@@ -28,3 +28,6 @@ enhance them for supporting additional analyzers, linters, report formats and co
 <a class="btn btn-primary btn-lg" href="/docs/usage" role="button">
     <span class="glyphicon glyphicon-book"></span> Tutorials
 </a>
+
+[modular architecture]: /docs/fundamentals/architecture
+[extension points]: /docs/extending/
