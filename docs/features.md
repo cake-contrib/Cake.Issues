@@ -7,7 +7,7 @@ The [Cake.Issues.MsBuild addin] provides the following features.
 
 # Basic features
 
-* Reads warnings from MSBuild log files.
+* Reads errors and warnings from MSBuild log files.
 * Provides URLs for all code analysis (`CA*`) and StyleCop (`SA*`) warnings.
 * Support for custom URL resolving using the [MsBuildAddRuleUrlResolver] alias.
 
@@ -35,8 +35,8 @@ The [Cake.Issues.MsBuild addin] provides the following features.
 | <span class="glyphicon glyphicon-ok" style="color:green"></span>   | `IIssue.MessageText`              |                                       |
 | <span class="glyphicon glyphicon-remove" style="color:red"></span> | `IIssue.MessageHtml`              |                                       |
 | <span class="glyphicon glyphicon-remove" style="color:red"></span> | `IIssue.MessageMarkdown`          |                                       |
-| <span class="glyphicon glyphicon-ok" style="color:green"></span>   | `IIssue.Priority`                 | Always [IssuePriority.Warning]        |
-| <span class="glyphicon glyphicon-ok" style="color:green"></span>   | `IIssue.PriorityName`             | Always `Warning`                      |
+| <span class="glyphicon glyphicon-ok" style="color:green"></span>   | `IIssue.Priority`                 |                                       |
+| <span class="glyphicon glyphicon-ok" style="color:green"></span>   | `IIssue.PriorityName`             |                                       |
 | <span class="glyphicon glyphicon-ok" style="color:green"></span>   | `IIssue.Rule`                     |                                       |
 | <span class="glyphicon glyphicon-ok" style="color:green"></span>   | `IIssue.RuleUrl`                  | For code analysis (`CA*`) and StyleCop (`SA*`) warnings. Support for additional rules can be added through a custom [MsBuildAddRuleUrlResolver] |
 
