@@ -50,37 +50,37 @@
 
             foreach (var element in elements)
             {
-                // Ignore warnings without a message.
+                // Ignore warnings or errors without a message.
                 if (string.IsNullOrWhiteSpace(element.Value))
                 {
                     continue;
                 }
 
-                // Read affected project from the warning.
+                // Read affected project from the warning or error.
                 if (!this.TryGetProject(element, repositorySettings, out string projectFileRelativePath))
                 {
                     continue;
                 }
 
-                // Read affected file from the warning.
+                // Read affected file from the warning or error.
                 if (!this.TryGetFile(element, repositorySettings, out string fileName))
                 {
                     continue;
                 }
 
-                // Read affected line from the warning.
+                // Read affected line from the warning or error.
                 if (!TryGetLine(element, out var line))
                 {
                     continue;
                 }
 
-                // Read affected column from the warning.
+                // Read affected column from the warning or error.
                 if (!TryGetColumn(element, out var column))
                 {
                     continue;
                 }
 
-                // Read rule code from the warning.
+                // Read rule code from the warning or error.
                 if (!TryGetRule(element, out string rule))
                 {
                     continue;
@@ -110,16 +110,16 @@
         }
 
         /// <summary>
-        /// Reads the affected line from a warning logged in a MsBuild log.
+        /// Reads the affected line from a warning or error logged in a MsBuild log.
         /// </summary>
-        /// <param name="warning">Warning element from MsBuild log.</param>
+        /// <param name="element">Warning or error element from MsBuild log.</param>
         /// <param name="line">Returns line.</param>
         /// <returns>True if the line could be parsed.</returns>
-        private static bool TryGetLine(XElement warning, out int? line)
+        private static bool TryGetLine(XElement element, out int? line)
         {
             line = null;
 
-            var lineAttr = warning.Attribute("line");
+            var lineAttr = element.Attribute("line");
 
             var lineValue = lineAttr?.Value;
             if (string.IsNullOrWhiteSpace(lineValue))
@@ -139,16 +139,16 @@
         }
 
         /// <summary>
-        /// Reads the affected column from a warning logged in a MsBuild log.
+        /// Reads the affected column from a warning or error logged in a MsBuild log.
         /// </summary>
-        /// <param name="warning">Warning element from MsBuild log.</param>
+        /// <param name="element">Warning or error element from MsBuild log.</param>
         /// <param name="column">Returns column.</param>
         /// <returns>True if the column could be parsed.</returns>
-        private static bool TryGetColumn(XElement warning, out int? column)
+        private static bool TryGetColumn(XElement element, out int? column)
         {
             column = null;
 
-            var columnAttr = warning.Attribute("column");
+            var columnAttr = element.Attribute("column");
 
             var columnValue = columnAttr?.Value;
             if (string.IsNullOrWhiteSpace(columnValue))
@@ -168,14 +168,14 @@
         }
 
         /// <summary>
-        /// Reads the rule code from a warning logged in a MsBuild log.
+        /// Reads the rule code from a warning or error logged in a MsBuild log.
         /// </summary>
-        /// <param name="warning">Warning element from MsBuild log.</param>
+        /// <param name="error">Warning or error element from MsBuild log.</param>
         /// <param name="rule">Returns the code of the rule.</param>
         /// <returns>True if the rule code could be parsed.</returns>
-        private static bool TryGetRule(XElement warning, out string rule)
+        private static bool TryGetRule(XElement error, out string rule)
         {
-            var codeAttr = warning.Attribute("code");
+            var codeAttr = error.Attribute("code");
             if (codeAttr == null)
             {
                 rule = null;
@@ -187,20 +187,20 @@
         }
 
         /// <summary>
-        /// Determines the project for a warning logged in a MsBuild log.
+        /// Determines the project for a warning or error logged in a MsBuild log.
         /// </summary>
-        /// <param name="warning">Warning element from MsBuild log.</param>
+        /// <param name="element">Warning or error element from MsBuild log.</param>
         /// <param name="repositorySettings">Repository settings to use.</param>
         /// <param name="project">Returns project.</param>
         /// <returns>True if the project could be parsed.</returns>
         private bool TryGetProject(
-            XElement warning,
+            XElement element,
             IRepositorySettings repositorySettings,
             out string project)
         {
             project = string.Empty;
 
-            var projectNode = warning.Ancestors("project").FirstOrDefault();
+            var projectNode = element.Ancestors("project").FirstOrDefault();
             if (projectNode == null)
             {
                 return true;
@@ -225,20 +225,20 @@
         }
 
         /// <summary>
-        /// Reads the affected file path from a warning logged in a MsBuild log.
+        /// Reads the affected file path from a warning or error logged in a MsBuild log.
         /// </summary>
-        /// <param name="warning">Warning element from MsBuild log.</param>
+        /// <param name="element">Warning or error element from MsBuild log.</param>
         /// <param name="repositorySettings">Repository settings to use.</param>
         /// <param name="fileName">Returns the full path to the affected file.</param>
         /// <returns>True if the file path could be parsed.</returns>
         private bool TryGetFile(
-            XElement warning,
+            XElement element,
             IRepositorySettings repositorySettings,
             out string fileName)
         {
             fileName = string.Empty;
 
-            var fileAttr = warning.Attribute("file");
+            var fileAttr = element.Attribute("file");
             if (fileAttr == null)
             {
                 return true;
@@ -253,7 +253,7 @@
             // If not absolute path, combine with file path from compile task.
             if (!fileName.IsFullPath())
             {
-                var parentFileAttr = warning.Parent?.Attribute("file");
+                var parentFileAttr = element.Parent?.Attribute("file");
                 if (parentFileAttr != null)
                 {
                     var compileTaskDirectory = System.IO.Path.GetDirectoryName(parentFileAttr.Value);
