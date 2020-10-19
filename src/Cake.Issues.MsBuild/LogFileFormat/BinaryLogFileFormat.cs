@@ -43,95 +43,34 @@
             {
                 var buildEventArgs = record.Args;
 
-                if (buildEventArgs is BuildWarningEventArgs buildWarning)
+                IIssue issue = null;
+                if (buildEventArgs is BuildErrorEventArgs buildError)
                 {
-                    // Ignore warnings without a message.
-                    if (string.IsNullOrWhiteSpace(buildWarning.Message))
-                    {
-                        continue;
-                    }
-
-                    var projectFileRelativePath = this.GetProject(buildWarning, repositorySettings);
-
-                    // Read affected file from the warning.
-                    if (!this.TryGetFile(buildWarning, repositorySettings, out string fileName))
-                    {
-                        continue;
-                    }
-
-                    var line = GetLine(buildWarning);
-                    var endLine = GetEndLine(buildWarning);
-                    var column = GetColumn(buildWarning);
-                    var endColumn = GetEndColumn(buildWarning);
-                    var rule = buildWarning.Code;
-
-                    // Determine rule URL.
-                    Uri ruleUrl = null;
-                    if (!string.IsNullOrWhiteSpace(rule))
-                    {
-                        ruleUrl = MsBuildRuleUrlResolver.Instance.ResolveRuleUrl(rule);
-                    }
-
-                    // Build issue.
-                    result.Add(
-                        IssueBuilder
-                            .NewIssue(buildWarning.Message, issueProvider)
-                            .WithPriority(IssuePriority.Warning)
-                            .InProject(projectFileRelativePath, System.IO.Path.GetFileNameWithoutExtension(projectFileRelativePath))
-                            .InFile(fileName, line, endLine, column, endColumn)
-                            .OfRule(rule, ruleUrl)
-                            .Create());
+                    issue = this.GetIssue(buildError, issueProvider, repositorySettings);
                 }
+                else if (buildEventArgs is BuildWarningEventArgs buildWarning)
+                {
+                    issue = this.GetIssue(buildWarning, issueProvider, repositorySettings);
+                }
+
+                if (issue == null)
+                {
+                    continue;
+                }
+
+                result.Add(issue);
             }
 
             return result;
         }
 
         /// <summary>
-        /// Reads the affected line from a warning logged in a MsBuild log.
+        /// Returns the column based on the value from a MsBuild log.
         /// </summary>
-        /// <param name="warning">Warning element from MsBuild log.</param>
-        /// <returns>Line number or null if warning is not related to a file.</returns>
-        private static int? GetLine(BuildWarningEventArgs warning)
-        {
-            var line = warning.LineNumber;
-
-            // Convert negative line numbers or line number 0 to null
-            if (line <= 0)
-            {
-                return null;
-            }
-
-            return line;
-        }
-
-        /// <summary>
-        /// Reads the end of line range from a warning logged in a MsBuild log.
-        /// </summary>
-        /// <param name="warning">Warning element from MsBuild log.</param>
-        /// <returns>End of line range or null if warning is not related to a file.</returns>
-        private static int? GetEndLine(BuildWarningEventArgs warning)
-        {
-            var endLine = warning.EndLineNumber;
-
-            // Convert negative line numbers or line number 0 to null
-            if (endLine <= 0)
-            {
-                return null;
-            }
-
-            return endLine;
-        }
-
-        /// <summary>
-        /// Reads the affected column from a warning logged in a MsBuild log.
-        /// </summary>
-        /// <param name="warning">Warning element from MsBuild log.</param>
+        /// <param name="column">Raw value from MsBuild log.</param>
         /// <returns>Column number or null if warning is not related to a file.</returns>
-        private static int? GetColumn(BuildWarningEventArgs warning)
+        private static int? GetColumn(int column)
         {
-            var column = warning.ColumnNumber;
-
             // Convert negative column numbers or column number 0 to null
             if (column <= 0)
             {
@@ -142,69 +81,170 @@
         }
 
         /// <summary>
-        /// Reads the end of column range from a warning logged in a MsBuild log.
+        /// Returns the line based on the value from a MsBuild log.
         /// </summary>
-        /// <param name="warning">Warning element from MsBuild log.</param>
-        /// <returns>End of column range or null if warning is not related to a file.</returns>
-        private static int? GetEndColumn(BuildWarningEventArgs warning)
+        /// <param name="line">Raw value from MsBuild log.</param>
+        /// <returns>Line number or null if warning is not related to a file.</returns>
+        private static int? GetLine(int line)
         {
-            var endColumn = warning.EndColumnNumber;
-
-            // Convert negative column numbers or column number 0 to null
-            if (endColumn <= 0)
+            // Convert negative line numbers or line number 0 to null
+            if (line <= 0)
             {
                 return null;
             }
 
-            return endColumn;
+            return line;
         }
 
         /// <summary>
-        /// Determines the project for a warning logged in a MsBuild log.
+        /// Returns an issue for a build error.
         /// </summary>
-        /// <param name="warning">Warning element from the MsBuild log.</param>
+        /// <param name="buildError">Error for which the issue should be returned.</param>
+        /// <param name="issueProvider">Issue provider instance.</param>
+        /// <param name="repositorySettings">Repository settings to use.</param>
+        /// <returns>Issue instance or null, if the <paramref name="buildError"/> could not be parsed.</returns>
+        private IIssue GetIssue(
+            BuildErrorEventArgs buildError,
+            MsBuildIssuesProvider issueProvider,
+            IRepositorySettings repositorySettings)
+        {
+            return
+                this.GetIssue(
+                    buildError.Message,
+                    buildError.ProjectFile,
+                    buildError.File,
+                    buildError.LineNumber,
+                    buildError.EndLineNumber,
+                    buildError.ColumnNumber,
+                    buildError.EndColumnNumber,
+                    buildError.Code,
+                    issueProvider,
+                    repositorySettings);
+        }
+
+        /// <summary>
+        /// Returns an issue for a build warning.
+        /// </summary>
+        /// <param name="buildWarning">Warning for which the issue should be returned.</param>
+        /// <param name="issueProvider">Issue provider instance.</param>
+        /// <param name="repositorySettings">Repository settings to use.</param>
+        /// <returns>Issue instance or null, if the <paramref name="buildWarning"/> could not be parsed.</returns>
+        private IIssue GetIssue(
+            BuildWarningEventArgs buildWarning,
+            MsBuildIssuesProvider issueProvider,
+            IRepositorySettings repositorySettings)
+        {
+            return
+                this.GetIssue(
+                    buildWarning.Message,
+                    buildWarning.ProjectFile,
+                    buildWarning.File,
+                    buildWarning.LineNumber,
+                    buildWarning.EndLineNumber,
+                    buildWarning.ColumnNumber,
+                    buildWarning.EndColumnNumber,
+                    buildWarning.Code,
+                    issueProvider,
+                    repositorySettings);
+        }
+
+        /// <summary>
+        /// Returns an issue for values from an MsBuild log.
+        /// </summary>
+        /// <param name="issueProvider">Issue provider instance.</param>
+        /// <param name="repositorySettings">Repository settings to use.</param>
+        /// <returns>Issue instance or null, if the values could not be parsed.</returns>
+        private IIssue GetIssue(
+            string message,
+            string projectFile,
+            string file,
+            int lineNumber,
+            int endLineNumber,
+            int columnNumber,
+            int endColumnNumber,
+            string code,
+            MsBuildIssuesProvider issueProvider,
+            IRepositorySettings repositorySettings)
+        {
+            // Ignore warnings without a message.
+            if (string.IsNullOrWhiteSpace(message))
+            {
+                return null;
+            }
+
+            var projectFileRelativePath = this.GetProject(projectFile, repositorySettings);
+
+            // Read affected file from the warning.
+            var (result, fileName) = this.TryGetFile(file, projectFile, repositorySettings);
+            if (!result)
+            {
+                return null;
+            }
+
+            var line = GetLine(lineNumber);
+            var endLine = GetLine(endLineNumber);
+            var column = GetColumn(columnNumber);
+            var endColumn = GetColumn(endColumnNumber);
+            var rule = code;
+
+            // Determine rule URL.
+            Uri ruleUrl = null;
+            if (!string.IsNullOrWhiteSpace(rule))
+            {
+                ruleUrl = MsBuildRuleUrlResolver.Instance.ResolveRuleUrl(rule);
+            }
+
+            // Build issue.
+            return
+                IssueBuilder
+                    .NewIssue(message, issueProvider)
+                    .WithPriority(IssuePriority.Warning)
+                    .InProject(projectFileRelativePath, System.IO.Path.GetFileNameWithoutExtension(projectFileRelativePath))
+                    .InFile(fileName, line, endLine, column, endColumn)
+                    .OfRule(rule, ruleUrl)
+                    .Create();
+        }
+
+        /// <summary>
+        /// Determines the project from a value in a MsBuild log.
+        /// </summary>
+        /// <param name="project">Raw value from the MsBuild log.</param>
         /// <param name="repositorySettings">Repository settings to use.</param>
         /// <returns>Relative path to the project.</returns>
         private string GetProject(
-            BuildWarningEventArgs warning,
+            string project,
             IRepositorySettings repositorySettings)
         {
-            var project = warning.ProjectFile;
-
             // Validate project path and make relative to repository root.
             return this.ValidateFilePath(project, repositorySettings).FilePath;
         }
 
         /// <summary>
-        /// Reads the affected file path from a warning logged in a MsBuild log.
+        /// Reads the affected file path from a value in a MsBuild log.
         /// </summary>
-        /// <param name="warning">Warning element from MsBuild log.</param>
+        /// <param name="fileName">Raw value for file path from MsBuild log.</param>
+        /// <param name="project">Raw value for project path from the MsBuild log.</param>
         /// <param name="repositorySettings">Repository settings to use.</param>
-        /// <param name="fileName">Returns the full path to the affected file.</param>
-        /// <returns>True if the file path could be parsed.</returns>
-        private bool TryGetFile(
-            BuildWarningEventArgs warning,
-            IRepositorySettings repositorySettings,
-            out string fileName)
+        /// <returns>True if the file path could be parsed and the full path to the affected file.</returns>
+        private (bool successful, string fileName) TryGetFile(
+            string fileName,
+            string project,
+            IRepositorySettings repositorySettings)
         {
-            fileName = warning.File;
-
             if (string.IsNullOrWhiteSpace(fileName))
             {
-                return true;
+                return (true, fileName);
             }
 
             // If not absolute path, combine with file path from project file.
             if (!fileName.IsFullPath())
             {
-                var projectDirectory = System.IO.Path.GetDirectoryName(warning.ProjectFile);
+                var projectDirectory = System.IO.Path.GetDirectoryName(project);
                 fileName = System.IO.Path.Combine(projectDirectory, fileName);
             }
 
             // Validate file path and make relative to repository root.
-            bool result;
-            (result, fileName) = this.ValidateFilePath(fileName, repositorySettings);
-            return result;
+            return this.ValidateFilePath(fileName, repositorySettings);
         }
     }
 }
