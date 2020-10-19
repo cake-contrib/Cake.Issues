@@ -110,6 +110,7 @@
         {
             return
                 this.GetIssue(
+                    IssuePriority.Error,
                     buildError.Message,
                     buildError.ProjectFile,
                     buildError.File,
@@ -136,6 +137,7 @@
         {
             return
                 this.GetIssue(
+                    IssuePriority.Warning,
                     buildWarning.Message,
                     buildWarning.ProjectFile,
                     buildWarning.File,
@@ -151,6 +153,7 @@
         /// <summary>
         /// Returns an issue for values from an MsBuild log.
         /// </summary>
+        /// <param name="priority">Priority of the issue.</param>
         /// <param name="message">Raw value from the MsBuild log containing the message.</param>
         /// <param name="projectFile">Raw value from the MsBuild log containing the project file.</param>
         /// <param name="file">Raw value from the MsBuild log containing the file.</param>
@@ -163,6 +166,7 @@
         /// <param name="repositorySettings">Repository settings to use.</param>
         /// <returns>Issue instance or null, if the values could not be parsed.</returns>
         private IIssue GetIssue(
+            IssuePriority priority,
             string message,
             string projectFile,
             string file,
@@ -206,7 +210,7 @@
             return
                 IssueBuilder
                     .NewIssue(message, issueProvider)
-                    .WithPriority(IssuePriority.Warning)
+                    .WithPriority(priority)
                     .InProject(projectFileRelativePath, System.IO.Path.GetFileNameWithoutExtension(projectFileRelativePath))
                     .InFile(fileName, line, endLine, column, endColumn)
                     .OfRule(rule, ruleUrl)
