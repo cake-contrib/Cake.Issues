@@ -151,6 +151,14 @@
         /// <summary>
         /// Returns an issue for values from an MsBuild log.
         /// </summary>
+        /// <param name="message">Raw value from the MsBuild log containing the message.</param>
+        /// <param name="projectFile">Raw value from the MsBuild log containing the project file.</param>
+        /// <param name="file">Raw value from the MsBuild log containing the file.</param>
+        /// <param name="lineNumber">Raw value from the MsBuild log containing the line number.</param>
+        /// <param name="endLineNumber">Raw value from the MsBuild log containing the end of the line range.</param>
+        /// <param name="columnNumber">Raw value from the MsBuild log containing the column.</param>
+        /// <param name="endColumnNumber">Raw value from the MsBuild log containing the end of the column range.</param>
+        /// <param name="code">Raw value from the MsBuild log containing the rule.</param>
         /// <param name="issueProvider">Issue provider instance.</param>
         /// <param name="repositorySettings">Repository settings to use.</param>
         /// <returns>Issue instance or null, if the values could not be parsed.</returns>
