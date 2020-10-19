@@ -108,6 +108,8 @@
             MsBuildIssuesProvider issueProvider,
             IRepositorySettings repositorySettings)
         {
+            this.Log.Verbose("Process error '{0}'...", buildError.Message);
+
             return
                 this.GetIssue(
                     IssuePriority.Error,
@@ -135,6 +137,8 @@
             MsBuildIssuesProvider issueProvider,
             IRepositorySettings repositorySettings)
         {
+            this.Log.Verbose("Process warning '{0}'...", buildWarning.Message);
+
             return
                 this.GetIssue(
                     IssuePriority.Warning,
@@ -181,6 +185,7 @@
             // Ignore warnings or errors without a message.
             if (string.IsNullOrWhiteSpace(message))
             {
+                this.Log.Verbose("Skip element since it doesn't contain a message");
                 return null;
             }
 
@@ -190,6 +195,7 @@
             var (result, fileName) = this.TryGetFile(file, projectFile, repositorySettings);
             if (!result)
             {
+                this.Log.Information("Skip element since file path could not be parsed");
                 return null;
             }
 
