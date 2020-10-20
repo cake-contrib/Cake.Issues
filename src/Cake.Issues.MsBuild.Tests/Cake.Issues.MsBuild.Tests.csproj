@@ -15,32 +15,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Testfiles\FullLog.binlog" />
-    <None Remove="Testfiles\FullLog.xml" />
-    <None Remove="Testfiles\IssueWithFile.xml" />
-    <None Remove="Testfiles\IssueWithLineZero.xml" />
-    <None Remove="Testfiles\IssueWithOnlyFileName.xml" />
-    <None Remove="Testfiles\IssueWithoutCode.xml" />
-    <None Remove="Testfiles\IssueWithoutFile.xml" />
-    <None Remove="Testfiles\XmlFileLoggerLogFileFormat\IssueWithAbsoluteFileNameAndWithoutTask.xml" />
-    <None Remove="Testfiles\XmlFileLoggerLogFileFormat\IssueWithoutMessage.xml" />
-    <None Remove="Testfiles\XmlFileLoggerLogFileFormat\LogWithControlChars.xml" />
+    <None Remove="Testfiles\**\*" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Testfiles\BinaryLogFileFormat\FullLog.binlog" />
-    <EmbeddedResource Include="Testfiles\XmlFileLoggerLogFileFormat\FullLog.xml" />
-    <EmbeddedResource Include="Testfiles\XmlFileLoggerLogFileFormat\IssueWithoutCode.xml" />
-    <EmbeddedResource Include="Testfiles\XmlFileLoggerLogFileFormat\IssueWithFile.xml" />
-    <EmbeddedResource Include="Testfiles\XmlFileLoggerLogFileFormat\IssueWithLineZero.xml" />
-    <EmbeddedResource Include="Testfiles\XmlFileLoggerLogFileFormat\IssueWithOnlyFileName.xml" />
-    <EmbeddedResource Include="Testfiles\XmlFileLoggerLogFileFormat\IssueWithoutMessage.xml" />
-    <EmbeddedResource Include="Testfiles\XmlFileLoggerLogFileFormat\IssueWithoutFile.xml" />
-    <EmbeddedResource Include="Testfiles\XmlFileLoggerLogFileFormat\LogWithControlChars.xml" />
+    <EmbeddedResource Include="Testfiles\BinaryLogFileFormat\*.binlog" />
+    <EmbeddedResource Include="Testfiles\XmlFileLoggerLogFileFormat\*.xml" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.6.1" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.7.1" />
     <PackageReference Include="Cake.Core" Version="0.33.0" />
     <PackageReference Include="Cake.Testing" Version="0.33.0" />
     <PackageReference Include="Cake.Issues" Version="0.9.0" />
@@ -48,15 +32,11 @@
     <PackageReference Include="Shouldly" Version="3.0.2" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.118" />
     <PackageReference Include="xunit" Version="2.4.1" />
-    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.2" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Cake.Issues.MsBuild\Cake.Issues.MsBuild.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="Testfiles\XmlFileLoggerLogFileFormat\IssueWithAbsoluteFileNameAndWithoutTask.xml" />
   </ItemGroup>
 
 </Project>
