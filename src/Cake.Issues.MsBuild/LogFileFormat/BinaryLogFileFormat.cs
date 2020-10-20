@@ -68,7 +68,7 @@
         /// Returns the column based on the value from a MsBuild log.
         /// </summary>
         /// <param name="column">Raw value from MsBuild log.</param>
-        /// <returns>Column number or null if warning is not related to a file.</returns>
+        /// <returns>Column number or null if warning or error is not related to a file.</returns>
         private static int? GetColumn(int column)
         {
             // Convert negative column numbers or column number 0 to null
@@ -84,7 +84,7 @@
         /// Returns the line based on the value from a MsBuild log.
         /// </summary>
         /// <param name="line">Raw value from MsBuild log.</param>
-        /// <returns>Line number or null if warning is not related to a file.</returns>
+        /// <returns>Line number or null if warning or error is not related to a file.</returns>
         private static int? GetLine(int line)
         {
             // Convert negative line numbers or line number 0 to null
@@ -166,7 +166,7 @@
             MsBuildIssuesProvider issueProvider,
             IRepositorySettings repositorySettings)
         {
-            // Ignore warnings without a message.
+            // Ignore warnings or errors without a message.
             if (string.IsNullOrWhiteSpace(message))
             {
                 return null;
@@ -174,7 +174,7 @@
 
             var projectFileRelativePath = this.GetProject(projectFile, repositorySettings);
 
-            // Read affected file from the warning.
+            // Read affected file from the warning or error.
             var (result, fileName) = this.TryGetFile(file, projectFile, repositorySettings);
             if (!result)
             {
