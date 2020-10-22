@@ -50,39 +50,47 @@
 
             foreach (var element in elements)
             {
+                this.Log.Verbose("Process element '{0}'...", element);
+
                 // Ignore warnings or errors without a message.
                 if (string.IsNullOrWhiteSpace(element.Value))
                 {
+                    this.Log.Verbose("Skip element since it doesn't contain a message");
                     continue;
                 }
 
                 // Read affected project from the warning or error.
                 if (!this.TryGetProject(element, repositorySettings, out string projectFileRelativePath))
                 {
+                    this.Log.Information("Skip element since project could not be parsed");
                     continue;
                 }
 
                 // Read affected file from the warning or error.
                 if (!this.TryGetFile(element, repositorySettings, out string fileName))
                 {
+                    this.Log.Information("Skip element since file path could not be parsed");
                     continue;
                 }
 
                 // Read affected line from the warning or error.
-                if (!TryGetLine(element, out var line))
+                if (!this.TryGetLine(element, out var line))
                 {
+                    this.Log.Information("Skip element since line could not be parsed");
                     continue;
                 }
 
                 // Read affected column from the warning or error.
-                if (!TryGetColumn(element, out var column))
+                if (!this.TryGetColumn(element, out var column))
                 {
+                    this.Log.Information("Skip element since column could not be parsed");
                     continue;
                 }
 
                 // Read rule code from the warning or error.
-                if (!TryGetRule(element, out string rule))
+                if (!this.TryGetRule(element, out string rule))
                 {
+                    this.Log.Information("Skip element since rule could not be parsed");
                     continue;
                 }
 
@@ -110,83 +118,6 @@
         }
 
         /// <summary>
-        /// Reads the affected line from a warning or error logged in a MsBuild log.
-        /// </summary>
-        /// <param name="element">Warning or error element from MsBuild log.</param>
-        /// <param name="line">Returns line.</param>
-        /// <returns>True if the line could be parsed.</returns>
-        private static bool TryGetLine(XElement element, out int? line)
-        {
-            line = null;
-
-            var lineAttr = element.Attribute("line");
-
-            var lineValue = lineAttr?.Value;
-            if (string.IsNullOrWhiteSpace(lineValue))
-            {
-                return false;
-            }
-
-            line = int.Parse(lineValue, CultureInfo.InvariantCulture);
-
-            // Convert negative line numbers or line number 0 to null
-            if (line <= 0)
-            {
-                line = null;
-            }
-
-            return true;
-        }
-
-        /// <summary>
-        /// Reads the affected column from a warning or error logged in a MsBuild log.
-        /// </summary>
-        /// <param name="element">Warning or error element from MsBuild log.</param>
-        /// <param name="column">Returns column.</param>
-        /// <returns>True if the column could be parsed.</returns>
-        private static bool TryGetColumn(XElement element, out int? column)
-        {
-            column = null;
-
-            var columnAttr = element.Attribute("column");
-
-            var columnValue = columnAttr?.Value;
-            if (string.IsNullOrWhiteSpace(columnValue))
-            {
-                return false;
-            }
-
-            column = int.Parse(columnValue, CultureInfo.InvariantCulture);
-
-            // Convert negative column numbers or column number 0 to null
-            if (column <= 0)
-            {
-                column = null;
-            }
-
-            return true;
-        }
-
-        /// <summary>
-        /// Reads the rule code from a warning or error logged in a MsBuild log.
-        /// </summary>
-        /// <param name="error">Warning or error element from MsBuild log.</param>
-        /// <param name="rule">Returns the code of the rule.</param>
-        /// <returns>True if the rule code could be parsed.</returns>
-        private static bool TryGetRule(XElement error, out string rule)
-        {
-            var codeAttr = error.Attribute("code");
-            if (codeAttr == null)
-            {
-                rule = null;
-                return true;
-            }
-
-            rule = codeAttr.Value;
-            return !string.IsNullOrWhiteSpace(rule);
-        }
-
-        /// <summary>
         /// Determines the project for a warning or error logged in a MsBuild log.
         /// </summary>
         /// <param name="element">Warning or error element from MsBuild log.</param>
@@ -203,18 +134,21 @@
             var projectNode = element.Ancestors("project").FirstOrDefault();
             if (projectNode == null)
             {
+                this.Log.Information("Project not found for element '{0}'", element);
                 return true;
             }
 
             var projectAttr = projectNode.Attribute("file");
             if (projectAttr == null)
             {
+                this.Log.Information("File not found for element '{0}'", element);
                 return true;
             }
 
             project = projectAttr.Value;
             if (string.IsNullOrWhiteSpace(project))
             {
+                this.Log.Information("Project path not found for element '{0}'", element);
                 return true;
             }
 
@@ -241,12 +175,14 @@
             var fileAttr = element.Attribute("file");
             if (fileAttr == null)
             {
+                this.Log.Verbose("File attribute not found for element '{0}'", element);
                 return true;
             }
 
             fileName = fileAttr.Value;
             if (string.IsNullOrWhiteSpace(fileName))
             {
+                this.Log.Information("File path not found for element '{0}'", element);
                 return true;
             }
 
@@ -269,6 +205,86 @@
             bool result;
             (result, fileName) = this.ValidateFilePath(fileName, repositorySettings);
             return result;
+        }
+
+        /// <summary>
+        /// Reads the affected line from a warning or error logged in a MsBuild log.
+        /// </summary>
+        /// <param name="element">Warning or error element from MsBuild log.</param>
+        /// <param name="line">Returns line.</param>
+        /// <returns>True if the line could be parsed.</returns>
+        private bool TryGetLine(XElement element, out int? line)
+        {
+            line = null;
+
+            var lineAttr = element.Attribute("line");
+
+            var lineValue = lineAttr?.Value;
+            if (string.IsNullOrWhiteSpace(lineValue))
+            {
+                return false;
+            }
+
+            line = int.Parse(lineValue, CultureInfo.InvariantCulture);
+
+            // Convert negative line numbers or line number 0 to null
+            if (line <= 0)
+            {
+                this.Log.Information("Ignore value {0} since it is outside of the allowed range for line property.", line);
+                line = null;
+            }
+
+            return true;
+        }
+
+        /// <summary>
+        /// Reads the affected column from a warning or error logged in a MsBuild log.
+        /// </summary>
+        /// <param name="element">Warning or error element from MsBuild log.</param>
+        /// <param name="column">Returns column.</param>
+        /// <returns>True if the column could be parsed.</returns>
+        private bool TryGetColumn(XElement element, out int? column)
+        {
+            column = null;
+
+            var columnAttr = element.Attribute("column");
+
+            var columnValue = columnAttr?.Value;
+            if (string.IsNullOrWhiteSpace(columnValue))
+            {
+                return false;
+            }
+
+            column = int.Parse(columnValue, CultureInfo.InvariantCulture);
+
+            // Convert negative column numbers or column number 0 to null
+            if (column <= 0)
+            {
+                this.Log.Information("Ignore value {0} since it is outside of the allowed range for column property.", column);
+                column = null;
+            }
+
+            return true;
+        }
+
+        /// <summary>
+        /// Reads the rule code from a warning or error logged in a MsBuild log.
+        /// </summary>
+        /// <param name="element">Warning or error element from MsBuild log.</param>
+        /// <param name="rule">Returns the code of the rule.</param>
+        /// <returns>True if the rule code could be parsed.</returns>
+        private bool TryGetRule(XElement element, out string rule)
+        {
+            var codeAttr = element.Attribute("code");
+            if (codeAttr == null)
+            {
+                this.Log.Verbose("code attribute not found for element '{0}'", element);
+                rule = null;
+                return true;
+            }
+
+            rule = codeAttr.Value;
+            return !string.IsNullOrWhiteSpace(rule);
         }
     }
 }
