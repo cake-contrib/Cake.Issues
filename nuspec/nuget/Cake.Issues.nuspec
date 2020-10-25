@@ -11,7 +11,7 @@
 The issues addin for Cake allows you to read issue from any code analyzer or linter.
 
 This addin provides the aliases for reading issues.
-It also requires one or more issue provider addins for the specific code anylzer or linter.
+It also requires one or more issue provider addins for the specific code analyzer or linter.
 
 There are also additional addins for generating reports or posting issues to pull requests.
 
