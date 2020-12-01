@@ -18,11 +18,14 @@ Cake.Issues.Recipe supports reading issues from output of the following tools:
 | [JetBrains dupFinder]             |                                        | `IssuesParameters.InputFiles.DupFinderLogFilePath`            |
 | markdownlint                      | [markdownlint-cli]                     | `IssuesParameters.InputFiles.MarkdownlintCliLogFilePath`      |
 | markdownlint                      | [markdownlint] version 1               | `IssuesParameters.InputFiles.MarkdownlintV1LogFilePath`       |
+| [ESLint]                          | [json formatter]                       | `IssuesParameters.InputFiles.EsLintJsonLogFilePath`           |
 
 [MSBuild Extension Pack XmlFileLogger]: http://www.msbuildextensionpack.com/help/4.0.5.0/html/242ab4fd-c2e2-f6aa-325b-7588725aed24.htm
 [JetBrains dupFinder]: https://www.jetbrains.com/help/resharper/dupFinder.html
 [markdownlint-cli]: https://github.com/igorshubovych/markdownlint-cli
 [markdownlint]: https://github.com/DavidAnson/markdownlint
+[ESLint]: https://eslint.org/
+[json formatter]: https://eslint.org/docs/user-guide/formatters/#json
 
 # Build systems
 
