@@ -28,7 +28,7 @@ public class BuildData
         this.RepoRootFolder = context.MakeAbsolute(context.Directory("./"));
         this.SourceFolder = this.RepoRootFolder.Combine("src");
         this.DocsFolder = this.RepoRootFolder.Combine("docs");
-        this.TemplateGalleryFolder = this.RepoRootFolder.Combine("../docs/templates");
+        this.TemplateGalleryFolder = this.RepoRootFolder.Combine("../../docs/templates");
 
         this.Issues = new List<IIssue>();
     }
