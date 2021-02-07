@@ -19,7 +19,7 @@
     <PackageReference Include="Cake.Issues" Version="0.9.0" />
     <PackageReference Include="Cake.Issues.PullRequests" Version="0.9.0" />
     <PackageReference Include="Cake.Issues.Testing" Version="0.9.0" />
-    <PackageReference Include="Cake.Testing" Version="0.33.0" />
+    <PackageReference Include="Cake.Testing" Version="1.0.0" />
     <PackageReference Include="Cake.AzureDevOps" Version="0.5.0" />
     <PackageReference Include="NSubstitute" Version="4.2.2" />
     <PackageReference Include="Shouldly" Version="4.0.3" />
