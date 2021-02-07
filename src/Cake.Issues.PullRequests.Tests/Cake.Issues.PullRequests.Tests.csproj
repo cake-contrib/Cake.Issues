@@ -7,7 +7,7 @@
     <Description>Tests for the Cake.Issues.PullRequests addin</Description>
     <Authors>BBT Software AG</Authors>
     <Company>BBT Software AG</Company>
-    <CodeAnalysisRuleSet>..\Cake.Issues.PullRequests.Tests.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>..\Cake.Issues.Tests.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.8.3" />
