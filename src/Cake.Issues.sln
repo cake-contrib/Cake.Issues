@@ -20,6 +20,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nuspec", "nuspec", "{C9E292
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cake.Issues.Testing", "Cake.Issues.Testing\Cake.Issues.Testing.csproj", "{95CB4393-DCAE-4E92-960F-98C4236D703E}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cake.Issues.PullRequests", "Cake.Issues.PullRequests\Cake.Issues.PullRequests.csproj", "{3120202A-8DAC-474D-9459-169E6F0B9E9B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cake.Issues.PullRequests.Tests", "Cake.Issues.PullRequests.Tests\Cake.Issues.PullRequests.Tests.csproj", "{D256926A-1BD4-4EDD-B18D-E3C8611BA52C}"
+EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cake.Issues.Reporting", "Cake.Issues.Reporting\Cake.Issues.Reporting.csproj", "{3A7D38B8-BAAC-488E-B343-F0F6BB9CB6B2}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cake.Issues.Reporting.Tests", "Cake.Issues.Reporting.Tests\Cake.Issues.Reporting.Tests.csproj", "{07C79C7F-D854-43F3-8C2E-6E8147A78B94}"
@@ -42,6 +46,14 @@ Global
 		{95CB4393-DCAE-4E92-960F-98C4236D703E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95CB4393-DCAE-4E92-960F-98C4236D703E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95CB4393-DCAE-4E92-960F-98C4236D703E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3120202A-8DAC-474D-9459-169E6F0B9E9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3120202A-8DAC-474D-9459-169E6F0B9E9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3120202A-8DAC-474D-9459-169E6F0B9E9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3120202A-8DAC-474D-9459-169E6F0B9E9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D256926A-1BD4-4EDD-B18D-E3C8611BA52C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D256926A-1BD4-4EDD-B18D-E3C8611BA52C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D256926A-1BD4-4EDD-B18D-E3C8611BA52C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D256926A-1BD4-4EDD-B18D-E3C8611BA52C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3A7D38B8-BAAC-488E-B343-F0F6BB9CB6B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3A7D38B8-BAAC-488E-B343-F0F6BB9CB6B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A7D38B8-BAAC-488E-B343-F0F6BB9CB6B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
