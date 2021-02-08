@@ -18,7 +18,7 @@ People working on this release:
 * [christianbumann](https://github.com/christianbumann)
 * [janniksam](https://github.com/janniksam)
 * [pascalberger](https://github.com/pascalberger)
-* [x-jokay](https://github.com/x-jokay)
+* [jokay](https://github.com/jokay)
 
 ## Easier file linking for manually created issues
 
