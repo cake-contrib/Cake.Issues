@@ -19,10 +19,10 @@ See the Project Site for an overview of the whole ecosystem of addins for workin
     <projectUrl>https://cakeissues.net</projectUrl>
     <icon>icon.png</icon>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <repository type="git" url="https://github.com/cake-contrib/Cake.Issues.PullRequests.git"/>
+    <repository type="git" url="https://github.com/cake-contrib/Cake.Issues.git"/>
     <copyright>Copyright © BBT Software AG and contributors</copyright>
     <tags>Cake Script Cake-Issues CodeAnalysis Linting Issues Pull-Requests</tags>
-    <releaseNotes>https://github.com/cake-contrib/Cake.Issues.PullRequests/releases/tag/0.9.1</releaseNotes>
+    <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/0.9.1</releaseNotes>
   </metadata>
   <files>
     <file src="..\..\..\..\nuspec\nuget\icon.png" target="" />
