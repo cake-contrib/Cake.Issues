@@ -16,13 +16,13 @@ It requires the core Cake.Issues addin, addins for reading issues and one or mor
 See the Project Site for an overview of the whole ecosystem of addins for working with issues in Cake scripts.
     </description>
     <license type="expression">MIT</license>
-    <projectUrl>http://cake-contrib.github.io/Cake.Issues.Website/</projectUrl>
+    <projectUrl>https://cakeissues.net</projectUrl>
     <icon>icon.png</icon>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <repository type="git" url="https://github.com/cake-contrib/Cake.Issues.Reporting.git"/>
+    <repository type="git" url="https://github.com/cake-contrib/Cake.Issues.git"/>
     <copyright>Copyright © BBT Software AG and contributors</copyright>
     <tags>Cake Script Cake-Issues CodeAnalysis Linting Issues Reporting</tags>
-    <releaseNotes>https://github.com/cake-contrib/Cake.Issues.Reporting/releases/tag/0.9.0</releaseNotes>
+    <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/0.9.0</releaseNotes>
   </metadata>
   <files>
     <file src="..\..\..\..\nuspec\nuget\icon.png" target="" />
