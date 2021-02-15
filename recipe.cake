@@ -23,7 +23,7 @@ ToolSettings.SetToolSettings(
         BuildParameters.RootDirectoryPath + "/src/Cake.Issues.PullRequests.Tests/**/*.cs",
         BuildParameters.RootDirectoryPath + "/src/Cake.Issues.Reporting.Tests/**/*.cs"
     },
-    testCoverageFilter: "+[*]* -[xunit.*]* -[Cake.Core]* -[Cake.Testing]* -[*.Tests]* -[Cake.Issues]LitJson.* -[Shouldly]*",
+    testCoverageFilter: "+[*]* -[xunit.*]* -[Cake.Core]* -[Cake.Testing]* -[*.Tests]* -[Cake.Issues]LitJson.* -[Shouldly]* -[DiffEngine]* -[EmptyFiles]*",
     testCoverageExcludeByAttribute: "*.ExcludeFromCodeCoverage*",
     testCoverageExcludeByFile: "*/*Designer.cs;*/*.g.cs;*/*.g.i.cs");
 
