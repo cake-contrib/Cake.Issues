@@ -19,7 +19,8 @@ ToolSettings.SetToolSettings(
     {
         BuildParameters.RootDirectoryPath + "/src/Cake.Issues*/**/*.AssemblyInfo.cs",
         BuildParameters.RootDirectoryPath + "/src/Cake.Issues*/Serialization/LitJson/*.cs",
-        BuildParameters.RootDirectoryPath + "/src/Cake.Issues.Tests/**/*.cs"
+        BuildParameters.RootDirectoryPath + "/src/Cake.Issues.Tests/**/*.cs",
+        BuildParameters.RootDirectoryPath + "/src/Cake.Issues.Reporting.Tests/**/*.cs"
     },
     testCoverageFilter: "+[*]* -[xunit.*]* -[Cake.Core]* -[Cake.Testing]* -[*.Tests]* -[Cake.Issues]LitJson.* -[Shouldly]*",
     testCoverageExcludeByAttribute: "*.ExcludeFromCodeCoverage*",
