@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.8
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.Issues.Terraform", "Cake.Issues.Terraform\Cake.Issues.Terraform.csproj", "{9774EC64-94A9-4260-9886-4F02635F0D89}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.Issues.Terraform.Tests", "Cake.Issues.Terraform.Tests\Cake.Issues.Terraform.Tests.csproj", "{29F83008-7B25-4BF6-9B8A-3E17E79D8881}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{CE25C309-7FBA-48E7-B03E-5F8D014774AF}"
+	ProjectSection(SolutionItems) = preProject
+		..\recipe.cake = ..\recipe.cake
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nuspec", "nuspec", "{0E6A55DD-0E2C-42C5-9444-F5F894A0A11E}"
+	ProjectSection(SolutionItems) = preProject
+		..\nuspec\nuget\Cake.Issues.Terraform.nuspec = ..\nuspec\nuget\Cake.Issues.Terraform.nuspec
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9774EC64-94A9-4260-9886-4F02635F0D89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9774EC64-94A9-4260-9886-4F02635F0D89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9774EC64-94A9-4260-9886-4F02635F0D89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9774EC64-94A9-4260-9886-4F02635F0D89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29F83008-7B25-4BF6-9B8A-3E17E79D8881}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29F83008-7B25-4BF6-9B8A-3E17E79D8881}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29F83008-7B25-4BF6-9B8A-3E17E79D8881}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29F83008-7B25-4BF6-9B8A-3E17E79D8881}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0E6A55DD-0E2C-42C5-9444-F5F894A0A11E} = {CE25C309-7FBA-48E7-B03E-5F8D014774AF}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3EAE9FDF-D402-43A1-981E-5070EEB3D48B}
+	EndGlobalSection
+EndGlobal

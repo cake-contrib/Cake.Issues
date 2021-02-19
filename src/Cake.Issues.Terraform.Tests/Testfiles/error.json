@@ -1,0 +1,12 @@
+﻿{
+  "valid": false,
+  "error_count": 1,
+  "warning_count": 0,
+  "diagnostics": [
+    {
+      "severity": "error",
+      "summary": "Could not load plugin",
+      "detail": "\nPlugin reinitialization required..."
+    }
+  ]
+}
