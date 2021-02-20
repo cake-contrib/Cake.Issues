@@ -22,7 +22,7 @@ People working on this release:
 * [mholo65](https://github.com/mholo65)
 * [pascalberger](https://github.com/pascalberger)
 * [Speeedy01](https://github.com/Speeedy01)
-* [x-jokay](https://github.com/x-jokay)
+* [jokay](https://github.com/jokay)
 
 ## Full cross-platform support
 

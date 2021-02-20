@@ -18,7 +18,7 @@ People working on this release:
 * [cho-trackman](https://github.com/cho-trackman)
 * [eoehen](https://github.com/eoehen)
 * [pascalberger](https://github.com/pascalberger)
-* [x-jokay](https://github.com/x-jokay)
+* [jokay](https://github.com/jokay)
 
 ## Support for reading of errors
 
