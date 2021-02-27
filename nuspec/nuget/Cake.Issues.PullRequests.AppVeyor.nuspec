@@ -22,7 +22,7 @@ See the Project Site for an overview of the whole ecosystem of addins for workin
     <repository type="git" url="https://github.com/cake-contrib/Cake.Issues.PullRequests.AppVeyor.git"/>
     <copyright>Copyright © Pascal Berger</copyright>
     <tags>Cake Script Cake-Issues Cake-PullRequestSystem Issues PullRequest AppVeyor</tags>
-    <releaseNotes>https://github.com/cake-contrib/Cake.Issues.PullRequests.AppVeyor/releases/tag/0.9.0</releaseNotes>
+    <releaseNotes>https://github.com/cake-contrib/Cake.Issues.PullRequests.AppVeyor/releases/tag/1.0.0</releaseNotes>
   </metadata>
   <files>
     <file src="..\..\..\..\nuspec\nuget\icon.png" target="" />
