@@ -25,7 +25,7 @@ See the Project Site for an overview of the whole ecosystem of addins for workin
     </Description>
     <Authors>BBT Software AG and contributors</Authors>
     <Copyright>Copyright © BBT Software AG and contributors</Copyright>
-    <PackageTags>Cake Script Cake-Issues Cake-PullRequestSystem Issues PullRequest TFS Azure-DevOps Azure-DevOps-Server</PackageTags>
+    <PackageTags>cake cake-addin cake-issues cake-pullrequestsystem issues pullrequest tfs azure-devops azure-devops-server</PackageTags>
     <PackageIcon>icon.png</PackageIcon>
     <PackageProjectUrl>https://cakeissues.net</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
