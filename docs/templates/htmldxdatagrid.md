@@ -16,7 +16,7 @@ Template for a HTML report containing a rich data grid with sorting, filtering, 
 * Data can be filtered by any column by user.
 * Paged view.
 * Client-side full text search.
-* Client-side export to Microsoft Excel.
+* Client-side export to Microsoft Excel or PDF.
 * Fully customizable through [options](#options).
 
 # Requirements
@@ -199,6 +199,10 @@ CreateIssueReport(
 
 * <a href="htmldxdatagrid-demo-enableexporting.html" target="_blank">Enable exporting</a>
   (<a href="https://github.com/cake-contrib/Cake.Issues.Reporting.Generic/blob/develop/demos/build/create-reports/create-reports-htmldxdatagrid-enable-exporting.cake" target="_blank">Source Code</a>)
+* <a href="htmldxdatagrid-demo-exportformat-xlsx.html" target="_blank">Microsoft Excel export (*.xlsx)</a>
+  (<a href="https://github.com/cake-contrib/Cake.Issues.Reporting.Generic/blob/develop/demos/build/create-reports/create-reports-htmldxdatagrid-exportformat-xlsx.cake" target="_blank">Source Code</a>)
+* <a href="htmldxdatagrid-demo-exportformat-pdf.html" target="_blank">PDF export (*.pdf)</a>
+  (<a href="https://github.com/cake-contrib/Cake.Issues.Reporting.Generic/blob/develop/demos/build/create-reports/create-reports-htmldxdatagrid-exportformat-pdf.cake" target="_blank">Source Code</a>)
 * <a href="htmldxdatagrid-demo-customexportfilename.html" target="_blank">Custom export file name</a>
   (<a href="https://github.com/cake-contrib/Cake.Issues.Reporting.Generic/blob/develop/demos/build/create-reports/create-reports-htmldxdatagrid-custom-export-filename.cake" target="_blank">Source Code</a>)
 

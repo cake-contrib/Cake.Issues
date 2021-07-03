@@ -10,8 +10,10 @@
     <title>Issues Report</title>
 
     <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.6.0.min.js"></script>
+                <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+                <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.15/jspdf.plugin.autotable.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/21.1.4/css/dx.common.css" />
-    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/21.1.4/css/dx.material.orange.light.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/21.1.4/css/dx.light.css" />
     <script type="text/javascript" src="https://cdn3.devexpress.com/jslib/21.1.4/js/dx.all.js"></script>
 
     <style>
@@ -61,7 +63,28 @@
                 sorting: {
                     mode: "multiple"
                 },
-                rowAlternationEnabled: true,
+
+                        export: {
+                            enabled: true,
+                            allowExportSelectedData: true
+                        },
+                    
+                                onExporting: function(e) {
+                                    const pdfOptions = {
+                                        orientation: "landscape",
+                                        unit: "pt",
+                                        format: "a4"
+                                    };
+                                    const doc = new jspdf.jsPDF(pdfOptions);
+                                    DevExpress.pdfExporter.exportDataGrid({
+                                        jsPDFDocument: doc,
+                                        component: e.component
+                                    }).then(function() {
+                                        doc.save("issue-report.pdf");
+                                    });
+                                    e.cancel = true; 
+                                },
+                                            rowAlternationEnabled: true,
                 allowColumnResizing: true,
                 columns: [
 

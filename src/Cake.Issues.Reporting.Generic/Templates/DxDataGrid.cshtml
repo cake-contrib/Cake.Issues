@@ -18,6 +18,7 @@
     bool enableFiltering = ViewBagHelper.ValueOrDefault(ViewBag.EnableFiltering, true);
     bool enableExporting = ViewBagHelper.ValueOrDefault(ViewBag.EnableExporting, false);
     string exportFileName = ViewBagHelper.ValueOrDefault(ViewBag.JQueryVersion, "issue-report");
+    HtmlDxDataGridExportFormat exportFormat = ViewBagHelper.ValueOrDefault(ViewBag.ExportFormat, HtmlDxDataGridExportFormat.Excel);
     bool providerTypeVisible = ViewBagHelper.ValueOrDefault(ViewBag.ProviderTypeVisible, false);
     ColumnSortOrder providerTypeSortOrder = ViewBagHelper.ValueOrDefault(ViewBag.ProviderTypeSortOder, ColumnSortOrder.Ascending);
     bool providerNameVisible = ViewBagHelper.ValueOrDefault(ViewBag.ProviderNameVisible, true);
@@ -67,6 +68,12 @@
     string filesaverJsLocation = ViewBagHelper.ValueOrDefault(ViewBag.FileSaverJsLocation, "https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/").Trim();
     filesaverJsLocation = filesaverJsLocation.WithEnding("/");
     string filesaverJsVersion = ViewBagHelper.ValueOrDefault(ViewBag.FileSaverJsVersion, "2.0.4").Trim();
+    string jsPdfLocation = ViewBagHelper.ValueOrDefault(ViewBag.JsPdfLocation, "https://cdnjs.cloudflare.com/ajax/libs/jspdf/").Trim();
+    jsPdfLocation = jsPdfLocation.WithEnding("/");
+    string jsPdfVersion = ViewBagHelper.ValueOrDefault(ViewBag.FileSaverJsVersion, "2.3.1").Trim();
+    string jsPdfAutoTableLocation = ViewBagHelper.ValueOrDefault(ViewBag.FileSaverJsLocation, "https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/").Trim();
+    jsPdfAutoTableLocation = jsPdfAutoTableLocation.WithEnding("/");
+    string jsPdfAutoTableVersion = ViewBagHelper.ValueOrDefault(ViewBag.FileSaverJsVersion, "3.5.15").Trim();
     string devExtremeLocation = ViewBagHelper.ValueOrDefault(ViewBag.DevExtremeLocation, "https://cdn3.devexpress.com/jslib/").Trim();
     devExtremeLocation = devExtremeLocation.WithEnding("/");
     string devExtremeVersion = ViewBagHelper.ValueOrDefault(ViewBag.DevExtremeVersion, "21.1.4").Trim();
@@ -109,8 +116,17 @@
     <script type="text/javascript" src="@($"{jQueryLocation}jquery-{jQueryVersion}.min.js")"></script>
     @if (enableExporting)
     {
-        <script type="text/javascript" src="@($"{excelJsLocation}{excelJsVersion}/exceljs.min.js")"></script>
-        <script type="text/javascript" src="@($"{filesaverJsLocation}{filesaverJsVersion}/FileSaver.min.js")"></script>
+        @switch (exportFormat)
+        {
+            case HtmlDxDataGridExportFormat.Excel:
+                <script type="text/javascript" src="@($"{excelJsLocation}{excelJsVersion}/exceljs.min.js")"></script>
+                <script type="text/javascript" src="@($"{filesaverJsLocation}{filesaverJsVersion}/FileSaver.min.js")"></script>
+                break;
+            case HtmlDxDataGridExportFormat.Pdf:
+                <script type="text/javascript" src="@($"{jsPdfLocation}{jsPdfVersion}/jspdf.umd.min.js")"></script>
+                <script type="text/javascript" src="@($"{jsPdfAutoTableLocation}{jsPdfAutoTableVersion}/jspdf.plugin.autotable.min.js")"></script>
+                break;
+        }
     }
     @* DevExtreme themes *@
     <link rel="stylesheet" type="text/css" href="@($"{devExtremeLocation}{devExtremeVersion}/css/dx.common.css")" />
@@ -212,21 +228,48 @@
                             enabled: true,
                             allowExportSelectedData: true
                         },
-                        onExporting: function(e) { 
-                            const workbook = new ExcelJS.Workbook(); 
-                            const worksheet = workbook.addWorksheet("@title"); 
-                            DevExpress.excelExporter.exportDataGrid({ 
-                                worksheet: worksheet, 
-                                component: e.component,
-                            }).then(function() {
-                                workbook.xlsx.writeBuffer().then(function(buffer) { 
-                                    saveAs(new Blob([buffer], { type: "application/octet-stream" }), "@(exportFileName).xlsx"); 
-                                }); 
-                            });
-                            @* Disable deprecated built-in Excel export *@
-                            e.cancel = true; 
-                        },
                     </text>
+                    @switch (exportFormat)
+                    {
+                        case HtmlDxDataGridExportFormat.Excel:
+                            <text>
+                                onExporting: function(e) { 
+                                    const workbook = new ExcelJS.Workbook(); 
+                                    const worksheet = workbook.addWorksheet("@title"); 
+                                    DevExpress.excelExporter.exportDataGrid({ 
+                                        worksheet: worksheet, 
+                                        component: e.component,
+                                    }).then(function() {
+                                        workbook.xlsx.writeBuffer().then(function(buffer) { 
+                                            saveAs(new Blob([buffer], { type: "application/octet-stream" }), "@(exportFileName).xlsx"); 
+                                        }); 
+                                    });
+                                    @* Disable deprecated built-in Excel export *@
+                                    e.cancel = true; 
+                                },
+                            </text>
+                            break;
+                        case HtmlDxDataGridExportFormat.Pdf:
+                            <text>
+                                onExporting: function(e) {
+                                    const pdfOptions = {
+                                        orientation: "landscape",
+                                        unit: "pt",
+                                        format: "a4"
+                                    };
+                                    const doc = new jspdf.jsPDF(pdfOptions);
+                                    DevExpress.pdfExporter.exportDataGrid({
+                                        jsPDFDocument: doc,
+                                        component: e.component
+                                    }).then(function() {
+                                        doc.save("@(exportFileName).pdf");
+                                    });
+                                    @* Disable deprecated built-in Excel export *@
+                                    e.cancel = true; 
+                                },
+                            </text>
+                            break;
+                    }
                 }
                 rowAlternationEnabled: true,
                 allowColumnResizing: true,
