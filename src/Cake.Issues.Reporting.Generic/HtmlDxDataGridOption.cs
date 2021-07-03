@@ -386,6 +386,13 @@
         ExportFileName,
 
         /// <summary>
+        /// Export format.
+        /// See <see cref="HtmlDxDataGridExportFormat"/> for possible values.
+        /// Default value is <see cref="HtmlDxDataGridExportFormat.Excel"/>.
+        /// </summary>
+        ExportFormat,
+
+        /// <summary>
         /// Location where <see href="https://github.com/exceljs/exceljs">ExcelJS</see> can be found.
         /// Below the location there needs to be a folder matching <see cref="ExcelJsVersion"/>.
         /// The following files need to be available:
@@ -424,5 +431,45 @@
         /// Default value is <c>2.0.4</c>.
         /// </summary>
         FileSaverJsVersion,
+
+        /// <summary>
+        /// Location where <see href="https://github.com/MrRio/jsPDF">jsPDF</see> can be found.
+        /// Below the location there needs to be a folder matching <see cref="JsPdfVersion"/>.
+        /// The following files need to be available:
+        /// <list type="bullet">
+        /// <item>
+        /// <description><c>{JsPdfLocation}/{JsPdfVersion}/jspdf.umd.min.js</c></description>
+        /// </item>
+        /// </list>
+        /// Default value is <c>https://cdnjs.cloudflare.com/ajax/libs/jspdf/</c>.
+        /// </summary>
+        JsPdfLocation,
+
+        /// <summary>
+        /// Version of <see href="https://github.com/MrRio/jsPDF">jsPDF</see> which should be used.
+        /// This version needs to match the version required by the selected <see cref="DevExtremeVersion"/>.
+        /// Default value is <c>2.3.1</c>.
+        /// </summary>
+        JsPdfVersion,
+
+        /// <summary>
+        /// Location where <see href="https://github.com/simonbengtsson/jsPDF-AutoTable">jsPDF-AutoTable plugin</see> can be found.
+        /// Below the location there needs to be a folder matching <see cref="JsPdfAutotableVersion"/>.
+        /// The following files need to be available:
+        /// <list type="bullet">
+        /// <item>
+        /// <description><c>{JsPdfAutotableLocation}/{JsPdfAutotableVersion}/jspdf.plugin.autotable.min.js</c></description>
+        /// </item>
+        /// </list>
+        /// Default value is <c>https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/</c>.
+        /// </summary>
+        JsPdfAutotableLocation,
+
+        /// <summary>
+        /// Version of <see href="https://github.com/simonbengtsson/jsPDF-AutoTable">jsPDF-AutoTable plugin</see> which should be used.
+        /// This version needs to match the version required by the selected <see cref="DevExtremeVersion"/>.
+        /// Default value is <c>3.5.15</c>.
+        /// </summary>
+        JsPdfAutotableVersion,
     }
 }

@@ -874,7 +874,7 @@
         {
             [Theory]
             [InlineData(true)]
-            //[InlineData(false)]
+            [InlineData(false)]
             public void Should_Not_Fail_On_Report_Creation(bool value)
             {
                 // Given
@@ -903,6 +903,29 @@
                         settings.WithOption(
                             HtmlDxDataGridOption.ExportFileName,
                             "foo"));
+            }
+        }
+
+        public sealed class TheExportFormatOption
+        {
+            [Theory]
+            [InlineData(HtmlDxDataGridExportFormat.Excel)]
+            [InlineData(HtmlDxDataGridExportFormat.Pdf)]
+            public void Should_Not_Fail_On_Report_Creation(HtmlDxDataGridExportFormat value)
+            {
+                // Given
+                var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+
+                // When / Then
+                fixture.TestReportCreation(
+                    settings =>
+                        settings
+                            .WithOption(
+                                HtmlDxDataGridOption.EnableExporting,
+                                true)
+                            .WithOption(
+                                HtmlDxDataGridOption.ExportFormat,
+                                value));
             }
         }
 
