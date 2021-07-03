@@ -61,9 +61,12 @@
     string jQueryLocation = ViewBagHelper.ValueOrDefault(ViewBag.JQueryLocation, "https://ajax.aspnetcdn.com/ajax/jquery/").Trim();
     jQueryLocation = jQueryLocation.WithEnding("/");
     string jQueryVersion = ViewBagHelper.ValueOrDefault(ViewBag.JQueryVersion, "3.6.0").Trim();
-    string jsZipLocation = ViewBagHelper.ValueOrDefault(ViewBag.JsZipLocation, "https://cdnjs.cloudflare.com/ajax/libs/jszip/").Trim();
-    jsZipLocation = jsZipLocation.WithEnding("/");
-    string jsZipVersion = ViewBagHelper.ValueOrDefault(ViewBag.JsZipVersion, "3.2.2").Trim();
+    string excelJsLocation = ViewBagHelper.ValueOrDefault(ViewBag.ExcelJsLocation, "https://cdnjs.cloudflare.com/ajax/libs/exceljs/").Trim();
+    excelJsLocation = excelJsLocation.WithEnding("/");
+    string excelJsVersion = ViewBagHelper.ValueOrDefault(ViewBag.ExcelJsVersion, "4.2.1").Trim();
+    string filesaverJsLocation = ViewBagHelper.ValueOrDefault(ViewBag.FileSaverJsLocation, "https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/").Trim();
+    filesaverJsLocation = filesaverJsLocation.WithEnding("/");
+    string filesaverJsVersion = ViewBagHelper.ValueOrDefault(ViewBag.FileSaverJsVersion, "2.0.4").Trim();
     string devExtremeLocation = ViewBagHelper.ValueOrDefault(ViewBag.DevExtremeLocation, "https://cdn3.devexpress.com/jslib/").Trim();
     devExtremeLocation = devExtremeLocation.WithEnding("/");
     string devExtremeVersion = ViewBagHelper.ValueOrDefault(ViewBag.DevExtremeVersion, "21.1.4").Trim();
@@ -106,7 +109,8 @@
     <script type="text/javascript" src="@($"{jQueryLocation}jquery-{jQueryVersion}.min.js")"></script>
     @if (enableExporting)
     {
-        <script type="text/javascript" src="@($"{jsZipLocation}{jsZipVersion}/jszip.min.js")"></script>
+        <script type="text/javascript" src="@($"{excelJsLocation}{excelJsVersion}/exceljs.min.js")"></script>
+        <script type="text/javascript" src="@($"{filesaverJsLocation}{filesaverJsVersion}/FileSaver.min.js")"></script>
     }
     @* DevExtreme themes *@
     <link rel="stylesheet" type="text/css" href="@($"{devExtremeLocation}{devExtremeVersion}/css/dx.common.css")" />
@@ -201,11 +205,29 @@
                 sorting: {
                     mode: "multiple"
                 },
-                "export": {
-                    enabled: @enableExporting.ToString().ToLowerInvariant(),
-                    fileName: "@exportFileName",
-                    allowExportSelectedData: true
-                },
+                @if (enableExporting)
+                {
+                    <text>
+                        export: {
+                            enabled: true,
+                            allowExportSelectedData: true
+                        },
+                        onExporting: function(e) { 
+                            const workbook = new ExcelJS.Workbook(); 
+                            const worksheet = workbook.addWorksheet("@title"); 
+                            DevExpress.excelExporter.exportDataGrid({ 
+                                worksheet: worksheet, 
+                                component: e.component,
+                            }).then(function() {
+                                workbook.xlsx.writeBuffer().then(function(buffer) { 
+                                    saveAs(new Blob([buffer], { type: "application/octet-stream" }), "@(exportFileName).xlsx"); 
+                                }); 
+                            });
+                            @* Disable deprecated built-in Excel export *@
+                            e.cancel = true; 
+                        },
+                    </text>
+                }
                 rowAlternationEnabled: true,
                 allowColumnResizing: true,
                 columns: [

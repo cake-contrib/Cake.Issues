@@ -389,23 +389,43 @@
         ExportFileName,
 
         /// <summary>
-        /// Location where JSZip can be found.
-        /// Below the location there needs to be a folder matching <see cref="JsZipVersion"/>.
+        /// Location where ExcelJS can be found.
+        /// Below the location there needs to be a folder matching <see cref="ExcelJsVersion"/>.
         /// The following files need to be available:
         /// <list type="bullet">
         /// <item>
-        /// <description><c>{JsZipLocation}/{JsZipVersion}/jszip.min.js</c></description>
+        /// <description><c>{ExcelJsLocation}/{ExcelJsVersion}/exceljs.min.js</c></description>
         /// </item>
         /// </list>
-        /// Default value is <c>https://cdnjs.cloudflare.com/ajax/libs/jszip/</c>.
+        /// Default value is <c>https://cdnjs.cloudflare.com/ajax/libs/exceljs/</c>.
         /// </summary>
-        JsZipLocation,
+        ExcelJsLocation,
 
         /// <summary>
-        /// Version of JsZip which should be used.
+        /// Version of ExcelJS which should be used.
         /// This version needs to match the version required by the selected <see cref="DevExtremeVersion"/>.
-        /// Default value is <c>3.2.2</c>.
+        /// Default value is <c>4.2.1</c>.
         /// </summary>
-        JsZipVersion,
+        ExcelJsVersion,
+
+        /// <summary>
+        /// Location where FileSaver.js can be found.
+        /// Below the location there needs to be a folder matching <see cref="FileSaverJsVersion"/>.
+        /// The following files need to be available:
+        /// <list type="bullet">
+        /// <item>
+        /// <description><c>{FileSaverLocation}/{FileSaverVersion}/FileSaver.js</c></description>
+        /// </item>
+        /// </list>
+        /// Default value is <c>https://cdnjs.cloudflare.com/ajax/libs/FileSaver.min.js/</c>.
+        /// </summary>
+        FileSaverJsLocation,
+
+        /// <summary>
+        /// Version of FileSaver.js which should be used.
+        /// This version needs to match the version required by the selected <see cref="DevExtremeVersion"/>.
+        /// Default value is <c>2.0.4</c>.
+        /// </summary>
+        FileSaverJsVersion,
     }
 }
