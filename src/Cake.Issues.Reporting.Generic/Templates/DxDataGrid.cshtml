@@ -17,7 +17,7 @@
     bool enableGrouping = ViewBagHelper.ValueOrDefault(ViewBag.EnableGrouping, true);
     bool enableFiltering = ViewBagHelper.ValueOrDefault(ViewBag.EnableFiltering, true);
     bool enableExporting = ViewBagHelper.ValueOrDefault(ViewBag.EnableExporting, false);
-    string exportFileName = ViewBagHelper.ValueOrDefault(ViewBag.JQueryVersion, "issue-report");
+    string exportFileName = ViewBagHelper.ValueOrDefault(ViewBag.ExportFileName, "issue-report");
     HtmlDxDataGridExportFormat exportFormat = ViewBagHelper.ValueOrDefault(ViewBag.ExportFormat, HtmlDxDataGridExportFormat.Excel);
     bool providerTypeVisible = ViewBagHelper.ValueOrDefault(ViewBag.ProviderTypeVisible, false);
     ColumnSortOrder providerTypeSortOrder = ViewBagHelper.ValueOrDefault(ViewBag.ProviderTypeSortOder, ColumnSortOrder.Ascending);
