@@ -412,6 +412,8 @@ namespace LitJson
                     elem_type = inst_type.GetElementType ();
                 }
 
+                list.Clear();
+
                 while (true) {
                     object item = ReadValue (elem_type, reader);
                     if (item == null && reader.Token == JsonToken.ArrayEnd)
@@ -680,6 +682,11 @@ namespace LitJson
             RegisterImporter (base_importers_table, typeof (double),
                               typeof (decimal), importer);
 
+            importer = delegate (object input) {
+                return Convert.ToSingle((double)input);
+            };
+            RegisterImporter(base_importers_table, typeof(double),
+                typeof(float), importer);
 
             importer = delegate (object input) {
                 return Convert.ToUInt32 ((long) input);
@@ -750,6 +757,12 @@ namespace LitJson
                 return;
             }
 
+            if (obj is Single)
+            {
+                writer.Write((float)obj);
+                return;
+            }
+
             if (obj is Int32) {
                 writer.Write ((int) obj);
                 return;
@@ -785,10 +798,13 @@ namespace LitJson
                 return;
             }
 
-            if (obj is IDictionary) {
+            if (obj is IDictionary dictionary) {
                 writer.WriteObjectStart ();
-                foreach (DictionaryEntry entry in (IDictionary) obj) {
-                    writer.WritePropertyName ((string) entry.Key);
+                foreach (DictionaryEntry entry in dictionary) {
+                    var propertyName = entry.Key is string key ?
+                        key
+                        : Convert.ToString(entry.Key, CultureInfo.InvariantCulture);
+                    writer.WritePropertyName (propertyName);
                     WriteValue (entry.Value, writer, writer_is_private,
                                 depth + 1);
                 }
@@ -819,10 +835,20 @@ namespace LitJson
             if (obj is Enum) {
                 Type e_type = Enum.GetUnderlyingType (obj_type);
 
-                if (e_type == typeof (long)
-                    || e_type == typeof (uint)
-                    || e_type == typeof (ulong))
+                if (e_type == typeof (long))
+                    writer.Write ((long) obj);
+                else if (e_type == typeof (uint))
+                    writer.Write ((uint) obj);
+                else if (e_type == typeof (ulong))
                     writer.Write ((ulong) obj);
+                else if (e_type == typeof(ushort))
+                    writer.Write ((ushort)obj);
+                else if (e_type == typeof(short))
+                    writer.Write ((short)obj);
+                else if (e_type == typeof(byte))
+                    writer.Write ((byte)obj);
+                else if (e_type == typeof(sbyte))
+                    writer.Write ((sbyte)obj);
                 else
                     writer.Write ((int) obj);
 
