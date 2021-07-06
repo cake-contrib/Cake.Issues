@@ -235,5 +235,6 @@ Source code is available on [GitHub].
 [HtmlDxDataGridOption.AdditionalColumns]: ../../../../../api/Cake.Issues.Reporting.Generic/HtmlDxDataGridOption/F9860912
 [HtmlDxDataGridOption.SortedColumns]: ../../../../../api/Cake.Issues.Reporting.Generic/HtmlDxDataGridOption/D578E453
 [HtmlDxDataGridOption.GroupedColumns]: ../../../../../api/Cake.Issues.Reporting.Generic/HtmlDxDataGridOption/0907599C
+[HtmlDxDataGridOption.EnableExporting]: ../../../../../api/Cake.Issues.Reporting.Generic/HtmlDxDataGridOption/1441E285
 [custom template]: ../examples/custom-template
 [GitHub]: https://github.com/cake-contrib/Cake.Issues.Reporting.Generic/blob/develop/src/Cake.Issues.Reporting.Generic/Templates/DxDataGrid.cshtml
