@@ -63,6 +63,31 @@
             }
 
             [Fact]
+            public void Should_Read_Issue_Without_Line_Correct()
+            {
+                // Given
+                var fixture = new InspectCodeIssuesProviderFixture("WithoutLineButOffset.xml");
+
+                // When
+                var issues = fixture.ReadIssues().ToList();
+
+                // Then
+                issues.Count.ShouldBe(1);
+                var issue = issues.Single();
+                IssueChecker.Check(
+                    issue,
+                    IssueBuilder.NewIssue(
+                        @"Using directive is not required by the code and can be safely removed",
+                        "Cake.Issues.InspectCode.InspectCodeIssuesProvider",
+                        "InspectCode")
+                        .InProjectOfName("Project1")
+                        .InFile(@"Src\myfile.cs", 1)
+                        .OfRule("RedundantUsingDirective", new Uri("https://www.jetbrains.com/resharperplatform/help?Keyword=RedundantUsingDirective"))
+                        .WithPriority(IssuePriority.Warning)
+                        .Create());
+            }
+
+            [Fact]
             public void Should_Read_Rule_Url()
             {
                 // Given

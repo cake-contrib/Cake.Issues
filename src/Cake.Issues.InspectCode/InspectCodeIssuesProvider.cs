@@ -174,7 +174,18 @@
             var lineValue = lineAttr?.Value;
             if (string.IsNullOrWhiteSpace(lineValue))
             {
-                return false;
+                var offsetAttr = issue.Attribute("Offset");
+
+                var offsetValue = offsetAttr?.Value;
+                if (string.IsNullOrWhiteSpace(offsetValue))
+                {
+                    return false;
+                }
+
+                // There are cases where InspectCode reports an offset, but no line.
+                // In this case we will assume line 1.
+                line = 1;
+                return true;
             }
 
             line = int.Parse(lineValue, CultureInfo.InvariantCulture);
