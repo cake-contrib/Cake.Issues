@@ -16,11 +16,13 @@
   
   <ItemGroup>
     <None Remove="Testfiles\inspectcode.xml" />
+    <None Remove="Testfiles\WithoutLineButOffset.xml" />
     <None Remove="Testfiles\WithWikiUrl.xml" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Testfiles\inspectcode.xml" />
+    <EmbeddedResource Include="Testfiles\WithoutLineButOffset.xml" />
     <EmbeddedResource Include="Testfiles\WithWikiUrl.xml" />
   </ItemGroup>
 
