@@ -14,6 +14,8 @@ This addin provides the aliases for any text based report format.
 It also requires the core Cake.Issues and Cake.Issues.Reporting addins and one or more issue providers.
 
 See the Project Site for an overview of the whole ecosystem of addins for working with issues in Cake scripts.
+
+NOTE: This addin is currently not compatible with Cake Frosting.
     </description>
     <license type="expression">MIT</license>
     <projectUrl>https://cakeissues.net</projectUrl>
