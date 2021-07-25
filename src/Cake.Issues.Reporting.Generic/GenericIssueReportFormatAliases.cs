@@ -9,7 +9,8 @@
     /// <summary>
     /// Contains functionality for creating issue reports in any text based format (HTML, Markdown, ...).
     ///
-    /// NOTE: These aliases are currently not compatible with Cake Frosting.
+    /// NOTE: Use Cake.Issues.Reporting.Generic addin to use these aliases with Cake Script Runners and
+    /// Cake.Frosting.Issues.Reporting.Generic to use these aliases with Cake Frosting.
     /// </summary>
     [CakeAliasCategory(IssuesAliasConstants.MainCakeAliasCategory)]
     [SuppressMessage("ReSharper", "UnusedMember.Global", Justification = "Aliases are not used in addin code")]
