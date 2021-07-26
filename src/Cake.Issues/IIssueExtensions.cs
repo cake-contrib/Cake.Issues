@@ -1,6 +1,7 @@
 ﻿namespace Cake.Issues
 {
     using System;
+    using System.Collections.Generic;
 
     /// <summary>
     /// Extensions for <see cref="IIssue"/>.
@@ -236,6 +237,13 @@
         ///         <description>The value of <see cref="IIssue.MessageMarkdown"/> or <see cref="IIssue.MessageText"/>
         ///         if message in Markdown format is not available.</description>
         ///     </item>
+        ///     <item>
+        ///         <term>{AdditionalInformation:Key}</term>
+        ///         <description>
+        ///         The value of the key <c>Key</c> in <see cref="IIssue.AdditionalInformation"/>.
+        ///         If the key <c>Key</c> does not exist in <see cref="IIssue.AdditionalInformation"/>, nothing will be replaced.
+        ///         </description>
+        ///     </item>
         /// </list>
         /// </param>
         /// <param name="issue">Issue whose values should be used to replace the patterns.</param>
@@ -268,7 +276,23 @@
                     .Replace("{Run}", issue.Run)
                     .Replace("{MessageText}", issue.Message(IssueCommentFormat.PlainText))
                     .Replace("{MessageHtml}", issue.Message(IssueCommentFormat.Html))
-                    .Replace("{MessageMarkdown}", issue.Message(IssueCommentFormat.Markdown));
+                    .Replace("{MessageMarkdown}", issue.Message(IssueCommentFormat.Markdown))
+                    .ReplaceAdditionalInformation(issue.AdditionalInformation);
+        }
+
+        private static string ReplaceAdditionalInformation(this string pattern, IReadOnlyDictionary<string, string> additionalInformation)
+        {
+            if (additionalInformation == null)
+            {
+                return pattern;
+            }
+
+            foreach (var keyValuePair in additionalInformation)
+            {
+                pattern = pattern.Replace($"{{AdditionalInformation:{keyValuePair.Key}}}", keyValuePair.Value);
+            }
+
+            return pattern;
         }
     }
 }

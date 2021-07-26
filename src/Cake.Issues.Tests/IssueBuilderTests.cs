@@ -1,6 +1,7 @@
 ﻿namespace Cake.Issues.Tests
 {
     using System;
+    using System.Collections.Generic;
     using Cake.Issues.Testing;
     using Cake.Testing;
     using Shouldly;
@@ -620,7 +621,7 @@
                         .Create();
 
                 // Then
-                result.ProviderType.ShouldBe(issueProvider.GetType().FullName);
+                result.ProviderType.ShouldBe(issueProvider.ProviderType);
             }
 
             [Fact]
@@ -806,7 +807,7 @@
                         .Create();
 
                 // Then
-                result.ProviderType.ShouldBe(issueProvider.GetType().FullName);
+                result.ProviderType.ShouldBe(issueProvider.ProviderType);
             }
 
             [Fact]
@@ -1653,7 +1654,6 @@
                 result.IsArgumentNullException("fileLinkSettings");
             }
 
-
             [Fact]
             public void Should_Resolve_FileLink_When_FileLinkSettings_Were_Provided()
             {
@@ -1665,7 +1665,7 @@
                         .Branch("dev");
 
                 // When
-                var issue = 
+                var issue =
                     fixture.IssueBuilder
                         .InFile("fooPath", 10, 20, 1, 10)
                         .WithFileLinkSettings(fileLinkSettings).Create();
@@ -2014,6 +2014,115 @@
 
                 // Then
                 issue.Run.ToString().ShouldBe(run);
+            }
+        }
+
+        public sealed class TheWithAdditionalInformationMethodThatTakesKeyValuePairs
+        {
+            [Fact]
+            public void Should_Set_Additional_Information()
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+
+                // When
+                var issue = fixture.IssueBuilder.WithAdditionalInformation("dupe-cost", "974").Create();
+
+                // Then
+                issue.AdditionalInformation.ShouldContain(new KeyValuePair<string, string>("dupe-cost", "974"));
+            }
+
+            [Fact]
+            public void Should_Throw_When_Key_Is_Used_Multiple_Times()
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+
+                // When
+                var issueBuilder = fixture.IssueBuilder.WithAdditionalInformation("dupe-cost", "974");
+                var result = Record.Exception(() => issueBuilder.WithAdditionalInformation("dupe-cost", "1037"));
+
+                // Then
+                result.IsArgumentException("key");
+            }
+
+            [Fact]
+            public void Should_Throw_If_Key_Is_Null()
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+                string key = null;
+
+                // When
+                var result = Record.Exception(() =>
+                    fixture.IssueBuilder.WithAdditionalInformation(key, "123"));
+
+                // Then
+                result.IsArgumentNullException("key");
+            }
+
+            [Fact]
+            public void Should_Throw_If_Key_Is_Empty()
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+                var key = string.Empty;
+
+                // When
+                var result = Record.Exception(() =>
+                    fixture.IssueBuilder.WithAdditionalInformation(key, "123"));
+
+                // Then
+                result.IsArgumentException("key");
+            }
+
+            [Fact]
+            public void Should_Throw_If_Key_Is_WhiteSpace()
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+                var key = " ";
+
+                // When
+                var result = Record.Exception(() =>
+                    fixture.IssueBuilder.WithAdditionalInformation(key, "123"));
+
+                // Then
+                result.IsArgumentException("key");
+            }
+        }
+
+        public sealed class TheWithAdditionalInformationMethodThatTakesAWholeDictionary
+        {
+            [Fact]
+            public void Should_Set_Additional_Information()
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+
+                // When
+                var issue = fixture.IssueBuilder.WithAdditionalInformation(new Dictionary<string, string>
+                {
+                    { "dupe-cost", "974" },
+                }).Create();
+
+                // Then
+                issue.AdditionalInformation.Count.ShouldBe(1);
+                issue.AdditionalInformation.ShouldContain(new KeyValuePair<string, string>("dupe-cost", "974"));
+            }
+
+            [Fact]
+            public void Should_Throw_If_AdditionalInformation_Is_Null()
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+
+                // When
+                var result = Record.Exception(() =>
+                    fixture.IssueBuilder.WithAdditionalInformation(null));
+
+                // Then
+                result.IsArgumentNullException("additionalInformation");
             }
         }
     }

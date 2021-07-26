@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netcoreapp2.1</TargetFrameworks>
+    <IsPackable>false</IsPackable>
+    <Copyright>Copyright © BBT Software AG and contributors</Copyright>
+    <Description>Tests for the Cake.Issues.Reporting addin</Description>
+    <Authors>BBT Software AG and contributors</Authors>
+    <Company>BBT Software AG and contributors</Company>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <CodeAnalysisRuleSet>..\Cake.Issues.Tests.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.8.3" />
+    <PackageReference Include="Cake.Core" Version="1.0.0" />
+    <PackageReference Include="Cake.Testing" Version="1.0.0" />
+    <PackageReference Include="Shouldly" Version="4.0.3" />
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118" />
+    <PackageReference Include="xunit" Version="2.4.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Cake.Issues\Cake.Issues.csproj" />
+    <ProjectReference Include="..\Cake.Issues.Testing\Cake.Issues.Testing.csproj" />
+    <ProjectReference Include="..\Cake.Issues.Reporting\Cake.Issues.Reporting.csproj" />
+  </ItemGroup>
+
+</Project>

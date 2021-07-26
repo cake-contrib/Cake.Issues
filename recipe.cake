@@ -1,4 +1,4 @@
-#load nuget:?package=Cake.Recipe&version=1.0.0
+#load nuget:?package=Cake.Recipe&version=2.0.1
 
 Environment.SetVariableNames();
 
@@ -9,10 +9,7 @@ BuildParameters.SetParameters(
     title: "Cake.Issues",
     repositoryOwner: "cake-contrib",
     repositoryName: "Cake.Issues",
-    appVeyorAccountName: "cakecontrib",
-    shouldPublishMyGet: false,
-    shouldRunCodecov: false,
-    shouldRunGitVersion: true);
+    appVeyorAccountName: "cakecontrib");
 
 BuildParameters.PrintParameters(Context);
 
@@ -22,9 +19,11 @@ ToolSettings.SetToolSettings(
     {
         BuildParameters.RootDirectoryPath + "/src/Cake.Issues*/**/*.AssemblyInfo.cs",
         BuildParameters.RootDirectoryPath + "/src/Cake.Issues*/Serialization/LitJson/*.cs",
-        BuildParameters.RootDirectoryPath + "/src/Cake.Issues.Tests/**/*.cs"
+        BuildParameters.RootDirectoryPath + "/src/Cake.Issues.Tests/**/*.cs",
+        BuildParameters.RootDirectoryPath + "/src/Cake.Issues.PullRequests.Tests/**/*.cs",
+        BuildParameters.RootDirectoryPath + "/src/Cake.Issues.Reporting.Tests/**/*.cs"
     },
-    testCoverageFilter: "+[*]* -[xunit.*]* -[Cake.Core]* -[Cake.Testing]* -[*.Tests]* -[Cake.Issues]LitJson.* -[Shouldly]*",
+    testCoverageFilter: "+[*]* -[xunit.*]* -[Cake.Core]* -[Cake.Testing]* -[*.Tests]* -[Cake.Issues]LitJson.* -[Shouldly]* -[DiffEngine]* -[EmptyFiles]*",
     testCoverageExcludeByAttribute: "*.ExcludeFromCodeCoverage*",
     testCoverageExcludeByFile: "*/*Designer.cs;*/*.g.cs;*/*.g.i.cs");
 

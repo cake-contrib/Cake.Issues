@@ -33,6 +33,22 @@
             }
         }
 
+        public sealed class TheProviderTypeProperty
+        {
+            [Fact]
+            public void Should_Return_Full_Type_Name_Of_Concrete_IssueProvider()
+            {
+                // Given
+                var provider = new FakeIssueProvider(new FakeLog());
+
+                // When
+                var result = provider.ProviderType;
+
+                // Then
+                result.ShouldBe("Cake.Issues.Testing.FakeIssueProvider");
+            }
+        }
+
         public sealed class TheReadIssuesMethod
         {
             [Fact]

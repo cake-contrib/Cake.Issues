@@ -21,6 +21,15 @@
         public abstract string ProviderName { get; }
 
         /// <inheritdoc/>
+        public virtual string ProviderType
+        {
+            get
+            {
+                return this.GetType().FullName;
+            }
+        }
+
+        /// <inheritdoc/>
         public IEnumerable<IIssue> ReadIssues()
         {
             this.AssertInitialized();

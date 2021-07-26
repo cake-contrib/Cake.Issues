@@ -1,6 +1,7 @@
 ﻿namespace Cake.Issues.Serialization
 {
     using System;
+    using System.Collections.Generic;
 
     /// <summary>
     /// Extensions for <see cref="SerializableIssue"/>.
@@ -45,7 +46,8 @@
                 ruleUrl,
                 null,
                 serializableIssue.ProviderType,
-                serializableIssue.ProviderName);
+                serializableIssue.ProviderName,
+                new Dictionary<string, string>());
 
             #endregion
         }

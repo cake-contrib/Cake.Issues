@@ -1,6 +1,7 @@
 ﻿namespace Cake.Issues.Tests
 {
     using System;
+    using System.Collections.Generic;
     using Cake.Issues.Testing;
     using Shouldly;
     using Xunit;
@@ -34,6 +35,7 @@
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var result = Record.Exception(() =>
@@ -56,7 +58,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName));
+                            providerName,
+                            additionalInformation));
 
                     // Then
                     result.IsArgumentNullException("identifier");
@@ -85,6 +88,7 @@
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var result = Record.Exception(() =>
@@ -107,7 +111,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName));
+                            providerName,
+                            additionalInformation));
 
                     // Then
                     result.IsArgumentOutOfRangeException("identifier");
@@ -136,6 +141,7 @@
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var result = Record.Exception(() =>
@@ -158,7 +164,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName));
+                            providerName,
+                            additionalInformation));
 
                     // Then
                     result.IsArgumentOutOfRangeException("identifier");
@@ -187,6 +194,7 @@
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var issue =
@@ -209,7 +217,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName);
+                            providerName,
+                            additionalInformation);
 
                     // Then
                     issue.Identifier.ShouldBe(identifier);
@@ -241,6 +250,7 @@
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var result = Record.Exception(() =>
@@ -263,7 +273,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName));
+                            providerName,
+                            additionalInformation));
 
                     // Then
                     result.IsArgumentException("projectFileRelativePath");
@@ -294,6 +305,7 @@
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var result = Record.Exception(() =>
@@ -316,7 +328,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName));
+                            providerName,
+                            additionalInformation));
 
                     // Then
                     result.IsArgumentOutOfRangeException("projectFileRelativePath");
@@ -345,6 +358,7 @@
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var issue =
@@ -367,7 +381,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName);
+                            providerName,
+                            additionalInformation);
 
                     // Then
                     issue.ProjectFileRelativePath.ShouldBe(null);
@@ -396,6 +411,7 @@
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var issue =
@@ -418,7 +434,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName);
+                            providerName,
+                            additionalInformation);
 
                     // Then
                     issue.ProjectFileRelativePath.ShouldBe(null);
@@ -447,6 +464,7 @@
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var issue =
@@ -469,7 +487,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName);
+                            providerName,
+                            additionalInformation);
 
                     // Then
                     issue.ProjectFileRelativePath.ShouldBe(null);
@@ -498,6 +517,7 @@
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var issue =
@@ -520,7 +540,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName);
+                            providerName,
+                            additionalInformation);
 
                     // Then
                     issue.ProjectFileRelativePath.ToString().ShouldBe(projectPath);
@@ -552,6 +573,7 @@
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var issue =
@@ -574,7 +596,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName);
+                            providerName,
+                            additionalInformation);
 
                     // Then
                     issue.ProjectName.ShouldBe(projectName);
@@ -603,6 +626,7 @@
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var issue =
@@ -625,7 +649,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName);
+                            providerName,
+                            additionalInformation);
 
                     // Then
                     issue.ProjectName.ShouldBe(projectName);
@@ -654,6 +679,7 @@
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var issue =
@@ -676,7 +702,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName);
+                            providerName,
+                            additionalInformation);
 
                     // Then
                     issue.ProjectName.ShouldBe(projectName);
@@ -705,6 +732,7 @@
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var issue =
@@ -727,7 +755,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName);
+                            providerName,
+                            additionalInformation);
 
                     // Then
                     issue.ProjectName.ShouldBe(projectName);
@@ -759,6 +788,7 @@
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var result = Record.Exception(() =>
@@ -781,7 +811,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName));
+                            providerName,
+                            additionalInformation));
 
                     // Then
                     result.IsArgumentException("affectedFileRelativePath");
@@ -812,6 +843,7 @@
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var result = Record.Exception(() =>
@@ -834,7 +866,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName));
+                            providerName,
+                            additionalInformation));
 
                     // Then
                     result.IsArgumentOutOfRangeException("affectedFileRelativePath");
@@ -863,6 +896,7 @@
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var issue =
@@ -885,7 +919,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName);
+                            providerName,
+                            additionalInformation);
 
                     // Then
                     issue.AffectedFileRelativePath.ShouldBe(null);
@@ -914,6 +949,7 @@
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var issue =
@@ -936,7 +972,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName);
+                            providerName,
+                            additionalInformation);
 
                     // Then
                     issue.AffectedFileRelativePath.ShouldBe(null);
@@ -965,6 +1002,7 @@
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var issue =
@@ -987,7 +1025,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName);
+                            providerName,
+                            additionalInformation);
 
                     // Then
                     issue.AffectedFileRelativePath.ShouldBe(null);
@@ -1024,6 +1063,7 @@
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var issue =
@@ -1046,7 +1086,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName);
+                            providerName,
+                            additionalInformation);
 
                     // Then
                     issue.AffectedFileRelativePath.ToString().ShouldBe(expectedFilePath);
@@ -1079,6 +1120,7 @@
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var result = Record.Exception(() =>
@@ -1101,7 +1143,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName));
+                            providerName,
+                            additionalInformation));
 
                     // Then
                     result.IsArgumentOutOfRangeException("line");
@@ -1130,6 +1173,7 @@
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var result = Record.Exception(() =>
@@ -1152,7 +1196,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName));
+                            providerName,
+                            additionalInformation));
 
                     // Then
                     result.IsArgumentOutOfRangeException("line");
@@ -1181,6 +1226,7 @@
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var result = Record.Exception(() =>
@@ -1203,7 +1249,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName));
+                            providerName,
+                            additionalInformation));
 
                     // Then
                     result.IsArgumentOutOfRangeException("line");
@@ -1232,6 +1279,7 @@
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var issue =
@@ -1254,7 +1302,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName);
+                            providerName,
+                            additionalInformation);
 
                     // Then
                     issue.Line.ShouldBe(line);
@@ -1284,6 +1333,7 @@
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var issue =
@@ -1306,7 +1356,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName);
+                            providerName,
+                            additionalInformation);
 
                     // Then
                     issue.Line.ShouldBe(line);
@@ -1338,6 +1389,7 @@
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var result = Record.Exception(() =>
@@ -1360,7 +1412,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName));
+                            providerName,
+                            additionalInformation));
 
                     // Then
                     result.IsArgumentOutOfRangeException("endLine");
@@ -1389,6 +1442,7 @@
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var result = Record.Exception(() =>
@@ -1411,7 +1465,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName));
+                            providerName,
+                            additionalInformation));
 
                     // Then
                     result.IsArgumentOutOfRangeException("endLine");
@@ -1440,6 +1495,7 @@
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var result = Record.Exception(() =>
@@ -1462,7 +1518,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName));
+                            providerName,
+                            additionalInformation));
 
                     // Then
                     result.IsArgumentOutOfRangeException("endLine");
@@ -1491,6 +1548,7 @@
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var result = Record.Exception(() =>
@@ -1513,7 +1571,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName));
+                            providerName,
+                            additionalInformation));
 
                     // Then
                     result.IsArgumentOutOfRangeException("endLine");
@@ -1542,6 +1601,7 @@
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var issue =
@@ -1564,7 +1624,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName);
+                            providerName,
+                            additionalInformation);
 
                     // Then
                     issue.EndLine.ShouldBe(endLine);
@@ -1593,6 +1654,7 @@
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var issue =
@@ -1615,7 +1677,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName);
+                            providerName,
+                            additionalInformation);
 
                     // Then
                     issue.EndLine.ShouldBe(endLine);
@@ -1645,6 +1708,7 @@
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var issue =
@@ -1667,7 +1731,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName);
+                            providerName,
+                            additionalInformation);
 
                     // Then
                     issue.EndLine.ShouldBe(endLine);
@@ -1699,6 +1764,7 @@
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var result = Record.Exception(() =>
@@ -1721,7 +1787,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName));
+                            providerName,
+                            additionalInformation));
 
                     // Then
                     result.IsArgumentOutOfRangeException("column");
@@ -1750,6 +1817,7 @@
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var result = Record.Exception(() =>
@@ -1772,7 +1840,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName));
+                            providerName,
+                            additionalInformation));
 
                     // Then
                     result.IsArgumentOutOfRangeException("column");
@@ -1801,6 +1870,7 @@
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var result = Record.Exception(() =>
@@ -1823,7 +1893,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName));
+                            providerName,
+                            additionalInformation));
 
                     // Then
                     result.IsArgumentOutOfRangeException("column");
@@ -1852,6 +1923,7 @@
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var issue =
@@ -1874,7 +1946,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName);
+                            providerName,
+                            additionalInformation);
 
                     // Then
                     issue.Column.ShouldBe(column);
@@ -1905,6 +1978,7 @@
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var issue =
@@ -1927,7 +2001,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName);
+                            providerName,
+                            additionalInformation);
 
                     // Then
                     issue.Column.ShouldBe(column);
@@ -1959,6 +2034,7 @@
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var result = Record.Exception(() =>
@@ -1981,7 +2057,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName));
+                            providerName,
+                            additionalInformation));
 
                     // Then
                     result.IsArgumentOutOfRangeException("endColumn");
@@ -2010,6 +2087,7 @@
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var result = Record.Exception(() =>
@@ -2032,7 +2110,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName));
+                            providerName,
+                            additionalInformation));
 
                     // Then
                     result.IsArgumentOutOfRangeException("endColumn");
@@ -2061,6 +2140,7 @@
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var result = Record.Exception(() =>
@@ -2083,7 +2163,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName));
+                            providerName,
+                            additionalInformation));
 
                     // Then
                     result.IsArgumentOutOfRangeException("endColumn");
@@ -2112,6 +2193,7 @@
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var result = Record.Exception(() =>
@@ -2134,7 +2216,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName));
+                            providerName,
+                            additionalInformation));
 
                     // Then
                     result.IsArgumentOutOfRangeException("endColumn");
@@ -2163,6 +2246,7 @@
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var issue =
@@ -2185,7 +2269,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName);
+                            providerName,
+                            additionalInformation);
 
                     // Then
                     issue.EndColumn.ShouldBe(endColumn);
@@ -2214,6 +2299,7 @@
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var issue =
@@ -2236,7 +2322,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName);
+                            providerName,
+                            additionalInformation);
 
                     // Then
                     issue.EndColumn.ShouldBe(endColumn);
@@ -2267,6 +2354,7 @@
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var issue =
@@ -2289,7 +2377,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName);
+                            providerName,
+                            additionalInformation);
 
                     // Then
                     issue.EndColumn.ShouldBe(endColumn);
@@ -2321,6 +2410,7 @@
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var issue =
@@ -2343,7 +2433,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName);
+                            providerName,
+                            additionalInformation);
 
                     // Then
                     issue.FileLink.ShouldBe(fileLink);
@@ -2372,6 +2463,7 @@
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var issue =
@@ -2394,7 +2486,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName);
+                            providerName,
+                            additionalInformation);
 
                     // Then
                     issue.FileLink.ShouldBe(fileLink);
@@ -2426,6 +2519,7 @@
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var result = Record.Exception(() =>
@@ -2448,7 +2542,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName));
+                            providerName,
+                            additionalInformation));
 
                     // Then
                     result.IsArgumentNullException("messageText");
@@ -2477,6 +2572,7 @@
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var result = Record.Exception(() =>
@@ -2499,7 +2595,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName));
+                            providerName,
+                            additionalInformation));
 
                     // Then
                     result.IsArgumentOutOfRangeException("messageText");
@@ -2528,6 +2625,7 @@
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var result = Record.Exception(() =>
@@ -2550,7 +2648,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName));
+                            providerName,
+                            additionalInformation));
 
                     // Then
                     result.IsArgumentOutOfRangeException("messageText");
@@ -2579,6 +2678,7 @@
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var issue =
@@ -2601,7 +2701,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName);
+                            providerName,
+                            additionalInformation);
 
                     // Then
                     issue.MessageText.ShouldBe(messageText);
@@ -2636,6 +2737,7 @@
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var issue =
@@ -2658,7 +2760,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName);
+                            providerName,
+                            additionalInformation);
 
                     // Then
                     issue.MessageHtml.ShouldBe(messageHtml);
@@ -2693,6 +2796,7 @@
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var issue =
@@ -2715,7 +2819,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName);
+                            providerName,
+                            additionalInformation);
 
                     // Then
                     issue.MessageMarkdown.ShouldBe(messageMarkdown);
@@ -2752,6 +2857,7 @@
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var issue =
@@ -2774,7 +2880,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName);
+                            providerName,
+                            additionalInformation);
 
                     // Then
                     issue.Priority.ShouldBe(priority);
@@ -2806,6 +2913,7 @@
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var issue =
@@ -2828,7 +2936,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName);
+                            providerName,
+                            additionalInformation);
 
                     // Then
                     issue.PriorityName.ShouldBe(null);
@@ -2857,6 +2966,7 @@
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var issue =
@@ -2879,7 +2989,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName);
+                            providerName,
+                            additionalInformation);
 
                     // Then
                     issue.PriorityName.ShouldBe(string.Empty);
@@ -2908,6 +3019,7 @@
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var issue =
@@ -2930,7 +3042,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName);
+                            providerName,
+                            additionalInformation);
 
                     // Then
                     issue.PriorityName.ShouldBe(" ");
@@ -2959,6 +3072,7 @@
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var issue =
@@ -2981,7 +3095,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName);
+                            providerName,
+                            additionalInformation);
 
                     // Then
                     issue.PriorityName.ShouldBe(priorityName);
@@ -3015,6 +3130,7 @@
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var issue =
@@ -3037,7 +3153,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName);
+                            providerName,
+                            additionalInformation);
 
                     // Then
                     issue.Rule.ShouldBe(rule);
@@ -3069,6 +3186,7 @@
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var issue =
@@ -3091,7 +3209,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName);
+                            providerName,
+                            additionalInformation);
 
                     // Then
                     issue.RuleUrl.ShouldBe(ruleUri);
@@ -3120,6 +3239,7 @@
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var issue =
@@ -3142,7 +3262,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName);
+                            providerName,
+                            additionalInformation);
 
                     // Then
                     issue.RuleUrl.ShouldBe(ruleUri);
@@ -3176,6 +3297,7 @@
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var issue =
@@ -3198,7 +3320,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName);
+                            providerName,
+                            additionalInformation);
 
                     // Then
                     issue.Run.ShouldBe(run);
@@ -3230,6 +3353,7 @@
                     string providerType = null;
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var result = Record.Exception(() =>
@@ -3252,7 +3376,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName));
+                            providerName,
+                            additionalInformation));
 
                     // Then
                     result.IsArgumentNullException("providerType");
@@ -3281,6 +3406,7 @@
                     var providerType = string.Empty;
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var result = Record.Exception(() =>
@@ -3303,7 +3429,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName));
+                            providerName,
+                            additionalInformation));
 
                     // Then
                     result.IsArgumentOutOfRangeException("providerType");
@@ -3332,6 +3459,7 @@
                     var providerType = " ";
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var result = Record.Exception(() =>
@@ -3354,7 +3482,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName));
+                            providerName,
+                            additionalInformation));
 
                     // Then
                     result.IsArgumentOutOfRangeException("providerType");
@@ -3383,6 +3512,7 @@
                     var ruleUri = new Uri("https://google.com");
                     var providerName = "ProviderName";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var issue =
@@ -3405,7 +3535,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName);
+                            providerName,
+                            additionalInformation);
 
                     // Then
                     issue.ProviderType.ShouldBe(providerType);
@@ -3437,6 +3568,7 @@
                     var providerType = "ProviderType";
                     string providerName = null;
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var result = Record.Exception(() =>
@@ -3459,7 +3591,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName));
+                            providerName,
+                            additionalInformation));
 
                     // Then
                     result.IsArgumentNullException("providerName");
@@ -3488,6 +3621,7 @@
                     var providerType = "ProviderType";
                     var providerName = string.Empty;
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var result = Record.Exception(() =>
@@ -3510,7 +3644,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName));
+                            providerName,
+                            additionalInformation));
 
                     // Then
                     result.IsArgumentOutOfRangeException("providerName");
@@ -3539,6 +3674,7 @@
                     var providerType = "ProviderType";
                     var providerName = " ";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var result = Record.Exception(() =>
@@ -3561,7 +3697,8 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName));
+                            providerName,
+                            additionalInformation));
 
                     // Then
                     result.IsArgumentOutOfRangeException("providerName");
@@ -3590,6 +3727,7 @@
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
 
                     // When
                     var issue =
@@ -3612,10 +3750,131 @@
                             ruleUri,
                             run,
                             providerType,
-                            providerName);
+                            providerName,
+                            additionalInformation);
 
                     // Then
                     issue.ProviderName.ShouldBe(providerName);
+                }
+            }
+
+            public sealed class TheAdditionalInformationArgument
+            {
+                [Fact]
+                public void Should_Set_AdditionalInformation()
+                {
+                    // Given
+                    var identifier = "identifier";
+                    var projectPath = @"src\foo.csproj";
+                    var projectName = "foo";
+                    var filePath = @"src\foo.cs";
+                    var line = 10;
+                    var endLine = 12;
+                    var column = 50;
+                    var endColumn = 55;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
+                    var priority = 1;
+                    var priorityName = "Warning";
+                    var rule = "Rule";
+                    var ruleUri = new Uri("https://google.com");
+                    var providerType = "ProviderType";
+                    var providerName = "ProviderName";
+                    var run = "Run";
+                    var additionalInformation =
+                        new Dictionary<string, string>
+                        {
+                            {
+                                "FirstName",
+                                "Larry"
+                            },
+                            {
+                                "LastName",
+                                "Fischer"
+                            },
+                        };
+
+                    // When
+                    var issue = new Issue(
+                        identifier,
+                        projectPath,
+                        projectName,
+                        filePath,
+                        line,
+                        endLine,
+                        column,
+                        endColumn,
+                        fileLink,
+                        messageText,
+                        messageHtml,
+                        messageMarkdown,
+                        priority,
+                        priorityName,
+                        rule,
+                        ruleUri,
+                        run,
+                        providerType,
+                        providerName,
+                        additionalInformation);
+
+                    // Then
+                    issue.AdditionalInformation.ShouldContain(new KeyValuePair<string, string>("FirstName", "Larry"));
+                    issue.AdditionalInformation.ShouldContain(new KeyValuePair<string, string>("LastName", "Fischer"));
+                }
+
+                [Fact]
+                public void Should_Set_AdditionalInformation_To_Empty_Dictionary()
+                {
+                    // Given
+                    var identifier = "identifier";
+                    var projectPath = @"src\foo.csproj";
+                    var projectName = "foo";
+                    var filePath = @"src\foo.cs";
+                    var line = 10;
+                    var endLine = 12;
+                    var column = 50;
+                    var endColumn = 55;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
+                    var priority = 1;
+                    var priorityName = "Warning";
+                    var rule = "Rule";
+                    var ruleUri = new Uri("https://google.com");
+                    var providerType = "ProviderType";
+                    var providerName = "ProviderName";
+                    var run = "Run";
+                    IReadOnlyDictionary<string, string> additionalInformation = null;
+
+                    // When
+                    var issue = new Issue(
+                        identifier,
+                        projectPath,
+                        projectName,
+                        filePath,
+                        line,
+                        endLine,
+                        column,
+                        endColumn,
+                        fileLink,
+                        messageText,
+                        messageHtml,
+                        messageMarkdown,
+                        priority,
+                        priorityName,
+                        rule,
+                        ruleUri,
+                        run,
+                        providerType,
+                        providerName,
+                        additionalInformation);
+
+                    // Then
+                    issue.AdditionalInformation.ShouldNotBeNull();
+                    issue.AdditionalInformation.ShouldBeEmpty();
                 }
             }
         }

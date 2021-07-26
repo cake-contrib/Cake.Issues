@@ -1,3 +1,8 @@
+environment:
+  # Disable publishing to GitHub package repository, since it will fail for
+  # Cake.Issues.Reporting and Cake.Issues.PullRequests because an archived repo with that name exists.
+  GPR_SOURCE:
+
 #---------------------------------#
 #  Build Image                    #
 #---------------------------------#
@@ -11,7 +16,7 @@ install:
   - ps: nuget update -self
 
 build_script:
-  - ps: .\build.ps1 -Target AppVeyor
+  - ps: .\build.ps1 -Target CI
 
 # Tests
 test: off
