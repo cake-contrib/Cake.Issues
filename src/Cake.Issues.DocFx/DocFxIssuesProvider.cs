@@ -134,7 +134,7 @@
             fileName = fileName.Substring(this.Settings.RepositoryRoot.FullPath.Length);
 
             // Remove leading directory separator.
-            if (fileName.StartsWith("/"))
+            if (fileName.StartsWith("/", StringComparison.InvariantCulture))
             {
                 fileName = fileName.Substring(1);
             }
