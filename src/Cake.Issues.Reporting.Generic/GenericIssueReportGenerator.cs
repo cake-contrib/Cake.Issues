@@ -40,6 +40,7 @@
                         .WithOutput(streamWriter)
                         .WithModel(issues)
                         .WithReferences(
+                            typeof(System.Linq.Enumerable).Assembly,
                             typeof(Cake.Issues.IIssue).Assembly,
                             typeof(Cake.Issues.Reporting.IIssueReportFormat).Assembly,
                             typeof(Cake.Issues.Reporting.Generic.DevExtremeTheme).Assembly,
