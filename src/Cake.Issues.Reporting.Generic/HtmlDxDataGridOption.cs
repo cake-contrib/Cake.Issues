@@ -12,7 +12,7 @@
         Title,
 
         /// <summary>
-        /// DevExtreme theme to use.
+        /// <see href="https://js.devexpress.com/">DevExtreme </see> theme to use.
         /// See <see cref="DevExtremeTheme"/> for possible values.
         /// Default value is <see cref="DevExtremeTheme.Light"/>.
         /// </summary>
@@ -320,7 +320,7 @@
         AdditionalColumns,
 
         /// <summary>
-        /// Location where jQuery can be found.
+        /// Location where <see href="https://jquery.com">jQuery</see> can be found.
         /// The following files need to be available:
         /// <list type="bullet">
         /// <item>
@@ -332,14 +332,14 @@
         JQueryLocation,
 
         /// <summary>
-        /// Version of jQuery which should be used.
+        /// Version of <see href="https://jquery.com">jQuery</see> which should be used.
         /// This version needs to match the version required by the selected <see cref="DevExtremeVersion"/>.
-        /// Default value is <c>3.5.0</c>.
+        /// Default value is <c>3.6.0</c>.
         /// </summary>
         JQueryVersion,
 
         /// <summary>
-        /// Location where the DevExtreme libraries can be found.
+        /// Location where the <see href="https://js.devexpress.com/">DevExtreme </see> libraries can be found.
         /// Below the location there needs to be a folder matching <see cref="DevExtremeVersion"/> and
         /// inside there subfolders <c>js</c> and <c>css</c>.
         /// The following files need to be available:
@@ -359,9 +359,9 @@
         DevExtremeLocation,
 
         /// <summary>
-        /// Version of the DevExtreme libraries which should be used.
+        /// Version of the <see href="https://js.devexpress.com/">DevExtreme </see> libraries which should be used.
         /// If setting this the matching <see cref="JQueryVersion"/> needs to also be set.
-        /// Default value is <c>20.1.6</c>.
+        /// Default value is <c>21.1.4</c>.
         /// </summary>
         DevExtremeVersion,
 
@@ -373,39 +373,103 @@
         IdeIntegrationSettings,
 
         /// <summary>
-        /// Flag if exporting to Microsoft Excel should be available or not.
+        /// Flag if exporting should be available or not.
         /// Either <c>true</c> or <c>false</c>.
         /// Default value is <c>false</c>.
         /// </summary>
-        /// <remarks>
-        /// Exporting won't work on Safari on macOS due to missing API for saving files.
-        /// </remarks>
         EnableExporting,
 
         /// <summary>
-        /// Default name of Microsoft Excel file without file name extension.
+        /// Default name of the export file without file name extension.
         /// Default value is <c>issue-report</c>.
         /// </summary>
         ExportFileName,
 
         /// <summary>
-        /// Location where JSZip can be found.
-        /// Below the location there needs to be a folder matching <see cref="JsZipVersion"/>.
+        /// Export format.
+        /// See <see cref="HtmlDxDataGridExportFormat"/> for possible values.
+        /// Default value is <see cref="HtmlDxDataGridExportFormat.Excel"/>.
+        /// </summary>
+        ExportFormat,
+
+        /// <summary>
+        /// Location where <see href="https://github.com/exceljs/exceljs">ExcelJS</see> can be found.
+        /// Below the location there needs to be a folder matching <see cref="ExcelJsVersion"/>.
         /// The following files need to be available:
         /// <list type="bullet">
         /// <item>
-        /// <description><c>{JsZipLocation}/{JsZipVersion}/jszip.min.js</c></description>
+        /// <description><c>{ExcelJsLocation}/{ExcelJsVersion}/exceljs.min.js</c></description>
         /// </item>
         /// </list>
-        /// Default value is <c>https://cdnjs.cloudflare.com/ajax/libs/jszip/</c>.
+        /// Default value is <c>https://cdnjs.cloudflare.com/ajax/libs/exceljs/</c>.
         /// </summary>
-        JsZipLocation,
+        ExcelJsLocation,
 
         /// <summary>
-        /// Version of JsZip which should be used.
+        /// Version of <see href="https://github.com/exceljs/exceljs">ExcelJS</see> which should be used.
         /// This version needs to match the version required by the selected <see cref="DevExtremeVersion"/>.
-        /// Default value is <c>3.2.2</c>.
+        /// Default value is <c>4.2.1</c>.
         /// </summary>
-        JsZipVersion,
+        ExcelJsVersion,
+
+        /// <summary>
+        /// Location where <see href="https://github.com/eligrey/FileSaver.js/">FileSaver.js</see> can be found.
+        /// Below the location there needs to be a folder matching <see cref="FileSaverJsVersion"/>.
+        /// The following files need to be available:
+        /// <list type="bullet">
+        /// <item>
+        /// <description><c>{FileSaverLocation}/{FileSaverVersion}/FileSaver.js</c></description>
+        /// </item>
+        /// </list>
+        /// Default value is <c>https://cdnjs.cloudflare.com/ajax/libs/</c>.
+        /// </summary>
+        FileSaverJsLocation,
+
+        /// <summary>
+        /// Version of <see href="https://github.com/eligrey/FileSaver.js/">FileSaver.js</see> which should be used.
+        /// This version needs to match the version required by the selected <see cref="DevExtremeVersion"/>.
+        /// Default value is <c>2.0.4</c>.
+        /// </summary>
+        FileSaverJsVersion,
+
+        /// <summary>
+        /// Location where <see href="https://github.com/MrRio/jsPDF">jsPDF</see> can be found.
+        /// Below the location there needs to be a folder matching <see cref="JsPdfVersion"/>.
+        /// The following files need to be available:
+        /// <list type="bullet">
+        /// <item>
+        /// <description><c>{JsPdfLocation}/{JsPdfVersion}/jspdf.umd.min.js</c></description>
+        /// </item>
+        /// </list>
+        /// Default value is <c>https://cdnjs.cloudflare.com/ajax/libs/jspdf/</c>.
+        /// </summary>
+        JsPdfLocation,
+
+        /// <summary>
+        /// Version of <see href="https://github.com/MrRio/jsPDF">jsPDF</see> which should be used.
+        /// This version needs to match the version required by the selected <see cref="DevExtremeVersion"/>.
+        /// Default value is <c>2.3.1</c>.
+        /// </summary>
+        JsPdfVersion,
+
+        /// <summary>
+        /// Location where <see href="https://github.com/simonbengtsson/jsPDF-AutoTable">jsPDF-AutoTable plugin</see> can be found.
+        /// Below the location there needs to be a folder matching <see cref="JsPdfAutotableVersion"/>.
+        /// The following files need to be available:
+        /// <list type="bullet">
+        /// <item>
+        /// <description><c>{JsPdfAutotableLocation}/{JsPdfAutotableVersion}/jspdf.plugin.autotable.min.js</c></description>
+        /// </item>
+        /// </list>
+        /// Default value is <c>https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/</c>.
+        /// </summary>
+        JsPdfAutotableLocation,
+
+        /// <summary>
+        /// Version of <see href="https://github.com/simonbengtsson/jsPDF-AutoTable">jsPDF-AutoTable plugin</see> which should be used.
+        /// This version needs to match the version required by the selected <see cref="DevExtremeVersion"/>.
+        /// Default value is <c>3.5.15</c>.
+        /// </summary>
+        JsPdfAutotableVersion,
     }
 }

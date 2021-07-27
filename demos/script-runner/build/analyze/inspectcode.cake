@@ -20,7 +20,7 @@ Task("Run-InspectCode")
             IssueFileLinkSettingsForGitHubBranch(
                 new System.Uri("https://github.com/cake-contrib/Cake.Issues.Reporting.Generic"),
                 "develop",
-                "demos"
+                "demos/script-runner"
             )
     };
 

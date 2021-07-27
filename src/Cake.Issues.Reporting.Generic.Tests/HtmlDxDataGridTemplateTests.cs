@@ -906,7 +906,30 @@
             }
         }
 
-        public sealed class TheJsZipLocationOption
+        public sealed class TheExportFormatOption
+        {
+            [Theory]
+            [InlineData(HtmlDxDataGridExportFormat.Excel)]
+            [InlineData(HtmlDxDataGridExportFormat.Pdf)]
+            public void Should_Not_Fail_On_Report_Creation(HtmlDxDataGridExportFormat value)
+            {
+                // Given
+                var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+
+                // When / Then
+                fixture.TestReportCreation(
+                    settings =>
+                        settings
+                            .WithOption(
+                                HtmlDxDataGridOption.EnableExporting,
+                                true)
+                            .WithOption(
+                                HtmlDxDataGridOption.ExportFormat,
+                                value));
+            }
+        }
+
+        public sealed class TheExcelJsLocationOption
         {
             [Fact]
             public void Should_Not_Fail_On_Report_Creation()
@@ -918,12 +941,12 @@
                 fixture.TestReportCreation(
                     settings =>
                         settings.WithOption(
-                            HtmlDxDataGridOption.JsZipLocation,
+                            HtmlDxDataGridOption.ExcelJsLocation,
                             "foo"));
             }
         }
 
-        public sealed class TheJsZipVersionOption
+        public sealed class TheExcelJsVersionOption
         {
             [Fact]
             public void Should_Not_Fail_On_Report_Creation()
@@ -935,7 +958,41 @@
                 fixture.TestReportCreation(
                     settings =>
                         settings.WithOption(
-                            HtmlDxDataGridOption.JsZipVersion,
+                            HtmlDxDataGridOption.ExcelJsVersion,
+                            "foo"));
+            }
+        }
+
+        public sealed class TheFileSaverJsLocationOption
+        {
+            [Fact]
+            public void Should_Not_Fail_On_Report_Creation()
+            {
+                // Given
+                var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+
+                // When / Then
+                fixture.TestReportCreation(
+                    settings =>
+                        settings.WithOption(
+                            HtmlDxDataGridOption.FileSaverJsLocation,
+                            "foo"));
+            }
+        }
+
+        public sealed class TheFileSaverJsVersionOption
+        {
+            [Fact]
+            public void Should_Not_Fail_On_Report_Creation()
+            {
+                // Given
+                var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+
+                // When / Then
+                fixture.TestReportCreation(
+                    settings =>
+                        settings.WithOption(
+                            HtmlDxDataGridOption.FileSaverJsVersion,
                             "foo"));
             }
         }

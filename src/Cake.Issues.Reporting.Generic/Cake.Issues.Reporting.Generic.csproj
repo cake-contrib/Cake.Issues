@@ -12,6 +12,7 @@
   <PropertyGroup>
     <DebugType>full</DebugType>
     <DebugSymbols>true</DebugSymbols>
+    <AnalysisMode>AllEnabledByDefault</AnalysisMode>
     <CodeAnalysisRuleSet>..\Cake.Issues.Reporting.Generic.ruleset</CodeAnalysisRuleSet>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Cake.Issues.Reporting.Generic.xml</DocumentationFile>
@@ -26,12 +27,12 @@
   <ItemGroup>
     <PackageReference Include="Gazorator" Version="0.5.2" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
-    <PackageReference Include="Cake.Core" Version="0.33.0" />
-    <PackageReference Include="Cake.Issues" Version="0.9.0" />
-    <PackageReference Include="Cake.Issues.Reporting" Version="0.9.0" />
-    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers">
+    <PackageReference Include="Cake.Core" Version="1.0.0" />
+    <PackageReference Include="Cake.Issues" Version="1.0.0" />
+    <PackageReference Include="Cake.Issues.Reporting" Version="1.0.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="5.0.3">
       <PrivateAssets>all</PrivateAssets>
-      <Version>3.0.0</Version>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0">
       <PrivateAssets>all</PrivateAssets>

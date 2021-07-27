@@ -22,7 +22,7 @@ Task("Run-DupFinder")
             IssueFileLinkSettingsForGitHubBranch(
                 new System.Uri("https://github.com/cake-contrib/Cake.Issues.Reporting.Generic"),
                 "develop",
-                "demos"
+                "demos/script-runner"
             )
     };
 
