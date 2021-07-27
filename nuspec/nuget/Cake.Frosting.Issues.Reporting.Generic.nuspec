@@ -30,8 +30,8 @@ For addin compatible with Cake Script Runners see Cake.Issues.Reporting.Generic.
     <dependencies>
       <group targetFramework=".NETStandard2.0">
         <dependency id="Cake.Core" version="[1.0,2.0)" exclude="Build,Analyzers" />
-        <dependency id="Cake.Issues" version="1.0.0-beta0001" exclude="Build,Analyzers" />
-        <dependency id="Cake.Issues.Reporting" version="1.0.0-beta0001" exclude="Build,Analyzers" />
+        <dependency id="Cake.Issues" version="[1.0,2.0)" exclude="Build,Analyzers" />
+        <dependency id="Cake.Issues.Reporting" version="[1.0,2.0)" exclude="Build,Analyzers" />
         <dependency id="Gazorator" version="0.5.2" exclude="Build,Analyzers" />
       </group>
     </dependencies>
