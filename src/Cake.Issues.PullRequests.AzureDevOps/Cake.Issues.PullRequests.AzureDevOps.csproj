@@ -25,13 +25,13 @@ See the Project Site for an overview of the whole ecosystem of addins for workin
     </Description>
     <Authors>BBT Software AG and contributors</Authors>
     <Copyright>Copyright © BBT Software AG and contributors</Copyright>
-    <PackageTags>Cake Script Cake-Issues Cake-PullRequestSystem Issues PullRequest TFS Azure-DevOps Azure-DevOps-Server</PackageTags>
+    <PackageTags>cake cake-addin cake-issues cake-pullrequestsystem issues pullrequest tfs azure-devops azure-devops-server</PackageTags>
     <PackageIcon>icon.png</PackageIcon>
     <PackageProjectUrl>https://cakeissues.net</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/cake-contrib/Cake.Issues.PullRequests.AzureDevOps.git</RepositoryUrl>
-    <PackageReleaseNotes>https://github.com/cake-contrib/Cake.Issues.PullRequests.AzureDevOps/releases/tag/0.9.1</PackageReleaseNotes>
+    <PackageReleaseNotes>https://github.com/cake-contrib/Cake.Issues.PullRequests.AzureDevOps/releases/tag/1.0.0</PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
@@ -44,9 +44,9 @@ See the Project Site for an overview of the whole ecosystem of addins for workin
 
   <ItemGroup>
     <PackageReference Include="Cake.Core" Version="1.0.0" PrivateAssets="All" />
-    <PackageReference Include="Cake.Issues" Version="1.0.0-beta0001" PrivateAssets="All" />
-    <PackageReference Include="Cake.Issues.PullRequests" Version="1.0.0-beta0001" PrivateAssets="All" />
-    <PackageReference Include="Cake.AzureDevOps" Version="1.0.0-beta0001" PrivateAssets="All" />
+    <PackageReference Include="Cake.Issues" Version="1.0.0" PrivateAssets="All" />
+    <PackageReference Include="Cake.Issues.PullRequests" Version="1.0.0" PrivateAssets="All" />
+    <PackageReference Include="Cake.AzureDevOps" Version="1.0.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="5.0.3">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
