@@ -8,12 +8,12 @@
     <owners>pascalberger, cake-contrib</owners>
     <summary>AppVeyor support for the Cake.Issues addin for Cake Build Automation System</summary>
     <description>
-      AppVeyor support for the Cake.Issues addin for Cake allows you to write found issues as message to AppVeyor builds.
+AppVeyor support for the Cake.Issues addin for Cake allows you to write found issues as message to AppVeyor builds.
 
-      This addin provides the aliases for writing to AppVeyor builds.
-      It also requires the core Cake.Issues and Cake.Issues.PullRequests addins and one or more issue providers.
+This addin provides the aliases for writing to AppVeyor builds.
+It also requires the core Cake.Issues and Cake.Issues.PullRequests addins and one or more issue providers.
 
-      See the Project Site for an overview of the whole ecosystem of addins for working with issues in Cake scripts.
+See the Project Site for an overview of the whole ecosystem of addins for working with issues in Cake scripts.
     </description>
     <license type="expression">MIT</license>
     <projectUrl>https://cakeissues.net</projectUrl>
@@ -21,8 +21,8 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <repository type="git" url="https://github.com/cake-contrib/Cake.Issues.PullRequests.AppVeyor.git"/>
     <copyright>Copyright © Pascal Berger</copyright>
-    <tags>Cake Script Cake-Issues Cake-PullRequestSystem Issues PullRequest AppVeyor</tags>
-    <releaseNotes>https://github.com/cake-contrib/Cake.Issues.PullRequests.AppVeyor/releases/tag/0.9.0</releaseNotes>
+    <tags>cake cake-addin cake-issues cake-pullrequestsystem issues pullrequest buildserver appveyor</tags>
+    <releaseNotes>https://github.com/cake-contrib/Cake.Issues.PullRequests.AppVeyor/releases/tag/1.0.0</releaseNotes>
   </metadata>
   <files>
     <file src="..\..\..\..\nuspec\nuget\icon.png" target="" />

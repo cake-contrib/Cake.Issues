@@ -5,7 +5,7 @@
     /// <summary>
     /// Extensions for <see cref="IIssue"/>.
     /// </summary>
-    public static class IIssueExtensions
+    internal static class IIssueExtensions
     {
         /// <summary>
         /// Returns the corresponding category of an AppVeyor message for an issue priority.
