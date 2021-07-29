@@ -42,21 +42,44 @@
                 return
                     from file in logFileEntries
                     from message in file.messages
-                    let
-                        rule = message.ruleId
                     select
-                        IssueBuilder
-                            .NewIssue(message.message, issueProvider)
-                            .InFile(
-                                GetRelativeFilePath(file.filePath, repositorySettings),
-                                message.line <= 0 ? null : message.line,
-                                message.column <= 0 ? null : message.column)
-                            .OfRule(rule, EsLintRuleUrlResolver.Instance.ResolveRuleUrl(rule))
-                            .WithPriority(GetPriority(message.severity))
-                            .Create();
+                        GetIssue(file, message, issueProvider, repositorySettings);
             }
 
             return new List<IIssue>();
+        }
+
+        /// <summary>
+        /// Returns the issue for a message from the log file.
+        /// </summary>
+        /// <param name="file">File for which the issue was reported.</param>
+        /// <param name="message">Message reported by ESLint.</param>
+        /// <param name="issueProvider">Issue provider instance.</param>
+        /// <param name="repositorySettings">Repository settings.</param>
+        /// <returns>Issue instance.</returns>
+        private static IIssue GetIssue(
+            LogFile file,
+            Message message,
+            EsLintIssuesProvider issueProvider,
+            IRepositorySettings repositorySettings)
+        {
+            var issueBuilder =
+                IssueBuilder
+                    .NewIssue(message.message, issueProvider)
+                    .InFile(
+                        GetRelativeFilePath(file.filePath, repositorySettings),
+                        message.line <= 0 ? null : message.line,
+                        message.column <= 0 ? null : message.column)
+                    .WithPriority(GetPriority(message.severity));
+
+            if (!string.IsNullOrWhiteSpace(message.ruleId))
+            {
+                issueBuilder =
+                    issueBuilder
+                        .OfRule(message.ruleId, EsLintRuleUrlResolver.Instance.ResolveRuleUrl(message.ruleId));
+            }
+
+            return issueBuilder.Create();
         }
 
         private static string GetRelativeFilePath(

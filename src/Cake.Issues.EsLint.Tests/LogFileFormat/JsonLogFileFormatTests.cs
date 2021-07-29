@@ -149,6 +149,28 @@
                         .WithPriority(IssuePriority.Error)
                         .Create());
             }
+
+            [Fact]
+            public void Should_Read_Issue_Without_Rule_Correct()
+            {
+                // Given
+                var fixture = new EsLintIssuesProviderFixture<JsonLogFileFormat>("issueWithoutRule.json");
+
+                // When
+                var issues = fixture.ReadIssues().ToList();
+
+                // Then
+                issues.Count.ShouldBe(1);
+                IssueChecker.Check(
+                    issues.Single(),
+                    IssueBuilder.NewIssue(
+                        "some message.",
+                        "Cake.Issues.EsLint.EsLintIssuesProvider",
+                        "ESLint")
+                        .InFile(@"src\Cake.Issues.EsLint.Tests\Testfiles\fullOfProblems.js", 1, 10)
+                        .WithPriority(IssuePriority.Error)
+                        .Create());
+            }
         }
     }
 }
