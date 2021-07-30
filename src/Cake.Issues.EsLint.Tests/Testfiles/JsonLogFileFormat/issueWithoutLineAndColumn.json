@@ -1,0 +1,18 @@
+[
+  {
+    "filePath": "c:\\Source\\Cake.Issues\\src\\Cake.Issues.EsLint.Tests\\Testfiles\\fullOfProblems.js",
+    "messages": [
+      {
+        "ruleId": "some-rule",
+        "fatal": true,
+        "severity": 2,
+        "message": "some message."
+      }
+    ],
+    "errorCount": 1,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "source": "function addOne(i) {\n    if (i != NaN) {\n        return i ++\n    } else {\n      return\n    }\n};"
+  }
+]
