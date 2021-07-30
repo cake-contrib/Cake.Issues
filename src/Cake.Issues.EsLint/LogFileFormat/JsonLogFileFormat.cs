@@ -47,7 +47,10 @@
                     select
                         IssueBuilder
                             .NewIssue(message.message, issueProvider)
-                            .InFile(GetRelativeFilePath(file.filePath, repositorySettings), message.line, message.column)
+                            .InFile(
+                                GetRelativeFilePath(file.filePath, repositorySettings),
+                                message.line <= 0 ? null : message.line,
+                                message.column <= 0 ? null : message.column)
                             .OfRule(rule, EsLintRuleUrlResolver.Instance.ResolveRuleUrl(rule))
                             .WithPriority(GetPriority(message.severity))
                             .Create();

@@ -126,6 +126,29 @@
                         .WithPriority(IssuePriority.Error)
                         .Create());
             }
+
+            [Fact]
+            public void Should_Read_Issue_Without_Line_And_Column_Correct()
+            {
+                // Given
+                var fixture = new EsLintIssuesProviderFixture<JsonLogFileFormat>("issueWithoutLineAndColumn.json");
+
+                // When
+                var issues = fixture.ReadIssues().ToList();
+
+                // Then
+                issues.Count.ShouldBe(1);
+                IssueChecker.Check(
+                    issues.Single(),
+                    IssueBuilder.NewIssue(
+                        "some message.",
+                        "Cake.Issues.EsLint.EsLintIssuesProvider",
+                        "ESLint")
+                        .InFile(@"src\Cake.Issues.EsLint.Tests\Testfiles\fullOfProblems.js")
+                        .OfRule("some-rule", new Uri("http://eslint.org/docs/rules/some-rule"))
+                        .WithPriority(IssuePriority.Error)
+                        .Create());
+            }
         }
     }
 }
