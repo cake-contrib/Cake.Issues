@@ -1,14 +1,14 @@
 ---
 Order: 30
 Title: Supported tools
-Description: Tools supported by Cake.Issues.Recipe.
+Description: Tools supported by Cake.Issues recipes.
 ---
 
-Cake.Issues.Recipe supports reading issues from different tools and integrates with different build and pull request systems.
+Cake.Issues recipes support reading issues from different tools and integrates with different build and pull request systems.
 
 # Tools
 
-Cake.Issues.Recipe supports reading issues from output of the following tools:
+Cake.Issues recipes support reading issues from output of the following tools:
 
 | Tool                              | Format                                 | Property                                                      |
 |-----------------------------------|----------------------------------------|---------------------------------------------------------------|
@@ -29,7 +29,7 @@ Cake.Issues.Recipe supports reading issues from output of the following tools:
 
 # Build systems
 
-Cake.Issues.Recipe integrates with the following build systems:
+Cake.Issues recipes integrates with the following build systems:
 
 | Build System                   | Write issues to build server                                                      | Issues summary                                                     | Full issues report                                                 |
 |--------------------------------|-----------------------------------------------------------------------------------|--------------------------------------------------------------------|--------------------------------------------------------------------|
@@ -39,7 +39,7 @@ Cake.Issues.Recipe integrates with the following build systems:
 
 # Pull request systems
 
-Cake.Issues.Recipe integrates with the following pull request systems:
+Cake.Issues recipes integrates with the following pull request systems:
 
 | Pull Request System        | Write issues to pull requests                                                                      | Set pull request status                                            |
 |----------------------------|----------------------------------------------------------------------------------------------------|--------------------------------------------------------------------|
