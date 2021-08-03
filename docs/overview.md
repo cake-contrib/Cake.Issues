@@ -17,6 +17,7 @@ There are two flavors available:
 See [supported tools] for a list of supported linters, build servers and pull request systems.
 
 [Cake.Issues.Recipe]: https://www.nuget.org/packages/Cake.Issues.Recipe
+[Cake.Frosting.Issues.Recipe]: https://www.nuget.org/packages/Cake.Frosting.Issues.Recipe
 [Cake .NET Tool]: https://cakebuild.net/docs/running-builds/runners/dotnet-tool
 [Cake runner for .NET Framework]: https://cakebuild.net/docs/running-builds/runners/cake-runner-for-dotnet-framework
 [Cake runner for .NET Core]: https://cakebuild.net/docs/running-builds/runners/cake-runner-for-dotnet-core
