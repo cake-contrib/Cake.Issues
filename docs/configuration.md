@@ -7,6 +7,22 @@ Description: Available parameters to configure Cake.Issues recipes.
 This page lists configuration properties which can be used to define the functionality
 and behavior of Cake.Issues recipes.
 
+# Git repository information
+
+Cake.Issues recipes require some information about current Git repository.
+
+To define the Git provider in `Cake.Issues.Recipe` set the global variable `RepositoryInfoProvider`
+To define the Git provider in `Cake.Frosting.Issues.Recipe` pass the value to the constructor of `IssueContext`.
+
+The following providers are supported:
+
+| Provider                             | Description                                                                                                 |
+|--------------------------------------|-------------------------------------------------------------------------------------------------------------|
+| `RepositoryInfoProviderType.CakeGit` | Read repository information using [Cake.Git addin]. Requires system to be compatible with [Cake.Git addin]. |
+| `RepositoryInfoProviderType.Cli`     | Read repository information using Git CLI. Requires Git CLI to be available in path.                        |
+
+By default [Cake.Git addin] will be used.
+
 # General
 
 | Cake.Issues.Recipe Property        | Cake.Frosting.Issues.Recipe Property       | Default Value    | Description                                                                                                                                              |
@@ -48,3 +64,5 @@ and behavior of Cake.Issues recipes.
 |----------------------------------------------------------------------|------------------------------------------------------------------------------|---------------|-------------------------------------------------------------------------|
 | `IssuesParameters.PullRequestSystem.ShouldReportIssuesToPullRequest` | `IssuesContext.Parameters.PullRequestSystem.ShouldReportIssuesToPullRequest` | `true`        | Indicates whether issues should be reported to the pull request system. |
 | `IssuesParameters.PullRequestSystem.ShouldSetPullRequestStatus`      | `IssuesContext.Parameters.PullRequestSystem.ShouldSetPullRequestStatus`      | `true`        | Indicates whether a status on the pull request should be set.           |
+
+[Cake.Git addin]: https://cakebuild.net/extensions/cake-git/
