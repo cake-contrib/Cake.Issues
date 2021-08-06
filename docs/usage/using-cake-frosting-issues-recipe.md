@@ -5,6 +5,12 @@ Description: Basic usage of Cake.Frosting.Issues.Recipe.
 ---
 The [Cake.Frosting.Issues.Recipe] package can be used to easily add issue management functionality to your Cake Frosting build.
 
+:::{.alert .alert-info}
+See [Setting Up A New Frosting Project] for instructions how to create a new Cake Frosting project.
+:::
+
+[Setting Up A New Frosting Project]: https://cakebuild.net/docs/getting-started/setting-up-a-new-frosting-project
+
 # Add Cake.Frosting.Issues.Recipe to your Cake Frosting build
 
 To use [Cake.Frosting.Issues.Recipe] in your Cake Frosting build you need to first add the NuGet package in your `.csproj` file:
@@ -81,12 +87,11 @@ public class RunInspectCodeTask : FrostingTask<BuildContext>
 {
     public override void Run(BuildContext context)
     {
-        var buildArtifactsDirectory = new DirectoryPath("BuildArtifacts");
-        var inspectCodeLogFilePath = buildArtifactsDirectory.CombineWithFilePath("inspectCode.log");
+        var inspectCodeLogFilePath = context.Parameters.OutputDirectory..CombineWithFilePath("inspectCode.log");
 
         // Run JetBrains InspectCode
         context.InspectCode(
-            context.State.BuildRootDirectory.Combine("..").Combine("src").CombineWithFilePath("ClassLibrary1.sln"),
+            context.State.RepositoryRootDirectory.Combine("src").CombineWithFilePath("ClassLibrary1.sln"),
             new InspectCodeSettings() {
                 OutputFile = context.InspectCodeLogFilePath
             });
