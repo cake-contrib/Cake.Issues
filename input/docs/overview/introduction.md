@@ -22,6 +22,11 @@ working together and providing over 75 aliases which can be used in Cake build s
 The addins are built in a [modular architecture] and are providing different [extension points] which allows to easily
 enhance them for supporting additional analyzers, linters, report formats and code review systems.
 
+:::{.alert .alert-success}
+To get started you can use one of the [Cake.Issues recipes], which bring support for different linters and
+integration with build and pull request systems out-of-the box in a single and easy to use NuGet package.
+:::
+
 <a class="btn btn-primary btn-lg" href="https://gitpitch.com/pascalberger/Cake.Issues-Presentation" target="_blank" role="button">
     <span class="glyphicon glyphicon-facetime-video"></span> Presentation
 </a>
@@ -31,3 +36,4 @@ enhance them for supporting additional analyzers, linters, report formats and co
 
 [modular architecture]: /docs/fundamentals/architecture
 [extension points]: /docs/extending/
+[Cake.Issues recipes]: /docs/recipe/overview
