@@ -46,9 +46,12 @@ By default [Cake.Git addin] will be used.
 
 # Report creation
 
-| Cake.Issues.Recipe Property                                                               | Cake.Frosting.Issues.Recipe Property                                                             | Default Value | Description                                             |
-|-------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|---------------|---------------------------------------------------------|
-| `IssuesParameters.Reporting.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`ShouldCreateFullIssuesReport`  | `IssuesContext.Parameters.Reporting.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`ShouldCreateFullIssuesReport` | `true`        | Indicates whether full issues report should be created. |
+| Cake.Issues.Recipe Property                                                               | Cake.Frosting.Issues.Recipe Property                                                             | Default Value                                                                                        | Description                                                                                |
+|-------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------|
+| `IssuesParameters.Reporting.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`ShouldCreateFullIssuesReport`  | `IssuesContext.Parameters.Reporting.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`ShouldCreateFullIssuesReport` | `true`                                                                                               | Indicates whether full issues report should be created.                                    |
+| `IssuesParameters.Reporting.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`FullIssuesReportSettings`      | `IssuesContext.Parameters.Reporting.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`FullIssuesReportSettings`     | `GenericIssueReportTemplate.HtmlDxDataGrid` template with `DevExtremeTheme.MaterialBlueLight` theme. | Settings for creating the full issues report. See [Template Gallery] for possible options. |
+
+[Template Gallery]: /docs/report-formats/generic/templates/
 
 # Build server integration
 
