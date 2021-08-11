@@ -1,24 +1,24 @@
 ---
 Order: 30
 Title: Supported tools
-Description: Tools supported by Cake.Issues.Recipe.
+Description: Tools supported by Cake.Issues recipes.
 ---
 
-Cake.Issues.Recipe supports reading issues from different tools and integrates with different build and pull request systems.
+Cake.Issues recipes support reading issues from different tools and integrates with different build and pull request systems.
 
 # Tools
 
-Cake.Issues.Recipe supports reading issues from output of the following tools:
+Cake.Issues recipes support reading issues from output of the following tools:
 
-| Tool                              | Format                                 | Property                                                      |
-|-----------------------------------|----------------------------------------|---------------------------------------------------------------|
-| MsBuild                           | [MSBuild Extension Pack XmlFileLogger] | `IssuesParameters.InputFiles.MsBuildXmlFileLoggerLogFilePath` |
-| MsBuild                           | Binary Log File                        | `IssuesParameters.InputFiles.MsBuildBinaryLogFilePath`        |
-| JetBrains InspectCode (ReSharper) |                                        | `IssuesParameters.InputFiles.InspectCodeLogFilePath`          |
-| [JetBrains dupFinder]             |                                        | `IssuesParameters.InputFiles.DupFinderLogFilePath`            |
-| markdownlint                      | [markdownlint-cli]                     | `IssuesParameters.InputFiles.MarkdownlintCliLogFilePath`      |
-| markdownlint                      | [markdownlint] version 1               | `IssuesParameters.InputFiles.MarkdownlintV1LogFilePath`       |
-| [ESLint]                          | [json formatter]                       | `IssuesParameters.InputFiles.EsLintJsonLogFilePath`           |
+| Tool                              | Format                                 | Cake.Issues.Recipe Methods                                                                    | Cake.Frosting.Issues.Recipe Method                                                                    |
+|-----------------------------------|----------------------------------------|-----------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|
+| MsBuild                           | [MSBuild Extension Pack XmlFileLogger] | `IssuesParameters.InputFiles.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`AddMsBuildXmlFileLoggerLogFile()` | `IssuesContext.Parameters.InputFiles.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`AddMsBuildXmlFileLoggerLogFile()` |
+| MsBuild                           | Binary Log File                        | `IssuesParameters.InputFiles.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`AddMsBuildBinaryLogFile()`        | `IssuesContext.Parameters.InputFiles.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`AddMsBuildBinaryLogFile()`        |
+| JetBrains InspectCode (ReSharper) |                                        | `IssuesParameters.InputFiles.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`AddInspectCodeLogFile()`          | `IssuesContext.Parameters.InputFiles.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`AddInspectCodeLogFile()`          |
+| [JetBrains dupFinder]             |                                        | `IssuesParameters.InputFiles.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`AddDupFinderLogFile()`            | `IssuesContext.Parameters.InputFiles.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`AddDupFinderLogFile()`            |
+| markdownlint                      | [markdownlint-cli]                     | `IssuesParameters.InputFiles.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`AddMarkdownlintCliLogFile()`      | `IssuesContext.Parameters.InputFiles.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`AddMarkdownlintCliLogFile()`      |
+| markdownlint                      | [markdownlint] version 1               | `IssuesParameters.InputFiles.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`AddMarkdownlintV1LogFile()`       | `IssuesContext.Parameters.InputFiles.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`AddMarkdownlintV1LogFile()`       |
+| [ESLint]                          | [json formatter]                       | `IssuesParameters.InputFiles.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`AddEsLintJsonLogFile()`           | `IssuesContext.Parameters.InputFiles.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`AddEsLintJsonLogFile()`           |
 
 [MSBuild Extension Pack XmlFileLogger]: http://www.msbuildextensionpack.com/help/4.0.5.0/html/242ab4fd-c2e2-f6aa-325b-7588725aed24.htm
 [JetBrains dupFinder]: https://www.jetbrains.com/help/resharper/dupFinder.html
@@ -29,7 +29,7 @@ Cake.Issues.Recipe supports reading issues from output of the following tools:
 
 # Build systems
 
-Cake.Issues.Recipe integrates with the following build systems:
+Cake.Issues recipes integrates with the following build systems:
 
 | Build System                   | Write issues to build server                                                      | Issues summary                                                     | Full issues report                                                 |
 |--------------------------------|-----------------------------------------------------------------------------------|--------------------------------------------------------------------|--------------------------------------------------------------------|
@@ -39,7 +39,7 @@ Cake.Issues.Recipe integrates with the following build systems:
 
 # Pull request systems
 
-Cake.Issues.Recipe integrates with the following pull request systems:
+Cake.Issues recipes integrates with the following pull request systems:
 
 | Pull Request System        | Write issues to pull requests                                                                      | Set pull request status                                            |
 |----------------------------|----------------------------------------------------------------------------------------------------|--------------------------------------------------------------------|
