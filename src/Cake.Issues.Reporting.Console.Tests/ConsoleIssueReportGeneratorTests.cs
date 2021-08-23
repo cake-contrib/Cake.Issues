@@ -1,6 +1,5 @@
 ﻿namespace Cake.Issues.Reporting.Console.Tests
 {
-    using Cake.Core.IO;
     using Cake.Issues.Testing;
     using Cake.Testing;
     using Xunit;
@@ -42,8 +41,10 @@
             public void Should_Generate_Report()
             {
                 // Given
+                var fixture = new ConsoleIssueReportFixture();
 
                 // When
+                var logContents = fixture.CreateReport("Testfiles.issues.json", @"c:\Source\Cake.Issues.Reporting.Console");
 
                 // Then
             }

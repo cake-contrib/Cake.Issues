@@ -2,14 +2,15 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.IO;
     using Cake.Core.Diagnostics;
+    using Cake.Core.IO;
+    using Cake.Issues.Serialization;
     using Cake.Testing;
     using Shouldly;
 
     internal class ConsoleIssueReportFixture
     {
-        public const string RepositoryRootPath = @"c:\Source\Cake.Issues.Reporting.Console";
-
         public ConsoleIssueReportFixture()
         {
             this.Log = new FakeLog { Verbosity = Verbosity.Normal };
@@ -20,13 +21,34 @@
 
         public ConsoleIssueReportFormatSettings ConsoleIssueReportFormatSettings { get; set; }
 
-        public string CreateReport(IEnumerable<IIssue> issues)
+        public string CreateReport(string fileResourceName, DirectoryPath repositoryRootPath)
+        {
+            fileResourceName.NotNullOrWhiteSpace(nameof(fileResourceName));
+
+            var resourceName = "Cake.Issues.Reporting.Console.Tests." + fileResourceName;
+
+            using (var stream = this.GetType().Assembly.GetManifestResourceStream(resourceName))
+            using (var reader = new StreamReader(stream))
+            {
+                if (stream == null)
+                {
+                    throw new ArgumentException(
+                        $"Resource {resourceName} not found",
+                        nameof(fileResourceName));
+                }
+
+                var issues = IssueDeserializationExtensions.DeserializeToIssues(reader.ReadToEnd());
+                return this.CreateReport(issues, repositoryRootPath);
+            }
+        }
+
+        public string CreateReport(IEnumerable<IIssue> issues, DirectoryPath repositoryRootPath)
         {
             var generator =
                 new ConsoleIssueReportGenerator(this.Log, this.ConsoleIssueReportFormatSettings);
 
             var createIssueReportSettings =
-                new CreateIssueReportSettings(RepositoryRootPath, string.Empty);
+                new CreateIssueReportSettings(repositoryRootPath, string.Empty);
             generator.Initialize(createIssueReportSettings);
             generator.CreateReport(issues);
 
@@ -50,7 +72,8 @@
                                 .OfRule("Rule Foo")
                                 .WithPriority(IssuePriority.Warning)
                                 .Create(),
-                    });
+                    },
+                    @"c:\Source\Cake.Issues.Reporting.Console");
 
             // Then
             // Currently only checks if generation failed or not without checking actual output.

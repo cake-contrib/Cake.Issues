@@ -16,6 +16,12 @@
     <CodeAnalysisRuleSet>..\Cake.Issues.Reporting.Console.Tests.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Testfiles\issues.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Testfiles\issues.json" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\Cake.Issues.Reporting.Console\Cake.Issues.Reporting.Console.csproj" />
   </ItemGroup>
   <ItemGroup>
