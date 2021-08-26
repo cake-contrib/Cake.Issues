@@ -44,6 +44,11 @@
                     _ => throw new Exception(),
                 };
 
+            if (firstIssue.RuleUrl != null)
+            {
+                this.Note = $"See {firstIssue.RuleUrl} for more information";
+            }
+
             this.CreateLabels();
         }
 
