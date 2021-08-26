@@ -44,11 +44,14 @@
         /// <param name="settings">Settings for generating the report.</param>
         /// <returns>Instance of a console report format.</returns>
         /// <example>
-        /// <para>Report issues to console:</para>
+        /// <para>Report issues to console grouped by rule:</para>
         /// <code>
         /// <![CDATA[
         ///     var settings =
-        ///         new ConsoleIssueReportFormatSettings();
+        ///         new ConsoleIssueReportFormatSettings
+        ///         {
+        ///             GroupByRule = true
+        ///         };
         ///
         ///     CreateIssueReport(
         ///         issues,

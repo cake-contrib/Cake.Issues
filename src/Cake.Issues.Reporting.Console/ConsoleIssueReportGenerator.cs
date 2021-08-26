@@ -1,6 +1,5 @@
 ﻿namespace Cake.Issues.Reporting.Console
 {
-    using System;
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
@@ -50,9 +49,20 @@
                     .ToList();
 
             var report = new Report(new FileSystemRepository(this.Settings));
-            foreach (var issue in issues)
+
+            if (this.consoleIssueReportFormatSettings.GroupByRule)
             {
-                report.AddDiagnostic(new IssueDiagnostic(issue));
+                foreach (var issueGroup in issues.GroupBy(x => x.Rule))
+                {
+                    report.AddDiagnostic(new IssueDiagnostic(issueGroup));
+                }
+            }
+            else
+            {
+                foreach (var issue in issues)
+                {
+                    report.AddDiagnostic(new IssueDiagnostic(issue));
+                }
             }
 
             report.Render(AnsiConsole.Console);

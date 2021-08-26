@@ -1,6 +1,8 @@
 ﻿namespace Cake.Issues.Reporting.Console
 {
     using System;
+    using System.Collections.Generic;
+    using System.Linq;
     using Errata;
     using Spectre.Console;
 
@@ -9,20 +11,31 @@
     /// </summary>
     internal sealed class IssueDiagnostic : Diagnostic
     {
-        private readonly IIssue issue;
+        private readonly IEnumerable<IIssue> issues;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="IssueDiagnostic"/> class.
         /// </summary>
         /// <param name="issue">Issue which the diagnostic should describe.</param>
         public IssueDiagnostic(IIssue issue)
-            : base(issue.Rule)
+            : this(new List<IIssue> { issue })
         {
-            this.issue = issue;
+        }
 
-            this.Category = this.issue.PriorityName;
+        /// <summary>
+        /// Initializes a new instance of the <see cref="IssueDiagnostic"/> class.
+        /// </summary>
+        /// <param name="issues">Issues which the diagnostic should describe.</param>
+        public IssueDiagnostic(IEnumerable<IIssue> issues)
+        : base(issues.First().Rule)
+        {
+            this.issues = issues;
+
+            var firstIssue = this.issues.First();
+
+            this.Category = firstIssue.PriorityName;
             this.Color =
-                this.issue.Priority switch
+                firstIssue.Priority switch
                 {
                     (int)IssuePriority.Error => Color.Red,
                     (int)IssuePriority.Warning => Color.Yellow,
@@ -39,7 +52,7 @@
         /// </summary>
         private void CreateLabels()
         {
-            var color = this.issue.Priority switch
+            var color = this.issues.First().Priority switch
             {
                 (int)IssuePriority.Error => Color.Red,
                 (int)IssuePriority.Warning => Color.Yellow,
@@ -47,20 +60,23 @@
                 _ => throw new Exception(),
             };
 
-            (var location, var length) = this.GetLocation(this.issue);
-            var label =
-                new Label(
-                    this.issue.AffectedFileRelativePath.FullPath,
-                    location,
-                    this.issue.Message(IssueCommentFormat.PlainText))
-                .WithColor(color);
-
-            if (length > 0)
+            foreach (var issue in this.issues)
             {
-                label = label.WithLength(length);
-            }
+                (var location, var length) = this.GetLocation(issue);
+                var label =
+                    new Label(
+                        issue.AffectedFileRelativePath.FullPath,
+                        location,
+                        issue.Message(IssueCommentFormat.PlainText))
+                    .WithColor(color);
 
-            this.Labels.Add(label);
+                if (length > 0)
+                {
+                    label = label.WithLength(length);
+                }
+
+                this.Labels.Add(label);
+            }
         }
 
         /// <summary>
