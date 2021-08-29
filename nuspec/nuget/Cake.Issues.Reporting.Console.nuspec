@@ -19,7 +19,7 @@ NOTE:
 This is the version of the addin compatible with Cake .NET Tool.
 For addin compatible with Cake Frosting see Cake.Frosting.Issues.Reporting.Console.
 
-The addin requires .NET 5.0.
+The addin requires Cake .NET Tool 1.2.0 or higher running on .NET 5.0 or higher.
     </description>
     <license type="expression">MIT</license>
     <projectUrl>https://cakeissues.net</projectUrl>
