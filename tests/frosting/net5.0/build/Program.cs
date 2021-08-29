@@ -33,7 +33,12 @@ public sealed class PrintIssuesTask : FrostingTask<BuildContext>
         context.Information("Read {0} issues", issues.Count());
         context.CreateIssueReport(
             issues,
-            context.ConsoleIssueReportFormat(),
+            context.ConsoleIssueReportFormat(
+                new ConsoleIssueReportFormatSettings 
+                { 
+                    ShowProviderSummary = true,
+                    ShowPrioritySummary = true 
+                }),
             @"../",
             string.Empty);
     }
