@@ -28,7 +28,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Cake.Core" Version="1.0.0" PrivateAssets="All" />
+    <PackageReference Include="Cake.Core" Version="1.2.0" PrivateAssets="All" />
     <PackageReference Include="Cake.Issues" Version="1.0.0" PrivateAssets="All" />
     <PackageReference Include="Cake.Issues.Reporting" Version="1.0.0" PrivateAssets="All" />
     <PackageReference Include="Errata" Version="0.4.0" />
