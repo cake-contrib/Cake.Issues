@@ -19,7 +19,7 @@ NOTE:
 This is the version of the addin compatible with Cake .NET Tool.
 For addin compatible with Cake Frosting see Cake.Frosting.Issues.Reporting.Console.
 
-The addin requires .NET 5.0.
+The addin requires Cake .NET Tool 1.2.0 or higher running on .NET 5.0 or higher.
     </description>
     <license type="expression">MIT</license>
     <projectUrl>https://cakeissues.net</projectUrl>
@@ -28,7 +28,7 @@ The addin requires .NET 5.0.
     <repository type="git" url="https://github.com/cake-contrib/Cake.Issues.Reporting.Generic.git"/>
     <copyright>Copyright © Pascal Berger</copyright>
     <tags>cake cake-addin cake-issues cake-reportformat issues reporting console</tags>
-    <releaseNotes>https://github.com/cake-contrib/Cake.Issues.Reporting.Console/releases/tag/1.0.0</releaseNotes>
+    <releaseNotes>https://github.com/cake-contrib/Cake.Issues.Reporting.Console/releases/tag/0.1.0</releaseNotes>
   </metadata>
   <files>
     <file src="..\..\..\..\nuspec\nuget\icon.png" target="" />
