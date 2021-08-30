@@ -67,7 +67,12 @@
                     }
                 }
 
-                report.Render(AnsiConsole.Console);
+                report.Render(
+                    AnsiConsole.Console,
+                    new ReportSettings 
+                    {
+                        Compact = this.consoleIssueReportFormatSettings.Compact,
+                    });
             }
 
             if (this.consoleIssueReportFormatSettings.ShowProviderSummary || this.consoleIssueReportFormatSettings.ShowPrioritySummary)
