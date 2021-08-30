@@ -139,7 +139,7 @@
                 AnsiConsole.WriteLine();
             }
 
-            if (this.consoleIssueReportFormatSettings.ShowProviderSummary)
+            if (this.consoleIssueReportFormatSettings.ShowPrioritySummary)
             {
                 AnsiConsole.Render(new Markup("[bold]Issues per priority[/]").Centered());
                 AnsiConsole.WriteLine();
