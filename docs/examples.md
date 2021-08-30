@@ -36,7 +36,7 @@ Task("Create-IssueReport").Does(() =>
         );
     MSBuild(repoRootFolder.CombineWithFilePath("MySolution.sln"), settings);
 
-    // Create SARIF report.
+    // Write issues to console.
     CreateIssueReport(
         new List<IIssueProvider>
         {
@@ -44,7 +44,13 @@ Task("Create-IssueReport").Does(() =>
                 msBuildLogFile,
                 MsBuildXmlFileLoggerFormat)
         },
-        ConsoleIssueReportFormat(),
+        ConsoleIssueReportFormat(
+            new ConsoleIssueReportFormatSettings
+            {
+                GroupByRule = true,
+                ShowProviderSummary = true,
+                ShowPrioritySummary = true
+            }),
         repoRootFolder,
         string.Empty);
 });

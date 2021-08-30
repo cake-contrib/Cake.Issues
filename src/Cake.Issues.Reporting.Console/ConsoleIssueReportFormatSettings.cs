@@ -6,6 +6,18 @@
     public class ConsoleIssueReportFormatSettings
     {
         /// <summary>
+        /// Gets or sets a value indicating whether diagnostics for the individual issues should be shown.
+        /// Default value is <c>true</c>.
+        /// </summary>
+        public bool ShowDiagnostics { get; set; } = true;
+
+        /// <summary>
+        /// Gets or sets a value indicating whether or not the report should be rendered in compact mode.
+        /// Default value is <c>false</c>.
+        /// </summary>
+        public bool Compact { get; set; }
+
+        /// <summary>
         /// Gets or sets a value indicating whether issues should be grouped by rule or if
         /// for every issue a separate diagnostic should be created.
         /// </summary>

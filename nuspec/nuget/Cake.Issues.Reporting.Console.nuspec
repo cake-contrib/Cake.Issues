@@ -25,10 +25,10 @@ The addin requires Cake .NET Tool 1.2.0 or higher running on .NET 5.0 or higher.
     <projectUrl>https://cakeissues.net</projectUrl>
     <icon>icon.png</icon>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <repository type="git" url="https://github.com/cake-contrib/Cake.Issues.Reporting.Generic.git"/>
+    <repository type="git" url="https://github.com/cake-contrib/Cake.Issues.Reporting.Console.git"/>
     <copyright>Copyright © Pascal Berger</copyright>
     <tags>cake cake-addin cake-issues cake-reportformat issues reporting console</tags>
-    <releaseNotes>https://github.com/cake-contrib/Cake.Issues.Reporting.Console/releases/tag/0.1.0</releaseNotes>
+    <releaseNotes>https://github.com/cake-contrib/Cake.Issues.Reporting.Console/releases/tag/0.2.0</releaseNotes>
   </metadata>
   <files>
     <file src="..\..\..\..\nuspec\nuget\icon.png" target="" />
