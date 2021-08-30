@@ -6,6 +6,12 @@
     public class ConsoleIssueReportFormatSettings
     {
         /// <summary>
+        /// Gets or sets a value indicating whether diagnostics for the individual issues should be shown.
+        /// Default value is <c>true</c>.
+        /// </summary>
+        public bool ShowDiagnostics { get; set; } = true;
+
+        /// <summary>
         /// Gets or sets a value indicating whether issues should be grouped by rule or if
         /// for every issue a separate diagnostic should be created.
         /// </summary>

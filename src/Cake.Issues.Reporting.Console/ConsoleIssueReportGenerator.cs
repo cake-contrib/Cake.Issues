@@ -31,41 +31,44 @@
         /// <inheritdoc />
         protected override FilePath InternalCreateReport(IEnumerable<IIssue> issues)
         {
-            // Filter to issues from existing files
-            var diagnosticIssues =
+            if (this.consoleIssueReportFormatSettings.ShowProviderSummary)
+            {
+                // Filter to issues from existing files
+                var diagnosticIssues =
                 issues
                     .Where(x =>
                         x.AffectedFileRelativePath != null &&
                         File.Exists(this.Settings.RepositoryRoot.CombineWithFilePath(x.AffectedFileRelativePath).FullPath))
                     .ToList();
 
-            // Filter to issues with line and column information
-            // Errata currently doesn't support file or line level diagnostics.
-            // https://github.com/cake-contrib/Cake.Issues.Reporting.Console/issues/4
-            // https://github.com/cake-contrib/Cake.Issues.Reporting.Console/issues/5
-            diagnosticIssues =
-                diagnosticIssues
-                    .Where(x => x.Line.HasValue && x.Column.HasValue)
-                    .ToList();
+                // Filter to issues with line and column information
+                // Errata currently doesn't support file or line level diagnostics.
+                // https://github.com/cake-contrib/Cake.Issues.Reporting.Console/issues/4
+                // https://github.com/cake-contrib/Cake.Issues.Reporting.Console/issues/5
+                diagnosticIssues =
+                    diagnosticIssues
+                        .Where(x => x.Line.HasValue && x.Column.HasValue)
+                        .ToList();
 
-            var report = new Report(new FileSystemRepository(this.Settings));
+                var report = new Report(new FileSystemRepository(this.Settings));
 
-            if (this.consoleIssueReportFormatSettings.GroupByRule)
-            {
-                foreach (var issueGroup in diagnosticIssues.GroupBy(x => x.Rule))
+                if (this.consoleIssueReportFormatSettings.GroupByRule)
                 {
-                    report.AddDiagnostic(new IssueDiagnostic(issueGroup));
+                    foreach (var issueGroup in diagnosticIssues.GroupBy(x => x.Rule))
+                    {
+                        report.AddDiagnostic(new IssueDiagnostic(issueGroup));
+                    }
                 }
-            }
-            else
-            {
-                foreach (var issue in diagnosticIssues)
+                else
                 {
-                    report.AddDiagnostic(new IssueDiagnostic(issue));
+                    foreach (var issue in diagnosticIssues)
+                    {
+                        report.AddDiagnostic(new IssueDiagnostic(issue));
+                    }
                 }
-            }
 
-            report.Render(AnsiConsole.Console);
+                report.Render(AnsiConsole.Console);
+            }
 
             if (this.consoleIssueReportFormatSettings.ShowProviderSummary || this.consoleIssueReportFormatSettings.ShowPrioritySummary)
             {
