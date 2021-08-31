@@ -332,7 +332,7 @@
                         "Trailing spaces [Expected: 0 or 2; Actual: 1]",
                         "Cake.Issues.Markdownlint.MarkdownlintIssuesProvider",
                         "markdownlint")
-                        .InFile("docs/index.md", 2)
+                        .InFile("docs/index.md", 2, 811)
                         .OfRule("MD009", new Uri("https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md009"))
                         .WithPriority(IssuePriority.Warning));
                 IssueChecker.Check(
@@ -341,7 +341,7 @@
                         "Line length [Expected: 100; Actual: 811]",
                         "Cake.Issues.Markdownlint.MarkdownlintIssuesProvider",
                         "markdownlint")
-                        .InFile("docs/index.md", 2)
+                        .InFile("docs/index.md", 2, 101)
                         .OfRule("MD013", new Uri("https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md013"))
                         .WithPriority(IssuePriority.Warning));
                 IssueChecker.Check(
@@ -386,7 +386,7 @@
                         "Trailing spaces [Expected: 0 or 2; Actual: 1]",
                         "Cake.Issues.Markdownlint.MarkdownlintIssuesProvider",
                         "markdownlint")
-                        .InFile("docs/index.md", 6)
+                        .InFile("docs/index.md", 6, 840)
                         .OfRule("MD009", new Uri("https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md009"))
                         .WithPriority(IssuePriority.Warning));
                 IssueChecker.Check(
@@ -395,7 +395,7 @@
                         "Files should end with a single newline character",
                         "Cake.Issues.Markdownlint.MarkdownlintIssuesProvider",
                         "markdownlint")
-                        .InFile("docs/index.md", 7)
+                        .InFile("docs/index.md", 7, 3)
                         .OfRule("MD047", new Uri("https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md047"))
                         .WithPriority(IssuePriority.Warning));
             }
