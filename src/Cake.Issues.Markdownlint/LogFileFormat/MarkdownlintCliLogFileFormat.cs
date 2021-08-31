@@ -43,13 +43,18 @@
                 }
 
                 var lineNumber = int.Parse(groups["lineNumber"].Value);
+                int? columnNumber = null;
+                if (!string.IsNullOrEmpty(groups["columnNumber"].Value))
+                {
+                    columnNumber = int.Parse(groups["columnNumber"].Value);
+                }
                 var ruleId = groups["ruleId"].Value;
                 var message = groups["message"].Value;
 
                 yield return
                     IssueBuilder
                         .NewIssue(message, issueProvider)
-                        .InFile(fileName, lineNumber)
+                        .InFile(fileName, lineNumber, columnNumber)
                         .WithPriority(IssuePriority.Warning)
                         .OfRule(ruleId, MarkdownlintRuleUrlResolver.Instance.ResolveRuleUrl(ruleId))
                         .Create();
