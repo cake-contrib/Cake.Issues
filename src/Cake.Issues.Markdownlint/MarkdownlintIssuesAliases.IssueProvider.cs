@@ -5,7 +5,7 @@
     using Cake.Core.IO;
 
     /// <content>
-    /// Contains functionality related to reading markdownlint issues.
+    /// Aliases to read markdownlint issues.
     /// </content>
     public static partial class MarkdownlintIssuesAliases
     {

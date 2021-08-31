@@ -5,12 +5,12 @@
     using Cake.Issues.Markdownlint.LogFileFormat;
 
     /// <content>
-    /// Provider for issues reported my markdownlint-cli.
+    /// Aliases for provider to read issues reported by markdownlint-cli.
     /// </content>
     public static partial class MarkdownlintIssuesAliases
     {
         /// <summary>
-        /// Gets an instance for the log format as written by markdownlint-cli or Cake.Markdownlint.
+        /// Gets an instance for the log format as written by markdownlint-cli.
         /// </summary>
         /// <param name="context">The context.</param>
         /// <returns>Instance for the Markdownlint log format.</returns>

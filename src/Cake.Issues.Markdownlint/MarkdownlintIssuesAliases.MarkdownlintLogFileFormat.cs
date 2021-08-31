@@ -5,7 +5,7 @@
     using Cake.Issues.Markdownlint.LogFileFormat;
 
     /// <content>
-    /// Provider for issues reported my Markdownlint.
+    /// Aliases for provider to read issues reported by Markdownlint.
     /// </content>
     public static partial class MarkdownlintIssuesAliases
     {
