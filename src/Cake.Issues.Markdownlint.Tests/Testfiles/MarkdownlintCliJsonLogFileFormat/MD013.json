@@ -1,0 +1,19 @@
+[
+  {
+    "fileName": "docs/extending/fundamentals.md",
+    "lineNumber": 7,
+    "ruleNames": [
+      "MD013",
+      "line-length"
+    ],
+    "ruleDescription": "Line length",
+    "ruleInformation": "https://github.com/DavidAnson/markdownlint/blob/v0.23.1/doc/Rules.md#md013",
+    "errorDetail": "Expected: 80; Actual: 124",
+    "errorContext": null,
+    "errorRange": [
+      81,
+      44
+    ],
+    "fixInfo": null
+  }
+]
