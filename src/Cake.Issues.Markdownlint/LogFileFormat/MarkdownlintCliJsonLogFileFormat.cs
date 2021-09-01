@@ -7,6 +7,7 @@
     using System.Runtime.Serialization;
     using System.Runtime.Serialization.Json;
     using Cake.Core.Diagnostics;
+    using Cake.Core.IO;
 
     /// <summary>
     /// Logfile format as written by markdownlint-cli with <c>--json</c> parameter.
@@ -49,7 +50,7 @@
                 return new List<IIssue>();
             }
 
-            return logFileEntries.Select(x => GetIssue(x, issueProvider));
+            return logFileEntries.Select(x => GetIssue(x, issueProvider, repositorySettings));
         }
 
         /// <summary>
@@ -57,10 +58,12 @@
         /// </summary>
         /// <param name="logFileEntry">Issue reported by markdownlint.</param>
         /// <param name="issueProvider">Issue provider instance.</param>
+        /// <param name="repositorySettings">Repository settings.</param>
         /// <returns>Issue instance.</returns>
         private static IIssue GetIssue(
             LogFileEntry logFileEntry,
-            MarkdownlintIssuesProvider issueProvider)
+            MarkdownlintIssuesProvider issueProvider,
+            IRepositorySettings repositorySettings)
         {
             var message = logFileEntry.ruleDescription;
 
@@ -73,7 +76,7 @@
                 IssueBuilder
                     .NewIssue(message, issueProvider)
                     .InFile(
-                        logFileEntry.fileName,
+                        GetFilePath(logFileEntry.fileName, repositorySettings),
                         logFileEntry.lineNumber,
                         logFileEntry.errorRange != null ? logFileEntry.lineNumber : null,
                         logFileEntry.errorRange != null ? logFileEntry.errorRange[0] : null,
@@ -81,6 +84,27 @@
                     .WithPriority(IssuePriority.Warning)
                     .OfRule(logFileEntry.ruleNames.First(), new Uri(logFileEntry.ruleInformation))
                     .Create();
+        }
+
+        /// <summary>
+        /// Returns the file path of the issue.
+        /// </summary>
+        /// <param name="filePath">File path as reported by markdownlint.</param>
+        /// <param name="repositorySettings">Repository settings.</param>
+        /// <returns>File path absolute to repository root.</returns>
+        private static string GetFilePath(
+            string filePath,
+            IRepositorySettings repositorySettings)
+        {
+            var directoryPath = new DirectoryPath(filePath);
+
+            if (directoryPath.IsRelative)
+            {
+                return filePath;
+            }
+
+            // Absolute paths need to be made relative to repository root.
+            return repositorySettings.RepositoryRoot.GetRelativePath(directoryPath).FullPath;
         }
 
 #pragma warning disable SA1307 // Accessible fields must begin with upper-case letter

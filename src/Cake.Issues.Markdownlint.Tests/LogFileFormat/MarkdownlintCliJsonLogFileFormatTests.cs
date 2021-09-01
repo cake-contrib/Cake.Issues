@@ -106,6 +106,32 @@
                         .OfRule("MD034", new Uri("https://github.com/DavidAnson/markdownlint/blob/v0.23.1/doc/Rules.md#md034"))
                         .WithPriority(IssuePriority.Warning));
             }
+
+            [Fact]
+            public void Should_Read_Issue_With_Absolute_Path_Correct()
+            {
+                // Given
+                var fixture =
+                    new MarkdownlintIssuesProviderFixture<MarkdownlintCliJsonLogFileFormat>("AbsoluteFilePath.json")
+                    {
+                        ReadIssuesSettings = new ReadIssuesSettings("/markdown"),
+                    };
+
+                // When
+                var issues = fixture.ReadIssues().ToList();
+
+                // Then
+                issues.Count.ShouldBe(1);
+                IssueChecker.Check(
+                    issues[0],
+                    IssueBuilder.NewIssue(
+                        "Headings should be surrounded by blank lines: Expected: 1; Actual: 0; Below",
+                        "Cake.Issues.Markdownlint.MarkdownlintIssuesProvider",
+                        "markdownlint")
+                        .InFile("docs/input/index.md", 4)
+                        .OfRule("MD022", new Uri("https://github.com/DavidAnson/markdownlint/blob/v0.23.1/doc/Rules.md#md022"))
+                        .WithPriority(IssuePriority.Warning));
+            }
         }
     }
 }
