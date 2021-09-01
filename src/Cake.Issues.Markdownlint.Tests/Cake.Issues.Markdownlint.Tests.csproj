@@ -17,15 +17,22 @@
     <CodeAnalysisRuleSet>..\Cake.Issues.Markdownlint.Tests.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Cake.Issues.Markdownlint\Cake.Issues.Markdownlint.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <ItemGroup>
     <None Remove="Testfiles\MarkdownlintCliJsonLogFileFormat\AbsoluteFilePath.json" />
     <None Remove="Testfiles\MarkdownlintCliJsonLogFileFormat\empty.json" />
     <None Remove="Testfiles\MarkdownlintCliJsonLogFileFormat\MD013.json" />
     <None Remove="Testfiles\MarkdownlintCliJsonLogFileFormat\MD025.json" />
     <None Remove="Testfiles\MarkdownlintCliJsonLogFileFormat\MD034.json" />
+    <None Remove="Testfiles\MarkdownlintCliLogFileFormat\empty.log" />
+    <None Remove="Testfiles\MarkdownlintCliLogFileFormat\markdownlint-cli-0.8.1.log" />
+    <None Remove="Testfiles\MarkdownlintCliLogFileFormat\markdownlint-cli-0.10.0.log" />
+    <None Remove="Testfiles\MarkdownlintCliLogFileFormat\markdownlint-cli-0.19.0.log" />
     <None Remove="Testfiles\MarkdownlintCliLogFileFormat\markdownlint-cli-0.22.0.log" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Cake.Issues.Markdownlint\Cake.Issues.Markdownlint.csproj" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Testfiles\MarkdownlintCliJsonLogFileFormat\AbsoluteFilePath.json" />
@@ -33,18 +40,15 @@
     <EmbeddedResource Include="Testfiles\MarkdownlintCliJsonLogFileFormat\MD013.json" />
     <EmbeddedResource Include="Testfiles\MarkdownlintCliJsonLogFileFormat\MD025.json" />
     <EmbeddedResource Include="Testfiles\MarkdownlintCliJsonLogFileFormat\MD034.json" />
+    <EmbeddedResource Include="Testfiles\MarkdownlintCliLogFileFormat\empty.log" />
+    <EmbeddedResource Include="Testfiles\MarkdownlintCliLogFileFormat\markdownlint-cli-0.8.1.log" />
+    <EmbeddedResource Include="Testfiles\MarkdownlintCliLogFileFormat\markdownlint-cli-0.10.0.log" />
+    <EmbeddedResource Include="Testfiles\MarkdownlintCliLogFileFormat\markdownlint-cli-0.19.0.log" />
     <EmbeddedResource Include="Testfiles\MarkdownlintCliLogFileFormat\markdownlint-cli-0.22.0.log" />
     <EmbeddedResource Include="Testfiles\MarkdownlintV1LogFileFormat\markdownlint.json" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="app.config" />
-    <EmbeddedResource Include="Testfiles\MarkdownlintCliLogFileFormat\markdownlint-cli-0.8.1.log" />
-    <EmbeddedResource Include="Testfiles\MarkdownlintCliLogFileFormat\markdownlint-cli-0.10.0.log" />
-    <EmbeddedResource Include="Testfiles\MarkdownlintCliLogFileFormat\markdownlint-cli-0.19.0.log" />
-    <EmbeddedResource Include="Testfiles\MarkdownlintCliLogFileFormat\empty.log" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Cake.Issues">
