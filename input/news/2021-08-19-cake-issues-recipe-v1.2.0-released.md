@@ -17,7 +17,7 @@ People working on this release:
 
 * [pascalberger](https://github.com/pascalberger)
 
-## Report customization
+## Customization of pull request integration
 
 This version of Cake Issues recipes adds several new configuration parameter which allows
 to customize how issues are reported to pull requests.
