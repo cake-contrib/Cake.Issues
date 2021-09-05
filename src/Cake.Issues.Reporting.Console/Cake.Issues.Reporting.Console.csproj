@@ -32,7 +32,7 @@
     <PackageReference Include="Cake.Core" Version="1.2.0" PrivateAssets="All" />
     <PackageReference Include="Cake.Issues" Version="1.0.0" PrivateAssets="All" />
     <PackageReference Include="Cake.Issues.Reporting" Version="1.0.0" PrivateAssets="All" />
-    <PackageReference Include="Errata" Version="0.5.1-preview.0.6" />
+    <PackageReference Include="Errata" Version="0.6.0" />
     <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="5.0.3">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

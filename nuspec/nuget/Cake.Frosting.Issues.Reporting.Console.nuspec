@@ -34,7 +34,7 @@ The addin requires Cake Frosting 1.2.0 or higher.
         <dependency id="Cake.Core" version="[1.2,2.0)" exclude="Build,Analyzers" />
         <dependency id="Cake.Issues" version="[1.0,2.0)" exclude="Build,Analyzers" />
         <dependency id="Cake.Issues.Reporting" version="[1.0,2.0)" exclude="Build,Analyzers" />
-        <dependency id="Errata" version="0.5.1-preview.0.6" exclude="Build,Analyzers" />
+        <dependency id="Errata" version="0.6.0" exclude="Build,Analyzers" />
       </group>
     </dependencies>
   </metadata>
