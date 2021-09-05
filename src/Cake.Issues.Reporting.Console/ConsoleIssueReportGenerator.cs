@@ -69,7 +69,7 @@
 
                 report.Render(
                     AnsiConsole.Console,
-                    new ReportSettings 
+                    new ReportSettings
                     {
                         Compact = this.consoleIssueReportFormatSettings.Compact,
                     });
