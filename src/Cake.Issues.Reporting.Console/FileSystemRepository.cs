@@ -2,7 +2,6 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics.CodeAnalysis;
     using System.IO;
     using Errata;
 
@@ -24,7 +23,7 @@
         }
 
         /// <inheritdoc />
-        public bool TryGet(string id, [NotNullWhen(true)] out Source source)
+        public bool TryGet(string id, out Source source)
         {
             if (!this.cache.TryGetValue(id, out source))
             {

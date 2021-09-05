@@ -8,7 +8,7 @@
     <owners>pascalberger, cake-contrib</owners>
     <summary>Support for reporting issues to console for the Cake.Issues addin for Cake Build Automation System</summary>
     <description>
-This addin for the Cake.Issues addin for Cake .NET Tool allows you to print issues to the console.
+This addin for the Cake.Issues addin for Cake Script Runners allows you to print issues to the console.
 
 This addin provides the aliases for reporting issues to the console.
 It also requires the core Cake.Issues and Cake.Issues.Reporting addins and one or more issue providers.
@@ -16,10 +16,10 @@ It also requires the core Cake.Issues and Cake.Issues.Reporting addins and one o
 See the Project Site for an overview of the whole ecosystem of addins for working with issues in Cake scripts.
 
 NOTE:
-This is the version of the addin compatible with Cake .NET Tool.
+This is the version of the addin compatible with Cake Script Runners.
 For addin compatible with Cake Frosting see Cake.Frosting.Issues.Reporting.Console.
 
-The addin requires Cake .NET Tool 1.2.0 or higher running on .NET 5.0 or higher.
+The addin requires Cake 1.2.0 or higher.
     </description>
     <license type="expression">MIT</license>
     <projectUrl>https://cakeissues.net</projectUrl>
@@ -28,13 +28,13 @@ The addin requires Cake .NET Tool 1.2.0 or higher running on .NET 5.0 or higher.
     <repository type="git" url="https://github.com/cake-contrib/Cake.Issues.Reporting.Console.git"/>
     <copyright>Copyright © Pascal Berger</copyright>
     <tags>cake cake-addin cake-issues cake-reportformat issues reporting console</tags>
-    <releaseNotes>https://github.com/cake-contrib/Cake.Issues.Reporting.Console/releases/tag/0.2.0</releaseNotes>
+    <releaseNotes>https://github.com/cake-contrib/Cake.Issues.Reporting.Console/releases/tag/0.3.0</releaseNotes>
   </metadata>
   <files>
     <file src="..\..\..\..\nuspec\nuget\icon.png" target="" />
-    <file src="net5.0/Cake.Issues.Reporting.Console.dll" target="lib\net5.0" />
-    <file src="net5.0/Cake.Issues.Reporting.Console.pdb" target="lib\net5.0" />
-    <file src="net5.0/Cake.Issues.Reporting.Console.xml" target="lib\net5.0" />
-    <file src="net5.0/Errata.dll" target="lib\net5.0" />
+    <file src="netstandard2.0/Cake.Issues.Reporting.Console.dll" target="lib\netstandard2.0" />
+    <file src="netstandard2.0/Cake.Issues.Reporting.Console.pdb" target="lib\netstandard2.0" />
+    <file src="netstandard2.0/Cake.Issues.Reporting.Console.xml" target="lib\netstandard2.0" />
+    <file src="netstandard2.0/Errata.dll" target="lib\netstandard2.0" />
   </files>
 </package>

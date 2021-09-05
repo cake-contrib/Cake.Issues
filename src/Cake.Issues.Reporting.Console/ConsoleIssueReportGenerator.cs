@@ -69,7 +69,7 @@
 
                 report.Render(
                     AnsiConsole.Console,
-                    new ReportSettings 
+                    new ReportSettings
                     {
                         Compact = this.consoleIssueReportFormatSettings.Compact,
                     });
@@ -105,11 +105,12 @@
             priorityTable.AddColumn(new TableColumn("Issue Provider / Run").Centered());
             priorityTable.AddColumn(new TableColumn("Number Of Issues").Centered());
 
+            var i = 1;
             foreach (var providerGroup in issues.GroupBy(x => x.ProviderName))
             {
                 var issueProvider = providerGroup.Key;
 
-                providerChart.AddItem(issueProvider, providerGroup.Count());
+                providerChart.AddItem(issueProvider, providerGroup.Count(), Color.FromInt32(i));
 
                 foreach (var runGroup in providerGroup.GroupBy(x => x.Run))
                 {
@@ -136,6 +137,7 @@
                 }
 
                 priorityTable.AddEmptyRow();
+                i++;
             }
 
             if (this.consoleIssueReportFormatSettings.ShowProviderSummary)
