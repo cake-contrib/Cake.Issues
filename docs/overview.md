@@ -29,7 +29,7 @@ Cake.Issues recipes will add the following addins to your build:
 | [Cake.Issues.MsBuild] 1.0.0                    | [Cake.Issues.MsBuild] 1.0.0                    | |
 | [Cake.Issues.InspectCode] 1.0.0                | [Cake.Issues.InspectCode] 1.0.0                | |
 | [Cake.Issues.DupFinder] 1.0.0                  | [Cake.Issues.DupFinder] 1.0.0                  | |
-| [Cake.Issues.Markdownlint] 1.0.0               | [Cake.Issues.Markdownlint] 1.0.0               | |
+| [Cake.Issues.Markdownlint] 1.1.1               | [Cake.Issues.Markdownlint] 1.1.1               | |
 | [Cake.Issues.EsLint] 1.0.1                     | [Cake.Issues.EsLint] 1.0.1                     | |
 | [Cake.Issues.Reporting] 1.0.0                  | [Cake.Issues.Reporting] 1.0.0                  | |
 | [Cake.Issues.Reporting.Generic] 1.0.0          | [Cake.Frosting.Issues.Reporting.Generic] 1.0.0 | |
