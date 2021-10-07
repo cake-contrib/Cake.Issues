@@ -209,6 +209,14 @@
                 throw new Exception("Error reading text files from repository");
             }
 
+            settings.Arguments.Clear();
+            settings.Arguments.Add("grep -IL .");
+            var emptyFiles = this.runner.RunCommand(settings);
+            if (emptyFiles != null && emptyFiles.Any())
+            {
+                textFiles = textFiles.Concat(emptyFiles);
+            }
+
             this.Log.Verbose("Found {0} text file(s)", textFiles.Count());
 
             return textFiles.ToList();
