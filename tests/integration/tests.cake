@@ -40,6 +40,11 @@ Task("CheckBinaryFilesTrackedByLfs")
                 }),
             new ReadIssuesSettings(repoRootDir));
 
+    if (issues.Any(i => i.AffectedFileRelativePath.GetFilename().ToString().Equals("empty.png", StringComparison.InvariantCultureIgnoreCase)))
+    {
+        throw new Exception("The empty files should not be treated as binary");
+    }
+
     var reportDir =
         repoRootDir.Combine("BuildArtifacts").Combine("TestResults").Combine("Integration");
     var reportFilePath =
