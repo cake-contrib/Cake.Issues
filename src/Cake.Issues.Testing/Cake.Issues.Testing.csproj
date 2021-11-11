@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <TargetFrameworks>netcoreapp3.1;net5.0;net6.0</TargetFrameworks>
     <Description>Common helpers for testing addins based on Cake.Issues</Description>
     <Authors>BBT Software AG</Authors>
     <Company>BBT Software AG</Company>
