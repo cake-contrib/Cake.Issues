@@ -1,5 +1,5 @@
 ---
-Order: 20
+Order: 30
 Title: How to build addins
 Description: Instructions how to build individual Cake Issues addins.
 ---

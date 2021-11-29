@@ -1,0 +1,19 @@
+---
+Order: 20
+Title: Open issues
+Description: Open issues where we are looking for help
+---
+@foreach(var group in Documents["Issues"].GroupBy(d => d.String("Repository")).OrderBy(g => g.Key)){
+    <h2> @Html.Raw(group.Key)</h2>
+    @foreach (var issuesEntry in group.OrderBy(x => x.Get<int>("Number"))){
+        <div class="row">
+             <a href='@Html.Raw(issuesEntry.String("HtmlUrl"))'>
+            <span class="col-xs-1 text-right">
+                <strong>#@Html.Raw(issuesEntry.String("Number"))</strong>
+            </span>
+            <span class="col-xs-11">
+                @Html.Raw(issuesEntry.String("Title"))
+            </span></a>
+        </div>
+    }
+}
