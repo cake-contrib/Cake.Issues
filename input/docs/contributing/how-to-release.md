@@ -1,5 +1,5 @@
 ---
-Order: 20
+Order: 40
 Title: How to release addins
 Description: Instructions how to release individual Cake Issues addins.
 ---
