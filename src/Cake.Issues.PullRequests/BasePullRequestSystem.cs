@@ -10,7 +10,7 @@
     public abstract class BasePullRequestSystem
         : BaseIssueComponent<IReportIssuesToPullRequestSettings>, IPullRequestSystem
     {
-        private readonly List<IPullRequestSystemCapability> capabilities = new List<IPullRequestSystemCapability>();
+        private readonly List<IPullRequestSystemCapability> capabilities = new ();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BasePullRequestSystem"/> class.

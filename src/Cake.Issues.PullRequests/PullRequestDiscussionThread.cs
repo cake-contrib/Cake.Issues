@@ -9,7 +9,7 @@
     /// </summary>
     public class PullRequestDiscussionThread : IPullRequestDiscussionThread
     {
-        private readonly List<IPullRequestDiscussionComment> comments = new List<IPullRequestDiscussionComment>();
+        private readonly List<IPullRequestDiscussionComment> comments = new ();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PullRequestDiscussionThread"/> class.

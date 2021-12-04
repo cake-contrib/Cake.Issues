@@ -18,6 +18,6 @@
         /// <summary>
         /// Discussion is resolved.
         /// </summary>
-        Resolved
+        Resolved,
     }
 }

@@ -9,7 +9,7 @@
     public class FakeConfigurableIssueProvider
         : BaseConfigurableIssueProvider<IssueProviderSettings>
     {
-        private readonly List<IIssue> issues = new List<IIssue>();
+        private readonly List<IIssue> issues = new ();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FakeConfigurableIssueProvider"/> class.

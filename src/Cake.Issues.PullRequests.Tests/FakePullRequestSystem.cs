@@ -8,7 +8,7 @@
     /// </summary>
     public class FakePullRequestSystem : BasePullRequestSystem
     {
-        private readonly List<IIssue> postedIssues = new List<IIssue>();
+        private readonly List<IIssue> postedIssues = new ();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FakePullRequestSystem"/> class.

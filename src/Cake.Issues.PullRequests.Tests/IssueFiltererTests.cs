@@ -17,7 +17,7 @@
                 // Given
                 var fixture = new IssueFiltererFixture
                 {
-                    Log = null
+                    Log = null,
                 };
 
                 // When
@@ -33,7 +33,7 @@
                 // Given
                 var fixture = new IssueFiltererFixture
                 {
-                    PullRequestSystem = null
+                    PullRequestSystem = null,
                 };
 
                 // When
@@ -49,7 +49,7 @@
                 // Given
                 var fixture = new IssueFiltererFixture
                 {
-                    Settings = null
+                    Settings = null,
                 };
 
                 // When
@@ -115,7 +115,8 @@
                     fixture.FilterIssues(
                         new List<IIssue>
                         {
-                            issue1, issue2
+                            issue1,
+                            issue2,
                         },
                         new Dictionary<IIssue, IssueCommentInfo>());
 
@@ -136,7 +137,7 @@
                                 .WithFilteringByModifiedFilesCapability(
                                     new List<FilePath>
                                     {
-                                    new FilePath(@"c:\FakeIssueProvider.cs")
+                                        new FilePath(@"c:\FakeIssueProvider.cs"),
                                     }));
 
                     // When
@@ -144,12 +145,12 @@
                         fixture.FilterIssues(
                             new List<IIssue>
                             {
-                            IssueBuilder
-                                .NewIssue("Message", "ProviderType", "ProviderName")
-                                .InFile(@"src\Cake.Issues.Tests\FakeIssueProvider.cs", 10)
-                                .OfRule("Rule")
-                                .WithPriority(IssuePriority.Warning)
-                                .Create()
+                                IssueBuilder
+                                    .NewIssue("Message", "ProviderType", "ProviderName")
+                                    .InFile(@"src\Cake.Issues.Tests\FakeIssueProvider.cs", 10)
+                                    .OfRule("Rule")
+                                    .WithPriority(IssuePriority.Warning)
+                                    .Create(),
                             },
                             new Dictionary<IIssue, IssueCommentInfo>()));
 
@@ -167,7 +168,7 @@
                                 .WithFilteringByModifiedFilesCapability(
                                     new List<FilePath>
                                     {
-                                        new FilePath(@"src\Cake.Issues.Tests\FakeIssueProvider.cs")
+                                        new FilePath(@"src\Cake.Issues.Tests\FakeIssueProvider.cs"),
                                     }));
 
                     var issue1 =
@@ -190,7 +191,8 @@
                         fixture.FilterIssues(
                             new List<IIssue>
                             {
-                                issue1, issue2
+                                issue1,
+                                issue2,
                             },
                             new Dictionary<IIssue, IssueCommentInfo>());
 
@@ -229,7 +231,8 @@
                         fixture.FilterIssues(
                             new List<IIssue>
                             {
-                                issue1, issue2
+                                issue1,
+                                issue2,
                             },
                             new Dictionary<IIssue, IssueCommentInfo>
                             {
@@ -241,12 +244,12 @@
                                         new PullRequestDiscussionComment
                                         {
                                             Content = "Message Foo",
-                                            IsDeleted = false
-                                        }
+                                            IsDeleted = false,
+                                        },
                                     },
                                     new List<IPullRequestDiscussionComment>(),
                                     new List<IPullRequestDiscussionComment>())
-                            }
+                            },
                             });
 
                     // Then
@@ -280,7 +283,7 @@
                         fixture.FilterIssues(
                             new List<IIssue>
                             {
-                                issue1, issue2
+                                issue1, issue2,
                             },
                             new Dictionary<IIssue, IssueCommentInfo>
                             {
@@ -293,11 +296,11 @@
                                         new PullRequestDiscussionComment
                                         {
                                             Content = "Message Foo",
-                                            IsDeleted = false
-                                        }
+                                            IsDeleted = false,
+                                        },
                                     },
                                     new List<IPullRequestDiscussionComment>())
-                            }
+                            },
                             });
 
                     // Then
@@ -331,7 +334,7 @@
                         fixture.FilterIssues(
                             new List<IIssue>
                             {
-                                issue1, issue2
+                                issue1, issue2,
                             },
                             new Dictionary<IIssue, IssueCommentInfo>
                             {
@@ -345,10 +348,10 @@
                                         new PullRequestDiscussionComment
                                         {
                                             Content = "Message Foo",
-                                            IsDeleted = false
-                                        }
+                                            IsDeleted = false,
+                                        },
                                     })
-                            }
+                            },
                             });
 
                     // Then
@@ -388,7 +391,7 @@
                             fixture.FilterIssues(
                                 new List<IIssue>
                                 {
-                                    issue1, issue2
+                                    issue1, issue2,
                                 },
                                 new Dictionary<IIssue, IssueCommentInfo>());
 
@@ -425,7 +428,7 @@
                             fixture.FilterIssues(
                                 new List<IIssue>
                                 {
-                                    issue1, issue2
+                                    issue1, issue2,
                                 },
                                 new Dictionary<IIssue, IssueCommentInfo>());
 
@@ -461,7 +464,7 @@
                             fixture.FilterIssues(
                                 new List<IIssue>
                                 {
-                                    issue1, issue2
+                                    issue1, issue2,
                                 },
                                 new Dictionary<IIssue, IssueCommentInfo>());
 
@@ -504,7 +507,7 @@
                             fixture.FilterIssues(
                                 new List<IIssue>
                                 {
-                                    newIssue1, newIssue2
+                                    newIssue1, newIssue2,
                                 },
                                 new Dictionary<IIssue, IssueCommentInfo>(),
                                 new List<IPullRequestDiscussionThread>
@@ -518,11 +521,11 @@
                                             new PullRequestDiscussionComment
                                             {
                                                 Content = "Message FooBar",
-                                                IsDeleted = false
-                                            }
+                                                IsDeleted = false,
+                                            },
                                         })
                                     {
-                                        ProviderType = "ProviderType Foo"
+                                        ProviderType = "ProviderType Foo",
                                     },
                                     new PullRequestDiscussionThread(
                                         1,
@@ -533,12 +536,12 @@
                                             new PullRequestDiscussionComment
                                             {
                                                 Content = "Message FooBar",
-                                                IsDeleted = false
-                                            }
+                                                IsDeleted = false,
+                                            },
                                         })
                                     {
-                                        ProviderType = "ProviderType Foo"
-                                    }
+                                        ProviderType = "ProviderType Foo",
+                                    },
                                 });
 
                         // Then
@@ -577,7 +580,7 @@
                             fixture.FilterIssues(
                                 new List<IIssue>
                                 {
-                                    newIssue1, newIssue2
+                                    newIssue1, newIssue2,
                                 },
                                 new Dictionary<IIssue, IssueCommentInfo>(),
                                 new List<IPullRequestDiscussionThread>
@@ -591,11 +594,11 @@
                                             new PullRequestDiscussionComment
                                             {
                                                 Content = "Message FooBar",
-                                                IsDeleted = false
-                                            }
+                                                IsDeleted = false,
+                                            },
                                         })
                                     {
-                                        ProviderType = "ProviderType Foo"
+                                        ProviderType = "ProviderType Foo",
                                     },
                                     new PullRequestDiscussionThread(
                                         1,
@@ -606,12 +609,12 @@
                                             new PullRequestDiscussionComment
                                             {
                                                 Content = "Message FooBar",
-                                                IsDeleted = false
-                                            }
+                                                IsDeleted = false,
+                                            },
                                         })
                                     {
-                                        ProviderType = "ProviderType Foo"
-                                    }
+                                        ProviderType = "ProviderType Foo",
+                                    },
                                 });
 
                         // Then
@@ -650,7 +653,7 @@
                             fixture.FilterIssues(
                                 new List<IIssue>
                                 {
-                                    newIssue1, newIssue2
+                                    newIssue1, newIssue2,
                                 },
                                 new Dictionary<IIssue, IssueCommentInfo>(),
                                 new List<IPullRequestDiscussionThread>
@@ -664,11 +667,11 @@
                                             new PullRequestDiscussionComment
                                             {
                                                 Content = "Message FooBar",
-                                                IsDeleted = false
-                                            }
+                                                IsDeleted = false,
+                                            },
                                         })
                                     {
-                                        ProviderType = "ProviderType Foo"
+                                        ProviderType = "ProviderType Foo",
                                     },
                                     new PullRequestDiscussionThread(
                                         1,
@@ -679,12 +682,12 @@
                                             new PullRequestDiscussionComment
                                             {
                                                 Content = "Message FooBar",
-                                                IsDeleted = false
-                                            }
+                                                IsDeleted = false,
+                                            },
                                         })
                                     {
-                                        ProviderType = "ProviderType Foo"
-                                    }
+                                        ProviderType = "ProviderType Foo",
+                                    },
                                 });
 
                         // Then
@@ -730,7 +733,7 @@
                             fixture.FilterIssues(
                                 new List<IIssue>
                                 {
-                                    issue1, issue2, issue3
+                                    issue1, issue2, issue3,
                                 },
                                 new Dictionary<IIssue, IssueCommentInfo>(),
                                 new List<IPullRequestDiscussionThread>
@@ -744,12 +747,12 @@
                                         new PullRequestDiscussionComment
                                         {
                                             Content = "Message FooBar",
-                                            IsDeleted = false
-                                        }
+                                            IsDeleted = false,
+                                        },
                                     })
                                 {
-                                    ProviderType = "ProviderType Foo"
-                                }
+                                    ProviderType = "ProviderType Foo",
+                                },
                                 });
 
                         // Then
@@ -804,7 +807,7 @@
                             fixture.FilterIssues(
                                 new List<IIssue>
                                 {
-                                    issue1, issue2, issue3, issue4
+                                    issue1, issue2, issue3, issue4,
                                 },
                                 new Dictionary<IIssue, IssueCommentInfo>(),
                                 new List<IPullRequestDiscussionThread>
@@ -818,12 +821,12 @@
                                         new PullRequestDiscussionComment
                                         {
                                             Content = "Message FooBar",
-                                            IsDeleted = false
-                                        }
+                                            IsDeleted = false,
+                                        },
                                     })
                                 {
-                                    ProviderType = "ProviderType Foo"
-                                }
+                                    ProviderType = "ProviderType Foo",
+                                },
                                 });
 
                         // Then
@@ -882,7 +885,7 @@
                             fixture.FilterIssues(
                                 new List<IIssue>
                                 {
-                                    issue1, issue2, issue3, issue4
+                                    issue1, issue2, issue3, issue4,
                                 },
                                 new Dictionary<IIssue, IssueCommentInfo>());
 
@@ -941,7 +944,7 @@
                             fixture.FilterIssues(
                                 new List<IIssue>
                                 {
-                                    issue1, issue2, issue3, issue4
+                                    issue1, issue2, issue3, issue4,
                                 },
                                 new Dictionary<IIssue, IssueCommentInfo>());
 
@@ -998,7 +1001,7 @@
                             fixture.FilterIssues(
                                 new List<IIssue>
                                 {
-                                    issue1, issue2, issue3, issue4
+                                    issue1, issue2, issue3, issue4,
                                 },
                                 new Dictionary<IIssue, IssueCommentInfo>());
 
@@ -1056,7 +1059,7 @@
                             fixture.FilterIssues(
                                 new List<IIssue>
                                 {
-                                    issue1, issue2, issue3, issue4
+                                    issue1, issue2, issue3, issue4,
                                 },
                                 new Dictionary<IIssue, IssueCommentInfo>());
 
@@ -1112,7 +1115,7 @@
                             fixture.FilterIssues(
                                 new List<IIssue>
                                 {
-                                    issue1, issue2, issue3, issue4
+                                    issue1, issue2, issue3, issue4,
                                 },
                                 new Dictionary<IIssue, IssueCommentInfo>());
 
@@ -1205,7 +1208,7 @@
                             fixture.FilterIssues(
                                 new List<IIssue>
                                 {
-                                    issue1, issue2, issue3, issue4, issue5, issue6, issue7, issue8, issue9
+                                    issue1, issue2, issue3, issue4, issue5, issue6, issue7, issue8, issue9,
                                 },
                                 new Dictionary<IIssue, IssueCommentInfo>());
 
@@ -1246,7 +1249,7 @@
                             fixture.FilterIssues(
                                 new List<IIssue>
                                 {
-                                issue1, issue2
+                                issue1, issue2,
                                 },
                                 new Dictionary<IIssue, IssueCommentInfo>(),
                                 new List<IPullRequestDiscussionThread>
@@ -1260,9 +1263,9 @@
                                         new PullRequestDiscussionComment
                                         {
                                             Content = "Message FooBar",
-                                            IsDeleted = false
-                                        }
-                                    })
+                                            IsDeleted = false,
+                                        },
+                                    }),
                                 });
 
                         // Then
@@ -1298,7 +1301,7 @@
                             fixture.FilterIssues(
                                 new List<IIssue>
                                 {
-                                issue1, issue2
+                                issue1, issue2,
                                 },
                                 new Dictionary<IIssue, IssueCommentInfo>(),
                                 new List<IPullRequestDiscussionThread>
@@ -1312,9 +1315,9 @@
                                         new PullRequestDiscussionComment
                                         {
                                             Content = "Message FooBar",
-                                            IsDeleted = false
-                                        }
-                                    })
+                                            IsDeleted = false,
+                                        },
+                                    }),
                                 });
 
                         // Then
@@ -1349,7 +1352,7 @@
                             fixture.FilterIssues(
                                 new List<IIssue>
                                 {
-                                issue1, issue2
+                                issue1, issue2,
                                 },
                                 new Dictionary<IIssue, IssueCommentInfo>(),
                                 new List<IPullRequestDiscussionThread>
@@ -1363,9 +1366,9 @@
                                         new PullRequestDiscussionComment
                                         {
                                             Content = "Message FooBar",
-                                            IsDeleted = false
-                                        }
-                                    })
+                                            IsDeleted = false,
+                                        },
+                                    }),
                                 });
 
                         // Then
@@ -1418,7 +1421,7 @@
                             fixture.FilterIssues(
                                 new List<IIssue>
                                 {
-                                    issue1, issue2, issue3, issue4
+                                    issue1, issue2, issue3, issue4,
                                 },
                                 new Dictionary<IIssue, IssueCommentInfo>());
 
@@ -1471,7 +1474,7 @@
                             fixture.FilterIssues(
                                 new List<IIssue>
                                 {
-                                    issue1, issue2, issue3, issue4
+                                    issue1, issue2, issue3, issue4,
                                 },
                                 new Dictionary<IIssue, IssueCommentInfo>());
 
@@ -1522,7 +1525,7 @@
                             fixture.FilterIssues(
                                 new List<IIssue>
                                 {
-                                    issue1, issue2, issue3, issue4
+                                    issue1, issue2, issue3, issue4,
                                 },
                                 new Dictionary<IIssue, IssueCommentInfo>());
 

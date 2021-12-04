@@ -94,16 +94,16 @@
                 var comments =
                     new List<IPullRequestDiscussionComment>
                     {
-                    new PullRequestDiscussionComment
-                    {
-                        Content = "Foo",
-                        IsDeleted = false
-                    },
-                    new PullRequestDiscussionComment
-                    {
-                        Content = "Bar",
-                        IsDeleted = true
-                    }
+                        new PullRequestDiscussionComment
+                        {
+                            Content = "Foo",
+                            IsDeleted = false,
+                        },
+                        new PullRequestDiscussionComment
+                        {
+                            Content = "Bar",
+                            IsDeleted = true,
+                        },
                     };
 
                 // When
