@@ -81,7 +81,7 @@
                 throw new Exception($"Expected exception of type '{typeof(T)}' but no exception was thrown.");
             }
 
-            if (!(exception is T typedException))
+            if (exception is not T typedException)
             {
                 throw new Exception($"Expected exception of type '{typeof(T)}' but was '{exception.GetType()}'.");
             }

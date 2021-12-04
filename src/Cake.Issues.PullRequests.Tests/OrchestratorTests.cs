@@ -17,7 +17,7 @@ namespace Cake.Issues.PullRequests.Tests
                 // Given
                 var fixture = new OrchestratorForIssuesFixture()
                 {
-                    Log = null
+                    Log = null,
                 };
                 var issues = new List<IIssue>();
 
@@ -62,7 +62,7 @@ namespace Cake.Issues.PullRequests.Tests
                 // Given
                 var fixture = new OrchestratorForIssuesFixture
                 {
-                    PullRequestSystem = null
+                    PullRequestSystem = null,
                 };
                 var issues = new List<IIssue>();
 
@@ -79,7 +79,7 @@ namespace Cake.Issues.PullRequests.Tests
                 // Given
                 var fixture = new OrchestratorForIssuesFixture
                 {
-                    Settings = null
+                    Settings = null,
                 };
                 var issues = new List<IIssue>();
 
@@ -128,7 +128,7 @@ namespace Cake.Issues.PullRequests.Tests
                 // Given
                 var fixture = new OrchestratorForIssueProvidersFixture()
                 {
-                    Log = null
+                    Log = null,
                 };
 
                 // When
@@ -144,7 +144,7 @@ namespace Cake.Issues.PullRequests.Tests
                 // Given
                 var fixture = new OrchestratorForIssueProvidersFixture
                 {
-                    IssueProviders = null
+                    IssueProviders = null,
                 };
 
                 // When
@@ -189,7 +189,7 @@ namespace Cake.Issues.PullRequests.Tests
                 // Given
                 var fixture = new OrchestratorForIssueProvidersFixture
                 {
-                    PullRequestSystem = null
+                    PullRequestSystem = null,
                 };
 
                 // When
@@ -205,7 +205,7 @@ namespace Cake.Issues.PullRequests.Tests
                 // Given
                 var fixture = new OrchestratorForIssueProvidersFixture
                 {
-                    Settings = null
+                    Settings = null,
                 };
 
                 // When
@@ -251,7 +251,7 @@ namespace Cake.Issues.PullRequests.Tests
                         fixture.Log,
                         new List<IIssue>
                         {
-                            issueToPost
+                            issueToPost,
                         }));
 
                 // When
@@ -284,7 +284,7 @@ namespace Cake.Issues.PullRequests.Tests
                         fixture.Log,
                         new List<IIssue>
                         {
-                            issueToPost
+                            issueToPost,
                         }));
 
                 // When
@@ -325,7 +325,7 @@ namespace Cake.Issues.PullRequests.Tests
                         fixture.Log,
                         new List<IIssue>
                         {
-                            postedIssue, reportedIssue
+                            postedIssue, reportedIssue,
                         }));
 
                 fixture.Settings.MaxIssuesToPost = 1;
@@ -369,7 +369,7 @@ namespace Cake.Issues.PullRequests.Tests
                         fixture.Log,
                         new List<IIssue>
                         {
-                            firstIssue, secondIssue
+                            firstIssue, secondIssue,
                         }));
 
                 fixture.Settings.MaxIssuesToPost = 1;
@@ -411,7 +411,7 @@ namespace Cake.Issues.PullRequests.Tests
                         fixture.Log,
                         new List<IIssue>
                         {
-                            issue1, issue2
+                            issue1, issue2,
                         }));
 
                 fixture.Settings.MaxIssuesToPost = 1;
@@ -454,7 +454,7 @@ namespace Cake.Issues.PullRequests.Tests
                         fixture.Log,
                         new List<IIssue>
                         {
-                            issue1, issue2
+                            issue1, issue2,
                         }));
 
                 fixture.Settings.MaxIssuesToPost = 1;
@@ -496,7 +496,7 @@ namespace Cake.Issues.PullRequests.Tests
                         fixture.Log,
                         new List<IIssue>
                         {
-                            issue1, issue2
+                            issue1, issue2,
                         }));
 
                 fixture.Settings.MaxIssuesToPost = 1;
@@ -553,7 +553,7 @@ namespace Cake.Issues.PullRequests.Tests
                         fixture.Log,
                         new List<IIssue>
                         {
-                            issue1, issue2, issue3, issue4
+                            issue1, issue2, issue3, issue4,
                         }));
 
                 fixture.Settings.MaxIssuesToPostForEachIssueProvider = 1;
@@ -612,7 +612,7 @@ namespace Cake.Issues.PullRequests.Tests
                         fixture.Log,
                         new List<IIssue>
                         {
-                            issue1, issue2, issue3, issue4
+                            issue1, issue2, issue3, issue4,
                         }));
 
                 fixture.Settings.MaxIssuesToPostForEachIssueProvider = 1;
@@ -669,7 +669,7 @@ namespace Cake.Issues.PullRequests.Tests
                         fixture.Log,
                         new List<IIssue>
                         {
-                            issue1, issue2, issue3, issue4
+                            issue1, issue2, issue3, issue4,
                         }));
 
                 fixture.Settings.MaxIssuesToPostForEachIssueProvider = 1;
@@ -728,7 +728,7 @@ namespace Cake.Issues.PullRequests.Tests
                         fixture.Log,
                         new List<IIssue>
                         {
-                            issue1, issue2, issue3, issue4
+                            issue1, issue2, issue3, issue4,
                         }));
 
                 fixture.Settings.ProviderIssueLimits.Add(
@@ -792,7 +792,7 @@ namespace Cake.Issues.PullRequests.Tests
                         fixture.Log,
                         new List<IIssue>
                         {
-                            issue1, issue2, issue3, issue4
+                            issue1, issue2, issue3, issue4,
                         }));
 
                 fixture.Settings.ProviderIssueLimits.Add(
@@ -854,7 +854,7 @@ namespace Cake.Issues.PullRequests.Tests
                         fixture.Log,
                         new List<IIssue>
                         {
-                            issue1, issue2, issue3, issue4
+                            issue1, issue2, issue3, issue4,
                         }));
 
                 fixture.Settings.ProviderIssueLimits.Add(
@@ -953,7 +953,7 @@ namespace Cake.Issues.PullRequests.Tests
                         fixture.Log,
                         new List<IIssue>
                         {
-                            issue1, issue2, issue3, issue4, issue5, issue6, issue7, issue8, issue9
+                            issue1, issue2, issue3, issue4, issue5, issue6, issue7, issue8, issue9,
                         }));
 
                 fixture.Settings.ProviderIssueLimits.Add(
@@ -1001,7 +1001,7 @@ namespace Cake.Issues.PullRequests.Tests
                         fixture.Log,
                         new List<IIssue>
                         {
-                            issueToPost
+                            issueToPost,
                         }));
 
                 fixture.PullRequestSystem.CheckingCommitIdCapability.LastSourceCommitId =
@@ -1051,7 +1051,7 @@ namespace Cake.Issues.PullRequests.Tests
                         fixture.Log,
                         new List<IIssue>
                         {
-                            issue1, issue2
+                            issue1, issue2,
                         }));
 
                 fixture.Settings.MaxIssuesToPostAcrossRuns = 1;
@@ -1098,7 +1098,7 @@ namespace Cake.Issues.PullRequests.Tests
                         fixture.Log,
                         new List<IIssue>
                         {
-                            issue1, issue2
+                            issue1, issue2,
                         }));
 
                 fixture.Settings.MaxIssuesToPostAcrossRuns = 1;
@@ -1145,7 +1145,7 @@ namespace Cake.Issues.PullRequests.Tests
                         fixture.Log,
                         new List<IIssue>
                         {
-                            issue1, issue2
+                            issue1, issue2,
                         }));
 
                 fixture.Settings.MaxIssuesToPostAcrossRuns = 1;
@@ -1203,11 +1203,11 @@ namespace Cake.Issues.PullRequests.Tests
                                             new PullRequestDiscussionComment
                                             {
                                                 Content = "Message Foo",
-                                                IsDeleted = false
-                                            }
+                                                IsDeleted = false,
+                                            },
                                         })
                                     {
-                                        CommentIdentifier = "Message Foo"
+                                        CommentIdentifier = "Message Foo",
                                     },
                                     new PullRequestDiscussionThread(
                                         2,
@@ -1218,12 +1218,12 @@ namespace Cake.Issues.PullRequests.Tests
                                             new PullRequestDiscussionComment
                                             {
                                                 Content = "Message Bar",
-                                                IsDeleted = false
+                                                IsDeleted = false,
                                             },
                                         })
                                     {
-                                        CommentIdentifier = "Message Bar"
-                                    }
+                                        CommentIdentifier = "Message Bar",
+                                    },
                                 }));
 
                 fixture.IssueProviders.Clear();
@@ -1232,7 +1232,7 @@ namespace Cake.Issues.PullRequests.Tests
                         fixture.Log,
                         new List<IIssue>
                         {
-                            issue1, issue2, issue3
+                            issue1, issue2, issue3,
                         }));
 
                 fixture.Settings.MaxIssuesToPostAcrossRuns = 2;
@@ -1282,14 +1282,14 @@ namespace Cake.Issues.PullRequests.Tests
                                             new PullRequestDiscussionComment
                                             {
                                                 Content = "Message FooBar",
-                                                IsDeleted = false
+                                                IsDeleted = false,
                                             },
                                             new PullRequestDiscussionComment
                                             {
                                                 Content = "Additional comment",
-                                                IsDeleted = false
-                                            }
-                                        })
+                                                IsDeleted = false,
+                                            },
+                                        }),
                                 }));
 
                 fixture.IssueProviders.Clear();
@@ -1298,7 +1298,7 @@ namespace Cake.Issues.PullRequests.Tests
                         fixture.Log,
                         new List<IIssue>
                         {
-                            issue1, issue2
+                            issue1, issue2,
                         }));
 
                 fixture.Settings.MaxIssuesToPostAcrossRuns = 2;
@@ -1349,9 +1349,9 @@ namespace Cake.Issues.PullRequests.Tests
                                             new PullRequestDiscussionComment
                                             {
                                                 Content = "Message FooBar",
-                                                IsDeleted = false
-                                            }
-                                        })
+                                                IsDeleted = false,
+                                            },
+                                        }),
                                 }));
 
                 fixture.IssueProviders.Clear();
@@ -1360,7 +1360,7 @@ namespace Cake.Issues.PullRequests.Tests
                         fixture.Log,
                         new List<IIssue>
                         {
-                            issue1, issue2
+                            issue1, issue2,
                         }));
 
                 fixture.Settings.MaxIssuesToPostAcrossRuns = 2;
@@ -1417,7 +1417,7 @@ namespace Cake.Issues.PullRequests.Tests
                         fixture.Log,
                         new List<IIssue>
                         {
-                            issue1, issue2, issue3
+                            issue1, issue2, issue3,
                         }));
 
                 fixture.Settings.ProviderIssueLimits.Add(
@@ -1466,7 +1466,7 @@ namespace Cake.Issues.PullRequests.Tests
                         fixture.Log,
                         new List<IIssue>
                         {
-                            issue1, issue2
+                            issue1, issue2,
                         }));
 
                 fixture.Settings.ProviderIssueLimits.Add(
@@ -1523,7 +1523,7 @@ namespace Cake.Issues.PullRequests.Tests
                         fixture.Log,
                         new List<IIssue>
                         {
-                            issue1, issue2, issue3
+                            issue1, issue2, issue3,
                         }));
 
                 fixture.Settings.ProviderIssueLimits.Add(
@@ -1583,12 +1583,12 @@ namespace Cake.Issues.PullRequests.Tests
                                             new PullRequestDiscussionComment
                                             {
                                                 Content = "Message Foo",
-                                                IsDeleted = false
-                                            }
+                                                IsDeleted = false,
+                                            },
                                         })
                                     {
                                         CommentIdentifier = "Message Foo",
-                                        ProviderType = "ProviderType Foo"
+                                        ProviderType = "ProviderType Foo",
                                     },
                                     new PullRequestDiscussionThread(
                                         2,
@@ -1599,13 +1599,13 @@ namespace Cake.Issues.PullRequests.Tests
                                             new PullRequestDiscussionComment
                                             {
                                                 Content = "Message Bar",
-                                                IsDeleted = false
+                                                IsDeleted = false,
                                             },
                                         })
                                     {
                                         CommentIdentifier = "Message Bar",
-                                        ProviderType = "ProviderType Foo"
-                                    }
+                                        ProviderType = "ProviderType Foo",
+                                    },
                                 }));
 
                 fixture.IssueProviders.Clear();
@@ -1614,7 +1614,7 @@ namespace Cake.Issues.PullRequests.Tests
                         fixture.Log,
                         new List<IIssue>
                         {
-                            issue1, issue2, issue3
+                            issue1, issue2, issue3,
                         }));
 
                 fixture.Settings.ProviderIssueLimits.Add(
@@ -1666,17 +1666,17 @@ namespace Cake.Issues.PullRequests.Tests
                                             new PullRequestDiscussionComment
                                             {
                                                 Content = "Message FooBar",
-                                                IsDeleted = false
+                                                IsDeleted = false,
                                             },
                                             new PullRequestDiscussionComment
                                             {
                                                 Content = "Additional comment",
-                                                IsDeleted = false
-                                            }
+                                                IsDeleted = false,
+                                            },
                                         })
                                     {
-                                        ProviderType = "ProviderType Foo"
-                                    }
+                                        ProviderType = "ProviderType Foo",
+                                    },
                                 }));
 
                 fixture.IssueProviders.Clear();
@@ -1685,7 +1685,7 @@ namespace Cake.Issues.PullRequests.Tests
                         fixture.Log,
                         new List<IIssue>
                         {
-                            issue1, issue2
+                            issue1, issue2,
                         }));
 
                 fixture.Settings.ProviderIssueLimits.Add(
@@ -1738,12 +1738,12 @@ namespace Cake.Issues.PullRequests.Tests
                                             new PullRequestDiscussionComment
                                             {
                                                 Content = "Message FooBar",
-                                                IsDeleted = false
-                                            }
+                                                IsDeleted = false,
+                                            },
                                         })
                                     {
-                                        ProviderType = "ProviderType Foo"
-                                    }
+                                        ProviderType = "ProviderType Foo",
+                                    },
                                 }));
 
                 fixture.IssueProviders.Clear();
@@ -1752,7 +1752,7 @@ namespace Cake.Issues.PullRequests.Tests
                         fixture.Log,
                         new List<IIssue>
                         {
-                            issue1, issue2
+                            issue1, issue2,
                         }));
 
                 fixture.Settings.ProviderIssueLimits.Add(
@@ -1805,13 +1805,13 @@ namespace Cake.Issues.PullRequests.Tests
                                             new PullRequestDiscussionComment()
                                             {
                                                 Content = "Message Foo",
-                                                IsDeleted = false
-                                            }
+                                                IsDeleted = false,
+                                            },
                                         })
                                     {
                                         CommentIdentifier = "Message Foo",
                                         CommentSource = settings.CommentSource,
-                                    }
+                                    },
                                 }));
 
                 fixture.IssueProviders.Clear();
@@ -1820,7 +1820,7 @@ namespace Cake.Issues.PullRequests.Tests
                         fixture.Log,
                         new List<IIssue>
                         {
-                            issue1, issue2
+                            issue1, issue2,
                         }));
 
                 // When
@@ -1876,14 +1876,14 @@ namespace Cake.Issues.PullRequests.Tests
                                             new PullRequestDiscussionComment()
                                             {
                                                 Content = "Message Foo",
-                                                IsDeleted = false
-                                            }
+                                                IsDeleted = false,
+                                            },
                                         })
                                     {
                                         CommentIdentifier = "Message Foo",
                                         CommentSource = settings.CommentSource,
-                                        Resolution = PullRequestDiscussionResolution.WontFix
-                                    }
+                                        Resolution = PullRequestDiscussionResolution.WontFix,
+                                    },
                                 }));
 
                 fixture.IssueProviders.Clear();
@@ -1892,7 +1892,7 @@ namespace Cake.Issues.PullRequests.Tests
                         fixture.Log,
                         new List<IIssue>
                         {
-                            issue1, issue2
+                            issue1, issue2,
                         }));
 
                 // When
@@ -1946,13 +1946,13 @@ namespace Cake.Issues.PullRequests.Tests
                                             new PullRequestDiscussionComment()
                                             {
                                                 Content = "Message Foo",
-                                                IsDeleted = false
-                                            }
+                                                IsDeleted = false,
+                                            },
                                         })
                                     {
                                         CommentIdentifier = "Message Foo",
                                         CommentSource = settings.CommentSource,
-                                    }
+                                    },
                                 }));
 
                 fixture.IssueProviders.Clear();
@@ -1962,7 +1962,7 @@ namespace Cake.Issues.PullRequests.Tests
                         new List<IIssue>
                         {
                             issue1,
-                            issue2
+                            issue2,
                         }));
 
                 // When
@@ -2011,13 +2011,13 @@ namespace Cake.Issues.PullRequests.Tests
                                             new PullRequestDiscussionComment()
                                             {
                                                 Content = "Foo",
-                                                IsDeleted = false
-                                            }
+                                                IsDeleted = false,
+                                            },
                                         })
                                     {
                                         CommentIdentifier = "Foo",
                                         CommentSource = "DifferentCommentSource",
-                                    }
+                                    },
                                 }));
 
                 fixture.IssueProviders.Clear();
@@ -2026,7 +2026,7 @@ namespace Cake.Issues.PullRequests.Tests
                         fixture.Log,
                         new List<IIssue>
                         {
-                            issue
+                            issue,
                         }));
 
                 // When
@@ -2066,13 +2066,13 @@ namespace Cake.Issues.PullRequests.Tests
                                             new PullRequestDiscussionComment()
                                             {
                                                 Content = "Bar",
-                                                IsDeleted = false
-                                            }
+                                                IsDeleted = false,
+                                            },
                                         })
                                     {
                                         CommentIdentifier = "Bar",
-                                        CommentSource = settings.CommentSource
-                                    }
+                                        CommentSource = settings.CommentSource,
+                                    },
                                 }));
 
                 var threadToResolve =
@@ -2089,7 +2089,7 @@ namespace Cake.Issues.PullRequests.Tests
                                 .InFile(@"src\Cake.Issues.Tests\FakeIssueProvider.cs", 10)
                                 .OfRule("Rule Foo")
                                 .WithPriority(IssuePriority.Warning)
-                                .Create()
+                                .Create(),
                         }));
 
                 // When
@@ -2119,13 +2119,13 @@ namespace Cake.Issues.PullRequests.Tests
                                             new PullRequestDiscussionComment()
                                             {
                                                 Content = "Bar",
-                                                IsDeleted = false
-                                            }
+                                                IsDeleted = false,
+                                            },
                                         })
                                     {
                                         CommentIdentifier = "Bar",
-                                        CommentSource = "DifferentCommentSource"
-                                    }
+                                        CommentSource = "DifferentCommentSource",
+                                    },
                                 }));
 
                 var threadToResolve =
@@ -2142,7 +2142,7 @@ namespace Cake.Issues.PullRequests.Tests
                                 .InFile(@"src\Cake.Issues.Tests\FakeIssueProvider.cs", 10)
                                 .OfRule("Rule Foo")
                                 .WithPriority(IssuePriority.Warning)
-                                .Create()
+                                .Create(),
                         }));
 
                 // When
@@ -2171,14 +2171,14 @@ namespace Cake.Issues.PullRequests.Tests
                                             new PullRequestDiscussionComment()
                                             {
                                                 Content = "Message Foo",
-                                                IsDeleted = false
-                                            }
+                                                IsDeleted = false,
+                                            },
                                         })
                                     {
                                         CommentIdentifier = "Message Foo",
                                         CommentSource = settings.CommentSource,
-                                        Resolution = PullRequestDiscussionResolution.Resolved
-                                    }
+                                        Resolution = PullRequestDiscussionResolution.Resolved,
+                                    },
                                 }));
 
                 var threadToReopen =
@@ -2195,7 +2195,7 @@ namespace Cake.Issues.PullRequests.Tests
                                 .InFile(@"src\Cake.Issues.Tests\FakeIssueProvider.cs", 10)
                                 .OfRule("Rule Foo")
                                 .WithPriority(IssuePriority.Warning)
-                                .Create()
+                                .Create(),
                         }));
 
                 // When
@@ -2225,14 +2225,14 @@ namespace Cake.Issues.PullRequests.Tests
                                             new PullRequestDiscussionComment()
                                             {
                                                 Content = "Message Foo",
-                                                IsDeleted = false
-                                            }
+                                                IsDeleted = false,
+                                            },
                                         })
                                     {
                                         CommentIdentifier = "Message Foo",
                                         CommentSource = "DifferentCommentSource",
-                                        Resolution = PullRequestDiscussionResolution.Resolved
-                                    }
+                                        Resolution = PullRequestDiscussionResolution.Resolved,
+                                    },
                                 }));
 
                 var threadToReopen =
@@ -2249,7 +2249,7 @@ namespace Cake.Issues.PullRequests.Tests
                                 .InFile(@"src\Cake.Issues.Tests\FakeIssueProvider.cs", 10)
                                 .OfRule("Rule Foo")
                                 .WithPriority(IssuePriority.Warning)
-                                .Create()
+                                .Create(),
                         }));
 
                 // When
@@ -2280,7 +2280,7 @@ namespace Cake.Issues.PullRequests.Tests
                                 .InFile(@"src\Cake.Issues.Tests\FakeIssueProvider.cs", 10)
                                 .OfRule("Rule Foo")
                                 .WithPriority(IssuePriority.Warning)
-                                .Create()
+                                .Create(),
                         }));
 
                 // When
@@ -2310,12 +2310,12 @@ namespace Cake.Issues.PullRequests.Tests
                                             new PullRequestDiscussionComment()
                                             {
                                                 Content = "Message Foo",
-                                                IsDeleted = false
-                                            }
+                                                IsDeleted = false,
+                                            },
                                         })
                                     {
-                                        CommentIdentifier = "Message Foo"
-                                    }
+                                        CommentIdentifier = "Message Foo",
+                                    },
                                 }));
 
                 var threadToReopen =
@@ -2332,7 +2332,7 @@ namespace Cake.Issues.PullRequests.Tests
                                 .InFile(@"src\Cake.Issues.Tests\FakeIssueProvider.cs", 10)
                                 .OfRule("Rule Foo")
                                 .WithPriority(IssuePriority.Warning)
-                                .Create()
+                                .Create(),
                         }));
 
                 // When
@@ -2370,7 +2370,7 @@ namespace Cake.Issues.PullRequests.Tests
                             .WithFilteringByModifiedFilesCapability(
                                 new List<FilePath>
                                 {
-                                    new FilePath(@"src\Cake.Issues.Tests\FakeIssueProvider.cs")
+                                    new FilePath(@"src\Cake.Issues.Tests\FakeIssueProvider.cs"),
                                 }));
 
                 fixture.IssueProviders.Clear();
@@ -2380,7 +2380,7 @@ namespace Cake.Issues.PullRequests.Tests
                         new List<IIssue>
                         {
                             issue1,
-                            issue2
+                            issue2,
                         }));
 
                 // When
@@ -2427,7 +2427,7 @@ namespace Cake.Issues.PullRequests.Tests
                                 .InFile(@"src\Cake.Issues.Tests\NotModified.cs", 10)
                                 .OfRule("Rule Bar")
                                 .WithPriority(IssuePriority.Warning)
-                                .Create()
+                                .Create(),
                         }));
 
                 // When
