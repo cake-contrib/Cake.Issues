@@ -27,4 +27,8 @@ ToolSettings.SetToolSettings(
     testCoverageExcludeByAttribute: "*.ExcludeFromCodeCoverage*",
     testCoverageExcludeByFile: "*/*Designer.cs;*/*.g.cs;*/*.g.i.cs");
 
+// Workaround until https://github.com/cake-contrib/Cake.Recipe/issues/862 has been fixed in Cake.Recipe
+ToolSettings.SetToolPreprocessorDirectives(
+    reSharperTools: "#tool nuget:?package=JetBrains.ReSharper.CommandLineTools&version=2021.2.0");
+
 Build.RunDotNetCore();
