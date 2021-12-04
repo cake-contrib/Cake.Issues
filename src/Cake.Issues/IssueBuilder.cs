@@ -25,6 +25,7 @@
         private int? priority;
         private string priorityName;
         private string rule;
+        private string ruleName;
         private Uri ruleUrl;
         private string run;
         private FileLinkSettings fileLinkSettings;
@@ -397,12 +398,12 @@
         /// <summary>
         /// Sets the rule of the issue.
         /// </summary>
-        /// <param name="name">The rule of the issue.
+        /// <param name="id">The ID of the rule of the issue.
         /// <c>null</c> or <see cref="string.Empty"/> if issue has no specific rule ID.</param>
         /// <returns>Issue Builder instance.</returns>
-        public IssueBuilder OfRule(string name)
+        public IssueBuilder OfRule(string id)
         {
-            this.rule = name;
+            this.rule = id;
 
             return this;
         }
@@ -410,14 +411,49 @@
         /// <summary>
         /// Sets the rule of the issue.
         /// </summary>
-        /// <param name="name">The rule of the issue.
+        /// <param name="id">The ID of the rule of the issue.
+        /// <c>null</c> or <see cref="string.Empty"/> if issue has no specific rule ID.</param>
+        /// <param name="name">The name of the rule of the issue.
+        /// <c>null</c> or <see cref="string.Empty"/> if issue has no specific rule name.</param>
+        /// <returns>Issue Builder instance.</returns>
+        public IssueBuilder OfRule(string id, string name)
+        {
+            this.rule = id;
+            this.ruleName = name;
+
+            return this;
+        }
+
+        /// <summary>
+        /// Sets the rule of the issue.
+        /// </summary>
+        /// <param name="id">The ID of the rule of the issue.
         /// <c>null</c> or <see cref="string.Empty"/> if issue has no specific rule ID.</param>
         /// <param name="uri">The URL containing information about the failing rule.
         /// <c>null</c> if no URL is available.</param>
         /// <returns>Issue Builder instance.</returns>
-        public IssueBuilder OfRule(string name, Uri uri)
+        public IssueBuilder OfRule(string id, Uri uri)
         {
-            this.rule = name;
+            this.rule = id;
+            this.ruleUrl = uri;
+
+            return this;
+        }
+
+        /// <summary>
+        /// Sets the rule of the issue.
+        /// </summary>
+        /// <param name="id">The ID of the rule of the issue.
+        /// <c>null</c> or <see cref="string.Empty"/> if issue has no specific rule ID.</param>
+        /// <param name="name">The name of the rule of the issue.
+        /// <c>null</c> or <see cref="string.Empty"/> if issue has no specific rule name.</param>
+        /// <param name="uri">The URL containing information about the failing rule.
+        /// <c>null</c> if no URL is available.</param>
+        /// <returns>Issue Builder instance.</returns>
+        public IssueBuilder OfRule(string id, string name, Uri uri)
+        {
+            this.rule = id;
+            this.ruleName = name;
             this.ruleUrl = uri;
 
             return this;
@@ -472,6 +508,7 @@
                 this.priority,
                 this.priorityName,
                 this.rule,
+                this.ruleName,
                 this.ruleUrl,
                 this.run,
                 this.providerType,

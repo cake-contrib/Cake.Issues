@@ -31,6 +31,7 @@
             this.Priority = 100;
             this.PriorityName = "PriorityName";
             this.Rule = "Rule";
+            this.RuleName = "RuleName";
             this.RuleUrl = new Uri("https://google.com");
             this.AdditionalInformation = new Dictionary<string, string>();
 
@@ -41,7 +42,7 @@
                 .InProject(this.ProjectFileRelativePath, this.ProjectName)
                 .InFile(this.AffectedFileRelativePath, this.Line, this.EndLine, this.Column, this.EndColumn)
                 .WithFileLink(this.FileLink)
-                .OfRule(this.Rule, this.RuleUrl)
+                .OfRule(this.Rule, this.RuleName, this.RuleUrl)
                 .WithPriority(this.Priority, this.PriorityName)
                 .WithAdditionalInformation(this.AdditionalInformation);
 
@@ -86,6 +87,8 @@
         public string PriorityName { get; private set; }
 
         public string Rule { get; private set; }
+
+        public string RuleName { get; private set; }
 
         public Uri RuleUrl { get; private set; }
 
