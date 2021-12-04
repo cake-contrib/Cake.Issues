@@ -688,7 +688,7 @@ namespace Cake.Issues.PullRequests.Tests
             }
 
             [Fact]
-            public void Should_Limit_Messages_To_Maximum_Per_Issue_Provider_ProviderIssueIssueLimits()
+            public void Should_Limit_Messages_To_Maximum_Per_Issue_Provider_ProviderIssueLimits()
             {
                 // Given
                 var issue1 =
@@ -733,10 +733,10 @@ namespace Cake.Issues.PullRequests.Tests
 
                 fixture.Settings.ProviderIssueLimits.Add(
                     "ProviderTypeA",
-                    new ProviderIssueIssueLimits(maxIssuesToPost: 1));
+                    new ProviderIssueLimits(maxIssuesToPost: 1));
                 fixture.Settings.ProviderIssueLimits.Add(
                     "ProviderTypeB",
-                    new ProviderIssueIssueLimits(maxIssuesToPost: 1));
+                    new ProviderIssueLimits(maxIssuesToPost: 1));
 
                 // When
                 var result = fixture.RunOrchestrator();
@@ -752,7 +752,7 @@ namespace Cake.Issues.PullRequests.Tests
             }
 
             [Fact]
-            public void Should_Limit_Messages_To_Maximum_Per_Issue_Provider_By_Priority_ProviderIssueIssueLimits()
+            public void Should_Limit_Messages_To_Maximum_Per_Issue_Provider_By_Priority_ProviderIssueLimits()
             {
                 // Given
                 var issue1 =
@@ -797,10 +797,10 @@ namespace Cake.Issues.PullRequests.Tests
 
                 fixture.Settings.ProviderIssueLimits.Add(
                     "ProviderTypeA",
-                    new ProviderIssueIssueLimits(maxIssuesToPost: 1));
+                    new ProviderIssueLimits(maxIssuesToPost: 1));
                 fixture.Settings.ProviderIssueLimits.Add(
                     "ProviderTypeB",
-                    new ProviderIssueIssueLimits(maxIssuesToPost: 1));
+                    new ProviderIssueLimits(maxIssuesToPost: 1));
 
                 // When
                 var result = fixture.RunOrchestrator();
@@ -816,7 +816,7 @@ namespace Cake.Issues.PullRequests.Tests
             }
 
             [Fact]
-            public void Should_Limit_Messages_To_Maximum_Per_Issue_Provider_By_FilePath_ProviderIssueIssueLimits()
+            public void Should_Limit_Messages_To_Maximum_Per_Issue_Provider_By_FilePath_ProviderIssueLimits()
             {
                 // Given
                 var issue1 =
@@ -859,10 +859,10 @@ namespace Cake.Issues.PullRequests.Tests
 
                 fixture.Settings.ProviderIssueLimits.Add(
                     "ProviderTypeA",
-                    new ProviderIssueIssueLimits(maxIssuesToPost: 1));
+                    new ProviderIssueLimits(maxIssuesToPost: 1));
                 fixture.Settings.ProviderIssueLimits.Add(
                     "ProviderTypeB",
-                    new ProviderIssueIssueLimits(maxIssuesToPost: 1));
+                    new ProviderIssueLimits(maxIssuesToPost: 1));
 
                 // When
                 var result = fixture.RunOrchestrator();
@@ -878,7 +878,7 @@ namespace Cake.Issues.PullRequests.Tests
             }
 
             [Fact]
-            public void Should_Limit_Messages_To_Maximum_Per_Issue_Provider_With_Different_Limits_For_Each_ProviderProviderIssueIssueLimits()
+            public void Should_Limit_Messages_To_Maximum_Per_Issue_Provider_With_Different_Limits_For_Each_ProviderIssueLimits()
             {
                 // Given
                 var issue1 =
@@ -958,10 +958,10 @@ namespace Cake.Issues.PullRequests.Tests
 
                 fixture.Settings.ProviderIssueLimits.Add(
                     "ProviderTypeA",
-                    new ProviderIssueIssueLimits(maxIssuesToPost: 1));
+                    new ProviderIssueLimits(maxIssuesToPost: 1));
                 fixture.Settings.ProviderIssueLimits.Add(
                     "ProviderTypeB",
-                    new ProviderIssueIssueLimits(maxIssuesToPost: 3));
+                    new ProviderIssueLimits(maxIssuesToPost: 3));
 
                 // When
                 var result = fixture.RunOrchestrator();
@@ -1422,7 +1422,7 @@ namespace Cake.Issues.PullRequests.Tests
 
                 fixture.Settings.ProviderIssueLimits.Add(
                     "ProviderType Foo",
-                    new ProviderIssueIssueLimits(maxIssuesToPostAcrossRuns: 1));
+                    new ProviderIssueLimits(maxIssuesToPostAcrossRuns: 1));
 
                 // When
                 var result = fixture.RunOrchestrator();
@@ -1471,7 +1471,7 @@ namespace Cake.Issues.PullRequests.Tests
 
                 fixture.Settings.ProviderIssueLimits.Add(
                     "ProviderType Foo",
-                    new ProviderIssueIssueLimits(maxIssuesToPostAcrossRuns: 1));
+                    new ProviderIssueLimits(maxIssuesToPostAcrossRuns: 1));
 
                 // When
                 var result = fixture.RunOrchestrator();
@@ -1528,7 +1528,7 @@ namespace Cake.Issues.PullRequests.Tests
 
                 fixture.Settings.ProviderIssueLimits.Add(
                     "ProviderType Foo",
-                    new ProviderIssueIssueLimits(maxIssuesToPostAcrossRuns: 1));
+                    new ProviderIssueLimits(maxIssuesToPostAcrossRuns: 1));
 
                 // When
                 var result = fixture.RunOrchestrator();
@@ -1619,7 +1619,7 @@ namespace Cake.Issues.PullRequests.Tests
 
                 fixture.Settings.ProviderIssueLimits.Add(
                     "ProviderType Foo",
-                    new ProviderIssueIssueLimits(maxIssuesToPostAcrossRuns: 2));
+                    new ProviderIssueLimits(maxIssuesToPostAcrossRuns: 2));
 
                 // When
                 var result = fixture.RunOrchestrator();
@@ -1690,7 +1690,7 @@ namespace Cake.Issues.PullRequests.Tests
 
                 fixture.Settings.ProviderIssueLimits.Add(
                     "ProviderType Foo",
-                    new ProviderIssueIssueLimits(maxIssuesToPostAcrossRuns: 2));
+                    new ProviderIssueLimits(maxIssuesToPostAcrossRuns: 2));
 
                 // When
                 var result = fixture.RunOrchestrator();
@@ -1757,7 +1757,7 @@ namespace Cake.Issues.PullRequests.Tests
 
                 fixture.Settings.ProviderIssueLimits.Add(
                     "ProviderType Foo",
-                    new ProviderIssueIssueLimits(maxIssuesToPostAcrossRuns: 2));
+                    new ProviderIssueLimits(maxIssuesToPostAcrossRuns: 2));
 
                 // When
                 var result = fixture.RunOrchestrator();

@@ -484,7 +484,7 @@
                         var fixture = new IssueFiltererFixture();
                         fixture.Settings.ProviderIssueLimits.Add(
                             "ProviderType Foo",
-                            new ProviderIssueIssueLimits(maxIssuesToPostAcrossRuns: 2));
+                            new ProviderIssueLimits(maxIssuesToPostAcrossRuns: 2));
 
                         var newIssue1 =
                             IssueBuilder
@@ -557,7 +557,7 @@
                         var fixture = new IssueFiltererFixture();
                         fixture.Settings.ProviderIssueLimits.Add(
                             "ProviderType Foo",
-                            new ProviderIssueIssueLimits(maxIssuesToPostAcrossRuns: 0));
+                            new ProviderIssueLimits(maxIssuesToPostAcrossRuns: 0));
 
                         var newIssue1 =
                             IssueBuilder
@@ -630,7 +630,7 @@
                         var fixture = new IssueFiltererFixture();
                         fixture.Settings.ProviderIssueLimits.Add(
                             "ProviderType Foo",
-                            new ProviderIssueIssueLimits(maxIssuesToPostAcrossRuns: -3));
+                            new ProviderIssueLimits(maxIssuesToPostAcrossRuns: -3));
 
                         var newIssue1 =
                             IssueBuilder
@@ -703,7 +703,7 @@
                         var fixture = new IssueFiltererFixture();
                         fixture.Settings.ProviderIssueLimits.Add(
                             "ProviderType Foo",
-                            new ProviderIssueIssueLimits(maxIssuesToPostAcrossRuns: 2));
+                            new ProviderIssueLimits(maxIssuesToPostAcrossRuns: 2));
 
                         var issue1 =
                             IssueBuilder
@@ -769,7 +769,7 @@
                         var fixture = new IssueFiltererFixture();
                         fixture.Settings.ProviderIssueLimits.Add(
                             "ProviderType Foo",
-                            new ProviderIssueIssueLimits(maxIssuesToPostAcrossRuns: 2));
+                            new ProviderIssueLimits(maxIssuesToPostAcrossRuns: 2));
 
                         var issue1 =
                             IssueBuilder
@@ -846,10 +846,10 @@
                         var fixture = new IssueFiltererFixture();
                         fixture.Settings.ProviderIssueLimits.Add(
                             "ProviderTypeA",
-                            new ProviderIssueIssueLimits(maxIssuesToPost: 1));
+                            new ProviderIssueLimits(maxIssuesToPost: 1));
                         fixture.Settings.ProviderIssueLimits.Add(
                             "ProviderTypeB",
-                            new ProviderIssueIssueLimits(maxIssuesToPost: 1));
+                            new ProviderIssueLimits(maxIssuesToPost: 1));
 
                         var issue1 =
                             IssueBuilder
@@ -905,10 +905,10 @@
                         var fixture = new IssueFiltererFixture();
                         fixture.Settings.ProviderIssueLimits.Add(
                             "ProviderTypeA",
-                            new ProviderIssueIssueLimits(maxIssuesToPost: 0));
+                            new ProviderIssueLimits(maxIssuesToPost: 0));
                         fixture.Settings.ProviderIssueLimits.Add(
                             "ProviderTypeB",
-                            new ProviderIssueIssueLimits(maxIssuesToPost: 0));
+                            new ProviderIssueLimits(maxIssuesToPost: 0));
 
                         var issue1 =
                             IssueBuilder
@@ -962,10 +962,10 @@
                         var fixture = new IssueFiltererFixture();
                         fixture.Settings.ProviderIssueLimits.Add(
                             "ProviderTypeA",
-                            new ProviderIssueIssueLimits(maxIssuesToPost: -3));
+                            new ProviderIssueLimits(maxIssuesToPost: -3));
                         fixture.Settings.ProviderIssueLimits.Add(
                             "ProviderTypeB",
-                            new ProviderIssueIssueLimits(maxIssuesToPost: -1));
+                            new ProviderIssueLimits(maxIssuesToPost: -1));
 
                         var issue1 =
                             IssueBuilder
@@ -1020,10 +1020,10 @@
                         var fixture = new IssueFiltererFixture();
                         fixture.Settings.ProviderIssueLimits.Add(
                             "ProviderTypeA",
-                            new ProviderIssueIssueLimits(maxIssuesToPost: 1));
+                            new ProviderIssueLimits(maxIssuesToPost: 1));
                         fixture.Settings.ProviderIssueLimits.Add(
                             "ProviderTypeB",
-                            new ProviderIssueIssueLimits(maxIssuesToPost: 1));
+                            new ProviderIssueLimits(maxIssuesToPost: 1));
 
                         var issue1 =
                             IssueBuilder
@@ -1078,10 +1078,10 @@
                         var fixture = new IssueFiltererFixture();
                         fixture.Settings.ProviderIssueLimits.Add(
                             "ProviderTypeA",
-                            new ProviderIssueIssueLimits(maxIssuesToPost: 1));
+                            new ProviderIssueLimits(maxIssuesToPost: 1));
                         fixture.Settings.ProviderIssueLimits.Add(
                             "ProviderTypeB",
-                            new ProviderIssueIssueLimits(maxIssuesToPost: 1));
+                            new ProviderIssueLimits(maxIssuesToPost: 1));
 
                         var issue1 =
                             IssueBuilder
@@ -1134,10 +1134,10 @@
                         var fixture = new IssueFiltererFixture();
                         fixture.Settings.ProviderIssueLimits.Add(
                             "ProviderTypeA",
-                            new ProviderIssueIssueLimits(maxIssuesToPost: 1));
+                            new ProviderIssueLimits(maxIssuesToPost: 1));
                         fixture.Settings.ProviderIssueLimits.Add(
                             "ProviderTypeB",
-                            new ProviderIssueIssueLimits(maxIssuesToPost: 3));
+                            new ProviderIssueLimits(maxIssuesToPost: 3));
 
                         var issue1 =
                             IssueBuilder
