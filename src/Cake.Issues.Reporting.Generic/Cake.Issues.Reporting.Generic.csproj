@@ -1,9 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <!-- net461 caused issues, while netstandard2.0 caused issues running .NET Core tool on macOS.
-    Therefore targeting netstandard2.0 for .NET Framework and netcoreappX for .NET Core -->
-    <TargetFrameworks>netstandard2.0;netcoreapp2.0;netcoreapp2.1;netcoreapp3.0</TargetFrameworks>
+    <TargetFrameworks>netcoreapp3.1;net5.0;net6.0</TargetFrameworks>
     <Description>Support for creating issue reports in any text based format (HTML, Markdown, ...) from the Cake.Issues Addin for Cake Build Automation System</Description>
     <Copyright>Copyright © Pascal Berger and contributors</Copyright>
     <Product>Cake.Issues</Product>
