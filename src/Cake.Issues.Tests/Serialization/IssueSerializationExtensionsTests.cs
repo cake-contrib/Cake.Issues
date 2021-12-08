@@ -347,6 +347,24 @@
             }
 
             [Fact]
+            public void Should_Give_Correct_Result_For_RuleName_After_Roundtrip()
+            {
+                // Given
+                var ruleName = "Rule Name";
+                var issue =
+                    IssueBuilder
+                        .NewIssue("message", "providerType", "providerName")
+                        .OfRule("rule", ruleName)
+                        .Create();
+
+                // When
+                var result = issue.SerializeToJsonString().DeserializeToIssue();
+
+                // Then
+                result.RuleName.ShouldBe(ruleName);
+            }
+
+            [Fact]
             public void Should_Give_Correct_Result_For_RuleUrl_After_Roundtrip()
             {
                 // Given
@@ -874,6 +892,34 @@
                 result.Count().ShouldBe(2);
                 result.First().Rule.ShouldBe(rule1);
                 result.Last().Rule.ShouldBe(rule2);
+            }
+
+            [Fact]
+            public void Should_Give_Correct_Result_For_RuleName_After_Roundtrip()
+            {
+                // Given
+                var ruleName1 = "Rule Name 1";
+                var ruleName2 = "Rule Name 2";
+                var issues =
+                    new List<IIssue>
+                    {
+                        IssueBuilder
+                          .NewIssue("message1", "providerType1", "providerName1")
+                            .OfRule("rule", ruleName1)
+                            .Create(),
+                        IssueBuilder
+                            .NewIssue("message2", "providerType2", "providerName2")
+                            .OfRule("rule", ruleName2)
+                            .Create(),
+                    };
+
+                // When
+                var result = issues.SerializeToJsonString().DeserializeToIssues();
+
+                // Then
+                result.Count().ShouldBe(2);
+                result.First().RuleName.ShouldBe(ruleName1);
+                result.Last().RuleName.ShouldBe(ruleName2);
             }
 
             [Fact]
@@ -1494,6 +1540,36 @@
 
                     // Then
                     result.Rule.ShouldBe(rule);
+                }
+                finally
+                {
+                    if (System.IO.File.Exists(filePath.FullPath))
+                    {
+                        System.IO.File.Delete(filePath.FullPath);
+                    }
+                }
+            }
+
+            [Fact]
+            public void Should_Give_Correct_Result_For_RuleName_After_Roundtrip()
+            {
+                // Given
+                var ruleName = "Rule Name";
+                var issue =
+                    IssueBuilder
+                        .NewIssue("message", "providerType", "providerName")
+                        .OfRule("rule", ruleName)
+                        .Create();
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+
+                try
+                {
+                    // When
+                    issue.SerializeToJsonFile(filePath);
+                    var result = filePath.DeserializeToIssue();
+
+                    // Then
+                    result.RuleName.ShouldBe(ruleName);
                 }
                 finally
                 {
@@ -2267,6 +2343,46 @@
                     result.Count().ShouldBe(2);
                     result.First().Rule.ShouldBe(rule1);
                     result.Last().Rule.ShouldBe(rule2);
+                }
+                finally
+                {
+                    if (System.IO.File.Exists(filePath.FullPath))
+                    {
+                        System.IO.File.Delete(filePath.FullPath);
+                    }
+                }
+            }
+
+            [Fact]
+            public void Should_Give_Correct_Result_For_RuleName_After_Roundtrip()
+            {
+                // Given
+                var ruleName1 = "Rule Name 1";
+                var ruleName2 = "Rule Name 2";
+                var issues =
+                    new List<IIssue>
+                    {
+                        IssueBuilder
+                          .NewIssue("message1", "providerType1", "providerName1")
+                            .OfRule("rule", ruleName1)
+                            .Create(),
+                        IssueBuilder
+                            .NewIssue("message2", "providerType2", "providerName2")
+                            .OfRule("rule", ruleName2)
+                            .Create(),
+                    };
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+
+                try
+                {
+                    // When
+                    issues.SerializeToJsonFile(filePath);
+                    var result = filePath.DeserializeToIssues();
+
+                    // Then
+                    result.Count().ShouldBe(2);
+                    result.First().RuleName.ToString().ShouldBe(ruleName1);
+                    result.Last().RuleName.ToString().ShouldBe(ruleName2);
                 }
                 finally
                 {

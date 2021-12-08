@@ -87,6 +87,7 @@
                 (x.Priority == y.Priority) &&
                 (x.PriorityName == y.PriorityName) &&
                 (x.Rule == y.Rule) &&
+                (x.RuleName == y.RuleName) &&
                 (x.RuleUrl?.ToString() == y.RuleUrl?.ToString()) &&
                 (x.Run == y.Run) &&
                 (x.ProviderType == y.ProviderType) &&
@@ -114,6 +115,7 @@
                         obj.Priority,
                         obj.PriorityName,
                         obj.Rule,
+                        obj.RuleName,
                         obj.RuleUrl,
                         obj.Run,
                         obj.ProviderType,
@@ -140,6 +142,7 @@
                         obj.Priority,
                         obj.PriorityName,
                         obj.Rule,
+                        obj.RuleName,
                         obj.RuleUrl,
                         obj.Run,
                         obj.ProviderType,

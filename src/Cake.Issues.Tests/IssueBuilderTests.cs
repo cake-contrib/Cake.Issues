@@ -1809,10 +1809,10 @@
             }
         }
 
-        public sealed class TheOfRuleMethod
+        public sealed class TheOfRuleWithRuleIdMethod
         {
             [Fact]
-            public void Should_Handle_Rules_Which_Are_Null()
+            public void Should_Handle_RulesIds_Which_Are_Null()
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
@@ -1826,7 +1826,7 @@
             }
 
             [Fact]
-            public void Should_Handle_Rules_Which_Are_Empty()
+            public void Should_Handle_RulesIds_Which_Are_Empty()
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
@@ -1840,7 +1840,7 @@
             }
 
             [Fact]
-            public void Should_Handle_Rules_Which_Are_WhiteSpace()
+            public void Should_Handle_RulesIds_Which_Are_WhiteSpace()
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
@@ -1855,7 +1855,7 @@
 
             [Theory]
             [InlineData("rule")]
-            public void Should_Set_Rule(string rule)
+            public void Should_Set_RuleId(string rule)
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
@@ -1868,48 +1868,165 @@
             }
         }
 
-        public sealed class TheOfRuleWithUriMethod
+        public sealed class TheOfRuleWithRuleIdAndNameMethod
         {
             [Fact]
-            public void Should_Handle_Names_Which_Are_Null()
+            public void Should_Handle_RuleIds_Which_Are_Null()
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
-                string rule = null;
+                string ruleId = null;
 
                 // When
-                var issue = fixture.IssueBuilder.OfRule(rule, new Uri("https://google.com")).Create();
+                var issue = fixture.IssueBuilder.OfRule(ruleId, "Some Rule").Create();
 
                 // Then
-                issue.Rule.ShouldBe(rule);
+                issue.Rule.ShouldBe(ruleId);
             }
 
             [Fact]
-            public void Should_Handle_Name_Which_Are_Empty()
+            public void Should_Handle_RuleIds_Which_Are_Empty()
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
-                var rule = string.Empty;
+                var ruleId = string.Empty;
 
                 // When
-                var issue = fixture.IssueBuilder.OfRule(rule, new Uri("https://google.com")).Create();
+                var issue = fixture.IssueBuilder.OfRule(ruleId, "Some Rule").Create();
 
                 // Then
-                issue.Rule.ShouldBe(rule);
+                issue.Rule.ShouldBe(ruleId);
             }
 
             [Fact]
-            public void Should_Handle_Names_Which_Are_WhiteSpace()
+            public void Should_Handle_RuleIds_Which_Are_WhiteSpace()
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
-                var rule = " ";
+                var ruleId = " ";
 
                 // When
-                var issue = fixture.IssueBuilder.OfRule(rule, new Uri("https://google.com")).Create();
+                var issue = fixture.IssueBuilder.OfRule(ruleId, "Some Rule").Create();
 
                 // Then
-                issue.Rule.ShouldBe(rule);
+                issue.Rule.ShouldBe(ruleId);
+            }
+
+            [Fact]
+            public void Should_Handle_RuleNames_Which_Are_Null()
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+                string ruleName = null;
+
+                // When
+                var issue = fixture.IssueBuilder.OfRule("RuleId", ruleName).Create();
+
+                // Then
+                issue.RuleName.ShouldBe(ruleName);
+            }
+
+            [Fact]
+            public void Should_Handle_RuleNames_Which_Are_Empty()
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+                var ruleName = string.Empty;
+
+                // When
+                var issue = fixture.IssueBuilder.OfRule("RuleId", ruleName).Create();
+
+                // Then
+                issue.RuleName.ShouldBe(ruleName);
+            }
+
+            [Fact]
+            public void Should_Handle_RuleNames_Which_Are_WhiteSpace()
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+                var ruleName = " ";
+
+                // When
+                var issue = fixture.IssueBuilder.OfRule("RuleId", ruleName).Create();
+
+                // Then
+                issue.RuleName.ShouldBe(ruleName);
+            }
+
+
+            [Theory]
+            [InlineData("ruleId")]
+            public void Should_Set_Rule(string ruleId)
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+                var ruleName = "Some Rule";
+
+                // When
+                var issue = fixture.IssueBuilder.OfRule(ruleId, ruleName).Create();
+
+                // Then
+                issue.Rule.ShouldBe(ruleId);
+            }
+
+            [Theory]
+            [InlineData("Rule Name")]
+            public void Should_Set_RuleName(string ruleName)
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+
+                // When
+                var issue = fixture.IssueBuilder.OfRule("Rule", ruleName).Create();
+
+                // Then
+                issue.RuleName.ShouldBe(ruleName);
+            }
+        }
+
+        public sealed class TheOfRuleWithRuleIdAndUriMethod
+        {
+            [Fact]
+            public void Should_Handle_RuleIds_Which_Are_Null()
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+                string ruleId = null;
+
+                // When
+                var issue = fixture.IssueBuilder.OfRule(ruleId, new Uri("https://google.com")).Create();
+
+                // Then
+                issue.Rule.ShouldBe(ruleId);
+            }
+
+            [Fact]
+            public void Should_Handle_RuleIds_Which_Are_Empty()
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+                var ruleIds = string.Empty;
+
+                // When
+                var issue = fixture.IssueBuilder.OfRule(ruleIds, new Uri("https://google.com")).Create();
+
+                // Then
+                issue.Rule.ShouldBe(ruleIds);
+            }
+
+            [Fact]
+            public void Should_Handle_RuleIds_Which_Are_WhiteSpace()
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+                var ruleIds = " ";
+
+                // When
+                var issue = fixture.IssueBuilder.OfRule(ruleIds, new Uri("https://google.com")).Create();
+
+                // Then
+                issue.Rule.ShouldBe(ruleIds);
             }
 
             [Fact]
@@ -1919,25 +2036,25 @@
                 var fixture = new IssueBuilderFixture();
 
                 // When
-                var issue = fixture.IssueBuilder.OfRule("Rule", null).Create();
+                var issue = fixture.IssueBuilder.OfRule("Rule", (Uri)null).Create();
 
                 // Then
                 issue.RuleUrl.ShouldBe(null);
             }
 
             [Theory]
-            [InlineData("rule")]
-            public void Should_Set_Rule(string rule)
+            [InlineData("ruleId")]
+            public void Should_Set_Rule(string ruleId)
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
                 var ruleUri = "https://google.com/";
 
                 // When
-                var issue = fixture.IssueBuilder.OfRule(rule, new Uri(ruleUri)).Create();
+                var issue = fixture.IssueBuilder.OfRule(ruleId, new Uri(ruleUri)).Create();
 
                 // Then
-                issue.RuleUrl.ToString().ShouldBe(ruleUri);
+                issue.Rule.ToString().ShouldBe(ruleId);
             }
 
             [Theory]
@@ -1949,6 +2066,150 @@
 
                 // When
                 var issue = fixture.IssueBuilder.OfRule("Rule", new Uri(ruleUri)).Create();
+
+                // Then
+                issue.RuleUrl.ToString().ShouldBe(ruleUri);
+            }
+        }
+
+        public sealed class TheOfRuleWithRuleIdAndNameAndUriMethod
+        {
+            [Fact]
+            public void Should_Handle_RuleIds_Which_Are_Null()
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+                string ruleId = null;
+
+                // When
+                var issue = fixture.IssueBuilder.OfRule(ruleId, "Some Rule", new Uri("https://google.com")).Create();
+
+                // Then
+                issue.Rule.ShouldBe(ruleId);
+            }
+
+            [Fact]
+            public void Should_Handle_RuleIds_Which_Are_Empty()
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+                var ruleId = string.Empty;
+
+                // When
+                var issue = fixture.IssueBuilder.OfRule(ruleId, "Some Rule", new Uri("https://google.com")).Create();
+
+                // Then
+                issue.Rule.ShouldBe(ruleId);
+            }
+
+            [Fact]
+            public void Should_Handle_RuleIds_Which_Are_WhiteSpace()
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+                var ruleId = " ";
+
+                // When
+                var issue = fixture.IssueBuilder.OfRule(ruleId, "Some Rule", new Uri("https://google.com")).Create();
+
+                // Then
+                issue.Rule.ShouldBe(ruleId);
+            }
+
+            [Fact]
+            public void Should_Handle_RuleNames_Which_Are_Null()
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+                string ruleName = null;
+
+                // When
+                var issue = fixture.IssueBuilder.OfRule("RuleId", ruleName, new Uri("https://google.com")).Create();
+
+                // Then
+                issue.RuleName.ShouldBe(ruleName);
+            }
+
+            [Fact]
+            public void Should_Handle_RuleNames_Which_Are_Empty()
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+                var ruleName = string.Empty;
+
+                // When
+                var issue = fixture.IssueBuilder.OfRule("RuleId", ruleName, new Uri("https://google.com")).Create();
+
+                // Then
+                issue.RuleName.ShouldBe(ruleName);
+            }
+
+            [Fact]
+            public void Should_Handle_RuleNames_Which_Are_WhiteSpace()
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+                var ruleName = " ";
+
+                // When
+                var issue = fixture.IssueBuilder.OfRule("RuleId", ruleName, new Uri("https://google.com")).Create();
+
+                // Then
+                issue.RuleName.ShouldBe(ruleName);
+            }
+
+            [Fact]
+            public void Should_Handle_Rule_Uri_Which_Are_Null()
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+
+                // When
+                var issue = fixture.IssueBuilder.OfRule("RuleId", "RuleName", (Uri)null).Create();
+
+                // Then
+                issue.RuleUrl.ShouldBe(null);
+            }
+
+            [Theory]
+            [InlineData("ruleId")]
+            public void Should_Set_Rule(string ruleId)
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+                var ruleName = "Some Rule";
+
+                // When
+                var issue = fixture.IssueBuilder.OfRule(ruleId, ruleName, new Uri("https://google.com")).Create();
+
+                // Then
+                issue.Rule.ShouldBe(ruleId);
+            }
+
+            [Theory]
+            [InlineData("Rule Name")]
+            public void Should_Set_RuleName(string ruleName)
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+
+                // When
+                var issue = fixture.IssueBuilder.OfRule("Rule", ruleName, new Uri("https://google.com")).Create();
+
+                // Then
+                issue.RuleName.ShouldBe(ruleName);
+            }
+
+            [Theory]
+            [InlineData("https://google.com/")]
+            public void Should_Set_RuleUrl(string ruleUri)
+            {
+                // Given
+                var fixture = new IssueBuilderFixture();
+                var ruleName = "Some Rule";
+
+                // When
+                var issue = fixture.IssueBuilder.OfRule("Rule", ruleName, new Uri(ruleUri)).Create();
 
                 // Then
                 issue.RuleUrl.ToString().ShouldBe(ruleUri);
