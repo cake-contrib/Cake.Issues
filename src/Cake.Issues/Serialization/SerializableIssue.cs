@@ -26,7 +26,7 @@
         /// <inheritdoc cref="IIssue.PriorityName" />
         public string PriorityName { get; set; }
 
-        /// <inheritdoc cref="IIssue.Rule" />
+        /// <inheritdoc cref="IIssue.RuleId" />
         public string Rule { get; set; }
 
         /// <inheritdoc cref="IIssue.RuleUrl" />

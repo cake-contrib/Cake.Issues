@@ -3217,13 +3217,13 @@
                 }
             }
 
-            public sealed class TheRuleArgument
+            public sealed class TheRuleIdArgument
             {
                 [Theory]
                 [InlineData(null)]
                 [InlineData("")]
                 [InlineData("rule")]
-                public void Should_Set_Rule(string rule)
+                public void Should_Set_RuleId(string ruleId)
                 {
                     // Given
                     var identifier = "identifier";
@@ -3264,7 +3264,7 @@
                             messageMarkdown,
                             priority,
                             priorityName,
-                            rule,
+                            ruleId,
                             ruleName,
                             ruleUri,
                             run,
@@ -3273,7 +3273,7 @@
                             additionalInformation);
 
                     // Then
-                    issue.Rule.ShouldBe(rule);
+                    issue.RuleId.ShouldBe(ruleId);
                 }
             }
 
@@ -3300,7 +3300,7 @@
                     var messageMarkdown = "MessageMarkdown";
                     var priority = 1;
                     var priorityName = "Warning";
-                    var rule = "Rule";
+                    var ruleId = "Rule";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -3324,7 +3324,7 @@
                             messageMarkdown,
                             priority,
                             priorityName,
-                            rule,
+                            ruleId,
                             ruleName,
                             ruleUri,
                             run,

@@ -58,7 +58,7 @@
                 expectedIssue.MessageMarkdown,
                 expectedIssue.Priority,
                 expectedIssue.PriorityName,
-                expectedIssue.Rule,
+                expectedIssue.RuleId,
                 expectedIssue.RuleName,
                 expectedIssue.RuleUrl,
                 expectedIssue.AdditionalInformation);
@@ -95,7 +95,7 @@
         /// <c>null</c> if no priority is expected.</param>
         /// <param name="priorityName">Expected priority name.
         /// <c>null</c> or <see cref="string.Empty"/> if no priority is expected.</param>
-        /// <param name="rule">Expected rule identifier.
+        /// <param name="ruleId">Expected rule identifier.
         /// <c>null</c> or <see cref="string.Empty"/> if no rule identifier is expected.</param>
         /// <param name="ruleName">Expected name of the rule.
         /// <c>null</c> or <see cref="string.Empty"/> if no rule is expected.</param>
@@ -121,7 +121,7 @@
             string messageMarkdown,
             int? priority,
             string priorityName,
-            string rule,
+            string ruleId,
             string ruleName,
             Uri ruleUrl,
             IReadOnlyDictionary<string, string> additionalInformation)
@@ -264,10 +264,10 @@
                     $"Expected issue.PriorityName to be '{priorityName}' but was '{issue.PriorityName}'.");
             }
 
-            if (issue.Rule != rule)
+            if (issue.RuleId != ruleId)
             {
                 throw new Exception(
-                    $"Expected issue.Rule to be '{rule}' but was '{issue.Rule}'.");
+                    $"Expected issue.RuleId to be '{ruleId}' but was '{issue.RuleId}'.");
             }
 
             if (issue.RuleName != ruleName)

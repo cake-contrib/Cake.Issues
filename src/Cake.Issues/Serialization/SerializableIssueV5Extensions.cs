@@ -47,7 +47,7 @@
                 serializableIssue.MessageMarkdown,
                 serializableIssue.Priority,
                 serializableIssue.PriorityName,
-                serializableIssue.Rule,
+                serializableIssue.RuleId,
                 serializableIssue.RuleName,
                 ruleUrl,
                 serializableIssue.Run,

@@ -39,7 +39,7 @@
         /// <c>null</c> if no priority was assigned.</param>
         /// <param name="priorityName">The human friendly name of the priority.
         /// <c>null</c> or <see cref="string.Empty"/> if no priority was assigned.</param>
-        /// <param name="rule">The ID of the rule of the issue.
+        /// <param name="ruleId">The ID of the rule of the issue.
         /// <c>null</c> or <see cref="string.Empty"/> if issue has no specific rule.</param>
         /// <param name="ruleName">The name of the rule of the issue.
         /// <c>null</c> or <see cref="string.Empty"/> if issue has no specific rule.</param>
@@ -64,7 +64,7 @@
             string messageMarkdown,
             int? priority,
             string priorityName,
-            string rule,
+            string ruleId,
             string ruleName,
             Uri ruleUrl,
             string run,
@@ -159,7 +159,7 @@
             this.MessageMarkdown = messageMarkdown;
             this.Priority = priority;
             this.PriorityName = priorityName;
-            this.Rule = rule;
+            this.RuleId = ruleId;
             this.RuleName = ruleName;
             this.RuleUrl = ruleUrl;
             this.Run = run;
@@ -211,7 +211,7 @@
         public string PriorityName { get; }
 
         /// <inheritdoc/>
-        public string Rule { get; }
+        public string RuleId { get; }
 
         /// <inheritdoc/>
         public string RuleName { get; }

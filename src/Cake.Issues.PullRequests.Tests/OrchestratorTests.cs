@@ -262,7 +262,7 @@ namespace Cake.Issues.PullRequests.Tests
                 fixture.Log.Entries.ShouldContain(
                     x =>
                         x.Message ==
-                            $"Posting 1 issue(s):\n  Rule: {issueToPost.Rule} Line: {issueToPost.Line} File: {issueToPost.AffectedFileRelativePath}");
+                            $"Posting 1 issue(s):\n  Rule: {issueToPost.RuleId} Line: {issueToPost.Line} File: {issueToPost.AffectedFileRelativePath}");
             }
 
             [Fact]
@@ -295,7 +295,7 @@ namespace Cake.Issues.PullRequests.Tests
                 fixture.Log.Entries.ShouldContain(
                     x =>
                         x.Message ==
-                            $"Posting 1 issue(s):\n  Rule: {issueToPost.Rule} Line: {issueToPost.Line} File: {issueToPost.AffectedFileRelativePath}");
+                            $"Posting 1 issue(s):\n  Rule: {issueToPost.RuleId} Line: {issueToPost.Line} File: {issueToPost.AffectedFileRelativePath}");
             }
 
             [Fact]

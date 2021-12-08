@@ -94,7 +94,7 @@
                 MessageHtml = issue.MessageHtml,
                 Priority = issue.Priority,
                 PriorityName = issue.PriorityName,
-                Rule = issue.Rule,
+                RuleId = issue.RuleId,
                 RuleName = issue.RuleName,
                 RuleUrl = issue.RuleUrl?.ToString(),
                 Run = issue.Run,

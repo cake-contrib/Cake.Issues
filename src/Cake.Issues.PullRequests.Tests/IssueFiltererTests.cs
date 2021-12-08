@@ -93,7 +93,7 @@
                 // Given
                 var fixture =
                     new IssueFiltererFixture();
-                fixture.Settings.IssueFilters.Add(x => x.Where(issue => issue.Rule != "Bar"));
+                fixture.Settings.IssueFilters.Add(x => x.Where(issue => issue.RuleId != "Bar"));
 
                 var issue1 =
                     IssueBuilder

@@ -329,21 +329,21 @@
             }
 
             [Fact]
-            public void Should_Give_Correct_Result_For_Rule_After_Roundtrip()
+            public void Should_Give_Correct_Result_For_RuleId_After_Roundtrip()
             {
                 // Given
-                var rule = "rule";
+                var ruleId = "rule";
                 var issue =
                     IssueBuilder
                         .NewIssue("message", "providerType", "providerName")
-                        .OfRule(rule)
+                        .OfRule(ruleId)
                         .Create();
 
                 // When
                 var result = issue.SerializeToJsonString().DeserializeToIssue();
 
                 // Then
-                result.Rule.ShouldBe(rule);
+                result.RuleId.ShouldBe(ruleId);
             }
 
             [Fact]
@@ -867,21 +867,21 @@
             }
 
             [Fact]
-            public void Should_Give_Correct_Result_For_Rule_After_Roundtrip()
+            public void Should_Give_Correct_Result_For_RuleId_After_Roundtrip()
             {
                 // Given
-                var rule1 = "rule1";
-                var rule2 = "rule2";
+                var ruleId1 = "rule1";
+                var ruleId2 = "rule2";
                 var issues =
                     new List<IIssue>
                     {
                         IssueBuilder
                           .NewIssue("message1", "providerType1", "providerName1")
-                            .OfRule(rule1)
+                            .OfRule(ruleId1)
                             .Create(),
                         IssueBuilder
                             .NewIssue("message2", "providerType2", "providerName2")
-                            .OfRule(rule2)
+                            .OfRule(ruleId2)
                             .Create(),
                     };
 
@@ -890,8 +890,8 @@
 
                 // Then
                 result.Count().ShouldBe(2);
-                result.First().Rule.ShouldBe(rule1);
-                result.Last().Rule.ShouldBe(rule2);
+                result.First().RuleId.ShouldBe(ruleId1);
+                result.Last().RuleId.ShouldBe(ruleId2);
             }
 
             [Fact]
@@ -1521,14 +1521,14 @@
             }
 
             [Fact]
-            public void Should_Give_Correct_Result_For_Rule_After_Roundtrip()
+            public void Should_Give_Correct_Result_For_RuleId_After_Roundtrip()
             {
                 // Given
-                var rule = "rule";
+                var ruleId = "rule";
                 var issue =
                     IssueBuilder
                         .NewIssue("message", "providerType", "providerName")
-                        .OfRule(rule)
+                        .OfRule(ruleId)
                         .Create();
                 var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
 
@@ -1539,7 +1539,7 @@
                     var result = filePath.DeserializeToIssue();
 
                     // Then
-                    result.Rule.ShouldBe(rule);
+                    result.RuleId.ShouldBe(ruleId);
                 }
                 finally
                 {
@@ -2314,21 +2314,21 @@
             }
 
             [Fact]
-            public void Should_Give_Correct_Result_For_Rule_After_Roundtrip()
+            public void Should_Give_Correct_Result_For_RuleId_After_Roundtrip()
             {
                 // Given
-                var rule1 = "rule1";
-                var rule2 = "rule2";
+                var ruleId1 = "rule1";
+                var ruleId2 = "rule2";
                 var issues =
                     new List<IIssue>
                     {
                         IssueBuilder
                           .NewIssue("message1", "providerType1", "providerName1")
-                            .OfRule(rule1)
+                            .OfRule(ruleId1)
                             .Create(),
                         IssueBuilder
                             .NewIssue("message2", "providerType2", "providerName2")
-                            .OfRule(rule2)
+                            .OfRule(ruleId2)
                             .Create(),
                     };
                 var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
@@ -2341,8 +2341,8 @@
 
                     // Then
                     result.Count().ShouldBe(2);
-                    result.First().Rule.ShouldBe(rule1);
-                    result.Last().Rule.ShouldBe(rule2);
+                    result.First().RuleId.ShouldBe(ruleId1);
+                    result.Last().RuleId.ShouldBe(ruleId2);
                 }
                 finally
                 {

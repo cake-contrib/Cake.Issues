@@ -210,7 +210,7 @@ namespace Cake.Issues.PullRequests
                         string.Format(
                             CultureInfo.InvariantCulture,
                             "  Rule: {0} Line: {1} File: {2}",
-                            issue.Rule,
+                            issue.RuleId,
                             issue.Line,
                             issue.AffectedFileRelativePath);
 
