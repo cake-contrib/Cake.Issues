@@ -77,7 +77,7 @@
         [DataMember]
         public string PriorityName { get; set; }
 
-        /// <inheritdoc cref="IIssue.Rule" />
+        /// <inheritdoc cref="IIssue.RuleId" />
         [DataMember]
         public string Rule { get; set; }
 

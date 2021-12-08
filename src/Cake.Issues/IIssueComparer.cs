@@ -86,7 +86,7 @@
                 (x.MessageMarkdown == y.MessageMarkdown) &&
                 (x.Priority == y.Priority) &&
                 (x.PriorityName == y.PriorityName) &&
-                (x.Rule == y.Rule) &&
+                (x.RuleId == y.RuleId) &&
                 (x.RuleName == y.RuleName) &&
                 (x.RuleUrl?.ToString() == y.RuleUrl?.ToString()) &&
                 (x.Run == y.Run) &&
@@ -114,7 +114,7 @@
                         obj.MessageMarkdown,
                         obj.Priority,
                         obj.PriorityName,
-                        obj.Rule,
+                        obj.RuleId,
                         obj.RuleName,
                         obj.RuleUrl,
                         obj.Run,
@@ -141,7 +141,7 @@
                         obj.MessageMarkdown,
                         obj.Priority,
                         obj.PriorityName,
-                        obj.Rule,
+                        obj.RuleId,
                         obj.RuleName,
                         obj.RuleUrl,
                         obj.Run,

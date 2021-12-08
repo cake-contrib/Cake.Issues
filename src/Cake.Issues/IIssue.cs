@@ -96,7 +96,7 @@
         /// Gets the id of the rule of the issue.
         /// Can be <c>null</c> or <see cref="string.Empty"/> if the issue provider provides no rule.
         /// </summary>
-        string Rule { get; }
+        string RuleId { get; }
 
         /// <summary>
         /// Gets the name of the rule of the issue.

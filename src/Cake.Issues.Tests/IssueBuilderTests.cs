@@ -1816,13 +1816,13 @@
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
-                string rule = null;
+                string ruleId = null;
 
                 // When
-                var issue = fixture.IssueBuilder.OfRule(rule).Create();
+                var issue = fixture.IssueBuilder.OfRule(ruleId).Create();
 
                 // Then
-                issue.Rule.ShouldBe(rule);
+                issue.RuleId.ShouldBe(ruleId);
             }
 
             [Fact]
@@ -1830,13 +1830,13 @@
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
-                var rule = string.Empty;
+                var ruleId = string.Empty;
 
                 // When
-                var issue = fixture.IssueBuilder.OfRule(rule).Create();
+                var issue = fixture.IssueBuilder.OfRule(ruleId).Create();
 
                 // Then
-                issue.Rule.ShouldBe(rule);
+                issue.RuleId.ShouldBe(ruleId);
             }
 
             [Fact]
@@ -1844,27 +1844,27 @@
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
-                var rule = " ";
+                var ruleId = " ";
 
                 // When
-                var issue = fixture.IssueBuilder.OfRule(rule).Create();
+                var issue = fixture.IssueBuilder.OfRule(ruleId).Create();
 
                 // Then
-                issue.Rule.ShouldBe(rule);
+                issue.RuleId.ShouldBe(ruleId);
             }
 
             [Theory]
             [InlineData("rule")]
-            public void Should_Set_RuleId(string rule)
+            public void Should_Set_RuleId(string ruleId)
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
 
                 // When
-                var issue = fixture.IssueBuilder.OfRule(rule).Create();
+                var issue = fixture.IssueBuilder.OfRule(ruleId).Create();
 
                 // Then
-                issue.Rule.ShouldBe(rule);
+                issue.RuleId.ShouldBe(ruleId);
             }
         }
 
@@ -1881,7 +1881,7 @@
                 var issue = fixture.IssueBuilder.OfRule(ruleId, "Some Rule").Create();
 
                 // Then
-                issue.Rule.ShouldBe(ruleId);
+                issue.RuleId.ShouldBe(ruleId);
             }
 
             [Fact]
@@ -1895,7 +1895,7 @@
                 var issue = fixture.IssueBuilder.OfRule(ruleId, "Some Rule").Create();
 
                 // Then
-                issue.Rule.ShouldBe(ruleId);
+                issue.RuleId.ShouldBe(ruleId);
             }
 
             [Fact]
@@ -1909,7 +1909,7 @@
                 var issue = fixture.IssueBuilder.OfRule(ruleId, "Some Rule").Create();
 
                 // Then
-                issue.Rule.ShouldBe(ruleId);
+                issue.RuleId.ShouldBe(ruleId);
             }
 
             [Fact]
@@ -1967,7 +1967,7 @@
                 var issue = fixture.IssueBuilder.OfRule(ruleId, ruleName).Create();
 
                 // Then
-                issue.Rule.ShouldBe(ruleId);
+                issue.RuleId.ShouldBe(ruleId);
             }
 
             [Theory]
@@ -1998,7 +1998,7 @@
                 var issue = fixture.IssueBuilder.OfRule(ruleId, new Uri("https://google.com")).Create();
 
                 // Then
-                issue.Rule.ShouldBe(ruleId);
+                issue.RuleId.ShouldBe(ruleId);
             }
 
             [Fact]
@@ -2012,7 +2012,7 @@
                 var issue = fixture.IssueBuilder.OfRule(ruleIds, new Uri("https://google.com")).Create();
 
                 // Then
-                issue.Rule.ShouldBe(ruleIds);
+                issue.RuleId.ShouldBe(ruleIds);
             }
 
             [Fact]
@@ -2026,7 +2026,7 @@
                 var issue = fixture.IssueBuilder.OfRule(ruleIds, new Uri("https://google.com")).Create();
 
                 // Then
-                issue.Rule.ShouldBe(ruleIds);
+                issue.RuleId.ShouldBe(ruleIds);
             }
 
             [Fact]
@@ -2054,7 +2054,7 @@
                 var issue = fixture.IssueBuilder.OfRule(ruleId, new Uri(ruleUri)).Create();
 
                 // Then
-                issue.Rule.ToString().ShouldBe(ruleId);
+                issue.RuleId.ToString().ShouldBe(ruleId);
             }
 
             [Theory]
@@ -2085,7 +2085,7 @@
                 var issue = fixture.IssueBuilder.OfRule(ruleId, "Some Rule", new Uri("https://google.com")).Create();
 
                 // Then
-                issue.Rule.ShouldBe(ruleId);
+                issue.RuleId.ShouldBe(ruleId);
             }
 
             [Fact]
@@ -2099,7 +2099,7 @@
                 var issue = fixture.IssueBuilder.OfRule(ruleId, "Some Rule", new Uri("https://google.com")).Create();
 
                 // Then
-                issue.Rule.ShouldBe(ruleId);
+                issue.RuleId.ShouldBe(ruleId);
             }
 
             [Fact]
@@ -2113,7 +2113,7 @@
                 var issue = fixture.IssueBuilder.OfRule(ruleId, "Some Rule", new Uri("https://google.com")).Create();
 
                 // Then
-                issue.Rule.ShouldBe(ruleId);
+                issue.RuleId.ShouldBe(ruleId);
             }
 
             [Fact]
@@ -2183,7 +2183,7 @@
                 var issue = fixture.IssueBuilder.OfRule(ruleId, ruleName, new Uri("https://google.com")).Create();
 
                 // Then
-                issue.Rule.ShouldBe(ruleId);
+                issue.RuleId.ShouldBe(ruleId);
             }
 
             [Theory]
