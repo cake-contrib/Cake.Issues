@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <TargetFrameworks>netcoreapp3.1;net5.0;net6.0</TargetFrameworks>
     <Description>MsBuild support for the Cake.Issues Addin for Cake Build Automation System</Description>
     <Authors>BBT Software AG</Authors>
     <Company>BBT Software AG</Company>
@@ -10,19 +10,12 @@
   </PropertyGroup>
 
   <PropertyGroup>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Cake.Issues.MsBuild.xml</DocumentationFile>
     <DebugType>full</DebugType>
     <DebugSymbols>true</DebugSymbols>
     <AnalysisMode>AllEnabledByDefault</AnalysisMode>
     <CodeAnalysisRuleSet>..\Cake.Issues.MsBuild.ruleset</CodeAnalysisRuleSet>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
-    <DocumentationFile>bin\Debug\netstandard2.0\Cake.Issues.MsBuild.xml</DocumentationFile>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard2.0|AnyCPU'">
-    <DocumentationFile>bin\Release\netstandard2.0\Cake.Issues.MsBuild.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
