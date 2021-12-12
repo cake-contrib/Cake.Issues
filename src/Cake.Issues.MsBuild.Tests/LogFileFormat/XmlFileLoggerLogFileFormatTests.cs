@@ -422,7 +422,7 @@
                             "MSBuild")
                         .InProjectOfName(string.Empty)
                         .InFile(@"src\Cake.Issues.MsBuild.Tests\MsBuildIssuesProviderTests.cs", 1311)
-                        .OfRule("CS0161", null)
+                        .OfRule("CS0161")
                         .WithPriority(IssuePriority.Error));
             }
 
@@ -455,7 +455,7 @@
                             "MSBuild")
                         .InProjectOfName(string.Empty)
                         .InFile(@"src\Cake.Issues.MsBuild.Tests\MsBuildIssuesProviderTests.cs", 1311)
-                        .OfRule("CS0161", null)
+                        .OfRule("CS0161")
                         .WithPriority(IssuePriority.Error));
             }
         }
