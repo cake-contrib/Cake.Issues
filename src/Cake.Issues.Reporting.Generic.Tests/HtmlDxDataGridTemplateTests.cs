@@ -617,7 +617,7 @@
             }
         }
 
-        public sealed class TheLRuleVisibleOption
+        public sealed class TheRuleIdVisibleOption
         {
             [Theory]
             [InlineData(true)]
@@ -630,11 +630,11 @@
                 // When / Then
                 fixture.TestReportCreation(
                     settings =>
-                        settings.WithOption(HtmlDxDataGridOption.RuleVisible, value));
+                        settings.WithOption(HtmlDxDataGridOption.RuleIdVisible, value));
             }
         }
 
-        public sealed class TheRuleSortOrderOption
+        public sealed class TheRuleIdSortOrderOption
         {
             [Theory]
             [InlineData(ColumnSortOrder.Ascending)]
@@ -647,7 +647,41 @@
                 // When / Then
                 fixture.TestReportCreation(
                     settings =>
-                        settings.WithOption(HtmlDxDataGridOption.RuleSortOrder, value));
+                        settings.WithOption(HtmlDxDataGridOption.RuleIdSortOrder, value));
+            }
+        }
+
+        public sealed class TheRuleNameVisibleOption
+        {
+            [Theory]
+            [InlineData(true)]
+            [InlineData(false)]
+            public void Should_Not_Fail_On_Report_Creation(bool value)
+            {
+                // Given
+                var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+
+                // When / Then
+                fixture.TestReportCreation(
+                    settings =>
+                        settings.WithOption(HtmlDxDataGridOption.RuleNameVisible, value));
+            }
+        }
+
+        public sealed class TheRuleNameSortOrderOption
+        {
+            [Theory]
+            [InlineData(ColumnSortOrder.Ascending)]
+            [InlineData(ColumnSortOrder.Descending)]
+            public void Should_Not_Fail_On_Report_Creation(ColumnSortOrder value)
+            {
+                // Given
+                var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+
+                // When / Then
+                fixture.TestReportCreation(
+                    settings =>
+                        settings.WithOption(HtmlDxDataGridOption.RuleNameSortOrder, value));
             }
         }
 
@@ -756,7 +790,7 @@
                             HtmlDxDataGridOption.SortedColumns,
                             new List<ReportColumn>
                             {
-                                ReportColumn.Rule,
+                                ReportColumn.RuleId,
                                 ReportColumn.Message,
                             }));
             }

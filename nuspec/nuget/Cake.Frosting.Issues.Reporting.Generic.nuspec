@@ -29,21 +29,21 @@ For addin compatible with Cake Script Runners see Cake.Issues.Reporting.Generic.
     <releaseNotes>https://github.com/cake-contrib/Cake.Issues.Reporting.Generic/releases/tag/1.0.0</releaseNotes>
     <dependencies>
       <group targetFramework="netcoreapp3.1">
-        <dependency id="Cake.Core" version="[1.0,2.0)" exclude="Build,Analyzers" />
-        <dependency id="Cake.Issues" version="[1.0,2.0)" exclude="Build,Analyzers" />
-        <dependency id="Cake.Issues.Reporting" version="[1.0,2.0)" exclude="Build,Analyzers" />
+        <dependency id="Cake.Core" version="2.0" exclude="Build,Analyzers" />
+        <dependency id="Cake.Issues" version="[2.0.0-beta0001,3.0)" exclude="Build,Analyzers" />
+        <dependency id="Cake.Issues.Reporting" version="[2.0.0-beta0001,3.0)" exclude="Build,Analyzers" />
         <dependency id="Gazorator" version="0.5.2" exclude="Build,Analyzers" />
       </group>
       <group targetFramework="net5.0">
-        <dependency id="Cake.Core" version="[1.0,2.0)" exclude="Build,Analyzers" />
-        <dependency id="Cake.Issues" version="[1.0,2.0)" exclude="Build,Analyzers" />
-        <dependency id="Cake.Issues.Reporting" version="[1.0,2.0)" exclude="Build,Analyzers" />
+        <dependency id="Cake.Core" version="2.0" exclude="Build,Analyzers" />
+        <dependency id="Cake.Issues" version="[2.0.0-beta0001,3.0)" exclude="Build,Analyzers" />
+        <dependency id="Cake.Issues.Reporting" version="[2.0.0-beta0001,3.0)" exclude="Build,Analyzers" />
         <dependency id="Gazorator" version="0.5.2" exclude="Build,Analyzers" />
       </group>
       <group targetFramework="net6.0">
-        <dependency id="Cake.Core" version="[1.0,2.0)" exclude="Build,Analyzers" />
-        <dependency id="Cake.Issues" version="[1.0,2.0)" exclude="Build,Analyzers" />
-        <dependency id="Cake.Issues.Reporting" version="[1.0,2.0)" exclude="Build,Analyzers" />
+        <dependency id="Cake.Core" version="2.0" exclude="Build,Analyzers" />
+        <dependency id="Cake.Issues" version="[2.0.0-beta0001,3.0)" exclude="Build,Analyzers" />
+        <dependency id="Cake.Issues.Reporting" version="[2.0.0-beta0001,3.0)" exclude="Build,Analyzers" />
         <dependency id="Gazorator" version="0.5.2" exclude="Build,Analyzers" />
       </group>
     </dependencies>

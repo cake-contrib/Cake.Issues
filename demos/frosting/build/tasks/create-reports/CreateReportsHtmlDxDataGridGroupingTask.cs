@@ -13,9 +13,9 @@ public class CreateReportsHtmlDxDataGridGroupingTask : FrostingTask<BuildContext
             context.Issues,
             context.GenericIssueReportFormatFromEmbeddedTemplate(
                 GenericIssueReportTemplate.HtmlDxDataGrid,
-                settings => 
+                settings =>
                     settings
-                        .WithOption(HtmlDxDataGridOption.GroupedColumns, new List<ReportColumn> { ReportColumn.Rule })),
+                        .WithOption(HtmlDxDataGridOption.GroupedColumns, new List<ReportColumn> { ReportColumn.RuleId })),
             context.RepoRootFolder,
             context.TemplateGalleryFolder.CombineWithFilePath("htmldxdatagrid-demo-grouping.html"));
 

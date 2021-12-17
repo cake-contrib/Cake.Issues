@@ -155,8 +155,8 @@ CreateIssueReport(
     GenericIssueReportFormatFromEmbeddedTemplate(
         GenericIssueReportTemplate.HtmlDxDataGrid,
         settings => settings
-            .WithOption(HtmlDxDataGridOption.SortedColumns, new List<ReportColumn> { ReportColumn.Rule })
-            .WithOption(HtmlDxDataGridOption.RuleSortOder, ColumnSortOderDescending )),
+            .WithOption(HtmlDxDataGridOption.SortedColumns, new List<ReportColumn> { ReportColumn.RuleId })
+            .WithOption(HtmlDxDataGridOption.RuleIdSortOder, ColumnSortOderDescending )),
     @"c:\repo",
     @"c:\report.html");
 ```
@@ -173,7 +173,7 @@ CreateIssueReport(
     issues,
     GenericIssueReportFormatFromEmbeddedTemplate(
         GenericIssueReportTemplate.HtmlDxDataGrid,
-        settings => settings.WithOption(HtmlDxDataGridOption.GroupedColumns, new List<ReportColumn> { ReportColumn.Rule })),
+        settings => settings.WithOption(HtmlDxDataGridOption.GroupedColumns, new List<ReportColumn> { ReportColumn.RuleId })),
     @"c:\repo",
     @"c:\report.html");
 ```

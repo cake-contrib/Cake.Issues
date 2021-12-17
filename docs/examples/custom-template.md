@@ -88,7 +88,7 @@ Task("Create-IssueReport").Does(() =>
                     <td>@issue.Line</td>
                     <td>@issue.MessageText</td>
                     <td>@issue.Priority</td>
-                    <td>@issue.Rule</td>
+                    <td>@issue.RuleId</td>
                     <td>@issue.RuleUrl</td>
                     <td>@issue.ProviderType</td>
                 </tr>

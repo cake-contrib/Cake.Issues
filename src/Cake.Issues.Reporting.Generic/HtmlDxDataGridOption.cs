@@ -258,18 +258,32 @@
         LocationSortOrder,
 
         /// <summary>
-        /// Flag if the <see cref="ReportColumn.Rule"/> column should be visible or not.
+        /// Flag if the <see cref="ReportColumn.RuleId"/> column should be visible or not.
         /// Either <c>true</c> or <c>false</c>.
         /// Default value is <c>true</c>.
         /// </summary>
-        RuleVisible,
+        RuleIdVisible,
 
         /// <summary>
-        /// Sort order of the <see cref="ReportColumn.Rule"/> column if it is part of <see cref="SortedColumns"/>.
+        /// Sort order of the <see cref="ReportColumn.RuleId"/> column if it is part of <see cref="SortedColumns"/>.
         /// See <see cref="ColumnSortOrder"/> for possible values.
         /// Default value is <see cref="ColumnSortOrder.Ascending"/>.
         /// </summary>
-        RuleSortOrder,
+        RuleIdSortOrder,
+
+        /// <summary>
+        /// Flag if the <see cref="ReportColumn.RuleName"/> column should be visible or not.
+        /// Either <c>true</c> or <c>false</c>.
+        /// Default value is <c>true</c>.
+        /// </summary>
+        RuleNameVisible,
+
+        /// <summary>
+        /// Sort order of the <see cref="ReportColumn.RuleName"/> column if it is part of <see cref="SortedColumns"/>.
+        /// See <see cref="ColumnSortOrder"/> for possible values.
+        /// Default value is <see cref="ColumnSortOrder.Ascending"/>.
+        /// </summary>
+        RuleNameSortOrder,
 
         /// <summary>
         /// Flag if the <see cref="ReportColumn.RuleUrl"/> column should be visible or not.

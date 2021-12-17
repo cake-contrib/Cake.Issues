@@ -13,10 +13,10 @@ public class CreateReportsHtmlDxDataGridSortingTask : FrostingTask<BuildContext>
             context.Issues,
             context.GenericIssueReportFormatFromEmbeddedTemplate(
                 GenericIssueReportTemplate.HtmlDxDataGrid,
-                settings => 
+                settings =>
                     settings
-                        .WithOption(HtmlDxDataGridOption.SortedColumns, new List<ReportColumn> { ReportColumn.Rule })
-                        .WithOption(HtmlDxDataGridOption.RuleSortOrder, ColumnSortOrder.Descending)),
+                        .WithOption(HtmlDxDataGridOption.SortedColumns, new List<ReportColumn> { ReportColumn.RuleId })
+                        .WithOption(HtmlDxDataGridOption.RuleIdSortOrder, ColumnSortOrder.Descending)),
             context.RepoRootFolder,
             context.TemplateGalleryFolder.CombineWithFilePath("htmldxdatagrid-demo-sorting.html"));
 

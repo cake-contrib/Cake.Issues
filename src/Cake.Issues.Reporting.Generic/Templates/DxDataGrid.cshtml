@@ -49,8 +49,10 @@
     ColumnSortOrder endColumnSortOrder = ViewBagHelper.ValueOrDefault(ViewBag.EndColumnSortOder, ColumnSortOrder.Ascending);
     bool locationVisible = ViewBagHelper.ValueOrDefault(ViewBag.LocationVisible, true);
     ColumnSortOrder locationSortOrder = ViewBagHelper.ValueOrDefault(ViewBag.LocationSortOder, ColumnSortOrder.Ascending);
-    bool ruleVisible = ViewBagHelper.ValueOrDefault(ViewBag.RuleVisible, true);
-    ColumnSortOrder ruleSortOrder = ViewBagHelper.ValueOrDefault(ViewBag.RuleSortOder, ColumnSortOrder.Ascending);
+    bool ruleIdVisible = ViewBagHelper.ValueOrDefault(ViewBag.RuleIdVisible, true);
+    ColumnSortOrder ruleIdSortOrder = ViewBagHelper.ValueOrDefault(ViewBag.RuleIdSortOder, ColumnSortOrder.Ascending);
+    bool ruleNameVisible = ViewBagHelper.ValueOrDefault(ViewBag.RuleNameVisible, true);
+    ColumnSortOrder ruleNameSortOrder = ViewBagHelper.ValueOrDefault(ViewBag.RuleNameSortOder, ColumnSortOrder.Ascending);
     bool ruleUrlVisible = ViewBagHelper.ValueOrDefault(ViewBag.RuleUrlVisible, false);
     ColumnSortOrder ruleUrlSortOrder = ViewBagHelper.ValueOrDefault(ViewBag.RuleUrlSortOder, ColumnSortOrder.Ascending);
     bool messageVisible = ViewBagHelper.ValueOrDefault(ViewBag.MessageVisible, true);
@@ -101,8 +103,9 @@
                 addColumn: columnVisible || ideIntegrationSettings != null,
                 addEndColumn: endColumnVisible || ideIntegrationSettings != null,
                 addLocation: locationVisible,
-                addRule: ruleVisible,
-                addRuleUrl: ruleVisible || ruleUrlVisible,
+                addRuleId: ruleIdVisible,
+                addRuleName: ruleNameVisible,
+                addRuleUrl: ruleIdVisible || ruleNameVisible || ruleUrlVisible,
                 addMessageHtml: messageVisible,
                 additionalValues: additionalColumns.ToDictionary(x => x.Id, x => x.ValueRetriever));
 }
@@ -654,20 +657,50 @@
                             },
                         </text>
                     }
-                    @if (ruleVisible)
+                    @if (ruleIdVisible)
                     {
                         <text>
                             {
-                                dataField: "Rule",
-                                visibleIndex: @((int)ReportColumn.Rule),
-                                @if (groupedColumns.Contains(ReportColumn.Rule))
+                                dataField: "RuleId",
+                                visibleIndex: @((int)ReportColumn.RuleId),
+                                @if (groupedColumns.Contains(ReportColumn.RuleId))
                                 {
-                                    @:groupIndex: @groupedColumns.IndexOf(ReportColumn.Rule),
+                                    @:groupIndex: @groupedColumns.IndexOf(ReportColumn.RuleId),
                                 }
-                                @if (sortedColumns.Contains(ReportColumn.Rule))
+                                @if (sortedColumns.Contains(ReportColumn.RuleId))
                                 {
-                                    @:sortIndex: @sortedColumns.IndexOf(ReportColumn.Rule),
-                                    @:sortOrder: "@ruleSortOrder.ToShortString()",
+                                    @:sortIndex: @sortedColumns.IndexOf(ReportColumn.RuleId),
+                                    @:sortOrder: "@ruleIdSortOrder.ToShortString()",
+                                }
+                                cellTemplate: function (container, options) {
+                                    if (options.data["RuleUrl"]) {
+                                        $('<a>', {
+                                            text: options.value,
+                                            href: options.data["RuleUrl"],
+                                            target: "_blank"
+                                        }).appendTo(container);
+                                    }
+                                    else {
+                                        container.text(options.value);
+                                    }
+                                }
+                            },
+                        </text>
+                    }
+                    @if (ruleNameVisible)
+                    {
+                        <text>
+                            {
+                                dataField: "RuleName",
+                                visibleIndex: @((int)ReportColumn.RuleName),
+                                @if (groupedColumns.Contains(ReportColumn.RuleName))
+                                {
+                                    @:groupIndex: @groupedColumns.IndexOf(ReportColumn.RuleName),
+                                }
+                                @if (sortedColumns.Contains(ReportColumn.RuleName))
+                                {
+                                    @:sortIndex: @sortedColumns.IndexOf(ReportColumn.RuleName),
+                                    @:sortOrder: "@ruleNameSortOrder.ToShortString()",
                                 }
                                 cellTemplate: function (container, options) {
                                     if (options.data["RuleUrl"]) {

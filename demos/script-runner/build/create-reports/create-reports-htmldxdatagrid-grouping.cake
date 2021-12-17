@@ -8,7 +8,7 @@ Task("Create-Reports-HtmlDxDataGrid-Grouping")
         GenericIssueReportFormatFromEmbeddedTemplate(
             GenericIssueReportTemplate.HtmlDxDataGrid,
             settings => settings
-                .WithOption(HtmlDxDataGridOption.GroupedColumns, new List<ReportColumn> { ReportColumn.Rule })),
+                .WithOption(HtmlDxDataGridOption.GroupedColumns, new List<ReportColumn> { ReportColumn.RuleId })),
         data.RepoRootFolder,
         data.TemplateGalleryFolder.CombineWithFilePath("htmldxdatagrid-demo-grouping.html"));
 });
