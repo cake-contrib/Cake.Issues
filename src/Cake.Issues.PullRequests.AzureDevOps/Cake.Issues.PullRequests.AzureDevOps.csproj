@@ -43,6 +43,11 @@ See the Project Site for an overview of the whole ecosystem of addins for workin
   </PropertyGroup>
 
   <ItemGroup>
+    <InternalsVisibleTo Include="Cake.Issues.PullRequests.AzureDevOps.Tests"/>
+    <InternalsVisibleTo Include="DynamicProxyGenAssembly2"/>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Cake.Core" Version="1.0.0" PrivateAssets="All" />
     <PackageReference Include="Cake.Issues" Version="1.0.0" PrivateAssets="All" />
     <PackageReference Include="Cake.Issues.PullRequests" Version="1.0.0" PrivateAssets="All" />
