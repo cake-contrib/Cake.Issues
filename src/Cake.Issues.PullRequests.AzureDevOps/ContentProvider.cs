@@ -13,15 +13,15 @@
         public static string GetContent(IIssue issue)
         {
             var result = issue.Message(IssueCommentFormat.Markdown);
-            if (string.IsNullOrWhiteSpace(issue.Rule))
+            if (string.IsNullOrWhiteSpace(issue.RuleId))
             {
                 return result;
             }
 
-            var ruleContent = issue.Rule;
+            var ruleContent = issue.RuleId;
             if (issue.RuleUrl != null)
             {
-                ruleContent = $"[{issue.Rule}]({issue.RuleUrl})";
+                ruleContent = $"[{issue.RuleId}]({issue.RuleUrl})";
             }
 
             result = $"{ruleContent}: {result}";
