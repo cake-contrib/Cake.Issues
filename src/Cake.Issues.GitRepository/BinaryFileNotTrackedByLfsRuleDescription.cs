@@ -6,7 +6,10 @@
     public class BinaryFileNotTrackedByLfsRuleDescription : BaseGitRepositoryIssuesRuleDescription
     {
         /// <inheritdoc />
-        public override string RuleName => "BinaryFileNotTrackedByLfs";
+        public override string RuleId => "BinaryFileNotTrackedByLfs";
+
+        /// <inheritdoc />
+        public override string RuleName => "Binary file not tracked by Git LFS";
 
         /// <inheritdoc />
         public override IssuePriority Priority => IssuePriority.Warning;

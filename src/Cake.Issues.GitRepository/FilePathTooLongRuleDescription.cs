@@ -6,7 +6,10 @@
     public class FilePathTooLongRuleDescription : BaseGitRepositoryIssuesRuleDescription
     {
         /// <inheritdoc />
-        public override string RuleName => "FilePathTooLong";
+        public override string RuleId => "FilePathTooLong";
+
+        /// <inheritdoc />
+        public override string RuleName => "File path too long";
 
         /// <inheritdoc />
         public override IssuePriority Priority => IssuePriority.Warning;

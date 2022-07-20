@@ -37,6 +37,20 @@
             }
 
             [Fact]
+            public void Should_Set_RuleId()
+            {
+                // Given
+                var issueBuilder = IssueBuilder.NewIssue("message", "providerType", "providerName");
+                var ruleDescription = new BinaryFileNotTrackedByLfsRuleDescription();
+
+                // When
+                var result = issueBuilder.OfRule(ruleDescription);
+
+                // Then
+                result.Create().RuleId.ShouldBe(ruleDescription.RuleId);
+            }
+
+            [Fact]
             public void Should_Set_RuleName()
             {
                 // Given
@@ -47,7 +61,7 @@
                 var result = issueBuilder.OfRule(ruleDescription);
 
                 // Then
-                result.Create().Rule.ShouldBe(ruleDescription.RuleName);
+                result.Create().RuleName.ShouldBe(ruleDescription.RuleName);
             }
 
             [Fact]

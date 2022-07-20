@@ -6,6 +6,11 @@
     public abstract class BaseGitRepositoryIssuesRuleDescription
     {
         /// <summary>
+        /// Gets the ID of the rule.
+        /// </summary>
+        public abstract string RuleId { get; }
+
+        /// <summary>
         /// Gets the name of the rule.
         /// </summary>
         public abstract string RuleName { get; }
