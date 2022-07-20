@@ -1,7 +1,7 @@
-#addin nuget:?package=Cake.Issues&prerelease
-#addin nuget:?package=Cake.Issues.Reporting&prerelease
-#addin nuget:?package=Cake.Issues.Reporting.Generic&prerelease
-#reference "../../tools/Addins/Cake.Issues.GitRepository/lib/netstandard2.0/Cake.Issues.GitRepository.dll"
+#addin Cake.Issues&prerelease
+#addin Cake.Issues.Reporting&prerelease
+#addin Cake.Issues.Reporting.Generic&prerelease
+#addin Cake.Issues.GitRepository&prerelease
 
 //////////////////////////////////////////////////
 // ARGUMENTS
