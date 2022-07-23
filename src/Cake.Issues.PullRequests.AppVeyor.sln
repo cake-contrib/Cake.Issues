@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27703.1
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32526.322
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cake.Issues.PullRequests.AppVeyor", "Cake.Issues.PullRequests.AppVeyor\Cake.Issues.PullRequests.AppVeyor.csproj", "{E773E4D8-0B19-4C15-9F30-BE53F628457C}"
 EndProject
