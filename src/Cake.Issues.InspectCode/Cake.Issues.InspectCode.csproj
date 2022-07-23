@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net461</TargetFrameworks>
+    <TargetFrameworks>netcoreapp3.1;net5.0;net6.0</TargetFrameworks>
     <Product>Cake.Issues</Product>
     <Description>JetBrains Inspect Code support for the Cake.Issues Addin for Cake Build Automation System</Description>
     <Authors>BBT Software AG</Authors>

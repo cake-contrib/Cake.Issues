@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp2.1;net461</TargetFrameworks>
+    <TargetFrameworks>netcoreapp3.1</TargetFrameworks>
     <IsPackable>false</IsPackable>
     <Product>Cake.Issues</Product>
     <Description>Tests for the Cake.Issues.InspectCode addin</Description>
