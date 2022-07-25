@@ -43,7 +43,10 @@
             {
                 // Given
                 var fixture =
-                    new MarkdownlintIssuesProviderFixture<MarkdownlintCliLogFileFormat>("markdownlint-cli-0.8.1.log");
+                    new MarkdownlintIssuesProviderFixture<MarkdownlintCliLogFileFormat>("markdownlint-cli-0.8.1.log")
+                    {
+                        ReadIssuesSettings = new ReadIssuesSettings("C:/Git/Test/Cake.Prca"),
+                    };
 
                 // When
                 var issues = fixture.ReadIssues().ToList();
@@ -129,7 +132,10 @@
             {
                 // Given
                 var fixture =
-                    new MarkdownlintIssuesProviderFixture<MarkdownlintCliLogFileFormat>("markdownlint-cli-0.10.0.log");
+                    new MarkdownlintIssuesProviderFixture<MarkdownlintCliLogFileFormat>("markdownlint-cli-0.10.0.log")
+                    {
+                        ReadIssuesSettings = new ReadIssuesSettings("C:/Git/Test/Cake.Prca"),
+                    };
 
                 // When
                 var issues = fixture.ReadIssues().ToList();
@@ -215,7 +221,10 @@
             {
                 // Given
                 var fixture =
-                    new MarkdownlintIssuesProviderFixture<MarkdownlintCliLogFileFormat>("markdownlint-cli-0.19.0.log");
+                    new MarkdownlintIssuesProviderFixture<MarkdownlintCliLogFileFormat>("markdownlint-cli-0.19.0.log")
+                    {
+                        ReadIssuesSettings = new ReadIssuesSettings("C:/Git/Test/Cake.Prca"),
+                    };
 
                 // When
                 var issues = fixture.ReadIssues().ToList();
@@ -310,7 +319,10 @@
             {
                 // Given
                 var fixture =
-                    new MarkdownlintIssuesProviderFixture<MarkdownlintCliLogFileFormat>("markdownlint-cli-0.22.0.log");
+                    new MarkdownlintIssuesProviderFixture<MarkdownlintCliLogFileFormat>("markdownlint-cli-0.22.0.log")
+                    {
+                        ReadIssuesSettings = new ReadIssuesSettings("C:/Git/Test/Cake.Prca"),
+                    };
 
                 // When
                 var issues = fixture.ReadIssues().ToList();

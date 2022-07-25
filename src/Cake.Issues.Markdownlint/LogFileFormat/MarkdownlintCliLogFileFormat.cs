@@ -73,18 +73,15 @@
             IRepositorySettings repositorySettings,
             out string fileName)
         {
-            fileName = values["filePath"].Value;
+            values.NotNull(nameof(values));
+            repositorySettings.NotNull(nameof(repositorySettings));
 
-            // Make path relative to repository root.
-            fileName = fileName.Substring(repositorySettings.RepositoryRoot.FullPath.Length);
+            var filePath = values["filePath"].Value;
 
-            // Remove leading directory separator.
-            if (fileName.StartsWith("/"))
-            {
-                fileName = fileName.Substring(1);
-            }
-
-            return true;
+            // Validate file path and make relative to repository root.
+            bool result;
+            (result, fileName) = this.ValidateFilePath(filePath, repositorySettings);
+            return result;
         }
     }
 }
