@@ -1,4 +1,8 @@
-#load nuget:?package=Cake.Recipe&version=2.2.1
+#load nuget:https://pkgs.dev.azure.com/cake-contrib/Home/_packaging/addins/nuget/v3/index.json?package=Cake.Recipe&version=3.0.0-beta0001-0007&prerelease
+
+//*************************************************************************************************
+// Settings
+//*************************************************************************************************
 
 Environment.SetVariableNames();
 
@@ -15,20 +19,12 @@ BuildParameters.PrintParameters(Context);
 
 ToolSettings.SetToolSettings(
     context: Context,
-    dupFinderExcludePattern: new string[]
-    {
-        BuildParameters.RootDirectoryPath + "/src/Cake.Issues*/**/*.AssemblyInfo.cs",
-        BuildParameters.RootDirectoryPath + "/src/Cake.Issues*/Serialization/LitJson/*.cs",
-        BuildParameters.RootDirectoryPath + "/src/Cake.Issues.Tests/**/*.cs",
-        BuildParameters.RootDirectoryPath + "/src/Cake.Issues.PullRequests.Tests/**/*.cs",
-        BuildParameters.RootDirectoryPath + "/src/Cake.Issues.Reporting.Tests/**/*.cs"
-    },
     testCoverageFilter: "+[*]* -[xunit.*]* -[Cake.Core]* -[Cake.Testing]* -[*.Tests]* -[Cake.Issues]LitJson.* -[Shouldly]* -[DiffEngine]* -[EmptyFiles]*",
     testCoverageExcludeByAttribute: "*.ExcludeFromCodeCoverage*",
     testCoverageExcludeByFile: "*/*Designer.cs;*/*.g.cs;*/*.g.i.cs");
 
-// Workaround until https://github.com/cake-contrib/Cake.Recipe/issues/862 has been fixed in Cake.Recipe
-ToolSettings.SetToolPreprocessorDirectives(
-    reSharperTools: "#tool nuget:?package=JetBrains.ReSharper.CommandLineTools&version=2021.2.0");
+//*************************************************************************************************
+// Execution
+//*************************************************************************************************
 
 Build.RunDotNetCore();
