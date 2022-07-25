@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp2.1</TargetFrameworks>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <IsPackable>false</IsPackable>
     <Product>Cake.Issues</Product>
     <Copyright>Copyright © BBT Software AG and contributors</Copyright>
@@ -10,11 +10,9 @@
     <Company>BBT Software AG</Company>
   </PropertyGroup>
 
-
   <PropertyGroup>
     <CodeAnalysisRuleSet>..\Cake.Issues.EsLint.Tests.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
-
 
   <ItemGroup>
     <None Remove="Testfiles\JsonLogFileFormat\issueWithoutLineAndColumn.json" />
@@ -22,13 +20,11 @@
     <None Remove="Testfiles\JsonLogFileFormat\jsonFormatWindows.json" />
   </ItemGroup>
 
-
   <ItemGroup>
     <EmbeddedResource Include="Testfiles\JsonLogFileFormat\issueWithoutLineAndColumn.json" />
     <EmbeddedResource Include="Testfiles\JsonLogFileFormat\issueWithoutRule.json" />
     <EmbeddedResource Include="Testfiles\JsonLogFileFormat\jsonFormatWindows.json" />
   </ItemGroup>
-
 
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.1.0" />
