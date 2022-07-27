@@ -98,7 +98,7 @@
             AnsiConsole.WriteLine();
             AnsiConsole.WriteLine();
             var rule = new Rule("Summary").Centered();
-            AnsiConsole.Render(rule);
+            AnsiConsole.Write(rule);
             AnsiConsole.WriteLine();
 
             var providerChart = new BarChart();
@@ -148,18 +148,18 @@
 
             if (this.consoleIssueReportFormatSettings.ShowProviderSummary)
             {
-                AnsiConsole.Render(new Markup("[bold]Issues per provider & run[/]").Centered());
+                AnsiConsole.Write(new Markup("[bold]Issues per provider & run[/]").Centered());
                 AnsiConsole.WriteLine();
                 AnsiConsole.WriteLine();
-                AnsiConsole.Render(providerChart);
+                AnsiConsole.Write(providerChart);
                 AnsiConsole.WriteLine();
             }
 
             if (this.consoleIssueReportFormatSettings.ShowPrioritySummary)
             {
-                AnsiConsole.Render(new Markup("[bold]Issues per priority[/]").Centered());
+                AnsiConsole.Write(new Markup("[bold]Issues per priority[/]").Centered());
                 AnsiConsole.WriteLine();
-                AnsiConsole.Render(priorityTable);
+                AnsiConsole.Write(priorityTable);
             }
         }
     }
