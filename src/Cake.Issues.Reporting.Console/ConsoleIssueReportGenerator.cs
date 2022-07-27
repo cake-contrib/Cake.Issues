@@ -54,7 +54,7 @@
 
                 if (this.consoleIssueReportFormatSettings.GroupByRule)
                 {
-                    foreach (var issueGroup in diagnosticIssues.GroupBy(x => x.Rule))
+                    foreach (var issueGroup in diagnosticIssues.GroupBy(x => x.RuleId))
                     {
                         report.AddDiagnostic(new IssueDiagnostic(issueGroup));
                     }
