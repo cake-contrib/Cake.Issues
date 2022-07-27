@@ -89,6 +89,12 @@
         /// <param name="issues">List of issues.</param>
         private void PrintSummary(IEnumerable<IIssue> issues)
         {
+            if (!issues.Any())
+            {
+                AnsiConsole.WriteLine("No issues");
+                return;
+            }
+
             AnsiConsole.WriteLine();
             AnsiConsole.WriteLine();
             var rule = new Rule("Summary").Centered();
