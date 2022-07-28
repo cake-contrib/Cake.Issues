@@ -13,7 +13,8 @@ BuildParameters.SetParameters(
     title: "Cake.Issues",
     repositoryOwner: "cake-contrib",
     repositoryName: "Cake.Issues",
-    appVeyorAccountName: "cakecontrib");
+    appVeyorAccountName: "cakecontrib",
+    shouldRunCoveralls: false); // Disabled because it's currently failing
 
 BuildParameters.PrintParameters(Context);
 
