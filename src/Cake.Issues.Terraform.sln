@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26730.8
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32526.322
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.Issues.Terraform", "Cake.Issues.Terraform\Cake.Issues.Terraform.csproj", "{9774EC64-94A9-4260-9886-4F02635F0D89}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cake.Issues.Terraform", "Cake.Issues.Terraform\Cake.Issues.Terraform.csproj", "{9774EC64-94A9-4260-9886-4F02635F0D89}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.Issues.Terraform.Tests", "Cake.Issues.Terraform.Tests\Cake.Issues.Terraform.Tests.csproj", "{29F83008-7B25-4BF6-9B8A-3E17E79D8881}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cake.Issues.Terraform.Tests", "Cake.Issues.Terraform.Tests\Cake.Issues.Terraform.Tests.csproj", "{29F83008-7B25-4BF6-9B8A-3E17E79D8881}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{CE25C309-7FBA-48E7-B03E-5F8D014774AF}"
 	ProjectSection(SolutionItems) = preProject
