@@ -2,7 +2,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Library</OutputType>
-    <TargetFrameworks>netcoreapp2.1</TargetFrameworks>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <IsPackable>false</IsPackable>
     <Description>Tests for the Cake.Issues.Terraform addin</Description>
     <Authors>Pascal Berger</Authors>
