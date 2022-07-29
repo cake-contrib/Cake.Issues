@@ -43,7 +43,7 @@ Task("Lint-AddinDocumentation")
 
     // Run markdownlint
     var settings =
-        MarkdownlintNodeJsRunnerSettings.ForDirectory(data.RepoRootFolder.Combine("../../../docs"));
+        MarkdownlintNodeJsRunnerSettings.ForDirectory(data.RepoRootFolder.Combine("docs"));
     settings.OutputFile = markdownLintLogFilePath;
     settings.ThrowOnIssue = false;
     RunMarkdownlintNodeJs(settings);
