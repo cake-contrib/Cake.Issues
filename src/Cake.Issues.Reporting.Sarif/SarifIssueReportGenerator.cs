@@ -117,7 +117,7 @@
             var result =
                 new Result
                 {
-                    RuleId = issue.Rule,
+                    RuleId = issue.RuleId,
                     Message =
                         new Message
                         {
@@ -135,20 +135,21 @@
 
             if (issue.RuleUrl != null)
             {
-                if (!string.IsNullOrEmpty(issue.Rule))
+                if (!string.IsNullOrEmpty(issue.RuleId))
                 {
-                    if (!this.ruleIndices.ContainsKey(issue.Rule))
+                    if (!this.ruleIndices.ContainsKey(issue.RuleId))
                     {
-                        this.ruleIndices.Add(issue.Rule, this.rules.Count);
+                        this.ruleIndices.Add(issue.RuleId, this.rules.Count);
                         this.rules.Add(
                             new ReportingDescriptor
                             {
-                                Id = issue.Rule,
+                                Id = issue.RuleId,
+                                Name = issue.RuleName,
                                 HelpUri = issue.RuleUrl,
                             });
                     }
 
-                    result.RuleIndex = this.ruleIndices[issue.Rule];
+                    result.RuleIndex = this.ruleIndices[issue.RuleId];
                 }
                 else
                 {
