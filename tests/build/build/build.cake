@@ -5,8 +5,7 @@ Task("Build")
     var solutionFile = data.SourceFolder.CombineWithFilePath("ClassLibrary1.sln");
     var msBuildLogFilePath = data.OutputFolder.CombineWithFilePath("msbuild.binlog");
 
-#if NETCOREAPP
-    DotNetCoreRestore(solutionFile.FullPath);
+    DotNetRestore(solutionFile.FullPath);
 
     var settings =
         new DotNetCoreMSBuildSettings()
@@ -17,24 +16,12 @@ Task("Build")
                 msBuildLogFilePath.FullPath
             );
 
-    DotNetCoreBuild(
+    DotNetBuild(
         solutionFile.FullPath,
         new DotNetCoreBuildSettings
         {
             MSBuildSettings = settings
         });
-#else
-    NuGetRestore(solutionFile);
-
-    var settings =
-        new MSBuildSettings()
-            .WithTarget("Rebuild")
-            .WithLogger(
-                Context.Tools.Resolve("Cake.Issues.MsBuild*/**/StructuredLogger.dll").FullPath,
-                "BinaryLogger",
-                msBuildLogFilePath.FullPath);
-    MSBuild(solutionFile, settings);
-#endif
 
     // Read issues
     var readIssuesSettings = new ReadIssuesSettings(data.RepoRootFolder)
