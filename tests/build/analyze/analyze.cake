@@ -5,7 +5,6 @@
 
 Task("Analyze")
     .IsDependentOn("Build")
-    .IsDependentOn("Run-DupFinder")
     .IsDependentOn("Run-InspectCode")
     .IsDependentOn("Lint-Documentation")
     .IsDependentOn("Create-CustomIssues");
