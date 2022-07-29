@@ -1,4 +1,3 @@
-#load dupfinder.cake
 #load inspectcode.cake
 #load markdownlint.cake
 #load custom-issue.cake
