@@ -1,0 +1,10 @@
+{
+    "version": "1",
+    "environments": [
+        {
+        "name": "Debian .NET 6",
+        "type": "docker",
+        "dockerImage": "cake-issues/test-dotnet6-debian"
+        }
+    ]
+}
