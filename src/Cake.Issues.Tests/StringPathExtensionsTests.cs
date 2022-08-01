@@ -236,6 +236,15 @@
             [InlineData(@"c:\foo\bar", @"c:\foo")]
             [InlineData(@"c:\foo\bar\", @"c:\foo")]
             [InlineData(@"c:\foo\a.txt", @"c:\foo")]
+            [InlineData(@"c:\foo\a.txt", @"c:\foo\bar\..")]
+            [InlineData(@"c:\foo\foo\a.txt", @"c:\foo\bar\..")]
+            [InlineData("/foo", @"/")]
+            [InlineData("/foo", "/foo")]
+            [InlineData("/foo/bar", "/foo")]
+            [InlineData("/foo/bar/", "/foo")]
+            [InlineData("/foo/a.txt", "/foo")]
+            [InlineData("/foo/a.txt", "/foo/bar/..")]
+            [InlineData("/foo/foo/a.txt", "/foo/bar/..")]
             public void Should_Return_True_If_SubPath(string path, string baseDir)
             {
                 // Given / When
