@@ -101,7 +101,7 @@
                 var result = capability.IsCurrentCommitId(commitId);
 
                 // Then
-                result.ShouldBe(true);
+                result.ShouldBeTrue();
             }
 
             [Fact]
@@ -121,7 +121,7 @@
                 var result = capability.IsCurrentCommitId(commitId.ToUpperInvariant());
 
                 // Then
-                result.ShouldBe(true);
+                result.ShouldBeTrue();
             }
 
             [Fact]
@@ -141,7 +141,7 @@
                 var result = capability.IsCurrentCommitId(commitId);
 
                 // Then
-                result.ShouldBe(false);
+                result.ShouldBeFalse();
             }
 
             [Fact]
@@ -161,7 +161,7 @@
                 var result = capability.IsCurrentCommitId(commitId);
 
                 // Then
-                result.ShouldBe(false);
+                result.ShouldBeFalse();
             }
 
             [Fact]
@@ -181,7 +181,7 @@
                 var result = capability.IsCurrentCommitId(commitId);
 
                 // Then
-                result.ShouldBe(false);
+                result.ShouldBeFalse();
             }
 
             [Fact]
@@ -201,7 +201,7 @@
                 var result = capability.IsCurrentCommitId(commitId);
 
                 // Then
-                result.ShouldBe(false);
+                result.ShouldBeFalse();
             }
         }
     }
