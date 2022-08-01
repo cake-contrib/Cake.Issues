@@ -71,7 +71,7 @@
                 using (var tempFile = new ResourceTempFile(resourceName))
                 {
                     // Then
-                    File.Exists(tempFile.FileName).ShouldBe(true);
+                    File.Exists(tempFile.FileName).ShouldBeTrue();
                 }
             }
 
@@ -106,7 +106,7 @@
                 }
 
                 // Then
-                File.Exists(tempFileName).ShouldBe(false);
+                File.Exists(tempFileName).ShouldBeFalse();
             }
         }
     }

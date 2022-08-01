@@ -57,7 +57,7 @@
                 var result = path.IsValidPath();
 
                 // Then
-                result.ShouldBe(true);
+                result.ShouldBeTrue();
             }
 
             [Theory]
@@ -68,7 +68,7 @@
                 var result = path.IsValidPath();
 
                 // Then
-                result.ShouldBe(false);
+                result.ShouldBeFalse();
             }
         }
 
@@ -124,7 +124,7 @@
                 var result = path.IsFullPath();
 
                 // Then
-                result.ShouldBe(true);
+                result.ShouldBeTrue();
             }
 
             [Theory]
@@ -143,7 +143,7 @@
                 var result = path.IsFullPath();
 
                 // Then
-                result.ShouldBe(false);
+                result.ShouldBeFalse();
             }
         }
 
@@ -242,7 +242,7 @@
                 var result = path.IsSubpathOf(baseDir);
 
                 // Then
-                result.ShouldBe(true);
+                result.ShouldBeTrue();
             }
 
             [Theory]
@@ -257,7 +257,7 @@
                 var result = path.IsSubpathOf(baseDir);
 
                 // Then
-                result.ShouldBe(false);
+                result.ShouldBeFalse();
             }
 
             [Theory]

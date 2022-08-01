@@ -73,7 +73,7 @@
                 var result = provider.Initialize(settings);
 
                 // Then
-                result.ShouldBe(true);
+                result.ShouldBeTrue();
             }
         }
 
