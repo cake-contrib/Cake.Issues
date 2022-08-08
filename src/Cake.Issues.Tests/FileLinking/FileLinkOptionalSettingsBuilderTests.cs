@@ -78,7 +78,7 @@
             }
 
             [Theory]
-            [InlineData("foo\tbar")]
+            [InlineData("foo\0bar")]
             public void Should_Throw_If_RootPath_Is_Invalid(string rootPath)
             {
                 // Given

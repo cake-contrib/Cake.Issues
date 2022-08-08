@@ -236,7 +236,7 @@
             public sealed class TheProjectFileRelativePathArgument
             {
                 [Theory]
-                [InlineData("foo\tbar")]
+                [InlineData("foo\0bar")]
                 public void Should_Throw_If_Project_Path_Is_Invalid(string projectPath)
                 {
                     // Given
@@ -794,7 +794,7 @@
             public sealed class TheAffectedFileRelativePathArgument
             {
                 [Theory]
-                [InlineData("foo\tbar")]
+                [InlineData("foo\0bar")]
                 public void Should_Throw_If_File_Path_Is_Invalid(string filePath)
                 {
                     // Given
