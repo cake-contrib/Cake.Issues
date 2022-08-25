@@ -38,7 +38,7 @@
     <PackageReference Include="Cake.Issues" Version="2.0.0-beta0002" />
     <PackageReference Include="Cake.Issues.Testing" Version="2.0.0-beta0002" />
     <PackageReference Include="Cake.Testing" Version="2.0.0" />
-    <PackageReference Include="Shouldly" Version="4.0.3" />
+    <PackageReference Include="Shouldly" Version="4.1.0" />
     <PackageReference Include="StyleCop.Analyzers">
       <Version>1.1.118</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
