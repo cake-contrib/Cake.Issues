@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Library</OutputType>
-    <TargetFrameworks>netcoreapp2.1</TargetFrameworks>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <Description>Tests for the Cake.Issues.Sarif addin</Description>
     <Authors>Pascal Berger</Authors>
     <Product>Cake.Issues</Product>
