@@ -15,7 +15,7 @@
 
   <ItemGroup>
     <PackageReference Include="Cake.Issues.Testing" Version="2.0.0-beta0001" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.2.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.3.2" />
     <PackageReference Include="Cake.Testing" Version="2.0.0" />
     <PackageReference Include="Shouldly" Version="4.0.3" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.118" />
