@@ -403,5 +403,349 @@
                 result.ShouldBe(expectedResult);
             }
         }
+
+        public sealed class TheIsValideRepositoryFilePathExtension
+        {
+            [Fact]
+            public void Should_Throw_If_FilePath_Is_Null()
+            {
+                // Given / When
+                var result =
+                    Record.Exception(
+                        () =>
+                            ((string)null).IsValideRepositoryFilePath(new RepositorySettings(@"C:\repo")));
+
+                // Then
+                result.IsArgumentNullException("filePath");
+            }
+
+            [Fact]
+            public void Should_Throw_If_FilePath_Is_Empty()
+            {
+                // Given / When
+                var result =
+                    Record.Exception(
+                        () =>
+                            string.Empty.IsValideRepositoryFilePath(new RepositorySettings(@"C:\repo")));
+
+                // Then
+                result.IsArgumentOutOfRangeException("filePath");
+            }
+
+            [Fact]
+            public void Should_Throw_If_FilePath_Is_WhiteSpace()
+            {
+                // Given / When
+                var result =
+                    Record.Exception(
+                        () =>
+                            " ".IsValideRepositoryFilePath(new RepositorySettings(@"C:\repo")));
+
+                // Then
+                result.IsArgumentOutOfRangeException("filePath");
+            }
+
+            [Fact]
+            public void Should_Throw_If_RepositorySettings_Are_Null()
+            {
+                // Given / When
+                var result =
+                    Record.Exception(
+                        () =>
+                            @"C:\repo".IsValideRepositoryFilePath(null));
+
+                // Then
+                result.IsArgumentNullException("repositorySettings");
+            }
+
+            [Theory]
+            [InlineData(@"C:\repo", @"C:\repo\foo")]
+            [InlineData(@"C:\repo", @"C:\repo\foo\")]
+            [InlineData(@"C:\repo", @"C:\repo\foo\bar")]
+            [InlineData("/repo", "/repo/foo")]
+            [InlineData("/repo", "/repo/foo/")]
+            [InlineData("/repo", "/repo/foo/bar")]
+            public void Should_Return_True_If_File_Is_Valid_Repository_FilePath(string repoRoot, string filePath)
+            {
+                // Given
+                var repositorySettings = new RepositorySettings(repoRoot);
+
+                // When
+                var (valid, _) = filePath.IsValideRepositoryFilePath(repositorySettings);
+
+                // Then
+                valid.ShouldBeTrue();
+            }
+
+            [Theory]
+            [InlineData(@"C:\repo", @"C:\r\foo")]
+            [InlineData(@"C:\repo", @"C:\r\foo\")]
+            [InlineData(@"C:\repo", @"C:\r\foo\bar")]
+            [InlineData("/repo", "/r/foo")]
+            [InlineData("/repo", "/r/foo/")]
+            [InlineData("/repo", "/r/foo/bar")]
+            public void Should_Return_False_If_File_Is_Outside_Repository(string repoRoot, string filePath)
+            {
+                // Given
+                var repositorySettings = new RepositorySettings(repoRoot);
+
+                // When
+                var (valid, _) = filePath.IsValideRepositoryFilePath(repositorySettings);
+
+                // Then
+                valid.ShouldBeFalse();
+            }
+
+            [Theory]
+            [InlineData(@"C:\repo", @"C:\repo\foo", @"foo")]
+            [InlineData(@"C:\repo", @"C:\repo\foo\", @"foo\")]
+            [InlineData(@"C:\repo", @"C:\repo\foo\bar", @"foo\bar")]
+            [InlineData("/repo", "/repo/foo", "foo")]
+            [InlineData("/repo", "/repo/foo/", "foo/")]
+            [InlineData("/repo", "/repo/foo/bar", "foo/bar")]
+            [InlineData(@"C:\repo", @"C:\r\foo", "")]
+            public void Should_Return_Correct_FilePath(string repoRoot, string filePath, string expectedResult)
+            {
+                // Given
+                var repositorySettings = new RepositorySettings(repoRoot);
+
+                // When
+                var (_, filePathResult) = filePath.IsValideRepositoryFilePath(repositorySettings);
+
+                // Then
+                filePathResult.ShouldBe(expectedResult);
+            }
+        }
+
+        public sealed class TheIsInRepositoryExtension
+        {
+            [Fact]
+            public void Should_Throw_If_FilePath_Is_Null()
+            {
+                // Given / When
+                var result =
+                    Record.Exception(
+                        () =>
+                            ((string)null).IsInRepository(new RepositorySettings(@"C:\repo")));
+
+                // Then
+                result.IsArgumentNullException("filePath");
+            }
+
+            [Fact]
+            public void Should_Throw_If_FilePath_Is_Empty()
+            {
+                // Given / When
+                var result =
+                    Record.Exception(
+                        () =>
+                            string.Empty.IsInRepository(new RepositorySettings(@"C:\repo")));
+
+                // Then
+                result.IsArgumentOutOfRangeException("filePath");
+            }
+
+            [Fact]
+            public void Should_Throw_If_FilePath_Is_WhiteSpace()
+            {
+                // Given / When
+                var result =
+                    Record.Exception(
+                        () =>
+                            " ".IsInRepository(new RepositorySettings(@"C:\repo")));
+
+                // Then
+                result.IsArgumentOutOfRangeException("filePath");
+            }
+
+            [Fact]
+            public void Should_Throw_If_RepositorySettings_Are_Null()
+            {
+                // Given / When
+                var result =
+                    Record.Exception(
+                        () =>
+                            @"C:\repo".IsInRepository(null));
+
+                // Then
+                result.IsArgumentNullException("repositorySettings");
+            }
+
+            [Theory]
+            [InlineData(@"C:\repo", @"C:\repo\foo")]
+            [InlineData(@"C:\repo", @"C:\repo\foo\")]
+            [InlineData(@"C:\repo", @"C:\repo\foo\bar")]
+            [InlineData("/repo", "/repo/foo")]
+            [InlineData("/repo", "/repo/foo/")]
+            [InlineData("/repo", "/repo/foo/bar")]
+            public void Should_Return_True_If_File_Is_In_Repository(string repoRoot, string filePath)
+            {
+                // Given
+                var repositorySettings = new RepositorySettings(repoRoot);
+
+                // When
+                var result = filePath.IsInRepository(repositorySettings);
+
+                // Then
+                result.ShouldBeTrue();
+            }
+
+            [Theory]
+            [InlineData(@"C:\repo", @"C:\r\foo")]
+            [InlineData(@"C:\repo", @"C:\r\foo\")]
+            [InlineData(@"C:\repo", @"C:\r\foo\bar")]
+            [InlineData("/repo", "/r/foo")]
+            [InlineData("/repo", "/r/foo/")]
+            [InlineData("/repo", "/r/foo/bar")]
+            public void Should_Return_False_If_File_Is_Outside_Repository(string repoRoot, string filePath)
+            {
+                // Given
+                var repositorySettings = new RepositorySettings(repoRoot);
+
+                // When
+                var result = filePath.IsInRepository(repositorySettings);
+
+                // Then
+                result.ShouldBeFalse();
+            }
+        }
+
+        public sealed class TheMakeFilePathRelativeToRepositoryRootExtension
+        {
+            [Fact]
+            public void Should_Throw_If_FilePath_Is_Null()
+            {
+                // Given / When
+                var result =
+                    Record.Exception(
+                        () =>
+                            ((string)null).MakeFilePathRelativeToRepositoryRoot(new RepositorySettings(@"C:\repo")));
+
+                // Then
+                result.IsArgumentNullException("filePath");
+            }
+
+            [Fact]
+            public void Should_Throw_If_FilePath_Is_Empty()
+            {
+                // Given / When
+                var result =
+                    Record.Exception(
+                        () =>
+                            string.Empty.MakeFilePathRelativeToRepositoryRoot(new RepositorySettings(@"C:\repo")));
+
+                // Then
+                result.IsArgumentOutOfRangeException("filePath");
+            }
+
+            [Fact]
+            public void Should_Throw_If_FilePath_Is_WhiteSpace()
+            {
+                // Given / When
+                var result =
+                    Record.Exception(
+                        () =>
+                            " ".MakeFilePathRelativeToRepositoryRoot(new RepositorySettings(@"C:\repo")));
+
+                // Then
+                result.IsArgumentOutOfRangeException("filePath");
+            }
+
+            [Fact]
+            public void Should_Throw_If_RepositorySettings_Are_Null()
+            {
+                // Given / When
+                var result =
+                    Record.Exception(
+                        () =>
+                            @"C:\repo".MakeFilePathRelativeToRepositoryRoot(null));
+
+                // Then
+                result.IsArgumentNullException("repositorySettings");
+            }
+
+            [Theory]
+            [InlineData(@"C:\repo", @"C:\repo\foo", @"foo")]
+            [InlineData(@"C:\repo", @"C:\repo\foo\", @"foo\")]
+            [InlineData(@"C:\repo", @"C:\repo\foo\bar", @"foo\bar")]
+            [InlineData("/repo", "/repo/foo", "foo")]
+            [InlineData("/repo", "/repo/foo/", "foo/")]
+            [InlineData("/repo", "/repo/foo/bar", "foo/bar")]
+            public void Should_Make_FilePath_Relative_To_Repository_Root(string repoRoot, string filePath, string expectedResult)
+            {
+                // Given
+                var repositorySettings = new RepositorySettings(repoRoot);
+
+                // When
+                var result = filePath.MakeFilePathRelativeToRepositoryRoot(repositorySettings);
+
+                // Then
+                result.ShouldBe(expectedResult);
+            }
+        }
+
+        public sealed class TheRemoveLeadingDirectorySeparatorExtension
+        {
+            [Fact]
+            public void Should_Throw_If_FilePath_Is_Null()
+            {
+                // Given / When
+                var result =
+                    Record.Exception(
+                        () =>
+                            ((string)null).RemoveLeadingDirectorySeparator());
+
+                // Then
+                result.IsArgumentNullException("filePath");
+            }
+
+            [Fact]
+            public void Should_Throw_If_FilePath_Is_Empty()
+            {
+                // Given / When
+                var result =
+                    Record.Exception(
+                        () =>
+                            string.Empty.RemoveLeadingDirectorySeparator());
+
+                // Then
+                result.IsArgumentOutOfRangeException("filePath");
+            }
+
+            [Fact]
+            public void Should_Throw_If_FilePath_Is_WhiteSpace()
+            {
+                // Given / When
+                var result =
+                    Record.Exception(
+                        () =>
+                            " ".RemoveLeadingDirectorySeparator());
+
+                // Then
+                result.IsArgumentOutOfRangeException("filePath");
+            }
+
+            [Theory]
+            [InlineData("foo", "foo")]
+            [InlineData(@"foo\", @"foo\")]
+            [InlineData(@"foo\bar", @"foo\bar")]
+            [InlineData(@"\foo", @"foo")]
+            [InlineData(@"\foo\", @"foo\")]
+            [InlineData(@"\foo\bar", @"foo\bar")]
+            [InlineData(@"c:\foo", @"c:\foo")]
+            [InlineData(@"c:\foo\", @"c:\foo\")]
+            [InlineData(@"c:\foo\bar", @"c:\foo\bar")]
+            [InlineData("/foo", "foo")]
+            [InlineData("/foo/", "foo/")]
+            [InlineData("/foo/bar", "foo/bar")]
+            public void Should_Remove_Leading_Directory_Separators(string filePath, string expectedResult)
+            {
+                // Given / When
+                var result = filePath.RemoveLeadingDirectorySeparator();
+
+                // Then
+                result.ShouldBe(expectedResult);
+            }
+        }
     }
 }

@@ -252,14 +252,29 @@ namespace Cake.Issues.PullRequests
             // Apply issue limits per provider for this run
             foreach (var currentProviderLimitPair in this.settings.ProviderIssueLimits)
             {
+                var currentProviderType = currentProviderLimitPair.Key;
+
+                this.log.Verbose(
+                    "Applying filter for issue provider '{0}' for this run...",
+                    currentProviderType);
+
                 var currentProviderTypeMaxLimit = currentProviderLimitPair.Value?.MaxIssuesToPost;
-                if (!currentProviderTypeMaxLimit.HasValue ||
-                    currentProviderTypeMaxLimit < 0)
+                if (!currentProviderTypeMaxLimit.HasValue)
                 {
+                    this.log.Verbose(
+                        "No issues filtered for issue provider '{0}' for this run since `MaxIssuesToPost` is not set",
+                        currentProviderType);
                     continue;
                 }
 
-                var currentProviderType = currentProviderLimitPair.Key;
+                if (currentProviderTypeMaxLimit < 0)
+                {
+                    this.log.Verbose(
+                        "No issues filtered for issue provider '{0}' for this run since `MaxIssuesToPost` is set to '{1}'",
+                        currentProviderType,
+                        currentProviderTypeMaxLimit);
+                    continue;
+                }
 
                 var newIssuesForProviderType =
                     result.Where(p => p.ProviderType == currentProviderType)
@@ -267,6 +282,11 @@ namespace Cake.Issues.PullRequests
                         .ToArray();
                 if (newIssuesForProviderType.Length <= currentProviderTypeMaxLimit)
                 {
+                    this.log.Verbose(
+                        "No issues filtered for issue provider '{0}' for this run since number of issues of this type is '{1}' which is less or equal to the value '{2}' configured in `MaxIssuesToPost`",
+                        currentProviderType,
+                        newIssuesForProviderType.Length,
+                        currentProviderTypeMaxLimit);
                     continue;
                 }
 
@@ -304,14 +324,29 @@ namespace Cake.Issues.PullRequests
             // Apply issue limits per provider across mulitple runs
             foreach (var currentProviderLimitPair in this.settings.ProviderIssueLimits)
             {
+                var currentProviderType = currentProviderLimitPair.Key;
+
+                this.log.Verbose(
+                    "Applying filter for issue provider '{0}' across mulitple runs...",
+                    currentProviderType);
+
                 var currentProviderTypeMaxLimit = currentProviderLimitPair.Value?.MaxIssuesToPostAcrossRuns;
-                if (!currentProviderTypeMaxLimit.HasValue ||
-                    currentProviderTypeMaxLimit < 0)
+                if (!currentProviderTypeMaxLimit.HasValue)
                 {
+                    this.log.Verbose(
+                        "No issues filtered for issue provider '{0}' across mulitple runs since `MaxIssuesToPostAcrossRuns` is not set",
+                        currentProviderType);
                     continue;
                 }
 
-                var currentProviderType = currentProviderLimitPair.Key;
+                if (currentProviderTypeMaxLimit < 0)
+                {
+                    this.log.Verbose(
+                        "No issues filtered for issue provider '{0}' across mulitple runs since `MaxIssuesToPostAcrossRuns` is not set",
+                        currentProviderType);
+                    continue;
+                }
+
                 var existingThreadCountForProvider =
                     existingThreads.Count(p => p.ProviderType == currentProviderType);
 
@@ -328,6 +363,11 @@ namespace Cake.Issues.PullRequests
                         .ToArray();
                 if (newIssuesForProviderType.Length <= maxIssuesLeftToTakeForProviderType)
                 {
+                    this.log.Verbose(
+                        "No issues filtered for issue provider '{0}' across mulitple runs since number of issues of this type is '{1}' which is less or equal to the value '{2}' configured in `MaxIssuesToPostAcrossRuns`",
+                        currentProviderType,
+                        newIssuesForProviderType.Length,
+                        maxIssuesLeftToTakeForProviderType);
                     continue;
                 }
 

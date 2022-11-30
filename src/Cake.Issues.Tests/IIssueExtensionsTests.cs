@@ -349,6 +349,62 @@
             }
         }
 
+        public sealed class TheRuleExtension
+        {
+            [Fact]
+            public void Should_Throw_If_Issue_Is_Null()
+            {
+                // Given
+                IIssue issue = null;
+
+                // When
+                var result = Record.Exception(() => issue.Rule());
+
+                // Then
+                result.IsArgumentNullException("issue");
+            }
+
+            [Fact]
+            public void Should_Return_RuleName_If_Set()
+            {
+                // Given
+                var ruleId = "RuleId";
+                var ruleName = "RuleName";
+                var issue =
+                    IssueBuilder
+                        .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                        .OfRule(ruleId, ruleName)
+                        .Create();
+
+                // When
+                var result = issue.Rule();
+
+                // Then
+                result.ShouldBe(ruleName);
+            }
+
+            [Theory]
+            [InlineData(null)]
+            [InlineData("")]
+            [InlineData(" ")]
+            public void Should_Return_RuleId_If_RuleName_Not_Set(string ruleName)
+            {
+                // Given
+                var ruleId = "RuleId";
+                var issue =
+                    IssueBuilder
+                        .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                        .OfRule(ruleId, ruleName)
+                        .Create();
+
+                // When
+                var result = issue.Rule();
+
+                // Then
+                result.ShouldBe(ruleId);
+            }
+        }
+
         public sealed class TheReplaceIssuePatternExtension
         {
             [Fact]

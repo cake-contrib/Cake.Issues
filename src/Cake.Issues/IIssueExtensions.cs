@@ -138,6 +138,18 @@
         }
 
         /// <summary>
+        /// Returns the name or id of the rule.
+        /// </summary>
+        /// <param name="issue">Issue for which the rule should be returned.</param>
+        /// <returns>Returns <see cref="IIssue.RuleName"/> if it is set, otherwise <see cref="IIssue.RuleId"/>.</returns>
+        public static string Rule(this IIssue issue)
+        {
+            issue.NotNull(nameof(issue));
+
+            return !string.IsNullOrWhiteSpace(issue.RuleName) ? issue.RuleName : issue.RuleId;
+        }
+
+        /// <summary>
         /// Returns a string with all patterns replaced by the values of <paramref name="issue"/>.
         /// </summary>
         /// <param name="pattern">Pattern whose values should be replaced.
