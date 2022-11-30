@@ -39,8 +39,10 @@
         /// <c>null</c> if no priority was assigned.</param>
         /// <param name="priorityName">The human friendly name of the priority.
         /// <c>null</c> or <see cref="string.Empty"/> if no priority was assigned.</param>
-        /// <param name="rule">The rule of the issue.
-        /// <c>null</c> or <see cref="string.Empty"/> if issue has no specific rule ID.</param>
+        /// <param name="ruleId">The ID of the rule of the issue.
+        /// <c>null</c> or <see cref="string.Empty"/> if issue has no specific rule.</param>
+        /// <param name="ruleName">The name of the rule of the issue.
+        /// <c>null</c> or <see cref="string.Empty"/> if issue has no specific rule.</param>
         /// <param name="ruleUrl">The URL containing information about the failing rule.
         /// <c>null</c> if no URL is available.</param>
         /// <param name="run">Gets the description of the run.</param>
@@ -62,7 +64,8 @@
             string messageMarkdown,
             int? priority,
             string priorityName,
-            string rule,
+            string ruleId,
+            string ruleName,
             Uri ruleUrl,
             string run,
             string providerType,
@@ -156,7 +159,8 @@
             this.MessageMarkdown = messageMarkdown;
             this.Priority = priority;
             this.PriorityName = priorityName;
-            this.Rule = rule;
+            this.RuleId = ruleId;
+            this.RuleName = ruleName;
             this.RuleUrl = ruleUrl;
             this.Run = run;
             this.ProviderType = providerType;
@@ -207,7 +211,10 @@
         public string PriorityName { get; }
 
         /// <inheritdoc/>
-        public string Rule { get; }
+        public string RuleId { get; }
+
+        /// <inheritdoc/>
+        public string RuleName { get; }
 
         /// <inheritdoc/>
         public Uri RuleUrl { get; }

@@ -116,13 +116,13 @@
                                 new PullRequestDiscussionComment()
                                 {
                                     Content = "Message Foo",
-                                    IsDeleted = false
-                                }
+                                    IsDeleted = false,
+                                },
                             })
                         {
                             CommentIdentifier = "Message Foo",
                             CommentSource = settings.CommentSource,
-                        }
+                        },
                     };
                 var capability = new FakeDiscussionThreadsCapability(log, pullRequestSystem, discussionThreads);
 
@@ -172,8 +172,8 @@
                             new PullRequestDiscussionComment()
                             {
                                 Content = "Message Foo",
-                                IsDeleted = false
-                            }
+                                IsDeleted = false,
+                            },
                         })
                     {
                         CommentIdentifier = "Message Foo",
@@ -189,8 +189,8 @@
                             new PullRequestDiscussionComment()
                             {
                                 Content = "Message Bar",
-                                IsDeleted = false
-                            }
+                                IsDeleted = false,
+                            },
                         })
                     {
                         CommentIdentifier = "Message Bar",
@@ -199,7 +199,8 @@
                 var discussionThreads =
                     new List<IPullRequestDiscussionThread>
                     {
-                        discussionThread1, discussionThread2
+                        discussionThread1,
+                        discussionThread2,
                     };
                 var capability = new FakeDiscussionThreadsCapability(log, pullRequestSystem, discussionThreads);
 
@@ -208,7 +209,7 @@
                 capability.ResolveDiscussionThreads(
                     new List<IPullRequestDiscussionThread>
                     {
-                        discussionThread1
+                        discussionThread1,
                     });
 
                 // Then
@@ -253,8 +254,8 @@
                             new PullRequestDiscussionComment()
                             {
                                 Content = "Message Foo",
-                                IsDeleted = false
-                            }
+                                IsDeleted = false,
+                            },
                         })
                     {
                         CommentIdentifier = "Message Foo",
@@ -270,8 +271,8 @@
                                 new PullRequestDiscussionComment()
                                 {
                                     Content = "Message Bar",
-                                    IsDeleted = false
-                                }
+                                    IsDeleted = false,
+                                },
                             })
                     {
                         CommentSource = settings.CommentSource,
@@ -279,7 +280,8 @@
                 var discussionThreads =
                     new List<IPullRequestDiscussionThread>
                     {
-                        discussionThread1, discussionThread2
+                        discussionThread1,
+                        discussionThread2,
                     };
                 var capability = new FakeDiscussionThreadsCapability(log, pullRequestSystem, discussionThreads);
 
@@ -288,7 +290,7 @@
                 capability.ReopenDiscussionThreads(
                     new List<IPullRequestDiscussionThread>
                     {
-                        discussionThread1
+                        discussionThread1,
                     });
 
                 // Then

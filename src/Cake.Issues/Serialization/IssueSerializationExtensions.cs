@@ -74,11 +74,11 @@
         /// </summary>
         /// <param name="issue">Issue which should be converted.</param>
         /// <returns>Converted issue.</returns>
-        internal static SerializableIssueV4 ToSerializableIssue(this IIssue issue)
+        internal static SerializableIssueV5 ToSerializableIssue(this IIssue issue)
         {
             issue.NotNull(nameof(issue));
 
-            return new SerializableIssueV4
+            return new SerializableIssueV5
             {
                 Identifier = issue.Identifier,
                 ProjectFileRelativePath = issue.ProjectFileRelativePath?.FullPath,
@@ -94,7 +94,8 @@
                 MessageHtml = issue.MessageHtml,
                 Priority = issue.Priority,
                 PriorityName = issue.PriorityName,
-                Rule = issue.Rule,
+                RuleId = issue.RuleId,
+                RuleName = issue.RuleName,
                 RuleUrl = issue.RuleUrl?.ToString(),
                 Run = issue.Run,
                 ProviderType = issue.ProviderType,

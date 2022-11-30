@@ -349,6 +349,62 @@
             }
         }
 
+        public sealed class TheRuleExtension
+        {
+            [Fact]
+            public void Should_Throw_If_Issue_Is_Null()
+            {
+                // Given
+                IIssue issue = null;
+
+                // When
+                var result = Record.Exception(() => issue.Rule());
+
+                // Then
+                result.IsArgumentNullException("issue");
+            }
+
+            [Fact]
+            public void Should_Return_RuleName_If_Set()
+            {
+                // Given
+                var ruleId = "RuleId";
+                var ruleName = "RuleName";
+                var issue =
+                    IssueBuilder
+                        .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                        .OfRule(ruleId, ruleName)
+                        .Create();
+
+                // When
+                var result = issue.Rule();
+
+                // Then
+                result.ShouldBe(ruleName);
+            }
+
+            [Theory]
+            [InlineData(null)]
+            [InlineData("")]
+            [InlineData(" ")]
+            public void Should_Return_RuleId_If_RuleName_Not_Set(string ruleName)
+            {
+                // Given
+                var ruleId = "RuleId";
+                var issue =
+                    IssueBuilder
+                        .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                        .OfRule(ruleId, ruleName)
+                        .Create();
+
+                // When
+                var result = issue.Rule();
+
+                // Then
+                result.ShouldBe(ruleId);
+            }
+        }
+
         public sealed class TheReplaceIssuePatternExtension
         {
             [Fact]
@@ -404,7 +460,7 @@
             [InlineData("foo {Column} bar", "foo 23 bar")]
             [InlineData("foo {EndColumn} bar", "foo 230 bar")]
             [InlineData("foo {FileLink} bar", "foo https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12 bar")]
-            [InlineData("foo {Rule} bar", "foo Rule Foo bar")]
+            [InlineData("foo {RuleId} bar", "foo Rule Foo bar")]
             [InlineData("foo {RuleUrl} bar", "foo https://google.com/ bar")]
             [InlineData("foo {MessageText} bar", "foo MessageText Foo bar")]
             [InlineData("foo {MessageHtml} bar", "foo MessageHtml Foo bar")]

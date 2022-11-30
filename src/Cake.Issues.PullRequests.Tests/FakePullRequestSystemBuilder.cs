@@ -11,8 +11,8 @@
     public class FakePullRequestSystemBuilder
     {
         private readonly ICakeLog log;
-        private readonly List<IPullRequestDiscussionThread> discussionThreads = new List<IPullRequestDiscussionThread>();
-        private readonly List<FilePath> modifiedFiles = new List<FilePath>();
+        private readonly List<IPullRequestDiscussionThread> discussionThreads = new ();
+        private readonly List<FilePath> modifiedFiles = new ();
         private bool withCheckingCommitIdCapability;
         private bool withDiscussionThreadsCapability;
         private bool withFilteringByModifiedFilesCapability;

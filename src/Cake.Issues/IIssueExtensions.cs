@@ -138,6 +138,18 @@
         }
 
         /// <summary>
+        /// Returns the name or id of the rule.
+        /// </summary>
+        /// <param name="issue">Issue for which the rule should be returned.</param>
+        /// <returns>Returns <see cref="IIssue.RuleName"/> if it is set, otherwise <see cref="IIssue.RuleId"/>.</returns>
+        public static string Rule(this IIssue issue)
+        {
+            issue.NotNull(nameof(issue));
+
+            return !string.IsNullOrWhiteSpace(issue.RuleName) ? issue.RuleName : issue.RuleId;
+        }
+
+        /// <summary>
         /// Returns a string with all patterns replaced by the values of <paramref name="issue"/>.
         /// </summary>
         /// <param name="pattern">Pattern whose values should be replaced.
@@ -212,8 +224,12 @@
         ///         <description>The value of <see cref="IIssue.FileLink"/>.</description>
         ///     </item>
         ///     <item>
-        ///         <term>{Rule}</term>
-        ///         <description>The value of <see cref="IIssue.Rule"/>.</description>
+        ///         <term>{RuleId}</term>
+        ///         <description>The value of <see cref="IIssue.RuleId"/>.</description>
+        ///     </item>
+        ///     <item>
+        ///         <term>{RuleName}</term>
+        ///         <description>The value of <see cref="IIssue.RuleName"/>.</description>
         ///     </item>
         ///     <item>
         ///         <term>{RuleUrl}</term>
@@ -271,7 +287,8 @@
                     .Replace("{Column}", issue.Column?.ToString())
                     .Replace("{EndColumn}", issue.EndColumn?.ToString())
                     .Replace("{FileLink}", issue.FileLink?.ToString())
-                    .Replace("{Rule}", issue.Rule)
+                    .Replace("{RuleId}", issue.RuleId)
+                    .Replace("{RuleName}", issue.RuleName)
                     .Replace("{RuleUrl}", issue.RuleUrl?.ToString())
                     .Replace("{Run}", issue.Run)
                     .Replace("{MessageText}", issue.Message(IssueCommentFormat.PlainText))

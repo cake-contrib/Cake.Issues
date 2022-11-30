@@ -18,6 +18,6 @@
         /// <summary>
         /// Discussion is marked as won't fix.
         /// </summary>
-        WontFix
+        WontFix,
     }
 }

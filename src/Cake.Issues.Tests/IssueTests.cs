@@ -31,6 +31,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -55,6 +56,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -84,6 +86,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -108,6 +111,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -137,6 +141,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -161,6 +166,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -190,6 +196,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -214,6 +221,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -246,6 +254,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -270,6 +279,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -301,6 +311,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -325,6 +336,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -354,6 +366,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -378,6 +391,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -407,6 +421,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -431,6 +446,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -460,6 +476,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -484,6 +501,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -513,6 +531,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -537,6 +556,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -569,6 +589,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -593,6 +614,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -622,6 +644,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -646,6 +669,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -675,6 +699,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -699,6 +724,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -728,6 +754,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -752,6 +779,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -784,6 +812,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -808,6 +837,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -839,6 +869,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -863,6 +894,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -892,6 +924,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -916,6 +949,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -945,6 +979,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -969,6 +1004,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -998,6 +1034,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -1022,6 +1059,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -1059,6 +1097,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -1083,6 +1122,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -1116,6 +1156,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -1140,6 +1181,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -1169,6 +1211,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -1193,6 +1236,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -1222,6 +1266,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -1246,6 +1291,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -1275,6 +1321,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -1299,6 +1346,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -1329,6 +1377,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -1353,6 +1402,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -1385,6 +1435,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -1409,6 +1460,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -1438,6 +1490,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -1462,6 +1515,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -1491,6 +1545,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -1515,6 +1570,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -1544,6 +1600,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -1568,6 +1625,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -1597,6 +1655,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -1621,6 +1680,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -1650,6 +1710,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -1674,6 +1735,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -1704,6 +1766,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -1728,6 +1791,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -1760,6 +1824,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -1784,6 +1849,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -1813,6 +1879,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -1837,6 +1904,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -1866,6 +1934,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -1890,6 +1959,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -1919,6 +1989,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -1943,6 +2014,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -1974,6 +2046,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -1998,6 +2071,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -2030,6 +2104,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -2054,6 +2129,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -2083,6 +2159,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -2107,6 +2184,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -2136,6 +2214,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -2160,6 +2239,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -2189,6 +2269,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -2213,6 +2294,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -2242,6 +2324,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -2266,6 +2349,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -2295,6 +2379,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -2319,6 +2404,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -2350,6 +2436,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -2374,6 +2461,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -2406,6 +2494,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -2430,6 +2519,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -2459,6 +2549,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -2483,6 +2574,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -2515,6 +2607,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -2539,6 +2632,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -2568,6 +2662,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -2592,6 +2687,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -2621,6 +2717,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -2645,6 +2742,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -2674,6 +2772,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -2698,6 +2797,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -2733,6 +2833,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -2757,6 +2858,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -2792,6 +2894,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -2816,6 +2919,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -2853,6 +2957,7 @@
                     var messageMarkdown = "MessageMarkdown";
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -2877,6 +2982,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -2909,6 +3015,7 @@
                     var priority = 1;
                     string priorityName = null;
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -2933,6 +3040,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -2962,6 +3070,7 @@
                     var priority = 1;
                     var priorityName = string.Empty;
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -2986,6 +3095,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -3015,6 +3125,7 @@
                     var priority = 1;
                     var priorityName = " ";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -3039,6 +3150,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -3068,6 +3180,7 @@
                     var messageMarkdown = "MessageMarkdown";
                     var priority = 1;
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -3092,6 +3205,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -3103,13 +3217,13 @@
                 }
             }
 
-            public sealed class TheRuleArgument
+            public sealed class TheRuleIdArgument
             {
                 [Theory]
                 [InlineData(null)]
                 [InlineData("")]
                 [InlineData("rule")]
-                public void Should_Set_Rule(string rule)
+                public void Should_Set_RuleId(string ruleId)
                 {
                     // Given
                     var identifier = "identifier";
@@ -3126,6 +3240,7 @@
                     var messageMarkdown = "MessageMarkdown";
                     var priority = 1;
                     var priorityName = "Warning";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -3149,7 +3264,8 @@
                             messageMarkdown,
                             priority,
                             priorityName,
-                            rule,
+                            ruleId,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -3157,7 +3273,67 @@
                             additionalInformation);
 
                     // Then
-                    issue.Rule.ShouldBe(rule);
+                    issue.RuleId.ShouldBe(ruleId);
+                }
+            }
+
+            public sealed class TheRuleNameArgument
+            {
+                [Theory]
+                [InlineData(null)]
+                [InlineData("")]
+                [InlineData("ruleName")]
+                public void Should_Set_RuleName(string ruleName)
+                {
+                    // Given
+                    var identifier = "identifier";
+                    var projectPath = @"src\foo.csproj";
+                    var projectName = "foo";
+                    var filePath = @"src\foo.cs";
+                    var line = 10;
+                    var endLine = 12;
+                    var column = 50;
+                    var endColumn = 55;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
+                    var messageText = "MessageText";
+                    var messageHtml = "MessageHtml";
+                    var messageMarkdown = "MessageMarkdown";
+                    var priority = 1;
+                    var priorityName = "Warning";
+                    var ruleId = "Rule";
+                    var ruleUri = new Uri("https://google.com");
+                    var providerType = "ProviderType";
+                    var providerName = "ProviderName";
+                    var run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
+
+                    // When
+                    var issue =
+                        new Issue(
+                            identifier,
+                            projectPath,
+                            projectName,
+                            filePath,
+                            line,
+                            endLine,
+                            column,
+                            endColumn,
+                            fileLink,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
+                            priority,
+                            priorityName,
+                            ruleId,
+                            ruleName,
+                            ruleUri,
+                            run,
+                            providerType,
+                            providerName,
+                            additionalInformation);
+
+                    // Then
+                    issue.RuleName.ShouldBe(ruleName);
                 }
             }
 
@@ -3182,6 +3358,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -3206,6 +3383,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -3235,6 +3413,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     Uri ruleUri = null;
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -3259,6 +3438,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -3294,6 +3474,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -3317,6 +3498,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -3349,6 +3531,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     string providerType = null;
                     var providerName = "ProviderName";
@@ -3373,6 +3556,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -3402,6 +3586,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = string.Empty;
                     var providerName = "ProviderName";
@@ -3426,6 +3611,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -3455,6 +3641,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = " ";
                     var providerName = "ProviderName";
@@ -3479,6 +3666,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -3509,6 +3697,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerName = "ProviderName";
                     var run = "Run";
@@ -3532,6 +3721,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -3564,6 +3754,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     string providerName = null;
@@ -3588,6 +3779,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -3617,6 +3809,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = string.Empty;
@@ -3641,6 +3834,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -3670,6 +3864,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = " ";
@@ -3694,6 +3889,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -3724,6 +3920,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var run = "Run";
@@ -3747,6 +3944,7 @@
                             priority,
                             priorityName,
                             rule,
+                            ruleName,
                             ruleUri,
                             run,
                             providerType,
@@ -3779,6 +3977,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -3813,6 +4012,7 @@
                         priority,
                         priorityName,
                         rule,
+                        ruleName,
                         ruleUri,
                         run,
                         providerType,
@@ -3843,6 +4043,7 @@
                     var priority = 1;
                     var priorityName = "Warning";
                     var rule = "Rule";
+                    var ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = "ProviderType";
                     var providerName = "ProviderName";
@@ -3866,6 +4067,7 @@
                         priority,
                         priorityName,
                         rule,
+                        ruleName,
                         ruleUri,
                         run,
                         providerType,

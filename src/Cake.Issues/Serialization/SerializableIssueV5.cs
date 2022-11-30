@@ -1,12 +1,13 @@
 ﻿namespace Cake.Issues.Serialization
 {
+    using System.Collections.Generic;
     using System.Runtime.Serialization;
 
     /// <summary>
     /// Class for serializing and deserializing an <see cref="IIssue"/> instance.
     /// </summary>
     [DataContract]
-    internal class SerializableIssueV3
+    internal class SerializableIssueV5
     {
         /// <summary>
         /// Gets the version of the serialization format.
@@ -16,7 +17,7 @@
         {
             get
             {
-                return 3;
+                return 5;
             }
         }
 
@@ -78,7 +79,11 @@
 
         /// <inheritdoc cref="IIssue.RuleId" />
         [DataMember]
-        public string Rule { get; set; }
+        public string RuleId { get; set; }
+
+        /// <inheritdoc cref="IIssue.RuleName" />
+        [DataMember]
+        public string RuleName { get; set; }
 
         /// <inheritdoc cref="IIssue.RuleUrl" />
         [DataMember]
@@ -95,5 +100,9 @@
         /// <inheritdoc cref="IIssue.Run" />
         [DataMember]
         public string Run { get; set; }
+
+        /// <inheritdoc cref="IIssue.AdditionalInformation" />
+        [DataMember]
+        public Dictionary<string, string> AdditionalInformation { get; set; }
     }
 }

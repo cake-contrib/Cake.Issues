@@ -9,7 +9,7 @@
     /// </summary>
     public class FakeFilteringByModifiedFilesCapability : BaseFilteringByModifiedFilesCapability<FakePullRequestSystem>
     {
-        private readonly List<FilePath> modifiedFiles = new List<FilePath>();
+        private readonly List<FilePath> modifiedFiles = new ();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FakeFilteringByModifiedFilesCapability"/> class.

@@ -12,8 +12,7 @@
 #pragma warning disable SA1124 // Do not use regions
         #region DupFinder Exclusion
 #pragma warning restore SA1124 // Do not use regions
-        private readonly List<Func<IEnumerable<IIssue>, IEnumerable<IIssue>>> issueFilters =
-            new List<Func<IEnumerable<IIssue>, IEnumerable<IIssue>>>();
+        private readonly List<Func<IEnumerable<IIssue>, IEnumerable<IIssue>>> issueFilters = new ();
         #endregion
 
         /// <summary>

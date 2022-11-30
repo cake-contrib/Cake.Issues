@@ -1,19 +1,18 @@
 ﻿namespace Cake.Issues.Serialization
 {
     using System;
-    using System.Collections.Generic;
 
     /// <summary>
-    /// Extensions for <see cref="SerializableIssueV3"/>.
+    /// Extensions for <see cref="SerializableIssueV5"/>.
     /// </summary>
-    internal static class SerializableIssueV3Extensions
+    internal static class SerializableIssueV5Extensions
     {
         /// <summary>
-        /// Converts a <see cref="SerializableIssueV3"/> to an <see cref="Issue"/>.
+        /// Converts a <see cref="SerializableIssueV5"/> to an <see cref="Issue"/>.
         /// </summary>
         /// <param name="serializableIssue">Issue which should be converted.</param>
         /// <returns>Converted issue.</returns>
-        internal static Issue ToIssue(this SerializableIssueV3 serializableIssue)
+        internal static Issue ToIssue(this SerializableIssueV5 serializableIssue)
         {
 #pragma warning disable SA1123 // Do not place regions within elements
             #region DupFinder Exclusion
@@ -48,13 +47,13 @@
                 serializableIssue.MessageMarkdown,
                 serializableIssue.Priority,
                 serializableIssue.PriorityName,
-                serializableIssue.Rule,
-                null,
+                serializableIssue.RuleId,
+                serializableIssue.RuleName,
                 ruleUrl,
                 serializableIssue.Run,
                 serializableIssue.ProviderType,
                 serializableIssue.ProviderName,
-                new Dictionary<string, string>());
+                serializableIssue.AdditionalInformation);
 
             #endregion
         }

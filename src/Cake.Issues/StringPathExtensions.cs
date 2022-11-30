@@ -1,6 +1,4 @@
-﻿// Based on http://stackoverflow.com/a/31941159/566901
-
-namespace Cake.Issues
+﻿namespace Cake.Issues
 {
     using System;
     using System.IO;
@@ -54,6 +52,7 @@ namespace Cake.Issues
         /// <returns>Returns true if <paramref name="path"/> starts with the path <paramref name="baseDirPath"/>.</returns>
         public static bool IsSubpathOf(this string path, string baseDirPath)
         {
+            // Based on http://stackoverflow.com/a/31941159/566901
             path.NotNullOrWhiteSpace(nameof(path));
             baseDirPath.NotNullOrWhiteSpace(nameof(baseDirPath));
 
@@ -125,6 +124,79 @@ namespace Cake.Issues
             }
 
             return result;
+        }
+
+        /// <summary>
+        /// Validates if a file path is a valid path below <see cref="IRepositorySettings.RepositoryRoot"/>.
+        /// </summary>
+        /// <param name="filePath">Full file path.</param>
+        /// <param name="repositorySettings">Repository settings.</param>
+        /// <returns>Tuple containing a value if validation was successful,
+        /// and file path relative to <see cref="IRepositorySettings.RepositoryRoot"/>.</returns>
+        public static (bool Valid, string FilePath) IsValideRepositoryFilePath(this string filePath, IRepositorySettings repositorySettings)
+        {
+            filePath.NotNullOrWhiteSpace(nameof(filePath));
+            repositorySettings.NotNull(nameof(repositorySettings));
+
+            // Ignore files from outside the repository.
+            if (!filePath.IsInRepository(repositorySettings))
+            {
+                return (false, string.Empty);
+            }
+
+            // Make path relative to repository root.
+            filePath = filePath.MakeFilePathRelativeToRepositoryRoot(repositorySettings);
+
+            return (true, filePath);
+        }
+
+        /// <summary>
+        /// Checks if a file is part of the repository.
+        /// </summary>
+        /// <param name="filePath">Full file path.</param>
+        /// <param name="repositorySettings">Repository settings.</param>
+        /// <returns>True if file is in repository, false otherwise.</returns>
+        public static bool IsInRepository(this string filePath, IRepositorySettings repositorySettings)
+        {
+            filePath.NotNullOrWhiteSpace(nameof(filePath));
+            repositorySettings.NotNull(nameof(repositorySettings));
+
+            return filePath.IsSubpathOf(repositorySettings.RepositoryRoot.FullPath);
+        }
+
+        /// <summary>
+        /// Make path relative to repository root.
+        /// </summary>
+        /// <param name="filePath">Full file path.</param>
+        /// <param name="repositorySettings">Repository settings.</param>
+        /// <returns>File path relative to the repository root.</returns>
+        public static string MakeFilePathRelativeToRepositoryRoot(this string filePath, IRepositorySettings repositorySettings)
+        {
+            filePath.NotNullOrWhiteSpace(nameof(filePath));
+            repositorySettings.NotNull(nameof(repositorySettings));
+
+            filePath = filePath[repositorySettings.RepositoryRoot.FullPath.Length..];
+
+            // Remove leading directory separator.
+            return filePath.RemoveLeadingDirectorySeparator();
+        }
+
+        /// <summary>
+        /// Remove the leading directory separator from a file path.
+        /// </summary>
+        /// <param name="filePath">Full file path.</param>
+        /// <returns>File path without leading directory separator.</returns>
+        public static string RemoveLeadingDirectorySeparator(this string filePath)
+        {
+            filePath.NotNullOrWhiteSpace(nameof(filePath));
+
+            if (filePath.StartsWith("\\", StringComparison.Ordinal) ||
+                filePath.StartsWith("/", StringComparison.Ordinal))
+            {
+                return filePath[1..];
+            }
+
+            return filePath;
         }
 
         /// <summary>Gets the rightmost <paramref name="length" /> characters from a string.</summary>

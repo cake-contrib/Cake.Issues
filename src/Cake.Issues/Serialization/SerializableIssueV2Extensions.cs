@@ -43,6 +43,7 @@
                 serializableIssue.Priority,
                 serializableIssue.PriorityName,
                 serializableIssue.Rule,
+                null,
                 ruleUrl,
                 null,
                 serializableIssue.ProviderType,

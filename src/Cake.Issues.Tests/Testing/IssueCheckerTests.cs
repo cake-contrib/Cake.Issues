@@ -161,6 +161,7 @@
                         fixture.Priority,
                         fixture.PriorityName,
                         fixture.Rule,
+                        fixture.RuleName,
                         fixture.RuleUrl,
                         fixture.AdditionalInformation));
 
@@ -195,6 +196,7 @@
                     fixture.Priority,
                     fixture.PriorityName,
                     fixture.Rule,
+                    fixture.RuleName,
                     fixture.RuleUrl,
                     fixture.AdditionalInformation);
 
@@ -233,6 +235,7 @@
                         fixture.Priority,
                         fixture.PriorityName,
                         fixture.Rule,
+                        fixture.RuleName,
                         fixture.RuleUrl,
                         fixture.AdditionalInformation));
 
@@ -273,6 +276,7 @@
                         fixture.Priority,
                         fixture.PriorityName,
                         fixture.Rule,
+                        fixture.RuleName,
                         fixture.RuleUrl,
                         fixture.AdditionalInformation));
 
@@ -317,6 +321,7 @@
                         fixture.Priority,
                         fixture.PriorityName,
                         fixture.Rule,
+                        fixture.RuleName,
                         fixture.RuleUrl,
                         fixture.AdditionalInformation));
 
@@ -357,6 +362,7 @@
                         fixture.Priority,
                         fixture.PriorityName,
                         fixture.Rule,
+                        fixture.RuleName,
                         fixture.RuleUrl,
                         fixture.AdditionalInformation));
 
@@ -398,6 +404,7 @@
                         fixture.Priority,
                         fixture.PriorityName,
                         fixture.Rule,
+                        fixture.RuleName,
                         fixture.RuleUrl,
                         fixture.AdditionalInformation));
 
@@ -442,6 +449,7 @@
                         fixture.Priority,
                         fixture.PriorityName,
                         fixture.Rule,
+                        fixture.RuleName,
                         fixture.RuleUrl,
                         fixture.AdditionalInformation));
 
@@ -483,6 +491,7 @@
                         fixture.Priority,
                         fixture.PriorityName,
                         fixture.Rule,
+                        fixture.RuleName,
                         fixture.RuleUrl,
                         fixture.AdditionalInformation));
 
@@ -526,6 +535,7 @@
                         fixture.Priority,
                         fixture.PriorityName,
                         fixture.Rule,
+                        fixture.RuleName,
                         fixture.RuleUrl,
                         fixture.AdditionalInformation));
 
@@ -569,6 +579,7 @@
                         fixture.Priority,
                         fixture.PriorityName,
                         fixture.Rule,
+                        fixture.RuleName,
                         fixture.RuleUrl,
                         fixture.AdditionalInformation));
 
@@ -612,6 +623,7 @@
                         fixture.Priority,
                         fixture.PriorityName,
                         fixture.Rule,
+                        fixture.RuleName,
                         fixture.RuleUrl,
                         fixture.AdditionalInformation));
 
@@ -655,6 +667,7 @@
                         fixture.Priority,
                         fixture.PriorityName,
                         fixture.Rule,
+                        fixture.RuleName,
                         fixture.RuleUrl,
                         fixture.AdditionalInformation));
 
@@ -697,6 +710,7 @@
                         fixture.Priority,
                         fixture.PriorityName,
                         fixture.Rule,
+                        fixture.RuleName,
                         fixture.RuleUrl,
                         fixture.AdditionalInformation));
 
@@ -737,6 +751,7 @@
                         fixture.Priority,
                         fixture.PriorityName,
                         fixture.Rule,
+                        fixture.RuleName,
                         fixture.RuleUrl,
                         fixture.AdditionalInformation));
 
@@ -781,6 +796,7 @@
                         fixture.Priority,
                         fixture.PriorityName,
                         fixture.Rule,
+                        fixture.RuleName,
                         fixture.RuleUrl,
                         fixture.AdditionalInformation));
 
@@ -825,6 +841,7 @@
                         fixture.Priority,
                         fixture.PriorityName,
                         fixture.Rule,
+                        fixture.RuleName,
                         fixture.RuleUrl,
                         fixture.AdditionalInformation));
 
@@ -866,6 +883,7 @@
                         (int)expectedValue,
                         fixture.PriorityName,
                         fixture.Rule,
+                        fixture.RuleName,
                         fixture.RuleUrl,
                         fixture.AdditionalInformation));
 
@@ -910,6 +928,7 @@
                         fixture.Priority,
                         expectedValue,
                         fixture.Rule,
+                        fixture.RuleName,
                         fixture.RuleUrl,
                         fixture.AdditionalInformation));
 
@@ -954,12 +973,58 @@
                         fixture.Priority,
                         fixture.PriorityName,
                         expectedValue,
+                        fixture.RuleName,
                         fixture.RuleUrl,
                         fixture.AdditionalInformation));
 
                 // Then
                 result.ShouldBeOfType<Exception>();
                 result.Message.ShouldStartWith("Expected issue.Rule");
+            }
+
+            [Theory]
+            [InlineData("Rule", "Foo")]
+            [InlineData(null, "Foo")]
+            [InlineData("", "Foo")]
+            [InlineData(" ", "Foo")]
+            public void Should_Throw_If_RuleName_Is_Different(string expectedValue, string actualValue)
+            {
+                // Given
+                var fixture = new IssueCheckerFixture();
+                var issue =
+                    fixture.IssueBuilder
+                        .OfRule(fixture.Rule, actualValue)
+                        .Create();
+
+                // When
+                var result = Record.Exception(() =>
+                    IssueChecker.Check(
+                        issue,
+                        fixture.ProviderType,
+                        fixture.ProviderName,
+                        fixture.Run,
+                        fixture.Identifier,
+                        fixture.ProjectFileRelativePath,
+                        fixture.ProjectName,
+                        fixture.AffectedFileRelativePath,
+                        fixture.Line,
+                        fixture.EndLine,
+                        fixture.Column,
+                        fixture.EndColumn,
+                        fixture.FileLink,
+                        fixture.MessageText,
+                        fixture.MessageHtml,
+                        fixture.MessageMarkdown,
+                        fixture.Priority,
+                        fixture.PriorityName,
+                        fixture.Rule,
+                        expectedValue,
+                        fixture.RuleUrl,
+                        fixture.AdditionalInformation));
+
+                // Then
+                result.ShouldBeOfType<Exception>();
+                result.Message.ShouldStartWith("Expected issue.RuleName");
             }
 
             [Theory]
@@ -995,6 +1060,7 @@
                         fixture.Priority,
                         fixture.PriorityName,
                         fixture.Rule,
+                        fixture.RuleName,
                         new Uri(expectedValue),
                         fixture.AdditionalInformation));
 
@@ -1036,6 +1102,7 @@
                         fixture.Priority,
                         fixture.PriorityName,
                         fixture.Rule,
+                        fixture.RuleName,
                         fixture.RuleUrl,
                         new Dictionary<string, string>
                         {
@@ -1099,6 +1166,7 @@
                         fixture.Priority,
                         fixture.PriorityName,
                         fixture.Rule,
+                        fixture.RuleName,
                         fixture.RuleUrl,
                         expected));
 
@@ -1159,6 +1227,7 @@
                         fixture.Priority,
                         fixture.PriorityName,
                         fixture.Rule,
+                        fixture.RuleName,
                         fixture.RuleUrl,
                         expected));
 

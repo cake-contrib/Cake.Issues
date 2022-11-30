@@ -8,9 +8,9 @@
     /// </summary>
     public class FakeDiscussionThreadsCapability : BaseDiscussionThreadsCapability<FakePullRequestSystem>
     {
-        private readonly List<IPullRequestDiscussionThread> discussionThreads = new List<IPullRequestDiscussionThread>();
-        private readonly List<IPullRequestDiscussionThread> resolvedThreads = new List<IPullRequestDiscussionThread>();
-        private readonly List<IPullRequestDiscussionThread> reopenedThreads = new List<IPullRequestDiscussionThread>();
+        private readonly List<IPullRequestDiscussionThread> discussionThreads = new ();
+        private readonly List<IPullRequestDiscussionThread> resolvedThreads = new ();
+        private readonly List<IPullRequestDiscussionThread> reopenedThreads = new ();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FakeDiscussionThreadsCapability"/> class.
