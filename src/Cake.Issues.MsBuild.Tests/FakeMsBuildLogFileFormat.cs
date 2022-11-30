@@ -16,21 +16,6 @@
             return base.ValidateFilePath(filePath, repositorySettings);
         }
 
-        public new bool CheckIfFileIsInRepository(string filePath, IRepositorySettings repositorySettings)
-        {
-            return base.CheckIfFileIsInRepository(filePath, repositorySettings);
-        }
-
-        public new string MakeFilePathRelativeToRepositoryRoot(string filePath, IRepositorySettings repositorySettings)
-        {
-            return base.MakeFilePathRelativeToRepositoryRoot(filePath, repositorySettings);
-        }
-
-        public new string RemoveLeadingDirectorySeparator(string filePath)
-        {
-            return base.RemoveLeadingDirectorySeparator(filePath);
-        }
-
         public override IEnumerable<IIssue> ReadIssues(
             MsBuildIssuesProvider issueProvider,
             IRepositorySettings repositorySettings,
