@@ -80,7 +80,16 @@
 
             // Validate file path and make relative to repository root.
             bool result;
-            (result, fileName) = this.ValidateFilePath(filePath, repositorySettings);
+            (result, fileName) = filePath.IsValideRepositoryFilePath(repositorySettings);
+
+            if (!result)
+            {
+                this.Log.Warning(
+                    "Ignored issue for file '{0}' since it is outside the repository folder at {1}.",
+                    filePath,
+                    repositorySettings.RepositoryRoot);
+            }
+
             return result;
         }
     }
