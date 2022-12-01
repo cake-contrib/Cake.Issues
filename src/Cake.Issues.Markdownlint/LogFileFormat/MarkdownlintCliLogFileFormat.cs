@@ -73,18 +73,24 @@
             IRepositorySettings repositorySettings,
             out string fileName)
         {
-            fileName = values["filePath"].Value;
+            values.NotNull(nameof(values));
+            repositorySettings.NotNull(nameof(repositorySettings));
 
-            // Make path relative to repository root.
-            fileName = fileName.Substring(repositorySettings.RepositoryRoot.FullPath.Length);
+            var filePath = values["filePath"].Value;
 
-            // Remove leading directory separator.
-            if (fileName.StartsWith("/"))
+            // Validate file path and make relative to repository root.
+            bool result;
+            (result, fileName) = filePath.IsValideRepositoryFilePath(repositorySettings);
+
+            if (!result)
             {
-                fileName = fileName.Substring(1);
+                this.Log.Warning(
+                    "Ignored issue for file '{0}' since it is outside the repository folder at {1}.",
+                    filePath,
+                    repositorySettings.RepositoryRoot);
             }
 
-            return true;
+            return result;
         }
     }
 }
