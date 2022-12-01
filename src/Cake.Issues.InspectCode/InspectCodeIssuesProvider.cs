@@ -1,12 +1,12 @@
 ﻿namespace Cake.Issues.InspectCode
 {
+    using Cake.Core.Diagnostics;
     using System;
     using System.Collections.Generic;
     using System.Globalization;
     using System.IO;
     using System.Linq;
     using System.Xml.Linq;
-    using Cake.Core.Diagnostics;
 
     /// <summary>
     /// Provider for issues reported by JetBrains Inspect Code.
@@ -41,6 +41,7 @@
                     x => x.Attribute("Id")?.Value,
                     x => new IssueType
                     {
+                        Description = x.Attribute("Description").Value,
                         Severity = x.Attribute("Severity").Value,
                         WikiUrl = x.Attribute("WikiUrl")?.Value.ToUri(),
                     });
@@ -67,7 +68,7 @@
                 }
 
                 // Read rule code from the issue.
-                if (!TryGetRule(issue, out string rule))
+                if (!TryGetRuleId(issue, out string ruleId))
                 {
                     continue;
                 }
@@ -79,8 +80,9 @@
                 }
 
                 // Determine issue type properties.
-                var issueType = issueTypes[rule];
+                var issueType = issueTypes[ruleId];
                 var severity = issueType.Severity.ToLowerInvariant();
+                var ruleDescription = issueType.Description;
                 var ruleUrl = issueType.WikiUrl;
 
                 // Build issue.
@@ -90,7 +92,7 @@
                         .InProjectOfName(projectName)
                         .InFile(fileName, line)
                         .WithPriority(GetPriority(severity))
-                        .OfRule(rule, ruleUrl)
+                        .OfRule(ruleId, ruleDescription, ruleUrl)
                         .Create());
             }
 
@@ -197,11 +199,11 @@
         /// Reads the rule code from an issue logged in a Inspect Code log.
         /// </summary>
         /// <param name="issue">Issue element from Inspect Code log.</param>
-        /// <param name="rule">Returns the code of the rule.</param>
+        /// <param name="ruleId">Returns the code of the rule.</param>
         /// <returns>True if the rule code could be parsed.</returns>
-        private static bool TryGetRule(XElement issue, out string rule)
+        private static bool TryGetRuleId(XElement issue, out string ruleId)
         {
-            rule = string.Empty;
+            ruleId = string.Empty;
 
             var codeAttr = issue.Attribute("TypeId");
             if (codeAttr == null)
@@ -209,8 +211,8 @@
                 return false;
             }
 
-            rule = codeAttr.Value;
-            if (string.IsNullOrWhiteSpace(rule))
+            ruleId = codeAttr.Value;
+            if (string.IsNullOrWhiteSpace(ruleId))
             {
                 return false;
             }
@@ -274,6 +276,11 @@
         /// </summary>
         private class IssueType
         {
+            /// <summary>
+            /// Gets or sets the description of the issue.
+            /// </summary>
+            public string Description { get; set; }
+
             /// <summary>
             /// Gets or sets the severity of this issue type.
             /// </summary>

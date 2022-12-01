@@ -57,7 +57,9 @@
                         "InspectCode")
                         .InProjectOfName("Cake.Issues")
                         .InFile(@"src\Cake.Issues\CakeAliasConstants.cs", 16)
-                        .OfRule("UnusedMember.Global")
+                        .OfRule(
+                            "UnusedMember.Global",
+                            "Type or member is never used: Non-private accessibility")
                         .WithPriority(IssuePriority.Suggestion)
                         .Create());
             }
@@ -82,7 +84,10 @@
                         "InspectCode")
                         .InProjectOfName("Project1")
                         .InFile(@"Src\myfile.cs", 1)
-                        .OfRule("RedundantUsingDirective", new Uri("https://www.jetbrains.com/resharperplatform/help?Keyword=RedundantUsingDirective"))
+                        .OfRule(
+                            "RedundantUsingDirective",
+                            "Redundant using directive",
+                            new Uri("https://www.jetbrains.com/resharperplatform/help?Keyword=RedundantUsingDirective"))
                         .WithPriority(IssuePriority.Warning)
                         .Create());
             }
@@ -107,7 +112,10 @@
                         "InspectCode")
                         .InProjectOfName("Cake.CodeAnalysisReporting")
                         .InFile(@"src\Cake.CodeAnalysisReporting\CodeAnalysisReportingAliases.cs", 3)
-                        .OfRule("RedundantUsingDirective", new Uri("http://www.jetbrains.com/resharperplatform/help?Keyword=RedundantUsingDirective"))
+                        .OfRule(
+                            "RedundantUsingDirective",
+                            "Redundant using directive",
+                            new Uri("http://www.jetbrains.com/resharperplatform/help?Keyword=RedundantUsingDirective"))
                         .WithPriority(IssuePriority.Warning)
                         .Create());
             }
