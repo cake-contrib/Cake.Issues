@@ -32,7 +32,8 @@
         /// <param name="addColumn">Flag if value of <see cref="IIssue.Column"/> should be added.</param>
         /// <param name="addEndColumn">Flag if value of <see cref="IIssue.EndColumn"/> should be added.</param>
         /// <param name="addLocation">Flag if value of <see cref="Cake.Issues.IIssueExtensions.LineRange(IIssue)"/> should be added.</param>
-        /// <param name="addRule">Flag if value of <see cref="IIssue.Rule"/> should be added.</param>
+        /// <param name="addRuleId">Flag if value of <see cref="IIssue.RuleId"/> should be added.</param>
+        /// <param name="addRuleName">Flag if value of <see cref="IIssue.RuleName"/> should be added.</param>
         /// <param name="addRuleUrl">Flag if value of <see cref="IIssue.RuleUrl"/> should be added.</param>
         /// <param name="addMessageText">Flag if value of <see cref="IIssue.MessageText"/> should be added.</param>
         /// <param name="addMessageHtml">Flag if value of <see cref="IIssue.MessageHtml"/> should be added.</param>
@@ -61,7 +62,8 @@
             bool addColumn = true,
             bool addEndColumn = true,
             bool addLocation = true,
-            bool addRule = true,
+            bool addRuleId = true,
+            bool addRuleName = true,
             bool addRuleUrl = true,
             bool addMessageText = true,
             bool addMessageHtml = false,
@@ -154,9 +156,14 @@
                 result.Location = issue.LineRange();
             }
 
-            if (addRule)
+            if (addRuleId)
             {
-                result.Rule = issue.Rule;
+                result.RuleId = issue.RuleId;
+            }
+
+            if (addRuleName)
+            {
+                result.RuleName = issue.RuleName;
             }
 
             if (addRuleUrl)

@@ -97,11 +97,11 @@
                         <td>
                             @if (issue.RuleUrl != null)
                             {
-                                <a href="@issue.RuleUrl" target="_blank">@issue.Rule</a>
+                                <a href="@issue.RuleUrl" target="_blank">@issue.RuleId</a>
                             }
                             else
                             {
-                                @issue.Rule;
+                                @issue.RuleId;
                             }
                         </td>
                         <td>@issue.MessageText</td>

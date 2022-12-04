@@ -8,8 +8,8 @@ Task("Create-Reports-HtmlDxDataGrid-Sorting")
         GenericIssueReportFormatFromEmbeddedTemplate(
             GenericIssueReportTemplate.HtmlDxDataGrid,
             settings => settings
-                .WithOption(HtmlDxDataGridOption.SortedColumns, new List<ReportColumn> { ReportColumn.Rule })
-                .WithOption(HtmlDxDataGridOption.RuleSortOrder, ColumnSortOrder.Descending)),
+                .WithOption(HtmlDxDataGridOption.SortedColumns, new List<ReportColumn> { ReportColumn.RuleId })
+                .WithOption(HtmlDxDataGridOption.RuleIdSortOrder, ColumnSortOrder.Descending)),
         data.RepoRootFolder,
         data.TemplateGalleryFolder.CombineWithFilePath("htmldxdatagrid-demo-sorting.html"));
 });

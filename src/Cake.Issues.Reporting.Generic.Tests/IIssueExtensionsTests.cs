@@ -562,25 +562,25 @@
             }
 
             [Fact]
-            public void Should_Set_Rule_If_Flag_Is_Set()
+            public void Should_Set_RuleId_If_Flag_Is_Set()
             {
                 // Given
-                var rule = "foo";
+                var ruleId = "foo";
                 var issue =
                     IssueBuilder
                         .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
-                        .OfRule(rule)
+                        .OfRule(ruleId)
                         .Create();
 
                 // When
-                dynamic result = issue.GetExpandoObject(addRule: true);
+                dynamic result = issue.GetExpandoObject(addRuleId: true);
 
                 // Then
-                Assert.Equal(result.Rule, rule);
+                Assert.Equal(result.RuleId, ruleId);
             }
 
             [Fact]
-            public void Should_Not_Set_Rule_If_Flag_Is_Not_Set()
+            public void Should_Not_Set_RuleId_If_Flag_Is_Not_Set()
             {
                 // Given
                 var issue =
@@ -589,11 +589,46 @@
                         .Create();
 
                 // When
-                dynamic expando = issue.GetExpandoObject(addRule: false);
-                var result = Record.Exception(() => expando.Rule);
+                dynamic expando = issue.GetExpandoObject(addRuleId: false);
+                var result = Record.Exception(() => expando.RuleId);
 
                 // Then
-                result.IsRuntimeBinderException("'System.Dynamic.ExpandoObject' does not contain a definition for 'Rule'");
+                result.IsRuntimeBinderException("'System.Dynamic.ExpandoObject' does not contain a definition for 'RuleId'");
+            }
+
+            [Fact]
+            public void Should_Set_RuleName_If_Flag_Is_Set()
+            {
+                // Given
+                var ruleName = "foo";
+                var issue =
+                    IssueBuilder
+                        .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                        .OfRule("ruleId", ruleName)
+                        .Create();
+
+                // When
+                dynamic result = issue.GetExpandoObject(addRuleName: true);
+
+                // Then
+                Assert.Equal(result.RuleName, ruleName);
+            }
+
+            [Fact]
+            public void Should_Not_Set_RuleName_If_Flag_Is_Not_Set()
+            {
+                // Given
+                var issue =
+                    IssueBuilder
+                        .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                        .Create();
+
+                // When
+                dynamic expando = issue.GetExpandoObject(addRuleName: false);
+                var result = Record.Exception(() => expando.RuleName);
+
+                // Then
+                result.IsRuntimeBinderException("'System.Dynamic.ExpandoObject' does not contain a definition for 'RuleName'");
             }
 
             [Fact]

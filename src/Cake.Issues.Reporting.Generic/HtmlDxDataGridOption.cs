@@ -258,18 +258,32 @@
         LocationSortOrder,
 
         /// <summary>
-        /// Flag if the <see cref="ReportColumn.Rule"/> column should be visible or not.
+        /// Flag if the <see cref="ReportColumn.RuleId"/> column should be visible or not.
         /// Either <c>true</c> or <c>false</c>.
         /// Default value is <c>true</c>.
         /// </summary>
-        RuleVisible,
+        RuleIdVisible,
 
         /// <summary>
-        /// Sort order of the <see cref="ReportColumn.Rule"/> column if it is part of <see cref="SortedColumns"/>.
+        /// Sort order of the <see cref="ReportColumn.RuleId"/> column if it is part of <see cref="SortedColumns"/>.
         /// See <see cref="ColumnSortOrder"/> for possible values.
         /// Default value is <see cref="ColumnSortOrder.Ascending"/>.
         /// </summary>
-        RuleSortOrder,
+        RuleIdSortOrder,
+
+        /// <summary>
+        /// Flag if the <see cref="ReportColumn.RuleName"/> column should be visible or not.
+        /// Either <c>true</c> or <c>false</c>.
+        /// Default value is <c>true</c>.
+        /// </summary>
+        RuleNameVisible,
+
+        /// <summary>
+        /// Sort order of the <see cref="ReportColumn.RuleName"/> column if it is part of <see cref="SortedColumns"/>.
+        /// See <see cref="ColumnSortOrder"/> for possible values.
+        /// Default value is <see cref="ColumnSortOrder.Ascending"/>.
+        /// </summary>
+        RuleNameSortOrder,
 
         /// <summary>
         /// Flag if the <see cref="ReportColumn.RuleUrl"/> column should be visible or not.
@@ -361,7 +375,7 @@
         /// <summary>
         /// Version of the <see href="https://js.devexpress.com/">DevExtreme </see> libraries which should be used.
         /// If setting this the matching <see cref="JQueryVersion"/> needs to also be set.
-        /// Default value is <c>21.1.4</c>.
+        /// Default value is <c>21.2.3</c>.
         /// </summary>
         DevExtremeVersion,
 
@@ -408,7 +422,7 @@
         /// <summary>
         /// Version of <see href="https://github.com/exceljs/exceljs">ExcelJS</see> which should be used.
         /// This version needs to match the version required by the selected <see cref="DevExtremeVersion"/>.
-        /// Default value is <c>4.2.1</c>.
+        /// Default value is <c>4.3.0</c>.
         /// </summary>
         ExcelJsVersion,
 
@@ -448,7 +462,7 @@
         /// <summary>
         /// Version of <see href="https://github.com/MrRio/jsPDF">jsPDF</see> which should be used.
         /// This version needs to match the version required by the selected <see cref="DevExtremeVersion"/>.
-        /// Default value is <c>2.3.1</c>.
+        /// Default value is <c>2.4.0</c>.
         /// </summary>
         JsPdfVersion,
 
@@ -468,7 +482,7 @@
         /// <summary>
         /// Version of <see href="https://github.com/simonbengtsson/jsPDF-AutoTable">jsPDF-AutoTable plugin</see> which should be used.
         /// This version needs to match the version required by the selected <see cref="DevExtremeVersion"/>.
-        /// Default value is <c>3.5.15</c>.
+        /// Default value is <c>3.5.22</c>.
         /// </summary>
         JsPdfAutotableVersion,
     }

@@ -49,8 +49,10 @@
     ColumnSortOrder endColumnSortOrder = ViewBagHelper.ValueOrDefault(ViewBag.EndColumnSortOder, ColumnSortOrder.Ascending);
     bool locationVisible = ViewBagHelper.ValueOrDefault(ViewBag.LocationVisible, true);
     ColumnSortOrder locationSortOrder = ViewBagHelper.ValueOrDefault(ViewBag.LocationSortOder, ColumnSortOrder.Ascending);
-    bool ruleVisible = ViewBagHelper.ValueOrDefault(ViewBag.RuleVisible, true);
-    ColumnSortOrder ruleSortOrder = ViewBagHelper.ValueOrDefault(ViewBag.RuleSortOder, ColumnSortOrder.Ascending);
+    bool ruleIdVisible = ViewBagHelper.ValueOrDefault(ViewBag.RuleIdVisible, true);
+    ColumnSortOrder ruleIdSortOrder = ViewBagHelper.ValueOrDefault(ViewBag.RuleIdSortOder, ColumnSortOrder.Ascending);
+    bool ruleNameVisible = ViewBagHelper.ValueOrDefault(ViewBag.RuleNameVisible, true);
+    ColumnSortOrder ruleNameSortOrder = ViewBagHelper.ValueOrDefault(ViewBag.RuleNameSortOder, ColumnSortOrder.Ascending);
     bool ruleUrlVisible = ViewBagHelper.ValueOrDefault(ViewBag.RuleUrlVisible, false);
     ColumnSortOrder ruleUrlSortOrder = ViewBagHelper.ValueOrDefault(ViewBag.RuleUrlSortOder, ColumnSortOrder.Ascending);
     bool messageVisible = ViewBagHelper.ValueOrDefault(ViewBag.MessageVisible, true);
@@ -64,19 +66,19 @@
     string jQueryVersion = ViewBagHelper.ValueOrDefault(ViewBag.JQueryVersion, "3.6.0").Trim();
     string excelJsLocation = ViewBagHelper.ValueOrDefault(ViewBag.ExcelJsLocation, "https://cdnjs.cloudflare.com/ajax/libs/exceljs/").Trim();
     excelJsLocation = excelJsLocation.WithEnding("/");
-    string excelJsVersion = ViewBagHelper.ValueOrDefault(ViewBag.ExcelJsVersion, "4.2.1").Trim();
+    string excelJsVersion = ViewBagHelper.ValueOrDefault(ViewBag.ExcelJsVersion, "4.3.0").Trim();
     string filesaverJsLocation = ViewBagHelper.ValueOrDefault(ViewBag.FileSaverJsLocation, "https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/").Trim();
     filesaverJsLocation = filesaverJsLocation.WithEnding("/");
     string filesaverJsVersion = ViewBagHelper.ValueOrDefault(ViewBag.FileSaverJsVersion, "2.0.4").Trim();
     string jsPdfLocation = ViewBagHelper.ValueOrDefault(ViewBag.JsPdfLocation, "https://cdnjs.cloudflare.com/ajax/libs/jspdf/").Trim();
     jsPdfLocation = jsPdfLocation.WithEnding("/");
-    string jsPdfVersion = ViewBagHelper.ValueOrDefault(ViewBag.FileSaverJsVersion, "2.3.1").Trim();
+    string jsPdfVersion = ViewBagHelper.ValueOrDefault(ViewBag.FileSaverJsVersion, "2.4.0").Trim();
     string jsPdfAutoTableLocation = ViewBagHelper.ValueOrDefault(ViewBag.FileSaverJsLocation, "https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/").Trim();
     jsPdfAutoTableLocation = jsPdfAutoTableLocation.WithEnding("/");
-    string jsPdfAutoTableVersion = ViewBagHelper.ValueOrDefault(ViewBag.FileSaverJsVersion, "3.5.15").Trim();
+    string jsPdfAutoTableVersion = ViewBagHelper.ValueOrDefault(ViewBag.FileSaverJsVersion, "3.5.22").Trim();
     string devExtremeLocation = ViewBagHelper.ValueOrDefault(ViewBag.DevExtremeLocation, "https://cdn3.devexpress.com/jslib/").Trim();
     devExtremeLocation = devExtremeLocation.WithEnding("/");
-    string devExtremeVersion = ViewBagHelper.ValueOrDefault(ViewBag.DevExtremeVersion, "21.1.4").Trim();
+    string devExtremeVersion = ViewBagHelper.ValueOrDefault(ViewBag.DevExtremeVersion, "21.2.3").Trim();
 }
 
 @{
@@ -101,8 +103,9 @@
                 addColumn: columnVisible || ideIntegrationSettings != null,
                 addEndColumn: endColumnVisible || ideIntegrationSettings != null,
                 addLocation: locationVisible,
-                addRule: ruleVisible,
-                addRuleUrl: ruleVisible || ruleUrlVisible,
+                addRuleId: ruleIdVisible,
+                addRuleName: ruleNameVisible,
+                addRuleUrl: ruleIdVisible || ruleNameVisible || ruleUrlVisible,
                 addMessageHtml: messageVisible,
                 additionalValues: additionalColumns.ToDictionary(x => x.Id, x => x.ValueRetriever));
 }
@@ -232,19 +235,19 @@
                     {
                         case HtmlDxDataGridExportFormat.Excel:
                             <text>
-                                onExporting: function(e) { 
-                                    const workbook = new ExcelJS.Workbook(); 
-                                    const worksheet = workbook.addWorksheet("@title"); 
-                                    DevExpress.excelExporter.exportDataGrid({ 
-                                        worksheet: worksheet, 
+                                onExporting: function(e) {
+                                    const workbook = new ExcelJS.Workbook();
+                                    const worksheet = workbook.addWorksheet("@title");
+                                    DevExpress.excelExporter.exportDataGrid({
+                                        worksheet: worksheet,
                                         component: e.component,
                                     }).then(function() {
-                                        workbook.xlsx.writeBuffer().then(function(buffer) { 
-                                            saveAs(new Blob([buffer], { type: "application/octet-stream" }), "@(exportFileName).xlsx"); 
-                                        }); 
+                                        workbook.xlsx.writeBuffer().then(function(buffer) {
+                                            saveAs(new Blob([buffer], { type: "application/octet-stream" }), "@(exportFileName).xlsx");
+                                        });
                                     });
                                     @* Disable deprecated built-in Excel export *@
-                                    e.cancel = true; 
+                                    e.cancel = true;
                                 },
                             </text>
                             break;
@@ -264,7 +267,7 @@
                                         doc.save("@(exportFileName).pdf");
                                     });
                                     @* Disable deprecated built-in Excel export *@
-                                    e.cancel = true; 
+                                    e.cancel = true;
                                 },
                             </text>
                             break;
@@ -654,20 +657,50 @@
                             },
                         </text>
                     }
-                    @if (ruleVisible)
+                    @if (ruleIdVisible)
                     {
                         <text>
                             {
-                                dataField: "Rule",
-                                visibleIndex: @((int)ReportColumn.Rule),
-                                @if (groupedColumns.Contains(ReportColumn.Rule))
+                                dataField: "RuleId",
+                                visibleIndex: @((int)ReportColumn.RuleId),
+                                @if (groupedColumns.Contains(ReportColumn.RuleId))
                                 {
-                                    @:groupIndex: @groupedColumns.IndexOf(ReportColumn.Rule),
+                                    @:groupIndex: @groupedColumns.IndexOf(ReportColumn.RuleId),
                                 }
-                                @if (sortedColumns.Contains(ReportColumn.Rule))
+                                @if (sortedColumns.Contains(ReportColumn.RuleId))
                                 {
-                                    @:sortIndex: @sortedColumns.IndexOf(ReportColumn.Rule),
-                                    @:sortOrder: "@ruleSortOrder.ToShortString()",
+                                    @:sortIndex: @sortedColumns.IndexOf(ReportColumn.RuleId),
+                                    @:sortOrder: "@ruleIdSortOrder.ToShortString()",
+                                }
+                                cellTemplate: function (container, options) {
+                                    if (options.data["RuleUrl"]) {
+                                        $('<a>', {
+                                            text: options.value,
+                                            href: options.data["RuleUrl"],
+                                            target: "_blank"
+                                        }).appendTo(container);
+                                    }
+                                    else {
+                                        container.text(options.value);
+                                    }
+                                }
+                            },
+                        </text>
+                    }
+                    @if (ruleNameVisible)
+                    {
+                        <text>
+                            {
+                                dataField: "RuleName",
+                                visibleIndex: @((int)ReportColumn.RuleName),
+                                @if (groupedColumns.Contains(ReportColumn.RuleName))
+                                {
+                                    @:groupIndex: @groupedColumns.IndexOf(ReportColumn.RuleName),
+                                }
+                                @if (sortedColumns.Contains(ReportColumn.RuleName))
+                                {
+                                    @:sortIndex: @sortedColumns.IndexOf(ReportColumn.RuleName),
+                                    @:sortOrder: "@ruleNameSortOrder.ToShortString()",
                                 }
                                 cellTemplate: function (container, options) {
                                     if (options.data["RuleUrl"]) {

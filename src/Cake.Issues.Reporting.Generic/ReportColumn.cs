@@ -77,9 +77,14 @@
         Location = 1050,
 
         /// <summary>
-        /// Column for the <see cref="IIssue.Rule"/> field.
+        /// Column for the <see cref="IIssue.RuleId"/> field.
         /// </summary>
-        Rule = 1100,
+        RuleId = 1100,
+
+        /// <summary>
+        /// Column for the <see cref="IIssue.RuleName"/> field.
+        /// </summary>
+        RuleName = 1110,
 
         /// <summary>
         /// Column for the <see cref="IIssue.RuleUrl"/> field.
