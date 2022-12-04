@@ -3,6 +3,7 @@
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
+    using System.Runtime.CompilerServices;
     using System.Runtime.Serialization.Json;
     using Cake.Core.Diagnostics;
 
@@ -67,7 +68,7 @@
                 IssueBuilder
                     .NewIssue(message.message, issueProvider)
                     .InFile(
-                        GetRelativeFilePath(file.filePath, repositorySettings),
+                        file.filePath.MakeFilePathRelativeToRepositoryRoot(repositorySettings),
                         message.line <= 0 ? null : message.line,
                         message.column <= 0 ? null : message.column)
                     .WithPriority(GetPriority(message.severity));
@@ -80,22 +81,6 @@
             }
 
             return issueBuilder.Create();
-        }
-
-        private static string GetRelativeFilePath(
-            string absoluteFilePath,
-            IRepositorySettings repositorySettings)
-        {
-            // Make path relative to repository root.
-            var relativeFilePath = absoluteFilePath.Substring(repositorySettings.RepositoryRoot.FullPath.Length);
-
-            // Remove leading directory separator.
-            if (relativeFilePath.StartsWith(Path.DirectorySeparatorChar.ToString()))
-            {
-                relativeFilePath = relativeFilePath.Substring(1);
-            }
-
-            return relativeFilePath;
         }
 
         /// <summary>
