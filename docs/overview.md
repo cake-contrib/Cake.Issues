@@ -24,20 +24,20 @@ Cake.Issues recipes will add the following addins to your build:
 
 | Addin Cake.Issues.Recipe                       | Addin.Frosting.Issues.Recipe                   | Remarks |
 |------------------------------------------------|------------------------------------------------|-|
-| [Cake.Git] 1.1.0                               | [Cake.Git] 1.1.0                               | Only used if `RepositoryInfoProvider` type is set to `RepositoryInfoProviderType.CakeGit`. See [Git repository information configuration] for details. |
-| [Cake.Issues] 1.0.0                            | [Cake.Issues] 1.0.0                            | |
-| [Cake.Issues.MsBuild] 1.0.0                    | [Cake.Issues.MsBuild] 1.0.0                    | |
-| [Cake.Issues.InspectCode] 1.0.0                | [Cake.Issues.InspectCode] 1.0.0                | |
-| [Cake.Issues.DupFinder] 1.0.0                  | [Cake.Issues.DupFinder] 1.0.0                  | |
-| [Cake.Issues.Markdownlint] 1.1.1               | [Cake.Issues.Markdownlint] 1.1.1               | |
-| [Cake.Issues.EsLint] 1.0.1                     | [Cake.Issues.EsLint] 1.0.1                     | |
-| [Cake.Issues.Reporting] 1.0.0                  | [Cake.Issues.Reporting] 1.0.0                  | |
-| [Cake.Issues.Reporting.Generic] 1.0.0          | [Cake.Frosting.Issues.Reporting.Generic] 1.0.0 | |
-| [Cake.Issues.PullRequests] 1.0.0               | [Cake.Issues.PullRequests] 1.0.0               | |
-| [Cake.Issues.PullRequests.AppVeyor] 1.0.0      | [Cake.Issues.PullRequests.AppVeyor] 1.0.0      | |
-| [Cake.Issues.PullRequests.AzureDevOps] 1.0.0   | [Cake.Issues.PullRequests.AzureDevOps] 1.0.0   | |
-| [Cake.Issues.PullRequests.GitHubActions] 1.0.0 | [Cake.Issues.PullRequests.GitHubActions] 1.0.0 | |
-| [Cake.AzureDevOps] 1.0.0                       | [Cake.AzureDevOps] 1.0.0                       | |
+| [Cake.Git] 2.0.0                               | [Cake.Git] 2.0.0                               | Only used if `RepositoryInfoProvider` type is set to `RepositoryInfoProviderType.CakeGit`. See [Git repository information configuration] for details. |
+| [Cake.Issues] 2.0.0                            | [Cake.Issues] 2.0.0                            | |
+| [Cake.Issues.MsBuild] 2.0.0                    | [Cake.Issues.MsBuild] 2.0.0                    | |
+| [Cake.Issues.InspectCode] 2.0.0                | [Cake.Issues.InspectCode] 2.0.0                | |
+| [Cake.Issues.DupFinder] 2.0.0                  | [Cake.Issues.DupFinder] 2.0.0                  | |
+| [Cake.Issues.Markdownlint] 2.0.0               | [Cake.Issues.Markdownlint] 2.0.0               | |
+| [Cake.Issues.EsLint] 2.0.0                     | [Cake.Issues.EsLint] 2.0.0                     | |
+| [Cake.Issues.Reporting] 2.0.0                  | [Cake.Issues.Reporting] 2.0.0                  | |
+| [Cake.Issues.Reporting.Generic] 2.0.0          | [Cake.Frosting.Issues.Reporting.Generic] 2.0.0 | |
+| [Cake.Issues.PullRequests] 2.0.0               | [Cake.Issues.PullRequests] 2.0.0               | |
+| [Cake.Issues.PullRequests.AppVeyor] 2.0.0      | [Cake.Issues.PullRequests.AppVeyor] 2.0.0      | |
+| [Cake.Issues.PullRequests.AzureDevOps] 2.0.0   | [Cake.Issues.PullRequests.AzureDevOps] 2.0.0   | |
+| [Cake.Issues.PullRequests.GitHubActions] 2.0.0 | [Cake.Issues.PullRequests.GitHubActions] 2.0.0 | |
+| [Cake.AzureDevOps] 2.1.1                       | [Cake.AzureDevOps] 2.1.1                       | |
 
 [Cake.Issues.Recipe]: https://www.nuget.org/packages/Cake.Issues.Recipe
 [Cake.Frosting.Issues.Recipe]: https://www.nuget.org/packages/Cake.Frosting.Issues.Recipe
