@@ -141,15 +141,9 @@
             fileName = terraformRootPath.CombineWithFilePath(fileName).FullPath;
 
             // Make path relative to repository root.
-            fileName = fileName.Substring(this.Settings.RepositoryRoot.FullPath.Length);
-
-            // Remove leading directory separator.
-            if (fileName.StartsWith("/"))
-            {
-                fileName = fileName.Substring(1);
-            }
-
-            return fileName;
+            return
+                fileName
+                    .MakeFilePathRelativeToRepositoryRoot(this.Settings);
         }
     }
 }
