@@ -21,8 +21,9 @@
             return
                 issueBuilder
                     .OfRule(
+                        ruleDescription.RuleId,
                         ruleDescription.RuleName,
-                        new Uri($"https://cakeissues.net/docs/issue-providers/gitrepository/rules/{ruleDescription.RuleName}"))
+                        new Uri($"https://cakeissues.net/docs/issue-providers/gitrepository/rules/{ruleDescription.RuleId}"))
                     .WithPriority(ruleDescription.Priority);
         }
     }

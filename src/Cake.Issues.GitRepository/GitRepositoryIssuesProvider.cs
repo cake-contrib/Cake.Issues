@@ -199,6 +199,9 @@
             var settings = new GitRunnerSettings
             {
                 WorkingDirectory = this.Settings.RepositoryRoot,
+
+                // git grep -IL . can return an exit code of 1 if nothing matches
+                HandleExitCode = exitCode => (exitCode == 0 || exitCode == 1),
             };
 
             settings.Arguments.Clear();
