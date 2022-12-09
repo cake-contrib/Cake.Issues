@@ -2,7 +2,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Library</OutputType>
-    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <TargetFrameworks>netcoreapp3.1;net5.0;net6.0</TargetFrameworks>
     <Description>Support for reporting issues to the console for the Cake.Issues addin for Cake Build Automation System</Description>
     <Authors>Pascal Berger</Authors>
     <Product>Cake.Issues</Product>
@@ -29,9 +29,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Cake.Core" Version="1.2.0" PrivateAssets="All" />
-    <PackageReference Include="Cake.Issues" Version="1.0.0" PrivateAssets="All" />
-    <PackageReference Include="Cake.Issues.Reporting" Version="1.0.0" PrivateAssets="All" />
+    <PackageReference Include="Cake.Core" Version="2.0.0" PrivateAssets="All" />
+    <PackageReference Include="Cake.Issues" Version="2.0.0" PrivateAssets="All" />
+    <PackageReference Include="Cake.Issues.Reporting" Version="2.0.0" PrivateAssets="All" />
     <PackageReference Include="Errata" Version="0.10.0" />
     <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="6.0.0">
       <PrivateAssets>all</PrivateAssets>

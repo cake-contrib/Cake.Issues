@@ -27,7 +27,7 @@
         /// </summary>
         /// <param name="issues">Issues which the diagnostic should describe.</param>
         public IssueDiagnostic(IEnumerable<IIssue> issues)
-        : base(issues.First().Rule)
+        : base(issues.First().RuleId)
         {
             this.issues = issues;
 
