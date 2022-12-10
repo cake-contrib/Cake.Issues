@@ -2,7 +2,6 @@
 #addin "Cake.Issues&prerelease"
 #addin "Cake.Issues.MsBuild&prerelease"
 #addin "Cake.Issues.Markdownlint&prerelease"
-#addin "Cake.Issues.DupFinder&prerelease"
 #addin "Cake.Issues.InspectCode&prerelease"
 #addin "Cake.Issues.Reporting&prerelease"
 #addin "Cake.Issues.Reporting.Sarif&prerelease"
