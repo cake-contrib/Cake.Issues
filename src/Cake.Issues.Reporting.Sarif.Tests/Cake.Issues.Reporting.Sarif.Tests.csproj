@@ -22,7 +22,7 @@
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Cake.Issues" Version="2.0.0-beta0001" />
+    <PackageReference Include="Cake.Issues" Version="2.0.0" />
     <PackageReference Include="Cake.Issues.Testing" Version="2.0.0-beta0001" />
     <PackageReference Include="Cake.Testing" Version="2.0.0" />
     <PackageReference Include="Shouldly" Version="4.0.3" />
