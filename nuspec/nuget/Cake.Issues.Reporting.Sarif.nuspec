@@ -37,6 +37,6 @@ See the Project Site for an overview of the whole ecosystem of addins for workin
     <file src="net6.0/Cake.Issues.Reporting.Sarif.dll" target="lib\net6.0" />
     <file src="net6.0/Cake.Issues.Reporting.Sarif.pdb" target="lib\net6.0" />
     <file src="net6.0/Cake.Issues.Reporting.Sarif.xml" target="lib\net6.0" />
-    <file src="net6.0/Sarif.dll" target="lib\net5.0" />
+    <file src="net6.0/Sarif.dll" target="lib\net6.0" />
   </files>
 </package>
