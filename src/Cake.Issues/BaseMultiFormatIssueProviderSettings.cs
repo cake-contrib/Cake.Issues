@@ -18,7 +18,7 @@
         /// <param name="logFilePath">Path to the log file.
         /// The log file needs to be in the format as defined by the <paramref name="format"/> parameter.</param>
         /// <param name="format">Format of the provided log file.</param>
-        public BaseMultiFormatIssueProviderSettings(FilePath logFilePath, ILogFileFormat<TIssueProvider, TSettings> format)
+        protected BaseMultiFormatIssueProviderSettings(FilePath logFilePath, ILogFileFormat<TIssueProvider, TSettings> format)
             : base(logFilePath)
         {
             format.NotNull(nameof(format));
@@ -33,7 +33,7 @@
         /// <param name="logFileContent">Content of the log file.
         /// The log file needs to be in the format as defined by the <paramref name="format"/> parameter.</param>
         /// <param name="format">Format of the provided log file.</param>
-        public BaseMultiFormatIssueProviderSettings(byte[] logFileContent, ILogFileFormat<TIssueProvider, TSettings> format)
+        protected BaseMultiFormatIssueProviderSettings(byte[] logFileContent, ILogFileFormat<TIssueProvider, TSettings> format)
             : base(logFileContent)
         {
             format.NotNull(nameof(format));
