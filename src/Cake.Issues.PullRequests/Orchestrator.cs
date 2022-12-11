@@ -25,17 +25,11 @@ namespace Cake.Issues.PullRequests
             ICakeLog log,
             IPullRequestSystem pullRequestSystem)
         {
-#pragma warning disable SA1123 // Do not place regions within elements
-            #region DupFinder Exclusion
-#pragma warning restore SA1123 // Do not place regions within elements
-
             log.NotNull(nameof(log));
             pullRequestSystem.NotNull(nameof(pullRequestSystem));
 
             this.log = log;
             this.pullRequestSystem = pullRequestSystem;
-
-            #endregion
         }
 
         /// <summary>
