@@ -355,7 +355,6 @@ namespace Cake.Issues.PullRequests
                 {
                     this.log.Warning(
                         "Thread has unknown status und matching comment(s) are ignored.");
-                    continue;
                 }
             }
 
