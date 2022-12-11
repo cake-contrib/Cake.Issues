@@ -2128,9 +2128,6 @@ namespace Cake.Issues.PullRequests.Tests
                                     },
                                 }));
 
-                var threadToResolve =
-                    fixture.PullRequestSystem.DiscussionThreadsCapability.DiscussionThreads.Single();
-
                 fixture.IssueProviders.Clear();
                 fixture.IssueProviders.Add(
                     new FakeIssueProvider(
@@ -2235,9 +2232,6 @@ namespace Cake.Issues.PullRequests.Tests
                                     },
                                 }));
 
-                var threadToReopen =
-                    fixture.PullRequestSystem.DiscussionThreadsCapability.DiscussionThreads.Single();
-
                 fixture.IssueProviders.Clear();
                 fixture.IssueProviders.Add(
                     new FakeIssueProvider(
@@ -2317,9 +2311,6 @@ namespace Cake.Issues.PullRequests.Tests
                                         CommentIdentifier = "Message Foo",
                                     },
                                 }));
-
-                var threadToReopen =
-                    fixture.PullRequestSystem.DiscussionThreadsCapability.DiscussionThreads.Single();
 
                 fixture.IssueProviders.Clear();
                 fixture.IssueProviders.Add(

@@ -99,7 +99,6 @@
             {
                 // Given
                 var encoding = Encoding.UTF32;
-                var preamble = encoding.GetPreamble();
                 var valueWithoutPreamble = value.ToByteArray(encoding);
 
                 // When
