@@ -10,7 +10,7 @@
     public class IssuesReader
     {
         private readonly ICakeLog log;
-        private readonly List<IIssueProvider> issueProviders = new List<IIssueProvider>();
+        private readonly List<IIssueProvider> issueProviders = new ();
         private readonly IReadIssuesSettings settings;
 
         /// <summary>
