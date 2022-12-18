@@ -69,9 +69,10 @@
                 var fixture = new IssueReportFormatFixture();
 
                 // When
-                var result = Record.Exception(() => fixture.CreateReport(new List<IIssue>()));
+                var result = fixture.CreateReport(new List<IIssue>());
 
                 // Then
+                result.ShouldNotBeNull();
             }
 
             [Fact]
