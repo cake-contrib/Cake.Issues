@@ -14,10 +14,6 @@
         /// <returns>Converted issue.</returns>
         internal static Issue ToIssue(this SerializableIssueV4 serializableIssue)
         {
-#pragma warning disable SA1123 // Do not place regions within elements
-            #region DupFinder Exclusion
-#pragma warning restore SA1123 // Do not place regions within elements
-
             serializableIssue.NotNull(nameof(serializableIssue));
 
             Uri ruleUrl = null;
@@ -54,8 +50,6 @@
                 serializableIssue.ProviderType,
                 serializableIssue.ProviderName,
                 serializableIssue.AdditionalInformation);
-
-            #endregion
         }
     }
 }

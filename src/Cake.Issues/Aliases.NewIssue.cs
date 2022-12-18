@@ -81,17 +81,11 @@
             string providerType,
             string providerName)
         {
-#pragma warning disable SA1123 // Do not place regions within elements
-            #region DupFinder Exclusion
-#pragma warning restore SA1123 // Do not place regions within elements
-
             context.NotNull(nameof(context));
             identifier.NotNullOrWhiteSpace(nameof(identifier));
             message.NotNullOrWhiteSpace(nameof(message));
             providerType.NotNullOrWhiteSpace(nameof(providerType));
             providerName.NotNullOrWhiteSpace(nameof(providerName));
-
-            #endregion
 
             return IssueBuilder.NewIssue(identifier, message, providerType, providerName);
         }

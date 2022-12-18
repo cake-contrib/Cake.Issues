@@ -44,16 +44,10 @@
             string providerType,
             string providerName)
         {
-#pragma warning disable SA1123 // Do not place regions within elements
-            #region DupFinder Exclusion
-#pragma warning restore SA1123 // Do not place regions within elements
-
             identifier.NotNullOrWhiteSpace(nameof(identifier));
             message.NotNullOrWhiteSpace(nameof(message));
             providerType.NotNullOrWhiteSpace(nameof(providerType));
             providerName.NotNullOrWhiteSpace(nameof(providerName));
-
-            #endregion
 
             this.identifier = identifier;
             this.messageText = message;
@@ -141,16 +135,10 @@
             string providerType,
             string providerName)
         {
-#pragma warning disable SA1123 // Do not place regions within elements
-            #region DupFinder Exclusion
-#pragma warning restore SA1123 // Do not place regions within elements
-
             identifier.NotNullOrWhiteSpace(nameof(identifier));
             message.NotNullOrWhiteSpace(nameof(message));
             providerType.NotNullOrWhiteSpace(nameof(providerType));
             providerName.NotNullOrWhiteSpace(nameof(providerName));
-
-            #endregion
 
             return new IssueBuilder(identifier, message, providerType, providerName);
         }
