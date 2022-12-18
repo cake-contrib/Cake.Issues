@@ -1954,7 +1954,6 @@
                 issue.RuleName.ShouldBe(ruleName);
             }
 
-
             [Theory]
             [InlineData("ruleId")]
             public void Should_Set_Rule(string ruleId)
