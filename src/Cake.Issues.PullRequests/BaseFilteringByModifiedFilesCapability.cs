@@ -17,7 +17,7 @@
         /// </summary>
         /// <param name="log">The Cake log context.</param>
         /// <param name="pullRequestSystem">Pull request system to which this capability belongs.</param>
-        public BaseFilteringByModifiedFilesCapability(ICakeLog log, T pullRequestSystem)
+        protected BaseFilteringByModifiedFilesCapability(ICakeLog log, T pullRequestSystem)
             : base(log, pullRequestSystem)
         {
         }

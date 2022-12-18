@@ -15,7 +15,7 @@
         /// </summary>
         /// <param name="log">The Cake log context.</param>
         /// <param name="pullRequestSystem">Pull request system to which this capability belongs.</param>
-        public BaseCheckingCommitIdCapability(ICakeLog log, T pullRequestSystem)
+        protected BaseCheckingCommitIdCapability(ICakeLog log, T pullRequestSystem)
             : base(log, pullRequestSystem)
         {
         }
