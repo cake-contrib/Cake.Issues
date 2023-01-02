@@ -16,26 +16,26 @@
                 public void Should_Throw_If_Identifier_Is_Null()
                 {
                     // Given
-                    string identifier = null;
-                    var projectPath = @"src\foo.csproj";
-                    var projectName = "foo";
-                    var filePath = @"src\foo.cs";
-                    var line = 10;
-                    var endLine = 12;
-                    var column = 50;
-                    var endColumn = 55;
+                    const string identifier = null;
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = "foo";
+                    const string filePath = @"src\foo.cs";
+                    const int line = 10;
+                    const int endLine = 12;
+                    const int column = 50;
+                    const int endColumn = 55;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -72,25 +72,25 @@
                 {
                     // Given
                     var identifier = string.Empty;
-                    var projectPath = @"src\foo.csproj";
-                    var projectName = "foo";
-                    var filePath = @"src\foo.cs";
-                    var line = 10;
-                    var endLine = 12;
-                    var column = 50;
-                    var endColumn = 55;
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = "foo";
+                    const string filePath = @"src\foo.cs";
+                    const int line = 10;
+                    const int endLine = 12;
+                    const int column = 50;
+                    const int endColumn = 55;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -126,26 +126,26 @@
                 public void Should_Throw_If_Identifier_Is_WhiteSpace()
                 {
                     // Given
-                    var identifier = " ";
-                    var projectPath = @"src\foo.csproj";
-                    var projectName = "foo";
-                    var filePath = @"src\foo.cs";
-                    var line = 10;
-                    var endLine = 12;
-                    var column = 50;
-                    var endColumn = 55;
+                    const string identifier = " ";
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = "foo";
+                    const string filePath = @"src\foo.cs";
+                    const int line = 10;
+                    const int endLine = 12;
+                    const int column = 50;
+                    const int endColumn = 55;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -182,25 +182,25 @@
                 public void Should_Set_Identifier(string identifier)
                 {
                     // Given
-                    var projectPath = @"src\foo.csproj";
-                    var projectName = "foo";
-                    var filePath = @"src\foo.cs";
-                    var line = 10;
-                    var endLine = 12;
-                    var column = 50;
-                    var endColumn = 55;
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = "foo";
+                    const string filePath = @"src\foo.cs";
+                    const int line = 10;
+                    const int endLine = 12;
+                    const int column = 50;
+                    const int endColumn = 55;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -240,25 +240,25 @@
                 public void Should_Throw_If_Project_Path_Is_Invalid(string projectPath)
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectName = "foo";
-                    var filePath = @"src\foo.cs";
-                    var line = 10;
-                    var endLine = 12;
-                    var column = 50;
-                    var endColumn = 55;
+                    const string identifier = "identifier";
+                    const string projectName = "foo";
+                    const string filePath = @"src\foo.cs";
+                    const int line = 10;
+                    const int endLine = 12;
+                    const int column = 50;
+                    const int endColumn = 55;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -297,25 +297,25 @@
                 public void Should_Throw_If_File_Path_Is_Absolute(string projectPath)
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectName = "foo";
-                    var filePath = @"src\foo.cs";
-                    var line = 10;
-                    var endLine = 12;
-                    var column = 50;
-                    var endColumn = 55;
+                    const string identifier = "identifier";
+                    const string projectName = "foo";
+                    const string filePath = @"src\foo.cs";
+                    const int line = 10;
+                    const int endLine = 12;
+                    const int column = 50;
+                    const int endColumn = 55;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -351,26 +351,26 @@
                 public void Should_Handle_Project_Paths_Which_Are_Null()
                 {
                     // Given
-                    var identifier = "identifier";
-                    string projectPath = null;
-                    var projectName = "foo";
-                    var filePath = @"src\foo.cs";
-                    var line = 10;
-                    var endLine = 12;
-                    var column = 50;
-                    var endColumn = 55;
+                    const string identifier = "identifier";
+                    const string projectPath = null;
+                    const string projectName = "foo";
+                    const string filePath = @"src\foo.cs";
+                    const int line = 10;
+                    const int endLine = 12;
+                    const int column = 50;
+                    const int endColumn = 55;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -406,26 +406,26 @@
                 public void Should_Handle_Project_Paths_Which_Are_Empty()
                 {
                     // Given
-                    var identifier = "identifier";
+                    const string identifier = "identifier";
                     var projectPath = string.Empty;
-                    var projectName = "foo";
-                    var filePath = @"src\foo.cs";
-                    var line = 10;
-                    var endLine = 12;
-                    var column = 50;
-                    var endColumn = 55;
+                    const string projectName = "foo";
+                    const string filePath = @"src\foo.cs";
+                    const int line = 10;
+                    const int endLine = 12;
+                    const int column = 50;
+                    const int endColumn = 55;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -461,26 +461,26 @@
                 public void Should_Handle_Project_Paths_Which_Are_WhiteSpace()
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectPath = " ";
-                    var projectName = "foo";
-                    var filePath = @"src\foo.cs";
-                    var line = 10;
-                    var endLine = 12;
-                    var column = 50;
-                    var endColumn = 55;
+                    const string identifier = "identifier";
+                    const string projectPath = " ";
+                    const string projectName = "foo";
+                    const string filePath = @"src\foo.cs";
+                    const int line = 10;
+                    const int endLine = 12;
+                    const int column = 50;
+                    const int endColumn = 55;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -517,25 +517,25 @@
                 public void Should_Set_ProjectFileRelativePath(string projectPath)
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectName = "foo";
-                    var filePath = @"src\foo.cs";
-                    var line = 10;
-                    var endLine = 12;
-                    var column = 50;
-                    var endColumn = 55;
+                    const string identifier = "identifier";
+                    const string projectName = "foo";
+                    const string filePath = @"src\foo.cs";
+                    const int line = 10;
+                    const int endLine = 12;
+                    const int column = 50;
+                    const int endColumn = 55;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -574,26 +574,26 @@
                 public void Should_Handle_Projects_Which_Are_Null()
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectPath = @"src\foo.csproj";
-                    string projectName = null;
-                    var filePath = @"src\foo.cs";
-                    var line = 10;
-                    var endLine = 12;
-                    var column = 50;
-                    var endColumn = 55;
+                    const string identifier = "identifier";
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = null;
+                    const string filePath = @"src\foo.cs";
+                    const int line = 10;
+                    const int endLine = 12;
+                    const int column = 50;
+                    const int endColumn = 55;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -629,26 +629,26 @@
                 public void Should_Handle_Projects_Which_Are_Empty()
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectPath = @"src\foo.csproj";
+                    const string identifier = "identifier";
+                    const string projectPath = @"src\foo.csproj";
                     var projectName = string.Empty;
-                    var filePath = @"src\foo.cs";
-                    var line = 10;
-                    var endLine = 12;
-                    var column = 50;
-                    var endColumn = 55;
+                    const string filePath = @"src\foo.cs";
+                    const int line = 10;
+                    const int endLine = 12;
+                    const int column = 50;
+                    const int endColumn = 55;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -684,26 +684,26 @@
                 public void Should_Handle_Projects_Which_Are_WhiteSpace()
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectPath = @"src\foo.csproj";
-                    var projectName = " ";
-                    var filePath = @"src\foo.cs";
-                    var line = 10;
-                    var endLine = 12;
-                    var column = 50;
-                    var endColumn = 55;
+                    const string identifier = "identifier";
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = " ";
+                    const string filePath = @"src\foo.cs";
+                    const int line = 10;
+                    const int endLine = 12;
+                    const int column = 50;
+                    const int endColumn = 55;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -740,25 +740,25 @@
                 public void Should_Set_ProjectName(string projectName)
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectPath = @"src\foo.csproj";
-                    var filePath = @"src\foo.cs";
-                    var line = 10;
-                    var endLine = 12;
-                    var column = 50;
-                    var endColumn = 55;
+                    const string identifier = "identifier";
+                    const string projectPath = @"src\foo.csproj";
+                    const string filePath = @"src\foo.cs";
+                    const int line = 10;
+                    const int endLine = 12;
+                    const int column = 50;
+                    const int endColumn = 55;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -798,25 +798,25 @@
                 public void Should_Throw_If_File_Path_Is_Invalid(string filePath)
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectPath = @"src\foo.csproj";
-                    var projectName = "foo";
-                    var line = 10;
-                    var endLine = 12;
-                    var column = 50;
-                    var endColumn = 55;
+                    const string identifier = "identifier";
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = "foo";
+                    const int line = 10;
+                    const int endLine = 12;
+                    const int column = 50;
+                    const int endColumn = 55;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -855,25 +855,25 @@
                 public void Should_Throw_If_File_Path_Is_Absolute(string filePath)
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectPath = @"src\foo.csproj";
-                    var projectName = "foo";
-                    var line = 10;
-                    var endLine = 12;
-                    var column = 50;
-                    var endColumn = 55;
+                    const string identifier = "identifier";
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = "foo";
+                    const int line = 10;
+                    const int endLine = 12;
+                    const int column = 50;
+                    const int endColumn = 55;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -909,26 +909,26 @@
                 public void Should_Handle_File_Paths_Which_Are_Null()
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectPath = @"src\foo.csproj";
-                    var projectName = "foo";
-                    string filePath = null;
+                    const string identifier = "identifier";
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = "foo";
+                    const string filePath = null;
                     int? line = null;
                     int? endLine = null;
                     int? column = null;
                     int? endColumn = null;
-                    Uri fileLink = null;
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const Uri fileLink = null;
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -964,26 +964,26 @@
                 public void Should_Handle_File_Paths_Which_Are_Empty()
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectPath = @"src\foo.csproj";
-                    var projectName = "foo";
+                    const string identifier = "identifier";
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = "foo";
                     var filePath = string.Empty;
                     int? line = null;
                     int? endLine = null;
                     int? column = null;
                     int? endColumn = null;
-                    Uri fileLink = null;
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const Uri fileLink = null;
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -1019,26 +1019,26 @@
                 public void Should_Handle_File_Paths_Which_Are_WhiteSpace()
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectPath = @"src\foo.csproj";
-                    var projectName = "foo";
-                    var filePath = " ";
+                    const string identifier = "identifier";
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = "foo";
+                    const string filePath = " ";
                     int? line = null;
                     int? endLine = null;
                     int? column = null;
                     int? endColumn = null;
-                    Uri fileLink = null;
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const Uri fileLink = null;
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -1083,25 +1083,25 @@
                 public void Should_Set_File_Path(string filePath, string expectedFilePath)
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectPath = @"src\foo.csproj";
-                    var projectName = "foo";
-                    var line = 10;
-                    var endLine = 12;
-                    var column = 50;
-                    var endColumn = 55;
+                    const string identifier = "identifier";
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = "foo";
+                    const int line = 10;
+                    const int endLine = 12;
+                    const int column = 50;
+                    const int endColumn = 55;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -1141,26 +1141,26 @@
                 public void Should_Throw_If_Line_Is_Negative()
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectPath = @"src\foo.csproj";
-                    var projectName = "foo";
-                    var filePath = @"src\foo.cs";
-                    var line = -1;
+                    const string identifier = "identifier";
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = "foo";
+                    const string filePath = @"src\foo.cs";
+                    const int line = -1;
                     int? endLine = null;
                     int? column = null;
                     int? endColumn = null;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -1196,26 +1196,26 @@
                 public void Should_Throw_If_Line_Is_Zero()
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectPath = @"src\foo.csproj";
-                    var projectName = "foo";
-                    var filePath = @"src\foo.cs";
-                    var line = 0;
+                    const string identifier = "identifier";
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = "foo";
+                    const string filePath = @"src\foo.cs";
+                    const int line = 0;
                     int? endLine = null;
                     int? column = null;
                     int? endColumn = null;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -1251,26 +1251,26 @@
                 public void Should_Throw_If_Line_Is_Set_But_No_File()
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectPath = @"src\foo.csproj";
-                    var projectName = "foo";
-                    string filePath = null;
-                    var line = 10;
+                    const string identifier = "identifier";
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = "foo";
+                    const string filePath = null;
+                    const int line = 10;
                     int? endLine = null;
                     int? column = null;
                     int? endColumn = null;
                     Uri fileLink = null;
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -1306,26 +1306,26 @@
                 public void Should_Handle_Line_Which_Is_Null()
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectPath = @"src\foo.csproj";
-                    var projectName = "foo";
-                    var filePath = @"src\foo.cs";
+                    const string identifier = "identifier";
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = "foo";
+                    const string filePath = @"src\foo.cs";
                     int? line = null;
                     int? endLine = null;
                     int? column = null;
                     int? endColumn = null;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -1363,25 +1363,25 @@
                 public void Should_Set_Line(int line)
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectPath = @"src\foo.csproj";
-                    var projectName = "foo";
-                    var filePath = @"src\foo.cs";
+                    const string identifier = "identifier";
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = "foo";
+                    const string filePath = @"src\foo.cs";
                     int? endLine = null;
-                    var column = 50;
-                    var endColumn = 55;
+                    const int column = 50;
+                    const int endColumn = 55;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -1420,26 +1420,26 @@
                 public void Should_Throw_If_EndLine_Is_Negative()
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectPath = @"src\foo.csproj";
-                    var projectName = "foo";
-                    var filePath = @"src\foo.cs";
-                    var line = 10;
-                    var endLine = -1;
+                    const string identifier = "identifier";
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = "foo";
+                    const string filePath = @"src\foo.cs";
+                    const int line = 10;
+                    const int endLine = -1;
                     int? column = null;
                     int? endColumn = null;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -1475,26 +1475,26 @@
                 public void Should_Throw_If_EndLine_Is_Zero()
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectPath = @"src\foo.csproj";
-                    var projectName = "foo";
-                    var filePath = @"src\foo.cs";
-                    var line = 10;
-                    var endLine = 0;
+                    const string identifier = "identifier";
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = "foo";
+                    const string filePath = @"src\foo.cs";
+                    const int line = 10;
+                    const int endLine = 0;
                     int? column = null;
                     int? endColumn = null;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -1530,26 +1530,26 @@
                 public void Should_Throw_If_EndLine_Is_Set_But_No_Line()
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectPath = @"src\foo.csproj";
-                    var projectName = "foo";
-                    var filePath = @"src\foo.cs";
+                    const string identifier = "identifier";
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = "foo";
+                    const string filePath = @"src\foo.cs";
                     int? line = null;
-                    var endLine = 12;
+                    const int endLine = 12;
                     int? column = null;
                     int? endColumn = null;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -1585,26 +1585,26 @@
                 public void Should_Throw_If_EndLine_Is_Smaller_Line()
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectPath = @"src\foo.csproj";
-                    var projectName = "foo";
-                    var filePath = @"src\foo.cs";
-                    var line = 100;
-                    var endLine = 12;
+                    const string identifier = "identifier";
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = "foo";
+                    const string filePath = @"src\foo.cs";
+                    const int line = 100;
+                    const int endLine = 12;
                     int? column = null;
                     int? endColumn = null;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -1640,26 +1640,26 @@
                 public void Should_Handle_EndLine_Which_Is_Null()
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectPath = @"src\foo.csproj";
-                    var projectName = "foo";
-                    var filePath = @"src\foo.cs";
-                    var line = 10;
+                    const string identifier = "identifier";
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = "foo";
+                    const string filePath = @"src\foo.cs";
+                    const int line = 10;
                     int? endLine = null;
                     int? column = null;
                     int? endColumn = null;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -1695,26 +1695,26 @@
                 public void Should_Handle_EndLine_Which_Is_Equals_Line()
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectPath = @"src\foo.csproj";
-                    var projectName = "foo";
-                    var filePath = @"src\foo.cs";
-                    var line = 10;
-                    var endLine = 10;
+                    const string identifier = "identifier";
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = "foo";
+                    const string filePath = @"src\foo.cs";
+                    const int line = 10;
+                    const int endLine = 10;
                     int? column = null;
                     int? endColumn = null;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -1752,25 +1752,25 @@
                 public void Should_Set_EndLine(int endLine)
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectPath = @"src\foo.csproj";
-                    var projectName = "foo";
-                    var filePath = @"src\foo.cs";
-                    var line = 1;
-                    var column = 50;
-                    var endColumn = 55;
+                    const string identifier = "identifier";
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = "foo";
+                    const string filePath = @"src\foo.cs";
+                    const int line = 1;
+                    const int column = 50;
+                    const int endColumn = 55;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -1809,26 +1809,26 @@
                 public void Should_Throw_If_Column_Is_Negative()
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectPath = @"src\foo.csproj";
-                    var projectName = "foo";
-                    var filePath = @"src\foo.cs";
-                    var line = 10;
-                    var endLine = 12;
-                    var column = -1;
+                    const string identifier = "identifier";
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = "foo";
+                    const string filePath = @"src\foo.cs";
+                    const int line = 10;
+                    const int endLine = 12;
+                    const int column = -1;
                     int? endColumn = null;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -1864,26 +1864,26 @@
                 public void Should_Throw_If_Column_Is_Zero()
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectPath = @"src\foo.csproj";
-                    var projectName = "foo";
-                    var filePath = @"src\foo.cs";
-                    var line = 10;
-                    var endLine = 12;
-                    var column = 0;
+                    const string identifier = "identifier";
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = "foo";
+                    const string filePath = @"src\foo.cs";
+                    const int line = 10;
+                    const int endLine = 12;
+                    const int column = 0;
                     int? endColumn = null;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -1919,26 +1919,26 @@
                 public void Should_Throw_If_Column_Is_Set_But_No_Line()
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectPath = @"src\foo.csproj";
-                    var projectName = "foo";
-                    var filePath = @"src\foo.cs";
+                    const string identifier = "identifier";
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = "foo";
+                    const string filePath = @"src\foo.cs";
                     int? line = null;
                     int? endLine = null;
-                    var column = 50;
+                    const int column = 50;
                     int? endColumn = null;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -1974,26 +1974,26 @@
                 public void Should_Handle_Column_Which_Is_Null()
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectPath = @"src\foo.csproj";
-                    var projectName = "foo";
-                    var filePath = @"src\foo.cs";
-                    var line = 10;
-                    var endLine = 12;
+                    const string identifier = "identifier";
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = "foo";
+                    const string filePath = @"src\foo.cs";
+                    const int line = 10;
+                    const int endLine = 12;
                     int? column = null;
                     int? endColumn = null;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -2032,25 +2032,25 @@
                 public void Should_Set_Column(int? column)
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectPath = @"src\foo.csproj";
-                    var projectName = "foo";
-                    var filePath = @"src\foo.cs";
-                    var line = 10;
-                    var endLine = 12;
+                    const string identifier = "identifier";
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = "foo";
+                    const string filePath = @"src\foo.cs";
+                    const int line = 10;
+                    const int endLine = 12;
                     int? endColumn = null;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -2089,26 +2089,26 @@
                 public void Should_Throw_If_EndColumn_Is_Negative()
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectPath = @"src\foo.csproj";
-                    var projectName = "foo";
-                    var filePath = @"src\foo.cs";
-                    var line = 10;
-                    var endLine = 12;
-                    var column = 50;
-                    var endColumn = -1;
+                    const string identifier = "identifier";
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = "foo";
+                    const string filePath = @"src\foo.cs";
+                    const int line = 10;
+                    const int endLine = 12;
+                    const int column = 50;
+                    const int endColumn = -1;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -2144,26 +2144,26 @@
                 public void Should_Throw_If_EndColumn_Is_Zero()
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectPath = @"src\foo.csproj";
-                    var projectName = "foo";
-                    var filePath = @"src\foo.cs";
-                    var line = 10;
-                    var endLine = 12;
-                    var column = 50;
-                    var endColumn = 0;
+                    const string identifier = "identifier";
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = "foo";
+                    const string filePath = @"src\foo.cs";
+                    const int line = 10;
+                    const int endLine = 12;
+                    const int column = 50;
+                    const int endColumn = 0;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -2199,26 +2199,26 @@
                 public void Should_Throw_If_EndColumn_Is_Set_But_No_Column()
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectPath = @"src\foo.csproj";
-                    var projectName = "foo";
-                    var filePath = @"src\foo.cs";
-                    var line = 10;
-                    var endLine = 12;
+                    const string identifier = "identifier";
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = "foo";
+                    const string filePath = @"src\foo.cs";
+                    const int line = 10;
+                    const int endLine = 12;
                     int? column = null;
-                    var endColumn = 55;
+                    const int endColumn = 55;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -2254,26 +2254,26 @@
                 public void Should_Throw_If_EndColumn_Is_Smaller_Column()
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectPath = @"src\foo.csproj";
-                    var projectName = "foo";
-                    var filePath = @"src\foo.cs";
-                    var line = 10;
-                    var endLine = 12;
-                    var column = 50;
-                    var endColumn = 5;
+                    const string identifier = "identifier";
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = "foo";
+                    const string filePath = @"src\foo.cs";
+                    const int line = 10;
+                    const int endLine = 12;
+                    const int column = 50;
+                    const int endColumn = 5;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -2309,26 +2309,26 @@
                 public void Should_Handle_EndColumn_Which_Is_Null()
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectPath = @"src\foo.csproj";
-                    var projectName = "foo";
-                    var filePath = @"src\foo.cs";
-                    var line = 10;
-                    var endLine = 12;
+                    const string identifier = "identifier";
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = "foo";
+                    const string filePath = @"src\foo.cs";
+                    const int line = 10;
+                    const int endLine = 12;
                     int? column = null;
                     int? endColumn = null;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -2364,26 +2364,26 @@
                 public void Should_Handle_EndColumn_Which_Is_Equals_Column()
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectPath = @"src\foo.csproj";
-                    var projectName = "foo";
-                    var filePath = @"src\foo.cs";
-                    var line = 10;
-                    var endLine = 12;
-                    var column = 50;
-                    var endColumn = 50;
+                    const string identifier = "identifier";
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = "foo";
+                    const string filePath = @"src\foo.cs";
+                    const int line = 10;
+                    const int endLine = 12;
+                    const int column = 50;
+                    const int endColumn = 50;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -2422,25 +2422,25 @@
                 public void Should_Set_EndColumn(int? endColumn)
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectPath = @"src\foo.csproj";
-                    var projectName = "foo";
-                    var filePath = @"src\foo.cs";
-                    var line = 10;
-                    var endLine = 12;
-                    var column = 1;
+                    const string identifier = "identifier";
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = "foo";
+                    const string filePath = @"src\foo.cs";
+                    const int line = 10;
+                    const int endLine = 12;
+                    const int column = 1;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -2479,26 +2479,26 @@
                 public void Should_Set_FileLink()
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectPath = @"src\foo.csproj";
-                    var projectName = "foo";
-                    var filePath = @"src\foo.cs";
-                    var line = 10;
-                    var endLine = 12;
-                    var column = 50;
-                    var endColumn = 55;
+                    const string identifier = "identifier";
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = "foo";
+                    const string filePath = @"src\foo.cs";
+                    const int line = 10;
+                    const int endLine = 12;
+                    const int column = 50;
+                    const int endColumn = 55;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -2534,26 +2534,26 @@
                 public void Should_Set_FileLink_If_Null()
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectPath = @"src\foo.csproj";
-                    var projectName = "foo";
-                    var filePath = @"src\foo.cs";
-                    var line = 10;
-                    var endLine = 12;
-                    var column = 50;
-                    var endColumn = 55;
-                    Uri fileLink = null;
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string identifier = "identifier";
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = "foo";
+                    const string filePath = @"src\foo.cs";
+                    const int line = 10;
+                    const int endLine = 12;
+                    const int column = 50;
+                    const int endColumn = 55;
+                    const Uri fileLink = null;
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -2592,26 +2592,26 @@
                 public void Should_Throw_If_MessageText_Is_Null()
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectPath = @"src\foo.csproj";
-                    var projectName = "foo";
-                    var filePath = @"src\foo.cs";
-                    var line = 10;
-                    var endLine = 12;
-                    var column = 50;
-                    var endColumn = 55;
+                    const string identifier = "identifier";
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = "foo";
+                    const string filePath = @"src\foo.cs";
+                    const int line = 10;
+                    const int endLine = 12;
+                    const int column = 50;
+                    const int endColumn = 55;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    string messageText = null;
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageText = null;
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -2647,26 +2647,26 @@
                 public void Should_Throw_If_MessageText_Is_Empty()
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectPath = @"src\foo.csproj";
-                    var projectName = "foo";
-                    var filePath = @"src\foo.cs";
-                    var line = 10;
-                    var endLine = 12;
-                    var column = 50;
-                    var endColumn = 55;
+                    const string identifier = "identifier";
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = "foo";
+                    const string filePath = @"src\foo.cs";
+                    const int line = 10;
+                    const int endLine = 12;
+                    const int column = 50;
+                    const int endColumn = 55;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
                     var messageText = string.Empty;
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -2702,26 +2702,26 @@
                 public void Should_Throw_If_MessageText_Is_WhiteSpace()
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectPath = @"src\foo.csproj";
-                    var projectName = "foo";
-                    var filePath = @"src\foo.cs";
-                    var line = 10;
-                    var endLine = 12;
-                    var column = 50;
-                    var endColumn = 55;
+                    const string identifier = "identifier";
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = "foo";
+                    const string filePath = @"src\foo.cs";
+                    const int line = 10;
+                    const int endLine = 12;
+                    const int column = 50;
+                    const int endColumn = 55;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = " ";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageText = " ";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -2758,25 +2758,25 @@
                 public void Should_Set_MessageText(string messageText)
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectPath = @"src\foo.csproj";
-                    var projectName = "foo";
-                    var filePath = @"src\foo.cs";
-                    var line = 10;
-                    var endLine = 12;
-                    var column = 50;
-                    var endColumn = 55;
+                    const string identifier = "identifier";
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = "foo";
+                    const string filePath = @"src\foo.cs";
+                    const int line = 10;
+                    const int endLine = 12;
+                    const int column = 50;
+                    const int endColumn = 55;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -2819,25 +2819,25 @@
                 public void Should_Set_MessageHtml(string messageHtml)
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectPath = @"src\foo.csproj";
-                    var projectName = "foo";
-                    var filePath = @"src\foo.cs";
-                    var line = 10;
-                    var endLine = 12;
-                    var column = 50;
-                    var endColumn = 55;
+                    const string identifier = "identifier";
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = "foo";
+                    const string filePath = @"src\foo.cs";
+                    const int line = 10;
+                    const int endLine = 12;
+                    const int column = 50;
+                    const int endColumn = 55;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = "MessageText";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageText = "MessageText";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -2880,25 +2880,25 @@
                 public void Should_Set_MessageHtml(string messageMarkdown)
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectPath = @"src\foo.csproj";
-                    var projectName = "foo";
-                    var filePath = @"src\foo.cs";
-                    var line = 10;
-                    var endLine = 12;
-                    var column = 50;
-                    var endColumn = 55;
+                    const string identifier = "identifier";
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = "foo";
+                    const string filePath = @"src\foo.cs";
+                    const int line = 10;
+                    const int endLine = 12;
+                    const int column = 50;
+                    const int endColumn = 55;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -2943,25 +2943,25 @@
                 public void Should_Set_Priority(int? priority)
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectPath = @"src\foo.csproj";
-                    var projectName = "foo";
-                    var filePath = @"src\foo.cs";
-                    var line = 10;
-                    var endLine = 12;
-                    var column = 50;
-                    var endColumn = 55;
+                    const string identifier = "identifier";
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = "foo";
+                    const string filePath = @"src\foo.cs";
+                    const int line = 10;
+                    const int endLine = 12;
+                    const int column = 50;
+                    const int endColumn = 55;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -3000,26 +3000,26 @@
                 public void Should_Handle_PriorityNames_Which_Are_Null()
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectPath = @"src\foo.csproj";
-                    var projectName = "foo";
-                    var filePath = @"src\foo.cs";
-                    var line = 10;
-                    var endLine = 12;
-                    var column = 50;
-                    var endColumn = 55;
+                    const string identifier = "identifier";
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = "foo";
+                    const string filePath = @"src\foo.cs";
+                    const int line = 10;
+                    const int endLine = 12;
+                    const int column = 50;
+                    const int endColumn = 55;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    string priorityName = null;
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = null;
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -3055,26 +3055,26 @@
                 public void Should_Handle_PriorityNames_Which_Are_Empty()
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectPath = @"src\foo.csproj";
-                    var projectName = "foo";
-                    var filePath = @"src\foo.cs";
-                    var line = 10;
-                    var endLine = 12;
-                    var column = 50;
-                    var endColumn = 55;
+                    const string identifier = "identifier";
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = "foo";
+                    const string filePath = @"src\foo.cs";
+                    const int line = 10;
+                    const int endLine = 12;
+                    const int column = 50;
+                    const int endColumn = 55;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
                     var priorityName = string.Empty;
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -3110,26 +3110,26 @@
                 public void Should_Handle_PriorityNames_Which_Are_WhiteSpace()
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectPath = @"src\foo.csproj";
-                    var projectName = "foo";
-                    var filePath = @"src\foo.cs";
-                    var line = 10;
-                    var endLine = 12;
-                    var column = 50;
-                    var endColumn = 55;
+                    const string identifier = "identifier";
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = "foo";
+                    const string filePath = @"src\foo.cs";
+                    const int line = 10;
+                    const int endLine = 12;
+                    const int column = 50;
+                    const int endColumn = 55;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = " ";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = " ";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -3166,25 +3166,25 @@
                 public void Should_Set_Priority_Name(string priorityName)
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectPath = @"src\foo.csproj";
-                    var projectName = "foo";
-                    var filePath = @"src\foo.cs";
-                    var line = 10;
-                    var endLine = 12;
-                    var column = 50;
-                    var endColumn = 55;
+                    const string identifier = "identifier";
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = "foo";
+                    const string filePath = @"src\foo.cs";
+                    const int line = 10;
+                    const int endLine = 12;
+                    const int column = 50;
+                    const int endColumn = 55;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -3226,25 +3226,25 @@
                 public void Should_Set_RuleId(string ruleId)
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectPath = @"src\foo.csproj";
-                    var projectName = "foo";
-                    var filePath = @"src\foo.cs";
-                    var line = 10;
-                    var endLine = 12;
-                    var column = 50;
-                    var endColumn = 55;
+                    const string identifier = "identifier";
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = "foo";
+                    const string filePath = @"src\foo.cs";
+                    const int line = 10;
+                    const int endLine = 12;
+                    const int column = 50;
+                    const int endColumn = 55;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var ruleName = "Rule Name";
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -3286,25 +3286,25 @@
                 public void Should_Set_RuleName(string ruleName)
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectPath = @"src\foo.csproj";
-                    var projectName = "foo";
-                    var filePath = @"src\foo.cs";
-                    var line = 10;
-                    var endLine = 12;
-                    var column = 50;
-                    var endColumn = 55;
+                    const string identifier = "identifier";
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = "foo";
+                    const string filePath = @"src\foo.cs";
+                    const int line = 10;
+                    const int endLine = 12;
+                    const int column = 50;
+                    const int endColumn = 55;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var ruleId = "Rule";
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string ruleId = "Rule";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -3343,26 +3343,26 @@
                 public void Should_Set_Rule_Url()
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectPath = @"src\foo.csproj";
-                    var projectName = "foo";
-                    var filePath = @"src\foo.cs";
-                    var line = 10;
-                    var endLine = 12;
-                    var column = 50;
-                    var endColumn = 55;
+                    const string identifier = "identifier";
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = "foo";
+                    const string filePath = @"src\foo.cs";
+                    const int line = 10;
+                    const int endLine = 12;
+                    const int column = 50;
+                    const int endColumn = 55;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -3398,26 +3398,26 @@
                 public void Should_Set_Rule_Url_If_Null()
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectPath = @"src\foo.csproj";
-                    var projectName = "foo";
-                    var filePath = @"src\foo.cs";
-                    var line = 10;
-                    var endLine = 12;
-                    var column = 50;
-                    var endColumn = 55;
+                    const string identifier = "identifier";
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = "foo";
+                    const string filePath = @"src\foo.cs";
+                    const int line = 10;
+                    const int endLine = 12;
+                    const int column = 50;
+                    const int endColumn = 55;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
-                    Uri ruleUri = null;
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
+                    const Uri ruleUri = null;
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -3459,25 +3459,25 @@
                 public void Should_Set_Run(string run)
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectPath = @"src\foo.csproj";
-                    var projectName = "foo";
-                    var filePath = @"src\foo.cs";
-                    var line = 10;
-                    var endLine = 12;
-                    var column = 50;
-                    var endColumn = 55;
+                    const string identifier = "identifier";
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = "foo";
+                    const string filePath = @"src\foo.cs";
+                    const int line = 10;
+                    const int endLine = 12;
+                    const int column = 50;
+                    const int endColumn = 55;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -3516,26 +3516,26 @@
                 public void Should_Throw_If_Provider_Type_Is_Null()
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectPath = @"src\foo.csproj";
-                    var projectName = "foo";
-                    var filePath = @"src\foo.cs";
-                    var line = 10;
-                    var endLine = 12;
-                    var column = 50;
-                    var endColumn = 55;
+                    const string identifier = "identifier";
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = "foo";
+                    const string filePath = @"src\foo.cs";
+                    const int line = 10;
+                    const int endLine = 12;
+                    const int column = 50;
+                    const int endColumn = 55;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    string providerType = null;
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerType = null;
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -3571,26 +3571,26 @@
                 public void Should_Throw_If_Provider_Type_Is_Empty()
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectPath = @"src\foo.csproj";
-                    var projectName = "foo";
-                    var filePath = @"src\foo.cs";
-                    var line = 10;
-                    var endLine = 12;
-                    var column = 50;
-                    var endColumn = 55;
+                    const string identifier = "identifier";
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = "foo";
+                    const string filePath = @"src\foo.cs";
+                    const int line = 10;
+                    const int endLine = 12;
+                    const int column = 50;
+                    const int endColumn = 55;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
                     var providerType = string.Empty;
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -3626,26 +3626,26 @@
                 public void Should_Throw_If_Provider_Type_Is_WhiteSpace()
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectPath = @"src\foo.csproj";
-                    var projectName = "foo";
-                    var filePath = @"src\foo.cs";
-                    var line = 10;
-                    var endLine = 12;
-                    var column = 50;
-                    var endColumn = 55;
+                    const string identifier = "identifier";
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = "foo";
+                    const string filePath = @"src\foo.cs";
+                    const int line = 10;
+                    const int endLine = 12;
+                    const int column = 50;
+                    const int endColumn = 55;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = " ";
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerType = " ";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -3682,25 +3682,25 @@
                 public void Should_Set_ProviderType(string providerType)
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectPath = @"src\foo.csproj";
-                    var projectName = "foo";
-                    var filePath = @"src\foo.cs";
-                    var line = 10;
-                    var endLine = 12;
-                    var column = 50;
-                    var endColumn = 55;
+                    const string identifier = "identifier";
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = "foo";
+                    const string filePath = @"src\foo.cs";
+                    const int line = 10;
+                    const int endLine = 12;
+                    const int column = 50;
+                    const int endColumn = 55;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -3739,26 +3739,26 @@
                 public void Should_Throw_If_Provider_Name_Is_Null()
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectPath = @"src\foo.csproj";
-                    var projectName = "foo";
-                    var filePath = @"src\foo.cs";
-                    var line = 10;
-                    var endLine = 12;
-                    var column = 50;
-                    var endColumn = 55;
+                    const string identifier = "identifier";
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = "foo";
+                    const string filePath = @"src\foo.cs";
+                    const int line = 10;
+                    const int endLine = 12;
+                    const int column = 50;
+                    const int endColumn = 55;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    string providerName = null;
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string providerName = null;
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -3794,26 +3794,26 @@
                 public void Should_Throw_If_Provider_Name_Is_Empty()
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectPath = @"src\foo.csproj";
-                    var projectName = "foo";
-                    var filePath = @"src\foo.cs";
-                    var line = 10;
-                    var endLine = 12;
-                    var column = 50;
-                    var endColumn = 55;
+                    const string identifier = "identifier";
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = "foo";
+                    const string filePath = @"src\foo.cs";
+                    const int line = 10;
+                    const int endLine = 12;
+                    const int column = 50;
+                    const int endColumn = 55;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
+                    const string providerType = "ProviderType";
                     var providerName = string.Empty;
-                    var run = "Run";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -3849,26 +3849,26 @@
                 public void Should_Throw_If_Provider_Name_Is_WhiteSpace()
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectPath = @"src\foo.csproj";
-                    var projectName = "foo";
-                    var filePath = @"src\foo.cs";
-                    var line = 10;
-                    var endLine = 12;
-                    var column = 50;
-                    var endColumn = 55;
+                    const string identifier = "identifier";
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = "foo";
+                    const string filePath = @"src\foo.cs";
+                    const int line = 10;
+                    const int endLine = 12;
+                    const int column = 50;
+                    const int endColumn = 55;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = " ";
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string providerName = " ";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -3905,25 +3905,25 @@
                 public void Should_Set_ProviderName(string providerName)
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectPath = @"src\foo.csproj";
-                    var projectName = "foo";
-                    var filePath = @"src\foo.cs";
-                    var line = 10;
-                    var endLine = 12;
-                    var column = 50;
-                    var endColumn = 55;
+                    const string identifier = "identifier";
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = "foo";
+                    const string filePath = @"src\foo.cs";
+                    const int line = 10;
+                    const int endLine = 12;
+                    const int column = 50;
+                    const int endColumn = 55;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string run = "Run";
                     var additionalInformation = new Dictionary<string, string>();
 
                     // When
@@ -3962,26 +3962,26 @@
                 public void Should_Set_AdditionalInformation()
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectPath = @"src\foo.csproj";
-                    var projectName = "foo";
-                    var filePath = @"src\foo.cs";
-                    var line = 10;
-                    var endLine = 12;
-                    var column = 50;
-                    var endColumn = 55;
+                    const string identifier = "identifier";
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = "foo";
+                    const string filePath = @"src\foo.cs";
+                    const int line = 10;
+                    const int endLine = 12;
+                    const int column = 50;
+                    const int endColumn = 55;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
-                    var run = "Run";
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
                     var additionalInformation =
                         new Dictionary<string, string>
                         {
@@ -4028,27 +4028,27 @@
                 public void Should_Set_AdditionalInformation_To_Empty_Dictionary()
                 {
                     // Given
-                    var identifier = "identifier";
-                    var projectPath = @"src\foo.csproj";
-                    var projectName = "foo";
-                    var filePath = @"src\foo.cs";
-                    var line = 10;
-                    var endLine = 12;
-                    var column = 50;
-                    var endColumn = 55;
+                    const string identifier = "identifier";
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = "foo";
+                    const string filePath = @"src\foo.cs";
+                    const int line = 10;
+                    const int endLine = 12;
+                    const int column = 50;
+                    const int endColumn = 55;
                     var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
-                    var messageText = "MessageText";
-                    var messageHtml = "MessageHtml";
-                    var messageMarkdown = "MessageMarkdown";
-                    var priority = 1;
-                    var priorityName = "Warning";
-                    var rule = "Rule";
-                    var ruleName = "Rule Name";
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
                     var ruleUri = new Uri("https://google.com");
-                    var providerType = "ProviderType";
-                    var providerName = "ProviderName";
-                    var run = "Run";
-                    IReadOnlyDictionary<string, string> additionalInformation = null;
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
+                    const IReadOnlyDictionary<string, string> additionalInformation = null;
 
                     // When
                     var issue = new Issue(

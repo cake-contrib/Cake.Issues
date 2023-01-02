@@ -21,6 +21,6 @@
         }
 
         /// <inheritdoc/>
-        public FilePath OutputFilePath { get; private set; }
+        public FilePath OutputFilePath { get; }
     }
 }

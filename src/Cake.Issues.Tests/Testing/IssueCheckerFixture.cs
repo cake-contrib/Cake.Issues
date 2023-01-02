@@ -1,4 +1,4 @@
-﻿namespace Cake.Issues.Tests
+﻿namespace Cake.Issues.Tests.Testing
 {
     using System;
     using System.Collections.Generic;
@@ -50,48 +50,48 @@
                 this.IssueBuilder.Create();
         }
 
-        public IIssue Issue { get; private set; }
+        public IIssue Issue { get; }
 
-        public string ProviderType { get; private set; }
+        public string ProviderType { get; }
 
-        public string ProviderName { get; private set; }
+        public string ProviderName { get; }
 
-        public string Run { get; private set; }
+        public string Run { get; }
 
-        public string Identifier { get; private set; }
+        public string Identifier { get; }
 
-        public string ProjectFileRelativePath { get; private set; }
+        public string ProjectFileRelativePath { get; }
 
-        public string ProjectName { get; private set; }
+        public string ProjectName { get; }
 
-        public string AffectedFileRelativePath { get; private set; }
+        public string AffectedFileRelativePath { get; }
 
-        public int Line { get; private set; }
+        public int Line { get; }
 
-        public int EndLine { get; private set; }
+        public int EndLine { get; }
 
-        public int Column { get; private set; }
+        public int Column { get; }
 
-        public int EndColumn { get; private set; }
+        public int EndColumn { get; }
 
-        public Uri FileLink { get; private set; }
+        public Uri FileLink { get; }
 
-        public string MessageText { get; private set; }
+        public string MessageText { get; }
 
-        public string MessageHtml { get; private set; }
+        public string MessageHtml { get; }
 
-        public string MessageMarkdown { get; private set; }
+        public string MessageMarkdown { get; }
 
-        public int Priority { get; private set; }
+        public int Priority { get; }
 
-        public string PriorityName { get; private set; }
+        public string PriorityName { get; }
 
-        public string Rule { get; private set; }
+        public string Rule { get; }
 
-        public string RuleName { get; private set; }
+        public string RuleName { get; }
 
-        public Uri RuleUrl { get; private set; }
+        public Uri RuleUrl { get; }
 
-        public Dictionary<string, string> AdditionalInformation { get; private set; }
+        public Dictionary<string, string> AdditionalInformation { get; }
     }
 }

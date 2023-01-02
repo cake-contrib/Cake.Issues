@@ -1,3 +1,4 @@
+// ReSharper disable All
 #pragma warning disable 1587
 #pragma warning disable 1591
 
@@ -19,7 +20,6 @@
 
 using System.Collections;
 using System.Collections.Specialized;
-
 
 namespace LitJson
 {

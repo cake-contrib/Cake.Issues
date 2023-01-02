@@ -108,7 +108,7 @@ namespace Cake.Issues.PullRequests
             foreach (var filePath in modifiedFilePaths.Where(x => !x.IsRelative))
             {
                 throw new PullRequestIssuesException(
-                    $"Absolute file paths are not suported for modified files. Path: {filePath}");
+                    $"Absolute file paths are not supported for modified files. Path: {filePath}");
             }
         }
 
@@ -217,7 +217,7 @@ namespace Cake.Issues.PullRequests
             var stopwatch = new Stopwatch();
             stopwatch.Start();
 
-            int totalIssuesFilteredCount = 0;
+            var totalIssuesFilteredCount = 0;
 
             // Apply issue limits per issue provider
             var result = new List<IIssue>();
@@ -229,8 +229,9 @@ namespace Cake.Issues.PullRequests
                     var issuesFiltered =
                         group
                             .SortWithDefaultPriorization()
-                            .Take(this.settings.MaxIssuesToPostForEachIssueProvider.Value);
-                    var issuesFilteredCount = countBefore - issuesFiltered.Count();
+                            .Take(this.settings.MaxIssuesToPostForEachIssueProvider.Value)
+                            .ToList();
+                    var issuesFilteredCount = countBefore - issuesFiltered.Count;
                     totalIssuesFilteredCount += issuesFilteredCount;
 
                     this.log.Information(
@@ -315,20 +316,18 @@ namespace Cake.Issues.PullRequests
                     this.settings.MaxIssuesToPost);
             }
 
-            // Apply issue limits per provider across mulitple runs
-            foreach (var currentProviderLimitPair in this.settings.ProviderIssueLimits)
+            // Apply issue limits per provider across multiple runs
+            foreach (var (currentProviderType, value) in this.settings.ProviderIssueLimits)
             {
-                var currentProviderType = currentProviderLimitPair.Key;
-
                 this.log.Verbose(
-                    "Applying filter for issue provider '{0}' across mulitple runs...",
+                    "Applying filter for issue provider '{0}' across multiple runs...",
                     currentProviderType);
 
-                var currentProviderTypeMaxLimit = currentProviderLimitPair.Value?.MaxIssuesToPostAcrossRuns;
+                var currentProviderTypeMaxLimit = value?.MaxIssuesToPostAcrossRuns;
                 if (!currentProviderTypeMaxLimit.HasValue)
                 {
                     this.log.Verbose(
-                        "No issues filtered for issue provider '{0}' across mulitple runs since `MaxIssuesToPostAcrossRuns` is not set",
+                        "No issues filtered for issue provider '{0}' across multiple runs since `MaxIssuesToPostAcrossRuns` is not set",
                         currentProviderType);
                     continue;
                 }
@@ -336,7 +335,7 @@ namespace Cake.Issues.PullRequests
                 if (currentProviderTypeMaxLimit < 0)
                 {
                     this.log.Verbose(
-                        "No issues filtered for issue provider '{0}' across mulitple runs since `MaxIssuesToPostAcrossRuns` is not set",
+                        "No issues filtered for issue provider '{0}' across multiple runs since `MaxIssuesToPostAcrossRuns` is not set",
                         currentProviderType);
                     continue;
                 }
@@ -358,7 +357,7 @@ namespace Cake.Issues.PullRequests
                 if (newIssuesForProviderType.Length <= maxIssuesLeftToTakeForProviderType)
                 {
                     this.log.Verbose(
-                        "No issues filtered for issue provider '{0}' across mulitple runs since number of issues of this type is '{1}' which is less or equal to the value '{2}' configured in `MaxIssuesToPostAcrossRuns`",
+                        "No issues filtered for issue provider '{0}' across multiple runs since number of issues of this type is '{1}' which is less or equal to the value '{2}' configured in `MaxIssuesToPostAcrossRuns`",
                         currentProviderType,
                         newIssuesForProviderType.Length,
                         maxIssuesLeftToTakeForProviderType);

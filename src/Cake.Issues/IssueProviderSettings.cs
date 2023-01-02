@@ -22,7 +22,7 @@
 
         /// <summary>
         /// Initializes a new instance of the <see cref="IssueProviderSettings"/> class
-        /// for a log file content in memoy.
+        /// for a log file content in memory.
         /// </summary>
         /// <param name="logFileContent">Content of the log file.</param>
         public IssueProviderSettings(byte[] logFileContent)
@@ -35,6 +35,6 @@
         /// <summary>
         /// Gets the content of the log file.
         /// </summary>
-        public byte[] LogFileContent { get; private set; }
+        public byte[] LogFileContent { get; }
     }
 }

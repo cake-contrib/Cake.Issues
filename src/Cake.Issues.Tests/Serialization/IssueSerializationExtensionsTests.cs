@@ -17,7 +17,7 @@
             public void Should_Throw_If_Issue_Is_Null()
             {
                 // Given
-                IIssue issue = null;
+                const IIssue issue = null;
 
                 // When
                 var result = Record.Exception(() => issue.SerializeToJsonString());
@@ -30,7 +30,7 @@
             public void Should_Give_Correct_Result_For_Identifier_After_Roundtrip()
             {
                 // Given
-                var identifier = "identifier";
+                const string identifier = "identifier";
                 var issue =
                     IssueBuilder
                         .NewIssue(identifier, "message", "providerType", "providerName")
@@ -47,7 +47,7 @@
             public void Should_Give_Correct_Result_For_MessageText_After_Roundtrip()
             {
                 // Given
-                var message = "message";
+                const string message = "message";
                 var issue =
                     IssueBuilder
                         .NewIssue(message, "providerType", "providerName")
@@ -64,7 +64,7 @@
             public void Should_Give_Correct_Result_For_MessageMarkdown_After_Roundtrip()
             {
                 // Given
-                var messageMarkdown = "messageMarkdown";
+                const string messageMarkdown = "messageMarkdown";
                 var issue =
                     IssueBuilder
                         .NewIssue("message", "providerType", "providerName")
@@ -82,7 +82,7 @@
             public void Should_Give_Correct_Result_For_MessageHtml_After_Roundtrip()
             {
                 // Given
-                var messageHtml = "messageHtml";
+                const string messageHtml = "messageHtml";
                 var issue =
                     IssueBuilder
                         .NewIssue("message", "providerType", "providerName")
@@ -100,7 +100,7 @@
             public void Should_Give_Correct_Result_For_ProviderType_After_Roundtrip()
             {
                 // Given
-                var providerType = "providerType";
+                const string providerType = "providerType";
                 var issue =
                     IssueBuilder
                         .NewIssue("message", providerType, "providerName")
@@ -117,7 +117,7 @@
             public void Should_Give_Correct_Result_For_ProviderName_After_Roundtrip()
             {
                 // Given
-                var providerName = "providerName";
+                const string providerName = "providerName";
                 var issue =
                     IssueBuilder
                         .NewIssue("message", "providerType", providerName)
@@ -134,7 +134,7 @@
             public void Should_Give_Correct_Result_For_Run_After_Roundtrip()
             {
                 // Given
-                var run = "run";
+                const string run = "run";
                 var issue =
                     IssueBuilder
                         .NewIssue("message", "providerType", "providerName")
@@ -152,7 +152,7 @@
             public void Should_Give_Correct_Result_For_ProjectFileRelativePath_After_Roundtrip()
             {
                 // Given
-                var projectFileRelativePath = @"src/myproj.file";
+                const string projectFileRelativePath = @"src/myproj.file";
                 var issue =
                     IssueBuilder
                         .NewIssue("message", "providerType", "providerName")
@@ -170,7 +170,7 @@
             public void Should_Give_Correct_Result_For_ProjectName_After_Roundtrip()
             {
                 // Given
-                var projectName = "projectName";
+                const string projectName = "projectName";
                 var issue =
                     IssueBuilder
                         .NewIssue("message", "providerType", "providerName")
@@ -188,7 +188,7 @@
             public void Should_Give_Correct_Result_For_AffectedFileRelativePath_After_Roundtrip()
             {
                 // Given
-                var affectedFileRelativePath = @"src/foo.bar";
+                const string affectedFileRelativePath = @"src/foo.bar";
                 var issue =
                     IssueBuilder
                         .NewIssue("message", "providerType", "providerName")
@@ -206,7 +206,7 @@
             public void Should_Give_Correct_Result_For_Line_After_Roundtrip()
             {
                 // Given
-                var line = 42;
+                const int line = 42;
                 var issue =
                     IssueBuilder
                         .NewIssue("message", "providerType", "providerName")
@@ -224,7 +224,7 @@
             public void Should_Give_Correct_Result_For_EndLine_After_Roundtrip()
             {
                 // Given
-                var endLine = 420;
+                const int endLine = 420;
                 var issue =
                     IssueBuilder
                         .NewIssue("message", "providerType", "providerName")
@@ -242,7 +242,7 @@
             public void Should_Give_Correct_Result_For_Column_After_Roundtrip()
             {
                 // Given
-                var column = 23;
+                const int column = 23;
                 var issue =
                     IssueBuilder
                         .NewIssue("message", "providerType", "providerName")
@@ -260,7 +260,7 @@
             public void Should_Give_Correct_Result_For_EndColumn_After_Roundtrip()
             {
                 // Given
-                var endColumn = 230;
+                const int endColumn = 230;
                 var issue =
                     IssueBuilder
                         .NewIssue("message", "providerType", "providerName")
@@ -278,7 +278,7 @@
             public void Should_Give_Correct_Result_For_FileLink_After_Roundtrip()
             {
                 // Given
-                var fileLink = "https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12";
+                const string fileLink = "https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12";
                 var issue =
                     IssueBuilder
                         .NewIssue("message", "providerType", "providerName")
@@ -296,7 +296,7 @@
             public void Should_Give_Correct_Result_For_Priority_After_Roundtrip()
             {
                 // Given
-                var priority = 42;
+                const int priority = 42;
                 var issue =
                     IssueBuilder
                         .NewIssue("message", "providerType", "providerName")
@@ -314,7 +314,7 @@
             public void Should_Give_Correct_Result_For_PriorityName_After_Roundtrip()
             {
                 // Given
-                var priorityName = "priorityName";
+                const string priorityName = "priorityName";
                 var issue =
                     IssueBuilder
                         .NewIssue("message", "providerType", "providerName")
@@ -332,7 +332,7 @@
             public void Should_Give_Correct_Result_For_RuleId_After_Roundtrip()
             {
                 // Given
-                var ruleId = "rule";
+                const string ruleId = "rule";
                 var issue =
                     IssueBuilder
                         .NewIssue("message", "providerType", "providerName")
@@ -350,7 +350,7 @@
             public void Should_Give_Correct_Result_For_RuleName_After_Roundtrip()
             {
                 // Given
-                var ruleName = "Rule Name";
+                const string ruleName = "Rule Name";
                 var issue =
                     IssueBuilder
                         .NewIssue("message", "providerType", "providerName")
@@ -389,7 +389,7 @@
             public void Should_Throw_If_Issue_Is_Null()
             {
                 // Given
-                IEnumerable<IIssue> issues = null;
+                const IEnumerable<IIssue> issues = null;
 
                 // When
                 var result = Record.Exception(() => issues.SerializeToJsonString());
@@ -402,8 +402,8 @@
             public void Should_Give_Correct_Result_For_Identifier_After_Roundtrip()
             {
                 // Given
-                var identifier1 = "identifier1";
-                var identifier2 = "identifier2";
+                const string identifier1 = "identifier1";
+                const string identifier2 = "identifier2";
                 var issues =
                     new List<IIssue>
                     {
@@ -416,10 +416,10 @@
                     };
 
                 // When
-                var result = issues.SerializeToJsonString().DeserializeToIssues();
+                var result = issues.SerializeToJsonString().DeserializeToIssues().ToList();
 
                 // Then
-                result.Count().ShouldBe(2);
+                result.Count.ShouldBe(2);
                 result.First().Identifier.ShouldBe(identifier1);
                 result.Last().Identifier.ShouldBe(identifier2);
             }
@@ -428,8 +428,8 @@
             public void Should_Give_Correct_Result_For_MessageText_After_Roundtrip()
             {
                 // Given
-                var messageText1 = "messageText1";
-                var messageText2 = "messageText2";
+                const string messageText1 = "messageText1";
+                const string messageText2 = "messageText2";
                 var issues =
                     new List<IIssue>
                     {
@@ -442,10 +442,10 @@
                     };
 
                 // When
-                var result = issues.SerializeToJsonString().DeserializeToIssues();
+                var result = issues.SerializeToJsonString().DeserializeToIssues().ToList();
 
                 // Then
-                result.Count().ShouldBe(2);
+                result.Count.ShouldBe(2);
                 result.First().MessageText.ShouldBe(messageText1);
                 result.Last().MessageText.ShouldBe(messageText2);
             }
@@ -454,8 +454,8 @@
             public void Should_Give_Correct_Result_For_MessageMarkdown_After_Roundtrip()
             {
                 // Given
-                var messageMarkdown1 = "messageMarkdown1";
-                var messageMarkdown2 = "messageMarkdown2";
+                const string messageMarkdown1 = "messageMarkdown1";
+                const string messageMarkdown2 = "messageMarkdown2";
                 var issues =
                     new List<IIssue>
                     {
@@ -470,10 +470,10 @@
                     };
 
                 // When
-                var result = issues.SerializeToJsonString().DeserializeToIssues();
+                var result = issues.SerializeToJsonString().DeserializeToIssues().ToList();
 
                 // Then
-                result.Count().ShouldBe(2);
+                result.Count.ShouldBe(2);
                 result.First().MessageMarkdown.ShouldBe(messageMarkdown1);
                 result.Last().MessageMarkdown.ShouldBe(messageMarkdown2);
             }
@@ -482,8 +482,8 @@
             public void Should_Give_Correct_Result_For_MessageHtml_After_Roundtrip()
             {
                 // Given
-                var messageHtml1 = "messageHtml1";
-                var messageHtml2 = "messageHtml2";
+                const string messageHtml1 = "messageHtml1";
+                const string messageHtml2 = "messageHtml2";
                 var issues =
                     new List<IIssue>
                     {
@@ -498,10 +498,10 @@
                     };
 
                 // When
-                var result = issues.SerializeToJsonString().DeserializeToIssues();
+                var result = issues.SerializeToJsonString().DeserializeToIssues().ToList();
 
                 // Then
-                result.Count().ShouldBe(2);
+                result.Count.ShouldBe(2);
                 result.First().MessageHtml.ShouldBe(messageHtml1);
                 result.Last().MessageHtml.ShouldBe(messageHtml2);
             }
@@ -510,8 +510,8 @@
             public void Should_Give_Correct_Result_For_ProviderType_After_Roundtrip()
             {
                 // Given
-                var providerType1 = "providerType1";
-                var providerType2 = "providerType2";
+                const string providerType1 = "providerType1";
+                const string providerType2 = "providerType2";
                 var issues =
                     new List<IIssue>
                     {
@@ -524,10 +524,10 @@
                     };
 
                 // When
-                var result = issues.SerializeToJsonString().DeserializeToIssues();
+                var result = issues.SerializeToJsonString().DeserializeToIssues().ToList();
 
                 // Then
-                result.Count().ShouldBe(2);
+                result.Count.ShouldBe(2);
                 result.First().ProviderType.ShouldBe(providerType1);
                 result.Last().ProviderType.ShouldBe(providerType2);
             }
@@ -536,8 +536,8 @@
             public void Should_Give_Correct_Result_For_ProviderName_After_Roundtrip()
             {
                 // Given
-                var providerName1 = "providerName1";
-                var providerName2 = "providerName2";
+                const string providerName1 = "providerName1";
+                const string providerName2 = "providerName2";
                 var issues =
                     new List<IIssue>
                     {
@@ -550,10 +550,10 @@
                     };
 
                 // When
-                var result = issues.SerializeToJsonString().DeserializeToIssues();
+                var result = issues.SerializeToJsonString().DeserializeToIssues().ToList();
 
                 // Then
-                result.Count().ShouldBe(2);
+                result.Count.ShouldBe(2);
                 result.First().ProviderName.ShouldBe(providerName1);
                 result.Last().ProviderName.ShouldBe(providerName2);
             }
@@ -562,8 +562,8 @@
             public void Should_Give_Correct_Result_For_Run_After_Roundtrip()
             {
                 // Given
-                var run1 = "run1";
-                var run2 = "run2";
+                const string run1 = "run1";
+                const string run2 = "run2";
                 var issues =
                     new List<IIssue>
                     {
@@ -578,10 +578,10 @@
                     };
 
                 // When
-                var result = issues.SerializeToJsonString().DeserializeToIssues();
+                var result = issues.SerializeToJsonString().DeserializeToIssues().ToList();
 
                 // Then
-                result.Count().ShouldBe(2);
+                result.Count.ShouldBe(2);
                 result.First().Run.ShouldBe(run1);
                 result.Last().Run.ShouldBe(run2);
             }
@@ -590,8 +590,8 @@
             public void Should_Give_Correct_Result_For_ProjectFileRelativePath_After_Roundtrip()
             {
                 // Given
-                var projectFileRelativePath1 = @"src/myproj1.file";
-                var projectFileRelativePath2 = @"src/myproj2.file";
+                const string projectFileRelativePath1 = @"src/myproj1.file";
+                const string projectFileRelativePath2 = @"src/myproj2.file";
                 var issues =
                     new List<IIssue>
                     {
@@ -606,10 +606,10 @@
                     };
 
                 // When
-                var result = issues.SerializeToJsonString().DeserializeToIssues();
+                var result = issues.SerializeToJsonString().DeserializeToIssues().ToList();
 
                 // Then
-                result.Count().ShouldBe(2);
+                result.Count.ShouldBe(2);
                 result.First().ProjectFileRelativePath.FullPath.ShouldBe(projectFileRelativePath1);
                 result.Last().ProjectFileRelativePath.FullPath.ShouldBe(projectFileRelativePath2);
             }
@@ -618,8 +618,8 @@
             public void Should_Give_Correct_Result_For_ProjectName_After_Roundtrip()
             {
                 // Given
-                var projectName1 = "projectName1";
-                var projectName2 = "projectName2";
+                const string projectName1 = "projectName1";
+                const string projectName2 = "projectName2";
                 var issues =
                     new List<IIssue>
                     {
@@ -634,10 +634,10 @@
                     };
 
                 // When
-                var result = issues.SerializeToJsonString().DeserializeToIssues();
+                var result = issues.SerializeToJsonString().DeserializeToIssues().ToList();
 
                 // Then
-                result.Count().ShouldBe(2);
+                result.Count.ShouldBe(2);
                 result.First().ProjectName.ShouldBe(projectName1);
                 result.Last().ProjectName.ShouldBe(projectName2);
             }
@@ -646,8 +646,8 @@
             public void Should_Give_Correct_Result_For_AffectedFileRelativePath_After_Roundtrip()
             {
                 // Given
-                var affectedFileRelativePath1 = @"src/foo1.bar";
-                var affectedFileRelativePath2 = @"src/foo2.bar";
+                const string affectedFileRelativePath1 = @"src/foo1.bar";
+                const string affectedFileRelativePath2 = @"src/foo2.bar";
                 var issues =
                     new List<IIssue>
                     {
@@ -662,10 +662,10 @@
                     };
 
                 // When
-                var result = issues.SerializeToJsonString().DeserializeToIssues();
+                var result = issues.SerializeToJsonString().DeserializeToIssues().ToList();
 
                 // Then
-                result.Count().ShouldBe(2);
+                result.Count.ShouldBe(2);
                 result.First().AffectedFileRelativePath.FullPath.ShouldBe(affectedFileRelativePath1);
                 result.Last().AffectedFileRelativePath.FullPath.ShouldBe(affectedFileRelativePath2);
             }
@@ -674,8 +674,8 @@
             public void Should_Give_Correct_Result_For_Line_After_Roundtrip()
             {
                 // Given
-                var line1 = 23;
-                var line2 = 42;
+                const int line1 = 23;
+                const int line2 = 42;
                 var issues =
                     new List<IIssue>
                     {
@@ -690,10 +690,10 @@
                     };
 
                 // When
-                var result = issues.SerializeToJsonString().DeserializeToIssues();
+                var result = issues.SerializeToJsonString().DeserializeToIssues().ToList();
 
                 // Then
-                result.Count().ShouldBe(2);
+                result.Count.ShouldBe(2);
                 result.First().Line.ShouldBe(line1);
                 result.Last().Line.ShouldBe(line2);
             }
@@ -702,8 +702,8 @@
             public void Should_Give_Correct_Result_For_EndLine_After_Roundtrip()
             {
                 // Given
-                var endLine1 = 230;
-                var endLine2 = 420;
+                const int endLine1 = 230;
+                const int endLine2 = 420;
                 var issues =
                     new List<IIssue>
                     {
@@ -718,10 +718,10 @@
                     };
 
                 // When
-                var result = issues.SerializeToJsonString().DeserializeToIssues();
+                var result = issues.SerializeToJsonString().DeserializeToIssues().ToList();
 
                 // Then
-                result.Count().ShouldBe(2);
+                result.Count.ShouldBe(2);
                 result.First().EndLine.ShouldBe(endLine1);
                 result.Last().EndLine.ShouldBe(endLine2);
             }
@@ -730,8 +730,8 @@
             public void Should_Give_Correct_Result_For_Column_After_Roundtrip()
             {
                 // Given
-                var column1 = 23;
-                var column2 = 42;
+                const int column1 = 23;
+                const int column2 = 42;
                 var issues =
                     new List<IIssue>
                     {
@@ -746,10 +746,10 @@
                     };
 
                 // When
-                var result = issues.SerializeToJsonString().DeserializeToIssues();
+                var result = issues.SerializeToJsonString().DeserializeToIssues().ToList();
 
                 // Then
-                result.Count().ShouldBe(2);
+                result.Count.ShouldBe(2);
                 result.First().Column.ShouldBe(column1);
                 result.Last().Column.ShouldBe(column2);
             }
@@ -758,8 +758,8 @@
             public void Should_Give_Correct_Result_For_EndColumn_After_Roundtrip()
             {
                 // Given
-                var endColumn1 = 230;
-                var endColumn2 = 420;
+                const int endColumn1 = 230;
+                const int endColumn2 = 420;
                 var issues =
                     new List<IIssue>
                     {
@@ -774,10 +774,10 @@
                     };
 
                 // When
-                var result = issues.SerializeToJsonString().DeserializeToIssues();
+                var result = issues.SerializeToJsonString().DeserializeToIssues().ToList();
 
                 // Then
-                result.Count().ShouldBe(2);
+                result.Count.ShouldBe(2);
                 result.First().EndColumn.ShouldBe(endColumn1);
                 result.Last().EndColumn.ShouldBe(endColumn2);
             }
@@ -786,8 +786,8 @@
             public void Should_Give_Correct_Result_For_FileLink_After_Roundtrip()
             {
                 // Given
-                var fileLink1 = "https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12";
-                var fileLink2 = "https://github.com/myorg/myrepo/blob/develop/src/bar.cs#L23-L42";
+                const string fileLink1 = "https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12";
+                const string fileLink2 = "https://github.com/myorg/myrepo/blob/develop/src/bar.cs#L23-L42";
                 var issues =
                     new List<IIssue>
                     {
@@ -802,10 +802,10 @@
                     };
 
                 // When
-                var result = issues.SerializeToJsonString().DeserializeToIssues();
+                var result = issues.SerializeToJsonString().DeserializeToIssues().ToList();
 
                 // Then
-                result.Count().ShouldBe(2);
+                result.Count.ShouldBe(2);
                 result.First().FileLink.ToString().ShouldBe(fileLink1);
                 result.Last().FileLink.ToString().ShouldBe(fileLink2);
             }
@@ -814,8 +814,8 @@
             public void Should_Give_Correct_Result_For_Priority_After_Roundtrip()
             {
                 // Given
-                var priority1 = 23;
-                var priority2 = 42;
+                const int priority1 = 23;
+                const int priority2 = 42;
                 var issues =
                     new List<IIssue>
                     {
@@ -830,10 +830,10 @@
                     };
 
                 // When
-                var result = issues.SerializeToJsonString().DeserializeToIssues();
+                var result = issues.SerializeToJsonString().DeserializeToIssues().ToList();
 
                 // Then
-                result.Count().ShouldBe(2);
+                result.Count.ShouldBe(2);
                 result.First().Priority.ShouldBe(priority1);
                 result.Last().Priority.ShouldBe(priority2);
             }
@@ -842,8 +842,8 @@
             public void Should_Give_Correct_Result_For_PriorityName_After_Roundtrip()
             {
                 // Given
-                var priorityName1 = "priorityName1";
-                var priorityName2 = "priorityName2";
+                const string priorityName1 = "priorityName1";
+                const string priorityName2 = "priorityName2";
                 var issues =
                     new List<IIssue>
                     {
@@ -858,10 +858,10 @@
                     };
 
                 // When
-                var result = issues.SerializeToJsonString().DeserializeToIssues();
+                var result = issues.SerializeToJsonString().DeserializeToIssues().ToList();
 
                 // Then
-                result.Count().ShouldBe(2);
+                result.Count.ShouldBe(2);
                 result.First().PriorityName.ShouldBe(priorityName1);
                 result.Last().PriorityName.ShouldBe(priorityName2);
             }
@@ -870,8 +870,8 @@
             public void Should_Give_Correct_Result_For_RuleId_After_Roundtrip()
             {
                 // Given
-                var ruleId1 = "rule1";
-                var ruleId2 = "rule2";
+                const string ruleId1 = "rule1";
+                const string ruleId2 = "rule2";
                 var issues =
                     new List<IIssue>
                     {
@@ -886,10 +886,10 @@
                     };
 
                 // When
-                var result = issues.SerializeToJsonString().DeserializeToIssues();
+                var result = issues.SerializeToJsonString().DeserializeToIssues().ToList();
 
                 // Then
-                result.Count().ShouldBe(2);
+                result.Count.ShouldBe(2);
                 result.First().RuleId.ShouldBe(ruleId1);
                 result.Last().RuleId.ShouldBe(ruleId2);
             }
@@ -898,8 +898,8 @@
             public void Should_Give_Correct_Result_For_RuleName_After_Roundtrip()
             {
                 // Given
-                var ruleName1 = "Rule Name 1";
-                var ruleName2 = "Rule Name 2";
+                const string ruleName1 = "Rule Name 1";
+                const string ruleName2 = "Rule Name 2";
                 var issues =
                     new List<IIssue>
                     {
@@ -914,10 +914,10 @@
                     };
 
                 // When
-                var result = issues.SerializeToJsonString().DeserializeToIssues();
+                var result = issues.SerializeToJsonString().DeserializeToIssues().ToList();
 
                 // Then
-                result.Count().ShouldBe(2);
+                result.Count.ShouldBe(2);
                 result.First().RuleName.ShouldBe(ruleName1);
                 result.Last().RuleName.ShouldBe(ruleName2);
             }
@@ -942,10 +942,10 @@
                     };
 
                 // When
-                var result = issues.SerializeToJsonString().DeserializeToIssues();
+                var result = issues.SerializeToJsonString().DeserializeToIssues().ToList();
 
                 // Then
-                result.Count().ShouldBe(2);
+                result.Count.ShouldBe(2);
                 result.First().RuleUrl.ToString().ShouldBe(ruleUrl1.ToString());
                 result.Last().RuleUrl.ToString().ShouldBe(ruleUrl2.ToString());
             }
@@ -957,8 +957,8 @@
             public void Should_Throw_If_Issue_Is_Null()
             {
                 // Given
-                IIssue issue = null;
-                var filePath = @"c:\issue.json";
+                const IIssue issue = null;
+                const string filePath = @"c:\issue.json";
 
                 // When
                 var result = Record.Exception(() => issue.SerializeToJsonFile(filePath));
@@ -975,7 +975,7 @@
                     IssueBuilder
                         .NewIssue("message", "providerType", "providerName")
                         .Create();
-                FilePath filePath = null;
+                const FilePath filePath = null;
 
                 // When
                 var result = Record.Exception(() => issue.SerializeToJsonFile(filePath));
@@ -988,12 +988,12 @@
             public void Should_Give_Correct_Result_For_Identifier_After_Roundtrip()
             {
                 // Given
-                var identifier = "identifier";
+                const string identifier = "identifier";
                 var issue =
                     IssueBuilder
                         .NewIssue(identifier, "messageText", "providerType", "providerName")
                         .Create();
-                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid() + ".json");
 
                 try
                 {
@@ -1017,12 +1017,12 @@
             public void Should_Give_Correct_Result_For_MessageText_After_Roundtrip()
             {
                 // Given
-                var messageText = "messageText";
+                const string messageText = "messageText";
                 var issue =
                     IssueBuilder
                         .NewIssue(messageText, "providerType", "providerName")
                         .Create();
-                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid() + ".json");
 
                 try
                 {
@@ -1046,13 +1046,13 @@
             public void Should_Give_Correct_Result_For_MessageMarkdown_After_Roundtrip()
             {
                 // Given
-                var messageMarkdown = "messageMarkdown";
+                const string messageMarkdown = "messageMarkdown";
                 var issue =
                     IssueBuilder
                         .NewIssue("messageText", "providerType", "providerName")
                         .WithMessageInMarkdownFormat(messageMarkdown)
                         .Create();
-                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid() + ".json");
 
                 try
                 {
@@ -1076,13 +1076,13 @@
             public void Should_Give_Correct_Result_For_MessageHtml_After_Roundtrip()
             {
                 // Given
-                var messageHtml = "messageHtml";
+                const string messageHtml = "messageHtml";
                 var issue =
                     IssueBuilder
                         .NewIssue("messageText", "providerType", "providerName")
                         .WithMessageInHtmlFormat(messageHtml)
                         .Create();
-                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid() + ".json");
 
                 try
                 {
@@ -1106,12 +1106,12 @@
             public void Should_Give_Correct_Result_For_ProviderType_After_Roundtrip()
             {
                 // Given
-                var providerType = "providerType";
+                const string providerType = "providerType";
                 var issue =
                     IssueBuilder
                         .NewIssue("message", providerType, "providerName")
                         .Create();
-                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid() + ".json");
 
                 try
                 {
@@ -1135,12 +1135,12 @@
             public void Should_Give_Correct_Result_For_ProviderName_After_Roundtrip()
             {
                 // Given
-                var providerName = "providerName";
+                const string providerName = "providerName";
                 var issue =
                     IssueBuilder
                         .NewIssue("message", "providerType", providerName)
                         .Create();
-                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid() + ".json");
 
                 try
                 {
@@ -1164,13 +1164,13 @@
             public void Should_Give_Correct_Result_For_Run_After_Roundtrip()
             {
                 // Given
-                var run = "run";
+                const string run = "run";
                 var issue =
                     IssueBuilder
                         .NewIssue("message", "providerType", "providerName")
                         .ForRun(run)
                         .Create();
-                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid() + ".json");
 
                 try
                 {
@@ -1200,7 +1200,7 @@
                         .WithAdditionalInformation("Foo", "Bar")
                         .Create();
 
-                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid() + ".json");
 
                 try
                 {
@@ -1224,13 +1224,13 @@
             public void Should_Give_Correct_Result_For_ProjectFileRelativePath_After_Roundtrip()
             {
                 // Given
-                var projectFileRelativePath = @"src/myproj.file";
+                const string projectFileRelativePath = @"src/myproj.file";
                 var issue =
                     IssueBuilder
                         .NewIssue("message", "providerType", "providerName")
                         .InProjectFile(projectFileRelativePath)
                         .Create();
-                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid() + ".json");
 
                 try
                 {
@@ -1254,13 +1254,13 @@
             public void Should_Give_Correct_Result_For_ProjectName_After_Roundtrip()
             {
                 // Given
-                var projectName = "projectName";
+                const string projectName = "projectName";
                 var issue =
                     IssueBuilder
                         .NewIssue("message", "providerType", "providerName")
                         .InProjectOfName(projectName)
                         .Create();
-                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid() + ".json");
 
                 try
                 {
@@ -1284,13 +1284,13 @@
             public void Should_Give_Correct_Result_For_AffectedFileRelativePath_After_Roundtrip()
             {
                 // Given
-                var affectedFileRelativePath = @"src/foo.bar";
+                const string affectedFileRelativePath = @"src/foo.bar";
                 var issue =
                     IssueBuilder
                         .NewIssue("message", "providerType", "providerName")
                         .InFile(affectedFileRelativePath)
                         .Create();
-                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid() + ".json");
 
                 try
                 {
@@ -1314,13 +1314,13 @@
             public void Should_Give_Correct_Result_For_Line_After_Roundtrip()
             {
                 // Given
-                var line = 42;
+                const int line = 42;
                 var issue =
                     IssueBuilder
                         .NewIssue("message", "providerType", "providerName")
                         .InFile(@"src/foo.bar", line)
                         .Create();
-                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid() + ".json");
 
                 try
                 {
@@ -1344,13 +1344,13 @@
             public void Should_Give_Correct_Result_For_EndLine_After_Roundtrip()
             {
                 // Given
-                var endLine = 420;
+                const int endLine = 420;
                 var issue =
                     IssueBuilder
                         .NewIssue("message", "providerType", "providerName")
                         .InFile(@"src/foo.bar", 42, endLine, null, null)
                         .Create();
-                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid() + ".json");
 
                 try
                 {
@@ -1374,13 +1374,13 @@
             public void Should_Give_Correct_Result_For_Column_After_Roundtrip()
             {
                 // Given
-                var column = 23;
+                const int column = 23;
                 var issue =
                     IssueBuilder
                         .NewIssue("message", "providerType", "providerName")
                         .InFile(@"src/foo.bar", 42, column)
                         .Create();
-                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid() + ".json");
 
                 try
                 {
@@ -1404,13 +1404,13 @@
             public void Should_Give_Correct_Result_For_EndColumn_After_Roundtrip()
             {
                 // Given
-                var endColumn = 230;
+                const int endColumn = 230;
                 var issue =
                     IssueBuilder
                         .NewIssue("message", "providerType", "providerName")
                         .InFile(@"src/foo.bar", 42, 50, 1, endColumn)
                         .Create();
-                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid() + ".json");
 
                 try
                 {
@@ -1434,13 +1434,13 @@
             public void Should_Give_Correct_Result_For_FileLink_After_Roundtrip()
             {
                 // Given
-                var fileLink = "https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12";
+                const string fileLink = "https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12";
                 var issue =
                     IssueBuilder
                         .NewIssue("message", "providerType", "providerName")
                         .WithFileLink(new Uri(fileLink))
                         .Create();
-                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid() + ".json");
 
                 try
                 {
@@ -1464,13 +1464,13 @@
             public void Should_Give_Correct_Result_For_Priority_After_Roundtrip()
             {
                 // Given
-                var priority = 42;
+                const int priority = 42;
                 var issue =
                     IssueBuilder
                         .NewIssue("message", "providerType", "providerName")
                         .WithPriority(priority, "priorityName")
                         .Create();
-                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid() + ".json");
 
                 try
                 {
@@ -1494,13 +1494,13 @@
             public void Should_Give_Correct_Result_For_PriorityName_After_Roundtrip()
             {
                 // Given
-                var priorityName = "priorityName";
+                const string priorityName = "priorityName";
                 var issue =
                     IssueBuilder
                         .NewIssue("message", "providerType", "providerName")
                         .WithPriority(42, priorityName)
                         .Create();
-                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid() + ".json");
 
                 try
                 {
@@ -1524,13 +1524,13 @@
             public void Should_Give_Correct_Result_For_RuleId_After_Roundtrip()
             {
                 // Given
-                var ruleId = "rule";
+                const string ruleId = "rule";
                 var issue =
                     IssueBuilder
                         .NewIssue("message", "providerType", "providerName")
                         .OfRule(ruleId)
                         .Create();
-                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid() + ".json");
 
                 try
                 {
@@ -1554,13 +1554,13 @@
             public void Should_Give_Correct_Result_For_RuleName_After_Roundtrip()
             {
                 // Given
-                var ruleName = "Rule Name";
+                const string ruleName = "Rule Name";
                 var issue =
                     IssueBuilder
                         .NewIssue("message", "providerType", "providerName")
                         .OfRule("rule", ruleName)
                         .Create();
-                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid() + ".json");
 
                 try
                 {
@@ -1590,7 +1590,7 @@
                         .NewIssue("message", "providerType", "providerName")
                         .OfRule("rule", ruleUrl)
                         .Create();
-                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid() + ".json");
 
                 try
                 {
@@ -1617,8 +1617,8 @@
             public void Should_Throw_If_Issue_Is_Null()
             {
                 // Given
-                IEnumerable<IIssue> issues = null;
-                var filePath = @"c:\issues.json";
+                const IEnumerable<IIssue> issues = null;
+                const string filePath = @"c:\issues.json";
 
                 // When
                 var result = Record.Exception(() => issues.SerializeToJsonFile(filePath));
@@ -1645,8 +1645,8 @@
             public void Should_Give_Correct_Result_For_Identifier_After_Roundtrip()
             {
                 // Given
-                var identifier1 = "identifier1";
-                var identifier2 = "identifier2";
+                const string identifier1 = "identifier1";
+                const string identifier2 = "identifier2";
                 var issues =
                     new List<IIssue>
                     {
@@ -1657,16 +1657,16 @@
                             .NewIssue(identifier2, "messageText2", "providerType2", "providerName2")
                             .Create(),
                     };
-                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid() + ".json");
 
                 try
                 {
                     // When
                     issues.SerializeToJsonFile(filePath);
-                    var result = filePath.DeserializeToIssues();
+                    var result = filePath.DeserializeToIssues().ToList();
 
                     // Then
-                    result.Count().ShouldBe(2);
+                    result.Count.ShouldBe(2);
                     result.First().Identifier.ShouldBe(identifier1);
                     result.Last().Identifier.ShouldBe(identifier2);
                 }
@@ -1683,8 +1683,8 @@
             public void Should_Give_Correct_Result_For_MessageText_After_Roundtrip()
             {
                 // Given
-                var messageText1 = "messageText1";
-                var messageText2 = "messageText2";
+                const string messageText1 = "messageText1";
+                const string messageText2 = "messageText2";
                 var issues =
                     new List<IIssue>
                     {
@@ -1695,16 +1695,16 @@
                             .NewIssue(messageText2, "providerType2", "providerName2")
                             .Create(),
                     };
-                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid() + ".json");
 
                 try
                 {
                     // When
                     issues.SerializeToJsonFile(filePath);
-                    var result = filePath.DeserializeToIssues();
+                    var result = filePath.DeserializeToIssues().ToList();
 
                     // Then
-                    result.Count().ShouldBe(2);
+                    result.Count.ShouldBe(2);
                     result.First().MessageText.ShouldBe(messageText1);
                     result.Last().MessageText.ShouldBe(messageText2);
                 }
@@ -1721,8 +1721,8 @@
             public void Should_Give_Correct_Result_For_MessageMarkdown_After_Roundtrip()
             {
                 // Given
-                var messageMarkdown1 = "messageMarkdown1";
-                var messageMarkdown2 = "messageMarkdown2";
+                const string messageMarkdown1 = "messageMarkdown1";
+                const string messageMarkdown2 = "messageMarkdown2";
                 var issues =
                     new List<IIssue>
                     {
@@ -1735,16 +1735,16 @@
                             .WithMessageInMarkdownFormat(messageMarkdown2)
                             .Create(),
                     };
-                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid() + ".json");
 
                 try
                 {
                     // When
                     issues.SerializeToJsonFile(filePath);
-                    var result = filePath.DeserializeToIssues();
+                    var result = filePath.DeserializeToIssues().ToList();
 
                     // Then
-                    result.Count().ShouldBe(2);
+                    result.Count.ShouldBe(2);
                     result.First().MessageMarkdown.ShouldBe(messageMarkdown1);
                     result.Last().MessageMarkdown.ShouldBe(messageMarkdown2);
                 }
@@ -1761,8 +1761,8 @@
             public void Should_Give_Correct_Result_For_MessageHtml_After_Roundtrip()
             {
                 // Given
-                var messageHtml1 = "messageHtml1";
-                var messageHtml2 = "messageHtml2";
+                const string messageHtml1 = "messageHtml1";
+                const string messageHtml2 = "messageHtml2";
                 var issues =
                     new List<IIssue>
                     {
@@ -1775,16 +1775,16 @@
                             .WithMessageInHtmlFormat(messageHtml2)
                             .Create(),
                     };
-                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid() + ".json");
 
                 try
                 {
                     // When
                     issues.SerializeToJsonFile(filePath);
-                    var result = filePath.DeserializeToIssues();
+                    var result = filePath.DeserializeToIssues().ToList();
 
                     // Then
-                    result.Count().ShouldBe(2);
+                    result.Count.ShouldBe(2);
                     result.First().MessageHtml.ShouldBe(messageHtml1);
                     result.Last().MessageHtml.ShouldBe(messageHtml2);
                 }
@@ -1801,8 +1801,8 @@
             public void Should_Give_Correct_Result_For_ProviderType_After_Roundtrip()
             {
                 // Given
-                var providerType1 = "providerType1";
-                var providerType2 = "providerType2";
+                const string providerType1 = "providerType1";
+                const string providerType2 = "providerType2";
                 var issues =
                     new List<IIssue>
                     {
@@ -1813,16 +1813,16 @@
                             .NewIssue("message2", providerType2, "providerName2")
                             .Create(),
                     };
-                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid() + ".json");
 
                 try
                 {
                     // When
                     issues.SerializeToJsonFile(filePath);
-                    var result = filePath.DeserializeToIssues();
+                    var result = filePath.DeserializeToIssues().ToList();
 
                     // Then
-                    result.Count().ShouldBe(2);
+                    result.Count.ShouldBe(2);
                     result.First().ProviderType.ShouldBe(providerType1);
                     result.Last().ProviderType.ShouldBe(providerType2);
                 }
@@ -1839,8 +1839,8 @@
             public void Should_Give_Correct_Result_For_ProviderName_After_Roundtrip()
             {
                 // Given
-                var providerName1 = "providerName1";
-                var providerName2 = "providerName2";
+                const string providerName1 = "providerName1";
+                const string providerName2 = "providerName2";
                 var issues =
                     new List<IIssue>
                     {
@@ -1851,16 +1851,16 @@
                             .NewIssue("message2", "providerType2", providerName2)
                             .Create(),
                     };
-                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid() + ".json");
 
                 try
                 {
                     // When
                     issues.SerializeToJsonFile(filePath);
-                    var result = filePath.DeserializeToIssues();
+                    var result = filePath.DeserializeToIssues().ToList();
 
                     // Then
-                    result.Count().ShouldBe(2);
+                    result.Count.ShouldBe(2);
                     result.First().ProviderName.ShouldBe(providerName1);
                     result.Last().ProviderName.ShouldBe(providerName2);
                 }
@@ -1877,8 +1877,8 @@
             public void Should_Give_Correct_Result_For_Run_After_Roundtrip()
             {
                 // Given
-                var run1 = "run1";
-                var run2 = "run2";
+                const string run1 = "run1";
+                const string run2 = "run2";
                 var issues =
                     new List<IIssue>
                     {
@@ -1891,16 +1891,16 @@
                             .ForRun(run2)
                             .Create(),
                     };
-                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid() + ".json");
 
                 try
                 {
                     // When
                     issues.SerializeToJsonFile(filePath);
-                    var result = filePath.DeserializeToIssues();
+                    var result = filePath.DeserializeToIssues().ToList();
 
                     // Then
-                    result.Count().ShouldBe(2);
+                    result.Count.ShouldBe(2);
                     result.First().Run.ShouldBe(run1);
                     result.Last().Run.ShouldBe(run2);
                 }
@@ -1917,8 +1917,8 @@
             public void Should_Give_Correct_Result_For_ProjectFileRelativePath_After_Roundtrip()
             {
                 // Given
-                var projectFileRelativePath1 = @"src/myproj1.file";
-                var projectFileRelativePath2 = @"src/myproj2.file";
+                const string projectFileRelativePath1 = @"src/myproj1.file";
+                const string projectFileRelativePath2 = @"src/myproj2.file";
                 var issues =
                     new List<IIssue>
                     {
@@ -1931,16 +1931,16 @@
                             .InProjectFile(projectFileRelativePath2)
                             .Create(),
                     };
-                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid() + ".json");
 
                 try
                 {
                     // When
                     issues.SerializeToJsonFile(filePath);
-                    var result = filePath.DeserializeToIssues();
+                    var result = filePath.DeserializeToIssues().ToList();
 
                     // Then
-                    result.Count().ShouldBe(2);
+                    result.Count.ShouldBe(2);
                     result.First().ProjectFileRelativePath.FullPath.ShouldBe(projectFileRelativePath1);
                     result.Last().ProjectFileRelativePath.FullPath.ShouldBe(projectFileRelativePath2);
                 }
@@ -1957,8 +1957,8 @@
             public void Should_Give_Correct_Result_For_ProjectName_After_Roundtrip()
             {
                 // Given
-                var projectName1 = "projectName1";
-                var projectName2 = "projectName2";
+                const string projectName1 = "projectName1";
+                const string projectName2 = "projectName2";
                 var issues =
                     new List<IIssue>
                     {
@@ -1971,16 +1971,16 @@
                             .InProjectOfName(projectName2)
                             .Create(),
                     };
-                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid() + ".json");
 
                 try
                 {
                     // When
                     issues.SerializeToJsonFile(filePath);
-                    var result = filePath.DeserializeToIssues();
+                    var result = filePath.DeserializeToIssues().ToList();
 
                     // Then
-                    result.Count().ShouldBe(2);
+                    result.Count.ShouldBe(2);
                     result.First().ProjectName.ShouldBe(projectName1);
                     result.Last().ProjectName.ShouldBe(projectName2);
                 }
@@ -1997,8 +1997,8 @@
             public void Should_Give_Correct_Result_For_AffectedFileRelativePath_After_Roundtrip()
             {
                 // Given
-                var affectedFileRelativePath1 = @"src/foo1.bar";
-                var affectedFileRelativePath2 = @"src/foo2.bar";
+                const string affectedFileRelativePath1 = @"src/foo1.bar";
+                const string affectedFileRelativePath2 = @"src/foo2.bar";
                 var issues =
                     new List<IIssue>
                     {
@@ -2011,16 +2011,16 @@
                             .InFile(affectedFileRelativePath2)
                             .Create(),
                     };
-                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid() + ".json");
 
                 try
                 {
                     // When
                     issues.SerializeToJsonFile(filePath);
-                    var result = filePath.DeserializeToIssues();
+                    var result = filePath.DeserializeToIssues().ToList();
 
                     // Then
-                    result.Count().ShouldBe(2);
+                    result.Count.ShouldBe(2);
                     result.First().AffectedFileRelativePath.FullPath.ShouldBe(affectedFileRelativePath1);
                     result.Last().AffectedFileRelativePath.FullPath.ShouldBe(affectedFileRelativePath2);
                 }
@@ -2037,8 +2037,8 @@
             public void Should_Give_Correct_Result_For_Line_After_Roundtrip()
             {
                 // Given
-                var line1 = 23;
-                var line2 = 42;
+                const int line1 = 23;
+                const int line2 = 42;
                 var issues =
                     new List<IIssue>
                     {
@@ -2051,16 +2051,16 @@
                             .InFile(@"src/foo.bar", line2)
                             .Create(),
                     };
-                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid() + ".json");
 
                 try
                 {
                     // When
                     issues.SerializeToJsonFile(filePath);
-                    var result = filePath.DeserializeToIssues();
+                    var result = filePath.DeserializeToIssues().ToList();
 
                     // Then
-                    result.Count().ShouldBe(2);
+                    result.Count.ShouldBe(2);
                     result.First().Line.ShouldBe(line1);
                     result.Last().Line.ShouldBe(line2);
                 }
@@ -2077,8 +2077,8 @@
             public void Should_Give_Correct_Result_For_EndLine_After_Roundtrip()
             {
                 // Given
-                var endLine1 = 230;
-                var endLine2 = 420;
+                const int endLine1 = 230;
+                const int endLine2 = 420;
                 var issues =
                     new List<IIssue>
                     {
@@ -2091,16 +2091,16 @@
                             .InFile(@"src/foo.bar", 42, endLine2, null, null)
                             .Create(),
                     };
-                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid() + ".json");
 
                 try
                 {
                     // When
                     issues.SerializeToJsonFile(filePath);
-                    var result = filePath.DeserializeToIssues();
+                    var result = filePath.DeserializeToIssues().ToList();
 
                     // Then
-                    result.Count().ShouldBe(2);
+                    result.Count.ShouldBe(2);
                     result.First().EndLine.ShouldBe(endLine1);
                     result.Last().EndLine.ShouldBe(endLine2);
                 }
@@ -2117,8 +2117,8 @@
             public void Should_Give_Correct_Result_For_Column_After_Roundtrip()
             {
                 // Given
-                var column1 = 23;
-                var column2 = 42;
+                const int column1 = 23;
+                const int column2 = 42;
                 var issues =
                     new List<IIssue>
                     {
@@ -2131,16 +2131,16 @@
                             .InFile(@"src/foo.bar", 123, column2)
                             .Create(),
                     };
-                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid() + ".json");
 
                 try
                 {
                     // When
                     issues.SerializeToJsonFile(filePath);
-                    var result = filePath.DeserializeToIssues();
+                    var result = filePath.DeserializeToIssues().ToList();
 
                     // Then
-                    result.Count().ShouldBe(2);
+                    result.Count.ShouldBe(2);
                     result.First().Column.ShouldBe(column1);
                     result.Last().Column.ShouldBe(column2);
                 }
@@ -2157,8 +2157,8 @@
             public void Should_Give_Correct_Result_For_EndColumn_After_Roundtrip()
             {
                 // Given
-                var endColumn1 = 23;
-                var endColumn2 = 42;
+                const int endColumn1 = 23;
+                const int endColumn2 = 42;
                 var issues =
                     new List<IIssue>
                     {
@@ -2171,16 +2171,16 @@
                             .InFile(@"src/foo.bar", 5, 50, 1, endColumn2)
                             .Create(),
                     };
-                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid() + ".json");
 
                 try
                 {
                     // When
                     issues.SerializeToJsonFile(filePath);
-                    var result = filePath.DeserializeToIssues();
+                    var result = filePath.DeserializeToIssues().ToList();
 
                     // Then
-                    result.Count().ShouldBe(2);
+                    result.Count.ShouldBe(2);
                     result.First().EndColumn.ShouldBe(endColumn1);
                     result.Last().EndColumn.ShouldBe(endColumn2);
                 }
@@ -2197,8 +2197,8 @@
             public void Should_Give_Correct_Result_For_FileLink_After_Roundtrip()
             {
                 // Given
-                var fileLink1 = "https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12";
-                var fileLink2 = "https://github.com/myorg/myrepo/blob/develop/src/bar.cs#L23-L42";
+                const string fileLink1 = "https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12";
+                const string fileLink2 = "https://github.com/myorg/myrepo/blob/develop/src/bar.cs#L23-L42";
                 var issues =
                     new List<IIssue>
                     {
@@ -2211,16 +2211,16 @@
                             .WithFileLink(new Uri(fileLink2))
                             .Create(),
                     };
-                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid() + ".json");
 
                 try
                 {
                     // When
                     issues.SerializeToJsonFile(filePath);
-                    var result = filePath.DeserializeToIssues();
+                    var result = filePath.DeserializeToIssues().ToList();
 
                     // Then
-                    result.Count().ShouldBe(2);
+                    result.Count.ShouldBe(2);
                     result.First().FileLink.ToString().ShouldBe(fileLink1);
                     result.Last().FileLink.ToString().ShouldBe(fileLink2);
                 }
@@ -2237,8 +2237,8 @@
             public void Should_Give_Correct_Result_For_Priority_After_Roundtrip()
             {
                 // Given
-                var priority1 = 23;
-                var priority2 = 42;
+                const int priority1 = 23;
+                const int priority2 = 42;
                 var issues =
                     new List<IIssue>
                     {
@@ -2251,16 +2251,16 @@
                             .WithPriority(priority2, "priorityName")
                             .Create(),
                     };
-                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid() + ".json");
 
                 try
                 {
                     // When
                     issues.SerializeToJsonFile(filePath);
-                    var result = filePath.DeserializeToIssues();
+                    var result = filePath.DeserializeToIssues().ToList();
 
                     // Then
-                    result.Count().ShouldBe(2);
+                    result.Count.ShouldBe(2);
                     result.First().Priority.ShouldBe(priority1);
                     result.Last().Priority.ShouldBe(priority2);
                 }
@@ -2277,8 +2277,8 @@
             public void Should_Give_Correct_Result_For_PriorityName_After_Roundtrip()
             {
                 // Given
-                var priorityName1 = "priorityName1";
-                var priorityName2 = "priorityName2";
+                const string priorityName1 = "priorityName1";
+                const string priorityName2 = "priorityName2";
                 var issues =
                     new List<IIssue>
                     {
@@ -2291,16 +2291,16 @@
                             .WithPriority(42, priorityName2)
                             .Create(),
                     };
-                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid() + ".json");
 
                 try
                 {
                     // When
                     issues.SerializeToJsonFile(filePath);
-                    var result = filePath.DeserializeToIssues();
+                    var result = filePath.DeserializeToIssues().ToList();
 
                     // Then
-                    result.Count().ShouldBe(2);
+                    result.Count.ShouldBe(2);
                     result.First().PriorityName.ShouldBe(priorityName1);
                     result.Last().PriorityName.ShouldBe(priorityName2);
                 }
@@ -2317,8 +2317,8 @@
             public void Should_Give_Correct_Result_For_RuleId_After_Roundtrip()
             {
                 // Given
-                var ruleId1 = "rule1";
-                var ruleId2 = "rule2";
+                const string ruleId1 = "rule1";
+                const string ruleId2 = "rule2";
                 var issues =
                     new List<IIssue>
                     {
@@ -2331,16 +2331,16 @@
                             .OfRule(ruleId2)
                             .Create(),
                     };
-                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid() + ".json");
 
                 try
                 {
                     // When
                     issues.SerializeToJsonFile(filePath);
-                    var result = filePath.DeserializeToIssues();
+                    var result = filePath.DeserializeToIssues().ToList();
 
                     // Then
-                    result.Count().ShouldBe(2);
+                    result.Count.ShouldBe(2);
                     result.First().RuleId.ShouldBe(ruleId1);
                     result.Last().RuleId.ShouldBe(ruleId2);
                 }
@@ -2357,8 +2357,8 @@
             public void Should_Give_Correct_Result_For_RuleName_After_Roundtrip()
             {
                 // Given
-                var ruleName1 = "Rule Name 1";
-                var ruleName2 = "Rule Name 2";
+                const string ruleName1 = "Rule Name 1";
+                const string ruleName2 = "Rule Name 2";
                 var issues =
                     new List<IIssue>
                     {
@@ -2371,18 +2371,18 @@
                             .OfRule("rule", ruleName2)
                             .Create(),
                     };
-                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid() + ".json");
 
                 try
                 {
                     // When
                     issues.SerializeToJsonFile(filePath);
-                    var result = filePath.DeserializeToIssues();
+                    var result = filePath.DeserializeToIssues().ToList();
 
                     // Then
-                    result.Count().ShouldBe(2);
-                    result.First().RuleName.ToString().ShouldBe(ruleName1);
-                    result.Last().RuleName.ToString().ShouldBe(ruleName2);
+                    result.Count.ShouldBe(2);
+                    result.First().RuleName.ShouldBe(ruleName1);
+                    result.Last().RuleName.ShouldBe(ruleName2);
                 }
                 finally
                 {
@@ -2411,16 +2411,16 @@
                             .OfRule("rule", ruleUrl2)
                             .Create(),
                     };
-                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".json");
+                var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid() + ".json");
 
                 try
                 {
                     // When
                     issues.SerializeToJsonFile(filePath);
-                    var result = filePath.DeserializeToIssues();
+                    var result = filePath.DeserializeToIssues().ToList();
 
                     // Then
-                    result.Count().ShouldBe(2);
+                    result.Count.ShouldBe(2);
                     result.First().RuleUrl.ToString().ShouldBe(ruleUrl1.ToString());
                     result.Last().RuleUrl.ToString().ShouldBe(ruleUrl2.ToString());
                 }
@@ -2440,7 +2440,7 @@
             public void Should_Throw_If_Issue_Is_Null()
             {
                 // Given
-                IIssue issue = null;
+                const IIssue issue = null;
 
                 // When
                 var result = Record.Exception(() => issue.ToSerializableIssue());

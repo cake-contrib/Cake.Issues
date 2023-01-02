@@ -15,9 +15,9 @@
             public void Should_Throw_If_Message_Is_Null()
             {
                 // Given
-                string message = null;
-                var providerType = "ProviderType";
-                var providerName = "ProviderName";
+                const string message = null;
+                const string providerType = "ProviderType";
+                const string providerName = "ProviderName";
 
                 // When
                 var result = Record.Exception(() =>
@@ -32,8 +32,8 @@
             {
                 // Given
                 var message = string.Empty;
-                var providerType = "ProviderType";
-                var providerName = "ProviderName";
+                const string providerType = "ProviderType";
+                const string providerName = "ProviderName";
 
                 // When
                 var result = Record.Exception(() =>
@@ -47,9 +47,9 @@
             public void Should_Throw_If_Message_Is_WhiteSpace()
             {
                 // Given
-                var message = " ";
-                var providerType = "ProviderType";
-                var providerName = "ProviderName";
+                const string message = " ";
+                const string providerType = "ProviderType";
+                const string providerName = "ProviderName";
 
                 // When
                 var result = Record.Exception(() =>
@@ -63,9 +63,9 @@
             public void Should_Throw_If_ProviderType_Is_Null()
             {
                 // Given
-                var message = "Message";
-                string providerType = null;
-                var providerName = "ProviderName";
+                const string message = "Message";
+                const string providerType = null;
+                const string providerName = "ProviderName";
 
                 // When
                 var result = Record.Exception(() =>
@@ -79,9 +79,9 @@
             public void Should_Throw_If_ProviderType_Is_Empty()
             {
                 // Given
-                var message = "Message";
+                const string message = "Message";
                 var providerType = string.Empty;
-                var providerName = "ProviderName";
+                const string providerName = "ProviderName";
 
                 // When
                 var result = Record.Exception(() =>
@@ -95,9 +95,9 @@
             public void Should_Throw_If_ProviderType_Is_WhiteSpace()
             {
                 // Given
-                var message = "Message";
-                var providerType = " ";
-                var providerName = "ProviderName";
+                const string message = "Message";
+                const string providerType = " ";
+                const string providerName = "ProviderName";
 
                 // When
                 var result = Record.Exception(() =>
@@ -111,9 +111,9 @@
             public void Should_Throw_If_ProviderName_Is_Null()
             {
                 // Given
-                var message = "Message";
-                var providerType = "ProviderType";
-                string providerName = null;
+                const string message = "Message";
+                const string providerType = "ProviderType";
+                const string providerName = null;
 
                 // When
                 var result = Record.Exception(() =>
@@ -127,8 +127,8 @@
             public void Should_Throw_If_ProviderName_Is_Empty()
             {
                 // Given
-                var message = "Message";
-                var providerType = "ProviderType";
+                const string message = "Message";
+                const string providerType = "ProviderType";
                 var providerName = string.Empty;
 
                 // When
@@ -143,9 +143,9 @@
             public void Should_Throw_If_ProviderName_Is_WhiteSpace()
             {
                 // Given
-                var message = "Message";
-                var providerType = "ProviderType";
-                var providerName = " ";
+                const string message = "Message";
+                const string providerType = "ProviderType";
+                const string providerName = " ";
 
                 // When
                 var result = Record.Exception(() =>
@@ -159,9 +159,9 @@
             public void Should_Set_Identifier()
             {
                 // Given
-                var message = "Message";
-                var providerType = "ProviderType";
-                var providerName = "ProviderName";
+                const string message = "Message";
+                const string providerType = "ProviderType";
+                const string providerName = "ProviderName";
 
                 // When
                 var result =
@@ -177,9 +177,9 @@
             public void Should_Set_Message()
             {
                 // Given
-                var message = "Message";
-                var providerType = "ProviderType";
-                var providerName = "ProviderName";
+                const string message = "Message";
+                const string providerType = "ProviderType";
+                const string providerName = "ProviderName";
 
                 // When
                 var result =
@@ -195,9 +195,9 @@
             public void Should_Set_ProviderType()
             {
                 // Given
-                var message = "Message";
-                var providerType = "ProviderType";
-                var providerName = "ProviderName";
+                const string message = "Message";
+                const string providerType = "ProviderType";
+                const string providerName = "ProviderName";
 
                 // When
                 var result =
@@ -213,9 +213,9 @@
             public void Should_Set_ProviderName()
             {
                 // Given
-                var message = "Message";
-                var providerType = "ProviderType";
-                var providerName = "ProviderName";
+                const string message = "Message";
+                const string providerType = "ProviderType";
+                const string providerName = "ProviderName";
 
                 // When
                 var result =
@@ -234,10 +234,10 @@
             public void Should_Throw_If_Identifier_Is_Null()
             {
                 // Given
-                string identifier = null;
-                var message = "Message";
-                var providerType = "ProviderType";
-                var providerName = "ProviderName";
+                const string identifier = null;
+                const string message = "Message";
+                const string providerType = "ProviderType";
+                const string providerName = "ProviderName";
 
                 // When
                 var result = Record.Exception(() =>
@@ -252,9 +252,9 @@
             {
                 // Given
                 var identifier = string.Empty;
-                var message = "Message";
-                var providerType = "ProviderType";
-                var providerName = "ProviderName";
+                const string message = "Message";
+                const string providerType = "ProviderType";
+                const string providerName = "ProviderName";
 
                 // When
                 var result = Record.Exception(() =>
@@ -268,10 +268,10 @@
             public void Should_Throw_If_Identifier_Is_WhiteSpace()
             {
                 // Given
-                var identifier = " ";
-                var message = "Message";
-                var providerType = "ProviderType";
-                var providerName = "ProviderName";
+                const string identifier = " ";
+                const string message = "Message";
+                const string providerType = "ProviderType";
+                const string providerName = "ProviderName";
 
                 // When
                 var result = Record.Exception(() =>
@@ -285,10 +285,10 @@
             public void Should_Throw_If_Message_Is_Null()
             {
                 // Given
-                var identifier = "Identifier";
-                string message = null;
-                var providerType = "ProviderType";
-                var providerName = "ProviderName";
+                const string identifier = "Identifier";
+                const string message = null;
+                const string providerType = "ProviderType";
+                const string providerName = "ProviderName";
 
                 // When
                 var result = Record.Exception(() =>
@@ -302,10 +302,10 @@
             public void Should_Throw_If_Message_Is_Empty()
             {
                 // Given
-                var identifier = "Identifier";
+                const string identifier = "Identifier";
                 var message = string.Empty;
-                var providerType = "ProviderType";
-                var providerName = "ProviderName";
+                const string providerType = "ProviderType";
+                const string providerName = "ProviderName";
 
                 // When
                 var result = Record.Exception(() =>
@@ -319,10 +319,10 @@
             public void Should_Throw_If_Message_Is_WhiteSpace()
             {
                 // Given
-                var identifier = "Identifier";
-                var message = " ";
-                var providerType = "ProviderType";
-                var providerName = "ProviderName";
+                const string identifier = "Identifier";
+                const string message = " ";
+                const string providerType = "ProviderType";
+                const string providerName = "ProviderName";
 
                 // When
                 var result = Record.Exception(() =>
@@ -336,10 +336,10 @@
             public void Should_Throw_If_ProviderType_Is_Null()
             {
                 // Given
-                var identifier = "Identifier";
-                var message = "Message";
-                string providerType = null;
-                var providerName = "ProviderName";
+                const string identifier = "Identifier";
+                const string message = "Message";
+                const string providerType = null;
+                const string providerName = "ProviderName";
 
                 // When
                 var result = Record.Exception(() =>
@@ -353,10 +353,10 @@
             public void Should_Throw_If_ProviderType_Is_Empty()
             {
                 // Given
-                var identifier = "Identifier";
-                var message = "Message";
+                const string identifier = "Identifier";
+                const string message = "Message";
                 var providerType = string.Empty;
-                var providerName = "ProviderName";
+                const string providerName = "ProviderName";
 
                 // When
                 var result = Record.Exception(() =>
@@ -370,10 +370,10 @@
             public void Should_Throw_If_ProviderType_Is_WhiteSpace()
             {
                 // Given
-                var identifier = "Identifier";
-                var message = "Message";
-                var providerType = " ";
-                var providerName = "ProviderName";
+                const string identifier = "Identifier";
+                const string message = "Message";
+                const string providerType = " ";
+                const string providerName = "ProviderName";
 
                 // When
                 var result = Record.Exception(() =>
@@ -387,10 +387,10 @@
             public void Should_Throw_If_ProviderName_Is_Null()
             {
                 // Given
-                var identifier = "Identifier";
-                var message = "Message";
-                var providerType = "ProviderType";
-                string providerName = null;
+                const string identifier = "Identifier";
+                const string message = "Message";
+                const string providerType = "ProviderType";
+                const string providerName = null;
 
                 // When
                 var result = Record.Exception(() =>
@@ -404,9 +404,9 @@
             public void Should_Throw_If_ProviderName_Is_Empty()
             {
                 // Given
-                var identifier = "Identifier";
-                var message = "Message";
-                var providerType = "ProviderType";
+                const string identifier = "Identifier";
+                const string message = "Message";
+                const string providerType = "ProviderType";
                 var providerName = string.Empty;
 
                 // When
@@ -421,10 +421,10 @@
             public void Should_Throw_If_ProviderName_Is_WhiteSpace()
             {
                 // Given
-                var identifier = "Identifier";
-                var message = "Message";
-                var providerType = "ProviderType";
-                var providerName = " ";
+                const string identifier = "Identifier";
+                const string message = "Message";
+                const string providerType = "ProviderType";
+                const string providerName = " ";
 
                 // When
                 var result = Record.Exception(() =>
@@ -438,10 +438,10 @@
             public void Should_Set_Identifier()
             {
                 // Given
-                var identifier = "Identifier";
-                var message = "Message";
-                var providerType = "ProviderType";
-                var providerName = "ProviderName";
+                const string identifier = "Identifier";
+                const string message = "Message";
+                const string providerType = "ProviderType";
+                const string providerName = "ProviderName";
 
                 // When
                 var result =
@@ -457,10 +457,10 @@
             public void Should_Set_Message()
             {
                 // Given
-                var identifier = "Identifier";
-                var message = "Message";
-                var providerType = "ProviderType";
-                var providerName = "ProviderName";
+                const string identifier = "Identifier";
+                const string message = "Message";
+                const string providerType = "ProviderType";
+                const string providerName = "ProviderName";
 
                 // When
                 var result =
@@ -476,9 +476,9 @@
             public void Should_Set_ProviderType()
             {
                 // Given
-                var identifier = "Identifier";
-                var message = "Message";
-                var providerType = "ProviderType";
+                const string identifier = "Identifier";
+                const string message = "Message";
+                const string providerType = "ProviderType";
                 var providerName = "ProviderName";
 
                 // When
@@ -495,10 +495,10 @@
             public void Should_Set_ProviderName()
             {
                 // Given
-                var identifier = "Identifier";
-                var message = "Message";
-                var providerType = "ProviderType";
-                var providerName = "ProviderName";
+                const string identifier = "Identifier";
+                const string message = "Message";
+                const string providerType = "ProviderType";
+                const string providerName = "ProviderName";
 
                 // When
                 var result =
@@ -517,7 +517,7 @@
             public void Should_Throw_If_Message_Is_Null()
             {
                 // Given
-                string message = null;
+                const string message = null;
                 var issueProvider = new FakeIssueProvider(new FakeLog());
 
                 // When
@@ -547,7 +547,7 @@
             public void Should_Throw_If_Message_Is_WhiteSpace()
             {
                 // Given
-                var message = " ";
+                const string message = " ";
                 var issueProvider = new FakeIssueProvider(new FakeLog());
 
                 // When
@@ -562,8 +562,8 @@
             public void Should_Throw_If_IssueProvider_Is_Null()
             {
                 // Given
-                var message = "Message";
-                IIssueProvider issueProvider = null;
+                const string message = "Message";
+                const IIssueProvider issueProvider = null;
 
                 // When
                 var result = Record.Exception(() =>
@@ -577,7 +577,7 @@
             public void Should_Set_Identifier()
             {
                 // Given
-                var message = "Message";
+                const string message = "Message";
                 var issueProvider = new FakeIssueProvider(new FakeLog());
 
                 // When
@@ -594,7 +594,7 @@
             public void Should_Set_Message()
             {
                 // Given
-                var message = "Message";
+                const string message = "Message";
                 var issueProvider = new FakeIssueProvider(new FakeLog());
 
                 // When
@@ -611,7 +611,7 @@
             public void Should_Set_ProviderType()
             {
                 // Given
-                var message = "Message";
+                const string message = "Message";
                 var issueProvider = new FakeIssueProvider(new FakeLog());
 
                 // When
@@ -628,7 +628,7 @@
             public void Should_Set_ProviderName()
             {
                 // Given
-                var message = "Message";
+                const string message = "Message";
                 var issueProvider = new FakeIssueProvider(new FakeLog());
 
                 // When
@@ -648,8 +648,8 @@
             public void Should_Throw_If_Identifier_Is_Null()
             {
                 // Given
-                string identifier = null;
-                var message = "Message";
+                const string identifier = null;
+                const string message = "Message";
                 var issueProvider = new FakeIssueProvider(new FakeLog());
 
                 // When
@@ -665,7 +665,7 @@
             {
                 // Given
                 var identifier = string.Empty;
-                var message = "Message";
+                const string message = "Message";
                 var issueProvider = new FakeIssueProvider(new FakeLog());
 
                 // When
@@ -680,8 +680,8 @@
             public void Should_Throw_If_Identifier_Is_WhiteSpace()
             {
                 // Given
-                var identifier = " ";
-                var message = "Message";
+                const string identifier = " ";
+                const string message = "Message";
                 var issueProvider = new FakeIssueProvider(new FakeLog());
 
                 // When
@@ -696,8 +696,8 @@
             public void Should_Throw_If_Message_Is_Null()
             {
                 // Given
-                var identifier = "Identifier";
-                string message = null;
+                const string identifier = "Identifier";
+                const string message = null;
                 var issueProvider = new FakeIssueProvider(new FakeLog());
 
                 // When
@@ -712,7 +712,7 @@
             public void Should_Throw_If_Message_Is_Empty()
             {
                 // Given
-                var identifier = "Identifier";
+                const string identifier = "Identifier";
                 var message = string.Empty;
                 var issueProvider = new FakeIssueProvider(new FakeLog());
 
@@ -728,8 +728,8 @@
             public void Should_Throw_If_Message_Is_WhiteSpace()
             {
                 // Given
-                var identifier = "Identifier";
-                var message = " ";
+                const string identifier = "Identifier";
+                const string message = " ";
                 var issueProvider = new FakeIssueProvider(new FakeLog());
 
                 // When
@@ -744,9 +744,9 @@
             public void Should_Throw_If_IssueProvider_Is_Null()
             {
                 // Given
-                var identifier = "Identifier";
-                var message = "Message";
-                IIssueProvider issueProvider = null;
+                const string identifier = "Identifier";
+                const string message = "Message";
+                const IIssueProvider issueProvider = null;
 
                 // When
                 var result = Record.Exception(() =>
@@ -760,8 +760,8 @@
             public void Should_Set_Identifier()
             {
                 // Given
-                var identifier = "Identifier";
-                var message = "Message";
+                const string identifier = "Identifier";
+                const string message = "Message";
                 var issueProvider = new FakeIssueProvider(new FakeLog());
 
                 // When
@@ -778,8 +778,8 @@
             public void Should_Set_Message()
             {
                 // Given
-                var identifier = "Identifier";
-                var message = "Message";
+                const string identifier = "Identifier";
+                const string message = "Message";
                 var issueProvider = new FakeIssueProvider(new FakeLog());
 
                 // When
@@ -796,8 +796,8 @@
             public void Should_Set_ProviderType()
             {
                 // Given
-                var identifier = "Identifier";
-                var message = "Message";
+                const string identifier = "Identifier";
+                const string message = "Message";
                 var issueProvider = new FakeIssueProvider(new FakeLog());
 
                 // When
@@ -814,8 +814,8 @@
             public void Should_Set_ProviderName()
             {
                 // Given
-                var identifier = "Identifier";
-                var message = "Message";
+                const string identifier = "Identifier";
+                const string message = "Message";
                 var issueProvider = new FakeIssueProvider(new FakeLog());
 
                 // When
@@ -836,7 +836,7 @@
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
-                string projectPath = null;
+                const string projectPath = null;
 
                 // When
                 var issue = fixture.IssueBuilder.InProjectFile(projectPath).Create();
@@ -864,7 +864,7 @@
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
-                var projectPath = " ";
+                const string projectPath = " ";
 
                 // When
                 var issue = fixture.IssueBuilder.InProjectFile(projectPath).Create();
@@ -895,7 +895,7 @@
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
-                string projectName = null;
+                const string projectName = null;
 
                 // When
                 var issue = fixture.IssueBuilder.InProjectOfName(projectName).Create();
@@ -923,7 +923,7 @@
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
-                var projectName = " ";
+                const string projectName = " ";
 
                 // When
                 var issue = fixture.IssueBuilder.InProjectOfName(projectName).Create();
@@ -954,8 +954,8 @@
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
-                string projectPath = null;
-                var projectName = "foo";
+                const string projectPath = null;
+                const string projectName = "foo";
 
                 // When
                 var issue = fixture.IssueBuilder.InProject(projectPath, projectName).Create();
@@ -970,7 +970,7 @@
                 // Given
                 var fixture = new IssueBuilderFixture();
                 var projectPath = string.Empty;
-                var projectName = "foo";
+                const string projectName = "foo";
 
                 // When
                 var issue = fixture.IssueBuilder.InProject(projectPath, projectName).Create();
@@ -984,8 +984,8 @@
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
-                var projectPath = " ";
-                var projectName = "foo";
+                const string projectPath = " ";
+                const string projectName = "foo";
 
                 // When
                 var issue = fixture.IssueBuilder.InProject(projectPath, projectName).Create();
@@ -999,8 +999,8 @@
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
-                string projectName = null;
-                var projectPath = "foo";
+                const string projectName = null;
+                const string projectPath = "foo";
 
                 // When
                 var issue = fixture.IssueBuilder.InProject(projectPath, projectName).Create();
@@ -1015,7 +1015,7 @@
                 // Given
                 var fixture = new IssueBuilderFixture();
                 var projectName = string.Empty;
-                var projectPath = "foo";
+                const string projectPath = "foo";
 
                 // When
                 var issue = fixture.IssueBuilder.InProject(projectPath, projectName).Create();
@@ -1029,8 +1029,8 @@
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
-                var projectName = " ";
-                var projectPath = "foo";
+                const string projectName = " ";
+                const string projectPath = "foo";
 
                 // When
                 var issue = fixture.IssueBuilder.InProject(projectPath, projectName).Create();
@@ -1045,7 +1045,7 @@
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
-                var projectName = "foo";
+                const string projectName = "foo";
 
                 // When
                 var issue = fixture.IssueBuilder.InProject(projectPath, projectName).Create();
@@ -1060,7 +1060,7 @@
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
-                var projectPath = "foo";
+                const string projectPath = "foo";
 
                 // When
                 var issue = fixture.IssueBuilder.InProject(projectPath, projectName).Create();
@@ -1612,7 +1612,7 @@
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
-                Uri fileLink = null;
+                const Uri fileLink = null;
 
                 // When
                 var result = Record.Exception(() =>
@@ -1644,7 +1644,7 @@
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
-                FileLinkSettings fileLinkSettings = null;
+                const FileLinkSettings fileLinkSettings = null;
 
                 // When
                 var result = Record.Exception(() =>
@@ -1718,7 +1718,7 @@
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
-                string priorityName = null;
+                const string priorityName = null;
 
                 // When
                 var issue = fixture.IssueBuilder.WithPriority(0, priorityName).Create();
@@ -1816,7 +1816,7 @@
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
-                string ruleId = null;
+                const string ruleId = null;
 
                 // When
                 var issue = fixture.IssueBuilder.OfRule(ruleId).Create();
@@ -1844,7 +1844,7 @@
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
-                var ruleId = " ";
+                const string ruleId = " ";
 
                 // When
                 var issue = fixture.IssueBuilder.OfRule(ruleId).Create();
@@ -1875,7 +1875,7 @@
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
-                string ruleId = null;
+                const string ruleId = null;
 
                 // When
                 var issue = fixture.IssueBuilder.OfRule(ruleId, "Some Rule").Create();
@@ -1903,7 +1903,7 @@
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
-                var ruleId = " ";
+                const string ruleId = " ";
 
                 // When
                 var issue = fixture.IssueBuilder.OfRule(ruleId, "Some Rule").Create();
@@ -1917,7 +1917,7 @@
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
-                string ruleName = null;
+                const string ruleName = null;
 
                 // When
                 var issue = fixture.IssueBuilder.OfRule("RuleId", ruleName).Create();
@@ -1945,7 +1945,7 @@
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
-                var ruleName = " ";
+                const string ruleName = " ";
 
                 // When
                 var issue = fixture.IssueBuilder.OfRule("RuleId", ruleName).Create();
@@ -1960,7 +1960,7 @@
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
-                var ruleName = "Some Rule";
+                const string ruleName = "Some Rule";
 
                 // When
                 var issue = fixture.IssueBuilder.OfRule(ruleId, ruleName).Create();
@@ -1991,7 +1991,7 @@
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
-                string ruleId = null;
+                const string ruleId = null;
 
                 // When
                 var issue = fixture.IssueBuilder.OfRule(ruleId, new Uri("https://google.com")).Create();
@@ -2019,7 +2019,7 @@
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
-                var ruleIds = " ";
+                const string ruleIds = " ";
 
                 // When
                 var issue = fixture.IssueBuilder.OfRule(ruleIds, new Uri("https://google.com")).Create();
@@ -2047,13 +2047,13 @@
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
-                var ruleUri = "https://google.com/";
+                const string ruleUri = "https://google.com/";
 
                 // When
                 var issue = fixture.IssueBuilder.OfRule(ruleId, new Uri(ruleUri)).Create();
 
                 // Then
-                issue.RuleId.ToString().ShouldBe(ruleId);
+                issue.RuleId.ShouldBe(ruleId);
             }
 
             [Theory]
@@ -2078,7 +2078,7 @@
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
-                string ruleId = null;
+                const string ruleId = null;
 
                 // When
                 var issue = fixture.IssueBuilder.OfRule(ruleId, "Some Rule", new Uri("https://google.com")).Create();
@@ -2106,7 +2106,7 @@
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
-                var ruleId = " ";
+                const string ruleId = " ";
 
                 // When
                 var issue = fixture.IssueBuilder.OfRule(ruleId, "Some Rule", new Uri("https://google.com")).Create();
@@ -2120,7 +2120,7 @@
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
-                string ruleName = null;
+                const string ruleName = null;
 
                 // When
                 var issue = fixture.IssueBuilder.OfRule("RuleId", ruleName, new Uri("https://google.com")).Create();
@@ -2148,7 +2148,7 @@
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
-                var ruleName = " ";
+                const string ruleName = " ";
 
                 // When
                 var issue = fixture.IssueBuilder.OfRule("RuleId", ruleName, new Uri("https://google.com")).Create();
@@ -2162,9 +2162,10 @@
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
+                const Uri ruleUri = null;
 
                 // When
-                var issue = fixture.IssueBuilder.OfRule("RuleId", "RuleName", (Uri)null).Create();
+                var issue = fixture.IssueBuilder.OfRule("RuleId", "RuleName", ruleUri).Create();
 
                 // Then
                 issue.RuleUrl.ShouldBe(null);
@@ -2176,7 +2177,7 @@
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
-                var ruleName = "Some Rule";
+                const string ruleName = "Some Rule";
 
                 // When
                 var issue = fixture.IssueBuilder.OfRule(ruleId, ruleName, new Uri("https://google.com")).Create();
@@ -2205,7 +2206,7 @@
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
-                var ruleName = "Some Rule";
+                const string ruleName = "Some Rule";
 
                 // When
                 var issue = fixture.IssueBuilder.OfRule("Rule", ruleName, new Uri(ruleUri)).Create();
@@ -2222,7 +2223,7 @@
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
-                string run = null;
+                const string run = null;
 
                 // When
                 var result = Record.Exception(() =>
@@ -2237,7 +2238,7 @@
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
-                string run = string.Empty;
+                var run = string.Empty;
 
                 // When
                 var result = Record.Exception(() =>
@@ -2252,7 +2253,7 @@
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
-                string run = " ";
+                const string run = " ";
 
                 // When
                 var result = Record.Exception(() =>
@@ -2273,7 +2274,7 @@
                 var issue = fixture.IssueBuilder.ForRun(run).Create();
 
                 // Then
-                issue.Run.ToString().ShouldBe(run);
+                issue.Run.ShouldBe(run);
             }
         }
 
@@ -2311,7 +2312,7 @@
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
-                string key = null;
+                const string key = null;
 
                 // When
                 var result = Record.Exception(() =>
@@ -2341,7 +2342,7 @@
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
-                var key = " ";
+                const string key = " ";
 
                 // When
                 var result = Record.Exception(() =>

@@ -156,7 +156,7 @@
         {
             unchecked
             {
-                int hash = 17;
+                var hash = 17;
 
                 foreach (var obj in objects)
                 {

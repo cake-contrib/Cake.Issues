@@ -28,7 +28,7 @@
 
         /// <summary>
         /// Gets the settings.
-        /// Is set after <see cref="Initialize"/> was called from the core addin.
+        /// Is set after <see cref="Initialize"/> was called from the core add-in.
         /// </summary>
         protected T Settings { get; private set; }
 

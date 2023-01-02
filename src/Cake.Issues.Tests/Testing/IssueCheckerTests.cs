@@ -15,7 +15,7 @@
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
-                IIssue issueToCheck = null;
+                const IIssue issueToCheck = null;
                 var expectedIssue = fixture.IssueBuilder;
 
                 // When
@@ -32,7 +32,7 @@
                 // Given
                 var fixture = new IssueBuilderFixture();
                 var issueToCheck = fixture.IssueBuilder.Create();
-                IssueBuilder expectedIssue = null;
+                const IssueBuilder expectedIssue = null;
 
                 // When
                 var result = Record.Exception(() =>
@@ -64,7 +64,7 @@
             {
                 // Given
                 var fixture = new IssueBuilderFixture();
-                IIssue issueToCheck = null;
+                const IIssue issueToCheck = null;
                 var expectedIssue = fixture.IssueBuilder.Create();
 
                 // When
@@ -81,7 +81,7 @@
                 // Given
                 var fixture = new IssueBuilderFixture();
                 var issueToCheck = fixture.IssueBuilder.Create();
-                IIssue expectedIssue = null;
+                const IIssue expectedIssue = null;
 
                 // When
                 var result = Record.Exception(() =>
@@ -113,7 +113,7 @@
             {
                 // Given
                 var fixture = new IssueCheckerFixture();
-                IIssue issue = null;
+                const IIssue issue = null;
 
                 // When
                 var result = Record.Exception(() =>
@@ -278,7 +278,7 @@
                 // When
                 var result = Record.Exception(() =>
                     IssueChecker.Check(
-                        fixture.Issue,
+                        issue,
                         fixture.ProviderType,
                         fixture.ProviderName,
                         expectedValue,
@@ -753,7 +753,7 @@
                 // When
                 var result = Record.Exception(() =>
                     IssueChecker.Check(
-                        fixture.Issue,
+                        issue,
                         fixture.ProviderType,
                         fixture.ProviderName,
                         fixture.Run,
@@ -798,7 +798,7 @@
                 // When
                 var result = Record.Exception(() =>
                     IssueChecker.Check(
-                        fixture.Issue,
+                        issue,
                         fixture.ProviderType,
                         fixture.ProviderName,
                         fixture.Run,

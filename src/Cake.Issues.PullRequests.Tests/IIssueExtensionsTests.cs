@@ -14,7 +14,7 @@
             public void Should_Throw_If_Issues_Are_Null()
             {
                 // Given
-                IEnumerable<IIssue> issues = null;
+                const IEnumerable<IIssue> issues = null;
 
                 // When
                 var result =
@@ -51,7 +51,7 @@
                     };
 
                 // When
-                var result = issues.SortWithDefaultPriorization();
+                var result = issues.SortWithDefaultPriorization().ToList();
 
                 // Then
                 result.First().ShouldBe(issue2);
@@ -59,7 +59,7 @@
             }
 
             [Fact]
-            public void Should_Order_By_Existance_Of_FilePath()
+            public void Should_Order_By_Existence_Of_FilePath()
             {
                 // Given
                 var issue1 =
@@ -83,7 +83,7 @@
                     };
 
                 // When
-                var result = issues.SortWithDefaultPriorization();
+                var result = issues.SortWithDefaultPriorization().ToList();
 
                 // Then
                 result.First().ShouldBe(issue2);
@@ -116,7 +116,7 @@
                     };
 
                 // When
-                var result = issues.SortWithDefaultPriorization();
+                var result = issues.SortWithDefaultPriorization().ToList();
 
                 // Then
                 result.First().ShouldBe(issue2);

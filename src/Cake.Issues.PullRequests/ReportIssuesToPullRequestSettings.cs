@@ -33,8 +33,7 @@
         public int? MaxIssuesToPostForEachIssueProvider { get; set; } = 100;
 
         /// <inheritdoc />
-        public Dictionary<string, IProviderIssueLimits> ProviderIssueLimits { get; } =
-            new Dictionary<string, IProviderIssueLimits>();
+        public Dictionary<string, IProviderIssueLimits> ProviderIssueLimits { get; } = new ();
 
         /// <inheritdoc />
         public string CommentSource { get; set; } = "CakeIssues";

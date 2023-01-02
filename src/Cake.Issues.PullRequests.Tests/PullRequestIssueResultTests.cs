@@ -13,7 +13,7 @@
             public void Should_Throw_If_ReportedIssues_Is_Null()
             {
                 // Given
-                IEnumerable<IIssue> reportedIssues = null;
+                const IEnumerable<IIssue> reportedIssues = null;
                 IEnumerable<IIssue> postedIssues = new List<IIssue>();
 
                 // When
@@ -28,7 +28,7 @@
             {
                 // Given
                 IEnumerable<IIssue> reportedIssues = new List<IIssue>();
-                IEnumerable<IIssue> postedIssues = null;
+                const IEnumerable<IIssue> postedIssues = null;
 
                 // When
                 var result = Record.Exception(() => new PullRequestIssueResult(reportedIssues, postedIssues));

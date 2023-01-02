@@ -13,14 +13,14 @@
             public void Should_Throw_If_Exception_Type_Is_Null()
             {
                 // Given
-                Exception exception = null;
+                const Exception exception = null;
 
                 // When
                 var result = Record.Exception(() => exception.IsArgumentException("Foo"));
 
                 // Then
                 result.ShouldBeOfType<Exception>();
-                result.Message.ShouldBe($"Expected exception of type 'System.ArgumentException' but no exception was thrown.");
+                result.Message.ShouldBe("Expected exception of type 'System.ArgumentException' but no exception was thrown.");
             }
 
             [Fact]
@@ -34,7 +34,7 @@
 
                 // Then
                 result.ShouldBeOfType<Exception>();
-                result.Message.ShouldBe($"Expected exception of type 'System.ArgumentException' but was 'System.Exception'.");
+                result.Message.ShouldBe("Expected exception of type 'System.ArgumentException' but was 'System.Exception'.");
             }
 
             [Fact]
@@ -88,14 +88,14 @@
             public void Should_Throw_If_Exception_Type_Is_Null()
             {
                 // Given
-                Exception exception = null;
+                const Exception exception = null;
 
                 // When
                 var result = Record.Exception(() => exception.IsArgumentNullException("Foo"));
 
                 // Then
                 result.ShouldBeOfType<Exception>();
-                result.Message.ShouldBe($"Expected exception of type 'System.ArgumentNullException' but no exception was thrown.");
+                result.Message.ShouldBe("Expected exception of type 'System.ArgumentNullException' but no exception was thrown.");
             }
 
             [Fact]
@@ -109,7 +109,7 @@
 
                 // Then
                 result.ShouldBeOfType<Exception>();
-                result.Message.ShouldBe($"Expected exception of type 'System.ArgumentNullException' but was 'System.Exception'.");
+                result.Message.ShouldBe("Expected exception of type 'System.ArgumentNullException' but was 'System.Exception'.");
             }
 
             [Fact]
@@ -163,14 +163,14 @@
             public void Should_Throw_If_Exception_Type_Is_Null()
             {
                 // Given
-                Exception exception = null;
+                const Exception exception = null;
 
                 // When
                 var result = Record.Exception(() => exception.IsArgumentOutOfRangeException("Foo"));
 
                 // Then
                 result.ShouldBeOfType<Exception>();
-                result.Message.ShouldBe($"Expected exception of type 'System.ArgumentOutOfRangeException' but no exception was thrown.");
+                result.Message.ShouldBe("Expected exception of type 'System.ArgumentOutOfRangeException' but no exception was thrown.");
             }
 
             [Fact]
@@ -184,7 +184,7 @@
 
                 // Then
                 result.ShouldBeOfType<Exception>();
-                result.Message.ShouldBe($"Expected exception of type 'System.ArgumentOutOfRangeException' but was 'System.Exception'.");
+                result.Message.ShouldBe("Expected exception of type 'System.ArgumentOutOfRangeException' but was 'System.Exception'.");
             }
 
             [Fact]
@@ -238,14 +238,14 @@
             public void Should_Throw_If_Exception_Type_Is_Null()
             {
                 // Given
-                Exception exception = null;
+                const Exception exception = null;
 
                 // When
                 var result = Record.Exception(() => exception.IsInvalidOperationException("Foo"));
 
                 // Then
                 result.ShouldBeOfType<Exception>();
-                result.Message.ShouldBe($"Expected exception of type 'System.InvalidOperationException' but no exception was thrown.");
+                result.Message.ShouldBe("Expected exception of type 'System.InvalidOperationException' but no exception was thrown.");
             }
 
             [Fact]
@@ -259,7 +259,7 @@
 
                 // Then
                 result.ShouldBeOfType<Exception>();
-                result.Message.ShouldBe($"Expected exception of type 'System.InvalidOperationException' but was 'System.Exception'.");
+                result.Message.ShouldBe("Expected exception of type 'System.InvalidOperationException' but was 'System.Exception'.");
             }
 
             [Fact]

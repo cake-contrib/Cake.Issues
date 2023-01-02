@@ -11,7 +11,7 @@
         /// <summary>
         /// Returns a list of all discussion threads.
         /// </summary>
-        /// <param name="commentSource">Value used to indicate threads created by this addin.</param>
+        /// <param name="commentSource">Value used to indicate threads created by this add-in.</param>
         /// <returns>List of all discussion threads.</returns>
         IEnumerable<IPullRequestDiscussionThread> FetchDiscussionThreads(string commentSource);
 

@@ -1,7 +1,6 @@
 ﻿namespace Cake.Issues.PullRequests
 {
     using System.Collections.Generic;
-    using System.Diagnostics.CodeAnalysis;
     using Cake.Core.IO;
 
     /// <summary>

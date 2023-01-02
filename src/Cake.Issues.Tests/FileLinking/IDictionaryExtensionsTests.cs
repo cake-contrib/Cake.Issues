@@ -13,7 +13,7 @@
             public void Should_Throw_If_Dictionary_Is_Null()
             {
                 // Given
-                System.Collections.Generic.IDictionary<string, string> dictionary = null;
+                const System.Collections.Generic.IDictionary<string, string> dictionary = null;
 
                 // When
                 var result = Record.Exception(() => dictionary.GetValueOrDefault("foo", null));
@@ -26,8 +26,8 @@
             public void Should_Return_Value_If_Exists()
             {
                 // Given
-                var key = "foo";
-                var value = "bar";
+                const string key = "foo";
+                const string value = "bar";
                 var dictionary = new System.Collections.Generic.Dictionary<string, string> { { key, value } };
 
                 // When
@@ -41,7 +41,7 @@
             public void Should_Return_DefaultValue_If_Value_Does_Not_Exist()
             {
                 // Given
-                var defaultValue = "defaultValue";
+                const string defaultValue = "defaultValue";
                 var dictionary = new System.Collections.Generic.Dictionary<string, string> { { "foo", "bar" } };
 
                 // When

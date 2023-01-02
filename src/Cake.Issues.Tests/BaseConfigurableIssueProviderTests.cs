@@ -14,7 +14,7 @@
             public void Should_Throw_If_Log_Is_Null()
             {
                 // Given
-                ICakeLog log = null;
+                const ICakeLog log = null;
                 var settings = new IssueProviderSettings("Foo".ToByteArray());
 
                 // When
@@ -29,7 +29,7 @@
             {
                 // Given
                 var log = new FakeLog();
-                IssueProviderSettings settings = null;
+                const IssueProviderSettings settings = null;
 
                 // When
                 var result = Record.Exception(() => new FakeConfigurableIssueProvider(log, settings));

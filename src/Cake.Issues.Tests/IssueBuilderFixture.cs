@@ -13,6 +13,6 @@
                 IssueBuilder.NewIssue(identifier, messageText, providerType, providerName);
         }
 
-        public IssueBuilder IssueBuilder { get; private set; }
+        public IssueBuilder IssueBuilder { get; }
     }
 }

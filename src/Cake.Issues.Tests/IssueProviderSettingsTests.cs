@@ -1,8 +1,6 @@
 ﻿namespace Cake.Issues.Tests
 {
     using System;
-    using System.IO;
-    using System.Text;
     using Cake.Core.IO;
     using Cake.Issues.Testing;
     using Shouldly;
@@ -16,7 +14,7 @@
             public void Should_Throw_If_LogFilePath_Is_Null()
             {
                 // Given
-                FilePath logFilePath = null;
+                const FilePath logFilePath = null;
 
                 // When
                 var result = Record.Exception(() => new IssueProviderSettings(logFilePath));
@@ -29,7 +27,7 @@
             public void Should_Throw_If_LogContent_Is_Null()
             {
                 // Given
-                byte[] logFileContent = null;
+                const byte[] logFileContent = null;
 
                 // When
                 var result = Record.Exception(() => new IssueProviderSettings(logFileContent));
@@ -55,7 +53,7 @@
             public void Should_Set_If_LogContent_If_Empty()
             {
                 // Given
-                byte[] logFileContent = Array.Empty<byte>();
+                var logFileContent = Array.Empty<byte>();
 
                 // When
                 var settings = new IssueProviderSettings(logFileContent);
