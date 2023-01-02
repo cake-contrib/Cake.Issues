@@ -133,7 +133,7 @@
         /// <param name="repositorySettings">Repository settings.</param>
         /// <returns>Tuple containing a value if validation was successful,
         /// and file path relative to <see cref="IRepositorySettings.RepositoryRoot"/>.</returns>
-        public static (bool Valid, string FilePath) IsValideRepositoryFilePath(this string filePath, IRepositorySettings repositorySettings)
+        public static (bool Valid, string FilePath) IsValidRepositoryFilePath(this string filePath, IRepositorySettings repositorySettings)
         {
             filePath.NotNullOrWhiteSpace(nameof(filePath));
             repositorySettings.NotNull(nameof(repositorySettings));
