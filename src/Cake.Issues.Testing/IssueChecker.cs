@@ -15,6 +15,7 @@
         /// </summary>
         /// <param name="issueToCheck">Issue which should be checked.</param>
         /// <param name="expectedIssue">Description of the expected issue.</param>
+        [AssertionMethod]
         public static void Check(
             IIssue issueToCheck,
             IssueBuilder expectedIssue)
@@ -32,6 +33,7 @@
         /// </summary>
         /// <param name="issueToCheck">Issue which should be checked.</param>
         /// <param name="expectedIssue">Description of the expected issue.</param>
+        [AssertionMethod]
         public static void Check(
             IIssue issueToCheck,
             IIssue expectedIssue)
@@ -102,6 +104,7 @@
         /// <param name="ruleUrl">Expected URL containing information about the failing rule.
         /// <c>null</c> if no rule Url is expected.</param>
         /// <param name="additionalInformation">Custom information regarding the issue.</param>
+        [AssertionMethod]
         public static void Check(
             IIssue issue,
             string providerType,
