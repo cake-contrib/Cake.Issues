@@ -7,7 +7,7 @@
     /// </summary>
     /// <typeparam name="TIssueProvider">Type of the issue provider.</typeparam>
     /// <typeparam name="TSettings">Type of the settings.</typeparam>
-    public interface ILogFileFormat<TIssueProvider, TSettings>
+    public interface ILogFileFormat<in TIssueProvider, in TSettings>
         where TIssueProvider : BaseMultiFormatIssueProvider<TSettings, TIssueProvider>
         where TSettings : BaseMultiFormatIssueProviderSettings<TIssueProvider, TSettings>
     {
