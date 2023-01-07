@@ -13,7 +13,7 @@
             public void Should_Throw_If_ResourceName_Is_Null()
             {
                 // Given
-                string resourceName = null;
+                const string resourceName = null;
 
                 // When
                 var result = Record.Exception(() => new ResourceTempFile(resourceName));
@@ -39,7 +39,7 @@
             public void Should_Throw_If_ResourceName_Is_WhiteSpace()
             {
                 // Given
-                var resourceName = " ";
+                const string resourceName = " ";
 
                 // When
                 var result = Record.Exception(() => new ResourceTempFile(resourceName));
@@ -52,7 +52,7 @@
             public void Should_Throw_If_ResourceName_Does_Not_Exist()
             {
                 // Given
-                var resourceName = "foo";
+                const string resourceName = "foo";
 
                 // When
                 var result = Record.Exception(() => new ResourceTempFile(resourceName));
@@ -65,7 +65,7 @@
             public void Should_Create_Temp_File()
             {
                 // Given
-                var resourceName = "Cake.Issues.Tests.Testfiles.Build.log";
+                const string resourceName = "Cake.Issues.Tests.Testfiles.Build.log";
 
                 // When
                 using (var tempFile = new ResourceTempFile(resourceName))
@@ -79,7 +79,7 @@
             public void Should_Write_Content()
             {
                 // Given
-                var resourceName = "Cake.Issues.Tests.Testfiles.Build.log";
+                const string resourceName = "Cake.Issues.Tests.Testfiles.Build.log";
 
                 // When
                 using (var tempFile = new ResourceTempFile(resourceName))
@@ -96,7 +96,7 @@
             public void Should_Remove_Temp_File()
             {
                 // Given
-                var resourceName = "Cake.Issues.Tests.Testfiles.Build.log";
+                const string resourceName = "Cake.Issues.Tests.Testfiles.Build.log";
                 string tempFileName;
 
                 // When

@@ -112,7 +112,7 @@
         }
 
         /// <summary>
-        /// Deserializes JSON repesentation of an issue to an <see cref="Issue"/>.
+        /// Deserializes JSON representation of an issue to an <see cref="Issue"/>.
         /// Supports serialization format of the current version of Cake.Issues as versions
         /// written with previous versions of Cake.Issues.
         /// </summary>

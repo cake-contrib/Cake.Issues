@@ -30,8 +30,7 @@
         public int? MaxIssuesToPostAcrossRuns { get; set; }
 
         /// <inheritdoc />
-        public Dictionary<string, IProviderIssueLimits> ProviderIssueLimits { get; } =
-            new Dictionary<string, IProviderIssueLimits>();
+        public Dictionary<string, IProviderIssueLimits> ProviderIssueLimits { get; } = new ();
 
         /// <inheritdoc />
         public int? MaxIssuesToPostForEachIssueProvider { get; set; } = 100;

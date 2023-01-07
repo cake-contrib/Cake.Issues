@@ -80,10 +80,10 @@
                 var fixture = new FakeIssueProviderFixture(new List<IIssue> { issue });
 
                 // When
-                var result = fixture.ReadIssues();
+                var result = fixture.ReadIssues().ToList();
 
                 // Then
-                result.Count().ShouldBe(1);
+                result.Count.ShouldBe(1);
                 result.ShouldContain(issue);
             }
         }

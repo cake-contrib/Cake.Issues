@@ -49,7 +49,7 @@
         /// Returns a list of all discussion threads.
         /// Compared to <see cref="FetchDiscussionThreads"/> it is safe to access Settings from this method.
         /// </summary>
-        /// <param name="commentSource">Value used to indicate threads created by this addin.</param>
+        /// <param name="commentSource">Value used to indicate threads created by this add-in.</param>
         /// <returns>List of all discussion threads.</returns>
         protected abstract IEnumerable<IPullRequestDiscussionThread> InternalFetchDiscussionThreads(string commentSource);
 

@@ -25,6 +25,6 @@
         /// <summary>
         /// Gets the settings for the issue provider.
         /// </summary>
-        protected T IssueProviderSettings { get; private set; }
+        protected T IssueProviderSettings { get; }
     }
 }

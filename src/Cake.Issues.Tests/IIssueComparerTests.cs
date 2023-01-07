@@ -14,7 +14,7 @@
             public void Should_Return_False_If_First_Issue_Is_Null()
             {
                 // Given
-                IIssue issue1 = null;
+                const IIssue issue1 = null;
                 var issue2 =
                     IssueBuilder
                         .NewIssue("message", "providerType", "providerName")
@@ -32,7 +32,7 @@
                     IssueBuilder
                         .NewIssue("message", "providerType", "providerName")
                         .Create();
-                IIssue issue2 = null;
+                const IIssue issue2 = null;
 
                 // When / Then
                 CompareIssues(issue1, issue2, false);
@@ -429,8 +429,8 @@
             public void Should_Return_True_If_Both_Are_Null()
             {
                 // Given
-                IIssue issue1 = null;
-                IIssue issue2 = null;
+                const IIssue issue1 = null;
+                const IIssue issue2 = null;
 
                 // When / Then
                 CompareIssues(issue1, issue2, true);
@@ -786,9 +786,9 @@
             [Fact]
             public void Should_Return_True_If_AdditionalInformation_Is_Same()
             {
-                var id = "123";
-                var lastname = "Kelso";
-                var firstName = "Haley";
+                const string id = "123";
+                const string lastname = "Kelso";
+                const string firstName = "Haley";
 
                 // Given
                 var issue1 =
@@ -813,10 +813,10 @@
             [Fact]
             public void Should_Return_False_If_AdditionalInformation_Is_Not_Same()
             {
-                var id = "123";
-                var lastname = "Kelso";
-                var correctFirstName = "Haley";
-                var wrongFirstName = "Michael";
+                const string id = "123";
+                const string lastname = "Kelso";
+                const string correctFirstName = "Haley";
+                const string wrongFirstName = "Michael";
 
                 // Given
                 var issue1 =
@@ -899,10 +899,10 @@
                 var comparer = new IIssueComparer();
 
                 // When
-                var result = issues1.Except(issues2, comparer);
+                var result = issues1.Except(issues2, comparer).ToList();
 
                 // Then
-                result.Count().ShouldBe(1);
+                result.Count.ShouldBe(1);
                 result.ShouldContain(issue2);
             }
 
@@ -929,7 +929,7 @@
             public void Should_Return_False_If_First_Issue_Is_Null()
             {
                 // Given
-                IIssue issue1 = null;
+                const IIssue issue1 = null;
                 var issue2 =
                     IssueBuilder
                         .NewIssue("message", "providerType", "providerName")
@@ -947,7 +947,7 @@
                     IssueBuilder
                         .NewIssue("message", "providerType", "providerName")
                         .Create();
-                IIssue issue2 = null;
+                const IIssue issue2 = null;
 
                 // When / Then
                 CompareIssues(issue1, issue2, false);
@@ -1215,8 +1215,8 @@
             public void Should_Return_True_If_Both_Are_Null()
             {
                 // Given
-                IIssue issue1 = null;
-                IIssue issue2 = null;
+                const IIssue issue1 = null;
+                const IIssue issue2 = null;
 
                 // When / Then
                 CompareIssues(issue1, issue2, true);
@@ -1761,10 +1761,10 @@
                 var comparer = new IIssueComparer(true);
 
                 // When
-                var result = issues1.Except(issues2, comparer);
+                var result = issues1.Except(issues2, comparer).ToList();
 
                 // Then
-                result.Count().ShouldBe(1);
+                result.Count.ShouldBe(1);
                 result.ShouldContain(issue2);
             }
 

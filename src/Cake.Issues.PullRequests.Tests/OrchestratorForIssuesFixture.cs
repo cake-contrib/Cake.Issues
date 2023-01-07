@@ -8,7 +8,7 @@ namespace Cake.Issues.PullRequests.Tests
     internal class OrchestratorForIssuesFixture
     {
         public OrchestratorForIssuesFixture()
-            : this((builder, settings) => builder)
+            : this((builder, _) => builder)
         {
         }
 

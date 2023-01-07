@@ -14,7 +14,7 @@
             public void Should_Throw_If_RepositoryUrl_Is_Null()
             {
                 // Given
-                Uri repositoryUrl = null;
+                const Uri repositoryUrl = null;
 
                 // When
                 var result = Record.Exception(() => new AzureDevOpsFileLinkSettingsBuilder(repositoryUrl));
@@ -30,7 +30,7 @@
             public void Should_Throw_If_BranchName_Is_Null()
             {
                 // Given
-                string branch = null;
+                const string branch = null;
 
                 // When
                 var result =
@@ -222,7 +222,7 @@
             public void Should_Throw_If_CommitId_Is_Null()
             {
                 // Given
-                string commitId = null;
+                const string commitId = null;
 
                 // When
                 var result =

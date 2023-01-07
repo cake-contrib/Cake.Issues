@@ -15,7 +15,7 @@
             public void Should_Throw_If_LogFilePath_Is_Null()
             {
                 // Given
-                FilePath logFilePath = null;
+                const FilePath logFilePath = null;
                 var format = new FakeLogFileFormat(new FakeLog());
 
                 // When
@@ -29,7 +29,7 @@
             public void Should_Throw_If_LogContent_Is_Null()
             {
                 // Given
-                byte[] logFileContent = null;
+                const byte[] logFileContent = null;
                 var format = new FakeLogFileFormat(new FakeLog());
 
                 // When
@@ -57,7 +57,7 @@
             public void Should_Set_LogContent_If_Empty()
             {
                 // Given
-                byte[] logFileContent = Array.Empty<byte>();
+                var logFileContent = Array.Empty<byte>();
                 var format = new FakeLogFileFormat(new FakeLog());
 
                 // When

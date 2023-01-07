@@ -216,7 +216,7 @@
         /// <summary>
         /// Sets the path to the file affected by the issue.
         /// </summary>
-        /// <param name="filePath">The path to the file affacted by the issue.
+        /// <param name="filePath">The path to the file affected by the issue.
         /// The path needs to be relative to the repository root.
         /// <c>null</c> or <see cref="string.Empty"/> if issue is not related to a change in a file.</param>
         /// <returns>Issue Builder instance.</returns>
@@ -230,11 +230,11 @@
         /// <summary>
         /// Sets the path to the file affected by the issue and the line in the file where the issues has occurred.
         /// </summary>
-        /// <param name="filePath">The path to the file affacted by the issue.
+        /// <param name="filePath">The path to the file affected by the issue.
         /// The path needs to be relative to the repository root.
         /// <c>null</c> or <see cref="string.Empty"/> if issue is not related to a change in a file.</param>
         /// <param name="line">The line in the file where the issues has occurred.
-        /// <c>null</c> if the issue affects the whole file or an asssembly.</param>
+        /// <c>null</c> if the issue affects the whole file or an assembly.</param>
         /// <returns>Issue Builder instance.</returns>
         public IssueBuilder InFile(string filePath, int? line)
         {
@@ -248,13 +248,13 @@
         /// <summary>
         /// Sets the path to the file affected by the issue and the line and column in the file where the issues has occurred.
         /// </summary>
-        /// <param name="filePath">The path to the file affacted by the issue.
+        /// <param name="filePath">The path to the file affected by the issue.
         /// The path needs to be relative to the repository root.
         /// <c>null</c> or <see cref="string.Empty"/> if issue is not related to a change in a file.</param>
         /// <param name="line">The line in the file where the issues has occurred.
-        /// <c>null</c> if the issue affects the whole file or an asssembly.</param>
+        /// <c>null</c> if the issue affects the whole file or an assembly.</param>
         /// <param name="column">The column in the file where the issues has occurred.
-        /// <c>null</c> if the issue affects the whole file or an asssembly.</param>
+        /// <c>null</c> if the issue affects the whole file or an assembly.</param>
         /// <returns>Issue Builder instance.</returns>
         public IssueBuilder InFile(string filePath, int? line, int? column)
         {
@@ -269,17 +269,17 @@
         /// <summary>
         /// Sets the path to the file affected by the issue and the line and column in the file where the issues has occurred.
         /// </summary>
-        /// <param name="filePath">The path to the file affacted by the issue.
+        /// <param name="filePath">The path to the file affected by the issue.
         /// The path needs to be relative to the repository root.
         /// <c>null</c> or <see cref="string.Empty"/> if issue is not related to a change in a file.</param>
         /// <param name="startLine">The line in the file where the issues has occurred.
-        /// <c>null</c> if the issue affects the whole file or an asssembly.</param>
+        /// <c>null</c> if the issue affects the whole file or an assembly.</param>
         /// <param name="endLine">The end of the line range in the file where the issues has occurred.
-        /// <c>null</c> if the issue affects the whole file, an asssembly or only a single line.</param>
+        /// <c>null</c> if the issue affects the whole file, an assembly or only a single line.</param>
         /// <param name="startColumn">The column in the file where the issues has occurred.
-        /// <c>null</c> if the issue affects the whole file or an asssembly.</param>
+        /// <c>null</c> if the issue affects the whole file or an assembly.</param>
         /// <param name="endColumn">The end of the column range in the file where the issues has occurred.
-        /// <c>null</c> if the issue affects the whole file, an asssembly or only a single column.</param>
+        /// <c>null</c> if the issue affects the whole file, an assembly or only a single column.</param>
         /// <returns>Issue Builder instance.</returns>
         public IssueBuilder InFile(string filePath, int? startLine, int? endLine, int? startColumn, int? endColumn)
         {
@@ -330,9 +330,9 @@
         }
 
         /// <summary>
-        /// Sets the the link to the position in the file where the issue ocurred.
+        /// Sets the the link to the position in the file where the issue occurred.
         /// </summary>
-        /// <param name="fileLink">Link to the position in the file where the issue ocurred.</param>
+        /// <param name="fileLink">Link to the position in the file where the issue occurred.</param>
         /// <returns>Issue Builder instance.</returns>
         public IssueBuilder WithFileLink(Uri fileLink)
         {
@@ -344,9 +344,9 @@
         }
 
         /// <summary>
-        /// Sets a <see cref="FileLinkSettings"/> to create the link of the position in the file where the issue ocurred.
+        /// Sets a <see cref="FileLinkSettings"/> to create the link of the position in the file where the issue occurred.
         /// </summary>
-        /// <param name="fileLinkSettings">Settings to create the link of the position in the file where the issue ocurred.</param>
+        /// <param name="fileLinkSettings">Settings to create the link of the position in the file where the issue occurred.</param>
         /// <returns>Issue Builder instance.</returns>
         public IssueBuilder WithFileLinkSettings(FileLinkSettings fileLinkSettings)
         {

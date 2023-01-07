@@ -2,7 +2,6 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
 
     /// <summary>
     /// Base class for test fixtures for testing issue providers inherited from <see cref="BaseMultiFormatIssueProvider{TSettings, TIssueProvider}"/>.

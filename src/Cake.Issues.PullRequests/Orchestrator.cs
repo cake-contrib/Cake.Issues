@@ -76,10 +76,11 @@ namespace Cake.Issues.PullRequests
                 return new PullRequestIssueResult(issues, new List<IIssue>());
             }
 
-            this.log.Information("Processing {0} new issues", issues.Count());
-            var postedIssues = this.PostAndResolveComments(settings, issues.ToList());
+            var issuesList = issues.ToList();
+            this.log.Information("Processing {0} new issues", issuesList.Count);
+            var postedIssues = this.PostAndResolveComments(settings, issuesList);
 
-            return new PullRequestIssueResult(issues, postedIssues);
+            return new PullRequestIssueResult(issuesList, postedIssues);
         }
 
         /// <summary>
@@ -249,17 +250,23 @@ namespace Cake.Issues.PullRequests
                         issue,
                         existingThreads);
 
-                if (activeComments.Any() ||
-                    wontFixComments.Any() ||
-                    resolvedComments.Any())
+                var activeCommentsList = activeComments.ToList();
+                var wontFixCommentsList = wontFixComments.ToList();
+                var resolvedCommentsList = resolvedComments.ToList();
+
+                if (!activeCommentsList.Any() &&
+                    !wontFixCommentsList.Any() &&
+                    !resolvedCommentsList.Any())
                 {
-                    var issueCommentInfo =
-                        new IssueCommentInfo(
-                            activeComments,
-                            wontFixComments,
-                            resolvedComments);
-                    threadsWithIssues.Add(issue, issueCommentInfo);
+                    continue;
                 }
+
+                var issueCommentInfo =
+                    new IssueCommentInfo(
+                        activeCommentsList,
+                        wontFixCommentsList,
+                        resolvedCommentsList);
+                threadsWithIssues.Add(issue, issueCommentInfo);
             }
 
             this.log.Verbose("Built a issue to comment dictionary in {0} ms", stopwatch.ElapsedMilliseconds);
@@ -314,8 +321,7 @@ namespace Cake.Issues.PullRequests
                 var matchingComments =
                     (from comment in thread.Comments
                     where
-                        comment != null &&
-                        !comment.IsDeleted
+                        comment is { IsDeleted: false }
                     select
                         comment).ToList();
 
@@ -374,7 +380,7 @@ namespace Cake.Issues.PullRequests
 
             if (!existingThreads.Any())
             {
-                this.log.Verbose("No existings threads to resolve.");
+                this.log.Verbose("No existing threads to resolve.");
                 return;
             }
 
@@ -438,7 +444,7 @@ namespace Cake.Issues.PullRequests
 
             if (!existingThreads.Any())
             {
-                this.log.Verbose("No existings threads to reopen.");
+                this.log.Verbose("No existing threads to reopen.");
                 return;
             }
 

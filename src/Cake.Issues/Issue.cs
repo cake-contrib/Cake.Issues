@@ -19,18 +19,18 @@
         /// Can be <c>null</c> or <see cref="string.Empty"/> if issue is not related to a project.</param>
         /// <param name="projectName">The name of the project to which the file affected by the issue belongs.
         /// Can be <c>null</c> or <see cref="string.Empty"/> if issue is not related to a project.</param>
-        /// <param name="affectedFileRelativePath">The path to the file affacted by the issue.
+        /// <param name="affectedFileRelativePath">The path to the file affected by the issue.
         /// The path needs to be relative to the repository root.
         /// <c>null</c> or <see cref="string.Empty"/> if issue is not related to a change in a file.</param>
         /// <param name="line">The line in the file where the issues has occurred.
-        /// <c>null</c> if the issue affects the whole file or an asssembly.</param>
+        /// <c>null</c> if the issue affects the whole file or an assembly.</param>
         /// <param name="endLine">The end of the line range in the file where the issues has occurred.
-        /// <c>null</c> if the issue affects the whole file, an asssembly or only a single line.</param>
+        /// <c>null</c> if the issue affects the whole file, an assembly or only a single line.</param>
         /// <param name="column">The column in the file where the issues has occurred.
-        /// <c>null</c> if the issue affects the whole file or an asssembly.</param>
+        /// <c>null</c> if the issue affects the whole file or an assembly.</param>
         /// <param name="endColumn">The end of the column range in the file where the issues has occurred.
-        /// <c>null</c> if the issue affects the whole file, an asssembly or only a single column.</param>
-        /// <param name="fileLink">Link to the position in the file where the issue ocurred.
+        /// <c>null</c> if the issue affects the whole file, an assembly or only a single column.</param>
+        /// <param name="fileLink">Link to the position in the file where the issue occurred.
         /// <c>null</c> if no link is available.</param>
         /// <param name="messageText">The message of the issue in plain text format.</param>
         /// <param name="messageHtml">The message of the issue in Html format.</param>
@@ -124,27 +124,27 @@
 
             if (!line.HasValue && (column.HasValue || endColumn.HasValue))
             {
-                throw new ArgumentOutOfRangeException(nameof(column), $"Cannot specify a column while not specifying a line.");
+                throw new ArgumentOutOfRangeException(nameof(column), "Cannot specify a column while not specifying a line.");
             }
 
             if (!line.HasValue && endLine.HasValue)
             {
-                throw new ArgumentOutOfRangeException(nameof(endLine), $"Cannot specify the end of line range while not specifying start of line range.");
+                throw new ArgumentOutOfRangeException(nameof(endLine), "Cannot specify the end of line range while not specifying start of line range.");
             }
 
             if (line.HasValue && endLine.HasValue && line.Value > endLine.Value)
             {
-                throw new ArgumentOutOfRangeException(nameof(endLine), $"Line range needs to end after start of range.");
+                throw new ArgumentOutOfRangeException(nameof(endLine), "Line range needs to end after start of range.");
             }
 
             if (!column.HasValue && endColumn.HasValue)
             {
-                throw new ArgumentOutOfRangeException(nameof(endColumn), $"Cannot specify the end of column range while not specifying start of column range.");
+                throw new ArgumentOutOfRangeException(nameof(endColumn), "Cannot specify the end of column range while not specifying start of column range.");
             }
 
             if (column.HasValue && endColumn.HasValue && column.Value > endColumn.Value)
             {
-                throw new ArgumentOutOfRangeException(nameof(endColumn), $"Column range needs to end after start of range.");
+                throw new ArgumentOutOfRangeException(nameof(endColumn), "Column range needs to end after start of range.");
             }
 
             this.Identifier = identifier;

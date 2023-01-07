@@ -109,14 +109,14 @@
                 return ending;
             }
 
-            string result = value;
+            var result = value;
 
             // Right() is 1-indexed, so include these cases
             // * Append no characters
             // * Append up to N characters, where N is ending length
-            for (int i = 0; i <= ending.Length; i++)
+            for (var i = 0; i <= ending.Length; i++)
             {
-                string tmp = result + ending.Right(i);
+                var tmp = result + ending.Right(i);
                 if (tmp.EndsWith(ending, StringComparison.OrdinalIgnoreCase))
                 {
                     return tmp;

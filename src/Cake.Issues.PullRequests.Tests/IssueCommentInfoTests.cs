@@ -32,7 +32,7 @@
             {
                 // Given
                 var activeComments = new List<IPullRequestDiscussionComment>();
-                IEnumerable<IPullRequestDiscussionComment> wontFixComments = null;
+                const IEnumerable<IPullRequestDiscussionComment> wontFixComments = null;
                 var resolvedComments = new List<IPullRequestDiscussionComment>();
 
                 // When
@@ -50,7 +50,7 @@
                 // Given
                 var activeComments = new List<IPullRequestDiscussionComment>();
                 var wontFixComments = new List<IPullRequestDiscussionComment>();
-                IEnumerable<IPullRequestDiscussionComment> resolvedComments = null;
+                const IEnumerable<IPullRequestDiscussionComment> resolvedComments = null;
 
                 // When
                 var result =

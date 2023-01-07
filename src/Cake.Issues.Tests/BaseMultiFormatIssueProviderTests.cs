@@ -2,7 +2,6 @@
 {
     using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
     using Cake.Core.Diagnostics;
     using Cake.Issues.Testing;
     using Cake.Testing;
@@ -17,7 +16,7 @@
             public void Should_Throw_If_Log_Is_Null()
             {
                 // Given
-                ICakeLog log = null;
+                const ICakeLog log = null;
                 var settings =
                     new FakeMultiFormatIssueProviderSettings(
                         "Foo".ToByteArray(),
@@ -35,7 +34,7 @@
             {
                 // Given
                 var log = new FakeLog();
-                FakeMultiFormatIssueProviderSettings settings = null;
+                const FakeMultiFormatIssueProviderSettings settings = null;
 
                 // When
                 var result = Record.Exception(() => new FakeMultiFormatIssueProvider(log, settings));
@@ -113,10 +112,10 @@
                 provider.Initialize(new ReadIssuesSettings(@"c:\repo"));
 
                 // When
-                var result = provider.ReadIssues();
+                var result = provider.ReadIssues().ToList();
 
                 // Then
-                result.Count().ShouldBe(2);
+                result.Count.ShouldBe(2);
                 result.ShouldContain(issue1);
                 result.ShouldContain(issue2);
             }

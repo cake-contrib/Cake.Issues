@@ -8,7 +8,7 @@
     public static class ExceptionAssertExtensions
     {
         /// <summary>
-        /// Checks if an execption is of type <see cref="ArgumentException"/>.
+        /// Checks if an exception is of type <see cref="ArgumentException"/>.
         /// </summary>
         /// <param name="exception">Exception to check.</param>
         /// <param name="parameterName">Expected name of the parameter which has caused the exception.</param>
@@ -24,7 +24,7 @@
         }
 
         /// <summary>
-        /// Checks if an execption is of type <see cref="ArgumentNullException"/>.
+        /// Checks if an exception is of type <see cref="ArgumentNullException"/>.
         /// </summary>
         /// <param name="exception">Exception to check.</param>
         /// <param name="parameterName">Expected name of the parameter which has caused the exception.</param>
@@ -40,7 +40,7 @@
         }
 
         /// <summary>
-        /// Checks if an execption is of type <see cref="ArgumentOutOfRangeException"/>.
+        /// Checks if an exception is of type <see cref="ArgumentOutOfRangeException"/>.
         /// </summary>
         /// <param name="exception">Exception to check.</param>
         /// <param name="parameterName">Expected name of the parameter which has caused the exception.</param>
@@ -56,7 +56,7 @@
         }
 
         /// <summary>
-        /// Checks if an execption is of type <see cref="InvalidOperationException"/>.
+        /// Checks if an exception is of type <see cref="InvalidOperationException"/>.
         /// </summary>
         /// <param name="exception">Exception to check.</param>
         /// <param name="message">Expected exception message.</param>

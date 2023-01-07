@@ -35,10 +35,7 @@
 
             return
                 new FileLinkSettings(
-                    (issue, values) =>
-                    {
-                        return new Uri(pattern.ReplaceIssuePattern(issue));
-                    });
+                    (issue, _) => new Uri(pattern.ReplaceIssuePattern(issue)));
         }
 
         /// <summary>
@@ -50,7 +47,7 @@
         {
             builder.NotNull(nameof(builder));
 
-            return new FileLinkSettings((issue, values) => builder(issue));
+            return new FileLinkSettings((issue, _) => builder(issue));
         }
 
         /// <summary>

@@ -1,6 +1,5 @@
 ﻿namespace Cake.Issues.Tests.Testing
 {
-    using System.Linq;
     using Cake.Issues.Testing;
     using Shouldly;
     using Xunit;
@@ -13,7 +12,7 @@
             public void Should_Throw_If_FileResourceName_Is_Null()
             {
                 // Given
-                string fileResourceName = null;
+                const string fileResourceName = null;
 
                 // When
                 var result = Record.Exception(() => new FakeConfigurableIssueProviderFixture(fileResourceName));
@@ -39,7 +38,7 @@
             public void Should_Throw_If_FileResourceName_Is_WhiteSpace()
             {
                 // Given
-                var fileResourceName = " ";
+                const string fileResourceName = " ";
 
                 // When
                 var result = Record.Exception(() => new FakeConfigurableIssueProviderFixture(fileResourceName));
@@ -52,7 +51,7 @@
             public void Should_Throw_If_File_Resource_Does_Not_Exist()
             {
                 // Given
-                var fileResourceName = "foo";
+                const string fileResourceName = "foo";
 
                 // When
                 var result = Record.Exception(() => new FakeConfigurableIssueProviderFixture(fileResourceName));
