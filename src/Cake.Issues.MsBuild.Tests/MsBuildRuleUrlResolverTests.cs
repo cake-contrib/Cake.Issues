@@ -42,6 +42,7 @@
             [Theory]
             [InlineData("CA2201", "https://www.google.com/search?q=\"CA2201:\"+site:docs.microsoft.com")]
             [InlineData("SA1652", "https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1652.md")]
+            [InlineData("S1075", "https://rules.sonarsource.com/csharp/RSPEC-1075")]
             public void Should_Resolve_Url(string rule, string expectedUrl)
             {
                 // Given
