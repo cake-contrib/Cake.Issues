@@ -35,6 +35,12 @@
                 x.Category.ToUpperInvariant() == "S" ?
                     new Uri("https://rules.sonarsource.com/csharp/RSPEC-" + x.RuleId) :
                     null);
+
+            // Roslynator rules
+            this.AddUrlResolver(x =>
+                x.Category.ToUpperInvariant() == "RCS" ?
+                    new Uri("https://github.com/JosefPihrt/Roslynator/blob/main/docs/analyzers/" + x.Rule + ".md") :
+                    null);
         }
 
         /// <summary>
