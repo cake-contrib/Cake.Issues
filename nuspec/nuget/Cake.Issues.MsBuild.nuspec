@@ -28,23 +28,17 @@ See the Project Site for an overview of the whole ecosystem of addins for workin
   </metadata>
   <files>
     <file src="..\..\..\..\nuspec\nuget\icon.png" target="" />
-    <file src="netcoreapp3.1\Cake.Issues.MsBuild.dll" target="lib\netcoreapp3.1" />
-    <file src="netcoreapp3.1\Cake.Issues.MsBuild.pdb" target="lib\netcoreapp3.1" />
-    <file src="netcoreapp3.1\Cake.Issues.MsBuild.xml" target="lib\netcoreapp3.1" />
-    <file src="netcoreapp3.1\StructuredLogger.dll" target="lib\netcoreapp3.1" />
-    <file src="netcoreapp3.1\Microsoft.Build.Framework.dll" target="lib\netcoreapp3.1" />
-    <file src="netcoreapp3.1\Microsoft.Build.Utilities.Core.dll" target="lib\netcoreapp3.1" />
-    <file src="net5.0\Cake.Issues.MsBuild.dll" target="lib\net5.0" />
-    <file src="net5.0\Cake.Issues.MsBuild.pdb" target="lib\net5.0" />
-    <file src="net5.0\Cake.Issues.MsBuild.xml" target="lib\net5.0" />
-    <file src="net5.0\StructuredLogger.dll" target="lib\net5.0" />
-    <file src="net5.0\Microsoft.Build.Framework.dll" target="lib\net5.0" />
-    <file src="net5.0\Microsoft.Build.Utilities.Core.dll" target="lib\net5.0" />
     <file src="net6.0\Cake.Issues.MsBuild.dll" target="lib\net6.0" />
     <file src="net6.0\Cake.Issues.MsBuild.pdb" target="lib\net6.0" />
     <file src="net6.0\Cake.Issues.MsBuild.xml" target="lib\net6.0" />
     <file src="net6.0\StructuredLogger.dll" target="lib\net6.0" />
     <file src="net6.0\Microsoft.Build.Framework.dll" target="lib\net6.0" />
     <file src="net6.0\Microsoft.Build.Utilities.Core.dll" target="lib\net6.0" />
+    <file src="net7.0\Cake.Issues.MsBuild.dll" target="lib\net7.0" />
+    <file src="net7.0\Cake.Issues.MsBuild.pdb" target="lib\net7.0" />
+    <file src="net7.0\Cake.Issues.MsBuild.xml" target="lib\net7.0" />
+    <file src="net7.0\StructuredLogger.dll" target="lib\net7.0" />
+    <file src="net7.0\Microsoft.Build.Framework.dll" target="lib\net7.0" />
+    <file src="net7.0\Microsoft.Build.Utilities.Core.dll" target="lib\net7.0" />
   </files>
 </package>
