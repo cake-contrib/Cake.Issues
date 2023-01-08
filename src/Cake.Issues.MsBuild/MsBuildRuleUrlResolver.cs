@@ -9,7 +9,7 @@
     internal class MsBuildRuleUrlResolver : BaseRuleUrlResolver<MsBuildRuleDescription>
     {
         private static readonly Lazy<MsBuildRuleUrlResolver> InstanceValue =
-            new Lazy<MsBuildRuleUrlResolver>(() => new MsBuildRuleUrlResolver());
+            new (() => new MsBuildRuleUrlResolver());
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MsBuildRuleUrlResolver"/> class.
@@ -58,8 +58,7 @@
             }
 
             // Try to parse the part after the first number to an integer.
-            int ruleId;
-            if (!int.TryParse(rule.Substring(digitIndex), out ruleId))
+            if (!int.TryParse(rule.AsSpan(digitIndex), out var ruleId))
             {
                 return false;
             }

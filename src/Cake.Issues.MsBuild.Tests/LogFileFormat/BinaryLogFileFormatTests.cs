@@ -16,7 +16,7 @@
             public void Should_Throw_If_Log_Is_Null()
             {
                 // Given
-                ICakeLog log = null;
+                const ICakeLog log = null;
 
                 // When
                 var result = Record.Exception(() => new BinaryLogFileFormat(log));

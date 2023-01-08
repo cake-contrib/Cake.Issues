@@ -153,8 +153,7 @@
             }
 
             // Validate project path and make relative to repository root.
-            bool result;
-            (result, project) = this.ValidateFilePath(project, repositorySettings);
+            (var result, project) = this.ValidateFilePath(project, repositorySettings);
             return result;
         }
 
@@ -202,8 +201,7 @@
             }
 
             // Validate file path and make relative to repository root.
-            bool result;
-            (result, fileName) = this.ValidateFilePath(fileName, repositorySettings);
+            (var result, fileName) = this.ValidateFilePath(fileName, repositorySettings);
             return result;
         }
 

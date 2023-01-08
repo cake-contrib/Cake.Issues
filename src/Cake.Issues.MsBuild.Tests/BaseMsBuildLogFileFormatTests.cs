@@ -14,7 +14,7 @@
             {
                 // Given
                 var format = new FakeMsBuildLogFileFormat(new FakeLog());
-                string filePath = null;
+                const string filePath = null;
                 var settings = new RepositorySettings(@"c:\repo");
 
                 // When
@@ -44,7 +44,7 @@
             {
                 // Given
                 var format = new FakeMsBuildLogFileFormat(new FakeLog());
-                var filePath = " ";
+                const string filePath = " ";
                 var settings = new RepositorySettings(@"c:\repo");
 
                 // When
@@ -59,8 +59,8 @@
             {
                 // Given
                 var format = new FakeMsBuildLogFileFormat(new FakeLog());
-                var filePath = @"c:\repo\foo.ch";
-                RepositorySettings settings = null;
+                const string filePath = @"c:\repo\foo.ch";
+                const RepositorySettings settings = null;
 
                 // When
                 var result = Record.Exception(() => format.ValidateFilePath(filePath, settings));
@@ -83,10 +83,10 @@
                 var settings = new RepositorySettings(repoRoot);
 
                 // When
-                var result = format.ValidateFilePath(filePath, settings);
+                var (valid, _) = format.ValidateFilePath(filePath, settings);
 
                 // Then
-                result.Valid.ShouldBe(expectedValue);
+                valid.ShouldBe(expectedValue);
             }
 
             [Theory]
@@ -103,10 +103,10 @@
                 var settings = new RepositorySettings(repoRoot);
 
                 // When
-                var result = format.ValidateFilePath(filePath, settings);
+                var (_, resultFilePath) = format.ValidateFilePath(filePath, settings);
 
                 // Then
-                result.FilePath.ShouldBe(expectedValue);
+                resultFilePath.ShouldBe(expectedValue);
             }
         }
     }

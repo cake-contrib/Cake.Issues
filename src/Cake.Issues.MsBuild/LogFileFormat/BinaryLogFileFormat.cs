@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using Cake.Core.Diagnostics;
     using Microsoft.Build.Framework;
     using Microsoft.Build.Logging.StructuredLogger;
@@ -39,10 +40,8 @@
             var result = new List<IIssue>();
 
             var binLogReader = new BinLogReader();
-            foreach (var record in binLogReader.ReadRecords(issueProviderSettings.LogFileContent))
+            foreach (var buildEventArgs in binLogReader.ReadRecords(issueProviderSettings.LogFileContent).Select(x => x.Args))
             {
-                var buildEventArgs = record.Args;
-
                 IIssue issue = null;
                 if (buildEventArgs is BuildErrorEventArgs buildError)
                 {

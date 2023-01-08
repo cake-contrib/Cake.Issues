@@ -16,7 +16,7 @@
             public void Should_Throw_If_LogFilePath_Is_Null()
             {
                 // Given
-                FilePath logFilePath = null;
+                const FilePath logFilePath = null;
                 var format = new XmlFileLoggerLogFileFormat(new FakeLog());
 
                 // When
@@ -30,7 +30,7 @@
             public void Should_Throw_If_Format_For_LogFilePath_Is_Null()
             {
                 // Given
-                BaseMsBuildLogFileFormat format = null;
+                const BaseMsBuildLogFileFormat format = null;
 
                 using (var tempFile = new ResourceTempFile("Cake.Issues.MsBuild.Tests.Testfiles.XmlFileLoggerLogFileFormat.FullLog.xml"))
                 {
@@ -47,7 +47,7 @@
             public void Should_Throw_If_LogFileContent_Is_Null()
             {
                 // Given
-                byte[] logFileContent = null;
+                const byte[] logFileContent = null;
                 var format = new XmlFileLoggerLogFileFormat(new FakeLog());
 
                 // When
@@ -62,7 +62,7 @@
             {
                 // Given
                 var logFileContent = "foo".ToByteArray();
-                BaseMsBuildLogFileFormat format = null;
+                const BaseMsBuildLogFileFormat format = null;
 
                 // When
                 var result = Record.Exception(() =>
@@ -90,7 +90,7 @@
             public void Should_Set_LogFileContent_If_Empty()
             {
                 // Given
-                byte[] logFileContent = Array.Empty<byte>();
+                var logFileContent = Array.Empty<byte>();
                 var format = new XmlFileLoggerLogFileFormat(new FakeLog());
 
                 // When
