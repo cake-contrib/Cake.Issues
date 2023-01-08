@@ -21,7 +21,7 @@
             // .NET SDK analyzers
             this.AddUrlResolver(x =>
                 x.Category.ToUpperInvariant() == "CA" ?
-                    new Uri("https://www.google.com/search?q=%22" + x.Rule + ":%22+site:docs.microsoft.com") :
+                    new Uri("https://www.google.com/search?q=%22" + x.Rule + ":%22+site:learn.microsoft.com") :
                     null);
 
             // StyleCop analyzer rules

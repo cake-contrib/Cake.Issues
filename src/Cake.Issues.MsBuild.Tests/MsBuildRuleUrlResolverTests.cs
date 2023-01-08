@@ -40,7 +40,7 @@
             }
 
             [Theory]
-            [InlineData("CA2201", "https://www.google.com/search?q=\"CA2201:\"+site:docs.microsoft.com")]
+            [InlineData("CA2201", "https://www.google.com/search?q=\"CA2201:\"+site:learn.microsoft.com")]
             [InlineData("SA1652", "https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1652.md")]
             [InlineData("S1075", "https://rules.sonarsource.com/csharp/RSPEC-1075")]
             [InlineData("RCS1001", "https://github.com/JosefPihrt/Roslynator/blob/main/docs/analyzers/RCS1001.md")]
