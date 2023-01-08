@@ -27,15 +27,9 @@
             IRepositorySettings repositorySettings,
             MsBuildIssuesSettings issueProviderSettings)
         {
-#pragma warning disable SA1123 // Do not place regions within elements
-            #region DupFinder Exclusion
-#pragma warning restore SA1123 // Do not place regions within elements
-
             issueProvider.NotNull(nameof(issueProvider));
             repositorySettings.NotNull(nameof(repositorySettings));
             issueProviderSettings.NotNull(nameof(issueProviderSettings));
-
-            #endregion
 
             var result = new List<IIssue>();
 
