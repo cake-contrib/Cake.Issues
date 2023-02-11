@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Globalization;
     using System.Linq;
+    using System.Threading;
     using Cake.AzureDevOps.Repos.PullRequest;
     using Cake.AzureDevOps.Repos.PullRequest.CommentThread;
     using Cake.Core.Diagnostics;
@@ -168,15 +169,22 @@
             // ReSharper disable once PossibleMultipleEnumeration
             foreach (var issue in issues)
             {
+                var changeTrackingId =
+                    this.TryGetCodeFlowChangeTrackingId(changes, issue.AffectedFileRelativePath);
+                if (changeTrackingId < 0)
+                {
+                    // Don't post comment if we couldn't determine the change.
+                    this.Log.Information(
+                        "Skipping discussion comment for the issue at line {0} from {1} since change tracking ID could not be determined",
+                        issue.Line,
+                        issue.AffectedFileRelativePath);
+                    continue;
+                }
+
                 this.Log.Information(
                     "Creating a discussion comment for the issue at line {0} from {1}",
                     issue.Line,
                     issue.AffectedFileRelativePath);
-
-                var newThread = new AzureDevOpsPullRequestCommentThread()
-                {
-                    Status = AzureDevOpsCommentThreadStatus.Active,
-                };
 
                 var discussionComment = new AzureDevOpsComment
                 {
@@ -185,27 +193,37 @@
                     Content = ContentProvider.GetContent(issue),
                 };
 
-                if (!this.AddThreadProperties(newThread, changes, issue, iterationId, commentSource))
+                var newThread = new AzureDevOpsPullRequestCommentThread()
                 {
-                    continue;
-                }
+                    Status = AzureDevOpsCommentThreadStatus.Active,
+                    Comments = new List<AzureDevOpsComment> { discussionComment },
+                    Properties = this.GetThreadProperties(changeTrackingId, issue, iterationId),
+                };
 
-                newThread.Comments = new List<AzureDevOpsComment> { discussionComment };
+                // Add a custom property to be able to distinguish all comments created this way.
+                newThread.SetCommentSource(commentSource);
+
+                // Add custom property for identifying the comment for subsequent runs
+                newThread.SetCommentIdentifier(issue.Identifier);
+
+                // Add a custom property to be able to distinguish all comments by provider type later on
+                newThread.SetProviderType(issue.ProviderType);
+
+                // Add a custom property to be able to return issue message from existing threads,
+                // without any formatting done by this addin, back to Cake.Issues.PullRequests.
+                newThread.SetIssueMessage(issue.MessageText);
+
                 result.Add(newThread);
             }
 
             return result;
         }
 
-        private bool AddThreadProperties(
-            AzureDevOpsPullRequestCommentThread thread,
-            IEnumerable<AzureDevOpsPullRequestIterationChange> changes,
+        private Dictionary<string, object> GetThreadProperties(
+            int changeTrackingId,
             IIssue issue,
-            int iterationId,
-            string commentSource)
+            int iterationId)
         {
-            thread.NotNull(nameof(thread));
-            changes.NotNull(nameof(changes));
             issue.NotNull(nameof(issue));
 
             var properties = new Dictionary<string, object>();
@@ -214,14 +232,6 @@
             {
                 if (this.azureDevOpsPullRequest.CodeReviewId > 0)
                 {
-                    var changeTrackingId =
-                        this.TryGetCodeFlowChangeTrackingId(changes, issue.AffectedFileRelativePath);
-                    if (changeTrackingId < 0)
-                    {
-                        // Don't post comment if we couldn't determine the change.
-                        return false;
-                    }
-
                     AddCodeFlowProperties(issue, iterationId, changeTrackingId, properties);
                 }
                 else
@@ -233,22 +243,7 @@
             // An Azure DevOps UI extension will recognize this and format the comments differently.
             properties.Add("CodeAnalysisThreadType", "CodeAnalysisIssue");
 
-            thread.Properties = properties;
-
-            // Add a custom property to be able to distinguish all comments created this way.
-            thread.SetCommentSource(commentSource);
-
-            // Add custom property for identifying the comment for subsequent runs
-            thread.SetCommentIdentifier(issue.Identifier);
-
-            // Add a custom property to be able to distinguish all comments by provider type later on
-            thread.SetProviderType(issue.ProviderType);
-
-            // Add a custom property to be able to return issue message from existing threads,
-            // without any formatting done by this addin, back to Cake.Issues.PullRequests.
-            thread.SetIssueMessage(issue.MessageText);
-
-            return true;
+            return properties;
         }
 
         private int GetCodeFlowLatestIterationId()
