@@ -6,6 +6,7 @@
     using Shouldly;
     using Xunit;
 
+    // ReSharper disable once ClassNeverInstantiated.Global
     public sealed class CommentExtensionsTests
     {
         public sealed class TheToPullRequestDiscussionCommentExtension
@@ -14,7 +15,7 @@
             public void Should_Throw_If_Comment_Is_Null()
             {
                 // Given
-                AzureDevOpsComment comment = null;
+                const AzureDevOpsComment comment = null;
 
                 // When
                 var result = Record.Exception(() => comment.ToPullRequestDiscussionComment());
@@ -27,7 +28,7 @@
             public void Should_Set_Correct_Content()
             {
                 // Given
-                var content = "foo";
+                const string content = "foo";
                 var comment =
                     new AzureDevOpsComment
                     {

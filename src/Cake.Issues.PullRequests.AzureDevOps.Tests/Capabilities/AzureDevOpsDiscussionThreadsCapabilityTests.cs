@@ -7,6 +7,7 @@
     using NSubstitute;
     using Xunit;
 
+    // ReSharper disable once ClassNeverInstantiated.Global
     public sealed class AzureDevOpsDiscussionThreadsCapabilityTests
     {
         public sealed class TheCtor
@@ -15,7 +16,7 @@
             public void Should_Throw_If_Log_Is_Null()
             {
                 // Given
-                ICakeLog log = null;
+                const ICakeLog log = null;
                 var pullRequestSystem = Substitute.For<IAzureDevOpsPullRequestSystem>();
 
                 // When
@@ -30,7 +31,7 @@
             {
                 // Given
                 var log = new FakeLog();
-                AzureDevOpsPullRequestSystem pullRequestSystem = null;
+                const AzureDevOpsPullRequestSystem pullRequestSystem = null;
 
                 // When
                 var result = Record.Exception(() => new AzureDevOpsDiscussionThreadsCapability(log, pullRequestSystem));

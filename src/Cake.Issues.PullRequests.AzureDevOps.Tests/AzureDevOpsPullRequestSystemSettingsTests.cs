@@ -5,6 +5,7 @@
     using Cake.Issues.Testing;
     using Xunit;
 
+    // ReSharper disable once ClassNeverInstantiated.Global
     public sealed class AzureDevOpsPullRequestSystemSettingsTests
     {
         public sealed class TheCtor
