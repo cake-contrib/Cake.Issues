@@ -6,6 +6,7 @@
     using Shouldly;
     using Xunit;
 
+    // ReSharper disable once ClassNeverInstantiated.Global
     public sealed class InspectCodeIssuesSettingsTests
     {
         public sealed class TheCtor
@@ -14,7 +15,7 @@
             public void Should_Throw_If_LogFilePath_Is_Null()
             {
                 // Given
-                FilePath logFilePath = null;
+                const FilePath logFilePath = null;
 
                 // When
                 var result = Record.Exception(() => new InspectCodeIssuesSettings(logFilePath));
@@ -27,7 +28,7 @@
             public void Should_Throw_If_LogFileContent_Is_Null()
             {
                 // Given
-                byte[] logFileContent = null;
+                const byte[] logFileContent = null;
 
                 // When
                 var result = Record.Exception(() => new InspectCodeIssuesSettings(logFileContent));
@@ -53,7 +54,7 @@
             public void Should_Set_LogFileContent_If_Empty()
             {
                 // Given
-                byte[] logFileContent = Array.Empty<byte>();
+                var logFileContent = Array.Empty<byte>();
 
                 // When
                 var settings = new InspectCodeIssuesSettings(logFileContent);

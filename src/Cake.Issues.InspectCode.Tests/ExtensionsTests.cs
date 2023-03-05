@@ -4,6 +4,7 @@
     using Shouldly;
     using Xunit;
 
+    // ReSharper disable once ClassNeverInstantiated.Global
     public sealed class ExtensionsTests
     {
         public sealed class TheToUriExtension
@@ -12,7 +13,7 @@
             public void Should_Throw_If_Value_Is_Null()
             {
                 // Given
-                string value = null;
+                const string value = null;
 
                 // When
                 var result = Record.Exception(() => value.ToUri());
