@@ -80,7 +80,7 @@
 
             // Validate file path and make relative to repository root.
             bool result;
-            (result, fileName) = filePath.IsValideRepositoryFilePath(repositorySettings);
+            (result, fileName) = filePath.IsValidRepositoryFilePath(repositorySettings);
 
             if (!result)
             {
