@@ -48,6 +48,7 @@
                 {
                     columnNumber = int.Parse(groups["columnNumber"].Value);
                 }
+
                 var ruleId = groups["ruleId"].Value;
                 var message = groups["message"].Value;
 
