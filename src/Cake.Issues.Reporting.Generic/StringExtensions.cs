@@ -27,7 +27,7 @@
             var firstLegalCharacter = GetIndexOfFirstLetter(input);
             input = input.Substring(firstLegalCharacter);
 
-            return Regex.Replace(input, @"/^[^a-z]+|[^\w:.-]+", "-");
+            return Regex.Replace(input, @"/^[^a-z]+|[^\w:-]+", "-");
         }
 
         /// <summary>
