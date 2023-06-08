@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp3.1;net5.0;net6.0</TargetFrameworks>
+    <TargetFrameworks>net6.0;net7.0</TargetFrameworks>
     <Description>Support for creating issue reports in any text based format (HTML, Markdown, ...) from the Cake.Issues Addin for Cake Build Automation System</Description>
     <Copyright>Copyright © Pascal Berger and contributors</Copyright>
     <Product>Cake.Issues</Product>
@@ -25,9 +25,9 @@
   <ItemGroup>
     <PackageReference Include="Gazorator" Version="0.5.2" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
-    <PackageReference Include="Cake.Core" Version="2.0.0" />
-    <PackageReference Include="Cake.Issues" Version="2.0.0" />
-    <PackageReference Include="Cake.Issues.Reporting" Version="2.0.0" />
+    <PackageReference Include="Cake.Core" Version="3.0.0" />
+    <PackageReference Include="Cake.Issues" Version="3.0.0-beta0001" />
+    <PackageReference Include="Cake.Issues.Reporting" Version="3.0.0-beta0001" />
     <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="7.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
