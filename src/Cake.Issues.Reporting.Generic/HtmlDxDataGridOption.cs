@@ -482,7 +482,7 @@
         /// <summary>
         /// Version of <see href="https://github.com/simonbengtsson/jsPDF-AutoTable">jsPDF-AutoTable plugin</see> which should be used.
         /// This version needs to match the version required by the selected <see cref="DevExtremeVersion"/>.
-        /// Default value is <c>3.5.22</c>.
+        /// Default value is <c>3.5.29</c>.
         /// </summary>
         JsPdfAutotableVersion,
     }
