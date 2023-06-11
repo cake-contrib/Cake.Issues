@@ -26,14 +26,11 @@ See the Project Site for an overview of the whole ecosystem of addins for workin
   </metadata>
   <files>
     <file src="..\..\..\..\nuspec\nuget\icon.png" target="" />
-    <file src="netcoreapp3.1\Cake.Issues.PullRequests.AppVeyor.dll" target="lib\netcoreapp3.1" />
-    <file src="netcoreapp3.1\Cake.Issues.PullRequests.AppVeyor.pdb" target="lib\netcoreapp3.1" />
-    <file src="netcoreapp3.1\Cake.Issues.PullRequests.AppVeyor.xml" target="lib\netcoreapp3.1" />
-    <file src="net5.0\Cake.Issues.PullRequests.AppVeyor.dll" target="lib\net5.0" />
-    <file src="net5.0\Cake.Issues.PullRequests.AppVeyor.pdb" target="lib\net5.0" />
-    <file src="net5.0\Cake.Issues.PullRequests.AppVeyor.xml" target="lib\net5.0" />
     <file src="net6.0\Cake.Issues.PullRequests.AppVeyor.dll" target="lib\net6.0" />
     <file src="net6.0\Cake.Issues.PullRequests.AppVeyor.pdb" target="lib\net6.0" />
     <file src="net6.0\Cake.Issues.PullRequests.AppVeyor.xml" target="lib\net6.0" />
+    <file src="net7.0\Cake.Issues.PullRequests.AppVeyor.dll" target="lib\net7.0" />
+    <file src="net7.0\Cake.Issues.PullRequests.AppVeyor.pdb" target="lib\net7.0" />
+    <file src="net7.0\Cake.Issues.PullRequests.AppVeyor.xml" target="lib\net7.0" />
   </files>
 </package>
