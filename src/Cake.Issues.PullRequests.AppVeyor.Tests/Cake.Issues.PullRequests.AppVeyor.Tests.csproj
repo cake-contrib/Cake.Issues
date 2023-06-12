@@ -14,9 +14,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Cake.Issues.Testing" Version="2.0.0" />
+    <PackageReference Include="Cake.Issues.Testing" Version="3.0.0-beta000" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.6.2" />
-    <PackageReference Include="Cake.Testing" Version="2.0.0" />
+    <PackageReference Include="Cake.Testing" Version="3.0.0" />
     <PackageReference Include="Shouldly" Version="4.2.1" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.118" />
     <PackageReference Include="xunit" Version="2.4.2" />
