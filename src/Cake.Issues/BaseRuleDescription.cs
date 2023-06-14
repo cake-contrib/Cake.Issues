@@ -3,7 +3,7 @@
     /// <summary>
     /// Base class for all rule descriptions.
     /// </summary>
-    public abstract class BaseRuleDescription
+    public class BaseRuleDescription
     {
         /// <summary>
         /// Gets the full identifier of the rule.
