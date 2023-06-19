@@ -28,7 +28,6 @@ Cake.Issues recipes will add the following addins to your build:
 | [Cake.Issues] 2.0.0                            | [Cake.Issues] 2.0.0                            | |
 | [Cake.Issues.MsBuild] 2.0.0                    | [Cake.Issues.MsBuild] 2.0.0                    | |
 | [Cake.Issues.InspectCode] 2.0.0                | [Cake.Issues.InspectCode] 2.0.0                | |
-| [Cake.Issues.DupFinder] 2.0.0                  | [Cake.Issues.DupFinder] 2.0.0                  | |
 | [Cake.Issues.Markdownlint] 2.0.0               | [Cake.Issues.Markdownlint] 2.0.0               | |
 | [Cake.Issues.EsLint] 2.0.0                     | [Cake.Issues.EsLint] 2.0.0                     | |
 | [Cake.Issues.Reporting] 2.0.0                  | [Cake.Issues.Reporting] 2.0.0                  | |
@@ -51,7 +50,6 @@ Cake.Issues recipes will add the following addins to your build:
 [Cake.Issues]: https://cakebuild.net/extensions/cake-issues/
 [Cake.Issues.MsBuild]: https://cakebuild.net/extensions/cake-issues-msbuild/
 [Cake.Issues.InspectCode]: https://cakebuild.net/extensions/cake-issues-inspectcode/
-[Cake.Issues.DupFinder]: https://cakebuild.net/extensions/cake-issues-dupfinder/
 [Cake.Issues.Markdownlint]: https://cakebuild.net/extensions/cake-issues-markdownlint/
 [Cake.Issues.EsLint]: https://cakebuild.net/extensions/cake-issues-eslint/
 [Cake.Issues.Reporting]: https://cakebuild.net/extensions/cake-issues-reporting/
