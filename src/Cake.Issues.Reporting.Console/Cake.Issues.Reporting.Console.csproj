@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Library</OutputType>
@@ -33,7 +33,7 @@
     <PackageReference Include="Cake.Issues" Version="3.0.0-beta0002" PrivateAssets="All" />
     <PackageReference Include="Cake.Issues.Reporting" Version="3.0.0-beta0002" PrivateAssets="All" />
     <PackageReference Include="Errata" Version="0.10.0" />
-    <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="6.0.0">
+    <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="7.0.3">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
