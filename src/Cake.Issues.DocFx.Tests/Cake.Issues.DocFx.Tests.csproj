@@ -2,7 +2,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Library</OutputType>
-    <TargetFrameworks>netcoreapp2.1;net461</TargetFrameworks>
+    <TargetFrameworks>net5.0</TargetFrameworks>
     <IsPackable>false</IsPackable>
     <Description>Tests for the Cake.Issues.DocFx addin</Description>
     <Authors>BBT Software AG</Authors>
@@ -34,21 +34,21 @@
     <EmbeddedResource Include="Testfiles\entry-with-line-0.json" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.9.1" />
-    <PackageReference Include="Cake.Issues" Version="1.0.0" />
-    <PackageReference Include="Cake.Issues.Testing" Version="1.0.0" />
-    <PackageReference Include="Cake.Testing" Version="1.0.0" />
-    <PackageReference Include="Shouldly" Version="4.0.3" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.3.2" />
+    <PackageReference Include="Cake.Issues" Version="2.0.0" />
+    <PackageReference Include="Cake.Issues.Testing" Version="2.0.0" />
+    <PackageReference Include="Cake.Testing" Version="2.0.0" />
+    <PackageReference Include="Shouldly" Version="4.1.0" />
     <PackageReference Include="StyleCop.Analyzers">
       <Version>1.1.118</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="xunit">
-      <Version>2.4.1</Version>
+      <Version>2.4.2</Version>
     </PackageReference>
     <PackageReference Include="xunit.runner.visualstudio">
-      <Version>2.4.3</Version>
+      <Version>2.4.5</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
