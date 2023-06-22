@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Library</OutputType>
@@ -38,7 +38,7 @@
     <PackageReference Include="Cake.Issues" Version="2.0.0" />
     <PackageReference Include="Cake.Issues.Testing" Version="2.0.0" />
     <PackageReference Include="Cake.Testing" Version="2.0.0" />
-    <PackageReference Include="Shouldly" Version="4.1.0" />
+    <PackageReference Include="Shouldly" Version="4.2.1" />
     <PackageReference Include="StyleCop.Analyzers">
       <Version>1.1.118</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
