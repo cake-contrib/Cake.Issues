@@ -39,6 +39,6 @@ The addin requires Cake 1.2.0 or higher.
     <file src="net7.0/Cake.Issues.Reporting.Console.dll" target="lib\net7.0" />
     <file src="net7.0/Cake.Issues.Reporting.Console.pdb" target="lib\net7.0" />
     <file src="net7.0/Cake.Issues.Reporting.Console.xml" target="lib\net7.0" />
-    <file src="net7.0/Errata.dll" target="lib\net5.0" />
+    <file src="net7.0/Errata.dll" target="lib\net7.0" />
   </files>
 </package>
