@@ -1,4 +1,4 @@
-#load nuget:?package=Cake.Recipe&version=3.0.0
+#load nuget:?package=Cake.Recipe&version=3.0.1
 
 //*************************************************************************************************
 // Settings
