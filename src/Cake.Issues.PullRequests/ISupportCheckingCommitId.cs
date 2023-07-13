@@ -1,7 +1,5 @@
 ﻿namespace Cake.Issues.PullRequests
 {
-    using System.Collections.Generic;
-
     /// <summary>
     /// Interface describing that a pull request system supports checking if commit Id is still up to date.
     /// </summary>

@@ -28,21 +28,6 @@
         }
 
         /// <summary>
-        /// Deserializes an <see cref="IEnumerable{IIssue}"/> from a JSON string.
-        /// </summary>
-        /// <param name="jsonString">JSON representation of the issues.</param>
-        /// <returns>List of issues.</returns>
-        public static IEnumerable<Issue> DeserializeToIssues(this string jsonString)
-        {
-            jsonString.NotNullOrWhiteSpace(nameof(jsonString));
-
-            using (var stream = new MemoryStream(Encoding.Default.GetBytes(jsonString)))
-            {
-                return DeserializeStreamToIssues(stream);
-            }
-        }
-
-        /// <summary>
         /// Deserializes an <see cref="Issue"/> from a JSON file.
         /// </summary>
         /// <param name="filePath">Path to the JSON file.</param>
@@ -54,6 +39,21 @@
             using (var stream = File.Open(filePath.FullPath, FileMode.Open))
             {
                 return DeserializeStreamToIssue(stream);
+            }
+        }
+
+        /// <summary>
+        /// Deserializes an <see cref="IEnumerable{IIssue}"/> from a JSON string.
+        /// </summary>
+        /// <param name="jsonString">JSON representation of the issues.</param>
+        /// <returns>List of issues.</returns>
+        public static IEnumerable<Issue> DeserializeToIssues(this string jsonString)
+        {
+            jsonString.NotNullOrWhiteSpace(nameof(jsonString));
+
+            using (var stream = new MemoryStream(Encoding.Default.GetBytes(jsonString)))
+            {
+                return DeserializeStreamToIssues(stream);
             }
         }
 
@@ -112,7 +112,7 @@
         }
 
         /// <summary>
-        /// Deserializes JSON repesentation of an issue to an <see cref="Issue"/>.
+        /// Deserializes JSON representation of an issue to an <see cref="Issue"/>.
         /// Supports serialization format of the current version of Cake.Issues as versions
         /// written with previous versions of Cake.Issues.
         /// </summary>

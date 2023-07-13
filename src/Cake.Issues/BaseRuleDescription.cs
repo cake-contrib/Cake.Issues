@@ -6,8 +6,8 @@
     public class BaseRuleDescription
     {
         /// <summary>
-        /// Gets or sets the full identifier of the rule.
+        /// Gets the full identifier of the rule.
         /// </summary>
-        public string Rule { get; set; }
+        public string Rule { get; init; }
     }
 }

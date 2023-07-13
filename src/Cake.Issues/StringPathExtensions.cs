@@ -109,14 +109,14 @@
                 return ending;
             }
 
-            string result = value;
+            var result = value;
 
             // Right() is 1-indexed, so include these cases
             // * Append no characters
             // * Append up to N characters, where N is ending length
-            for (int i = 0; i <= ending.Length; i++)
+            for (var i = 0; i <= ending.Length; i++)
             {
-                string tmp = result + ending.Right(i);
+                var tmp = result + ending.Right(i);
                 if (tmp.EndsWith(ending, StringComparison.OrdinalIgnoreCase))
                 {
                     return tmp;
@@ -133,7 +133,7 @@
         /// <param name="repositorySettings">Repository settings.</param>
         /// <returns>Tuple containing a value if validation was successful,
         /// and file path relative to <see cref="IRepositorySettings.RepositoryRoot"/>.</returns>
-        public static (bool Valid, string FilePath) IsValideRepositoryFilePath(this string filePath, IRepositorySettings repositorySettings)
+        public static (bool Valid, string FilePath) IsValidRepositoryFilePath(this string filePath, IRepositorySettings repositorySettings)
         {
             filePath.NotNullOrWhiteSpace(nameof(filePath));
             repositorySettings.NotNull(nameof(repositorySettings));
@@ -212,7 +212,7 @@
                 throw new ArgumentOutOfRangeException(nameof(length), length, "Length is less than zero");
             }
 
-            return (length < value.Length) ? value.Substring(value.Length - length) : value;
+            return (length < value.Length) ? value[^length..] : value;
         }
     }
 }

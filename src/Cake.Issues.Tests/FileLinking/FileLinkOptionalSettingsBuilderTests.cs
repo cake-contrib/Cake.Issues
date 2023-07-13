@@ -15,7 +15,7 @@
             public void Should_Throw_If_Builder_Is_Null()
             {
                 // Given
-                Func<IIssue, IDictionary<string, string>, Uri> builder = null;
+                const Func<IIssue, IDictionary<string, string>, Uri> builder = null;
 
                 // When
                 var result = Record.Exception(() => new FileLinkOptionalSettingsBuilder(builder));
@@ -31,7 +31,7 @@
             public void Should_Not_Throw_If_RootPath_Is_Null()
             {
                 // Given
-                string rootPath = null;
+                const string rootPath = null;
 
                 // When
                 var result =

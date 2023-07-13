@@ -12,13 +12,7 @@
         /// Gets the version of the serialization format.
         /// </summary>
         [DataMember]
-        public int Version
-        {
-            get
-            {
-                return 2;
-            }
-        }
+        public int Version => 2;
 
         /// <inheritdoc cref="IIssue.ProjectFileRelativePath" />
         [DataMember]

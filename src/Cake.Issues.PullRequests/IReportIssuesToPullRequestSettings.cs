@@ -52,7 +52,7 @@
         Dictionary<string, IProviderIssueLimits> ProviderIssueLimits { get; }
 
         /// <summary>
-        /// Gets or sets a value used to decorate comments created by this addin.
+        /// Gets or sets a value used to decorate comments created by this add-in.
         /// Only comments with the same source will be resolved.
         /// </summary>
         string CommentSource { get; set; }

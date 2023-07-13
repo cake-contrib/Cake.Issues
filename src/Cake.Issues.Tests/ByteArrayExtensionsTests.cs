@@ -15,7 +15,7 @@
             public void Should_Throw_If_Value_Is_Null()
             {
                 // Given
-                byte[] value = null;
+                const byte[] value = null;
 
                 // When
                 var result = Record.Exception(() => value.RemovePreamble());
@@ -49,7 +49,7 @@
             public void Should_Throw_If_Value_Is_Null()
             {
                 // Given
-                byte[] value = null;
+                const byte[] value = null;
                 var encoding = Encoding.UTF32;
 
                 // When
@@ -64,7 +64,7 @@
             {
                 // Given
                 var encoding = Encoding.UTF32;
-                var stringValue = "foo🐱bar";
+                const string stringValue = "foo🐱bar";
                 var byteArrayValue = stringValue.ToByteArray(encoding);
 
                 // When
@@ -95,11 +95,10 @@
             [Theory]
             [InlineData("foo🐱bar")]
             [InlineData("")]
-            public void Should_Return_Correct_Value_If_Enconding_Has_Preamble_But_Value_Not(string value)
+            public void Should_Return_Correct_Value_If_Encoding_Has_Preamble_But_Value_Not(string value)
             {
                 // Given
                 var encoding = Encoding.UTF32;
-                var preamble = encoding.GetPreamble();
                 var valueWithoutPreamble = value.ToByteArray(encoding);
 
                 // When
@@ -134,7 +133,7 @@
             public void Should_Throw_If_Value_Is_Null()
             {
                 // Given
-                byte[] value = null;
+                const byte[] value = null;
 
                 // When
                 var result = Record.Exception(() => value.ToStringUsingEncoding());
@@ -165,7 +164,7 @@
             public void Should_Throw_If_Value_Is_Null()
             {
                 // Given
-                byte[] value = null;
+                const byte[] value = null;
 
                 // When
                 var result = Record.Exception(() => value.ToStringUsingEncoding(true));
@@ -239,7 +238,7 @@
             public void Should_Throw_If_Value_Is_Null()
             {
                 // Given
-                byte[] value = null;
+                const byte[] value = null;
                 var encoding = Encoding.UTF32;
 
                 // When
@@ -320,7 +319,7 @@
             public void Should_Throw_If_Value_Is_Null()
             {
                 // Given
-                string value = null;
+                const string value = null;
 
                 // When
                 var result = Record.Exception(() => value.ToByteArray());
@@ -350,7 +349,7 @@
             public void Should_Throw_If_Value_Is_Null()
             {
                 // Given
-                string value = null;
+                const string value = null;
                 var encoding = Encoding.UTF8;
 
                 // When
@@ -364,8 +363,8 @@
             public void Should_Throw_If_Encoding_Is_Null()
             {
                 // Given
-                var value = "foo";
-                Encoding encoding = null;
+                const string value = "foo";
+                const Encoding encoding = null;
 
                 // When
                 var result = Record.Exception(() => value.ToByteArray(encoding));

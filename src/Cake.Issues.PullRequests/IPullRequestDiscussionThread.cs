@@ -19,7 +19,7 @@
         PullRequestDiscussionStatus Status { get; set; }
 
         /// <summary>
-        /// Gets or sets the resolution of the thred if <see cref="Status"/> is <see cref="PullRequestDiscussionStatus.Resolved"/>.
+        /// Gets or sets the resolution of the thread if <see cref="Status"/> is <see cref="PullRequestDiscussionStatus.Resolved"/>.
         /// </summary>
         PullRequestDiscussionResolution Resolution { get; set; }
 
@@ -31,7 +31,7 @@
         FilePath AffectedFileRelativePath { get; set; }
 
         /// <summary>
-        /// Gets or sets a value used to decorate comments created by this addin.
+        /// Gets or sets a value used to decorate comments created by this add-in.
         /// </summary>
         string CommentSource { get; set; }
 

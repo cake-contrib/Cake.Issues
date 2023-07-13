@@ -14,7 +14,7 @@
             {
                 // Given
                 Uri uri = null;
-                var path = "foo";
+                const string path = "foo";
 
                 // When
                 var result = Record.Exception(() =>

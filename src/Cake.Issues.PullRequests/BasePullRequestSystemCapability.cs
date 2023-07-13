@@ -14,7 +14,7 @@
         /// </summary>
         /// <param name="log">The Cake log context.</param>
         /// <param name="pullRequestSystem">Pull request system to which this capability belongs.</param>
-        public BasePullRequestSystemCapability(ICakeLog log, T pullRequestSystem)
+        protected BasePullRequestSystemCapability(ICakeLog log, T pullRequestSystem)
         {
             log.NotNull(nameof(log));
             pullRequestSystem.NotNull(nameof(pullRequestSystem));

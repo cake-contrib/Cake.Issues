@@ -26,7 +26,7 @@
         /// <summary>
         /// Gets the Cake log instance.
         /// </summary>
-        protected ICakeLog Log { get; private set; }
+        protected ICakeLog Log { get; }
 
         /// <inheritdoc/>
         public abstract IEnumerable<IIssue> ReadIssues(

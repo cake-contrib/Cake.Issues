@@ -12,7 +12,7 @@
             public void Should_Throw_If_Value_Is_Null()
             {
                 // Given
-                string value = null;
+                const string value = null;
 
                 // When
                 var result = Record.Exception(() => value.NotNull("foo"));
@@ -35,7 +35,7 @@
             public void Should_Throw_If_Value_Is_Null()
             {
                 // Given
-                string value = null;
+                const string value = null;
 
                 // When
                 var result = Record.Exception(() => value.NotNullOrWhiteSpace("foo"));
@@ -48,7 +48,7 @@
             public void Should_Throw_If_Value_Is_Empty()
             {
                 // Given
-                string value = string.Empty;
+                var value = string.Empty;
 
                 // When
                 var result = Record.Exception(() => value.NotNullOrWhiteSpace("foo"));
@@ -61,7 +61,7 @@
             public void Should_Throw_If_Value_Is_WhiteSpace()
             {
                 // Given
-                string value = " ";
+                const string value = " ";
 
                 // When
                 var result = Record.Exception(() => value.NotNullOrWhiteSpace("foo"));
@@ -120,7 +120,7 @@
             public void Should_Throw_If_Value_Is_Zero()
             {
                 // Given
-                var value = 0;
+                const int value = 0;
 
                 // When
                 var result = Record.Exception(() => value.NotNegativeOrZero("foo"));
@@ -144,7 +144,7 @@
             public void Should_Throw_If_Value_Is_Null()
             {
                 // Given
-                List<int> value = null;
+                const List<int> value = null;
 
                 // When
                 var result = Record.Exception(() => value.NotNullOrEmpty("foo"));
@@ -188,7 +188,7 @@
             public void Should_Throw_If_Value_Is_Null()
             {
                 // Given
-                List<int> value = null;
+                const List<int> value = null;
 
                 // When
                 var result = Record.Exception(() => value.NotNullOrEmptyElement("foo"));
@@ -243,7 +243,7 @@
             public void Should_Throw_If_Value_Is_Null()
             {
                 // Given
-                List<int> value = null;
+                const List<int> value = null;
 
                 // When
                 var result = Record.Exception(() => value.NotNullOrEmptyOrEmptyElement("foo"));

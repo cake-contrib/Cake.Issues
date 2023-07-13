@@ -49,7 +49,7 @@
             {
                 // Given
                 var fixture = new IssueReportFormatFixture();
-                var issueProviders = new List<FakeIssueProvider> { new FakeIssueProvider(fixture.Log) };
+                var issueProviders = new List<FakeIssueProvider> { new (fixture.Log) };
 
                 // When
                 fixture.CreateReport(issueProviders);
@@ -62,9 +62,15 @@
             public void Should_Return_Null_If_Initialization_Fails()
             {
                 // Given
-                var fixture = new IssueReportFormatFixture();
-                fixture.IssueReportFormat.ShouldFailOnInitialization = true;
-                var issueProviders = new List<FakeIssueProvider> { new FakeIssueProvider(fixture.Log) };
+                var fixture =
+                    new IssueReportFormatFixture
+                    {
+                        IssueReportFormat =
+                        {
+                            ShouldFailOnInitialization = true,
+                        },
+                    };
+                var issueProviders = new List<FakeIssueProvider> { new (fixture.Log) };
 
                 // When
                 var result = fixture.CreateReport(issueProviders);
@@ -78,7 +84,7 @@
             {
                 // Given
                 var fixture = new IssueReportFormatFixture();
-                var issueProviders = new List<FakeIssueProvider> { new FakeIssueProvider(fixture.Log) };
+                var issueProviders = new List<FakeIssueProvider> { new (fixture.Log) };
 
                 // When
                 var result = fixture.CreateReport(issueProviders);
@@ -117,8 +123,14 @@
             public void Should_Return_Null_If_Initialization_Fails()
             {
                 // Given
-                var fixture = new IssueReportFormatFixture();
-                fixture.IssueReportFormat.ShouldFailOnInitialization = true;
+                var fixture =
+                    new IssueReportFormatFixture
+                    {
+                        IssueReportFormat =
+                        {
+                            ShouldFailOnInitialization = true,
+                        },
+                    };
                 var issues =
                     new List<IIssue>
                     {

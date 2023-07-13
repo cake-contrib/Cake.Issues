@@ -13,7 +13,7 @@
             public void Should_Throw_If_RepositoryRoot_Is_Null()
             {
                 // Given
-                DirectoryPath repoRoot = null;
+                const DirectoryPath repoRoot = null;
                 FilePath outputFile = @"C:\report.html";
 
                 // When
@@ -28,7 +28,7 @@
             {
                 // Given
                 DirectoryPath repoRoot = @"c:\repo";
-                FilePath outputFile = null;
+                const FilePath outputFile = null;
 
                 // When
                 var result = Record.Exception(() => new CreateIssueReportSettings(repoRoot, outputFile));

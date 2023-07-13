@@ -13,7 +13,7 @@
             public void Should_Throw_If_Issue_Is_Null()
             {
                 // Given
-                IIssue issue = null;
+                const IIssue issue = null;
 
                 // When
                 var result = Record.Exception(() => issue.LineRange());
@@ -56,7 +56,7 @@
             public void Should_Throw_If_Issue_Is_Null()
             {
                 // Given
-                IIssue issue = null;
+                const IIssue issue = null;
 
                 // When
                 var result = Record.Exception(() => issue.LineRange(false));
@@ -105,7 +105,7 @@
             public void Should_Throw_If_Issue_Is_Null()
             {
                 // Given
-                IIssue issue = null;
+                const IIssue issue = null;
 
                 // When
                 var result = Record.Exception(() => issue.ProjectPath());
@@ -118,7 +118,7 @@
             public void Should_Return_Full_Path()
             {
                 // Given
-                var projectPath = @"src\Cake.Issues\Cake.Issues.csproj";
+                const string projectPath = @"src\Cake.Issues\Cake.Issues.csproj";
                 var issue =
                     IssueBuilder
                         .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
@@ -155,7 +155,7 @@
             public void Should_Throw_If_Issue_Is_Null()
             {
                 // Given
-                IIssue issue = null;
+                const IIssue issue = null;
 
                 // When
                 var result = Record.Exception(() => issue.ProjectDirectory());
@@ -168,7 +168,7 @@
             public void Should_Return_Full_Path()
             {
                 // Given
-                var filePath = @"src\Cake.Issues\Foo.cs";
+                const string filePath = @"src\Cake.Issues\Foo.cs";
                 var issue =
                     IssueBuilder
                         .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
@@ -205,7 +205,7 @@
             public void Should_Throw_If_Issue_Is_Null()
             {
                 // Given
-                IIssue issue = null;
+                const IIssue issue = null;
 
                 // When
                 var result = Record.Exception(() => issue.FilePath());
@@ -218,7 +218,7 @@
             public void Should_Return_Full_Path()
             {
                 // Given
-                var filePath = @"src\Cake.Issues\Foo.cs";
+                const string filePath = @"src\Cake.Issues\Foo.cs";
                 var issue =
                     IssueBuilder
                         .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
@@ -255,7 +255,7 @@
             public void Should_Throw_If_Issue_Is_Null()
             {
                 // Given
-                IIssue issue = null;
+                const IIssue issue = null;
 
                 // When
                 var result = Record.Exception(() => issue.FileDirectory());
@@ -268,7 +268,7 @@
             public void Should_Return_Full_Path()
             {
                 // Given
-                var filePath = @"src\Cake.Issues\Foo.cs";
+                const string filePath = @"src\Cake.Issues\Foo.cs";
                 var issue =
                     IssueBuilder
                         .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
@@ -305,7 +305,7 @@
             public void Should_Throw_If_Issue_Is_Null()
             {
                 // Given
-                IIssue issue = null;
+                const IIssue issue = null;
 
                 // When
                 var result = Record.Exception(() => issue.FileName());
@@ -318,7 +318,7 @@
             public void Should_Return_Full_Path()
             {
                 // Given
-                var filePath = @"src\Cake.Issues\Foo.cs";
+                const string filePath = @"src\Cake.Issues\Foo.cs";
                 var issue =
                     IssueBuilder
                         .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
@@ -355,7 +355,7 @@
             public void Should_Throw_If_Issue_Is_Null()
             {
                 // Given
-                IIssue issue = null;
+                const IIssue issue = null;
 
                 // When
                 var result = Record.Exception(() => issue.Rule());
@@ -368,8 +368,8 @@
             public void Should_Return_RuleName_If_Set()
             {
                 // Given
-                var ruleId = "RuleId";
-                var ruleName = "RuleName";
+                const string ruleId = "RuleId";
+                const string ruleName = "RuleName";
                 var issue =
                     IssueBuilder
                         .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
@@ -390,7 +390,7 @@
             public void Should_Return_RuleId_If_RuleName_Not_Set(string ruleName)
             {
                 // Given
-                var ruleId = "RuleId";
+                const string ruleId = "RuleId";
                 var issue =
                     IssueBuilder
                         .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
@@ -411,7 +411,7 @@
             public void Should_Throw_If_Pattern_Is_Null()
             {
                 // Given
-                string pattern = null;
+                const string pattern = null;
                 var issue =
                     IssueBuilder
                         .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
@@ -428,8 +428,8 @@
             public void Should_Throw_If_Issue_Is_Null()
             {
                 // Given
-                var pattern = "foo";
-                IIssue issue = null;
+                const string pattern = "foo";
+                const IIssue issue = null;
 
                 // When
                 var result = Record.Exception(() => pattern.ReplaceIssuePattern(issue));
@@ -466,7 +466,7 @@
             [InlineData("foo {MessageHtml} bar", "foo MessageHtml Foo bar")]
             [InlineData("foo {MessageMarkdown} bar", "foo MessageMarkdown Foo bar")]
             [InlineData("foo {AdditionalInformation:cost} bar", "foo 1000 bar")]
-            [InlineData("foo {AdditionalInformation:cost} {AdditionalInformation:notExistantKey} bar", "foo 1000 {AdditionalInformation:notExistantKey} bar")]
+            [InlineData("foo {AdditionalInformation:cost} {AdditionalInformation:notExistentKey} bar", "foo 1000 {AdditionalInformation:notExistentKey} bar")]
             public void Should_Replace_Tokens(string pattern, string expectedResult)
             {
                 // Given

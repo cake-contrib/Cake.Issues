@@ -29,7 +29,7 @@
         string ProjectName { get; }
 
         /// <summary>
-        /// Gets the path to the file affacted by the issue.
+        /// Gets the path to the file affected by the issue.
         /// The path is relative to the repository root.
         /// Can be <c>null</c> if issue is not related to a change in a file.
         /// </summary>
@@ -37,30 +37,30 @@
 
         /// <summary>
         /// Gets the line in the file where the issues has occurred.
-        /// <c>null</c> if the issue affects the whole file or an asssembly.
+        /// <c>null</c> if the issue affects the whole file or an assembly.
         /// </summary>
         int? Line { get; }
 
         /// <summary>
         /// Gets the end of the line range in the file where the issues has occurred.
-        /// <c>null</c> if the issue affects the whole file, an asssembly or only a single line.
+        /// <c>null</c> if the issue affects the whole file, an assembly or only a single line.
         /// </summary>
         int? EndLine { get; }
 
         /// <summary>
         /// Gets the column in the file where the issues has occurred.
-        /// <c>null</c> if the issue affects the whole file or an asssembly.
+        /// <c>null</c> if the issue affects the whole file or an assembly.
         /// </summary>
         int? Column { get; }
 
         /// <summary>
         /// Gets the end of the column range in the file where the issues has occurred.
-        /// <c>null</c> if the issue affects the whole file, an asssembly or only a single column.
+        /// <c>null</c> if the issue affects the whole file, an assembly or only a single column.
         /// </summary>
         int? EndColumn { get; }
 
         /// <summary>
-        /// Gets or sets a link to the position in the file where the issue ocurred.
+        /// Gets or sets a link to the position in the file where the issue occurred.
         /// <c>null</c> if <see cref="IReadIssuesSettings.FileLinkSettings"/> was not set while reading issue.
         /// </summary>
         Uri FileLink { get; set; }

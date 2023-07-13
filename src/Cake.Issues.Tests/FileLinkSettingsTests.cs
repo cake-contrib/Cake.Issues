@@ -3,7 +3,6 @@
     using System;
     using System.Collections.Generic;
     using Cake.Issues.Testing;
-    using Shouldly;
     using Xunit;
 
     public sealed class FileLinkSettingsTests
@@ -14,7 +13,7 @@
             public void Should_Throw_If_Builder_Is_Null()
             {
                 // Given
-                Func<IIssue, IDictionary<string, string>, Uri> builder = null;
+                const Func<IIssue, IDictionary<string, string>, Uri> builder = null;
 
                 // When
                 var result = Record.Exception(() => new FileLinkSettings(builder));
@@ -30,7 +29,7 @@
             public void Should_Throw_If_Pattern_Is_Null()
             {
                 // Given
-                string pattern = null;
+                const string pattern = null;
 
                 // When
                 var result = Record.Exception(() => FileLinkSettings.ForPattern(pattern));
@@ -56,7 +55,7 @@
             public void Should_Throw_If_Pattern_Is_WhiteSpace()
             {
                 // Given
-                var pattern = " ";
+                const string pattern = " ";
 
                 // When
                 var result = Record.Exception(() => FileLinkSettings.ForPattern(pattern));
@@ -72,7 +71,7 @@
             public void Should_Throw_If_Builder_Is_Null()
             {
                 // Given
-                Func<IIssue, Uri> builder = null;
+                const Func<IIssue, Uri> builder = null;
 
                 // When
                 var result = Record.Exception(() => FileLinkSettings.ForAction(builder));
@@ -88,7 +87,7 @@
             public void Should_Throw_If_RepositoryUrl_Is_Null()
             {
                 // Given
-                Uri repositoryUrl = null;
+                const Uri repositoryUrl = null;
 
                 // When
                 var result = Record.Exception(() => FileLinkSettings.ForGitHub(repositoryUrl));
@@ -104,7 +103,7 @@
             public void Should_Throw_If_RepositoryUrl_Is_Null()
             {
                 // Given
-                Uri repositoryUrl = null;
+                const Uri repositoryUrl = null;
 
                 // When
                 var result = Record.Exception(() => FileLinkSettings.ForAzureDevOps(repositoryUrl));
@@ -120,7 +119,7 @@
             public void Should_Throw_If_Issue_Is_Null()
             {
                 // Given
-                IIssue issue = null;
+                const IIssue issue = null;
 
                 // When
                 var result = Record.Exception(() => FileLinkSettings.ForPattern("foo").GetFileLink(issue));

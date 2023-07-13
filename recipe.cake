@@ -1,4 +1,8 @@
-#load nuget:?package=Cake.Recipe&version=2.2.1
+#load nuget:?package=Cake.Recipe&version=3.0.0
+
+//*************************************************************************************************
+// Settings
+//*************************************************************************************************
 
 Environment.SetVariableNames();
 
@@ -9,26 +13,19 @@ BuildParameters.SetParameters(
     title: "Cake.Issues",
     repositoryOwner: "cake-contrib",
     repositoryName: "Cake.Issues",
-    appVeyorAccountName: "cakecontrib");
+    appVeyorAccountName: "cakecontrib",
+    shouldRunCoveralls: false); // Disabled because it's currently failing
 
 BuildParameters.PrintParameters(Context);
 
 ToolSettings.SetToolSettings(
     context: Context,
-    dupFinderExcludePattern: new string[]
-    {
-        BuildParameters.RootDirectoryPath + "/src/Cake.Issues*/**/*.AssemblyInfo.cs",
-        BuildParameters.RootDirectoryPath + "/src/Cake.Issues*/Serialization/LitJson/*.cs",
-        BuildParameters.RootDirectoryPath + "/src/Cake.Issues.Tests/**/*.cs",
-        BuildParameters.RootDirectoryPath + "/src/Cake.Issues.PullRequests.Tests/**/*.cs",
-        BuildParameters.RootDirectoryPath + "/src/Cake.Issues.Reporting.Tests/**/*.cs"
-    },
     testCoverageFilter: "+[*]* -[xunit.*]* -[Cake.Core]* -[Cake.Testing]* -[*.Tests]* -[Cake.Issues]LitJson.* -[Shouldly]* -[DiffEngine]* -[EmptyFiles]*",
     testCoverageExcludeByAttribute: "*.ExcludeFromCodeCoverage*",
     testCoverageExcludeByFile: "*/*Designer.cs;*/*.g.cs;*/*.g.i.cs");
 
-// Workaround until https://github.com/cake-contrib/Cake.Recipe/issues/862 has been fixed in Cake.Recipe
-ToolSettings.SetToolPreprocessorDirectives(
-    reSharperTools: "#tool nuget:?package=JetBrains.ReSharper.CommandLineTools&version=2021.2.0");
+//*************************************************************************************************
+// Execution
+//*************************************************************************************************
 
 Build.RunDotNetCore();

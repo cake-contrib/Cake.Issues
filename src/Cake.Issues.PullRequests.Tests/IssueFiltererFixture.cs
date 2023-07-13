@@ -8,7 +8,7 @@ namespace Cake.Issues.PullRequests.Tests
     internal class IssueFiltererFixture
     {
         public IssueFiltererFixture()
-            : this((builder, settings) => builder)
+            : this((builder, _) => builder)
         {
         }
 

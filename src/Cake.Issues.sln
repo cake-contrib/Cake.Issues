@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30804.86
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32526.322
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cake.Issues", "Cake.Issues\Cake.Issues.csproj", "{956EE163-6E8B-44A9-AE58-50185DE4F878}"
 EndProject
@@ -27,6 +27,12 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cake.Issues.Reporting", "Cake.Issues.Reporting\Cake.Issues.Reporting.csproj", "{3A7D38B8-BAAC-488E-B343-F0F6BB9CB6B2}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cake.Issues.Reporting.Tests", "Cake.Issues.Reporting.Tests\Cake.Issues.Reporting.Tests.csproj", "{07C79C7F-D854-43F3-8C2E-6E8147A78B94}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8756998D-64BF-4554-A14F-15AAFE78C8E8}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Build.props = Directory.Build.props
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

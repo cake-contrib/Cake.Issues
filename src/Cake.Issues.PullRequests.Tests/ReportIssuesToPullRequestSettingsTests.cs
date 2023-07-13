@@ -13,7 +13,7 @@
             public void Should_Throw_If_RepositoryRoot_Is_Null()
             {
                 // Given
-                DirectoryPath repoRoot = null;
+                const DirectoryPath repoRoot = null;
 
                 // When
                 var result = Record.Exception(() => new ReportIssuesToPullRequestSettings(repoRoot));

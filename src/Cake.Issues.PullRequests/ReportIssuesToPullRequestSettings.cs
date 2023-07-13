@@ -9,11 +9,7 @@
     /// </summary>
     public class ReportIssuesToPullRequestSettings : RepositorySettings, IReportIssuesToPullRequestSettings
     {
-#pragma warning disable SA1124 // Do not use regions
-        #region DupFinder Exclusion
-#pragma warning restore SA1124 // Do not use regions
         private readonly List<Func<IEnumerable<IIssue>, IEnumerable<IIssue>>> issueFilters = new ();
-        #endregion
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ReportIssuesToPullRequestSettings"/> class.
@@ -37,8 +33,7 @@
         public int? MaxIssuesToPostForEachIssueProvider { get; set; } = 100;
 
         /// <inheritdoc />
-        public Dictionary<string, IProviderIssueLimits> ProviderIssueLimits { get; } =
-            new Dictionary<string, IProviderIssueLimits>();
+        public Dictionary<string, IProviderIssueLimits> ProviderIssueLimits { get; } = new ();
 
         /// <inheritdoc />
         public string CommentSource { get; set; } = "CakeIssues";

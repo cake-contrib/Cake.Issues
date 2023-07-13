@@ -15,7 +15,7 @@
             public void Should_Throw_If_Log_Is_Null()
             {
                 // Given
-                ICakeLog log = null;
+                const ICakeLog log = null;
 
                 // When
                 var result = Record.Exception(() => new FakePullRequestSystem(log));
@@ -46,7 +46,7 @@
                 // Given
                 var log = new FakeLog();
                 var pullRequestSystem = new FakePullRequestSystem(log);
-                IPullRequestSystemCapability capability = null;
+                const IPullRequestSystemCapability capability = null;
 
                 // When
                 var result = Record.Exception(() => pullRequestSystem.AddCapability(capability));

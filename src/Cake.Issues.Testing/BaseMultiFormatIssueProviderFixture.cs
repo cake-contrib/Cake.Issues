@@ -2,7 +2,6 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
 
     /// <summary>
     /// Base class for test fixtures for testing issue providers inherited from <see cref="BaseMultiFormatIssueProvider{TSettings, TIssueProvider}"/>.
@@ -19,7 +18,7 @@
         /// Initializes a new instance of the <see cref="BaseMultiFormatIssueProviderFixture{TIssueProvider, TSettings, TLogFileFormat}"/> class.
         /// </summary>
         /// <param name="fileResourceName">Name of the resource to load.</param>
-        public BaseMultiFormatIssueProviderFixture(string fileResourceName)
+        protected BaseMultiFormatIssueProviderFixture(string fileResourceName)
             : base(fileResourceName)
         {
         }

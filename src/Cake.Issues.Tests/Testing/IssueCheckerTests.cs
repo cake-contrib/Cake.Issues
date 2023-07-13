@@ -13,13 +13,9 @@
             [Fact]
             public void Should_Throw_If_IssueToCheck_Is_Null()
             {
-#pragma warning disable SA1123 // Do not place regions within elements
-                #region DupFinder Exclusion
-#pragma warning restore SA1123 // Do not place regions within elements
-
                 // Given
                 var fixture = new IssueBuilderFixture();
-                IIssue issueToCheck = null;
+                const IIssue issueToCheck = null;
                 var expectedIssue = fixture.IssueBuilder;
 
                 // When
@@ -28,21 +24,15 @@
 
                 // Then
                 result.IsArgumentNullException("issueToCheck");
-
-                #endregion
             }
 
             [Fact]
             public void Should_Throw_If_ExpectedIssue_Is_Null()
             {
-#pragma warning disable SA1123 // Do not place regions within elements
-                #region DupFinder Exclusion
-#pragma warning restore SA1123 // Do not place regions within elements
-
                 // Given
                 var fixture = new IssueBuilderFixture();
                 var issueToCheck = fixture.IssueBuilder.Create();
-                IssueBuilder expectedIssue = null;
+                const IssueBuilder expectedIssue = null;
 
                 // When
                 var result = Record.Exception(() =>
@@ -50,8 +40,6 @@
 
                 // Then
                 result.IsArgumentNullException("expectedIssue");
-
-                #endregion
             }
 
             [Fact]
@@ -74,13 +62,9 @@
             [Fact]
             public void Should_Throw_If_IssueToCheck_Is_Null()
             {
-#pragma warning disable SA1123 // Do not place regions within elements
-                #region DupFinder Exclusion
-#pragma warning restore SA1123 // Do not place regions within elements
-
                 // Given
                 var fixture = new IssueBuilderFixture();
-                IIssue issueToCheck = null;
+                const IIssue issueToCheck = null;
                 var expectedIssue = fixture.IssueBuilder.Create();
 
                 // When
@@ -89,21 +73,15 @@
 
                 // Then
                 result.IsArgumentNullException("issueToCheck");
-
-                #endregion
             }
 
             [Fact]
             public void Should_Throw_If_ExpectedIssue_Is_Null()
             {
-#pragma warning disable SA1123 // Do not place regions within elements
-                #region DupFinder Exclusion
-#pragma warning restore SA1123 // Do not place regions within elements
-
                 // Given
                 var fixture = new IssueBuilderFixture();
                 var issueToCheck = fixture.IssueBuilder.Create();
-                IIssue expectedIssue = null;
+                const IIssue expectedIssue = null;
 
                 // When
                 var result = Record.Exception(() =>
@@ -111,8 +89,6 @@
 
                 // Then
                 result.IsArgumentNullException("expectedIssue");
-
-                #endregion
             }
 
             [Fact]
@@ -137,7 +113,7 @@
             {
                 // Given
                 var fixture = new IssueCheckerFixture();
-                IIssue issue = null;
+                const IIssue issue = null;
 
                 // When
                 var result = Record.Exception(() =>
@@ -302,7 +278,7 @@
                 // When
                 var result = Record.Exception(() =>
                     IssueChecker.Check(
-                        fixture.Issue,
+                        issue,
                         fixture.ProviderType,
                         fixture.ProviderName,
                         expectedValue,
@@ -777,7 +753,7 @@
                 // When
                 var result = Record.Exception(() =>
                     IssueChecker.Check(
-                        fixture.Issue,
+                        issue,
                         fixture.ProviderType,
                         fixture.ProviderName,
                         fixture.Run,
@@ -822,7 +798,7 @@
                 // When
                 var result = Record.Exception(() =>
                     IssueChecker.Check(
-                        fixture.Issue,
+                        issue,
                         fixture.ProviderType,
                         fixture.ProviderName,
                         fixture.Run,

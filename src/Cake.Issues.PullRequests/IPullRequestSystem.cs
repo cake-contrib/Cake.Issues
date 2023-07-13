@@ -33,7 +33,7 @@
         /// Posts discussion threads for all issues which need to be posted.
         /// </summary>
         /// <param name="issues">Issues which need to be posted.</param>
-        /// <param name="commentSource">Value used to decorate comments created by this addin.</param>
+        /// <param name="commentSource">Value used to decorate comments created by this add-in.</param>
         void PostDiscussionThreads(IEnumerable<IIssue> issues, string commentSource);
     }
 }

@@ -10,17 +10,17 @@
         public IssuesFixture()
         {
             this.Log = new FakeLog { Verbosity = Verbosity.Normal };
-            this.IssueProviders = new List<FakeIssueProvider> { new FakeIssueProvider(this.Log) };
+            this.IssueProviders = new List<FakeIssueProvider> { new (this.Log) };
             this.Settings =
                 new ReadIssuesSettings(
                     new Core.IO.DirectoryPath(@"c:\Source\Cake.Issues"));
         }
 
-        public FakeLog Log { get; set; }
+        public FakeLog Log { get; init; }
 
-        public IList<FakeIssueProvider> IssueProviders { get; set; }
+        public IList<FakeIssueProvider> IssueProviders { get; init; }
 
-        public ReadIssuesSettings Settings { get; set; }
+        public ReadIssuesSettings Settings { get; init; }
 
         public IEnumerable<IIssue> ReadIssues()
         {

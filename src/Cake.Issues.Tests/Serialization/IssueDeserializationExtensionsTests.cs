@@ -16,7 +16,7 @@
             public void Should_Throw_If_JsonString_Is_Null()
             {
                 // Given
-                string jsonString = null;
+                const string jsonString = null;
 
                 // When
                 var result = Record.Exception(() => jsonString.DeserializeToIssue());
@@ -29,12 +29,13 @@
             public void Should_Throw_If_JsonString_Has_Unknown_Version()
             {
                 // Given
-                var jsonString = "{\"Version\": -1}";
+                const string jsonString = "{\"Version\": -1}";
 
                 // When
                 var result = Record.Exception(() => jsonString.DeserializeToIssue());
 
                 // Then
+                result.ShouldNotBeNull();
                 result.Message.ShouldBe("Not supported issue serialization format -1");
             }
         }
@@ -45,7 +46,7 @@
             public void Should_Throw_If_JsonString_Is_Null()
             {
                 // Given
-                string jsonString = null;
+                const string jsonString = null;
 
                 // When
                 var result = Record.Exception(() => jsonString.DeserializeToIssues());
@@ -58,7 +59,7 @@
             public void Should_Return_An_Empty_List_For_An_Empty_Array()
             {
                 // Given
-                string jsonString = "[]";
+                const string jsonString = "[]";
 
                 // When
                 var result = jsonString.DeserializeToIssues();
@@ -74,7 +75,7 @@
             public void Should_Throw_If_FilePath_Is_Null()
             {
                 // Given
-                FilePath filePath = null;
+                const FilePath filePath = null;
 
                 // When
                 var result = Record.Exception(() => filePath.DeserializeToIssue());
@@ -162,7 +163,7 @@
             public void Should_Throw_If_FilePath_Is_Null()
             {
                 // Given
-                FilePath filePath = null;
+                const FilePath filePath = null;
 
                 // When
                 var result = Record.Exception(() => filePath.DeserializeToIssues());

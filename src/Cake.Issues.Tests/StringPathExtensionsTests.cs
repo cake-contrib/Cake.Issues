@@ -57,7 +57,7 @@
                 var result = path.IsValidPath();
 
                 // Then
-                result.ShouldBe(true);
+                result.ShouldBeTrue();
             }
 
             [Theory]
@@ -68,7 +68,7 @@
                 var result = path.IsValidPath();
 
                 // Then
-                result.ShouldBe(false);
+                result.ShouldBeFalse();
             }
         }
 
@@ -124,7 +124,7 @@
                 var result = path.IsFullPath();
 
                 // Then
-                result.ShouldBe(true);
+                result.ShouldBeTrue();
             }
 
             [Theory]
@@ -143,7 +143,7 @@
                 var result = path.IsFullPath();
 
                 // Then
-                result.ShouldBe(false);
+                result.ShouldBeFalse();
             }
         }
 
@@ -242,7 +242,7 @@
                 var result = path.IsSubpathOf(baseDir);
 
                 // Then
-                result.ShouldBe(true);
+                result.ShouldBeTrue();
             }
 
             [Theory]
@@ -257,7 +257,7 @@
                 var result = path.IsSubpathOf(baseDir);
 
                 // Then
-                result.ShouldBe(false);
+                result.ShouldBeFalse();
             }
 
             [Theory]
@@ -404,7 +404,7 @@
             }
         }
 
-        public sealed class TheIsValideRepositoryFilePathExtension
+        public sealed class TheIsValidRepositoryFilePathExtension
         {
             [Fact]
             public void Should_Throw_If_FilePath_Is_Null()
@@ -413,7 +413,7 @@
                 var result =
                     Record.Exception(
                         () =>
-                            ((string)null).IsValideRepositoryFilePath(new RepositorySettings(@"C:\repo")));
+                            ((string)null).IsValidRepositoryFilePath(new RepositorySettings(@"C:\repo")));
 
                 // Then
                 result.IsArgumentNullException("filePath");
@@ -426,7 +426,7 @@
                 var result =
                     Record.Exception(
                         () =>
-                            string.Empty.IsValideRepositoryFilePath(new RepositorySettings(@"C:\repo")));
+                            string.Empty.IsValidRepositoryFilePath(new RepositorySettings(@"C:\repo")));
 
                 // Then
                 result.IsArgumentOutOfRangeException("filePath");
@@ -439,7 +439,7 @@
                 var result =
                     Record.Exception(
                         () =>
-                            " ".IsValideRepositoryFilePath(new RepositorySettings(@"C:\repo")));
+                            " ".IsValidRepositoryFilePath(new RepositorySettings(@"C:\repo")));
 
                 // Then
                 result.IsArgumentOutOfRangeException("filePath");
@@ -452,7 +452,7 @@
                 var result =
                     Record.Exception(
                         () =>
-                            @"C:\repo".IsValideRepositoryFilePath(null));
+                            @"C:\repo".IsValidRepositoryFilePath(null));
 
                 // Then
                 result.IsArgumentNullException("repositorySettings");
@@ -471,7 +471,7 @@
                 var repositorySettings = new RepositorySettings(repoRoot);
 
                 // When
-                var (valid, _) = filePath.IsValideRepositoryFilePath(repositorySettings);
+                var (valid, _) = filePath.IsValidRepositoryFilePath(repositorySettings);
 
                 // Then
                 valid.ShouldBeTrue();
@@ -490,7 +490,7 @@
                 var repositorySettings = new RepositorySettings(repoRoot);
 
                 // When
-                var (valid, _) = filePath.IsValideRepositoryFilePath(repositorySettings);
+                var (valid, _) = filePath.IsValidRepositoryFilePath(repositorySettings);
 
                 // Then
                 valid.ShouldBeFalse();
@@ -510,7 +510,7 @@
                 var repositorySettings = new RepositorySettings(repoRoot);
 
                 // When
-                var (_, filePathResult) = filePath.IsValideRepositoryFilePath(repositorySettings);
+                var (_, filePathResult) = filePath.IsValidRepositoryFilePath(repositorySettings);
 
                 // Then
                 filePathResult.ShouldBe(expectedResult);

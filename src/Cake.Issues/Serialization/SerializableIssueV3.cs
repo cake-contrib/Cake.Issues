@@ -12,13 +12,7 @@
         /// Gets the version of the serialization format.
         /// </summary>
         [DataMember]
-        public int Version
-        {
-            get
-            {
-                return 3;
-            }
-        }
+        public int Version => 3;
 
         /// <inheritdoc cref="IIssue.Identifier" />
         [DataMember]

@@ -33,7 +33,7 @@ namespace Cake.Issues.PullRequests.Tests
             {
                 // Given
                 var fixture = new OrchestratorForIssuesFixture();
-                List<IIssue> issues = null;
+                const List<IIssue> issues = null;
 
                 // When
                 var result = Record.Exception(() => fixture.RunOrchestrator(issues));
@@ -360,8 +360,14 @@ namespace Cake.Issues.PullRequests.Tests
                         .WithPriority(IssuePriority.Warning)
                         .Create();
 
-                var fixture = new OrchestratorForIssueProvidersFixture();
-                fixture.PullRequestSystem.ShouldFailOnInitialization = true;
+                var fixture =
+                    new OrchestratorForIssueProvidersFixture
+                    {
+                        PullRequestSystem =
+                        {
+                            ShouldFailOnInitialization = true,
+                        },
+                    };
 
                 fixture.IssueProviders.Clear();
                 fixture.IssueProviders.Add(
@@ -992,7 +998,7 @@ namespace Cake.Issues.PullRequests.Tests
 
                 var fixture =
                     new OrchestratorForIssueProvidersFixture(
-                        (builder, settings) => builder
+                        (builder, _) => builder
                             .WithCheckingCommitIdCapability());
 
                 fixture.IssueProviders.Clear();
@@ -1041,7 +1047,7 @@ namespace Cake.Issues.PullRequests.Tests
 
                 var fixture =
                     new OrchestratorForIssueProvidersFixture(
-                        (builder, settings) => builder
+                        (builder, _) => builder
                             .WithDiscussionThreadsCapability(
                                 new List<IPullRequestDiscussionThread>()));
 
@@ -1088,7 +1094,7 @@ namespace Cake.Issues.PullRequests.Tests
 
                 var fixture =
                     new OrchestratorForIssueProvidersFixture(
-                        (builder, settings) => builder
+                        (builder, _) => builder
                             .WithDiscussionThreadsCapability(
                                 new List<IPullRequestDiscussionThread>()));
 
@@ -1135,7 +1141,7 @@ namespace Cake.Issues.PullRequests.Tests
 
                 var fixture =
                     new OrchestratorForIssueProvidersFixture(
-                        (builder, settings) => builder
+                        (builder, _) => builder
                             .WithDiscussionThreadsCapability(
                                 new List<IPullRequestDiscussionThread>()));
 
@@ -1190,7 +1196,7 @@ namespace Cake.Issues.PullRequests.Tests
 
                 var fixture =
                     new OrchestratorForIssueProvidersFixture(
-                        (builder, settings) => builder
+                        (builder, _) => builder
                             .WithDiscussionThreadsCapability(
                                 new List<IPullRequestDiscussionThread>
                                 {
@@ -1269,7 +1275,7 @@ namespace Cake.Issues.PullRequests.Tests
 
                 var fixture =
                     new OrchestratorForIssueProvidersFixture(
-                        (builder, settings) => builder
+                        (builder, _) => builder
                             .WithDiscussionThreadsCapability(
                                 new List<IPullRequestDiscussionThread>
                                 {
@@ -1336,7 +1342,7 @@ namespace Cake.Issues.PullRequests.Tests
 
                 var fixture =
                     new OrchestratorForIssueProvidersFixture(
-                        (builder, settings) => builder
+                        (builder, _) => builder
                             .WithDiscussionThreadsCapability(
                                 new List<IPullRequestDiscussionThread>
                                 {
@@ -1407,7 +1413,7 @@ namespace Cake.Issues.PullRequests.Tests
 
                 var fixture =
                     new OrchestratorForIssueProvidersFixture(
-                        (builder, settings) => builder
+                        (builder, _) => builder
                             .WithDiscussionThreadsCapability(
                                 new List<IPullRequestDiscussionThread>()));
 
@@ -1456,7 +1462,7 @@ namespace Cake.Issues.PullRequests.Tests
 
                 var fixture =
                     new OrchestratorForIssueProvidersFixture(
-                        (builder, settings) => builder
+                        (builder, _) => builder
                             .WithDiscussionThreadsCapability(
                                 new List<IPullRequestDiscussionThread>()));
 
@@ -1513,7 +1519,7 @@ namespace Cake.Issues.PullRequests.Tests
 
                 var fixture =
                     new OrchestratorForIssueProvidersFixture(
-                        (builder, settings) => builder
+                        (builder, _) => builder
                             .WithDiscussionThreadsCapability(
                                 new List<IPullRequestDiscussionThread>()));
 
@@ -1570,7 +1576,7 @@ namespace Cake.Issues.PullRequests.Tests
 
                 var fixture =
                     new OrchestratorForIssueProvidersFixture(
-                        (builder, settings) => builder
+                        (builder, _) => builder
                             .WithDiscussionThreadsCapability(
                                 new List<IPullRequestDiscussionThread>
                                 {
@@ -1653,7 +1659,7 @@ namespace Cake.Issues.PullRequests.Tests
 
                 var fixture =
                     new OrchestratorForIssueProvidersFixture(
-                        (builder, settings) => builder
+                        (builder, _) => builder
                             .WithDiscussionThreadsCapability(
                                 new List<IPullRequestDiscussionThread>
                                 {
@@ -1725,7 +1731,7 @@ namespace Cake.Issues.PullRequests.Tests
 
                 var fixture =
                     new OrchestratorForIssueProvidersFixture(
-                        (builder, settings) => builder
+                        (builder, _) => builder
                             .WithDiscussionThreadsCapability(
                                 new List<IPullRequestDiscussionThread>
                                 {
@@ -1998,7 +2004,7 @@ namespace Cake.Issues.PullRequests.Tests
 
                 var fixture =
                     new OrchestratorForIssueProvidersFixture(
-                        (builder, settings) => builder
+                        (builder, _) => builder
                             .WithDiscussionThreadsCapability(
                                 new List<IPullRequestDiscussionThread>
                                 {
@@ -2106,7 +2112,7 @@ namespace Cake.Issues.PullRequests.Tests
                 // Given
                 var fixture =
                     new OrchestratorForIssueProvidersFixture(
-                        (builder, settings) => builder
+                        (builder, _) => builder
                             .WithDiscussionThreadsCapability(
                                 new List<IPullRequestDiscussionThread>
                                 {
@@ -2127,9 +2133,6 @@ namespace Cake.Issues.PullRequests.Tests
                                         CommentSource = "DifferentCommentSource",
                                     },
                                 }));
-
-                var threadToResolve =
-                    fixture.PullRequestSystem.DiscussionThreadsCapability.DiscussionThreads.Single();
 
                 fixture.IssueProviders.Clear();
                 fixture.IssueProviders.Add(
@@ -2212,7 +2215,7 @@ namespace Cake.Issues.PullRequests.Tests
                 // Given
                 var fixture =
                     new OrchestratorForIssueProvidersFixture(
-                        (builder, settings) => builder
+                        (builder, _) => builder
                             .WithDiscussionThreadsCapability(
                                 new List<IPullRequestDiscussionThread>
                                 {
@@ -2234,9 +2237,6 @@ namespace Cake.Issues.PullRequests.Tests
                                         Resolution = PullRequestDiscussionResolution.Resolved,
                                     },
                                 }));
-
-                var threadToReopen =
-                    fixture.PullRequestSystem.DiscussionThreadsCapability.DiscussionThreads.Single();
 
                 fixture.IssueProviders.Clear();
                 fixture.IssueProviders.Add(
@@ -2265,7 +2265,7 @@ namespace Cake.Issues.PullRequests.Tests
                 // Given
                 var fixture =
                     new OrchestratorForIssueProvidersFixture(
-                        (builder, settings) => builder
+                        (builder, _) => builder
                             .WithDiscussionThreadsCapability(
                                 new List<IPullRequestDiscussionThread>()));
 
@@ -2287,8 +2287,8 @@ namespace Cake.Issues.PullRequests.Tests
                 fixture.RunOrchestrator();
 
                 // Then
-                fixture.Log.Entries.ShouldContain(x => x.Message == "No existings threads to resolve.");
-                fixture.Log.Entries.ShouldContain(x => x.Message == "No existings threads to reopen.");
+                fixture.Log.Entries.ShouldContain(x => x.Message == "No existing threads to resolve.");
+                fixture.Log.Entries.ShouldContain(x => x.Message == "No existing threads to reopen.");
             }
 
             [Fact]
@@ -2297,7 +2297,7 @@ namespace Cake.Issues.PullRequests.Tests
                 // Given
                 var fixture =
                     new OrchestratorForIssueProvidersFixture(
-                        (builder, settings) => builder
+                        (builder, _) => builder
                             .WithDiscussionThreadsCapability(
                                 new List<IPullRequestDiscussionThread>
                                 {
@@ -2317,9 +2317,6 @@ namespace Cake.Issues.PullRequests.Tests
                                         CommentIdentifier = "Message Foo",
                                     },
                                 }));
-
-                var threadToReopen =
-                    fixture.PullRequestSystem.DiscussionThreadsCapability.DiscussionThreads.Single();
 
                 fixture.IssueProviders.Clear();
                 fixture.IssueProviders.Add(
@@ -2366,11 +2363,11 @@ namespace Cake.Issues.PullRequests.Tests
 
                 var fixture =
                     new OrchestratorForIssueProvidersFixture(
-                        (builder, settings) => builder
+                        (builder, _) => builder
                             .WithFilteringByModifiedFilesCapability(
                                 new List<FilePath>
                                 {
-                                    new FilePath(@"src\Cake.Issues.Tests\FakeIssueProvider.cs"),
+                                    new (@"src\Cake.Issues.Tests\FakeIssueProvider.cs"),
                                 }));
 
                 fixture.IssueProviders.Clear();
@@ -2406,7 +2403,7 @@ namespace Cake.Issues.PullRequests.Tests
                 // Given
                 var fixture =
                     new OrchestratorForIssueProvidersFixture(
-                        (builder, settings) => builder
+                        (builder, _) => builder
                             .WithFilteringByModifiedFilesCapability(
                                 new List<FilePath>()));
 

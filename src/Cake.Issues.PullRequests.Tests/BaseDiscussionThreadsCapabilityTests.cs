@@ -16,7 +16,7 @@
             public void Should_Throw_If_Log_Is_Null()
             {
                 // Given
-                ICakeLog log = null;
+                const ICakeLog log = null;
                 var pullRequestSystem = new FakePullRequestSystem(new FakeLog());
                 var discussionThreads = new List<IPullRequestDiscussionThread>();
 
@@ -34,7 +34,7 @@
             {
                 // Given
                 var log = new FakeLog();
-                FakePullRequestSystem pullRequestSystem = null;
+                const FakePullRequestSystem pullRequestSystem = null;
                 var discussionThreads = new List<IPullRequestDiscussionThread>();
 
                 // When

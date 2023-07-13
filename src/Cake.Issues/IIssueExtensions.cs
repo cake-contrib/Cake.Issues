@@ -30,7 +30,7 @@
         {
             issue.NotNull(nameof(issue));
 
-            string result = string.Empty;
+            var result = string.Empty;
 
             if (issue.Line.HasValue)
             {

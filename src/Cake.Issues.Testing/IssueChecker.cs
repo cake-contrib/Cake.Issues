@@ -15,6 +15,7 @@
         /// </summary>
         /// <param name="issueToCheck">Issue which should be checked.</param>
         /// <param name="expectedIssue">Description of the expected issue.</param>
+        [AssertionMethod]
         public static void Check(
             IIssue issueToCheck,
             IssueBuilder expectedIssue)
@@ -32,6 +33,7 @@
         /// </summary>
         /// <param name="issueToCheck">Issue which should be checked.</param>
         /// <param name="expectedIssue">Description of the expected issue.</param>
+        [AssertionMethod]
         public static void Check(
             IIssue issueToCheck,
             IIssue expectedIssue)
@@ -102,6 +104,7 @@
         /// <param name="ruleUrl">Expected URL containing information about the failing rule.
         /// <c>null</c> if no rule Url is expected.</param>
         /// <param name="additionalInformation">Custom information regarding the issue.</param>
+        [AssertionMethod]
         public static void Check(
             IIssue issue,
             string providerType,
@@ -171,7 +174,7 @@
                 if (!issue.ProjectFileRelativePath.IsRelative)
                 {
                     throw new Exception(
-                        $"Expected issue.ProjectFileRelativePath to be a relative path");
+                        "Expected issue.ProjectFileRelativePath to be a relative path");
                 }
             }
 
@@ -200,7 +203,7 @@
                 if (!issue.AffectedFileRelativePath.IsRelative)
                 {
                     throw new Exception(
-                        $"Expected issue.AffectedFileRelativePath to be a relative path");
+                        "Expected issue.AffectedFileRelativePath to be a relative path");
                 }
             }
 
@@ -279,14 +282,14 @@
             if (issue.RuleUrl?.ToString() != ruleUrl?.ToString())
             {
                 throw new Exception(
-                    $"Expected issue.RuleUrl to be '{ruleUrl?.ToString()}' but was '{issue.RuleUrl?.ToString()}'.");
+                    $"Expected issue.RuleUrl to be '{ruleUrl}' but was '{issue.RuleUrl}'.");
             }
 
             CheckAdditionalInformation(additionalInformation, issue.AdditionalInformation);
         }
 
         /// <summary>
-        /// Checks additional informations passed to an issue.
+        /// Checks additional information passed to an issue.
         /// </summary>
         /// <param name="expected">Expected additional information.</param>
         /// <param name="actual">Actual additional information.</param>
@@ -302,13 +305,13 @@
             if (expected == null)
             {
                 throw new Exception(
-                    $"Expected issue.AdditionalInformation to be null but was not null.");
+                    "Expected issue.AdditionalInformation to be null but was not null.");
             }
 
             if (actual == null)
             {
                 throw new Exception(
-                    $"Expected issue.AdditionalInformation to be not null but was null.");
+                    "Expected issue.AdditionalInformation to be not null but was null.");
             }
 
             var expectedItemsNotFound = expected.Except(actual).ToArray();

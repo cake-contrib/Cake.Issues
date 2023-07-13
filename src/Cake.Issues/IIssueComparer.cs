@@ -156,11 +156,11 @@
         {
             unchecked
             {
-                int hash = 17;
+                var hash = 17;
 
                 foreach (var obj in objects)
                 {
-                    hash = (23 * hash) + (obj is object ? obj.GetHashCode() : 0);
+                    hash = (23 * hash) + (obj is not null ? obj.GetHashCode() : 0);
                 }
 
                 return hash;

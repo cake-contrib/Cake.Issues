@@ -55,7 +55,7 @@
         /// <summary>
         /// Gets or sets a value indicating whether the pull request system should return false during <see cref="Initialize"/>.
         /// </summary>
-        public bool ShouldFailOnInitialization { get; set; } = false;
+        public bool ShouldFailOnInitialization { get; set; }
 
         /// <inheritdoc />
         public override bool Initialize(IReportIssuesToPullRequestSettings settings)

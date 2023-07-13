@@ -12,7 +12,7 @@
             public void Should_Throw_If_PullRequestSystem_Is_Null()
             {
                 // Given
-                ISupportCheckingCommitId capability = null;
+                const ISupportCheckingCommitId capability = null;
 
                 // When
                 var result = Record.Exception(() => capability.IsCurrentCommitId(string.Empty));
@@ -31,7 +31,7 @@
                         .WithCheckingCommitIdCapability()
                         .Create();
                 var capability = pullRequestSystem.CheckingCommitIdCapability;
-                string commitId = null;
+                const string commitId = null;
 
                 // When
                 var result =
@@ -73,7 +73,7 @@
                         .WithCheckingCommitIdCapability()
                         .Create();
                 var capability = pullRequestSystem.CheckingCommitIdCapability;
-                var commitId = " ";
+                const string commitId = " ";
 
                 // When
                 var result =
@@ -94,14 +94,14 @@
                         .WithCheckingCommitIdCapability()
                         .Create();
                 var capability = pullRequestSystem.CheckingCommitIdCapability;
-                var commitId = "15c54be6435cfb6b6973896d7be79f1d9b7497a9";
+                const string commitId = "15c54be6435cfb6b6973896d7be79f1d9b7497a9";
                 capability.LastSourceCommitId = commitId;
 
                 // When
                 var result = capability.IsCurrentCommitId(commitId);
 
                 // Then
-                result.ShouldBe(true);
+                result.ShouldBeTrue();
             }
 
             [Fact]
@@ -114,14 +114,14 @@
                         .WithCheckingCommitIdCapability()
                         .Create();
                 var capability = pullRequestSystem.CheckingCommitIdCapability;
-                var commitId = "15c54be6435cfb6b6973896d7be79f1d9b7497a9";
+                const string commitId = "15c54be6435cfb6b6973896d7be79f1d9b7497a9";
                 capability.LastSourceCommitId = commitId.ToLowerInvariant();
 
                 // When
                 var result = capability.IsCurrentCommitId(commitId.ToUpperInvariant());
 
                 // Then
-                result.ShouldBe(true);
+                result.ShouldBeTrue();
             }
 
             [Fact]
@@ -134,14 +134,14 @@
                         .WithCheckingCommitIdCapability()
                         .Create();
                 var capability = pullRequestSystem.CheckingCommitIdCapability;
-                var commitId = "15c54be6435cfb6b6973896d7be79f1d9b7497a9";
+                const string commitId = "15c54be6435cfb6b6973896d7be79f1d9b7497a9";
                 capability.LastSourceCommitId = "9ebcec39e16c39b5ffcb10f253d0c2bcf8438cf6";
 
                 // When
                 var result = capability.IsCurrentCommitId(commitId);
 
                 // Then
-                result.ShouldBe(false);
+                result.ShouldBeFalse();
             }
 
             [Fact]
@@ -154,14 +154,14 @@
                         .WithCheckingCommitIdCapability()
                         .Create();
                 var capability = pullRequestSystem.CheckingCommitIdCapability;
-                var commitId = "15c54be6435cfb6b6973896d7be79f1d9b7497a9";
+                const string commitId = "15c54be6435cfb6b6973896d7be79f1d9b7497a9";
                 capability.LastSourceCommitId = null;
 
                 // When
                 var result = capability.IsCurrentCommitId(commitId);
 
                 // Then
-                result.ShouldBe(false);
+                result.ShouldBeFalse();
             }
 
             [Fact]
@@ -174,14 +174,14 @@
                         .WithCheckingCommitIdCapability()
                         .Create();
                 var capability = pullRequestSystem.CheckingCommitIdCapability;
-                var commitId = "15c54be6435cfb6b6973896d7be79f1d9b7497a9";
+                const string commitId = "15c54be6435cfb6b6973896d7be79f1d9b7497a9";
                 capability.LastSourceCommitId = string.Empty;
 
                 // When
                 var result = capability.IsCurrentCommitId(commitId);
 
                 // Then
-                result.ShouldBe(false);
+                result.ShouldBeFalse();
             }
 
             [Fact]
@@ -194,14 +194,14 @@
                         .WithCheckingCommitIdCapability()
                         .Create();
                 var capability = pullRequestSystem.CheckingCommitIdCapability;
-                var commitId = "15c54be6435cfb6b6973896d7be79f1d9b7497a9";
+                const string commitId = "15c54be6435cfb6b6973896d7be79f1d9b7497a9";
                 capability.LastSourceCommitId = " ";
 
                 // When
                 var result = capability.IsCurrentCommitId(commitId);
 
                 // Then
-                result.ShouldBe(false);
+                result.ShouldBeFalse();
             }
         }
     }

@@ -112,16 +112,18 @@
 
                 // When
                 var issues =
-                    fixture.FilterIssues(
-                        new List<IIssue>
-                        {
-                            issue1,
-                            issue2,
-                        },
-                        new Dictionary<IIssue, IssueCommentInfo>());
+                    fixture
+                        .FilterIssues(
+                            new List<IIssue>
+                            {
+                                issue1,
+                                issue2,
+                            },
+                            new Dictionary<IIssue, IssueCommentInfo>())
+                        .ToList();
 
                 // Then
-                issues.Count().ShouldBe(1);
+                issues.Count.ShouldBe(1);
                 issues.ShouldContain(issue1);
             }
 
@@ -133,11 +135,11 @@
                     // Given
                     var fixture =
                         new IssueFiltererFixture(
-                            (builder, settings) => builder
+                            (builder, _) => builder
                                 .WithFilteringByModifiedFilesCapability(
                                     new List<FilePath>
                                     {
-                                        new FilePath(@"c:\FakeIssueProvider.cs"),
+                                        new (@"c:\FakeIssueProvider.cs"),
                                     }));
 
                     // When
@@ -155,7 +157,7 @@
                             new Dictionary<IIssue, IssueCommentInfo>()));
 
                     // Then
-                    result.IsPullRequestIssuesException(@"Absolute file paths are not suported for modified files. Path: c:/FakeIssueProvider.cs");
+                    result.IsPullRequestIssuesException(@"Absolute file paths are not supported for modified files. Path: c:/FakeIssueProvider.cs");
                 }
 
                 [Fact]
@@ -164,11 +166,11 @@
                     // Given
                     var fixture =
                         new IssueFiltererFixture(
-                            (builder, settings) => builder
+                            (builder, _) => builder
                                 .WithFilteringByModifiedFilesCapability(
                                     new List<FilePath>
                                     {
-                                        new FilePath(@"src\Cake.Issues.Tests\FakeIssueProvider.cs"),
+                                        new (@"src\Cake.Issues.Tests\FakeIssueProvider.cs"),
                                     }));
 
                     var issue1 =
@@ -188,16 +190,18 @@
 
                     // When
                     var issues =
-                        fixture.FilterIssues(
-                            new List<IIssue>
-                            {
-                                issue1,
-                                issue2,
-                            },
-                            new Dictionary<IIssue, IssueCommentInfo>());
+                        fixture
+                            .FilterIssues(
+                                new List<IIssue>
+                                {
+                                    issue1,
+                                    issue2,
+                                },
+                                new Dictionary<IIssue, IssueCommentInfo>())
+                            .ToList();
 
                     // Then
-                    issues.Count().ShouldBe(1);
+                    issues.Count.ShouldBe(1);
                     issues.ShouldContain(issue1);
                     fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) were filtered because they do not belong to files that were changed in this pull request");
                 }
@@ -228,32 +232,34 @@
 
                     // When
                     var issues =
-                        fixture.FilterIssues(
-                            new List<IIssue>
-                            {
-                                issue1,
-                                issue2,
-                            },
-                            new Dictionary<IIssue, IssueCommentInfo>
-                            {
-                            {
-                                issue1,
-                                new IssueCommentInfo(
-                                    new List<IPullRequestDiscussionComment>
+                        fixture
+                            .FilterIssues(
+                                new List<IIssue>
+                                {
+                                    issue1,
+                                    issue2,
+                                },
+                                new Dictionary<IIssue, IssueCommentInfo>
+                                {
                                     {
-                                        new PullRequestDiscussionComment
-                                        {
-                                            Content = "Message Foo",
-                                            IsDeleted = false,
-                                        },
+                                        issue1,
+                                        new IssueCommentInfo(
+                                            new List<IPullRequestDiscussionComment>
+                                            {
+                                                new PullRequestDiscussionComment
+                                                {
+                                                    Content = "Message Foo",
+                                                    IsDeleted = false,
+                                                },
+                                            },
+                                            new List<IPullRequestDiscussionComment>(),
+                                            new List<IPullRequestDiscussionComment>())
                                     },
-                                    new List<IPullRequestDiscussionComment>(),
-                                    new List<IPullRequestDiscussionComment>())
-                            },
-                            });
+                                })
+                            .ToList();
 
                     // Then
-                    issues.Count().ShouldBe(1);
+                    issues.Count.ShouldBe(1);
                     issues.ShouldContain(issue2);
                 }
 
@@ -280,31 +286,33 @@
 
                     // When
                     var issues =
-                        fixture.FilterIssues(
-                            new List<IIssue>
-                            {
-                                issue1, issue2,
-                            },
-                            new Dictionary<IIssue, IssueCommentInfo>
-                            {
-                            {
-                                issue1,
-                                new IssueCommentInfo(
-                                    new List<IPullRequestDiscussionComment>(),
-                                    new List<IPullRequestDiscussionComment>
+                        fixture
+                            .FilterIssues(
+                                new List<IIssue>
+                                {
+                                    issue1, issue2,
+                                },
+                                new Dictionary<IIssue, IssueCommentInfo>
+                                {
                                     {
-                                        new PullRequestDiscussionComment
-                                        {
-                                            Content = "Message Foo",
-                                            IsDeleted = false,
-                                        },
+                                        issue1,
+                                        new IssueCommentInfo(
+                                            new List<IPullRequestDiscussionComment>(),
+                                            new List<IPullRequestDiscussionComment>
+                                            {
+                                                new PullRequestDiscussionComment
+                                                {
+                                                    Content = "Message Foo",
+                                                    IsDeleted = false,
+                                                },
+                                            },
+                                            new List<IPullRequestDiscussionComment>())
                                     },
-                                    new List<IPullRequestDiscussionComment>())
-                            },
-                            });
+                                })
+                            .ToList();
 
                     // Then
-                    issues.Count().ShouldBe(1);
+                    issues.Count.ShouldBe(1);
                     issues.ShouldContain(issue2);
                 }
 
@@ -331,31 +339,33 @@
 
                     // When
                     var issues =
-                        fixture.FilterIssues(
-                            new List<IIssue>
-                            {
-                                issue1, issue2,
-                            },
-                            new Dictionary<IIssue, IssueCommentInfo>
-                            {
-                            {
-                                issue1,
-                                new IssueCommentInfo(
-                                    new List<IPullRequestDiscussionComment>(),
-                                    new List<IPullRequestDiscussionComment>(),
-                                    new List<IPullRequestDiscussionComment>
+                        fixture
+                            .FilterIssues(
+                                new List<IIssue>
+                                {
+                                    issue1, issue2,
+                                },
+                                new Dictionary<IIssue, IssueCommentInfo>
+                                {
                                     {
-                                        new PullRequestDiscussionComment
-                                        {
-                                            Content = "Message Foo",
-                                            IsDeleted = false,
-                                        },
-                                    })
-                            },
-                            });
+                                        issue1,
+                                        new IssueCommentInfo(
+                                            new List<IPullRequestDiscussionComment>(),
+                                            new List<IPullRequestDiscussionComment>(),
+                                            new List<IPullRequestDiscussionComment>
+                                            {
+                                                new PullRequestDiscussionComment
+                                                {
+                                                    Content = "Message Foo",
+                                                    IsDeleted = false,
+                                                },
+                                            })
+                                    },
+                                })
+                            .ToList();
 
                     // Then
-                    issues.Count().ShouldBe(1);
+                    issues.Count.ShouldBe(1);
                     issues.ShouldContain(issue2);
                 }
             }
@@ -368,8 +378,14 @@
                     public void Should_Limit_Messages_To_Maximum()
                     {
                         // Given
-                        var fixture = new IssueFiltererFixture();
-                        fixture.Settings.MaxIssuesToPost = 1;
+                        var fixture =
+                            new IssueFiltererFixture
+                            {
+                                Settings =
+                                    {
+                                        MaxIssuesToPost = 1,
+                                    },
+                            };
 
                         var issue1 =
                             IssueBuilder
@@ -388,15 +404,17 @@
 
                         // When
                         var issues =
-                            fixture.FilterIssues(
-                                new List<IIssue>
-                                {
-                                    issue1, issue2,
-                                },
-                                new Dictionary<IIssue, IssueCommentInfo>());
+                            fixture
+                                .FilterIssues(
+                                    new List<IIssue>
+                                    {
+                                        issue1, issue2,
+                                    },
+                                    new Dictionary<IIssue, IssueCommentInfo>())
+                                .ToList();
 
                         // Then
-                        issues.Count().ShouldBe(1);
+                        issues.Count.ShouldBe(1);
                         issues.ShouldContain(issue1);
                         fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) were filtered to match the global issue limit of 1");
                     }
@@ -405,8 +423,14 @@
                     public void Should_Limit_Messages_To_Maximum_By_Priority()
                     {
                         // Given
-                        var fixture = new IssueFiltererFixture();
-                        fixture.Settings.MaxIssuesToPost = 1;
+                        var fixture =
+                            new IssueFiltererFixture
+                                {
+                                    Settings =
+                                    {
+                                        MaxIssuesToPost = 1,
+                                    },
+                                };
 
                         var issue1 =
                             IssueBuilder
@@ -425,15 +449,17 @@
 
                         // When
                         var issues =
-                            fixture.FilterIssues(
-                                new List<IIssue>
-                                {
-                                    issue1, issue2,
-                                },
-                                new Dictionary<IIssue, IssueCommentInfo>());
+                            fixture
+                                .FilterIssues(
+                                    new List<IIssue>
+                                    {
+                                        issue1, issue2,
+                                    },
+                                    new Dictionary<IIssue, IssueCommentInfo>())
+                                .ToList();
 
                         // Then
-                        issues.Count().ShouldBe(1);
+                        issues.Count.ShouldBe(1);
                         issues.ShouldContain(issue2);
                         fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) were filtered to match the global issue limit of 1");
                     }
@@ -442,8 +468,14 @@
                     public void Should_Limit_Messages_To_Maximum_By_FilePath()
                     {
                         // Given
-                        var fixture = new IssueFiltererFixture();
-                        fixture.Settings.MaxIssuesToPost = 1;
+                        var fixture =
+                            new IssueFiltererFixture
+                            {
+                                Settings =
+                                    {
+                                        MaxIssuesToPost = 1,
+                                    },
+                            };
 
                         var issue1 =
                             IssueBuilder
@@ -461,15 +493,17 @@
 
                         // When
                         var issues =
-                            fixture.FilterIssues(
-                                new List<IIssue>
-                                {
-                                    issue1, issue2,
-                                },
-                                new Dictionary<IIssue, IssueCommentInfo>());
+                            fixture
+                                .FilterIssues(
+                                    new List<IIssue>
+                                    {
+                                        issue1, issue2,
+                                    },
+                                    new Dictionary<IIssue, IssueCommentInfo>())
+                                .ToList();
 
                         // Then
-                        issues.Count().ShouldBe(1);
+                        issues.Count.ShouldBe(1);
                         issues.ShouldContain(issue2);
                         fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) were filtered to match the global issue limit of 1");
                     }
@@ -504,48 +538,50 @@
 
                         // When
                         var issues =
-                            fixture.FilterIssues(
-                                new List<IIssue>
-                                {
-                                    newIssue1, newIssue2,
-                                },
-                                new Dictionary<IIssue, IssueCommentInfo>(),
-                                new List<IPullRequestDiscussionThread>
-                                {
-                                    new PullRequestDiscussionThread(
-                                        1,
-                                        PullRequestDiscussionStatus.Active,
-                                        @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
-                                        new List<IPullRequestDiscussionComment>
-                                        {
-                                            new PullRequestDiscussionComment
-                                            {
-                                                Content = "Message FooBar",
-                                                IsDeleted = false,
-                                            },
-                                        })
+                            fixture
+                                .FilterIssues(
+                                    new List<IIssue>
                                     {
-                                        ProviderType = "ProviderType Foo",
+                                        newIssue1, newIssue2,
                                     },
-                                    new PullRequestDiscussionThread(
-                                        1,
-                                        PullRequestDiscussionStatus.Active,
-                                        @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
-                                        new List<IPullRequestDiscussionComment>
-                                        {
-                                            new PullRequestDiscussionComment
-                                            {
-                                                Content = "Message FooBar",
-                                                IsDeleted = false,
-                                            },
-                                        })
+                                    new Dictionary<IIssue, IssueCommentInfo>(),
+                                    new List<IPullRequestDiscussionThread>
                                     {
-                                        ProviderType = "ProviderType Foo",
-                                    },
-                                });
+                                        new PullRequestDiscussionThread(
+                                            1,
+                                            PullRequestDiscussionStatus.Active,
+                                            @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
+                                            new List<IPullRequestDiscussionComment>
+                                            {
+                                                new PullRequestDiscussionComment
+                                                {
+                                                    Content = "Message FooBar",
+                                                    IsDeleted = false,
+                                                },
+                                            })
+                                        {
+                                            ProviderType = "ProviderType Foo",
+                                        },
+                                        new PullRequestDiscussionThread(
+                                            1,
+                                            PullRequestDiscussionStatus.Active,
+                                            @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
+                                            new List<IPullRequestDiscussionComment>
+                                            {
+                                                new PullRequestDiscussionComment
+                                                {
+                                                    Content = "Message FooBar",
+                                                    IsDeleted = false,
+                                                },
+                                            })
+                                        {
+                                            ProviderType = "ProviderType Foo",
+                                        },
+                                    })
+                                .ToList();
 
                         // Then
-                        issues.Count().ShouldBe(1);
+                        issues.Count.ShouldBe(1);
                         issues.ShouldContain(newIssue2);
                         fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) were filtered to match the global issue limit of 2 across all runs for provider 'ProviderType Foo' (2 issues already posted in previous runs)");
                     }
@@ -577,48 +613,50 @@
 
                         // When
                         var issues =
-                            fixture.FilterIssues(
-                                new List<IIssue>
-                                {
-                                    newIssue1, newIssue2,
-                                },
-                                new Dictionary<IIssue, IssueCommentInfo>(),
-                                new List<IPullRequestDiscussionThread>
-                                {
-                                    new PullRequestDiscussionThread(
-                                        1,
-                                        PullRequestDiscussionStatus.Active,
-                                        @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
-                                        new List<IPullRequestDiscussionComment>
-                                        {
-                                            new PullRequestDiscussionComment
-                                            {
-                                                Content = "Message FooBar",
-                                                IsDeleted = false,
-                                            },
-                                        })
+                            fixture
+                                .FilterIssues(
+                                    new List<IIssue>
                                     {
-                                        ProviderType = "ProviderType Foo",
+                                        newIssue1, newIssue2,
                                     },
-                                    new PullRequestDiscussionThread(
-                                        1,
-                                        PullRequestDiscussionStatus.Active,
-                                        @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
-                                        new List<IPullRequestDiscussionComment>
-                                        {
-                                            new PullRequestDiscussionComment
-                                            {
-                                                Content = "Message FooBar",
-                                                IsDeleted = false,
-                                            },
-                                        })
+                                    new Dictionary<IIssue, IssueCommentInfo>(),
+                                    new List<IPullRequestDiscussionThread>
                                     {
-                                        ProviderType = "ProviderType Foo",
-                                    },
-                                });
+                                        new PullRequestDiscussionThread(
+                                            1,
+                                            PullRequestDiscussionStatus.Active,
+                                            @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
+                                            new List<IPullRequestDiscussionComment>
+                                            {
+                                                new PullRequestDiscussionComment
+                                                {
+                                                    Content = "Message FooBar",
+                                                    IsDeleted = false,
+                                                },
+                                            })
+                                        {
+                                            ProviderType = "ProviderType Foo",
+                                        },
+                                        new PullRequestDiscussionThread(
+                                            1,
+                                            PullRequestDiscussionStatus.Active,
+                                            @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
+                                            new List<IPullRequestDiscussionComment>
+                                            {
+                                                new PullRequestDiscussionComment
+                                                {
+                                                    Content = "Message FooBar",
+                                                    IsDeleted = false,
+                                                },
+                                            })
+                                        {
+                                            ProviderType = "ProviderType Foo",
+                                        },
+                                    })
+                                .ToList();
 
                         // Then
-                        issues.Count().ShouldBe(1);
+                        issues.Count.ShouldBe(1);
                         issues.ShouldContain(newIssue2);
                         fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) were filtered to match the global issue limit of 0 across all runs for provider 'ProviderType Foo' (2 issues already posted in previous runs)");
                     }
@@ -650,48 +688,50 @@
 
                         // When
                         var issues =
-                            fixture.FilterIssues(
-                                new List<IIssue>
-                                {
-                                    newIssue1, newIssue2,
-                                },
-                                new Dictionary<IIssue, IssueCommentInfo>(),
-                                new List<IPullRequestDiscussionThread>
-                                {
-                                    new PullRequestDiscussionThread(
-                                        1,
-                                        PullRequestDiscussionStatus.Active,
-                                        @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
-                                        new List<IPullRequestDiscussionComment>
-                                        {
-                                            new PullRequestDiscussionComment
-                                            {
-                                                Content = "Message FooBar",
-                                                IsDeleted = false,
-                                            },
-                                        })
+                            fixture
+                                .FilterIssues(
+                                    new List<IIssue>
                                     {
-                                        ProviderType = "ProviderType Foo",
+                                        newIssue1, newIssue2,
                                     },
-                                    new PullRequestDiscussionThread(
-                                        1,
-                                        PullRequestDiscussionStatus.Active,
-                                        @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
-                                        new List<IPullRequestDiscussionComment>
-                                        {
-                                            new PullRequestDiscussionComment
-                                            {
-                                                Content = "Message FooBar",
-                                                IsDeleted = false,
-                                            },
-                                        })
+                                    new Dictionary<IIssue, IssueCommentInfo>(),
+                                    new List<IPullRequestDiscussionThread>
                                     {
-                                        ProviderType = "ProviderType Foo",
-                                    },
-                                });
+                                        new PullRequestDiscussionThread(
+                                            1,
+                                            PullRequestDiscussionStatus.Active,
+                                            @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
+                                            new List<IPullRequestDiscussionComment>
+                                            {
+                                                new PullRequestDiscussionComment
+                                                {
+                                                    Content = "Message FooBar",
+                                                    IsDeleted = false,
+                                                },
+                                            })
+                                        {
+                                            ProviderType = "ProviderType Foo",
+                                        },
+                                        new PullRequestDiscussionThread(
+                                            1,
+                                            PullRequestDiscussionStatus.Active,
+                                            @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
+                                            new List<IPullRequestDiscussionComment>
+                                            {
+                                                new PullRequestDiscussionComment
+                                                {
+                                                    Content = "Message FooBar",
+                                                    IsDeleted = false,
+                                                },
+                                            })
+                                        {
+                                            ProviderType = "ProviderType Foo",
+                                        },
+                                    })
+                                .ToList();
 
                         // Then
-                        issues.Count().ShouldBe(2);
+                        issues.Count.ShouldBe(2);
                         issues.ShouldContain(newIssue1);
                         issues.ShouldContain(newIssue2);
                     }
@@ -730,33 +770,35 @@
 
                         // When
                         var issues =
-                            fixture.FilterIssues(
-                                new List<IIssue>
-                                {
-                                    issue1, issue2, issue3,
-                                },
-                                new Dictionary<IIssue, IssueCommentInfo>(),
-                                new List<IPullRequestDiscussionThread>
-                                {
-                                new PullRequestDiscussionThread(
-                                    1,
-                                    PullRequestDiscussionStatus.Active,
-                                    @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
-                                    new List<IPullRequestDiscussionComment>
+                            fixture
+                                .FilterIssues(
+                                    new List<IIssue>
                                     {
-                                        new PullRequestDiscussionComment
+                                        issue1, issue2, issue3,
+                                    },
+                                    new Dictionary<IIssue, IssueCommentInfo>(),
+                                    new List<IPullRequestDiscussionThread>
+                                    {
+                                    new PullRequestDiscussionThread(
+                                        1,
+                                        PullRequestDiscussionStatus.Active,
+                                        @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
+                                        new List<IPullRequestDiscussionComment>
                                         {
-                                            Content = "Message FooBar",
-                                            IsDeleted = false,
-                                        },
+                                            new PullRequestDiscussionComment
+                                            {
+                                                Content = "Message FooBar",
+                                                IsDeleted = false,
+                                            },
+                                        })
+                                    {
+                                        ProviderType = "ProviderType Foo",
+                                    },
                                     })
-                                {
-                                    ProviderType = "ProviderType Foo",
-                                },
-                                });
+                                .ToList();
 
                         // Then
-                        issues.Count().ShouldBe(2);
+                        issues.Count.ShouldBe(2);
                         issues.ShouldContain(issue2);
                         issues.ShouldContain(issue3);
                         fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) were filtered to match the global issue limit of 2 across all runs for provider 'ProviderType Foo' (1 issues already posted in previous runs)");
@@ -804,33 +846,35 @@
 
                         // When
                         var issues =
-                            fixture.FilterIssues(
-                                new List<IIssue>
-                                {
-                                    issue1, issue2, issue3, issue4,
-                                },
-                                new Dictionary<IIssue, IssueCommentInfo>(),
-                                new List<IPullRequestDiscussionThread>
-                                {
-                                new PullRequestDiscussionThread(
-                                    1,
-                                    PullRequestDiscussionStatus.Active,
-                                    @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
-                                    new List<IPullRequestDiscussionComment>
+                            fixture
+                                .FilterIssues(
+                                    new List<IIssue>
                                     {
-                                        new PullRequestDiscussionComment
+                                        issue1, issue2, issue3, issue4,
+                                    },
+                                    new Dictionary<IIssue, IssueCommentInfo>(),
+                                    new List<IPullRequestDiscussionThread>
+                                    {
+                                        new PullRequestDiscussionThread(
+                                            1,
+                                            PullRequestDiscussionStatus.Active,
+                                            @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
+                                            new List<IPullRequestDiscussionComment>
+                                            {
+                                                new PullRequestDiscussionComment
+                                                {
+                                                    Content = "Message FooBar",
+                                                    IsDeleted = false,
+                                                },
+                                            })
                                         {
-                                            Content = "Message FooBar",
-                                            IsDeleted = false,
+                                            ProviderType = "ProviderType Foo",
                                         },
                                     })
-                                {
-                                    ProviderType = "ProviderType Foo",
-                                },
-                                });
+                                .ToList();
 
                         // Then
-                        issues.Count().ShouldBe(2);
+                        issues.Count.ShouldBe(2);
                         issues.ShouldContain(issue2);
                         issues.ShouldContain(issue4);
                         fixture.Log.Entries.ShouldContain(x => x.Message == "2 issue(s) were filtered to match the global issue limit of 2 across all runs for provider 'ProviderType Foo' (1 issues already posted in previous runs)");
@@ -882,15 +926,17 @@
 
                         // When
                         var issues =
-                            fixture.FilterIssues(
-                                new List<IIssue>
-                                {
-                                    issue1, issue2, issue3, issue4,
-                                },
-                                new Dictionary<IIssue, IssueCommentInfo>());
+                            fixture
+                                .FilterIssues(
+                                    new List<IIssue>
+                                    {
+                                        issue1, issue2, issue3, issue4,
+                                    },
+                                    new Dictionary<IIssue, IssueCommentInfo>())
+                                .ToList();
 
                         // Then
-                        issues.Count().ShouldBe(2);
+                        issues.Count.ShouldBe(2);
                         issues.ShouldContain(issue1);
                         issues.ShouldContain(issue3);
 
@@ -941,15 +987,17 @@
 
                         // When
                         var issues =
-                            fixture.FilterIssues(
-                                new List<IIssue>
-                                {
-                                    issue1, issue2, issue3, issue4,
-                                },
-                                new Dictionary<IIssue, IssueCommentInfo>());
+                            fixture
+                                .FilterIssues(
+                                    new List<IIssue>
+                                    {
+                                        issue1, issue2, issue3, issue4,
+                                    },
+                                    new Dictionary<IIssue, IssueCommentInfo>())
+                                .ToList();
 
                         // Then
-                        issues.Count().ShouldBe(0);
+                        issues.Count.ShouldBe(0);
 
                         fixture.Log.Entries.ShouldContain(x => x.Message == "2 issue(s) were filtered to match the global limit of 0 issues which should be reported for issue provider 'ProviderTypeA'");
                         fixture.Log.Entries.ShouldContain(x => x.Message == "2 issue(s) were filtered to match the global limit of 0 issues which should be reported for issue provider 'ProviderTypeB'");
@@ -998,15 +1046,17 @@
 
                         // When
                         var issues =
-                            fixture.FilterIssues(
-                                new List<IIssue>
-                                {
-                                    issue1, issue2, issue3, issue4,
-                                },
-                                new Dictionary<IIssue, IssueCommentInfo>());
+                            fixture
+                                .FilterIssues(
+                                    new List<IIssue>
+                                    {
+                                        issue1, issue2, issue3, issue4,
+                                    },
+                                    new Dictionary<IIssue, IssueCommentInfo>())
+                                .ToList();
 
                         // Then
-                        issues.Count().ShouldBe(4);
+                        issues.Count.ShouldBe(4);
                         issues.ShouldContain(issue1);
                         issues.ShouldContain(issue2);
                         issues.ShouldContain(issue3);
@@ -1056,15 +1106,17 @@
 
                         // When
                         var issues =
-                            fixture.FilterIssues(
-                                new List<IIssue>
-                                {
-                                    issue1, issue2, issue3, issue4,
-                                },
-                                new Dictionary<IIssue, IssueCommentInfo>());
+                            fixture
+                                .FilterIssues(
+                                    new List<IIssue>
+                                    {
+                                        issue1, issue2, issue3, issue4,
+                                    },
+                                    new Dictionary<IIssue, IssueCommentInfo>())
+                                .ToList();
 
                         // Then
-                        issues.Count().ShouldBe(2);
+                        issues.Count.ShouldBe(2);
                         issues.ShouldContain(issue2);
                         issues.ShouldContain(issue3);
                         fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) were filtered to match the global limit of 1 issues which should be reported for issue provider 'ProviderTypeA'");
@@ -1112,15 +1164,17 @@
 
                         // When
                         var issues =
-                            fixture.FilterIssues(
-                                new List<IIssue>
-                                {
-                                    issue1, issue2, issue3, issue4,
-                                },
-                                new Dictionary<IIssue, IssueCommentInfo>());
+                            fixture
+                                .FilterIssues(
+                                    new List<IIssue>
+                                    {
+                                        issue1, issue2, issue3, issue4,
+                                    },
+                                    new Dictionary<IIssue, IssueCommentInfo>())
+                                .ToList();
 
                         // Then
-                        issues.Count().ShouldBe(2);
+                        issues.Count.ShouldBe(2);
                         issues.ShouldContain(issue2);
                         issues.ShouldContain(issue3);
                         fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) were filtered to match the global limit of 1 issues which should be reported for issue provider 'ProviderTypeA'");
@@ -1205,15 +1259,17 @@
 
                         // When
                         var issues =
-                            fixture.FilterIssues(
-                                new List<IIssue>
-                                {
-                                    issue1, issue2, issue3, issue4, issue5, issue6, issue7, issue8, issue9,
-                                },
-                                new Dictionary<IIssue, IssueCommentInfo>());
+                            fixture
+                                .FilterIssues(
+                                    new List<IIssue>
+                                    {
+                                        issue1, issue2, issue3, issue4, issue5, issue6, issue7, issue8, issue9,
+                                    },
+                                    new Dictionary<IIssue, IssueCommentInfo>())
+                                .ToList();
 
                         // Then
-                        issues.Count().ShouldBe(4);
+                        issues.Count.ShouldBe(4);
 
                         fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) were filtered to match the global limit of 1 issues which should be reported for issue provider 'ProviderTypeA'");
                         fixture.Log.Entries.ShouldContain(x => x.Message == "4 issue(s) were filtered to match the global limit of 3 issues which should be reported for issue provider 'ProviderTypeB'");
@@ -1226,8 +1282,14 @@
                     public void Should_Limit_Messages_To_Maximum()
                     {
                         // Given
-                        var fixture = new IssueFiltererFixture();
-                        fixture.Settings.MaxIssuesToPostAcrossRuns = 2;
+                        var fixture =
+                            new IssueFiltererFixture
+                            {
+                                Settings =
+                                    {
+                                        MaxIssuesToPostAcrossRuns = 2,
+                                    },
+                            };
 
                         var issue1 =
                             IssueBuilder
@@ -1246,30 +1308,32 @@
 
                         // When
                         var issues =
-                            fixture.FilterIssues(
-                                new List<IIssue>
-                                {
-                                issue1, issue2,
-                                },
-                                new Dictionary<IIssue, IssueCommentInfo>(),
-                                new List<IPullRequestDiscussionThread>
-                                {
-                                new PullRequestDiscussionThread(
-                                    1,
-                                    PullRequestDiscussionStatus.Active,
-                                    @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
-                                    new List<IPullRequestDiscussionComment>
+                            fixture
+                                .FilterIssues(
+                                    new List<IIssue>
                                     {
-                                        new PullRequestDiscussionComment
+                                    issue1, issue2,
+                                    },
+                                    new Dictionary<IIssue, IssueCommentInfo>(),
+                                    new List<IPullRequestDiscussionThread>
+                                    {
+                                    new PullRequestDiscussionThread(
+                                        1,
+                                        PullRequestDiscussionStatus.Active,
+                                        @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
+                                        new List<IPullRequestDiscussionComment>
                                         {
-                                            Content = "Message FooBar",
-                                            IsDeleted = false,
-                                        },
-                                    }),
-                                });
+                                            new PullRequestDiscussionComment
+                                            {
+                                                Content = "Message FooBar",
+                                                IsDeleted = false,
+                                            },
+                                        }),
+                                    })
+                                .ToList();
 
                         // Then
-                        issues.Count().ShouldBe(1);
+                        issues.Count.ShouldBe(1);
                         issues.ShouldContain(issue1);
                         fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) were filtered to match the global issue limit of 2 across all runs (1 issues already posted in previous runs)");
                     }
@@ -1278,8 +1342,14 @@
                     public void Should_Limit_Messages_To_Maximum_By_Priority()
                     {
                         // Given
-                        var fixture = new IssueFiltererFixture();
-                        fixture.Settings.MaxIssuesToPostAcrossRuns = 2;
+                        var fixture =
+                            new IssueFiltererFixture
+                            {
+                                Settings =
+                                    {
+                                        MaxIssuesToPostAcrossRuns = 2,
+                                    },
+                            };
 
                         var issue1 =
                             IssueBuilder
@@ -1298,30 +1368,32 @@
 
                         // When
                         var issues =
-                            fixture.FilterIssues(
-                                new List<IIssue>
-                                {
-                                issue1, issue2,
-                                },
-                                new Dictionary<IIssue, IssueCommentInfo>(),
-                                new List<IPullRequestDiscussionThread>
-                                {
-                                new PullRequestDiscussionThread(
-                                    1,
-                                    PullRequestDiscussionStatus.Active,
-                                    @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
-                                    new List<IPullRequestDiscussionComment>
+                            fixture
+                                .FilterIssues(
+                                    new List<IIssue>
                                     {
-                                        new PullRequestDiscussionComment
+                                    issue1, issue2,
+                                    },
+                                    new Dictionary<IIssue, IssueCommentInfo>(),
+                                    new List<IPullRequestDiscussionThread>
+                                    {
+                                    new PullRequestDiscussionThread(
+                                        1,
+                                        PullRequestDiscussionStatus.Active,
+                                        @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
+                                        new List<IPullRequestDiscussionComment>
                                         {
-                                            Content = "Message FooBar",
-                                            IsDeleted = false,
-                                        },
-                                    }),
-                                });
+                                            new PullRequestDiscussionComment
+                                            {
+                                                Content = "Message FooBar",
+                                                IsDeleted = false,
+                                            },
+                                        }),
+                                    })
+                                .ToList();
 
                         // Then
-                        issues.Count().ShouldBe(1);
+                        issues.Count.ShouldBe(1);
                         issues.ShouldContain(issue2);
                         fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) were filtered to match the global issue limit of 2 across all runs (1 issues already posted in previous runs)");
                     }
@@ -1330,8 +1402,14 @@
                     public void Should_Limit_Messages_To_Maximum_By_FilePath()
                     {
                         // Given
-                        var fixture = new IssueFiltererFixture();
-                        fixture.Settings.MaxIssuesToPostAcrossRuns = 2;
+                        var fixture =
+                            new IssueFiltererFixture
+                            {
+                                Settings =
+                                    {
+                                        MaxIssuesToPostAcrossRuns = 2,
+                                    },
+                            };
 
                         var issue1 =
                             IssueBuilder
@@ -1349,30 +1427,32 @@
 
                         // When
                         var issues =
-                            fixture.FilterIssues(
-                                new List<IIssue>
-                                {
-                                issue1, issue2,
-                                },
-                                new Dictionary<IIssue, IssueCommentInfo>(),
-                                new List<IPullRequestDiscussionThread>
-                                {
-                                new PullRequestDiscussionThread(
-                                    1,
-                                    PullRequestDiscussionStatus.Active,
-                                    @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
-                                    new List<IPullRequestDiscussionComment>
+                            fixture
+                                .FilterIssues(
+                                    new List<IIssue>
                                     {
-                                        new PullRequestDiscussionComment
+                                    issue1, issue2,
+                                    },
+                                    new Dictionary<IIssue, IssueCommentInfo>(),
+                                    new List<IPullRequestDiscussionThread>
+                                    {
+                                    new PullRequestDiscussionThread(
+                                        1,
+                                        PullRequestDiscussionStatus.Active,
+                                        @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
+                                        new List<IPullRequestDiscussionComment>
                                         {
-                                            Content = "Message FooBar",
-                                            IsDeleted = false,
-                                        },
-                                    }),
-                                });
+                                            new PullRequestDiscussionComment
+                                            {
+                                                Content = "Message FooBar",
+                                                IsDeleted = false,
+                                            },
+                                        }),
+                                    })
+                                .ToList();
 
                         // Then
-                        issues.Count().ShouldBe(1);
+                        issues.Count.ShouldBe(1);
                         issues.ShouldContain(issue2);
                         fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) were filtered to match the global issue limit of 2 across all runs (1 issues already posted in previous runs)");
                     }
@@ -1384,8 +1464,14 @@
                     public void Should_Limit_Messages_To_Maximum()
                     {
                         // Given
-                        var fixture = new IssueFiltererFixture();
-                        fixture.Settings.MaxIssuesToPostForEachIssueProvider = 1;
+                        var fixture =
+                            new IssueFiltererFixture
+                            {
+                                Settings =
+                                    {
+                                        MaxIssuesToPostForEachIssueProvider = 1,
+                                    },
+                            };
 
                         var issue1 =
                             IssueBuilder
@@ -1418,15 +1504,17 @@
 
                         // When
                         var issues =
-                            fixture.FilterIssues(
-                                new List<IIssue>
-                                {
-                                    issue1, issue2, issue3, issue4,
-                                },
-                                new Dictionary<IIssue, IssueCommentInfo>());
+                            fixture
+                                .FilterIssues(
+                                    new List<IIssue>
+                                    {
+                                        issue1, issue2, issue3, issue4,
+                                    },
+                                    new Dictionary<IIssue, IssueCommentInfo>())
+                                .ToList();
 
                         // Then
-                        issues.Count().ShouldBe(2);
+                        issues.Count.ShouldBe(2);
                         issues.ShouldContain(issue1);
                         issues.ShouldContain(issue3);
                         fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) of type ProviderTypeA were filtered to match the maximum of 1 issues which should be reported for each issue provider");
@@ -1437,8 +1525,14 @@
                     public void Should_Limit_Messages_To_Maximum_By_Priority()
                     {
                         // Given
-                        var fixture = new IssueFiltererFixture();
-                        fixture.Settings.MaxIssuesToPostForEachIssueProvider = 1;
+                        var fixture =
+                            new IssueFiltererFixture
+                            {
+                                Settings =
+                                    {
+                                        MaxIssuesToPostForEachIssueProvider = 1,
+                                    },
+                            };
 
                         var issue1 =
                             IssueBuilder
@@ -1471,15 +1565,17 @@
 
                         // When
                         var issues =
-                            fixture.FilterIssues(
-                                new List<IIssue>
-                                {
-                                    issue1, issue2, issue3, issue4,
-                                },
-                                new Dictionary<IIssue, IssueCommentInfo>());
+                            fixture
+                                .FilterIssues(
+                                    new List<IIssue>
+                                    {
+                                        issue1, issue2, issue3, issue4,
+                                    },
+                                    new Dictionary<IIssue, IssueCommentInfo>())
+                                .ToList();
 
                         // Then
-                        issues.Count().ShouldBe(2);
+                        issues.Count.ShouldBe(2);
                         issues.ShouldContain(issue2);
                         issues.ShouldContain(issue3);
                         fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) of type ProviderTypeA were filtered to match the maximum of 1 issues which should be reported for each issue provider");
@@ -1490,8 +1586,14 @@
                     public void Should_Limit_Messages_To_Maximum_By_FilePath()
                     {
                         // Given
-                        var fixture = new IssueFiltererFixture();
-                        fixture.Settings.MaxIssuesToPostForEachIssueProvider = 1;
+                        var fixture =
+                            new IssueFiltererFixture
+                            {
+                                Settings =
+                                    {
+                                        MaxIssuesToPostForEachIssueProvider = 1,
+                                    },
+                            };
 
                         var issue1 =
                             IssueBuilder
@@ -1522,15 +1624,17 @@
 
                         // When
                         var issues =
-                            fixture.FilterIssues(
-                                new List<IIssue>
-                                {
-                                    issue1, issue2, issue3, issue4,
-                                },
-                                new Dictionary<IIssue, IssueCommentInfo>());
+                            fixture
+                                .FilterIssues(
+                                    new List<IIssue>
+                                    {
+                                        issue1, issue2, issue3, issue4,
+                                    },
+                                    new Dictionary<IIssue, IssueCommentInfo>())
+                                .ToList();
 
                         // Then
-                        issues.Count().ShouldBe(2);
+                        issues.Count.ShouldBe(2);
                         issues.ShouldContain(issue2);
                         issues.ShouldContain(issue3);
                         fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) of type ProviderTypeA were filtered to match the maximum of 1 issues which should be reported for each issue provider");

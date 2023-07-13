@@ -1,12 +1,29 @@
 ﻿namespace Cake.Issues.Tests
 {
     using System;
+    using System.Diagnostics.CodeAnalysis;
     using Cake.Issues.Testing;
     using Shouldly;
     using Xunit;
 
     public class BaseRuleUrlResolverTests
     {
+        public sealed class TheClass
+        {
+            [SuppressMessage(
+                "Major Code Smell",
+                "S1144:Unused private types or members should be removed",
+                Justification = "Ensure that it is possible to define a custom URL resolver for BaseRuleDescription")]
+            private class FakeRuleUrlResolverForBaseRuleDescription : BaseRuleUrlResolver<BaseRuleDescription>
+            {
+                /// <inheritdoc/>
+                protected override bool TryGetRuleDescription(string rule, BaseRuleDescription ruleDescription)
+                {
+                    return true;
+                }
+            }
+        }
+
         public sealed class TheAddUrlResolverMethod
         {
             [Fact]

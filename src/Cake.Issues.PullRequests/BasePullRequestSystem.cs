@@ -56,7 +56,7 @@
         /// Compared to <see cref="PostDiscussionThreads"/> it is safe to access Settings from this method.
         /// </summary>
         /// <param name="issues">Issues which need to be posted.</param>
-        /// <param name="commentSource">Value used to decorate comments created by this addin.</param>
+        /// <param name="commentSource">Value used to decorate comments created by this add-in.</param>
         protected abstract void InternalPostDiscussionThreads(IEnumerable<IIssue> issues, string commentSource);
     }
 }

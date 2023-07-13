@@ -12,7 +12,7 @@
             public void Should_Throw_If_SerializableIssue_Is_Null()
             {
                 // Given
-                SerializableIssueV3 serializableIssue = null;
+                const SerializableIssueV3 serializableIssue = null;
 
                 // When
                 var result = Record.Exception(() => serializableIssue.ToIssue());
