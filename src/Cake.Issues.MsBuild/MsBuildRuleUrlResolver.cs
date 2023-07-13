@@ -9,7 +9,7 @@
     internal class MsBuildRuleUrlResolver : BaseRuleUrlResolver<MsBuildRuleDescription>
     {
         private static readonly Lazy<MsBuildRuleUrlResolver> InstanceValue =
-            new Lazy<MsBuildRuleUrlResolver>(() => new MsBuildRuleUrlResolver());
+            new (() => new MsBuildRuleUrlResolver());
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MsBuildRuleUrlResolver"/> class.
@@ -17,13 +17,29 @@
         private MsBuildRuleUrlResolver()
         {
             // Add resolver for common known issue categories.
+
+            // .NET SDK analyzers
             this.AddUrlResolver(x =>
                 x.Category.ToUpperInvariant() == "CA" ?
-                    new Uri("https://www.google.com/search?q=%22" + x.Rule + ":%22+site:docs.microsoft.com") :
+                    new Uri("https://www.google.com/search?q=%22" + x.Rule + ":%22+site:learn.microsoft.com") :
                     null);
+
+            // StyleCop analyzer rules
             this.AddUrlResolver(x =>
                 x.Category.ToUpperInvariant() == "SA" ?
                     new Uri("https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/" + x.Rule + ".md") :
+                    null);
+
+            // SonarLint rules
+            this.AddUrlResolver(x =>
+                x.Category.ToUpperInvariant() == "S" ?
+                    new Uri("https://rules.sonarsource.com/csharp/RSPEC-" + x.RuleId) :
+                    null);
+
+            // Roslynator rules
+            this.AddUrlResolver(x =>
+                x.Category.ToUpperInvariant() == "RCS" ?
+                    new Uri("https://github.com/JosefPihrt/Roslynator/blob/main/docs/analyzers/" + x.Rule + ".md") :
                     null);
         }
 
@@ -58,8 +74,7 @@
             }
 
             // Try to parse the part after the first number to an integer.
-            int ruleId;
-            if (!int.TryParse(rule.Substring(digitIndex), out ruleId))
+            if (!int.TryParse(rule.AsSpan(digitIndex), out var ruleId))
             {
                 return false;
             }

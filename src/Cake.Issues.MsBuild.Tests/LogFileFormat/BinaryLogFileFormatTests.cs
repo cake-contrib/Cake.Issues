@@ -16,7 +16,7 @@
             public void Should_Throw_If_Log_Is_Null()
             {
                 // Given
-                ICakeLog log = null;
+                const ICakeLog log = null;
 
                 // When
                 var result = Record.Exception(() => new BinaryLogFileFormat(log));
@@ -199,7 +199,7 @@
                         "Cake.Issues.MsBuild.MsBuildIssuesProvider",
                         "MSBuild")
                         .InProject(@"src\ClassLibrary1\ClassLibrary1.csproj", "ClassLibrary1")
-                        .OfRule("CA2210", new Uri("https://www.google.com/search?q=\"CA2210:\"+site:docs.microsoft.com"))
+                        .OfRule("CA2210", new Uri("https://www.google.com/search?q=\"CA2210:\"+site:learn.microsoft.com"))
                         .WithPriority(IssuePriority.Warning));
                 IssueChecker.Check(
                     issues[16],
@@ -208,7 +208,7 @@
                         "Cake.Issues.MsBuild.MsBuildIssuesProvider",
                         "MSBuild")
                         .InProject(@"src\ClassLibrary1\ClassLibrary1.csproj", "ClassLibrary1")
-                        .OfRule("CA1014", new Uri("https://www.google.com/search?q=\"CA1014:\"+site:docs.microsoft.com"))
+                        .OfRule("CA1014", new Uri("https://www.google.com/search?q=\"CA1014:\"+site:learn.microsoft.com"))
                         .WithPriority(IssuePriority.Warning));
                 IssueChecker.Check(
                     issues[17],
@@ -218,7 +218,7 @@
                         "MSBuild")
                         .InProject(@"src\ClassLibrary1\ClassLibrary1.csproj", "ClassLibrary1")
                         .InFile(@"src\ClassLibrary1\Class1.cs", 12)
-                        .OfRule("CA1822", new Uri("https://www.google.com/search?q=\"CA1822:\"+site:docs.microsoft.com"))
+                        .OfRule("CA1822", new Uri("https://www.google.com/search?q=\"CA1822:\"+site:learn.microsoft.com"))
                         .WithPriority(IssuePriority.Warning));
                 IssueChecker.Check(
                     issues[18],
@@ -228,7 +228,7 @@
                         "MSBuild")
                         .InProject(@"src\ClassLibrary1\ClassLibrary1.csproj", "ClassLibrary1")
                         .InFile(@"src\ClassLibrary1\Class1.cs", 13)
-                        .OfRule("CA1804", new Uri("https://www.google.com/search?q=\"CA1804:\"+site:docs.microsoft.com"))
+                        .OfRule("CA1804", new Uri("https://www.google.com/search?q=\"CA1804:\"+site:learn.microsoft.com"))
                         .WithPriority(IssuePriority.Warning));
             }
         }

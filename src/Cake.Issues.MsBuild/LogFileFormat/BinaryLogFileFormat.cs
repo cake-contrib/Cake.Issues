@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using Cake.Core.Diagnostics;
     using Microsoft.Build.Framework;
     using Microsoft.Build.Logging.StructuredLogger;
@@ -26,23 +27,15 @@
             IRepositorySettings repositorySettings,
             MsBuildIssuesSettings issueProviderSettings)
         {
-#pragma warning disable SA1123 // Do not place regions within elements
-            #region DupFinder Exclusion
-#pragma warning restore SA1123 // Do not place regions within elements
-
             issueProvider.NotNull(nameof(issueProvider));
             repositorySettings.NotNull(nameof(repositorySettings));
             issueProviderSettings.NotNull(nameof(issueProviderSettings));
 
-            #endregion
-
             var result = new List<IIssue>();
 
             var binLogReader = new BinLogReader();
-            foreach (var record in binLogReader.ReadRecords(issueProviderSettings.LogFileContent))
+            foreach (var buildEventArgs in binLogReader.ReadRecords(issueProviderSettings.LogFileContent).Select(x => x.Args))
             {
-                var buildEventArgs = record.Args;
-
                 IIssue issue = null;
                 if (buildEventArgs is BuildErrorEventArgs buildError)
                 {

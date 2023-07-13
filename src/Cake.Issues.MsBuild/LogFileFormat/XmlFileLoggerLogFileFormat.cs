@@ -27,15 +27,9 @@
             IRepositorySettings repositorySettings,
             MsBuildIssuesSettings issueProviderSettings)
         {
-#pragma warning disable SA1123 // Do not place regions within elements
-            #region DupFinder Exclusion
-#pragma warning restore SA1123 // Do not place regions within elements
-
             issueProvider.NotNull(nameof(issueProvider));
             repositorySettings.NotNull(nameof(repositorySettings));
             issueProviderSettings.NotNull(nameof(issueProviderSettings));
-
-            #endregion
 
             var result = new List<IIssue>();
 
@@ -153,8 +147,7 @@
             }
 
             // Validate project path and make relative to repository root.
-            bool result;
-            (result, project) = this.ValidateFilePath(project, repositorySettings);
+            (var result, project) = this.ValidateFilePath(project, repositorySettings);
             return result;
         }
 
@@ -202,8 +195,7 @@
             }
 
             // Validate file path and make relative to repository root.
-            bool result;
-            (result, fileName) = this.ValidateFilePath(fileName, repositorySettings);
+            (var result, fileName) = this.ValidateFilePath(fileName, repositorySettings);
             return result;
         }
 

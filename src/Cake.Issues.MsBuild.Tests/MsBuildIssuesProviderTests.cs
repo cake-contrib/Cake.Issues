@@ -14,7 +14,7 @@
             public void Should_Throw_If_Log_Is_Null()
             {
                 // Given
-                ICakeLog log = null;
+                const ICakeLog log = null;
                 var settings =
                     new MsBuildIssuesSettings(
                         "Foo".ToByteArray(),
@@ -32,7 +32,7 @@
             {
                 // Given
                 var log = new FakeLog();
-                MsBuildIssuesSettings settings = null;
+                const MsBuildIssuesSettings settings = null;
 
                 // When
                 var result = Record.Exception(() => new MsBuildIssuesProvider(log, settings));
