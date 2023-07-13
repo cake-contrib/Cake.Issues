@@ -8,6 +8,7 @@
     using Shouldly;
     using Xunit;
 
+    // ReSharper disable once ClassNeverInstantiated.Global
     public sealed class GitPullRequestCommentThreadExtensionsTests
     {
         public sealed class TheToPullRequestDiscussionThreadExtension
@@ -16,7 +17,7 @@
             public void Should_Throw_If_Thread_Is_Null()
             {
                 // Given
-                AzureDevOpsPullRequestCommentThread thread = null;
+                const AzureDevOpsPullRequestCommentThread thread = null;
 
                 // When
                 var result = Record.Exception(() => thread.ToPullRequestDiscussionThread());
@@ -71,9 +72,9 @@
             public void Should_Set_Correct_Id()
             {
                 // Given
-                var id = 123;
-                var status = AzureDevOpsCommentThreadStatus.Active;
-                var filePath = "/foo.cs";
+                const int id = 123;
+                const AzureDevOpsCommentThreadStatus status = AzureDevOpsCommentThreadStatus.Active;
+                const string filePath = "/foo.cs";
                 var thread =
                     new AzureDevOpsPullRequestCommentThread
                     {
@@ -118,8 +119,8 @@
                 PullRequestDiscussionStatus expectedResult)
             {
                 // Given
-                var id = 123;
-                var filePath = "/foo.cs";
+                const int id = 123;
+                const string filePath = "/foo.cs";
                 var thread =
                     new AzureDevOpsPullRequestCommentThread
                     {
@@ -142,8 +143,8 @@
             public void Should_Set_Correct_FilePath(string filePath, string expectedResult)
             {
                 // Given
-                var id = 123;
-                var status = AzureDevOpsCommentThreadStatus.Active;
+                const int id = 123;
+                const AzureDevOpsCommentThreadStatus status = AzureDevOpsCommentThreadStatus.Active;
                 var thread =
                     new AzureDevOpsPullRequestCommentThread
                     {
@@ -185,11 +186,11 @@
             public void Should_Set_Correct_Comments()
             {
                 // Given
-                var id = 123;
-                var status = AzureDevOpsCommentThreadStatus.Active;
-                var filePath = "/foo.cs";
-                var commentContent = "foo";
-                var commentIsDeleted = false;
+                const int id = 123;
+                const AzureDevOpsCommentThreadStatus status = AzureDevOpsCommentThreadStatus.Active;
+                const string filePath = "/foo.cs";
+                const string commentContent = "foo";
+                const bool commentIsDeleted = false;
                 var thread =
                     new AzureDevOpsPullRequestCommentThread
                     {
@@ -198,7 +199,7 @@
                         FilePath = filePath,
                         Comments = new List<AzureDevOpsComment>
                         {
-                            new AzureDevOpsComment()
+                            new ()
                             {
                                 Content = commentContent,
                                 IsDeleted = commentIsDeleted,
@@ -220,10 +221,10 @@
             public void Should_Set_Correct_CommentSource()
             {
                 // Given
-                var id = 123;
-                var status = AzureDevOpsCommentThreadStatus.Active;
-                var filePath = "/foo.cs";
-                var commentSource = "foo";
+                const int id = 123;
+                const AzureDevOpsCommentThreadStatus status = AzureDevOpsCommentThreadStatus.Active;
+                const string filePath = "/foo.cs";
+                const string commentSource = "foo";
                 var thread =
                     new AzureDevOpsPullRequestCommentThread
                     {
@@ -246,10 +247,10 @@
             public void Should_Set_Correct_ProviderType()
             {
                 // Given
-                var id = 123;
-                var status = AzureDevOpsCommentThreadStatus.Active;
-                var filePath = "/foo.cs";
-                var providerType = "foo";
+                const int id = 123;
+                const AzureDevOpsCommentThreadStatus status = AzureDevOpsCommentThreadStatus.Active;
+                const string filePath = "/foo.cs";
+                const string providerType = "foo";
                 var thread =
                     new AzureDevOpsPullRequestCommentThread
                     {
@@ -295,8 +296,8 @@
                 PullRequestDiscussionResolution expectedResult)
             {
                 // Given
-                var id = 123;
-                var filePath = "/foo.cs";
+                const int id = 123;
+                const string filePath = "/foo.cs";
                 var thread =
                     new AzureDevOpsPullRequestCommentThread
                     {
@@ -321,7 +322,7 @@
             public void Should_Throw_If_Thread_Is_Null()
             {
                 // Given
-                AzureDevOpsPullRequestCommentThread thread = null;
+                const AzureDevOpsPullRequestCommentThread thread = null;
 
                 // When
                 var result = Record.Exception(() => thread.GetCommentSource());
@@ -355,7 +356,7 @@
             public void Should_Return_Comment_Source()
             {
                 // Given
-                var commentSource = "foo";
+                const string commentSource = "foo";
                 var thread =
                     new AzureDevOpsPullRequestCommentThread
                     {
@@ -381,7 +382,7 @@
             public void Should_Throw_If_Thread_Is_Null()
             {
                 // Given
-                AzureDevOpsPullRequestCommentThread thread = null;
+                const AzureDevOpsPullRequestCommentThread thread = null;
 
                 // When
                 var result = Record.Exception(() => thread.GetProviderType());
@@ -415,7 +416,7 @@
             public void Should_Return_ProviderType()
             {
                 // Given
-                var providerType = "fooProv";
+                const string providerType = "fooProv";
                 var thread =
                     new AzureDevOpsPullRequestCommentThread
                     {
@@ -441,8 +442,8 @@
             public void Should_Throw_If_Thread_Is_Null()
             {
                 // Given
-                AzureDevOpsPullRequestCommentThread thread = null;
-                var value = "foo";
+                const AzureDevOpsPullRequestCommentThread thread = null;
+                const string value = "foo";
 
                 // When
                 var result = Record.Exception(() => thread.SetCommentSource(value));
@@ -464,7 +465,7 @@
                         Comments = new List<AzureDevOpsComment>(),
                         Properties = null,
                     };
-                var value = "foo";
+                const string value = "foo";
 
                 // When
                 var result = Record.Exception(() => thread.SetCommentSource(value));
@@ -477,7 +478,7 @@
             public void Should_Set_Comment_Source()
             {
                 // Given
-                var commentSource = "foo";
+                const string commentSource = "foo";
                 var thread =
                     new AzureDevOpsPullRequestCommentThread
                     {
@@ -502,8 +503,8 @@
             public void Should_Throw_If_Thread_Is_Null()
             {
                 // Given
-                AzureDevOpsPullRequestCommentThread thread = null;
-                var value = "foo";
+                const AzureDevOpsPullRequestCommentThread thread = null;
+                const string value = "foo";
 
                 // When
                 var result = Record.Exception(() => thread.SetProviderType(value));
@@ -538,7 +539,7 @@
             public void Should_Set_ProviderType()
             {
                 // Given
-                var providerType = "provType";
+                const string providerType = "provType";
                 var thread =
                     new AzureDevOpsPullRequestCommentThread
                     {
@@ -563,8 +564,8 @@
             public void Should_Throw_If_Thread_Is_Null()
             {
                 // Given
-                AzureDevOpsPullRequestCommentThread thread = null;
-                var value = "foo";
+                const AzureDevOpsPullRequestCommentThread thread = null;
+                const string value = "foo";
 
                 // When
                 var result = Record.Exception(() => thread.IsCommentSource(value));
@@ -586,7 +587,7 @@
                         Comments = new List<AzureDevOpsComment>(),
                         Properties = null,
                     };
-                var value = "foo";
+                const string value = "foo";
 
                 // When
                 var result = thread.IsCommentSource(value);
@@ -599,7 +600,7 @@
             public void Should_Return_True_For_Existing_Comment_Source()
             {
                 // Given
-                var commentSource = "foo";
+                const string commentSource = "foo";
                 var thread =
                     new AzureDevOpsPullRequestCommentThread
                     {
@@ -647,7 +648,7 @@
             public void Should_Throw_If_Thread_Is_Null()
             {
                 // Given
-                AzureDevOpsPullRequestCommentThread thread = null;
+                const AzureDevOpsPullRequestCommentThread thread = null;
 
                 // When
                 var result = Record.Exception(() => thread.GetIssueMessage());
@@ -681,7 +682,7 @@
             public void Should_Return_Message()
             {
                 // Given
-                var message = "foo";
+                const string message = "foo";
                 var thread =
                     new AzureDevOpsPullRequestCommentThread
                     {
@@ -707,8 +708,8 @@
             public void Should_Throw_If_Thread_Is_Null()
             {
                 // Given
-                AzureDevOpsPullRequestCommentThread thread = null;
-                var value = "foo";
+                const AzureDevOpsPullRequestCommentThread thread = null;
+                const string value = "foo";
 
                 // When
                 var result = Record.Exception(() => thread.SetIssueMessage(value));
@@ -730,7 +731,7 @@
                         Comments = new List<AzureDevOpsComment>(),
                         Properties = null,
                     };
-                var value = "foo";
+                const string value = "foo";
 
                 // When
                 var result = Record.Exception(() => thread.SetIssueMessage(value));
@@ -743,7 +744,7 @@
             public void Should_Return_Message()
             {
                 // Given
-                var message = "foo";
+                const string message = "foo";
                 var thread =
                     new AzureDevOpsPullRequestCommentThread
                     {

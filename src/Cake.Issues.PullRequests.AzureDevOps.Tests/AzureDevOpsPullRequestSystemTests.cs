@@ -7,6 +7,7 @@
     using Cake.Testing;
     using Xunit;
 
+    // ReSharper disable once ClassNeverInstantiated.Global
     public sealed class AzureDevOpsPullRequestSystemTests
     {
         public sealed class TheCtor
@@ -15,7 +16,7 @@
             public void Should_Throw_If_Log_Is_Null()
             {
                 // Given
-                ICakeLog log = null;
+                const ICakeLog log = null;
                 var settings =
                     new AzureDevOpsPullRequestSystemSettings(
                         new Uri("https://google.com"),
@@ -34,7 +35,7 @@
             {
                 // Given
                 var log = new FakeLog();
-                AzureDevOpsPullRequestSystemSettings settings = null;
+                const AzureDevOpsPullRequestSystemSettings settings = null;
 
                 // When
                 var result = Record.Exception(() => new AzureDevOpsPullRequestSystem(log, settings));

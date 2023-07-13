@@ -146,37 +146,46 @@
             // ReSharper disable once PossibleMultipleEnumeration
             issues.NotNull(nameof(issues));
 
+            if (this.azureDevOpsPullRequest.CodeReviewId <= 0)
+            {
+                this.Log.Error("Skipping creation of discussion thread since code review ID is not set.");
+                return new List<AzureDevOpsPullRequestCommentThread>();
+            }
+
             this.Log.Verbose("Creating new discussion threads");
-            var result = new List<AzureDevOpsPullRequestCommentThread>();
 
             // Code flow properties
-            var iterationId = 0;
-            IEnumerable<AzureDevOpsPullRequestIterationChange> changes = null;
-
-            if (this.azureDevOpsPullRequest.CodeReviewId > 0)
-            {
-                iterationId = this.GetCodeFlowLatestIterationId();
-                changes = this.GetCodeFlowChanges(iterationId);
-            }
+            var iterationId = this.GetCodeFlowLatestIterationId();
+            var changes = this.GetCodeFlowChanges(iterationId).ToList();
 
             // Filter issues not related to a file.
             if (!this.settings.ReportIssuesNotRelatedToAFile)
             {
+                // ReSharper disable once PossibleMultipleEnumeration
                 issues = issues.Where(x => x.AffectedFileRelativePath != null);
             }
+
+            var result = new List<AzureDevOpsPullRequestCommentThread>();
 
             // ReSharper disable once PossibleMultipleEnumeration
             foreach (var issue in issues)
             {
+                var changeTrackingId =
+                    this.TryGetCodeFlowChangeTrackingId(changes, issue.AffectedFileRelativePath);
+                if (changeTrackingId < 0)
+                {
+                    // Don't post comment if we couldn't determine the change.
+                    this.Log.Information(
+                        "Skipping discussion comment for the issue at line {0} from {1} since change tracking ID could not be determined",
+                        issue.Line,
+                        issue.AffectedFileRelativePath);
+                    continue;
+                }
+
                 this.Log.Information(
                     "Creating a discussion comment for the issue at line {0} from {1}",
                     issue.Line,
                     issue.AffectedFileRelativePath);
-
-                var newThread = new AzureDevOpsPullRequestCommentThread()
-                {
-                    Status = AzureDevOpsCommentThreadStatus.Active,
-                };
 
                 var discussionComment = new AzureDevOpsComment
                 {
@@ -185,27 +194,37 @@
                     Content = ContentProvider.GetContent(issue),
                 };
 
-                if (!this.AddThreadProperties(newThread, changes, issue, iterationId, commentSource))
+                var newThread = new AzureDevOpsPullRequestCommentThread()
                 {
-                    continue;
-                }
+                    Status = AzureDevOpsCommentThreadStatus.Active,
+                    Comments = new List<AzureDevOpsComment> { discussionComment },
+                    Properties = this.GetThreadProperties(changeTrackingId, issue, iterationId),
+                };
 
-                newThread.Comments = new List<AzureDevOpsComment> { discussionComment };
+                // Add a custom property to be able to distinguish all comments created this way.
+                newThread.SetCommentSource(commentSource);
+
+                // Add custom property for identifying the comment for subsequent runs
+                newThread.SetCommentIdentifier(issue.Identifier);
+
+                // Add a custom property to be able to distinguish all comments by provider type later on
+                newThread.SetProviderType(issue.ProviderType);
+
+                // Add a custom property to be able to return issue message from existing threads,
+                // without any formatting done by this addin, back to Cake.Issues.PullRequests.
+                newThread.SetIssueMessage(issue.MessageText);
+
                 result.Add(newThread);
             }
 
             return result;
         }
 
-        private bool AddThreadProperties(
-            AzureDevOpsPullRequestCommentThread thread,
-            IEnumerable<AzureDevOpsPullRequestIterationChange> changes,
+        private Dictionary<string, object> GetThreadProperties(
+            int changeTrackingId,
             IIssue issue,
-            int iterationId,
-            string commentSource)
+            int iterationId)
         {
-            thread.NotNull(nameof(thread));
-            changes.NotNull(nameof(changes));
             issue.NotNull(nameof(issue));
 
             var properties = new Dictionary<string, object>();
@@ -214,14 +233,6 @@
             {
                 if (this.azureDevOpsPullRequest.CodeReviewId > 0)
                 {
-                    var changeTrackingId =
-                        this.TryGetCodeFlowChangeTrackingId(changes, issue.AffectedFileRelativePath);
-                    if (changeTrackingId < 0)
-                    {
-                        // Don't post comment if we couldn't determine the change.
-                        return false;
-                    }
-
                     AddCodeFlowProperties(issue, iterationId, changeTrackingId, properties);
                 }
                 else
@@ -233,22 +244,7 @@
             // An Azure DevOps UI extension will recognize this and format the comments differently.
             properties.Add("CodeAnalysisThreadType", "CodeAnalysisIssue");
 
-            thread.Properties = properties;
-
-            // Add a custom property to be able to distinguish all comments created this way.
-            thread.SetCommentSource(commentSource);
-
-            // Add custom property for identifying the comment for subsequent runs
-            thread.SetCommentIdentifier(issue.Identifier);
-
-            // Add a custom property to be able to distinguish all comments by provider type later on
-            thread.SetProviderType(issue.ProviderType);
-
-            // Add a custom property to be able to return issue message from existing threads,
-            // without any formatting done by this addin, back to Cake.Issues.PullRequests.
-            thread.SetIssueMessage(issue.MessageText);
-
-            return true;
+            return properties;
         }
 
         private int GetCodeFlowLatestIterationId()
@@ -260,45 +256,53 @@
 
         private IEnumerable<AzureDevOpsPullRequestIterationChange> GetCodeFlowChanges(int iterationId)
         {
-            var changes = this.azureDevOpsPullRequest.GetIterationChanges(iterationId);
+            var changes =
+                this.azureDevOpsPullRequest.GetIterationChanges(iterationId);
 
-            if (changes != null)
+            if (changes == null)
             {
-                this.Log.Verbose("Change count: {0}", changes.Count());
+                this.Log.Warning("Changes for iteration {0} could not be detected", iterationId);
+                return new List<AzureDevOpsPullRequestIterationChange>();
             }
 
-            return changes;
+            var result = changes.ToList();
+            this.Log.Verbose("Change count: {0}", result.Count);
+
+            return result;
         }
 
         private int TryGetCodeFlowChangeTrackingId(IEnumerable<AzureDevOpsPullRequestIterationChange> changes, FilePath path)
         {
+            // ReSharper disable once PossibleMultipleEnumeration
             changes.NotNull(nameof(changes));
             path.NotNull(nameof(path));
 
-            var change = changes.Where(x => x.ItemPath != null && x.ItemPath.FullPath == "/" + path.ToString()).ToList();
+            // ReSharper disable once PossibleMultipleEnumeration
+            var change =
+                changes
+                    .Where(x => x.ItemPath != null && x.ItemPath.FullPath == "/" + path)
+                    .ToList();
 
-            if (change.Count == 0)
+            switch (change.Count)
             {
-                this.Log.Error(
-                    "Cannot post a comment for the file {0} because no changes on the pull request server could be found.",
-                    path);
-                return -1;
-            }
-
-            if (change.Count > 1)
-            {
-                this.Log.Error(
-                    "Cannot post a comment for the file {0} because more than one change has been found on the pull request server:" + Environment.NewLine + "{1}",
-                    path,
-                    string.Join(
-                        Environment.NewLine,
-                        change.Select(
-                            x => string.Format(
-                                CultureInfo.InvariantCulture,
-                                "  ID: {0}, Path: {1}",
-                                x.ChangeId,
-                                x.ItemPath))));
-                return -1;
+                case 0:
+                    this.Log.Error(
+                        "Cannot post a comment for the file {0} because no changes on the pull request server could be found.",
+                        path);
+                    return -1;
+                case > 1:
+                    this.Log.Error(
+                        "Cannot post a comment for the file {0} because more than one change has been found on the pull request server:" + Environment.NewLine + "{1}",
+                        path,
+                        string.Join(
+                            Environment.NewLine,
+                            change.Select(
+                                x => string.Format(
+                                    CultureInfo.InvariantCulture,
+                                    "  ID: {0}, Path: {1}",
+                                    x.ChangeId,
+                                    x.ItemPath))));
+                    return -1;
             }
 
             var changeTrackingId = change.Single().ChangeTrackingId;
