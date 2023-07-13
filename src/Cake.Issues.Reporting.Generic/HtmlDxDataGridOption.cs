@@ -348,7 +348,7 @@
         /// <summary>
         /// Version of <see href="https://jquery.com">jQuery</see> which should be used.
         /// This version needs to match the version required by the selected <see cref="DevExtremeVersion"/>.
-        /// Default value is <c>3.6.0</c>.
+        /// Default value is <c>3.7.0</c>.
         /// </summary>
         JQueryVersion,
 
@@ -375,7 +375,7 @@
         /// <summary>
         /// Version of the <see href="https://js.devexpress.com/">DevExtreme </see> libraries which should be used.
         /// If setting this the matching <see cref="JQueryVersion"/> needs to also be set.
-        /// Default value is <c>21.2.3</c>.
+        /// Default value is <c>22.2.6</c>.
         /// </summary>
         DevExtremeVersion,
 
@@ -442,7 +442,7 @@
         /// <summary>
         /// Version of <see href="https://github.com/eligrey/FileSaver.js/">FileSaver.js</see> which should be used.
         /// This version needs to match the version required by the selected <see cref="DevExtremeVersion"/>.
-        /// Default value is <c>2.0.4</c>.
+        /// Default value is <c>2.0.5</c>.
         /// </summary>
         FileSaverJsVersion,
 
@@ -462,7 +462,7 @@
         /// <summary>
         /// Version of <see href="https://github.com/MrRio/jsPDF">jsPDF</see> which should be used.
         /// This version needs to match the version required by the selected <see cref="DevExtremeVersion"/>.
-        /// Default value is <c>2.4.0</c>.
+        /// Default value is <c>2.5.1</c>.
         /// </summary>
         JsPdfVersion,
 
@@ -482,7 +482,7 @@
         /// <summary>
         /// Version of <see href="https://github.com/simonbengtsson/jsPDF-AutoTable">jsPDF-AutoTable plugin</see> which should be used.
         /// This version needs to match the version required by the selected <see cref="DevExtremeVersion"/>.
-        /// Default value is <c>3.5.22</c>.
+        /// Default value is <c>3.5.29</c>.
         /// </summary>
         JsPdfAutotableVersion,
     }

@@ -3,7 +3,7 @@ Order: 20
 Title: HTML Data Table
 Description: Template for a HTML report containing a rich data table view with sorting and search functionality.
 ---
-Template for a HTML report containing a rich data table view with sorting and search functionality powered by [Vanilla-DataTables].
+Template for a HTML report containing a rich data table view with sorting and search functionality powered by [Simple-DataTables].
 
 ![HTML Data Table](htmldatatable01.png "HTML Data Table")
 
@@ -48,7 +48,7 @@ You can use the source code as a template for your [custom template].
 
 Source code is available on [GitHub].
 
-[Vanilla-DataTables]: https://github.com/Mobius1/Vanilla-DataTables
+[Simple-DataTables]: https://github.com/fiduswriter/Simple-DataTables
 [GenericIssueReportTemplate.HtmlDataTable]: ../../../../../Cake.Issues.Website/api/Cake.Issues.Reporting.Generic/GenericIssueReportTemplate/62ADE81F
 [custom template]: ../examples/custom-template
 [GitHub]: https://github.com/cake-contrib/Cake.Issues.Reporting.Generic/blob/develop/src/Cake.Issues.Reporting.Generic/Templates/DataTable.cshtml

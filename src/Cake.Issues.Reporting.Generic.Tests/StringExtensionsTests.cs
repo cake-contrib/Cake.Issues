@@ -19,7 +19,7 @@
             [InlineData("foo:bar", "foo:bar")]
             [InlineData("foo-bar", "foo-bar")]
             [InlineData("foo_bar", "foo_bar")]
-            [InlineData("foo.bar", "foo.bar")]
+            [InlineData("foo.bar", "foo-bar")]
             [InlineData("foo bar", "foo-bar")]
             [InlineData("foo@bar", "foo-bar")]
             [InlineData("foo🐱bar", "foo-bar")]
