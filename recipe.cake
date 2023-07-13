@@ -14,7 +14,8 @@ BuildParameters.SetParameters(
     repositoryOwner: "cake-contrib",
     repositoryName: "Cake.Issues",
     appVeyorAccountName: "cakecontrib",
-    shouldRunCoveralls: false); // Disabled because it's currently failing
+    shouldRunCoveralls: false,  // Disabled because it's currently failing
+    shouldPostToGitter: false); // Disabled because it's currently failing
 
 BuildParameters.PrintParameters(Context);
 
