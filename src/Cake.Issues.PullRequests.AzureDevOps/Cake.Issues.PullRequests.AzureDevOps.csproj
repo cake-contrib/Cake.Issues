@@ -32,7 +32,7 @@ See the Project Site for an overview of the whole ecosystem of addins for workin
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/cake-contrib/Cake.Issues.PullRequests.AzureDevOps.git</RepositoryUrl>
-    <PackageReleaseNotes>https://github.com/cake-contrib/Cake.Issues.PullRequests.AzureDevOps/releases/tag/2.0.0</PackageReleaseNotes>
+    <PackageReleaseNotes>https://github.com/cake-contrib/Cake.Issues.PullRequests.AzureDevOps/releases/tag/3.0.0</PackageReleaseNotes>
   </PropertyGroup>
 
    <ItemGroup>
@@ -42,8 +42,8 @@ See the Project Site for an overview of the whole ecosystem of addins for workin
 
   <ItemGroup>
     <PackageReference Include="Cake.Core" Version="3.0.0" PrivateAssets="All" />
-    <PackageReference Include="Cake.Issues" Version="3.0.0-beta0001" PrivateAssets="All" />
-    <PackageReference Include="Cake.Issues.PullRequests" Version="3.0.0-beta0001" PrivateAssets="All" />
+    <PackageReference Include="Cake.Issues" Version="3.0.0" PrivateAssets="All" />
+    <PackageReference Include="Cake.Issues.PullRequests" Version="3.0.0" PrivateAssets="All" />
     <PackageReference Include="Cake.AzureDevOps" Version="3.0.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="7.0.3">
       <PrivateAssets>all</PrivateAssets>
