@@ -1,7 +1,7 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp3.1;net5.0;net6.0</TargetFrameworks>
+    <TargetFrameworks>net6.0;net7.0</TargetFrameworks>
     <Description>Addin for writing code analyzer or linter issues to AppVeyor</Description>
     <Authors>Pascal Berger</Authors>
     <Copyright>Copyright © Pascal Berger and contributors</Copyright>
@@ -16,11 +16,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Cake.Common" Version="2.0.0" PrivateAssets="All" />
-    <PackageReference Include="Cake.Core" Version="2.0.0" PrivateAssets="All" />
-    <PackageReference Include="Cake.Issues" Version="2.0.0" />
-    <PackageReference Include="Cake.Issues.PullRequests" Version="2.0.0" />
-    <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="6.0.0">
+    <PackageReference Include="Cake.Common" Version="3.0.0" PrivateAssets="All" />
+    <PackageReference Include="Cake.Core" Version="3.0.0" PrivateAssets="All" />
+    <PackageReference Include="Cake.Issues" Version="3.0.0" />
+    <PackageReference Include="Cake.Issues.PullRequests" Version="3.0.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="7.0.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
