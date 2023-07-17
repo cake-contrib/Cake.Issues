@@ -28,26 +28,29 @@ The addin requires Cake Frosting 1.2.0 or higher.
     <repository type="git" url="https://github.com/cake-contrib/Cake.Issues.Reporting.Console.git"/>
     <copyright>Copyright © Pascal Berger</copyright>
     <tags>cake cake-addin cake-issues cake-reportformat issues reporting console</tags>
-    <releaseNotes>https://github.com/cake-contrib/Cake.Issues.Reporting.Console/releases/tag/2.0.0</releaseNotes>
+    <releaseNotes>https://github.com/cake-contrib/Cake.Issues.Reporting.Console/releases/tag/3.0.0</releaseNotes>
     <dependencies>
-      <group targetFramework=".NETStandard2.0">
-        <dependency id="Cake.Core" version="[1.2,2.0)" exclude="Build,Analyzers" />
-        <dependency id="Cake.Issues" version="[1.0,2.0)" exclude="Build,Analyzers" />
-        <dependency id="Cake.Issues.Reporting" version="[1.0,2.0)" exclude="Build,Analyzers" />
-        <dependency id="Errata" version="0.6.0" exclude="Build,Analyzers" />
+      <group targetFramework="net6.0">
+        <dependency id="Cake.Core" version="3.0" exclude="Build,Analyzers" />
+        <dependency id="Cake.Issues" version="[3.0.0-*,4.0)" exclude="Build,Analyzers" />
+        <dependency id="Cake.Issues.Reporting" version="[3.0.0-*,4.0)" exclude="Build,Analyzers" />
+        <dependency id="Errata" version="0.10.0" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework="net7.0">
+        <dependency id="Cake.Core" version="3.0" exclude="Build,Analyzers" />
+        <dependency id="Cake.Issues" version="[3.0.0-*,4.0)" exclude="Build,Analyzers" />
+        <dependency id="Cake.Issues.Reporting" version="[3.0.0-*,4.0)" exclude="Build,Analyzers" />
+        <dependency id="Errata" version="0.10.0" exclude="Build,Analyzers" />
       </group>
     </dependencies>
   </metadata>
   <files>
     <file src="icon.png" target="" />
-    <file src="..\..\src\Cake.Issues.Reporting.Console\bin\Release\netcoreapp3.1\Cake.Issues.Reporting.Console.dll" target="lib\netcoreapp3.1" />
-    <file src="..\..\src\Cake.Issues.Reporting.Console\bin\Release\netcoreapp3.1\Cake.Issues.Reporting.Console.pdb" target="lib\netcoreapp3.1" />
-    <file src="..\..\src\Cake.Issues.Reporting.Console\bin\Release\netcoreapp3.1\Cake.Issues.Reporting.Console.xml" target="lib\netcoreapp3.1" />
-    <file src="..\..\src\Cake.Issues.Reporting.Console\bin\Release\net5.0\Cake.Issues.Reporting.Console.dll" target="lib\net5.0" />
-    <file src="..\..\src\Cake.Issues.Reporting.Console\bin\Release\net5.0\Cake.Issues.Reporting.Console.pdb" target="lib\net5.0" />
-    <file src="..\..\src\Cake.Issues.Reporting.Console\bin\Release\net5.0\Cake.Issues.Reporting.Console.xml" target="lib\net5.0" />
     <file src="..\..\src\Cake.Issues.Reporting.Console\bin\Release\net6.0\Cake.Issues.Reporting.Console.dll" target="lib\net6.0" />
     <file src="..\..\src\Cake.Issues.Reporting.Console\bin\Release\net6.0\Cake.Issues.Reporting.Console.pdb" target="lib\net6.0" />
     <file src="..\..\src\Cake.Issues.Reporting.Console\bin\Release\net6.0\Cake.Issues.Reporting.Console.xml" target="lib\net6.0" />
+    <file src="..\..\src\Cake.Issues.Reporting.Console\bin\Release\net7.0\Cake.Issues.Reporting.Console.dll" target="lib\net7.0" />
+    <file src="..\..\src\Cake.Issues.Reporting.Console\bin\Release\net7.0\Cake.Issues.Reporting.Console.pdb" target="lib\net7.0" />
+    <file src="..\..\src\Cake.Issues.Reporting.Console\bin\Release\net7.0\Cake.Issues.Reporting.Console.xml" target="lib\net7.0" />
   </files>
 </package>

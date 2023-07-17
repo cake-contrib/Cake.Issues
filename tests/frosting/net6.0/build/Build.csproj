@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <RunWorkingDirectory>$(MSBuildProjectDirectory)</RunWorkingDirectory>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Cake.Frosting" Version="3.0.0" />
+    <PackageReference Include="Cake.Issues" Version="3.0.0-beta0002" />
+    <PackageReference Include="Cake.Issues.Reporting" Version="3.0.0-beta0002" />
+    <PackageReference Include="Cake.Frosting.Issues.Reporting.Console" Version="*-*" />
+  </ItemGroup>
+</Project>
