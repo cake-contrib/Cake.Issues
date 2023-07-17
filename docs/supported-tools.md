@@ -15,14 +15,12 @@ Cake.Issues recipes support reading issues from output of the following tools:
 | MsBuild                           | [MSBuild Extension Pack XmlFileLogger] | `IssuesParameters.InputFiles.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`AddMsBuildXmlFileLoggerLogFile()` | `IssuesContext.Parameters.InputFiles.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`AddMsBuildXmlFileLoggerLogFile()` |
 | MsBuild                           | Binary Log File                        | `IssuesParameters.InputFiles.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`AddMsBuildBinaryLogFile()`        | `IssuesContext.Parameters.InputFiles.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`AddMsBuildBinaryLogFile()`        |
 | JetBrains InspectCode (ReSharper) |                                        | `IssuesParameters.InputFiles.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`AddInspectCodeLogFile()`          | `IssuesContext.Parameters.InputFiles.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`AddInspectCodeLogFile()`          |
-| [JetBrains dupFinder]             |                                        | `IssuesParameters.InputFiles.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`AddDupFinderLogFile()`            | `IssuesContext.Parameters.InputFiles.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`AddDupFinderLogFile()`            |
 | markdownlint                      | [markdownlint-cli]                     | `IssuesParameters.InputFiles.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`AddMarkdownlintCliLogFile()`      | `IssuesContext.Parameters.InputFiles.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`AddMarkdownlintCliLogFile()`      |
 | markdownlint                      | [markdownlint-cli] with `--json`       | `IssuesParameters.InputFiles.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`AddMarkdownlintCliJsonLogFile()`  | `IssuesContext.Parameters.InputFiles.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`AddMarkdownlintCliJsonLogFile()`  |
 | markdownlint                      | [markdownlint] version 1               | `IssuesParameters.InputFiles.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`AddMarkdownlintV1LogFile()`       | `IssuesContext.Parameters.InputFiles.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`AddMarkdownlintV1LogFile()`       |
 | [ESLint]                          | [json formatter]                       | `IssuesParameters.InputFiles.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`AddEsLintJsonLogFile()`           | `IssuesContext.Parameters.InputFiles.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`AddEsLintJsonLogFile()`           |
 
 [MSBuild Extension Pack XmlFileLogger]: http://www.msbuildextensionpack.com/help/4.0.5.0/html/242ab4fd-c2e2-f6aa-325b-7588725aed24.htm
-[JetBrains dupFinder]: https://www.jetbrains.com/help/resharper/dupFinder.html
 [markdownlint-cli]: https://github.com/igorshubovych/markdownlint-cli
 [markdownlint]: https://github.com/DavidAnson/markdownlint
 [ESLint]: https://eslint.org/
