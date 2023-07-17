@@ -1,12 +1,12 @@
 ﻿namespace Cake.Issues.InspectCode
 {
-    using Cake.Core.Diagnostics;
     using System;
     using System.Collections.Generic;
     using System.Globalization;
     using System.IO;
     using System.Linq;
     using System.Xml.Linq;
+    using Cake.Core.Diagnostics;
 
     /// <summary>
     /// Provider for issues reported by JetBrains Inspect Code.
@@ -41,8 +41,8 @@
                     x => x.Attribute("Id")?.Value,
                     x => new IssueType
                     {
-                        Description = x.Attribute("Description").Value,
-                        Severity = x.Attribute("Severity").Value,
+                        Description = x.Attribute("Description")?.Value,
+                        Severity = x.Attribute("Severity")?.Value,
                         WikiUrl = x.Attribute("WikiUrl")?.Value.ToUri(),
                     });
 
@@ -50,31 +50,31 @@
             foreach (var issue in logDocument.Descendants("Issue"))
             {
                 // Read affected project from the issue.
-                if (!TryGetProject(issue, out string projectName))
+                if (!TryGetProject(issue, out var projectName))
                 {
                     continue;
                 }
 
                 // Read affected file from the issue.
-                if (!TryGetFile(issue, solutionPath, out string fileName))
+                if (!TryGetFile(issue, solutionPath, out var fileName))
                 {
                     continue;
                 }
 
                 // Read affected line from the issue.
-                if (!TryGetLine(issue, out int line))
+                if (!TryGetLine(issue, out var line))
                 {
                     continue;
                 }
 
                 // Read rule code from the issue.
-                if (!TryGetRuleId(issue, out string ruleId))
+                if (!TryGetRuleId(issue, out var ruleId))
                 {
                     continue;
                 }
 
                 // Read message from the issue.
-                if (!TryGetMessage(issue, out string message))
+                if (!TryGetMessage(issue, out var message))
                 {
                     continue;
                 }
@@ -252,23 +252,14 @@
         /// <returns>Priority.</returns>
         private static IssuePriority GetPriority(string severity)
         {
-            switch (severity.ToLowerInvariant())
+            return severity.ToLowerInvariant() switch
             {
-                case "hint":
-                    return IssuePriority.Hint;
-
-                case "suggestion":
-                    return IssuePriority.Suggestion;
-
-                case "warning":
-                    return IssuePriority.Warning;
-
-                case "error":
-                    return IssuePriority.Error;
-
-                default:
-                    return IssuePriority.Undefined;
-            }
+                "hint" => IssuePriority.Hint,
+                "suggestion" => IssuePriority.Suggestion,
+                "warning" => IssuePriority.Warning,
+                "error" => IssuePriority.Error,
+                _ => IssuePriority.Undefined,
+            };
         }
 
         /// <summary>
@@ -277,19 +268,19 @@
         private class IssueType
         {
             /// <summary>
-            /// Gets or sets the description of the issue.
+            /// Gets the description of the issue.
             /// </summary>
-            public string Description { get; set; }
+            public string Description { get; init; }
 
             /// <summary>
-            /// Gets or sets the severity of this issue type.
+            /// Gets the severity of this issue type.
             /// </summary>
-            public string Severity { get; set; }
+            public string Severity { get; init; }
 
             /// <summary>
-            /// Gets or sets the URL to the page containing documentation about this issue type.
+            /// Gets the URL to the page containing documentation about this issue type.
             /// </summary>
-            public Uri WikiUrl { get; set; }
+            public Uri WikiUrl { get; init; }
         }
     }
 }
