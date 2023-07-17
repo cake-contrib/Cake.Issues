@@ -9,7 +9,7 @@
     internal class MarkdownlintRuleUrlResolver : BaseRuleUrlResolver<MarkdownlintRuleDescription>
     {
         private static readonly Lazy<MarkdownlintRuleUrlResolver> InstanceValue =
-            new Lazy<MarkdownlintRuleUrlResolver>(() => new MarkdownlintRuleUrlResolver());
+            new(() => new MarkdownlintRuleUrlResolver());
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MarkdownlintRuleUrlResolver"/> class.

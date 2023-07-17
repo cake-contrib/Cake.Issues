@@ -79,7 +79,7 @@
                         GetFilePath(logFileEntry.fileName, repositorySettings),
                         logFileEntry.lineNumber,
                         logFileEntry.errorRange != null ? logFileEntry.lineNumber : null,
-                        logFileEntry.errorRange != null ? logFileEntry.errorRange[0] : null,
+                        logFileEntry.errorRange?[0],
                         logFileEntry.errorRange != null ? logFileEntry.errorRange[0] + logFileEntry.errorRange[1] : null)
                     .WithPriority(IssuePriority.Warning)
                     .OfRule(logFileEntry.ruleNames.First(), new Uri(logFileEntry.ruleInformation))
