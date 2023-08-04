@@ -34,7 +34,7 @@
     <EmbeddedResource Include="Testfiles\entry-with-line-0.json" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.6.3" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.7.0" />
     <PackageReference Include="Cake.Issues" Version="3.0.0" />
     <PackageReference Include="Cake.Issues.Testing" Version="3.0.0" />
     <PackageReference Include="Cake.Testing" Version="3.0.0" />
