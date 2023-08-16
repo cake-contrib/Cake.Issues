@@ -25,16 +25,16 @@
     <PackageReference Include="Cake.Issues" Version="3.0.0" />
     <PackageReference Include="Cake.Issues.Testing" Version="3.0.0" />
     <PackageReference Include="Cake.Testing" Version="3.0.0" />
-    <PackageReference Include="Shouldly" Version="4.1.0" />
+    <PackageReference Include="Shouldly" Version="4.2.1" />
     <PackageReference Include="StyleCop.Analyzers">
       <Version>1.1.118</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.6.2" />
-    <PackageReference Include="xunit" Version="2.4.2" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.7.0" />
+    <PackageReference Include="xunit" Version="2.5.0" />
     <PackageReference Include="xunit.runner.visualstudio">
-      <Version>2.4.5</Version>
+      <Version>2.5.0</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
