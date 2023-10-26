@@ -1,5 +1,6 @@
 ﻿namespace Cake.Issues.PullRequests.Tests
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using Cake.Core.IO;
@@ -157,7 +158,9 @@
                             new Dictionary<IIssue, IssueCommentInfo>()));
 
                     // Then
-                    result.IsPullRequestIssuesException(@"Absolute file paths are not supported for modified files. Path: c:/FakeIssueProvider.cs");
+                    result.IsPullRequestIssuesException(
+                        @"Absolute file paths are not supported for modified files:" + Environment.NewLine +
+                        @"  c:/FakeIssueProvider.cs");
                 }
 
                 [Fact]
