@@ -3,6 +3,7 @@
     using System;
     using System.Diagnostics.CodeAnalysis;
     using Cake.Issues.Testing;
+    using Shouldly;
     using Xunit;
 
     [SuppressMessage("ReSharper", "ClassNeverInstantiated.Global", Justification = "Instantiated by test runner")]
@@ -39,7 +40,7 @@
                 dynamic result = issue.GetExpandoObject(addProviderType: true);
 
                 // Then
-                Assert.Equal(result.ProviderType, providerType);
+                ((string)result.ProviderType).ShouldBe(providerType);
             }
 
             [Fact]
@@ -73,7 +74,7 @@
                 dynamic result = issue.GetExpandoObject(addProviderName: true);
 
                 // Then
-                Assert.Equal(result.ProviderName, providerName);
+                ((string)result.ProviderName).ShouldBe(providerName);
             }
 
             [Fact]
@@ -108,7 +109,7 @@
                 dynamic result = issue.GetExpandoObject(addPriority: true);
 
                 // Then
-                Assert.Equal(result.Priority, (int)priority);
+                ((int)result.Priority).ShouldBe((int)priority);
             }
 
             [Fact]
@@ -143,7 +144,7 @@
                 dynamic result = issue.GetExpandoObject(addPriorityName: true);
 
                 // Then
-                Assert.Equal(result.PriorityName, priorityName);
+                ((string)result.PriorityName).ShouldBe(priorityName);
             }
 
             [Fact]
@@ -178,7 +179,7 @@
                 dynamic result = issue.GetExpandoObject(addProjectPath: true);
 
                 // Then
-                Assert.Equal(result.ProjectPath, @"src/Cake.Issues.Reporting.Generic.Tests/Cake.Issues.Reporting.Generic.Tests.csproj");
+                ((string)result.ProjectPath).ShouldBe(@"src/Cake.Issues.Reporting.Generic.Tests/Cake.Issues.Reporting.Generic.Tests.csproj");
             }
 
             [Fact]
@@ -213,7 +214,7 @@
                 dynamic result = issue.GetExpandoObject(addProjectName: true);
 
                 // Then
-                Assert.Equal(result.ProjectName, projectName);
+                ((string)result.ProjectName).ShouldBe(projectName);
             }
 
             [Fact]
@@ -248,7 +249,7 @@
                 dynamic result = issue.GetExpandoObject(addFilePath: true);
 
                 // Then
-                Assert.Equal(result.FilePath, "src/Cake.Issues.Reporting.Generic.Tests/Foo.cs");
+                ((string)result.FilePath).ShouldBe("src/Cake.Issues.Reporting.Generic.Tests/Foo.cs");
             }
 
             [Fact]
@@ -283,7 +284,7 @@
                 dynamic result = issue.GetExpandoObject(addFileDirectory: true);
 
                 // Then
-                Assert.Equal(result.FileDirectory, "src/Cake.Issues.Reporting.Generic.Tests");
+                ((string)result.FileDirectory).ShouldBe("src/Cake.Issues.Reporting.Generic.Tests");
             }
 
             [Fact]
@@ -318,7 +319,7 @@
                 dynamic result = issue.GetExpandoObject(addFileName: true);
 
                 // Then
-                Assert.Equal(result.FileName, "Foo.cs");
+                ((string)result.FileName).ShouldBe("Foo.cs");
             }
 
             [Fact]
@@ -353,7 +354,7 @@
                 dynamic result = issue.GetExpandoObject(addFileLink: true);
 
                 // Then
-                Assert.Equal(result.FileLink.ToString(), fileLink.ToString());
+                ((string)result.FileLink).ShouldBe(fileLink.ToString());
             }
 
             [Fact]
@@ -389,7 +390,7 @@
                 dynamic result = issue.GetExpandoObject(addLine: true);
 
                 // Then
-                Assert.Equal(result.Line, line);
+                ((int)result.Line).ShouldBe(line);
             }
 
             [Fact]
@@ -426,7 +427,7 @@
                 dynamic result = issue.GetExpandoObject(addEndLine: true);
 
                 // Then
-                Assert.Equal(result.EndLine, endLine);
+                ((int)result.EndLine).ShouldBe(endLine);
             }
 
             [Fact]
@@ -465,7 +466,7 @@
                 dynamic result = issue.GetExpandoObject(addColumn: true);
 
                 // Then
-                Assert.Equal(result.Column, column);
+                ((int)result.Column).ShouldBe(column);
             }
 
             [Fact]
@@ -504,7 +505,7 @@
                 dynamic result = issue.GetExpandoObject(addEndColumn: true);
 
                 // Then
-                Assert.Equal(result.EndColumn, endColumn);
+                ((int)result.EndColumn).ShouldBe(endColumn);
             }
 
             [Fact]
@@ -541,7 +542,7 @@
                 dynamic result = issue.GetExpandoObject(addLocation: true);
 
                 // Then
-                Assert.Equal(result.Location, $"{line}-{endLine}");
+                ((string)result.Location).ShouldBe($"{line}-{endLine}");
             }
 
             [Fact]
@@ -576,7 +577,7 @@
                 dynamic result = issue.GetExpandoObject(addRuleId: true);
 
                 // Then
-                Assert.Equal(result.RuleId, ruleId);
+                ((string)result.RuleId).ShouldBe(ruleId);
             }
 
             [Fact]
@@ -611,7 +612,7 @@
                 dynamic result = issue.GetExpandoObject(addRuleName: true);
 
                 // Then
-                Assert.Equal(result.RuleName, ruleName);
+                ((string)result.RuleName).ShouldBe(ruleName);
             }
 
             [Fact]
@@ -647,7 +648,7 @@
                 dynamic result = issue.GetExpandoObject(addRuleUrl: true);
 
                 // Then
-                Assert.Equal(result.RuleUrl.ToString(), ruleUrl.ToString());
+                ((string)result.RuleUrl).ShouldBe(ruleUrl.ToString());
             }
 
             [Fact]
@@ -681,7 +682,7 @@
                 dynamic result = issue.GetExpandoObject(addMessageText: true);
 
                 // Then
-                Assert.Equal(result.MessageText, message);
+                ((string)result.MessageText).ShouldBe(message);
             }
 
             [Fact]
@@ -716,7 +717,7 @@
                 dynamic result = issue.GetExpandoObject(addMessageHtml: true);
 
                 // Then
-                Assert.Equal(result.MessageHtml, messageHtml);
+                ((string)result.MessageHtml).ShouldBe(messageHtml);
             }
 
             [Fact]
@@ -750,7 +751,7 @@
                 dynamic result = issue.GetExpandoObject(addMessageHtml: true);
 
                 // Then
-                Assert.Equal(result.MessageHtml, messageText);
+                ((string)result.MessageHtml).ShouldBe(messageText);
             }
 
             [Fact]
@@ -767,7 +768,7 @@
                 dynamic result = issue.GetExpandoObject(addMessageHtml: true, fallbackToTextMessageIfHtmlMessageNotAvailable: true);
 
                 // Then
-                Assert.Equal(result.MessageHtml, messageText);
+                ((string)result.MessageHtml).ShouldBe(messageText);
             }
 
             [Fact]
@@ -784,7 +785,7 @@
                 dynamic result = issue.GetExpandoObject(addMessageHtml: true, fallbackToTextMessageIfHtmlMessageNotAvailable: false);
 
                 // Then
-                Assert.Equal(result.MessageHtml, null);
+                ((string)result.MessageHtml).ShouldBeNull();
             }
 
             [Fact]
@@ -802,7 +803,7 @@
                 dynamic result = issue.GetExpandoObject(addMessageMarkdown: true);
 
                 // Then
-                Assert.Equal(result.MessageMarkdown, messageMarkdown);
+                ((string)result.MessageMarkdown).ShouldBe(messageMarkdown);
             }
 
             [Fact]
@@ -836,7 +837,7 @@
                 dynamic result = issue.GetExpandoObject(addMessageMarkdown: true);
 
                 // Then
-                Assert.Equal(result.MessageMarkdown, messageText);
+                ((string)result.MessageMarkdown).ShouldBe(messageText);
             }
 
             [Fact]
@@ -853,7 +854,7 @@
                 dynamic result = issue.GetExpandoObject(addMessageMarkdown: true, fallbackToTextMessageIfMarkdownMessageNotAvailable: true);
 
                 // Then
-                Assert.Equal(result.MessageMarkdown, messageText);
+                ((string)result.MessageMarkdown).ShouldBe(messageText);
             }
 
             [Fact]
@@ -870,7 +871,7 @@
                 dynamic result = issue.GetExpandoObject(addMessageMarkdown: true, fallbackToTextMessageIfMarkdownMessageNotAvailable: false);
 
                 // Then
-                Assert.Equal(result.MessageMarkdown, null);
+                ((string)result.MessageMarkdown).ShouldBeNull();
             }
         }
     }
