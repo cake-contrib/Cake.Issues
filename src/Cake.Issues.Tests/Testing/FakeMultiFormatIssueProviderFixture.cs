@@ -2,14 +2,9 @@
 {
     using Cake.Issues.Testing;
 
-    internal sealed class FakeMultiFormatIssueProviderFixture
-        : BaseMultiFormatIssueProviderFixture<FakeMultiFormatIssueProvider, FakeMultiFormatIssueProviderSettings, FakeLogFileFormat>
+    internal sealed class FakeMultiFormatIssueProviderFixture(string fileResourceName)
+                : BaseMultiFormatIssueProviderFixture<FakeMultiFormatIssueProvider, FakeMultiFormatIssueProviderSettings, FakeLogFileFormat>(fileResourceName)
     {
-        public FakeMultiFormatIssueProviderFixture(string fileResourceName)
-            : base(fileResourceName)
-        {
-        }
-
         protected override string FileResourceNamespace => "Cake.Issues.Tests.Testfiles.";
     }
 }

@@ -6,18 +6,10 @@
     /// <summary>
     /// Implementation of a <see cref="BasePullRequestSystem"/> for use in test cases.
     /// </summary>
-    public class FakePullRequestSystem : BasePullRequestSystem
+    /// <param name="log">The Cake log instance.</param>
+    public class FakePullRequestSystem(ICakeLog log) : BasePullRequestSystem(log)
     {
         private readonly List<IIssue> postedIssues = [];
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="FakePullRequestSystem"/> class.
-        /// </summary>
-        /// <param name="log">The Cake log instance.</param>
-        public FakePullRequestSystem(ICakeLog log)
-            : base(log)
-        {
-        }
 
         /// <summary>
         /// Gets the log instance.

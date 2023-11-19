@@ -7,18 +7,10 @@
     /// <summary>
     /// Settings affecting how issues read from issue provider are reported to pull requests.
     /// </summary>
-    public class ReportIssuesToPullRequestFromIssueProviderSettings : ReadIssuesSettings, IReportIssuesToPullRequestFromIssueProviderSettings
+    /// <param name="repositoryRoot">Root path of the repository.</param>
+    public class ReportIssuesToPullRequestFromIssueProviderSettings(DirectoryPath repositoryRoot) : ReadIssuesSettings(repositoryRoot), IReportIssuesToPullRequestFromIssueProviderSettings
     {
         private readonly List<Func<IEnumerable<IIssue>, IEnumerable<IIssue>>> issueFilters = [];
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ReportIssuesToPullRequestFromIssueProviderSettings"/> class.
-        /// </summary>
-        /// <param name="repositoryRoot">Root path of the repository.</param>
-        public ReportIssuesToPullRequestFromIssueProviderSettings(DirectoryPath repositoryRoot)
-            : base(repositoryRoot)
-        {
-        }
 
         /// <inheritdoc />
         public string CommitId { get; set; }

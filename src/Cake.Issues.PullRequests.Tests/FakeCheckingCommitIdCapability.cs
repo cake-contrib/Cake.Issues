@@ -5,17 +5,10 @@
     /// <summary>
     /// Implementation of a <see cref="BaseCheckingCommitIdCapability{T}"/> for use in test cases.
     /// </summary>
-    public class FakeCheckingCommitIdCapability : BaseCheckingCommitIdCapability<FakePullRequestSystem>
+    /// <param name="log">The Cake log context.</param>
+    /// <param name="pullRequestSystem">Pull request system to which this capability belongs.</param>
+    public class FakeCheckingCommitIdCapability(ICakeLog log, FakePullRequestSystem pullRequestSystem) : BaseCheckingCommitIdCapability<FakePullRequestSystem>(log, pullRequestSystem)
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="FakeCheckingCommitIdCapability"/> class.
-        /// </summary>
-        /// <param name="log">The Cake log context.</param>
-        /// <param name="pullRequestSystem">Pull request system to which this capability belongs.</param>
-        public FakeCheckingCommitIdCapability(ICakeLog log, FakePullRequestSystem pullRequestSystem)
-            : base(log, pullRequestSystem)
-        {
-        }
 
         /// <summary>
         /// Gets the Cake log context.

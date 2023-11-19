@@ -5,17 +5,10 @@
     /// <summary>
     /// Implementation of a <see cref="BasePullRequestSystemCapability{T}"/> for use in test cases.
     /// </summary>
-    public class FakePullRequestSystemCapability : BasePullRequestSystemCapability<FakePullRequestSystem>
+    /// <param name="log">The Cake log context.</param>
+    /// <param name="pullRequestSystem">Pull request system to which this capability belongs.</param>
+    public class FakePullRequestSystemCapability(ICakeLog log, FakePullRequestSystem pullRequestSystem) : BasePullRequestSystemCapability<FakePullRequestSystem>(log, pullRequestSystem)
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="FakePullRequestSystemCapability"/> class.
-        /// </summary>
-        /// <param name="log">The Cake log context.</param>
-        /// <param name="pullRequestSystem">Pull request system to which this capability belongs.</param>
-        public FakePullRequestSystemCapability(ICakeLog log, FakePullRequestSystem pullRequestSystem)
-            : base(log, pullRequestSystem)
-        {
-        }
 
         /// <summary>
         /// Gets the Cake log context.
