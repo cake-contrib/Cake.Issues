@@ -8,7 +8,7 @@
     /// </summary>
     public class FakeLogFileFormat : BaseLogFileFormat<FakeMultiFormatIssueProvider, FakeMultiFormatIssueProviderSettings>
     {
-        private readonly List<IIssue> issues = new ();
+        private readonly List<IIssue> issues = [];
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FakeLogFileFormat"/> class.

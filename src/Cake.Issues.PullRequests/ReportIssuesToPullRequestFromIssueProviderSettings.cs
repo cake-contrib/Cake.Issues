@@ -9,7 +9,7 @@
     /// </summary>
     public class ReportIssuesToPullRequestFromIssueProviderSettings : ReadIssuesSettings, IReportIssuesToPullRequestFromIssueProviderSettings
     {
-        private readonly List<Func<IEnumerable<IIssue>, IEnumerable<IIssue>>> issueFilters = new ();
+        private readonly List<Func<IEnumerable<IIssue>, IEnumerable<IIssue>>> issueFilters = [];
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ReportIssuesToPullRequestFromIssueProviderSettings"/> class.
@@ -30,7 +30,7 @@
         public int? MaxIssuesToPostAcrossRuns { get; set; }
 
         /// <inheritdoc />
-        public Dictionary<string, IProviderIssueLimits> ProviderIssueLimits { get; } = new ();
+        public Dictionary<string, IProviderIssueLimits> ProviderIssueLimits { get; } = [];
 
         /// <inheritdoc />
         public int? MaxIssuesToPostForEachIssueProvider { get; set; } = 100;

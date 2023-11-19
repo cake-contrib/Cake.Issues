@@ -9,7 +9,7 @@
     /// </summary>
     public class ReportIssuesToPullRequestSettings : RepositorySettings, IReportIssuesToPullRequestSettings
     {
-        private readonly List<Func<IEnumerable<IIssue>, IEnumerable<IIssue>>> issueFilters = new ();
+        private readonly List<Func<IEnumerable<IIssue>, IEnumerable<IIssue>>> issueFilters = [];
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ReportIssuesToPullRequestSettings"/> class.
@@ -33,7 +33,7 @@
         public int? MaxIssuesToPostForEachIssueProvider { get; set; } = 100;
 
         /// <inheritdoc />
-        public Dictionary<string, IProviderIssueLimits> ProviderIssueLimits { get; } = new ();
+        public Dictionary<string, IProviderIssueLimits> ProviderIssueLimits { get; } = [];
 
         /// <inheritdoc />
         public string CommentSource { get; set; } = "CakeIssues";

@@ -5,7 +5,7 @@
 
     internal sealed class FakeIssueProviderFixture : BaseIssueProviderFixture<FakeIssueProvider>
     {
-        private readonly List<IIssue> issues = new ();
+        private readonly List<IIssue> issues = [];
 
         public FakeIssueProviderFixture()
         {

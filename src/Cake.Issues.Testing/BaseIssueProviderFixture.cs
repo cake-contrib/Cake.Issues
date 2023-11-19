@@ -65,7 +65,7 @@
             var provider =
                 (T)Activator.CreateInstance(
                     typeof(T),
-                    this.GetCreateIssueProviderArguments().ToArray());
+                    [.. this.GetCreateIssueProviderArguments()]);
 
             if (this.ReadIssuesSettings == null)
             {

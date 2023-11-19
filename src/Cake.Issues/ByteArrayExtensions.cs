@@ -77,7 +77,7 @@
         {
             value.NotNull(nameof(value));
 
-            if (value.Any() && skipPreamble)
+            if (value.Length > 0 && skipPreamble)
             {
                 value = value.RemovePreamble(encoding);
             }

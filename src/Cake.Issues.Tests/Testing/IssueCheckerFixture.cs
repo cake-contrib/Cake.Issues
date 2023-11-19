@@ -33,7 +33,7 @@
             this.Rule = "Rule";
             this.RuleName = "RuleName";
             this.RuleUrl = new Uri("https://google.com");
-            this.AdditionalInformation = new Dictionary<string, string>();
+            this.AdditionalInformation = [];
 
             this.IssueBuilder
                 .ForRun(this.Run)

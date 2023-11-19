@@ -18,7 +18,7 @@
         {
             path.NotNullOrWhiteSpace(nameof(path));
 
-            return path.IndexOfAny(Path.GetInvalidPathChars().ToArray()) == -1;
+            return path.IndexOfAny([.. Path.GetInvalidPathChars()]) == -1;
         }
 
         /// <summary>
@@ -190,8 +190,8 @@
         {
             filePath.NotNullOrWhiteSpace(nameof(filePath));
 
-            if (filePath.StartsWith("\\", StringComparison.Ordinal) ||
-                filePath.StartsWith("/", StringComparison.Ordinal))
+            if (filePath.StartsWith('\\') ||
+                filePath.StartsWith('/'))
             {
                 return filePath[1..];
             }

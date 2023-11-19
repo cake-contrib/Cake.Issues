@@ -94,7 +94,7 @@
         /// </summary>
         /// <param name="stream">Stream whose content should be deserialized.</param>
         /// <returns>List of issues.</returns>
-        private static IEnumerable<Issue> DeserializeStreamToIssues(Stream stream)
+        private static List<Issue> DeserializeStreamToIssues(Stream stream)
         {
             using (var reader = new StreamReader(stream))
             {
