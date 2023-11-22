@@ -41,7 +41,7 @@ The [Cake.Issues.MsBuild addin] provides the following features.
 | <span class="glyphicon glyphicon-ok" style="color:green"></span>   | `IIssue.RuleUrl`                  | For code analysis (`CA*`) and StyleCop (`SA*`) warnings. Support for additional rules can be added through a custom [MsBuildAddRuleUrlResolver] |
 
 [Cake.Issues.MsBuild addin]: https://www.nuget.org/packages/Cake.Issues.MsBuild
-[MSBuild Extension Pack XmlFileLogger]: http://www.msbuildextensionpack.com/help/4.0.5.0/html/242ab4fd-c2e2-f6aa-325b-7588725aed24.htm
+[MSBuild Extension Pack XmlFileLogger]: https://github.com/mikefourie-zz/MSBuildExtensionPack/blob/master/Solutions/Main/Loggers/Framework/XmlFileLogger.cs
 [MsBuildAddRuleUrlResolver]: ../../../api/Cake.Issues.MsBuild/MsBuildIssuesAliases/93C21487
 [MsBuildBinaryLogFileFormat]: ../../../api/Cake.Issues.MsBuild/MsBuildIssuesAliases/AD50C7E1
 [MsBuildXmlFileLoggerFormat]: ../../../api/Cake.Issues.MsBuild/MsBuildIssuesAliases/051D7B6E
