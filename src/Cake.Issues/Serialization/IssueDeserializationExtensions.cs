@@ -4,8 +4,9 @@
     using System.Collections.Generic;
     using System.IO;
     using System.Text;
+    using System.Text.Json;
+    using System.Text.Json.Nodes;
     using Cake.Core.IO;
-    using LitJson;
 
     /// <summary>
     /// Extensions for deserializing an <see cref="IIssue"/>.
@@ -83,7 +84,7 @@
             {
                 var jsonContent = reader.ReadToEnd();
 
-                var data = JsonMapper.ToObject(jsonContent);
+                var data = JsonNode.Parse(jsonContent);
 
                 return DeserializeJsonDataToIssue(data);
             }
@@ -100,9 +101,10 @@
             {
                 var jsonContent = reader.ReadToEnd();
 
-                var data = JsonMapper.ToObject(jsonContent);
+                var data = JsonNode.Parse(jsonContent) as JsonArray;
+
                 var issues = new List<Issue>();
-                foreach (JsonData element in data)
+                foreach (var element in data)
                 {
                     issues.Add(DeserializeJsonDataToIssue(element));
                 }
@@ -118,24 +120,25 @@
         /// </summary>
         /// <param name="data">JSON representation of the issue.</param>
         /// <returns>Issue instance.</returns>
-        private static Issue DeserializeJsonDataToIssue(JsonData data)
+        private static Issue DeserializeJsonDataToIssue(JsonNode data)
         {
-            if (data.ContainsKey("Version"))
+            var versionValue = data["Version"];
+            if (versionValue != null)
             {
                 var version = (int)data["Version"];
                 return version switch
                 {
-                    2 => JsonMapper.ToObject<SerializableIssueV2>(data.ToJson()).ToIssue(),
-                    3 => JsonMapper.ToObject<SerializableIssueV3>(data.ToJson()).ToIssue(),
-                    4 => JsonMapper.ToObject<SerializableIssueV4>(data.ToJson()).ToIssue(),
-                    5 => JsonMapper.ToObject<SerializableIssueV5>(data.ToJson()).ToIssue(),
+                    2 => JsonSerializer.Deserialize<SerializableIssueV2>(data.ToJsonString()).ToIssue(),
+                    3 => JsonSerializer.Deserialize<SerializableIssueV3>(data.ToJsonString()).ToIssue(),
+                    4 => JsonSerializer.Deserialize<SerializableIssueV4>(data.ToJsonString()).ToIssue(),
+                    5 => JsonSerializer.Deserialize<SerializableIssueV5>(data.ToJsonString()).ToIssue(),
                     _ => throw new Exception($"Not supported issue serialization format {version}"),
                 };
             }
             else
             {
                 // If no version is available deserialize to original format.
-                return JsonMapper.ToObject<SerializableIssue>(data.ToJson()).ToIssue();
+                return JsonSerializer.Deserialize<SerializableIssue>(data.ToJsonString()).ToIssue();
             }
         }
     }
