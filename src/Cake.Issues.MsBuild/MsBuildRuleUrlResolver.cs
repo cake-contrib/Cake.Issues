@@ -20,25 +20,25 @@
 
             // .NET SDK analyzers
             this.AddUrlResolver(x =>
-                x.Category.ToUpperInvariant() == "CA" ?
+                x.Category.Equals("CA", StringComparison.OrdinalIgnoreCase) ?
                     new Uri("https://www.google.com/search?q=%22" + x.Rule + ":%22+site:learn.microsoft.com") :
                     null);
 
             // StyleCop analyzer rules
             this.AddUrlResolver(x =>
-                x.Category.ToUpperInvariant() == "SA" ?
+                x.Category.Equals("SA", StringComparison.OrdinalIgnoreCase) ?
                     new Uri("https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/" + x.Rule + ".md") :
                     null);
 
             // SonarLint rules
             this.AddUrlResolver(x =>
-                x.Category.ToUpperInvariant() == "S" ?
+                x.Category.Equals("S", StringComparison.OrdinalIgnoreCase) ?
                     new Uri("https://rules.sonarsource.com/csharp/RSPEC-" + x.RuleId) :
                     null);
 
             // Roslynator rules
             this.AddUrlResolver(x =>
-                x.Category.ToUpperInvariant() == "RCS" ?
+                x.Category.Equals("RCS", StringComparison.OrdinalIgnoreCase) ?
                     new Uri("https://github.com/JosefPihrt/Roslynator/blob/main/docs/analyzers/" + x.Rule + ".md") :
                     null);
         }

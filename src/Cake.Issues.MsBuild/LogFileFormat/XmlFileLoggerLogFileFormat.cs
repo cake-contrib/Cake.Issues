@@ -10,17 +10,9 @@
     /// <summary>
     /// MsBuild log format as written by the <c>XmlFileLogger</c> class from MSBuild Extension Pack.
     /// </summary>
-    internal class XmlFileLoggerLogFileFormat : BaseMsBuildLogFileFormat
+    /// <param name="log">The Cake log instance.</param>
+    internal class XmlFileLoggerLogFileFormat(ICakeLog log) : BaseMsBuildLogFileFormat(log)
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="XmlFileLoggerLogFileFormat"/> class.
-        /// </summary>
-        /// <param name="log">The Cake log instance.</param>
-        public XmlFileLoggerLogFileFormat(ICakeLog log)
-            : base(log)
-        {
-        }
-
         /// <inheritdoc/>
         public override IEnumerable<IIssue> ReadIssues(
             MsBuildIssuesProvider issueProvider,
@@ -54,14 +46,14 @@
                 }
 
                 // Read affected project from the warning or error.
-                if (!this.TryGetProject(element, repositorySettings, out string projectFileRelativePath))
+                if (!this.TryGetProject(element, repositorySettings, out var projectFileRelativePath))
                 {
                     this.Log.Information("Skip element since project could not be parsed");
                     continue;
                 }
 
                 // Read affected file from the warning or error.
-                if (!this.TryGetFile(element, repositorySettings, out string fileName))
+                if (!this.TryGetFile(element, repositorySettings, out var fileName))
                 {
                     this.Log.Information("Skip element since file path could not be parsed");
                     continue;
@@ -82,7 +74,7 @@
                 }
 
                 // Read rule code from the warning or error.
-                if (!this.TryGetRule(element, out string rule))
+                if (!this.TryGetRule(element, out var rule))
                 {
                     this.Log.Information("Skip element since rule could not be parsed");
                     continue;

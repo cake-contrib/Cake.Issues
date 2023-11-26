@@ -40,5 +40,11 @@ See the Project Site for an overview of the whole ecosystem of addins for workin
     <file src="net7.0\StructuredLogger.dll" target="lib\net7.0" />
     <file src="net7.0\Microsoft.Build.Framework.dll" target="lib\net7.0" />
     <file src="net7.0\Microsoft.Build.Utilities.Core.dll" target="lib\net7.0" />
+    <file src="net8.0\Cake.Issues.MsBuild.dll" target="lib\net8.0" />
+    <file src="net8.0\Cake.Issues.MsBuild.pdb" target="lib\net8.0" />
+    <file src="net8.0\Cake.Issues.MsBuild.xml" target="lib\net8.0" />
+    <file src="net8.0\StructuredLogger.dll" target="lib\net8.0" />
+    <file src="net8.0\Microsoft.Build.Framework.dll" target="lib\net8.0" />
+    <file src="net8.0\Microsoft.Build.Utilities.Core.dll" target="lib\net8.0" />
   </files>
 </package>
