@@ -6,9 +6,40 @@
     /// <summary>
     /// Comparer to compare if two issues are identical.
     /// </summary>
-    public class IIssueComparer : IEqualityComparer<IIssue>
+    /// <param name="compareOnlyPersistentProperties">Flag indicating whether properties which
+    /// are affected by changes in files should be considered while comparing issues.
+    /// If set to <c>true</c>, the comparer can be used to compare issues from different
+    /// build runs, where files might have been changed or renamed.</param>
+    /// <remarks>
+    /// If <paramref name="compareOnlyPersistentProperties"/> is set to <c>true</c> the following
+    /// properties will be ignored while comparing the issue:
+    /// <list type="bullet">
+    /// <item>
+    /// <description><see cref="IIssue.ProjectFileRelativePath"/></description>
+    /// </item>
+    /// <item>
+    /// <description><see cref="IIssue.AffectedFileRelativePath"/></description>
+    /// </item>
+    /// <item>
+    /// <description><see cref="IIssue.Line"/></description>
+    /// </item>
+    /// <item>
+    /// <description><see cref="IIssue.EndLine"/></description>
+    /// </item>
+    /// <item>
+    /// <description><see cref="IIssue.Column"/></description>
+    /// </item>
+    /// <item>
+    /// <description><see cref="IIssue.EndColumn"/></description>
+    /// </item>
+    /// <item>
+    /// <description><see cref="IIssue.FileLink"/></description>
+    /// </item>
+    /// </list>
+    /// </remarks>
+    public class IIssueComparer(bool compareOnlyPersistentProperties) : IEqualityComparer<IIssue>
     {
-        private readonly bool compareOnlyPersistentProperties;
+        private readonly bool compareOnlyPersistentProperties = compareOnlyPersistentProperties;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="IIssueComparer"/> class.
@@ -17,45 +48,6 @@
         public IIssueComparer()
             : this(false)
         {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="IIssueComparer"/> class.
-        /// </summary>
-        /// <param name="compareOnlyPersistentProperties">Flag indicating whether properties which
-        /// are affected by changes in files should be considered while comparing issues.
-        /// If set to <c>true</c>, the comparer can be used to compare issues from different
-        /// build runs, where files might have been changed or renamed.</param>
-        /// <remarks>
-        /// If <paramref name="compareOnlyPersistentProperties"/> is set to <c>true</c> the following
-        /// properties will be ignored while comparing the issue:
-        /// <list type="bullet">
-        /// <item>
-        /// <description><see cref="IIssue.ProjectFileRelativePath"/></description>
-        /// </item>
-        /// <item>
-        /// <description><see cref="IIssue.AffectedFileRelativePath"/></description>
-        /// </item>
-        /// <item>
-        /// <description><see cref="IIssue.Line"/></description>
-        /// </item>
-        /// <item>
-        /// <description><see cref="IIssue.EndLine"/></description>
-        /// </item>
-        /// <item>
-        /// <description><see cref="IIssue.Column"/></description>
-        /// </item>
-        /// <item>
-        /// <description><see cref="IIssue.EndColumn"/></description>
-        /// </item>
-        /// <item>
-        /// <description><see cref="IIssue.FileLink"/></description>
-        /// </item>
-        /// </list>
-        /// </remarks>
-        public IIssueComparer(bool compareOnlyPersistentProperties)
-        {
-            this.compareOnlyPersistentProperties = compareOnlyPersistentProperties;
         }
 
         /// <inheritdoc/>

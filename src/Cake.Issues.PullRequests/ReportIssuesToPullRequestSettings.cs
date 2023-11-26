@@ -7,18 +7,10 @@
     /// <summary>
     /// Settings affecting how issues are reported to pull requests.
     /// </summary>
-    public class ReportIssuesToPullRequestSettings : RepositorySettings, IReportIssuesToPullRequestSettings
+    /// <param name="repositoryRoot">Root path of the repository.</param>
+    public class ReportIssuesToPullRequestSettings(DirectoryPath repositoryRoot) : RepositorySettings(repositoryRoot), IReportIssuesToPullRequestSettings
     {
-        private readonly List<Func<IEnumerable<IIssue>, IEnumerable<IIssue>>> issueFilters = new ();
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ReportIssuesToPullRequestSettings"/> class.
-        /// </summary>
-        /// <param name="repositoryRoot">Root path of the repository.</param>
-        public ReportIssuesToPullRequestSettings(DirectoryPath repositoryRoot)
-            : base(repositoryRoot)
-        {
-        }
+        private readonly List<Func<IEnumerable<IIssue>, IEnumerable<IIssue>>> issueFilters = [];
 
         /// <inheritdoc />
         public string CommitId { get; set; }
@@ -33,7 +25,7 @@
         public int? MaxIssuesToPostForEachIssueProvider { get; set; } = 100;
 
         /// <inheritdoc />
-        public Dictionary<string, IProviderIssueLimits> ProviderIssueLimits { get; } = new ();
+        public Dictionary<string, IProviderIssueLimits> ProviderIssueLimits { get; } = [];
 
         /// <inheritdoc />
         public string CommentSource { get; set; } = "CakeIssues";

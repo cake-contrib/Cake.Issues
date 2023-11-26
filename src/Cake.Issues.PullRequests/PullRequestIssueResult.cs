@@ -7,8 +7,8 @@
     /// </summary>
     public class PullRequestIssueResult
     {
-        private readonly List<IIssue> reportedIssues = new ();
-        private readonly List<IIssue> postedIssues = new ();
+        private readonly List<IIssue> reportedIssues = [];
+        private readonly List<IIssue> postedIssues = [];
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PullRequestIssueResult"/> class.

@@ -11,7 +11,7 @@
     public abstract class BaseRuleUrlResolver<T>
         where T : BaseRuleDescription, new()
     {
-        private readonly List<Tuple<Func<T, Uri>, int>> registeredUrlResolver = new ();
+        private readonly List<Tuple<Func<T, Uri>, int>> registeredUrlResolver = [];
 
         /// <summary>
         /// Registers a new resolver with default priority of <c>0</c>.

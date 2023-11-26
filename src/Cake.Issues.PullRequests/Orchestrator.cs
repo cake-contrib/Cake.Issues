@@ -125,7 +125,7 @@ namespace Cake.Issues.PullRequests
         /// <param name="reportIssuesToPullRequestSettings">Settings for posting the issues.</param>
         /// <param name="issues">Issues to post.</param>
         /// <returns>Issues reported to the pull request.</returns>
-        private IEnumerable<IIssue> PostAndResolveComments(
+        private List<IIssue> PostAndResolveComments(
             IReportIssuesToPullRequestSettings reportIssuesToPullRequestSettings,
             IList<IIssue> issues)
         {
@@ -168,7 +168,7 @@ namespace Cake.Issues.PullRequests
             if (!issues.Any())
             {
                 this.log.Information("No new issues were posted");
-                return new List<IIssue>();
+                return [];
             }
 
             // Filter issues which should not be posted.
@@ -182,7 +182,7 @@ namespace Cake.Issues.PullRequests
                         existingThreads)
                     .ToList();
 
-            if (remainingIssues.Any())
+            if (remainingIssues.Count > 0)
             {
                 if (!string.IsNullOrWhiteSpace(reportIssuesToPullRequestSettings.CommitId))
                 {
@@ -195,7 +195,7 @@ namespace Cake.Issues.PullRequests
                             "Skipping posting of issues since commit {0} is outdated. Current commit is {1}",
                             reportIssuesToPullRequestSettings.CommitId,
                             checkCommitIdCapability.GetLastSourceCommitId());
-                        return new List<IIssue>();
+                        return [];
                     }
                 }
 
@@ -232,7 +232,7 @@ namespace Cake.Issues.PullRequests
         /// <param name="issues">Issues for which matching comments should be found.</param>
         /// <param name="existingThreads">Existing discussion threads on the pull request.</param>
         /// <returns>Dictionary with issues  associated matching comments on the pull request.</returns>
-        private IDictionary<IIssue, IssueCommentInfo> GetCommentsForIssue(
+        private Dictionary<IIssue, IssueCommentInfo> GetCommentsForIssue(
             IList<IIssue> issues,
             IReadOnlyCollection<IPullRequestDiscussionThread> existingThreads)
         {
@@ -254,9 +254,9 @@ namespace Cake.Issues.PullRequests
                 var wontFixCommentsList = wontFixComments.ToList();
                 var resolvedCommentsList = resolvedComments.ToList();
 
-                if (!activeCommentsList.Any() &&
-                    !wontFixCommentsList.Any() &&
-                    !resolvedCommentsList.Any())
+                if (activeCommentsList.Count == 0 &&
+                    wontFixCommentsList.Count == 0 &&
+                    resolvedCommentsList.Count == 0)
                 {
                     continue;
                 }
@@ -303,7 +303,7 @@ namespace Cake.Issues.PullRequests
                     .Where(x => FilePathsAreMatching(issue, x) && x.CommentIdentifier == issue.Identifier)
                     .ToList();
 
-            if (matchingThreads.Any())
+            if (matchingThreads.Count > 0)
             {
                 this.log.Verbose(
                     "Found {0} matching thread(s) for the issue in file {1} on line {2}",
@@ -325,7 +325,7 @@ namespace Cake.Issues.PullRequests
                     select
                         comment).ToList();
 
-                if (!matchingComments.Any())
+                if (matchingComments.Count == 0)
                 {
                     continue;
                 }
@@ -378,7 +378,7 @@ namespace Cake.Issues.PullRequests
             issueComments.NotNull(nameof(issueComments));
             reportIssuesToPullRequestSettings.NotNull(nameof(reportIssuesToPullRequestSettings));
 
-            if (!existingThreads.Any())
+            if (existingThreads.Count == 0)
             {
                 this.log.Verbose("No existing threads to resolve.");
                 return;
@@ -398,7 +398,7 @@ namespace Cake.Issues.PullRequests
         /// <param name="issueComments">Issues and their related existing comments on the pull request.</param>
         /// <param name="reportIssuesToPullRequestSettings">Settings for posting the issues.</param>
         /// <returns>List of threads which can be resolved.</returns>
-        private IEnumerable<IPullRequestDiscussionThread> GetThreadsToResolve(
+        private List<IPullRequestDiscussionThread> GetThreadsToResolve(
             IReadOnlyCollection<IPullRequestDiscussionThread> existingThreads,
             IDictionary<IIssue, IssueCommentInfo> issueComments,
             IReportIssuesToPullRequestSettings reportIssuesToPullRequestSettings)
@@ -442,7 +442,7 @@ namespace Cake.Issues.PullRequests
             issueComments.NotNull(nameof(issueComments));
             reportIssuesToPullRequestSettings.NotNull(nameof(reportIssuesToPullRequestSettings));
 
-            if (!existingThreads.Any())
+            if (existingThreads.Count == 0)
             {
                 this.log.Verbose("No existing threads to reopen.");
                 return;
@@ -462,7 +462,7 @@ namespace Cake.Issues.PullRequests
         /// <param name="issueComments">Issues and their related existing comments on the pull request.</param>
         /// <param name="reportIssuesToPullRequestSettings">Settings for posting the issues.</param>
         /// <returns>List of threads which should be reopened.</returns>
-        private IEnumerable<IPullRequestDiscussionThread> GetThreadsToReopen(
+        private List<IPullRequestDiscussionThread> GetThreadsToReopen(
             IReadOnlyCollection<IPullRequestDiscussionThread> existingThreads,
             IDictionary<IIssue, IssueCommentInfo> issueComments,
             IReportIssuesToPullRequestSettings reportIssuesToPullRequestSettings)

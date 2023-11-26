@@ -2,14 +2,9 @@
 {
     using Cake.Issues.Testing;
 
-    internal sealed class FakeConfigurableIssueProviderFixture
-        : BaseConfigurableIssueProviderFixture<FakeConfigurableIssueProvider, IssueProviderSettings>
+    internal sealed class FakeConfigurableIssueProviderFixture(string fileResourceName)
+                : BaseConfigurableIssueProviderFixture<FakeConfigurableIssueProvider, IssueProviderSettings>(fileResourceName)
     {
-        public FakeConfigurableIssueProviderFixture(string fileResourceName)
-            : base(fileResourceName)
-        {
-        }
-
         protected override string FileResourceNamespace => "Cake.Issues.Tests.Testfiles.";
     }
 }

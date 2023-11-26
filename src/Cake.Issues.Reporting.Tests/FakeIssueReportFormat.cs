@@ -7,17 +7,9 @@
     /// <summary>
     /// Implementation of a <see cref="IssueReportFormat"/> for use in test cases.
     /// </summary>
-    public class FakeIssueReportFormat : IssueReportFormat
+    /// <param name="log">The Cake log instance.</param>
+    public class FakeIssueReportFormat(ICakeLog log) : IssueReportFormat(log)
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="FakeIssueReportFormat"/> class.
-        /// </summary>
-        /// <param name="log">The Cake log instance.</param>
-        public FakeIssueReportFormat(ICakeLog log)
-            : base(log)
-        {
-        }
-
         public new ICakeLog Log => base.Log;
 
         public new ICreateIssueReportSettings Settings => base.Settings;

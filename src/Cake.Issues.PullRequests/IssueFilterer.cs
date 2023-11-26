@@ -106,7 +106,7 @@ namespace Cake.Issues.PullRequests
         private static void ValidateModifiedFiles(IEnumerable<FilePath> modifiedFilePaths)
         {
             var absoluteFilePaths = modifiedFilePaths.Where(x => !x.IsRelative).ToList();
-            if (absoluteFilePaths.Any())
+            if (absoluteFilePaths.Count > 0)
             {
                 throw new PullRequestIssuesException(
                     $"Absolute file paths are not supported for modified files:{Environment.NewLine}{string.Join(Environment.NewLine, absoluteFilePaths.Select(x => "  " + x))}");

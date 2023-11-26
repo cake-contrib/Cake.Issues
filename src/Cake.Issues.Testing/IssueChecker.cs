@@ -315,14 +315,14 @@
             }
 
             var expectedItemsNotFound = expected.Except(actual).ToArray();
-            if (expectedItemsNotFound.Any())
+            if (expectedItemsNotFound.Length > 0)
             {
                 throw new Exception(
                     $"Expected issue.AdditionalInformation to have an item with the key '{expectedItemsNotFound.First()}' and value '{expectedItemsNotFound.First()}'");
             }
 
             var actualItemsContainsInvalidItem = actual.Except(expected).ToArray();
-            if (actualItemsContainsInvalidItem.Any())
+            if (actualItemsContainsInvalidItem.Length > 0)
             {
                 throw new Exception(
                     $"issue.AdditionalInformation contains an item with the key '{actualItemsContainsInvalidItem.First()}' and value '{actualItemsContainsInvalidItem.First()}' that was not expected");

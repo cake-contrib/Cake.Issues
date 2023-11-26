@@ -29,7 +29,7 @@
         private Uri ruleUrl;
         private string run;
         private FileLinkSettings fileLinkSettings;
-        private Dictionary<string, string> additionalInformation = new ();
+        private Dictionary<string, string> additionalInformation = [];
 
         /// <summary>
         /// Initializes a new instance of the <see cref="IssueBuilder"/> class.

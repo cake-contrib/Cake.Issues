@@ -80,7 +80,7 @@
             return
                 (TSettings)Activator.CreateInstance(
                     typeof(TSettings),
-                    this.GetCreateIssueProviderSettingsArguments().ToArray());
+                    [.. this.GetCreateIssueProviderSettingsArguments()]);
         }
     }
 }
