@@ -10,17 +10,9 @@
     /// <summary>
     /// MsBuild binary log file format.
     /// </summary>
-    internal class BinaryLogFileFormat : BaseMsBuildLogFileFormat
+    /// <param name="log">The Cake log instance.</param>
+    internal class BinaryLogFileFormat(ICakeLog log) : BaseMsBuildLogFileFormat(log)
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="BinaryLogFileFormat"/> class.
-        /// </summary>
-        /// <param name="log">The Cake log instance.</param>
-        public BinaryLogFileFormat(ICakeLog log)
-            : base(log)
-        {
-        }
-
         /// <inheritdoc/>
         public override IEnumerable<IIssue> ReadIssues(
             MsBuildIssuesProvider issueProvider,
