@@ -7,18 +7,11 @@
     /// <summary>
     /// Implementation of a <see cref="BaseDiscussionThreadsCapability{T}"/> for <see cref="AzureDevOpsPullRequestSystem"/>.
     /// </summary>
-    internal class AzureDevOpsDiscussionThreadsCapability : BaseDiscussionThreadsCapability<IAzureDevOpsPullRequestSystem>
+    /// <param name="log">The Cake log context.</param>
+    /// <param name="pullRequestSystem">Pull request system to which this capability belongs.</param>
+    internal class AzureDevOpsDiscussionThreadsCapability(ICakeLog log, IAzureDevOpsPullRequestSystem pullRequestSystem)
+        : BaseDiscussionThreadsCapability<IAzureDevOpsPullRequestSystem>(log, pullRequestSystem)
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="AzureDevOpsDiscussionThreadsCapability"/> class.
-        /// </summary>
-        /// <param name="log">The Cake log context.</param>
-        /// <param name="pullRequestSystem">Pull request system to which this capability belongs.</param>
-        public AzureDevOpsDiscussionThreadsCapability(ICakeLog log, IAzureDevOpsPullRequestSystem pullRequestSystem)
-            : base(log, pullRequestSystem)
-        {
-        }
-
         /// <inheritdoc />
         protected override IEnumerable<IPullRequestDiscussionThread> InternalFetchDiscussionThreads(string commentSource)
         {

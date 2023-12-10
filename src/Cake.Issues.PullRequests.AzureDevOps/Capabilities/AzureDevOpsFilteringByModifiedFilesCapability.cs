@@ -7,18 +7,14 @@
     /// <summary>
     /// Implementation of a <see cref="BaseFilteringByModifiedFilesCapability{T}"/> for <see cref="AzureDevOpsPullRequestSystem"/>.
     /// </summary>
-    internal class AzureDevOpsFilteringByModifiedFilesCapability : BaseFilteringByModifiedFilesCapability<IAzureDevOpsPullRequestSystem>
+    /// <remarks>
+    /// Initializes a new instance of the <see cref="AzureDevOpsFilteringByModifiedFilesCapability"/> class.
+    /// </remarks>
+    /// <param name="log">The Cake log context.</param>
+    /// <param name="pullRequestSystem">Pull request system to which this capability belongs.</param>
+    internal class AzureDevOpsFilteringByModifiedFilesCapability(ICakeLog log, IAzureDevOpsPullRequestSystem pullRequestSystem)
+        : BaseFilteringByModifiedFilesCapability<IAzureDevOpsPullRequestSystem>(log, pullRequestSystem)
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="AzureDevOpsFilteringByModifiedFilesCapability"/> class.
-        /// </summary>
-        /// <param name="log">The Cake log context.</param>
-        /// <param name="pullRequestSystem">Pull request system to which this capability belongs.</param>
-        public AzureDevOpsFilteringByModifiedFilesCapability(ICakeLog log, IAzureDevOpsPullRequestSystem pullRequestSystem)
-            : base(log, pullRequestSystem)
-        {
-        }
-
         /// <inheritdoc />
         protected override IEnumerable<FilePath> InternalGetModifiedFilesInPullRequest()
         {

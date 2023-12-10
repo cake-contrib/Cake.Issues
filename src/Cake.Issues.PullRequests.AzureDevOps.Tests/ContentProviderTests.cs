@@ -11,7 +11,7 @@
         {
             [Theory]
             [InlineData(
-                @"foo.cs",
+                "foo.cs",
                 123,
                 "Some message",
                 IssuePriority.Warning,
@@ -19,7 +19,7 @@
                 null,
                 "foo: Some message")]
             [InlineData(
-                @"foo.cs",
+                "foo.cs",
                 123,
                 "Some message",
                 IssuePriority.Warning,
@@ -27,7 +27,7 @@
                 null,
                 "Some message")]
             [InlineData(
-                @"foo.cs",
+                "foo.cs",
                 123,
                 "Some message",
                 IssuePriority.Warning,
@@ -35,7 +35,7 @@
                 null,
                 "Some message")]
             [InlineData(
-                @"foo.cs",
+                "foo.cs",
                 123,
                 "Some message",
                 IssuePriority.Warning,
