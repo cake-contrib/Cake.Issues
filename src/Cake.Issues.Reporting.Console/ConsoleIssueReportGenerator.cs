@@ -31,11 +31,12 @@
         /// <inheritdoc />
         protected override FilePath InternalCreateReport(IEnumerable<IIssue> issues)
         {
+            var enumeratedIssues = issues.ToList();
             if (this.consoleIssueReportFormatSettings.ShowProviderSummary)
             {
                 // Filter to issues from existing files
                 var diagnosticIssues =
-                issues
+                enumeratedIssues
                     .Where(x =>
                         x.AffectedFileRelativePath != null &&
                         File.Exists(this.Settings.RepositoryRoot.CombineWithFilePath(x.AffectedFileRelativePath).FullPath))
@@ -77,7 +78,7 @@
 
             if (this.consoleIssueReportFormatSettings.ShowProviderSummary || this.consoleIssueReportFormatSettings.ShowPrioritySummary)
             {
-                this.PrintSummary(issues);
+                this.PrintSummary(enumeratedIssues);
             }
 
             return null;
@@ -87,7 +88,7 @@
         /// Prints the issues of issues.
         /// </summary>
         /// <param name="issues">List of issues.</param>
-        private void PrintSummary(IEnumerable<IIssue> issues)
+        private void PrintSummary(IList<IIssue> issues)
         {
             if (!issues.Any())
             {

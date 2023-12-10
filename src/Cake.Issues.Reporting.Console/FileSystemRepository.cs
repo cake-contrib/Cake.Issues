@@ -8,19 +8,11 @@
     /// <summary>
     /// Repository to read the source files from the file system.
     /// </summary>
-    internal sealed class FileSystemRepository : ISourceRepository
+    /// <param name="settings">Settings for report creation.</param>
+    internal sealed class FileSystemRepository(ICreateIssueReportSettings settings) : ISourceRepository
     {
-        private readonly ICreateIssueReportSettings settings;
+        private readonly ICreateIssueReportSettings settings = settings;
         private readonly Dictionary<string, Source> cache = new (StringComparer.OrdinalIgnoreCase);
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="FileSystemRepository"/> class.
-        /// </summary>
-        /// <param name="settings">Settings for report creation.</param>
-        public FileSystemRepository(ICreateIssueReportSettings settings)
-        {
-            this.settings = settings;
-        }
 
         /// <inheritdoc />
         public bool TryGet(string id, out Source source)
