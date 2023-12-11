@@ -29,7 +29,7 @@
     </PackageReference>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
-    <PackageReference Include="Cake.Testing" Version="3.0.0" />
+    <PackageReference Include="Cake.Testing" Version="4.0.0" />
     <PackageReference Include="Cake.Issues.Testing" Version="3.0.0" />
     <PackageReference Include="HtmlAgilityPack" Version="1.11.54" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0">
