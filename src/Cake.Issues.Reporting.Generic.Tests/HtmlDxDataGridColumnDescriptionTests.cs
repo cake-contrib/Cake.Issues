@@ -17,7 +17,7 @@
             {
                 // Given
                 string id = null;
-                object ValueRetriever(IIssue issue)
+                static object ValueRetriever(IIssue issue)
                 {
                     return true;
                 }
@@ -34,7 +34,7 @@
             {
                 // Given
                 var id = string.Empty;
-                object ValueRetriever(IIssue issue)
+                static object ValueRetriever(IIssue issue)
                 {
                     return true;
                 }
@@ -51,7 +51,7 @@
             {
                 // Given
                 var id = " ";
-                object ValueRetriever(IIssue issue)
+                static object ValueRetriever(IIssue issue)
                 {
                     return true;
                 }
@@ -82,7 +82,7 @@
             {
                 // Given
                 var id = "foo";
-                object ValueRetriever(IIssue issue)
+                static object ValueRetriever(IIssue issue)
                 {
                     return true;
                 }
@@ -99,7 +99,7 @@
             {
                 // Given
                 var id = "foo";
-                object ValueRetriever(IIssue issue)
+                static object ValueRetriever(IIssue issue)
                 {
                     return true;
                 }

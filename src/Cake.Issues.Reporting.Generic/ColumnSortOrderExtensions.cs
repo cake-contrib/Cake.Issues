@@ -14,15 +14,12 @@
         /// <returns>Short identifier of the sort order.</returns>
         public static string ToShortString(this ColumnSortOrder sortOrder)
         {
-            switch (sortOrder)
+            return sortOrder switch
             {
-                case ColumnSortOrder.Ascending:
-                    return "asc";
-                case ColumnSortOrder.Descending:
-                    return "desc";
-                default:
-                    throw new ArgumentException("Unknown enumeration value", nameof(sortOrder));
-            }
+                ColumnSortOrder.Ascending => "asc",
+                ColumnSortOrder.Descending => "desc",
+                _ => throw new ArgumentException("Unknown enumeration value", nameof(sortOrder)),
+            };
         }
     }
 }

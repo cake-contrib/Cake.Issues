@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net6.0;net7.0</TargetFrameworks>
+    <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
     <Description>Support for creating issue reports in any text based format (HTML, Markdown, ...) from the Cake.Issues Addin for Cake Build Automation System</Description>
     <Copyright>Copyright © Pascal Berger and contributors</Copyright>
     <Product>Cake.Issues</Product>
