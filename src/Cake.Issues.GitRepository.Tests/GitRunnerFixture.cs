@@ -5,7 +5,7 @@
 
     internal class GitRunnerFixture : ToolFixture<GitRunnerSettings>
     {
-        private readonly List<string> standardOutput = new List<string>();
+        private readonly List<string> standardOutput = [];
 
         public GitRunnerFixture()
             : base("git")

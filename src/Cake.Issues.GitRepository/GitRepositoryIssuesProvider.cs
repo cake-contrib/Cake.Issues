@@ -95,16 +95,16 @@
         /// Checks for binary files which are not tracked by LFS.
         /// </summary>
         /// <returns>List of issues for binary files which are not tracked by LFS.</returns>
-        private IEnumerable<IIssue> CheckForBinaryFilesNotTrackedByLfs()
+        private List<IIssue> CheckForBinaryFilesNotTrackedByLfs()
         {
             if (!this.allFiles.Value.Any())
             {
-                return new List<IIssue>();
+                return [];
             }
 
             if (!this.binaryFiles.Value.Any())
             {
-                return new List<IIssue>();
+                return [];
             }
 
             var lfsTrackedFiles = this.GetLfsTrackedFilesFromRepository();
@@ -133,11 +133,11 @@
         /// Checks for files path length.
         /// </summary>
         /// <returns>List of issues for repository files with paths exceeding the allowed maximum.</returns>
-        private IEnumerable<IIssue> CheckForFilesPathLength()
+        private List<IIssue> CheckForFilesPathLength()
         {
             if (!this.allFiles.Value.Any())
             {
-                return new List<IIssue>();
+                return [];
             }
 
             var result = new List<IIssue>();
@@ -165,7 +165,7 @@
         /// Returns a list of the files in the repository.
         /// </summary>
         /// <returns>List of files in the repository.</returns>
-        private IEnumerable<string> GetAllFilesFromRepository()
+        private List<string> GetAllFilesFromRepository()
         {
             this.Log.Verbose("Reading all files from repository '{0}'...", this.Settings.RepositoryRoot);
 
@@ -176,23 +176,24 @@
 
             settings.Arguments.Clear();
             settings.Arguments.Add("ls-files -z");
-            var allFiles = string.Join(string.Empty, this.runner.RunCommand(settings)).Split('\0').Where(x => !string.IsNullOrEmpty(x));
+            var allFiles =
+                string.Join(
+                    string.Empty,
+                    this.runner.RunCommand(settings))
+                .Split('\0')
+                .Where(x => !string.IsNullOrEmpty(x))
+                .ToList()
+                ?? throw new Exception("Error reading files from repository");
+            this.Log.Verbose("Found {0} file(s)", allFiles.Count);
 
-            if (allFiles == null)
-            {
-                throw new Exception("Error reading files from repository");
-            }
-
-            this.Log.Verbose("Found {0} file(s)", allFiles.Count());
-
-            return allFiles.ToList();
+            return allFiles;
         }
 
         /// <summary>
         /// Returns a list of text files in the repository.
         /// </summary>
         /// <returns>List of text files in the repository.</returns>
-        private IEnumerable<string> GetTextFilesFromRepository()
+        private List<string> GetTextFilesFromRepository()
         {
             this.Log.Verbose("Reading all text files from repository '{0}'...", this.Settings.RepositoryRoot);
 
@@ -206,12 +207,9 @@
 
             settings.Arguments.Clear();
             settings.Arguments.Add("grep -Il .");
-            var textFiles = this.runner.RunCommand(settings);
-            if (textFiles == null)
-            {
-                throw new Exception("Error reading text files from repository");
-            }
-
+            var textFiles =
+                this.runner.RunCommand(settings)
+                ?? throw new Exception("Error reading text files from repository");
             settings.Arguments.Clear();
             settings.Arguments.Add("grep -IL .");
             var emptyFiles = this.runner.RunCommand(settings);
@@ -220,9 +218,11 @@
                 textFiles = textFiles.Concat(emptyFiles);
             }
 
-            this.Log.Verbose("Found {0} text file(s)", textFiles.Count());
+            var result = textFiles.ToList();
 
-            return textFiles.ToList();
+            this.Log.Verbose("Found {0} text file(s)", result.Count);
+
+            return result;
         }
 
         /// <summary>
@@ -240,12 +240,9 @@
 
             settings.Arguments.Clear();
             settings.Arguments.Add("lfs ls-files -n");
-            var lfsTrackedFiles = this.runner.RunCommand(settings);
-            if (lfsTrackedFiles == null)
-            {
-                throw new Exception("Error reading LFS tracked files from repository");
-            }
-
+            var lfsTrackedFiles =
+                this.runner.RunCommand(settings)
+                ?? throw new Exception("Error reading LFS tracked files from repository");
             this.Log.Verbose("Found {0} LFS tracked file(s)", lfsTrackedFiles.Count());
 
             return lfsTrackedFiles;
@@ -257,20 +254,20 @@
         /// <param name="allFiles">List of all files in the repository.</param>
         /// <param name="textFiles">List of text files in the repository.</param>
         /// <returns>List of binary files in the repository.</returns>
-        private IEnumerable<string> DetermineBinaryFiles(IEnumerable<string> allFiles, IEnumerable<string> textFiles)
+        private List<string> DetermineBinaryFiles(IEnumerable<string> allFiles, IEnumerable<string> textFiles)
         {
             this.Log.Verbose("Determine binary files...");
 
-            var binaryFiles = allFiles.Except(textFiles);
+            var binaryFiles = allFiles.Except(textFiles).ToList();
 
-            if (binaryFiles.Any())
+            if (binaryFiles.Count > 0)
             {
                 this.Log.Debug(string.Join(Environment.NewLine, binaryFiles));
             }
 
-            this.Log.Verbose("Found {0} binary file(s)", binaryFiles.Count());
+            this.Log.Verbose("Found {0} binary file(s)", binaryFiles.Count);
 
-            return binaryFiles.ToList();
+            return binaryFiles;
         }
 
         /// <summary>
@@ -279,20 +276,20 @@
         /// <param name="binaryFiles">List of binary files in the repository.</param>
         /// <param name="lfsTrackedFiles">List of files tracked with LFS in the repository.</param>
         /// <returns>List of binary files in the repository which are not tracked with LFS.</returns>
-        private IEnumerable<string> DetermineBinaryFilesNotTrackedWithLfs(IEnumerable<string> binaryFiles, IEnumerable<string> lfsTrackedFiles)
+        private List<string> DetermineBinaryFilesNotTrackedWithLfs(IEnumerable<string> binaryFiles, IEnumerable<string> lfsTrackedFiles)
         {
             this.Log.Verbose("Checking if binary files are tracked by LFS...");
 
-            var binaryFilesNotTrackedWithLfs = binaryFiles.Except(lfsTrackedFiles);
+            var binaryFilesNotTrackedWithLfs = binaryFiles.Except(lfsTrackedFiles).ToList();
 
-            if (binaryFilesNotTrackedWithLfs.Any())
+            if (binaryFilesNotTrackedWithLfs.Count > 0)
             {
                 this.Log.Debug(string.Join(Environment.NewLine, binaryFilesNotTrackedWithLfs));
             }
 
-            this.Log.Verbose("Found {0} binary file(s) not tracked by LFS", binaryFilesNotTrackedWithLfs.Count());
+            this.Log.Verbose("Found {0} binary file(s) not tracked by LFS", binaryFilesNotTrackedWithLfs.Count);
 
-            return binaryFilesNotTrackedWithLfs.ToList();
+            return binaryFilesNotTrackedWithLfs;
         }
     }
 }
