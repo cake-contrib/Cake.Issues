@@ -11,18 +11,11 @@
     /// <summary>
     /// Provider for issues reported by JetBrains Inspect Code.
     /// </summary>
-    internal class InspectCodeIssuesProvider : BaseConfigurableIssueProvider<InspectCodeIssuesSettings>
+    /// <param name="log">The Cake log context.</param>
+    /// <param name="issueProviderSettings">Settings for the issue provider.</param>
+    internal class InspectCodeIssuesProvider(ICakeLog log, InspectCodeIssuesSettings issueProviderSettings)
+        : BaseConfigurableIssueProvider<InspectCodeIssuesSettings>(log, issueProviderSettings)
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="InspectCodeIssuesProvider"/> class.
-        /// </summary>
-        /// <param name="log">The Cake log context.</param>
-        /// <param name="issueProviderSettings">Settings for the issue provider.</param>
-        public InspectCodeIssuesProvider(ICakeLog log, InspectCodeIssuesSettings issueProviderSettings)
-            : base(log, issueProviderSettings)
-        {
-        }
-
         /// <inheritdoc />
         public override string ProviderName => "InspectCode";
 
