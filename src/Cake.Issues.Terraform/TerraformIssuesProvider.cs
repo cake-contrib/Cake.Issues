@@ -11,18 +11,11 @@
     /// <summary>
     /// Provider for warnings reported by Terraform.
     /// </summary>
-    internal class TerraformIssuesProvider : BaseConfigurableIssueProvider<TerraformIssuesSettings>
+    /// <param name="log">The Cake log context.</param>
+    /// <param name="issueProviderSettings">Settings for the issue provider.</param>
+    internal class TerraformIssuesProvider(ICakeLog log, TerraformIssuesSettings issueProviderSettings)
+        : BaseConfigurableIssueProvider<TerraformIssuesSettings>(log, issueProviderSettings)
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="TerraformIssuesProvider"/> class.
-        /// </summary>
-        /// <param name="log">The Cake log context.</param>
-        /// <param name="issueProviderSettings">Settings for the issue provider.</param>
-        public TerraformIssuesProvider(ICakeLog log, TerraformIssuesSettings issueProviderSettings)
-            : base(log, issueProviderSettings)
-        {
-        }
-
         /// <summary>
         /// Gets the name of the Terraform issue provider.
         /// This name can be used to identify issues based on the <see cref="IIssue.ProviderType"/> property.
@@ -109,17 +102,12 @@
         /// <returns>Priority.</returns>
         private static IssuePriority GetPriority(string severity)
         {
-            switch (severity.ToLower())
+            return severity.ToLowerInvariant() switch
             {
-                case "error":
-                    return IssuePriority.Error;
-
-                case "warning":
-                    return IssuePriority.Warning;
-
-                default:
-                    return IssuePriority.Undefined;
-            }
+                "error" => IssuePriority.Error,
+                "warning" => IssuePriority.Warning,
+                _ => IssuePriority.Undefined,
+            };
         }
 
         /// <summary>
