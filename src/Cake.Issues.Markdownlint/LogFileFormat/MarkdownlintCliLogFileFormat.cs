@@ -9,16 +9,11 @@
     /// <summary>
     /// Logfile format as written by markdownlint-cli.
     /// </summary>
-    internal class MarkdownlintCliLogFileFormat : BaseMarkdownlintLogFileFormat
+    /// <param name="log">The Cake log instance.</param>
+    internal class MarkdownlintCliLogFileFormat(ICakeLog log)
+        : BaseMarkdownlintLogFileFormat(log)
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MarkdownlintCliLogFileFormat"/> class.
-        /// </summary>
-        /// <param name="log">The Cake log instance.</param>
-        public MarkdownlintCliLogFileFormat(ICakeLog log)
-            : base(log)
-        {
-        }
+        private static readonly string[] Separator = ["\r\n", "\r", "\n"];
 
         /// <inheritdoc />
         public override IEnumerable<IIssue> ReadIssues(
@@ -32,7 +27,7 @@
 
             var regex = new Regex(@"(?<filePath>.*[^:\d+]): ?(?<lineNumber>\d+):?(?<columnNumber>\d+)? (?<ruleId>MD\d+)/(?<ruleName>(?:\w*-*/*)*) (?<message>.*)");
 
-            foreach (var line in markdownlintIssuesSettings.LogFileContent.ToStringUsingEncoding().Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None).ToList().Where(s => !string.IsNullOrEmpty(s)))
+            foreach (var line in markdownlintIssuesSettings.LogFileContent.ToStringUsingEncoding().Split(Separator, StringSplitOptions.None).ToList().Where(s => !string.IsNullOrEmpty(s)))
             {
                 var groups = regex.Match(line).Groups;
 
