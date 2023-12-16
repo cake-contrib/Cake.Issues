@@ -6,6 +6,9 @@
 
     /// <summary>
     /// Contains functionality to generate SARIF compatible files.
+    ///
+    /// NOTE: Use Cake.Issues.Reporting.Sarif addin to use these aliases with Cake Script Runners and
+    /// Cake.Frosting.Issues.Reporting.Sarif to use these aliases with Cake Frosting.
     /// </summary>
     [CakeAliasCategory(IssuesAliasConstants.MainCakeAliasCategory)]
     public static class SarifIssueReportFormatAliases
