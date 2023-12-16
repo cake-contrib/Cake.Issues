@@ -18,7 +18,7 @@
   <ItemGroup>
     <PackageReference Include="Cake.Common" Version="4.0.0" PrivateAssets="All" />
     <PackageReference Include="Cake.Core" Version="4.0.0" PrivateAssets="All" />
-    <PackageReference Include="Cake.Issues" Version="3.0.0" />
+    <PackageReference Include="Cake.Issues" Version="4.0.0-beta0001" />
     <PackageReference Include="Cake.Issues.PullRequests" Version="3.0.0" />
     <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="8.0.0">
       <PrivateAssets>all</PrivateAssets>
