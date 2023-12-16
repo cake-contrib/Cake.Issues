@@ -59,10 +59,10 @@
                 log.Runs = new List<Run>();
                 foreach (var issueGroup in from issue in issues group issue by new { issue.ProviderType, issue.Run })
                 {
-                    this.rules = new List<ReportingDescriptor>();
-                    this.ruleIndices = new Dictionary<string, int>();
+                    this.rules = [];
+                    this.ruleIndices = [];
 
-                    Run run = new Run
+                    Run run = new()
                         {
                             Tool =
                                 new Tool
@@ -95,7 +95,7 @@
                             };
                     }
 
-                    if (this.rules.Any())
+                    if (this.rules.Count != 0)
                     {
                         run.Tool.Driver.Rules = this.rules;
                     }
@@ -129,7 +129,7 @@
                     Locations =
                         new List<Location>
                         {
-                            issue.Location(this.Settings.RepositoryRoot),
+                            issue.Location(),
                         },
                 };
 
@@ -137,7 +137,7 @@
             {
                 if (!string.IsNullOrEmpty(issue.RuleId))
                 {
-                    if (!this.ruleIndices.ContainsKey(issue.RuleId))
+                    if (!this.ruleIndices.TryGetValue(issue.RuleId, out int value))
                     {
                         this.ruleIndices.Add(issue.RuleId, this.rules.Count);
                         this.rules.Add(
@@ -149,7 +149,7 @@
                             });
                     }
 
-                    result.RuleIndex = this.ruleIndices[issue.RuleId];
+                    result.RuleIndex = value;
                 }
                 else
                 {
