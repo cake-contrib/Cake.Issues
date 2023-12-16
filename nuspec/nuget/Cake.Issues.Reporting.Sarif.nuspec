@@ -26,7 +26,7 @@ For addin compatible with Cake Frosting see Cake.Frosting.Issues.Reporting.Sarif
     <repository type="git" url="https://github.com/cake-contrib/Cake.Issues.Reporting.Sarif.git"/>
     <copyright>Copyright © Pascal Berger</copyright>
     <tags>cake cake-addin cake-issues cake-reportformat issues reporting sarif</tags>
-    <releaseNotes>https://github.com/cake-contrib/Cake.Issues.Reporting.Sarif/releases/tag/3.0.1</releaseNotes>
+    <releaseNotes>https://github.com/cake-contrib/Cake.Issues.Reporting.Sarif/releases/tag/4.0.0</releaseNotes>
   </metadata>
   <files>
     <file src="..\..\..\..\nuspec\nuget\icon.png" target="" />
