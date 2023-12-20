@@ -10,7 +10,6 @@
     public class FakeMultiFormatIssueProvider(ICakeLog log, FakeMultiFormatIssueProviderSettings settings)
                 : BaseMultiFormatIssueProvider<FakeMultiFormatIssueProviderSettings, FakeMultiFormatIssueProvider>(log, settings)
     {
-
         /// <summary>
         /// Gets the Cake log instance.
         /// </summary>
