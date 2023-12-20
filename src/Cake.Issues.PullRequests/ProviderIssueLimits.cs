@@ -7,7 +7,6 @@
         int? maxIssuesToPost = null,
         int? maxIssuesToPostAcrossRuns = null) : IProviderIssueLimits
     {
-
         /// <inheritdoc />
         public int? MaxIssuesToPost { get; set; } = maxIssuesToPost;
 

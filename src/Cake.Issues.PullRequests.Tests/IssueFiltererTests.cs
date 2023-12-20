@@ -140,7 +140,7 @@
                                 .WithFilteringByModifiedFilesCapability(
                                     new List<FilePath>
                                     {
-                                        new (@"c:\FakeIssueProvider.cs"),
+                                        new(@"c:\FakeIssueProvider.cs"),
                                     }));
 
                     // When
@@ -173,7 +173,7 @@
                                 .WithFilteringByModifiedFilesCapability(
                                     new List<FilePath>
                                     {
-                                        new (@"src\Cake.Issues.Tests\FakeIssueProvider.cs"),
+                                        new(@"src\Cake.Issues.Tests\FakeIssueProvider.cs"),
                                     }));
 
                     var issue1 =

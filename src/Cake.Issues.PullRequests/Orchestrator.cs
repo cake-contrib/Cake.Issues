@@ -288,9 +288,9 @@ namespace Cake.Issues.PullRequests
         /// <param name="issue">Issue for which the comments should be returned.</param>
         /// <param name="existingThreads">Existing discussion threads on the pull request.</param>
         /// <returns>Comments for the issue.</returns>
-        private (IEnumerable<IPullRequestDiscussionComment> activeComments,
-                IEnumerable<IPullRequestDiscussionComment> wontFixComments,
-                IEnumerable<IPullRequestDiscussionComment> resolvedComments) GetMatchingComments(
+        private (IEnumerable<IPullRequestDiscussionComment> ActiveComments,
+                IEnumerable<IPullRequestDiscussionComment> WontFixComments,
+                IEnumerable<IPullRequestDiscussionComment> ResolvedComments) GetMatchingComments(
             IIssue issue,
             IReadOnlyCollection<IPullRequestDiscussionThread> existingThreads)
         {

@@ -20,7 +20,7 @@ namespace Cake.Issues.PullRequests.Tests
 
             this.Log = new FakeLog { Verbosity = Verbosity.Normal };
 
-            this.IssueProviders = new List<FakeIssueProvider> { new (this.Log) };
+            this.IssueProviders = new List<FakeIssueProvider> { new(this.Log) };
 
             this.Settings =
                 new ReportIssuesToPullRequestFromIssueProviderSettings(

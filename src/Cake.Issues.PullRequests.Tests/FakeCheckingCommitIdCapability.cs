@@ -9,7 +9,6 @@
     /// <param name="pullRequestSystem">Pull request system to which this capability belongs.</param>
     public class FakeCheckingCommitIdCapability(ICakeLog log, FakePullRequestSystem pullRequestSystem) : BaseCheckingCommitIdCapability<FakePullRequestSystem>(log, pullRequestSystem)
     {
-
         /// <summary>
         /// Gets the Cake log context.
         /// </summary>

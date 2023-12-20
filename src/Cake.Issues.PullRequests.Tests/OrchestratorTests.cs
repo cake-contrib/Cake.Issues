@@ -2367,7 +2367,7 @@ namespace Cake.Issues.PullRequests.Tests
                             .WithFilteringByModifiedFilesCapability(
                                 new List<FilePath>
                                 {
-                                    new (@"src\Cake.Issues.Tests\FakeIssueProvider.cs"),
+                                    new(@"src\Cake.Issues.Tests\FakeIssueProvider.cs"),
                                 }));
 
                 fixture.IssueProviders.Clear();
