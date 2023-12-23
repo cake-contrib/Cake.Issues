@@ -25,15 +25,15 @@ Cake.Issues recipes will add the following addins to your build:
 | Addin Cake.Issues.Recipe                                | Addin.Frosting.Issues.Recipe                            | Remarks |
 |---------------------------------------------------------|---------------------------------------------------------|-|
 | [Cake.Git] 3.0.0                                        | [Cake.Git] 3.0.0                                        | Only used if `RepositoryInfoProvider` type is set to `RepositoryInfoProviderType.CakeGit`. See [Git repository information configuration] for details. |
-| [Cake.Issues] 4.0.0-beta0001                            | [Cake.Issues] 4.0.0-beta0001                            | |
+| [Cake.Issues] 4.0.0                                     | [Cake.Issues] 4.0.0                                     | |
 | [Cake.Issues.MsBuild] 4.0.0-beta0001                    | [Cake.Frosting.Issues.MsBuild] 4.0.0-beta0001           | |
 | [Cake.Issues.InspectCode] 4.0.0-beta0001                | [Cake.Issues.InspectCode] 4.0.0-beta0001                | |
 | [Cake.Issues.Markdownlint] 4.0.0-beta0001               | [Cake.Issues.Markdownlint] 4.0.0-beta0001               | |
 | [Cake.Issues.EsLint] 4.0.0-beta0001                     | [Cake.Issues.EsLint] 4.0.0-beta0001                     | |
-| [Cake.Issues.Reporting] 4.0.0-beta0001                  | [Cake.Issues.Reporting] 4.0.0-beta0001                  | |
+| [Cake.Issues.Reporting] 4.0.0                           | [Cake.Issues.Reporting] 4.0.0                           | |
 | [Cake.Issues.Reporting.Generic] 4.0.0-beta0001          | [Cake.Frosting.Issues.Reporting.Generic] 4.0.0-beta0001 | |
 | [Cake.Issues.Reporting.Sarif] 4.0.0-beta0001            | [Cake.Frosting.Issues.Reporting.Sarif] 4.0.0-beta0001   | |
-| [Cake.Issues.PullRequests] 4.0.0-beta0001               | [Cake.Issues.PullRequests] 4.0.0-beta0001               | |
+| [Cake.Issues.PullRequests] 4.0.0                        | [Cake.Issues.PullRequests] 4.0.0                        | |
 | [Cake.Issues.PullRequests.AppVeyor] 4.0.0-beta0001      | [Cake.Issues.PullRequests.AppVeyor] 4.0.0-beta0001      | |
 | [Cake.Issues.PullRequests.AzureDevOps] 4.0.0-beta0001   | [Cake.Issues.PullRequests.AzureDevOps] 4.0.0-beta0001   | |
 | [Cake.Issues.PullRequests.GitHubActions] 4.0.0-beta0001 | [Cake.Issues.PullRequests.GitHubActions] 4.0.0-beta0001 | |
