@@ -11,24 +11,17 @@
     /// <summary>
     /// A wrapper around the Git CLI.
     /// </summary>
-    internal class GitRunner : Tool<GitRunnerSettings>
+    /// <param name="fileSystem">The file system.</param>
+    /// <param name="environment">The Cake environment.</param>
+    /// <param name="processRunner">The process runner.</param>
+    /// <param name="toolLocator">The tool locator.</param>
+    internal class GitRunner(
+        IFileSystem fileSystem,
+        ICakeEnvironment environment,
+        IProcessRunner processRunner,
+        IToolLocator toolLocator)
+        : Tool<GitRunnerSettings>(fileSystem, environment, processRunner, toolLocator)
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="GitRunner" /> class.
-        /// </summary>
-        /// <param name="fileSystem">The file system.</param>
-        /// <param name="environment">The Cake environment.</param>
-        /// <param name="processRunner">The process runner.</param>
-        /// <param name="toolLocator">The tool locator.</param>
-        public GitRunner(
-            IFileSystem fileSystem,
-            ICakeEnvironment environment,
-            IProcessRunner processRunner,
-            IToolLocator toolLocator)
-            : base(fileSystem, environment, processRunner, toolLocator)
-        {
-        }
-
         /// <summary>
         /// Runs Git with specified settings.
         /// </summary>
@@ -36,10 +29,7 @@
         /// <returns>Output of command.</returns>
         public IEnumerable<string> RunCommand(GitRunnerSettings settings)
         {
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             var args = new ProcessArgumentBuilder();
             settings.Evaluate(args);

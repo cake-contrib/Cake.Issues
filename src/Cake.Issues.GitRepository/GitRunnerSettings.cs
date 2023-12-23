@@ -10,7 +10,7 @@
     /// </summary>
     internal class GitRunnerSettings : ToolSettings
     {
-        private readonly List<string> arguments = new List<string>();
+        private readonly List<string> arguments = [];
 
         /// <summary>
         /// Gets arguments to pass to the target script.
