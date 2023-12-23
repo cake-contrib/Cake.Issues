@@ -24,7 +24,7 @@ See the Project Site for an overview of the whole ecosystem of addins for workin
     <repository type="git" url="https://github.com/cake-contrib/Cake.Issues.Terraform.git"/>
     <copyright>Copyright © Pascal Berger</copyright>
     <tags>cake cake-addin cake-issues cake-issueprovider linting terraform</tags>
-    <releaseNotes>https://github.com/cake-contrib/Cake.Issues.Terraform/releases/tag/3.0.0</releaseNotes>
+    <releaseNotes>https://github.com/cake-contrib/Cake.Issues.Terraform/releases/tag/4.0.0</releaseNotes>
   </metadata>
   <files>
     <file src="..\..\..\..\nuspec\nuget\icon.png" target="" />
@@ -34,5 +34,8 @@ See the Project Site for an overview of the whole ecosystem of addins for workin
     <file src="net7.0/Cake.Issues.Terraform.dll" target="lib\net7.0" />
     <file src="net7.0/Cake.Issues.Terraform.pdb" target="lib\net7.0" />
     <file src="net7.0/Cake.Issues.Terraform.xml" target="lib\net7.0" />
+    <file src="net8.0/Cake.Issues.Terraform.dll" target="lib\net8.0" />
+    <file src="net8.0/Cake.Issues.Terraform.pdb" target="lib\net8.0" />
+    <file src="net8.0/Cake.Issues.Terraform.xml" target="lib\net8.0" />
   </files>
 </package>
