@@ -28,19 +28,25 @@ The addin requires Cake Frosting 1.2.0 or higher.
     <repository type="git" url="https://github.com/cake-contrib/Cake.Issues.Reporting.Console.git"/>
     <copyright>Copyright © Pascal Berger</copyright>
     <tags>cake cake-addin cake-issues cake-reportformat issues reporting console</tags>
-    <releaseNotes>https://github.com/cake-contrib/Cake.Issues.Reporting.Console/releases/tag/3.0.0</releaseNotes>
+    <releaseNotes>https://github.com/cake-contrib/Cake.Issues.Reporting.Console/releases/tag/4.0.0</releaseNotes>
     <dependencies>
       <group targetFramework="net6.0">
-        <dependency id="Cake.Core" version="3.0" exclude="Build,Analyzers" />
-        <dependency id="Cake.Issues" version="[3.0.0-*,4.0)" exclude="Build,Analyzers" />
-        <dependency id="Cake.Issues.Reporting" version="[3.0.0-*,4.0)" exclude="Build,Analyzers" />
-        <dependency id="Errata" version="0.10.0" exclude="Build,Analyzers" />
+        <dependency id="Cake.Core" version="4.0" exclude="Build,Analyzers" />
+        <dependency id="Cake.Issues" version="[4.0.0-beta0001,5.0)" exclude="Build,Analyzers" />
+        <dependency id="Cake.Issues.Reporting" version="[4.0.0-beta0001,5.0)" exclude="Build,Analyzers" />
+        <dependency id="Errata" version="0.12.0" exclude="Build,Analyzers" />
       </group>
       <group targetFramework="net7.0">
-        <dependency id="Cake.Core" version="3.0" exclude="Build,Analyzers" />
-        <dependency id="Cake.Issues" version="[3.0.0-*,4.0)" exclude="Build,Analyzers" />
-        <dependency id="Cake.Issues.Reporting" version="[3.0.0-*,4.0)" exclude="Build,Analyzers" />
-        <dependency id="Errata" version="0.10.0" exclude="Build,Analyzers" />
+        <dependency id="Cake.Core" version="4.0" exclude="Build,Analyzers" />
+        <dependency id="Cake.Issues" version="[4.0.0-beta0001,5.0)" exclude="Build,Analyzers" />
+        <dependency id="Cake.Issues.Reporting" version="[4.0.0-beta0001,5.0)" exclude="Build,Analyzers" />
+        <dependency id="Errata" version="0.12.0" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework="net8.0">
+        <dependency id="Cake.Core" version="4.0" exclude="Build,Analyzers" />
+        <dependency id="Cake.Issues" version="[4.0.0-beta0001,5.0)" exclude="Build,Analyzers" />
+        <dependency id="Cake.Issues.Reporting" version="[4.0.0-beta0001,5.0)" exclude="Build,Analyzers" />
+        <dependency id="Errata" version="0.12.0" exclude="Build,Analyzers" />
       </group>
     </dependencies>
   </metadata>
@@ -52,5 +58,8 @@ The addin requires Cake Frosting 1.2.0 or higher.
     <file src="..\..\src\Cake.Issues.Reporting.Console\bin\Release\net7.0\Cake.Issues.Reporting.Console.dll" target="lib\net7.0" />
     <file src="..\..\src\Cake.Issues.Reporting.Console\bin\Release\net7.0\Cake.Issues.Reporting.Console.pdb" target="lib\net7.0" />
     <file src="..\..\src\Cake.Issues.Reporting.Console\bin\Release\net7.0\Cake.Issues.Reporting.Console.xml" target="lib\net7.0" />
+    <file src="..\..\src\Cake.Issues.Reporting.Console\bin\Release\net8.0\Cake.Issues.Reporting.Console.dll" target="lib\net8.0" />
+    <file src="..\..\src\Cake.Issues.Reporting.Console\bin\Release\net8.0\Cake.Issues.Reporting.Console.pdb" target="lib\net8.0" />
+    <file src="..\..\src\Cake.Issues.Reporting.Console\bin\Release\net8.0\Cake.Issues.Reporting.Console.xml" target="lib\net8.0" />
   </files>
 </package>
