@@ -3,6 +3,7 @@
     using System;
     using System.Diagnostics.CodeAnalysis;
     using Microsoft.CSharp.RuntimeBinder;
+    using Shouldly;
     using Xunit;
 
     /// <summary>
@@ -19,7 +20,7 @@
         public static void IsRuntimeBinderException(this Exception exception, string message)
         {
             Assert.IsType<RuntimeBinderException>(exception);
-            Assert.Equal(message, exception.Message);
+            message.ShouldBe(exception.Message);
         }
     }
 }

@@ -14,73 +14,41 @@
         /// <returns>CSS file name of the DevExtreme theme.</returns>
         public static string GetCssFileName(this DevExtremeTheme theme)
         {
-            switch (theme)
+            return theme switch
             {
-                case DevExtremeTheme.Light:
-                    return "dx.light.css";
-                case DevExtremeTheme.Dark:
-                    return "dx.dark.css";
-                case DevExtremeTheme.Contrast:
-                    return "dx.contrast.css";
-                case DevExtremeTheme.Carmine:
-                    return "dx.carmine.css";
-                case DevExtremeTheme.DarkMoon:
-                    return "dx.darkmoon.css";
-                case DevExtremeTheme.SoftBlue:
-                    return "dx.softblue.css";
-                case DevExtremeTheme.DarkViolet:
-                    return "dx.darkviolet.css";
-                case DevExtremeTheme.GreenMist:
-                    return "dx.greenmist.css";
-                case DevExtremeTheme.LightCompact:
-                    return "dx.light.compact.css";
-                case DevExtremeTheme.DarkCompact:
-                    return "dx.dark.compact.css";
-                case DevExtremeTheme.ContrastCompact:
-                    return "dx.contrast.compact.css";
-                case DevExtremeTheme.MaterialBlueLight:
-                    return "dx.material.blue.light.css";
-                case DevExtremeTheme.MaterialLimeLight:
-                    return "dx.material.lime.light.css";
-                case DevExtremeTheme.MaterialOrangeLight:
-                    return "dx.material.orange.light.css";
-                case DevExtremeTheme.MaterialPurpleLight:
-                    return "dx.material.purple.light.css";
-                case DevExtremeTheme.MaterialTealLight:
-                    return "dx.material.teal.light.css";
-                case DevExtremeTheme.MaterialBlueDark:
-                    return "dx.material.blue.dark.css";
-                case DevExtremeTheme.MaterialLimeDark:
-                    return "dx.material.lime.dark.css";
-                case DevExtremeTheme.MaterialOrangeDark:
-                    return "dx.material.orange.dark.css";
-                case DevExtremeTheme.MaterialPurpleDark:
-                    return "dx.material.purple.dark.css";
-                case DevExtremeTheme.MaterialTealDark:
-                    return "dx.material.teal.dark.css";
-                case DevExtremeTheme.MaterialBlueLightCompact:
-                    return "dx.material.blue.light.compact.css";
-                case DevExtremeTheme.MaterialLimeLightCompact:
-                    return "dx.material.lime.light.compact.css";
-                case DevExtremeTheme.MaterialOrangeLightCompact:
-                    return "dx.material.orange.light.compact.css";
-                case DevExtremeTheme.MaterialPurpleLightCompact:
-                    return "dx.material.purple.light.compact.css";
-                case DevExtremeTheme.MaterialTealLightCompact:
-                    return "dx.material.teal.light.compact.css";
-                case DevExtremeTheme.MaterialBlueDarkCompact:
-                    return "dx.material.blue.dark.compact.css";
-                case DevExtremeTheme.MaterialLimeDarkCompact:
-                    return "dx.material.lime.dark.compact.css";
-                case DevExtremeTheme.MaterialOrangeDarkCompact:
-                    return "dx.material.orange.dark.compact.css";
-                case DevExtremeTheme.MaterialPurpleDarkCompact:
-                    return "dx.material.purple.dark.compact.css";
-                case DevExtremeTheme.MaterialTealDarkCompact:
-                    return "dx.material.teal.dark.compact.css";
-                default:
-                    throw new ArgumentException("Unknown enumeration value", nameof(theme));
-            }
+                DevExtremeTheme.Light => "dx.light.css",
+                DevExtremeTheme.Dark => "dx.dark.css",
+                DevExtremeTheme.Contrast => "dx.contrast.css",
+                DevExtremeTheme.Carmine => "dx.carmine.css",
+                DevExtremeTheme.DarkMoon => "dx.darkmoon.css",
+                DevExtremeTheme.SoftBlue => "dx.softblue.css",
+                DevExtremeTheme.DarkViolet => "dx.darkviolet.css",
+                DevExtremeTheme.GreenMist => "dx.greenmist.css",
+                DevExtremeTheme.LightCompact => "dx.light.compact.css",
+                DevExtremeTheme.DarkCompact => "dx.dark.compact.css",
+                DevExtremeTheme.ContrastCompact => "dx.contrast.compact.css",
+                DevExtremeTheme.MaterialBlueLight => "dx.material.blue.light.css",
+                DevExtremeTheme.MaterialLimeLight => "dx.material.lime.light.css",
+                DevExtremeTheme.MaterialOrangeLight => "dx.material.orange.light.css",
+                DevExtremeTheme.MaterialPurpleLight => "dx.material.purple.light.css",
+                DevExtremeTheme.MaterialTealLight => "dx.material.teal.light.css",
+                DevExtremeTheme.MaterialBlueDark => "dx.material.blue.dark.css",
+                DevExtremeTheme.MaterialLimeDark => "dx.material.lime.dark.css",
+                DevExtremeTheme.MaterialOrangeDark => "dx.material.orange.dark.css",
+                DevExtremeTheme.MaterialPurpleDark => "dx.material.purple.dark.css",
+                DevExtremeTheme.MaterialTealDark => "dx.material.teal.dark.css",
+                DevExtremeTheme.MaterialBlueLightCompact => "dx.material.blue.light.compact.css",
+                DevExtremeTheme.MaterialLimeLightCompact => "dx.material.lime.light.compact.css",
+                DevExtremeTheme.MaterialOrangeLightCompact => "dx.material.orange.light.compact.css",
+                DevExtremeTheme.MaterialPurpleLightCompact => "dx.material.purple.light.compact.css",
+                DevExtremeTheme.MaterialTealLightCompact => "dx.material.teal.light.compact.css",
+                DevExtremeTheme.MaterialBlueDarkCompact => "dx.material.blue.dark.compact.css",
+                DevExtremeTheme.MaterialLimeDarkCompact => "dx.material.lime.dark.compact.css",
+                DevExtremeTheme.MaterialOrangeDarkCompact => "dx.material.orange.dark.compact.css",
+                DevExtremeTheme.MaterialPurpleDarkCompact => "dx.material.purple.dark.compact.css",
+                DevExtremeTheme.MaterialTealDarkCompact => "dx.material.teal.dark.compact.css",
+                _ => throw new ArgumentException("Unknown enumeration value", nameof(theme)),
+            };
         }
     }
 }

@@ -67,7 +67,7 @@
         /// Gets the options to use for generating the report.
         /// See template for available options.
         /// </summary>
-        public Dictionary<string, object> Options { get; } = new Dictionary<string, object>();
+        public Dictionary<string, object> Options { get; } = [];
 
         /// <summary>
         /// Returns a new instance of the <see cref="GenericIssueReportFormatSettings"/> class from a template file on disk.

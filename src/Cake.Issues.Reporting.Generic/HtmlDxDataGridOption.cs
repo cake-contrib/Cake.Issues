@@ -375,7 +375,7 @@
         /// <summary>
         /// Version of the <see href="https://js.devexpress.com/">DevExtreme </see> libraries which should be used.
         /// If setting this the matching <see cref="JQueryVersion"/> needs to also be set.
-        /// Default value is <c>22.2.6</c>.
+        /// Default value is <c>23.1.6</c>.
         /// </summary>
         DevExtremeVersion,
 
@@ -422,7 +422,7 @@
         /// <summary>
         /// Version of <see href="https://github.com/exceljs/exceljs">ExcelJS</see> which should be used.
         /// This version needs to match the version required by the selected <see cref="DevExtremeVersion"/>.
-        /// Default value is <c>4.3.0</c>.
+        /// Default value is <c>4.4.0</c>.
         /// </summary>
         ExcelJsVersion,
 
@@ -482,7 +482,7 @@
         /// <summary>
         /// Version of <see href="https://github.com/simonbengtsson/jsPDF-AutoTable">jsPDF-AutoTable plugin</see> which should be used.
         /// This version needs to match the version required by the selected <see cref="DevExtremeVersion"/>.
-        /// Default value is <c>3.5.29</c>.
+        /// Default value is <c>3.8.1</c>.
         /// </summary>
         JsPdfAutotableVersion,
     }

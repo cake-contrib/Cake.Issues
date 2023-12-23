@@ -14,20 +14,13 @@
         /// <returns>Name of the template file.</returns>
         public static string GetTemplateResourceName(this GenericIssueReportTemplate template)
         {
-            switch (template)
+            return template switch
             {
-                case GenericIssueReportTemplate.HtmlDiagnostic:
-                    return "Diagnostic.cshtml";
-
-                case GenericIssueReportTemplate.HtmlDataTable:
-                    return "DataTable.cshtml";
-
-                case GenericIssueReportTemplate.HtmlDxDataGrid:
-                    return "DxDataGrid.cshtml";
-
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(template));
-            }
+                GenericIssueReportTemplate.HtmlDiagnostic => "Diagnostic.cshtml",
+                GenericIssueReportTemplate.HtmlDataTable => "DataTable.cshtml",
+                GenericIssueReportTemplate.HtmlDxDataGrid => "DxDataGrid.cshtml",
+                _ => throw new ArgumentOutOfRangeException(nameof(template)),
+            };
         }
     }
 }
