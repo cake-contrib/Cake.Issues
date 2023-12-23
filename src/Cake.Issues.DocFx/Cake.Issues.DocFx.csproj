@@ -2,7 +2,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Library</OutputType>
-    <TargetFrameworks>net6.0;net7.0</TargetFrameworks>
+    <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
     <Description>DocFx support for the Cake.Issues Addin for Cake Build Automation System</Description>
     <Authors>BBT Software AG</Authors>
     <Company>BBT Software AG</Company>
@@ -25,9 +25,9 @@
   </PropertyGroup>
   
   <ItemGroup>
-    <PackageReference Include="Cake.Core" Version="3.0.0" />
-    <PackageReference Include="Cake.Issues" Version="3.0.0" />
-    <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="7.0.3">
+    <PackageReference Include="Cake.Core" Version="4.0.0" />
+    <PackageReference Include="Cake.Issues" Version="4.0.0-beta0001" />
+    <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="8.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>

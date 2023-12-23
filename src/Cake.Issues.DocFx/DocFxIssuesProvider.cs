@@ -13,18 +13,11 @@
     /// <summary>
     /// Provider for warnings reported by DocFx.
     /// </summary>
-    internal class DocFxIssuesProvider : BaseConfigurableIssueProvider<DocFxIssuesSettings>
+    /// <param name="log">The Cake log context.</param>
+    /// <param name="issueProviderSettings">Settings for the issue provider.</param>
+    internal class DocFxIssuesProvider(ICakeLog log, DocFxIssuesSettings issueProviderSettings)
+        : BaseConfigurableIssueProvider<DocFxIssuesSettings>(log, issueProviderSettings)
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="DocFxIssuesProvider"/> class.
-        /// </summary>
-        /// <param name="log">The Cake log context.</param>
-        /// <param name="issueProviderSettings">Settings for the issue provider.</param>
-        public DocFxIssuesProvider(ICakeLog log, DocFxIssuesSettings issueProviderSettings)
-            : base(log, issueProviderSettings)
-        {
-        }
-
         /// <summary>
         /// Gets the name of the DocFx issue provider.
         /// This name can be used to identify issues based on the <see cref="IIssue.ProviderType"/> property.
@@ -82,17 +75,12 @@
         /// <returns>Priority.</returns>
         private static IssuePriority GetPriority(string severity)
         {
-            switch (severity.ToLower())
+            return severity.ToLowerInvariant() switch
             {
-                case "warning":
-                    return IssuePriority.Warning;
-
-                case "suggestion":
-                    return IssuePriority.Suggestion;
-
-                default:
-                    return IssuePriority.Undefined;
-            }
+                "warning" => IssuePriority.Warning,
+                "suggestion" => IssuePriority.Suggestion,
+                _ => IssuePriority.Undefined,
+            };
         }
 
         /// <summary>
@@ -134,7 +122,7 @@
             fileName = fileName.Substring(this.Settings.RepositoryRoot.FullPath.Length);
 
             // Remove leading directory separator.
-            if (fileName.StartsWith("/", StringComparison.InvariantCulture))
+            if (fileName.StartsWith('/'))
             {
                 fileName = fileName.Substring(1);
             }
