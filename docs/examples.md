@@ -72,4 +72,4 @@ Task("Read-Issues")
     });
 ```
 
-[MSBuild Extension Pack]: http://www.msbuildextensionpack.com/
+[MSBuild Extension Pack]: https://github.com/mikefourie-zz/MSBuildExtensionPack
