@@ -19,21 +19,13 @@
                 return AppVeyorMessageCategoryType.Warning;
             }
 
-            switch (priority)
+            return priority switch
             {
-                case (int)IssuePriority.Error:
-                    return AppVeyorMessageCategoryType.Error;
-
-                case (int)IssuePriority.Warning:
-                    return AppVeyorMessageCategoryType.Warning;
-
-                case (int)IssuePriority.Hint:
-                case (int)IssuePriority.Suggestion:
-                    return AppVeyorMessageCategoryType.Information;
-
-                default:
-                    return AppVeyorMessageCategoryType.Warning;
-            }
+                (int)IssuePriority.Error => AppVeyorMessageCategoryType.Error,
+                (int)IssuePriority.Warning => AppVeyorMessageCategoryType.Warning,
+                (int)IssuePriority.Hint or (int)IssuePriority.Suggestion => AppVeyorMessageCategoryType.Information,
+                _ => AppVeyorMessageCategoryType.Warning,
+            };
         }
     }
 }
