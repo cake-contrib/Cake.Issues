@@ -23,17 +23,12 @@
                 return ResultKind.None;
             }
 
-            switch (issue.Priority)
+            return issue.Priority switch
             {
-                case (int)IssuePriority.Suggestion:
-                case (int)IssuePriority.Hint:
-                    return ResultKind.Informational;
-                case (int)IssuePriority.Warning:
-                case (int)IssuePriority.Error:
-                    return ResultKind.Fail;
-                default:
-                    return ResultKind.NotApplicable;
-            }
+                (int)IssuePriority.Suggestion or (int)IssuePriority.Hint => ResultKind.Informational,
+                (int)IssuePriority.Warning or (int)IssuePriority.Error => ResultKind.Fail,
+                _ => ResultKind.NotApplicable,
+            };
         }
 
         /// <summary>
@@ -50,30 +45,23 @@
                 return FailureLevel.None;
             }
 
-            switch (issue.Priority)
+            return issue.Priority switch
             {
-                case (int)IssuePriority.Suggestion:
-                case (int)IssuePriority.Hint:
-                    return FailureLevel.Note;
-                case (int)IssuePriority.Warning:
-                    return FailureLevel.Warning;
-                case (int)IssuePriority.Error:
-                    return FailureLevel.Error;
-                default:
-                    return FailureLevel.None;
-            }
+                (int)IssuePriority.Suggestion or (int)IssuePriority.Hint => FailureLevel.Note,
+                (int)IssuePriority.Warning => FailureLevel.Warning,
+                (int)IssuePriority.Error => FailureLevel.Error,
+                _ => FailureLevel.None,
+            };
         }
 
         /// <summary>
         /// Returns the location of the issue.
         /// </summary>
         /// <param name="issue">Issue for which the location should be returned.</param>
-        /// <param name="repositoryRoot">Root path to the directory.</param>
         /// <returns>Location of the issue.</returns>
-        public static Location Location(this IIssue issue, DirectoryPath repositoryRoot)
+        public static Location Location(this IIssue issue)
         {
             issue.NotNull(nameof(issue));
-            issue.NotNull(nameof(repositoryRoot));
 
             if (issue.AffectedFileRelativePath == null && !issue.Line.HasValue)
             {

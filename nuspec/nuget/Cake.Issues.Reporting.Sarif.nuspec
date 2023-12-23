@@ -14,6 +14,10 @@ This addin provides the aliases for creating SARIF compatible files.
 It also requires the core Cake.Issues and Cake.Issues.Reporting addins and one or more issue providers.
 
 See the Project Site for an overview of the whole ecosystem of addins for working with issues in Cake scripts.
+
+NOTE:
+This is the version of the addin compatible with Cake Script Runners.
+For addin compatible with Cake Frosting see Cake.Frosting.Issues.Reporting.Sarif.
     </description>
     <license type="expression">MIT</license>
     <projectUrl>https://cakeissues.net</projectUrl>
@@ -22,7 +26,7 @@ See the Project Site for an overview of the whole ecosystem of addins for workin
     <repository type="git" url="https://github.com/cake-contrib/Cake.Issues.Reporting.Sarif.git"/>
     <copyright>Copyright © Pascal Berger</copyright>
     <tags>cake cake-addin cake-issues cake-reportformat issues reporting sarif</tags>
-    <releaseNotes>https://github.com/cake-contrib/Cake.Issues.Reporting.Sarif/releases/tag/3.0.1</releaseNotes>
+    <releaseNotes>https://github.com/cake-contrib/Cake.Issues.Reporting.Sarif/releases/tag/4.0.0</releaseNotes>
   </metadata>
   <files>
     <file src="..\..\..\..\nuspec\nuget\icon.png" target="" />
@@ -34,5 +38,9 @@ See the Project Site for an overview of the whole ecosystem of addins for workin
     <file src="net7.0/Cake.Issues.Reporting.Sarif.pdb" target="lib\net7.0" />
     <file src="net7.0/Cake.Issues.Reporting.Sarif.xml" target="lib\net7.0" />
     <file src="net7.0/Sarif.dll" target="lib\net7.0" />
+    <file src="net8.0/Cake.Issues.Reporting.Sarif.dll" target="lib\net8.0" />
+    <file src="net8.0/Cake.Issues.Reporting.Sarif.pdb" target="lib\net8.0" />
+    <file src="net8.0/Cake.Issues.Reporting.Sarif.xml" target="lib\net8.0" />
+    <file src="net8.0/Sarif.dll" target="lib\net8.0" />
   </files>
 </package>

@@ -22,19 +22,19 @@
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Cake.Issues" Version="3.0.0" />
-    <PackageReference Include="Cake.Issues.Testing" Version="3.0.0" />
-    <PackageReference Include="Cake.Testing" Version="3.0.0" />
+    <PackageReference Include="Cake.Issues" Version="4.0.0" />
+    <PackageReference Include="Cake.Issues.Testing" Version="4.0.0" />
+    <PackageReference Include="Cake.Testing" Version="4.0.0" />
     <PackageReference Include="Shouldly" Version="4.2.1" />
     <PackageReference Include="StyleCop.Analyzers">
       <Version>1.1.118</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.7.0" />
-    <PackageReference Include="xunit" Version="2.5.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
+    <PackageReference Include="xunit" Version="2.6.3" />
     <PackageReference Include="xunit.runner.visualstudio">
-      <Version>2.5.0</Version>
+      <Version>2.5.5</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
