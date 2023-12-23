@@ -8,7 +8,7 @@
     /// </summary>
     public class FakeIssueProvider : BaseIssueProvider
     {
-        private readonly List<IIssue> issues = new ();
+        private readonly List<IIssue> issues = [];
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FakeIssueProvider"/> class.

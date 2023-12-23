@@ -5,16 +5,9 @@
     /// <summary>
     /// Implementation of a <see cref="BaseIssueComponent{T}"/> for use in test cases.
     /// </summary>
-    public class FakeIssueComponent : BaseIssueComponent<RepositorySettings>
+    /// <param name="log">The Cake log instance.</param>
+    public class FakeIssueComponent(ICakeLog log) : BaseIssueComponent<RepositorySettings>(log)
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="FakeIssueComponent"/> class.
-        /// </summary>
-        /// <param name="log">The Cake log instance.</param>
-        public FakeIssueComponent(ICakeLog log)
-            : base(log)
-        {
-        }
 
         /// <summary>
         /// Gets the Cake log instance.

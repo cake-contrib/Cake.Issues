@@ -5,18 +5,11 @@
     /// <summary>
     /// Implementation of a <see cref="BaseMultiFormatIssueProvider{TSettings, TIssueProvider} "/> for use in test cases.
     /// </summary>
-    public class FakeMultiFormatIssueProvider
-        : BaseMultiFormatIssueProvider<FakeMultiFormatIssueProviderSettings, FakeMultiFormatIssueProvider>
+    /// <param name="log">The Cake log instance.</param>
+    /// <param name="settings">The issue provider settings.</param>
+    public class FakeMultiFormatIssueProvider(ICakeLog log, FakeMultiFormatIssueProviderSettings settings)
+                : BaseMultiFormatIssueProvider<FakeMultiFormatIssueProviderSettings, FakeMultiFormatIssueProvider>(log, settings)
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="FakeMultiFormatIssueProvider"/> class.
-        /// </summary>
-        /// <param name="log">The Cake log instance.</param>
-        /// <param name="settings">The issue provider settings.</param>
-        public FakeMultiFormatIssueProvider(ICakeLog log, FakeMultiFormatIssueProviderSettings settings)
-            : base(log, settings)
-        {
-        }
 
         /// <summary>
         /// Gets the Cake log instance.

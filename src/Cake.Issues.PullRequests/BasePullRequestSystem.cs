@@ -10,7 +10,7 @@
     public abstract class BasePullRequestSystem
         : BaseIssueComponent<IReportIssuesToPullRequestSettings>, IPullRequestSystem
     {
-        private readonly List<IPullRequestSystemCapability> capabilities = new ();
+        private readonly List<IPullRequestSystemCapability> capabilities = [];
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BasePullRequestSystem"/> class.
@@ -31,17 +31,11 @@
 
         /// <inheritdoc/>
         public bool HasCapability<T>()
-            where T : IPullRequestSystemCapability
-        {
-            return this.capabilities.Any(x => x is T);
-        }
+            where T : IPullRequestSystemCapability => this.capabilities.Exists(x => x is T);
 
         /// <inheritdoc/>
         public T GetCapability<T>()
-            where T : IPullRequestSystemCapability
-        {
-            return this.capabilities.OfType<T>().FirstOrDefault();
-        }
+            where T : IPullRequestSystemCapability => this.capabilities.OfType<T>().FirstOrDefault();
 
         /// <inheritdoc/>
         public void PostDiscussionThreads(IEnumerable<IIssue> issues, string commentSource)

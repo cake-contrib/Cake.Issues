@@ -3,8 +3,8 @@
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
+    using System.Text.Json;
     using Cake.Core.IO;
-    using LitJson;
 
     /// <summary>
     /// Extensions for serializing an <see cref="IIssue"/> to the latest serialization format.
@@ -20,7 +20,7 @@
         {
             issue.NotNull(nameof(issue));
 
-            return JsonMapper.ToJson(issue.ToSerializableIssue());
+            return JsonSerializer.Serialize(issue.ToSerializableIssue());
         }
 
         /// <summary>
@@ -32,7 +32,7 @@
         {
             issues.NotNull(nameof(issues));
 
-            return JsonMapper.ToJson(issues.Select(x => x.ToSerializableIssue()).ToArray());
+            return JsonSerializer.Serialize(issues.Select(x => x.ToSerializableIssue()).ToArray());
         }
 
         /// <summary>
@@ -46,9 +46,8 @@
             filePath.NotNull(nameof(filePath));
 
             using (var stream = File.Open(filePath.FullPath, FileMode.Create))
-            using (var writer = new StreamWriter(stream))
             {
-                JsonMapper.ToJson(issue.ToSerializableIssue(), new JsonWriter(writer));
+                JsonSerializer.Serialize(stream, issue.ToSerializableIssue());
             }
         }
 
@@ -63,9 +62,8 @@
             filePath.NotNull(nameof(filePath));
 
             using (var stream = File.Open(filePath.FullPath, FileMode.Create))
-            using (var writer = new StreamWriter(stream))
             {
-                JsonMapper.ToJson(issues.Select(x => x.ToSerializableIssue()).ToArray(), new JsonWriter(writer));
+                JsonSerializer.Serialize(stream, issues.Select(x => x.ToSerializableIssue()).ToArray());
             }
         }
 

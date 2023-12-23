@@ -1,4 +1,4 @@
-#load nuget:?package=Cake.Recipe&version=3.0.0
+#load nuget:?package=Cake.Recipe&version=3.1.1
 
 //*************************************************************************************************
 // Settings
@@ -14,7 +14,8 @@ BuildParameters.SetParameters(
     repositoryOwner: "cake-contrib",
     repositoryName: "Cake.Issues",
     appVeyorAccountName: "cakecontrib",
-    shouldRunCoveralls: false); // Disabled because it's currently failing
+    shouldRunCoveralls: false,  // Disabled because it's currently failing
+    shouldPostToGitter: false); // Disabled because it's currently failing
 
 BuildParameters.PrintParameters(Context);
 
