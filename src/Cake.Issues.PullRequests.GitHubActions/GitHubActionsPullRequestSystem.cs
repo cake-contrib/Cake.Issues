@@ -12,6 +12,7 @@
     /// </summary>
     public class GitHubActionsPullRequestSystem : BasePullRequestSystem
     {
+        private static readonly char[] Separator = ['\n'];
         private readonly GitHubActionsBuildSettings settings;
 
         /// <summary>
@@ -111,7 +112,7 @@
                 // Commands don't support line breaks, therefore we only use the first line of the message.
                 var message =
                     issue.MessageText
-                        .Split(new[] { '\n' }, StringSplitOptions.RemoveEmptyEntries)
+                        .Split(Separator, StringSplitOptions.RemoveEmptyEntries)
                         .FirstOrDefault()
                         ?.Trim();
 
