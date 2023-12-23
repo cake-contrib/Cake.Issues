@@ -14,21 +14,20 @@
         /// <returns>Converted status.</returns>
         public static PullRequestDiscussionStatus ToPullRequestDiscussionStatus(this AzureDevOpsCommentThreadStatus status)
         {
-            switch (status)
+            return status switch
             {
-                case AzureDevOpsCommentThreadStatus.Unknown:
-                    return PullRequestDiscussionStatus.Unknown;
-                case AzureDevOpsCommentThreadStatus.Active:
-                case AzureDevOpsCommentThreadStatus.Pending:
-                    return PullRequestDiscussionStatus.Active;
-                case AzureDevOpsCommentThreadStatus.Fixed:
-                case AzureDevOpsCommentThreadStatus.WontFix:
-                case AzureDevOpsCommentThreadStatus.Closed:
-                case AzureDevOpsCommentThreadStatus.ByDesign:
-                    return PullRequestDiscussionStatus.Resolved;
-                default:
-                    throw new PullRequestIssuesException("Unknown enumeration value");
-            }
+                AzureDevOpsCommentThreadStatus.Unknown =>
+                    PullRequestDiscussionStatus.Unknown,
+                AzureDevOpsCommentThreadStatus.Active or
+                AzureDevOpsCommentThreadStatus.Pending =>
+                    PullRequestDiscussionStatus.Active,
+                AzureDevOpsCommentThreadStatus.Fixed or
+                AzureDevOpsCommentThreadStatus.WontFix or
+                AzureDevOpsCommentThreadStatus.Closed or
+                AzureDevOpsCommentThreadStatus.ByDesign =>
+                    PullRequestDiscussionStatus.Resolved,
+                _ => throw new PullRequestIssuesException("Unknown enumeration value"),
+            };
         }
 
         /// <summary>
@@ -38,21 +37,20 @@
         /// <returns>Converted status.</returns>
         public static PullRequestDiscussionResolution ToPullRequestDiscussionResolution(this AzureDevOpsCommentThreadStatus status)
         {
-            switch (status)
+            return status switch
             {
-                case AzureDevOpsCommentThreadStatus.Unknown:
-                case AzureDevOpsCommentThreadStatus.Active:
-                case AzureDevOpsCommentThreadStatus.Pending:
-                    return PullRequestDiscussionResolution.Unknown;
-                case AzureDevOpsCommentThreadStatus.Fixed:
-                case AzureDevOpsCommentThreadStatus.Closed:
-                case AzureDevOpsCommentThreadStatus.ByDesign:
-                    return PullRequestDiscussionResolution.Resolved;
-                case AzureDevOpsCommentThreadStatus.WontFix:
-                    return PullRequestDiscussionResolution.WontFix;
-                default:
-                    throw new PullRequestIssuesException("Unknown enumeration value");
-            }
+                AzureDevOpsCommentThreadStatus.Unknown or
+                AzureDevOpsCommentThreadStatus.Active or
+                AzureDevOpsCommentThreadStatus.Pending =>
+                    PullRequestDiscussionResolution.Unknown,
+                AzureDevOpsCommentThreadStatus.Fixed or
+                AzureDevOpsCommentThreadStatus.Closed or
+                AzureDevOpsCommentThreadStatus.ByDesign =>
+                    PullRequestDiscussionResolution.Resolved,
+                AzureDevOpsCommentThreadStatus.WontFix =>
+                    PullRequestDiscussionResolution.WontFix,
+                _ => throw new PullRequestIssuesException("Unknown enumeration value"),
+            };
         }
     }
 }

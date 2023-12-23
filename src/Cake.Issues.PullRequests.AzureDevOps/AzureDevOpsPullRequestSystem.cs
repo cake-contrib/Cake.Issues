@@ -89,7 +89,7 @@
             // ReSharper disable once PossibleMultipleEnumeration
             var threads = this.CreateDiscussionThreads(issues, commentSource).ToList();
 
-            if (!threads.Any())
+            if (threads.Count == 0)
             {
                 this.Log.Verbose("No threads to post");
                 return;
@@ -107,7 +107,7 @@
            IIssue issue,
            int iterationId,
            int changeTrackingId,
-           IDictionary<string, object> properties)
+           Dictionary<string, object> properties)
         {
             issue.NotNull(nameof(issue));
             properties.NotNull(nameof(properties));
@@ -139,7 +139,7 @@
             return false;
         }
 
-        private IEnumerable<AzureDevOpsPullRequestCommentThread> CreateDiscussionThreads(
+        private List<AzureDevOpsPullRequestCommentThread> CreateDiscussionThreads(
             IEnumerable<IIssue> issues,
             string commentSource)
         {
@@ -149,7 +149,7 @@
             if (this.azureDevOpsPullRequest.CodeReviewId <= 0)
             {
                 this.Log.Error("Skipping creation of discussion thread since code review ID is not set.");
-                return new List<AzureDevOpsPullRequestCommentThread>();
+                return [];
             }
 
             this.Log.Verbose("Creating new discussion threads");
@@ -254,7 +254,7 @@
             return iterationId;
         }
 
-        private IEnumerable<AzureDevOpsPullRequestIterationChange> GetCodeFlowChanges(int iterationId)
+        private List<AzureDevOpsPullRequestIterationChange> GetCodeFlowChanges(int iterationId)
         {
             var changes =
                 this.azureDevOpsPullRequest.GetIterationChanges(iterationId);
@@ -262,7 +262,7 @@
             if (changes == null)
             {
                 this.Log.Warning("Changes for iteration {0} could not be detected", iterationId);
-                return new List<AzureDevOpsPullRequestIterationChange>();
+                return [];
             }
 
             var result = changes.ToList();

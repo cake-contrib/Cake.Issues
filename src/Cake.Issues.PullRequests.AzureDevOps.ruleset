@@ -236,6 +236,8 @@
     <Rule Id="CA5122" Action="None" />
   </Rules>
   <Rules AnalyzerId="StyleCop.Analyzers" RuleNamespace="StyleCop.Analyzers">
+    <!-- Currently not compatible with collection initializers. See https://github.com/DotNetAnalyzers/StyleCopAnalyzers/issues/3687 -->
+    <Rule Id="SA1010" Action="None" /> 
     <Rule Id="SA1633" Action="None" />
   </Rules>
 </RuleSet>
