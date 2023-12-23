@@ -93,7 +93,7 @@
             public void Should_Set_LogFileContent_If_Empty()
             {
                 // Given
-                byte[] logFileContent = Array.Empty<byte>();
+                byte[] logFileContent = [];
                 var format = new MarkdownlintV1LogFileFormat(new FakeLog());
 
                 // When

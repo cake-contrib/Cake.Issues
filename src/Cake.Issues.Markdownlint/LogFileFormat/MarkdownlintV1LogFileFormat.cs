@@ -9,17 +9,10 @@
     /// <summary>
     /// Logfile format as written by Markdownlint with <c>options.resultVersion</c> set to 1.
     /// </summary>
-    internal class MarkdownlintV1LogFileFormat : BaseMarkdownlintLogFileFormat
+    /// <param name="log">The Cake log instance.</param>
+    internal class MarkdownlintV1LogFileFormat(ICakeLog log)
+        : BaseMarkdownlintLogFileFormat(log)
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MarkdownlintV1LogFileFormat"/> class.
-        /// </summary>
-        /// <param name="log">The Cake log instance.</param>
-        public MarkdownlintV1LogFileFormat(ICakeLog log)
-            : base(log)
-        {
-        }
-
         /// <inheritdoc />
         public override IEnumerable<IIssue> ReadIssues(
             MarkdownlintIssuesProvider issueProvider,

@@ -12,17 +12,10 @@
     /// <summary>
     /// Logfile format as written by markdownlint-cli with <c>--json</c> parameter.
     /// </summary>
-    internal class MarkdownlintCliJsonLogFileFormat : BaseMarkdownlintLogFileFormat
+    /// <param name="log">The Cake log instance.</param>
+    internal class MarkdownlintCliJsonLogFileFormat(ICakeLog log)
+        : BaseMarkdownlintLogFileFormat(log)
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MarkdownlintCliJsonLogFileFormat"/> class.
-        /// </summary>
-        /// <param name="log">The Cake log instance.</param>
-        public MarkdownlintCliJsonLogFileFormat(ICakeLog log)
-            : base(log)
-        {
-        }
-
         /// <inheritdoc />
         public override IEnumerable<IIssue> ReadIssues(
             MarkdownlintIssuesProvider issueProvider,
@@ -33,7 +26,7 @@
             repositorySettings.NotNull(nameof(repositorySettings));
             markdownlintIssuesSettings.NotNull(nameof(markdownlintIssuesSettings));
 
-            if (!markdownlintIssuesSettings.LogFileContent.Any())
+            if (markdownlintIssuesSettings.LogFileContent.Length == 0)
             {
                 return new List<IIssue>();
             }
