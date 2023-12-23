@@ -30,7 +30,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Cake.Issues.Testing">
-      <Version>4.0.0-beta0001</Version>
+      <Version>4.0.0</Version>
     </PackageReference>
     <PackageReference Include="Cake.Testing">
       <Version>4.0.0</Version>
