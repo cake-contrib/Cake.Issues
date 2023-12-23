@@ -4,13 +4,8 @@
     using System.Collections.Generic;
     using Cake.Core.Diagnostics;
 
-    internal class FakeMsBuildLogFileFormat : BaseMsBuildLogFileFormat
+    internal class FakeMsBuildLogFileFormat(ICakeLog log) : BaseMsBuildLogFileFormat(log)
     {
-        public FakeMsBuildLogFileFormat(ICakeLog log)
-           : base(log)
-        {
-        }
-
         public new (bool Valid, string FilePath) ValidateFilePath(string filePath, IRepositorySettings repositorySettings)
         {
             return base.ValidateFilePath(filePath, repositorySettings);
