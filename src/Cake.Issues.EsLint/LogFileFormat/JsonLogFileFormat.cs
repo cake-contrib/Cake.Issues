@@ -10,17 +10,10 @@
     /// <summary>
     /// ESLint Json format.
     /// </summary>
-    internal class JsonLogFileFormat : BaseEsLintLogFileFormat
+    /// <param name="log">The Cake log instance.</param>
+    internal class JsonLogFileFormat(ICakeLog log)
+        : BaseEsLintLogFileFormat(log)
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="JsonLogFileFormat"/> class.
-        /// </summary>
-        /// <param name="log">The Cake log instance.</param>
-        public JsonLogFileFormat(ICakeLog log)
-            : base(log)
-        {
-        }
-
         /// <inheritdoc />
         public override IEnumerable<IIssue> ReadIssues(
             EsLintIssuesProvider issueProvider,
@@ -90,20 +83,13 @@
         /// <returns>Priority.</returns>
         private static IssuePriority GetPriority(int severity)
         {
-            switch (severity)
+            return severity switch
             {
-                case 0:
-                    return IssuePriority.Hint;
-
-                case 1:
-                    return IssuePriority.Warning;
-
-                case 2:
-                    return IssuePriority.Error;
-
-                default:
-                    return IssuePriority.Undefined;
-            }
+                0 => IssuePriority.Hint,
+                1 => IssuePriority.Warning,
+                2 => IssuePriority.Error,
+                _ => IssuePriority.Undefined,
+            };
         }
     }
 }

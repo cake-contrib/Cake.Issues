@@ -8,7 +8,7 @@
     internal class EsLintRuleUrlResolver : BaseRuleUrlResolver<BaseRuleDescription>
     {
         private static readonly Lazy<EsLintRuleUrlResolver> InstanceValue =
-            new Lazy<EsLintRuleUrlResolver>(() => new EsLintRuleUrlResolver());
+            new(() => new EsLintRuleUrlResolver());
 
         /// <summary>
         /// Initializes a new instance of the <see cref="EsLintRuleUrlResolver"/> class.
