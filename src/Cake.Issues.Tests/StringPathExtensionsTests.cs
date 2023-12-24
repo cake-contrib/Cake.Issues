@@ -1,5 +1,6 @@
 ﻿namespace Cake.Issues.Tests
 {
+    using System.Runtime.InteropServices;
     using Cake.Issues.Testing;
     using Shouldly;
     using Xunit;
@@ -61,7 +62,7 @@
             }
 
             [Theory]
-            [InlineData("foo\tbar")]
+            [InlineData("foo\0bar")]
             public void Should_Return_False_If_Invalid_Path(string path)
             {
                 // Given / When
@@ -108,18 +109,21 @@
             public void Should_Throw_If_Path_Is_Not_Valid()
             {
                 // Given / When
-                var result = Record.Exception(() => "c:\\foo\tbar".IsFullPath());
+                var result = Record.Exception(() => "c:\\foo\0bar".IsFullPath());
 
                 // Then
                 result.IsArgumentException("path");
             }
 
-            [Theory]
+            [SkippableTheory]
             [InlineData(@"c:\foo")]
             [InlineData(@"c:\foo\")]
             [InlineData(@"c:\foo\bar")]
             public void Should_Return_True_If_Full_Path(string path)
             {
+                // Uses Windows specific paths.
+                Skip.IfNot(RuntimeInformation.IsOSPlatform(OSPlatform.Windows));
+
                 // Given / When
                 var result = path.IsFullPath();
 
@@ -183,7 +187,7 @@
             public void Should_Throw_If_Path_Is_Invalid()
             {
                 // Given / When
-                var result = Record.Exception(() => "c:\\foo\tbar".IsSubpathOf(@"c:\foo"));
+                var result = Record.Exception(() => "c:\\foo\0bar".IsSubpathOf(@"c:\foo"));
 
                 // Then
                 result.IsArgumentException("path");
@@ -223,7 +227,7 @@
             public void Should_Throw_If_BaseDirPath_Is_Invalid()
             {
                 // Given / When
-                var result = Record.Exception(() => @"c:\foo\bar".IsSubpathOf("c:\\f\to"));
+                var result = Record.Exception(() => @"c:\foo\bar".IsSubpathOf("c:\\f\0o"));
 
                 // Then
                 result.IsArgumentException("baseDirPath");
@@ -298,12 +302,15 @@
                 result.ShouldBe(expectedResult);
             }
 
-            [Theory]
+            [SkippableTheory]
             [InlineData(@"c:\foo\..\bar\baz", @"c:\foo", false)]
             [InlineData(@"c:\foo\..\bar\baz", @"c:\bar", true)]
             [InlineData(@"c:\foo\..\bar\baz", @"c:\barr", false)]
             public void Should_Work_With_DotDot(string path, string baseDir, bool expectedResult)
             {
+                // Uses Windows specific paths.
+                Skip.IfNot(RuntimeInformation.IsOSPlatform(OSPlatform.Windows));
+
                 // Given / When
                 var result = path.IsSubpathOf(baseDir);
 
@@ -361,7 +368,7 @@
             public void Should_Throw_If_Path_Is_Invalid()
             {
                 // Given / When
-                var result = Record.Exception(() => "c:\\foo\tbar".NormalizePath());
+                var result = Record.Exception(() => "c:\\foo\0bar".NormalizePath());
 
                 // Then
                 result.IsArgumentException("path");

@@ -1,6 +1,7 @@
 ﻿namespace Cake.Issues.PullRequests.Tests
 {
     using System.Collections.Generic;
+    using System.Runtime.InteropServices;
     using Cake.Issues.Testing;
     using Shouldly;
     using Xunit;
@@ -10,11 +11,29 @@
         public sealed class TheCtor
         {
             [Theory]
-            [InlineData(@"c:\src\foo.cs")]
             [InlineData(@"/foo")]
             [InlineData(@"\foo")]
             public void Should_Throw_If_File_Path_Is_Absolute(string filePath)
             {
+                // Given / When
+                var result = Record.Exception(() =>
+                    new PullRequestDiscussionThread(
+                        1,
+                        PullRequestDiscussionStatus.Active,
+                        filePath,
+                        new List<IPullRequestDiscussionComment>()));
+
+                // Then
+                result.IsArgumentOutOfRangeException("filePath");
+            }
+
+            [SkippableTheory]
+            [InlineData(@"c:\src\foo.cs")]
+            public void Should_Throw_If_File_Path_Is_Absolute_Windows_Path(string filePath)
+            {
+                // Uses Windows specific paths.
+                Skip.IfNot(RuntimeInformation.IsOSPlatform(OSPlatform.Windows));
+
                 // Given / When
                 var result = Record.Exception(() =>
                     new PullRequestDiscussionThread(
