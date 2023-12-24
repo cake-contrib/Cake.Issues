@@ -30,9 +30,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cake.Issues.Reporting.Tests
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8756998D-64BF-4554-A14F-15AAFE78C8E8}"
 	ProjectSection(SolutionItems) = preProject
-		Directory.Build.props = Directory.Build.props
 		.editorconfig = .editorconfig
+		Directory.Build.props = Directory.Build.props
 	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cake.Issues.MsBuild", "Cake.Issues.MsBuild\Cake.Issues.MsBuild.csproj", "{F6B0F4F3-0046-453A-8E1E-FD926DFE22F6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cake.Issues.MsBuild.Tests", "Cake.Issues.MsBuild.Tests\Cake.Issues.MsBuild.Tests.csproj", "{1740BD2B-B317-4CB2-90CD-0AB0F8426AE1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -68,6 +72,14 @@ Global
 		{07C79C7F-D854-43F3-8C2E-6E8147A78B94}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{07C79C7F-D854-43F3-8C2E-6E8147A78B94}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{07C79C7F-D854-43F3-8C2E-6E8147A78B94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6B0F4F3-0046-453A-8E1E-FD926DFE22F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6B0F4F3-0046-453A-8E1E-FD926DFE22F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6B0F4F3-0046-453A-8E1E-FD926DFE22F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6B0F4F3-0046-453A-8E1E-FD926DFE22F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1740BD2B-B317-4CB2-90CD-0AB0F8426AE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1740BD2B-B317-4CB2-90CD-0AB0F8426AE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1740BD2B-B317-4CB2-90CD-0AB0F8426AE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1740BD2B-B317-4CB2-90CD-0AB0F8426AE1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
