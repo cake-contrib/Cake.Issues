@@ -1,0 +1,925 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<build started="30.05.2018 12:16:00">
+  <project targets="Rebuild" file="C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1.sln" started="30.05.2018 12:16:00">
+    <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Building with tools version "15.0".]]></message>
+    <target name="ValidateSolutionConfiguration" started="30.05.2018 12:16:00">
+      <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Task "Error" skipped, due to false condition; (('$(CurrentSolutionConfigurationContents)' == '') and ('$(SkipInvalidConfigurations)' != 'true')) was evaluated as (('<SolutionConfiguration>
+  <ProjectConfiguration Project="{9B73BB5B-06A3-46F3-9068-E3607A8217B0}" AbsolutePath="C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj" BuildProjectInSolution="True">Debug|AnyCPU</ProjectConfiguration>
+</SolutionConfiguration>' == '') and ('' != 'true')).]]></message>
+      <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Task "Warning" skipped, due to false condition; (('$(CurrentSolutionConfigurationContents)' == '') and ('$(SkipInvalidConfigurations)' == 'true')) was evaluated as (('<SolutionConfiguration>
+  <ProjectConfiguration Project="{9B73BB5B-06A3-46F3-9068-E3607A8217B0}" AbsolutePath="C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj" BuildProjectInSolution="True">Debug|AnyCPU</ProjectConfiguration>
+</SolutionConfiguration>' == '') and ('' == 'true')).]]></message>
+      <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Using "Message" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".]]></message>
+      <task name="Message" file="C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1.sln.metaproj" started="30.05.2018 12:16:00">
+        <message importance="Normal" started="30.05.2018 12:16:00"><![CDATA[Building solution configuration "Debug|Any CPU".]]></message>
+      </task>
+    </target>
+    <target name="ValidateToolsVersions" started="30.05.2018 12:16:00">
+      <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Task "Error" skipped, due to false condition; ('$(MSBuildToolsVersion)' == '2.0' and ('$(ProjectToolsVersion)' != '2.0' and '$(ProjectToolsVersion)' != '')) was evaluated as ('15.0' == '2.0' and ('' != '2.0' and '' != '')).]]></message>
+    </target>
+    <target name="ValidateProjects" started="30.05.2018 12:16:00" />
+    <target name="Rebuild" started="30.05.2018 12:16:00">
+      <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Using "MSBuild" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".]]></message>
+      <task name="MSBuild" file="C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1.sln.metaproj" started="30.05.2018 12:16:00">
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Global Properties:]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[  BuildingSolutionFile=true]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[  CurrentSolutionConfigurationContents=<SolutionConfiguration>
+  <ProjectConfiguration Project="{9B73BB5B-06A3-46F3-9068-E3607A8217B0}" AbsolutePath="C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj" BuildProjectInSolution="True">Debug|AnyCPU</ProjectConfiguration>
+</SolutionConfiguration>]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[  SolutionDir=C:\Source\Cake.Issues.MsBuild\src\]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[  SolutionExt=.sln]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[  SolutionFileName=ClassLibrary1.sln]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[  SolutionName=ClassLibrary1]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[  SolutionPath=C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1.sln]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Additional Properties for project "C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj":]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[  Configuration=Debug]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[  Platform=AnyCPU]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Search paths being used for $(MSBuildExtensionsPath) are C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild;$(MSBuildProgramFiles32)\MSBuild]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Trying to import C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\$(MSBuildToolsVersion)\Microsoft.Common.props using extensions path C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Property reassignment: $(MSBuildProjectExtensionsPath)="C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\obj\" (previous value: "obj\") at C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Microsoft.Common.props (60,5)]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Search paths being used for $(MSBuildExtensionsPath) are C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild;$(MSBuildProgramFiles32)\MSBuild]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Trying to import C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\$(MSBuildToolsVersion)\Imports\Microsoft.Common.props\ImportBefore\* using extensions path C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Search paths being used for $(MSBuildExtensionsPath) are C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild;$(MSBuildProgramFiles32)\MSBuild]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Search paths being used for $(MSBuildExtensionsPath) are C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild;$(MSBuildProgramFiles32)\MSBuild]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Search paths being used for $(MSBuildExtensionsPath) are C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild;$(MSBuildProgramFiles32)\MSBuild]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Search paths being used for $(MSBuildExtensionsPath) are C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild;$(MSBuildProgramFiles32)\MSBuild]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Property reassignment: $(DefineCommonItemSchemas)="false" (previous value: "true") at C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.Managed.DesignTime.targets (12,5)]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Property reassignment: $(DefineCommonCapabilities)="false" (previous value: "true") at C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.Managed.DesignTime.targets (13,5)]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Property reassignment: $(DefineCommonReferenceSchemas)="false" (previous value: "true") at C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.Managed.DesignTime.targets (14,5)]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Property reassignment: $(MSBuildAllProjects)=";C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.CSharp.CurrentVersion.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.Managed.DesignTime.targets" (previous value: ";C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.CSharp.CurrentVersion.targets") at C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.Managed.DesignTime.targets (20,5)]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Property reassignment: $(MSBuildAllProjects)=";C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.CSharp.CurrentVersion.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.Managed.DesignTime.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.CSharp.DesignTime.targets" (previous value: ";C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.CSharp.CurrentVersion.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.Managed.DesignTime.targets") at C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.CSharp.DesignTime.targets (13,5)]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Search paths being used for $(MSBuildExtensionsPath) are C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild;$(MSBuildProgramFiles32)\MSBuild]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Search paths being used for $(MSBuildExtensionsPath) are C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild;$(MSBuildProgramFiles32)\MSBuild]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Search paths being used for $(MSBuildExtensionsPath) are C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild;$(MSBuildProgramFiles32)\MSBuild]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Property reassignment: $(MSBuildAllProjects)=";C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.CSharp.CurrentVersion.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.Managed.DesignTime.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.CSharp.DesignTime.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.NETFramework.CurrentVersion.props" (previous value: ";C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.CSharp.CurrentVersion.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.Managed.DesignTime.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.CSharp.DesignTime.targets") at C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.NETFramework.CurrentVersion.props (29,5)]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Search paths being used for $(MSBuildExtensionsPath) are C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild;$(MSBuildProgramFiles32)\MSBuild]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Property reassignment: $(_DebugSymbolsProduced)="true" (previous value: "false") at C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.Common.CurrentVersion.targets (148,5)]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Property reassignment: $(_DocumentationFileProduced)="false" (previous value: "true") at C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.Common.CurrentVersion.targets (157,5)]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Property reassignment: $(ProcessorArchitecture)="msil" (previous value: "") at C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.Common.CurrentVersion.targets (486,5)]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Property reassignment: $(DelaySign)="" (previous value: "false") at C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.Common.CurrentVersion.targets (525,5)]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Property reassignment: $(MSBuildAllProjects)=";C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.CSharp.CurrentVersion.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.Managed.DesignTime.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.CSharp.DesignTime.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.NETFramework.CurrentVersion.props;C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.Common.CurrentVersion.targets" (previous value: ";C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.CSharp.CurrentVersion.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.Managed.DesignTime.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.CSharp.DesignTime.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.NETFramework.CurrentVersion.props") at C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.Common.CurrentVersion.targets (536,5)]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Property reassignment: $(_SGenGenerateSerializationAssembliesConfig)="Auto" (previous value: "") at C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.Common.CurrentVersion.targets (3496,5)]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Property reassignment: $(_SGenGenerateSerializationAssembliesConfig)="Off" (previous value: "Auto") at C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.Common.CurrentVersion.targets (3497,5)]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Property reassignment: $(DefineConstants)="CODE_ANALYSIS;DEBUG;TRACE" (previous value: "DEBUG;TRACE") at C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\VisualStudio\v15.0\CodeAnalysis\Microsoft.CodeAnalysis.targets (50,5)]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Property reassignment: $(PrepareForRunDependsOn)="
+      CopyFilesToOutputDirectory
+    ;RunCodeAnalysis" (previous value: "
+      CopyFilesToOutputDirectory
+    ") at C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\VisualStudio\v15.0\CodeAnalysis\Microsoft.CodeAnalysis.targets (157,9)]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Search paths being used for $(MSBuildExtensionsPath) are C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild;$(MSBuildProgramFiles32)\MSBuild]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Property reassignment: $(MSBuildAllProjects)=";C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.CSharp.CurrentVersion.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.Managed.DesignTime.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.CSharp.DesignTime.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.NETFramework.CurrentVersion.props;C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.Common.CurrentVersion.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.NETFramework.CurrentVersion.targets" (previous value: ";C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.CSharp.CurrentVersion.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.Managed.DesignTime.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.CSharp.DesignTime.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.NETFramework.CurrentVersion.props;C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.Common.CurrentVersion.targets") at C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.NETFramework.CurrentVersion.targets (29,6)]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Property reassignment: $(ResolveReferencesDependsOn)="
+      
+      BeforeResolveReferences;
+      AssignProjectConfiguration;
+      ResolveProjectReferences;
+      FindInvalidProjectReferences;
+      ResolveNativeReferences;
+      ResolveAssemblyReferences;
+      GenerateBindingRedirects;
+      ResolveComReferences;
+      AfterResolveReferences
+    ;
+      ImplicitlyExpandDesignTimeFacades
+    " (previous value: "
+      BeforeResolveReferences;
+      AssignProjectConfiguration;
+      ResolveProjectReferences;
+      FindInvalidProjectReferences;
+      ResolveNativeReferences;
+      ResolveAssemblyReferences;
+      GenerateBindingRedirects;
+      ResolveComReferences;
+      AfterResolveReferences
+    ") at C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.NETFramework.CurrentVersion.targets (79,5)]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Property reassignment: $(PrepareResourceNamesDependsOn)="
+                    AssignWinFXEmbeddedResource;
+                    
+      AssignTargetPaths;
+      SplitResourcesByCulture;
+      CreateManifestResourceNames;
+      CreateCustomManifestResourceNames
+    
+      " (previous value: "
+      AssignTargetPaths;
+      SplitResourcesByCulture;
+      CreateManifestResourceNames;
+      CreateCustomManifestResourceNames
+    ") at C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets (97,7)]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Property reassignment: $(PrepareResourcesDependsOn)="
+                MarkupCompilePass1;
+                AfterMarkupCompilePass1;
+                MarkupCompilePass2ForMainAssembly;
+                FileClassification;
+                MainResourcesGeneration;
+                
+      PrepareResourceNames;
+      ResGen;
+      CompileLicxFiles
+    
+      " (previous value: "
+      PrepareResourceNames;
+      ResGen;
+      CompileLicxFiles
+    ") at C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets (108,7)]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Property reassignment: $(CompileDependsOn)="
+        
+      ResolveReferences;
+      ResolveKeySource;
+      SetWin32ManifestProperties;
+      FindReferenceAssembliesForReferences;
+      _GenerateCompileInputs;
+      BeforeCompile;
+      _TimeStampBeforeCompile;
+      _GenerateCompileDependencyCache;
+      CoreCompile;
+      _TimeStampAfterCompile;
+      AfterCompile;
+    ;
+        _AfterCompileWinFXInternal
+    " (previous value: "
+      ResolveReferences;
+      ResolveKeySource;
+      SetWin32ManifestProperties;
+      FindReferenceAssembliesForReferences;
+      _GenerateCompileInputs;
+      BeforeCompile;
+      _TimeStampBeforeCompile;
+      _GenerateCompileDependencyCache;
+      CoreCompile;
+      _TimeStampAfterCompile;
+      AfterCompile;
+    ") at C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets (184,5)]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Property reassignment: $(PublishBuildDependsOn)="
+            BuildOnlySettings;
+            PrepareForBuild;
+            ResolveReferences;
+            PrepareResources;
+            ResolveKeySource;
+            PrepareResourcesForSatelliteAssemblies;
+            GenerateSerializationAssemblies;
+            CreateSatelliteAssemblies;
+        " (previous value: "
+      BuildOnlySettings;
+      PrepareForBuild;
+      ResolveReferences;
+      PrepareResources;
+      ResolveKeySource;
+      GenerateSerializationAssemblies;
+      CreateSatelliteAssemblies;
+    ") at C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets (813,9)]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Property reassignment: $(BuildDependsOn)="
+      EntityDeploy;
+      
+      BeforeBuild;
+      CoreBuild;
+      AfterBuild
+    
+    " (previous value: "
+      BeforeBuild;
+      CoreBuild;
+      AfterBuild
+    ") at C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\Microsoft.Data.Entity.targets (35,5)]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Property reassignment: $(CleanDependsOn)="
+      
+      BeforeClean;
+      UnmanagedUnregistration;
+      CoreClean;
+      CleanReferencedProjects;
+      CleanPublishFolder;
+      AfterClean
+    ;
+      EntityClean;
+    " (previous value: "
+      BeforeClean;
+      UnmanagedUnregistration;
+      CoreClean;
+      CleanReferencedProjects;
+      CleanPublishFolder;
+      AfterClean
+    ") at C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\Microsoft.Data.Entity.targets (42,5)]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Search paths being used for $(MSBuildExtensionsPath) are C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild;$(MSBuildProgramFiles32)\MSBuild]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Property reassignment: $(PrepareResourcesDependsOn)="
+      XamlMarkupCompilePass1;
+      XamlMarkupCompilePass2;
+      
+                MarkupCompilePass1;
+                AfterMarkupCompilePass1;
+                MarkupCompilePass2ForMainAssembly;
+                FileClassification;
+                MainResourcesGeneration;
+                
+      PrepareResourceNames;
+      ResGen;
+      CompileLicxFiles
+    
+       
+    " (previous value: "
+                MarkupCompilePass1;
+                AfterMarkupCompilePass1;
+                MarkupCompilePass2ForMainAssembly;
+                FileClassification;
+                MainResourcesGeneration;
+                
+      PrepareResourceNames;
+      ResGen;
+      CompileLicxFiles
+    
+      ") at C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\Microsoft.Xaml.targets (35,5)]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Property reassignment: $(MSBuildAllProjects)=";C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.CSharp.CurrentVersion.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.Managed.DesignTime.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.CSharp.DesignTime.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.NETFramework.CurrentVersion.props;C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.Common.CurrentVersion.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.NETFramework.CurrentVersion.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.Xaml.targets" (previous value: ";C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.CSharp.CurrentVersion.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.Managed.DesignTime.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.CSharp.DesignTime.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.NETFramework.CurrentVersion.props;C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.Common.CurrentVersion.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.NETFramework.CurrentVersion.targets") at C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\Microsoft.Xaml.targets (48,5)]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Property reassignment: $(PrepareResourcesDependsOn)="
+      ValidationExtension;
+      ExpressionBuildExtension;
+      
+      XamlMarkupCompilePass1;
+      XamlMarkupCompilePass2;
+      
+                MarkupCompilePass1;
+                AfterMarkupCompilePass1;
+                MarkupCompilePass2ForMainAssembly;
+                FileClassification;
+                MainResourcesGeneration;
+                
+      PrepareResourceNames;
+      ResGen;
+      CompileLicxFiles
+    
+       
+    
+    " (previous value: "
+      XamlMarkupCompilePass1;
+      XamlMarkupCompilePass2;
+      
+                MarkupCompilePass1;
+                AfterMarkupCompilePass1;
+                MarkupCompilePass2ForMainAssembly;
+                FileClassification;
+                MainResourcesGeneration;
+                
+      PrepareResourceNames;
+      ResGen;
+      CompileLicxFiles
+    
+       
+    ") at C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\Microsoft.WorkflowBuildExtensions.targets (16,5)]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Property reassignment: $(ResolveReferencesDependsOn)="
+      
+      
+      BeforeResolveReferences;
+      AssignProjectConfiguration;
+      ResolveProjectReferences;
+      FindInvalidProjectReferences;
+      ResolveNativeReferences;
+      ResolveAssemblyReferences;
+      GenerateBindingRedirects;
+      ResolveComReferences;
+      AfterResolveReferences
+    ;
+      ImplicitlyExpandDesignTimeFacades
+    ;
+      ResolveTestReferences
+    " (previous value: "
+      
+      BeforeResolveReferences;
+      AssignProjectConfiguration;
+      ResolveProjectReferences;
+      FindInvalidProjectReferences;
+      ResolveNativeReferences;
+      ResolveAssemblyReferences;
+      GenerateBindingRedirects;
+      ResolveComReferences;
+      AfterResolveReferences
+    ;
+      ImplicitlyExpandDesignTimeFacades
+    ") at C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\VisualStudio\v15.0\TeamTest\Microsoft.TeamTest.targets (4,5)]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Property reassignment: $(MSBuildAllProjects)=";C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.CSharp.CurrentVersion.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.Managed.DesignTime.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.CSharp.DesignTime.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.NETFramework.CurrentVersion.props;C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.Common.CurrentVersion.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.NETFramework.CurrentVersion.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.Xaml.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\Common7\IDE\CommonExtensions\Microsoft\NuGet\NuGet.targets" (previous value: ";C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.CSharp.CurrentVersion.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.Managed.DesignTime.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.CSharp.DesignTime.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.NETFramework.CurrentVersion.props;C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.Common.CurrentVersion.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.NETFramework.CurrentVersion.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.Xaml.targets") at C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\Common7\IDE\CommonExtensions\Microsoft\NuGet\NuGet.targets (45,5)]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Search paths being used for $(MSBuildExtensionsPath) are C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild;$(MSBuildProgramFiles32)\MSBuild]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Trying to import C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\$(MSBuildToolsVersion)\Microsoft.Common.targets\ImportAfter\* using extensions path C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Search paths being used for $(MSBuildExtensionsPath) are C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild;$(MSBuildProgramFiles32)\MSBuild]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Trying to import C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Sdks\Microsoft.Docker.Sdk\build\Microsoft.Docker.targets using extensions path C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Property reassignment: $(MSBuildAllProjects)=";C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.CSharp.CurrentVersion.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.Managed.DesignTime.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.CSharp.DesignTime.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.NETFramework.CurrentVersion.props;C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.Common.CurrentVersion.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.NETFramework.CurrentVersion.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.Xaml.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\Common7\IDE\CommonExtensions\Microsoft\NuGet\NuGet.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Microsoft.Common.targets\ImportAfter\Microsoft.NET.Build.Extensions.targets" (previous value: ";C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.CSharp.CurrentVersion.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.Managed.DesignTime.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.CSharp.DesignTime.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.NETFramework.CurrentVersion.props;C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.Common.CurrentVersion.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.NETFramework.CurrentVersion.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.Xaml.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\Common7\IDE\CommonExtensions\Microsoft\NuGet\NuGet.targets") at C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Microsoft.Common.targets\ImportAfter\Microsoft.NET.Build.Extensions.targets (14,5)]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Property reassignment: $(MSBuildAllProjects)=";C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.CSharp.CurrentVersion.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.Managed.DesignTime.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.CSharp.DesignTime.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.NETFramework.CurrentVersion.props;C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.Common.CurrentVersion.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.NETFramework.CurrentVersion.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.Xaml.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\Common7\IDE\CommonExtensions\Microsoft\NuGet\NuGet.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Microsoft.Common.targets\ImportAfter\Microsoft.NET.Build.Extensions.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\Microsoft.NET.Build.Extensions.targets" (previous value: ";C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.CSharp.CurrentVersion.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.Managed.DesignTime.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.CSharp.DesignTime.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.NETFramework.CurrentVersion.props;C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.Common.CurrentVersion.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.NETFramework.CurrentVersion.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.Xaml.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\Common7\IDE\CommonExtensions\Microsoft\NuGet\NuGet.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Microsoft.Common.targets\ImportAfter\Microsoft.NET.Build.Extensions.targets") at C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\Microsoft.NET.Build.Extensions.targets (15,5)]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Property reassignment: $(_TargetFrameworkVersionWithoutV)="4.5.2" (previous value: "v4.5.2") at C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\Microsoft.NET.Build.Extensions.targets (18,5)]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Property reassignment: $(MSBuildAllProjects)=";C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.CSharp.CurrentVersion.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.Managed.DesignTime.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.CSharp.DesignTime.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.NETFramework.CurrentVersion.props;C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.Common.CurrentVersion.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.NETFramework.CurrentVersion.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.Xaml.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\Common7\IDE\CommonExtensions\Microsoft\NuGet\NuGet.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Microsoft.Common.targets\ImportAfter\Microsoft.NET.Build.Extensions.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\Microsoft.NET.Build.Extensions.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\Microsoft.NET.Build.Extensions.NETFramework.targets" (previous value: ";C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.CSharp.CurrentVersion.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.Managed.DesignTime.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.CSharp.DesignTime.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.NETFramework.CurrentVersion.props;C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.Common.CurrentVersion.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.NETFramework.CurrentVersion.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.Xaml.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\Common7\IDE\CommonExtensions\Microsoft\NuGet\NuGet.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Microsoft.Common.targets\ImportAfter\Microsoft.NET.Build.Extensions.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\Microsoft.NET.Build.Extensions.targets") at C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\Microsoft.NET.Build.Extensions.NETFramework.targets (15,5)]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Property reassignment: $(MSBuildAllProjects)=";C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.CSharp.CurrentVersion.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.Managed.DesignTime.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.CSharp.DesignTime.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.NETFramework.CurrentVersion.props;C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.Common.CurrentVersion.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.NETFramework.CurrentVersion.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.Xaml.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\Common7\IDE\CommonExtensions\Microsoft\NuGet\NuGet.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Microsoft.Common.targets\ImportAfter\Microsoft.NET.Build.Extensions.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\Microsoft.NET.Build.Extensions.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\Microsoft.NET.Build.Extensions.NETFramework.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\Microsoft.NET.Build.Extensions.ConflictResolution.targets" (previous value: ";C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.CSharp.CurrentVersion.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.Managed.DesignTime.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.CSharp.DesignTime.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.NETFramework.CurrentVersion.props;C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.Common.CurrentVersion.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.NETFramework.CurrentVersion.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.Xaml.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\Common7\IDE\CommonExtensions\Microsoft\NuGet\NuGet.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Microsoft.Common.targets\ImportAfter\Microsoft.NET.Build.Extensions.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\Microsoft.NET.Build.Extensions.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\Microsoft.NET.Build.Extensions.NETFramework.targets") at C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\Microsoft.NET.Build.Extensions.ConflictResolution.targets (15,5)]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Property reassignment: $(MSBuildAllProjects)=";C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.CSharp.CurrentVersion.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.Managed.DesignTime.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.CSharp.DesignTime.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.NETFramework.CurrentVersion.props;C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.Common.CurrentVersion.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.NETFramework.CurrentVersion.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.Xaml.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\Common7\IDE\CommonExtensions\Microsoft\NuGet\NuGet.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Microsoft.Common.targets\ImportAfter\Microsoft.NET.Build.Extensions.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\Microsoft.NET.Build.Extensions.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\Microsoft.NET.Build.Extensions.NETFramework.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\Microsoft.NET.Build.Extensions.ConflictResolution.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\NuGet\15.0\Microsoft.NuGet.targets" (previous value: ";C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.CSharp.CurrentVersion.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.Managed.DesignTime.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.CSharp.DesignTime.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.NETFramework.CurrentVersion.props;C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.Common.CurrentVersion.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.NETFramework.CurrentVersion.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.Xaml.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\Common7\IDE\CommonExtensions\Microsoft\NuGet\NuGet.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Microsoft.Common.targets\ImportAfter\Microsoft.NET.Build.Extensions.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\Microsoft.NET.Build.Extensions.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\Microsoft.NET.Build.Extensions.NETFramework.targets;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\Microsoft.NET.Build.Extensions.ConflictResolution.targets") at C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\NuGet\15.0\Microsoft.NuGet.targets (67,5)]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Property reassignment: $(ResolveAssemblyReferencesDependsOn)="
+      GetFrameworkPaths;
+      GetReferenceAssemblyPaths;
+      PrepareForBuild;
+      ResolveSDKReferences;
+      ExpandSDKReferences;
+    ;ResolveNuGetPackageAssets" (previous value: "
+      GetFrameworkPaths;
+      GetReferenceAssemblyPaths;
+      PrepareForBuild;
+      ResolveSDKReferences;
+      ExpandSDKReferences;
+    ") at C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\NuGet\15.0\Microsoft.NuGet.targets (173,5)]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Property reassignment: $(PrepareResourcesDependsOn)="ResolveNuGetPackageAssets;
+      ValidationExtension;
+      ExpressionBuildExtension;
+      
+      XamlMarkupCompilePass1;
+      XamlMarkupCompilePass2;
+      
+                MarkupCompilePass1;
+                AfterMarkupCompilePass1;
+                MarkupCompilePass2ForMainAssembly;
+                FileClassification;
+                MainResourcesGeneration;
+                
+      PrepareResourceNames;
+      ResGen;
+      CompileLicxFiles
+    
+       
+    
+    " (previous value: "
+      ValidationExtension;
+      ExpressionBuildExtension;
+      
+      XamlMarkupCompilePass1;
+      XamlMarkupCompilePass2;
+      
+                MarkupCompilePass1;
+                AfterMarkupCompilePass1;
+                MarkupCompilePass2ForMainAssembly;
+                FileClassification;
+                MainResourcesGeneration;
+                
+      PrepareResourceNames;
+      ResGen;
+      CompileLicxFiles
+    
+       
+    
+    ") at C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\NuGet\15.0\Microsoft.NuGet.targets (174,5)]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Property reassignment: $(_HandlePackageFileConflictsAfter)="ResolveNuGetPackageAssets;ResolveNuGetPackageAssetsNonAOT" (previous value: "ResolveNuGetPackageAssets") at C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\NuGet\15.0\Microsoft.NuGet.targets (255,5)]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Search paths being used for $(MSBuildExtensionsPath) are C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild;$(MSBuildProgramFiles32)\MSBuild]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Search paths being used for $(MSBuildExtensionsPath) are C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild;$(MSBuildProgramFiles32)\MSBuild]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Overriding target "GetFrameworkPaths" in project "C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.Common.CurrentVersion.targets" with target "GetFrameworkPaths" from project "C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.NETFramework.CurrentVersion.targets".]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Overriding target "SatelliteDllsProjectOutputGroup" in project "C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.Common.CurrentVersion.targets" with target "SatelliteDllsProjectOutputGroup" from project "C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets".]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Overriding target "CollectPackageReferences" in project "C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.Managed.DesignTime.targets" with target "CollectPackageReferences" from project "C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\Common7\IDE\CommonExtensions\Microsoft\NuGet\NuGet.targets".]]></message>
+        <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[The target "ClCompile" listed in an AfterTargets attribute at "C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\VisualStudio\v15.0\CodeAnalysis\Microsoft.CodeAnalysis.targets (422,11)" does not exist in the project, and will be ignored.]]></message>
+        <project targets="Rebuild" file="C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj" started="30.05.2018 12:16:00">
+          <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Building with tools version "15.0".]]></message>
+          <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Project file contains ToolsVersion="14.0". This toolset may be unknown or missing, in which case you may be able to resolve this by installing the appropriate version of MSBuild, or the build may have been forced to a particular ToolsVersion for policy reasons. Treating the project as if it had ToolsVersion="15.0". For more information, please see http://go.microsoft.com/fwlink/?LinkId=293424.]]></message>
+          <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Target "EnableIntermediateOutputPathMismatchWarning" skipped, due to false condition; ('$(RestoreProjectStyle)' == 'PackageReference') was evaluated as ('' == 'PackageReference').]]></message>
+          <target name="_CheckForInvalidConfigurationAndPlatform" started="30.05.2018 12:16:00">
+            <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Task "Error" skipped, due to false condition; ( '$(_InvalidConfigurationError)' == 'true' ) was evaluated as ( '' == 'true' ).]]></message>
+            <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Task "Warning" skipped, due to false condition; ( '$(_InvalidConfigurationWarning)' == 'true' ) was evaluated as ( '' == 'true' ).]]></message>
+            <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Using "Message" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".]]></message>
+            <task name="Message" file="C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj" started="30.05.2018 12:16:00">
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Configuration=Debug]]></message>
+            </task>
+            <task name="Message" file="C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj" started="30.05.2018 12:16:00">
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Platform=AnyCPU]]></message>
+            </task>
+            <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Task "Error" skipped, due to false condition; ('$(OutDir)' != '' and !HasTrailingSlash('$(OutDir)')) was evaluated as ('bin\Debug\' != '' and !HasTrailingSlash('bin\Debug\')).]]></message>
+            <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Task "Error" skipped, due to false condition; ('$(BaseIntermediateOutputPath)' != '' and !HasTrailingSlash('$(BaseIntermediateOutputPath)')) was evaluated as ('obj\' != '' and !HasTrailingSlash('obj\')).]]></message>
+            <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Task "Error" skipped, due to false condition; ('$(IntermediateOutputPath)' != '' and !HasTrailingSlash('$(IntermediateOutputPath)')) was evaluated as ('obj\Debug\' != '' and !HasTrailingSlash('obj\Debug\')).]]></message>
+            <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Task "Error" skipped, due to false condition; ( '$(_InitialMSBuildProjectExtensionsPath)' != '' And '$(MSBuildProjectExtensionsPath)' != '$(_InitialMSBuildProjectExtensionsPath)' ) was evaluated as ( 'C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\obj\' != '' And 'C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\obj\' != 'C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\obj\' ).]]></message>
+            <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Task "Warning" skipped, due to false condition; ( '$(EnableBaseIntermediateOutputPathMismatchWarning)' == 'true' And '$(_InitialBaseIntermediateOutputPath)' != '$(BaseIntermediateOutputPath)' And '$(BaseIntermediateOutputPath)' != '$(MSBuildProjectExtensionsPath)' ) was evaluated as ( '' == 'true' And 'obj\' != 'obj\' And 'obj\' != 'C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\obj\' ).]]></message>
+          </target>
+          <target name="BeforeRebuild" started="30.05.2018 12:16:00" />
+          <target name="BeforeClean" started="30.05.2018 12:16:00" />
+          <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Target "UnmanagedUnregistration" skipped, due to false condition; ((('$(_AssemblyTimestampBeforeCompile)' != '$(_AssemblyTimestampAfterCompile)' or '$(RegisterForComInterop)' != 'true' or '$(OutputType)' != 'library') or
+                    ('$(_AssemblyTimestampBeforeCompile)' == '')) and
+                   Exists('@(_UnmanagedRegistrationCache)')) was evaluated as ((('' != '' or '' != 'true' or 'Library' != 'library') or
+                    ('' == '')) and
+                   Exists('obj\ClassLibrary1.csproj.UnmanagedRegistration.cache')).]]></message>
+          <target name="CoreClean" started="30.05.2018 12:16:00">
+            <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Using "Delete" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".]]></message>
+            <task name="Delete" file="C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj" started="30.05.2018 12:16:00">
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[File "obj\Debug\\TempCA\ClassLibrary1.pdb" doesn't exist. Skipping.]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[File "obj\Debug\\TempCA\ClassLibrary1.dll" doesn't exist. Skipping.]]></message>
+            </task>
+            <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Using "ReadLinesFromFile" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".]]></message>
+            <task name="ReadLinesFromFile" file="C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj" started="30.05.2018 12:16:00" />
+            <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Using "FindUnderPath" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".]]></message>
+            <task name="FindUnderPath" file="C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj" started="30.05.2018 12:16:00">
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Comparison path is "bin\Debug\".]]></message>
+            </task>
+            <task name="FindUnderPath" file="C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj" started="30.05.2018 12:16:00">
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Comparison path is "obj\Debug\".]]></message>
+            </task>
+            <task name="Delete" file="C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj" started="30.05.2018 12:16:00">
+              <message importance="Normal" started="30.05.2018 12:16:00"><![CDATA[Deleting file "C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\bin\Debug\ClassLibrary1.dll".]]></message>
+              <message importance="Normal" started="30.05.2018 12:16:00"><![CDATA[Deleting file "C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\bin\Debug\ClassLibrary1.pdb".]]></message>
+              <message importance="Normal" started="30.05.2018 12:16:00"><![CDATA[Deleting file "C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\bin\Debug\ClassLibrary1.dll.CodeAnalysisLog.xml".]]></message>
+              <message importance="Normal" started="30.05.2018 12:16:00"><![CDATA[Deleting file "C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\bin\Debug\ClassLibrary1.dll.lastcodeanalysissucceeded".]]></message>
+              <message importance="Normal" started="30.05.2018 12:16:00"><![CDATA[Deleting file "C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\obj\Debug\ClassLibrary1.csprojAssemblyReference.cache".]]></message>
+              <message importance="Normal" started="30.05.2018 12:16:00"><![CDATA[Deleting file "C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\obj\Debug\ClassLibrary1.csproj.CoreCompileInputs.cache".]]></message>
+              <message importance="Normal" started="30.05.2018 12:16:00"><![CDATA[Deleting file "C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\obj\Debug\ClassLibrary1.dll".]]></message>
+              <message importance="Normal" started="30.05.2018 12:16:00"><![CDATA[Deleting file "C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\obj\Debug\ClassLibrary1.pdb".]]></message>
+            </task>
+            <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Using "RemoveDuplicates" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".]]></message>
+            <task name="RemoveDuplicates" file="C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj" started="30.05.2018 12:16:00" />
+            <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Using "MakeDir" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".]]></message>
+            <task name="MakeDir" file="C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj" started="30.05.2018 12:16:00" />
+            <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Using "WriteLinesToFile" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".]]></message>
+            <task name="WriteLinesToFile" file="C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj" started="30.05.2018 12:16:00" />
+          </target>
+          <target name="AssignProjectConfiguration" started="30.05.2018 12:16:00">
+            <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Using "AssignProjectConfiguration" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".]]></message>
+            <task name="AssignProjectConfiguration" file="C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj" started="30.05.2018 12:16:00" />
+          </target>
+          <target name="_SplitProjectReferencesByFileExistence" started="30.05.2018 12:16:00">
+            <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Task "ResolveNonMSBuildProjectOutput" skipped, due to false condition; ('$(BuildingInsideVisualStudio)'=='true' and '@(ProjectReferenceWithConfiguration)'!='') was evaluated as (''=='true' and ''!='').]]></message>
+          </target>
+          <target name="_GetProjectReferenceTargetFrameworkProperties" started="30.05.2018 12:16:00">
+            <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Using "MSBuild" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".]]></message>
+            <task name="MSBuild" file="C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj" started="30.05.2018 12:16:00" />
+            <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Task "GetReferenceNearestTargetFrameworkTask" skipped, due to false condition; ('@(_ProjectReferenceTargetFrameworkPossibilities->Count())' != '0' and '$(ReferringTargetFrameworkForProjectReferences)' != '') was evaluated as ('0' != '0' and '.NETFramework,Version=v4.5.2' != '').]]></message>
+          </target>
+          <target name="PrepareProjectReferences" started="30.05.2018 12:16:00" />
+          <target name="CleanReferencedProjects" started="30.05.2018 12:16:00">
+            <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Task "MSBuild" skipped, due to false condition; ('$(BuildingInsideVisualStudio)' != 'true' and '$(BuildProjectReferences)' == 'true' and '@(_MSBuildProjectReferenceExistent)' != '') was evaluated as ('' != 'true' and 'true' == 'true' and '' != '').]]></message>
+          </target>
+          <target name="CleanPublishFolder" started="30.05.2018 12:16:00">
+            <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Task "RemoveDir" skipped, due to false condition; ('$(PublishDir)'=='$(OutputPath)app.publish\' and Exists('$(PublishDir)')) was evaluated as ('bin\Debug\app.publish\'=='bin\Debug\app.publish\' and Exists('bin\Debug\app.publish\')).]]></message>
+          </target>
+          <target name="AfterClean" started="30.05.2018 12:16:00" />
+          <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Target "EntityClean" skipped, due to false condition; ('@(EntityDeploy)' != '') was evaluated as ('' != '').]]></message>
+          <target name="Clean" started="30.05.2018 12:16:00" />
+          <target name="CleanXsdCodeGen" started="30.05.2018 12:16:00">
+            <task name="Delete" file="C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj" started="30.05.2018 12:16:00" />
+          </target>
+          <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Target "EntityDeploy" skipped, due to false condition; ('@(EntityDeploy)' != '') was evaluated as ('' != '').]]></message>
+          <target name="BeforeBuild" started="30.05.2018 12:16:00" />
+          <target name="BuildOnlySettings" started="30.05.2018 12:16:00" />
+          <target name="GetFrameworkPaths" started="30.05.2018 12:16:00" />
+          <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Target "GetWinFXPath" skipped, due to false condition; (('@(Page)' != '' or '@(ApplicationDefinition)' != '' or '@(Resource)' != '') and ('$(GetWinFXNativePath)' != '' or '$(GetWinFXWoWPath)' != '' )) was evaluated as (('' != '' or '' != '' or '' != '') and ('' != '' or '' != '' )).]]></message>
+          <target name="GetReferenceAssemblyPaths" started="30.05.2018 12:16:00">
+            <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Using "GetReferenceAssemblyPaths" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".]]></message>
+            <task name="GetReferenceAssemblyPaths" file="C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj" started="30.05.2018 12:16:00" />
+          </target>
+          <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Target "AssignLinkMetadata" skipped, due to false condition; ( '$(SynthesizeLinkMetadata)' == 'true' ) was evaluated as ( '' == 'true' ).]]></message>
+          <target name="PrepareForBuild" started="30.05.2018 12:16:00">
+            <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Using "FindAppConfigFile" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".]]></message>
+            <task name="FindAppConfigFile" file="C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj" started="30.05.2018 12:16:00" />
+            <task name="MakeDir" file="C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj" started="30.05.2018 12:16:00" />
+          </target>
+          <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Target "PreBuildEvent" skipped, due to false condition; ('$(PreBuildEvent)'!='') was evaluated as (''!='').]]></message>
+          <target name="BeforeResolveReferences" started="30.05.2018 12:16:00" />
+          <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Target "AssignProjectConfiguration" skipped. Previously built successfully.]]></message>
+          <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Target "PrepareProjectReferences" skipped. Previously built successfully.]]></message>
+          <target name="ResolveProjectReferences" started="30.05.2018 12:16:00">
+            <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Task "MSBuild" skipped, due to false condition; ('%(_MSBuildProjectReferenceExistent.BuildReference)' == 'true' and '@(ProjectReferenceWithConfiguration)' != '' and ('$(BuildingInsideVisualStudio)' == 'true' or '$(BuildProjectReferences)' != 'true') and '$(VisualStudioVersion)' != '10.0' and '@(_MSBuildProjectReferenceExistent)' != '') was evaluated as ('' == 'true' and '' != '' and ('' == 'true' or 'true' != 'true') and '15.0' != '10.0' and '' != '').]]></message>
+            <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Task "MSBuild" skipped, due to false condition; ('%(_MSBuildProjectReferenceExistent.BuildReference)' == 'true' and '@(ProjectReferenceWithConfiguration)' != '' and ('$(BuildingInsideVisualStudio)' == 'true' or '$(BuildProjectReferences)' != 'true') and '$(VisualStudioVersion)' == '10.0' and '@(_MSBuildProjectReferenceExistent)' != '') was evaluated as ('' == 'true' and '' != '' and ('' == 'true' or 'true' != 'true') and '15.0' == '10.0' and '' != '').]]></message>
+            <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Task "MSBuild" skipped, due to false condition; ('%(_MSBuildProjectReferenceExistent.BuildReference)' == 'true' and '@(ProjectReferenceWithConfiguration)' != '' and '$(BuildingInsideVisualStudio)' != 'true' and '$(BuildProjectReferences)' == 'true' and '@(_MSBuildProjectReferenceExistent)' != '') was evaluated as ('' == 'true' and '' != '' and '' != 'true' and 'true' == 'true' and '' != '').]]></message>
+            <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Task "MSBuild" skipped, due to false condition; ('%(_MSBuildProjectReferenceExistent.BuildReference)' == 'true' and '@(ProjectReferenceWithConfiguration)' != '' and '$(BuildingProject)' == 'true' and '@(_MSBuildProjectReferenceExistent)' != '') was evaluated as ('' == 'true' and '' != '' and 'true' == 'true' and '' != '').]]></message>
+            <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Task "Warning" skipped, due to false condition; ('@(ProjectReferenceWithConfiguration)' != '' and '@(_MSBuildProjectReferenceNonexistent)' != '') was evaluated as ('' != '' and '' != '').]]></message>
+          </target>
+          <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Target "FindInvalidProjectReferences" skipped, due to false condition; ('$(FindInvalidProjectReferences)' == 'true') was evaluated as ('' == 'true').]]></message>
+          <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Target "ResolveNativeReferences" skipped, due to false condition; ('@(NativeReference)'!='') was evaluated as (''!='').]]></message>
+          <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Target "GetFrameworkPaths" skipped. Previously built successfully.]]></message>
+          <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Target "GetReferenceAssemblyPaths" skipped. Previously built successfully.]]></message>
+          <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Target "PrepareForBuild" skipped. Previously built successfully.]]></message>
+          <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Target "GetInstalledSDKLocations" skipped, due to false condition; ('@(SDKReference)' != '') was evaluated as ('' != '').]]></message>
+          <target name="ResolveSDKReferences" started="30.05.2018 12:16:00">
+            <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Task "ResolveSDKReference" skipped, due to false condition; ('@(SDKReference)'!='') was evaluated as (''!='').]]></message>
+          </target>
+          <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Target "ResolveSDKReferences" skipped. Previously built successfully.]]></message>
+          <target name="ExpandSDKReferences" started="30.05.2018 12:16:00">
+            <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Task "GetSDKReferenceFiles" skipped, due to false condition; ('@(ResolvedSDKReference)'!='') was evaluated as (''!='').]]></message>
+          </target>
+          <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Target "ResolveNuGetPackageAssets" skipped, due to false condition; ('$(ResolveNuGetPackages)' == 'true' and exists('$(ProjectLockFile)')) was evaluated as ('true' == 'true' and exists('obj\project.assets.json')).]]></message>
+          <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Target "ImplicitlyExpandNETStandardFacades" skipped, due to false condition; ('$(ImplicitlyExpandNETStandardFacades)' == 'true') was evaluated as ('' == 'true').]]></message>
+          <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Target "GetReferenceAssemblyPaths" skipped. Previously built successfully.]]></message>
+          <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Target "ImplicitlyExpandNETStandardFacades" skipped, due to false condition; ('$(ImplicitlyExpandNETStandardFacades)' == 'true') was evaluated as ('' == 'true').]]></message>
+          <target name="_HandlePackageFileConflicts" started="30.05.2018 12:16:00">
+            <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Using "ResolvePackageFileConflicts" task from assembly "C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\\tools\net46\Microsoft.NET.Build.Extensions.Tasks.dll".]]></message>
+            <task name="ResolvePackageFileConflicts" file="C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj" started="30.05.2018 12:16:00" />
+          </target>
+          <target name="ResolveAssemblyReferences" started="30.05.2018 12:16:00">
+            <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Using "ResolveAssemblyReference" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".]]></message>
+            <task name="ResolveAssemblyReference" file="C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj" started="30.05.2018 12:16:00">
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[TargetFrameworkMoniker:]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    .NETFramework,Version=v4.5.2]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[TargetFrameworkMonikerDisplayName:]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    .NET Framework 4.5.2]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[TargetedRuntimeVersion:]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    v4.0.30319]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Assemblies:]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    System]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    System.Xml.Linq]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    System.Data.DataSetExtensions]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    Microsoft.CSharp]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    System.Data]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    System.Net.Http]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    System.Xml]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    System.Core]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[AssemblyFiles:]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\mscorlib.dll]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[CandidateAssemblyFiles:]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[TargetFrameworkDirectories:]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\,C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\Facades\]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[InstalledAssemblyTables:]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[IgnoreInstalledAssemblyTable:]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    False]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[SearchPaths:]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    {CandidateAssemblyFiles}]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    {HintPathFromItem}]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    {TargetFrameworkDirectory}]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    {AssemblyFoldersFromConfig:C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\AssemblyFolders.config,v4.5.2}]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    {Registry:Software\Microsoft\.NETFramework,v4.5.2,AssemblyFoldersEx}]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    {AssemblyFolders}]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    {GAC}]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    {RawFileName}]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    bin\Debug\]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[AllowedAssemblyExtensions:]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    .winmd]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    .dll]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    .exe]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[AllowedRelatedFileExtensions:]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    .pdb]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    .xml]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    .pri]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    .dll.config]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    .exe.config]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[AppConfigFile:]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    ]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[AutoUnify:]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    True]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[CopyLocalDependenciesWhenParentReferenceInGac:]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    True]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[FindDependencies:]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    True]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[TargetProcessorArchitecture:]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    msil]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[StateFile:]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    obj\Debug\ClassLibrary1.csprojAssemblyReference.cache]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[InstalledAssemblySubsetTables:]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[IgnoreInstalledAssemblySubsetTable:]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    False]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[TargetFrameworkSubsets:]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[FullTargetFrameworkSubsetNames:]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    Full]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[ProfileName:]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    ]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[FullFrameworkFolders:]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[LatestTargetFrameworkDirectories:]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[ProfileTablesLocation:]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Primary reference "mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089".]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    Resolved file path is "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\mscorlib.dll".]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    Reference found at search path location "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\mscorlib.dll".]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    This reference is not "CopyLocal" because it's in a Frameworks directory.]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    The ImageRuntimeVersion for this reference is "v4.0.30319".]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Primary reference "System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089".]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    Resolved file path is "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.dll".]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    Reference found at search path location "{TargetFrameworkDirectory}".]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[        For SearchPath "{TargetFrameworkDirectory}".]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[        Considered "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.winmd", but it didn't exist.]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    This reference is not "CopyLocal" because it's a prerequisite file.]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    The ImageRuntimeVersion for this reference is "v4.0.30319".]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Primary reference "System.Xml.Linq, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089".]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    Resolved file path is "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.Xml.Linq.dll".]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    Reference found at search path location "{TargetFrameworkDirectory}".]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[        For SearchPath "{TargetFrameworkDirectory}".]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[        Considered "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.Xml.Linq.winmd", but it didn't exist.]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    This reference is not "CopyLocal" because it's a prerequisite file.]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    The ImageRuntimeVersion for this reference is "v4.0.30319".]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Primary reference "System.Data.DataSetExtensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089".]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    Resolved file path is "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.Data.DataSetExtensions.dll".]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    Reference found at search path location "{TargetFrameworkDirectory}".]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[        For SearchPath "{TargetFrameworkDirectory}".]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[        Considered "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.Data.DataSetExtensions.winmd", but it didn't exist.]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    This reference is not "CopyLocal" because it's a prerequisite file.]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    The ImageRuntimeVersion for this reference is "v4.0.30319".]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Primary reference "Microsoft.CSharp, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    Resolved file path is "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\Microsoft.CSharp.dll".]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    Reference found at search path location "{TargetFrameworkDirectory}".]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[        For SearchPath "{TargetFrameworkDirectory}".]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[        Considered "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\Microsoft.CSharp.winmd", but it didn't exist.]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    This reference is not "CopyLocal" because it's a prerequisite file.]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    The ImageRuntimeVersion for this reference is "v4.0.30319".]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Primary reference "System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089".]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    Resolved file path is "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.Data.dll".]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    Reference found at search path location "{TargetFrameworkDirectory}".]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[        For SearchPath "{TargetFrameworkDirectory}".]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[        Considered "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.Data.winmd", but it didn't exist.]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    This reference is not "CopyLocal" because it's a prerequisite file.]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    The ImageRuntimeVersion for this reference is "v4.0.30319".]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Primary reference "System.Net.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    Resolved file path is "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.Net.Http.dll".]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    Reference found at search path location "{TargetFrameworkDirectory}".]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[        For SearchPath "{TargetFrameworkDirectory}".]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[        Considered "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.Net.Http.winmd", but it didn't exist.]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    This reference is not "CopyLocal" because it's a prerequisite file.]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    The ImageRuntimeVersion for this reference is "v4.0.30319".]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Primary reference "System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089".]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    Resolved file path is "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.Xml.dll".]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    Reference found at search path location "{TargetFrameworkDirectory}".]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[        For SearchPath "{TargetFrameworkDirectory}".]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[        Considered "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.Xml.winmd", but it didn't exist.]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    This reference is not "CopyLocal" because it's a prerequisite file.]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    The ImageRuntimeVersion for this reference is "v4.0.30319".]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Primary reference "System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089".]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    Resolved file path is "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.Core.dll".]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    Reference found at search path location "{TargetFrameworkDirectory}".]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[        For SearchPath "{TargetFrameworkDirectory}".]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[        Considered "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.Core.winmd", but it didn't exist.]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    This reference is not "CopyLocal" because it's a prerequisite file.]]></message>
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[    The ImageRuntimeVersion for this reference is "v4.0.30319".]]></message>
+            </task>
+          </target>
+          <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Target "GenerateBindingRedirects" skipped, due to false condition; ('$(AutoGenerateBindingRedirects)' == 'true' and '$(GenerateBindingRedirectsOutputType)' == 'true') was evaluated as ('' == 'true' and '' == 'true').]]></message>
+          <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Target "GenerateBindingRedirectsUpdateAppConfig" skipped, due to false condition; ('$(AutoGenerateBindingRedirects)' == 'true' and '$(GenerateBindingRedirectsOutputType)' == 'true' and Exists('$(_GenerateBindingRedirectsIntermediateAppConfig)')) was evaluated as ('' == 'true' and '' == 'true' and Exists('obj\Debug\ClassLibrary1.dll.config')).]]></message>
+          <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Target "ResolveComReferences" skipped, due to false condition; ('@(COMReference)'!='' or '@(COMFileReference)'!='') was evaluated as (''!='' or ''!='').]]></message>
+          <target name="AfterResolveReferences" started="30.05.2018 12:16:00" />
+          <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Target "GetReferenceAssemblyPaths" skipped. Previously built successfully.]]></message>
+          <target name="ImplicitlyExpandDesignTimeFacades" started="30.05.2018 12:16:00">
+            <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Task "Message" skipped, due to false condition; ('%(ReferencePath.ResolvedFrom)' == 'ImplicitlyExpandDesignTimeFacades') was evaluated as ('{TargetFrameworkDirectory}' == 'ImplicitlyExpandDesignTimeFacades').]]></message>
+            <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Task "Message" skipped, due to false condition; ('%(ReferencePath.ResolvedFrom)' == 'ImplicitlyExpandDesignTimeFacades') was evaluated as ('C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\mscorlib.dll' == 'ImplicitlyExpandDesignTimeFacades').]]></message>
+          </target>
+          <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Target "ResolveTestReferences" skipped, due to false condition; ('@(Shadow)'!='') was evaluated as (''!='').]]></message>
+          <target name="ResolveReferences" started="30.05.2018 12:16:00" />
+          <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Target "ResolveNuGetPackageAssets" skipped, due to false condition; ('$(ResolveNuGetPackages)' == 'true' and exists('$(ProjectLockFile)')) was evaluated as ('true' == 'true' and exists('obj\project.assets.json')).]]></message>
+          <target name="ValidationExtension" started="30.05.2018 12:16:00">
+            <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Task "WorkflowBuildMessageTask" skipped, due to false condition; ('$(SkipWorkflowValidation)'!='' and '$(SkipWorkflowValidation)'!='true' and '$(SkipWorkflowValidation)'!='false') was evaluated as (''!='' and ''!='true' and ''!='false').]]></message>
+          </target>
+          <target name="ExpressionBuildExtension" started="30.05.2018 12:16:00">
+            <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Task "WorkflowBuildMessageTask" skipped, due to false condition; ('$(DisableWorkflowCompiledExpressions)'!='' and '$(DisableWorkflowCompiledExpressions)'!='true' and '$(DisableWorkflowCompiledExpressions)'!='false') was evaluated as (''!='' and ''!='true' and ''!='false').]]></message>
+          </target>
+          <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Target "XamlMarkupCompilePass1" skipped, due to false condition; ('@(XamlPage)' != '' or '@(XamlAppDef)' != '') was evaluated as ('' != '' or '' != '').]]></message>
+          <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Target "XamlMarkupCompileReadGeneratedFileList" skipped, due to false condition; ('@(XamlPage)' != '' or '@(XamlAppDef)' != '') was evaluated as ('' != '' or '' != '').]]></message>
+          <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Target "XamlMarkupCompileAddFilesGenerated" skipped, due to false condition; ('@(XamlPage)' != '' or '@(XamlAppDef)' != '') was evaluated as ('' != '' or '' != '').]]></message>
+          <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Target "XamlMarkupCompilePass2" skipped, due to false condition; ('$(XamlRequiresCompilationPass2)' == 'true' ) was evaluated as ('false' == 'true' ).]]></message>
+          <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Target "XamlMarkupCompileReadPass2Flag" skipped, due to false condition; ('@(XamlPage)' != '' or '@(XamlAppDef)' != '') was evaluated as ('' != '' or '' != '').]]></message>
+          <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Target "XamlMarkupCompileAddExtensionFilesGenerated" skipped, due to false condition; ('@(XamlPage)' != '' or '@(XamlAppDef)' != '') was evaluated as ('' != '' or '' != '').]]></message>
+          <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Target "AddDeferredValidationErrorsFileToFileWrites" skipped, due to false condition; (Exists('$(DeferredValidationErrorsFileName)')) was evaluated as (Exists('obj\Debug\\AC2C1ABA-CCF6-44D4-8127-588FD4D0A860-DeferredValidationErrors.xml')).]]></message>
+          <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Target "ReportValidationBuildExtensionErrors" skipped, due to false condition; ('$(SkipWorkflowValidation)' != 'true' and ('@(XamlPage)' != '' or '@(XamlAppDef)' != '')) was evaluated as ('' != 'true' and ('' != '' or '' != '')).]]></message>
+          <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Target "MarkupCompilePass1" skipped, due to false condition; ('@(Page)' != '' or '@(ApplicationDefinition)' != '' ) was evaluated as ('' != '' or '' != '' ).]]></message>
+          <target name="AfterMarkupCompilePass1" started="30.05.2018 12:16:00" />
+          <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Target "MarkupCompilePass2ForMainAssembly" skipped, due to false condition; ('$(_RequireMCPass2ForMainAssembly)' == 'true' ) was evaluated as ('false' == 'true' ).]]></message>
+          <target name="FileClassification" started="30.05.2018 12:16:00">
+            <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Task "FileClassifier" skipped, due to false condition; ('@(GeneratedBaml)' != '' or '@(Resource)' != '' or '@(Font)' != '') was evaluated as ('' != '' or '' != '' or '' != '').]]></message>
+            <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Task "Message" skipped, due to false condition; ('$(MSBuildTargetsVerbose)'=='true') was evaluated as (''=='true').]]></message>
+            <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Task "Message" skipped, due to false condition; ('$(MSBuildTargetsVerbose)'=='true') was evaluated as (''=='true').]]></message>
+          </target>
+          <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Target "MainResourcesGeneration" skipped, due to false condition; ('@(MainEmbeddedFiles)' != '') was evaluated as ('' != '').]]></message>
+          <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Target "AssignWinFXEmbeddedResource" skipped, due to false condition; ('@(WinFXEmbeddedResource)' != '') was evaluated as ('' != '').]]></message>
+          <target name="AssignTargetPaths" started="30.05.2018 12:16:00">
+            <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Using "AssignTargetPath" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".]]></message>
+            <task name="AssignTargetPath" file="C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj" started="30.05.2018 12:16:00" />
+            <task name="AssignTargetPath" file="C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj" started="30.05.2018 12:16:00" />
+            <task name="AssignTargetPath" file="C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj" started="30.05.2018 12:16:00" />
+            <task name="AssignTargetPath" file="C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj" started="30.05.2018 12:16:00" />
+            <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Task "AssignTargetPath" skipped, due to false condition; ('@(_DeploymentBaseManifestWithTargetPath)'=='' and '%(None.Extension)'=='.manifest') was evaluated as (''=='' and '.config'=='.manifest').]]></message>
+          </target>
+          <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Target "AssignTargetPaths" skipped. Previously built successfully.]]></message>
+          <target name="SplitResourcesByCulture" started="30.05.2018 12:16:00">
+            <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Task "Warning" skipped, due to false condition; ('@(ResxWithNoCulture)'!='') was evaluated as (''!='').]]></message>
+            <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Task "Warning" skipped, due to false condition; ('@(ResxWithCulture)'!='') was evaluated as (''!='').]]></message>
+            <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Task "Warning" skipped, due to false condition; ('@(NonResxWithCulture)'!='') was evaluated as (''!='').]]></message>
+            <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Task "Warning" skipped, due to false condition; ('@(NonResxWithNoCulture)'!='') was evaluated as (''!='').]]></message>
+            <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Using "AssignCulture" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".]]></message>
+            <task name="AssignCulture" file="C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj" started="30.05.2018 12:16:00" />
+          </target>
+          <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Target "CreateManifestResourceNames" skipped, due to false condition; ('@(EmbeddedResource)' != '') was evaluated as ('' != '').]]></message>
+          <target name="CreateCustomManifestResourceNames" started="30.05.2018 12:16:00" />
+          <target name="PrepareResourceNames" started="30.05.2018 12:16:00" />
+          <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Target "ResolveAssemblyReferences" skipped. Previously built successfully.]]></message>
+          <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Target "SplitResourcesByCulture" skipped. Previously built successfully.]]></message>
+          <target name="BeforeResGen" started="30.05.2018 12:16:00" />
+          <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Target "ResolveReferences" skipped. Previously built successfully.]]></message>
+          <target name="FindReferenceAssembliesForReferences" started="30.05.2018 12:16:00" />
+          <target name="CoreResGen" started="30.05.2018 12:16:00">
+            <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Task "GenerateResource" skipped, due to false condition; ('%(EmbeddedResource.Type)' == 'Resx' and '%(EmbeddedResource.GenerateResource)' != 'false' and '$(GenerateResourceMSBuildRuntime)' != 'CLR2') was evaluated as ('' == 'Resx' and '' != 'false' and 'CurrentRuntime' != 'CLR2').]]></message>
+            <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Task "GenerateResource" skipped, due to false condition; ('%(EmbeddedResource.Type)' == 'Resx' and '%(EmbeddedResource.GenerateResource)' != 'false' and '$(GenerateResourceMSBuildRuntime)' == 'CLR2') was evaluated as ('' == 'Resx' and '' != 'false' and 'CurrentRuntime' == 'CLR2').]]></message>
+          </target>
+          <target name="AfterResGen" started="30.05.2018 12:16:00" />
+          <target name="ResGen" started="30.05.2018 12:16:00" />
+          <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Target "CompileLicxFiles" skipped, due to false condition; ('@(_LicxFile)'!='') was evaluated as (''!='').]]></message>
+          <target name="PrepareResources" started="30.05.2018 12:16:00" />
+          <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Target "ResolveKeySource" skipped, due to false condition; ($(SignManifests) == 'true' or $(SignAssembly) == 'true') was evaluated as ( == 'true' or  == 'true').]]></message>
+          <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Target "ResolveReferences" skipped. Previously built successfully.]]></message>
+          <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Target "ResolveKeySource" skipped, due to false condition; ($(SignManifests) == 'true' or $(SignAssembly) == 'true') was evaluated as ( == 'true' or  == 'true').]]></message>
+          <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Target "ResolveComReferences" skipped, due to false condition; ('@(COMReference)'!='' or '@(COMFileReference)'!='') was evaluated as (''!='' or ''!='').]]></message>
+          <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Target "ResolveNativeReferences" skipped, due to false condition; ('@(NativeReference)'!='') was evaluated as (''!='').]]></message>
+          <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Target "_SetExternalWin32ManifestProperties" skipped, due to false condition; ('$(GenerateClickOnceManifests)'=='true' or '@(NativeReference)'!='' or '@(ResolvedIsolatedComModules)'!='') was evaluated as (''=='true' or ''!='' or ''!='').]]></message>
+          <target name="_SetEmbeddedWin32ManifestProperties" started="30.05.2018 12:16:00">
+            <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Using "GetFrameworkPath" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".]]></message>
+            <task name="GetFrameworkPath" file="C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj" started="30.05.2018 12:16:00" />
+          </target>
+          <target name="SetWin32ManifestProperties" started="30.05.2018 12:16:00" />
+          <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Target "FindReferenceAssembliesForReferences" skipped. Previously built successfully.]]></message>
+          <target name="_GenerateCompileInputs" started="30.05.2018 12:16:00">
+            <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Task "Warning" skipped, due to false condition; ('@(ManifestResourceWithNoCulture)'!='' and '%(ManifestResourceWithNoCulture.EmittedForCompatibilityOnly)'=='') was evaluated as (''!='' and ''=='').]]></message>
+            <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Task "Warning" skipped, due to false condition; ('@(ManifestNonResxWithNoCultureOnDisk)'!='' and '%(ManifestNonResxWithNoCultureOnDisk.EmittedForCompatibilityOnly)'=='') was evaluated as (''!='' and ''=='').]]></message>
+          </target>
+          <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Target "PrepareForBuild" skipped. Previously built successfully.]]></message>
+          <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Target "GetReferenceAssemblyPaths" skipped. Previously built successfully.]]></message>
+          <target name="_SetTargetFrameworkMonikerAttribute" started="30.05.2018 12:16:00" />
+          <target name="GenerateTargetFrameworkMonikerAttribute" started="30.05.2018 12:16:00">
+            <message importance="Normal" started="30.05.2018 12:16:00"><![CDATA[Skipping target "GenerateTargetFrameworkMonikerAttribute" because all output files are up-to-date with respect to the input files.]]></message>
+            <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Input files: C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\Microsoft.Common.targets]]></message>
+            <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Output files: C:\Users\bep\AppData\Local\Temp\.NETFramework,Version=v4.5.2.AssemblyAttributes.cs]]></message>
+          </target>
+          <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Target "GenerateAdditionalSources" skipped, due to false condition; ('@(AssemblyAttributes)' != '' and '$(GenerateAdditionalSources)' == 'true') was evaluated as ('' != '' and '' == 'true').]]></message>
+          <target name="BeforeCompile" started="30.05.2018 12:16:00" />
+          <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Target "_TimeStampBeforeCompile" skipped, due to false condition; ('$(RunPostBuildEvent)'=='OnOutputUpdated' or ('$(RegisterForComInterop)'=='true' and '$(OutputType)'=='library')) was evaluated as (''=='OnOutputUpdated' or (''=='true' and 'Library'=='library')).]]></message>
+          <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Target "ResolveAssemblyReferences" skipped. Previously built successfully.]]></message>
+          <target name="_GenerateCompileDependencyCache" started="30.05.2018 12:16:00">
+            <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Using "Hash" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".]]></message>
+            <task name="Hash" file="C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj" started="30.05.2018 12:16:00" />
+            <task name="WriteLinesToFile" file="C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj" started="30.05.2018 12:16:00" />
+          </target>
+          <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Target "_ComputeNonExistentFileProperty" skipped, due to false condition; (('$(BuildingInsideVisualStudio)' == 'true') and ('$(BuildingOutOfProcess)' != 'true') and (('$(BuildingProject)' == 'false') or ('$(UseHostCompilerIfAvailable)' == 'true'))) was evaluated as (('' == 'true') and ('' != 'true') and (('true' == 'false') or ('true' == 'true'))).]]></message>
+          <target name="ResolveCodeAnalysisRuleSet" started="30.05.2018 12:16:00">
+            <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Using "ResolveCodeAnalysisRuleSet" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".]]></message>
+            <task name="ResolveCodeAnalysisRuleSet" file="C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj" started="30.05.2018 12:16:00" />
+          </target>
+          <target name="_BeforeVBCSCoreCompile" started="30.05.2018 12:16:00" />
+          <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Target "ShimReferencePathsWhenCommonTargetsDoesNotUnderstandReferenceAssemblies" skipped, due to false condition; ('@(ReferencePathWithRefAssemblies)' == '') was evaluated as ('C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\Microsoft.CSharp.dll;C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\mscorlib.dll;C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.Core.dll;C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.Data.DataSetExtensions.dll;C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.Data.dll;C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.dll;C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.Net.Http.dll;C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.Xml.dll;C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.Xml.Linq.dll' == '').]]></message>
+          <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Target "_SetPathMapFromSourceRoots" skipped, due to false condition; ('$(DeterministicSourcePaths)' == 'true') was evaluated as ('' == 'true').]]></message>
+          <target name="PreXsdCodeGen" started="30.05.2018 12:16:00">
+            <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Using "CallTarget" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".]]></message>
+            <task name="CallTarget" file="C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj" started="30.05.2018 12:16:00">
+              <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Target "CleanXsdCodeGen" skipped. Previously built successfully.]]></message>
+            </task>
+          </target>
+          <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Target "XsdCodeGen" skipped, due to false condition; ( '$(XsdCodeGenPreCondition)' == 'True' ) was evaluated as ( 'False' == 'True' ).]]></message>
+          <target name="CoreCompile" started="30.05.2018 12:16:00">
+            <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Building target "CoreCompile" completely.]]></message>
+            <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Output file "obj\Debug\ClassLibrary1.dll" does not exist.]]></message>
+            <message importance="Low" started="30.05.2018 12:16:00"><![CDATA[Using "Csc" task from assembly "C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\Roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll".]]></message>
+            <task name="Csc" file="C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj" started="30.05.2018 12:16:00">
+              <message importance="High" started="30.05.2018 12:16:01"><![CDATA[C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\Roslyn\csc.exe /noconfig /nowarn:1701,1702 /nostdlib+ /errorreport:prompt /warn:4 /define:CODE_ANALYSIS;DEBUG;TRACE /highentropyva+ /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\Microsoft.CSharp.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\mscorlib.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.Core.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.Data.DataSetExtensions.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.Data.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.Net.Http.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.Xml.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.Xml.Linq.dll" /debug+ /debug:full /filealign:512 /optimize- /out:obj\Debug\ClassLibrary1.dll /ruleset:"C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\Team Tools\Static Analysis Tools\\Rule Sets\AllRules.ruleset" /subsystemversion:6.00 /target:library /utf8output /analyzer:..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\Newtonsoft.Json.dll /analyzer:..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll /analyzer:..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.dll Class1.cs Properties\AssemblyInfo.cs "C:\Users\bep\AppData\Local\Temp\.NETFramework,Version=v4.5.2.AssemblyAttributes.cs"]]></message>
+              <message importance="Normal" started="30.05.2018 12:16:01"><![CDATA[Using shared compilation with compiler from directory: C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\Roslyn]]></message>
+              <message importance="Low" started="30.05.2018 12:16:03"><![CDATA[Microsoft (R) Visual C# Compiler version 2.8.0.62830 (e595ee27)]]></message>
+              <message importance="Low" started="30.05.2018 12:16:03"><![CDATA[Copyright (C) Microsoft Corporation. All rights reserved.]]></message>
+              <warning code="CS0219" file="Class1.cs" line="13" column="17" started="30.05.2018 12:16:03"><![CDATA[The variable 'foo' is assigned but its value is never used]]></warning>
+              <warning code="SA1652" file="Class1.cs" line="1" column="1" started="30.05.2018 12:16:03"><![CDATA[Enable XML documentation output]]></warning>
+              <warning code="SA1633" file="Class1.cs" line="1" column="1" started="30.05.2018 12:16:03"><![CDATA[The file header is missing or not located at the top of the file.]]></warning>
+              <warning code="SA1200" file="Class1.cs" line="1" column="1" started="30.05.2018 12:16:03"><![CDATA[Using directive must appear within a namespace declaration]]></warning>
+              <warning code="SA1200" file="Class1.cs" line="2" column="1" started="30.05.2018 12:16:03"><![CDATA[Using directive must appear within a namespace declaration]]></warning>
+              <warning code="SA1200" file="Class1.cs" line="3" column="1" started="30.05.2018 12:16:03"><![CDATA[Using directive must appear within a namespace declaration]]></warning>
+              <warning code="SA1200" file="Class1.cs" line="4" column="1" started="30.05.2018 12:16:03"><![CDATA[Using directive must appear within a namespace declaration]]></warning>
+              <warning code="SA1200" file="Class1.cs" line="5" column="1" started="30.05.2018 12:16:03"><![CDATA[Using directive must appear within a namespace declaration]]></warning>
+              <warning code="SA1652" file="Properties\AssemblyInfo.cs" line="1" column="1" started="30.05.2018 12:16:03"><![CDATA[Enable XML documentation output]]></warning>
+              <warning code="SA1633" file="Properties\AssemblyInfo.cs" line="1" column="1" started="30.05.2018 12:16:03"><![CDATA[The file header is missing or not located at the top of the file.]]></warning>
+              <warning code="SA1028" file="Properties\AssemblyInfo.cs" line="5" column="77" started="30.05.2018 12:16:03"><![CDATA[Code must not contain trailing whitespace]]></warning>
+              <warning code="SA1028" file="Properties\AssemblyInfo.cs" line="17" column="76" started="30.05.2018 12:16:03"><![CDATA[Code must not contain trailing whitespace]]></warning>
+              <warning code="SA1028" file="Properties\AssemblyInfo.cs" line="18" column="74" started="30.05.2018 12:16:03"><![CDATA[Code must not contain trailing whitespace]]></warning>
+              <warning code="SA1028" file="Properties\AssemblyInfo.cs" line="28" column="22" started="30.05.2018 12:16:03"><![CDATA[Code must not contain trailing whitespace]]></warning>
+              <warning code="SA1028" file="Properties\AssemblyInfo.cs" line="32" column="84" started="30.05.2018 12:16:03"><![CDATA[Code must not contain trailing whitespace]]></warning>
+            </task>
+            <message importance="Low" started="30.05.2018 12:16:03"><![CDATA[Task "CallTarget" skipped, due to false condition; ('$(TargetsTriggeredByCompilation)' != '') was evaluated as ('' != '').]]></message>
+          </target>
+          <message importance="Low" started="30.05.2018 12:16:03"><![CDATA[Target "_TimeStampAfterCompile" skipped, due to false condition; ('$(RunPostBuildEvent)'=='OnOutputUpdated' or ('$(RegisterForComInterop)'=='true' and '$(OutputType)'=='library')) was evaluated as (''=='OnOutputUpdated' or (''=='true' and 'Library'=='library')).]]></message>
+          <target name="AfterCompile" started="30.05.2018 12:16:03" />
+          <message importance="Low" started="30.05.2018 12:16:03"><![CDATA[Target "PrepareResourcesForSatelliteAssemblies" skipped, due to false condition; ('$(UICulture)' != '') was evaluated as ('' != '').]]></message>
+          <message importance="Low" started="30.05.2018 12:16:03"><![CDATA[Target "MergeLocalizationDirectives" skipped, due to false condition; ('@(GeneratedLocalizationFiles)' !='') was evaluated as ('' !='').]]></message>
+          <target name="AfterCompileWinFX" started="30.05.2018 12:16:03" />
+          <target name="_AfterCompileWinFXInternal" started="30.05.2018 12:16:03" />
+          <target name="Compile" started="30.05.2018 12:16:03" />
+          <message importance="Low" started="30.05.2018 12:16:03"><![CDATA[Target "DeferredValidation" skipped, due to false condition; ('$(SkipWorkflowValidation)' != 'true' and ('@(XamlPage)' != '' or '@(XamlAppDef)' != '')) was evaluated as ('' != 'true' and ('' != '' or '' != '')).]]></message>
+          <message importance="Low" started="30.05.2018 12:16:03"><![CDATA[Target "ExportWindowsMDFile" skipped, due to false condition; ('$(ExportWinMDFile)' == 'true') was evaluated as ('' == 'true').]]></message>
+          <message importance="Low" started="30.05.2018 12:16:03"><![CDATA[Target "UnmanagedUnregistration" skipped, due to false condition; ((('$(_AssemblyTimestampBeforeCompile)' != '$(_AssemblyTimestampAfterCompile)' or '$(RegisterForComInterop)' != 'true' or '$(OutputType)' != 'library') or
+                    ('$(_AssemblyTimestampBeforeCompile)' == '')) and
+                   Exists('@(_UnmanagedRegistrationCache)')) was evaluated as ((('' != '' or '' != 'true' or 'Library' != 'library') or
+                    ('' == '')) and
+                   Exists('obj\ClassLibrary1.csproj.UnmanagedRegistration.cache')).]]></message>
+          <message importance="Low" started="30.05.2018 12:16:03"><![CDATA[Target "GenerateSerializationAssemblies" skipped, due to false condition; ('$(_SGenGenerateSerializationAssembliesConfig)' == 'On' or ('@(WebReferenceUrl)'!='' and '$(_SGenGenerateSerializationAssembliesConfig)' == 'Auto')) was evaluated as ('Off' == 'On' or (''!='' and 'Off' == 'Auto')).]]></message>
+          <target name="_GenerateSatelliteAssemblyInputs" started="30.05.2018 12:16:03">
+            <message importance="Low" started="30.05.2018 12:16:03"><![CDATA[Task "Warning" skipped, due to false condition; ('@(ManifestResourceWithCulture)'!='' and '%(ManifestResourceWithCulture.EmittedForCompatibilityOnly)'=='') was evaluated as (''!='' and ''=='').]]></message>
+            <message importance="Low" started="30.05.2018 12:16:03"><![CDATA[Task "Warning" skipped, due to false condition; ('@(ManifestNonResxWithCultureOnDisk)'!='' and '%(ManifestNonResxWithCultureOnDisk.EmittedForCompatibilityOnly)'=='') was evaluated as (''!='' and ''=='').]]></message>
+          </target>
+          <message importance="Low" started="30.05.2018 12:16:03"><![CDATA[Target "ComputeIntermediateSatelliteAssemblies" skipped, due to false condition; (@(EmbeddedResource->'%(WithCulture)') != '') was evaluated as ( != '').]]></message>
+          <message importance="Low" started="30.05.2018 12:16:03"><![CDATA[Target "GenerateSatelliteAssemblies" skipped, due to false condition; ('@(_SatelliteAssemblyResourceInputs)' != '' and '$(GenerateSatelliteAssembliesForCore)' != 'true') was evaluated as ('' != '' and '' != 'true').]]></message>
+          <target name="CreateSatelliteAssemblies" started="30.05.2018 12:16:03" />
+          <message importance="Low" started="30.05.2018 12:16:03"><![CDATA[Target "GenerateManifests" skipped, due to false condition; ('$(GenerateClickOnceManifests)'=='true' or '@(NativeReference)'!='' or '@(ResolvedIsolatedComModules)'!='' or '$(GenerateAppxManifest)' == 'true') was evaluated as (''=='true' or ''!='' or ''!='' or '' == 'true').]]></message>
+          <target name="GetTargetPathWithTargetPlatformMoniker" started="30.05.2018 12:16:03" />
+          <target name="GetTargetPath" started="30.05.2018 12:16:03" />
+          <message importance="Low" started="30.05.2018 12:16:03"><![CDATA[Target "ComputeIntermediateSatelliteAssemblies" skipped, due to false condition; (@(EmbeddedResource->'%(WithCulture)') != '') was evaluated as ( != '').]]></message>
+          <message importance="Low" started="30.05.2018 12:16:03"><![CDATA[Target "_CopyFilesMarkedCopyLocal" skipped, due to false condition; ('@(ReferenceCopyLocalPaths)' != '') was evaluated as ('' != '').]]></message>
+          <message importance="Low" started="30.05.2018 12:16:03"><![CDATA[Target "AssignTargetPaths" skipped. Previously built successfully.]]></message>
+          <message importance="Low" started="30.05.2018 12:16:03"><![CDATA[Target "_SplitProjectReferencesByFileExistence" skipped. Previously built successfully.]]></message>
+          <message importance="Low" started="30.05.2018 12:16:03"><![CDATA[Target "_GetProjectReferenceTargetFrameworkProperties" skipped. Previously built successfully.]]></message>
+          <target name="GetCopyToOutputDirectoryXamlAppDefs" started="30.05.2018 12:16:03">
+            <task name="AssignTargetPath" file="C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj" started="30.05.2018 12:16:03" />
+          </target>
+          <target name="GetCopyToOutputDirectoryItems" started="30.05.2018 12:16:03">
+            <message importance="Low" started="30.05.2018 12:16:03"><![CDATA[Task "MSBuild" skipped, due to false condition; ('@(_MSBuildProjectReferenceExistent)' != '' and '$(_GetChildProjectCopyToOutputDirectoryItems)' == 'true' and '%(_MSBuildProjectReferenceExistent.Private)' != 'false' and '$(UseCommonOutputDirectory)' != 'true') was evaluated as ('' != '' and 'true' == 'true' and '' != 'false' and 'false' != 'true').]]></message>
+            <task name="AssignTargetPath" file="C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj" started="30.05.2018 12:16:03" />
+          </target>
+          <message importance="Low" started="30.05.2018 12:16:03"><![CDATA[Target "_CopyOutOfDateSourceItemsToOutputDirectory" skipped, due to false condition; ( '@(_SourceItemsToCopyToOutputDirectory)' != '' ) was evaluated as ( '' != '' ).]]></message>
+          <message importance="Low" started="30.05.2018 12:16:03"><![CDATA[Target "_CopyOutOfDateSourceItemsToOutputDirectoryAlways" skipped, due to false condition; ( '@(_SourceItemsToCopyToOutputDirectoryAlways)' != '' ) was evaluated as ( '' != '' ).]]></message>
+          <target name="_CopySourceItemsToOutputDirectory" started="30.05.2018 12:16:03" />
+          <message importance="Low" started="30.05.2018 12:16:03"><![CDATA[Target "_CopyAppConfigFile" skipped, due to false condition; ( '@(AppConfigWithTargetPath)' != '' ) was evaluated as ( '' != '' ).]]></message>
+          <message importance="Low" started="30.05.2018 12:16:03"><![CDATA[Target "_CopyManifestFiles" skipped, due to false condition; ( '$(_DeploymentCopyApplicationManifest)'=='true' or '$(GenerateClickOnceManifests)'=='true' ) was evaluated as ( ''=='true' or ''=='true' ).]]></message>
+          <target name="_CheckForCompileOutputs" started="30.05.2018 12:16:03" />
+          <message importance="Low" started="30.05.2018 12:16:03"><![CDATA[Target "_SGenCheckForOutputs" skipped, due to false condition; ('$(_SGenGenerateSerializationAssembliesConfig)' == 'On' or ('@(WebReferenceUrl)'!='' and '$(_SGenGenerateSerializationAssembliesConfig)' == 'Auto')) was evaluated as ('Off' == 'On' or (''!='' and 'Off' == 'Auto')).]]></message>
+          <target name="CopyFilesToOutputDirectory" started="30.05.2018 12:16:03">
+            <message importance="Low" started="30.05.2018 12:16:03"><![CDATA[Using "Copy" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".]]></message>
+            <task name="Copy" file="C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj" started="30.05.2018 12:16:03">
+              <message importance="Normal" started="30.05.2018 12:16:03"><![CDATA[Copying file from "obj\Debug\ClassLibrary1.dll" to "bin\Debug\ClassLibrary1.dll".]]></message>
+            </task>
+            <message importance="Low" started="30.05.2018 12:16:03"><![CDATA[Task "CopyRefAssembly" skipped, due to false condition; ('$(ProduceReferenceAssembly)' == 'true' and '$(CopyBuildOutputToOutputDirectory)' == 'true' and '$(SkipCopyBuildProduct)' != 'true') was evaluated as ('false' == 'true' and 'true' == 'true' and '' != 'true').]]></message>
+            <task name="Message" file="C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj" started="30.05.2018 12:16:03">
+              <message importance="High" started="30.05.2018 12:16:03"><![CDATA[ClassLibrary1 -> C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\bin\Debug\ClassLibrary1.dll]]></message>
+            </task>
+            <message importance="Low" started="30.05.2018 12:16:03"><![CDATA[Task "Copy" skipped, due to false condition; ('@(AddModules)' != '') was evaluated as ('' != '').]]></message>
+            <message importance="Low" started="30.05.2018 12:16:03"><![CDATA[Task "Copy" skipped, due to false condition; ('$(_SGenDllCreated)'=='true') was evaluated as ('false'=='true').]]></message>
+            <task name="Copy" file="C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj" started="30.05.2018 12:16:03">
+              <message importance="Normal" started="30.05.2018 12:16:03"><![CDATA[Copying file from "obj\Debug\ClassLibrary1.pdb" to "bin\Debug\ClassLibrary1.pdb".]]></message>
+            </task>
+            <message importance="Low" started="30.05.2018 12:16:03"><![CDATA[Task "Copy" skipped, due to false condition; ('$(_DocumentationFileProduced)'=='true') was evaluated as ('false'=='true').]]></message>
+            <message importance="Low" started="30.05.2018 12:16:03"><![CDATA[Task "Copy" skipped, due to false condition; ('@(IntermediateSatelliteAssembliesWithTargetPath)' != '') was evaluated as ('' != '').]]></message>
+            <message importance="Low" started="30.05.2018 12:16:03"><![CDATA[Task "Copy" skipped, due to false condition; ('@(ReferenceComWrappersToCopyLocal)' != '' or '@(ResolvedIsolatedComModules)' != '' or '@(_DeploymentLooseManifestFile)' != '' or '@(NativeReferenceFile)' != '' ) was evaluated as ('' != '' or '' != '' or '' != '' or '' != '' ).]]></message>
+            <message importance="Low" started="30.05.2018 12:16:03"><![CDATA[Task "Copy" skipped, due to false condition; ('$(SkipCopyWinMDArtifact)' != 'true' and '@(WinMDExpArtifacts)' != '') was evaluated as ('' != 'true' and '' != '').]]></message>
+            <message importance="Low" started="30.05.2018 12:16:03"><![CDATA[Task "Message" skipped, due to false condition; ('$(SkipCopyWinMDArtifact)' != 'true' and '$(_WindowsMetadataOutputPath)' != '') was evaluated as ('' != 'true' and '' != '').]]></message>
+          </target>
+          <message importance="Low" started="30.05.2018 12:16:03"><![CDATA[Target "Compile" skipped. Previously built successfully.]]></message>
+          <target name="RunCodeAnalysis" started="30.05.2018 12:16:03">
+            <message importance="Low" started="30.05.2018 12:16:03"><![CDATA[Building target "RunCodeAnalysis" completely.]]></message>
+            <message importance="Low" started="30.05.2018 12:16:03"><![CDATA[Output file "bin\Debug\ClassLibrary1.dll.CodeAnalysisLog.xml" does not exist.]]></message>
+            <message importance="Low" started="30.05.2018 12:16:03"><![CDATA[Task "Copy" skipped, due to false condition; ('$(OutputType)'=='winmdobj' and '$(Language)'=='VB') was evaluated as ('Library'=='winmdobj' and 'C#'=='VB').]]></message>
+            <message importance="Low" started="30.05.2018 12:16:03"><![CDATA[Task "Copy" skipped, due to false condition; ('$(OutputType)'=='winmdobj' and '$(Language)'=='VB') was evaluated as ('Library'=='winmdobj' and 'C#'=='VB').]]></message>
+            <message importance="Low" started="30.05.2018 12:16:03"><![CDATA[Using "CodeAnalysis" task from assembly "C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\Microsoft\VisualStudio\v15.0\CodeAnalysis\.\FxCopTask.dll".]]></message>
+            <task name="CodeAnalysis" file="C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj" started="30.05.2018 12:16:03">
+              <message importance="High" started="30.05.2018 12:16:03"><![CDATA[Running Code Analysis...]]></message>
+              <message importance="High" started="30.05.2018 12:16:03"><![CDATA[C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\Team Tools\Static Analysis Tools\FxCop\FxCopCmd.exe  /outputCulture:1033 /out:"bin\Debug\ClassLibrary1.dll.CodeAnalysisLog.xml" /file:"bin\Debug\ClassLibrary1.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\Microsoft.CSharp.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\mscorlib.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.Core.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.Data.DataSetExtensions.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.Data.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.Net.Http.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.Xml.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.Xml.Linq.dll" /directory:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2" /ruleSet:"=AllRules.ruleset" /rulesetdirectory:"C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\Team Tools\Static Analysis Tools\\Rule Sets" /rule:"-C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\Team Tools\Static Analysis Tools\FxCop\\Rules" /searchgac /ignoreinvalidtargets /forceoutput /successfile /ignoregeneratedcode /saveMessagesToReport:Active /timeout:120 /reportMissingIndirectAssemblies ]]></message>
+              <message importance="Low" started="30.05.2018 12:16:04"><![CDATA[Microsoft (R) FxCop Command-Line Tool, Version 15.0 (15.0.27617.1) X86]]></message>
+              <message importance="Low" started="30.05.2018 12:16:04"><![CDATA[Copyright (C) Microsoft Corporation, All Rights Reserved.]]></message>
+              <message importance="Low" started="30.05.2018 12:16:04" />
+              <message importance="Low" started="30.05.2018 12:16:04"><![CDATA[Loaded dataflowrules.dll...]]></message>
+              <message importance="Low" started="30.05.2018 12:16:04"><![CDATA[Loaded designrules.dll...]]></message>
+              <message importance="Low" started="30.05.2018 12:16:04"><![CDATA[Loaded globalizationrules.dll...]]></message>
+              <message importance="Low" started="30.05.2018 12:16:04"><![CDATA[Loaded interoperabilityrules.dll...]]></message>
+              <message importance="Low" started="30.05.2018 12:16:04"><![CDATA[Loaded maintainabilityrules.dll...]]></message>
+              <message importance="Low" started="30.05.2018 12:16:04"><![CDATA[Loaded mobilityrules.dll...]]></message>
+              <message importance="Low" started="30.05.2018 12:16:04"><![CDATA[Loaded namingrules.dll...]]></message>
+              <message importance="Low" started="30.05.2018 12:16:04"><![CDATA[Loaded performancerules.dll...]]></message>
+              <message importance="Low" started="30.05.2018 12:16:04"><![CDATA[Loaded portabilityrules.dll...]]></message>
+              <message importance="Low" started="30.05.2018 12:16:04"><![CDATA[Loaded reliabilityrules.dll...]]></message>
+              <message importance="Low" started="30.05.2018 12:16:04"><![CDATA[Loaded securityrules.dll...]]></message>
+              <message importance="Low" started="30.05.2018 12:16:04"><![CDATA[Loaded securitytransparencyrules.dll...]]></message>
+              <message importance="Low" started="30.05.2018 12:16:04"><![CDATA[Loaded usagerules.dll...]]></message>
+              <message importance="Low" started="30.05.2018 12:16:05"><![CDATA[Loaded ClassLibrary1.dll...]]></message>
+              <message importance="Low" started="30.05.2018 12:16:05"><![CDATA[Initializing Introspection engine...]]></message>
+              <message importance="Low" started="30.05.2018 12:16:05"><![CDATA[Analyzing...]]></message>
+              <message importance="Low" started="30.05.2018 12:16:06"><![CDATA[Initializing Phoenix engine...]]></message>
+              <message importance="Low" started="30.05.2018 12:16:06"><![CDATA[Analyzing...]]></message>
+              <message importance="Low" started="30.05.2018 12:16:09"><![CDATA[Analysis Complete.]]></message>
+              <message importance="Low" started="30.05.2018 12:16:09"><![CDATA[Writing 4 messages...]]></message>
+              <message importance="Low" started="30.05.2018 12:16:09"><![CDATA[Writing report to C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\bin\Debug\ClassLibrary1.dll.CodeAnalysisLog.xml...]]></message>
+              <message importance="Low" started="30.05.2018 12:16:09"><![CDATA[Done:00:00:06.1575329]]></message>
+              <warning code="CA2210" line="-1" column="0" started="30.05.2018 12:16:09"><![CDATA[Microsoft.Design : Sign 'ClassLibrary1.dll' with a strong name key.]]></warning>
+              <warning code="CA1014" line="-1" column="0" started="30.05.2018 12:16:09"><![CDATA[Microsoft.Design : Mark 'ClassLibrary1.dll' with CLSCompliant(true) because it exposes externally visible types.]]></warning>
+              <warning code="CA1822" file="C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\Class1.cs" line="12" column="0" started="30.05.2018 12:16:09"><![CDATA[Microsoft.Performance : The 'this' parameter (or 'Me' in Visual Basic) of 'Class1.Foo()' is never used. Mark the member as static (or Shared in Visual Basic) or use 'this'/'Me' in the method body or at least one property accessor, if appropriate.]]></warning>
+              <warning code="CA1804" file="C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\Class1.cs" line="13" column="0" started="30.05.2018 12:16:09"><![CDATA[Microsoft.Performance : 'Class1.Foo()' declares a variable, 'foo', of type 'string', which is never used or is only assigned to. Use this variable or remove it.]]></warning>
+              <message importance="High" started="30.05.2018 12:16:09"><![CDATA[Code Analysis Complete -- 0 error(s), 4 warning(s)]]></message>
+            </task>
+          </target>
+          <target name="PrepareForRun" started="30.05.2018 12:16:09" />
+          <message importance="Low" started="30.05.2018 12:16:09"><![CDATA[Target "UnmanagedRegistration" skipped, due to false condition; ('$(RegisterForComInterop)'=='true' and '$(OutputType)'=='library') was evaluated as (''=='true' and 'Library'=='library').]]></message>
+          <message importance="Low" started="30.05.2018 12:16:09"><![CDATA[Target "_CheckForCompileOutputs" skipped. Previously built successfully.]]></message>
+          <message importance="Low" started="30.05.2018 12:16:09"><![CDATA[Target "_SGenCheckForOutputs" skipped, due to false condition; ('$(_SGenGenerateSerializationAssembliesConfig)' == 'On' or ('@(WebReferenceUrl)'!='' and '$(_SGenGenerateSerializationAssembliesConfig)' == 'Auto')) was evaluated as ('Off' == 'On' or (''!='' and 'Off' == 'Auto')).]]></message>
+          <target name="_CleanGetCurrentAndPriorFileWrites" started="30.05.2018 12:16:09">
+            <task name="ReadLinesFromFile" file="C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj" started="30.05.2018 12:16:09" />
+            <message importance="Low" started="30.05.2018 12:16:09"><![CDATA[Using "ConvertToAbsolutePath" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".]]></message>
+            <task name="ConvertToAbsolutePath" file="C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj" started="30.05.2018 12:16:09" />
+            <task name="FindUnderPath" file="C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj" started="30.05.2018 12:16:09">
+              <message importance="Low" started="30.05.2018 12:16:09"><![CDATA[Comparison path is "C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1".]]></message>
+            </task>
+            <task name="FindUnderPath" file="C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj" started="30.05.2018 12:16:09">
+              <message importance="Low" started="30.05.2018 12:16:09"><![CDATA[Comparison path is "bin\Debug\".]]></message>
+            </task>
+            <task name="FindUnderPath" file="C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj" started="30.05.2018 12:16:09">
+              <message importance="Low" started="30.05.2018 12:16:09"><![CDATA[Comparison path is "obj\Debug\".]]></message>
+            </task>
+            <task name="RemoveDuplicates" file="C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj" started="30.05.2018 12:16:09" />
+          </target>
+          <target name="IncrementalClean" started="30.05.2018 12:16:09">
+            <task name="FindUnderPath" file="C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj" started="30.05.2018 12:16:09">
+              <message importance="Low" started="30.05.2018 12:16:09"><![CDATA[Comparison path is "bin\Debug\".]]></message>
+            </task>
+            <task name="FindUnderPath" file="C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj" started="30.05.2018 12:16:09">
+              <message importance="Low" started="30.05.2018 12:16:09"><![CDATA[Comparison path is "obj\Debug\".]]></message>
+            </task>
+            <task name="Delete" file="C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj" started="30.05.2018 12:16:09" />
+            <task name="RemoveDuplicates" file="C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj" started="30.05.2018 12:16:09" />
+            <task name="WriteLinesToFile" file="C:\Source\Cake.Issues.MsBuild\src\ClassLibrary1\ClassLibrary1.csproj" started="30.05.2018 12:16:09" />
+          </target>
+          <message importance="Low" started="30.05.2018 12:16:09"><![CDATA[Target "PostBuildEvent" skipped, due to false condition; ('$(PostBuildEvent)' != '' and ('$(RunPostBuildEvent)' != 'OnOutputUpdated' or '$(_AssemblyTimestampBeforeCompile)' != '$(_AssemblyTimestampAfterCompile)')) was evaluated as ('' != '' and ('' != 'OnOutputUpdated' or '' != '')).]]></message>
+          <target name="CoreBuild" started="30.05.2018 12:16:09" />
+          <target name="AfterBuild" started="30.05.2018 12:16:09" />
+          <target name="Build" started="30.05.2018 12:16:09" />
+          <target name="AfterRebuild" started="30.05.2018 12:16:09" />
+          <message importance="Low" started="30.05.2018 12:16:09"><![CDATA[Target "_CheckForInvalidConfigurationAndPlatform" skipped. Previously built successfully.]]></message>
+          <target name="Rebuild" started="30.05.2018 12:16:09" />
+        </project>
+      </task>
+    </target>
+  </project>
+  <warnings>19</warnings>
+  <errors>0</errors>
+  <starttime>30.05.2018 12:16:00</starttime>
+  <endtime>30.05.2018 12:16:09</endtime>
+  <timeelapsed>00:00:09.5536676</timeelapsed>
+</build>

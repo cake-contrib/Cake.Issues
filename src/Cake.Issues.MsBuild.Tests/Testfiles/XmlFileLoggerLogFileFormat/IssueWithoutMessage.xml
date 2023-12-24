@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<build started="3/7/2017 8:31:20 AM">
+  <task name="Exec" file="c:\Source\Cake.Issues.MsBuild\Cake.Issues.MsBuild.Tests\Cake.Issues.MsBuild.Tests.csproj" started="12/11/2018 09:23:36">
+    <warning file="EXEC" line="0" column="0" started="12/11/2018 09:23:43" />
+  </task>
+</build>
