@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Runtime.InteropServices;
     using Cake.Issues.Testing;
     using Shouldly;
     using Xunit;
@@ -236,7 +237,7 @@
             public sealed class TheProjectFileRelativePathArgument
             {
                 [Theory]
-                [InlineData("foo\tbar")]
+                [InlineData("foo\0bar")]
                 public void Should_Throw_If_Project_Path_Is_Invalid(string projectPath)
                 {
                     // Given
@@ -291,11 +292,68 @@
                 }
 
                 [Theory]
-                [InlineData(@"c:\src\foo.cs")]
                 [InlineData(@"/foo")]
                 [InlineData(@"\foo")]
                 public void Should_Throw_If_File_Path_Is_Absolute(string projectPath)
                 {
+                    // Given
+                    const string identifier = "identifier";
+                    const string projectName = "foo";
+                    const string filePath = @"src\foo.cs";
+                    const int line = 10;
+                    const int endLine = 12;
+                    const int column = 50;
+                    const int endColumn = 55;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
+                    var ruleUri = new Uri("https://google.com");
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
+
+                    // When
+                    var result = Record.Exception(() =>
+                        new Issue(
+                            identifier,
+                            projectPath,
+                            projectName,
+                            filePath,
+                            line,
+                            endLine,
+                            column,
+                            endColumn,
+                            fileLink,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
+                            priority,
+                            priorityName,
+                            rule,
+                            ruleName,
+                            ruleUri,
+                            run,
+                            providerType,
+                            providerName,
+                            additionalInformation));
+
+                    // Then
+                    result.IsArgumentOutOfRangeException("projectFileRelativePath");
+                }
+
+                [SkippableTheory]
+                [InlineData(@"c:\src\foo.cs")]
+                public void Should_Throw_If_File_Path_Is_Absolute_Windows_Path(string projectPath)
+                {
+                    // Uses Windows specific paths.
+                    Skip.IfNot(RuntimeInformation.IsOSPlatform(OSPlatform.Windows));
+
                     // Given
                     const string identifier = "identifier";
                     const string projectName = "foo";
@@ -794,7 +852,7 @@
             public sealed class TheAffectedFileRelativePathArgument
             {
                 [Theory]
-                [InlineData("foo\tbar")]
+                [InlineData("foo\0bar")]
                 public void Should_Throw_If_File_Path_Is_Invalid(string filePath)
                 {
                     // Given
@@ -849,11 +907,68 @@
                 }
 
                 [Theory]
-                [InlineData(@"c:\src\foo.cs")]
                 [InlineData(@"/foo")]
                 [InlineData(@"\foo")]
                 public void Should_Throw_If_File_Path_Is_Absolute(string filePath)
                 {
+                    // Given
+                    const string identifier = "identifier";
+                    const string projectPath = @"src\foo.csproj";
+                    const string projectName = "foo";
+                    const int line = 10;
+                    const int endLine = 12;
+                    const int column = 50;
+                    const int endColumn = 55;
+                    var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
+                    const string messageText = "MessageText";
+                    const string messageHtml = "MessageHtml";
+                    const string messageMarkdown = "MessageMarkdown";
+                    const int priority = 1;
+                    const string priorityName = "Warning";
+                    const string rule = "Rule";
+                    const string ruleName = "Rule Name";
+                    var ruleUri = new Uri("https://google.com");
+                    const string providerType = "ProviderType";
+                    const string providerName = "ProviderName";
+                    const string run = "Run";
+                    var additionalInformation = new Dictionary<string, string>();
+
+                    // When
+                    var result = Record.Exception(() =>
+                        new Issue(
+                            identifier,
+                            projectPath,
+                            projectName,
+                            filePath,
+                            line,
+                            endLine,
+                            column,
+                            endColumn,
+                            fileLink,
+                            messageText,
+                            messageHtml,
+                            messageMarkdown,
+                            priority,
+                            priorityName,
+                            rule,
+                            ruleName,
+                            ruleUri,
+                            run,
+                            providerType,
+                            providerName,
+                            additionalInformation));
+
+                    // Then
+                    result.IsArgumentOutOfRangeException("affectedFileRelativePath");
+                }
+
+                [SkippableTheory]
+                [InlineData(@"c:\src\foo.cs")]
+                public void Should_Throw_If_File_Path_Is_Absolute_Windows_Path(string filePath)
+                {
+                    // Uses Windows specific paths.
+                    Skip.IfNot(RuntimeInformation.IsOSPlatform(OSPlatform.Windows));
+
                     // Given
                     const string identifier = "identifier";
                     const string projectPath = @"src\foo.csproj";
