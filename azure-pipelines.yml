@@ -11,29 +11,20 @@ pr:
 
 stages:
 - stage: Build
-  displayName: Build & Unit Tests
   jobs:
-  - job: Build_Windows
-    displayName: Build & Unit Tests Windows 2022
+  - job: Build
+    displayName: Build & Unit Tests
+    strategy:
+      matrix:
+        Windows:
+          imageName: 'windows-2022'
+        Ubuntu:
+          imageName: 'ubuntu-22.04'
+        macOS:
+          imageName: 'macOS-12'
     pool:
-      vmImage: 'windows-2022'
-    steps:
-    - template: .azuredevops/pipelines/templates/steps/install-required-dotnet-versions-for-building.yml 
-    - powershell: ./build.ps1
-      displayName: 'Cake Build'
-  - job: Build_Ubuntu
-    displayName: Build & Unit Tests Ubuntu 22.04
-    pool:
-      vmImage: 'ubuntu-22.04'
-    steps:
-    - template: .azuredevops/pipelines/templates/steps/install-required-dotnet-versions-for-building.yml 
-    - bash: ./build.sh
-      displayName: 'Cake Build'
-  - job: Build_macOS
-    displayName: Build & Unit Tests macOS 12
-    pool:
-      vmImage: 'macOS-12'
+      vmImage: $(imageName)
     steps:
     - template: .azuredevops/pipelines/templates/steps/install-required-dotnet-versions-for-building.yml 
     - bash: ./build.sh
-      displayName: 'Cake Build'
+      displayName: 'Build & Run Unit Tests'
