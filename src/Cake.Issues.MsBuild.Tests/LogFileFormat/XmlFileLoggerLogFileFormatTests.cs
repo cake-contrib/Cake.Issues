@@ -3,6 +3,7 @@
     using System;
     using System.IO;
     using System.Linq;
+    using System.Runtime.InteropServices;
     using Cake.Core.Diagnostics;
     using Cake.Issues.MsBuild.LogFileFormat;
     using Cake.Issues.Testing;
@@ -29,9 +30,12 @@
 
         public sealed class TheReadIssuesMethod
         {
-            [Fact]
+            [SkippableFact]
             public void Should_Read_Full_Log_Correct()
             {
+                // Uses Windows specific paths.
+                Skip.IfNot(RuntimeInformation.IsOSPlatform(OSPlatform.Windows));
+
                 // Given
                 var fixture = new MsBuildIssuesProviderFixture<XmlFileLoggerLogFileFormat>("FullLog.xml");
 
@@ -230,9 +234,12 @@
                         .WithPriority(IssuePriority.Warning));
             }
 
-            [Fact]
+            [SkippableFact]
             public void Should_Read_Issue_With_File_Correct()
             {
+                // Uses Windows specific paths.
+                Skip.IfNot(RuntimeInformation.IsOSPlatform(OSPlatform.Windows));
+
                 // Given
                 var fixture = new MsBuildIssuesProviderFixture<XmlFileLoggerLogFileFormat>("IssueWithFile.xml");
 
@@ -253,9 +260,12 @@
                         .WithPriority(IssuePriority.Warning));
             }
 
-            [Fact]
+            [SkippableFact]
             public void Should_Read_Issue_With_File_Without_Path_Correct()
             {
+                // Uses Windows specific paths.
+                Skip.IfNot(RuntimeInformation.IsOSPlatform(OSPlatform.Windows));
+
                 // Given
                 var fixture = new MsBuildIssuesProviderFixture<XmlFileLoggerLogFileFormat>("IssueWithOnlyFileName.xml");
 
@@ -276,9 +286,12 @@
                         .WithPriority(IssuePriority.Warning));
             }
 
-            [Fact]
+            [SkippableFact]
             public void Should_Read_Issue_With_Line_Zero_Correct()
             {
+                // Uses Windows specific paths.
+                Skip.IfNot(RuntimeInformation.IsOSPlatform(OSPlatform.Windows));
+
                 // Given
                 var fixture = new MsBuildIssuesProviderFixture<XmlFileLoggerLogFileFormat>("IssueWithLineZero.xml");
 

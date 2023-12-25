@@ -2,6 +2,7 @@
 {
     using System;
     using System.Linq;
+    using System.Runtime.InteropServices;
     using Cake.Core.Diagnostics;
     using Cake.Issues.MsBuild.LogFileFormat;
     using Cake.Issues.Testing;
@@ -28,9 +29,12 @@
 
         public sealed class TheReadIssuesMethod
         {
-            [Fact]
+            [SkippableFact]
             public void Should_Read_Full_Log_Correct()
             {
+                // Uses Windows specific paths.
+                Skip.IfNot(RuntimeInformation.IsOSPlatform(OSPlatform.Windows));
+
                 // Given
                 var fixture = new MsBuildIssuesProviderFixture<BinaryLogFileFormat>("FullLog.binlog")
                 {
