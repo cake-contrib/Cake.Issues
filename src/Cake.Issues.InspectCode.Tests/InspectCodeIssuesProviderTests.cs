@@ -2,6 +2,7 @@
 {
     using System;
     using System.Linq;
+    using System.Runtime.InteropServices;
     using Cake.Issues.Testing;
     using Cake.Testing;
     using Shouldly;
@@ -38,9 +39,12 @@
 
         public sealed class TheReadIssuesMethod
         {
-            [Fact]
+            [SkippableFact]
             public void Should_Read_Issue_Correct()
             {
+                // Uses Windows specific paths.
+                Skip.IfNot(RuntimeInformation.IsOSPlatform(OSPlatform.Windows));
+
                 // Given
                 var fixture = new InspectCodeIssuesProviderFixture("inspectcode.xml");
 
@@ -93,9 +97,12 @@
                         .Create());
             }
 
-            [Fact]
+            [SkippableFact]
             public void Should_Read_Rule_Url()
             {
+                // Uses Windows specific paths.
+                Skip.IfNot(RuntimeInformation.IsOSPlatform(OSPlatform.Windows));
+
                 // Given
                 var fixture = new InspectCodeIssuesProviderFixture("WithWikiUrl.xml");
 
