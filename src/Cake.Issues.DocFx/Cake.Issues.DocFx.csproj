@@ -14,7 +14,7 @@
     <DebugType>full</DebugType>
     <AnalysisMode>AllEnabledByDefault</AnalysisMode>
     <DocumentationFile>bin\Debug\Cake.Issues.DocFx.xml</DocumentationFile>
-    <CodeAnalysisRuleSet>..\Cake.Issues.DocFx.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>..\Cake.Issues.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
