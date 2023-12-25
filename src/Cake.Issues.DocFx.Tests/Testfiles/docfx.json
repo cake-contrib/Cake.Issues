@@ -1,0 +1,37 @@
+﻿{"message":"5 plug-in(s) loaded.","date_time":"2017-05-12T11:29:08.0983218Z","message_severity":"info"}
+{"message":"Post processor ExtractSearchIndex loaded.","date_time":"2017-05-12T11:29:08.1389323Z","message_severity":"info"}
+{"message":"No files are found with glob pattern images/**, excluding **/bin/**,**/obj/**, under directory \"c:\\Temp\\50\\repoB\"","date_time":"2017-05-12T11:29:08.1539722Z","message_severity":"info"}
+{"message":"Markdown engine is dfm","date_time":"2017-05-12T11:29:08.1730228Z","message_severity":"info"}
+{"message":"Max parallelism is 4.","source":"Build Document","date_time":"2017-05-12T11:29:08.1960845Z","message_severity":"info"}
+{"message":"Building 0 file(s) in TocDocumentProcessor(BuildTocDocument)...","source":"Build Document.CompilePhaseHandler.TocDocumentProcessor","date_time":"2017-05-12T11:29:08.6533029Z","message_severity":"info"}
+{"message":"Building 1 file(s) in ConceptualDocumentProcessor(BuildConceptualDocument=>CountWord=>ValidateConceptualDocumentMetadata)...","source":"Build Document.CompilePhaseHandler.ConceptualDocumentProcessor","date_time":"2017-05-12T11:29:08.6563523Z","message_severity":"info"}
+{"message":"Building 0 file(s) in ManagedReferenceDocumentProcessor(BuildManagedReferenceDocument=>ValidateManagedReferenceDocumentMetadata=>ApplyOverwriteDocumentForMref=>FillReferenceInformation)...","source":"Build Document.CompilePhaseHandler.ManagedReferenceDocumentProcessor","date_time":"2017-05-12T11:29:08.6703492Z","message_severity":"info"}
+{"message":"Building 0 file(s) in RestApiDocumentProcessor(BuildRestApiDocument=>ValidateRestApiDocumentMetadata=>ApplyOverwriteDocumentForRestApi)...","source":"Build Document.CompilePhaseHandler.RestApiDocumentProcessor","date_time":"2017-05-12T11:29:08.6743595Z","message_severity":"info"}
+{"message":"Building 0 file(s) in ResourceDocumentProcessor(ValidateResourceMetadata)...","source":"Build Document.CompilePhaseHandler.ResourceDocumentProcessor","date_time":"2017-05-12T11:29:08.6833925Z","message_severity":"info"}
+{"message":"1 external references found in 2 xref maps.","source":"Build Document.LinkPhaseHandler.UpdateContext","date_time":"2017-05-12T11:29:09.1957508Z","message_severity":"info"}
+{"message":"Applying templates to 1 model(s)...","source":"Build Document.LinkPhaseHandler.Apply Templates","date_time":"2017-05-12T11:29:09.2428766Z","message_severity":"info"}
+{"message":"XRef map exported.","source":"Build Document","date_time":"2017-05-12T11:29:09.6429428Z","message_severity":"info"}
+{"message":"Extracting index data from 1 html files","source":"Postprocess.HandlePostProcessors.Processing ExtractSearchIndex","date_time":"2017-05-12T11:29:09.6980885Z","message_severity":"info"}
+{"message":"Manifest file saved to manifest.json.","source":"Postprocess","date_time":"2017-05-12T11:29:09.7402004Z","message_severity":"info"}
+{"message":"Completed building documents in 1637.5869 milliseconds.","date_time":"2017-05-12T11:29:09.7454251Z","message_severity":"info"}
+{"message":"Theme is applied.","source":"Apply Theme","date_time":"2017-05-12T11:29:09.747219Z","message_severity":"info"}
+{"message":"Completed executing in 1745.073 milliseconds.","date_time":"2017-05-12T11:29:09.7552425Z","message_severity":"info"}
+{"message":"5 plug-in(s) loaded.","date_time":"2017-05-12T11:31:11.604125Z","message_severity":"info"}
+{"message":"Post processor ExtractSearchIndex loaded.","date_time":"2017-05-12T11:31:11.6562647Z","message_severity":"info"}
+{"message":"No files are found with glob pattern images/**, excluding **/bin/**,**/obj/**, under directory \"c:\\Temp\\50\\repoB\"","date_time":"2017-05-12T11:31:11.6753153Z","message_severity":"info"}
+{"message":"Markdown engine is dfm","date_time":"2017-05-12T11:31:11.7295691Z","message_severity":"info"}
+{"message":"Max parallelism is 4.","source":"Build Document","date_time":"2017-05-12T11:31:11.7646624Z","message_severity":"info"}
+{"message":"Building 0 file(s) in RestApiDocumentProcessor(BuildRestApiDocument=>ValidateRestApiDocumentMetadata=>ApplyOverwriteDocumentForRestApi)...","source":"Build Document.CompilePhaseHandler.RestApiDocumentProcessor","date_time":"2017-05-12T11:31:12.3482183Z","message_severity":"info"}
+{"message":"Building 0 file(s) in ManagedReferenceDocumentProcessor(BuildManagedReferenceDocument=>ValidateManagedReferenceDocumentMetadata=>ApplyOverwriteDocumentForMref=>FillReferenceInformation)...","source":"Build Document.CompilePhaseHandler.ManagedReferenceDocumentProcessor","date_time":"2017-05-12T11:31:12.3542347Z","message_severity":"info"}
+{"message":"Building 0 file(s) in ResourceDocumentProcessor(ValidateResourceMetadata)...","source":"Build Document.CompilePhaseHandler.ResourceDocumentProcessor","date_time":"2017-05-12T11:31:12.3666497Z","message_severity":"info"}
+{"message":"Building 1 file(s) in ConceptualDocumentProcessor(BuildConceptualDocument=>CountWord=>ValidateConceptualDocumentMetadata)...","source":"Build Document.CompilePhaseHandler.ConceptualDocumentProcessor","date_time":"2017-05-12T11:31:12.3716621Z","message_severity":"info"}
+{"message":"Building 0 file(s) in TocDocumentProcessor(BuildTocDocument)...","source":"Build Document.CompilePhaseHandler.TocDocumentProcessor","date_time":"2017-05-12T11:31:12.3917167Z","message_severity":"info"}
+{"message":"0 external references found in 2 xref maps.","source":"Build Document.LinkPhaseHandler.UpdateContext","date_time":"2017-05-12T11:31:13.0193894Z","message_severity":"info"}
+{"message":"Applying templates to 1 model(s)...","source":"Build Document.LinkPhaseHandler.Apply Templates","date_time":"2017-05-12T11:31:13.0825587Z","message_severity":"info"}
+{"message":"Invalid cross reference \"[Foo](xref:foo)\".","source":"Build Document.LinkPhaseHandler.Apply Templates","file":"index.md","date_time":"2017-05-12T11:31:13.5247361Z","message_severity":"warning"}
+{"message":"XRef map exported.","source":"Build Document","date_time":"2017-05-12T11:31:13.6119776Z","message_severity":"info"}
+{"message":"Extracting index data from 1 html files","source":"Postprocess.HandlePostProcessors.Processing ExtractSearchIndex","date_time":"2017-05-12T11:31:13.7182518Z","message_severity":"info"}
+{"message":"Manifest file saved to manifest.json.","source":"Postprocess","date_time":"2017-05-12T11:31:13.7693886Z","message_severity":"info"}
+{"message":"Completed building documents in 2160.0425 milliseconds.","date_time":"2017-05-12T11:31:13.7746137Z","message_severity":"info"}
+{"message":"Theme is applied.","source":"Apply Theme","date_time":"2017-05-12T11:31:13.7774166Z","message_severity":"info"}
+{"message":"Completed executing in 2283.1737 milliseconds.","date_time":"2017-05-12T11:31:13.7844304Z","message_severity":"info"}
