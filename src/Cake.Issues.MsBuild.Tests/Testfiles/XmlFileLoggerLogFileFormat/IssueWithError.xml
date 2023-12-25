@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<build started="3/7/2017 8:31:20 AM">
+  <error code="CS0161" file="src\Cake.Issues.MsBuild.Tests\MsBuildIssuesProviderTests.cs" line="1311" column="0"><![CDATA['ConfigurationManager.GetSortedConfigFiles(String)': not all code paths return a value]]></error>
+</build>

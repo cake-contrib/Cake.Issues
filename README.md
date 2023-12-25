@@ -112,11 +112,12 @@ For questions and to discuss ideas & feature requests, use the [GitHub discussio
 
 ## Addins
 
-| Addin | Description |
-|:--:|-|
-| [Cake.Issues](https://www.nuget.org/packages/Cake.Issues) | Addin providing the aliases for creating and reading of issues. |
-| [Cake.Issues.PullRequests](https://www.nuget.org/packages/Cake.Issues.PullRequests) | Addin providing the aliases for writing issues to pull requests and build servers. |
-| [Cake.Issues.Reporting](https://www.nuget.org/packages/Cake.Issues.Reporting) | Addin providing the aliases for creating reports. |
+| Cake Scripting Addin | Cake Frosting Addin | Description |
+|:--:|-|-|
+| [Cake.Issues](https://www.nuget.org/packages/Cake.Issues) | [Cake.Issues](https://www.nuget.org/packages/Cake.Issues) | Addin providing the aliases for creating and reading of issues. |
+| [Cake.Issues.PullRequests](https://www.nuget.org/packages/Cake.Issues.PullRequests) | [Cake.Issues.PullRequests](https://www.nuget.org/packages/Cake.Issues.PullRequests) | Addin providing the aliases for writing issues to pull requests and build servers. |
+| [Cake.Issues.Reporting](https://www.nuget.org/packages/Cake.Issues.Reporting) | [Cake.Issues.Reporting](https://www.nuget.org/packages/Cake.Issues.Reporting) | Addin providing the aliases for creating reports. |
+| [Cake.Issues.MsBuild](https://www.nuget.org/packages/Cake.Issues.MsBuild) | [Cake.FrostingIssues.MsBuild](https://www.nuget.org/packages/Cake.Frosting.Issues.MsBuild) | Issue provider for reading MsBuild errors and warnings. |
 
 ## API
 

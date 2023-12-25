@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<build started="3/7/2017 8:31:20 AM">
+  <warning code="CA2201" file="c:\Source\Cake.Issues.MsBuild\src\Cake.Issues.MsBuild.Tests\MsBuildIssuesProviderTests.cs" line="1311" column="0"><![CDATA[Microsoft.Usage : 'ConfigurationManager.GetSortedConfigFiles(String)' creates an exception of type 'ApplicationException', an exception type that is not sufficiently specific and should never be raised by user code. If this exception instance might be thrown, use a different exception type.]]></warning>
+</build>
