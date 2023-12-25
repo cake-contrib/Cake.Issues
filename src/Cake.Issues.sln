@@ -12,12 +12,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{12963AB7
 		..\recipe.cake = ..\recipe.cake
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nuspec", "nuspec", "{C9E29268-658F-4887-95C3-99C48F9A2DAD}"
-	ProjectSection(SolutionItems) = preProject
-		..\nuspec\nuget\Cake.Issues.nuspec = ..\nuspec\nuget\Cake.Issues.nuspec
-		..\nuspec\nuget\Cake.Issues.Testing.nuspec = ..\nuspec\nuget\Cake.Issues.Testing.nuspec
-	EndProjectSection
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cake.Issues.Testing", "Cake.Issues.Testing\Cake.Issues.Testing.csproj", "{95CB4393-DCAE-4E92-960F-98C4236D703E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cake.Issues.PullRequests", "Cake.Issues.PullRequests\Cake.Issues.PullRequests.csproj", "{3120202A-8DAC-474D-9459-169E6F0B9E9B}"
@@ -55,24 +49,49 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Issue Provider", "Issue Provider", "{D404813F-4EBD-4093-BA1C-B5BFEB781A65}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DocFx", "DocFx", "{171EE287-C376-4AAC-B085-CA9A658AAA0D}"
+	ProjectSection(SolutionItems) = preProject
+		..\nuspec\nuget\Cake.Issues.DocFx.nuspec = ..\nuspec\nuget\Cake.Issues.DocFx.nuspec
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EsLint", "EsLint", "{38EF6320-9835-41BF-A1D8-369153DE096A}"
+	ProjectSection(SolutionItems) = preProject
+		..\nuspec\nuget\Cake.Issues.EsLint.nuspec = ..\nuspec\nuget\Cake.Issues.EsLint.nuspec
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "InspectCode", "InspectCode", "{14726C86-35C5-49E1-BF27-1B1642479BA8}"
+	ProjectSection(SolutionItems) = preProject
+		..\nuspec\nuget\Cake.Issues.InspectCode.nuspec = ..\nuspec\nuget\Cake.Issues.InspectCode.nuspec
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MsBuild", "MsBuild", "{9A930DB7-DC39-4983-A979-16547DAB56F5}"
+	ProjectSection(SolutionItems) = preProject
+		..\nuspec\nuget\Cake.Frosting.Issues.MsBuild.nuspec = ..\nuspec\nuget\Cake.Frosting.Issues.MsBuild.nuspec
+		..\nuspec\nuget\Cake.Issues.MsBuild.nuspec = ..\nuspec\nuget\Cake.Issues.MsBuild.nuspec
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Pull Request Systems", "Pull Request Systems", "{40421A26-BC87-4097-B9B5-EDA8229CB11E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Report Formats", "Report Formats", "{DDB9DE7A-2D15-4F19-9876-F93B7913DD5F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cake.Issues", "Cake.Issues", "{6CD8EA80-FC95-4CD0-A998-D3A68BEA02C5}"
+	ProjectSection(SolutionItems) = preProject
+		..\nuspec\nuget\Cake.Issues.nuspec = ..\nuspec\nuget\Cake.Issues.nuspec
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cake.Issues.Reporting", "Cake.Issues.Reporting", "{28FD763A-03F8-4B3A-9619-DC96ED7E1F1A}"
+	ProjectSection(SolutionItems) = preProject
+		..\nuspec\nuget\Cake.Issues.Reporting.nuspec = ..\nuspec\nuget\Cake.Issues.Reporting.nuspec
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cake.Issues.Testing", "Cake.Issues.Testing", "{0277500A-308C-47E4-ABF4-B5F183B63413}"
+	ProjectSection(SolutionItems) = preProject
+		..\nuspec\nuget\Cake.Issues.Testing.nuspec = ..\nuspec\nuget\Cake.Issues.Testing.nuspec
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cake.Issues.PullRequests", "Cake.Issues.PullRequests", "{CA20E4E4-46AF-4752-BFB1-0F2A6E2DD8D1}"
+	ProjectSection(SolutionItems) = preProject
+		..\nuspec\nuget\Cake.Issues.PullRequests.nuspec = ..\nuspec\nuget\Cake.Issues.PullRequests.nuspec
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -147,7 +166,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{956EE163-6E8B-44A9-AE58-50185DE4F878} = {6CD8EA80-FC95-4CD0-A998-D3A68BEA02C5}
 		{6602FB4A-353A-40B5-8469-69502F189113} = {6CD8EA80-FC95-4CD0-A998-D3A68BEA02C5}
-		{C9E29268-658F-4887-95C3-99C48F9A2DAD} = {12963AB7-D907-4D27-B1F0-8C77A55BD2F2}
 		{95CB4393-DCAE-4E92-960F-98C4236D703E} = {0277500A-308C-47E4-ABF4-B5F183B63413}
 		{3120202A-8DAC-474D-9459-169E6F0B9E9B} = {CA20E4E4-46AF-4752-BFB1-0F2A6E2DD8D1}
 		{D256926A-1BD4-4EDD-B18D-E3C8611BA52C} = {CA20E4E4-46AF-4752-BFB1-0F2A6E2DD8D1}
