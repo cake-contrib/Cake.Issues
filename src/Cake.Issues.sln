@@ -46,6 +46,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cake.Issues.DocFx", "Cake.I
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cake.Issues.DocFx.Tests", "Cake.Issues.DocFx.Tests\Cake.Issues.DocFx.Tests.csproj", "{20225A44-2FE0-4C6F-A6B8-53487A640BA1}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cake.Issues.InspectCode", "Cake.Issues.InspectCode\Cake.Issues.InspectCode.csproj", "{02A31F60-37AF-48EA-B1A8-CF735C597E95}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cake.Issues.InspectCode.Tests", "Cake.Issues.InspectCode.Tests\Cake.Issues.InspectCode.Tests.csproj", "{FE61694C-77FD-49BF-AD64-4C934A8D09E2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -104,6 +108,14 @@ Global
 		{20225A44-2FE0-4C6F-A6B8-53487A640BA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{20225A44-2FE0-4C6F-A6B8-53487A640BA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{20225A44-2FE0-4C6F-A6B8-53487A640BA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02A31F60-37AF-48EA-B1A8-CF735C597E95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02A31F60-37AF-48EA-B1A8-CF735C597E95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02A31F60-37AF-48EA-B1A8-CF735C597E95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02A31F60-37AF-48EA-B1A8-CF735C597E95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE61694C-77FD-49BF-AD64-4C934A8D09E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE61694C-77FD-49BF-AD64-4C934A8D09E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE61694C-77FD-49BF-AD64-4C934A8D09E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE61694C-77FD-49BF-AD64-4C934A8D09E2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
