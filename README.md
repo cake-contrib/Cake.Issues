@@ -121,6 +121,7 @@ For questions and to discuss ideas & feature requests, use the [GitHub discussio
 | [Cake.Issues.DocFx](https://www.nuget.org/packages/Cake.Issues.DocFx) | [Cake.Issues.DocFx](https://www.nuget.org/packages/Cake.Issues.DocFx) | Issue provider for reading DocFx warnings. |
 | [Cake.Issues.EsLint](https://www.nuget.org/packages/Cake.Issues.EsLint) | [Cake.Issues.EsLint](https://www.nuget.org/packages/Cake.Frosting.Issues.EsLint) | Issue provider for reading ESLint issues. |
 | [Cake.Issues.InspectCode](https://www.nuget.org/packages/Cake.Issues.InspectCode) | [Cake.Issues.InspectCode](https://www.nuget.org/packages/Cake.Issues.InspectCode) | Issue provider for reading JetBrains Inspect Code issues. |
+| [Cake.Issues.Markdownlint](https://www.nuget.org/packages/Cake.Issues.Markdownlint) | [Cake.Issues.Markdownlint](https://www.nuget.org/packages/Cake.Issues.Markdownlint) | Issue provider for reading issues from markdownlint. |
 
 ## API
 
