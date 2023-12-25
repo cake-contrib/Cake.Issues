@@ -1,6 +1,7 @@
 ﻿namespace Cake.Issues.DocFx.Tests
 {
     using System.Linq;
+    using System.Runtime.InteropServices;
     using Cake.Issues.Testing;
     using Cake.Testing;
     using Shouldly;
@@ -38,7 +39,7 @@
 
         public sealed class TheReadIssuesMethod
         {
-            [Theory]
+            [SkippableTheory]
             [InlineData(@"c:\Source\Cake.Issues\docs", "docs/")]
             [InlineData(@"docs", "docs/")]
             [InlineData(@"c:\Source\Cake.Issues\src\docs", "src/docs/")]
@@ -47,6 +48,9 @@
             [InlineData(@"./", "")]
             public void Should_Read_Issue_Correct(string docRootPath, string docRelativePath)
             {
+                // Uses Windows specific paths.
+                Skip.IfNot(RuntimeInformation.IsOSPlatform(OSPlatform.Windows));
+
                 // Given
                 var fixture = new DocFxProviderFixture("docfx.json", docRootPath);
 
@@ -66,9 +70,12 @@
                         .WithPriority(IssuePriority.Warning));
             }
 
-            [Fact]
+            [SkippableFact]
             public void Should_Read_Line_Correct()
             {
+                // Uses Windows specific paths.
+                Skip.IfNot(RuntimeInformation.IsOSPlatform(OSPlatform.Windows));
+
                 // Given
                 var fixture = new DocFxProviderFixture("entry-with-line.json", @"./");
 
@@ -88,9 +95,12 @@
                         .WithPriority(IssuePriority.Warning));
             }
 
-            [Fact]
+            [SkippableFact]
             public void Should_Read_Line_Zero_Correct()
             {
+                // Uses Windows specific paths.
+                Skip.IfNot(RuntimeInformation.IsOSPlatform(OSPlatform.Windows));
+
                 // Given
                 var fixture = new DocFxProviderFixture("entry-with-line-0.json", @"./");
 
@@ -110,9 +120,12 @@
                         .WithPriority(IssuePriority.Warning));
             }
 
-            [Fact]
+            [SkippableFact]
             public void Should_Read_Suggestions_Correct()
             {
+                // Uses Windows specific paths.
+                Skip.IfNot(RuntimeInformation.IsOSPlatform(OSPlatform.Windows));
+
                 // Given
                 var fixture = new DocFxProviderFixture("entry-of-level-suggestion.json", @"./");
 
