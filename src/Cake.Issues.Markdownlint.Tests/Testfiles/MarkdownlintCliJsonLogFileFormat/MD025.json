@@ -1,0 +1,17 @@
+[
+  {
+    "fileName": "docs/extending/issue-provider/helper.md",
+    "lineNumber": 13,
+    "ruleNames": [
+      "MD025",
+      "single-title",
+      "single-h1"
+    ],
+    "ruleDescription": "Multiple top-level headings in the same document",
+    "ruleInformation": "https://github.com/DavidAnson/markdownlint/blob/v0.23.1/doc/Rules.md#md025",
+    "errorDetail": null,
+    "errorContext": "# File linking",
+    "errorRange": null,
+    "fixInfo": null
+  }
+]
