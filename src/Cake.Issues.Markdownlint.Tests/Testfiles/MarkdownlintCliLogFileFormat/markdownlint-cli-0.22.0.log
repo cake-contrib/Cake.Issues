@@ -1,0 +1,9 @@
+C:/Git/Test/Cake.Prca/docs/index.md:1 MD022/blanks-around-headings/blanks-around-headers Headings should be surrounded by blank lines [Expected: 1; Actual: 0; Below] [Context: "# foo"]
+C:/Git/Test/Cake.Prca/docs/index.md:2:811 MD009/no-trailing-spaces Trailing spaces [Expected: 0 or 2; Actual: 1]
+C:/Git/Test/Cake.Prca/docs/index.md:2:101 MD013/line-length Line length [Expected: 100; Actual: 811]
+C:/Git/Test/Cake.Prca/docs/index.md:4 MD022/blanks-around-headings/blanks-around-headers Headings should be surrounded by blank lines [Expected: 1; Actual: 0; Below] [Context: "# bar"]
+C:/Git/Test/Cake.Prca/docs/index.md:4 MD025/single-title/single-h1 Multiple top level headings in the same document [Context: "# bar"]
+C:/Git/Test/Cake.Prca/docs/index.md:5 MD031/blanks-around-fences Fenced code blocks should be surrounded by blank lines [Context: "```"]
+C:/Git/Test/Cake.Prca/docs/index.md:5 MD040/fenced-code-language Fenced code blocks should have a language specified [Context: "```"]
+C:/Git/Test/Cake.Prca/docs/index.md:6:840 MD009/no-trailing-spaces Trailing spaces [Expected: 0 or 2; Actual: 1]
+C:/Git/Test/Cake.Prca/docs/index.md:7:3 MD047/single-trailing-newline Files should end with a single newline character
