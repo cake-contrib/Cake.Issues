@@ -9,7 +9,7 @@
     internal class MsBuildRuleUrlResolver : BaseRuleUrlResolver<MsBuildRuleDescription>
     {
         private static readonly Lazy<MsBuildRuleUrlResolver> InstanceValue =
-            new (() => new MsBuildRuleUrlResolver());
+            new(() => new MsBuildRuleUrlResolver());
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MsBuildRuleUrlResolver"/> class.
