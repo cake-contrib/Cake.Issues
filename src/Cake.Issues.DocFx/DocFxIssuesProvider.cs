@@ -119,12 +119,12 @@
             fileName = docRootPath.CombineWithFilePath(fileName).FullPath;
 
             // Make path relative to repository root.
-            fileName = fileName.Substring(this.Settings.RepositoryRoot.FullPath.Length);
+            fileName = fileName[this.Settings.RepositoryRoot.FullPath.Length..];
 
             // Remove leading directory separator.
             if (fileName.StartsWith('/'))
             {
-                fileName = fileName.Substring(1);
+                fileName = fileName[1..];
             }
 
             return fileName;

@@ -2,13 +2,9 @@
 {
     using Cake.Issues.Testing;
 
-    internal class InspectCodeIssuesProviderFixture : BaseConfigurableIssueProviderFixture<InspectCodeIssuesProvider, InspectCodeIssuesSettings>
+    internal class InspectCodeIssuesProviderFixture(string fileResourceName)
+        : BaseConfigurableIssueProviderFixture<InspectCodeIssuesProvider, InspectCodeIssuesSettings>(fileResourceName)
     {
-        public InspectCodeIssuesProviderFixture(string fileResourceName)
-            : base(fileResourceName)
-        {
-        }
-
         protected override string FileResourceNamespace => "Cake.Issues.InspectCode.Tests.Testfiles.";
     }
 }

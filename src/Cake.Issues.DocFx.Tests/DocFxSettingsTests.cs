@@ -89,7 +89,7 @@
             public void Should_Set_LogFileContent_If_Empty()
             {
                 // Given
-                byte[] logFileContent = Array.Empty<byte>();
+                byte[] logFileContent = [];
                 var docRootPath = @"c:\Source\Cake.Issues\docs";
 
                 // When

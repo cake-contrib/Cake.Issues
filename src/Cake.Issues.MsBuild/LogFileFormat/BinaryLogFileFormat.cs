@@ -229,7 +229,7 @@
         /// <param name="project">Raw value for project path from the MsBuild log.</param>
         /// <param name="repositorySettings">Repository settings to use.</param>
         /// <returns>True if the file path could be parsed and the full path to the affected file.</returns>
-        private (bool successful, string fileName) TryGetFile(
+        private (bool Successful, string FileName) TryGetFile(
             string fileName,
             string project,
             IRepositorySettings repositorySettings)
