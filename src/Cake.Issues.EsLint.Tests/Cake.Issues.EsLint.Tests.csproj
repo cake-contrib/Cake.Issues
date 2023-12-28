@@ -4,7 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <IsPackable>false</IsPackable>
     <Product>Cake.Issues</Product>
-    <Copyright>Copyright © BBT Software AG and contributors</Copyright>
+    <Copyright>Copyright © Cake Issues contributors</Copyright>
     <Description>Tests for the Cake.Issues.EsLint addin</Description>
     <Authors>BBT Software AG</Authors>
     <Company>BBT Software AG</Company>
