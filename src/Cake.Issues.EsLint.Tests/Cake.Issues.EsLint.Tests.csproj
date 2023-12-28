@@ -6,8 +6,7 @@
     <Product>Cake.Issues</Product>
     <Copyright>Copyright © Cake Issues contributors</Copyright>
     <Description>Tests for the Cake.Issues.EsLint addin</Description>
-    <Authors>BBT Software AG</Authors>
-    <Company>BBT Software AG</Company>
+    <Authors>Cake Issues contributors</Authors>
   </PropertyGroup>
 
   <PropertyGroup>

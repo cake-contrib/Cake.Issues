@@ -5,8 +5,7 @@
     <IsPackable>false</IsPackable>
     <Product>Cake.Issues</Product>
     <Description>Tests for the Cake.Issues.InspectCode addin</Description>
-    <Authors>BBT Software AG</Authors>
-    <Company>BBT Software AG</Company>
+    <Authors>Cake Issues contributors</Authors>
     <Copyright>Copyright © Cake Issues contributors</Copyright>
   </PropertyGroup>
 

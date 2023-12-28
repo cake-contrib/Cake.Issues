@@ -3,8 +3,7 @@
   <PropertyGroup>
     <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
     <Description>Common helpers for testing addins based on Cake.Issues</Description>
-    <Authors>BBT Software AG</Authors>
-    <Company>BBT Software AG</Company>
+    <Authors>Cake Issues contributors</Authors>
     <Copyright>Copyright © Cake Issues contributors</Copyright>
     <Product>Cake.Issues</Product>
   </PropertyGroup>

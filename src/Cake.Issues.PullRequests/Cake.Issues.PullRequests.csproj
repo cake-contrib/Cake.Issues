@@ -5,8 +5,7 @@
     <Product>Cake.Issues</Product>
     <Copyright>Copyright © Cake Issues contributors</Copyright>
     <Description>Addin for the Cake build automation system for writing code analyzer or linter issues as comments to pull requests</Description>
-    <Authors>BBT Software AG</Authors>
-    <Company>BBT Software AG</Company>
+    <Authors>Cake Issues contributors</Authors>
   </PropertyGroup>
 
   <PropertyGroup>

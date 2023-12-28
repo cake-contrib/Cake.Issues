@@ -5,8 +5,7 @@
     <Product>Cake.Issues</Product>
     <Copyright>Copyright © Cake Issues contributors</Copyright>
     <Description>Tests for the Cake.Issues.PullRequests addin</Description>
-    <Authors>BBT Software AG</Authors>
-    <Company>BBT Software AG</Company>
+    <Authors>Cake Issues contributors</Authors>
     <CodeAnalysisRuleSet>..\Cake.Issues.Tests.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>

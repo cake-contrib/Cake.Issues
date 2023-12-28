@@ -5,8 +5,7 @@
     <TargetFrameworks>net6.0</TargetFrameworks>
     <IsPackable>false</IsPackable>
     <Description>Tests for the Cake.Issues.Markdownlint addin</Description>
-    <Authors>BBT Software AG</Authors>
-    <Company>BBT Software AG</Company>
+    <Authors>Cake Issues contributors</Authors>
     <Product>Cake.Issues</Product>
     <Copyright>Copyright © Cake Issues contributors</Copyright>
   </PropertyGroup>
