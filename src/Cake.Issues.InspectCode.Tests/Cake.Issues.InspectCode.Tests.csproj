@@ -7,7 +7,7 @@
     <Description>Tests for the Cake.Issues.InspectCode addin</Description>
     <Authors>BBT Software AG</Authors>
     <Company>BBT Software AG</Company>
-    <Copyright>Copyright © BBT Software AG and contributors</Copyright>
+    <Copyright>Copyright © Cake Issues contributors</Copyright>
   </PropertyGroup>
 
   <PropertyGroup>

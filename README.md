@@ -134,7 +134,7 @@ Contributions are welcome. See [Contribution Guidelines](CONTRIBUTING.md).
 
 ## License
 
-[MIT License - Copyright © BBT Software AG and contributors](LICENSE)
+[MIT License - Copyright © Cake Issues contributors](LICENSE)
 
 Binary distributions for some addins contain third-party code which is licensed under its own respective license.
 See [LICENSE](LICENSE) for details.

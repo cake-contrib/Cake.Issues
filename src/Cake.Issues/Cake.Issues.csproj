@@ -5,7 +5,7 @@
     <Description>Addin for reading code analyzer or linter issues for the Cake build automation system</Description>
     <Authors>BBT Software AG</Authors>
     <Company>BBT Software AG</Company>
-    <Copyright>Copyright © BBT Software AG and contributors</Copyright>
+    <Copyright>Copyright © Cake Issues contributors</Copyright>
   </PropertyGroup>
 
   <PropertyGroup>
