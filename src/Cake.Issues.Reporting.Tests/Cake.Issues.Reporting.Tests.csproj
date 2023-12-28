@@ -5,8 +5,7 @@
     <IsPackable>false</IsPackable>
     <Copyright>Copyright © Cake Issues contributors</Copyright>
     <Description>Tests for the Cake.Issues.Reporting addin</Description>
-    <Authors>BBT Software AG and contributors</Authors>
-    <Company>BBT Software AG and contributors</Company>
+    <Authors>Cake Issues contributors</Authors>
   </PropertyGroup>
 
   <PropertyGroup>
