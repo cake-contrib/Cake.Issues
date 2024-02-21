@@ -17,7 +17,7 @@ Common helpers for testing add-ins based on Cake.Issues
     <repository type="git" url="https://github.com/cake-contrib/Cake.Issues.git"/>
     <copyright>Copyright © Cake Issues contributors</copyright>
     <tags>Cake Script Cake-Issues Issues Testing</tags>
-    <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/4.0.0-beta.1</releaseNotes>
+    <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/4.1.0</releaseNotes>
   </metadata>
   <files>
     <file src="..\..\..\..\nuspec\nuget\icon.png" target="" />
