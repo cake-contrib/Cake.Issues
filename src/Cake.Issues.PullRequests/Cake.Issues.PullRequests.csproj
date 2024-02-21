@@ -3,10 +3,9 @@
     <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
     <IsPackable>false</IsPackable>
     <Product>Cake.Issues</Product>
-    <Copyright>Copyright © BBT Software AG and contributors</Copyright>
+    <Copyright>Copyright © Cake Issues contributors</Copyright>
     <Description>Addin for the Cake build automation system for writing code analyzer or linter issues as comments to pull requests</Description>
-    <Authors>BBT Software AG</Authors>
-    <Company>BBT Software AG</Company>
+    <Authors>Cake Issues contributors</Authors>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -23,7 +22,10 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118" />
+    <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.556">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup>

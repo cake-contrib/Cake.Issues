@@ -3,10 +3,9 @@
   <PropertyGroup>
     <TargetFrameworks>net6.0</TargetFrameworks>
     <IsPackable>false</IsPackable>
-    <Copyright>Copyright © BBT Software AG and contributors</Copyright>
+    <Copyright>Copyright © Cake Issues contributors</Copyright>
     <Description>Tests for the Cake.Issues.Reporting addin</Description>
-    <Authors>BBT Software AG and contributors</Authors>
-    <Company>BBT Software AG and contributors</Company>
+    <Authors>Cake Issues contributors</Authors>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -14,13 +13,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
     <PackageReference Include="Cake.Core" Version="4.0.0" />
     <PackageReference Include="Cake.Testing" Version="4.0.0" />
     <PackageReference Include="Shouldly" Version="4.2.1" />
-    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118" />
-    <PackageReference Include="xunit" Version="2.6.2" />
-    <PackageReference Include="xunit.runner.visualstudio" Version="2.5.4" />
+    <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.556">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="xunit" Version="2.7.0" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.5.7" />
   </ItemGroup>
 
   <ItemGroup>

@@ -2,6 +2,7 @@ namespace Cake.Issues.PullRequests.Tests
 {
     using System.Collections.Generic;
     using System.Linq;
+    using System.Runtime.InteropServices;
     using Cake.Core.IO;
     using Cake.Issues.Testing;
     using Shouldly;
@@ -2342,9 +2343,12 @@ namespace Cake.Issues.PullRequests.Tests
 
         public sealed class TheRunMethodWithFilteringByModifiedFilesCapability
         {
-            [Fact]
+            [SkippableFact]
             public void Should_Ignore_Issues_If_File_Is_Not_Modified()
             {
+                // Uses Windows specific path separator.
+                Skip.IfNot(RuntimeInformation.IsOSPlatform(OSPlatform.Windows));
+
                 // Given
                 var issue1 =
                     IssueBuilder
@@ -2367,7 +2371,7 @@ namespace Cake.Issues.PullRequests.Tests
                             .WithFilteringByModifiedFilesCapability(
                                 new List<FilePath>
                                 {
-                                    new (@"src\Cake.Issues.Tests\FakeIssueProvider.cs"),
+                                    new(@"src\Cake.Issues.Tests\FakeIssueProvider.cs"),
                                 }));
 
                 fixture.IssueProviders.Clear();
@@ -2397,9 +2401,12 @@ namespace Cake.Issues.PullRequests.Tests
                 fixture.Log.Entries.ShouldContain(x => x.Message.StartsWith("Posting 1 issue(s):"));
             }
 
-            [Fact]
+            [SkippableFact]
             public void Should_Log_Message_If_All_Issues_Are_Filtered()
             {
+                // Uses Windows specific path separator.
+                Skip.IfNot(RuntimeInformation.IsOSPlatform(OSPlatform.Windows));
+
                 // Given
                 var fixture =
                     new OrchestratorForIssueProvidersFixture(

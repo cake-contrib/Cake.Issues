@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<build started="3/11/2019 22:29:45">
+  <warning code="SA1633" file="File.cs" line="1" column="1" started="3/11/2019 22:29:59"><![CDATA[The file header is missing or not located at the top of the file.]]></warning>
+</build>

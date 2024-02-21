@@ -1,0 +1,1 @@
+﻿{"message":"Invalid file link:(~/foo.md).","source":"BuildCore.Build Document.LinkPhaseHandlerWithIncremental.TocDocumentProcessor.Save","file":"~/toc.yml","line":"0","date_time":"2018-09-07T09:45:58.270602Z","message_severity":"warning","code":"InvalidFileLink","correlation_id":"FB4C37F9-5EED-4765-8661-CF293D0E2375.114.1.33.10.1.3"}

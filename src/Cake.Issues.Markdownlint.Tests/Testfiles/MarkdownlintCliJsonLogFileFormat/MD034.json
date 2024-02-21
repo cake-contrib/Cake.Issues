@@ -1,0 +1,23 @@
+[
+  {
+    "fileName": "docs/report-formats/sarif/release-notes.md",
+    "lineNumber": 139,
+    "ruleNames": [
+      "MD034",
+      "no-bare-urls"
+    ],
+    "ruleDescription": "Bare URL used",
+    "ruleInformation": "https://github.com/DavidAnson/markdownlint/blob/v0.23.1/doc/Rules.md#md034",
+    "errorDetail": null,
+    "errorContext": "https://github.com/cake-contri...",
+    "errorRange": [
+      6,
+      68
+    ],
+    "fixInfo": {
+      "editColumn": 6,
+      "deleteCount": 68,
+      "insertText": "<https://github.com/cake-contrib/Cake.Issues.Reporting.Sarif/issues/3>"
+    }
+  }
+]

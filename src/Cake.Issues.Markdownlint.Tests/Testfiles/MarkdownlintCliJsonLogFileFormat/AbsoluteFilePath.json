@@ -1,0 +1,20 @@
+[
+  {
+    "fileName": "/markdown/docs/input/index.md",
+    "lineNumber": 4,
+    "ruleNames": [
+      "MD022",
+      "blanks-around-headings",
+      "blanks-around-headers"
+    ],
+    "ruleDescription": "Headings should be surrounded by blank lines",
+    "ruleInformation": "https://github.com/DavidAnson/markdownlint/blob/v0.23.1/doc/Rules.md#md022",
+    "errorDetail": "Expected: 1; Actual: 0; Below",
+    "errorContext": "# Foo",
+    "errorRange": null,
+    "fixInfo": {
+      "lineNumber": 5,
+      "insertText": "\n"
+    }
+  }
+] 

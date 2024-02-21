@@ -12,12 +12,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{12963AB7
 		..\recipe.cake = ..\recipe.cake
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nuspec", "nuspec", "{C9E29268-658F-4887-95C3-99C48F9A2DAD}"
-	ProjectSection(SolutionItems) = preProject
-		..\nuspec\nuget\Cake.Issues.nuspec = ..\nuspec\nuget\Cake.Issues.nuspec
-		..\nuspec\nuget\Cake.Issues.Testing.nuspec = ..\nuspec\nuget\Cake.Issues.Testing.nuspec
-	EndProjectSection
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cake.Issues.Testing", "Cake.Issues.Testing\Cake.Issues.Testing.csproj", "{95CB4393-DCAE-4E92-960F-98C4236D703E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cake.Issues.PullRequests", "Cake.Issues.PullRequests\Cake.Issues.PullRequests.csproj", "{3120202A-8DAC-474D-9459-169E6F0B9E9B}"
@@ -30,9 +24,83 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cake.Issues.Reporting.Tests
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8756998D-64BF-4554-A14F-15AAFE78C8E8}"
 	ProjectSection(SolutionItems) = preProject
-		Directory.Build.props = Directory.Build.props
 		.editorconfig = .editorconfig
+		Directory.Build.props = Directory.Build.props
 	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cake.Issues.MsBuild", "Cake.Issues.MsBuild\Cake.Issues.MsBuild.csproj", "{F6B0F4F3-0046-453A-8E1E-FD926DFE22F6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cake.Issues.MsBuild.Tests", "Cake.Issues.MsBuild.Tests\Cake.Issues.MsBuild.Tests.csproj", "{1740BD2B-B317-4CB2-90CD-0AB0F8426AE1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cake.Issues.EsLint", "Cake.Issues.EsLint\Cake.Issues.EsLint.csproj", "{96747FBD-7989-48A0-AC20-F293D4B095A1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cake.Issues.EsLint.Tests", "Cake.Issues.EsLint.Tests\Cake.Issues.EsLint.Tests.csproj", "{DF6E9FB9-F06E-43D6-B335-18302F00688C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cake.Issues.DocFx", "Cake.Issues.DocFx\Cake.Issues.DocFx.csproj", "{BCF5FCBE-D65E-4232-80B9-8F939F096EC6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cake.Issues.DocFx.Tests", "Cake.Issues.DocFx.Tests\Cake.Issues.DocFx.Tests.csproj", "{20225A44-2FE0-4C6F-A6B8-53487A640BA1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cake.Issues.InspectCode", "Cake.Issues.InspectCode\Cake.Issues.InspectCode.csproj", "{02A31F60-37AF-48EA-B1A8-CF735C597E95}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cake.Issues.InspectCode.Tests", "Cake.Issues.InspectCode.Tests\Cake.Issues.InspectCode.Tests.csproj", "{FE61694C-77FD-49BF-AD64-4C934A8D09E2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{9CA9A921-55F1-4C0C-A80E-A53C3ECC00E4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Issue Provider", "Issue Provider", "{D404813F-4EBD-4093-BA1C-B5BFEB781A65}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DocFx", "DocFx", "{171EE287-C376-4AAC-B085-CA9A658AAA0D}"
+	ProjectSection(SolutionItems) = preProject
+		..\nuspec\nuget\Cake.Issues.DocFx.nuspec = ..\nuspec\nuget\Cake.Issues.DocFx.nuspec
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EsLint", "EsLint", "{38EF6320-9835-41BF-A1D8-369153DE096A}"
+	ProjectSection(SolutionItems) = preProject
+		..\nuspec\nuget\Cake.Issues.EsLint.nuspec = ..\nuspec\nuget\Cake.Issues.EsLint.nuspec
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "InspectCode", "InspectCode", "{14726C86-35C5-49E1-BF27-1B1642479BA8}"
+	ProjectSection(SolutionItems) = preProject
+		..\nuspec\nuget\Cake.Issues.InspectCode.nuspec = ..\nuspec\nuget\Cake.Issues.InspectCode.nuspec
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MsBuild", "MsBuild", "{9A930DB7-DC39-4983-A979-16547DAB56F5}"
+	ProjectSection(SolutionItems) = preProject
+		..\nuspec\nuget\Cake.Frosting.Issues.MsBuild.nuspec = ..\nuspec\nuget\Cake.Frosting.Issues.MsBuild.nuspec
+		..\nuspec\nuget\Cake.Issues.MsBuild.nuspec = ..\nuspec\nuget\Cake.Issues.MsBuild.nuspec
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Pull Request Systems", "Pull Request Systems", "{40421A26-BC87-4097-B9B5-EDA8229CB11E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Report Formats", "Report Formats", "{DDB9DE7A-2D15-4F19-9876-F93B7913DD5F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cake.Issues", "Cake.Issues", "{6CD8EA80-FC95-4CD0-A998-D3A68BEA02C5}"
+	ProjectSection(SolutionItems) = preProject
+		..\nuspec\nuget\Cake.Issues.nuspec = ..\nuspec\nuget\Cake.Issues.nuspec
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cake.Issues.Reporting", "Cake.Issues.Reporting", "{28FD763A-03F8-4B3A-9619-DC96ED7E1F1A}"
+	ProjectSection(SolutionItems) = preProject
+		..\nuspec\nuget\Cake.Issues.Reporting.nuspec = ..\nuspec\nuget\Cake.Issues.Reporting.nuspec
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cake.Issues.Testing", "Cake.Issues.Testing", "{0277500A-308C-47E4-ABF4-B5F183B63413}"
+	ProjectSection(SolutionItems) = preProject
+		..\nuspec\nuget\Cake.Issues.Testing.nuspec = ..\nuspec\nuget\Cake.Issues.Testing.nuspec
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cake.Issues.PullRequests", "Cake.Issues.PullRequests", "{CA20E4E4-46AF-4752-BFB1-0F2A6E2DD8D1}"
+	ProjectSection(SolutionItems) = preProject
+		..\nuspec\nuget\Cake.Issues.PullRequests.nuspec = ..\nuspec\nuget\Cake.Issues.PullRequests.nuspec
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Markdownlint", "Markdownlint", "{3E907A2C-F70B-45F7-AF5A-6C55EDBDE4B7}"
+	ProjectSection(SolutionItems) = preProject
+		..\nuspec\nuget\Cake.Issues.Markdownlint.nuspec = ..\nuspec\nuget\Cake.Issues.Markdownlint.nuspec
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cake.Issues.Markdownlint", "Cake.Issues.Markdownlint\Cake.Issues.Markdownlint.csproj", "{2EBB4FEA-1E52-4556-B228-E2F0D58C0055}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cake.Issues.Markdownlint.Tests", "Cake.Issues.Markdownlint.Tests\Cake.Issues.Markdownlint.Tests.csproj", "{B9306FB7-E104-4F71-8EF0-40A78E0919C0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -68,12 +136,77 @@ Global
 		{07C79C7F-D854-43F3-8C2E-6E8147A78B94}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{07C79C7F-D854-43F3-8C2E-6E8147A78B94}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{07C79C7F-D854-43F3-8C2E-6E8147A78B94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6B0F4F3-0046-453A-8E1E-FD926DFE22F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6B0F4F3-0046-453A-8E1E-FD926DFE22F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6B0F4F3-0046-453A-8E1E-FD926DFE22F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6B0F4F3-0046-453A-8E1E-FD926DFE22F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1740BD2B-B317-4CB2-90CD-0AB0F8426AE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1740BD2B-B317-4CB2-90CD-0AB0F8426AE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1740BD2B-B317-4CB2-90CD-0AB0F8426AE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1740BD2B-B317-4CB2-90CD-0AB0F8426AE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96747FBD-7989-48A0-AC20-F293D4B095A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96747FBD-7989-48A0-AC20-F293D4B095A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96747FBD-7989-48A0-AC20-F293D4B095A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96747FBD-7989-48A0-AC20-F293D4B095A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF6E9FB9-F06E-43D6-B335-18302F00688C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF6E9FB9-F06E-43D6-B335-18302F00688C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF6E9FB9-F06E-43D6-B335-18302F00688C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF6E9FB9-F06E-43D6-B335-18302F00688C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCF5FCBE-D65E-4232-80B9-8F939F096EC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCF5FCBE-D65E-4232-80B9-8F939F096EC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCF5FCBE-D65E-4232-80B9-8F939F096EC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCF5FCBE-D65E-4232-80B9-8F939F096EC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20225A44-2FE0-4C6F-A6B8-53487A640BA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20225A44-2FE0-4C6F-A6B8-53487A640BA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20225A44-2FE0-4C6F-A6B8-53487A640BA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20225A44-2FE0-4C6F-A6B8-53487A640BA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02A31F60-37AF-48EA-B1A8-CF735C597E95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02A31F60-37AF-48EA-B1A8-CF735C597E95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02A31F60-37AF-48EA-B1A8-CF735C597E95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02A31F60-37AF-48EA-B1A8-CF735C597E95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE61694C-77FD-49BF-AD64-4C934A8D09E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE61694C-77FD-49BF-AD64-4C934A8D09E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE61694C-77FD-49BF-AD64-4C934A8D09E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE61694C-77FD-49BF-AD64-4C934A8D09E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2EBB4FEA-1E52-4556-B228-E2F0D58C0055}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EBB4FEA-1E52-4556-B228-E2F0D58C0055}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EBB4FEA-1E52-4556-B228-E2F0D58C0055}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EBB4FEA-1E52-4556-B228-E2F0D58C0055}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9306FB7-E104-4F71-8EF0-40A78E0919C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9306FB7-E104-4F71-8EF0-40A78E0919C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9306FB7-E104-4F71-8EF0-40A78E0919C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9306FB7-E104-4F71-8EF0-40A78E0919C0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{C9E29268-658F-4887-95C3-99C48F9A2DAD} = {12963AB7-D907-4D27-B1F0-8C77A55BD2F2}
+		{956EE163-6E8B-44A9-AE58-50185DE4F878} = {6CD8EA80-FC95-4CD0-A998-D3A68BEA02C5}
+		{6602FB4A-353A-40B5-8469-69502F189113} = {6CD8EA80-FC95-4CD0-A998-D3A68BEA02C5}
+		{95CB4393-DCAE-4E92-960F-98C4236D703E} = {0277500A-308C-47E4-ABF4-B5F183B63413}
+		{3120202A-8DAC-474D-9459-169E6F0B9E9B} = {CA20E4E4-46AF-4752-BFB1-0F2A6E2DD8D1}
+		{D256926A-1BD4-4EDD-B18D-E3C8611BA52C} = {CA20E4E4-46AF-4752-BFB1-0F2A6E2DD8D1}
+		{3A7D38B8-BAAC-488E-B343-F0F6BB9CB6B2} = {28FD763A-03F8-4B3A-9619-DC96ED7E1F1A}
+		{07C79C7F-D854-43F3-8C2E-6E8147A78B94} = {28FD763A-03F8-4B3A-9619-DC96ED7E1F1A}
+		{F6B0F4F3-0046-453A-8E1E-FD926DFE22F6} = {9A930DB7-DC39-4983-A979-16547DAB56F5}
+		{1740BD2B-B317-4CB2-90CD-0AB0F8426AE1} = {9A930DB7-DC39-4983-A979-16547DAB56F5}
+		{96747FBD-7989-48A0-AC20-F293D4B095A1} = {38EF6320-9835-41BF-A1D8-369153DE096A}
+		{DF6E9FB9-F06E-43D6-B335-18302F00688C} = {38EF6320-9835-41BF-A1D8-369153DE096A}
+		{BCF5FCBE-D65E-4232-80B9-8F939F096EC6} = {171EE287-C376-4AAC-B085-CA9A658AAA0D}
+		{20225A44-2FE0-4C6F-A6B8-53487A640BA1} = {171EE287-C376-4AAC-B085-CA9A658AAA0D}
+		{02A31F60-37AF-48EA-B1A8-CF735C597E95} = {14726C86-35C5-49E1-BF27-1B1642479BA8}
+		{FE61694C-77FD-49BF-AD64-4C934A8D09E2} = {14726C86-35C5-49E1-BF27-1B1642479BA8}
+		{171EE287-C376-4AAC-B085-CA9A658AAA0D} = {D404813F-4EBD-4093-BA1C-B5BFEB781A65}
+		{38EF6320-9835-41BF-A1D8-369153DE096A} = {D404813F-4EBD-4093-BA1C-B5BFEB781A65}
+		{14726C86-35C5-49E1-BF27-1B1642479BA8} = {D404813F-4EBD-4093-BA1C-B5BFEB781A65}
+		{9A930DB7-DC39-4983-A979-16547DAB56F5} = {D404813F-4EBD-4093-BA1C-B5BFEB781A65}
+		{6CD8EA80-FC95-4CD0-A998-D3A68BEA02C5} = {9CA9A921-55F1-4C0C-A80E-A53C3ECC00E4}
+		{28FD763A-03F8-4B3A-9619-DC96ED7E1F1A} = {9CA9A921-55F1-4C0C-A80E-A53C3ECC00E4}
+		{0277500A-308C-47E4-ABF4-B5F183B63413} = {9CA9A921-55F1-4C0C-A80E-A53C3ECC00E4}
+		{CA20E4E4-46AF-4752-BFB1-0F2A6E2DD8D1} = {9CA9A921-55F1-4C0C-A80E-A53C3ECC00E4}
+		{3E907A2C-F70B-45F7-AF5A-6C55EDBDE4B7} = {D404813F-4EBD-4093-BA1C-B5BFEB781A65}
+		{2EBB4FEA-1E52-4556-B228-E2F0D58C0055} = {3E907A2C-F70B-45F7-AF5A-6C55EDBDE4B7}
+		{B9306FB7-E104-4F71-8EF0-40A78E0919C0} = {3E907A2C-F70B-45F7-AF5A-6C55EDBDE4B7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E9F2EC94-9A1B-4834-A464-E5208B210F11}

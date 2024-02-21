@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<build started="3/7/2017 8:31:20 AM">
+  <warning code="CA1711" line="-1" column="0"><![CDATA[Microsoft.Naming : Rename type name 'UniqueQueue(Of T)' so that it does not end in 'Queue'.]]></warning>
+</build>

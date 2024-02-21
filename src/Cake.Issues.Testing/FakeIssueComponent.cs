@@ -8,7 +8,6 @@
     /// <param name="log">The Cake log instance.</param>
     public class FakeIssueComponent(ICakeLog log) : BaseIssueComponent<RepositorySettings>(log)
     {
-
         /// <summary>
         /// Gets the Cake log instance.
         /// </summary>

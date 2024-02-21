@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<build started="3/7/2017 8:31:20 AM">
+  <project file="c:\Source\Cake.Issues.MsBuild\Cake.Prca.shfbproj" started="9/7/2017 7:22:28 AM">
+    <warning code="BE0006" file="SHFB" line="0" column="0" started="9/7/2017 7:22:31 AM"><![CDATA[Unable to locate any documentation sources for 'c:\Source\Cake.Prca\Cake.Prca..csproj' (Configuration: Debug Platform: AnyCPU)]]></warning>
+  </project>
+</build>

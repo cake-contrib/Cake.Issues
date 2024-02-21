@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Runtime.InteropServices;
     using Cake.Core.IO;
     using Cake.Issues.Testing;
     using Shouldly;
@@ -130,9 +131,12 @@
 
             public sealed class TheFilterIssuesByPathMethod
             {
-                [Fact]
+                [SkippableFact]
                 public void Should_Throw_If_Modified_Files_Contain_Absolute_Path()
                 {
+                    // Uses Windows specific path separator.
+                    Skip.IfNot(RuntimeInformation.IsOSPlatform(OSPlatform.Windows));
+
                     // Given
                     var fixture =
                         new IssueFiltererFixture(
@@ -140,7 +144,7 @@
                                 .WithFilteringByModifiedFilesCapability(
                                     new List<FilePath>
                                     {
-                                        new (@"c:\FakeIssueProvider.cs"),
+                                        new(@"c:\FakeIssueProvider.cs"),
                                     }));
 
                     // When
@@ -163,9 +167,12 @@
                         @"  c:/FakeIssueProvider.cs");
                 }
 
-                [Fact]
+                [SkippableFact]
                 public void Should_Filter_Issues_If_File_Is_Not_Modified()
                 {
+                    // Uses Windows specific path separator.
+                    Skip.IfNot(RuntimeInformation.IsOSPlatform(OSPlatform.Windows));
+
                     // Given
                     var fixture =
                         new IssueFiltererFixture(
@@ -173,7 +180,7 @@
                                 .WithFilteringByModifiedFilesCapability(
                                     new List<FilePath>
                                     {
-                                        new (@"src\Cake.Issues.Tests\FakeIssueProvider.cs"),
+                                        new(@"src\Cake.Issues.Tests\FakeIssueProvider.cs"),
                                     }));
 
                     var issue1 =

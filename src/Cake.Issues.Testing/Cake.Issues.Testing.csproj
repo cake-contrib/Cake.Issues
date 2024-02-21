@@ -3,9 +3,8 @@
   <PropertyGroup>
     <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
     <Description>Common helpers for testing addins based on Cake.Issues</Description>
-    <Authors>BBT Software AG</Authors>
-    <Company>BBT Software AG</Company>
-    <Copyright>Copyright © BBT Software AG and contributors</Copyright>
+    <Authors>Cake Issues contributors</Authors>
+    <Copyright>Copyright © Cake Issues contributors</Copyright>
     <Product>Cake.Issues</Product>
   </PropertyGroup>
 
@@ -24,7 +23,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+    <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.556">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>

@@ -49,7 +49,7 @@
             {
                 // Given
                 var fixture = new IssueReportFormatFixture();
-                var issueProviders = new List<FakeIssueProvider> { new (fixture.Log) };
+                var issueProviders = new List<FakeIssueProvider> { new(fixture.Log) };
 
                 // When
                 fixture.CreateReport(issueProviders);
@@ -70,7 +70,7 @@
                             ShouldFailOnInitialization = true,
                         },
                     };
-                var issueProviders = new List<FakeIssueProvider> { new (fixture.Log) };
+                var issueProviders = new List<FakeIssueProvider> { new(fixture.Log) };
 
                 // When
                 var result = fixture.CreateReport(issueProviders);
@@ -84,7 +84,7 @@
             {
                 // Given
                 var fixture = new IssueReportFormatFixture();
-                var issueProviders = new List<FakeIssueProvider> { new (fixture.Log) };
+                var issueProviders = new List<FakeIssueProvider> { new(fixture.Log) };
 
                 // When
                 var result = fixture.CreateReport(issueProviders);

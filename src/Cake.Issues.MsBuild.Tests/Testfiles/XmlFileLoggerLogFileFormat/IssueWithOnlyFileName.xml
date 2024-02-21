@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<build started="10.03.2017 13:20:23">
+  <task name="Csc" file="c:\Source\Cake.Issues.MsBuild\src\Cake.Issues.MsBuild.Tests\Cake.Issues.MsBuild.Tests.csproj" started="10.03.2017 13:20:30">
+    <warning code="CS0219" file="MsBuildIssuesProviderTests.cs" line="13" column="17" started="10.03.2017 13:20:30"><![CDATA[The variable 'foo' is assigned but its value is never used]]></warning>
+  </task>
+</build>

@@ -1,0 +1,51 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
+    <Description>MsBuild support for the Cake.Issues Addin for Cake Build Automation System</Description>
+    <Authors>Cake Issues contributors</Authors>
+    <Copyright>Copyright © Cake Issues contributors</Copyright>
+    <Product>Cake.Issues</Product>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Cake.Issues.MsBuild.xml</DocumentationFile>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <AnalysisMode>AllEnabledByDefault</AnalysisMode>
+    <CodeAnalysisRuleSet>..\Cake.Issues.ruleset</CodeAnalysisRuleSet>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Cake.Core" Version="4.0.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="8.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="MSBuild.StructuredLogger" Version="2.2.206" />
+    <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.556">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Cake.Issues\Cake.Issues.csproj" />
+  </ItemGroup>
+
+  <!-- 
+    Workaround to make sure correct Microsoft.Build.Framework.dll version is copied to output for net6.0.
+    Since it has a ref folder for netstandard2.0 and only target folder for net472 and net7.0, we need to copy it manually for net6.0.
+    See https://github.com/KirillOsenkov/MSBuildStructuredLog/issues/692.
+  -->
+  <ItemGroup Condition="'$(TargetFramework)' == 'net6.0'">
+    <PackageReference Include="Microsoft.Build.Framework" Version="17.5.0" ExcludeAssets="all" PrivateAssets="all" GeneratePathProperty="true" />
+    <PackageReference Include="Microsoft.Build.Utilities.Core" Version="17.5.0" ExcludeAssets="all" PrivateAssets="all" GeneratePathProperty="true" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net6.0'">
+    <Reference Include="$(PkgMicrosoft_Build_Framework)\lib\net472\Microsoft.Build.Framework.dll" />
+    <Reference Include="$(PkgMicrosoft_Build_Utilities_Core)\lib\net472\Microsoft.Build.Utilities.Core.dll" />
+  </ItemGroup>
+</Project>

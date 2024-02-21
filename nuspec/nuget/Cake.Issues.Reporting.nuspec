@@ -4,7 +4,7 @@
     <id>Cake.Issues.Reporting</id>
     <title>Cake.Issues.Reporting</title>
     <version>0.0.0</version>
-    <authors>BBT Software AG and contributors</authors>
+    <authors>Cake Issues contributors</authors>
     <owners>bbtsoftware, pascalberger, cake-contrib</owners>
     <summary>Addin for the Cake build automation system for creating reports for issues from any code analyzer or linter</summary>
     <description>
@@ -14,15 +14,19 @@ This addin provides the aliases for creating reports.
 It requires the core Cake.Issues addin, addins for reading issues and one or more reporting format addin for the specific report format.
 
 See the Project Site for an overview of the whole ecosystem of addins for working with issues in Cake scripts.
+
+NOTE:
+This is the version of the addin compatible with Cake Script Runners.
+For addin compatible with Cake Frosting see Cake.Frosting.Issues.Reporting.
     </description>
     <license type="expression">MIT</license>
     <projectUrl>https://cakeissues.net</projectUrl>
     <icon>icon.png</icon>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <repository type="git" url="https://github.com/cake-contrib/Cake.Issues.git"/>
-    <copyright>Copyright © BBT Software AG and contributors</copyright>
+    <copyright>Copyright © Cake Issues contributors</copyright>
     <tags>Cake Script Cake-Issues CodeAnalysis Linting Issues Reporting</tags>
-    <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/4.0.0-beta.1</releaseNotes>
+    <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/4.1.0</releaseNotes>
   </metadata>
   <files>
     <file src="..\..\..\..\nuspec\nuget\icon.png" target="" />

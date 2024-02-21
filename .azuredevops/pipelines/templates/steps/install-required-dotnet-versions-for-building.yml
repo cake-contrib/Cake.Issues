@@ -1,0 +1,20 @@
+# Installs required .NET SDKs for building the solution.
+
+steps:
+  # .NET 5 required for GitVersion
+  - task: UseDotNet@2
+    inputs:
+      version: '5.x'
+    displayName: 'Install .NET 5'
+  - task: UseDotNet@2
+    inputs:
+      version: '6.x'
+    displayName: 'Install .NET 6'
+  - task: UseDotNet@2
+    inputs:
+      version: '7.x'
+    displayName: 'Install .NET 7'
+  - task: UseDotNet@2
+    inputs:
+      version: '8.x'
+    displayName: 'Install .NET 8'

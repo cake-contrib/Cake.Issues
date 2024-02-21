@@ -4,7 +4,7 @@
     <id>Cake.Issues.Testing</id>
     <title>Cake.Issues.Testing</title>
     <version>0.0.0</version>
-    <authors>BBT Software AG and contributors</authors>
+    <authors>Cake Issues contributors</authors>
     <owners>bbtsoftware, pascalberger, cake-contrib</owners>
     <summary>Common helpers for testing add-ins based on Cake.Issues</summary>
     <description>
@@ -15,9 +15,9 @@ Common helpers for testing add-ins based on Cake.Issues
     <icon>icon.png</icon>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <repository type="git" url="https://github.com/cake-contrib/Cake.Issues.git"/>
-    <copyright>Copyright © BBT Software AG and contributors</copyright>
+    <copyright>Copyright © Cake Issues contributors</copyright>
     <tags>Cake Script Cake-Issues Issues Testing</tags>
-    <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/4.0.0-beta.1</releaseNotes>
+    <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/4.1.0</releaseNotes>
   </metadata>
   <files>
     <file src="..\..\..\..\nuspec\nuget\icon.png" target="" />
