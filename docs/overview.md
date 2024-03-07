@@ -51,12 +51,15 @@ Cake.Issues recipes will add the following addins to your build:
 [Cake.Frosting.Git]: https://cakebuild.net/extensions/cake-git/
 [Cake.Issues]: https://cakebuild.net/extensions/cake-issues/
 [Cake.Issues.MsBuild]: https://cakebuild.net/extensions/cake-issues-msbuild/
+[Cake.Frosting.Issues.MsBuild]: https://cakebuild.net/extensions/cake-issues-msbuild/
 [Cake.Issues.InspectCode]: https://cakebuild.net/extensions/cake-issues-inspectcode/
 [Cake.Issues.Markdownlint]: https://cakebuild.net/extensions/cake-issues-markdownlint/
 [Cake.Issues.EsLint]: https://cakebuild.net/extensions/cake-issues-eslint/
 [Cake.Issues.Reporting]: https://cakebuild.net/extensions/cake-issues-reporting/
 [Cake.Issues.Reporting.Generic]: https://cakebuild.net/extensions/cake-issues-reporting-generic/
 [Cake.Frosting.Issues.Reporting.Generic]: https://cakebuild.net/extensions/cake-issues-reporting-generic/
+[Cake.Issues.Reporting.Sarif]: https://cakebuild.net/extensions/cake-issues-reporting-sarif/
+[Cake.Frosting.Issues.Reporting.Sarif]: https://cakebuild.net/extensions/cake-issues-reporting-sarif/
 [Cake.Issues.PullRequests]: https://cakebuild.net/extensions/cake-issues-pullrequests/
 [Cake.Issues.PullRequests.AppVeyor]: https://cakebuild.net/extensions/cake-issues-pullrequests-appveyor/
 [Cake.Issues.PullRequests.AzureDevOps]: https://cakebuild.net/extensions/cake-issues-pullrequests-azuredevops/
