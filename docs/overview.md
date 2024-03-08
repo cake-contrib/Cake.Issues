@@ -25,15 +25,15 @@ Cake.Issues recipes will add the following addins to your build:
 | Addin Cake.Issues.Recipe                                | Addin.Frosting.Issues.Recipe                            | Remarks |
 |---------------------------------------------------------|---------------------------------------------------------|-|
 | [Cake.Git] 4.0.0                                        | [Cake.Frosting.Git] 4.0.0                               | Only used if `RepositoryInfoProvider` type is set to `RepositoryInfoProviderType.CakeGit`. See [Git repository information configuration] for details. |
-| [Cake.Issues] 4.0.0                                     | [Cake.Issues] 4.0.0                                     | |
-| [Cake.Issues.MsBuild] 4.0.0                             | [Cake.Frosting.Issues.MsBuild] 4.0.0                    | |
-| [Cake.Issues.InspectCode] 4.0.0                         | [Cake.Issues.InspectCode] 4.0.0                         | |
-| [Cake.Issues.Markdownlint] 4.0.0                        | [Cake.Issues.Markdownlint] 4.0.0                        | |
-| [Cake.Issues.EsLint] 4.0.0                              | [Cake.Issues.EsLint] 4.0.0                              | |
-| [Cake.Issues.Reporting] 4.0.0                           | [Cake.Issues.Reporting] 4.0.0                           | |
+| [Cake.Issues] 4.1.0                                     | [Cake.Issues] 4.1.0                                     | |
+| [Cake.Issues.MsBuild] 4.1.0                             | [Cake.Frosting.Issues.MsBuild] 4.1.0                    | |
+| [Cake.Issues.InspectCode] 4.1.0                         | [Cake.Issues.InspectCode] 4.1.0                         | |
+| [Cake.Issues.Markdownlint] 4.1.0                        | [Cake.Issues.Markdownlint] 4.1.0                        | |
+| [Cake.Issues.EsLint] 4.1.0                              | [Cake.Issues.EsLint] 4.1.0                              | |
+| [Cake.Issues.Reporting] 4.1.0                           | [Cake.Issues.Reporting] 4.1.0                           | |
 | [Cake.Issues.Reporting.Generic] 4.0.0                   | [Cake.Frosting.Issues.Reporting.Generic] 4.0.0          | |
 | [Cake.Issues.Reporting.Sarif] 4.0.0                     | [Cake.Frosting.Issues.Reporting.Sarif] 4.0.0            | |
-| [Cake.Issues.PullRequests] 4.0.0                        | [Cake.Issues.PullRequests] 4.0.0                        | |
+| [Cake.Issues.PullRequests] 4.1.0                        | [Cake.Frosting.Issues.PullRequests] 4.1.0               | |
 | [Cake.Issues.PullRequests.AppVeyor] 4.0.0               | [Cake.Issues.PullRequests.AppVeyor] 4.0.0               | |
 | [Cake.Issues.PullRequests.AzureDevOps] 4.0.0            | [Cake.Issues.PullRequests.AzureDevOps] 4.0.0            | |
 | [Cake.Issues.PullRequests.GitHubActions] 4.0.0          | [Cake.Issues.PullRequests.GitHubActions] 4.0.0          | |
@@ -61,6 +61,7 @@ Cake.Issues recipes will add the following addins to your build:
 [Cake.Issues.Reporting.Sarif]: https://cakebuild.net/extensions/cake-issues-reporting-sarif/
 [Cake.Frosting.Issues.Reporting.Sarif]: https://cakebuild.net/extensions/cake-issues-reporting-sarif/
 [Cake.Issues.PullRequests]: https://cakebuild.net/extensions/cake-issues-pullrequests/
+[Cake.Frosting.Issues.PullRequests]: https://cakebuild.net/extensions/cake-issues-pullrequests/
 [Cake.Issues.PullRequests.AppVeyor]: https://cakebuild.net/extensions/cake-issues-pullrequests-appveyor/
 [Cake.Issues.PullRequests.AzureDevOps]: https://cakebuild.net/extensions/cake-issues-pullrequests-azuredevops/
 [Cake.Issues.PullRequests.GitHubActions]: https://cakebuild.net/extensions/cake-issues-pullrequests-githubactions/
