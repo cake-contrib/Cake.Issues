@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
-    <id>Cake.Issues.Reporting</id>
-    <title>Cake.Issues.Reporting</title>
+    <id>Cake.Frosting.Issues.Reporting</id>
+    <title>Cake.Frosting.Issues.Reporting</title>
     <version>0.0.0</version>
     <authors>Cake Issues contributors</authors>
     <owners>bbtsoftware, pascalberger, cake-contrib</owners>
