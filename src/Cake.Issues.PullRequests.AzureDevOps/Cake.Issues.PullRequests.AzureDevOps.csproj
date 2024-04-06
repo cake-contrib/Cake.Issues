@@ -1,0 +1,58 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Cake.Issues.PullRequests.AzureDevOps.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <AnalysisMode>AllEnabledByDefault</AnalysisMode>
+    <CodeAnalysisRuleSet>..\Cake.Issues.PullRequests.AzureDevOps.ruleset</CodeAnalysisRuleSet>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Title>Cake.Issues.PullRequests.AzureDevOps</Title>
+    <Description>
+The Azure DevOps support for the Cake.Issues addin for Cake allows you to
+write found issues as comments to Azure DevOps pull requests.
+
+This addin provides the aliases for writing to Azure DevOps pull requests.
+It also requires the core Cake.Issues and Cake.Issues.PullRequests addins and one or more issue providers.
+
+See the Project Site for an overview of the whole ecosystem of addins for working with issues in Cake scripts.
+    </Description>
+    <Authors>BBT Software AG and contributors</Authors>
+    <Copyright>Copyright © BBT Software AG and contributors</Copyright>
+    <PackageTags>cake cake-addin cake-issues cake-pullrequestsystem issues pullrequest tfs azure-devops azure-devops-server</PackageTags>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageProjectUrl>https://cakeissues.net</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/cake-contrib/Cake.Issues.PullRequests.AzureDevOps.git</RepositoryUrl>
+    <PackageReleaseNotes>https://github.com/cake-contrib/Cake.Issues.PullRequests.AzureDevOps/releases/tag/4.0.0</PackageReleaseNotes>
+  </PropertyGroup>
+
+   <ItemGroup>
+    <InternalsVisibleTo Include="Cake.Issues.PullRequests.AzureDevOps.Tests" />
+    <InternalsVisibleTo Include="DynamicProxyGenAssembly2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Cake.Core" Version="4.0.0" PrivateAssets="All" />
+    <PackageReference Include="Cake.Issues" Version="4.0.0" PrivateAssets="All" />
+    <PackageReference Include="Cake.Issues.PullRequests" Version="4.0.0" PrivateAssets="All" />
+    <PackageReference Include="Cake.AzureDevOps" Version="4.0.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="8.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="icon.png" Pack="true" PackagePath="\" />
+  </ItemGroup>
+</Project>
