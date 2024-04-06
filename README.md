@@ -124,6 +124,7 @@ For questions and to discuss ideas & feature requests, use the [GitHub discussio
 | [Cake.Issues.PullRequests.AzureDevOps](https://www.nuget.org/packages/Cake.Issues.PullRequests.AzureDevOps) | [Cake.Issues.PullRequests.AzureDevOps](https://www.nuget.org/packages/Cake.Issues.PullRequests.AzureDevOps) | Integration with Azure DevOps pull requests. |
 | [Cake.Issues.Reporting](https://www.nuget.org/packages/Cake.Issues.Reporting) | [Cake.Frosting.Issues.Reporting](https://www.nuget.org/packages/Cake.Frosting.Issues.Reporting) | Addin providing the aliases for creating reports. |
 | [Cake.Issues.Reporting.Console](https://www.nuget.org/packages/Cake.Issues.Reporting.Console) | [Cake.Frosting.Issues.Reporting.Console](https://www.nuget.org/packages/Cake.Frosting.Issues.Reporting.Console) | Support for reporting issues to the console. |
+| [Cake.Issues.Reporting.Generic](https://www.nuget.org/packages/Cake.Issues.Reporting.Generic) | [Cake.Frosting.Issues.Reporting.Generic](https://www.nuget.org/packages/Cake.Frosting.Issues.Reporting.Generic) | Support for creating reports in any text based format (HTML, Markdown, ...). |
 
 ## API
 
