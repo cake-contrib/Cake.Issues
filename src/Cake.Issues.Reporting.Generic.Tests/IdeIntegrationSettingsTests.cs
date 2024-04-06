@@ -535,5 +535,20 @@
                 result.ShouldBe("FooendColumnBar");
             }
         }
+
+        public sealed class TheForVisualStudioUsingTeamCityAddinMethod
+        {
+            [Fact]
+            public void Should_Return_Settings()
+            {
+                // Given
+
+                // When
+                var settings = IdeIntegrationSettings.ForVisualStudioUsingTeamCityAddin();
+
+                // Then
+                settings.ShouldNotBeNull();
+            }
+        }
     }
 }

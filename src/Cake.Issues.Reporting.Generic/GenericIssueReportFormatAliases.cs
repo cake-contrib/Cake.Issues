@@ -19,6 +19,21 @@
     public static class GenericIssueReportFormatAliases
     {
         /// <summary>
+        /// Gets an instance of the IDE integration settings for opening files in Visual Studio using the TeamCity addin.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <returns>IDE integration settings.</returns>
+        [CakeMethodAlias]
+        [CakeAliasCategory(ReportingAliasConstants.ReportingFormatCakeAliasCategory)]
+        public static IdeIntegrationSettings GenericIssueReportIdeIntegrationSettingsForVisualStudioUsingTeamCityAddin(
+            this ICakeContext context)
+        {
+            context.NotNull(nameof(context));
+
+            return IdeIntegrationSettings.ForVisualStudioUsingTeamCityAddin();
+        }
+        
+        /// <summary>
         /// Gets an instance of a the generic report format using an embedded template.
         /// </summary>
         /// <param name="context">The context.</param>
