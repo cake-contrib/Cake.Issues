@@ -1,0 +1,331 @@
+﻿@model IEnumerable<Cake.Issues.IIssue>
+
+@using Newtonsoft.Json
+@using Cake.Issues.Reporting.Generic
+
+<!DOCTYPE html>
+
+@{
+    // Read options and apply default values.
+    var title = ViewBagHelper.ValueOrDefault(ViewBag.Title, "Issues Report");
+    DevExtremeTheme theme = ViewBagHelper.ValueOrDefault(ViewBag.Theme, DevExtremeTheme.Light);
+    bool showHeader = ViewBagHelper.ValueOrDefault(ViewBag.ShowHeader, true);
+    //bool enableSearching = ViewBagHelper.ValueOrDefault(ViewBag.EnableSearching, true);
+    //bool enableGrouping = ViewBagHelper.ValueOrDefault(ViewBag.EnableGrouping, true);
+    bool enableFiltering = ViewBagHelper.ValueOrDefault(ViewBag.EnableFiltering, true);
+    bool providerTypeVisible = ViewBagHelper.ValueOrDefault(ViewBag.ProviderTypeVisible, false);
+    HtmlDxPivotGridArea providerTypeArea = ViewBagHelper.ValueOrDefault(ViewBag.ProviderTypeArea, HtmlDxPivotGridArea.Row);
+    //ColumnSortOrder providerTypeSortOrder = ViewBagHelper.ValueOrDefault(ViewBag.ProviderTypeSortOder, ColumnSortOrder.Ascending);
+    bool providerNameVisible = ViewBagHelper.ValueOrDefault(ViewBag.ProviderNameVisible, true);
+    HtmlDxPivotGridArea providerNameArea = ViewBagHelper.ValueOrDefault(ViewBag.ProviderNameArea, HtmlDxPivotGridArea.Filter);
+    //ColumnSortOrder providerNameSortOrder = ViewBagHelper.ValueOrDefault(ViewBag.ProviderNameSortOder, ColumnSortOrder.Ascending);
+    bool priorityVisible = ViewBagHelper.ValueOrDefault(ViewBag.PriorityVisible, false);
+    HtmlDxPivotGridArea priorityArea = ViewBagHelper.ValueOrDefault(ViewBag.PriorityArea, HtmlDxPivotGridArea.Row);
+    //ColumnSortOrder prioritySortOrder = ViewBagHelper.ValueOrDefault(ViewBag.PrioritySortOrder, ColumnSortOrder.Descending);
+    bool priorityNameVisible = ViewBagHelper.ValueOrDefault(ViewBag.PriorityNameVisible, true);
+    HtmlDxPivotGridArea priorityNameArea = ViewBagHelper.ValueOrDefault(ViewBag.PriorityNameArea, HtmlDxPivotGridArea.Column);
+    //ColumnSortOrder priorityNameSortOrder = ViewBagHelper.ValueOrDefault(ViewBag.PriorityNameSortOrder, ColumnSortOrder.Descending);
+    bool projectPathVisible = ViewBagHelper.ValueOrDefault(ViewBag.ProjectPathVisible, false);
+    HtmlDxPivotGridArea projectPathArea = ViewBagHelper.ValueOrDefault(ViewBag.ProjectPathArea, HtmlDxPivotGridArea.Row);
+    //ColumnSortOrder projectPathSortOrder = ViewBagHelper.ValueOrDefault(ViewBag.ProjectPathSortOder, ColumnSortOrder.Ascending);
+    bool projectNameVisible = ViewBagHelper.ValueOrDefault(ViewBag.ProjectNameVisible, true);
+    HtmlDxPivotGridArea projectNameArea = ViewBagHelper.ValueOrDefault(ViewBag.ProjectNameArea, HtmlDxPivotGridArea.Row);
+    //ColumnSortOrder projectNameSortOrder = ViewBagHelper.ValueOrDefault(ViewBag.ProjectNameSortOder, ColumnSortOrder.Ascending);
+    bool filePathVisible = ViewBagHelper.ValueOrDefault(ViewBag.FilePathVisible, true);
+    HtmlDxPivotGridArea filePathArea = ViewBagHelper.ValueOrDefault(ViewBag.FilePathArea, HtmlDxPivotGridArea.Row);
+    //ColumnSortOrder filePathSortOrder = ViewBagHelper.ValueOrDefault(ViewBag.FilePathSortOder, ColumnSortOrder.Ascending);
+    bool fileDirectoryVisible = ViewBagHelper.ValueOrDefault(ViewBag.FileDirectoryVisible, false);
+    HtmlDxPivotGridArea fileDirectoryArea = ViewBagHelper.ValueOrDefault(ViewBag.FileDirectoryArea, HtmlDxPivotGridArea.Row);
+    //ColumnSortOrder fileDirectorySortOrder = ViewBagHelper.ValueOrDefault(ViewBag.FileDirectorySortOder, ColumnSortOrder.Ascending);
+    bool fileNameVisible = ViewBagHelper.ValueOrDefault(ViewBag.FileNameVisible, true);
+    HtmlDxPivotGridArea fileNameArea = ViewBagHelper.ValueOrDefault(ViewBag.FileNameArea, HtmlDxPivotGridArea.Row);
+    //ColumnSortOrder fileNameSortOrder = ViewBagHelper.ValueOrDefault(ViewBag.FileNameSortOder, ColumnSortOrder.Ascending);
+    bool lineVisible = ViewBagHelper.ValueOrDefault(ViewBag.LineVisible, false);
+    HtmlDxPivotGridArea lineArea = ViewBagHelper.ValueOrDefault(ViewBag.LineArea, HtmlDxPivotGridArea.Row);
+    //ColumnSortOrder lineSortOrder = ViewBagHelper.ValueOrDefault(ViewBag.LineSortOder, ColumnSortOrder.Ascending);
+    bool ruleVisible = ViewBagHelper.ValueOrDefault(ViewBag.RuleVisible, true);
+    HtmlDxPivotGridArea ruleArea = ViewBagHelper.ValueOrDefault(ViewBag.RuleArea, HtmlDxPivotGridArea.Data);
+    //ColumnSortOrder ruleSortOrder = ViewBagHelper.ValueOrDefault(ViewBag.RuleSortOder, ColumnSortOrder.Ascending);
+    bool ruleUrlVisible = ViewBagHelper.ValueOrDefault(ViewBag.RuleUrlVisible, false);
+    HtmlDxPivotGridArea ruleUrlArea = ViewBagHelper.ValueOrDefault(ViewBag.RuleUrlArea, HtmlDxPivotGridArea.Row);
+    //ColumnSortOrder ruleUrlSortOrder = ViewBagHelper.ValueOrDefault(ViewBag.RuleUrlSortOder, ColumnSortOrder.Ascending);
+    bool messageVisible = ViewBagHelper.ValueOrDefault(ViewBag.MessageVisible, false);
+    HtmlDxPivotGridArea messageArea = ViewBagHelper.ValueOrDefault(ViewBag.MessageArea, HtmlDxPivotGridArea.Row);
+    //ColumnSortOrder messageSortOrder = ViewBagHelper.ValueOrDefault(ViewBag.MessageSortOder, ColumnSortOrder.Ascending);
+    //var groupedColumns = ViewBagHelper.ValueOrDefault(ViewBag.GroupedColumns, new List<ReportColumn> { ReportColumn.ProviderName });
+    //var sortedColumns = ViewBagHelper.ValueOrDefault(ViewBag.SortedColumns, new List<ReportColumn> { ReportColumn.PriorityName, ReportColumn.ProjectName, ReportColumn.FileDirectory, ReportColumn.FileName, ReportColumn.Line });
+    //FileLinkSettings fileLinkSettings = ViewBagHelper.ValueOrDefault(ViewBag.FileLinkSettings, new FileLinkSettings());
+    //List<HtmlDxDataGridColumnDescription> additionalColumns = ViewBagHelper.ValueOrDefault(ViewBag.AdditionalColumns, new List<HtmlDxDataGridColumnDescription>());
+    string jQueryLocation = ViewBagHelper.ValueOrDefault(ViewBag.JQueryLocation, "https://ajax.aspnetcdn.com/ajax/jquery/");
+    string jQueryVersion = ViewBagHelper.ValueOrDefault(ViewBag.JQueryVersion, "3.1.0");
+    string devExtremeLocation = ViewBagHelper.ValueOrDefault(ViewBag.DevExtremeLocation, "https://cdn3.devexpress.com/jslib/");
+    string devExtremeVersion = ViewBagHelper.ValueOrDefault(ViewBag.DevExtremeVersion, "18.2.7");
+}
+
+@{
+    // Prepare issues.
+    var issues =
+        from issue in Model
+        select
+            issue.GetExpandoObject(
+                addProviderType: providerTypeVisible,
+                addProviderName: providerNameVisible,
+                addPriority: priorityVisible || priorityNameVisible,
+                addPriorityName: priorityNameVisible,
+                addProjectPath: projectPathVisible,
+                addProjectName: projectNameVisible,
+                addFilePath: filePathVisible,
+                addFileDirectory: fileDirectoryVisible,
+                addFileName: fileNameVisible,
+                addLine: lineVisible,
+                addRule: ruleVisible,
+                addRuleUrl: ruleVisible || ruleUrlVisible,
+                addMessage: messageVisible);
+
+    if (!jQueryLocation.EndsWith("/"))
+    {
+        jQueryLocation += "/";
+    }
+
+    if (!devExtremeLocation.EndsWith("/"))
+    {
+        devExtremeLocation += "/";
+    }
+}
+
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>@title</title>
+
+    @* DevExtreme dependencies *@
+    <script type="text/javascript" src="@(jQueryLocation)jquery-@(jQueryVersion).min.js"></script>
+    @* DevExtreme themes *@
+    <link rel="stylesheet" type="text/css" href="@(devExtremeLocation)@(devExtremeVersion)/css/dx.common.css" />
+    <link rel="stylesheet" type="text/css" href="@(devExtremeLocation)@(devExtremeVersion)/css/@(theme.GetCssFileName())" />
+    @* DevExtreme library *@
+    <script type="text/javascript" src="@(devExtremeLocation)@(devExtremeVersion)/js/dx.all.js"></script>
+</head>
+<body class="dx-viewport">
+    @if (showHeader)
+    {
+        <h1>@title</h1>
+    }
+
+    <div class="container">
+        <div id="pivotgrid-chart"></div>
+        <div id="pivotgrid"></div>
+        <div id="pivotgrid-popup"></div>
+    </div>
+
+    <script type="text/javascript">
+        var issues = @Raw(JsonConvert.SerializeObject(issues));
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            var pivotGridChart = $("#pivotgrid-chart").dxChart({
+                commonSeriesSettings: {
+                    type: "bar"
+                },
+                tooltip: {
+                    enabled: true,
+                    customizeTooltip: function (args) {
+                        return {
+                            html: "Total " + args.seriesName + ": " + args.valueText
+                        };
+                    }
+                },
+                size: {
+                    height: 200
+                },
+                adaptiveLayout: {
+                    width: 450
+                }
+            }).dxChart("instance");
+
+            var pivotGrid = $("#pivotgrid").dxPivotGrid({
+                height: "calc(100% - 200px)",
+                allowFiltering: @enableFiltering.ToString().ToLowerInvariant(),
+                fieldPanel: {
+                    showColumnFields: false,
+                    showDataFields: false,
+                    showFilterFields: true,
+                    showRowFields: false,
+                    allowFieldDragging: true,
+                    visible: true
+                },
+                onCellClick: function (e) {
+                    if (e.area == "data") {
+                        var pivotGridDataSource = e.component.getDataSource(),
+                            rowPathLength = e.cell.rowPath.length,
+                            rowPathName = e.cell.rowPath[rowPathLength - 1],
+                            popupTitle = (rowPathName ? rowPathName : "Total") + " issues";
+
+                        drillDownDataSource = pivotGridDataSource.createDrillDownDataSource(e.cell);
+                        pivotgridPopup.option("title", popupTitle);
+                        pivotgridPopup.show();
+                    }
+                },
+                dataSource: {
+                    fields: [
+                        @if (providerTypeVisible)
+                        {
+                            <text>
+                                {
+                                    dataField: "ProviderType",
+                                    area: "@providerTypeArea.ToJavaScriptIdentifier()",
+                                },
+                            </text>
+                        }
+                        @if (providerNameVisible)
+                        {
+                            <text>
+                                {
+                                    caption: "Provider",
+                                    dataField: "ProviderName",
+                                    area: "@providerNameArea.ToJavaScriptIdentifier()",
+                                },
+                            </text>
+                        }
+                        @if (priorityVisible)
+                        {
+                            <text>
+                                {
+                                    dataField: "Priority",
+                                    area: "@priorityArea.ToJavaScriptIdentifier()",
+                                },
+                            </text>
+                        }
+                        @if (priorityNameVisible)
+                        {
+                            <text>
+                                {
+                                    caption: "Severity",
+                                    dataField: "PriorityName",
+                                    area: "@priorityNameArea.ToJavaScriptIdentifier()",
+                                },
+                            </text>
+                        }
+                        @if (projectPathVisible)
+                        {
+                            <text>
+                                {
+                                    dataField: "ProjectPath",
+                                    area: "@projectPathArea.ToJavaScriptIdentifier()",
+                                },
+                            </text>
+                        }
+                        @if (projectNameVisible)
+                        {
+                            <text>
+                                {
+                                    caption: "Project",
+                                    dataField: "ProjectName",
+                                    area: "@projectNameArea.ToJavaScriptIdentifier()",
+                                },
+                            </text>
+                        }
+                        @if (filePathVisible)
+                        {
+                            <text>
+                                {
+                                    dataField: "FilePath",
+                                    area: "row",
+                                },
+                            </text>
+                        }
+                        @if (fileDirectoryVisible)
+                        {
+                            <text>
+                                {
+                                    caption: "Directory",
+                                    dataField: "FileDirectory",
+                                    area: "row",
+                                },
+                            </text>
+                        }
+                        @if (fileNameVisible)
+                        {
+                            <text>
+                                {
+                                    caption: "File",
+                                    dataField: "FileName",
+                                    area: "row",
+                                },
+                            </text>
+                        }
+                        @if (lineVisible)
+                        {
+                            <text>
+                                {
+                                    dataField: "Line",
+                                    area: "row",
+                                },
+                            </text>
+                        }
+                        @if (ruleVisible)
+                        {
+                            <text>
+                                {
+                                    dataField: "Rule",
+                                    area: "data",
+                                },
+                            </text>
+                        }
+                        @if (ruleUrlVisible)
+                        {
+                            <text>
+                                {
+                                    dataField: "RuleUrl",
+                                    area: "row",
+                                },
+                            </text>
+                        }
+                        @if (messageVisible)
+                        {
+                            <text>
+                                {
+                                    dataField: "Message",
+                                    area: "row",
+                                },
+                            </text>
+                        }
+                    ],
+                    store: issues
+                }
+            }).dxPivotGrid("instance");
+
+            pivotGrid.bindChart(
+                pivotGridChart,
+                {
+                    inverted: true,
+                    dataFieldsDisplayMode: "splitPanes",
+                    alternateDataFields: false
+                }
+            );
+
+            var pivotgridPopup = $("#pivotgrid-popup").dxPopup({
+                width: 600,
+                height: 400,
+                resizeEnabled: true,
+                contentTemplate: function (contentElement) {
+                    $("<div />")
+                        .addClass("drill-down")
+                        .dxDataGrid({
+                            width: "100%",
+                            height: "100%",
+                            columns: ["ProjectName", "FileDirectory", "FileName", "Line", "Rule", "Message"]
+                        })
+                        .appendTo(contentElement);
+                },
+                onShowing: function () {
+                    $(".drill-down")
+                        .dxDataGrid("instance")
+                        .option("dataSource", drillDownDataSource);
+                }
+            }).dxPopup("instance");
+        });
+    </script>
+</body>
+</html>

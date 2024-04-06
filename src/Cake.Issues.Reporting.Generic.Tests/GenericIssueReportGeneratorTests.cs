@@ -46,6 +46,7 @@
             [InlineData(GenericIssueReportTemplate.HtmlDiagnostic)]
             [InlineData(GenericIssueReportTemplate.HtmlDataTable)]
             [InlineData(GenericIssueReportTemplate.HtmlDxDataGrid)]
+            [InlineData(GenericIssueReportTemplate.HtmlDxPivotGrid)]
             public void Should_Generate_Report_From_Embedded_Template(GenericIssueReportTemplate template)
             {
                 // Given

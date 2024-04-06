@@ -19,6 +19,7 @@
                 GenericIssueReportTemplate.HtmlDiagnostic => "Diagnostic.cshtml",
                 GenericIssueReportTemplate.HtmlDataTable => "DataTable.cshtml",
                 GenericIssueReportTemplate.HtmlDxDataGrid => "DxDataGrid.cshtml",
+                GenericIssueReportTemplate.HtmlDxPivotGrid => "DxPivotGrid.cshtml",
                 _ => throw new ArgumentOutOfRangeException(nameof(template)),
             };
         }
