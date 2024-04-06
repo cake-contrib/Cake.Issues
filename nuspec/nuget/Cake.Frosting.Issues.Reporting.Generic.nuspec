@@ -4,7 +4,7 @@
     <id>Cake.Frosting.Issues.Reporting.Generic</id>
     <title>Cake.Frosting.Issues.Reporting.Generic</title>
     <version>0.0.0</version>
-    <authors>Pascal Berger</authors>
+    <authors>Cake Issues contributors</authors>
     <owners>pascalberger, cake-contrib</owners>
     <summary>Support for creating any reports in any text based format (HTML, Markdown, ...) for the Cake.Issues addin for Cake Frosting</summary>
     <description>
@@ -24,7 +24,7 @@ For addin compatible with Cake Script Runners see Cake.Issues.Reporting.Generic.
     <icon>icon.png</icon>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <repository type="git" url="https://github.com/cake-contrib/Cake.Issues.git"/>
-    <copyright>Copyright © Pascal Berger</copyright>
+    <copyright>Copyright © Cake Issues contributors</copyright>
     <tags>cake cake-addin cake-issues cake-reportformat issues reporting html markdown razor</tags>
     <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/4.0.0</releaseNotes>
     <dependencies>

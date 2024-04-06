@@ -4,7 +4,8 @@
     <TargetFrameworks>net6.0</TargetFrameworks>
     <IsPackable>false</IsPackable>
     <Description>Tests for the Cake.Issues.Reporting.Generic addin</Description>
-    <Copyright>Copyright © Pascal Berger and contributors</Copyright>
+    <Authors>Cake Issues contributors</Authors>
+    <Copyright>Copyright © Cake Issues contributors</Copyright>
     <Product>Cake.Issues</Product>
   </PropertyGroup>
 
