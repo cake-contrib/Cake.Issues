@@ -1,0 +1,64 @@
+﻿@inherits IEnumerable<Cake.Issues.IIssue>
+
+@using System.Collections.Generic
+@using System.Linq
+
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th scope="col">ProjectFileRelativePath</th>
+                <th scope="col">ProjectName</th>
+                <th scope="col">AffectedFileRelativePath</th>
+                <th scope="col">Line</th>
+                <th scope="col">EndLine</th>
+                <th scope="col">Column</th>
+                <th scope="col">EndColumn</th>
+                <th scope="col">MessageText</th>
+                <th scope="col">MessageHtml</th>
+                <th scope="col">MessageMarkdown</th>
+                <th scope="col">Priority</th>
+                <th scope="col">PriorityName</th>
+                <th scope="col">RuleId</th>
+                <th scope="col">RuleName</th>
+                <th scope="col">RuleUrl</th>
+                <th scope="col">Run</th>
+                <th scope="col">ProviderType</th>
+                <th scope="col">ProviderName</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var issue in Model)
+            {
+            <tr>
+                <td>@issue.ProjectFileRelativePath</td>
+                <td>@issue.ProjectName</td>
+                <td>@issue.AffectedFileRelativePath</td>
+                <td>@issue.Line</td>
+                <td>@issue.EndLine</td>
+                <td>@issue.Column</td>
+                <td>@issue.EndColumn</td>
+                <td>@issue.MessageText</td>
+                <td>@issue.MessageHtml</td>
+                <td>@issue.MessageMarkdown</td>
+                <td>@issue.Priority</td>
+                <td>@issue.PriorityName</td>
+                <td>@issue.RuleId</td>
+                <td>@issue.RuleName</td>
+                <td>@issue.RuleUrl</td>
+                <td>@issue.Run</td>
+                <td>@issue.ProviderType</td>
+                <td>@issue.ProviderName</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>
