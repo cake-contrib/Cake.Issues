@@ -115,7 +115,6 @@ For questions and to discuss ideas & feature requests, use the [GitHub discussio
 | Cake Scripting Addin | Cake Frosting Addin | Description |
 |:--:|-|-|
 | [Cake.Issues](https://www.nuget.org/packages/Cake.Issues) | [Cake.Issues](https://www.nuget.org/packages/Cake.Issues) | Addin providing the aliases for creating and reading of issues. |
-| [Cake.Issues.Reporting](https://www.nuget.org/packages/Cake.Issues.Reporting) | [Cake.Frosting.Issues.Reporting](https://www.nuget.org/packages/Cake.Frosting.Issues.Reporting) | Addin providing the aliases for creating reports. |
 | [Cake.Issues.MsBuild](https://www.nuget.org/packages/Cake.Issues.MsBuild) | [Cake.Frosting.Issues.MsBuild](https://www.nuget.org/packages/Cake.Frosting.Issues.MsBuild) | Issue provider for reading MsBuild errors and warnings. |
 | [Cake.Issues.DocFx](https://www.nuget.org/packages/Cake.Issues.DocFx) | [Cake.Issues.DocFx](https://www.nuget.org/packages/Cake.Issues.DocFx) | Issue provider for reading DocFx warnings. |
 | [Cake.Issues.EsLint](https://www.nuget.org/packages/Cake.Issues.EsLint) | [Cake.Issues.EsLint](https://www.nuget.org/packages/Cake.Issues.EsLint) | Issue provider for reading ESLint issues. |
@@ -123,6 +122,8 @@ For questions and to discuss ideas & feature requests, use the [GitHub discussio
 | [Cake.Issues.Markdownlint](https://www.nuget.org/packages/Cake.Issues.Markdownlint) | [Cake.Issues.Markdownlint](https://www.nuget.org/packages/Cake.Issues.Markdownlint) | Issue provider for reading issues from markdownlint. |
 | [Cake.Issues.PullRequests](https://www.nuget.org/packages/Cake.Issues.PullRequests) | [Cake.Frosting.Issues.PullRequests](https://www.nuget.org/packages/Cake.Frosting.Issues.PullRequests) | Addin providing the aliases for writing issues to pull requests and build servers. |
 | [Cake.Issues.PullRequests.AzureDevOps](https://www.nuget.org/packages/Cake.Issues.PullRequests.AzureDevOps) | [Cake.Issues.PullRequests.AzureDevOps](https://www.nuget.org/packages/Cake.Issues.PullRequests.AzureDevOps) | Integration with Azure DevOps pull requests. |
+| [Cake.Issues.Reporting](https://www.nuget.org/packages/Cake.Issues.Reporting) | [Cake.Frosting.Issues.Reporting](https://www.nuget.org/packages/Cake.Frosting.Issues.Reporting) | Addin providing the aliases for creating reports. |
+| [Cake.Issues.Reporting.Console](https://www.nuget.org/packages/Cake.Issues.Reporting.Console) | [Cake.Frosting.Issues.Reporting.Console](https://www.nuget.org/packages/Cake.Frosting.Issues.Reporting.Console) | Support for reporting issues to the console. |
 
 ## API
 
