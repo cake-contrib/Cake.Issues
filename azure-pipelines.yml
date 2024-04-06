@@ -57,23 +57,14 @@ stages:
     pool:
       vmImage: $(imageName)
     steps:
-    - task: UseDotNet@2
-      inputs:
-        version: '6.x'
-      displayName: 'Install .NET 6'
-    - task: NodeTool@0
-      inputs:
-        versionSpec: '18.x'
-      displayName: 'Install NodeJs 18.x'
-    - bash: |
-        npm install -g markdownlint-cli
-      displayName: 'Install required tools'
+    - template: .azuredevops/pipelines/templates/steps/install-net6.yml 
+    - template: .azuredevops/pipelines/templates/steps/install-markdownlint.yml 
     - template: .azuredevops/pipelines/templates/steps/provide-nuget-packages.yml 
     - powershell: ./build.ps1 --verbosity=diagnostic
       workingDirectory: ./tests/Cake.Issues.Markdownlint
       displayName: 'Run integration tests'
     - publish: $(Build.SourcesDirectory)/tests/Cake.Issues.Markdownlint/output/report.html
-      artifact: Integration Tests $(System.JobName)
+      artifact: Integration Tests Cake.Issues.Markdownlint $(System.JobName)
       displayName: 'Publish generated reports as build artifact'
 
 - stage: IntegrationTestsReportingConsoleStage
@@ -99,10 +90,7 @@ stages:
     pool:
       vmImage: $(imageName)
     steps:
-    - task: UseDotNet@2
-      inputs:
-        version: '6.x'
-      displayName: 'Install .NET 6'
+    - template: .azuredevops/pipelines/templates/steps/install-net6.yml 
     - template: .azuredevops/pipelines/templates/steps/provide-nuget-packages.yml 
     - powershell: ./build.ps1 --verbosity=diagnostic
       workingDirectory: ./tests/Cake.Issues.Reporting.Console/script-runner
@@ -126,11 +114,69 @@ stages:
     pool:
       vmImage: $(imageName)
     steps:
-    - task: UseDotNet@2
-      inputs:
-        version: '6.x'
-      displayName: 'Install .NET 6'
+    - template: .azuredevops/pipelines/templates/steps/install-net6.yml 
     - template: .azuredevops/pipelines/templates/steps/provide-nuget-packages.yml 
     - powershell: ./build.ps1 --verbosity=diagnostic
       workingDirectory: ./tests/Cake.Issues.Reporting.Console/frosting/net6.0
       displayName: 'Run integration tests'
+
+- stage: IntegrationTestsReportingGenericStage
+  displayName: Integration Tests Cake.Issues.Reporting.Generic
+  dependsOn: BuildStage
+  jobs:
+  - job: TestReportingGenericScriptingJob
+    displayName: Test Cake Scripting
+    strategy:
+      matrix:
+        Windows_Server_2019:
+          imageName: 'windows-2019'
+        Windows_Server_2022:
+          imageName: 'windows-2022'
+        macOS_11:
+          imageName: 'macOS-11'
+        macOS_13:
+          imageName: 'macOS-13'
+        Ubuntu_20_04:
+          imageName: 'ubuntu-20.04'
+        Ubuntu_22_04:
+          imageName: 'ubuntu-22.04'
+    pool:
+      vmImage: $(imageName)
+    steps:
+    - template: .azuredevops/pipelines/templates/steps/install-net6.yml 
+    - template: .azuredevops/pipelines/templates/steps/install-markdownlint.yml 
+    - template: .azuredevops/pipelines/templates/steps/provide-nuget-packages.yml 
+    - powershell: ./build.ps1 --verbosity=diagnostic
+      workingDirectory: ./tests/Cake.Issues.Reporting.Console/script-runner
+      displayName: 'Run integration tests'
+    - publish: $(Build.SourcesDirectory)/docs/input/docs/report-formats/generic/templates
+      artifact: Integration Tests Cake.Issues.Reporting.Generic Cake Scripting $(System.JobName)
+      displayName: 'Publish generated reports as build artifact'
+  - job: TestReportingGenericFrostingNet6Job
+    displayName: Test Cake Frosting .NET 6
+    strategy:
+      matrix:
+        Windows_Server_2019:
+          imageName: 'windows-2019'
+        Windows_Server_2022:
+          imageName: 'windows-2022'
+        macOS_11:
+          imageName: 'macOS-11'
+        macOS_13:
+          imageName: 'macOS-13'
+        Ubuntu_20_04:
+          imageName: 'ubuntu-20.04'
+        Ubuntu_22_04:
+          imageName: 'ubuntu-22.04'
+    pool:
+      vmImage: $(imageName)
+    steps:
+    - template: .azuredevops/pipelines/templates/steps/install-net6.yml 
+    - template: .azuredevops/pipelines/templates/steps/install-markdownlint.yml 
+    - template: .azuredevops/pipelines/templates/steps/provide-nuget-packages.yml 
+    - powershell: ./build.ps1 --verbosity=diagnostic
+      workingDirectory: ./tests/Cake.Issues.Reporting.Generic/frosting
+      displayName: 'Run integration tests'
+    - publish: $(Build.SourcesDirectory)/docs/input/docs/report-formats/generic/templates
+      artifact: Integration Tests Cake.Issues.Reporting.Generic Cake Frosting .NET 6 $(System.JobName)
+      displayName: 'Publish generated reports as build artifact'
