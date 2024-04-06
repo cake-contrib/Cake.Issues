@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <id>Cake.Issues.GitRepository</id>
+    <title>Cake.Issues.GitRepository</title>
+    <version>0.0.0</version>
+    <authors>Pascal Berger</authors>
+    <owners>pascalberger, cake-contrib</owners>
+    <summary>Git repository linting support for the Cake.Issues addin for Cake Build Automation System</summary>
+    <description>
+The Git repository support for the Cake.Issues addin for Cake allows you to analyze Git repositories.
+
+This addin provides the aliases for analyzing Git repositories and create issues resulting from it using the Cake.Issues addin.
+It also requires the core Cake.Issues addin.
+
+There are also additional addins for generating reports or posting issues to pull requests.
+
+See the Project Site for an overview of the whole ecosystem of addins for working with issues in Cake scripts.
+    </description>
+    <license type="expression">MIT</license>
+    <projectUrl>https://cakeissues.net</projectUrl>
+    <icon>icon.png</icon>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <repository type="git" url="https://github.com/cake-contrib/Cake.Issues.GitRepository.git"/>
+    <copyright>Copyright © Pascal Berger</copyright>
+    <tags>cake cake-addin cake-issues cake-issueprovider code-analysis linting git</tags>
+    <releaseNotes>https://github.com/cake-contrib/Cake.Issues.GitRepository/releases/tag/4.0.0</releaseNotes>
+  </metadata>
+  <files>
+    <file src="..\..\..\..\nuspec\nuget\icon.png" target="" />
+    <file src="net6.0/Cake.Issues.GitRepository.dll" target="lib\net6.0" />
+    <file src="net6.0/Cake.Issues.GitRepository.pdb" target="lib\net6.0" />
+    <file src="net6.0/Cake.Issues.GitRepository.xml" target="lib\net6.0" />
+    <file src="net7.0/Cake.Issues.GitRepository.dll" target="lib\net7.0" />
+    <file src="net7.0/Cake.Issues.GitRepository.pdb" target="lib\net7.0" />
+    <file src="net7.0/Cake.Issues.GitRepository.xml" target="lib\net7.0" />
+    <file src="net8.0/Cake.Issues.GitRepository.dll" target="lib\net8.0" />
+    <file src="net8.0/Cake.Issues.GitRepository.pdb" target="lib\net8.0" />
+    <file src="net8.0/Cake.Issues.GitRepository.xml" target="lib\net8.0" />
+  </files>
+</package>
