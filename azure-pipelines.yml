@@ -68,17 +68,69 @@ stages:
     - bash: |
         npm install -g markdownlint-cli
       displayName: 'Install required tools'
-    - download: current
-      artifact: NuGet Package
-      displayName: 'Download build artifact'
-    - task: CopyFiles@2
-      inputs:
-        sourceFolder: $(Pipeline.Workspace)/NuGet Package
-        targetFolder: $(Build.SourcesDirectory)/BuildArtifacts/Packages/NuGet
-      displayName: 'Copy build artifact for test run'
+    - template: .azuredevops/pipelines/templates/steps/provide-nuget-packages.yml 
     - powershell: ./build.ps1 --verbosity=diagnostic
       workingDirectory: ./tests/Cake.Issues.Markdownlint
       displayName: 'Run integration tests'
     - publish: $(Build.SourcesDirectory)/tests/Cake.Issues.Markdownlint/output/report.html
       artifact: Integration Tests $(System.JobName)
       displayName: 'Publish generated reports as build artifact'
+
+- stage: IntegrationTestsReportingConsoleStage
+  displayName: Integration Tests Cake.Issues.Reporting.Console
+  dependsOn: BuildStage
+  jobs:
+  - job: TestReportingConsoleScriptingJob
+    displayName: Test Cake Scripting
+    strategy:
+      matrix:
+        Windows_Server_2019:
+          imageName: 'windows-2019'
+        Windows_Server_2022:
+          imageName: 'windows-2022'
+        macOS_11:
+          imageName: 'macOS-11'
+        macOS_13:
+          imageName: 'macOS-13'
+        Ubuntu_20_04:
+          imageName: 'ubuntu-20.04'
+        Ubuntu_22_04:
+          imageName: 'ubuntu-22.04'
+    pool:
+      vmImage: $(imageName)
+    steps:
+    - task: UseDotNet@2
+      inputs:
+        version: '6.x'
+      displayName: 'Install .NET 6'
+    - template: .azuredevops/pipelines/templates/steps/provide-nuget-packages.yml 
+    - powershell: ./build.ps1 --verbosity=diagnostic
+      workingDirectory: ./tests/Cake.Issues.Reporting.Console/script-runner
+      displayName: 'Run integration tests'
+  - job: TestReportingConsoleFrostingNet6Job
+    displayName: Test Cake Frosting .NET 6
+    strategy:
+      matrix:
+        Windows_Server_2019:
+          imageName: 'windows-2019'
+        Windows_Server_2022:
+          imageName: 'windows-2022'
+        macOS_11:
+          imageName: 'macOS-11'
+        macOS_13:
+          imageName: 'macOS-13'
+        Ubuntu_20_04:
+          imageName: 'ubuntu-20.04'
+        Ubuntu_22_04:
+          imageName: 'ubuntu-22.04'
+    pool:
+      vmImage: $(imageName)
+    steps:
+    - task: UseDotNet@2
+      inputs:
+        version: '6.x'
+      displayName: 'Install .NET 6'
+    - template: .azuredevops/pipelines/templates/steps/provide-nuget-packages.yml 
+    - powershell: ./build.ps1 --verbosity=diagnostic
+      workingDirectory: ./tests/Cake.Issues.Reporting.Console/frosting/net6.0
+      displayName: 'Run integration tests'

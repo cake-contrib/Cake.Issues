@@ -15,7 +15,7 @@ var target = Argument("target", "Default");
 Task("Print-Issues")
     .Does(() =>
 {
-    var issues = DeserializeIssuesFromJsonFile(@"../../src/Cake.Issues.Reporting.Console.Tests/Testfiles/issues.json");
+    var issues = DeserializeIssuesFromJsonFile(@"../../../src/Cake.Issues.Reporting.Console.Tests/Testfiles/issues.json");
     Information("Read {0} issues", issues.Count());
     CreateIssueReport(
         issues,

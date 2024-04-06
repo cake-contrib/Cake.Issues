@@ -1,0 +1,11 @@
+# Makes NuGet packages available for testing
+
+steps:
+  - download: current
+    artifact: NuGet Package
+    displayName: 'Download build artifact'
+  - task: CopyFiles@2
+    inputs:
+      sourceFolder: $(Pipeline.Workspace)/NuGet Package
+      targetFolder: $(Build.SourcesDirectory)/BuildArtifacts/Packages/NuGet
+    displayName: 'Copy build artifact for test run'
