@@ -28,7 +28,7 @@ Teardown(ctx =>
 Task("CheckBinaryFilesTrackedByLfs")
     .Does(() =>
 {
-    var repoRootDir = MakeAbsolute(Directory("../../"));
+    var repoRootDir = MakeAbsolute(Directory("../../../"));
 
     var issues =
         ReadIssues(
@@ -61,7 +61,7 @@ Task("CheckBinaryFilesTrackedByLfs")
 Task("CheckFilesPathLength")
     .Does(() =>
 {
-    var repoRootDir = MakeAbsolute(Directory("../../"));
+    var repoRootDir = MakeAbsolute(Directory("../../../"));
 
     var issues =
         ReadIssues(
