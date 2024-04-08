@@ -19,10 +19,10 @@ See the Project Site for an overview of the whole ecosystem of addins for workin
     <projectUrl>https://cakeissues.net</projectUrl>
     <icon>icon.png</icon>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <repository type="git" url="https://github.com/cake-contrib/Cake.Issues.PullRequests.AppVeyor.git"/>
+    <repository type="git" url="https://github.com/cake-contrib/Cake.Issues.git"/>
     <copyright>Copyright © Pascal Berger</copyright>
     <tags>cake cake-addin cake-issues cake-pullrequestsystem issues pullrequest buildserver appveyor</tags>
-    <releaseNotes>https://github.com/cake-contrib/Cake.Issues.PullRequests.AppVeyor/releases/tag/4.0.0</releaseNotes>
+    <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/4.0.0</releaseNotes>
   </metadata>
   <files>
     <file src="..\..\..\..\nuspec\nuget\icon.png" target="" />
