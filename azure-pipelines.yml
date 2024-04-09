@@ -179,7 +179,7 @@ stages:
     - template: .azuredevops/pipelines/templates/steps/install-markdownlint.yml 
     - template: .azuredevops/pipelines/templates/steps/provide-nuget-packages.yml 
     - powershell: ./build.ps1 --verbosity=diagnostic
-      workingDirectory: ./tests/Cake.Issues.Reporting.Console/script-runner
+      workingDirectory: ./tests/Cake.Issues.Reporting.Generic/script-runner
       displayName: 'Run integration tests'
     - publish: $(Build.SourcesDirectory)/docs/input/docs/report-formats/generic/templates
       artifact: Integration Tests Cake.Issues.Reporting.Generic Cake Scripting $(System.JobName)
