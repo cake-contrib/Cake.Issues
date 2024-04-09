@@ -10,7 +10,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <CodeAnalysisRuleSet>..\Cake.Issues.Sarif.Tests.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>..\Cake.Issues.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
 
   <ItemGroup>
