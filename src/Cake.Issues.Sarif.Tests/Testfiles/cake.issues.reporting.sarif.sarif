@@ -1,0 +1,104 @@
+{
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.4.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "ProviderType Foo"
+        }
+      },
+      "originalUriBaseIds": {
+        "REPOROOT": {
+          "uri": "file:///c:/Source/Cake.Issues.Reporting.Sarif"
+        }
+      },
+      "results": [
+        {
+          "ruleId": "Rule Foo",
+          "level": "error",
+          "message": {
+            "text": "Message Foo."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/Cake.Issues.Reporting.Sarif.Tests/SarifIssueReportGeneratorTests.cs",
+                  "uriBaseId": "REPOROOT"
+                },
+                "region": {
+                  "startLine": 10
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "ProviderType Bar",
+          "rules": [
+            {
+              "id": "Rule Bar",
+              "helpUri": "https://www.example.come/rules/bar.html"
+            }
+          ]
+        }
+      },
+      "originalUriBaseIds": {
+        "REPOROOT": {
+          "uri": "file:///c:/Source/Cake.Issues.Reporting.Sarif"
+        }
+      },
+      "results": [
+        {
+          "ruleId": "Rule Bar",
+          "ruleIndex": 0,
+          "message": {
+            "text": "Message Bar.",
+            "markdown": "Message Bar -- now in **Markdown**!"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/Cake.Issues.Reporting.Sarif.Tests/SarifIssueReportGeneratorTests.cs",
+                  "uriBaseId": "REPOROOT"
+                },
+                "region": {
+                  "startLine": 12
+                }
+              }
+            }
+          ]
+        },
+        {
+          "message": {
+            "text": "Message Bar 2."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/Cake.Issues.Reporting.Sarif.Tests/SarifIssueReportGeneratorTests.cs",
+                  "uriBaseId": "REPOROOT"
+                },
+                "region": {
+                  "startLine": 42
+                }
+              }
+            }
+          ],
+          "properties": {
+            "RuleUrl": "https://www.example.come/rules/bar2.html"
+          }
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    }
+  ]
+}
