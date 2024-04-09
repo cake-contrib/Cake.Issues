@@ -112,12 +112,12 @@
                 IssueChecker.Check(
                     issue,
                     IssueBuilder.NewIssue(
-                        "Variable \"ptr\" was used without being initialized.\r\n" +
+                        "Variable \"ptr\" was used without being initialized." + Environment.NewLine +
                         "                           It was declared [here](0).",
                         "Cake.Issues.Sarif.SarifIssuesProvider",
                         "CodeScanner")
                         .WithMessageInMarkdownFormat(
-                        "Variable `ptr` was used without being initialized.\r\n" +
+                        "Variable `ptr` was used without being initialized." + Environment.NewLine +
                         "                           It was declared [here](0).")
                         .InFile(@"collections\list.h", 15)
                         .OfRule("C2001")
