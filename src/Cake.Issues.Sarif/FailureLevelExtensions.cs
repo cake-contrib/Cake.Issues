@@ -14,19 +14,14 @@
         /// <returns>Priority of the issue.</returns>
         public static IssuePriority ToPriority(this FailureLevel level)
         {
-            switch (level)
+            return level switch
             {
-                case FailureLevel.None:
-                    return IssuePriority.Undefined;
-                case FailureLevel.Note:
-                    return IssuePriority.Suggestion;
-                case FailureLevel.Warning:
-                    return IssuePriority.Warning;
-                case FailureLevel.Error:
-                    return IssuePriority.Error;
-                default:
-                    return IssuePriority.Undefined;
-            }
+                FailureLevel.None => IssuePriority.Undefined,
+                FailureLevel.Note => IssuePriority.Suggestion,
+                FailureLevel.Warning => IssuePriority.Warning,
+                FailureLevel.Error => IssuePriority.Error,
+                _ => IssuePriority.Undefined,
+            };
         }
     }
 }

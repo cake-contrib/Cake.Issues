@@ -11,18 +11,10 @@
     /// <summary>
     /// Provider for issues in SARIF compatible formt.
     /// </summary>
-    internal class SarifIssuesProvider : BaseConfigurableIssueProvider<SarifIssuesSettings>
+    /// <param name="log">The Cake log context.</param>
+    /// <param name="issueProviderSettings">Settings for the issue provider.</param>
+    internal class SarifIssuesProvider(ICakeLog log, SarifIssuesSettings issueProviderSettings) : BaseConfigurableIssueProvider<SarifIssuesSettings>(log, issueProviderSettings)
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SarifIssuesProvider"/> class.
-        /// </summary>
-        /// <param name="log">The Cake log context.</param>
-        /// <param name="issueProviderSettings">Settings for the issue provider.</param>
-        public SarifIssuesProvider(ICakeLog log, SarifIssuesSettings issueProviderSettings)
-            : base(log, issueProviderSettings)
-        {
-        }
-
         /// <inheritdoc />
         public override string ProviderName => "SARIF";
 
@@ -31,10 +23,10 @@
         {
             var result = new List<IIssue>();
 
-            var log =
+            var logContent =
                 JsonConvert.DeserializeObject<SarifLog>(this.IssueProviderSettings.LogFileContent.ToStringUsingEncoding());
 
-            foreach (var run in log.Runs)
+            foreach (var run in logContent.Runs)
             {
                 var toolName = run.Tool.Driver.Name;
 
@@ -81,7 +73,7 @@
         /// <param name="result">Result to read the message from.</param>
         /// <param name="run">SARIF run description.</param>
         /// <returns>Message of the result.</returns>
-        private static (string text, string markdown) GetMessage(
+        private static (string Text, string Markdown) GetMessage(
             Result result,
             Run run)
         {
@@ -100,25 +92,23 @@
             {
                 // Check if a message defined on the rule was referenced.
                 var rule = result.GetRule(run);
-                if (rule.MessageStrings.ContainsKey(result.Message.Id))
+                if (rule.MessageStrings.TryGetValue(result.Message.Id, out var ruleMessage))
                 {
-                    var message = rule.MessageStrings[result.Message.Id];
                     var arguments = result.Message.Arguments;
-                    return GetFormattedMessage(message, arguments);
+                    return GetFormattedMessage(ruleMessage, arguments);
                 }
 
                 // Check if a global message was referenced.
-                if (run.Tool.Driver.GlobalMessageStrings.ContainsKey(result.Message.Id))
+                if (run.Tool.Driver.GlobalMessageStrings.TryGetValue(result.Message.Id, out var globalMessage))
                 {
-                    var message = run.Tool.Driver.GlobalMessageStrings[result.Message.Id];
                     var arguments = result.Message.Arguments;
-                    return GetFormattedMessage(message, arguments);
+                    return GetFormattedMessage(globalMessage, arguments);
                 }
             }
 
             return (null, null);
 
-            (string text, string markdown) GetFormattedMessage(
+            static (string Text, string Markdown) GetFormattedMessage(
                 MultiformatMessageString message,
                 IList<string> arguments)
             {
@@ -150,7 +140,7 @@
         /// <param name="result">Result to read the rule from.</param>
         /// <param name="run">SARIF run description.</param>
         /// <returns>File and line of the result.</returns>
-        private static (string ruleId, Uri ruleUrl) GetRule(
+        private static (string RuleId, Uri RuleUrl) GetRule(
             Result result,
             Run run)
         {
@@ -167,7 +157,7 @@
         /// </summary>
         /// <param name="result">Result to read the location from.</param>
         /// <returns>File and line of the result.</returns>
-        private static (string filePath, int? line) GetLocation(
+        private static (string FilePath, int? Line) GetLocation(
             Result result)
         {
             result.NotNull(nameof(result));

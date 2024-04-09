@@ -2,13 +2,9 @@
 {
     using Cake.Issues.Testing;
 
-    internal class SarifIssuesProviderFixture : BaseConfigurableIssueProviderFixture<SarifIssuesProvider, SarifIssuesSettings>
+    internal class SarifIssuesProviderFixture(string fileResourceName)
+        : BaseConfigurableIssueProviderFixture<SarifIssuesProvider, SarifIssuesSettings>(fileResourceName)
     {
-        public SarifIssuesProviderFixture(string fileResourceName)
-            : base(fileResourceName)
-        {
-        }
-
         protected override string FileResourceNamespace => "Cake.Issues.Sarif.Tests.Testfiles.";
     }
 }
