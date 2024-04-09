@@ -17,6 +17,7 @@ var target = Argument("target", "Default");
 public class BuildData
 {
     public DirectoryPath RepoRootFolder { get; }
+    public DirectoryPath TestRootFolder { get; }
     public DirectoryPath SourceFolder { get; }
     public DirectoryPath DocsFolder { get; }
     public DirectoryPath OutputFolder { get; }
@@ -24,10 +25,11 @@ public class BuildData
 
     public BuildData(ICakeContext context)
     {
-        this.RepoRootFolder = context.MakeAbsolute(context.Directory("./"));
-        this.SourceFolder = this.RepoRootFolder.Combine("src");
-        this.DocsFolder = this.RepoRootFolder.Combine("docs");
-        this.OutputFolder = this.RepoRootFolder.Combine("output");
+        this.TestRootFolder = context.MakeAbsolute(context.Directory("./"));
+        this.RepoRootFolder = this.TestRootFolder.Combine("..");
+        this.SourceFolder = this.TestRootFolder.Combine("src");
+        this.DocsFolder = this.TestRootFolder.Combine("docs");
+        this.OutputFolder = this.TestRootFolder.Combine("output");
 
         this.Issues = new List<IIssue>();
     }
