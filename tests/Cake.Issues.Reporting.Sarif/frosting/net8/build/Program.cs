@@ -25,7 +25,7 @@ public class BuildContext : FrostingContext
     public BuildContext(ICakeContext context)
         : base(context)
     {
-        this.RepoRootFolder = context.MakeAbsolute(context.Directory("./.."));
+        this.RepoRootFolder = context.MakeAbsolute(context.Directory("./../.."));
         this.Issues = new List<IIssue>();
     }
 }
