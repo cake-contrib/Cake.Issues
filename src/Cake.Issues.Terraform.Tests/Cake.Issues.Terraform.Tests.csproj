@@ -5,9 +5,9 @@
     <TargetFramework>net6.0</TargetFramework>
     <IsPackable>false</IsPackable>
     <Description>Tests for the Cake.Issues.Terraform addin</Description>
-    <Authors>Pascal Berger</Authors>
+    <Authors>Cake Issues contributors</Authors>
     <Product>Cake.Issues</Product>
-    <Copyright>Copyright © Pascal Berger</Copyright>
+    <Copyright>Copyright © Cake Issues contributors</Copyright>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <CodeAnalysisRuleSet>..\Cake.Issues.Tests.ruleset</CodeAnalysisRuleSet>
