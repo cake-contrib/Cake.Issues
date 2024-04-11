@@ -8,6 +8,9 @@ environment:
 #---------------------------------#
 image: Visual Studio 2022
 
+init:
+  - git config --global core.autocrlf false
+
 #---------------------------------#
 #  Install .NET                   #
 #---------------------------------#
