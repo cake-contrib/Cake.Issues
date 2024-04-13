@@ -37,7 +37,6 @@ Task("Build")
             .Combine("src")
             .CombineWithFilePath("ClassLibrary1.sln");
 
-#if NETCOREAPP
     DotNetRestore(solutionFile.FullPath);
 
     var settings =
@@ -55,18 +54,6 @@ Task("Build")
         {
             MSBuildSettings = settings
         });
-#else
-    NuGetRestore(solutionFile);
-
-    var settings =
-        new MSBuildSettings()
-            .WithTarget("Rebuild")
-            .WithLogger(
-                Context.Tools.Resolve("Cake.Issues.MsBuild*/**/StructuredLogger.dll").FullPath,
-                "BinaryLogger",
-                msBuildLogPath.FullPath);
-    MSBuild(solutionFile, settings);
-#endif
 
     data.AddIssues(
         ReadIssues(

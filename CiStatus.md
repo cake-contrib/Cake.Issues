@@ -1,6 +1,6 @@
 # Build & Test Status
 
-## Build / Unit Tests
+## Build / Tests
 
 | CI Server | Runner | Operating System | Develop | Master |
 |:--:|:--:|:--:|:--:|:--:|
@@ -8,6 +8,7 @@
 |Azure Pipelines|N/A|Windows|[![Build Status](https://dev.azure.com/cake-contrib/Cake.Issues/_apis/build/status%2Fcake-contrib.Cake.Issues?branchName=develop&jobName=Build%20%26%20Unit%20Tests&configuration=Build%20%26%20Unit%20Tests%20Windows)](https://dev.azure.com/cake-contrib/Cake.Issues/_build/latest?definitionId=2&branchName=develop)|[![Build Status](https://dev.azure.com/cake-contrib/Cake.Issues/_apis/build/status%2Fcake-contrib.Cake.Issues?branchName=master&jobName=Build%20%26%20Unit%20Tests&configuration=Build%20%26%20Unit%20Tests%20Windows)](https://dev.azure.com/cake-contrib/Cake.Issues/_build/latest?definitionId=2&branchName=master)|
 |Azure Pipelines|N/A|Ubuntu|[![Build Status](https://dev.azure.com/cake-contrib/Cake.Issues/_apis/build/status%2Fcake-contrib.Cake.Issues?branchName=develop&jobName=Build%20%26%20Unit%20Tests&configuration=Build%20%26%20Unit%20Tests%20Ubuntu)](https://dev.azure.com/cake-contrib/Cake.Issues/_build/latest?definitionId=2&branchName=develop)|[![Build Status](https://dev.azure.com/cake-contrib/Cake.Issues/_apis/build/status%2Fcake-contrib.Cake.Issues?branchName=master&jobName=Build%20%26%20Unit%20Tests&configuration=Build%20%26%20Unit%20Tests%20Ubuntu)](https://dev.azure.com/cake-contrib/Cake.Issues/_build/latest?definitionId=2&branchName=master)|
 |Azure Pipelines|N/A|macOS|[![Build Status](https://dev.azure.com/cake-contrib/Cake.Issues/_apis/build/status%2Fcake-contrib.Cake.Issues?branchName=develop&jobName=Build%20%26%20Unit%20Tests&configuration=Build%20%26%20Unit%20Tests%20macOS)](https://dev.azure.com/cake-contrib/Cake.Issues/_build/latest?definitionId=2&branchName=develop)|[![Build Status](https://dev.azure.com/cake-contrib/Cake.Issues/_apis/build/status%2Fcake-contrib.Cake.Issues?branchName=master&jobName=Build%20%26%20Unit%20Tests&configuration=Build%20%26%20Unit%20Tests%20macOS)](https://dev.azure.com/cake-contrib/Cake.Issues/_build/latest?definitionId=2&branchName=master)|
+|GitHub Actions|N/A|Ubuntu|[![Build and tests](https://github.com/cake-contrib/Cake.Issues/actions/workflows/build.yml/badge.svg?branch=develop)](https://github.com/cake-contrib/Cake.Issues/actions/workflows/build.yml)|[![Build and tests](https://github.com/cake-contrib/Cake.Issues/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/cake-contrib/Cake.Issues/actions/workflows/build.yml)|
 
 ## Integration Tests Cake.Issues.GitRepository
 
