@@ -1,0 +1,54 @@
+name: Build and tests
+on: [push, pull_request]
+jobs:
+  # Build
+  Build:
+    name: Build
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Get the sources
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+      - name: Fetch all tags and branches
+        run: git fetch --prune --unshallow
+      - name: Install .NET
+        uses: actions/setup-dotnet@4d6c8fcf3c8f7a60068d26b594648e99df24cee3 # v4
+        with:
+          # .NET 5 required for GitVersion
+          dotnet-version: | 
+            5.x
+            6.x
+            7.x
+            8.x
+      - name: Build
+        run: .\build.sh
+        shell: bash
+      - name: Publish NuGet package as build artifact
+        uses: actions/upload-artifact@5d5d22a31266ced268874388b861e4b58bb5c2f3 # v4
+        with:
+          name: NuGet Package
+          path: ./BuildArtifacts/Packages/NuGet/
+  # Integration Tests Cake.Issues.PullRequests.GitHubActions Cake Scripting
+  IntegrationTestsPullRequestsGitHubActionsCakeScripting:
+    name: Integration Tests Cake.Issues.PullRequests.GitHubActions Cake Scripting
+    needs: Build
+    strategy:
+      matrix:
+        os: [windows-2019, windows-2022, ubuntu-20.04, ubuntu-22.04, macos-11, macos-14]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Get the sources
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+      - name: Download build artifact
+        uses: actions/download-artifact@eaceaf801fd36c7dee90939fad912460b18a1ffe # v4
+        with:
+          name: NuGet Package
+          path: ./BuildArtifacts/Packages/NuGet
+      - name: Install .NET
+        uses: actions/setup-dotnet@4d6c8fcf3c8f7a60068d26b594648e99df24cee3 # v4
+        with:
+          dotnet-version: | 
+            6.x
+      - name: Run integration tests
+        run: ./build.ps1 --verbosity=diagnostic
+        working-directory: ./tests/Cake.Issues.PullRequests.GitHubActions/script-runner/
+        shell: powershell
