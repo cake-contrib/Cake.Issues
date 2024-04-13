@@ -3,10 +3,10 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <IsPackable>false</IsPackable>
-    <Product>Cake.Issues</Product>
-    <Copyright>Copyright © Pascal Berger and contributors</Copyright>
     <Description>Tests for the Cake.Issues.PullRequests.GitHubActions addin</Description>
-    <Authors>Pascal Berger</Authors>
+    <Authors>Cake Issues contributors</Authors>
+    <Copyright>Copyright © Cake Issues contributors</Copyright>
+    <Product>Cake.Issues</Product>
   </PropertyGroup>
 
   <PropertyGroup>
