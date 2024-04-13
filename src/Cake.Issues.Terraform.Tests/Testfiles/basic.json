@@ -1,0 +1,29 @@
+﻿{
+  "valid": false,
+  "error_count": 1,
+  "warning_count": 1,
+  "diagnostics": [
+    {
+      "severity": "warning",
+      "summary": "\"anonymous\": [DEPRECATED] For versions later than 3.0.0, absence of a token enables this mode"
+    },
+    {
+      "severity": "error",
+      "summary": "Missing required argument",
+      "detail": "The argument \"name\" is required, but no definition was found.",
+      "range": {
+        "filename": "main.tf",
+        "start": {
+          "line": 14,
+          "column": 37,
+          "byte": 200
+        },
+        "end": {
+          "line": 14,
+          "column": 37,
+          "byte": 200
+        }
+      }
+    }
+  ]
+}
