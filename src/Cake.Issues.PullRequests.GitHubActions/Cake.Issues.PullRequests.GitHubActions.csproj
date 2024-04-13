@@ -17,8 +17,6 @@
 
   <ItemGroup>
     <PackageReference Include="Cake.Core" Version="4.0.0" />
-    <PackageReference Include="Cake.Issues" Version="4.0.0" />
-    <PackageReference Include="Cake.Issues.PullRequests" Version="4.0.0" />
     <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="8.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -26,4 +24,8 @@
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.118" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Cake.Issues\Cake.Issues.csproj" />
+    <ProjectReference Include="..\Cake.Issues.PullRequests\Cake.Issues.PullRequests.csproj" />
+  </ItemGroup>
 </Project>
