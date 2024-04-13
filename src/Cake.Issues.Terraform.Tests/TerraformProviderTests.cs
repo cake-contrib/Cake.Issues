@@ -1,6 +1,7 @@
 ﻿namespace Cake.Issues.Terraform.Tests
 {
     using System.Linq;
+    using System.Runtime.InteropServices;
     using Cake.Issues.Testing;
     using Cake.Testing;
     using Shouldly;
@@ -39,9 +40,12 @@
         // Test cases based on https://github.com/hashicorp/terraform-json/blob/master/validate_test.go
         public sealed class TheReadIssuesMethod
         {
-            [Fact]
+            [SkippableFact]
             public void Should_Read_Basic_Issues_Correct()
             {
+                // Uses Windows specific paths.
+                Skip.IfNot(RuntimeInformation.IsOSPlatform(OSPlatform.Windows));
+
                 // Given
                 var fixture = new TerraformProviderFixture("basic.json", @"./");
 
@@ -68,9 +72,12 @@
                         .WithPriority(IssuePriority.Error));
             }
 
-            [Fact]
+            [SkippableFact]
             public void Should_Read_Error_Correct()
             {
+                // Uses Windows specific paths.
+                Skip.IfNot(RuntimeInformation.IsOSPlatform(OSPlatform.Windows));
+
                 // Given
                 var fixture = new TerraformProviderFixture("error.json", @"./");
 
