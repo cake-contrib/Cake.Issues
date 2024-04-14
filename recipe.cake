@@ -14,10 +14,15 @@ BuildParameters.SetParameters(
     repositoryOwner: "cake-contrib",
     repositoryName: "Cake.Issues",
     appVeyorAccountName: "cakecontrib",
+    shouldGenerateDocumentation: false, // Documentation is generated from Cake.Issues.Website
     shouldRunCoveralls: false,  // Disabled because it's currently failing
     shouldPostToGitter: false); // Disabled because it's currently failing
 
 BuildParameters.PrintParameters(Context);
+
+ToolSettings.SetToolPreprocessorDirectives(
+    gitReleaseManagerGlobalTool: "#tool dotnet:?package=GitReleaseManager.Tool&version=0.17.0"
+);
 
 ToolSettings.SetToolSettings(
     context: Context,

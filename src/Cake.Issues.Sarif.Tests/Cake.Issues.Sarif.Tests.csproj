@@ -1,0 +1,54 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFrameworks>net6.0</TargetFrameworks>
+    <Description>Tests for the Cake.Issues.Sarif addin</Description>
+    <Authors>Cake Issues contributors</Authors>
+    <Product>Cake.Issues</Product>
+    <Copyright>Copyright © Cake Issues contributors</Copyright>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <CodeAnalysisRuleSet>..\Cake.Issues.Tests.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Testfiles\cake.issues.reporting.sarif.sarif" />
+    <EmbeddedResource Include="Testfiles\comprehensive.sarif" />
+    <EmbeddedResource Include="Testfiles\minimal.sarif" />
+    <EmbeddedResource Include="Testfiles\recommended-with-source.sarif" />
+    <EmbeddedResource Include="Testfiles\recommended-without-source.sarif" />
+    <EmbeddedResource Include="Testfiles\rule-metadata-1.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Cake.Testing">
+      <Version>4.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="Shouldly">
+      <Version>4.2.1</Version>
+    </PackageReference>
+    <PackageReference Include="StyleCop.Analyzers">
+      <Version>1.2.0-beta.556</Version>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
+    <PackageReference Include="xunit">
+      <Version>2.7.1</Version>
+    </PackageReference>
+    <PackageReference Include="xunit.runner.visualstudio">
+      <Version>2.5.8</Version>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Cake.Issues\Cake.Issues.csproj" />
+    <ProjectReference Include="..\Cake.Issues.Testing\Cake.Issues.Testing.csproj" />
+    <ProjectReference Include="..\Cake.Issues.Sarif\Cake.Issues.Sarif.csproj" />
+  </ItemGroup>
+
+</Project>

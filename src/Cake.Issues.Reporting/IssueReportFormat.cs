@@ -7,17 +7,10 @@
     /// <summary>
     /// Base class for all report format implementations.
     /// </summary>
-    public abstract class IssueReportFormat : BaseIssueComponent<ICreateIssueReportSettings>, IIssueReportFormat
+    /// <param name="log">The Cake log context.</param>
+    public abstract class IssueReportFormat(ICakeLog log)
+        : BaseIssueComponent<ICreateIssueReportSettings>(log), IIssueReportFormat
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="IssueReportFormat"/> class.
-        /// </summary>
-        /// <param name="log">The Cake log context.</param>
-        protected IssueReportFormat(ICakeLog log)
-            : base(log)
-        {
-        }
-
         /// <inheritdoc />
         public FilePath CreateReport(IEnumerable<IIssue> issues)
         {

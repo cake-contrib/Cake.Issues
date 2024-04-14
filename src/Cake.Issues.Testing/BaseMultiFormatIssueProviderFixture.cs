@@ -9,20 +9,13 @@
     /// <typeparam name="TIssueProvider">Type of issue provider.</typeparam>
     /// <typeparam name="TSettings">Type of the settings for the issue provider.</typeparam>
     /// <typeparam name="TLogFileFormat">Type of the log file format.</typeparam>
-    public abstract class BaseMultiFormatIssueProviderFixture<TIssueProvider, TSettings, TLogFileFormat> : BaseConfigurableIssueProviderFixture<TIssueProvider, TSettings>
+    /// <param name="fileResourceName">Name of the resource to load.</param>
+    public abstract class BaseMultiFormatIssueProviderFixture<TIssueProvider, TSettings, TLogFileFormat>(string fileResourceName)
+        : BaseConfigurableIssueProviderFixture<TIssueProvider, TSettings>(fileResourceName)
         where TIssueProvider : BaseMultiFormatIssueProvider<TSettings, TIssueProvider>
         where TSettings : BaseMultiFormatIssueProviderSettings<TIssueProvider, TSettings>
         where TLogFileFormat : ILogFileFormat<TIssueProvider, TSettings>
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="BaseMultiFormatIssueProviderFixture{TIssueProvider, TSettings, TLogFileFormat}"/> class.
-        /// </summary>
-        /// <param name="fileResourceName">Name of the resource to load.</param>
-        protected BaseMultiFormatIssueProviderFixture(string fileResourceName)
-            : base(fileResourceName)
-        {
-        }
-
         /// <inheritdoc/>
         protected override IList<object> GetCreateIssueProviderSettingsArguments()
         {

@@ -7,19 +7,11 @@
     /// <summary>
     /// Base class for all pull request system implementations.
     /// </summary>
-    public abstract class BasePullRequestSystem
-        : BaseIssueComponent<IReportIssuesToPullRequestSettings>, IPullRequestSystem
+    /// <param name="log">The Cake log context.</param>
+    public abstract class BasePullRequestSystem(ICakeLog log)
+        : BaseIssueComponent<IReportIssuesToPullRequestSettings>(log), IPullRequestSystem
     {
         private readonly List<IPullRequestSystemCapability> capabilities = [];
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="BasePullRequestSystem"/> class.
-        /// </summary>
-        /// <param name="log">The Cake log context.</param>
-        protected BasePullRequestSystem(ICakeLog log)
-            : base(log)
-        {
-        }
 
         /// <inheritdoc/>
         public void AddCapability(IPullRequestSystemCapability capability)
