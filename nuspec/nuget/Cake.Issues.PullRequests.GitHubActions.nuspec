@@ -26,7 +26,7 @@ For addin compatible with Cake Frosting see Cake.Frosting.Issues.PullRequests.Gi
     <repository type="git" url="https://github.com/cake-contrib/Cake.Issues"/>
     <copyright>Copyright © Cake Issues contributors</copyright>
     <tags>cake cake-addin cake-issues cake-pullrequestsystem issues pullrequest buildserver github github-actions</tags>
-    <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/4.0.0</releaseNotes>
+    <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/4.2.0</releaseNotes>
   </metadata>
   <files>
     <file src="..\..\..\..\nuspec\nuget\icon.png" target="" />
