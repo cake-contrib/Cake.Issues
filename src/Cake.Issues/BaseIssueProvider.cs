@@ -7,7 +7,7 @@
     /// Base class for all issue provider implementations.
     /// </summary>
     /// <param name="log">The Cake log context.</param>
-    public abstract class BaseIssueProvider(ICakeLog log) 
+    public abstract class BaseIssueProvider(ICakeLog log)
         : BaseIssueComponent<IReadIssuesSettings>(log), IIssueProvider
     {
         /// <inheritdoc/>

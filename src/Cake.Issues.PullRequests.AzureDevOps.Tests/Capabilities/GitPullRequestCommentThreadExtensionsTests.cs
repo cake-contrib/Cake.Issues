@@ -199,7 +199,7 @@
                         FilePath = filePath,
                         Comments = new List<AzureDevOpsComment>
                         {
-                            new ()
+                            new()
                             {
                                 Content = commentContent,
                                 IsDeleted = commentIsDeleted,

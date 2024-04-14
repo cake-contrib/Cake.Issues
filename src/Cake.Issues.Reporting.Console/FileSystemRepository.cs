@@ -12,7 +12,7 @@
     internal sealed class FileSystemRepository(ICreateIssueReportSettings settings) : ISourceRepository
     {
         private readonly ICreateIssueReportSettings settings = settings;
-        private readonly Dictionary<string, Source> cache = new (StringComparer.OrdinalIgnoreCase);
+        private readonly Dictionary<string, Source> cache = new(StringComparer.OrdinalIgnoreCase);
 
         /// <inheritdoc />
         public bool TryGet(string id, out Source source)
