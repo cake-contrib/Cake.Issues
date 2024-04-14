@@ -7,20 +7,12 @@
     /// Capability to read, resolve and reopen discussion threads.
     /// </summary>
     /// <typeparam name="T">Type of the pull request system to which this capability belongs.</typeparam>
-    public abstract class BaseDiscussionThreadsCapability<T>
-        : BasePullRequestSystemCapability<T>, ISupportDiscussionThreads
+    /// <param name="log">The Cake log context.</param>
+    /// <param name="pullRequestSystem">Pull request system to which this capability belongs.</param>
+    public abstract class BaseDiscussionThreadsCapability<T>(ICakeLog log, T pullRequestSystem)
+        : BasePullRequestSystemCapability<T>(log, pullRequestSystem), ISupportDiscussionThreads
         where T : class, IPullRequestSystem
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="BaseDiscussionThreadsCapability{T}"/> class.
-        /// </summary>
-        /// <param name="log">The Cake log context.</param>
-        /// <param name="pullRequestSystem">Pull request system to which this capability belongs.</param>
-        protected BaseDiscussionThreadsCapability(ICakeLog log, T pullRequestSystem)
-            : base(log, pullRequestSystem)
-        {
-        }
-
         /// <inheritdoc/>
         public IEnumerable<IPullRequestDiscussionThread> FetchDiscussionThreads(string commentSource)
         {
