@@ -10,7 +10,7 @@
     /// <typeparam name="TIssueProvider">Type of the issue provider.</typeparam>
     /// <param name="log">The Cake log context.</param>
     /// <param name="settings">Settings for the issue provider.</param>
-    public abstract class BaseMultiFormatIssueProvider<TSettings, TIssueProvider>(ICakeLog log, TSettings settings) 
+    public abstract class BaseMultiFormatIssueProvider<TSettings, TIssueProvider>(ICakeLog log, TSettings settings)
         : BaseConfigurableIssueProvider<TSettings>(log, settings)
         where TSettings : BaseMultiFormatIssueProviderSettings<TIssueProvider, TSettings>
         where TIssueProvider : BaseMultiFormatIssueProvider<TSettings, TIssueProvider>

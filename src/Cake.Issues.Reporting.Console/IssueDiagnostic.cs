@@ -89,7 +89,7 @@
         /// </summary>
         /// <param name="issue">Issue for which the location should be returned.</param>
         /// <returns>Location for the diagnostic.</returns>
-        private (Location location, int lenght) GetLocation(IIssue issue)
+        private (Location Location, int Lenght) GetLocation(IIssue issue)
         {
             // Errata currently doesn't support file or line level diagnostics.
             if (!issue.Line.HasValue || !issue.Column.HasValue)
@@ -99,7 +99,7 @@
 
             var location = new Location(issue.Line.Value, issue.Column.Value);
 
-            int lenght = 0;
+            var lenght = 0;
             if (issue.EndColumn.HasValue)
             {
                 lenght = issue.EndColumn.Value - issue.Column.Value;
