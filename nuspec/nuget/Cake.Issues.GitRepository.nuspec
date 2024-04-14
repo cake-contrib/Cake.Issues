@@ -16,6 +16,10 @@ It also requires the core Cake.Issues addin.
 There are also additional addins for generating reports or posting issues to pull requests.
 
 See the Project Site for an overview of the whole ecosystem of addins for working with issues in Cake scripts.
+
+NOTE:
+This is the version of the addin compatible with Cake Script Runners.
+For addin compatible with Cake Frosting see Cake.Frosting.Issues.GitRepository.
     </description>
     <license type="expression">MIT</license>
     <projectUrl>https://cakeissues.net</projectUrl>
