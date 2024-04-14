@@ -116,7 +116,7 @@ For questions and to discuss ideas & feature requests, use the [GitHub discussio
 |:--:|-|-|
 | [Cake.Issues](https://www.nuget.org/packages/Cake.Issues) | [Cake.Issues](https://www.nuget.org/packages/Cake.Issues) | Addin providing the aliases for creating and reading of issues. |
 | [Cake.Issues.MsBuild](https://www.nuget.org/packages/Cake.Issues.MsBuild) | [Cake.Frosting.Issues.MsBuild](https://www.nuget.org/packages/Cake.Frosting.Issues.MsBuild) | Issue provider for reading MsBuild errors and warnings. |
-| [Cake.Issues.DocFx](https://www.nuget.org/packages/Cake.Issues.DocFx) | [Cake.Issues.DocFx](https://www.nuget.org/packages/Cake.Issues.DocFx) | Issue provider for reading DocFx warnings. |
+| [Cake.Issues.DocFx](https://www.nuget.org/packages/Cake.Issues.DocFx) | [Cake.Frosting.Issues.DocFx](https://www.nuget.org/packages/Cake.Frosting.Issues.DocFx) | Issue provider for reading DocFx warnings. |
 | [Cake.Issues.EsLint](https://www.nuget.org/packages/Cake.Issues.EsLint) | [Cake.Frosting.Issues.EsLint](https://www.nuget.org/packages/Cake.Frosting.Issues.EsLint) | Issue provider for reading ESLint issues. |
 | [Cake.Issues.GitRepository](https://www.nuget.org/packages/Cake.Issues.GitRepository) | [Cake.Frosting.Issues.GitRepository](https://www.nuget.org/packages/Cake.Frosting.Issues.GitRepository) | Issue provider for analyzing Git repositories. |
 | [Cake.Issues.InspectCode](https://www.nuget.org/packages/Cake.Issues.InspectCode) | [Cake.Frosting.Issues.InspectCode](https://www.nuget.org/packages/Cake.Frosting.Issues.InspectCode) | Issue provider for reading JetBrains Inspect Code issues. |
