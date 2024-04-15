@@ -32,6 +32,22 @@ ToolSettings.SetToolSettings(
     testCoverageExcludeByFile: "*/*Designer.cs;*/*.g.cs;*/*.g.i.cs");
 
 //*************************************************************************************************
+// Setup
+//*************************************************************************************************
+
+Setup(context =>
+{
+    // Addins are backwards compatible to latest major version.
+    // Since we are using project references, we need to fix assembly version to the latest
+    // major version to avoid requiring exact minor versions at runtime.
+    var settings = context.Data.Get<DotNetCoreMSBuildSettings>();
+    var version = new Version(settings.Properties["AssemblyVersion"].First());
+    settings.Properties["AssemblyVersion"] = new List<string> { $"{version.Major}.0.0.0" };
+
+    context.Log.Information("AssemblyVersion changed to {0}", settings.Properties["AssemblyVersion"].First());
+});
+
+//*************************************************************************************************
 // Execution
 //*************************************************************************************************
 
