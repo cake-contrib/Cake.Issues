@@ -14,6 +14,7 @@ BuildParameters.SetParameters(
     repositoryOwner: "cake-contrib",
     repositoryName: "Cake.Issues",
     appVeyorAccountName: "cakecontrib",
+    shouldUseDeterministicBuilds: true,
     shouldGenerateDocumentation: false, // Documentation is generated from Cake.Issues.Website
     shouldRunCoveralls: false,  // Disabled because it's currently failing
     shouldPostToGitter: false); // Disabled because it's currently failing
