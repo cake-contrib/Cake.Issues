@@ -348,7 +348,7 @@
         /// <summary>
         /// Version of <see href="https://jquery.com">jQuery</see> which should be used.
         /// This version needs to match the version required by the selected <see cref="DevExtremeVersion"/>.
-        /// Default value is <c>3.7.0</c>.
+        /// Default value is <c>3.7.1</c>.
         /// </summary>
         JQueryVersion,
 
@@ -375,7 +375,7 @@
         /// <summary>
         /// Version of the <see href="https://js.devexpress.com/">DevExtreme </see> libraries which should be used.
         /// If setting this the matching <see cref="JQueryVersion"/> needs to also be set.
-        /// Default value is <c>23.1.6</c>.
+        /// Default value is <c>23.1.9</c>.
         /// </summary>
         DevExtremeVersion,
 

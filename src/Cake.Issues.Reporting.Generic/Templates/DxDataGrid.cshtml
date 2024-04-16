@@ -63,7 +63,7 @@
     List<HtmlDxDataGridColumnDescription> additionalColumns = ViewBagHelper.ValueOrDefault(ViewBag.AdditionalColumns, new List<HtmlDxDataGridColumnDescription>());
     string jQueryLocation = ViewBagHelper.ValueOrDefault(ViewBag.JQueryLocation, "https://ajax.aspnetcdn.com/ajax/jquery/").Trim();
     jQueryLocation = jQueryLocation.WithEnding("/");
-    string jQueryVersion = ViewBagHelper.ValueOrDefault(ViewBag.JQueryVersion, "3.7.0").Trim();
+    string jQueryVersion = ViewBagHelper.ValueOrDefault(ViewBag.JQueryVersion, "3.7.1").Trim();
     string excelJsLocation = ViewBagHelper.ValueOrDefault(ViewBag.ExcelJsLocation, "https://cdnjs.cloudflare.com/ajax/libs/exceljs/").Trim();
     excelJsLocation = excelJsLocation.WithEnding("/");
     string excelJsVersion = ViewBagHelper.ValueOrDefault(ViewBag.ExcelJsVersion, "4.4.0").Trim();
@@ -78,7 +78,7 @@
     string jsPdfAutoTableVersion = ViewBagHelper.ValueOrDefault(ViewBag.FileSaverJsVersion, "3.8.2").Trim();
     string devExtremeLocation = ViewBagHelper.ValueOrDefault(ViewBag.DevExtremeLocation, "https://cdn3.devexpress.com/jslib/").Trim();
     devExtremeLocation = devExtremeLocation.WithEnding("/");
-    string devExtremeVersion = ViewBagHelper.ValueOrDefault(ViewBag.DevExtremeVersion, "23.1.6").Trim();
+    string devExtremeVersion = ViewBagHelper.ValueOrDefault(ViewBag.DevExtremeVersion, "23.1.9").Trim();
 }
 
 @{
