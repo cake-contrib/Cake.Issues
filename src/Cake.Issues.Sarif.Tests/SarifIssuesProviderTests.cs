@@ -173,6 +173,30 @@
                         .WithPriority(IssuePriority.Warning)
                         .Create());
             }
+
+            [Fact]
+            public void Should_Read_Issue_Correct_For_File_Generated_By_EsLint()
+            {
+                // Given
+                var fixture = new SarifIssuesProviderFixture("eslint.sarif");
+
+                // When
+                var issues = fixture.ReadIssues().ToList();
+
+                // Then
+                issues.Count.ShouldBe(1);
+                var issue = issues.Single();
+                IssueChecker.Check(
+                    issue,
+                    IssueBuilder.NewIssue(
+                        "'x' is assigned a value but never used.",
+                        "Cake.Issues.Sarif.SarifIssuesProvider",
+                        "ESLint")
+                        .InFile(@"src\collections\list.cpp", 15)
+                        .OfRule("no-unused-vars", new Uri("https://eslint.org/docs/rules/no-unused-vars"))
+                        .WithPriority(IssuePriority.Error)
+                        .Create());
+            }
         }
     }
 }
