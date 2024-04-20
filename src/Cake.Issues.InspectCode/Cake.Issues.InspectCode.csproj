@@ -11,9 +11,6 @@
   <PropertyGroup>
     <AnalysisMode>AllEnabledByDefault</AnalysisMode>
     <CodeAnalysisRuleSet>..\Cake.Issues.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-  
-  <PropertyGroup>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Cake.Issues.InspectCode.xml</DocumentationFile>
   </PropertyGroup>
   
