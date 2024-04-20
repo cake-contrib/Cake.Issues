@@ -19,7 +19,6 @@
     <DefineConstants>TRACE</DefineConstants>
   </PropertyGroup>
   <PropertyGroup>
-    <LangVersion>latest</LangVersion>
     <DebugType>full</DebugType>
     <AnalysisMode>AllEnabledByDefault</AnalysisMode>
   </PropertyGroup>
