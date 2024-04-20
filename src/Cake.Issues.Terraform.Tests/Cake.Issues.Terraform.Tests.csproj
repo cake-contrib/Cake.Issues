@@ -6,8 +6,8 @@
     <IsPackable>false</IsPackable>
     <Description>Tests for the Cake.Issues.Terraform addin</Description>
     <Authors>Cake Issues contributors</Authors>
-    <Product>Cake.Issues</Product>
     <Copyright>Copyright © Cake Issues contributors</Copyright>
+    <Product>Cake.Issues</Product>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <CodeAnalysisRuleSet>..\Cake.Issues.Tests.ruleset</CodeAnalysisRuleSet>

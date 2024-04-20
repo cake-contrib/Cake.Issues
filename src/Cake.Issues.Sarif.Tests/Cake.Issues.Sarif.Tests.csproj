@@ -5,8 +5,8 @@
     <TargetFrameworks>net6.0</TargetFrameworks>
     <Description>Tests for the Cake.Issues.Sarif addin</Description>
     <Authors>Cake Issues contributors</Authors>
-    <Product>Cake.Issues</Product>
     <Copyright>Copyright © Cake Issues contributors</Copyright>
+    <Product>Cake.Issues</Product>
   </PropertyGroup>
 
   <PropertyGroup>

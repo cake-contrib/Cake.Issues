@@ -3,7 +3,6 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <IsPackable>false</IsPackable>
-    <Product>Cake.Issues</Product>
     <Description>Tests for the Cake.Issues.PullRequests.AppVeyor addin</Description>
     <Authors>Cake Issues contributors</Authors>
     <Copyright>Copyright © Cake Issues contributors</Copyright>

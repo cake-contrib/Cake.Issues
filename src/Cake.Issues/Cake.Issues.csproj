@@ -5,6 +5,7 @@
     <Description>Addin for reading code analyzer or linter issues for the Cake build automation system</Description>
     <Authors>Cake Issues contributors</Authors>
     <Copyright>Copyright © Cake Issues contributors</Copyright>
+    <Product>Cake.Issues</Product>
   </PropertyGroup>
 
   <PropertyGroup>
