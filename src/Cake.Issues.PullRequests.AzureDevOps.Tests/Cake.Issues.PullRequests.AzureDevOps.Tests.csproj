@@ -1,5 +1,4 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
     <IsPackable>false</IsPackable>
@@ -33,5 +32,4 @@
     <ProjectReference Include="..\Cake.Issues.Testing\Cake.Issues.Testing.csproj" />
     <ProjectReference Include="..\Cake.Issues.PullRequests.AzureDevOps\Cake.Issues.PullRequests.AzureDevOps.csproj" />
   </ItemGroup>
-
 </Project>

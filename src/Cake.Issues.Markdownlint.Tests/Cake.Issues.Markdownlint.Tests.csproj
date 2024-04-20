@@ -7,15 +7,18 @@
     <Copyright>Copyright © Cake Issues contributors</Copyright>
     <Product>Cake.Issues</Product>
   </PropertyGroup>
+
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <CodeAnalysisRuleSet>..\Cake.Issues.Tests.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <CodeAnalysisRuleSet>..\Cake.Issues.Tests.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
+
   <ItemGroup>
     <None Remove="Testfiles\MarkdownlintCliJsonLogFileFormat\AbsoluteFilePath.json" />
     <None Remove="Testfiles\MarkdownlintCliJsonLogFileFormat\empty.json" />
@@ -29,6 +32,7 @@
     <None Remove="Testfiles\MarkdownlintCliLogFileFormat\markdownlint-cli-0.19.0.log" />
     <None Remove="Testfiles\MarkdownlintCliLogFileFormat\markdownlint-cli-0.22.0.log" />
   </ItemGroup>
+
   <ItemGroup>
     <EmbeddedResource Include="Testfiles\MarkdownlintCliJsonLogFileFormat\AbsoluteFilePath.json" />
     <EmbeddedResource Include="Testfiles\MarkdownlintCliJsonLogFileFormat\empty.json" />
@@ -43,9 +47,11 @@
     <EmbeddedResource Include="Testfiles\MarkdownlintCliLogFileFormat\markdownlint-cli-0.22.0.log" />
     <EmbeddedResource Include="Testfiles\MarkdownlintV1LogFileFormat\markdownlint.json" />
   </ItemGroup>
+
   <ItemGroup>
     <None Include="app.config" />
   </ItemGroup>
+
   <ItemGroup>
     <PackageReference Include="Cake.Testing">
       <Version>4.0.0</Version>
