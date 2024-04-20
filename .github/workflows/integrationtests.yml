@@ -1,4 +1,4 @@
-name: Build and tests
+name: Integration tests
 
 # Workflow Trigger
 on:
