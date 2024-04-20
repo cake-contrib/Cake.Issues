@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Runtime.InteropServices;
     using Cake.Core.Diagnostics;
     using Microsoft.Build.Framework;
     using Microsoft.Build.Logging.StructuredLogger;
@@ -22,6 +23,13 @@
             issueProvider.NotNull(nameof(issueProvider));
             repositorySettings.NotNull(nameof(repositorySettings));
             issueProviderSettings.NotNull(nameof(issueProviderSettings));
+
+            // Ensure that strings for MsBuild.StructuredLogger are initialized.
+            // See https://github.com/KirillOsenkov/MSBuildStructuredLog/issues/736
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+            {
+                Strings.Initialize();
+            }
 
             var result = new List<IIssue>();
 
