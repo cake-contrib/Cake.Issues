@@ -1,0 +1,40 @@
+name: Unit tests
+
+# Workflow Trigger
+on:
+  # Trigger the workflow on a pull request to any branch
+  pull_request:
+  # Triggers the workflow in the event there is a push to master
+  push:
+    branches: 
+      - master
+
+jobs:
+  Test:
+    name: Run unit tests
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [
+          windows-2019, windows-2022,
+          ubuntu-20.04, ubuntu-22.04,
+          # Cake.Recipe currently does not support macOS 14 (M1)
+          macos-11, macos-13]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Get the sources
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+      - name: Fetch all tags and branches
+        run: git fetch --prune --unshallow
+      - name: Install .NET
+        uses: actions/setup-dotnet@4d6c8fcf3c8f7a60068d26b594648e99df24cee3 # v4
+        with:
+          # .NET 5 required for GitVersion
+          dotnet-version: | 
+            5.x
+            6.x
+            7.x
+            8.x
+      - name: Test
+        run: ./build.sh --target=Test
+        shell: bash
