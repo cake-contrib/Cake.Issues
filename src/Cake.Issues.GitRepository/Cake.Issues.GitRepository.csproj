@@ -1,6 +1,5 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <OutputType>Library</OutputType>
     <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
     <Description>Git repository linting support for the Cake.Issues addin for Cake Build Automation System</Description>
     <Authors>Cake Issues contributors</Authors>

@@ -1,7 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Library</OutputType>
     <TargetFrameworks>net6.0</TargetFrameworks>
     <Description>Tests for the Cake.Issues.Sarif addin</Description>
     <Authors>Cake Issues contributors</Authors>
