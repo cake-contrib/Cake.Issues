@@ -11,10 +11,24 @@ pr:
 
 stages:
 - stage: BuildStage
-  displayName: Build
+  displayName: Full Build
+  dependsOn: []
   jobs:
   - job: BuildJob
-    displayName: Build & Unit Tests
+    displayName: Build
+    pool:
+      vmImage: 'windows-2022'
+    steps:
+    - template: .azuredevops/pipelines/templates/steps/install-required-dotnet-versions-for-building.yml 
+    - bash: ./build.sh
+      displayName: 'Build & Run Unit Tests'
+
+- stage: UnitTestStage
+  displayName: Unit Tests
+  dependsOn: []
+  jobs:
+  - job: UnitTestJob
+    displayName: Unit Tests
     strategy:
       matrix:
         Windows:
@@ -27,16 +41,28 @@ stages:
       vmImage: $(imageName)
     steps:
     - template: .azuredevops/pipelines/templates/steps/install-required-dotnet-versions-for-building.yml 
-    - bash: ./build.sh
+    - bash: ./build.sh --target=Test
+      displayName: 'Run Unit Tests'
+
+- stage: IntegrationTestsBuildStage
+  displayName: Build
+  dependsOn: []
+  jobs:
+  - job: CreateNuGetPackagesJob
+    displayName: Create NuGet Packages
+    pool:
+      vmImage: 'ubuntu-22.04'
+    steps:
+    - template: .azuredevops/pipelines/templates/steps/install-required-dotnet-versions-for-building.yml 
+    - bash: ./build.sh --target=Create-NuGet-Packages
       displayName: 'Build & Run Unit Tests'
     - publish: $(Build.SourcesDirectory)/BuildArtifacts/Packages/NuGet
       artifact: NuGet Package
       displayName: 'Publish NuGet package as build artifact'
-      condition: eq( variables['System.JobName'], 'Windows' )
 
 - stage: IntegrationTestsGitRepositoryStage
   displayName: Integration Tests Cake.Issues.GitRepository
-  dependsOn: BuildStage
+  dependsOn: IntegrationTestsBuildStage
   jobs:
   - job: TestGitRepositoryScriptingJob
     displayName: Test Cake Scripting
@@ -68,7 +94,7 @@ stages:
 
 - stage: IntegrationTestsMarkdownlintStage
   displayName: Integration Tests Cake.Issues.Markdownlint
-  dependsOn: BuildStage
+  dependsOn: IntegrationTestsBuildStage
   jobs:
   - job: TestMarkdownlintJob
     displayName: Test
@@ -101,7 +127,7 @@ stages:
 
 - stage: IntegrationTestsMsBuildStage
   displayName: Integration Tests Cake.Issues.MsBuild
-  dependsOn: BuildStage
+  dependsOn: IntegrationTestsBuildStage
   jobs:
   - job: TestMsBuildJob
     displayName: Test
@@ -130,7 +156,7 @@ stages:
 
 - stage: IntegrationTestsReportingConsoleStage
   displayName: Integration Tests Cake.Issues.Reporting.Console
-  dependsOn: BuildStage
+  dependsOn: IntegrationTestsBuildStage
   jobs:
   - job: TestReportingConsoleScriptingJob
     displayName: Test Cake Scripting
@@ -183,7 +209,7 @@ stages:
 
 - stage: IntegrationTestsReportingGenericStage
   displayName: Integration Tests Cake.Issues.Reporting.Generic
-  dependsOn: BuildStage
+  dependsOn: IntegrationTestsBuildStage
   jobs:
   - job: TestReportingGenericScriptingJob
     displayName: Test Cake Scripting
@@ -244,7 +270,7 @@ stages:
 
 - stage: IntegrationTestsReportingSarifStage
   displayName: Integration Tests Cake.Issues.Reporting.Sarif
-  dependsOn: BuildStage
+  dependsOn: IntegrationTestsBuildStage
   jobs:
   - job: TestReportingSarifScriptingJob
     displayName: Test Cake Scripting
