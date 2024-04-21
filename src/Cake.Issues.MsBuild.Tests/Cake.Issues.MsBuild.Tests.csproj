@@ -5,9 +5,6 @@
     <IsPackable>false</IsPackable>
     <IsTestProject>true</IsTestProject>
     <Product>Cake.Issues</Product>
-    <Copyright>Copyright © Cake Issues contributors</Copyright>
-    <Description>Tests for the Cake.Issues.MsBuild addin</Description>
-    <Authors>Cake Issues and contributors</Authors>
   </PropertyGroup>
 
   <PropertyGroup>

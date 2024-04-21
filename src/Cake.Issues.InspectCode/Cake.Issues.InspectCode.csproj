@@ -3,9 +3,6 @@
   <PropertyGroup>
     <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
     <Description>JetBrains Inspect Code support for the Cake.Issues Addin for Cake Build Automation System</Description>
-    <Authors>Cake Issues contributors</Authors>
-    <Copyright>Copyright © Cake Issues contributors</Copyright>
-    <Product>Cake.Issues</Product>
   </PropertyGroup>
   
   <PropertyGroup>

@@ -4,9 +4,6 @@
     <IsPackable>false</IsPackable>
     <IsTestProject>true</IsTestProject>
     <Description>Tests for the Cake.Issues.EsLint addin</Description>
-    <Authors>Cake Issues contributors</Authors>
-    <Copyright>Copyright © Cake Issues contributors</Copyright>
-    <Product>Cake.Issues</Product>
   </PropertyGroup>
 
   <PropertyGroup>

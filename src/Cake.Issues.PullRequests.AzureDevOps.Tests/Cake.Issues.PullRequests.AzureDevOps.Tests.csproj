@@ -3,10 +3,7 @@
     <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
     <IsPackable>false</IsPackable>
     <IsTestProject>true</IsTestProject>
-    <Product>Cake.Issues.PullRequests.AzureDevOps</Product>
-    <Copyright>Copyright © BBT Software AG and contributors</Copyright>
     <Description>Tests for the Cake.Issues.PullRequests.AzureDevOps addin</Description>
-    <Authors>BBT Software AG and contributors</Authors>
   </PropertyGroup>
 
   <PropertyGroup>

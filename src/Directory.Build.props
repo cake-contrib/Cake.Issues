@@ -1,6 +1,9 @@
 <Project>
   <PropertyGroup>
     <LangVersion>latest</LangVersion>
+    <Authors>Cake Issues contributors</Authors>
+    <Copyright>Copyright © Cake Issues contributors</Copyright>
+    <Product>Cake.Issues</Product>
    </PropertyGroup>
 
   <ItemGroup>
