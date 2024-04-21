@@ -14,13 +14,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="8.0.0">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
     <PackageReference Include="MSBuild.StructuredLogger" Version="2.2.235" />
   </ItemGroup>
-
+  
   <ItemGroup>
     <ProjectReference Include="..\Cake.Issues\Cake.Issues.csproj" />
   </ItemGroup>
