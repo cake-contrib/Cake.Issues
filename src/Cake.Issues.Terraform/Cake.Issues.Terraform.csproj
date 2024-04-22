@@ -8,7 +8,6 @@
     <DebugType>full</DebugType>
     <AnalysisMode>AllEnabledByDefault</AnalysisMode>
     <CodeAnalysisRuleSet>..\Cake.Issues.ruleset</CodeAnalysisRuleSet>
-    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Cake.Issues.Terraform.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
