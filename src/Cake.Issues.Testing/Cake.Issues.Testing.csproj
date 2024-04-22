@@ -9,7 +9,6 @@
     <DebugSymbols>true</DebugSymbols>
     <AnalysisMode>AllEnabledByDefault</AnalysisMode>
     <CodeAnalysisRuleSet>..\Cake.Issues.ruleset</CodeAnalysisRuleSet>
-    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Cake.Issues.Testing.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
