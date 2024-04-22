@@ -19,6 +19,7 @@
     <When Condition="!$(MSBuildProjectName.EndsWith('.Tests'))">
       <PropertyGroup>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <AnalysisMode>AllEnabledByDefault</AnalysisMode>
       </PropertyGroup>
 
       <ItemGroup>
