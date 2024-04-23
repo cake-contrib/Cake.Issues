@@ -8,7 +8,6 @@
   <PropertyGroup>
     <DebugType>full</DebugType>
     <DebugSymbols>true</DebugSymbols>
-    <AnalysisMode>AllEnabledByDefault</AnalysisMode>
     <CodeAnalysisRuleSet>..\Cake.Issues.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
 
