@@ -1,7 +1,6 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
-    <IsPackable>false</IsPackable>
     <Description>Addin for the Cake build automation system for writing code analyzer or linter issues as comments to pull requests</Description>
   </PropertyGroup>
 
