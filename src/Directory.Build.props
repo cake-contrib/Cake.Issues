@@ -15,30 +15,38 @@
   </ItemGroup>
 
   <!-- Properties for addin projects -->
-  <PropertyGroup Condition="'$(IsTestProject)' != 'true'">
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
-   </PropertyGroup>
+  <Choose>
+    <When Condition="!$(MSBuildProjectName.EndsWith('.Tests'))">
+      <PropertyGroup>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+      </PropertyGroup>
 
-  <ItemGroup Condition="'$(IsTestProject)' != 'true'">
-    <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.556">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-  </ItemGroup>
+      <ItemGroup>
+        <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.556">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+      </ItemGroup>
+    </When>
+  </Choose>
 
   <!-- Properties for test projects -->
-  <ItemGroup Condition="'$(IsTestProject)' == 'true'">
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
-    <PackageReference Include="xunit.runner.visualstudio" Version="2.5.8">
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
-    <PackageReference Include="xunit">
-      <Version>2.7.1</Version>
-    </PackageReference>
-    <PackageReference Include="Xunit.SkippableFact" Version="1.4.13" />
-    <PackageReference Include="Shouldly">
-      <Version>4.2.1</Version>
-    </PackageReference>
-  </ItemGroup>
+  <Choose>
+    <When Condition="!$(MSBuildProjectName.EndsWith('.Tests'))">
+      <ItemGroup>
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
+        <PackageReference Include="xunit.runner.visualstudio" Version="2.5.8">
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="xunit">
+          <Version>2.7.1</Version>
+        </PackageReference>
+        <PackageReference Include="Xunit.SkippableFact" Version="1.4.13" />
+        <PackageReference Include="Shouldly">
+          <Version>4.2.1</Version>
+        </PackageReference>
+      </ItemGroup>
+    </When>
+  </Choose>
 </Project>

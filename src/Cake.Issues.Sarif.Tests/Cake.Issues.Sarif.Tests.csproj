@@ -2,7 +2,6 @@
   <PropertyGroup>
     <TargetFrameworks>net6.0</TargetFrameworks>
     <IsPackable>false</IsPackable>
-    <IsTestProject>true</IsTestProject>
     <Description>Tests for the Cake.Issues.Sarif addin</Description>
   </PropertyGroup>
 
