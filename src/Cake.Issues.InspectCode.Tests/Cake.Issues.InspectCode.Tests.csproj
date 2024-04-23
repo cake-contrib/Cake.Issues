@@ -2,7 +2,6 @@
 
   <PropertyGroup>
     <TargetFrameworks>net6.0</TargetFrameworks>
-    <IsPackable>false</IsPackable>
     <Description>Tests for the Cake.Issues.InspectCode addin</Description>
   </PropertyGroup>
 
