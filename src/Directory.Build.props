@@ -33,7 +33,7 @@
 
   <!-- Properties for test projects -->
   <Choose>
-    <When Condition="!$(MSBuildProjectName.EndsWith('.Tests'))">
+    <When Condition="$(MSBuildProjectName.EndsWith('.Tests'))">
       <ItemGroup>
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
         <PackageReference Include="xunit.runner.visualstudio" Version="2.5.8">
