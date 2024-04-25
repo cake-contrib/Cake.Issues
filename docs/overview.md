@@ -53,8 +53,11 @@ Cake.Issues recipes will add the following addins to your build:
 [Cake.Issues.MsBuild]: https://cakebuild.net/extensions/cake-issues-msbuild/
 [Cake.Frosting.Issues.MsBuild]: https://cakebuild.net/extensions/cake-issues-msbuild/
 [Cake.Issues.InspectCode]: https://cakebuild.net/extensions/cake-issues-inspectcode/
+[Cake.Frosting.Issues.InspectCode]: https://cakebuild.net/extensions/cake-issues-inspectcode/
 [Cake.Issues.Markdownlint]: https://cakebuild.net/extensions/cake-issues-markdownlint/
+[Cake.Frosting.Issues.Markdownlint]: https://cakebuild.net/extensions/cake-issues-markdownlint/
 [Cake.Issues.EsLint]: https://cakebuild.net/extensions/cake-issues-eslint/
+[Cake.Frosting.Issues.EsLint]: https://cakebuild.net/extensions/cake-issues-eslint/
 [Cake.Issues.Reporting]: https://cakebuild.net/extensions/cake-issues-reporting/
 [Cake.Frosting.Issues.Reporting]: https://cakebuild.net/extensions/cake-issues-reporting/
 [Cake.Issues.Reporting.Generic]: https://cakebuild.net/extensions/cake-issues-reporting-generic/
@@ -64,6 +67,9 @@ Cake.Issues recipes will add the following addins to your build:
 [Cake.Issues.PullRequests]: https://cakebuild.net/extensions/cake-issues-pullrequests/
 [Cake.Frosting.Issues.PullRequests]: https://cakebuild.net/extensions/cake-issues-pullrequests/
 [Cake.Issues.PullRequests.AppVeyor]: https://cakebuild.net/extensions/cake-issues-pullrequests-appveyor/
+[Cake.Frosting.Issues.PullRequests.AppVeyor]: https://cakebuild.net/extensions/cake-issues-pullrequests-appveyor/
 [Cake.Issues.PullRequests.AzureDevOps]: https://cakebuild.net/extensions/cake-issues-pullrequests-azuredevops/
+[Cake.Frosting.Issues.PullRequests.AzureDevOps]: https://cakebuild.net/extensions/cake-issues-pullrequests-azuredevops/
 [Cake.Issues.PullRequests.GitHubActions]: https://cakebuild.net/extensions/cake-issues-pullrequests-githubactions/
+[Cake.Frosting.Issues.PullRequests.GitHubActions]: https://cakebuild.net/extensions/cake-issues-pullrequests-githubactions/
 [Cake.AzureDevOps]: https://cakebuild.net/extensions/cake-azuredevops/
