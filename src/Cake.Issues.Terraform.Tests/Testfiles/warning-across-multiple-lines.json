@@ -1,0 +1,35 @@
+﻿{
+  "format_version": "1.0",
+  "valid": true,
+  "error_count": 0,
+  "warning_count": 1,
+  "diagnostics": [
+    {
+      "severity": "warning",
+      "summary": "Attribute Deprecated",
+      "detail": "This feature is deprecated and will be removed in a major release. Please use the `lifecycle.ignore_changes` argument to specify the fields in `body` to ignore.",
+      "address": "module.deployment-ring.azapi_update_resource.storage_account_data_blob_settings",
+      "range": {
+        "filename": "modules\\deployment-ring\\storage-account.tf",
+        "start": {
+          "line": 84,
+          "column": 25,
+          "byte": 2092
+        },
+        "end": {
+          "line": 86,
+          "column": 4,
+          "byte": 2121
+        }
+      },
+      "snippet": {
+        "context": "resource \"azapi_update_resource\" \"storage_account_data_blob_settings\"",
+        "code": "  ignore_body_changes = [\n    \"properties.cors\"\n  ]",
+        "start_line": 84,
+        "highlight_start_offset": 24,
+        "highlight_end_offset": 51,
+        "values": []
+      }
+    }
+  ]
+}

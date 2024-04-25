@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Globalization;
     using System.Linq;
     using Cake.Core.Diagnostics;
     using Cake.Issues;
@@ -119,12 +120,20 @@
 
                     if (!string.IsNullOrEmpty(message.Text))
                     {
-                        messageText = string.Format(message.Text, arguments.ToArray());
+                        messageText = 
+                            string.Format(
+                                CultureInfo.InvariantCulture, 
+                                message.Text, 
+                                arguments.ToArray());
                     }
 
                     if (!string.IsNullOrEmpty(message.Markdown))
                     {
-                        messageMarkdown = string.Format(message.Markdown, arguments.ToArray());
+                        messageMarkdown = 
+                            string.Format(
+                                CultureInfo.InvariantCulture, 
+                                message.Markdown, 
+                                arguments.ToArray());
                     }
 
                     return (messageText, messageMarkdown);

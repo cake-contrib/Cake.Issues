@@ -1,38 +1,20 @@
-<Project Sdk="Microsoft.NET.Sdk">
-
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
-    <IsPackable>false</IsPackable>
-    <Product>Cake.Issues.PullRequests.AzureDevOps</Product>
-    <Copyright>Copyright © BBT Software AG and contributors</Copyright>
     <Description>Tests for the Cake.Issues.PullRequests.AzureDevOps addin</Description>
-    <Authors>BBT Software AG and contributors</Authors>
   </PropertyGroup>
 
   <PropertyGroup>
     <CodeAnalysisRuleSet>..\Cake.Issues.Tests.ruleset</CodeAnalysisRuleSet>
-    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Cake.Testing" Version="4.0.0" />
     <PackageReference Include="Cake.AzureDevOps" Version="4.0.0" />
     <PackageReference Include="NSubstitute" Version="5.1.0" />
-    <PackageReference Include="Shouldly" Version="4.2.1" />
-    <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.556">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
-    <PackageReference Include="xunit" Version="2.7.1" />
-    <PackageReference Include="xunit.runner.visualstudio" Version="2.5.8" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Cake.Issues\Cake.Issues.csproj" />
-    <ProjectReference Include="..\Cake.Issues.PullRequests\Cake.Issues.PullRequests.csproj" />
     <ProjectReference Include="..\Cake.Issues.Testing\Cake.Issues.Testing.csproj" />
     <ProjectReference Include="..\Cake.Issues.PullRequests.AzureDevOps\Cake.Issues.PullRequests.AzureDevOps.csproj" />
   </ItemGroup>
-
 </Project>

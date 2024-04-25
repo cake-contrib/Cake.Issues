@@ -142,7 +142,8 @@
                 throw new ArgumentOutOfRangeException(nameof(endColumn), "Cannot specify the end of column range while not specifying start of column range.");
             }
 
-            if (column.HasValue && endColumn.HasValue && column.Value > endColumn.Value)
+            // End column is not allowed to be before start column, except if issue is across multiple lines.
+            if (column.HasValue && endColumn.HasValue && (!endLine.HasValue || endLine.Value == line.Value) && column.Value > endColumn.Value)
             {
                 throw new ArgumentOutOfRangeException(nameof(endColumn), "Column range needs to end after start of range.");
             }
