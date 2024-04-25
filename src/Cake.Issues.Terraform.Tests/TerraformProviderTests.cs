@@ -95,6 +95,31 @@
                         .OfRule("Could not load plugin")
                         .WithPriority(IssuePriority.Error));
             }
+
+            [SkippableFact]
+            public void Should_Read_Warning_Across_Multiple_Lines_Correct()
+            {
+                // Uses Windows specific paths.
+                Skip.IfNot(RuntimeInformation.IsOSPlatform(OSPlatform.Windows));
+
+                // Given
+                var fixture = new TerraformProviderFixture("warning-across-multiple-lines.json", @"./");
+
+                // When
+                var issues = fixture.ReadIssues().ToList();
+
+                // Then
+                issues.Count.ShouldBe(1);
+                IssueChecker.Check(
+                    issues[0],
+                    IssueBuilder.NewIssue(
+                        "This feature is deprecated and will be removed in a major release. Please use the `lifecycle.ignore_changes` argument to specify the fields in `body` to ignore.",
+                        "Cake.Issues.Terraform.TerraformIssuesProvider",
+                        "Terraform")
+                        .InFile("modules\\deployment-ring\\storage-account.tf", 84, 86, 25, 4)
+                        .OfRule("Attribute Deprecated")
+                        .WithPriority(IssuePriority.Warning));
+            }
         }
     }
 }
