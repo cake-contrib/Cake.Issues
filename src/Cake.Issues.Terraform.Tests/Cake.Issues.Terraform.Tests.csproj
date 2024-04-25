@@ -10,9 +10,11 @@
 
   <ItemGroup>
     <None Remove="Testfiles\error.json" />
+    <None Remove="Testfiles\warning-across-multiple-lines.json" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Testfiles\warning-across-multiple-lines.json" />
     <EmbeddedResource Include="Testfiles\error.json" />
     <EmbeddedResource Include="Testfiles\basic.json" />
   </ItemGroup>
