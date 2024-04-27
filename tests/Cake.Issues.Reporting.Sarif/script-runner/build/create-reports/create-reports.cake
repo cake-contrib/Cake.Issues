@@ -7,6 +7,7 @@ Task("Create-Reports-Default")
     .IsDependentOn("Analyze")
     .Does<BuildData>(data =>
 {
+    EnsureDirectoryExists(data.OutputFolder);
     CreateIssueReport(
         data.Issues,
         SarifIssueReportFormat(),

@@ -30,29 +30,19 @@ public class BuildContext : FrostingContext
     }
 }
 
-[TaskName("Create-CustomIssues")]
-public class CreateCustomIssuesTask : FrostingTask<BuildContext>
+[TaskName("Analyze")]
+public class AnalyzeTask : FrostingTask<BuildContext>
 {
     public override void Run(BuildContext context)
     {
-        context.Issues.Add(
-            context.NewIssue(
-                "Something went wrong",
-                "MyCakeScript",
-                "My Cake Script")
-                .WithMessageInHtmlFormat("Something went <b>wrong</b>")
-                .WithMessageInMarkdownFormat("Something went **wrong**")
-                .InFile("myfile.txt", 42)
-                .WithPriority(IssuePriority.Warning)
-                .Create()
+        context.Issues.AddRange(
+            context.DeserializeIssuesFromJsonFile(
+                context.RepoRootFolder
+                    .Combine("..")
+                    .Combine("..")
+                    .CombineWithFilePath("issues.json"))
         );
     }
-}
-
-[TaskName("Analyze")]
-[IsDependentOn(typeof(CreateCustomIssuesTask))]
-public class AnalyzeTask : FrostingTask
-{
 }
 
 [TaskName("Create-Report")]
