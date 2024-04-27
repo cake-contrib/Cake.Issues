@@ -18,6 +18,8 @@
   <Choose>
     <When Condition="!$(MSBuildProjectName.EndsWith('.Tests'))">
       <PropertyGroup>
+        <DebugType>full</DebugType>
+        <DebugSymbols>true</DebugSymbols>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <AnalysisMode>AllEnabledByDefault</AnalysisMode>
       </PropertyGroup>
