@@ -8,8 +8,6 @@ using Cake.Issues;
 public class BuildContext : FrostingContext
 {
     public DirectoryPath RepoRootFolder { get; }
-    public DirectoryPath SourceFolder { get; }
-    public DirectoryPath DocsFolder { get; }
     public DirectoryPath TemplateGalleryFolder { get; }
     public List<IIssue> Issues { get; }
 
@@ -17,10 +15,8 @@ public class BuildContext : FrostingContext
         : base(context)
     {
         this.RepoRootFolder = context.MakeAbsolute(context.Directory("./../.."));
-        this.SourceFolder = this.RepoRootFolder.Combine("src");
-        this.DocsFolder = this.RepoRootFolder.Combine("docs");
         this.TemplateGalleryFolder = this.RepoRootFolder.Combine("../../docs/input/docs/report-formats/generic/templates");
-
+ 
         this.Issues = new List<IIssue>();
     }
 }

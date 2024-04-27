@@ -8,4 +8,4 @@ echo "Bootstrapping Cake"
 dotnet cake $SCRIPT_NAME --bootstrap
 
 echo "Running Build"
-dotnet cake $SCRIPT_NAME "$@"
+dotnet cake $SCRIPT_NAME --settings_skippackageversioncheck=true "$@"
