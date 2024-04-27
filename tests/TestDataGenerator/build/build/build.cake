@@ -5,7 +5,6 @@ Task("Build")
     var solutionFile = data.SourceFolder.CombineWithFilePath("ClassLibrary1.sln");
     var msBuildLogFilePath = data.RepoRootFolder.CombineWithFilePath("msbuild.binlog");
 
-#if NETCOREAPP
     DotNetRestore(solutionFile.FullPath);
 
     var settings =
@@ -23,27 +22,15 @@ Task("Build")
         {
             MSBuildSettings = settings
         });
-#else
-    NuGetRestore(solutionFile);
-
-    var settings =
-        new MSBuildSettings()
-            .WithTarget("Rebuild")
-            .WithLogger(
-                Context.Tools.Resolve("Cake.Issues.MsBuild*/**/StructuredLogger.dll").FullPath,
-                "BinaryLogger",
-                msBuildLogFilePath.FullPath);
-    MSBuild(solutionFile, settings);
-#endif
 
     // Read issues
     var readIssuesSettings = new ReadIssuesSettings(data.RepoRootFolder)
     {
         FileLinkSettings =
             IssueFileLinkSettingsForGitHubBranch(
-                new System.Uri("https://github.com/cake-contrib/Cake.Issues.Reporting.Generic"),
+                new System.Uri("https://github.com/cake-contrib/Cake.Issues"),
                 "develop",
-                "demos/script-runner"
+                "tests/TestDataGenerator"
             )
     };
 

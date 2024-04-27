@@ -4,7 +4,7 @@ Task("Run-InspectCode")
     .Does<BuildData>(data =>
 {
     var inspectCodeLogFilePath =
-        data.OutputFolder.CombineWithFilePath("inspectCode.log");
+        data.RepoRootFolder.CombineWithFilePath("inspectCode.log");
 
     // Run InspectCode
     var settings = new InspectCodeSettings() {
@@ -18,9 +18,9 @@ Task("Run-InspectCode")
     {
         FileLinkSettings =
             IssueFileLinkSettingsForGitHubBranch(
-                new System.Uri("https://github.com/cake-contrib/Cake.Issues.Reporting.Sarif"),
+                new System.Uri("https://github.com/cake-contrib/Cake.Issues"),
                 "develop",
-                "tests"
+                "tests/TestDataGenerator"
             )
     };
 

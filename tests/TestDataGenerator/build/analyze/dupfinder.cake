@@ -20,9 +20,9 @@ Task("Run-DupFinder")
     {
         FileLinkSettings =
             IssueFileLinkSettingsForGitHubBranch(
-                new System.Uri("https://github.com/cake-contrib/Cake.Issues.Reporting.Generic"),
+                new System.Uri("https://github.com/cake-contrib/Cake.Issues"),
                 "develop",
-                "demos/script-runner"
+                "tests/TestDataGenerator"
             )
     };
 
