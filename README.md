@@ -5,6 +5,7 @@
 [![Join in the discussion on the Cake repository](https://img.shields.io/badge/GitHub-Discussions-green?logo=github)](https://github.com/orgs/cake-build/discussions/categories/extension-q-a)
 ![Stable Release](https://img.shields.io/nuget/v/Cake.Issues?label=Stable)
 ![Pre-Release)](https://img.shields.io/nuget/vpre/Cake.Issues?label=Pre-Release)
+[![Code Coverage](https://codecov.io/github/cake-contrib/Cake.Issues/graph/badge.svg?token=2ihmfB985d)](https://codecov.io/github/cake-contrib/Cake.Issues)
 
 The Cake.Issues addins for the [Cake build automation system](https://cakebuild.net) offer an extensive and flexible solution for reading linting issues.
 
