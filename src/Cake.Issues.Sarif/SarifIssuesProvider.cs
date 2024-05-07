@@ -120,19 +120,19 @@
 
                     if (!string.IsNullOrEmpty(message.Text))
                     {
-                        messageText = 
+                        messageText =
                             string.Format(
-                                CultureInfo.InvariantCulture, 
-                                message.Text, 
+                                CultureInfo.InvariantCulture,
+                                message.Text,
                                 arguments.ToArray());
                     }
 
                     if (!string.IsNullOrEmpty(message.Markdown))
                     {
-                        messageMarkdown = 
+                        messageMarkdown =
                             string.Format(
-                                CultureInfo.InvariantCulture, 
-                                message.Markdown, 
+                                CultureInfo.InvariantCulture,
+                                message.Markdown,
                                 arguments.ToArray());
                     }
 
