@@ -34,7 +34,7 @@
         {
             context.NotNull(nameof(context));
 
-            return new GitHubActionsPullRequestSystem(context, new GitHubActionsBuildSettings());
+            return new GitHubActionsPullRequestSystem(context.Log, new GitHubActionsBuildSettings());
         }
 
         /// <summary>
@@ -70,7 +70,7 @@
             context.NotNull(nameof(context));
             settings.NotNull(nameof(settings));
 
-            return new GitHubActionsPullRequestSystem(context, settings);
+            return new GitHubActionsPullRequestSystem(context.Log, settings);
         }
     }
 }
