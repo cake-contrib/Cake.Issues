@@ -89,7 +89,7 @@
             public void Should_Set_ValidateOutput_If_Empty()
             {
                 // Given
-                byte[] validateOutput = Array.Empty<byte>();
+                byte[] validateOutput = [];
                 var terraformRootPath = @"c:\Source\Cake.Issues\docs";
 
                 // When
