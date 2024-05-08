@@ -1,11 +1,5 @@
 ﻿namespace Cake.Issues.PullRequests.AppVeyor.Tests
 {
-    using System;
-    using Cake.Issues.Testing;
-    using Cake.Testing;
-    using Shouldly;
-    using Xunit;
-
     public sealed class AppVeyorBuildSettingsTests
     {
         public sealed class TheCtor

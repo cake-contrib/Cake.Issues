@@ -1,12 +1,7 @@
 ﻿namespace Cake.Issues.PullRequests.AzureDevOps.Tests.Capabilities
 {
-    using System.Collections.Generic;
-    using System.Linq;
     using Cake.AzureDevOps.Repos.PullRequest.CommentThread;
     using Cake.Issues.PullRequests.AzureDevOps.Capabilities;
-    using Cake.Issues.Testing;
-    using Shouldly;
-    using Xunit;
 
     // ReSharper disable once ClassNeverInstantiated.Global
     public sealed class GitPullRequestCommentThreadExtensionsTests

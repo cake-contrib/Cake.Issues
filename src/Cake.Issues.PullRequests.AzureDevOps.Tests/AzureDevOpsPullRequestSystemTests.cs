@@ -1,11 +1,7 @@
 ﻿namespace Cake.Issues.PullRequests.AzureDevOps.Tests
 {
-    using System;
     using Cake.AzureDevOps.Authentication;
     using Cake.Core.Diagnostics;
-    using Cake.Issues.Testing;
-    using Cake.Testing;
-    using Xunit;
 
     // ReSharper disable once ClassNeverInstantiated.Global
     public sealed class AzureDevOpsPullRequestSystemTests

@@ -1,10 +1,5 @@
 ﻿namespace Cake.Issues.Tests
 {
-    using System;
-    using Cake.Issues.Testing;
-    using Shouldly;
-    using Xunit;
-
     public class BaseRuleUrlResolverTests
     {
         public sealed class TheClass

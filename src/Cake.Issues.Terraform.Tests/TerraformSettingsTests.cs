@@ -1,10 +1,6 @@
 ﻿namespace Cake.Issues.Terraform.Tests
 {
-    using System;
     using Cake.Core.IO;
-    using Cake.Issues.Testing;
-    using Shouldly;
-    using Xunit;
 
     public sealed class TerraformSettingsTests
     {

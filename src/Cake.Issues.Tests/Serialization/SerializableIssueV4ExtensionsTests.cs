@@ -1,8 +1,6 @@
 ﻿namespace Cake.Issues.Tests.Serialization
 {
     using Cake.Issues.Serialization;
-    using Cake.Issues.Testing;
-    using Xunit;
 
     public sealed class SerializableIssueV4ExtensionsTests
     {

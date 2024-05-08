@@ -1,8 +1,6 @@
 ﻿namespace Cake.Issues.DocFx.Tests
 {
-    using System.Collections.Generic;
     using Cake.Core.IO;
-    using Cake.Issues.Testing;
 
     internal class DocFxProviderFixture : BaseConfigurableIssueProviderFixture<DocFxIssuesProvider, DocFxIssuesSettings>
     {

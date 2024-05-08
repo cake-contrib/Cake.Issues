@@ -1,11 +1,5 @@
 ﻿namespace Cake.Issues.Tests.Testing
 {
-    using System.Collections.Generic;
-    using System.Linq;
-    using Cake.Issues.Testing;
-    using Shouldly;
-    using Xunit;
-
     public sealed class BaseIssueProviderFixtureTests
     {
         public sealed class TheCtor

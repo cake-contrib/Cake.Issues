@@ -1,9 +1,6 @@
 ﻿namespace Cake.Issues.PullRequests.GitHubActions.Tests
 {
     using Cake.Core.Diagnostics;
-    using Cake.Issues.Testing;
-    using Cake.Testing;
-    using Xunit;
 
     public sealed class GitHubActionsPullRequestSystemTests
     {

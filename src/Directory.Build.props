@@ -34,6 +34,10 @@
   <!-- Properties for test projects -->
   <Choose>
     <When Condition="$(MSBuildProjectName.EndsWith('.Tests'))">
+      <PropertyGroup>
+        <ImplicitUsings>enable</ImplicitUsings>
+      </PropertyGroup>
+      
       <ItemGroup>
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
         <PackageReference Include="xunit.runner.visualstudio" Version="2.8.0">
@@ -56,6 +60,17 @@
           <Version>4.2.1</Version>
         </PackageReference>
       </ItemGroup>
-    </When>
+
+      <ItemGroup>
+        <ProjectReference Include="..\Cake.Issues.Testing\Cake.Issues.Testing.csproj" />
+      </ItemGroup>
+
+      <ItemGroup>
+        <Using Include="Xunit" />
+        <Using Include="Shouldly" />
+        <Using Include="Cake.Testing" />
+        <Using Include="Cake.Issues.Testing" />
+      </ItemGroup>
+   </When>
   </Choose>
 </Project>

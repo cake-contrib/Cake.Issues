@@ -1,10 +1,7 @@
 ﻿namespace Cake.Issues.Reporting.Generic.Tests
 {
-    using System;
     using System.Diagnostics.CodeAnalysis;
     using Microsoft.CSharp.RuntimeBinder;
-    using Shouldly;
-    using Xunit;
 
     /// <summary>
     /// Extensions for asserting exceptions.

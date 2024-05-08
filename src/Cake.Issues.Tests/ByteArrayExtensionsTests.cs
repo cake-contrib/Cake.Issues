@@ -1,11 +1,6 @@
 ﻿namespace Cake.Issues.Tests
 {
-    using System;
-    using System.Linq;
     using System.Text;
-    using Cake.Issues.Testing;
-    using Shouldly;
-    using Xunit;
 
     public sealed class ByteArrayExtensionsTests
     {

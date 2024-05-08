@@ -1,13 +1,9 @@
 ﻿namespace Cake.Issues.Reporting.Console.Tests
 {
-    using System;
-    using System.Collections.Generic;
     using System.IO;
     using Cake.Core.Diagnostics;
     using Cake.Core.IO;
     using Cake.Issues.Serialization;
-    using Cake.Testing;
-    using Shouldly;
 
     internal class ConsoleIssueReportFixture
     {

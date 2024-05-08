@@ -1,9 +1,5 @@
 ﻿namespace Cake.Issues.Tests
 {
-    using System.Collections.Generic;
-    using Cake.Issues.Testing;
-    using Xunit;
-
     public sealed class IssuesArgumentChecksTests
     {
         public sealed class TheNotNullExtension

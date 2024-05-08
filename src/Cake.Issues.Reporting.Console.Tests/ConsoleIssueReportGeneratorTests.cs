@@ -1,11 +1,5 @@
 ﻿namespace Cake.Issues.Reporting.Console.Tests
 {
-    using System.Collections.Generic;
-    using System.Linq;
-    using Cake.Issues.Testing;
-    using Cake.Testing;
-    using Xunit;
-
     public sealed class ConsoleIssueReportGeneratorTests
     {
         public sealed class TheCtor

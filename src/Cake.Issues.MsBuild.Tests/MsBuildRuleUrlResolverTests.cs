@@ -1,10 +1,5 @@
 ﻿namespace Cake.Issues.MsBuild.Tests
 {
-    using System;
-    using Cake.Issues.Testing;
-    using Shouldly;
-    using Xunit;
-
     public sealed class MsBuildRuleUrlResolverTests
     {
         public sealed class TheResolveRuleUrlMethod

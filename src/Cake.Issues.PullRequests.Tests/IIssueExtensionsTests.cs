@@ -1,11 +1,5 @@
 ﻿namespace Cake.Issues.PullRequests.Tests
 {
-    using System.Collections.Generic;
-    using System.Linq;
-    using Cake.Issues.Testing;
-    using Shouldly;
-    using Xunit;
-
     public sealed class IIssueExtensionsTests
     {
         public sealed class TheSortWithDefaultPriorizationMethod

@@ -1,10 +1,5 @@
 ﻿namespace Cake.Issues.MsBuild.Tests
 {
-    using Cake.Issues.Testing;
-    using Cake.Testing;
-    using Shouldly;
-    using Xunit;
-
     public sealed class BaseMsBuildLogFileFormatTests
     {
         public sealed class TheValidateFilePathMethod

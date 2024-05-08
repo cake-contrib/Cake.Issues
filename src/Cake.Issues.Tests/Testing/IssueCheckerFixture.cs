@@ -1,8 +1,5 @@
 ﻿namespace Cake.Issues.Tests.Testing
 {
-    using System;
-    using System.Collections.Generic;
-
     internal class IssueCheckerFixture : IssueBuilderFixture
     {
         public IssueCheckerFixture()

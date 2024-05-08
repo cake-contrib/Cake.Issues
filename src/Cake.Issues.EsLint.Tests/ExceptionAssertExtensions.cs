@@ -1,8 +1,5 @@
 ﻿namespace Cake.Issues.EsLint.Tests
 {
-    using System;
-    using Xunit;
-
     public static class ExceptionAssertExtensions
     {
         public static void IsArgumentNullException(this Exception exception, string parameterName)

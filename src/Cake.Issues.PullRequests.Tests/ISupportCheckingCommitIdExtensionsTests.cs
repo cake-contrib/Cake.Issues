@@ -1,9 +1,5 @@
 ﻿namespace Cake.Issues.PullRequests.Tests
 {
-    using Cake.Issues.Testing;
-    using Shouldly;
-    using Xunit;
-
     public sealed class ISupportCheckingCommitIdExtensionsTests
     {
         public sealed class TheIsCurrentCommitIdExtension
