@@ -9,6 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="NSubstitute" Version="5.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Cake.Issues.Testing\Cake.Issues.Testing.csproj" />
     <ProjectReference Include="..\Cake.Issues.PullRequests.AppVeyor\Cake.Issues.PullRequests.AppVeyor.csproj" />
   </ItemGroup>
