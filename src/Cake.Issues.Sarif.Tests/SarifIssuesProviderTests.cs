@@ -137,7 +137,7 @@
                         "Message Foo.",
                         "Cake.Issues.Sarif.SarifIssuesProvider",
                         "ProviderType Foo")
-                        .InFile(@"src/Cake.Issues.Reporting.Sarif.Tests/SarifIssueReportGeneratorTests.cs", 10)
+                        .InFile("src/Cake.Issues.Reporting.Sarif.Tests/SarifIssueReportGeneratorTests.cs", 10)
                         .OfRule("Rule Foo")
                         .WithPriority(IssuePriority.Error)
                         .Create());
@@ -150,7 +150,7 @@
                         "Cake.Issues.Sarif.SarifIssuesProvider",
                         "ProviderType Bar")
                         .WithMessageInMarkdownFormat("Message Bar -- now in **Markdown**!")
-                        .InFile(@"src/Cake.Issues.Reporting.Sarif.Tests/SarifIssueReportGeneratorTests.cs", 12)
+                        .InFile("src/Cake.Issues.Reporting.Sarif.Tests/SarifIssueReportGeneratorTests.cs", 12)
                         .OfRule("Rule Bar", new Uri("https://www.example.come/rules/bar.html"))
                         .WithPriority(IssuePriority.Warning)
                         .Create());
@@ -162,7 +162,7 @@
                         "Message Bar 2.",
                         "Cake.Issues.Sarif.SarifIssuesProvider",
                         "ProviderType Bar")
-                        .InFile(@"src/Cake.Issues.Reporting.Sarif.Tests/SarifIssueReportGeneratorTests.cs", 42)
+                        .InFile("src/Cake.Issues.Reporting.Sarif.Tests/SarifIssueReportGeneratorTests.cs", 42)
                         .WithPriority(IssuePriority.Warning)
                         .Create());
             }

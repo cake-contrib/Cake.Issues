@@ -99,7 +99,7 @@
                 var log = new FakeLog();
                 var pullRequestSystem = new FakePullRequestSystem(log);
                 var settings = new ReportIssuesToPullRequestSettings(@"c:\repo");
-                var modifiedFiles = new List<FilePath> { @"foo.cs" };
+                var modifiedFiles = new List<FilePath> { "foo.cs" };
                 var capability = new FakeFilteringByModifiedFilesCapability(log, pullRequestSystem, modifiedFiles);
 
                 // When

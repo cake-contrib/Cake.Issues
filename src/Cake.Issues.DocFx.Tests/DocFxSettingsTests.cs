@@ -100,7 +100,7 @@
             {
                 // Given
                 var logFileContent = "Foo".ToByteArray();
-                var docRootPath = @"c:/Source/Cake.Issues/docs";
+                var docRootPath = "c:/Source/Cake.Issues/docs";
 
                 // When
                 var settings = new DocFxIssuesSettings(logFileContent, docRootPath);
@@ -128,7 +128,7 @@
             public void Should_Set_DocRootPath_From_LogFilePath()
             {
                 // Given
-                var docRootPath = @"c:/Source/Cake.Issues/docs";
+                var docRootPath = "c:/Source/Cake.Issues/docs";
                 using (var tempFile = new ResourceTempFile("Cake.Issues.DocFx.Tests.Testfiles.docfx.json"))
                 {
                     // When

@@ -287,7 +287,7 @@
                 }
 
                 [Theory]
-                [InlineData(@"/foo")]
+                [InlineData("/foo")]
                 [InlineData(@"\foo")]
                 public void Should_Throw_If_File_Path_Is_Absolute(string projectPath)
                 {
@@ -902,7 +902,7 @@
                 }
 
                 [Theory]
-                [InlineData(@"/foo")]
+                [InlineData("/foo")]
                 [InlineData(@"\foo")]
                 public void Should_Throw_If_File_Path_Is_Absolute(string filePath)
                 {
@@ -1181,15 +1181,15 @@
                 }
 
                 [Theory]
-                [InlineData(@"foo", @"foo")]
-                [InlineData(@"foo\bar", @"foo/bar")]
-                [InlineData(@"foo/bar", @"foo/bar")]
-                [InlineData(@"foo\bar\", @"foo/bar")]
-                [InlineData(@"foo/bar/", @"foo/bar")]
-                [InlineData(@".\foo", @"foo")]
-                [InlineData(@"./foo", @"foo")]
-                [InlineData(@"foo\..\bar", @"foo/../bar")]
-                [InlineData(@"foo/../bar", @"foo/../bar")]
+                [InlineData("foo", "foo")]
+                [InlineData(@"foo\bar", "foo/bar")]
+                [InlineData("foo/bar", "foo/bar")]
+                [InlineData(@"foo\bar\", "foo/bar")]
+                [InlineData("foo/bar/", "foo/bar")]
+                [InlineData(@".\foo", "foo")]
+                [InlineData("./foo", "foo")]
+                [InlineData(@"foo\..\bar", "foo/../bar")]
+                [InlineData("foo/../bar", "foo/../bar")]
                 public void Should_Set_File_Path(string filePath, string expectedFilePath)
                 {
                     // Given

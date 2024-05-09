@@ -175,7 +175,7 @@
                 dynamic result = issue.GetExpandoObject(addProjectPath: true);
 
                 // Then
-                ((string)result.ProjectPath).ShouldBe(@"src/Cake.Issues.Reporting.Generic.Tests/Cake.Issues.Reporting.Generic.Tests.csproj");
+                ((string)result.ProjectPath).ShouldBe("src/Cake.Issues.Reporting.Generic.Tests/Cake.Issues.Reporting.Generic.Tests.csproj");
             }
 
             [Fact]

@@ -85,9 +85,9 @@
             }
 
             [Theory]
-            [InlineData(@"c:\foo\bar.cs", @"c:\foo\", @"bar.cs")]
-            [InlineData(@"c:\foo\bar.cs", @"c:\foo", @"bar.cs")]
-            [InlineData(@"c:\foo\bar.cs", @"c:\bar", @"")]
+            [InlineData(@"c:\foo\bar.cs", @"c:\foo\", "bar.cs")]
+            [InlineData(@"c:\foo\bar.cs", @"c:\foo", "bar.cs")]
+            [InlineData(@"c:\foo\bar.cs", @"c:\bar", "")]
             public void Should_Return_Correct_Value_For_FilePath(
                 string filePath,
                 string repoRoot,

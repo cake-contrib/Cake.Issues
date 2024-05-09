@@ -157,8 +157,8 @@
 
                     // Then
                     result.IsPullRequestIssuesException(
-                        @"Absolute file paths are not supported for modified files:" + Environment.NewLine +
-                        @"  c:/FakeIssueProvider.cs");
+                        "Absolute file paths are not supported for modified files:" + Environment.NewLine +
+                        "  c:/FakeIssueProvider.cs");
                 }
 
                 [SkippableFact]

@@ -100,7 +100,7 @@
             {
                 // Given
                 var validateOutput = "Foo".ToByteArray();
-                var terraformRootPath = @"c:/Source/Cake.Issues/docs";
+                var terraformRootPath = "c:/Source/Cake.Issues/docs";
 
                 // When
                 var settings = new TerraformIssuesSettings(validateOutput, terraformRootPath);
@@ -128,7 +128,7 @@
             public void Should_Set_TerraformRootPath_From_ValidateOutputFilePath()
             {
                 // Given
-                var terraformRootPath = @"c:/Source/Cake.Issues/docs";
+                var terraformRootPath = "c:/Source/Cake.Issues/docs";
                 using (var tempFile = new ResourceTempFile("Cake.Issues.Terraform.Tests.Testfiles.basic.json"))
                 {
                     // When
