@@ -1,13 +1,8 @@
 ﻿namespace Cake.Issues.MsBuild.Tests.LogFileFormat
 {
-    using System;
-    using System.Linq;
     using System.Runtime.InteropServices;
     using Cake.Core.Diagnostics;
     using Cake.Issues.MsBuild.LogFileFormat;
-    using Cake.Issues.Testing;
-    using Shouldly;
-    using Xunit;
 
     public sealed class BinaryLogFileFormatTests
     {

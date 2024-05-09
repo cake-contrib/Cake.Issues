@@ -1,11 +1,5 @@
 ﻿namespace Cake.Issues.Tests
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using Shouldly;
-    using Xunit;
-
     public sealed class IIssueComparerTests
     {
         public sealed class TheCtorWithCompareOnlyPersistentPropertiesSetToFalse

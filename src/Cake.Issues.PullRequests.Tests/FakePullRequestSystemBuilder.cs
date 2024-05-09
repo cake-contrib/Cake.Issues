@@ -1,9 +1,7 @@
 ﻿namespace Cake.Issues.PullRequests.Tests
 {
-    using System.Collections.Generic;
     using Cake.Core.Diagnostics;
     using Cake.Core.IO;
-    using Cake.Testing;
 
     /// <summary>
     /// Class to create instances of <see cref="FakePullRequestSystem"/> with a fluent API.

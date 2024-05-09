@@ -1,13 +1,7 @@
 ﻿namespace Cake.Issues.Reporting.Sarif.Tests
 {
-    using System;
-    using System.Collections.Generic;
-    using Cake.Issues.Testing;
-    using Cake.Testing;
     using Microsoft.CodeAnalysis.Sarif;
     using Newtonsoft.Json;
-    using Shouldly;
-    using Xunit;
 
     public sealed class SarifIssueReportGeneratorTests
     {

@@ -1,11 +1,6 @@
 ﻿namespace Cake.Issues.DocFx.Tests
 {
-    using System.Linq;
     using System.Runtime.InteropServices;
-    using Cake.Issues.Testing;
-    using Cake.Testing;
-    using Shouldly;
-    using Xunit;
 
     public sealed class DocFxProviderTests
     {

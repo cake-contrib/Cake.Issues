@@ -1,10 +1,5 @@
 ﻿namespace Cake.Issues.Reporting.Tests
 {
-    using System.Collections.Generic;
-    using Cake.Issues.Testing;
-    using Shouldly;
-    using Xunit;
-
     public sealed class IssueReportCreatorTests
     {
         public sealed class TheCtor

@@ -1,11 +1,7 @@
 ﻿namespace Cake.Issues.Reporting.Generic.Tests
 {
-    using System;
-    using System.Collections.Generic;
     using System.IO;
     using Cake.Core.Diagnostics;
-    using Cake.Testing;
-    using Shouldly;
 
     internal class GenericIssueReportFixture
     {

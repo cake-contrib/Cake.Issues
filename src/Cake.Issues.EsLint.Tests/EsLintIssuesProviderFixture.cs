@@ -1,7 +1,5 @@
 ﻿namespace Cake.Issues.EsLint.Tests
 {
-    using Cake.Issues.Testing;
-
     public class EsLintIssuesProviderFixture<T>
         : BaseMultiFormatIssueProviderFixture<EsLintIssuesProvider, EsLintIssuesSettings, T>
         where T : BaseEsLintLogFileFormat

@@ -1,10 +1,6 @@
 ﻿namespace Cake.Issues.PullRequests.Tests
 {
-    using System.Collections.Generic;
     using System.Runtime.InteropServices;
-    using Cake.Issues.Testing;
-    using Shouldly;
-    using Xunit;
 
     public sealed class PullRequestDiscussionThreadTests
     {

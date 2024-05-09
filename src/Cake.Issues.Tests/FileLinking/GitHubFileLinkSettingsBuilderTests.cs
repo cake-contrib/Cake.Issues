@@ -1,10 +1,6 @@
 ﻿namespace Cake.Issues.Tests.FileLinking
 {
-    using System;
     using Cake.Issues.FileLinking;
-    using Cake.Issues.Testing;
-    using Shouldly;
-    using Xunit;
 
     public sealed class GitHubFileLinkSettingsBuilderTests
     {

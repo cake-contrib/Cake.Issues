@@ -1,8 +1,6 @@
 ﻿namespace Cake.Issues.Terraform.Tests
 {
-    using System.Collections.Generic;
     using Cake.Core.IO;
-    using Cake.Issues.Testing;
 
     internal class TerraformProviderFixture : BaseConfigurableIssueProviderFixture<TerraformIssuesProvider, TerraformIssuesSettings>
     {

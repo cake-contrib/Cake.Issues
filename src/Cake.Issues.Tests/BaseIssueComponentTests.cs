@@ -1,10 +1,5 @@
 ﻿namespace Cake.Issues.Tests
 {
-    using Cake.Issues.Testing;
-    using Cake.Testing;
-    using Shouldly;
-    using Xunit;
-
     public sealed class BaseIssueComponentTests
     {
         public sealed class TheCtor

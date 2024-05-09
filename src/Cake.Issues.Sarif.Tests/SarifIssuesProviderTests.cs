@@ -1,12 +1,5 @@
 ﻿namespace Cake.Issues.Sarif.Tests
 {
-    using System;
-    using System.Linq;
-    using Cake.Issues.Testing;
-    using Cake.Testing;
-    using Shouldly;
-    using Xunit;
-
     public sealed class SarifIssuesProviderTests
     {
         public sealed class TheCtor

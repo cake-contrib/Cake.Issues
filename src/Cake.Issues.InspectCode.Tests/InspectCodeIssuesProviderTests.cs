@@ -1,12 +1,6 @@
 ﻿namespace Cake.Issues.InspectCode.Tests
 {
-    using System;
-    using System.Linq;
     using System.Runtime.InteropServices;
-    using Cake.Issues.Testing;
-    using Cake.Testing;
-    using Shouldly;
-    using Xunit;
 
     // ReSharper disable once ClassNeverInstantiated.Global
     public sealed class InspectCodeIssuesProviderTests

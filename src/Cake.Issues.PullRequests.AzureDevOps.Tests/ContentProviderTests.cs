@@ -1,9 +1,5 @@
 ﻿namespace Cake.Issues.PullRequests.AzureDevOps.Tests
 {
-    using System;
-    using Shouldly;
-    using Xunit;
-
     // ReSharper disable once ClassNeverInstantiated.Global
     public sealed class ContentProviderTests
     {

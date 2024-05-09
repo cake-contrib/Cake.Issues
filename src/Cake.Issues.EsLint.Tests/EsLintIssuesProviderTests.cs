@@ -1,10 +1,7 @@
 ﻿namespace Cake.Issues.EsLint.Tests
 {
-    using System.Text;
     using Cake.Core.Diagnostics;
     using Cake.Issues.EsLint.LogFileFormat;
-    using Cake.Testing;
-    using Xunit;
 
     public sealed class EsLintIssuesProviderTests
     {

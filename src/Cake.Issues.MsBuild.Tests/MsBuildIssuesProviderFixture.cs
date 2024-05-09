@@ -1,7 +1,5 @@
 ﻿namespace Cake.Issues.MsBuild.Tests
 {
-    using Cake.Issues.Testing;
-
     internal class MsBuildIssuesProviderFixture<T>
         : BaseMultiFormatIssueProviderFixture<MsBuildIssuesProvider, MsBuildIssuesSettings, T>
         where T : BaseMsBuildLogFileFormat

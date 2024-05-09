@@ -1,12 +1,5 @@
 ﻿namespace Cake.Issues.Tests
 {
-    using System;
-    using System.Collections.Generic;
-    using Cake.Issues.Testing;
-    using Cake.Testing;
-    using Shouldly;
-    using Xunit;
-
     public sealed class IssueBuilderTests
     {
         public sealed class TheNewIssueMethodWithMessageAsIdentifier

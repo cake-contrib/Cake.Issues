@@ -1,13 +1,8 @@
 ﻿namespace Cake.Issues.Markdownlint.Tests
 {
-    using System;
     using Cake.Core.IO;
     using Cake.Issues.Markdownlint;
     using Cake.Issues.Markdownlint.LogFileFormat;
-    using Cake.Issues.Testing;
-    using Cake.Testing;
-    using Shouldly;
-    using Xunit;
 
     public sealed class MarkdownlintIssuesSettingsTests
     {

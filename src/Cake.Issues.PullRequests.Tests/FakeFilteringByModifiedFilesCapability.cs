@@ -1,6 +1,5 @@
 ﻿namespace Cake.Issues.PullRequests.Tests
 {
-    using System.Collections.Generic;
     using Cake.Core.Diagnostics;
     using Cake.Core.IO;
 

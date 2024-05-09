@@ -1,6 +1,5 @@
 ﻿namespace Cake.Issues.GitRepository.Tests
 {
-    using System.Collections.Generic;
     using Cake.Testing.Fixtures;
 
     internal class GitRunnerFixture : ToolFixture<GitRunnerSettings>

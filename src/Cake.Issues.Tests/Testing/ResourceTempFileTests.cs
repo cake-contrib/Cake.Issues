@@ -1,10 +1,6 @@
 ﻿namespace Cake.Issues.Tests.Testing
 {
     using System.IO;
-    using Cake.Issues.Testing;
-    using Shouldly;
-    using Xunit;
-
     public sealed class ResourceTempFileTests
     {
         public sealed class TheCtor

@@ -1,10 +1,5 @@
 ﻿namespace Cake.Issues.Tests.Testing
 {
-    using System;
-    using Cake.Issues.Testing;
-    using Shouldly;
-    using Xunit;
-
     public sealed class ExceptionAssertExtensionsTests
     {
         public sealed class TheIsArgumentExceptionMethod

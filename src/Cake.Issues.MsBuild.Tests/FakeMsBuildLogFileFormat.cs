@@ -1,7 +1,5 @@
 ﻿namespace Cake.Issues.MsBuild.Tests
 {
-    using System;
-    using System.Collections.Generic;
     using Cake.Core.Diagnostics;
 
     internal class FakeMsBuildLogFileFormat(ICakeLog log) : BaseMsBuildLogFileFormat(log)

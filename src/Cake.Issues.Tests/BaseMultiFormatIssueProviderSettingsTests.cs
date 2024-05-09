@@ -1,11 +1,6 @@
 ﻿namespace Cake.Issues.Tests
 {
-    using System;
     using Cake.Core.IO;
-    using Cake.Issues.Testing;
-    using Cake.Testing;
-    using Shouldly;
-    using Xunit;
 
     public sealed class BaseMultiFormatIssueProviderSettingsTests
     {

@@ -23,7 +23,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Cake.Issues.Testing\Cake.Issues.Testing.csproj" />
     <ProjectReference Include="..\Cake.Issues.Reporting.Generic\Cake.Issues.Reporting.Generic.csproj" />
   </ItemGroup>
 </Project>

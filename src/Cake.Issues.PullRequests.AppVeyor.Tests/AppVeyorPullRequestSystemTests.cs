@@ -1,8 +1,6 @@
 ﻿namespace Cake.Issues.PullRequests.AppVeyor.Tests
 {
     using Cake.Core;
-    using Cake.Issues.Testing;
-    using Xunit;
 
     public sealed class AppVeyorPullRequestSystemTests
     {

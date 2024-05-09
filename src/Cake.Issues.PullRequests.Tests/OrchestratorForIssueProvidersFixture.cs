@@ -1,10 +1,6 @@
 namespace Cake.Issues.PullRequests.Tests
 {
-    using System;
-    using System.Collections.Generic;
     using Cake.Core.Diagnostics;
-    using Cake.Issues.Testing;
-    using Cake.Testing;
 
     internal class OrchestratorForIssueProvidersFixture
     {

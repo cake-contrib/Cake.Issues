@@ -1,8 +1,5 @@
 ﻿namespace Cake.Issues.Tests.Testing
 {
-    using System.Collections.Generic;
-    using Cake.Issues.Testing;
-
     internal sealed class FakeIssueProviderFixture : BaseIssueProviderFixture<FakeIssueProvider>
     {
         private readonly List<IIssue> issues = [];
