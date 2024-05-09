@@ -68,7 +68,7 @@
         /// <summary>
         /// Gets the settings for the issue provider.
         /// </summary>
-        protected GitRepositoryIssuesSettings IssueProviderSettings { get; private set; }
+        protected GitRepositoryIssuesSettings IssueProviderSettings { get; }
 
         /// <inheritdoc />
         protected override IEnumerable<IIssue> InternalReadIssues()
