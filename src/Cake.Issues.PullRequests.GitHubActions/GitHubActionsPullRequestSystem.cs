@@ -59,8 +59,8 @@
         /// </summary>
         /// <param name="rootDirectoryPath">The root path of the file, relative to the repository root.</param>
         /// <param name="filePath">The file path relative to the project root.</param>
-        /// <param name="line">The line where the issue ocurred.</param>
-        /// <param name="column">The column where the issue ocurred.</param>
+        /// <param name="line">The line where the issue occurred.</param>
+        /// <param name="column">The column where the issue occurred.</param>
         /// <returns>Formatted options string for the warning service message.</returns>
         private static string FormatWarningOptions(DirectoryPath rootDirectoryPath, FilePath filePath, int? line, int? column)
         {
