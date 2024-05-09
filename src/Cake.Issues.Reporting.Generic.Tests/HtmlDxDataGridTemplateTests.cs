@@ -806,7 +806,7 @@
                             HtmlDxDataGridOption.AdditionalColumns,
                             new List<HtmlDxDataGridColumnDescription>
                             {
-                                new("MyCustomColumn", x => "Foo")
+                                new("MyCustomColumn", _ => "Foo")
                                 {
                                     Caption = "Custom Value",
                                 },
