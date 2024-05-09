@@ -32,7 +32,7 @@
                 var groups = regex.Match(line).Groups;
 
                 // Read affected file from the line.
-                if (!this.TryGetFile(groups, repositorySettings, out string fileName))
+                if (!this.TryGetFile(groups, repositorySettings, out var fileName))
                 {
                     continue;
                 }

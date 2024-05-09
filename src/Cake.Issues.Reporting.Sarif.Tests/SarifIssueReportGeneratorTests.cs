@@ -82,7 +82,7 @@
                 // There are two runs because there are two issue providers.
                 sarifLog.Runs.Count.ShouldBe(2);
 
-                Run run = sarifLog.Runs[0];
+                var run = sarifLog.Runs[0];
                 run.Tool.Driver.Name.ShouldBe("ProviderType Foo");
 
                 // This run doesn't have any rules that specify a help URI, so we didn't bother
@@ -91,7 +91,7 @@
 
                 run.Results.Count.ShouldBe(1);
 
-                Result result = run.Results[0];
+                var result = run.Results[0];
                 result.RuleId.ShouldBe("Rule Foo");
                 result.RuleIndex.ShouldBe(-1); // because there's no rule metadata to point to.
                 result.Message.Text.ShouldBe("Message Foo.");
@@ -100,7 +100,7 @@
                 result.Kind.ShouldBe(ResultKind.Fail);
 
                 result.Locations.Count.ShouldBe(1);
-                PhysicalLocation physicalLocation = result.Locations[0].PhysicalLocation;
+                var physicalLocation = result.Locations[0].PhysicalLocation;
                 physicalLocation.ArtifactLocation.Uri.OriginalString.ShouldBe("src/Cake.Issues.Reporting.Sarif.Tests/SarifIssueReportGeneratorTests.cs");
                 physicalLocation.Region.StartLine.ShouldBe(10);
 
@@ -111,10 +111,10 @@
                 run.Tool.Driver.Name.ShouldBe("ProviderType Bar");
 
                 // This run has a rule that specifies a help URI, so we added rule metadata.
-                IList<ReportingDescriptor> rules = run.Tool.Driver.Rules;
+                var rules = run.Tool.Driver.Rules;
                 rules.Count.ShouldBe(1);
 
-                ReportingDescriptor rule = rules[0];
+                var rule = rules[0];
                 rule.Id.ShouldBe("Rule Bar");
                 rule.HelpUri.OriginalString.ShouldBe("https://www.example.come/rules/bar.html");
 
