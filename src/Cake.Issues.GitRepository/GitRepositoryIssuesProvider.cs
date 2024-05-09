@@ -47,16 +47,13 @@
 
             this.allFiles =
                 new Lazy<IEnumerable<string>>(
-                    new Func<IEnumerable<string>>(
-                        () => this.GetAllFilesFromRepository()));
+                    () => this.GetAllFilesFromRepository());
             this.textFiles =
                 new Lazy<IEnumerable<string>>(
-                    new Func<IEnumerable<string>>(
-                        () => this.GetTextFilesFromRepository()));
+                    () => this.GetTextFilesFromRepository());
             this.binaryFiles =
                 new Lazy<IEnumerable<string>>(
-                    new Func<IEnumerable<string>>(
-                        () => this.DetermineBinaryFiles(this.allFiles.Value, this.textFiles.Value)));
+                    () => this.DetermineBinaryFiles(this.allFiles.Value, this.textFiles.Value));
         }
 
         /// <summary>
