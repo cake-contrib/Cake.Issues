@@ -39,8 +39,6 @@
     /// </remarks>
     public class IIssueComparer(bool compareOnlyPersistentProperties) : IEqualityComparer<IIssue>
     {
-        private readonly bool compareOnlyPersistentProperties = compareOnlyPersistentProperties;
-
         /// <summary>
         /// Initializes a new instance of the <see cref="IIssueComparer"/> class.
         /// Two issues are seen as identical if all properties have identical values.
@@ -65,14 +63,14 @@
 
             return
                 (x.Identifier == y.Identifier) &&
-                (this.compareOnlyPersistentProperties || x.ProjectFileRelativePath?.FullPath == y.ProjectFileRelativePath?.FullPath) &&
+                (compareOnlyPersistentProperties || x.ProjectFileRelativePath?.FullPath == y.ProjectFileRelativePath?.FullPath) &&
                 (x.ProjectName == y.ProjectName) &&
-                (this.compareOnlyPersistentProperties || x.AffectedFileRelativePath?.FullPath == y.AffectedFileRelativePath?.FullPath) &&
-                (this.compareOnlyPersistentProperties || x.Line == y.Line) &&
-                (this.compareOnlyPersistentProperties || x.EndLine == y.EndLine) &&
-                (this.compareOnlyPersistentProperties || x.Column == y.Column) &&
-                (this.compareOnlyPersistentProperties || x.EndColumn == y.EndColumn) &&
-                (this.compareOnlyPersistentProperties || x.FileLink == y.FileLink) &&
+                (compareOnlyPersistentProperties || x.AffectedFileRelativePath?.FullPath == y.AffectedFileRelativePath?.FullPath) &&
+                (compareOnlyPersistentProperties || x.Line == y.Line) &&
+                (compareOnlyPersistentProperties || x.EndLine == y.EndLine) &&
+                (compareOnlyPersistentProperties || x.Column == y.Column) &&
+                (compareOnlyPersistentProperties || x.EndColumn == y.EndColumn) &&
+                (compareOnlyPersistentProperties || x.FileLink == y.FileLink) &&
                 (x.MessageText == y.MessageText) &&
                 (x.MessageHtml == y.MessageHtml) &&
                 (x.MessageMarkdown == y.MessageMarkdown) &&
@@ -95,7 +93,7 @@
                 return 0;
             }
 
-            if (this.compareOnlyPersistentProperties)
+            if (compareOnlyPersistentProperties)
             {
                 return
                     GetHashCode(
