@@ -27,7 +27,7 @@
                         nameof(fileResourceName));
                 }
 
-                var issues = IssueDeserializationExtensions.DeserializeToIssues(reader.ReadToEnd());
+                var issues = reader.ReadToEnd().DeserializeToIssues();
                 return this.CreateReport(issues, repositoryRootPath);
             }
         }
