@@ -2,14 +2,9 @@
 {
     using Cake.Testing.Fixtures;
 
-    internal class GitRunnerFixture : ToolFixture<GitRunnerSettings>
+    internal class GitRunnerFixture() : ToolFixture<GitRunnerSettings>("git")
     {
         private readonly List<string> standardOutput = [];
-
-        public GitRunnerFixture()
-            : base("git")
-        {
-        }
 
         public IEnumerable<string> StandardOutput => this.standardOutput;
 
