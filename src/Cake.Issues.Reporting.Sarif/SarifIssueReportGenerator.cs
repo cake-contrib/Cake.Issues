@@ -58,6 +58,7 @@
             if (issues.Any())
             {
                 log.Runs = new List<Run>();
+
                 // ReSharper disable once PossibleMultipleEnumeration
                 foreach (var issueGroup in from issue in issues group issue by new { issue.ProviderType, issue.Run })
                 {

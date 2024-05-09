@@ -210,6 +210,7 @@
             settings.Arguments.Clear();
             settings.Arguments.Add("grep -IL .");
             var emptyFiles = this.runner.RunCommand(settings);
+
             // ReSharper disable once PossibleMultipleEnumeration
             if (emptyFiles != null && emptyFiles.Any())
             {

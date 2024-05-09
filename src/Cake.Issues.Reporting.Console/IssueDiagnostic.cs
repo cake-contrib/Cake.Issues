@@ -27,6 +27,7 @@
         /// </summary>
         /// <param name="issues">Issues which the diagnostic should describe.</param>
         public IssueDiagnostic(IEnumerable<IIssue> issues)
+
             // ReSharper disable once PossibleMultipleEnumeration
             : base(issues.First().RuleId)
         {
