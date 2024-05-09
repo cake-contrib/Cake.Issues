@@ -7,15 +7,9 @@
 
     internal class ConsoleIssueReportFixture
     {
-        public ConsoleIssueReportFixture()
-        {
-            this.Log = new FakeLog { Verbosity = Verbosity.Normal };
-            this.ConsoleIssueReportFormatSettings = new ConsoleIssueReportFormatSettings();
-        }
+        public FakeLog Log { get; set; } = new() { Verbosity = Verbosity.Normal };
 
-        public FakeLog Log { get; set; }
-
-        public ConsoleIssueReportFormatSettings ConsoleIssueReportFormatSettings { get; set; }
+        public ConsoleIssueReportFormatSettings ConsoleIssueReportFormatSettings { get; set; } = new();
 
         public string CreateReport(string fileResourceName, DirectoryPath repositoryRootPath)
         {
