@@ -91,12 +91,7 @@
             int? line)
         {
             // Convert negative line numbers or line number 0 to null
-            if (line.HasValue && line.Value <= 0)
-            {
-                return null;
-            }
-
-            return line;
+            return line is <= 0 ? null : line;
         }
 
         /// <summary>
