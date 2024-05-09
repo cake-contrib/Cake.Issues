@@ -2,7 +2,6 @@
 {
     using System;
     using System.IO;
-    using System.Linq;
 
     /// <summary>
     /// Extensions for <see cref="string"/> for handling paths.

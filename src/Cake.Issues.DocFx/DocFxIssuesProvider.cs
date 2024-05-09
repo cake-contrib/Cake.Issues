@@ -1,6 +1,5 @@
 ﻿namespace Cake.Issues.DocFx
 {
-    using System;
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
