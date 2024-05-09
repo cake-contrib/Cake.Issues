@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
     using System.IO;
     using System.Linq;
     using System.Runtime.Serialization;
@@ -105,6 +106,7 @@
 #pragma warning disable CS0649 // Field 'field' is never assigned to, and will always have its default value 'value'
 
         [DataContract]
+        [SuppressMessage("ReSharper", "InconsistentNaming", Justification = "Following file format")]
         private class LogFileEntry
         {
             [DataMember]

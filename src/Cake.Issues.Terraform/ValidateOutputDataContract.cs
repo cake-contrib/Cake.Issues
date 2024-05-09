@@ -1,4 +1,5 @@
-﻿namespace Cake.Issues.Terraform
+﻿// ReSharper disable InconsistentNaming
+namespace Cake.Issues.Terraform
 {
     using System.Runtime.Serialization;
 
