@@ -210,8 +210,10 @@
             settings.Arguments.Clear();
             settings.Arguments.Add("grep -IL .");
             var emptyFiles = this.runner.RunCommand(settings);
+            // ReSharper disable once PossibleMultipleEnumeration
             if (emptyFiles != null && emptyFiles.Any())
             {
+                // ReSharper disable once PossibleMultipleEnumeration
                 textFiles = textFiles.Concat(emptyFiles);
             }
 
@@ -240,6 +242,7 @@
             var lfsTrackedFiles =
                 this.runner.RunCommand(settings)
                 ?? throw new Exception("Error reading LFS tracked files from repository");
+            lfsTrackedFiles = lfsTrackedFiles.ToList();
             this.Log.Verbose("Found {0} LFS tracked file(s)", lfsTrackedFiles.Count());
 
             return lfsTrackedFiles;
