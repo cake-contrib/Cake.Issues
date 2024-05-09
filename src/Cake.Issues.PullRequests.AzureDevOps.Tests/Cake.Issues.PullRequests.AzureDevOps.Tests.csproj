@@ -4,10 +4,6 @@
     <Description>Tests for the Cake.Issues.PullRequests.AzureDevOps addin</Description>
   </PropertyGroup>
 
-  <PropertyGroup>
-    <CodeAnalysisRuleSet>..\Cake.Issues.Tests.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-
   <ItemGroup>
     <PackageReference Include="Cake.AzureDevOps" Version="4.0.0" />
     <PackageReference Include="NSubstitute" Version="5.1.0" />

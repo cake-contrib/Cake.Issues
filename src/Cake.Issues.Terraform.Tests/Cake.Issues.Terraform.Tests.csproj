@@ -4,10 +4,6 @@
     <Description>Tests for the Cake.Issues.Terraform addin</Description>
   </PropertyGroup>
 
-  <PropertyGroup>
-    <CodeAnalysisRuleSet>..\Cake.Issues.Tests.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-
   <ItemGroup>
     <None Remove="Testfiles\error.json" />
     <None Remove="Testfiles\warning-across-multiple-lines.json" />

@@ -4,10 +4,6 @@
     <Description>Tests for the Cake.Issues.Markdownlint addin</Description>
   </PropertyGroup>
 
-  <PropertyGroup>
-    <CodeAnalysisRuleSet>..\Cake.Issues.Tests.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-
   <ItemGroup>
     <None Remove="Testfiles\MarkdownlintCliJsonLogFileFormat\AbsoluteFilePath.json" />
     <None Remove="Testfiles\MarkdownlintCliJsonLogFileFormat\empty.json" />

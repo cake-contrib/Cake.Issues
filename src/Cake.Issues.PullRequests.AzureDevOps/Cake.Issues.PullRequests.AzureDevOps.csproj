@@ -4,10 +4,6 @@
     <Description>Azure DevOps support for the Cake.Issues addin for Cake Build Automation System</Description>
   </PropertyGroup>
 
-  <PropertyGroup>
-    <CodeAnalysisRuleSet>..\Cake.Issues.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-
   <ItemGroup>
     <InternalsVisibleTo Include="Cake.Issues.PullRequests.AzureDevOps.Tests" />
     <InternalsVisibleTo Include="DynamicProxyGenAssembly2" />

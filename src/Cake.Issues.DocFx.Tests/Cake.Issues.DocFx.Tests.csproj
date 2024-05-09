@@ -4,10 +4,6 @@
     <Description>Tests for the Cake.Issues.DocFx addin</Description>
   </PropertyGroup>
 
-  <PropertyGroup>
-    <CodeAnalysisRuleSet>..\Cake.Issues.Tests.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-
   <ItemGroup>
     <None Remove="Testfiles\entry-of-level-suggestion.json" />
   </ItemGroup>

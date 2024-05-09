@@ -4,10 +4,6 @@
     <Description>Addin for reading code analyzer or linter issues for the Cake build automation system</Description>
   </PropertyGroup>
 
-  <PropertyGroup>
-    <CodeAnalysisRuleSet>..\Cake.Issues.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-
   <ItemGroup>
     <PackageReference Include="Cake.Core" Version="4.0.0" />
     <PackageReference Include="JetBrains.Annotations" Version="2023.3.0" />

@@ -4,10 +4,6 @@
     <Description>Git repository linting support for the Cake.Issues addin for Cake Build Automation System</Description>
   </PropertyGroup>
 
-  <PropertyGroup>
-    <CodeAnalysisRuleSet>..\Cake.Issues.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\Cake.Issues\Cake.Issues.csproj" />
   </ItemGroup>

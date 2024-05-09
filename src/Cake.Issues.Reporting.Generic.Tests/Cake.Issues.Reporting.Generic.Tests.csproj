@@ -4,10 +4,6 @@
     <Description>Tests for the Cake.Issues.Reporting.Generic addin</Description>
   </PropertyGroup>
 
-  <PropertyGroup>
-    <CodeAnalysisRuleSet>..\Cake.Issues.Tests.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-
   <ItemGroup>
     <!-- To disable parallelization in xunit builds while running "dotnet test" a configuration file is required. -->
     <!-- For disabling parallelization in test execution inside Visual Studio see DisableTestParallelization attribute. -->

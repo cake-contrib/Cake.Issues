@@ -4,10 +4,6 @@
     <Description>Tests for the Cake.Issues.PullRequests addin</Description>
   </PropertyGroup>
 
-  <PropertyGroup>
-    <CodeAnalysisRuleSet>..\Cake.Issues.Tests.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-
    <ItemGroup>
     <ProjectReference Include="..\Cake.Issues.PullRequests\Cake.Issues.PullRequests.csproj" />
    </ItemGroup>

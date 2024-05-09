@@ -4,10 +4,6 @@
     <Description>Addin for writing code analyzer or linter issues to GitHub Actions</Description>
   </PropertyGroup>
 
-  <PropertyGroup>
-    <CodeAnalysisRuleSet>..\Cake.Issues.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\Cake.Issues.PullRequests\Cake.Issues.PullRequests.csproj" />
   </ItemGroup>

@@ -19,6 +19,7 @@
     <When Condition="!$(MSBuildProjectName.EndsWith('.Tests'))">
       <PropertyGroup>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <CodeAnalysisRuleSet>..\Cake.Issues.ruleset</CodeAnalysisRuleSet>
         <AnalysisMode>AllEnabledByDefault</AnalysisMode>
       </PropertyGroup>
 
@@ -35,6 +36,7 @@
   <Choose>
     <When Condition="$(MSBuildProjectName.EndsWith('.Tests'))">
       <PropertyGroup>
+        <CodeAnalysisRuleSet>..\Cake.Issues.Tests.ruleset</CodeAnalysisRuleSet>
         <ImplicitUsings>enable</ImplicitUsings>
       </PropertyGroup>
       

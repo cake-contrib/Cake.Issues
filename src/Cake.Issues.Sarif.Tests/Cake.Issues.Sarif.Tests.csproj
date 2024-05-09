@@ -4,10 +4,6 @@
     <Description>Tests for the Cake.Issues.Sarif addin</Description>
   </PropertyGroup>
 
-  <PropertyGroup>
-    <CodeAnalysisRuleSet>..\Cake.Issues.Tests.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-
   <ItemGroup>
     <EmbeddedResource Include="Testfiles\cake.issues.reporting.sarif.sarif" />
     <EmbeddedResource Include="Testfiles\comprehensive.sarif" />
