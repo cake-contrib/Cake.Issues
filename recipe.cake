@@ -22,7 +22,8 @@ BuildParameters.SetParameters(
 BuildParameters.PrintParameters(Context);
 
 ToolSettings.SetToolPreprocessorDirectives(
-    gitReleaseManagerGlobalTool: "#tool dotnet:?package=GitReleaseManager.Tool&version=0.17.0"
+    gitReleaseManagerGlobalTool: "#tool dotnet:?package=GitReleaseManager.Tool&version=0.17.0",
+    reSharperTools: "#tool nuget:?package=JetBrains.ReSharper.CommandLineTools&version=2024.1.2"
 );
 
 ToolSettings.SetToolSettings(
@@ -98,6 +99,32 @@ BuildParameters.Tasks.DotNetCoreTestTask.Does<DotNetCoreMSBuildSettings>((contex
         DotNetCoreTest(project.FullPath, settings, coverletSettings);
     }
 });
+
+// Update to latest InspectCode version which generates a SARIF file
+((CakeTask)BuildParameters.Tasks.InspectCodeTask.Task).Actions.Clear();
+BuildParameters.Tasks.InspectCodeTask
+    .WithCriteria(() => BuildParameters.BuildAgentOperatingSystem == PlatformFamily.Windows, "Skipping due to not running on Windows")
+    .WithCriteria(() => BuildParameters.ShouldRunInspectCode, "Skipping because InspectCode has been disabled")
+    .Does<BuildData>(data => RequireTool(ToolSettings.ReSharperTools, () => {
+        var inspectCodeLogFilePath = BuildParameters.Paths.Directories.InspectCodeTestResults.CombineWithFilePath("inspectcode.xml");
+
+        var settings = new InspectCodeSettings() {
+            SolutionWideAnalysis = true,
+            OutputFile = inspectCodeLogFilePath,
+            ArgumentCustomization = x => x.Append("--no-build").Append("-f=xml")
+        };
+
+        if (FileExists(BuildParameters.SourceDirectoryPath.CombineWithFilePath(BuildParameters.ResharperSettingsFileName)))
+        {
+            settings.Profile = BuildParameters.SourceDirectoryPath.CombineWithFilePath(BuildParameters.ResharperSettingsFileName);
+        }
+
+        InspectCode(BuildParameters.SolutionFilePath, settings);
+
+        // Pass path to InspectCode log file to Cake.Issues.Recipe
+        IssuesParameters.InputFiles.AddInspectCodeLogFile(inspectCodeLogFilePath);
+    })
+);
 
 //*************************************************************************************************
 // Execution
