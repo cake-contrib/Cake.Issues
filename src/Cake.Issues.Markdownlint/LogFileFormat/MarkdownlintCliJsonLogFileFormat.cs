@@ -31,7 +31,7 @@
                 return new List<IIssue>();
             }
 
-            IEnumerable<LogFileEntry> logFileEntries = null;
+            IEnumerable<LogFileEntry> logFileEntries;
             using (var ms = new MemoryStream(markdownlintIssuesSettings.LogFileContent.ToStringUsingEncoding(true).ToByteArray()))
             {
                 var jsonSerializer = new DataContractJsonSerializer(typeof(LogFileEntry[]));

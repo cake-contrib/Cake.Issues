@@ -37,7 +37,7 @@
                 docRootPath = docRootPath.MakeAbsolute(this.Settings.RepositoryRoot);
             }
 
-            IEnumerable<LogEntryDataContract> logFileEntries = null;
+            IEnumerable<LogEntryDataContract> logFileEntries;
 
             var logFileContent = this.IssueProviderSettings.LogFileContent.ToStringUsingEncoding(true);
 

@@ -35,7 +35,7 @@
                 terraformRootPath = terraformRootPath.MakeAbsolute(this.Settings.RepositoryRoot);
             }
 
-            ValidateFile validateFile = null;
+            ValidateFile validateFile;
 
             var logFileContent = this.IssueProviderSettings.LogFileContent.ToStringUsingEncoding(true);
 
