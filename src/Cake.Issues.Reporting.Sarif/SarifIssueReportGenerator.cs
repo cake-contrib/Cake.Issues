@@ -79,7 +79,7 @@
                             OriginalUriBaseIds = new Dictionary<string, ArtifactLocation>
                             {
                                 [RepoRootUriBaseId] =
-                                    new ArtifactLocation
+                                    new()
                                     {
                                         Uri = new Uri(this.Settings.RepositoryRoot.FullPath, UriKind.Absolute),
                                     },
