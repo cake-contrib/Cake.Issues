@@ -4,7 +4,7 @@
     using System.Text.RegularExpressions;
 
     /// <summary>
-    /// Class for retrieving an URL linking to a site describing a rule.
+    /// Class for retrieving a URL linking to a site describing a rule.
     /// </summary>
     internal class MarkdownlintRuleUrlResolver : BaseRuleUrlResolver<MarkdownlintRuleDescription>
     {

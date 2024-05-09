@@ -1,7 +1,7 @@
 ﻿namespace Cake.Issues.PullRequests
 {
     /// <summary>
-    /// Interface describing that a pull request system supports checking if commit Id is still up to date.
+    /// Interface describing that a pull request system supports checking if commit ID is still up-to-date.
     /// </summary>
     public interface ISupportCheckingCommitId
         : IPullRequestSystemCapability

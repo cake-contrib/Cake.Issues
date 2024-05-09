@@ -64,7 +64,7 @@
 
                         // Issue to exercise the corner case where ruleId is absent (so no rule
                         // metadata is created) but helpUri is present (so it is stored in the
-                        // result's property bag.
+                        // result's property bag).
                         IssueBuilder
                             .NewIssue("Message Bar 2.", "ProviderType Bar", "ProviderName Bar")
                             .InFile(@"src\Cake.Issues.Reporting.Sarif.Tests\SarifIssueReportGeneratorTests.cs", 23, 42, 5, 10)

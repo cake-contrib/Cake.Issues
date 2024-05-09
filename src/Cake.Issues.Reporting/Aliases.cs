@@ -12,7 +12,7 @@
     public static class Aliases
     {
         /// <summary>
-        /// Creates a report for a the issues from an issue provider in the specified format.
+        /// Creates a report for the issues from an issue provider in the specified format.
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="issueProvider">Issue provider for whose issues the report should be generated.</param>
@@ -59,7 +59,7 @@
         }
 
         /// <summary>
-        /// Creates a report for a the issues from an issue provider with the specific settings.
+        /// Creates a report for the issues from an issue provider with the specific settings.
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="issueProvider">Issue provider for whose issues the report should be generated.</param>

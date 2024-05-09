@@ -201,7 +201,7 @@ namespace Cake.Issues.PullRequests
         }
 
         /// <summary>
-        /// Limits the number of issues so as to not overload the pull request with too many comments.
+        /// Limits the number of issues to not overload the pull request with too many comments.
         /// </summary>
         /// <param name="issues">List of issues which should be filtered.</param>
         /// <param name="existingThreads">List of threads which were reported by Cake.Issues.</param>

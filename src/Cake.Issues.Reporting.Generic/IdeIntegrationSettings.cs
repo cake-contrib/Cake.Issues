@@ -16,7 +16,7 @@
         public string OpenInIdeCall { get; set; }
 
         /// <summary>
-        /// Gets or sets text which should be shown in the drop down menu for opening the file affected
+        /// Gets or sets text which should be shown in the dropdown menu for opening the file affected
         /// by an issue in an IDE.
         /// Default value is <c>Open in IDE</c>.
         /// </summary>

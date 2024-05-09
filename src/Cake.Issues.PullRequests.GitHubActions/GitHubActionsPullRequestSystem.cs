@@ -85,7 +85,7 @@
         }
 
         /// <summary>
-        /// Writes services messages to report issues to GitHub Actions grouped by provider and run.
+        /// Writes service messages to report issues to GitHub Actions grouped by provider and run.
         /// </summary>
         /// <param name="issues">Issues which should be reported.</param>
         private void WriteGroupedIssues(IEnumerable<IIssue> issues)

@@ -93,7 +93,7 @@
         }
 
         /// <summary>
-        /// Determines the project for a issue logged in a Inspect Code log.
+        /// Determines the project for an issue logged in an Inspect Code log.
         /// </summary>
         /// <param name="issue">Issue element from Inspect Code log.</param>
         /// <param name="project">Returns project.</param>
@@ -126,7 +126,7 @@
         }
 
         /// <summary>
-        /// Reads the affected file path from an issue logged in a Inspect Code log.
+        /// Reads the affected file path from an issue logged in an Inspect Code log.
         /// </summary>
         /// <param name="issue">Issue element from Inspect Code log.</param>
         /// <param name="solutionPath">Path to the solution file.</param>
@@ -155,7 +155,7 @@
         }
 
         /// <summary>
-        /// Reads the affected line from an issue logged in a Inspect Code log.
+        /// Reads the affected line from an issue logged in an Inspect Code log.
         /// </summary>
         /// <param name="issue">Issue element from Inspect Code log.</param>
         /// <param name="line">Returns line.</param>
@@ -189,7 +189,7 @@
         }
 
         /// <summary>
-        /// Reads the rule code from an issue logged in a Inspect Code log.
+        /// Reads the rule code from an issue logged in an Inspect Code log.
         /// </summary>
         /// <param name="issue">Issue element from Inspect Code log.</param>
         /// <param name="ruleId">Returns the code of the rule.</param>
@@ -214,7 +214,7 @@
         }
 
         /// <summary>
-        /// Reads the message from an issue logged in a Inspect Code log.
+        /// Reads the message from an issue logged in an Inspect Code log.
         /// </summary>
         /// <param name="issue">Issue element from Inspect Code log.</param>
         /// <param name="message">Returns the message of the issue.</param>

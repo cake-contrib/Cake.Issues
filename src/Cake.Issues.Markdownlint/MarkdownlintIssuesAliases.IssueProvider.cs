@@ -29,7 +29,7 @@
         /// Gets an instance of a provider for issues reported by Markdownlint using a log file from disk.
         /// </summary>
         /// <param name="context">The context.</param>
-        /// <param name="logFilePath">Path to the the Markdownlint log file.
+        /// <param name="logFilePath">Path to the Markdownlint log file.
         /// The log file needs to be in the format as defined by the <paramref name="format"/> parameter.</param>
         /// <param name="format">Format of the provided Markdownlint log file.</param>
         /// <returns>Instance of a provider for issues reported by Markdownlint.</returns>
@@ -64,7 +64,7 @@
         /// Gets an instance of a provider for issues reported by Markdownlint using log file content.
         /// </summary>
         /// <param name="context">The context.</param>
-        /// <param name="logFileContent">Content of the the Markdownlint log file.
+        /// <param name="logFileContent">Content of the Markdownlint log file.
         /// The log file needs to be in the format as defined by the <paramref name="format"/> parameter.</param>
         /// <param name="format">Format of the provided Markdownlint log file.</param>
         /// <returns>Instance of a provider for issues reported by Markdownlint.</returns>

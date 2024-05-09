@@ -4,7 +4,7 @@
     using System.Text;
 
     /// <summary>
-    /// Class for retrieving an URL linking to a site describing a rule.
+    /// Class for retrieving a URL linking to a site describing a rule.
     /// </summary>
     internal class MsBuildRuleUrlResolver : BaseRuleUrlResolver<MsBuildRuleDescription>
     {
@@ -51,7 +51,7 @@
         /// <inheritdoc/>
         protected override bool TryGetRuleDescription(string rule, MsBuildRuleDescription ruleDescription)
         {
-            // Parse the rule. Expect it in the form starting with a identifier containing characters
+            // Parse the rule. Expect it in the form starting with an identifier containing characters
             // followed by the rule id as a number.
             var digitIndex = -1;
             var categoryBuilder = new StringBuilder();
