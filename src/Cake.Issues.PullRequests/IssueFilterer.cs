@@ -229,7 +229,7 @@ namespace Cake.Issues.PullRequests
                     var countBefore = group.Count();
                     var issuesFiltered =
                         group
-                            .SortWithDefaultPriorization()
+                            .SortWithDefaultPrioritization()
                             .Take(this.settings.MaxIssuesToPostForEachIssueProvider.Value)
                             .ToList();
                     var issuesFilteredCount = countBefore - issuesFiltered.Count;
@@ -274,7 +274,7 @@ namespace Cake.Issues.PullRequests
 
                 var newIssuesForProviderType =
                     result.Where(p => p.ProviderType == currentProviderType)
-                        .SortWithDefaultPriorization()
+                        .SortWithDefaultPrioritization()
                         .ToArray();
                 if (newIssuesForProviderType.Length <= currentProviderTypeMaxLimit)
                 {
@@ -305,7 +305,7 @@ namespace Cake.Issues.PullRequests
                 var countBefore = result.Count;
                 result =
                     result
-                        .SortWithDefaultPriorization()
+                        .SortWithDefaultPrioritization()
                         .Take(this.settings.MaxIssuesToPost.Value)
                         .ToList();
                 var issuesFilteredCount = countBefore - result.Count;
@@ -353,7 +353,7 @@ namespace Cake.Issues.PullRequests
 
                 var newIssuesForProviderType =
                     result.Where(p => p.ProviderType == currentProviderType)
-                        .SortWithDefaultPriorization()
+                        .SortWithDefaultPrioritization()
                         .ToArray();
                 if (newIssuesForProviderType.Length <= maxIssuesLeftToTakeForProviderType)
                 {
@@ -386,7 +386,7 @@ namespace Cake.Issues.PullRequests
                 var countBefore = result.Count;
                 result =
                     result
-                        .SortWithDefaultPriorization()
+                        .SortWithDefaultPrioritization()
                         .Take(maxIssuesToPostInThisRun)
                         .ToList();
                 var issuesFilteredCount = countBefore - result.Count;

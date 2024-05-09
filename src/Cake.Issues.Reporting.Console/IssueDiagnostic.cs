@@ -102,13 +102,13 @@
 
             var location = new Location(issue.Line.Value, issue.Column.Value);
 
-            var lenght = 0;
+            var length = 0;
             if (issue.EndColumn.HasValue)
             {
-                lenght = issue.EndColumn.Value - issue.Column.Value;
+                length = issue.EndColumn.Value - issue.Column.Value;
             }
 
-            return (location, lenght);
+            return (location, length);
         }
     }
 }
