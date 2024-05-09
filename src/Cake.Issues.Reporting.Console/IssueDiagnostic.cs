@@ -67,7 +67,7 @@
 
             foreach (var issue in this.issues)
             {
-                (var location, var length) = this.GetLocation(issue);
+                var (location, length) = this.GetLocation(issue);
                 var label =
                     new Label(
                         issue.AffectedFileRelativePath.FullPath,
