@@ -4,10 +4,6 @@
     <Description>Tests for the Cake.Issues.Reporting.Console addin</Description>
   </PropertyGroup>
 
-  <PropertyGroup>
-    <CodeAnalysisRuleSet>..\Cake.Issues.Tests.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-
   <ItemGroup>
     <None Remove="Testfiles\issues.json" />
   </ItemGroup>

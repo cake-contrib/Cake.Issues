@@ -4,10 +4,6 @@
     <Description>Tests for the Cake.Issues.PullRequests.GitHubActions addin</Description>
   </PropertyGroup>
 
-  <PropertyGroup>
-    <CodeAnalysisRuleSet>..\Cake.Issues.Tests.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\Cake.Issues.PullRequests.GitHubActions\Cake.Issues.PullRequests.GitHubActions.csproj" />
   </ItemGroup>

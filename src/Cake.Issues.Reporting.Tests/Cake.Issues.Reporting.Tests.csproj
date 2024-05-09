@@ -4,10 +4,6 @@
     <Description>Tests for the Cake.Issues.Reporting addin</Description>
   </PropertyGroup>
 
-  <PropertyGroup>
-    <CodeAnalysisRuleSet>..\Cake.Issues.Tests.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\Cake.Issues.Reporting\Cake.Issues.Reporting.csproj" />
   </ItemGroup>

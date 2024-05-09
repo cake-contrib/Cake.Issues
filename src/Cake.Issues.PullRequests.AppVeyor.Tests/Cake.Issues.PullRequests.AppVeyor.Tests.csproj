@@ -4,10 +4,6 @@
     <Description>Tests for the Cake.Issues.PullRequests.AppVeyor addin</Description>
   </PropertyGroup>
 
-  <PropertyGroup>
-    <CodeAnalysisRuleSet>..\Cake.Issues.Tests.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-
   <ItemGroup>
     <PackageReference Include="NSubstitute" Version="5.1.0" />
   </ItemGroup>

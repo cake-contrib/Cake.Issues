@@ -4,10 +4,6 @@
     <Description>Tests for the Cake.Issues addin</Description>
   </PropertyGroup>
 
-  <PropertyGroup>
-    <CodeAnalysisRuleSet>..\Cake.Issues.Tests.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-
   <ItemGroup>
     <None Remove="Testfiles\Build.log" />
     <None Remove="Testfiles\Empty.log" />

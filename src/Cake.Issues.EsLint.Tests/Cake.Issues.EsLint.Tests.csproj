@@ -4,10 +4,6 @@
     <Description>Tests for the Cake.Issues.EsLint addin</Description>
   </PropertyGroup>
 
-  <PropertyGroup>
-    <CodeAnalysisRuleSet>..\Cake.Issues.Tests.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-
   <ItemGroup>
     <None Remove="Testfiles\JsonLogFileFormat\issueWithoutLineAndColumn.json" />
     <None Remove="Testfiles\JsonLogFileFormat\issueWithoutRule.json" />

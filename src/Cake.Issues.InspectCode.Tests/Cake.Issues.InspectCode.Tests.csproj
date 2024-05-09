@@ -5,10 +5,6 @@
     <Description>Tests for the Cake.Issues.InspectCode addin</Description>
   </PropertyGroup>
 
-  <PropertyGroup>
-    <CodeAnalysisRuleSet>..\Cake.Issues.Tests.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-  
   <ItemGroup>
     <None Remove="Testfiles\inspectcode.xml" />
     <None Remove="Testfiles\WithoutLineButOffset.xml" />

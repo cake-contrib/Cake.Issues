@@ -4,10 +4,6 @@
     <Description>Tests for the Cake.Issues.Reporting.Sarif addin</Description>
   </PropertyGroup>
 
-  <PropertyGroup>
-    <CodeAnalysisRuleSet>..\Cake.Issues.Tests.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\Cake.Issues.Reporting.Sarif\Cake.Issues.Reporting.Sarif.csproj" />
   </ItemGroup>
