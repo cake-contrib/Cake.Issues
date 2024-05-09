@@ -43,7 +43,7 @@
                 return false;
             }
 
-            if (!int.TryParse(groups[1].Value, out int ruleId))
+            if (!int.TryParse(groups[1].Value, out var ruleId))
             {
                 return false;
             }

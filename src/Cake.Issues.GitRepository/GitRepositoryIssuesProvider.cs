@@ -141,7 +141,7 @@
             }
 
             var result = new List<IIssue>();
-            foreach (string file in this.allFiles.Value)
+            foreach (var file in this.allFiles.Value)
             {
                 if (file.Length > this.IssueProviderSettings.MaxFilePathLength)
                 {

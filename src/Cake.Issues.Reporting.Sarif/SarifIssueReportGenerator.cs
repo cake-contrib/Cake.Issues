@@ -137,7 +137,7 @@
             {
                 if (!string.IsNullOrEmpty(issue.RuleId))
                 {
-                    if (!this.ruleIndices.TryGetValue(issue.RuleId, out int value))
+                    if (!this.ruleIndices.TryGetValue(issue.RuleId, out var value))
                     {
                         this.ruleIndices.Add(issue.RuleId, this.rules.Count);
                         this.rules.Add(
