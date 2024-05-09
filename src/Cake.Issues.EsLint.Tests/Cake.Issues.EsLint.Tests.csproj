@@ -4,15 +4,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Testfiles\JsonLogFileFormat\issueWithoutLineAndColumn.json" />
-    <None Remove="Testfiles\JsonLogFileFormat\issueWithoutRule.json" />
-    <None Remove="Testfiles\JsonLogFileFormat\jsonFormatWindows.json" />
+    <None Remove="Testfiles\**\*" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Testfiles\JsonLogFileFormat\issueWithoutLineAndColumn.json" />
-    <EmbeddedResource Include="Testfiles\JsonLogFileFormat\issueWithoutRule.json" />
-    <EmbeddedResource Include="Testfiles\JsonLogFileFormat\jsonFormatWindows.json" />
+    <EmbeddedResource Include="Testfiles\JsonLogFileFormat\*.json" />
   </ItemGroup>
 
   <ItemGroup>

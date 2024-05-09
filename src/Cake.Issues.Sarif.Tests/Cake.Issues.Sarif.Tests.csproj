@@ -4,12 +4,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Testfiles\cake.issues.reporting.sarif.sarif" />
-    <EmbeddedResource Include="Testfiles\comprehensive.sarif" />
-    <EmbeddedResource Include="Testfiles\minimal.sarif" />
-    <EmbeddedResource Include="Testfiles\recommended-with-source.sarif" />
-    <EmbeddedResource Include="Testfiles\recommended-without-source.sarif" />
-    <EmbeddedResource Include="Testfiles\rule-metadata-1.json" />
+    <None Remove="Testfiles\**\*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Testfiles\*.sarif" />
   </ItemGroup>
 
   <ItemGroup>

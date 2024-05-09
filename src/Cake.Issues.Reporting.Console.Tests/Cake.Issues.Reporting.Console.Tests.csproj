@@ -4,11 +4,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Testfiles\issues.json" />
+    <None Remove="Testfiles\**\*" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Testfiles\issues.json" />
+    <EmbeddedResource Include="Testfiles\*.json" />
   </ItemGroup>
 
   <ItemGroup>
