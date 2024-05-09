@@ -12,7 +12,7 @@
             {
                 foreach (var number in Enum.GetValues(typeof(DevExtremeTheme)))
                 {
-                    yield return new[] { number };
+                    yield return [number];
                 }
             }
 
