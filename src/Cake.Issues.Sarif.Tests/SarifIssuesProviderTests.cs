@@ -44,7 +44,7 @@
             }
 
             [Fact]
-            public void Should_Read_Issue_Correct_For_Recomended_File_Without_Source()
+            public void Should_Read_Issue_Correct_For_Recommended_File_Without_Source()
             {
                 // Given
                 var fixture = new SarifIssuesProviderFixture("recommended-without-source.sarif");
@@ -67,7 +67,7 @@
             }
 
             [Fact]
-            public void Should_Read_Issue_Correct_For_Recomended_File_With_Source()
+            public void Should_Read_Issue_Correct_For_Recommended_File_With_Source()
             {
                 // Given
                 var fixture = new SarifIssuesProviderFixture("recommended-with-source.sarif");

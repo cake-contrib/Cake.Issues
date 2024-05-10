@@ -101,7 +101,7 @@ namespace Cake.Issues.PullRequests.Tests
             }
 
             [Fact]
-            public void Should_Not_Throw_If_Issues_Are_Empry()
+            public void Should_Not_Throw_If_Issues_Are_Empty()
             {
                 // Given
                 var fixture = new OrchestratorForIssuesFixture();
@@ -981,7 +981,7 @@ namespace Cake.Issues.PullRequests.Tests
         public sealed class TheRunMethodWithCheckingCommitIdCapability
         {
             [Fact]
-            public void Should_Skip_Posting_If_Commit_Is_Outdate()
+            public void Should_Skip_Posting_If_Commit_Is_Outdated()
             {
                 // Given
                 var issueToPost =
