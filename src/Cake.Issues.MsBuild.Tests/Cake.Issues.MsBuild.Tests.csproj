@@ -1,9 +1,4 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
-  </PropertyGroup>
-
   <ItemGroup>
     <None Remove="Testfiles\**\*" />
   </ItemGroup>
@@ -16,5 +11,4 @@
   <ItemGroup>
     <ProjectReference Include="..\Cake.Issues.MsBuild\Cake.Issues.MsBuild.csproj" />
   </ItemGroup>
-
 </Project>
