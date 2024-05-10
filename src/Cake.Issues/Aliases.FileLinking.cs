@@ -86,7 +86,7 @@
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="repositoryUrl">Full URL of the Git repository,
-        /// eg. <code>https://github.com/cake-contrib/Cake.Issues.Reporting.Generic</code>.</param>
+        /// e.g. <code>https://github.com/cake-contrib/Cake.Issues.Reporting.Generic</code>.</param>
         /// <param name="branch">Name of the branch on which the file linking will be based on.</param>
         /// <returns>Settings for linking to files hosted in GitHub.</returns>
         [CakeMethodAlias]
@@ -109,7 +109,7 @@
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="repositoryUrl">Full URL of the Git repository,
-        /// eg. <code>https://github.com/cake-contrib/Cake.Issues.Reporting.Generic</code>.</param>
+        /// e.g. <code>https://github.com/cake-contrib/Cake.Issues.Reporting.Generic</code>.</param>
         /// <param name="branch">Name of the branch on which the file linking will be based on.</param>
         /// <param name="rootPath">Root path of the files.
         /// <c>null</c> if files are in the root of the repository.</param>
@@ -138,7 +138,7 @@
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="repositoryUrl">Full URL of the Git repository,
-        /// eg. <code>https://github.com/cake-contrib/Cake.Issues.Reporting.Generic</code>.</param>
+        /// e.g. <code>https://github.com/cake-contrib/Cake.Issues.Reporting.Generic</code>.</param>
         /// <param name="commitId">The commit id on which the file linking will be based on.</param>
         /// <returns>Settings for linking to files hosted in GitHub.</returns>
         [CakeMethodAlias]
@@ -161,7 +161,7 @@
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="repositoryUrl">Full URL of the Git repository,
-        /// eg. <code>https://github.com/cake-contrib/Cake.Issues.Reporting.Generic</code>.</param>
+        /// e.g. <code>https://github.com/cake-contrib/Cake.Issues.Reporting.Generic</code>.</param>
         /// <param name="commitId">The commit id on which the file linking will be based on.</param>
         /// <param name="rootPath">Root path of the files.
         /// <c>null</c> or <see cref="string.Empty"/> if files are in the root of the repository.</param>
@@ -191,7 +191,7 @@
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="repositoryUrl">Full URL of the Git repository,
-        /// eg. <code>https://dev.azure.com/myorganization/_git/myrepo</code>.</param>
+        /// e.g. <code>https://dev.azure.com/myorganization/_git/myrepo</code>.</param>
         /// <param name="branch">Name of the branch on which the file linking will be based on.</param>
         /// <returns>Settings for linking files hosted on Azure DevOps or Azure DevOps Server.</returns>
         [CakeMethodAlias]
@@ -214,7 +214,7 @@
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="repositoryUrl">Full URL of the Git repository,
-        /// eg. <code>https://dev.azure.com/myorganization/_git/myrepo</code>.</param>
+        /// e.g. <code>https://dev.azure.com/myorganization/_git/myrepo</code>.</param>
         /// <param name="branch">Name of the branch on which the file linking will be based on.</param>
         /// <param name="rootPath">Root path of the files.
         /// <c>null</c> if files are in the root of the repository.</param>
@@ -244,7 +244,7 @@
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="repositoryUrl">Full URL of the Git repository,
-        /// eg. <code>https://dev.azure.com/myorganization/_git/myrepo</code>.</param>
+        /// e.g. <code>https://dev.azure.com/myorganization/_git/myrepo</code>.</param>
         /// <param name="commitId">The commit id on which the file linking will be based on.</param>
         /// <returns>Settings for linking files hosted on Azure DevOps or Azure DevOps Server.</returns>
         [CakeMethodAlias]
@@ -267,7 +267,7 @@
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="repositoryUrl">Full URL of the Git repository,
-        /// eg. <code>https://dev.azure.com/myorganization/_git/myrepo</code>.</param>
+        /// e.g. <code>https://dev.azure.com/myorganization/_git/myrepo</code>.</param>
         /// <param name="commitId">The commit id on which the file linking will be based on.</param>
         /// <param name="rootPath">Root path of the files.
         /// <c>null</c> if files are in the root of the repository.</param>

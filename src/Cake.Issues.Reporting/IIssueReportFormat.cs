@@ -4,7 +4,7 @@
     using Cake.Core.IO;
 
     /// <summary>
-    /// Interface describing a issue report format.
+    /// Interface describing an issue report format.
     /// </summary>
     public interface IIssueReportFormat : IBaseIssueComponent<ICreateIssueReportSettings>
     {

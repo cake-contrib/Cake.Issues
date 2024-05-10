@@ -14,7 +14,7 @@
         /// Initializes a new instance of the <see cref="AzureDevOpsFileLinkSettingsBuilder"/> class.
         /// </summary>
         /// <param name="repositoryUrl">Full URL of the Git repository,
-        /// eg. <code>https://github.com/cake-contrib/Cake.Issues</code>.</param>
+        /// e.g. <code>https://github.com/cake-contrib/Cake.Issues</code>.</param>
         internal AzureDevOpsFileLinkSettingsBuilder(Uri repositoryUrl)
         {
             repositoryUrl.NotNull(nameof(repositoryUrl));

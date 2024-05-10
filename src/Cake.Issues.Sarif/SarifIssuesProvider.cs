@@ -10,7 +10,7 @@
     using Newtonsoft.Json;
 
     /// <summary>
-    /// Provider for issues in SARIF compatible formt.
+    /// Provider for issues in SARIF compatible format.
     /// </summary>
     /// <param name="log">The Cake log context.</param>
     /// <param name="issueProviderSettings">Settings for the issue provider.</param>

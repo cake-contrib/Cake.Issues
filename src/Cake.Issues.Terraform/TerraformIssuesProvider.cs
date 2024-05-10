@@ -111,7 +111,7 @@
         }
 
         /// <summary>
-        /// Reads the affected file path from a issue logged by terraform validate.
+        /// Reads the affected file path from an issue logged by terraform validate.
         /// </summary>
         /// <param name="fileName">The file name in the current log entry.</param>
         /// <param name="terraformRootPath">Absolute path to the root directory of the Terraform scripts.</param>

@@ -12,7 +12,7 @@
         public bool ShowDiagnostics { get; set; } = true;
 
         /// <summary>
-        /// Gets or sets a value indicating whether or not the report should be rendered in compact mode.
+        /// Gets or sets a value indicating whether the report should be rendered in compact mode.
         /// Default value is <c>false</c>.
         /// </summary>
         public bool Compact { get; set; }

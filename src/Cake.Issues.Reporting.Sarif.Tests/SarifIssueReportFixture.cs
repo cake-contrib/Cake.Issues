@@ -66,7 +66,7 @@
                     });
 
             // Then
-            // Currently only checks if genertions failed or not without checking actual output.
+            // Currently only checks if generation failed or not without checking actual output.
             result.ShouldNotBeNull();
         }
     }

@@ -10,7 +10,7 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="HtmlDxDataGridColumnDescription"/> class.
         /// </summary>
-        /// <param name="id">Id of the column.</param>
+        /// <param name="id">ID of the column.</param>
         /// <param name="valueRetriever">Function for retrieving the value of the column.</param>
         public HtmlDxDataGridColumnDescription(string id, Func<IIssue, object> valueRetriever)
         {

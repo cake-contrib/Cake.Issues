@@ -9,7 +9,7 @@
     public static class ByteArrayExtensions
     {
         /// <summary>
-        /// Removes the BOM of an UTF-8 encoded byte array.
+        /// Removes the BOM of a UTF-8 encoded byte array.
         /// </summary>
         /// <param name="value">UTF-8 encoded byte array.</param>
         /// <returns>UTF-8 encoded byte array without BOM.</returns>
@@ -21,7 +21,7 @@
         }
 
         /// <summary>
-        /// Removes the preamble from an byte array.
+        /// Removes the preamble from a byte array.
         /// </summary>
         /// <param name="value">Byte array.</param>
         /// <param name="encoding">Encoding of the byte array.</param>
@@ -42,7 +42,7 @@
         }
 
         /// <summary>
-        /// Converts a byte array of an UTF-8 encoded string to a string.
+        /// Converts a byte array of a UTF-8 encoded string to a string.
         /// </summary>
         /// <param name="value">Value to convert.</param>
         /// <returns>Converted string.</returns>
@@ -54,7 +54,7 @@
         }
 
         /// <summary>
-        /// Converts a byte array of an UTF-8 encoded string to a string.
+        /// Converts a byte array of a UTF-8 encoded string to a string.
         /// </summary>
         /// <param name="value">Value to convert.</param>
         /// <param name="skipPreamble">True if <paramref name="value"/> contains a BOM which should not be returned.</param>

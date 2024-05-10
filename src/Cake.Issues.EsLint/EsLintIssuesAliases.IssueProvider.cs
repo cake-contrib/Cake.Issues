@@ -29,7 +29,7 @@
         /// Gets an instance of a provider for issues reported by ESLint using a log file from disk.
         /// </summary>
         /// <param name="context">The context.</param>
-        /// <param name="logFilePath">Path to the the ESLint log file.
+        /// <param name="logFilePath">Path to the ESLint log file.
         /// The log file needs to be in the format as defined by the <paramref name="format"/> parameter.</param>
         /// <param name="format">Format of the provided ESLint log file.</param>
         /// <returns>Instance of a provider for issues reported by ESLint.</returns>
@@ -62,7 +62,7 @@
         /// Gets an instance of a provider for issues reported by ESLint using log file content.
         /// </summary>
         /// <param name="context">The context.</param>
-        /// <param name="logFileContent">Content of the the ESLint log file.
+        /// <param name="logFileContent">Content of the ESLint log file.
         /// The log file needs to be in the format as defined by the <paramref name="format"/> parameter.</param>
         /// <param name="format">Format of the provided ESLint log file.</param>
         /// <returns>Instance of a provider for issues reported by ESLint.</returns>

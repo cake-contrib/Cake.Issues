@@ -8,7 +8,7 @@
     internal static class Extensions
     {
         /// <summary>
-        /// Returns an <see cref="Uri"/> for an URL string.
+        /// Returns an <see cref="Uri"/> for a URL string.
         /// </summary>
         /// <param name="value">URL to convert.</param>
         /// <returns><see cref="Uri"/> created from <paramref name="value"/>.</returns>

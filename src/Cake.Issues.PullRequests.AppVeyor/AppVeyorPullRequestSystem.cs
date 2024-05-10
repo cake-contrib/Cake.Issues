@@ -17,7 +17,7 @@
         /// Initializes a new instance of the <see cref="AppVeyorPullRequestSystem"/> class.
         /// </summary>
         /// <param name="context">The Cake context.</param>
-        /// <param name="settings">Settings for writting issues to AppVeyor.</param>
+        /// <param name="settings">Settings for writing issues to AppVeyor.</param>
         public AppVeyorPullRequestSystem(ICakeContext context, AppVeyorBuildSettings settings)
             : base(context?.Log ?? throw new ArgumentNullException(nameof(context)))
         {

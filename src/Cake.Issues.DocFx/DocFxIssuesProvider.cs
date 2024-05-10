@@ -84,7 +84,7 @@
         }
 
         /// <summary>
-        /// Reads the affected line from a issue logged in a DocFx log file.
+        /// Reads the affected line from an issue logged in a DocFx log file.
         /// </summary>
         /// <param name="line">The line in the current log entry.</param>
         /// <returns>The line of the issue.</returns>
@@ -101,7 +101,7 @@
         }
 
         /// <summary>
-        /// Reads the affected file path from a issue logged in a DocFx log file.
+        /// Reads the affected file path from an issue logged in a DocFx log file.
         /// </summary>
         /// <param name="fileName">The file name in the current log entry.</param>
         /// <param name="docRootPath">Absolute path to the root of the DocFx project.</param>

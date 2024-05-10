@@ -54,7 +54,7 @@
         /// Returns builder class for settings for linking to files hosted in GitHub.
         /// </summary>
         /// <param name="repositoryUrl">Full URL of the Git repository,
-        /// eg. <code>https://github.com/cake-contrib/Cake.Issues</code>.</param>
+        /// e.g. <code>https://github.com/cake-contrib/Cake.Issues</code>.</param>
         /// <returns>Builder class for the settings.</returns>
         public static GitHubFileLinkSettingsBuilder ForGitHub(Uri repositoryUrl)
         {

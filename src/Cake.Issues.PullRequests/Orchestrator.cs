@@ -276,7 +276,7 @@ namespace Cake.Issues.PullRequests
 
         /// <summary>
         /// Returns all matching comments from discussion threads for an issue.
-        /// Comments are considered matching if they fulfill all of the following conditions:
+        /// Comments are considered matching if they fulfill the following conditions:
         /// * The thread is active.
         /// * The thread is for the same file.
         /// * The thread was created by the same logic, i.e. the same <see cref="IPullRequestDiscussionThread.CommentSource"/>.

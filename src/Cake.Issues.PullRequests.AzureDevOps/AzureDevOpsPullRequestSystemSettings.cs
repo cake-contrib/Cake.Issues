@@ -13,7 +13,7 @@
         /// Initializes a new instance of the <see cref="AzureDevOpsPullRequestSystemSettings"/> class.
         /// </summary>
         /// <param name="repositoryUrl">Full URL of the Git repository,
-        /// eg. <code>http://myserver:8080/tfs/defaultcollection/myproject/_git/myrepository</code>.
+        /// e.g. <code>http://myserver:8080/tfs/defaultcollection/myproject/_git/myrepository</code>.
         /// Supported URL schemes are HTTP, HTTPS and SSH.
         /// URLs using SSH scheme are converted to HTTPS.</param>
         /// <param name="sourceBranch">Branch for which the pull request is made.</param>
@@ -27,7 +27,7 @@
         /// Initializes a new instance of the <see cref="AzureDevOpsPullRequestSystemSettings"/> class.
         /// </summary>
         /// <param name="repositoryUrl">Full URL of the Git repository,
-        /// eg. <code>http://myserver:8080/tfs/defaultcollection/myproject/_git/myrepository</code>.
+        /// e.g. <code>http://myserver:8080/tfs/defaultcollection/myproject/_git/myrepository</code>.
         /// Supported URL schemes are HTTP, HTTPS and SSH.
         /// URLs using SSH scheme are converted to HTTPS.</param>
         /// <param name="pullRequestId">ID of the pull request.</param>
@@ -67,8 +67,8 @@
         }
 
         /// <summary>
-        /// Gets or sets a value indicating whether pull request system should check if commit Id
-        /// is still up to date before posting comments.
+        /// Gets or sets a value indicating whether pull request system should check if commit ID
+        /// is still up-to-date before posting comments.
         /// Default value is <c>true</c>.
         /// </summary>
         // ReSharper disable once AutoPropertyCanBeMadeGetOnly.Global
