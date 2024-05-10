@@ -9,30 +9,16 @@
 
     internal sealed class CakeContextFixture
     {
-        public IFileSystem FileSystem { get; set; }
-        public ICakeEnvironment Environment { get; set; }
-        public IGlobber Globber { get; set; }
-        public ICakeLog Log { get; set; }
-        public ICakeArguments Arguments { get; set; }
-        public IProcessRunner ProcessRunner { get; set; }
-        public IRegistry Registry { get; set; }
-        public IToolLocator Tools { get; set; }
-        public ICakeDataService Data { get; set; }
-        public ICakeConfiguration Configuration { get; set; }
-
-        public CakeContextFixture()
-        {
-            FileSystem = Substitute.For<IFileSystem>();
-            Environment = Substitute.For<ICakeEnvironment>();
-            Globber = Substitute.For<IGlobber>();
-            Log = Substitute.For<ICakeLog>();
-            Arguments = Substitute.For<ICakeArguments>();
-            ProcessRunner = Substitute.For<IProcessRunner>();
-            Registry = Substitute.For<IRegistry>();
-            Tools = Substitute.For<IToolLocator>();
-            Data = Substitute.For<ICakeDataService>();
-            Configuration = Substitute.For<ICakeConfiguration>();
-        }
+        public IFileSystem FileSystem { get; set; } = Substitute.For<IFileSystem>();
+        public ICakeEnvironment Environment { get; set; } = Substitute.For<ICakeEnvironment>();
+        public IGlobber Globber { get; set; } = Substitute.For<IGlobber>();
+        public ICakeLog Log { get; set; } = Substitute.For<ICakeLog>();
+        public ICakeArguments Arguments { get; set; } = Substitute.For<ICakeArguments>();
+        public IProcessRunner ProcessRunner { get; set; } = Substitute.For<IProcessRunner>();
+        public IRegistry Registry { get; set; } = Substitute.For<IRegistry>();
+        public IToolLocator Tools { get; set; } = Substitute.For<IToolLocator>();
+        public ICakeDataService Data { get; set; } = Substitute.For<ICakeDataService>();
+        public ICakeConfiguration Configuration { get; set; } = Substitute.For<ICakeConfiguration>();
 
         public CakeContext CreateContext()
         {

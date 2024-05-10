@@ -3,7 +3,6 @@
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
-    using System.Runtime.CompilerServices;
     using System.Runtime.Serialization.Json;
     using Cake.Core.Diagnostics;
 
@@ -24,7 +23,7 @@
             repositorySettings.NotNull(nameof(repositorySettings));
             esLintsettings.NotNull(nameof(esLintsettings));
 
-            IEnumerable<LogFile> logFileEntries = null;
+            IEnumerable<LogFile> logFileEntries;
             using (var ms = new MemoryStream(esLintsettings.LogFileContent.ToStringUsingEncoding(true).ToByteArray()))
             {
                 var jsonSerializer = new DataContractJsonSerializer(typeof(LogFile[]));

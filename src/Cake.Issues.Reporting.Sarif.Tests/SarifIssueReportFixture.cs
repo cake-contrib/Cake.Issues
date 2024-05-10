@@ -7,15 +7,9 @@
     {
         public const string RepositoryRootPath = @"c:\Source\Cake.Issues.Reporting.Sarif";
 
-        public SarifIssueReportFixture()
-        {
-            this.Log = new FakeLog { Verbosity = Verbosity.Normal };
-            this.SarifIssueReportFormatSettings = new SarifIssueReportFormatSettings();
-        }
+        public FakeLog Log { get; set; } = new() { Verbosity = Verbosity.Normal };
 
-        public FakeLog Log { get; set; }
-
-        public SarifIssueReportFormatSettings SarifIssueReportFormatSettings { get; set; }
+        public SarifIssueReportFormatSettings SarifIssueReportFormatSettings { get; set; } = new();
 
         public string CreateReport(IEnumerable<IIssue> issues)
         {

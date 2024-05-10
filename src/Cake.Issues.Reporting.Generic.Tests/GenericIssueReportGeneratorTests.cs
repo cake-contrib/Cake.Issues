@@ -93,7 +93,7 @@
                             .Create(),
                     };
                 var expectedResult =
-                    @"<ul><li>Message Foo</li><li>Message Bar</li></ul>";
+                    "<ul><li>Message Foo</li><li>Message Bar</li></ul>";
 
                 // When
                 var result = fixture.CreateReport(issues);

@@ -1,7 +1,6 @@
 ﻿namespace Cake.Issues.Reporting.Sarif
 {
     using System;
-    using Cake.Core.IO;
     using Microsoft.CodeAnalysis.Sarif;
 
     /// <summary>

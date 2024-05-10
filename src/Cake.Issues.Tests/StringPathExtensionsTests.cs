@@ -37,7 +37,7 @@
             }
 
             [Theory]
-            [InlineData(@"foo")]
+            [InlineData("foo")]
             [InlineData(@"foo\")]
             [InlineData(@"foo\bar")]
             [InlineData(@"\foo")]
@@ -46,9 +46,9 @@
             [InlineData(@"c:\foo")]
             [InlineData(@"c:\foo\")]
             [InlineData(@"c:\foo\bar")]
-            [InlineData(@"/foo")]
-            [InlineData(@"/foo/")]
-            [InlineData(@"/foo/bar")]
+            [InlineData("/foo")]
+            [InlineData("/foo/")]
+            [InlineData("/foo/bar")]
             public void Should_Return_True_If_Valid_Path(string path)
             {
                 // Given / When
@@ -129,15 +129,15 @@
             }
 
             [Theory]
-            [InlineData(@"foo")]
+            [InlineData("foo")]
             [InlineData(@"foo\")]
             [InlineData(@"foo\bar")]
             [InlineData(@"\foo")]
             [InlineData(@"\foo\")]
             [InlineData(@"\foo\bar")]
-            [InlineData(@"/foo")]
-            [InlineData(@"/foo/")]
-            [InlineData(@"/foo/bar")]
+            [InlineData("/foo")]
+            [InlineData("/foo/")]
+            [InlineData("/foo/bar")]
             public void Should_Return_False_If_Not_Full_Path(string path)
             {
                 // Given / When
@@ -231,7 +231,7 @@
             }
 
             [Theory]
-            [InlineData(@"c:\foo", @"c:")]
+            [InlineData(@"c:\foo", "c:")]
             [InlineData(@"c:\foo", @"c:\")]
             [InlineData(@"c:\foo", @"c:\foo")]
             [InlineData(@"c:\foo\bar", @"c:\foo")]
@@ -287,9 +287,9 @@
             }
 
             [Theory]
-            [InlineData(@"c:/foo/a.txt", @"c:\foo", true)]
-            [InlineData(@"c:\foo\a.txt", @"c:/foo", true)]
-            [InlineData(@"c:/foo/a.txt", @"c:/foo", true)]
+            [InlineData("c:/foo/a.txt", @"c:\foo", true)]
+            [InlineData(@"c:\foo\a.txt", "c:/foo", true)]
+            [InlineData("c:/foo/a.txt", "c:/foo", true)]
             public void Should_Handle_Unix_Style_Slashes(string path, string baseDir, bool expectedResult)
             {
                 // Given / When
@@ -316,7 +316,7 @@
             }
 
             [Theory]
-            [InlineData(@"foo\bar", @"foo", true)]
+            [InlineData(@"foo\bar", "foo", true)]
             [InlineData(@"..\foo\bar", @"..\foo", true)]
             [InlineData(@"foo\bar", @"\foo", false)]
             public void Should_Work_With_RelativePaths(string path, string baseDir, bool expectedResult)
@@ -372,8 +372,8 @@
             }
 
             [Theory]
-            [InlineData(@"c:/foo", @"c:\foo")]
-            [InlineData(@"c:/foo/bar", @"c:\foo\bar")]
+            [InlineData("c:/foo", @"c:\foo")]
+            [InlineData("c:/foo/bar", @"c:\foo\bar")]
             public void Should_Convert_Unix_To_Windows_Style_Slashes(string path, string expectedResult)
             {
                 // Given / When
@@ -501,7 +501,7 @@
             }
 
             [Theory]
-            [InlineData(@"C:\repo", @"C:\repo\foo", @"foo")]
+            [InlineData(@"C:\repo", @"C:\repo\foo", "foo")]
             [InlineData(@"C:\repo", @"C:\repo\foo\", @"foo\")]
             [InlineData(@"C:\repo", @"C:\repo\foo\bar", @"foo\bar")]
             [InlineData("/repo", "/repo/foo", "foo")]
@@ -669,7 +669,7 @@
             }
 
             [Theory]
-            [InlineData(@"C:\repo", @"C:\repo\foo", @"foo")]
+            [InlineData(@"C:\repo", @"C:\repo\foo", "foo")]
             [InlineData(@"C:\repo", @"C:\repo\foo\", @"foo\")]
             [InlineData(@"C:\repo", @"C:\repo\foo\bar", @"foo\bar")]
             [InlineData("/repo", "/repo/foo", "foo")]
@@ -733,7 +733,7 @@
             [InlineData("foo", "foo")]
             [InlineData(@"foo\", @"foo\")]
             [InlineData(@"foo\bar", @"foo\bar")]
-            [InlineData(@"\foo", @"foo")]
+            [InlineData(@"\foo", "foo")]
             [InlineData(@"\foo\", @"foo\")]
             [InlineData(@"\foo\bar", @"foo\bar")]
             [InlineData(@"c:\foo", @"c:\foo")]

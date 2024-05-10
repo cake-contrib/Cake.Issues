@@ -78,7 +78,7 @@
                 IssueChecker.Check(
                     issue,
                     IssueBuilder.NewIssue(
-                        @"Using directive is not required by the code and can be safely removed",
+                        "Using directive is not required by the code and can be safely removed",
                         "Cake.Issues.InspectCode.InspectCodeIssuesProvider",
                         "InspectCode")
                         .InProjectOfName("Project1")
@@ -109,7 +109,7 @@
                 IssueChecker.Check(
                     issue,
                     IssueBuilder.NewIssue(
-                        @"Using directive is not required by the code and can be safely removed",
+                        "Using directive is not required by the code and can be safely removed",
                         "Cake.Issues.InspectCode.InspectCodeIssuesProvider",
                         "InspectCode")
                         .InProjectOfName("Cake.CodeAnalysisReporting")

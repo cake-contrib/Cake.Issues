@@ -75,8 +75,7 @@
             var filePath = values["filePath"].Value;
 
             // Validate file path and make relative to repository root.
-            bool result;
-            (result, fileName) = filePath.IsValidRepositoryFilePath(repositorySettings);
+            (var result, fileName) = filePath.IsValidRepositoryFilePath(repositorySettings);
 
             if (!result)
             {

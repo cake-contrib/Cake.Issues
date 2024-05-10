@@ -42,7 +42,7 @@
                 Skip.IfNot(RuntimeInformation.IsOSPlatform(OSPlatform.Windows));
 
                 // Given
-                var fixture = new TerraformProviderFixture("basic.json", @"./");
+                var fixture = new TerraformProviderFixture("basic.json", "./");
 
                 // When
                 var issues = fixture.ReadIssues().ToList();
@@ -74,7 +74,7 @@
                 Skip.IfNot(RuntimeInformation.IsOSPlatform(OSPlatform.Windows));
 
                 // Given
-                var fixture = new TerraformProviderFixture("error.json", @"./");
+                var fixture = new TerraformProviderFixture("error.json", "./");
 
                 // When
                 var issues = fixture.ReadIssues().ToList();
@@ -98,7 +98,7 @@
                 Skip.IfNot(RuntimeInformation.IsOSPlatform(OSPlatform.Windows));
 
                 // Given
-                var fixture = new TerraformProviderFixture("warning-across-multiple-lines.json", @"./");
+                var fixture = new TerraformProviderFixture("warning-across-multiple-lines.json", "./");
 
                 // When
                 var issues = fixture.ReadIssues().ToList();

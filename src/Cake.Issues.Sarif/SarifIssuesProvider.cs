@@ -173,7 +173,7 @@
 
             // Only consider the first location.
             var location = result.Locations.FirstOrDefault();
-            if (location != null && location.PhysicalLocation != null)
+            if (location is { PhysicalLocation: not null })
             {
                 var filePath = location.PhysicalLocation.ArtifactLocation.Uri.ToString();
 

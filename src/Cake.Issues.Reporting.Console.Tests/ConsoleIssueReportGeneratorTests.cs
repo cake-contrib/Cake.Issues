@@ -51,12 +51,17 @@
                 bool showPrioritySummary)
             {
                 // Given
-                var fixture = new ConsoleIssueReportFixture();
-                fixture.ConsoleIssueReportFormatSettings.ShowDiagnostics = showDiagnostics;
-                fixture.ConsoleIssueReportFormatSettings.Compact = compact;
-                fixture.ConsoleIssueReportFormatSettings.GroupByRule = groupByRule;
-                fixture.ConsoleIssueReportFormatSettings.ShowProviderSummary = showProviderSummary;
-                fixture.ConsoleIssueReportFormatSettings.ShowPrioritySummary = showPrioritySummary;
+                var fixture = new ConsoleIssueReportFixture 
+                { 
+                    ConsoleIssueReportFormatSettings =
+                    {
+                        ShowDiagnostics = showDiagnostics, 
+                        Compact = compact, 
+                        GroupByRule = groupByRule, 
+                        ShowProviderSummary = showProviderSummary,
+                        ShowPrioritySummary = showPrioritySummary
+                    }
+                };
 
                 // When
                 var logContents =
@@ -77,12 +82,17 @@
                 bool showPrioritySummary)
             {
                 // Given
-                var fixture = new ConsoleIssueReportFixture();
-                fixture.ConsoleIssueReportFormatSettings.ShowDiagnostics = showDiagnostics;
-                fixture.ConsoleIssueReportFormatSettings.Compact = compact;
-                fixture.ConsoleIssueReportFormatSettings.GroupByRule = groupByRule;
-                fixture.ConsoleIssueReportFormatSettings.ShowProviderSummary = showProviderSummary;
-                fixture.ConsoleIssueReportFormatSettings.ShowPrioritySummary = showPrioritySummary;
+                var fixture = new ConsoleIssueReportFixture 
+                { 
+                    ConsoleIssueReportFormatSettings =
+                    {
+                        ShowDiagnostics = showDiagnostics, 
+                        Compact = compact, 
+                        GroupByRule = groupByRule, 
+                        ShowProviderSummary = showProviderSummary,
+                        ShowPrioritySummary = showPrioritySummary
+                    }
+                };
 
                 // When
                 var logContents =

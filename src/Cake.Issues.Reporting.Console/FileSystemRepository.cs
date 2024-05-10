@@ -11,7 +11,6 @@
     /// <param name="settings">Settings for report creation.</param>
     internal sealed class FileSystemRepository(ICreateIssueReportSettings settings) : ISourceRepository
     {
-        private readonly ICreateIssueReportSettings settings = settings;
         private readonly Dictionary<string, Source> cache = new(StringComparer.OrdinalIgnoreCase);
 
         /// <inheritdoc />
@@ -19,7 +18,7 @@
         {
             if (!this.cache.TryGetValue(id, out source))
             {
-                var filePath = this.settings.RepositoryRoot.Combine(id).FullPath;
+                var filePath = settings.RepositoryRoot.Combine(id).FullPath;
 
                 if (!File.Exists(filePath))
                 {

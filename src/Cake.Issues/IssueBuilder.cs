@@ -307,12 +307,11 @@
         {
             key.NotNullOrWhiteSpace(nameof(key));
 
-            if (this.additionalInformation.ContainsKey(key))
+            if (!this.additionalInformation.TryAdd(key, value))
             {
                 throw new ArgumentException("You can't assign a value to the same key twice.", nameof(key));
             }
 
-            this.additionalInformation.Add(key, value);
             return this;
         }
 
