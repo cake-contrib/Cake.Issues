@@ -4,32 +4,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Testfiles\MarkdownlintCliJsonLogFileFormat\AbsoluteFilePath.json" />
-    <None Remove="Testfiles\MarkdownlintCliJsonLogFileFormat\empty.json" />
-    <None Remove="Testfiles\MarkdownlintCliJsonLogFileFormat\MD013.json" />
-    <None Remove="Testfiles\MarkdownlintCliJsonLogFileFormat\MD025.json" />
-    <None Remove="Testfiles\MarkdownlintCliJsonLogFileFormat\MD034.json" />
-    <None Remove="Testfiles\MarkdownlintCliLogFileFormat\empty.log" />
-    <None Remove="Testfiles\MarkdownlintCliLogFileFormat\markdownlint-cli-0.35.0.log" />
-    <None Remove="Testfiles\MarkdownlintCliLogFileFormat\markdownlint-cli-0.8.1.log" />
-    <None Remove="Testfiles\MarkdownlintCliLogFileFormat\markdownlint-cli-0.10.0.log" />
-    <None Remove="Testfiles\MarkdownlintCliLogFileFormat\markdownlint-cli-0.19.0.log" />
-    <None Remove="Testfiles\MarkdownlintCliLogFileFormat\markdownlint-cli-0.22.0.log" />
+    <None Remove="Testfiles\**\*" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Testfiles\MarkdownlintCliJsonLogFileFormat\AbsoluteFilePath.json" />
-    <EmbeddedResource Include="Testfiles\MarkdownlintCliJsonLogFileFormat\empty.json" />
-    <EmbeddedResource Include="Testfiles\MarkdownlintCliJsonLogFileFormat\MD013.json" />
-    <EmbeddedResource Include="Testfiles\MarkdownlintCliJsonLogFileFormat\MD025.json" />
-    <EmbeddedResource Include="Testfiles\MarkdownlintCliJsonLogFileFormat\MD034.json" />
-    <EmbeddedResource Include="Testfiles\MarkdownlintCliLogFileFormat\empty.log" />
-    <EmbeddedResource Include="Testfiles\MarkdownlintCliLogFileFormat\markdownlint-cli-0.35.0.log" />
-    <EmbeddedResource Include="Testfiles\MarkdownlintCliLogFileFormat\markdownlint-cli-0.8.1.log" />
-    <EmbeddedResource Include="Testfiles\MarkdownlintCliLogFileFormat\markdownlint-cli-0.10.0.log" />
-    <EmbeddedResource Include="Testfiles\MarkdownlintCliLogFileFormat\markdownlint-cli-0.19.0.log" />
-    <EmbeddedResource Include="Testfiles\MarkdownlintCliLogFileFormat\markdownlint-cli-0.22.0.log" />
-    <EmbeddedResource Include="Testfiles\MarkdownlintV1LogFileFormat\markdownlint.json" />
+    <EmbeddedResource Include="Testfiles\MarkdownlintCliJsonLogFileFormat\*.json" />
+    <EmbeddedResource Include="Testfiles\MarkdownlintCliLogFileFormat\*.log" />
+    <EmbeddedResource Include="Testfiles\MarkdownlintV1LogFileFormat\*.json" />
   </ItemGroup>
 
   <ItemGroup>

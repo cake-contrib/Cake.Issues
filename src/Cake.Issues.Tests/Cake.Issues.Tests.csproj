@@ -4,17 +4,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Testfiles\Build.log" />
-    <None Remove="Testfiles\Empty.log" />
+    <None Remove="Testfiles\*.log" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Testfiles\Empty.log" />
-    <EmbeddedResource Include="Testfiles\Build.log" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Cake.Issues\Cake.Issues.csproj" />
+    <EmbeddedResource Include="Testfiles\*.log" />
   </ItemGroup>
 
   <ItemGroup>
@@ -39,5 +33,9 @@
     <None Update="Testfiles\empty-array.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Cake.Issues\Cake.Issues.csproj" />
   </ItemGroup>
 </Project>

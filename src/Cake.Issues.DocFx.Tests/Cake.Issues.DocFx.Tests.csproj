@@ -4,14 +4,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Testfiles\entry-of-level-suggestion.json" />
+    <None Remove="Testfiles\**\*" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Testfiles\docfx.json" />
-    <EmbeddedResource Include="Testfiles\entry-of-level-suggestion.json" />
-    <EmbeddedResource Include="Testfiles\entry-with-line.json" />
-    <EmbeddedResource Include="Testfiles\entry-with-line-0.json" />
+    <EmbeddedResource Include="Testfiles\*.json" />
   </ItemGroup>
 
   <ItemGroup>
