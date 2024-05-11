@@ -1,4 +1,5 @@
-﻿namespace Cake.Issues.Reporting
+﻿// ReSharper disable RedundantTypeDeclarationBody
+namespace Cake.Issues.Reporting
 {
     /// <summary>
     /// Setting affecting how reports are created which are built passing issue providers.

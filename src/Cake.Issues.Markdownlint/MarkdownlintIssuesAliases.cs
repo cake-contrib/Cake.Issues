@@ -1,4 +1,5 @@
-﻿namespace Cake.Issues.Markdownlint
+﻿// ReSharper disable RedundantTypeDeclarationBody
+namespace Cake.Issues.Markdownlint
 {
     using Cake.Core.Annotations;
 

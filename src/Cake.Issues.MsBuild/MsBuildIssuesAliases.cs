@@ -1,4 +1,5 @@
-﻿namespace Cake.Issues.MsBuild
+﻿// ReSharper disable RedundantTypeDeclarationBody
+namespace Cake.Issues.MsBuild
 {
     using Cake.Core.Annotations;
 
