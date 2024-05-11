@@ -173,14 +173,16 @@
 
             settings.Arguments.Clear();
             settings.Arguments.Add("ls-files -z");
+            var output =
+                this.runner.RunCommand(settings)
+                ?? throw new Exception("Error reading files from repository");
             var result =
                 string.Join(
-                    string.Empty,
-                    this.runner.RunCommand(settings))
-                .Split('\0')
-                .Where(x => !string.IsNullOrEmpty(x))
-                .ToList()
-                ?? throw new Exception("Error reading files from repository");
+                        string.Empty,
+                        output)
+                    .Split('\0')
+                    .Where(x => !string.IsNullOrEmpty(x))
+                    .ToList();
             this.Log.Verbose("Found {0} file(s)", result.Count);
 
             return result;
