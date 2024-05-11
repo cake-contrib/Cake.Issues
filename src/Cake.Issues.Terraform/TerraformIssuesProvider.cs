@@ -1,5 +1,6 @@
 ﻿namespace Cake.Issues.Terraform
 {
+    using System;
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
@@ -43,6 +44,11 @@
             {
                 var jsonSerializer = new DataContractJsonSerializer(typeof(ValidateFile));
                 validateFile = jsonSerializer.ReadObject(ms) as ValidateFile;
+            }
+
+            if (validateFile == null)
+            {
+                throw new InvalidOperationException("Failed to read log file content.");
             }
 
             return

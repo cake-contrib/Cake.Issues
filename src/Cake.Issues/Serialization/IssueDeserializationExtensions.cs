@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.IO;
+    using System.Linq;
     using System.Text;
     using System.Text.Json;
     using System.Text.Json.Nodes;
@@ -101,13 +102,13 @@
             {
                 var jsonContent = reader.ReadToEnd();
 
-                var data = JsonNode.Parse(jsonContent) as JsonArray;
-
                 var issues = new List<Issue>();
-                foreach (var element in data)
+                if (JsonNode.Parse(jsonContent) is not JsonArray data)
                 {
-                    issues.Add(DeserializeJsonDataToIssue(element));
+                    return issues;
                 }
+
+                issues.AddRange(data.Select(DeserializeJsonDataToIssue));
 
                 return issues;
             }
