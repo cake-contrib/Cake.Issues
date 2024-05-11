@@ -17,7 +17,7 @@
         /// <param name="providerName">The human friendly name of the issue provider.</param>
         /// <returns>Builder class for creating a new <see cref="IIssue"/>.</returns>
         /// <example>
-        /// <para>Create a new warning for the myfile.txt file on line 42:</para>
+        /// <para>Create a new warning for the <c>myfile.txt</c> file on line 42:</para>
         /// <code>
         /// <![CDATA[
         ///     var issue =
@@ -57,7 +57,7 @@
         /// <param name="providerName">The human friendly name of the issue provider.</param>
         /// <returns>Builder class for creating a new <see cref="IIssue"/>.</returns>
         /// <example>
-        /// <para>Create a new warning for the myfile.txt file on line 42:</para>
+        /// <para>Create a new warning for the <c>myfile.txt</c> file on line 42:</para>
         /// <code>
         /// <![CDATA[
         ///     var issue =
