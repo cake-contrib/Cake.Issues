@@ -88,10 +88,7 @@
         /// <inheritdoc/>
         public int GetHashCode(IIssue obj)
         {
-            if (obj is null)
-            {
-                return 0;
-            }
+            obj.NotNull(nameof(obj));
 
             if (compareOnlyPersistentProperties)
             {
