@@ -15,7 +15,7 @@
         /// <returns>UTF-8 encoded byte array without BOM.</returns>
         public static byte[] RemovePreamble(this byte[] value)
         {
-            value.NotNull(nameof(value));
+            value.NotNull();
 
             return value.RemovePreamble(Encoding.UTF8);
         }
@@ -28,8 +28,8 @@
         /// <returns>Byte array without preamble.</returns>
         public static byte[] RemovePreamble(this byte[] value, Encoding encoding)
         {
-            value.NotNull(nameof(value));
-            encoding.NotNull(nameof(encoding));
+            value.NotNull();
+            encoding.NotNull();
 
             var preamble = encoding.GetPreamble();
 
@@ -48,7 +48,7 @@
         /// <returns>Converted string.</returns>
         public static string ToStringUsingEncoding(this byte[] value)
         {
-            value.NotNull(nameof(value));
+            value.NotNull();
 
             return value.ToStringUsingEncoding(false);
         }
@@ -61,7 +61,7 @@
         /// <returns>Converted string.</returns>
         public static string ToStringUsingEncoding(this byte[] value, bool skipPreamble)
         {
-            value.NotNull(nameof(value));
+            value.NotNull();
 
             return value.ToStringUsingEncoding(Encoding.UTF8, skipPreamble);
         }
@@ -75,7 +75,7 @@
         /// <returns>Converted string.</returns>
         public static string ToStringUsingEncoding(this byte[] value, Encoding encoding, bool skipPreamble)
         {
-            value.NotNull(nameof(value));
+            value.NotNull();
 
             if (value.Length > 0 && skipPreamble)
             {
@@ -92,7 +92,7 @@
         /// <returns>Byte array with string value in UTF-8 encoding.</returns>
         public static byte[] ToByteArray(this string value)
         {
-            value.NotNull(nameof(value));
+            value.NotNull();
 
             return value.ToByteArray(Encoding.UTF8);
         }
@@ -105,8 +105,8 @@
         /// <returns>Byte array with string value in specified encoding.</returns>
         public static byte[] ToByteArray(this string value, Encoding encoding)
         {
-            value.NotNull(nameof(value));
-            encoding.NotNull(nameof(encoding));
+            value.NotNull();
+            encoding.NotNull();
 
             return encoding.GetBytes(value);
         }

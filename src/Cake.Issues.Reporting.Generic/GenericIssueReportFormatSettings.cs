@@ -36,7 +36,7 @@
         /// <param name="templatePath">Path to the template to use for generating the report.</param>
         protected GenericIssueReportFormatSettings(FilePath templatePath)
         {
-            templatePath.NotNull(nameof(templatePath));
+            templatePath.NotNull();
 
             using (var stream = new FileStream(templatePath.FullPath, FileMode.Open, FileAccess.Read))
             {
@@ -53,7 +53,7 @@
         /// <param name="templateContent">Content of the template to use for generating the report.</param>
         protected GenericIssueReportFormatSettings(string templateContent)
         {
-            templateContent.NotNullOrWhiteSpace(nameof(templateContent));
+            templateContent.NotNullOrWhiteSpace();
 
             this.Template = templateContent;
         }

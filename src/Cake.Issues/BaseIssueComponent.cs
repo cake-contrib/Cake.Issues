@@ -16,7 +16,7 @@
         /// <param name="log">The Cake log context.</param>
         protected BaseIssueComponent(ICakeLog log)
         {
-            log.NotNull(nameof(log));
+            log.NotNull();
 
             this.Log = log;
         }
@@ -35,7 +35,7 @@
         /// <inheritdoc/>
         public virtual bool Initialize(T settings)
         {
-            settings.NotNull(nameof(settings));
+            settings.NotNull();
 
             this.Settings = settings;
 

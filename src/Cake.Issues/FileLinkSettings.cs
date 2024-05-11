@@ -17,7 +17,7 @@
         /// <param name="builder">Callback called for building the file link.</param>
         internal FileLinkSettings(Func<IIssue, IDictionary<string, string>, Uri> builder)
         {
-            builder.NotNull(nameof(builder));
+            builder.NotNull();
 
             this.builder = builder;
         }
@@ -31,7 +31,7 @@
         /// <returns>File link settings.</returns>
         public static FileLinkSettings ForPattern(string pattern)
         {
-            pattern.NotNullOrWhiteSpace(nameof(pattern));
+            pattern.NotNullOrWhiteSpace();
 
             return
                 new FileLinkSettings(
@@ -45,7 +45,7 @@
         /// <returns>File link settings.</returns>
         public static FileLinkSettings ForAction(Func<IIssue, Uri> builder)
         {
-            builder.NotNull(nameof(builder));
+            builder.NotNull();
 
             return new FileLinkSettings((issue, _) => builder(issue));
         }
@@ -58,7 +58,7 @@
         /// <returns>Builder class for the settings.</returns>
         public static GitHubFileLinkSettingsBuilder ForGitHub(Uri repositoryUrl)
         {
-            repositoryUrl.NotNull(nameof(repositoryUrl));
+            repositoryUrl.NotNull();
 
             return new GitHubFileLinkSettingsBuilder(repositoryUrl);
         }
@@ -71,7 +71,7 @@
         /// <returns>Builder class for the settings.</returns>
         public static AzureDevOpsFileLinkSettingsBuilder ForAzureDevOps(Uri repositoryUrl)
         {
-            repositoryUrl.NotNull(nameof(repositoryUrl));
+            repositoryUrl.NotNull();
 
             return new AzureDevOpsFileLinkSettingsBuilder(repositoryUrl);
         }
@@ -84,7 +84,7 @@
         /// <returns>URL to the file on the source code hosting system.</returns>
         public Uri GetFileLink(IIssue issue)
         {
-            issue.NotNull(nameof(issue));
+            issue.NotNull();
 
             return this.builder(issue, new Dictionary<string, string>());
         }

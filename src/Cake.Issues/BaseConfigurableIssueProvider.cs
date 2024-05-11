@@ -17,7 +17,7 @@
         protected BaseConfigurableIssueProvider(ICakeLog log, T issueProviderSettings)
             : base(log)
         {
-            issueProviderSettings.NotNull(nameof(issueProviderSettings));
+            issueProviderSettings.NotNull();
 
             this.IssueProviderSettings = issueProviderSettings;
         }

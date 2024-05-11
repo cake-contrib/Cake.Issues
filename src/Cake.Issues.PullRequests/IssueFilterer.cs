@@ -27,9 +27,9 @@ namespace Cake.Issues.PullRequests
             IPullRequestSystem pullRequestSystem,
             IReportIssuesToPullRequestSettings settings)
         {
-            log.NotNull(nameof(log));
-            pullRequestSystem.NotNull(nameof(pullRequestSystem));
-            settings.NotNull(nameof(settings));
+            log.NotNull();
+            pullRequestSystem.NotNull();
+            settings.NotNull();
 
             this.log = log;
             this.pullRequestSystem = pullRequestSystem;
@@ -50,7 +50,7 @@ namespace Cake.Issues.PullRequests
             IReadOnlyCollection<IPullRequestDiscussionThread> existingThreads)
         {
             // ReSharper disable once PossibleMultipleEnumeration
-            issues.NotNull(nameof(issues));
+            issues.NotNull();
 
             this.log.Verbose("Filtering issues before posting...");
 

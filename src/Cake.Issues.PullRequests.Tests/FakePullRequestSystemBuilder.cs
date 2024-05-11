@@ -21,7 +21,7 @@
         /// <param name="log">The Cake log context.</param>
         private FakePullRequestSystemBuilder(ICakeLog log)
         {
-            log.NotNull(nameof(log));
+            log.NotNull();
 
             this.log = log;
         }
@@ -42,7 +42,7 @@
         /// <returns>Builder class for creating a new pull request system.</returns>
         public static FakePullRequestSystemBuilder NewPullRequestSystem(ICakeLog log)
         {
-            log.NotNull(nameof(log));
+            log.NotNull();
 
             return new FakePullRequestSystemBuilder(log);
         }
@@ -77,7 +77,7 @@
         public FakePullRequestSystemBuilder WithDiscussionThreadsCapability(
             IEnumerable<IPullRequestDiscussionThread> discussionThreads)
         {
-            discussionThreads.NotNull(nameof(discussionThreads));
+            discussionThreads.NotNull();
 
             this.withDiscussionThreadsCapability = true;
             this.discussionThreads.AddRange(discussionThreads);
@@ -103,7 +103,7 @@
         /// <returns>Pull request builder instance.</returns>
         public FakePullRequestSystemBuilder WithFilteringByModifiedFilesCapability(IEnumerable<FilePath> modifiedFiles)
         {
-            modifiedFiles.NotNull(nameof(modifiedFiles));
+            modifiedFiles.NotNull();
 
             this.withFilteringByModifiedFilesCapability = true;
             this.modifiedFiles.AddRange(modifiedFiles);

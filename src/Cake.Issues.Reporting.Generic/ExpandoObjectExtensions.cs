@@ -17,7 +17,7 @@
         /// <returns>Serialized object.</returns>
         public static string SerializeToJsonString(this ExpandoObject expandoObject)
         {
-            expandoObject.NotNull(nameof(expandoObject));
+            expandoObject.NotNull();
 
             return
                 JsonMapper
@@ -32,7 +32,7 @@
         public static string SerializeToJsonString(this IEnumerable<ExpandoObject> expandoObjects)
         {
             // ReSharper disable PossibleMultipleEnumeration
-            expandoObjects.NotNull(nameof(expandoObjects));
+            expandoObjects.NotNull();
 
             return
                 JsonMapper

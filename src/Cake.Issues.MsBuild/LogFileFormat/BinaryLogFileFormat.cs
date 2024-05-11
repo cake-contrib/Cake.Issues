@@ -20,9 +20,9 @@
             IRepositorySettings repositorySettings,
             MsBuildIssuesSettings issueProviderSettings)
         {
-            issueProvider.NotNull(nameof(issueProvider));
-            repositorySettings.NotNull(nameof(repositorySettings));
-            issueProviderSettings.NotNull(nameof(issueProviderSettings));
+            issueProvider.NotNull();
+            repositorySettings.NotNull();
+            issueProviderSettings.NotNull();
 
             // Ensure that strings for MsBuild.StructuredLogger are initialized.
             // See https://github.com/KirillOsenkov/MSBuildStructuredLog/issues/736

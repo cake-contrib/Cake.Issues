@@ -16,7 +16,7 @@
         public DocFxIssuesSettings(FilePath logFilePath, DirectoryPath docRootPath)
             : base(logFilePath)
         {
-            docRootPath.NotNull(nameof(docRootPath));
+            docRootPath.NotNull();
 
             this.DocRootPath = docRootPath;
         }
@@ -30,7 +30,7 @@
         public DocFxIssuesSettings(byte[] logFileContent, DirectoryPath docRootPath)
             : base(logFileContent)
         {
-            docRootPath.NotNull(nameof(docRootPath));
+            docRootPath.NotNull();
 
             this.DocRootPath = docRootPath;
         }

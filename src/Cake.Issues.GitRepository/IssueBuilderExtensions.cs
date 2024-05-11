@@ -15,8 +15,8 @@
         /// <returns>Issue Builder instance.</returns>
         public static IssueBuilder OfRule(this IssueBuilder issueBuilder, BaseGitRepositoryIssuesRuleDescription ruleDescription)
         {
-            issueBuilder.NotNull(nameof(issueBuilder));
-            ruleDescription.NotNull(nameof(ruleDescription));
+            issueBuilder.NotNull();
+            ruleDescription.NotNull();
 
             return
                 issueBuilder

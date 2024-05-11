@@ -20,7 +20,7 @@
         /// containing help for a specific <see cref="BaseRuleDescription"/>.</param>
         public void AddUrlResolver(Func<T, Uri> resolver)
         {
-            resolver.NotNull(nameof(resolver));
+            resolver.NotNull();
 
             this.AddUrlResolver(resolver, 0);
         }
@@ -34,7 +34,7 @@
         /// first during resolving of the URL.</param>
         public void AddUrlResolver(Func<T, Uri> resolver, int priority)
         {
-            resolver.NotNull(nameof(resolver));
+            resolver.NotNull();
 
             this.registeredUrlResolver.Add(new Tuple<Func<T, Uri>, int>(resolver, priority));
         }
@@ -47,7 +47,7 @@
         /// could not be parsed.</returns>
         public Uri ResolveRuleUrl(string rule)
         {
-            rule.NotNullOrWhiteSpace(nameof(rule));
+            rule.NotNullOrWhiteSpace();
 
             var ruleDescription = new T { Rule = rule };
             if (!this.TryGetRuleDescription(rule, ruleDescription))

@@ -34,7 +34,7 @@
             : base(log, settings)
         {
             // ReSharper disable once PossibleMultipleEnumeration
-            issues.NotNull(nameof(issues));
+            issues.NotNull();
 
             // ReSharper disable once PossibleMultipleEnumeration
             this.issues.AddRange(issues);

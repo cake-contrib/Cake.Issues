@@ -72,14 +72,14 @@
             string providerName,
             IReadOnlyDictionary<string, string> additionalInformation)
         {
-            identifier.NotNullOrWhiteSpace(nameof(identifier));
-            line?.NotNegativeOrZero(nameof(line));
-            endLine?.NotNegativeOrZero(nameof(endLine));
-            column?.NotNegativeOrZero(nameof(column));
-            endColumn?.NotNegativeOrZero(nameof(endColumn));
-            messageText.NotNullOrWhiteSpace(nameof(messageText));
-            providerType.NotNullOrWhiteSpace(nameof(providerType));
-            providerName.NotNullOrWhiteSpace(nameof(providerName));
+            identifier.NotNullOrWhiteSpace();
+            line?.NotNegativeOrZero();
+            endLine?.NotNegativeOrZero();
+            column?.NotNegativeOrZero();
+            endColumn?.NotNegativeOrZero();
+            messageText.NotNullOrWhiteSpace();
+            providerType.NotNullOrWhiteSpace();
+            providerName.NotNullOrWhiteSpace();
 
             // File path needs to be relative to the repository root.
             if (!string.IsNullOrWhiteSpace(projectFileRelativePath))

@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Diagnostics;
     using System.Linq;
+    using System.Runtime.CompilerServices;
     using JetBrains.Annotations;
 
     /// <summary>
@@ -19,7 +20,9 @@
         /// <param name="parameterName">The name of the parameter to include in any thrown exception.</param>
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="value"/> is <c>null</c>.</exception>
         [DebuggerStepThrough]
-        public static void NotNull<T>([ValidatedNotNull][NoEnumeration] this T value, string parameterName)
+        public static void NotNull<T>(
+            [ValidatedNotNull][NoEnumeration] this T value,
+            [CallerArgumentExpression(nameof(value))] string parameterName = null)
             where T : class
         {
             if (value == null)
@@ -36,12 +39,11 @@
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="value"/> is <c>null</c>.</exception>
         /// <exception cref="ArgumentOutOfRangeException">Thrown if <paramref name="value"/> is empty or consists only of white-space characters.</exception>
         [DebuggerStepThrough]
-        public static void NotNullOrWhiteSpace([ValidatedNotNull]this string value, string parameterName)
+        public static void NotNullOrWhiteSpace(
+            [ValidatedNotNull]this string value,
+            [CallerArgumentExpression(nameof(value))] string parameterName = null)
         {
-            if (value == null)
-            {
-                throw new ArgumentNullException(parameterName);
-            }
+            value.NotNull(parameterName);
 
             if (string.IsNullOrWhiteSpace(value))
             {
@@ -56,7 +58,9 @@
         /// <param name="parameterName">The name of the parameter to include in any thrown exception.</param>
         /// <exception cref="ArgumentOutOfRangeException">Thrown if <paramref name="value"/> is negative.</exception>
         [DebuggerStepThrough]
-        public static void NotNegative(this int value, string parameterName)
+        public static void NotNegative(
+            this int value,
+            [CallerArgumentExpression(nameof(value))] string parameterName = null)
         {
             if (value < 0)
             {
@@ -71,7 +75,9 @@
         /// <param name="parameterName">The name of the parameter to include in any thrown exception.</param>
         /// <exception cref="ArgumentOutOfRangeException">Thrown if <paramref name="value"/> is negative or zero.</exception>
         [DebuggerStepThrough]
-        public static void NotNegativeOrZero(this int value, string parameterName)
+        public static void NotNegativeOrZero(
+            this int value,
+            [CallerArgumentExpression(nameof(value))] string parameterName = null)
         {
             if (value <= 0)
             {
@@ -88,7 +94,9 @@
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="value"/> is <c>null</c>.</exception>
         /// <exception cref="ArgumentException">Thrown if <paramref name="value"/> is empty.</exception>
         [DebuggerStepThrough]
-        public static void NotNullOrEmpty<T>([NoEnumeration] this IEnumerable<T> value, string parameterName)
+        public static void NotNullOrEmpty<T>(
+            [NoEnumeration] this IEnumerable<T> value,
+            [CallerArgumentExpression(nameof(value))] string parameterName = null)
         {
             // ReSharper disable once PossibleMultipleEnumeration
             value.NotNull(parameterName);
@@ -110,7 +118,9 @@
         /// <exception cref="ArgumentException">Thrown if <paramref name="value"/> is empty.</exception>
         /// <exception cref="ArgumentOutOfRangeException">Thrown if <paramref name="value"/> contains an empty element.</exception>
         [DebuggerStepThrough]
-        public static void NotNullOrEmptyElement<T>([NoEnumeration] this IEnumerable<T> value, string parameterName)
+        public static void NotNullOrEmptyElement<T>(
+            [NoEnumeration] this IEnumerable<T> value,
+            [CallerArgumentExpression(nameof(value))] string parameterName = null)
         {
             // ReSharper disable once PossibleMultipleEnumeration
             value.NotNull(parameterName);
@@ -132,7 +142,9 @@
         /// <exception cref="ArgumentException">Thrown if <paramref name="value"/> is empty.</exception>
         /// <exception cref="ArgumentOutOfRangeException">Thrown if <paramref name="value"/> contains an empty element.</exception>
         [DebuggerStepThrough]
-        public static void NotNullOrEmptyOrEmptyElement<T>([NoEnumeration] this IEnumerable<T> value, string parameterName)
+        public static void NotNullOrEmptyOrEmptyElement<T>(
+            [NoEnumeration] this IEnumerable<T> value,
+            [CallerArgumentExpression(nameof(value))] string parameterName = null)
         {
             // ReSharper disable once PossibleMultipleEnumeration
             value.NotNullOrEmpty(parameterName);

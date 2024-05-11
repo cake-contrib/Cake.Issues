@@ -19,9 +19,9 @@
             IRepositorySettings repositorySettings,
             EsLintIssuesSettings esLintsettings)
         {
-            issueProvider.NotNull(nameof(issueProvider));
-            repositorySettings.NotNull(nameof(repositorySettings));
-            esLintsettings.NotNull(nameof(esLintsettings));
+            issueProvider.NotNull();
+            repositorySettings.NotNull();
+            esLintsettings.NotNull();
 
             IEnumerable<LogFile> logFileEntries;
             using (var ms = new MemoryStream(esLintsettings.LogFileContent.ToStringUsingEncoding(true).ToByteArray()))

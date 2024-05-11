@@ -42,7 +42,7 @@
         public static BaseMsBuildLogFileFormat MsBuildXmlFileLoggerFormat(
             this ICakeContext context)
         {
-            context.NotNull(nameof(context));
+            context.NotNull();
 
             return new XmlFileLoggerLogFileFormat(context.Log);
         }

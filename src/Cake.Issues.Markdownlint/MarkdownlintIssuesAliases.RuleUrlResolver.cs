@@ -33,8 +33,8 @@
             this ICakeContext context,
             Func<MarkdownlintRuleDescription, Uri> resolver)
         {
-            context.NotNull(nameof(context));
-            resolver.NotNull(nameof(resolver));
+            context.NotNull();
+            resolver.NotNull();
 
             MarkdownlintRuleUrlResolver.Instance.AddUrlResolver(resolver);
         }
@@ -67,8 +67,8 @@
             Func<MarkdownlintRuleDescription, Uri> resolver,
             int priority)
         {
-            context.NotNull(nameof(context));
-            resolver.NotNull(nameof(resolver));
+            context.NotNull();
+            resolver.NotNull();
 
             MarkdownlintRuleUrlResolver.Instance.AddUrlResolver(resolver, priority);
         }

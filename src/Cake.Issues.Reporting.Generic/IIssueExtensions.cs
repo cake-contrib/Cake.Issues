@@ -72,7 +72,7 @@
             bool fallbackToTextMessageIfMarkdownMessageNotAvailable = true,
             IDictionary<string, Func<IIssue, object>> additionalValues = null)
         {
-            issue.NotNull(nameof(issue));
+            issue.NotNull();
 
             dynamic result = new ExpandoObject();
 

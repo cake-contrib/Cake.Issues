@@ -25,7 +25,7 @@
             get => this.messagePattern;
             set
             {
-                value.NotNull(nameof(value));
+                value.NotNull();
                 this.messagePattern = value;
             }
         }
@@ -40,7 +40,7 @@
             get => this.detailsPattern;
             set
             {
-                value.NotNull(nameof(value));
+                value.NotNull();
                 this.detailsPattern = value;
             }
         }

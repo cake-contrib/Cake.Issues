@@ -15,7 +15,7 @@
         public FilePath CreateReport(IEnumerable<IIssue> issues)
         {
             // ReSharper disable once PossibleMultipleEnumeration
-            issues.NotNullOrEmptyElement(nameof(issues));
+            issues.NotNullOrEmptyElement();
 
             this.AssertInitialized();
 

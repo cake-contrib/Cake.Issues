@@ -20,8 +20,8 @@
             IIssue issueToCheck,
             IssueBuilder expectedIssue)
         {
-            issueToCheck.NotNull(nameof(issueToCheck));
-            expectedIssue.NotNull(nameof(expectedIssue));
+            issueToCheck.NotNull();
+            expectedIssue.NotNull();
 
             Check(
                 issueToCheck,
@@ -38,8 +38,8 @@
             IIssue issueToCheck,
             IIssue expectedIssue)
         {
-            issueToCheck.NotNull(nameof(issueToCheck));
-            expectedIssue.NotNull(nameof(expectedIssue));
+            issueToCheck.NotNull();
+            expectedIssue.NotNull();
 
             Check(
                 issueToCheck,
@@ -129,7 +129,7 @@
             Uri ruleUrl,
             IReadOnlyDictionary<string, string> additionalInformation)
         {
-            issue.NotNull(nameof(issue));
+            issue.NotNull();
 
             if (issue.ProviderType != providerType)
             {

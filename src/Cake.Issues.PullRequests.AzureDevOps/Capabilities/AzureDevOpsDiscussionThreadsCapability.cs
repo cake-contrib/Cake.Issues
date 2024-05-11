@@ -51,7 +51,7 @@
         protected override void InternalResolveDiscussionThreads(IEnumerable<IPullRequestDiscussionThread> threads)
         {
             // ReSharper disable once PossibleMultipleEnumeration
-            threads.NotNull(nameof(threads));
+            threads.NotNull();
 
             // ReSharper disable once PossibleMultipleEnumeration
             foreach (var thread in threads)
@@ -64,7 +64,7 @@
         protected override void InternalReopenDiscussionThreads(IEnumerable<IPullRequestDiscussionThread> threads)
         {
             // ReSharper disable once PossibleMultipleEnumeration
-            threads.NotNull(nameof(threads));
+            threads.NotNull();
 
             // ReSharper disable once PossibleMultipleEnumeration
             foreach (var thread in threads)

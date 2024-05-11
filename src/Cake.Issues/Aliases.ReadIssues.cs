@@ -36,9 +36,9 @@
             IIssueProvider issueProvider,
             DirectoryPath repositoryRoot)
         {
-            context.NotNull(nameof(context));
-            issueProvider.NotNull(nameof(issueProvider));
-            repositoryRoot.NotNull(nameof(repositoryRoot));
+            context.NotNull();
+            issueProvider.NotNull();
+            repositoryRoot.NotNull();
 
             return
                 context.ReadIssues(
@@ -78,11 +78,11 @@
             IEnumerable<IIssueProvider> issueProviders,
             DirectoryPath repositoryRoot)
         {
-            context.NotNull(nameof(context));
-            repositoryRoot.NotNull(nameof(repositoryRoot));
+            context.NotNull();
+            repositoryRoot.NotNull();
 
             // ReSharper disable once PossibleMultipleEnumeration
-            issueProviders.NotNullOrEmptyOrEmptyElement(nameof(issueProviders));
+            issueProviders.NotNullOrEmptyOrEmptyElement();
 
             // ReSharper disable once PossibleMultipleEnumeration
             return
@@ -123,9 +123,9 @@
             IIssueProvider issueProvider,
             IReadIssuesSettings settings)
         {
-            context.NotNull(nameof(context));
-            issueProvider.NotNull(nameof(issueProvider));
-            settings.NotNull(nameof(settings));
+            context.NotNull();
+            issueProvider.NotNull();
+            settings.NotNull();
 
             return
                 context.ReadIssues(
@@ -172,11 +172,11 @@
             IEnumerable<IIssueProvider> issueProviders,
             IReadIssuesSettings settings)
         {
-            context.NotNull(nameof(context));
-            settings.NotNull(nameof(settings));
+            context.NotNull();
+            settings.NotNull();
 
             // ReSharper disable once PossibleMultipleEnumeration
-            issueProviders.NotNullOrEmptyOrEmptyElement(nameof(issueProviders));
+            issueProviders.NotNullOrEmptyOrEmptyElement();
 
             // ReSharper disable once PossibleMultipleEnumeration
             var issuesReader =

@@ -14,7 +14,7 @@
         /// <returns><see cref="Uri"/> created from <paramref name="value"/>.</returns>
         public static Uri ToUri(this string value)
         {
-            value.NotNullOrWhiteSpace(nameof(value));
+            value.NotNullOrWhiteSpace();
 
             return new Uri(value);
         }

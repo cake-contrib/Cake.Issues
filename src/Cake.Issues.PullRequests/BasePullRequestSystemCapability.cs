@@ -16,8 +16,8 @@
         /// <param name="pullRequestSystem">Pull request system to which this capability belongs.</param>
         protected BasePullRequestSystemCapability(ICakeLog log, T pullRequestSystem)
         {
-            log.NotNull(nameof(log));
-            pullRequestSystem.NotNull(nameof(pullRequestSystem));
+            log.NotNull();
+            pullRequestSystem.NotNull();
 
             this.Log = log;
             this.PullRequestSystem = pullRequestSystem;

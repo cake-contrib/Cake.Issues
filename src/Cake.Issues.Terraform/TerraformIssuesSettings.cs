@@ -16,7 +16,7 @@
         public TerraformIssuesSettings(FilePath validateOutputFilePath, DirectoryPath terraformRootPath)
             : base(validateOutputFilePath)
         {
-            terraformRootPath.NotNull(nameof(terraformRootPath));
+            terraformRootPath.NotNull();
 
             this.TerraformRootPath = terraformRootPath;
         }
@@ -30,7 +30,7 @@
         public TerraformIssuesSettings(byte[] validateOutput, DirectoryPath terraformRootPath)
             : base(validateOutput)
         {
-            terraformRootPath.NotNull(nameof(terraformRootPath));
+            terraformRootPath.NotNull();
 
             this.TerraformRootPath = terraformRootPath;
         }

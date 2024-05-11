@@ -17,7 +17,7 @@
         internal FileLinkOptionalSettingsBuilder(Func<IIssue, IDictionary<string, string>, Uri> builder)
             : base(builder)
         {
-            builder.NotNull(nameof(builder));
+            builder.NotNull();
 
             this.builder = builder;
         }
@@ -32,7 +32,7 @@
         {
             if (rootPath != null)
             {
-                rootPath.NotNullOrWhiteSpace(nameof(rootPath));
+                rootPath.NotNullOrWhiteSpace();
 
                 if (!rootPath.IsValidPath())
                 {

@@ -17,7 +17,7 @@
         /// <param name="log">Cake log instance.</param>
         public IssueReportCreator(ICakeLog log)
         {
-            log.NotNull(nameof(log));
+            log.NotNull();
 
             this.log = log;
         }
@@ -34,9 +34,9 @@
             IIssueReportFormat reportFormat,
             ICreateIssueReportFromIssueProviderSettings settings)
         {
-            issueProviders.NotNullOrEmptyOrEmptyElement(nameof(issueProviders));
-            reportFormat.NotNull(nameof(reportFormat));
-            settings.NotNull(nameof(settings));
+            issueProviders.NotNullOrEmptyOrEmptyElement();
+            reportFormat.NotNull();
+            settings.NotNull();
 
             var issuesReader = new IssuesReader(this.log, issueProviders, settings);
             var issues = issuesReader.ReadIssues();
@@ -56,9 +56,9 @@
             IIssueReportFormat reportFormat,
             ICreateIssueReportSettings settings)
         {
-            issues.NotNullOrEmptyElement(nameof(issues));
-            reportFormat.NotNull(nameof(reportFormat));
-            settings.NotNull(nameof(settings));
+            issues.NotNullOrEmptyElement();
+            reportFormat.NotNull();
+            settings.NotNull();
 
             var reportFormatName = reportFormat.GetType().Name;
             this.log.Verbose("Initialize report format {0}...", reportFormatName);

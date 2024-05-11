@@ -32,7 +32,7 @@
         public static IPullRequestSystem AppVeyorBuilds(
             this ICakeContext context)
         {
-            context.NotNull(nameof(context));
+            context.NotNull();
 
             return new AppVeyorPullRequestSystem(context, new AppVeyorBuildSettings());
         }
@@ -68,8 +68,8 @@
             this ICakeContext context,
             AppVeyorBuildSettings settings)
         {
-            context.NotNull(nameof(context));
-            settings.NotNull(nameof(settings));
+            context.NotNull();
+            settings.NotNull();
 
             return new AppVeyorPullRequestSystem(context, settings);
         }

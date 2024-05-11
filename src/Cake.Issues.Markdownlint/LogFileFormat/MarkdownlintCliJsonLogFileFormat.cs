@@ -23,9 +23,9 @@
             IRepositorySettings repositorySettings,
             MarkdownlintIssuesSettings markdownlintIssuesSettings)
         {
-            issueProvider.NotNull(nameof(issueProvider));
-            repositorySettings.NotNull(nameof(repositorySettings));
-            markdownlintIssuesSettings.NotNull(nameof(markdownlintIssuesSettings));
+            issueProvider.NotNull();
+            repositorySettings.NotNull();
+            markdownlintIssuesSettings.NotNull();
 
             if (markdownlintIssuesSettings.LogFileContent.Length == 0)
             {

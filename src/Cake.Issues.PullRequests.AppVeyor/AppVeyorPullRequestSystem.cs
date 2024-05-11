@@ -21,7 +21,7 @@
         public AppVeyorPullRequestSystem(ICakeContext context, AppVeyorBuildSettings settings)
             : base(context?.Log ?? throw new ArgumentNullException(nameof(context)))
         {
-            settings.NotNull(nameof(settings));
+            settings.NotNull();
 
             this.context = context;
             this.settings = settings;

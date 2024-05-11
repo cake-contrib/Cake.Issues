@@ -79,8 +79,8 @@
             Run run)
         {
             // Once https://github.com/microsoft/sarif-sdk/issues/430 is implemented this code should become mostly obsolete
-            result.NotNull(nameof(result));
-            run.NotNull(nameof(run));
+            result.NotNull();
+            run.NotNull();
 
             // If result has message text assigned directly.
             if (!string.IsNullOrEmpty(result.Message.Text))
@@ -153,8 +153,8 @@
             Result result,
             Run run)
         {
-            result.NotNull(nameof(result));
-            run.NotNull(nameof(run));
+            result.NotNull();
+            run.NotNull();
 
             var rule = result.GetRule(run);
 
@@ -169,7 +169,7 @@
         private static (string FilePath, int? Line) GetLocation(
             Result result)
         {
-            result.NotNull(nameof(result));
+            result.NotNull();
 
             // Only consider the first location.
             var location = result.Locations.FirstOrDefault();

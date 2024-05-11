@@ -13,7 +13,7 @@
 
         public string CreateReport(string fileResourceName, DirectoryPath repositoryRootPath)
         {
-            fileResourceName.NotNullOrWhiteSpace(nameof(fileResourceName));
+            fileResourceName.NotNullOrWhiteSpace();
 
             var resourceName = "Cake.Issues.Reporting.Console.Tests." + fileResourceName;
 

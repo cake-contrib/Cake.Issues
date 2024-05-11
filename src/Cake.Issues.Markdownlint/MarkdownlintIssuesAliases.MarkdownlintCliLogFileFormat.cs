@@ -19,7 +19,7 @@
         public static BaseMarkdownlintLogFileFormat MarkdownlintCliLogFileFormat(
             this ICakeContext context)
         {
-            context.NotNull(nameof(context));
+            context.NotNull();
 
             return new MarkdownlintCliLogFileFormat(context.Log);
         }

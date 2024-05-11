@@ -33,8 +33,8 @@
             this ICakeContext context,
             Func<BaseRuleDescription, Uri> resolver)
         {
-            context.NotNull(nameof(context));
-            resolver.NotNull(nameof(resolver));
+            context.NotNull();
+            resolver.NotNull();
 
             EsLintRuleUrlResolver.Instance.AddUrlResolver(resolver);
         }
@@ -67,8 +67,8 @@
             Func<BaseRuleDescription, Uri> resolver,
             int priority)
         {
-            context.NotNull(nameof(context));
-            resolver.NotNull(nameof(resolver));
+            context.NotNull();
+            resolver.NotNull();
 
             EsLintRuleUrlResolver.Instance.AddUrlResolver(resolver, priority);
         }

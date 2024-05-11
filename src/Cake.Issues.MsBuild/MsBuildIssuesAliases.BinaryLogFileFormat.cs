@@ -19,7 +19,7 @@
         public static BaseMsBuildLogFileFormat MsBuildBinaryLogFileFormat(
             this ICakeContext context)
         {
-            context.NotNull(nameof(context));
+            context.NotNull();
 
             return new BinaryLogFileFormat(context.Log);
         }

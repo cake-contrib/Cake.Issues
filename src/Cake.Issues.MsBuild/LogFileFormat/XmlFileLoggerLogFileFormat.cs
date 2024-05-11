@@ -19,9 +19,9 @@
             IRepositorySettings repositorySettings,
             MsBuildIssuesSettings issueProviderSettings)
         {
-            issueProvider.NotNull(nameof(issueProvider));
-            repositorySettings.NotNull(nameof(repositorySettings));
-            issueProviderSettings.NotNull(nameof(issueProviderSettings));
+            issueProvider.NotNull();
+            repositorySettings.NotNull();
+            issueProviderSettings.NotNull();
 
             var result = new List<IIssue>();
 

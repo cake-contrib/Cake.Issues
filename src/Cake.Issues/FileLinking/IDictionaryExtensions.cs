@@ -21,7 +21,7 @@
             TKey key,
             TValue defaultValue)
         {
-            dictionary.NotNull(nameof(dictionary));
+            dictionary.NotNull();
 
             return dictionary.TryGetValue(key, out var value) ? value : defaultValue;
         }

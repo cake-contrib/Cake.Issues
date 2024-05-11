@@ -14,7 +14,7 @@
         /// <returns>Converted comment.</returns>
         public static IPullRequestDiscussionComment ToPullRequestDiscussionComment(this AzureDevOpsComment comment)
         {
-            comment.NotNull(nameof(comment));
+            comment.NotNull();
 
             return new PullRequestDiscussionComment()
             {

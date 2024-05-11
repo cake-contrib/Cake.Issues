@@ -22,7 +22,7 @@
         public GenericIssueReportGenerator(ICakeLog log, GenericIssueReportFormatSettings settings)
             : base(log)
         {
-            settings.NotNull(nameof(settings));
+            settings.NotNull();
 
             this.genericIssueReportFormatSettings = settings;
         }

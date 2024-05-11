@@ -20,7 +20,7 @@
         public static string MarkdownlintIssuesProviderTypeName(
             this ICakeContext context)
         {
-            context.NotNull(nameof(context));
+            context.NotNull();
 
             return MarkdownlintIssuesProvider.ProviderTypeName;
         }
@@ -53,9 +53,9 @@
             FilePath logFilePath,
             BaseMarkdownlintLogFileFormat format)
         {
-            context.NotNull(nameof(context));
-            logFilePath.NotNull(nameof(logFilePath));
-            format.NotNull(nameof(format));
+            context.NotNull();
+            logFilePath.NotNull();
+            format.NotNull();
 
             return context.MarkdownlintIssues(new MarkdownlintIssuesSettings(logFilePath, format));
         }
@@ -88,9 +88,9 @@
             string logFileContent,
             BaseMarkdownlintLogFileFormat format)
         {
-            context.NotNull(nameof(context));
-            logFileContent.NotNullOrWhiteSpace(nameof(logFileContent));
-            format.NotNull(nameof(format));
+            context.NotNull();
+            logFileContent.NotNullOrWhiteSpace();
+            format.NotNull();
 
             return context.MarkdownlintIssues(new MarkdownlintIssuesSettings(logFileContent, format));
         }
@@ -123,8 +123,8 @@
             this ICakeContext context,
             MarkdownlintIssuesSettings settings)
         {
-            context.NotNull(nameof(context));
-            settings.NotNull(nameof(settings));
+            context.NotNull();
+            settings.NotNull();
 
             return new MarkdownlintIssuesProvider(context.Log, settings);
         }

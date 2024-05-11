@@ -15,8 +15,8 @@
         /// <returns>True if the commit ID is the last commit on the source branch.</returns>
         public static bool IsCurrentCommitId(this ISupportCheckingCommitId capability, string commitId)
         {
-            capability.NotNull(nameof(capability));
-            commitId.NotNullOrWhiteSpace(nameof(commitId));
+            capability.NotNull();
+            commitId.NotNullOrWhiteSpace();
 
             var lastSourceCommitId = capability.GetLastSourceCommitId();
 

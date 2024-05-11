@@ -27,7 +27,7 @@
         public AzureDevOpsPullRequestSystem(ICakeLog log, AzureDevOpsPullRequestSystemSettings settings)
             : base(log)
         {
-            settings.NotNull(nameof(settings));
+            settings.NotNull();
 
             this.settings = settings;
 
@@ -79,7 +79,7 @@
         protected override void InternalPostDiscussionThreads(IEnumerable<IIssue> issues, string commentSource)
         {
             // ReSharper disable once PossibleMultipleEnumeration
-            issues.NotNull(nameof(issues));
+            issues.NotNull();
 
             if (!this.ValidatePullRequest())
             {
@@ -109,8 +109,8 @@
            int changeTrackingId,
            Dictionary<string, object> properties)
         {
-            issue.NotNull(nameof(issue));
-            properties.NotNull(nameof(properties));
+            issue.NotNull();
+            properties.NotNull();
 
             properties.Add("Microsoft.VisualStudio.Services.CodeReview.ItemPath", "/" + issue.AffectedFileRelativePath);
             properties.Add("Microsoft.VisualStudio.Services.CodeReview.Right.StartLine", issue.Line);
@@ -144,7 +144,7 @@
             string commentSource)
         {
             // ReSharper disable once PossibleMultipleEnumeration
-            issues.NotNull(nameof(issues));
+            issues.NotNull();
 
             if (this.azureDevOpsPullRequest.CodeReviewId <= 0)
             {
@@ -225,7 +225,7 @@
             IIssue issue,
             int iterationId)
         {
-            issue.NotNull(nameof(issue));
+            issue.NotNull();
 
             var properties = new Dictionary<string, object>();
 
@@ -274,8 +274,8 @@
         private int TryGetCodeFlowChangeTrackingId(IEnumerable<AzureDevOpsPullRequestIterationChange> changes, FilePath path)
         {
             // ReSharper disable once PossibleMultipleEnumeration
-            changes.NotNull(nameof(changes));
-            path.NotNull(nameof(path));
+            changes.NotNull();
+            path.NotNull();
 
             // ReSharper disable once PossibleMultipleEnumeration
             var change =

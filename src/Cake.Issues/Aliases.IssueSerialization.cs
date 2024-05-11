@@ -32,8 +32,8 @@
             this ICakeContext context,
             IIssue issue)
         {
-            context.NotNull(nameof(context));
-            issue.NotNull(nameof(issue));
+            context.NotNull();
+            issue.NotNull();
 
             return issue.SerializeToJsonString();
         }
@@ -59,8 +59,8 @@
             this ICakeContext context,
             IEnumerable<IIssue> issues)
         {
-            context.NotNull(nameof(context));
-            issues.NotNull(nameof(issues));
+            context.NotNull();
+            issues.NotNull();
 
             return issues.SerializeToJsonString();
         }
@@ -86,9 +86,9 @@
             IIssue issue,
             FilePath filePath)
         {
-            context.NotNull(nameof(context));
-            issue.NotNull(nameof(issue));
-            filePath.NotNull(nameof(filePath));
+            context.NotNull();
+            issue.NotNull();
+            filePath.NotNull();
 
             issue.SerializeToJsonFile(filePath);
         }
@@ -114,9 +114,9 @@
             IEnumerable<IIssue> issues,
             FilePath filePath)
         {
-            context.NotNull(nameof(context));
-            issues.NotNull(nameof(issues));
-            filePath.NotNull(nameof(filePath));
+            context.NotNull();
+            issues.NotNull();
+            filePath.NotNull();
 
             issues.SerializeToJsonFile(filePath);
         }
@@ -142,8 +142,8 @@
             this ICakeContext context,
             string jsonString)
         {
-            context.NotNull(nameof(context));
-            jsonString.NotNullOrWhiteSpace(nameof(jsonString));
+            context.NotNull();
+            jsonString.NotNullOrWhiteSpace();
 
             return jsonString.DeserializeToIssue();
         }
@@ -169,8 +169,8 @@
             this ICakeContext context,
             string jsonString)
         {
-            context.NotNull(nameof(context));
-            jsonString.NotNullOrWhiteSpace(nameof(jsonString));
+            context.NotNull();
+            jsonString.NotNullOrWhiteSpace();
 
             return jsonString.DeserializeToIssues();
         }
@@ -196,8 +196,8 @@
             this ICakeContext context,
             FilePath filePath)
         {
-            context.NotNull(nameof(context));
-            filePath.NotNull(nameof(filePath));
+            context.NotNull();
+            filePath.NotNull();
 
             return filePath.DeserializeToIssue();
         }
@@ -223,8 +223,8 @@
             this ICakeContext context,
             FilePath filePath)
         {
-            context.NotNull(nameof(context));
-            filePath.NotNull(nameof(filePath));
+            context.NotNull();
+            filePath.NotNull();
 
             return filePath.DeserializeToIssues();
         }

@@ -20,7 +20,7 @@
         /// <returns>The sorted issues.</returns>
         public static IEnumerable<IIssue> SortWithDefaultPrioritization(this IEnumerable<IIssue> issues)
         {
-            issues.NotNull(nameof(issues));
+            issues.NotNull();
 
             return issues
                 .OrderByDescending(x => x.Priority)
