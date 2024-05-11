@@ -69,7 +69,7 @@
             var provider =
                 (T)Activator.CreateInstance(
                     typeof(T),
-                    [.. this.GetCreateIssueProviderArguments()]) 
+                    [.. this.GetCreateIssueProviderArguments()])
                 ?? throw new InvalidOperationException("Could not create issue provider.");
             provider.Initialize(this.ReadIssuesSettings);
             return provider;
