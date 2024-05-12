@@ -26,6 +26,7 @@ For addin compatible with Cake Script Runners see Cake.Issues.PullRequests.GitHu
     <repository type="git" url="https://github.com/cake-contrib/Cake.Issues.git"/>
     <copyright>Copyright © Cake Issues contributors</copyright>
     <tags>cake cake-addin cake-issues cake-pullrequestsystem issues pullrequest buildserver github github-actions</tags>
+    <readme>docs\README.md</readme>
     <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/4.3.1</releaseNotes>
     <dependencies>
       <group targetFramework="net6.0">
@@ -47,6 +48,7 @@ For addin compatible with Cake Script Runners see Cake.Issues.PullRequests.GitHu
   </metadata>
   <files>
     <file src="icon.png" target="" />
+    <file src="Cake.Frosting.Issues.PullRequests.GitHubActions.md" target="docs\README.md" />
     <file src="..\..\src\Cake.Issues.PullRequests.GitHubActions\bin\Release\net6.0\Cake.Issues.PullRequests.GitHubActions.dll" target="lib\net6.0" />
     <file src="..\..\src\Cake.Issues.PullRequests.GitHubActions\bin\Release\net6.0\Cake.Issues.PullRequests.GitHubActions.pdb" target="lib\net6.0" />
     <file src="..\..\src\Cake.Issues.PullRequests.GitHubActions\bin\Release\net6.0\Cake.Issues.PullRequests.GitHubActions.xml" target="lib\net6.0" />
