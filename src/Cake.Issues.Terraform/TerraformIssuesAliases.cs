@@ -21,7 +21,7 @@
         public static string TerraformIssuesProviderTypeName(
             this ICakeContext context)
         {
-            context.NotNull(nameof(context));
+            context.NotNull();
 
             return TerraformIssuesProvider.ProviderTypeName;
         }
@@ -50,8 +50,8 @@
             this ICakeContext context,
             FilePath validateOutputFilePath)
         {
-            context.NotNull(nameof(context));
-            validateOutputFilePath.NotNull(nameof(validateOutputFilePath));
+            context.NotNull();
+            validateOutputFilePath.NotNull();
 
             return context.TerraformIssuesFromFilePath(validateOutputFilePath, "/");
         }
@@ -84,9 +84,9 @@
             FilePath validateOutputFilePath,
             DirectoryPath terraformRootPath)
         {
-            context.NotNull(nameof(context));
-            validateOutputFilePath.NotNull(nameof(validateOutputFilePath));
-            terraformRootPath.NotNull(nameof(terraformRootPath));
+            context.NotNull();
+            validateOutputFilePath.NotNull();
+            terraformRootPath.NotNull();
 
             return context.TerraformIssues(new TerraformIssuesSettings(validateOutputFilePath, terraformRootPath));
         }
@@ -115,8 +115,8 @@
             this ICakeContext context,
             string validateOutput)
         {
-            context.NotNull(nameof(context));
-            validateOutput.NotNullOrWhiteSpace(nameof(validateOutput));
+            context.NotNull();
+            validateOutput.NotNullOrWhiteSpace();
 
             return context.TerraformIssues(new TerraformIssuesSettings(validateOutput.ToByteArray(), "/"));
         }
@@ -149,9 +149,9 @@
             string validateOutput,
             DirectoryPath terraformRootPath)
         {
-            context.NotNull(nameof(context));
-            validateOutput.NotNullOrWhiteSpace(nameof(validateOutput));
-            terraformRootPath.NotNull(nameof(terraformRootPath));
+            context.NotNull();
+            validateOutput.NotNullOrWhiteSpace();
+            terraformRootPath.NotNull();
 
             return context.TerraformIssues(new TerraformIssuesSettings(validateOutput.ToByteArray(), terraformRootPath));
         }
@@ -182,8 +182,8 @@
             this ICakeContext context,
             TerraformIssuesSettings settings)
         {
-            context.NotNull(nameof(context));
-            settings.NotNull(nameof(settings));
+            context.NotNull();
+            settings.NotNull();
 
             return new TerraformIssuesProvider(context.Log, settings);
         }

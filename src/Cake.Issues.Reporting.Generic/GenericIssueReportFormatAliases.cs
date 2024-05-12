@@ -42,7 +42,7 @@
             this ICakeContext context,
             GenericIssueReportTemplate template)
         {
-            context.NotNull(nameof(context));
+            context.NotNull();
 
             return context.GenericIssueReportFormat(GenericIssueReportFormatSettings.FromEmbeddedTemplate(template));
         }
@@ -75,8 +75,8 @@
             GenericIssueReportTemplate template,
             Action<GenericIssueReportFormatSettings> configurator)
         {
-            context.NotNull(nameof(context));
-            configurator.NotNull(nameof(configurator));
+            context.NotNull();
+            configurator.NotNull();
 
             var settings = GenericIssueReportFormatSettings.FromEmbeddedTemplate(template);
             configurator(settings);
@@ -107,8 +107,8 @@
             this ICakeContext context,
             FilePath templatePath)
         {
-            context.NotNull(nameof(context));
-            templatePath.NotNull(nameof(templatePath));
+            context.NotNull();
+            templatePath.NotNull();
 
             return context.GenericIssueReportFormat(GenericIssueReportFormatSettings.FromFilePath(templatePath));
         }
@@ -141,9 +141,9 @@
             FilePath templatePath,
             Action<GenericIssueReportFormatSettings> configurator)
         {
-            context.NotNull(nameof(context));
-            templatePath.NotNull(nameof(templatePath));
-            configurator.NotNull(nameof(configurator));
+            context.NotNull();
+            templatePath.NotNull();
+            configurator.NotNull();
 
             var settings = GenericIssueReportFormatSettings.FromFilePath(templatePath);
             configurator(settings);
@@ -176,8 +176,8 @@
             this ICakeContext context,
             string templateContent)
         {
-            context.NotNull(nameof(context));
-            templateContent.NotNullOrWhiteSpace(nameof(templateContent));
+            context.NotNull();
+            templateContent.NotNullOrWhiteSpace();
 
             return context.GenericIssueReportFormat(GenericIssueReportFormatSettings.FromContent(templateContent));
         }
@@ -212,9 +212,9 @@
             string templateContent,
             Action<GenericIssueReportFormatSettings> configurator)
         {
-            context.NotNull(nameof(context));
-            templateContent.NotNullOrWhiteSpace(nameof(templateContent));
-            configurator.NotNull(nameof(configurator));
+            context.NotNull();
+            templateContent.NotNullOrWhiteSpace();
+            configurator.NotNull();
 
             var settings = GenericIssueReportFormatSettings.FromContent(templateContent);
             configurator(settings);
@@ -249,8 +249,8 @@
             this ICakeContext context,
             GenericIssueReportFormatSettings settings)
         {
-            context.NotNull(nameof(context));
-            settings.NotNull(nameof(settings));
+            context.NotNull();
+            settings.NotNull();
 
             return new GenericIssueReportGenerator(context.Log, settings);
         }

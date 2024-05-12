@@ -21,9 +21,9 @@
             IRepositorySettings repositorySettings,
             MarkdownlintIssuesSettings markdownlintIssuesSettings)
         {
-            issueProvider.NotNull(nameof(issueProvider));
-            repositorySettings.NotNull(nameof(repositorySettings));
-            markdownlintIssuesSettings.NotNull(nameof(markdownlintIssuesSettings));
+            issueProvider.NotNull();
+            repositorySettings.NotNull();
+            markdownlintIssuesSettings.NotNull();
 
             var regex = new Regex(@"(?<filePath>.*[^:\d+]): ?(?<lineNumber>\d+):?(?<columnNumber>\d+)? (?<ruleId>MD\d+)/(?<ruleName>(?:\w*-*/*)*) (?<message>.*)");
 
@@ -69,8 +69,8 @@
             IRepositorySettings repositorySettings,
             out string fileName)
         {
-            values.NotNull(nameof(values));
-            repositorySettings.NotNull(nameof(repositorySettings));
+            values.NotNull();
+            repositorySettings.NotNull();
 
             var filePath = values["filePath"].Value;
 

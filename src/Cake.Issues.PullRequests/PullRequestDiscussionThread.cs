@@ -27,7 +27,7 @@
             IEnumerable<IPullRequestDiscussionComment> comments)
         {
             // ReSharper disable once PossibleMultipleEnumeration
-            comments.NotNull(nameof(comments));
+            comments.NotNull();
 
             // File path needs to be relative to the repository root.
             if (filePath != null)

@@ -32,7 +32,7 @@
         public static IIssueReportFormat ConsoleIssueReportFormat(
             this ICakeContext context)
         {
-            context.NotNull(nameof(context));
+            context.NotNull();
 
             return context.ConsoleIssueReportFormat(new ConsoleIssueReportFormatSettings());
         }
@@ -67,8 +67,8 @@
             this ICakeContext context,
             ConsoleIssueReportFormatSettings settings)
         {
-            context.NotNull(nameof(context));
-            settings.NotNull(nameof(settings));
+            context.NotNull();
+            settings.NotNull();
 
             return new ConsoleIssueReportGenerator(context.Log, settings);
         }

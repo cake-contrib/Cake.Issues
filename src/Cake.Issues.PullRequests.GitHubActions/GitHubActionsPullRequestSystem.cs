@@ -23,7 +23,7 @@
         public GitHubActionsPullRequestSystem(ICakeLog log, GitHubActionsBuildSettings settings)
             : base(log)
         {
-            settings.NotNull(nameof(settings));
+            settings.NotNull();
 
             this.settings = settings;
         }
@@ -42,7 +42,7 @@
         /// <inheritdoc />
         protected override void InternalPostDiscussionThreads(IEnumerable<IIssue> issues, string commentSource)
         {
-            issues.NotNull(nameof(issues));
+            issues.NotNull();
 
             if (this.settings.GroupIssues)
             {

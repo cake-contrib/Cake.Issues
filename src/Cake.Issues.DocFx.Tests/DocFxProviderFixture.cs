@@ -9,7 +9,7 @@
         public DocFxProviderFixture(string fileResourceName, DirectoryPath docRootPath)
             : base(fileResourceName)
         {
-            docRootPath.NotNull(nameof(docRootPath));
+            docRootPath.NotNull();
 
             this.docRootPath = docRootPath;
             this.ReadIssuesSettings =

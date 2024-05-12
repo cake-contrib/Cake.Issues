@@ -20,7 +20,7 @@
         public static string GitRepositoryIssuesProviderTypeName(
             this ICakeContext context)
         {
-            context.NotNull(nameof(context));
+            context.NotNull();
 
             return GitRepositoryIssuesProvider.ProviderTypeName;
         }
@@ -54,8 +54,8 @@
             this ICakeContext context,
             GitRepositoryIssuesSettings settings)
         {
-            context.NotNull(nameof(context));
-            settings.NotNull(nameof(settings));
+            context.NotNull();
+            settings.NotNull();
 
             return
                 new GitRepositoryIssuesProvider(

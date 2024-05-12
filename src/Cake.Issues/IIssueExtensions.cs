@@ -15,7 +15,7 @@
         /// <returns>Line and column range.</returns>
         public static string LineRange(this IIssue issue)
         {
-            issue.NotNull(nameof(issue));
+            issue.NotNull();
 
             return issue.LineRange(true);
         }
@@ -28,7 +28,7 @@
         /// <returns>Line and column range.</returns>
         public static string LineRange(this IIssue issue, bool addColumn)
         {
-            issue.NotNull(nameof(issue));
+            issue.NotNull();
 
             var result = string.Empty;
 
@@ -66,7 +66,7 @@
         /// format if it is not available in the desired format.</returns>
         public static string Message(this IIssue issue, IssueCommentFormat format)
         {
-            issue.NotNull(nameof(issue));
+            issue.NotNull();
 
             return format switch
             {
@@ -84,7 +84,7 @@
         /// <returns>Full path to the project to which the file affected by the issue belongs.</returns>
         public static string ProjectPath(this IIssue issue)
         {
-            issue.NotNull(nameof(issue));
+            issue.NotNull();
 
             return issue.ProjectFileRelativePath?.FullPath;
         }
@@ -96,7 +96,7 @@
         /// <returns>Directory of the project to which the file affected by the issue belongs.</returns>
         public static string ProjectDirectory(this IIssue issue)
         {
-            issue.NotNull(nameof(issue));
+            issue.NotNull();
 
             return issue.ProjectFileRelativePath?.GetDirectory().FullPath;
         }
@@ -108,7 +108,7 @@
         /// <returns>Full path of the file affected by the issue.</returns>
         public static string FilePath(this IIssue issue)
         {
-            issue.NotNull(nameof(issue));
+            issue.NotNull();
 
             return issue.AffectedFileRelativePath?.FullPath;
         }
@@ -120,7 +120,7 @@
         /// <returns>Directory of the file affected by the issue.</returns>
         public static string FileDirectory(this IIssue issue)
         {
-            issue.NotNull(nameof(issue));
+            issue.NotNull();
 
             return issue.AffectedFileRelativePath?.GetDirectory().FullPath;
         }
@@ -132,7 +132,7 @@
         /// <returns>Name of the file affected by the issue.</returns>
         public static string FileName(this IIssue issue)
         {
-            issue.NotNull(nameof(issue));
+            issue.NotNull();
 
             return issue.AffectedFileRelativePath?.GetFilename().ToString();
         }
@@ -144,7 +144,7 @@
         /// <returns>Returns <see cref="IIssue.RuleName"/> if it is set, otherwise <see cref="IIssue.RuleId"/>.</returns>
         public static string Rule(this IIssue issue)
         {
-            issue.NotNull(nameof(issue));
+            issue.NotNull();
 
             return !string.IsNullOrWhiteSpace(issue.RuleName) ? issue.RuleName : issue.RuleId;
         }
@@ -266,8 +266,8 @@
         /// <returns>Value with all patterns replaced.</returns>
         public static string ReplaceIssuePattern(this string pattern, IIssue issue)
         {
-            pattern.NotNull(nameof(pattern));
-            issue.NotNull(nameof(issue));
+            pattern.NotNull();
+            issue.NotNull();
 
             return
                 pattern

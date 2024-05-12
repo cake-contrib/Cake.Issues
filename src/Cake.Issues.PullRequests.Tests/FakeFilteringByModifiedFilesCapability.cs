@@ -23,7 +23,7 @@
             : base(log, pullRequestSystem)
         {
             // ReSharper disable once PossibleMultipleEnumeration
-            modifiedFiles.NotNull(nameof(modifiedFiles));
+            modifiedFiles.NotNull();
 
             // ReSharper disable once PossibleMultipleEnumeration
             this.modifiedFiles.AddRange(modifiedFiles);

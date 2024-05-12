@@ -14,8 +14,8 @@
         /// <param name="valueRetriever">Function for retrieving the value of the column.</param>
         public HtmlDxDataGridColumnDescription(string id, Func<IIssue, object> valueRetriever)
         {
-            id.NotNullOrWhiteSpace(nameof(id));
-            valueRetriever.NotNull(nameof(valueRetriever));
+            id.NotNullOrWhiteSpace();
+            valueRetriever.NotNull();
 
             this.Id = id;
             this.ValueRetriever = valueRetriever;

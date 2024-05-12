@@ -19,7 +19,7 @@
         public static BaseEsLintLogFileFormat EsLintJsonFormat(
             this ICakeContext context)
         {
-            context.NotNull(nameof(context));
+            context.NotNull();
 
             return new JsonLogFileFormat(context.Log);
         }

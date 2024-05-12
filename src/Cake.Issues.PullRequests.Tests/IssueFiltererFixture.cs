@@ -12,7 +12,7 @@ namespace Cake.Issues.PullRequests.Tests
         public IssueFiltererFixture(
             Func<FakePullRequestSystemBuilder, IReportIssuesToPullRequestSettings, FakePullRequestSystemBuilder> pullRequestSettings)
         {
-            pullRequestSettings.NotNull(nameof(pullRequestSettings));
+            pullRequestSettings.NotNull();
 
             this.Log = new FakeLog { Verbosity = Verbosity.Normal };
 

@@ -19,7 +19,7 @@
         /// <param name="fileResourceName">Name of the resource to load.</param>
         protected BaseConfigurableIssueProviderFixture(string fileResourceName)
         {
-            fileResourceName.NotNullOrWhiteSpace(nameof(fileResourceName));
+            fileResourceName.NotNullOrWhiteSpace();
 
             var resourceName = this.FileResourceNamespace + fileResourceName;
 

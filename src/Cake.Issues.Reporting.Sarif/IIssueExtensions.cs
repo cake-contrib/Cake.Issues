@@ -15,7 +15,7 @@
         /// <returns>Kind of the issue.</returns>
         public static ResultKind Kind(this IIssue issue)
         {
-            issue.NotNull(nameof(issue));
+            issue.NotNull();
 
             if (!issue.Priority.HasValue)
             {
@@ -37,7 +37,7 @@
         /// <returns>Level of the issue.</returns>
         public static FailureLevel Level(this IIssue issue)
         {
-            issue.NotNull(nameof(issue));
+            issue.NotNull();
 
             if (!issue.Priority.HasValue)
             {
@@ -60,7 +60,7 @@
         /// <returns>Location of the issue.</returns>
         public static Location Location(this IIssue issue)
         {
-            issue.NotNull(nameof(issue));
+            issue.NotNull();
 
             if (issue.AffectedFileRelativePath == null && !issue.Line.HasValue)
             {

@@ -19,9 +19,9 @@
             IEnumerable<IPullRequestDiscussionComment> wontFixComments,
             IEnumerable<IPullRequestDiscussionComment> resolvedComments)
         {
-            activeComments.NotNull(nameof(activeComments));
-            wontFixComments.NotNull(nameof(wontFixComments));
-            resolvedComments.NotNull(nameof(resolvedComments));
+            activeComments.NotNull();
+            wontFixComments.NotNull();
+            resolvedComments.NotNull();
 
             this.ActiveComments = activeComments.ToList();
             this.WontFixComments = wontFixComments.ToList();

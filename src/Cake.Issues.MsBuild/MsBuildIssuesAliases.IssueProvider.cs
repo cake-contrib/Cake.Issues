@@ -20,7 +20,7 @@
         public static string MsBuildIssuesProviderTypeName(
             this ICakeContext context)
         {
-            context.NotNull(nameof(context));
+            context.NotNull();
 
             return MsBuildIssuesProvider.ProviderTypeName;
         }
@@ -53,9 +53,9 @@
             FilePath logFilePath,
             BaseMsBuildLogFileFormat format)
         {
-            context.NotNull(nameof(context));
-            logFilePath.NotNull(nameof(logFilePath));
-            format.NotNull(nameof(format));
+            context.NotNull();
+            logFilePath.NotNull();
+            format.NotNull();
 
             return context.MsBuildIssues(new MsBuildIssuesSettings(logFilePath, format));
         }
@@ -88,9 +88,9 @@
             string logFileContent,
             BaseMsBuildLogFileFormat format)
         {
-            context.NotNull(nameof(context));
-            logFileContent.NotNullOrWhiteSpace(nameof(logFileContent));
-            format.NotNull(nameof(format));
+            context.NotNull();
+            logFileContent.NotNullOrWhiteSpace();
+            format.NotNull();
 
             return context.MsBuildIssues(new MsBuildIssuesSettings(logFileContent.ToByteArray(), format));
         }
@@ -123,8 +123,8 @@
             this ICakeContext context,
             MsBuildIssuesSettings settings)
         {
-            context.NotNull(nameof(context));
-            settings.NotNull(nameof(settings));
+            context.NotNull();
+            settings.NotNull();
 
             return new MsBuildIssuesProvider(context.Log, settings);
         }

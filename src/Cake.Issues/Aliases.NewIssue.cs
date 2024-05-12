@@ -39,10 +39,10 @@
             string providerType,
             string providerName)
         {
-            context.NotNull(nameof(context));
-            message.NotNullOrWhiteSpace(nameof(message));
-            providerType.NotNullOrWhiteSpace(nameof(providerType));
-            providerName.NotNullOrWhiteSpace(nameof(providerName));
+            context.NotNull();
+            message.NotNullOrWhiteSpace();
+            providerType.NotNullOrWhiteSpace();
+            providerName.NotNullOrWhiteSpace();
 
             return IssueBuilder.NewIssue(message, providerType, providerName);
         }
@@ -81,11 +81,11 @@
             string providerType,
             string providerName)
         {
-            context.NotNull(nameof(context));
-            identifier.NotNullOrWhiteSpace(nameof(identifier));
-            message.NotNullOrWhiteSpace(nameof(message));
-            providerType.NotNullOrWhiteSpace(nameof(providerType));
-            providerName.NotNullOrWhiteSpace(nameof(providerName));
+            context.NotNull();
+            identifier.NotNullOrWhiteSpace();
+            message.NotNullOrWhiteSpace();
+            providerType.NotNullOrWhiteSpace();
+            providerName.NotNullOrWhiteSpace();
 
             return IssueBuilder.NewIssue(identifier, message, providerType, providerName);
         }

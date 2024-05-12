@@ -18,7 +18,7 @@
         /// <returns>Serialized issue.</returns>
         public static string SerializeToJsonString(this IIssue issue)
         {
-            issue.NotNull(nameof(issue));
+            issue.NotNull();
 
             return JsonSerializer.Serialize(issue.ToSerializableIssue());
         }
@@ -30,7 +30,7 @@
         /// <returns>Serialized issues.</returns>
         public static string SerializeToJsonString(this IEnumerable<IIssue> issues)
         {
-            issues.NotNull(nameof(issues));
+            issues.NotNull();
 
             return JsonSerializer.Serialize(issues.Select(x => x.ToSerializableIssue()).ToArray());
         }
@@ -42,8 +42,8 @@
         /// <param name="filePath">Path to the file.</param>
         public static void SerializeToJsonFile(this IIssue issue, FilePath filePath)
         {
-            issue.NotNull(nameof(issue));
-            filePath.NotNull(nameof(filePath));
+            issue.NotNull();
+            filePath.NotNull();
 
             using (var stream = File.Open(filePath.FullPath, FileMode.Create))
             {
@@ -58,8 +58,8 @@
         /// <param name="filePath">Path to the file.</param>
         public static void SerializeToJsonFile(this IEnumerable<IIssue> issues, FilePath filePath)
         {
-            issues.NotNull(nameof(issues));
-            filePath.NotNull(nameof(filePath));
+            issues.NotNull();
+            filePath.NotNull();
 
             using (var stream = File.Open(filePath.FullPath, FileMode.Create))
             {
@@ -74,7 +74,7 @@
         /// <returns>Converted issue.</returns>
         internal static SerializableIssueV5 ToSerializableIssue(this IIssue issue)
         {
-            issue.NotNull(nameof(issue));
+            issue.NotNull();
 
             return new SerializableIssueV5
             {

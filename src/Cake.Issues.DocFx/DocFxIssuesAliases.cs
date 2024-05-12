@@ -21,7 +21,7 @@
         public static string DocFxIssuesProviderTypeName(
             this ICakeContext context)
         {
-            context.NotNull(nameof(context));
+            context.NotNull();
 
             return DocFxIssuesProvider.ProviderTypeName;
         }
@@ -50,8 +50,8 @@
             this ICakeContext context,
             FilePath logFilePath)
         {
-            context.NotNull(nameof(context));
-            logFilePath.NotNull(nameof(logFilePath));
+            context.NotNull();
+            logFilePath.NotNull();
 
             return context.DocFxIssuesFromFilePath(logFilePath, "/");
         }
@@ -84,9 +84,9 @@
             FilePath logFilePath,
             DirectoryPath docRootPath)
         {
-            context.NotNull(nameof(context));
-            logFilePath.NotNull(nameof(logFilePath));
-            docRootPath.NotNull(nameof(docRootPath));
+            context.NotNull();
+            logFilePath.NotNull();
+            docRootPath.NotNull();
 
             return context.DocFxIssues(new DocFxIssuesSettings(logFilePath, docRootPath));
         }
@@ -115,8 +115,8 @@
             this ICakeContext context,
             string logFileContent)
         {
-            context.NotNull(nameof(context));
-            logFileContent.NotNullOrWhiteSpace(nameof(logFileContent));
+            context.NotNull();
+            logFileContent.NotNullOrWhiteSpace();
 
             return context.DocFxIssues(new DocFxIssuesSettings(logFileContent.ToByteArray(), "/"));
         }
@@ -149,9 +149,9 @@
             string logFileContent,
             DirectoryPath docRootPath)
         {
-            context.NotNull(nameof(context));
-            logFileContent.NotNullOrWhiteSpace(nameof(logFileContent));
-            docRootPath.NotNull(nameof(docRootPath));
+            context.NotNull();
+            logFileContent.NotNullOrWhiteSpace();
+            docRootPath.NotNull();
 
             return context.DocFxIssues(new DocFxIssuesSettings(logFileContent.ToByteArray(), docRootPath));
         }
@@ -182,8 +182,8 @@
             this ICakeContext context,
             DocFxIssuesSettings settings)
         {
-            context.NotNull(nameof(context));
-            settings.NotNull(nameof(settings));
+            context.NotNull();
+            settings.NotNull();
 
             return new DocFxIssuesProvider(context.Log, settings);
         }

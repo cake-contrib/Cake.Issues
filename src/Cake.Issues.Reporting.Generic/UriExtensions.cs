@@ -17,7 +17,7 @@
         /// <returns>URI with appended paths.</returns>
         public static Uri Append(this Uri uri, params string[] paths)
         {
-            uri.NotNull(nameof(uri));
+            uri.NotNull();
 
             return
                 new Uri(

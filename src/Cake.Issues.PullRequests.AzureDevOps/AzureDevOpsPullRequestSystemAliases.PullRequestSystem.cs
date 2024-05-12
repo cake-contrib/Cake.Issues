@@ -46,10 +46,10 @@
             string sourceBranch,
             IAzureDevOpsCredentials credentials)
         {
-            context.NotNull(nameof(context));
-            repositoryUrl.NotNull(nameof(repositoryUrl));
-            sourceBranch.NotNullOrWhiteSpace(nameof(sourceBranch));
-            credentials.NotNull(nameof(credentials));
+            context.NotNull();
+            repositoryUrl.NotNull();
+            sourceBranch.NotNullOrWhiteSpace();
+            credentials.NotNull();
 
             return context.AzureDevOpsPullRequests(new AzureDevOpsPullRequestSystemSettings(repositoryUrl, sourceBranch, credentials));
         }
@@ -89,9 +89,9 @@
             int pullRequestId,
             IAzureDevOpsCredentials credentials)
         {
-            context.NotNull(nameof(context));
-            repositoryUrl.NotNull(nameof(repositoryUrl));
-            credentials.NotNull(nameof(credentials));
+            context.NotNull();
+            repositoryUrl.NotNull();
+            credentials.NotNull();
 
             return context.AzureDevOpsPullRequests(new AzureDevOpsPullRequestSystemSettings(repositoryUrl, pullRequestId, credentials));
         }
@@ -123,8 +123,8 @@
             this ICakeContext context,
             IAzureDevOpsCredentials credentials)
         {
-            context.NotNull(nameof(context));
-            credentials.NotNull(nameof(credentials));
+            context.NotNull();
+            credentials.NotNull();
 
             return context.AzureDevOpsPullRequests(new AzureDevOpsPullRequestSystemSettings(credentials));
         }
@@ -153,7 +153,7 @@
         public static IPullRequestSystem AzureDevOpsPullRequests(
             this ICakeContext context)
         {
-            context.NotNull(nameof(context));
+            context.NotNull();
 
             return context.AzureDevOpsPullRequests(new AzureDevOpsPullRequestSystemSettings());
         }
@@ -189,8 +189,8 @@
             this ICakeContext context,
             AzureDevOpsPullRequestSystemSettings settings)
         {
-            context.NotNull(nameof(context));
-            settings.NotNull(nameof(settings));
+            context.NotNull();
+            settings.NotNull();
 
             return new AzureDevOpsPullRequestSystem(context.Log, settings);
         }

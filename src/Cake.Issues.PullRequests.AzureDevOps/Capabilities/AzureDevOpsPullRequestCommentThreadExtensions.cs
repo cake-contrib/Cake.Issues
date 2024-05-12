@@ -20,7 +20,7 @@
         /// <returns>Converted thread.</returns>
         public static IPullRequestDiscussionThread ToPullRequestDiscussionThread(this AzureDevOpsPullRequestCommentThread thread)
         {
-            thread.NotNull(nameof(thread));
+            thread.NotNull();
 
             return new PullRequestDiscussionThread(
                 thread.Id,
@@ -42,7 +42,7 @@
         /// <returns>Comment source value.</returns>
         public static string GetCommentSource(this AzureDevOpsPullRequestCommentThread thread)
         {
-            thread.NotNull(nameof(thread));
+            thread.NotNull();
 
             return thread.GetValue<string>(CommentSourcePropertyName);
         }
@@ -54,7 +54,7 @@
         /// <param name="value">Value to set as comment source.</param>
         public static void SetCommentSource(this AzureDevOpsPullRequestCommentThread thread, string value)
         {
-            thread.NotNull(nameof(thread));
+            thread.NotNull();
 
             thread.SetValue(CommentSourcePropertyName, value);
         }
@@ -68,7 +68,7 @@
         /// <returns><c>True</c> if the value is identical, <c>False</c> otherwise.</returns>
         public static bool IsCommentSource(this AzureDevOpsPullRequestCommentThread thread, string value)
         {
-            thread.NotNull(nameof(thread));
+            thread.NotNull();
 
             return thread.GetCommentSource() == value;
         }
@@ -80,7 +80,7 @@
         /// <returns>Comment identifier value.</returns>
         public static string GetCommentIdentifier(this AzureDevOpsPullRequestCommentThread thread)
         {
-            thread.NotNull(nameof(thread));
+            thread.NotNull();
 
             return thread.GetValue<string>(CommentIdentifierPropertyName);
         }
@@ -92,7 +92,7 @@
         /// <param name="value">Value to set as comment identifier.</param>
         public static void SetCommentIdentifier(this AzureDevOpsPullRequestCommentThread thread, string value)
         {
-            thread.NotNull(nameof(thread));
+            thread.NotNull();
 
             thread.SetValue(CommentIdentifierPropertyName, value);
         }
@@ -105,7 +105,7 @@
         /// <returns>Original message of the issue.</returns>
         public static string GetIssueMessage(this AzureDevOpsPullRequestCommentThread thread)
         {
-            thread.NotNull(nameof(thread));
+            thread.NotNull();
 
             return thread.GetValue<string>(IssueMessagePropertyName);
         }
@@ -117,7 +117,7 @@
         /// <param name="value">Value to set as the original message.</param>
         public static void SetIssueMessage(this AzureDevOpsPullRequestCommentThread thread, string value)
         {
-            thread.NotNull(nameof(thread));
+            thread.NotNull();
 
             thread.SetValue(IssueMessagePropertyName, value);
         }
@@ -129,7 +129,7 @@
         /// <returns>Comment source value.</returns>
         public static string GetProviderType(this AzureDevOpsPullRequestCommentThread thread)
         {
-            thread.NotNull(nameof(thread));
+            thread.NotNull();
 
             return thread.GetValue<string>(ProviderTypePropertyName);
         }
@@ -141,7 +141,7 @@
         /// <param name="value">Value to set as comment source.</param>
         public static void SetProviderType(this AzureDevOpsPullRequestCommentThread thread, string value)
         {
-            thread.NotNull(nameof(thread));
+            thread.NotNull();
 
             thread.SetValue(ProviderTypePropertyName, value);
         }

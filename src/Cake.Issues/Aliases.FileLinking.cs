@@ -33,8 +33,8 @@
             this ICakeContext context,
             string pattern)
         {
-            context.NotNull(nameof(context));
-            pattern.NotNullOrWhiteSpace(nameof(pattern));
+            context.NotNull();
+            pattern.NotNullOrWhiteSpace();
 
             return FileLinkSettings.ForPattern(pattern);
         }
@@ -75,8 +75,8 @@
             this ICakeContext context,
             Func<IIssue, Uri> builder)
         {
-            context.NotNull(nameof(context));
-            builder.NotNull(nameof(builder));
+            context.NotNull();
+            builder.NotNull();
 
             return FileLinkSettings.ForAction(builder);
         }
@@ -96,9 +96,9 @@
             Uri repositoryUrl,
             string branch)
         {
-            context.NotNull(nameof(context));
-            repositoryUrl.NotNull(nameof(repositoryUrl));
-            branch.NotNullOrWhiteSpace(nameof(branch));
+            context.NotNull();
+            repositoryUrl.NotNull();
+            branch.NotNullOrWhiteSpace();
 
             return context.IssueFileLinkSettingsForGitHubBranch(repositoryUrl, branch, null);
         }
@@ -122,9 +122,9 @@
             string branch,
             string rootPath)
         {
-            context.NotNull(nameof(context));
-            repositoryUrl.NotNull(nameof(repositoryUrl));
-            branch.NotNullOrWhiteSpace(nameof(branch));
+            context.NotNull();
+            repositoryUrl.NotNull();
+            branch.NotNullOrWhiteSpace();
 
             return
                 FileLinkSettings
@@ -148,9 +148,9 @@
             Uri repositoryUrl,
             string commitId)
         {
-            context.NotNull(nameof(context));
-            repositoryUrl.NotNull(nameof(repositoryUrl));
-            commitId.NotNullOrWhiteSpace(nameof(commitId));
+            context.NotNull();
+            repositoryUrl.NotNull();
+            commitId.NotNullOrWhiteSpace();
 
             return context.IssueFileLinkSettingsForGitHubCommit(repositoryUrl, commitId, null);
         }
@@ -174,9 +174,9 @@
             string commitId,
             string rootPath)
         {
-            context.NotNull(nameof(context));
-            repositoryUrl.NotNull(nameof(repositoryUrl));
-            commitId.NotNullOrWhiteSpace(nameof(commitId));
+            context.NotNull();
+            repositoryUrl.NotNull();
+            commitId.NotNullOrWhiteSpace();
 
             return
                 FileLinkSettings
@@ -201,9 +201,9 @@
             Uri repositoryUrl,
             string branch)
         {
-            context.NotNull(nameof(context));
-            repositoryUrl.NotNull(nameof(repositoryUrl));
-            branch.NotNullOrWhiteSpace(nameof(branch));
+            context.NotNull();
+            repositoryUrl.NotNull();
+            branch.NotNullOrWhiteSpace();
 
             return context.IssueFileLinkSettingsForAzureDevOpsBranch(repositoryUrl, branch, null);
         }
@@ -227,9 +227,9 @@
             string branch,
             string rootPath)
         {
-            context.NotNull(nameof(context));
-            repositoryUrl.NotNull(nameof(repositoryUrl));
-            branch.NotNullOrWhiteSpace(nameof(branch));
+            context.NotNull();
+            repositoryUrl.NotNull();
+            branch.NotNullOrWhiteSpace();
 
             return
                 FileLinkSettings
@@ -254,9 +254,9 @@
             Uri repositoryUrl,
             string commitId)
         {
-            context.NotNull(nameof(context));
-            repositoryUrl.NotNull(nameof(repositoryUrl));
-            commitId.NotNullOrWhiteSpace(nameof(commitId));
+            context.NotNull();
+            repositoryUrl.NotNull();
+            commitId.NotNullOrWhiteSpace();
 
             return context.IssueFileLinkSettingsForAzureDevOpsCommit(repositoryUrl, commitId, null);
         }
@@ -280,9 +280,9 @@
             string commitId,
             string rootPath)
         {
-            context.NotNull(nameof(context));
-            repositoryUrl.NotNull(nameof(repositoryUrl));
-            commitId.NotNullOrWhiteSpace(nameof(commitId));
+            context.NotNull();
+            repositoryUrl.NotNull();
+            commitId.NotNullOrWhiteSpace();
 
             return
                 FileLinkSettings

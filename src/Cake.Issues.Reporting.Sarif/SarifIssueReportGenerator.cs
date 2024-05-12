@@ -37,7 +37,7 @@
         public SarifIssueReportGenerator(ICakeLog log, SarifIssueReportFormatSettings settings)
             : base(log)
         {
-            settings.NotNull(nameof(settings));
+            settings.NotNull();
 
             this.sarifIssueReportFormatSettings = settings;
         }
@@ -115,7 +115,7 @@
 
         private Result GetResult(IIssue issue)
         {
-            issue.NotNull(nameof(issue));
+            issue.NotNull();
 
             var result =
                 new Result

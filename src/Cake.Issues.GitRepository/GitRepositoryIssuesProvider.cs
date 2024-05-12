@@ -36,11 +36,11 @@
             GitRepositoryIssuesSettings issueProviderSettings)
             : base(log)
         {
-            fileSystem.NotNull(nameof(fileSystem));
-            environment.NotNull(nameof(environment));
-            processRunner.NotNull(nameof(processRunner));
-            toolLocator.NotNull(nameof(toolLocator));
-            issueProviderSettings.NotNull(nameof(issueProviderSettings));
+            fileSystem.NotNull();
+            environment.NotNull();
+            processRunner.NotNull();
+            toolLocator.NotNull();
+            issueProviderSettings.NotNull();
 
             this.IssueProviderSettings = issueProviderSettings;
             this.runner = new GitRunner(fileSystem, environment, processRunner, toolLocator);

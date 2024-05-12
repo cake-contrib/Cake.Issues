@@ -35,7 +35,7 @@
         public static IIssueReportFormat SarifIssueReportFormat(
             this ICakeContext context)
         {
-            context.NotNull(nameof(context));
+            context.NotNull();
 
             return context.SarifIssueReportFormat(new SarifIssueReportFormatSettings());
         }
@@ -67,8 +67,8 @@
             this ICakeContext context,
             SarifIssueReportFormatSettings settings)
         {
-            context.NotNull(nameof(context));
-            settings.NotNull(nameof(settings));
+            context.NotNull();
+            settings.NotNull();
 
             return new SarifIssueReportGenerator(context.Log, settings);
         }

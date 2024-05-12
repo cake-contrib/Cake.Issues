@@ -20,7 +20,7 @@
         public static string EsLintIssuesProviderTypeName(
             this ICakeContext context)
         {
-            context.NotNull(nameof(context));
+            context.NotNull();
 
             return EsLintIssuesProvider.ProviderTypeName;
         }
@@ -51,9 +51,9 @@
             FilePath logFilePath,
             BaseEsLintLogFileFormat format)
         {
-            context.NotNull(nameof(context));
-            logFilePath.NotNull(nameof(logFilePath));
-            format.NotNull(nameof(format));
+            context.NotNull();
+            logFilePath.NotNull();
+            format.NotNull();
 
             return context.EsLintIssues(new EsLintIssuesSettings(logFilePath, format));
         }
@@ -84,9 +84,9 @@
             string logFileContent,
             BaseEsLintLogFileFormat format)
         {
-            context.NotNull(nameof(context));
-            logFileContent.NotNullOrWhiteSpace(nameof(logFileContent));
-            format.NotNull(nameof(format));
+            context.NotNull();
+            logFileContent.NotNullOrWhiteSpace();
+            format.NotNull();
 
             return
                 context.EsLintIssues(
@@ -119,8 +119,8 @@
             this ICakeContext context,
             EsLintIssuesSettings settings)
         {
-            context.NotNull(nameof(context));
-            settings.NotNull(nameof(settings));
+            context.NotNull();
+            settings.NotNull();
 
             return new EsLintIssuesProvider(context.Log, settings);
         }

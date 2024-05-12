@@ -21,7 +21,7 @@
         public static string SarifIssuesProviderTypeName(
             this ICakeContext context)
         {
-            context.NotNull(nameof(context));
+            context.NotNull();
 
             return typeof(SarifIssuesProvider).FullName;
         }
@@ -49,8 +49,8 @@
             this ICakeContext context,
             FilePath logFilePath)
         {
-            context.NotNull(nameof(context));
-            logFilePath.NotNull(nameof(logFilePath));
+            context.NotNull();
+            logFilePath.NotNull();
 
             return context.SarifIssues(new SarifIssuesSettings(logFilePath));
         }
@@ -78,8 +78,8 @@
             this ICakeContext context,
             string logFileContent)
         {
-            context.NotNull(nameof(context));
-            logFileContent.NotNullOrWhiteSpace(nameof(logFileContent));
+            context.NotNull();
+            logFileContent.NotNullOrWhiteSpace();
 
             return context.SarifIssues(new SarifIssuesSettings(logFileContent.ToByteArray()));
         }
@@ -111,8 +111,8 @@
             this ICakeContext context,
             SarifIssuesSettings settings)
         {
-            context.NotNull(nameof(context));
-            settings.NotNull(nameof(settings));
+            context.NotNull();
+            settings.NotNull();
 
             return new SarifIssuesProvider(context.Log, settings);
         }

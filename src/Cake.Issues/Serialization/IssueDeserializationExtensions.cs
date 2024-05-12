@@ -21,7 +21,7 @@
         /// <returns>Instance of the issue.</returns>
         public static Issue DeserializeToIssue(this string jsonString)
         {
-            jsonString.NotNullOrWhiteSpace(nameof(jsonString));
+            jsonString.NotNullOrWhiteSpace();
 
             using (var stream = new MemoryStream(Encoding.Default.GetBytes(jsonString)))
             {
@@ -36,7 +36,7 @@
         /// <returns>Instance of the issue.</returns>
         public static Issue DeserializeToIssue(this FilePath filePath)
         {
-            filePath.NotNull(nameof(filePath));
+            filePath.NotNull();
 
             using (var stream = File.Open(filePath.FullPath, FileMode.Open))
             {
@@ -51,7 +51,7 @@
         /// <returns>List of issues.</returns>
         public static IEnumerable<Issue> DeserializeToIssues(this string jsonString)
         {
-            jsonString.NotNullOrWhiteSpace(nameof(jsonString));
+            jsonString.NotNullOrWhiteSpace();
 
             using (var stream = new MemoryStream(Encoding.Default.GetBytes(jsonString)))
             {
@@ -66,7 +66,7 @@
         /// <returns>List of issues.</returns>
         public static IEnumerable<Issue> DeserializeToIssues(this FilePath filePath)
         {
-            filePath.NotNull(nameof(filePath));
+            filePath.NotNull();
 
             using (var stream = File.Open(filePath.FullPath, FileMode.Open))
             {

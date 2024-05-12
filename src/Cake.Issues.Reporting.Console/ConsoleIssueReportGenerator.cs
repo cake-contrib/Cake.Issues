@@ -23,7 +23,7 @@
         public ConsoleIssueReportGenerator(ICakeLog log, ConsoleIssueReportFormatSettings settings)
             : base(log)
         {
-            settings.NotNull(nameof(settings));
+            settings.NotNull();
 
             this.consoleIssueReportFormatSettings = settings;
         }

@@ -16,7 +16,7 @@
         /// e.g. <code>https://github.com/cake-contrib/Cake.Issues</code>.</param>
         internal GitHubFileLinkSettingsBuilder(Uri repositoryUrl)
         {
-            repositoryUrl.NotNull(nameof(repositoryUrl));
+            repositoryUrl.NotNull();
 
             this.repositoryUrl = repositoryUrl;
         }
@@ -28,14 +28,14 @@
         /// <returns>Class for setting additional settings.</returns>
         public FileLinkOptionalSettingsBuilder Branch(string branchName)
         {
-            branchName.NotNullOrWhiteSpace(nameof(branchName));
+            branchName.NotNullOrWhiteSpace();
 
             return
                 new FileLinkOptionalSettingsBuilder(
                     (issue, values) =>
                     {
-                        issue.NotNull(nameof(issue));
-                        values.NotNull(nameof(values));
+                        issue.NotNull();
+                        values.NotNull();
 
                         var fileLinkPattern =
                             this.repositoryUrl.Append(
@@ -55,14 +55,14 @@
         /// <returns>Class for setting additional settings.</returns>
         public FileLinkOptionalSettingsBuilder Commit(string commitId)
         {
-            commitId.NotNullOrWhiteSpace(nameof(commitId));
+            commitId.NotNullOrWhiteSpace();
 
             return
                 new FileLinkOptionalSettingsBuilder(
                     (issue, values) =>
                     {
-                        issue.NotNull(nameof(issue));
-                        values.NotNull(nameof(values));
+                        issue.NotNull();
+                        values.NotNull();
 
                         var fileLinkPattern =
                             this.repositoryUrl.Append(
@@ -82,7 +82,7 @@
         /// <returns>Pattern.</returns>
         private static string GetFilePathPattern(IIssue issue)
         {
-            issue.NotNull(nameof(issue));
+            issue.NotNull();
 
             var filePathPattern = "{FilePath}";
 

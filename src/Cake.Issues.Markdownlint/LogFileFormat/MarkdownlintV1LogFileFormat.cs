@@ -19,9 +19,9 @@
             IRepositorySettings repositorySettings,
             MarkdownlintIssuesSettings markdownlintIssuesSettings)
         {
-            issueProvider.NotNull(nameof(issueProvider));
-            repositorySettings.NotNull(nameof(repositorySettings));
-            markdownlintIssuesSettings.NotNull(nameof(markdownlintIssuesSettings));
+            issueProvider.NotNull();
+            repositorySettings.NotNull();
+            markdownlintIssuesSettings.NotNull();
 
             Dictionary<string, IEnumerable<Issue>> logFileEntries;
             using (var ms = new MemoryStream(markdownlintIssuesSettings.LogFileContent.RemovePreamble()))

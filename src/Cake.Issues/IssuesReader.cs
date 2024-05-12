@@ -24,11 +24,11 @@
             IEnumerable<IIssueProvider> issueProviders,
             IReadIssuesSettings settings)
         {
-            log.NotNull(nameof(log));
-            settings.NotNull(nameof(settings));
+            log.NotNull();
+            settings.NotNull();
 
             // ReSharper disable once PossibleMultipleEnumeration
-            issueProviders.NotNullOrEmptyOrEmptyElement(nameof(issueProviders));
+            issueProviders.NotNullOrEmptyOrEmptyElement();
 
             this.log = log;
             this.settings = settings;

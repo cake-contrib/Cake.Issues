@@ -44,10 +44,10 @@
             string providerType,
             string providerName)
         {
-            identifier.NotNullOrWhiteSpace(nameof(identifier));
-            message.NotNullOrWhiteSpace(nameof(message));
-            providerType.NotNullOrWhiteSpace(nameof(providerType));
-            providerName.NotNullOrWhiteSpace(nameof(providerName));
+            identifier.NotNullOrWhiteSpace();
+            message.NotNullOrWhiteSpace();
+            providerType.NotNullOrWhiteSpace();
+            providerName.NotNullOrWhiteSpace();
 
             this.identifier = identifier;
             this.messageText = message;
@@ -73,7 +73,7 @@
                 throw new ArgumentNullException(nameof(issueProvider));
             }
 
-            message.NotNullOrWhiteSpace(nameof(message));
+            message.NotNullOrWhiteSpace();
 
             return NewIssue(message, message, issueProvider);
         }
@@ -97,7 +97,7 @@
                 throw new ArgumentNullException(nameof(issueProvider));
             }
 
-            message.NotNullOrWhiteSpace(nameof(message));
+            message.NotNullOrWhiteSpace();
 
             return NewIssue(identifier, message, issueProvider.ProviderType, issueProvider.ProviderName);
         }
@@ -114,9 +114,9 @@
             string providerType,
             string providerName)
         {
-            message.NotNullOrWhiteSpace(nameof(message));
-            providerType.NotNullOrWhiteSpace(nameof(providerType));
-            providerName.NotNullOrWhiteSpace(nameof(providerName));
+            message.NotNullOrWhiteSpace();
+            providerType.NotNullOrWhiteSpace();
+            providerName.NotNullOrWhiteSpace();
 
             return NewIssue(message, message, providerType, providerName);
         }
@@ -135,10 +135,10 @@
             string providerType,
             string providerName)
         {
-            identifier.NotNullOrWhiteSpace(nameof(identifier));
-            message.NotNullOrWhiteSpace(nameof(message));
-            providerType.NotNullOrWhiteSpace(nameof(providerType));
-            providerName.NotNullOrWhiteSpace(nameof(providerName));
+            identifier.NotNullOrWhiteSpace();
+            message.NotNullOrWhiteSpace();
+            providerType.NotNullOrWhiteSpace();
+            providerName.NotNullOrWhiteSpace();
 
             return new IssueBuilder(identifier, message, providerType, providerName);
         }
@@ -238,7 +238,7 @@
         /// <returns>Issue Builder instance.</returns>
         public IssueBuilder InFile(string filePath, int? line)
         {
-            line?.NotNegativeOrZero(nameof(line));
+            line?.NotNegativeOrZero();
 
             this.InFile(filePath, line, null);
 
@@ -258,8 +258,8 @@
         /// <returns>Issue Builder instance.</returns>
         public IssueBuilder InFile(string filePath, int? line, int? column)
         {
-            line?.NotNegativeOrZero(nameof(line));
-            column?.NotNegativeOrZero(nameof(column));
+            line?.NotNegativeOrZero();
+            column?.NotNegativeOrZero();
 
             this.InFile(filePath, line, null, column, null);
 
@@ -283,10 +283,10 @@
         /// <returns>Issue Builder instance.</returns>
         public IssueBuilder InFile(string filePath, int? startLine, int? endLine, int? startColumn, int? endColumn)
         {
-            startLine?.NotNegativeOrZero(nameof(startLine));
-            endLine?.NotNegativeOrZero(nameof(endLine));
-            startColumn?.NotNegativeOrZero(nameof(startColumn));
-            endColumn?.NotNegativeOrZero(nameof(endColumn));
+            startLine?.NotNegativeOrZero();
+            endLine?.NotNegativeOrZero();
+            startColumn?.NotNegativeOrZero();
+            endColumn?.NotNegativeOrZero();
 
             this.filePath = filePath;
             this.line = startLine;
@@ -305,7 +305,7 @@
         /// <returns>Issue Builder instance.</returns>
         public IssueBuilder WithAdditionalInformation(string key, string value)
         {
-            key.NotNullOrWhiteSpace(nameof(key));
+            key.NotNullOrWhiteSpace();
 
             if (!this.additionalInformation.TryAdd(key, value))
             {
@@ -322,7 +322,7 @@
         /// <returns>Issue Builder instance.</returns>
         public IssueBuilder WithAdditionalInformation(IDictionary<string, string> additionalInformation)
         {
-            additionalInformation.NotNull(nameof(additionalInformation));
+            additionalInformation.NotNull();
 
             this.additionalInformation = new Dictionary<string, string>(additionalInformation);
             return this;
@@ -335,7 +335,7 @@
         /// <returns>Issue Builder instance.</returns>
         public IssueBuilder WithFileLink(Uri fileLink)
         {
-            fileLink.NotNull(nameof(fileLink));
+            fileLink.NotNull();
 
             this.fileLink = fileLink;
 
@@ -349,7 +349,7 @@
         /// <returns>Issue Builder instance.</returns>
         public IssueBuilder WithFileLinkSettings(FileLinkSettings fileLinkSettings)
         {
-            fileLinkSettings.NotNull(nameof(fileLinkSettings));
+            fileLinkSettings.NotNull();
 
             this.fileLinkSettings = fileLinkSettings;
 
@@ -453,7 +453,7 @@
         /// <returns>Issue Builder instance.</returns>
         public IssueBuilder ForRun(string run)
         {
-            run.NotNullOrWhiteSpace(nameof(run));
+            run.NotNullOrWhiteSpace();
 
             this.run = run;
 

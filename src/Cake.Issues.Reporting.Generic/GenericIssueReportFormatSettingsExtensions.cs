@@ -16,7 +16,7 @@
         /// <returns>The <paramref name="settings"/> instance with option added to <see cref="GenericIssueReportFormatSettings.Options"/>.</returns>
         public static GenericIssueReportFormatSettings WithOption(this GenericIssueReportFormatSettings settings, string key, object value)
         {
-            settings.NotNull(nameof(settings));
+            settings.NotNull();
 
             settings.Options.Add(key, value);
 
@@ -32,7 +32,7 @@
         /// <returns>The <paramref name="settings"/> instance with option added to <see cref="GenericIssueReportFormatSettings.Options"/>.</returns>
         public static GenericIssueReportFormatSettings WithOption(this GenericIssueReportFormatSettings settings, Enum key, object value)
         {
-            settings.NotNull(nameof(settings));
+            settings.NotNull();
 
             settings.Options.Add(key.ToString(), value);
 

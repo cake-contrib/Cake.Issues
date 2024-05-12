@@ -19,7 +19,7 @@
         public static BaseMarkdownlintLogFileFormat MarkdownlintCliJsonLogFileFormat(
             this ICakeContext context)
         {
-            context.NotNull(nameof(context));
+            context.NotNull();
 
             return new MarkdownlintCliJsonLogFileFormat(context.Log);
         }

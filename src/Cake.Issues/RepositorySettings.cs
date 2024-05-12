@@ -13,7 +13,7 @@
         /// <param name="repositoryRoot">Root path of the repository.</param>
         public RepositorySettings(DirectoryPath repositoryRoot)
         {
-            repositoryRoot.NotNull(nameof(repositoryRoot));
+            repositoryRoot.NotNull();
 
             this.RepositoryRoot = repositoryRoot;
         }

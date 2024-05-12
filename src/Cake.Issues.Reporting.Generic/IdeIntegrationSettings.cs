@@ -41,11 +41,11 @@
             string columnExpression,
             string endColumnExpression)
         {
-            filePathExpression.NotNullOrWhiteSpace(nameof(filePathExpression));
-            lineExpression.NotNullOrWhiteSpace(nameof(lineExpression));
-            endLineExpression.NotNullOrWhiteSpace(nameof(endLineExpression));
-            columnExpression.NotNullOrWhiteSpace(nameof(columnExpression));
-            endColumnExpression.NotNullOrWhiteSpace(nameof(endColumnExpression));
+            filePathExpression.NotNullOrWhiteSpace();
+            lineExpression.NotNullOrWhiteSpace();
+            endLineExpression.NotNullOrWhiteSpace();
+            columnExpression.NotNullOrWhiteSpace();
+            endColumnExpression.NotNullOrWhiteSpace();
 
             if (string.IsNullOrWhiteSpace(this.OpenInIdeCall))
             {

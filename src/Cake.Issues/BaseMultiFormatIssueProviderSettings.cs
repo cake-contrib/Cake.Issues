@@ -21,7 +21,7 @@
         protected BaseMultiFormatIssueProviderSettings(FilePath logFilePath, ILogFileFormat<TIssueProvider, TSettings> format)
             : base(logFilePath)
         {
-            format.NotNull(nameof(format));
+            format.NotNull();
 
             this.Format = format;
         }
@@ -36,7 +36,7 @@
         protected BaseMultiFormatIssueProviderSettings(byte[] logFileContent, ILogFileFormat<TIssueProvider, TSettings> format)
             : base(logFileContent)
         {
-            format.NotNull(nameof(format));
+            format.NotNull();
 
             this.Format = format;
         }
