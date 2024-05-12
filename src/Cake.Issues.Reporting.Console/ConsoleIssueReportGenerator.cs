@@ -32,7 +32,7 @@
         protected override FilePath InternalCreateReport(IEnumerable<IIssue> issues)
         {
             var enumeratedIssues = issues.ToList();
-            if (this.consoleIssueReportFormatSettings.ShowProviderSummary)
+            if (this.consoleIssueReportFormatSettings.ShowDiagnostics)
             {
                 // Filter to issues from existing files
                 var diagnosticIssues =
