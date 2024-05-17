@@ -219,6 +219,14 @@
                     visible: @enableGrouping.ToString().ToLowerInvariant()
                 },
                 headerFilter: {
+                    @if (enableFiltering)
+                    {
+                        <text>
+                            search: {
+                                enabled: true
+                            },
+                        </text>            
+                    }
                     visible: @enableFiltering.ToString().ToLowerInvariant()
                 },
                 sorting: {
