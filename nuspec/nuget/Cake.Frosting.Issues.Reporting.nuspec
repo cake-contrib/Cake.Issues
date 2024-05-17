@@ -45,6 +45,7 @@ For addin compatible with Cake Script Runners see Cake.Issues.Reporting.
   </metadata>
   <files>
     <file src="icon.png" target="" />
+    <file src="Cake.Frosting.Issues.Reporting.targets" target="build" />
     <file src="Cake.Frosting.Issues.Reporting.md" target="docs\README.md" />
     <file src="..\..\src\Cake.Issues.Reporting\bin\Release\net6.0\Cake.Issues.Reporting.dll" target="lib\net6.0" />
     <file src="..\..\src\Cake.Issues.Reporting\bin\Release\net6.0\Cake.Issues.Reporting.pdb" target="lib\net6.0" />

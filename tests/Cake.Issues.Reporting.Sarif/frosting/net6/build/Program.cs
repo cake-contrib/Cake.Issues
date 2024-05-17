@@ -2,10 +2,6 @@ using Cake.Common.IO;
 using Cake.Core;
 using Cake.Core.IO;
 using Cake.Frosting;
-using Cake.Issues;
-using Cake.Issues.Reporting;
-using Cake.Issues.Reporting.Sarif;
-using System.Collections.Generic;
 
 public static class Program
 {
