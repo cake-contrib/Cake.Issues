@@ -8,10 +8,7 @@
             private class FakeRuleUrlResolverForBaseRuleDescription : BaseRuleUrlResolver<BaseRuleDescription>
             {
                 /// <inheritdoc/>
-                protected override bool TryGetRuleDescription(string rule, BaseRuleDescription ruleDescription)
-                {
-                    return true;
-                }
+                protected override bool TryGetRuleDescription(string rule, BaseRuleDescription ruleDescription) => true;
             }
         }
 

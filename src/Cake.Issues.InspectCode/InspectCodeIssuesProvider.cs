@@ -243,9 +243,8 @@
         /// </summary>
         /// <param name="severity">Severity level as reported by InspectCode.</param>
         /// <returns>Priority.</returns>
-        private static IssuePriority GetPriority(string severity)
-        {
-            return severity.ToLowerInvariant() switch
+        private static IssuePriority GetPriority(string severity) =>
+            severity.ToLowerInvariant() switch
             {
                 "hint" => IssuePriority.Hint,
                 "suggestion" => IssuePriority.Suggestion,
@@ -253,7 +252,6 @@
                 "error" => IssuePriority.Error,
                 _ => IssuePriority.Undefined,
             };
-        }
 
         /// <summary>
         /// Description of an issue type.

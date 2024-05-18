@@ -25,9 +25,6 @@
         public static EsLintRuleUrlResolver Instance => InstanceValue.Value;
 
         /// <inheritdoc/>
-        protected override bool TryGetRuleDescription(string rule, BaseRuleDescription ruleDescription)
-        {
-            return true;
-        }
+        protected override bool TryGetRuleDescription(string rule, BaseRuleDescription ruleDescription) => true;
     }
 }

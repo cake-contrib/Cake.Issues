@@ -6,9 +6,6 @@
     public class FakeRuleUrlResolver : BaseRuleUrlResolver<FakeRuleDescription>
     {
         /// <inheritdoc/>
-        protected override bool TryGetRuleDescription(string rule, FakeRuleDescription ruleDescription)
-        {
-            return true;
-        }
+        protected override bool TryGetRuleDescription(string rule, FakeRuleDescription ruleDescription) => true;
     }
 }

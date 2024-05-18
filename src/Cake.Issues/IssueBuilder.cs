@@ -361,10 +361,8 @@
         /// </summary>
         /// <param name="priority">The priority of the issue.</param>
         /// <returns>Issue Builder instance.</returns>
-        public IssueBuilder WithPriority(IssuePriority priority)
-        {
-            return this.WithPriority((int)priority, priority.ToString());
-        }
+        public IssueBuilder WithPriority(IssuePriority priority) =>
+            this.WithPriority((int)priority, priority.ToString());
 
         /// <summary>
         /// Sets the priority of the issue.
@@ -477,9 +475,8 @@
             return this.CreateIssue(this.fileLinkSettings.GetFileLink(issue));
         }
 
-        private Issue CreateIssue(Uri fileLink)
-        {
-            return new Issue(
+        private Issue CreateIssue(Uri fileLink) =>
+            new Issue(
                 this.identifier,
                 this.projectFileRelativePath,
                 this.projectName,
@@ -501,6 +498,5 @@
                 this.providerType,
                 this.providerName,
                 this.additionalInformation);
-        }
     }
 }

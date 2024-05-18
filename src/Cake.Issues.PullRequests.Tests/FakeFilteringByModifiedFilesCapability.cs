@@ -38,9 +38,6 @@
         public new FakePullRequestSystem PullRequestSystem => base.PullRequestSystem;
 
         /// <inheritdoc />
-        protected override IEnumerable<FilePath> InternalGetModifiedFilesInPullRequest()
-        {
-            return this.modifiedFiles;
-        }
+        protected override IEnumerable<FilePath> InternalGetModifiedFilesInPullRequest() => this.modifiedFiles;
     }
 }

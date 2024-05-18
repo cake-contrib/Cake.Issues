@@ -30,10 +30,7 @@
         /// Initiates the creation of a new <see cref="FakePullRequestSystem"/>.
         /// </summary>
         /// <returns>Builder class for creating a new pull request system.</returns>
-        public static FakePullRequestSystemBuilder NewPullRequestSystem()
-        {
-            return NewPullRequestSystem(new FakeLog());
-        }
+        public static FakePullRequestSystemBuilder NewPullRequestSystem() => NewPullRequestSystem(new FakeLog());
 
         /// <summary>
         /// Initiates the creation of a new <see cref="FakePullRequestSystem"/>.

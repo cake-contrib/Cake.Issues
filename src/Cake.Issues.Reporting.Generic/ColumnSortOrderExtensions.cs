@@ -12,14 +12,12 @@
         /// </summary>
         /// <param name="sortOrder">Sort order for which the identifier should be returned.</param>
         /// <returns>Short identifier of the sort order.</returns>
-        public static string ToShortString(this ColumnSortOrder sortOrder)
-        {
-            return sortOrder switch
+        public static string ToShortString(this ColumnSortOrder sortOrder) =>
+            sortOrder switch
             {
                 ColumnSortOrder.Ascending => "asc",
                 ColumnSortOrder.Descending => "desc",
                 _ => throw new ArgumentException("Unknown enumeration value", nameof(sortOrder)),
             };
-        }
     }
 }

@@ -12,9 +12,8 @@
         /// </summary>
         /// <param name="status">Azure DevOps status to convert.</param>
         /// <returns>Converted status.</returns>
-        public static PullRequestDiscussionStatus ToPullRequestDiscussionStatus(this AzureDevOpsCommentThreadStatus status)
-        {
-            return status switch
+        public static PullRequestDiscussionStatus ToPullRequestDiscussionStatus(this AzureDevOpsCommentThreadStatus status) =>
+            status switch
             {
                 AzureDevOpsCommentThreadStatus.Unknown =>
                     PullRequestDiscussionStatus.Unknown,
@@ -28,16 +27,14 @@
                     PullRequestDiscussionStatus.Resolved,
                 _ => throw new PullRequestIssuesException("Unknown enumeration value"),
             };
-        }
 
         /// <summary>
         /// Converts a <see cref="AzureDevOpsCommentThreadStatus"/> from Azure DevOps to a <see cref="PullRequestDiscussionResolution"/> as used in this addin.
         /// </summary>
         /// <param name="status">Azure DevOps status to convert.</param>
         /// <returns>Converted status.</returns>
-        public static PullRequestDiscussionResolution ToPullRequestDiscussionResolution(this AzureDevOpsCommentThreadStatus status)
-        {
-            return status switch
+        public static PullRequestDiscussionResolution ToPullRequestDiscussionResolution(this AzureDevOpsCommentThreadStatus status) =>
+            status switch
             {
                 AzureDevOpsCommentThreadStatus.Unknown or
                 AzureDevOpsCommentThreadStatus.Active or
@@ -51,6 +48,5 @@
                     PullRequestDiscussionResolution.WontFix,
                 _ => throw new PullRequestIssuesException("Unknown enumeration value"),
             };
-        }
     }
 }

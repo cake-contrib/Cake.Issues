@@ -25,9 +25,6 @@
         public string LastSourceCommitId { get; set; }
 
         /// <inheritdoc />
-        public override string GetLastSourceCommitId()
-        {
-            return this.LastSourceCommitId;
-        }
+        public override string GetLastSourceCommitId() => this.LastSourceCommitId;
     }
 }

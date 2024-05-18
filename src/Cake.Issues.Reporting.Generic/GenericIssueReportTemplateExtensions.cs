@@ -12,15 +12,13 @@
         /// </summary>
         /// <param name="template">Template for which the embedded file name should be returned.</param>
         /// <returns>Name of the template file.</returns>
-        public static string GetTemplateResourceName(this GenericIssueReportTemplate template)
-        {
-            return template switch
+        public static string GetTemplateResourceName(this GenericIssueReportTemplate template) =>
+            template switch
             {
                 GenericIssueReportTemplate.HtmlDiagnostic => "Diagnostic.cshtml",
                 GenericIssueReportTemplate.HtmlDataTable => "DataTable.cshtml",
                 GenericIssueReportTemplate.HtmlDxDataGrid => "DxDataGrid.cshtml",
                 _ => throw new ArgumentOutOfRangeException(nameof(template)),
             };
-        }
     }
 }

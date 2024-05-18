@@ -66,10 +66,7 @@
         /// Gets the name of the tool.
         /// </summary>
         /// <returns>The name of the tool.</returns>
-        protected override string GetToolName()
-        {
-            return "Git";
-        }
+        protected override string GetToolName() => "Git";
 
         /// <summary>
         /// Gets the names of the tool executables.

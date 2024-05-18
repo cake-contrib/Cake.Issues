@@ -49,12 +49,9 @@
 
         public sealed class TheThemeOption
         {
-            public static IEnumerable<object[]> DevExtremeThemes()
-            {
-                return
-                    from object number in Enum.GetValues(typeof(DevExtremeTheme))
-                    select new[] { number };
-            }
+            public static IEnumerable<object[]> DevExtremeThemes() =>
+                from object number in Enum.GetValues(typeof(DevExtremeTheme))
+                select new[] { number };
 
             [Theory]
             [MemberData(nameof(DevExtremeThemes))]

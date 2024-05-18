@@ -74,20 +74,16 @@
         /// </summary>
         /// <param name="template">Template to use for generating the report.</param>
         /// <returns>Instance of the <see cref="GenericIssueReportFormatSettings"/> class.</returns>
-        public static GenericIssueReportFormatSettings FromEmbeddedTemplate(GenericIssueReportTemplate template)
-        {
-            return new GenericIssueReportFormatSettings(template);
-        }
+        public static GenericIssueReportFormatSettings FromEmbeddedTemplate(GenericIssueReportTemplate template) =>
+            new GenericIssueReportFormatSettings(template);
 
         /// <summary>
         /// Returns a new instance of the <see cref="GenericIssueReportFormatSettings"/> class from a template file on disk.
         /// </summary>
         /// <param name="templatePath">Path to the template to use for generating the report.</param>
         /// <returns>Instance of the <see cref="GenericIssueReportFormatSettings"/> class.</returns>
-        public static GenericIssueReportFormatSettings FromFilePath(FilePath templatePath)
-        {
-            return new GenericIssueReportFormatSettings(templatePath);
-        }
+        public static GenericIssueReportFormatSettings FromFilePath(FilePath templatePath) =>
+            new GenericIssueReportFormatSettings(templatePath);
 
         /// <summary>
         /// Returns a new instance of the <see cref="GenericIssueReportFormatSettings"/> class from the content
@@ -95,9 +91,7 @@
         /// </summary>
         /// <param name="templateContent">Content of the template to use for generating the report.</param>
         /// <returns>Instance of the <see cref="GenericIssueReportFormatSettings"/> class.</returns>
-        public static GenericIssueReportFormatSettings FromContent(string templateContent)
-        {
-            return new GenericIssueReportFormatSettings(templateContent);
-        }
+        public static GenericIssueReportFormatSettings FromContent(string templateContent) =>
+            new GenericIssueReportFormatSettings(templateContent);
     }
 }

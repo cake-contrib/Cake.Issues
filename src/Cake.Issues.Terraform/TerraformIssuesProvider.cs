@@ -106,15 +106,13 @@
         /// </summary>
         /// <param name="severity">Severity as reported by Terraform.</param>
         /// <returns>Priority.</returns>
-        private static IssuePriority GetPriority(string severity)
-        {
-            return severity.ToLowerInvariant() switch
+        private static IssuePriority GetPriority(string severity) =>
+            severity.ToLowerInvariant() switch
             {
                 "error" => IssuePriority.Error,
                 "warning" => IssuePriority.Warning,
                 _ => IssuePriority.Undefined,
             };
-        }
 
         /// <summary>
         /// Reads the affected file path from an issue logged by terraform validate.

@@ -16,13 +16,10 @@
         where TIssueProvider : BaseMultiFormatIssueProvider<TSettings, TIssueProvider>
     {
         /// <inheritdoc/>
-        protected override IEnumerable<IIssue> InternalReadIssues()
-        {
-            return
-                this.IssueProviderSettings.Format.ReadIssues(
-                    (TIssueProvider)this,
-                    this.Settings,
-                    this.IssueProviderSettings);
-        }
+        protected override IEnumerable<IIssue> InternalReadIssues() =>
+            this.IssueProviderSettings.Format.ReadIssues(
+                (TIssueProvider)this,
+                this.Settings,
+                this.IssueProviderSettings);
     }
 }

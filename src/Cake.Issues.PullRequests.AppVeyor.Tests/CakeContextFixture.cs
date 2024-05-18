@@ -20,10 +20,17 @@
         public ICakeDataService Data { get; set; } = Substitute.For<ICakeDataService>();
         public ICakeConfiguration Configuration { get; set; } = Substitute.For<ICakeConfiguration>();
 
-        public CakeContext CreateContext()
-        {
-            return new CakeContext(FileSystem, Environment, Globber,
-                Log, Arguments, ProcessRunner, Registry, Tools, Data, Configuration);
-        }
+        public CakeContext CreateContext() =>
+            new CakeContext(
+                this.FileSystem,
+                this.Environment,
+                this.Globber,
+                this.Log,
+                this.Arguments,
+                this.ProcessRunner,
+                this.Registry,
+                this.Tools,
+                this.Data,
+                this.Configuration);
     }
 }
