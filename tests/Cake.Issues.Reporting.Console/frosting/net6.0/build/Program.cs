@@ -1,10 +1,6 @@
-using System.Linq;
 using Cake.Common.Diagnostics;
 using Cake.Core;
 using Cake.Frosting;
-using Cake.Issues;
-using Cake.Issues.Reporting;
-using Cake.Issues.Reporting.Console;
 
 public static class Program
 {

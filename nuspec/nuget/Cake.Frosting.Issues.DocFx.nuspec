@@ -47,6 +47,7 @@ For addin compatible with Cake Script Runners see Cake.Issues.DocFx.
   </metadata>
   <files>
     <file src="icon.png" target="" />
+    <file src="Cake.Frosting.Issues.DocFx.targets" target="build" />
     <file src="Cake.Frosting.Issues.DocFx.md" target="docs\README.md" />
     <file src="..\..\src\Cake.Issues.DocFx\bin\Release\net6.0\Cake.Issues.DocFx.dll" target="lib\net6.0" />
     <file src="..\..\src\Cake.Issues.DocFx\bin\Release\net6.0\Cake.Issues.DocFx.pdb" target="lib\net6.0" />

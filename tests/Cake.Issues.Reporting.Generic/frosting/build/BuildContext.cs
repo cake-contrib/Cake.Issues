@@ -1,9 +1,7 @@
-using System.Collections.Generic;
 using Cake.Common.IO;
 using Cake.Core;
 using Cake.Core.IO;
 using Cake.Frosting;
-using Cake.Issues;
 
 public class BuildContext : FrostingContext
 {

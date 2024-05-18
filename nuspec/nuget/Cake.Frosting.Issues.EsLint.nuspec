@@ -47,6 +47,7 @@ For addin compatible with Cake Script Runners see Cake.Issues.EsLint.
   </metadata>
   <files>
     <file src="icon.png" target="" />
+    <file src="Cake.Frosting.Issues.EsLint.targets" target="build" />
     <file src="Cake.Frosting.Issues.EsLint.md" target="docs\README.md" />
     <file src="..\..\src\Cake.Issues.EsLint\bin\Release\net6.0\Cake.Issues.EsLint.dll" target="lib\net6.0" />
     <file src="..\..\src\Cake.Issues.EsLint\bin\Release\net6.0\Cake.Issues.EsLint.pdb" target="lib\net6.0" />

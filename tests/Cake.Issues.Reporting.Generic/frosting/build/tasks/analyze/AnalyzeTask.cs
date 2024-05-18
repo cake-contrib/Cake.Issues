@@ -1,5 +1,4 @@
 using Cake.Frosting;
-using Cake.Issues;
 
 [TaskName("Analyze")]
 public class AnalyzeTask : FrostingTask<BuildContext>

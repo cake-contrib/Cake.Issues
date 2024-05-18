@@ -51,6 +51,7 @@ For addin compatible with Cake Script Runners see Cake.Issues.Reporting.Sarif.
   </metadata>
   <files>
     <file src="icon.png" target="" />
+    <file src="Cake.Frosting.Issues.Reporting.Sarif.targets" target="build" />
     <file src="Cake.Frosting.Issues.Reporting.Sarif.md" target="docs\README.md" />
     <file src="..\..\src\Cake.Issues.Reporting.Sarif\bin\Release\net6.0/Cake.Issues.Reporting.Sarif.dll" target="lib\net6.0" />
     <file src="..\..\src\Cake.Issues.Reporting.Sarif\bin\Release\net6.0/Cake.Issues.Reporting.Sarif.pdb" target="lib\net6.0" />
