@@ -23,7 +23,8 @@ BuildParameters.PrintParameters(Context);
 
 ToolSettings.SetToolPreprocessorDirectives(
     gitReleaseManagerGlobalTool: "#tool dotnet:?package=GitReleaseManager.Tool&version=0.17.0",
-    reSharperTools: "#tool nuget:?package=JetBrains.ReSharper.CommandLineTools&version=2024.1.2"
+    reSharperTools: "#tool nuget:?package=JetBrains.ReSharper.CommandLineTools&version=2024.1.2",
+    nugetTool: "#tool nuget:?package=NuGet.CommandLine&version=6.9.1"
 );
 
 ToolSettings.SetToolSettings(

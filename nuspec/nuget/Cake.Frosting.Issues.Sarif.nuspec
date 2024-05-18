@@ -28,6 +28,7 @@ For addin compatible with Cake Script Runners see Cake.Issues.Sarif.
     <repository type="git" url="https://github.com/cake-contrib/Cake.Issues.git"/>
     <copyright>Copyright © Cake Issues contributors</copyright>
     <tags>cake cake-addin cake-issues cake-issueprovider linting sarif</tags>
+    <readme>docs\README.md</readme>
     <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/4.3.1</releaseNotes>
     <dependencies>
       <group targetFramework="net6.0">
@@ -49,6 +50,7 @@ For addin compatible with Cake Script Runners see Cake.Issues.Sarif.
   </metadata>
   <files>
     <file src="icon.png" target="" />
+    <file src="Cake.Frosting.Issues.Sarif.md" target="docs\README.md" />
     <file src="..\..\src\Cake.Issues.Sarif\bin\Release\net6.0\Cake.Issues.Sarif.dll" target="lib\net6.0" />
     <file src="..\..\src\Cake.Issues.Sarif\bin\Release\net6.0\Cake.Issues.Sarif.pdb" target="lib\net6.0" />
     <file src="..\..\src\Cake.Issues.Sarif\bin\Release\net6.0\Cake.Issues.Sarif.xml" target="lib\net6.0" />

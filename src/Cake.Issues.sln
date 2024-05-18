@@ -50,25 +50,33 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Issue Provider", "Issue Pro
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DocFx", "DocFx", "{171EE287-C376-4AAC-B085-CA9A658AAA0D}"
 	ProjectSection(SolutionItems) = preProject
+		..\nuspec\nuget\Cake.Frosting.Issues.DocFx.md = ..\nuspec\nuget\Cake.Frosting.Issues.DocFx.md
 		..\nuspec\nuget\Cake.Frosting.Issues.DocFx.nuspec = ..\nuspec\nuget\Cake.Frosting.Issues.DocFx.nuspec
+		..\nuspec\nuget\Cake.Issues.DocFx.md = ..\nuspec\nuget\Cake.Issues.DocFx.md
 		..\nuspec\nuget\Cake.Issues.DocFx.nuspec = ..\nuspec\nuget\Cake.Issues.DocFx.nuspec
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EsLint", "EsLint", "{38EF6320-9835-41BF-A1D8-369153DE096A}"
 	ProjectSection(SolutionItems) = preProject
+		..\nuspec\nuget\Cake.Frosting.Issues.EsLint.md = ..\nuspec\nuget\Cake.Frosting.Issues.EsLint.md
 		..\nuspec\nuget\Cake.Frosting.Issues.EsLint.nuspec = ..\nuspec\nuget\Cake.Frosting.Issues.EsLint.nuspec
+		..\nuspec\nuget\Cake.Issues.EsLint.md = ..\nuspec\nuget\Cake.Issues.EsLint.md
 		..\nuspec\nuget\Cake.Issues.EsLint.nuspec = ..\nuspec\nuget\Cake.Issues.EsLint.nuspec
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "InspectCode", "InspectCode", "{14726C86-35C5-49E1-BF27-1B1642479BA8}"
 	ProjectSection(SolutionItems) = preProject
+		..\nuspec\nuget\Cake.Frosting.Issues.InspectCode.md = ..\nuspec\nuget\Cake.Frosting.Issues.InspectCode.md
 		..\nuspec\nuget\Cake.Frosting.Issues.InspectCode.nuspec = ..\nuspec\nuget\Cake.Frosting.Issues.InspectCode.nuspec
+		..\nuspec\nuget\Cake.Issues.InspectCode.md = ..\nuspec\nuget\Cake.Issues.InspectCode.md
 		..\nuspec\nuget\Cake.Issues.InspectCode.nuspec = ..\nuspec\nuget\Cake.Issues.InspectCode.nuspec
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MsBuild", "MsBuild", "{9A930DB7-DC39-4983-A979-16547DAB56F5}"
 	ProjectSection(SolutionItems) = preProject
+		..\nuspec\nuget\Cake.Frosting.Issues.MsBuild.md = ..\nuspec\nuget\Cake.Frosting.Issues.MsBuild.md
 		..\nuspec\nuget\Cake.Frosting.Issues.MsBuild.nuspec = ..\nuspec\nuget\Cake.Frosting.Issues.MsBuild.nuspec
+		..\nuspec\nuget\Cake.Issues.MsBuild.md = ..\nuspec\nuget\Cake.Issues.MsBuild.md
 		..\nuspec\nuget\Cake.Issues.MsBuild.nuspec = ..\nuspec\nuget\Cake.Issues.MsBuild.nuspec
 	EndProjectSection
 EndProject
@@ -78,29 +86,37 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Report Formats", "Report Fo
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cake.Issues", "Cake.Issues", "{6CD8EA80-FC95-4CD0-A998-D3A68BEA02C5}"
 	ProjectSection(SolutionItems) = preProject
+		..\nuspec\nuget\Cake.Issues.md = ..\nuspec\nuget\Cake.Issues.md
 		..\nuspec\nuget\Cake.Issues.nuspec = ..\nuspec\nuget\Cake.Issues.nuspec
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cake.Issues.Reporting", "Cake.Issues.Reporting", "{28FD763A-03F8-4B3A-9619-DC96ED7E1F1A}"
 	ProjectSection(SolutionItems) = preProject
+		..\nuspec\nuget\Cake.Frosting.Issues.Reporting.md = ..\nuspec\nuget\Cake.Frosting.Issues.Reporting.md
 		..\nuspec\nuget\Cake.Frosting.Issues.Reporting.nuspec = ..\nuspec\nuget\Cake.Frosting.Issues.Reporting.nuspec
+		..\nuspec\nuget\Cake.Issues.Reporting.md = ..\nuspec\nuget\Cake.Issues.Reporting.md
 		..\nuspec\nuget\Cake.Issues.Reporting.nuspec = ..\nuspec\nuget\Cake.Issues.Reporting.nuspec
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cake.Issues.Testing", "Cake.Issues.Testing", "{0277500A-308C-47E4-ABF4-B5F183B63413}"
 	ProjectSection(SolutionItems) = preProject
+		..\nuspec\nuget\Cake.Issues.Testing.md = ..\nuspec\nuget\Cake.Issues.Testing.md
 		..\nuspec\nuget\Cake.Issues.Testing.nuspec = ..\nuspec\nuget\Cake.Issues.Testing.nuspec
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cake.Issues.PullRequests", "Cake.Issues.PullRequests", "{CA20E4E4-46AF-4752-BFB1-0F2A6E2DD8D1}"
 	ProjectSection(SolutionItems) = preProject
+		..\nuspec\nuget\Cake.Frosting.Issues.PullRequests.md = ..\nuspec\nuget\Cake.Frosting.Issues.PullRequests.md
 		..\nuspec\nuget\Cake.Frosting.Issues.PullRequests.nuspec = ..\nuspec\nuget\Cake.Frosting.Issues.PullRequests.nuspec
+		..\nuspec\nuget\Cake.Issues.PullRequests.md = ..\nuspec\nuget\Cake.Issues.PullRequests.md
 		..\nuspec\nuget\Cake.Issues.PullRequests.nuspec = ..\nuspec\nuget\Cake.Issues.PullRequests.nuspec
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Markdownlint", "Markdownlint", "{3E907A2C-F70B-45F7-AF5A-6C55EDBDE4B7}"
 	ProjectSection(SolutionItems) = preProject
+		..\nuspec\nuget\Cake.Frosting.Issues.Markdownlint.md = ..\nuspec\nuget\Cake.Frosting.Issues.Markdownlint.md
 		..\nuspec\nuget\Cake.Frosting.Issues.Markdownlint.nuspec = ..\nuspec\nuget\Cake.Frosting.Issues.Markdownlint.nuspec
+		..\nuspec\nuget\Cake.Issues.Markdownlint.md = ..\nuspec\nuget\Cake.Issues.Markdownlint.md
 		..\nuspec\nuget\Cake.Issues.Markdownlint.nuspec = ..\nuspec\nuget\Cake.Issues.Markdownlint.nuspec
 	EndProjectSection
 EndProject
@@ -110,7 +126,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cake.Issues.Markdownlint.Te
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AzureDevOps", "AzureDevOps", "{2502A3E6-F9F4-41A9-BCC5-BB815DC3F0FA}"
 	ProjectSection(SolutionItems) = preProject
+		..\nuspec\nuget\Cake.Frosting.Issues.PullRequests.AzureDevOps.md = ..\nuspec\nuget\Cake.Frosting.Issues.PullRequests.AzureDevOps.md
 		..\nuspec\nuget\Cake.Frosting.Issues.PullRequests.AzureDevOps.nuspec = ..\nuspec\nuget\Cake.Frosting.Issues.PullRequests.AzureDevOps.nuspec
+		..\nuspec\nuget\Cake.Issues.PullRequests.AzureDevOps.md = ..\nuspec\nuget\Cake.Issues.PullRequests.AzureDevOps.md
 		..\nuspec\nuget\Cake.Issues.PullRequests.AzureDevOps.nuspec = ..\nuspec\nuget\Cake.Issues.PullRequests.AzureDevOps.nuspec
 	EndProjectSection
 EndProject
@@ -120,7 +138,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cake.Issues.PullRequests.Az
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Console", "Console", "{49FA3C0C-6261-41D0-9644-D6AFEDF89E6D}"
 	ProjectSection(SolutionItems) = preProject
+		..\nuspec\nuget\Cake.Frosting.Issues.Reporting.Console.md = ..\nuspec\nuget\Cake.Frosting.Issues.Reporting.Console.md
 		..\nuspec\nuget\Cake.Frosting.Issues.Reporting.Console.nuspec = ..\nuspec\nuget\Cake.Frosting.Issues.Reporting.Console.nuspec
+		..\nuspec\nuget\Cake.Issues.Reporting.Console.md = ..\nuspec\nuget\Cake.Issues.Reporting.Console.md
 		..\nuspec\nuget\Cake.Issues.Reporting.Console.nuspec = ..\nuspec\nuget\Cake.Issues.Reporting.Console.nuspec
 	EndProjectSection
 EndProject
@@ -130,7 +150,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cake.Issues.Reporting.Conso
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Generic", "Generic", "{1FDAECA8-746E-4B18-BC89-D0876171CE58}"
 	ProjectSection(SolutionItems) = preProject
+		..\nuspec\nuget\Cake.Frosting.Issues.Reporting.Generic.md = ..\nuspec\nuget\Cake.Frosting.Issues.Reporting.Generic.md
 		..\nuspec\nuget\Cake.Frosting.Issues.Reporting.Generic.nuspec = ..\nuspec\nuget\Cake.Frosting.Issues.Reporting.Generic.nuspec
+		..\nuspec\nuget\Cake.Issues.Reporting.Generic.md = ..\nuspec\nuget\Cake.Issues.Reporting.Generic.md
 		..\nuspec\nuget\Cake.Issues.Reporting.Generic.nuspec = ..\nuspec\nuget\Cake.Issues.Reporting.Generic.nuspec
 	EndProjectSection
 EndProject
@@ -140,7 +162,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cake.Issues.Reporting.Gener
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GitRepository", "GitRepository", "{106252E4-D531-4558-8A7D-77E9F60CC566}"
 	ProjectSection(SolutionItems) = preProject
+		..\nuspec\nuget\Cake.Frosting.Issues.GitRepository.md = ..\nuspec\nuget\Cake.Frosting.Issues.GitRepository.md
 		..\nuspec\nuget\Cake.Frosting.Issues.GitRepository.nuspec = ..\nuspec\nuget\Cake.Frosting.Issues.GitRepository.nuspec
+		..\nuspec\nuget\Cake.Issues.GitRepository.md = ..\nuspec\nuget\Cake.Issues.GitRepository.md
 		..\nuspec\nuget\Cake.Issues.GitRepository.nuspec = ..\nuspec\nuget\Cake.Issues.GitRepository.nuspec
 	EndProjectSection
 EndProject
@@ -150,7 +174,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cake.Issues.GitRepository.T
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AppVeyor", "AppVeyor", "{1740ABB7-C3AE-437D-A7A5-0841BEEC3AF0}"
 	ProjectSection(SolutionItems) = preProject
+		..\nuspec\nuget\Cake.Frosting.Issues.PullRequests.AppVeyor.md = ..\nuspec\nuget\Cake.Frosting.Issues.PullRequests.AppVeyor.md
 		..\nuspec\nuget\Cake.Frosting.Issues.PullRequests.AppVeyor.nuspec = ..\nuspec\nuget\Cake.Frosting.Issues.PullRequests.AppVeyor.nuspec
+		..\nuspec\nuget\Cake.Issues.PullRequests.AppVeyor.md = ..\nuspec\nuget\Cake.Issues.PullRequests.AppVeyor.md
 		..\nuspec\nuget\Cake.Issues.PullRequests.AppVeyor.nuspec = ..\nuspec\nuget\Cake.Issues.PullRequests.AppVeyor.nuspec
 	EndProjectSection
 EndProject
@@ -160,7 +186,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cake.Issues.PullRequests.Ap
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sarif", "Sarif", "{43506DCC-B86E-418A-8626-F5C7E053B2D5}"
 	ProjectSection(SolutionItems) = preProject
+		..\nuspec\nuget\Cake.Frosting.Issues.Reporting.Sarif.md = ..\nuspec\nuget\Cake.Frosting.Issues.Reporting.Sarif.md
 		..\nuspec\nuget\Cake.Frosting.Issues.Reporting.Sarif.nuspec = ..\nuspec\nuget\Cake.Frosting.Issues.Reporting.Sarif.nuspec
+		..\nuspec\nuget\Cake.Issues.Reporting.Sarif.md = ..\nuspec\nuget\Cake.Issues.Reporting.Sarif.md
 		..\nuspec\nuget\Cake.Issues.Sarif.nuspec = ..\nuspec\nuget\Cake.Issues.Sarif.nuspec
 	EndProjectSection
 EndProject
@@ -170,7 +198,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cake.Issues.Reporting.Sarif
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sarif", "Sarif", "{308A600B-0745-464E-9487-9FCFB1BBAC7D}"
 	ProjectSection(SolutionItems) = preProject
+		..\nuspec\nuget\Cake.Frosting.Issues.Sarif.md = ..\nuspec\nuget\Cake.Frosting.Issues.Sarif.md
 		..\nuspec\nuget\Cake.Frosting.Issues.Sarif.nuspec = ..\nuspec\nuget\Cake.Frosting.Issues.Sarif.nuspec
+		..\nuspec\nuget\Cake.Issues.Sarif.md = ..\nuspec\nuget\Cake.Issues.Sarif.md
 		..\nuspec\nuget\Cake.Issues.Sarif.nuspec = ..\nuspec\nuget\Cake.Issues.Sarif.nuspec
 	EndProjectSection
 EndProject
@@ -180,7 +210,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cake.Issues.Sarif.Tests", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Terraform", "Terraform", "{9323409D-2A31-4D93-8479-3DBBC154816A}"
 	ProjectSection(SolutionItems) = preProject
+		..\nuspec\nuget\Cake.Frosting.Issues.Terraform.md = ..\nuspec\nuget\Cake.Frosting.Issues.Terraform.md
 		..\nuspec\nuget\Cake.Frosting.Issues.Terraform.nuspec = ..\nuspec\nuget\Cake.Frosting.Issues.Terraform.nuspec
+		..\nuspec\nuget\Cake.Issues.Terraform.md = ..\nuspec\nuget\Cake.Issues.Terraform.md
 		..\nuspec\nuget\Cake.Issues.Terraform.nuspec = ..\nuspec\nuget\Cake.Issues.Terraform.nuspec
 	EndProjectSection
 EndProject
@@ -190,7 +222,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cake.Issues.Terraform.Tests
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GitHubActions", "GitHubActions", "{E93E527B-60FF-45A3-BCAA-5AADA0A6DDB2}"
 	ProjectSection(SolutionItems) = preProject
+		..\nuspec\nuget\Cake.Frosting.Issues.PullRequests.GitHubActions.md = ..\nuspec\nuget\Cake.Frosting.Issues.PullRequests.GitHubActions.md
 		..\nuspec\nuget\Cake.Frosting.Issues.PullRequests.GitHubActions.nuspec = ..\nuspec\nuget\Cake.Frosting.Issues.PullRequests.GitHubActions.nuspec
+		..\nuspec\nuget\Cake.Issues.PullRequests.GitHubActions.md = ..\nuspec\nuget\Cake.Issues.PullRequests.GitHubActions.md
 		..\nuspec\nuget\Cake.Issues.PullRequests.GitHubActions.nuspec = ..\nuspec\nuget\Cake.Issues.PullRequests.GitHubActions.nuspec
 	EndProjectSection
 EndProject
