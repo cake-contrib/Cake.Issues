@@ -2,7 +2,6 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
     using Cake.Core.Diagnostics;
     using Cake.Testing;
 
@@ -62,16 +61,16 @@
         /// <returns>Instance of the issue provider.</returns>
         private T CreateIssueProvider()
         {
-            var provider =
-                (T)Activator.CreateInstance(
-                    typeof(T),
-                    [.. this.GetCreateIssueProviderArguments()]);
-
             if (this.ReadIssuesSettings == null)
             {
                 throw new InvalidOperationException("No settings for reading issues set.");
             }
 
+            var provider =
+                (T)Activator.CreateInstance(
+                    typeof(T),
+                    [.. this.GetCreateIssueProviderArguments()])
+                ?? throw new InvalidOperationException("Could not create issue provider.");
             provider.Initialize(this.ReadIssuesSettings);
             return provider;
         }

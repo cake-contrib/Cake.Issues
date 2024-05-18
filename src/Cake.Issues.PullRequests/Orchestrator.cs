@@ -25,8 +25,8 @@ namespace Cake.Issues.PullRequests
             ICakeLog log,
             IPullRequestSystem pullRequestSystem)
         {
-            log.NotNull(nameof(log));
-            pullRequestSystem.NotNull(nameof(pullRequestSystem));
+            log.NotNull();
+            pullRequestSystem.NotNull();
 
             this.log = log;
             this.pullRequestSystem = pullRequestSystem;
@@ -45,8 +45,8 @@ namespace Cake.Issues.PullRequests
             IReportIssuesToPullRequestFromIssueProviderSettings settings)
         {
             // ReSharper disable once PossibleMultipleEnumeration
-            issueProviders.NotNullOrEmptyOrEmptyElement(nameof(issueProviders));
-            settings.NotNull(nameof(settings));
+            issueProviders.NotNullOrEmptyOrEmptyElement();
+            settings.NotNull();
 
             // ReSharper disable once PossibleMultipleEnumeration
             var issuesReader =
@@ -67,8 +67,8 @@ namespace Cake.Issues.PullRequests
             IEnumerable<IIssue> issues,
             IReportIssuesToPullRequestSettings settings)
         {
-            issues.NotNullOrEmptyElement(nameof(issues));
-            settings.NotNull(nameof(settings));
+            issues.NotNullOrEmptyElement();
+            settings.NotNull();
 
             // Don't process issues if pull request system could not be initialized.
             if (!this.InitializePullRequestSystem(settings))
@@ -129,8 +129,8 @@ namespace Cake.Issues.PullRequests
             IReportIssuesToPullRequestSettings reportIssuesToPullRequestSettings,
             IList<IIssue> issues)
         {
-            reportIssuesToPullRequestSettings.NotNull(nameof(reportIssuesToPullRequestSettings));
-            issues.NotNull(nameof(issues));
+            reportIssuesToPullRequestSettings.NotNull();
+            issues.NotNull();
 
             IDictionary<IIssue, IssueCommentInfo> issueComments = null;
             IReadOnlyCollection<IPullRequestDiscussionThread> existingThreads = null;
@@ -236,8 +236,8 @@ namespace Cake.Issues.PullRequests
             IList<IIssue> issues,
             IReadOnlyCollection<IPullRequestDiscussionThread> existingThreads)
         {
-            issues.NotNull(nameof(issues));
-            existingThreads.NotNull(nameof(existingThreads));
+            issues.NotNull();
+            existingThreads.NotNull();
 
             var stopwatch = new Stopwatch();
             stopwatch.Start();
@@ -276,7 +276,7 @@ namespace Cake.Issues.PullRequests
 
         /// <summary>
         /// Returns all matching comments from discussion threads for an issue.
-        /// Comments are considered matching if they fulfill all of the following conditions:
+        /// Comments are considered matching if they fulfill the following conditions:
         /// * The thread is active.
         /// * The thread is for the same file.
         /// * The thread was created by the same logic, i.e. the same <see cref="IPullRequestDiscussionThread.CommentSource"/>.
@@ -294,8 +294,8 @@ namespace Cake.Issues.PullRequests
             IIssue issue,
             IReadOnlyCollection<IPullRequestDiscussionThread> existingThreads)
         {
-            issue.NotNull(nameof(issue));
-            existingThreads.NotNull(nameof(existingThreads));
+            issue.NotNull();
+            existingThreads.NotNull();
 
             // Select threads that point to the same file and issue identifier.
             var matchingThreads =
@@ -374,9 +374,9 @@ namespace Cake.Issues.PullRequests
             IDictionary<IIssue, IssueCommentInfo> issueComments,
             IReportIssuesToPullRequestSettings reportIssuesToPullRequestSettings)
         {
-            existingThreads.NotNull(nameof(existingThreads));
-            issueComments.NotNull(nameof(issueComments));
-            reportIssuesToPullRequestSettings.NotNull(nameof(reportIssuesToPullRequestSettings));
+            existingThreads.NotNull();
+            issueComments.NotNull();
+            reportIssuesToPullRequestSettings.NotNull();
 
             if (existingThreads.Count == 0)
             {
@@ -403,9 +403,9 @@ namespace Cake.Issues.PullRequests
             IDictionary<IIssue, IssueCommentInfo> issueComments,
             IReportIssuesToPullRequestSettings reportIssuesToPullRequestSettings)
         {
-            existingThreads.NotNull(nameof(existingThreads));
-            issueComments.NotNull(nameof(issueComments));
-            reportIssuesToPullRequestSettings.NotNull(nameof(reportIssuesToPullRequestSettings));
+            existingThreads.NotNull();
+            issueComments.NotNull();
+            reportIssuesToPullRequestSettings.NotNull();
 
             var activeComments =
                 new HashSet<IPullRequestDiscussionComment>(
@@ -438,9 +438,9 @@ namespace Cake.Issues.PullRequests
             IDictionary<IIssue, IssueCommentInfo> issueComments,
             IReportIssuesToPullRequestSettings reportIssuesToPullRequestSettings)
         {
-            existingThreads.NotNull(nameof(existingThreads));
-            issueComments.NotNull(nameof(issueComments));
-            reportIssuesToPullRequestSettings.NotNull(nameof(reportIssuesToPullRequestSettings));
+            existingThreads.NotNull();
+            issueComments.NotNull();
+            reportIssuesToPullRequestSettings.NotNull();
 
             if (existingThreads.Count == 0)
             {
@@ -467,9 +467,9 @@ namespace Cake.Issues.PullRequests
             IDictionary<IIssue, IssueCommentInfo> issueComments,
             IReportIssuesToPullRequestSettings reportIssuesToPullRequestSettings)
         {
-            existingThreads.NotNull(nameof(existingThreads));
-            issueComments.NotNull(nameof(issueComments));
-            reportIssuesToPullRequestSettings.NotNull(nameof(reportIssuesToPullRequestSettings));
+            existingThreads.NotNull();
+            issueComments.NotNull();
+            reportIssuesToPullRequestSettings.NotNull();
 
             var resolvedComments =
                 new HashSet<IPullRequestDiscussionComment>(

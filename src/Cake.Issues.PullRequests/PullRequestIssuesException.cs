@@ -1,7 +1,6 @@
 ﻿namespace Cake.Issues.PullRequests
 {
     using System;
-    using System.Runtime.Serialization;
 
     /// <summary>
     /// Represents errors that occur during issues processing.

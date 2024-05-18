@@ -3,7 +3,6 @@
     using System;
     using System.Collections.Generic;
     using System.IO;
-    using System.Linq;
 
     /// <summary>
     /// Base class for test fixtures for testing issue providers inherited from <see cref="BaseConfigurableIssueProvider{T}"/>.
@@ -20,7 +19,7 @@
         /// <param name="fileResourceName">Name of the resource to load.</param>
         protected BaseConfigurableIssueProviderFixture(string fileResourceName)
         {
-            fileResourceName.NotNullOrWhiteSpace(nameof(fileResourceName));
+            fileResourceName.NotNullOrWhiteSpace();
 
             var resourceName = this.FileResourceNamespace + fileResourceName;
 

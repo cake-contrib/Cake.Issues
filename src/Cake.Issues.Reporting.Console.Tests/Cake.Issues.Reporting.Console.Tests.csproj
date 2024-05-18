@@ -1,23 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net6.0</TargetFrameworks>
     <Description>Tests for the Cake.Issues.Reporting.Console addin</Description>
   </PropertyGroup>
 
-  <PropertyGroup>
-    <CodeAnalysisRuleSet>..\Cake.Issues.Tests.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-
   <ItemGroup>
-    <None Remove="Testfiles\issues.json" />
+    <None Remove="Testfiles\**\*" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Testfiles\issues.json" />
+    <EmbeddedResource Include="Testfiles\*.json" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Cake.Issues.Testing\Cake.Issues.Testing.csproj" />
     <ProjectReference Include="..\Cake.Issues.Reporting.Console\Cake.Issues.Reporting.Console.csproj" />
   </ItemGroup>
 </Project>

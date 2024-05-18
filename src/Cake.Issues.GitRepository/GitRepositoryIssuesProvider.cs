@@ -36,27 +36,24 @@
             GitRepositoryIssuesSettings issueProviderSettings)
             : base(log)
         {
-            fileSystem.NotNull(nameof(fileSystem));
-            environment.NotNull(nameof(environment));
-            processRunner.NotNull(nameof(processRunner));
-            toolLocator.NotNull(nameof(toolLocator));
-            issueProviderSettings.NotNull(nameof(issueProviderSettings));
+            fileSystem.NotNull();
+            environment.NotNull();
+            processRunner.NotNull();
+            toolLocator.NotNull();
+            issueProviderSettings.NotNull();
 
             this.IssueProviderSettings = issueProviderSettings;
             this.runner = new GitRunner(fileSystem, environment, processRunner, toolLocator);
 
             this.allFiles =
                 new Lazy<IEnumerable<string>>(
-                    new Func<IEnumerable<string>>(
-                        () => this.GetAllFilesFromRepository()));
+                    this.GetAllFilesFromRepository);
             this.textFiles =
                 new Lazy<IEnumerable<string>>(
-                    new Func<IEnumerable<string>>(
-                        () => this.GetTextFilesFromRepository()));
+                    this.GetTextFilesFromRepository);
             this.binaryFiles =
                 new Lazy<IEnumerable<string>>(
-                    new Func<IEnumerable<string>>(
-                        () => this.DetermineBinaryFiles(this.allFiles.Value, this.textFiles.Value)));
+                    () => this.DetermineBinaryFiles(this.allFiles.Value, this.textFiles.Value));
         }
 
         /// <summary>
@@ -71,7 +68,7 @@
         /// <summary>
         /// Gets the settings for the issue provider.
         /// </summary>
-        protected GitRepositoryIssuesSettings IssueProviderSettings { get; private set; }
+        protected GitRepositoryIssuesSettings IssueProviderSettings { get; }
 
         /// <inheritdoc />
         protected override IEnumerable<IIssue> InternalReadIssues()
@@ -141,7 +138,7 @@
             }
 
             var result = new List<IIssue>();
-            foreach (string file in this.allFiles.Value)
+            foreach (var file in this.allFiles.Value)
             {
                 if (file.Length > this.IssueProviderSettings.MaxFilePathLength)
                 {
@@ -176,17 +173,19 @@
 
             settings.Arguments.Clear();
             settings.Arguments.Add("ls-files -z");
-            var allFiles =
-                string.Join(
-                    string.Empty,
-                    this.runner.RunCommand(settings))
-                .Split('\0')
-                .Where(x => !string.IsNullOrEmpty(x))
-                .ToList()
+            var output =
+                this.runner.RunCommand(settings)
                 ?? throw new Exception("Error reading files from repository");
-            this.Log.Verbose("Found {0} file(s)", allFiles.Count);
+            var result =
+                string.Join(
+                        string.Empty,
+                        output)
+                    .Split('\0')
+                    .Where(x => !string.IsNullOrEmpty(x))
+                    .ToList();
+            this.Log.Verbose("Found {0} file(s)", result.Count);
 
-            return allFiles;
+            return result;
         }
 
         /// <summary>
@@ -207,18 +206,21 @@
 
             settings.Arguments.Clear();
             settings.Arguments.Add("grep -Il .");
-            var textFiles =
+            var textFilesFromRepository =
                 this.runner.RunCommand(settings)
                 ?? throw new Exception("Error reading text files from repository");
             settings.Arguments.Clear();
             settings.Arguments.Add("grep -IL .");
             var emptyFiles = this.runner.RunCommand(settings);
+
+            // ReSharper disable once PossibleMultipleEnumeration
             if (emptyFiles != null && emptyFiles.Any())
             {
-                textFiles = textFiles.Concat(emptyFiles);
+                // ReSharper disable once PossibleMultipleEnumeration
+                textFilesFromRepository = textFilesFromRepository.Concat(emptyFiles);
             }
 
-            var result = textFiles.ToList();
+            var result = textFilesFromRepository.ToList();
 
             this.Log.Verbose("Found {0} text file(s)", result.Count);
 
@@ -243,6 +245,7 @@
             var lfsTrackedFiles =
                 this.runner.RunCommand(settings)
                 ?? throw new Exception("Error reading LFS tracked files from repository");
+            lfsTrackedFiles = lfsTrackedFiles.ToList();
             this.Log.Verbose("Found {0} LFS tracked file(s)", lfsTrackedFiles.Count());
 
             return lfsTrackedFiles;
@@ -258,16 +261,16 @@
         {
             this.Log.Verbose("Determine binary files...");
 
-            var binaryFiles = allFiles.Except(textFiles).ToList();
+            var result = allFiles.Except(textFiles).ToList();
 
-            if (binaryFiles.Count > 0)
+            if (result.Count > 0)
             {
-                this.Log.Debug(string.Join(Environment.NewLine, binaryFiles));
+                this.Log.Debug(string.Join(Environment.NewLine, result));
             }
 
-            this.Log.Verbose("Found {0} binary file(s)", binaryFiles.Count);
+            this.Log.Verbose("Found {0} binary file(s)", result.Count);
 
-            return binaryFiles;
+            return result;
         }
 
         /// <summary>

@@ -32,9 +32,9 @@
         public static IPullRequestSystem GitHubActionsBuilds(
             this ICakeContext context)
         {
-            context.NotNull(nameof(context));
+            context.NotNull();
 
-            return new GitHubActionsPullRequestSystem(context, new GitHubActionsBuildSettings());
+            return new GitHubActionsPullRequestSystem(context.Log, new GitHubActionsBuildSettings());
         }
 
         /// <summary>
@@ -67,10 +67,10 @@
             this ICakeContext context,
             GitHubActionsBuildSettings settings)
         {
-            context.NotNull(nameof(context));
-            settings.NotNull(nameof(settings));
+            context.NotNull();
+            settings.NotNull();
 
-            return new GitHubActionsPullRequestSystem(context, settings);
+            return new GitHubActionsPullRequestSystem(context.Log, settings);
         }
     }
 }

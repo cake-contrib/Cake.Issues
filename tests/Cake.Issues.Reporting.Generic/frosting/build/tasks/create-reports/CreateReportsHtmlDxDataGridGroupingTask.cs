@@ -1,7 +1,4 @@
 using Cake.Frosting;
-using Cake.Issues.Reporting;
-using Cake.Issues.Reporting.Generic;
-using System.Collections.Generic;
 
 [TaskName("Create-Reports-HtmlDxDataGrid-Grouping")]
 [IsDependentOn(typeof(AnalyzeTask))]

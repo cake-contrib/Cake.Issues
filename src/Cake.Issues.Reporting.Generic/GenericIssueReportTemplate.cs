@@ -6,17 +6,17 @@
     public enum GenericIssueReportTemplate
     {
         /// <summary>
-        /// Template for a HTML report containing a list of all issues with all properties.
+        /// Template for an HTML report containing a list of all issues with all properties.
         /// </summary>
         HtmlDiagnostic,
 
         /// <summary>
-        /// Template for a HTML report containing a rich data table view with sorting and search functionality.
+        /// Template for an HTML report containing a rich data table view with sorting and search functionality.
         /// </summary>
         HtmlDataTable,
 
         /// <summary>
-        /// Template for a HTML report containing a rich data grid with sorting, filtering, grouping and search capabilities.
+        /// Template for an HTML report containing a rich data grid with sorting, filtering, grouping and search capabilities.
         /// See <see cref="HtmlDxDataGridOption"/> for template specific options.
         /// </summary>
         HtmlDxDataGrid,

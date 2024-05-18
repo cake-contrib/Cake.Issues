@@ -1,6 +1,5 @@
 ﻿namespace Cake.Issues.DocFx
 {
-    using System;
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
@@ -37,7 +36,7 @@
                 docRootPath = docRootPath.MakeAbsolute(this.Settings.RepositoryRoot);
             }
 
-            IEnumerable<LogEntryDataContract> logFileEntries = null;
+            IEnumerable<LogEntryDataContract> logFileEntries;
 
             var logFileContent = this.IssueProviderSettings.LogFileContent.ToStringUsingEncoding(true);
 
@@ -84,7 +83,7 @@
         }
 
         /// <summary>
-        /// Reads the affected line from a issue logged in a DocFx log file.
+        /// Reads the affected line from an issue logged in a DocFx log file.
         /// </summary>
         /// <param name="line">The line in the current log entry.</param>
         /// <returns>The line of the issue.</returns>
@@ -92,16 +91,11 @@
             int? line)
         {
             // Convert negative line numbers or line number 0 to null
-            if (line.HasValue && line.Value <= 0)
-            {
-                return null;
-            }
-
-            return line;
+            return line is <= 0 ? null : line;
         }
 
         /// <summary>
-        /// Reads the affected file path from a issue logged in a DocFx log file.
+        /// Reads the affected file path from an issue logged in a DocFx log file.
         /// </summary>
         /// <param name="fileName">The file name in the current log entry.</param>
         /// <param name="docRootPath">Absolute path to the root of the DocFx project.</param>

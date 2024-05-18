@@ -1,25 +1,15 @@
 ﻿namespace Cake.Issues.Reporting.Sarif.Tests
 {
-    using System;
-    using System.Collections.Generic;
     using System.IO;
     using Cake.Core.Diagnostics;
-    using Cake.Testing;
-    using Shouldly;
 
     internal class SarifIssueReportFixture
     {
         public const string RepositoryRootPath = @"c:\Source\Cake.Issues.Reporting.Sarif";
 
-        public SarifIssueReportFixture()
-        {
-            this.Log = new FakeLog { Verbosity = Verbosity.Normal };
-            this.SarifIssueReportFormatSettings = new SarifIssueReportFormatSettings();
-        }
+        public FakeLog Log { get; set; } = new() { Verbosity = Verbosity.Normal };
 
-        public FakeLog Log { get; set; }
-
-        public SarifIssueReportFormatSettings SarifIssueReportFormatSettings { get; set; }
+        public SarifIssueReportFormatSettings SarifIssueReportFormatSettings { get; set; } = new();
 
         public string CreateReport(IEnumerable<IIssue> issues)
         {
@@ -70,7 +60,7 @@
                     });
 
             // Then
-            // Currently only checks if genertions failed or not without checking actual output.
+            // Currently only checks if generation failed or not without checking actual output.
             result.ShouldNotBeNull();
         }
     }

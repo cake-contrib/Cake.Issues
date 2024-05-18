@@ -1,17 +1,13 @@
 ﻿namespace Cake.Issues.PullRequests.Tests
 {
-    using System.Collections.Generic;
     using System.Runtime.InteropServices;
-    using Cake.Issues.Testing;
-    using Shouldly;
-    using Xunit;
 
     public sealed class PullRequestDiscussionThreadTests
     {
         public sealed class TheCtor
         {
             [Theory]
-            [InlineData(@"/foo")]
+            [InlineData("/foo")]
             [InlineData(@"\foo")]
             public void Should_Throw_If_File_Path_Is_Absolute(string filePath)
             {
@@ -50,7 +46,7 @@
             public void Should_Throw_If_Comments_Is_Null()
             {
                 // Given / When
-                var result = Record.Exception(() => new PullRequestDiscussionThread(1, PullRequestDiscussionStatus.Active, @"foo.cs", null));
+                var result = Record.Exception(() => new PullRequestDiscussionThread(1, PullRequestDiscussionStatus.Active, "foo.cs", null));
 
                 // Then
                 result.IsArgumentNullException("comments");
@@ -138,15 +134,15 @@
             }
 
             [Theory]
-            [InlineData(@"foo", @"foo")]
-            [InlineData(@"foo\bar", @"foo/bar")]
-            [InlineData(@"foo/bar", @"foo/bar")]
-            [InlineData(@"foo\bar\", @"foo/bar")]
-            [InlineData(@"foo/bar/", @"foo/bar")]
-            [InlineData(@".\foo", @"foo")]
-            [InlineData(@"./foo", @"foo")]
-            [InlineData(@"foo\..\bar", @"foo/../bar")]
-            [InlineData(@"foo/../bar", @"foo/../bar")]
+            [InlineData("foo", "foo")]
+            [InlineData(@"foo\bar", "foo/bar")]
+            [InlineData("foo/bar", "foo/bar")]
+            [InlineData(@"foo\bar\", "foo/bar")]
+            [InlineData("foo/bar/", "foo/bar")]
+            [InlineData(@".\foo", "foo")]
+            [InlineData("./foo", "foo")]
+            [InlineData(@"foo\..\bar", "foo/../bar")]
+            [InlineData("foo/../bar", "foo/../bar")]
             public void Should_Set_File_Path(string filePath, string expectedFilePath)
             {
                 // Given / When

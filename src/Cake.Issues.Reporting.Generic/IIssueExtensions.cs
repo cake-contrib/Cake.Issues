@@ -13,7 +13,7 @@
     public static class IIssueExtensions
     {
         /// <summary>
-        /// Returns an dynamic object containing the properties of an issue.
+        /// Returns a dynamic object containing the properties of an issue.
         /// </summary>
         /// <param name="issue">Issue for which the dynamic object should be returned.</param>
         /// <param name="addProviderType">Flag if value of <see cref="IIssue.ProviderType"/> should be added.</param>
@@ -72,7 +72,7 @@
             bool fallbackToTextMessageIfMarkdownMessageNotAvailable = true,
             IDictionary<string, Func<IIssue, object>> additionalValues = null)
         {
-            issue.NotNull(nameof(issue));
+            issue.NotNull();
 
             dynamic result = new ExpandoObject();
 

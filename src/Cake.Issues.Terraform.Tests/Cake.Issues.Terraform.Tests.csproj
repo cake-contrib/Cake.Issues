@@ -1,26 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
     <Description>Tests for the Cake.Issues.Terraform addin</Description>
   </PropertyGroup>
 
-  <PropertyGroup>
-    <CodeAnalysisRuleSet>..\Cake.Issues.Tests.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-
   <ItemGroup>
-    <None Remove="Testfiles\error.json" />
-    <None Remove="Testfiles\warning-across-multiple-lines.json" />
+    <None Remove="Testfiles\**\*" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Testfiles\warning-across-multiple-lines.json" />
-    <EmbeddedResource Include="Testfiles\error.json" />
-    <EmbeddedResource Include="Testfiles\basic.json" />
+    <EmbeddedResource Include="Testfiles\*.json" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Cake.Issues.Testing\Cake.Issues.Testing.csproj" />
     <ProjectReference Include="..\Cake.Issues.Terraform\Cake.Issues.Terraform.csproj" />
   </ItemGroup>
 </Project>

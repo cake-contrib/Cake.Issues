@@ -8,18 +8,21 @@
         /// <summary>
         /// Gets or sets additional JavaScript which should be added.
         /// </summary>
+        // ReSharper disable once UnusedAutoPropertyAccessor.Global
         public string JavaScript { get; set; }
 
         /// <summary>
         /// Gets or sets JavaScript which should be called to open the file affected by an issue in an IDE.
         /// </summary>
+        // ReSharper disable once PropertyCanBeMadeInitOnly.Global
         public string OpenInIdeCall { get; set; }
 
         /// <summary>
-        /// Gets or sets text which should be shown in the drop down menu for opening the file affected
+        /// Gets or sets text which should be shown in the dropdown menu for opening the file affected
         /// by an issue in an IDE.
         /// Default value is <c>Open in IDE</c>.
         /// </summary>
+        // ReSharper disable once AutoPropertyCanBeMadeGetOnly.Global
         public string MenuEntryText { get; set; } = "Open in IDE";
 
         /// <summary>
@@ -41,11 +44,11 @@
             string columnExpression,
             string endColumnExpression)
         {
-            filePathExpression.NotNullOrWhiteSpace(nameof(filePathExpression));
-            lineExpression.NotNullOrWhiteSpace(nameof(lineExpression));
-            endLineExpression.NotNullOrWhiteSpace(nameof(endLineExpression));
-            columnExpression.NotNullOrWhiteSpace(nameof(columnExpression));
-            endColumnExpression.NotNullOrWhiteSpace(nameof(endColumnExpression));
+            filePathExpression.NotNullOrWhiteSpace();
+            lineExpression.NotNullOrWhiteSpace();
+            endLineExpression.NotNullOrWhiteSpace();
+            columnExpression.NotNullOrWhiteSpace();
+            endColumnExpression.NotNullOrWhiteSpace();
 
             if (string.IsNullOrWhiteSpace(this.OpenInIdeCall))
             {

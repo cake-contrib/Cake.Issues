@@ -33,8 +33,8 @@
             this ICakeContext context,
             string pattern)
         {
-            context.NotNull(nameof(context));
-            pattern.NotNullOrWhiteSpace(nameof(pattern));
+            context.NotNull();
+            pattern.NotNullOrWhiteSpace();
 
             return FileLinkSettings.ForPattern(pattern);
         }
@@ -75,8 +75,8 @@
             this ICakeContext context,
             Func<IIssue, Uri> builder)
         {
-            context.NotNull(nameof(context));
-            builder.NotNull(nameof(builder));
+            context.NotNull();
+            builder.NotNull();
 
             return FileLinkSettings.ForAction(builder);
         }
@@ -86,7 +86,7 @@
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="repositoryUrl">Full URL of the Git repository,
-        /// eg. <code>https://github.com/cake-contrib/Cake.Issues.Reporting.Generic</code>.</param>
+        /// e.g. <code>https://github.com/cake-contrib/Cake.Issues.Reporting.Generic</code>.</param>
         /// <param name="branch">Name of the branch on which the file linking will be based on.</param>
         /// <returns>Settings for linking to files hosted in GitHub.</returns>
         [CakeMethodAlias]
@@ -96,9 +96,9 @@
             Uri repositoryUrl,
             string branch)
         {
-            context.NotNull(nameof(context));
-            repositoryUrl.NotNull(nameof(repositoryUrl));
-            branch.NotNullOrWhiteSpace(nameof(branch));
+            context.NotNull();
+            repositoryUrl.NotNull();
+            branch.NotNullOrWhiteSpace();
 
             return context.IssueFileLinkSettingsForGitHubBranch(repositoryUrl, branch, null);
         }
@@ -109,7 +109,7 @@
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="repositoryUrl">Full URL of the Git repository,
-        /// eg. <code>https://github.com/cake-contrib/Cake.Issues.Reporting.Generic</code>.</param>
+        /// e.g. <code>https://github.com/cake-contrib/Cake.Issues.Reporting.Generic</code>.</param>
         /// <param name="branch">Name of the branch on which the file linking will be based on.</param>
         /// <param name="rootPath">Root path of the files.
         /// <c>null</c> if files are in the root of the repository.</param>
@@ -122,9 +122,9 @@
             string branch,
             string rootPath)
         {
-            context.NotNull(nameof(context));
-            repositoryUrl.NotNull(nameof(repositoryUrl));
-            branch.NotNullOrWhiteSpace(nameof(branch));
+            context.NotNull();
+            repositoryUrl.NotNull();
+            branch.NotNullOrWhiteSpace();
 
             return
                 FileLinkSettings
@@ -138,7 +138,7 @@
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="repositoryUrl">Full URL of the Git repository,
-        /// eg. <code>https://github.com/cake-contrib/Cake.Issues.Reporting.Generic</code>.</param>
+        /// e.g. <code>https://github.com/cake-contrib/Cake.Issues.Reporting.Generic</code>.</param>
         /// <param name="commitId">The commit id on which the file linking will be based on.</param>
         /// <returns>Settings for linking to files hosted in GitHub.</returns>
         [CakeMethodAlias]
@@ -148,9 +148,9 @@
             Uri repositoryUrl,
             string commitId)
         {
-            context.NotNull(nameof(context));
-            repositoryUrl.NotNull(nameof(repositoryUrl));
-            commitId.NotNullOrWhiteSpace(nameof(commitId));
+            context.NotNull();
+            repositoryUrl.NotNull();
+            commitId.NotNullOrWhiteSpace();
 
             return context.IssueFileLinkSettingsForGitHubCommit(repositoryUrl, commitId, null);
         }
@@ -161,7 +161,7 @@
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="repositoryUrl">Full URL of the Git repository,
-        /// eg. <code>https://github.com/cake-contrib/Cake.Issues.Reporting.Generic</code>.</param>
+        /// e.g. <code>https://github.com/cake-contrib/Cake.Issues.Reporting.Generic</code>.</param>
         /// <param name="commitId">The commit id on which the file linking will be based on.</param>
         /// <param name="rootPath">Root path of the files.
         /// <c>null</c> or <see cref="string.Empty"/> if files are in the root of the repository.</param>
@@ -174,9 +174,9 @@
             string commitId,
             string rootPath)
         {
-            context.NotNull(nameof(context));
-            repositoryUrl.NotNull(nameof(repositoryUrl));
-            commitId.NotNullOrWhiteSpace(nameof(commitId));
+            context.NotNull();
+            repositoryUrl.NotNull();
+            commitId.NotNullOrWhiteSpace();
 
             return
                 FileLinkSettings
@@ -191,7 +191,7 @@
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="repositoryUrl">Full URL of the Git repository,
-        /// eg. <code>https://dev.azure.com/myorganization/_git/myrepo</code>.</param>
+        /// e.g. <code>https://dev.azure.com/myorganization/_git/myrepo</code>.</param>
         /// <param name="branch">Name of the branch on which the file linking will be based on.</param>
         /// <returns>Settings for linking files hosted on Azure DevOps or Azure DevOps Server.</returns>
         [CakeMethodAlias]
@@ -201,9 +201,9 @@
             Uri repositoryUrl,
             string branch)
         {
-            context.NotNull(nameof(context));
-            repositoryUrl.NotNull(nameof(repositoryUrl));
-            branch.NotNullOrWhiteSpace(nameof(branch));
+            context.NotNull();
+            repositoryUrl.NotNull();
+            branch.NotNullOrWhiteSpace();
 
             return context.IssueFileLinkSettingsForAzureDevOpsBranch(repositoryUrl, branch, null);
         }
@@ -214,7 +214,7 @@
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="repositoryUrl">Full URL of the Git repository,
-        /// eg. <code>https://dev.azure.com/myorganization/_git/myrepo</code>.</param>
+        /// e.g. <code>https://dev.azure.com/myorganization/_git/myrepo</code>.</param>
         /// <param name="branch">Name of the branch on which the file linking will be based on.</param>
         /// <param name="rootPath">Root path of the files.
         /// <c>null</c> if files are in the root of the repository.</param>
@@ -227,9 +227,9 @@
             string branch,
             string rootPath)
         {
-            context.NotNull(nameof(context));
-            repositoryUrl.NotNull(nameof(repositoryUrl));
-            branch.NotNullOrWhiteSpace(nameof(branch));
+            context.NotNull();
+            repositoryUrl.NotNull();
+            branch.NotNullOrWhiteSpace();
 
             return
                 FileLinkSettings
@@ -244,7 +244,7 @@
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="repositoryUrl">Full URL of the Git repository,
-        /// eg. <code>https://dev.azure.com/myorganization/_git/myrepo</code>.</param>
+        /// e.g. <code>https://dev.azure.com/myorganization/_git/myrepo</code>.</param>
         /// <param name="commitId">The commit id on which the file linking will be based on.</param>
         /// <returns>Settings for linking files hosted on Azure DevOps or Azure DevOps Server.</returns>
         [CakeMethodAlias]
@@ -254,9 +254,9 @@
             Uri repositoryUrl,
             string commitId)
         {
-            context.NotNull(nameof(context));
-            repositoryUrl.NotNull(nameof(repositoryUrl));
-            commitId.NotNullOrWhiteSpace(nameof(commitId));
+            context.NotNull();
+            repositoryUrl.NotNull();
+            commitId.NotNullOrWhiteSpace();
 
             return context.IssueFileLinkSettingsForAzureDevOpsCommit(repositoryUrl, commitId, null);
         }
@@ -267,7 +267,7 @@
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="repositoryUrl">Full URL of the Git repository,
-        /// eg. <code>https://dev.azure.com/myorganization/_git/myrepo</code>.</param>
+        /// e.g. <code>https://dev.azure.com/myorganization/_git/myrepo</code>.</param>
         /// <param name="commitId">The commit id on which the file linking will be based on.</param>
         /// <param name="rootPath">Root path of the files.
         /// <c>null</c> if files are in the root of the repository.</param>
@@ -280,9 +280,9 @@
             string commitId,
             string rootPath)
         {
-            context.NotNull(nameof(context));
-            repositoryUrl.NotNull(nameof(repositoryUrl));
-            commitId.NotNullOrWhiteSpace(nameof(commitId));
+            context.NotNull();
+            repositoryUrl.NotNull();
+            commitId.NotNullOrWhiteSpace();
 
             return
                 FileLinkSettings

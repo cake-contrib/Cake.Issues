@@ -27,9 +27,9 @@ namespace Cake.Issues.PullRequests
             IPullRequestSystem pullRequestSystem,
             IReportIssuesToPullRequestSettings settings)
         {
-            log.NotNull(nameof(log));
-            pullRequestSystem.NotNull(nameof(pullRequestSystem));
-            settings.NotNull(nameof(settings));
+            log.NotNull();
+            pullRequestSystem.NotNull();
+            settings.NotNull();
 
             this.log = log;
             this.pullRequestSystem = pullRequestSystem;
@@ -50,7 +50,7 @@ namespace Cake.Issues.PullRequests
             IReadOnlyCollection<IPullRequestDiscussionThread> existingThreads)
         {
             // ReSharper disable once PossibleMultipleEnumeration
-            issues.NotNull(nameof(issues));
+            issues.NotNull();
 
             this.log.Verbose("Filtering issues before posting...");
 
@@ -201,7 +201,7 @@ namespace Cake.Issues.PullRequests
         }
 
         /// <summary>
-        /// Limits the number of issues so as to not overload the pull request with too many comments.
+        /// Limits the number of issues to not overload the pull request with too many comments.
         /// </summary>
         /// <param name="issues">List of issues which should be filtered.</param>
         /// <param name="existingThreads">List of threads which were reported by Cake.Issues.</param>
@@ -229,7 +229,7 @@ namespace Cake.Issues.PullRequests
                     var countBefore = group.Count();
                     var issuesFiltered =
                         group
-                            .SortWithDefaultPriorization()
+                            .SortWithDefaultPrioritization()
                             .Take(this.settings.MaxIssuesToPostForEachIssueProvider.Value)
                             .ToList();
                     var issuesFilteredCount = countBefore - issuesFiltered.Count;
@@ -274,7 +274,7 @@ namespace Cake.Issues.PullRequests
 
                 var newIssuesForProviderType =
                     result.Where(p => p.ProviderType == currentProviderType)
-                        .SortWithDefaultPriorization()
+                        .SortWithDefaultPrioritization()
                         .ToArray();
                 if (newIssuesForProviderType.Length <= currentProviderTypeMaxLimit)
                 {
@@ -305,7 +305,7 @@ namespace Cake.Issues.PullRequests
                 var countBefore = result.Count;
                 result =
                     result
-                        .SortWithDefaultPriorization()
+                        .SortWithDefaultPrioritization()
                         .Take(this.settings.MaxIssuesToPost.Value)
                         .ToList();
                 var issuesFilteredCount = countBefore - result.Count;
@@ -353,7 +353,7 @@ namespace Cake.Issues.PullRequests
 
                 var newIssuesForProviderType =
                     result.Where(p => p.ProviderType == currentProviderType)
-                        .SortWithDefaultPriorization()
+                        .SortWithDefaultPrioritization()
                         .ToArray();
                 if (newIssuesForProviderType.Length <= maxIssuesLeftToTakeForProviderType)
                 {
@@ -386,7 +386,7 @@ namespace Cake.Issues.PullRequests
                 var countBefore = result.Count;
                 result =
                     result
-                        .SortWithDefaultPriorization()
+                        .SortWithDefaultPrioritization()
                         .Take(maxIssuesToPostInThisRun)
                         .ToList();
                 var issuesFilteredCount = countBefore - result.Count;

@@ -1,10 +1,5 @@
 ﻿namespace Cake.Issues.Tests
 {
-    using System;
-    using Cake.Issues.Testing;
-    using Shouldly;
-    using Xunit;
-
     public sealed class IIssueExtensionsTests
     {
         public sealed class TheLineRangeExtension
@@ -129,7 +124,7 @@
                 var result = issue.ProjectPath();
 
                 // Then
-                result.ShouldBe(@"src/Cake.Issues/Cake.Issues.csproj");
+                result.ShouldBe("src/Cake.Issues/Cake.Issues.csproj");
             }
 
             [Fact]
@@ -179,7 +174,7 @@
                 var result = issue.ProjectDirectory();
 
                 // Then
-                result.ShouldBe(@"src/Cake.Issues");
+                result.ShouldBe("src/Cake.Issues");
             }
 
             [Fact]
@@ -229,7 +224,7 @@
                 var result = issue.FilePath();
 
                 // Then
-                result.ShouldBe(@"src/Cake.Issues/Foo.cs");
+                result.ShouldBe("src/Cake.Issues/Foo.cs");
             }
 
             [Fact]
@@ -279,7 +274,7 @@
                 var result = issue.FileDirectory();
 
                 // Then
-                result.ShouldBe(@"src/Cake.Issues");
+                result.ShouldBe("src/Cake.Issues");
             }
 
             [Fact]
@@ -476,8 +471,8 @@
                         .ForRun("Run")
                         .WithMessageInHtmlFormat("MessageHtml Foo")
                         .WithMessageInMarkdownFormat("MessageMarkdown Foo")
-                        .InFile(@"src/Cake.Issues/foo.cs", 42, 420, 23, 230)
-                        .InProject(@"src/Cake.Issues/Cake.Issues.csproj", "Cake.Issues")
+                        .InFile("src/Cake.Issues/foo.cs", 42, 420, 23, 230)
+                        .InProject("src/Cake.Issues/Cake.Issues.csproj", "Cake.Issues")
                         .WithFileLink(new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12"))
                         .OfRule("Rule Foo", new Uri("https://google.com"))
                         .WithPriority(IssuePriority.Error)

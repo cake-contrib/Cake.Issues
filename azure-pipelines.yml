@@ -231,7 +231,6 @@ stages:
       vmImage: $(imageName)
     steps:
     - template: .azuredevops/pipelines/templates/steps/install-net6.yml 
-    - template: .azuredevops/pipelines/templates/steps/install-markdownlint.yml 
     - template: .azuredevops/pipelines/templates/steps/provide-nuget-packages.yml 
     - powershell: ./build.ps1 --verbosity=diagnostic
       workingDirectory: ./tests/Cake.Issues.Reporting.Generic/script-runner
@@ -259,7 +258,6 @@ stages:
       vmImage: $(imageName)
     steps:
     - template: .azuredevops/pipelines/templates/steps/install-net6.yml 
-    - template: .azuredevops/pipelines/templates/steps/install-markdownlint.yml 
     - template: .azuredevops/pipelines/templates/steps/provide-nuget-packages.yml 
     - powershell: ./build.ps1 --verbosity=diagnostic
       workingDirectory: ./tests/Cake.Issues.Reporting.Generic/frosting
@@ -292,7 +290,6 @@ stages:
       vmImage: $(imageName)
     steps:
     - template: .azuredevops/pipelines/templates/steps/install-net6.yml 
-    - template: .azuredevops/pipelines/templates/steps/install-markdownlint.yml 
     - template: .azuredevops/pipelines/templates/steps/provide-nuget-packages.yml 
     - powershell: ./build.ps1 --verbosity=diagnostic
       workingDirectory: ./tests/Cake.Issues.Reporting.Sarif/script-runner
@@ -320,7 +317,6 @@ stages:
       vmImage: $(imageName)
     steps:
     - template: .azuredevops/pipelines/templates/steps/install-net6.yml 
-    - template: .azuredevops/pipelines/templates/steps/install-markdownlint.yml 
     - template: .azuredevops/pipelines/templates/steps/provide-nuget-packages.yml 
     - powershell: ./build.ps1 --verbosity=diagnostic
       workingDirectory: ./tests/Cake.Issues.Reporting.Sarif/frosting/net6
@@ -348,7 +344,6 @@ stages:
       vmImage: $(imageName)
     steps:
     - template: .azuredevops/pipelines/templates/steps/install-net7.yml 
-    - template: .azuredevops/pipelines/templates/steps/install-markdownlint.yml 
     - template: .azuredevops/pipelines/templates/steps/provide-nuget-packages.yml 
     - powershell: ./build.ps1 --verbosity=diagnostic
       workingDirectory: ./tests/Cake.Issues.Reporting.Sarif/frosting/net7
@@ -376,7 +371,6 @@ stages:
       vmImage: $(imageName)
     steps:
     - template: .azuredevops/pipelines/templates/steps/install-net8.yml 
-    - template: .azuredevops/pipelines/templates/steps/install-markdownlint.yml 
     - template: .azuredevops/pipelines/templates/steps/provide-nuget-packages.yml 
     - powershell: ./build.ps1 --verbosity=diagnostic
       workingDirectory: ./tests/Cake.Issues.Reporting.Sarif/frosting/net8

@@ -1,12 +1,5 @@
 ﻿namespace Cake.Issues.Tests
 {
-    using System;
-    using System.Collections.Generic;
-    using Cake.Issues.Testing;
-    using Cake.Testing;
-    using Shouldly;
-    using Xunit;
-
     public sealed class IssueBuilderTests
     {
         public sealed class TheNewIssueMethodWithMessageAsIdentifier
@@ -874,7 +867,7 @@
             }
 
             [Theory]
-            [InlineData(@"src/project.csproj")]
+            [InlineData("src/project.csproj")]
             public void Should_Set_ProjectFileRelativePath(string projectPath)
             {
                 // Given
@@ -1040,7 +1033,7 @@
             }
 
             [Theory]
-            [InlineData(@"src/project.csproj")]
+            [InlineData("src/project.csproj")]
             public void Should_Set_ProjectFileRelativePath(string projectPath)
             {
                 // Given
@@ -1112,15 +1105,15 @@
             }
 
             [Theory]
-            [InlineData(@"foo", @"foo")]
-            [InlineData(@"foo\bar", @"foo/bar")]
-            [InlineData(@"foo/bar", @"foo/bar")]
-            [InlineData(@"foo\bar\", @"foo/bar")]
-            [InlineData(@"foo/bar/", @"foo/bar")]
-            [InlineData(@".\foo", @"foo")]
-            [InlineData(@"./foo", @"foo")]
-            [InlineData(@"foo\..\bar", @"foo/../bar")]
-            [InlineData(@"foo/../bar", @"foo/../bar")]
+            [InlineData("foo", "foo")]
+            [InlineData(@"foo\bar", "foo/bar")]
+            [InlineData("foo/bar", "foo/bar")]
+            [InlineData(@"foo\bar\", "foo/bar")]
+            [InlineData("foo/bar/", "foo/bar")]
+            [InlineData(@".\foo", "foo")]
+            [InlineData("./foo", "foo")]
+            [InlineData(@"foo\..\bar", "foo/../bar")]
+            [InlineData("foo/../bar", "foo/../bar")]
             public void Should_Set_FilePath(string filePath, string expectedFilePath)
             {
                 // Given
@@ -1179,15 +1172,15 @@
             }
 
             [Theory]
-            [InlineData(@"foo", @"foo")]
-            [InlineData(@"foo\bar", @"foo/bar")]
-            [InlineData(@"foo/bar", @"foo/bar")]
-            [InlineData(@"foo\bar\", @"foo/bar")]
-            [InlineData(@"foo/bar/", @"foo/bar")]
-            [InlineData(@".\foo", @"foo")]
-            [InlineData(@"./foo", @"foo")]
-            [InlineData(@"foo\..\bar", @"foo/../bar")]
-            [InlineData(@"foo/../bar", @"foo/../bar")]
+            [InlineData("foo", "foo")]
+            [InlineData(@"foo\bar", "foo/bar")]
+            [InlineData("foo/bar", "foo/bar")]
+            [InlineData(@"foo\bar\", "foo/bar")]
+            [InlineData("foo/bar/", "foo/bar")]
+            [InlineData(@".\foo", "foo")]
+            [InlineData("./foo", "foo")]
+            [InlineData(@"foo\..\bar", "foo/../bar")]
+            [InlineData("foo/../bar", "foo/../bar")]
             public void Should_Set_FilePath(string filePath, string expectedFilePath)
             {
                 // Given
@@ -1302,15 +1295,15 @@
             }
 
             [Theory]
-            [InlineData(@"foo", @"foo")]
-            [InlineData(@"foo\bar", @"foo/bar")]
-            [InlineData(@"foo/bar", @"foo/bar")]
-            [InlineData(@"foo\bar\", @"foo/bar")]
-            [InlineData(@"foo/bar/", @"foo/bar")]
-            [InlineData(@".\foo", @"foo")]
-            [InlineData(@"./foo", @"foo")]
-            [InlineData(@"foo\..\bar", @"foo/../bar")]
-            [InlineData(@"foo/../bar", @"foo/../bar")]
+            [InlineData("foo", "foo")]
+            [InlineData(@"foo\bar", "foo/bar")]
+            [InlineData("foo/bar", "foo/bar")]
+            [InlineData(@"foo\bar\", "foo/bar")]
+            [InlineData("foo/bar/", "foo/bar")]
+            [InlineData(@".\foo", "foo")]
+            [InlineData("./foo", "foo")]
+            [InlineData(@"foo\..\bar", "foo/../bar")]
+            [InlineData("foo/../bar", "foo/../bar")]
             public void Should_Set_FilePath(string filePath, string expectedFilePath)
             {
                 // Given
@@ -1522,15 +1515,15 @@
             }
 
             [Theory]
-            [InlineData(@"foo", @"foo")]
-            [InlineData(@"foo\bar", @"foo/bar")]
-            [InlineData(@"foo/bar", @"foo/bar")]
-            [InlineData(@"foo\bar\", @"foo/bar")]
-            [InlineData(@"foo/bar/", @"foo/bar")]
-            [InlineData(@".\foo", @"foo")]
-            [InlineData(@"./foo", @"foo")]
-            [InlineData(@"foo\..\bar", @"foo/../bar")]
-            [InlineData(@"foo/../bar", @"foo/../bar")]
+            [InlineData("foo", "foo")]
+            [InlineData(@"foo\bar", "foo/bar")]
+            [InlineData("foo/bar", "foo/bar")]
+            [InlineData(@"foo\bar\", "foo/bar")]
+            [InlineData("foo/bar/", "foo/bar")]
+            [InlineData(@".\foo", "foo")]
+            [InlineData("./foo", "foo")]
+            [InlineData(@"foo\..\bar", "foo/../bar")]
+            [InlineData("foo/../bar", "foo/../bar")]
             public void Should_Set_FilePath(string filePath, string expectedFilePath)
             {
                 // Given

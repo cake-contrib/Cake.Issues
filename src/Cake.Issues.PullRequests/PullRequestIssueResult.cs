@@ -20,10 +20,10 @@
             IEnumerable<IIssue> postedIssues)
         {
             // ReSharper disable once PossibleMultipleEnumeration
-            reportedIssues.NotNull(nameof(reportedIssues));
+            reportedIssues.NotNull();
 
             // ReSharper disable once PossibleMultipleEnumeration
-            postedIssues.NotNull(nameof(postedIssues));
+            postedIssues.NotNull();
 
             // ReSharper disable once PossibleMultipleEnumeration
             this.reportedIssues.AddRange(reportedIssues);

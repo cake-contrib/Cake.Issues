@@ -10,7 +10,7 @@
     using Newtonsoft.Json;
 
     /// <summary>
-    /// Provider for issues in SARIF compatible formt.
+    /// Provider for issues in SARIF compatible format.
     /// </summary>
     /// <param name="log">The Cake log context.</param>
     /// <param name="issueProviderSettings">Settings for the issue provider.</param>
@@ -79,8 +79,8 @@
             Run run)
         {
             // Once https://github.com/microsoft/sarif-sdk/issues/430 is implemented this code should become mostly obsolete
-            result.NotNull(nameof(result));
-            run.NotNull(nameof(run));
+            result.NotNull();
+            run.NotNull();
 
             // If result has message text assigned directly.
             if (!string.IsNullOrEmpty(result.Message.Text))
@@ -120,19 +120,19 @@
 
                     if (!string.IsNullOrEmpty(message.Text))
                     {
-                        messageText = 
+                        messageText =
                             string.Format(
-                                CultureInfo.InvariantCulture, 
-                                message.Text, 
+                                CultureInfo.InvariantCulture,
+                                message.Text,
                                 arguments.ToArray());
                     }
 
                     if (!string.IsNullOrEmpty(message.Markdown))
                     {
-                        messageMarkdown = 
+                        messageMarkdown =
                             string.Format(
-                                CultureInfo.InvariantCulture, 
-                                message.Markdown, 
+                                CultureInfo.InvariantCulture,
+                                message.Markdown,
                                 arguments.ToArray());
                     }
 
@@ -153,8 +153,8 @@
             Result result,
             Run run)
         {
-            result.NotNull(nameof(result));
-            run.NotNull(nameof(run));
+            result.NotNull();
+            run.NotNull();
 
             var rule = result.GetRule(run);
 
@@ -169,11 +169,11 @@
         private static (string FilePath, int? Line) GetLocation(
             Result result)
         {
-            result.NotNull(nameof(result));
+            result.NotNull();
 
             // Only consider the first location.
             var location = result.Locations.FirstOrDefault();
-            if (location != null && location.PhysicalLocation != null)
+            if (location is { PhysicalLocation: not null })
             {
                 var filePath = location.PhysicalLocation.ArtifactLocation.Uri.ToString();
 

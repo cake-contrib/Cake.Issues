@@ -18,7 +18,7 @@
         /// <param name="log">The Cake log instance.</param>
         protected BaseLogFileFormat(ICakeLog log)
         {
-            log.NotNull(nameof(log));
+            log.NotNull();
 
             this.Log = log;
         }

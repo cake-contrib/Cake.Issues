@@ -15,7 +15,7 @@
         /// <returns>Converted issue.</returns>
         internal static Issue ToIssue(this SerializableIssueV2 serializableIssue)
         {
-            serializableIssue.NotNull(nameof(serializableIssue));
+            serializableIssue.NotNull();
 
             Uri ruleUrl = null;
             if (!string.IsNullOrWhiteSpace(serializableIssue.RuleUrl))

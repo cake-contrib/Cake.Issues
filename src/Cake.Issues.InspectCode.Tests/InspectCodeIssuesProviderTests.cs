@@ -1,12 +1,6 @@
 ﻿namespace Cake.Issues.InspectCode.Tests
 {
-    using System;
-    using System.Linq;
     using System.Runtime.InteropServices;
-    using Cake.Issues.Testing;
-    using Cake.Testing;
-    using Shouldly;
-    using Xunit;
 
     // ReSharper disable once ClassNeverInstantiated.Global
     public sealed class InspectCodeIssuesProviderTests
@@ -84,7 +78,7 @@
                 IssueChecker.Check(
                     issue,
                     IssueBuilder.NewIssue(
-                        @"Using directive is not required by the code and can be safely removed",
+                        "Using directive is not required by the code and can be safely removed",
                         "Cake.Issues.InspectCode.InspectCodeIssuesProvider",
                         "InspectCode")
                         .InProjectOfName("Project1")
@@ -115,7 +109,7 @@
                 IssueChecker.Check(
                     issue,
                     IssueBuilder.NewIssue(
-                        @"Using directive is not required by the code and can be safely removed",
+                        "Using directive is not required by the code and can be safely removed",
                         "Cake.Issues.InspectCode.InspectCodeIssuesProvider",
                         "InspectCode")
                         .InProjectOfName("Cake.CodeAnalysisReporting")

@@ -1,24 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net6.0</TargetFrameworks>
     <Description>Tests for the Cake.Issues.Sarif addin</Description>
   </PropertyGroup>
 
-  <PropertyGroup>
-    <CodeAnalysisRuleSet>..\Cake.Issues.Tests.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-
   <ItemGroup>
-    <EmbeddedResource Include="Testfiles\cake.issues.reporting.sarif.sarif" />
-    <EmbeddedResource Include="Testfiles\comprehensive.sarif" />
-    <EmbeddedResource Include="Testfiles\minimal.sarif" />
-    <EmbeddedResource Include="Testfiles\recommended-with-source.sarif" />
-    <EmbeddedResource Include="Testfiles\recommended-without-source.sarif" />
-    <EmbeddedResource Include="Testfiles\rule-metadata-1.json" />
+    <None Remove="Testfiles\**\*" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Cake.Issues.Testing\Cake.Issues.Testing.csproj" />
+    <EmbeddedResource Include="Testfiles\*.sarif" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Cake.Issues.Sarif\Cake.Issues.Sarif.csproj" />
   </ItemGroup>
 </Project>

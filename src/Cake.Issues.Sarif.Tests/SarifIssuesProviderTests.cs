@@ -1,12 +1,5 @@
 ﻿namespace Cake.Issues.Sarif.Tests
 {
-    using System;
-    using System.Linq;
-    using Cake.Issues.Testing;
-    using Cake.Testing;
-    using Shouldly;
-    using Xunit;
-
     public sealed class SarifIssuesProviderTests
     {
         public sealed class TheCtor
@@ -51,7 +44,7 @@
             }
 
             [Fact]
-            public void Should_Read_Issue_Correct_For_Recomended_File_Without_Source()
+            public void Should_Read_Issue_Correct_For_Recommended_File_Without_Source()
             {
                 // Given
                 var fixture = new SarifIssuesProviderFixture("recommended-without-source.sarif");
@@ -74,7 +67,7 @@
             }
 
             [Fact]
-            public void Should_Read_Issue_Correct_For_Recomended_File_With_Source()
+            public void Should_Read_Issue_Correct_For_Recommended_File_With_Source()
             {
                 // Given
                 var fixture = new SarifIssuesProviderFixture("recommended-with-source.sarif");
@@ -144,7 +137,7 @@
                         "Message Foo.",
                         "Cake.Issues.Sarif.SarifIssuesProvider",
                         "ProviderType Foo")
-                        .InFile(@"src/Cake.Issues.Reporting.Sarif.Tests/SarifIssueReportGeneratorTests.cs", 10)
+                        .InFile("src/Cake.Issues.Reporting.Sarif.Tests/SarifIssueReportGeneratorTests.cs", 10)
                         .OfRule("Rule Foo")
                         .WithPriority(IssuePriority.Error)
                         .Create());
@@ -157,7 +150,7 @@
                         "Cake.Issues.Sarif.SarifIssuesProvider",
                         "ProviderType Bar")
                         .WithMessageInMarkdownFormat("Message Bar -- now in **Markdown**!")
-                        .InFile(@"src/Cake.Issues.Reporting.Sarif.Tests/SarifIssueReportGeneratorTests.cs", 12)
+                        .InFile("src/Cake.Issues.Reporting.Sarif.Tests/SarifIssueReportGeneratorTests.cs", 12)
                         .OfRule("Rule Bar", new Uri("https://www.example.come/rules/bar.html"))
                         .WithPriority(IssuePriority.Warning)
                         .Create());
@@ -169,7 +162,7 @@
                         "Message Bar 2.",
                         "Cake.Issues.Sarif.SarifIssuesProvider",
                         "ProviderType Bar")
-                        .InFile(@"src/Cake.Issues.Reporting.Sarif.Tests/SarifIssueReportGeneratorTests.cs", 42)
+                        .InFile("src/Cake.Issues.Reporting.Sarif.Tests/SarifIssueReportGeneratorTests.cs", 42)
                         .WithPriority(IssuePriority.Warning)
                         .Create());
             }

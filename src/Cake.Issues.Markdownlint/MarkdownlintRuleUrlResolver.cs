@@ -4,7 +4,7 @@
     using System.Text.RegularExpressions;
 
     /// <summary>
-    /// Class for retrieving an URL linking to a site describing a rule.
+    /// Class for retrieving a URL linking to a site describing a rule.
     /// </summary>
     internal class MarkdownlintRuleUrlResolver : BaseRuleUrlResolver<MarkdownlintRuleDescription>
     {
@@ -43,7 +43,7 @@
                 return false;
             }
 
-            if (!int.TryParse(groups[1].Value, out int ruleId))
+            if (!int.TryParse(groups[1].Value, out var ruleId))
             {
                 return false;
             }

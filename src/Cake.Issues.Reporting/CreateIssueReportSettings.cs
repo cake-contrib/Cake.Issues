@@ -15,7 +15,7 @@
         public CreateIssueReportSettings(DirectoryPath repositoryRoot, FilePath outputFilePath)
             : base(repositoryRoot)
         {
-            outputFilePath.NotNull(nameof(outputFilePath));
+            outputFilePath.NotNull();
 
             this.OutputFilePath = outputFilePath;
         }

@@ -21,9 +21,9 @@
             IRepositorySettings repositorySettings,
             MarkdownlintIssuesSettings markdownlintIssuesSettings)
         {
-            issueProvider.NotNull(nameof(issueProvider));
-            repositorySettings.NotNull(nameof(repositorySettings));
-            markdownlintIssuesSettings.NotNull(nameof(markdownlintIssuesSettings));
+            issueProvider.NotNull();
+            repositorySettings.NotNull();
+            markdownlintIssuesSettings.NotNull();
 
             var regex = new Regex(@"(?<filePath>.*[^:\d+]): ?(?<lineNumber>\d+):?(?<columnNumber>\d+)? (?<ruleId>MD\d+)/(?<ruleName>(?:\w*-*/*)*) (?<message>.*)");
 
@@ -32,7 +32,7 @@
                 var groups = regex.Match(line).Groups;
 
                 // Read affected file from the line.
-                if (!this.TryGetFile(groups, repositorySettings, out string fileName))
+                if (!this.TryGetFile(groups, repositorySettings, out var fileName))
                 {
                     continue;
                 }
@@ -69,14 +69,13 @@
             IRepositorySettings repositorySettings,
             out string fileName)
         {
-            values.NotNull(nameof(values));
-            repositorySettings.NotNull(nameof(repositorySettings));
+            values.NotNull();
+            repositorySettings.NotNull();
 
             var filePath = values["filePath"].Value;
 
             // Validate file path and make relative to repository root.
-            bool result;
-            (result, fileName) = filePath.IsValidRepositoryFilePath(repositorySettings);
+            (var result, fileName) = filePath.IsValidRepositoryFilePath(repositorySettings);
 
             if (!result)
             {

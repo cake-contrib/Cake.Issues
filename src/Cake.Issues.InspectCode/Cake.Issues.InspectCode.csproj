@@ -1,13 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
     <Description>JetBrains Inspect Code support for the Cake.Issues Addin for Cake Build Automation System</Description>
-  </PropertyGroup>
-  
-  <PropertyGroup>
-    <DebugType>full</DebugType>
-    <CodeAnalysisRuleSet>..\Cake.Issues.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   
   <ItemGroup>

@@ -16,7 +16,7 @@
         /// <inheritdoc/>
         public void AddCapability(IPullRequestSystemCapability capability)
         {
-            capability.NotNull(nameof(capability));
+            capability.NotNull();
 
             this.capabilities.Add(capability);
         }

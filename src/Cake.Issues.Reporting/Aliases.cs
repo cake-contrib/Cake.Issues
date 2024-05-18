@@ -12,7 +12,7 @@
     public static class Aliases
     {
         /// <summary>
-        /// Creates a report for a the issues from an issue provider in the specified format.
+        /// Creates a report for the issues from an issue provider in the specified format.
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="issueProvider">Issue provider for whose issues the report should be generated.</param>
@@ -43,13 +43,13 @@
             DirectoryPath repositoryRoot,
             FilePath outputFilePath)
         {
-            context.NotNull(nameof(context));
+            context.NotNull();
 
-            issueProvider.NotNull(nameof(issueProvider));
+            issueProvider.NotNull();
 
-            reportFormat.NotNull(nameof(reportFormat));
-            repositoryRoot.NotNull(nameof(repositoryRoot));
-            outputFilePath.NotNull(nameof(outputFilePath));
+            reportFormat.NotNull();
+            repositoryRoot.NotNull();
+            outputFilePath.NotNull();
 
             return
                 context.CreateIssueReport(
@@ -59,7 +59,7 @@
         }
 
         /// <summary>
-        /// Creates a report for a the issues from an issue provider with the specific settings.
+        /// Creates a report for the issues from an issue provider with the specific settings.
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="issueProvider">Issue provider for whose issues the report should be generated.</param>
@@ -93,10 +93,10 @@
             IIssueReportFormat reportFormat,
             ICreateIssueReportFromIssueProviderSettings settings)
         {
-            context.NotNull(nameof(context));
-            reportFormat.NotNull(nameof(reportFormat));
+            context.NotNull();
+            reportFormat.NotNull();
 
-            issueProvider.NotNull(nameof(issueProvider));
+            issueProvider.NotNull();
 
             var issueReportCreator = new IssueReportCreator(context.Log);
 
@@ -144,14 +144,14 @@
             DirectoryPath repositoryRoot,
             FilePath outputFilePath)
         {
-            context.NotNull(nameof(context));
+            context.NotNull();
 
             // ReSharper disable once PossibleMultipleEnumeration
-            issueProviders.NotNullOrEmptyOrEmptyElement(nameof(issueProviders));
+            issueProviders.NotNullOrEmptyOrEmptyElement();
 
-            reportFormat.NotNull(nameof(reportFormat));
-            repositoryRoot.NotNull(nameof(repositoryRoot));
-            outputFilePath.NotNull(nameof(outputFilePath));
+            reportFormat.NotNull();
+            repositoryRoot.NotNull();
+            outputFilePath.NotNull();
 
             // ReSharper disable once PossibleMultipleEnumeration
             return
@@ -201,11 +201,11 @@
             IIssueReportFormat reportFormat,
             ICreateIssueReportFromIssueProviderSettings settings)
         {
-            context.NotNull(nameof(context));
-            reportFormat.NotNull(nameof(reportFormat));
+            context.NotNull();
+            reportFormat.NotNull();
 
             // ReSharper disable once PossibleMultipleEnumeration
-            issueProviders.NotNullOrEmptyOrEmptyElement(nameof(issueProviders));
+            issueProviders.NotNullOrEmptyOrEmptyElement();
 
             var issueReportCreator = new IssueReportCreator(context.Log);
 
@@ -243,14 +243,14 @@
             DirectoryPath repositoryRoot,
             FilePath outputFilePath)
         {
-            context.NotNull(nameof(context));
+            context.NotNull();
 
             // ReSharper disable once PossibleMultipleEnumeration
-            issues.NotNullOrEmptyElement(nameof(issues));
+            issues.NotNullOrEmptyElement();
 
-            reportFormat.NotNull(nameof(reportFormat));
-            repositoryRoot.NotNull(nameof(repositoryRoot));
-            outputFilePath.NotNull(nameof(outputFilePath));
+            reportFormat.NotNull();
+            repositoryRoot.NotNull();
+            outputFilePath.NotNull();
 
             // ReSharper disable once PossibleMultipleEnumeration
             return
@@ -290,13 +290,13 @@
             IIssueReportFormat reportFormat,
             ICreateIssueReportSettings settings)
         {
-            context.NotNull(nameof(context));
+            context.NotNull();
 
             // ReSharper disable once PossibleMultipleEnumeration
-            issues.NotNullOrEmptyElement(nameof(issues));
+            issues.NotNullOrEmptyElement();
 
-            reportFormat.NotNull(nameof(reportFormat));
-            settings.NotNull(nameof(settings));
+            reportFormat.NotNull();
+            settings.NotNull();
 
             var issueReportCreator = new IssueReportCreator(context.Log);
 

@@ -41,12 +41,12 @@
             IPullRequestSystem pullRequestSystem,
             DirectoryPath repositoryRoot)
         {
-            context.NotNull(nameof(context));
-            pullRequestSystem.NotNull(nameof(pullRequestSystem));
-            repositoryRoot.NotNull(nameof(repositoryRoot));
+            context.NotNull();
+            pullRequestSystem.NotNull();
+            repositoryRoot.NotNull();
 
             // ReSharper disable once PossibleMultipleEnumeration
-            issues.NotNullOrEmptyElement(nameof(issues));
+            issues.NotNullOrEmptyElement();
 
             // ReSharper disable once PossibleMultipleEnumeration
             return
@@ -92,12 +92,12 @@
             IPullRequestSystem pullRequestSystem,
             IReportIssuesToPullRequestSettings settings)
         {
-            context.NotNull(nameof(context));
-            pullRequestSystem.NotNull(nameof(pullRequestSystem));
-            settings.NotNull(nameof(settings));
+            context.NotNull();
+            pullRequestSystem.NotNull();
+            settings.NotNull();
 
             // ReSharper disable once PossibleMultipleEnumeration
-            issues.NotNullOrEmptyElement(nameof(issues));
+            issues.NotNullOrEmptyElement();
 
             var orchestrator =
                 new Orchestrator(
@@ -140,10 +140,10 @@
             IPullRequestSystem pullRequestSystem,
             DirectoryPath repositoryRoot)
         {
-            context.NotNull(nameof(context));
-            issueProvider.NotNull(nameof(issueProvider));
-            pullRequestSystem.NotNull(nameof(pullRequestSystem));
-            repositoryRoot.NotNull(nameof(repositoryRoot));
+            context.NotNull();
+            issueProvider.NotNull();
+            pullRequestSystem.NotNull();
+            repositoryRoot.NotNull();
 
             return
                 context.ReportIssuesToPullRequest(
@@ -189,12 +189,12 @@
             IPullRequestSystem pullRequestSystem,
             DirectoryPath repositoryRoot)
         {
-            context.NotNull(nameof(context));
-            pullRequestSystem.NotNull(nameof(pullRequestSystem));
-            repositoryRoot.NotNull(nameof(repositoryRoot));
+            context.NotNull();
+            pullRequestSystem.NotNull();
+            repositoryRoot.NotNull();
 
             // ReSharper disable once PossibleMultipleEnumeration
-            issueProviders.NotNullOrEmptyOrEmptyElement(nameof(issueProviders));
+            issueProviders.NotNullOrEmptyOrEmptyElement();
 
             // ReSharper disable once PossibleMultipleEnumeration
             return
@@ -242,10 +242,10 @@
             IPullRequestSystem pullRequestSystem,
             IReportIssuesToPullRequestFromIssueProviderSettings settings)
         {
-            context.NotNull(nameof(context));
-            issueProvider.NotNull(nameof(issueProvider));
-            pullRequestSystem.NotNull(nameof(pullRequestSystem));
-            settings.NotNull(nameof(settings));
+            context.NotNull();
+            issueProvider.NotNull();
+            pullRequestSystem.NotNull();
+            settings.NotNull();
 
             return
                 context.ReportIssuesToPullRequest(
@@ -297,12 +297,12 @@
             IPullRequestSystem pullRequestSystem,
             IReportIssuesToPullRequestFromIssueProviderSettings settings)
         {
-            context.NotNull(nameof(context));
-            pullRequestSystem.NotNull(nameof(pullRequestSystem));
-            settings.NotNull(nameof(settings));
+            context.NotNull();
+            pullRequestSystem.NotNull();
+            settings.NotNull();
 
             // ReSharper disable once PossibleMultipleEnumeration
-            issueProviders.NotNullOrEmptyOrEmptyElement(nameof(issueProviders));
+            issueProviders.NotNullOrEmptyOrEmptyElement();
 
             var orchestrator =
                 new Orchestrator(

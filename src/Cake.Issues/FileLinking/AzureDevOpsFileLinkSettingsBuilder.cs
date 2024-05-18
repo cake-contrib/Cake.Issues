@@ -14,10 +14,10 @@
         /// Initializes a new instance of the <see cref="AzureDevOpsFileLinkSettingsBuilder"/> class.
         /// </summary>
         /// <param name="repositoryUrl">Full URL of the Git repository,
-        /// eg. <code>https://github.com/cake-contrib/Cake.Issues</code>.</param>
+        /// e.g. <code>https://github.com/cake-contrib/Cake.Issues</code>.</param>
         internal AzureDevOpsFileLinkSettingsBuilder(Uri repositoryUrl)
         {
-            repositoryUrl.NotNull(nameof(repositoryUrl));
+            repositoryUrl.NotNull();
 
             this.repositoryUrl = repositoryUrl;
         }
@@ -29,14 +29,14 @@
         /// <returns>Class for setting additional settings.</returns>
         public FileLinkOptionalSettingsBuilder Branch(string branchName)
         {
-            branchName.NotNullOrWhiteSpace(nameof(branchName));
+            branchName.NotNullOrWhiteSpace();
 
             return
                 new FileLinkOptionalSettingsBuilder(
                     (issue, values) =>
                     {
-                        issue.NotNull(nameof(issue));
-                        values.NotNull(nameof(values));
+                        issue.NotNull();
+                        values.NotNull();
 
                         var fileLinkPattern =
                             this.GetFileLinkPattern(issue, values, "GB", branchName);
@@ -51,14 +51,14 @@
         /// <returns>Class for setting additional settings.</returns>
         public FileLinkOptionalSettingsBuilder Commit(string commitId)
         {
-            commitId.NotNullOrWhiteSpace(nameof(commitId));
+            commitId.NotNullOrWhiteSpace();
 
             return
                 new FileLinkOptionalSettingsBuilder(
                     (issue, values) =>
                     {
-                        issue.NotNull(nameof(issue));
-                        values.NotNull(nameof(values));
+                        issue.NotNull();
+                        values.NotNull();
 
                         var fileLinkPattern =
                             this.GetFileLinkPattern(issue, values, "GC", commitId);
@@ -72,10 +72,10 @@
             string versionType,
             string version)
         {
-            issue.NotNull(nameof(issue));
-            values.NotNull(nameof(values));
-            versionType.NotNullOrWhiteSpace(nameof(versionType));
-            version.NotNullOrWhiteSpace(nameof(version));
+            issue.NotNull();
+            values.NotNull();
+            versionType.NotNullOrWhiteSpace();
+            version.NotNullOrWhiteSpace();
 
             var result =
                 this.repositoryUrl.ToString().TrimEnd('/') +

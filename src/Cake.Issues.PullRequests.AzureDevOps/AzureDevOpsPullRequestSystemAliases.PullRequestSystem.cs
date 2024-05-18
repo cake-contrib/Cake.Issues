@@ -16,7 +16,7 @@
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="repositoryUrl">Full URL of the Git repository,
-        /// eg. <code>http://myserver:8080/tfs/defaultcollection/myproject/_git/myrepository</code>.
+        /// e.g. <code>http://myserver:8080/tfs/defaultcollection/myproject/_git/myrepository</code>.
         /// Supported URL schemes are HTTP, HTTPS and SSH.
         /// URLs using SSH scheme are converted to HTTPS.</param>
         /// <param name="sourceBranch">Branch for which the pull request is made.</param>
@@ -46,10 +46,10 @@
             string sourceBranch,
             IAzureDevOpsCredentials credentials)
         {
-            context.NotNull(nameof(context));
-            repositoryUrl.NotNull(nameof(repositoryUrl));
-            sourceBranch.NotNullOrWhiteSpace(nameof(sourceBranch));
-            credentials.NotNull(nameof(credentials));
+            context.NotNull();
+            repositoryUrl.NotNull();
+            sourceBranch.NotNullOrWhiteSpace();
+            credentials.NotNull();
 
             return context.AzureDevOpsPullRequests(new AzureDevOpsPullRequestSystemSettings(repositoryUrl, sourceBranch, credentials));
         }
@@ -59,7 +59,7 @@
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="repositoryUrl">Full URL of the Git repository,
-        /// eg. <code>http://myserver:8080/tfs/defaultcollection/myproject/_git/myrepository</code>.
+        /// e.g. <code>http://myserver:8080/tfs/defaultcollection/myproject/_git/myrepository</code>.
         /// Supported URL schemes are HTTP, HTTPS and SSH.
         /// URLs using SSH scheme are converted to HTTPS.</param>
         /// <param name="pullRequestId">ID of the pull request.</param>
@@ -89,9 +89,9 @@
             int pullRequestId,
             IAzureDevOpsCredentials credentials)
         {
-            context.NotNull(nameof(context));
-            repositoryUrl.NotNull(nameof(repositoryUrl));
-            credentials.NotNull(nameof(credentials));
+            context.NotNull();
+            repositoryUrl.NotNull();
+            credentials.NotNull();
 
             return context.AzureDevOpsPullRequests(new AzureDevOpsPullRequestSystemSettings(repositoryUrl, pullRequestId, credentials));
         }
@@ -123,8 +123,8 @@
             this ICakeContext context,
             IAzureDevOpsCredentials credentials)
         {
-            context.NotNull(nameof(context));
-            credentials.NotNull(nameof(credentials));
+            context.NotNull();
+            credentials.NotNull();
 
             return context.AzureDevOpsPullRequests(new AzureDevOpsPullRequestSystemSettings(credentials));
         }
@@ -153,7 +153,7 @@
         public static IPullRequestSystem AzureDevOpsPullRequests(
             this ICakeContext context)
         {
-            context.NotNull(nameof(context));
+            context.NotNull();
 
             return context.AzureDevOpsPullRequests(new AzureDevOpsPullRequestSystemSettings());
         }
@@ -189,8 +189,8 @@
             this ICakeContext context,
             AzureDevOpsPullRequestSystemSettings settings)
         {
-            context.NotNull(nameof(context));
-            settings.NotNull(nameof(settings));
+            context.NotNull();
+            settings.NotNull();
 
             return new AzureDevOpsPullRequestSystem(context.Log, settings);
         }

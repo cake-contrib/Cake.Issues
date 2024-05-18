@@ -1,4 +1,3 @@
-using System.Threading.Tasks;
 using Cake.Frosting;
 
 public static class Program

@@ -10,13 +10,13 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="TerraformIssuesSettings"/> class.
         /// </summary>
-        /// <param name="validateOutputFilePath">Path to the the Terraform output file.</param>
+        /// <param name="validateOutputFilePath">Path to the Terraform output file.</param>
         /// <param name="terraformRootPath">Path to the directory of the Terraform scripts.
         /// Either the full path or the path relative to the repository root.</param>
         public TerraformIssuesSettings(FilePath validateOutputFilePath, DirectoryPath terraformRootPath)
             : base(validateOutputFilePath)
         {
-            terraformRootPath.NotNull(nameof(terraformRootPath));
+            terraformRootPath.NotNull();
 
             this.TerraformRootPath = terraformRootPath;
         }
@@ -30,7 +30,7 @@
         public TerraformIssuesSettings(byte[] validateOutput, DirectoryPath terraformRootPath)
             : base(validateOutput)
         {
-            terraformRootPath.NotNull(nameof(terraformRootPath));
+            terraformRootPath.NotNull();
 
             this.TerraformRootPath = terraformRootPath;
         }

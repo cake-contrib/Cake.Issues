@@ -2,10 +2,7 @@
 {
     using Cake.Core.Diagnostics;
     using Cake.Issues.PullRequests.AzureDevOps.Capabilities;
-    using Cake.Issues.Testing;
-    using Cake.Testing;
     using NSubstitute;
-    using Xunit;
 
     // ReSharper disable once ClassNeverInstantiated.Global
     public sealed class AzureDevOpsCheckingCommitIdCapabilityTests

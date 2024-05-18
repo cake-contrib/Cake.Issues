@@ -18,20 +18,31 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="GitHubActionsPullRequestSystem"/> class.
         /// </summary>
-        /// <param name="context">The Cake context.</param>
+        /// <param name="log">The Cake log.</param>
         /// <param name="settings">Settings for writing the issues to GitHub Actions.</param>
-        public GitHubActionsPullRequestSystem(ICakeContext context, GitHubActionsBuildSettings settings)
-            : base(context?.Log)
+        public GitHubActionsPullRequestSystem(ICakeLog log, GitHubActionsBuildSettings settings)
+            : base(log)
         {
-            settings.NotNull(nameof(settings));
+            settings.NotNull();
 
             this.settings = settings;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GitHubActionsPullRequestSystem"/> class.
+        /// </summary>
+        /// <param name="context">The Cake context.</param>
+        /// <param name="settings">Settings for writing the issues to GitHub Actions.</param>
+        [Obsolete("Please use the constructor which takes an ICakeLog instead.")]
+        public GitHubActionsPullRequestSystem(ICakeContext context, GitHubActionsBuildSettings settings)
+            : this(context?.Log, settings)
+        {
         }
 
         /// <inheritdoc />
         protected override void InternalPostDiscussionThreads(IEnumerable<IIssue> issues, string commentSource)
         {
-            issues.NotNull(nameof(issues));
+            issues.NotNull();
 
             if (this.settings.GroupIssues)
             {
@@ -48,8 +59,8 @@
         /// </summary>
         /// <param name="rootDirectoryPath">The root path of the file, relative to the repository root.</param>
         /// <param name="filePath">The file path relative to the project root.</param>
-        /// <param name="line">The line where the issue ocurred.</param>
-        /// <param name="column">The column where the issue ocurred.</param>
+        /// <param name="line">The line where the issue occurred.</param>
+        /// <param name="column">The column where the issue occurred.</param>
         /// <returns>Formatted options string for the warning service message.</returns>
         private static string FormatWarningOptions(DirectoryPath rootDirectoryPath, FilePath filePath, int? line, int? column)
         {
@@ -74,7 +85,7 @@
         }
 
         /// <summary>
-        /// Writes services messages to report issues to GitHub Actions grouped by provider and run.
+        /// Writes service messages to report issues to GitHub Actions grouped by provider and run.
         /// </summary>
         /// <param name="issues">Issues which should be reported.</param>
         private void WriteGroupedIssues(IEnumerable<IIssue> issues)

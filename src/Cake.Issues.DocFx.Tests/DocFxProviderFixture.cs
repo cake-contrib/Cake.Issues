@@ -1,8 +1,6 @@
 ﻿namespace Cake.Issues.DocFx.Tests
 {
-    using System.Collections.Generic;
     using Cake.Core.IO;
-    using Cake.Issues.Testing;
 
     internal class DocFxProviderFixture : BaseConfigurableIssueProviderFixture<DocFxIssuesProvider, DocFxIssuesSettings>
     {
@@ -11,7 +9,7 @@
         public DocFxProviderFixture(string fileResourceName, DirectoryPath docRootPath)
             : base(fileResourceName)
         {
-            docRootPath.NotNull(nameof(docRootPath));
+            docRootPath.NotNull();
 
             this.docRootPath = docRootPath;
             this.ReadIssuesSettings =

@@ -1,12 +1,7 @@
 ﻿namespace Cake.Issues.Tests.Serialization
 {
-    using System;
-    using System.Linq;
     using Cake.Core.IO;
     using Cake.Issues.Serialization;
-    using Cake.Issues.Testing;
-    using Shouldly;
-    using Xunit;
 
     public sealed class IssueDeserializationExtensionsTests
     {

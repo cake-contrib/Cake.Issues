@@ -37,7 +37,7 @@
         public SarifIssueReportGenerator(ICakeLog log, SarifIssueReportFormatSettings settings)
             : base(log)
         {
-            settings.NotNull(nameof(settings));
+            settings.NotNull();
 
             this.sarifIssueReportFormatSettings = settings;
         }
@@ -54,9 +54,12 @@
 
             var log = new SarifLog();
 
+            // ReSharper disable once PossibleMultipleEnumeration
             if (issues.Any())
             {
                 log.Runs = new List<Run>();
+
+                // ReSharper disable once PossibleMultipleEnumeration
                 foreach (var issueGroup in from issue in issues group issue by new { issue.ProviderType, issue.Run })
                 {
                     this.rules = [];
@@ -79,7 +82,7 @@
                             OriginalUriBaseIds = new Dictionary<string, ArtifactLocation>
                             {
                                 [RepoRootUriBaseId] =
-                                    new ArtifactLocation
+                                    new()
                                     {
                                         Uri = new Uri(this.Settings.RepositoryRoot.FullPath, UriKind.Absolute),
                                     },
@@ -112,7 +115,7 @@
 
         private Result GetResult(IIssue issue)
         {
-            issue.NotNull(nameof(issue));
+            issue.NotNull();
 
             var result =
                 new Result
@@ -137,7 +140,7 @@
             {
                 if (!string.IsNullOrEmpty(issue.RuleId))
                 {
-                    if (!this.ruleIndices.TryGetValue(issue.RuleId, out int value))
+                    if (!this.ruleIndices.TryGetValue(issue.RuleId, out var value))
                     {
                         this.ruleIndices.Add(issue.RuleId, this.rules.Count);
                         this.rules.Add(

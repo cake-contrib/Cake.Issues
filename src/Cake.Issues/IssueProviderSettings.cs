@@ -15,7 +15,7 @@
         /// <param name="logFilePath">Path to the log file.</param>
         public IssueProviderSettings(FilePath logFilePath)
         {
-            logFilePath.NotNull(nameof(logFilePath));
+            logFilePath.NotNull();
 
             this.LogFileContent = File.ReadAllBytes(logFilePath.FullPath);
         }
@@ -27,7 +27,7 @@
         /// <param name="logFileContent">Content of the log file.</param>
         public IssueProviderSettings(byte[] logFileContent)
         {
-            logFileContent.NotNull(nameof(logFileContent));
+            logFileContent.NotNull();
 
             this.LogFileContent = logFileContent;
         }

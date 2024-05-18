@@ -1,10 +1,5 @@
 ﻿namespace Cake.Issues.Tests
 {
-    using System;
-    using System.Collections.Generic;
-    using Cake.Issues.Testing;
-    using Xunit;
-
     public sealed class FileLinkSettingsTests
     {
         public sealed class TheCtor

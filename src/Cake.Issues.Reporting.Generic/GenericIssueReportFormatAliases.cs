@@ -19,11 +19,11 @@
     public static class GenericIssueReportFormatAliases
     {
         /// <summary>
-        /// Gets an instance of a the generic report format using an embedded template.
+        /// Gets an instance of the generic report format using an embedded template.
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="template">Template to use for generating the report.</param>
-        /// <returns>Instance of a the generic report format.</returns>
+        /// <returns>Instance of the generic report format.</returns>
         /// <example>
         /// <para>Create HTML report using the diagnostic template:</para>
         /// <code>
@@ -42,18 +42,18 @@
             this ICakeContext context,
             GenericIssueReportTemplate template)
         {
-            context.NotNull(nameof(context));
+            context.NotNull();
 
             return context.GenericIssueReportFormat(GenericIssueReportFormatSettings.FromEmbeddedTemplate(template));
         }
 
         /// <summary>
-        /// Gets an instance of a the generic report format using an embedded template with custom settings.
+        /// Gets an instance of the generic report format using an embedded template with custom settings.
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="template">Template to use for generating the report.</param>
         /// <param name="configurator">Action for defining the settings.</param>
-        /// <returns>Instance of a the generic report format.</returns>
+        /// <returns>Instance of the generic report format.</returns>
         /// <example>
         /// <para>Create HTML report using the HtmlDxDataGrid template with custom title:</para>
         /// <code>
@@ -75,8 +75,8 @@
             GenericIssueReportTemplate template,
             Action<GenericIssueReportFormatSettings> configurator)
         {
-            context.NotNull(nameof(context));
-            configurator.NotNull(nameof(configurator));
+            context.NotNull();
+            configurator.NotNull();
 
             var settings = GenericIssueReportFormatSettings.FromEmbeddedTemplate(template);
             configurator(settings);
@@ -84,11 +84,11 @@
         }
 
         /// <summary>
-        /// Gets an instance of a the generic report format using a local template.
+        /// Gets an instance of the generic report format using a local template.
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="templatePath">Path to the template to use for generating the report.</param>
-        /// <returns>Instance of a the generic report format.</returns>
+        /// <returns>Instance of the generic report format.</returns>
         /// <example>
         /// <para>Create HTML report from local template file:</para>
         /// <code>
@@ -107,19 +107,19 @@
             this ICakeContext context,
             FilePath templatePath)
         {
-            context.NotNull(nameof(context));
-            templatePath.NotNull(nameof(templatePath));
+            context.NotNull();
+            templatePath.NotNull();
 
             return context.GenericIssueReportFormat(GenericIssueReportFormatSettings.FromFilePath(templatePath));
         }
 
         /// <summary>
-        /// Gets an instance of a the generic report format using a local template with custom settings.
+        /// Gets an instance of the generic report format using a local template with custom settings.
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="templatePath">Path to the template to use for generating the report.</param>
         /// <param name="configurator">Action for defining the settings.</param>
-        /// <returns>Instance of a the generic report format.</returns>
+        /// <returns>Instance of the generic report format.</returns>
         /// <example>
         /// <para>Create HTML report from local template file with custom title:</para>
         /// <code>
@@ -141,9 +141,9 @@
             FilePath templatePath,
             Action<GenericIssueReportFormatSettings> configurator)
         {
-            context.NotNull(nameof(context));
-            templatePath.NotNull(nameof(templatePath));
-            configurator.NotNull(nameof(configurator));
+            context.NotNull();
+            templatePath.NotNull();
+            configurator.NotNull();
 
             var settings = GenericIssueReportFormatSettings.FromFilePath(templatePath);
             configurator(settings);
@@ -151,11 +151,11 @@
         }
 
         /// <summary>
-        /// Gets an instance of a the generic report format using a template string.
+        /// Gets an instance of the generic report format using a template string.
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="templateContent">Content of the template to use for generating the report.</param>
-        /// <returns>Instance of a the generic report format.</returns>
+        /// <returns>Instance of the generic report format.</returns>
         /// <example>
         /// <para>Create HTML report from a template string:</para>
         /// <code>
@@ -176,19 +176,19 @@
             this ICakeContext context,
             string templateContent)
         {
-            context.NotNull(nameof(context));
-            templateContent.NotNullOrWhiteSpace(nameof(templateContent));
+            context.NotNull();
+            templateContent.NotNullOrWhiteSpace();
 
             return context.GenericIssueReportFormat(GenericIssueReportFormatSettings.FromContent(templateContent));
         }
 
         /// <summary>
-        /// Gets an instance of a the generic report format using a template string with custom settings.
+        /// Gets an instance of the generic report format using a template string with custom settings.
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="templateContent">Content of the template to use for generating the report.</param>
         /// <param name="configurator">Action for defining the settings.</param>
-        /// <returns>Instance of a the generic report format.</returns>
+        /// <returns>Instance of the generic report format.</returns>
         /// <example>
         /// <para>Create HTML report from a template string with custom title:</para>
         /// <code>
@@ -212,9 +212,9 @@
             string templateContent,
             Action<GenericIssueReportFormatSettings> configurator)
         {
-            context.NotNull(nameof(context));
-            templateContent.NotNullOrWhiteSpace(nameof(templateContent));
-            configurator.NotNull(nameof(configurator));
+            context.NotNull();
+            templateContent.NotNullOrWhiteSpace();
+            configurator.NotNull();
 
             var settings = GenericIssueReportFormatSettings.FromContent(templateContent);
             configurator(settings);
@@ -222,11 +222,11 @@
         }
 
         /// <summary>
-        /// Gets an instance of a the generic report format using specified settings.
+        /// Gets an instance of the generic report format using specified settings.
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="settings">Settings for reading the MSBuild log.</param>
-        /// <returns>Instance of a the generic report format.</returns>
+        /// <returns>Instance of the generic report format.</returns>
         /// <example>
         /// <para>Create HTML report:</para>
         /// <code>
@@ -249,8 +249,8 @@
             this ICakeContext context,
             GenericIssueReportFormatSettings settings)
         {
-            context.NotNull(nameof(context));
-            settings.NotNull(nameof(settings));
+            context.NotNull();
+            settings.NotNull();
 
             return new GenericIssueReportGenerator(context.Log, settings);
         }

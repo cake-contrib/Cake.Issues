@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
     using System.IO;
     using System.Linq;
     using System.Runtime.Serialization;
@@ -22,16 +23,16 @@
             IRepositorySettings repositorySettings,
             MarkdownlintIssuesSettings markdownlintIssuesSettings)
         {
-            issueProvider.NotNull(nameof(issueProvider));
-            repositorySettings.NotNull(nameof(repositorySettings));
-            markdownlintIssuesSettings.NotNull(nameof(markdownlintIssuesSettings));
+            issueProvider.NotNull();
+            repositorySettings.NotNull();
+            markdownlintIssuesSettings.NotNull();
 
             if (markdownlintIssuesSettings.LogFileContent.Length == 0)
             {
                 return new List<IIssue>();
             }
 
-            IEnumerable<LogFileEntry> logFileEntries = null;
+            IEnumerable<LogFileEntry> logFileEntries;
             using (var ms = new MemoryStream(markdownlintIssuesSettings.LogFileContent.ToStringUsingEncoding(true).ToByteArray()))
             {
                 var jsonSerializer = new DataContractJsonSerializer(typeof(LogFileEntry[]));
@@ -105,6 +106,7 @@
 #pragma warning disable CS0649 // Field 'field' is never assigned to, and will always have its default value 'value'
 
         [DataContract]
+        [SuppressMessage("ReSharper", "InconsistentNaming", Justification = "Following file format")]
         private class LogFileEntry
         {
             [DataMember]

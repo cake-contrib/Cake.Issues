@@ -1,10 +1,6 @@
 ﻿namespace Cake.Issues.Terraform.Tests
 {
-    using System;
     using Cake.Core.IO;
-    using Cake.Issues.Testing;
-    using Shouldly;
-    using Xunit;
 
     public sealed class TerraformSettingsTests
     {
@@ -89,7 +85,7 @@
             public void Should_Set_ValidateOutput_If_Empty()
             {
                 // Given
-                byte[] validateOutput = Array.Empty<byte>();
+                byte[] validateOutput = [];
                 var terraformRootPath = @"c:\Source\Cake.Issues\docs";
 
                 // When
@@ -104,7 +100,7 @@
             {
                 // Given
                 var validateOutput = "Foo".ToByteArray();
-                var terraformRootPath = @"c:/Source/Cake.Issues/docs";
+                var terraformRootPath = "c:/Source/Cake.Issues/docs";
 
                 // When
                 var settings = new TerraformIssuesSettings(validateOutput, terraformRootPath);
@@ -132,7 +128,7 @@
             public void Should_Set_TerraformRootPath_From_ValidateOutputFilePath()
             {
                 // Given
-                var terraformRootPath = @"c:/Source/Cake.Issues/docs";
+                var terraformRootPath = "c:/Source/Cake.Issues/docs";
                 using (var tempFile = new ResourceTempFile("Cake.Issues.Terraform.Tests.Testfiles.basic.json"))
                 {
                     // When

@@ -1,11 +1,6 @@
 ﻿namespace Cake.Issues.Reporting.Generic.Tests
 {
-    using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
-    using Cake.Issues.Testing;
-    using Cake.Testing;
-    using Shouldly;
-    using Xunit;
 
     [SuppressMessage("ReSharper", "ClassNeverInstantiated.Global", Justification = "Instantiated by test runner")]
     [SuppressMessage("ReSharper", "ExpressionIsAlwaysNull", Justification = "By design for null tests")]
@@ -98,7 +93,7 @@
                             .Create(),
                     };
                 var expectedResult =
-                    @"<ul><li>Message Foo</li><li>Message Bar</li></ul>";
+                    "<ul><li>Message Foo</li><li>Message Bar</li></ul>";
 
                 // When
                 var result = fixture.CreateReport(issues);

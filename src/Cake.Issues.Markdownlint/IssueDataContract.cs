@@ -1,4 +1,5 @@
-﻿namespace Cake.Issues.Markdownlint
+﻿// ReSharper disable InconsistentNaming
+namespace Cake.Issues.Markdownlint
 {
     using System.Runtime.Serialization;
 

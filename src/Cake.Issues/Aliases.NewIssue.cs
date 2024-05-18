@@ -17,7 +17,7 @@
         /// <param name="providerName">The human friendly name of the issue provider.</param>
         /// <returns>Builder class for creating a new <see cref="IIssue"/>.</returns>
         /// <example>
-        /// <para>Create a new warning for the myfile.txt file on line 42:</para>
+        /// <para>Create a new warning for the <c>myfile.txt</c> file on line 42:</para>
         /// <code>
         /// <![CDATA[
         ///     var issue =
@@ -39,10 +39,10 @@
             string providerType,
             string providerName)
         {
-            context.NotNull(nameof(context));
-            message.NotNullOrWhiteSpace(nameof(message));
-            providerType.NotNullOrWhiteSpace(nameof(providerType));
-            providerName.NotNullOrWhiteSpace(nameof(providerName));
+            context.NotNull();
+            message.NotNullOrWhiteSpace();
+            providerType.NotNullOrWhiteSpace();
+            providerName.NotNullOrWhiteSpace();
 
             return IssueBuilder.NewIssue(message, providerType, providerName);
         }
@@ -57,7 +57,7 @@
         /// <param name="providerName">The human friendly name of the issue provider.</param>
         /// <returns>Builder class for creating a new <see cref="IIssue"/>.</returns>
         /// <example>
-        /// <para>Create a new warning for the myfile.txt file on line 42:</para>
+        /// <para>Create a new warning for the <c>myfile.txt</c> file on line 42:</para>
         /// <code>
         /// <![CDATA[
         ///     var issue =
@@ -81,11 +81,11 @@
             string providerType,
             string providerName)
         {
-            context.NotNull(nameof(context));
-            identifier.NotNullOrWhiteSpace(nameof(identifier));
-            message.NotNullOrWhiteSpace(nameof(message));
-            providerType.NotNullOrWhiteSpace(nameof(providerType));
-            providerName.NotNullOrWhiteSpace(nameof(providerName));
+            context.NotNull();
+            identifier.NotNullOrWhiteSpace();
+            message.NotNullOrWhiteSpace();
+            providerType.NotNullOrWhiteSpace();
+            providerName.NotNullOrWhiteSpace();
 
             return IssueBuilder.NewIssue(identifier, message, providerType, providerName);
         }

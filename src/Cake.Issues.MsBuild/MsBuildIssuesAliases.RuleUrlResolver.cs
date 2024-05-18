@@ -33,8 +33,8 @@
             this ICakeContext context,
             Func<MsBuildRuleDescription, Uri> resolver)
         {
-            context.NotNull(nameof(context));
-            resolver.NotNull(nameof(resolver));
+            context.NotNull();
+            resolver.NotNull();
 
             MsBuildRuleUrlResolver.Instance.AddUrlResolver(resolver);
         }
@@ -67,8 +67,8 @@
             Func<MsBuildRuleDescription, Uri> resolver,
             int priority)
         {
-            context.NotNull(nameof(context));
-            resolver.NotNull(nameof(resolver));
+            context.NotNull();
+            resolver.NotNull();
 
             MsBuildRuleUrlResolver.Instance.AddUrlResolver(resolver, priority);
         }

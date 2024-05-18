@@ -2,7 +2,6 @@
 {
     using System;
     using System.IO;
-    using System.Linq;
 
     /// <summary>
     /// Extensions for <see cref="string"/> for handling paths.
@@ -16,7 +15,7 @@
         /// <returns><c>True</c> if valid path.</returns>
         public static bool IsValidPath(this string path)
         {
-            path.NotNullOrWhiteSpace(nameof(path));
+            path.NotNullOrWhiteSpace();
 
             return path.IndexOfAny([.. Path.GetInvalidPathChars()]) == -1;
         }
@@ -28,7 +27,7 @@
         /// <returns><c>True</c> if full path.</returns>
         public static bool IsFullPath(this string path)
         {
-            path.NotNullOrWhiteSpace(nameof(path));
+            path.NotNullOrWhiteSpace();
 
             if (!path.IsValidPath())
             {
@@ -53,8 +52,8 @@
         public static bool IsSubpathOf(this string path, string baseDirPath)
         {
             // Based on http://stackoverflow.com/a/31941159/566901
-            path.NotNullOrWhiteSpace(nameof(path));
-            baseDirPath.NotNullOrWhiteSpace(nameof(baseDirPath));
+            path.NotNullOrWhiteSpace();
+            baseDirPath.NotNullOrWhiteSpace();
 
             if (!path.IsValidPath())
             {
@@ -84,7 +83,7 @@
         /// <returns>Normalized path string.</returns>
         public static string NormalizePath(this string path)
         {
-            path.NotNullOrWhiteSpace(nameof(path));
+            path.NotNullOrWhiteSpace();
 
             if (!path.IsValidPath())
             {
@@ -135,8 +134,8 @@
         /// and file path relative to <see cref="IRepositorySettings.RepositoryRoot"/>.</returns>
         public static (bool Valid, string FilePath) IsValidRepositoryFilePath(this string filePath, IRepositorySettings repositorySettings)
         {
-            filePath.NotNullOrWhiteSpace(nameof(filePath));
-            repositorySettings.NotNull(nameof(repositorySettings));
+            filePath.NotNullOrWhiteSpace();
+            repositorySettings.NotNull();
 
             // Ignore files from outside the repository.
             if (!filePath.IsInRepository(repositorySettings))
@@ -158,8 +157,8 @@
         /// <returns>True if file is in repository, false otherwise.</returns>
         public static bool IsInRepository(this string filePath, IRepositorySettings repositorySettings)
         {
-            filePath.NotNullOrWhiteSpace(nameof(filePath));
-            repositorySettings.NotNull(nameof(repositorySettings));
+            filePath.NotNullOrWhiteSpace();
+            repositorySettings.NotNull();
 
             return filePath.IsSubpathOf(repositorySettings.RepositoryRoot.FullPath);
         }
@@ -172,8 +171,8 @@
         /// <returns>File path relative to the repository root.</returns>
         public static string MakeFilePathRelativeToRepositoryRoot(this string filePath, IRepositorySettings repositorySettings)
         {
-            filePath.NotNullOrWhiteSpace(nameof(filePath));
-            repositorySettings.NotNull(nameof(repositorySettings));
+            filePath.NotNullOrWhiteSpace();
+            repositorySettings.NotNull();
 
             filePath = filePath[repositorySettings.RepositoryRoot.FullPath.Length..];
 
@@ -188,7 +187,7 @@
         /// <returns>File path without leading directory separator.</returns>
         public static string RemoveLeadingDirectorySeparator(this string filePath)
         {
-            filePath.NotNullOrWhiteSpace(nameof(filePath));
+            filePath.NotNullOrWhiteSpace();
 
             if (filePath.StartsWith('\\') ||
                 filePath.StartsWith('/'))
@@ -205,7 +204,7 @@
         /// <returns>The substring.</returns>
         internal static string Right(this string value, int length)
         {
-            value.NotNull(nameof(value));
+            value.NotNull();
 
             if (length < 0)
             {

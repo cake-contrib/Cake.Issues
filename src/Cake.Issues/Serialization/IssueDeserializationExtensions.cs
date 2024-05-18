@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.IO;
+    using System.Linq;
     using System.Text;
     using System.Text.Json;
     using System.Text.Json.Nodes;
@@ -20,7 +21,7 @@
         /// <returns>Instance of the issue.</returns>
         public static Issue DeserializeToIssue(this string jsonString)
         {
-            jsonString.NotNullOrWhiteSpace(nameof(jsonString));
+            jsonString.NotNullOrWhiteSpace();
 
             using (var stream = new MemoryStream(Encoding.Default.GetBytes(jsonString)))
             {
@@ -35,7 +36,7 @@
         /// <returns>Instance of the issue.</returns>
         public static Issue DeserializeToIssue(this FilePath filePath)
         {
-            filePath.NotNull(nameof(filePath));
+            filePath.NotNull();
 
             using (var stream = File.Open(filePath.FullPath, FileMode.Open))
             {
@@ -50,7 +51,7 @@
         /// <returns>List of issues.</returns>
         public static IEnumerable<Issue> DeserializeToIssues(this string jsonString)
         {
-            jsonString.NotNullOrWhiteSpace(nameof(jsonString));
+            jsonString.NotNullOrWhiteSpace();
 
             using (var stream = new MemoryStream(Encoding.Default.GetBytes(jsonString)))
             {
@@ -65,7 +66,7 @@
         /// <returns>List of issues.</returns>
         public static IEnumerable<Issue> DeserializeToIssues(this FilePath filePath)
         {
-            filePath.NotNull(nameof(filePath));
+            filePath.NotNull();
 
             using (var stream = File.Open(filePath.FullPath, FileMode.Open))
             {
@@ -101,13 +102,13 @@
             {
                 var jsonContent = reader.ReadToEnd();
 
-                var data = JsonNode.Parse(jsonContent) as JsonArray;
-
                 var issues = new List<Issue>();
-                foreach (var element in data)
+                if (JsonNode.Parse(jsonContent) is not JsonArray data)
                 {
-                    issues.Add(DeserializeJsonDataToIssue(element));
+                    return issues;
                 }
+
+                issues.AddRange(data.Select(DeserializeJsonDataToIssue));
 
                 return issues;
             }

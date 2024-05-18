@@ -1,14 +1,8 @@
 ﻿namespace Cake.Issues.PullRequests.Tests
 {
-    using System.Collections.Generic;
-    using System.Linq;
-    using Cake.Issues.Testing;
-    using Shouldly;
-    using Xunit;
-
     public sealed class IIssueExtensionsTests
     {
-        public sealed class TheSortWithDefaultPriorizationMethod
+        public sealed class TheSortWithDefaultPrioritizationMethod
         {
             [Fact]
             public void Should_Throw_If_Issues_Are_Null()
@@ -19,7 +13,7 @@
                 // When
                 var result =
                     Record.Exception(() =>
-                        issues.SortWithDefaultPriorization());
+                        issues.SortWithDefaultPrioritization());
 
                 // Then
                 result.IsArgumentNullException("issues");
@@ -51,7 +45,7 @@
                     };
 
                 // When
-                var result = issues.SortWithDefaultPriorization().ToList();
+                var result = issues.SortWithDefaultPrioritization().ToList();
 
                 // Then
                 result.First().ShouldBe(issue2);
@@ -83,7 +77,7 @@
                     };
 
                 // When
-                var result = issues.SortWithDefaultPriorization().ToList();
+                var result = issues.SortWithDefaultPrioritization().ToList();
 
                 // Then
                 result.First().ShouldBe(issue2);
@@ -116,7 +110,7 @@
                     };
 
                 // When
-                var result = issues.SortWithDefaultPriorization().ToList();
+                var result = issues.SortWithDefaultPrioritization().ToList();
 
                 // Then
                 result.First().ShouldBe(issue2);

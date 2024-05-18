@@ -23,7 +23,7 @@
         public ConsoleIssueReportGenerator(ICakeLog log, ConsoleIssueReportFormatSettings settings)
             : base(log)
         {
-            settings.NotNull(nameof(settings));
+            settings.NotNull();
 
             this.consoleIssueReportFormatSettings = settings;
         }
@@ -32,7 +32,7 @@
         protected override FilePath InternalCreateReport(IEnumerable<IIssue> issues)
         {
             var enumeratedIssues = issues.ToList();
-            if (this.consoleIssueReportFormatSettings.ShowProviderSummary)
+            if (this.consoleIssueReportFormatSettings.ShowDiagnostics)
             {
                 // Filter to issues from existing files
                 var diagnosticIssues =
@@ -126,11 +126,11 @@
                         issueProvider += " / {runGroup.Key}";
                     }
 
-                    var errorCount = runGroup.Count(x => x.Priority.HasValue && x.Priority.Value == (int)IssuePriority.Error);
-                    var warningCount = runGroup.Count(x => x.Priority.HasValue && x.Priority.Value == (int)IssuePriority.Warning);
-                    var hintCount = runGroup.Count(x => x.Priority.HasValue && x.Priority.Value == (int)IssuePriority.Hint);
-                    var suggestionCount = runGroup.Count(x => x.Priority.HasValue && x.Priority.Value == (int)IssuePriority.Suggestion);
-                    var unknownCount = runGroup.Count(x => !x.Priority.HasValue || x.Priority.Value == (int)IssuePriority.Undefined);
+                    var errorCount = runGroup.Count(x => x.Priority is (int)IssuePriority.Error);
+                    var warningCount = runGroup.Count(x => x.Priority is (int)IssuePriority.Warning);
+                    var hintCount = runGroup.Count(x => x.Priority is (int)IssuePriority.Hint);
+                    var suggestionCount = runGroup.Count(x => x.Priority is (int)IssuePriority.Suggestion);
+                    var unknownCount = runGroup.Count(x => x.Priority is null or (int)IssuePriority.Undefined);
 
                     var chart =
                         new BarChart()

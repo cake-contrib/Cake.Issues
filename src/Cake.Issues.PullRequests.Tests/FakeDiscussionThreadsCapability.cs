@@ -1,6 +1,5 @@
 ﻿namespace Cake.Issues.PullRequests.Tests
 {
-    using System.Collections.Generic;
     using Cake.Core.Diagnostics;
 
     /// <summary>
@@ -25,7 +24,7 @@
             : base(log, pullRequestSystem)
         {
             // ReSharper disable once PossibleMultipleEnumeration
-            discussionThreads.NotNull(nameof(discussionThreads));
+            discussionThreads.NotNull();
 
             // ReSharper disable once PossibleMultipleEnumeration
             this.discussionThreads.AddRange(discussionThreads);
@@ -66,7 +65,7 @@
         protected override void InternalResolveDiscussionThreads(IEnumerable<IPullRequestDiscussionThread> threads)
         {
             // ReSharper disable once PossibleMultipleEnumeration
-            threads.NotNull(nameof(threads));
+            threads.NotNull();
 
             // ReSharper disable once PossibleMultipleEnumeration
             this.resolvedThreads.AddRange(threads);
@@ -76,7 +75,7 @@
         protected override void InternalReopenDiscussionThreads(IEnumerable<IPullRequestDiscussionThread> threads)
         {
             // ReSharper disable once PossibleMultipleEnumeration
-            threads.NotNull(nameof(threads));
+            threads.NotNull();
 
             // ReSharper disable once PossibleMultipleEnumeration
             this.reopenedThreads.AddRange(threads);

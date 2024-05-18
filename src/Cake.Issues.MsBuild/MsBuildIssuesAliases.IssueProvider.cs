@@ -20,7 +20,7 @@
         public static string MsBuildIssuesProviderTypeName(
             this ICakeContext context)
         {
-            context.NotNull(nameof(context));
+            context.NotNull();
 
             return MsBuildIssuesProvider.ProviderTypeName;
         }
@@ -29,7 +29,7 @@
         /// Gets an instance of a provider for issues reported as MsBuild warnings using a log file from disk.
         /// </summary>
         /// <param name="context">The context.</param>
-        /// <param name="logFilePath">Path to the the MsBuild log file.
+        /// <param name="logFilePath">Path to the MsBuild log file.
         /// The log file needs to be in the format as defined by the <paramref name="format"/> parameter.</param>
         /// <param name="format">Format of the provided MsBuild log file.</param>
         /// <returns>Instance of a provider for issues reported as MsBuild warnings.</returns>
@@ -53,9 +53,9 @@
             FilePath logFilePath,
             BaseMsBuildLogFileFormat format)
         {
-            context.NotNull(nameof(context));
-            logFilePath.NotNull(nameof(logFilePath));
-            format.NotNull(nameof(format));
+            context.NotNull();
+            logFilePath.NotNull();
+            format.NotNull();
 
             return context.MsBuildIssues(new MsBuildIssuesSettings(logFilePath, format));
         }
@@ -64,7 +64,7 @@
         /// Gets an instance of a provider for issues reported as MsBuild warnings using log content.
         /// </summary>
         /// <param name="context">The context.</param>
-        /// <param name="logFileContent">Content of the the MsBuild log file.
+        /// <param name="logFileContent">Content of the MsBuild log file.
         /// The log file needs to be in the format as defined by the <paramref name="format"/> parameter.</param>
         /// <param name="format">Format of the provided MsBuild log file.</param>
         /// <returns>Instance of a provider for issues reported as MsBuild warnings.</returns>
@@ -88,9 +88,9 @@
             string logFileContent,
             BaseMsBuildLogFileFormat format)
         {
-            context.NotNull(nameof(context));
-            logFileContent.NotNullOrWhiteSpace(nameof(logFileContent));
-            format.NotNull(nameof(format));
+            context.NotNull();
+            logFileContent.NotNullOrWhiteSpace();
+            format.NotNull();
 
             return context.MsBuildIssues(new MsBuildIssuesSettings(logFileContent.ToByteArray(), format));
         }
@@ -123,8 +123,8 @@
             this ICakeContext context,
             MsBuildIssuesSettings settings)
         {
-            context.NotNull(nameof(context));
-            settings.NotNull(nameof(settings));
+            context.NotNull();
+            settings.NotNull();
 
             return new MsBuildIssuesProvider(context.Log, settings);
         }

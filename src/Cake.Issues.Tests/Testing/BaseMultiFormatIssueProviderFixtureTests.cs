@@ -1,9 +1,5 @@
 ﻿namespace Cake.Issues.Tests.Testing
 {
-    using Cake.Issues.Testing;
-    using Shouldly;
-    using Xunit;
-
     public sealed class BaseMultiFormatIssueProviderFixtureTests
     {
         public sealed class TheCtor

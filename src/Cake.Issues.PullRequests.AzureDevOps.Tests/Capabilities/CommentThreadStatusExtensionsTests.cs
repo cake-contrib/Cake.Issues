@@ -2,8 +2,6 @@
 {
     using Cake.AzureDevOps.Repos.PullRequest.CommentThread;
     using Cake.Issues.PullRequests.AzureDevOps.Capabilities;
-    using Shouldly;
-    using Xunit;
 
     // ReSharper disable once ClassNeverInstantiated.Global
     public sealed class CommentThreadStatusExtensionsTests

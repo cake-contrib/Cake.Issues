@@ -15,7 +15,7 @@
         /// <param name="resourceName">Full name of the embedded resource in the calling assembly.</param>
         public ResourceTempFile(string resourceName)
         {
-            resourceName.NotNullOrWhiteSpace(nameof(resourceName));
+            resourceName.NotNullOrWhiteSpace();
 
             using (var ms = new MemoryStream())
             using (var stream = Assembly.GetCallingAssembly().GetManifestResourceStream(resourceName))

@@ -9,27 +9,27 @@
     public static class ByteArrayExtensions
     {
         /// <summary>
-        /// Removes the BOM of an UTF-8 encoded byte array.
+        /// Removes the BOM of a UTF-8 encoded byte array.
         /// </summary>
         /// <param name="value">UTF-8 encoded byte array.</param>
         /// <returns>UTF-8 encoded byte array without BOM.</returns>
         public static byte[] RemovePreamble(this byte[] value)
         {
-            value.NotNull(nameof(value));
+            value.NotNull();
 
             return value.RemovePreamble(Encoding.UTF8);
         }
 
         /// <summary>
-        /// Removes the preamble from an byte array.
+        /// Removes the preamble from a byte array.
         /// </summary>
         /// <param name="value">Byte array.</param>
         /// <param name="encoding">Encoding of the byte array.</param>
         /// <returns>Byte array without preamble.</returns>
         public static byte[] RemovePreamble(this byte[] value, Encoding encoding)
         {
-            value.NotNull(nameof(value));
-            encoding.NotNull(nameof(encoding));
+            value.NotNull();
+            encoding.NotNull();
 
             var preamble = encoding.GetPreamble();
 
@@ -42,26 +42,26 @@
         }
 
         /// <summary>
-        /// Converts a byte array of an UTF-8 encoded string to a string.
+        /// Converts a byte array of a UTF-8 encoded string to a string.
         /// </summary>
         /// <param name="value">Value to convert.</param>
         /// <returns>Converted string.</returns>
         public static string ToStringUsingEncoding(this byte[] value)
         {
-            value.NotNull(nameof(value));
+            value.NotNull();
 
             return value.ToStringUsingEncoding(false);
         }
 
         /// <summary>
-        /// Converts a byte array of an UTF-8 encoded string to a string.
+        /// Converts a byte array of a UTF-8 encoded string to a string.
         /// </summary>
         /// <param name="value">Value to convert.</param>
         /// <param name="skipPreamble">True if <paramref name="value"/> contains a BOM which should not be returned.</param>
         /// <returns>Converted string.</returns>
         public static string ToStringUsingEncoding(this byte[] value, bool skipPreamble)
         {
-            value.NotNull(nameof(value));
+            value.NotNull();
 
             return value.ToStringUsingEncoding(Encoding.UTF8, skipPreamble);
         }
@@ -75,7 +75,7 @@
         /// <returns>Converted string.</returns>
         public static string ToStringUsingEncoding(this byte[] value, Encoding encoding, bool skipPreamble)
         {
-            value.NotNull(nameof(value));
+            value.NotNull();
 
             if (value.Length > 0 && skipPreamble)
             {
@@ -92,7 +92,7 @@
         /// <returns>Byte array with string value in UTF-8 encoding.</returns>
         public static byte[] ToByteArray(this string value)
         {
-            value.NotNull(nameof(value));
+            value.NotNull();
 
             return value.ToByteArray(Encoding.UTF8);
         }
@@ -105,8 +105,8 @@
         /// <returns>Byte array with string value in specified encoding.</returns>
         public static byte[] ToByteArray(this string value, Encoding encoding)
         {
-            value.NotNull(nameof(value));
-            encoding.NotNull(nameof(encoding));
+            value.NotNull();
+            encoding.NotNull();
 
             return encoding.GetBytes(value);
         }

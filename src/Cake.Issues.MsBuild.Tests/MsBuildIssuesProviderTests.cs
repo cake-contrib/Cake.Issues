@@ -2,9 +2,6 @@
 {
     using Cake.Core.Diagnostics;
     using Cake.Issues.MsBuild.LogFileFormat;
-    using Cake.Issues.Testing;
-    using Cake.Testing;
-    using Xunit;
 
     public sealed class MsBuildIssuesProviderTests
     {

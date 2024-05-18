@@ -1,12 +1,7 @@
 ﻿namespace Cake.Issues.Reporting.Generic.Tests
 {
-    using System;
-    using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
-    using System.Linq;
     using HtmlAgilityPack;
-    using Shouldly;
-    using Xunit;
 
     [SuppressMessage("ReSharper", "ClassNeverInstantiated.Global", Justification = "Instantiated by test runner")]
     [SuppressMessage("ReSharper", "ExpressionIsAlwaysNull", Justification = "By design for null tests")]
@@ -811,7 +806,7 @@
                             HtmlDxDataGridOption.AdditionalColumns,
                             new List<HtmlDxDataGridColumnDescription>
                             {
-                                new("MyCustomColumn", x => "Foo")
+                                new("MyCustomColumn", _ => "Foo")
                                 {
                                     Caption = "Custom Value",
                                 },

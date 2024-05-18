@@ -1,10 +1,6 @@
 namespace Cake.Issues.PullRequests.Tests
 {
-    using System;
-    using System.Collections.Generic;
     using Cake.Core.Diagnostics;
-    using Cake.Issues.Testing;
-    using Cake.Testing;
 
     internal class OrchestratorForIssueProvidersFixture
     {
@@ -16,7 +12,7 @@ namespace Cake.Issues.PullRequests.Tests
         public OrchestratorForIssueProvidersFixture(
             Func<FakePullRequestSystemBuilder, IReportIssuesToPullRequestSettings, FakePullRequestSystemBuilder> pullRequestSettings)
         {
-            pullRequestSettings.NotNull(nameof(pullRequestSettings));
+            pullRequestSettings.NotNull();
 
             this.Log = new FakeLog { Verbosity = Verbosity.Normal };
 

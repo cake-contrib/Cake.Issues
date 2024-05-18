@@ -18,9 +18,9 @@
         /// </summary>
         /// <param name="issues">Issues to be sorted.</param>
         /// <returns>The sorted issues.</returns>
-        public static IEnumerable<IIssue> SortWithDefaultPriorization(this IEnumerable<IIssue> issues)
+        public static IEnumerable<IIssue> SortWithDefaultPrioritization(this IEnumerable<IIssue> issues)
         {
-            issues.NotNull(nameof(issues));
+            issues.NotNull();
 
             return issues
                 .OrderByDescending(x => x.Priority)

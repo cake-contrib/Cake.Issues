@@ -11,7 +11,7 @@
         /// Initializes a new instance of the <see cref="EsLintIssuesSettings"/> class
         /// for reading a log file on disk.
         /// </summary>
-        /// <param name="logFilePath">Path to the the ESLint log file.
+        /// <param name="logFilePath">Path to the ESLint log file.
         /// The log file needs to be in the format as defined by the <paramref name="format"/> parameter.</param>
         /// <param name="format">Format of the provided ESLint log file.</param>
         public EsLintIssuesSettings(FilePath logFilePath, BaseEsLintLogFileFormat format)
@@ -23,7 +23,7 @@
         /// Initializes a new instance of the <see cref="EsLintIssuesSettings"/> class
         /// for a log file content in memory.
         /// </summary>
-        /// <param name="logFileContent">Content of the the ESLint log file.
+        /// <param name="logFileContent">Content of the ESLint log file.
         /// The log file needs to be in the format as defined by the <paramref name="format"/> parameter.</param>
         /// <param name="format">Format of the provided ESLint log file.</param>
         public EsLintIssuesSettings(byte[] logFileContent, BaseEsLintLogFileFormat format)

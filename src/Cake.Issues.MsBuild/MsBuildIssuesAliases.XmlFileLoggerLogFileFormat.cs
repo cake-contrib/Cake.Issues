@@ -28,7 +28,7 @@
         /// </code>
         /// </para>
         /// <para>
-        /// In order to use the above logger, include the following in your build.cake file to download and
+        /// In order to use the above logger, include the following in your <c>build.cake</c> file to download and
         /// install from NuGet.org:
         /// <code>
         /// #tool "nuget:?package=MSBuild.Extension.Pack"
@@ -42,7 +42,7 @@
         public static BaseMsBuildLogFileFormat MsBuildXmlFileLoggerFormat(
             this ICakeContext context)
         {
-            context.NotNull(nameof(context));
+            context.NotNull();
 
             return new XmlFileLoggerLogFileFormat(context.Log);
         }

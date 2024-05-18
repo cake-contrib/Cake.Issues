@@ -1,11 +1,6 @@
 ﻿namespace Cake.Issues.EsLint.Tests.LogFileFormat
 {
-    using System;
-    using System.Linq;
     using Cake.Issues.EsLint.LogFileFormat;
-    using Cake.Issues.Testing;
-    using Shouldly;
-    using Xunit;
 
     public sealed class JsonLogFileFormatTests
     {

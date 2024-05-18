@@ -1,9 +1,5 @@
 ﻿namespace Cake.Issues.EsLint.Tests
 {
-    using System;
-    using Shouldly;
-    using Xunit;
-
     public sealed class EsLintRuleUrlResolverTests
     {
         public sealed class TheResolveRuleUrlMethod

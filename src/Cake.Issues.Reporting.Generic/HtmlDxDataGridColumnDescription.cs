@@ -10,12 +10,12 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="HtmlDxDataGridColumnDescription"/> class.
         /// </summary>
-        /// <param name="id">Id of the column.</param>
+        /// <param name="id">ID of the column.</param>
         /// <param name="valueRetriever">Function for retrieving the value of the column.</param>
         public HtmlDxDataGridColumnDescription(string id, Func<IIssue, object> valueRetriever)
         {
-            id.NotNullOrWhiteSpace(nameof(id));
-            valueRetriever.NotNull(nameof(valueRetriever));
+            id.NotNullOrWhiteSpace();
+            valueRetriever.NotNull();
 
             this.Id = id;
             this.ValueRetriever = valueRetriever;
@@ -34,6 +34,7 @@
         /// <summary>
         /// Gets or sets the caption of the column.
         /// </summary>
+        // ReSharper disable once PropertyCanBeMadeInitOnly.Global
         public string Caption { get; set; }
 
         /// <summary>
@@ -41,6 +42,7 @@
         /// See <see cref="ReportColumn"/> for values of default columns.
         /// Default value is zero, which means that the column will be added before any default columns.
         /// </summary>
+        // ReSharper disable once UnusedAutoPropertyAccessor.Global
         public int VisibleIndex { get; set; }
 
         /// <summary>
@@ -48,6 +50,7 @@
         /// Applies only if <see cref="HtmlDxDataGridOption.EnableFiltering"/> is set.
         /// Default value is <c>true</c>.
         /// </summary>
+        // ReSharper disable once AutoPropertyCanBeMadeGetOnly.Global
         public bool AllowFiltering { get; set; } = true;
 
         /// <summary>
@@ -55,12 +58,14 @@
         /// Applies only if <see cref="HtmlDxDataGridOption.EnableGrouping"/> is set.
         /// Default value is <c>true</c>.
         /// </summary>
+        // ReSharper disable once AutoPropertyCanBeMadeGetOnly.Global
         public bool AllowGrouping { get; set; } = true;
 
         /// <summary>
         /// Gets or sets a value indicating whether a user can sort rows by this column at runtime or not.
         /// Default value is <c>true</c>.
         /// </summary>
+        // ReSharper disable once AutoPropertyCanBeMadeGetOnly.Global
         public bool AllowSorting { get; set; } = true;
     }
 }

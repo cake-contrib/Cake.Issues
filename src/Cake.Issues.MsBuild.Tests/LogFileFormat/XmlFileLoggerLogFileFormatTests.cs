@@ -1,14 +1,8 @@
 ﻿namespace Cake.Issues.MsBuild.Tests.LogFileFormat
 {
-    using System;
-    using System.IO;
-    using System.Linq;
     using System.Runtime.InteropServices;
     using Cake.Core.Diagnostics;
     using Cake.Issues.MsBuild.LogFileFormat;
-    using Cake.Issues.Testing;
-    using Shouldly;
-    using Xunit;
 
     public sealed class XmlFileLoggerLogFileFormatTests
     {
@@ -251,7 +245,7 @@
                 IssueChecker.Check(
                     issues.Single(),
                     IssueBuilder.NewIssue(
-                        @"Microsoft.Usage : 'ConfigurationManager.GetSortedConfigFiles(String)' creates an exception of type 'ApplicationException', an exception type that is not sufficiently specific and should never be raised by user code. If this exception instance might be thrown, use a different exception type.",
+                        "Microsoft.Usage : 'ConfigurationManager.GetSortedConfigFiles(String)' creates an exception of type 'ApplicationException', an exception type that is not sufficiently specific and should never be raised by user code. If this exception instance might be thrown, use a different exception type.",
                         "Cake.Issues.MsBuild.MsBuildIssuesProvider",
                         "MSBuild")
                         .InProjectOfName(string.Empty)
@@ -430,7 +424,7 @@
                 IssueChecker.Check(
                     issues[0],
                     IssueBuilder.NewIssue(
-                            @"'ConfigurationManager.GetSortedConfigFiles(String)': not all code paths return a value",
+                            "'ConfigurationManager.GetSortedConfigFiles(String)': not all code paths return a value",
                             "Cake.Issues.MsBuild.MsBuildIssuesProvider",
                             "MSBuild")
                         .InProjectOfName(string.Empty)
@@ -453,7 +447,7 @@
                 IssueChecker.Check(
                     issues[0],
                     IssueBuilder.NewIssue(
-                            @"Microsoft.Usage : 'ConfigurationManager.GetSortedConfigFiles(String)' creates an exception of type 'ApplicationException', an exception type that is not sufficiently specific and should never be raised by user code. If this exception instance might be thrown, use a different exception type.",
+                            "Microsoft.Usage : 'ConfigurationManager.GetSortedConfigFiles(String)' creates an exception of type 'ApplicationException', an exception type that is not sufficiently specific and should never be raised by user code. If this exception instance might be thrown, use a different exception type.",
                             "Cake.Issues.MsBuild.MsBuildIssuesProvider",
                             "MSBuild")
                         .InProjectOfName(string.Empty)
@@ -463,7 +457,7 @@
                 IssueChecker.Check(
                     issues[1],
                     IssueBuilder.NewIssue(
-                            @"'ConfigurationManager.GetSortedConfigFiles(String)': not all code paths return a value",
+                            "'ConfigurationManager.GetSortedConfigFiles(String)': not all code paths return a value",
                             "Cake.Issues.MsBuild.MsBuildIssuesProvider",
                             "MSBuild")
                         .InProjectOfName(string.Empty)

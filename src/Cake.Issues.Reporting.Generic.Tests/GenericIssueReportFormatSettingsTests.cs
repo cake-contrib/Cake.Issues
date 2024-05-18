@@ -1,14 +1,9 @@
 ﻿namespace Cake.Issues.Reporting.Generic.Tests
 {
-    using System;
     using System.Diagnostics.CodeAnalysis;
     using System.IO;
-    using System.Linq;
     using System.Text;
     using Cake.Core.IO;
-    using Cake.Issues.Testing;
-    using Shouldly;
-    using Xunit;
 
     [SuppressMessage("ReSharper", "ClassNeverInstantiated.Global", Justification = "Instantiated by test runner")]
     [SuppressMessage("ReSharper", "ExpressionIsAlwaysNull", Justification = "By design for null tests")]

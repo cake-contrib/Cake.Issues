@@ -1,5 +1,6 @@
 ﻿namespace Cake.Issues.Terraform
 {
+    using System;
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
@@ -35,7 +36,7 @@
                 terraformRootPath = terraformRootPath.MakeAbsolute(this.Settings.RepositoryRoot);
             }
 
-            ValidateFile validateFile = null;
+            ValidateFile validateFile;
 
             var logFileContent = this.IssueProviderSettings.LogFileContent.ToStringUsingEncoding(true);
 
@@ -43,6 +44,11 @@
             {
                 var jsonSerializer = new DataContractJsonSerializer(typeof(ValidateFile));
                 validateFile = jsonSerializer.ReadObject(ms) as ValidateFile;
+            }
+
+            if (validateFile == null)
+            {
+                throw new InvalidOperationException("Failed to read log file content.");
             }
 
             return
@@ -111,7 +117,7 @@
         }
 
         /// <summary>
-        /// Reads the affected file path from a issue logged by terraform validate.
+        /// Reads the affected file path from an issue logged by terraform validate.
         /// </summary>
         /// <param name="fileName">The file name in the current log entry.</param>
         /// <param name="terraformRootPath">Absolute path to the root directory of the Terraform scripts.</param>

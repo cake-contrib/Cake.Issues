@@ -1,11 +1,6 @@
 ﻿namespace Cake.Issues.Markdownlint.Tests.LogFileFormat
 {
-    using System;
-    using System.Linq;
     using Cake.Issues.Markdownlint.LogFileFormat;
-    using Cake.Issues.Testing;
-    using Shouldly;
-    using Xunit;
 
     public sealed class MarkdownlintV1LogFileFormatTests
     {

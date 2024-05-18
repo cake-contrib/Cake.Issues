@@ -27,8 +27,11 @@
         /// </summary>
         /// <param name="issues">Issues which the diagnostic should describe.</param>
         public IssueDiagnostic(IEnumerable<IIssue> issues)
-        : base(issues.First().RuleId)
+
+            // ReSharper disable once PossibleMultipleEnumeration
+            : base(issues.First().RuleId)
         {
+            // ReSharper disable once PossibleMultipleEnumeration
             this.issues = issues;
 
             var firstIssue = this.issues.First();
@@ -67,7 +70,7 @@
 
             foreach (var issue in this.issues)
             {
-                (var location, var length) = this.GetLocation(issue);
+                var (location, length) = this.GetLocation(issue);
                 var label =
                     new Label(
                         issue.AffectedFileRelativePath.FullPath,
@@ -99,13 +102,13 @@
 
             var location = new Location(issue.Line.Value, issue.Column.Value);
 
-            var lenght = 0;
+            var length = 0;
             if (issue.EndColumn.HasValue)
             {
-                lenght = issue.EndColumn.Value - issue.Column.Value;
+                length = issue.EndColumn.Value - issue.Column.Value;
             }
 
-            return (location, lenght);
+            return (location, length);
         }
     }
 }

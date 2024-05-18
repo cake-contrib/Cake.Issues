@@ -16,7 +16,7 @@
         /// <param name="resolver">Resolver which returns an <see cref="Uri"/> linking to a site
         /// containing help for a specific <see cref="MarkdownlintRuleDescription"/>.</param>
         /// <example>
-        /// <para>Adds a provider with default priority of 0 returning a link for all rules with Id smaller than 20 to
+        /// <para>Adds a provider with default priority of 0 returning a link for all rules with ID smaller than 20 to
         /// search with Google for the rule:</para>
         /// <code>
         /// <![CDATA[
@@ -33,8 +33,8 @@
             this ICakeContext context,
             Func<MarkdownlintRuleDescription, Uri> resolver)
         {
-            context.NotNull(nameof(context));
-            resolver.NotNull(nameof(resolver));
+            context.NotNull();
+            resolver.NotNull();
 
             MarkdownlintRuleUrlResolver.Instance.AddUrlResolver(resolver);
         }
@@ -48,7 +48,7 @@
         /// <param name="priority">Priority of the resolver. Resolver with a higher priority are considered
         /// first during resolving of the URL.</param>
         /// <example>
-        /// <para>Adds a provider of priority 5 returning a link for all rules with Id smaller than 20 to
+        /// <para>Adds a provider of priority 5 returning a link for all rules with ID smaller than 20 to
         /// search with Google for the rule:</para>
         /// <code>
         /// <![CDATA[
@@ -67,8 +67,8 @@
             Func<MarkdownlintRuleDescription, Uri> resolver,
             int priority)
         {
-            context.NotNull(nameof(context));
-            resolver.NotNull(nameof(resolver));
+            context.NotNull();
+            resolver.NotNull();
 
             MarkdownlintRuleUrlResolver.Instance.AddUrlResolver(resolver, priority);
         }

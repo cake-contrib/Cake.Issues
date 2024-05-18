@@ -36,25 +36,25 @@
         FilePath AffectedFileRelativePath { get; }
 
         /// <summary>
-        /// Gets the line in the file where the issues has occurred.
+        /// Gets the line in the file where the issues have occurred.
         /// <c>null</c> if the issue affects the whole file or an assembly.
         /// </summary>
         int? Line { get; }
 
         /// <summary>
-        /// Gets the end of the line range in the file where the issues has occurred.
+        /// Gets the end of the line range in the file where the issues have occurred.
         /// <c>null</c> if the issue affects the whole file, an assembly or only a single line.
         /// </summary>
         int? EndLine { get; }
 
         /// <summary>
-        /// Gets the column in the file where the issues has occurred.
+        /// Gets the column in the file where the issues have occurred.
         /// <c>null</c> if the issue affects the whole file or an assembly.
         /// </summary>
         int? Column { get; }
 
         /// <summary>
-        /// Gets the end of the column range in the file where the issues has occurred.
+        /// Gets the end of the column range in the file where the issues have occurred.
         /// <c>null</c> if the issue affects the whole file, an assembly or only a single column.
         /// </summary>
         int? EndColumn { get; }

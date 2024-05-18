@@ -1,0 +1,81 @@
+comment:
+  layout: "header, diff, flags, components"  # show component info in the PR comment
+  
+component_management:
+  default_rules:
+    statuses:
+      - type: project
+        target: auto
+  individual_components:
+    - component_id: cake_issues
+      name: Cake.Issues
+      paths:
+        - src/Cake.Issues/**
+    - component_id: cake_issues_docfx
+      name: Cake.Issues.DocFx
+      paths:
+        - src/Cake.Issues.DocFx/**
+    - component_id: cake_issues_eslint
+      name: Cake.Issues.EsLint
+      paths:
+        - src/Cake.Issues.EsLint/**
+    - component_id: cake_issues_gitrepository
+      name: Cake.Issues.GitRepository
+      paths:
+        - src/Cake.Issues.GitRepository/**
+    - component_id: cake_issues_inspectcode
+      name: Cake.Issues.InspectCode
+      paths:
+        - src/Cake.Issues.InspectCode/**
+    - component_id: cake_issues_markdownlint
+      name: Cake.Issues.Markdownlint
+      paths:
+        - src/Cake.Issues.Markdownlint/**
+    - component_id: cake_issues_msbuild
+      name: Cake.Issues.MsBuild
+      paths:
+        - src/Cake.Issues.MsBuild/**
+    - component_id: cake_issues_pullrequests
+      name: Cake.Issues.PullRequests
+      paths:
+        - src/Cake.Issues.PullRequests/**
+    - component_id: cake_issues_pullrequests_appveyor
+      name: Cake.Issues.PullRequests.AppVeyor
+      paths:
+        - src/Cake.Issues.PullRequests.AppVeyor/**
+    - component_id: cake_issues_pullrequests_azuredevops
+      name: Cake.Issues.PullRequests.AzureDevOps
+      paths:
+        - src/Cake.Issues.PullRequests.AzureDevOps/**
+    - component_id: cake_issues_pullrequests_githubactions
+      name: Cake.Issues.PullRequests.GitHubActions
+      paths:
+        - src/Cake.Issues.PullRequests.GitHubActions/**
+    - component_id: cake_issues_reporting
+      name: Cake.Issues.Reporting
+      paths:
+        - src/Cake.Issues.Reporting/**
+    - component_id: cake_issues_reporting_console
+      name: Cake.Issues.Reporting.Console
+      paths:
+        - src/Cake.Issues.Reporting.Console/**
+    - component_id: cake_issues_reporting_generic
+      name: Cake.Issues.Reporting.Generic
+      paths:
+        - src/Cake.Issues.Reporting.Generic/**
+    - component_id: cake_issues_reporting_sarif
+      name: Cake.Issues.Reporting.Sarif
+      paths:
+        - src/Cake.Issues.Reporting.Sarif/**
+    - component_id: cake_issues_sarif
+      name: Cake.Issues.Sarif
+      paths:
+        - src/Cake.Issues.Sarif/**
+    - component_id: cake_issues_terraform
+      name: Cake.Issues.Terraform
+      paths:
+        - src/Cake.Issues.Terraform/**
+    - component_id: cake_issues_testing
+      name: Cake.Issues.Testing
+      paths:
+        - src/Cake.Issues.Testing/**

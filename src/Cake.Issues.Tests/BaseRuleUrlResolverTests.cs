@@ -1,14 +1,11 @@
 ﻿namespace Cake.Issues.Tests
 {
-    using System;
-    using Cake.Issues.Testing;
-    using Shouldly;
-    using Xunit;
-
     public class BaseRuleUrlResolverTests
     {
         public sealed class TheClass
         {
+            // Ensures that it is possible to define a custom URL resolver for BaseRuleDescription
+            // ReSharper disable once UnusedType.Local
             private class FakeRuleUrlResolverForBaseRuleDescription : BaseRuleUrlResolver<BaseRuleDescription>
             {
                 /// <inheritdoc/>
@@ -70,7 +67,7 @@
                 // Given
                 const string url = "http://google.com/";
                 var urlResolver = new FakeRuleUrlResolver();
-                urlResolver.AddUrlResolver(x => new Uri(url));
+                urlResolver.AddUrlResolver(_ => new Uri(url));
 
                 // When
                 var ruleUrl = urlResolver.ResolveRuleUrl("foo");
@@ -126,8 +123,8 @@
                 const string fooUrl = "http://foo.com/";
                 const string barUrl = "http://bar.com/";
                 var urlResolver = new FakeRuleUrlResolver();
-                urlResolver.AddUrlResolver(x => new Uri(fooUrl), 0);
-                urlResolver.AddUrlResolver(x => new Uri(barUrl), secondPriority);
+                urlResolver.AddUrlResolver(_ => new Uri(fooUrl), 0);
+                urlResolver.AddUrlResolver(_ => new Uri(barUrl), secondPriority);
 
                 // When
                 var result = urlResolver.ResolveRuleUrl("foo");

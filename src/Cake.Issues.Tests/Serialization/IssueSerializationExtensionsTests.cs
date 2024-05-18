@@ -1,13 +1,7 @@
 ﻿namespace Cake.Issues.Tests.Serialization
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
     using Cake.Core.IO;
     using Cake.Issues.Serialization;
-    using Cake.Issues.Testing;
-    using Shouldly;
-    using Xunit;
 
     public sealed class IssueSerializationExtensionsTests
     {
@@ -152,7 +146,7 @@
             public void Should_Give_Correct_Result_For_ProjectFileRelativePath_After_Roundtrip()
             {
                 // Given
-                const string projectFileRelativePath = @"src/myproj.file";
+                const string projectFileRelativePath = "src/myproj.file";
                 var issue =
                     IssueBuilder
                         .NewIssue("message", "providerType", "providerName")
@@ -188,7 +182,7 @@
             public void Should_Give_Correct_Result_For_AffectedFileRelativePath_After_Roundtrip()
             {
                 // Given
-                const string affectedFileRelativePath = @"src/foo.bar";
+                const string affectedFileRelativePath = "src/foo.bar";
                 var issue =
                     IssueBuilder
                         .NewIssue("message", "providerType", "providerName")
@@ -210,7 +204,7 @@
                 var issue =
                     IssueBuilder
                         .NewIssue("message", "providerType", "providerName")
-                        .InFile(@"src/foo.bar", line)
+                        .InFile("src/foo.bar", line)
                         .Create();
 
                 // When
@@ -228,7 +222,7 @@
                 var issue =
                     IssueBuilder
                         .NewIssue("message", "providerType", "providerName")
-                        .InFile(@"src/foo.bar", 42, endLine, null, null)
+                        .InFile("src/foo.bar", 42, endLine, null, null)
                         .Create();
 
                 // When
@@ -246,7 +240,7 @@
                 var issue =
                     IssueBuilder
                         .NewIssue("message", "providerType", "providerName")
-                        .InFile(@"src/foo.bar", 42, column)
+                        .InFile("src/foo.bar", 42, column)
                         .Create();
 
                 // When
@@ -264,7 +258,7 @@
                 var issue =
                     IssueBuilder
                         .NewIssue("message", "providerType", "providerName")
-                        .InFile(@"src/foo.bar", 42, 420, 23, endColumn)
+                        .InFile("src/foo.bar", 42, 420, 23, endColumn)
                         .Create();
 
                 // When
@@ -590,8 +584,8 @@
             public void Should_Give_Correct_Result_For_ProjectFileRelativePath_After_Roundtrip()
             {
                 // Given
-                const string projectFileRelativePath1 = @"src/myproj1.file";
-                const string projectFileRelativePath2 = @"src/myproj2.file";
+                const string projectFileRelativePath1 = "src/myproj1.file";
+                const string projectFileRelativePath2 = "src/myproj2.file";
                 var issues =
                     new List<IIssue>
                     {
@@ -646,8 +640,8 @@
             public void Should_Give_Correct_Result_For_AffectedFileRelativePath_After_Roundtrip()
             {
                 // Given
-                const string affectedFileRelativePath1 = @"src/foo1.bar";
-                const string affectedFileRelativePath2 = @"src/foo2.bar";
+                const string affectedFileRelativePath1 = "src/foo1.bar";
+                const string affectedFileRelativePath2 = "src/foo2.bar";
                 var issues =
                     new List<IIssue>
                     {
@@ -681,11 +675,11 @@
                     {
                         IssueBuilder
                           .NewIssue("message1", "providerType1", "providerName1")
-                            .InFile(@"src/foo.bar", line1)
+                            .InFile("src/foo.bar", line1)
                             .Create(),
                         IssueBuilder
                             .NewIssue("message2", "providerType2", "providerName2")
-                            .InFile(@"src/foo.bar", line2)
+                            .InFile("src/foo.bar", line2)
                             .Create(),
                     };
 
@@ -709,11 +703,11 @@
                     {
                         IssueBuilder
                           .NewIssue("message1", "providerType1", "providerName1")
-                            .InFile(@"src/foo.bar", 23, endLine1, null, null)
+                            .InFile("src/foo.bar", 23, endLine1, null, null)
                             .Create(),
                         IssueBuilder
                             .NewIssue("message2", "providerType2", "providerName2")
-                            .InFile(@"src/foo.bar", 42, endLine2, null, null)
+                            .InFile("src/foo.bar", 42, endLine2, null, null)
                             .Create(),
                     };
 
@@ -737,11 +731,11 @@
                     {
                         IssueBuilder
                           .NewIssue("message1", "providerType1", "providerName1")
-                            .InFile(@"src/foo.bar", 123, column1)
+                            .InFile("src/foo.bar", 123, column1)
                             .Create(),
                         IssueBuilder
                             .NewIssue("message2", "providerType2", "providerName2")
-                            .InFile(@"src/foo.bar", 123, column2)
+                            .InFile("src/foo.bar", 123, column2)
                             .Create(),
                     };
 
@@ -765,11 +759,11 @@
                     {
                         IssueBuilder
                           .NewIssue("message1", "providerType1", "providerName1")
-                            .InFile(@"src/foo.bar", 5, 50, 23, endColumn1)
+                            .InFile("src/foo.bar", 5, 50, 23, endColumn1)
                             .Create(),
                         IssueBuilder
                             .NewIssue("message2", "providerType2", "providerName2")
-                            .InFile(@"src/foo.bar", 5, 50, 42, endColumn2)
+                            .InFile("src/foo.bar", 5, 50, 42, endColumn2)
                             .Create(),
                     };
 
@@ -1224,7 +1218,7 @@
             public void Should_Give_Correct_Result_For_ProjectFileRelativePath_After_Roundtrip()
             {
                 // Given
-                const string projectFileRelativePath = @"src/myproj.file";
+                const string projectFileRelativePath = "src/myproj.file";
                 var issue =
                     IssueBuilder
                         .NewIssue("message", "providerType", "providerName")
@@ -1284,7 +1278,7 @@
             public void Should_Give_Correct_Result_For_AffectedFileRelativePath_After_Roundtrip()
             {
                 // Given
-                const string affectedFileRelativePath = @"src/foo.bar";
+                const string affectedFileRelativePath = "src/foo.bar";
                 var issue =
                     IssueBuilder
                         .NewIssue("message", "providerType", "providerName")
@@ -1318,7 +1312,7 @@
                 var issue =
                     IssueBuilder
                         .NewIssue("message", "providerType", "providerName")
-                        .InFile(@"src/foo.bar", line)
+                        .InFile("src/foo.bar", line)
                         .Create();
                 var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid() + ".json");
 
@@ -1348,7 +1342,7 @@
                 var issue =
                     IssueBuilder
                         .NewIssue("message", "providerType", "providerName")
-                        .InFile(@"src/foo.bar", 42, endLine, null, null)
+                        .InFile("src/foo.bar", 42, endLine, null, null)
                         .Create();
                 var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid() + ".json");
 
@@ -1378,7 +1372,7 @@
                 var issue =
                     IssueBuilder
                         .NewIssue("message", "providerType", "providerName")
-                        .InFile(@"src/foo.bar", 42, column)
+                        .InFile("src/foo.bar", 42, column)
                         .Create();
                 var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid() + ".json");
 
@@ -1408,7 +1402,7 @@
                 var issue =
                     IssueBuilder
                         .NewIssue("message", "providerType", "providerName")
-                        .InFile(@"src/foo.bar", 42, 50, 1, endColumn)
+                        .InFile("src/foo.bar", 42, 50, 1, endColumn)
                         .Create();
                 var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid() + ".json");
 
@@ -1917,8 +1911,8 @@
             public void Should_Give_Correct_Result_For_ProjectFileRelativePath_After_Roundtrip()
             {
                 // Given
-                const string projectFileRelativePath1 = @"src/myproj1.file";
-                const string projectFileRelativePath2 = @"src/myproj2.file";
+                const string projectFileRelativePath1 = "src/myproj1.file";
+                const string projectFileRelativePath2 = "src/myproj2.file";
                 var issues =
                     new List<IIssue>
                     {
@@ -1997,8 +1991,8 @@
             public void Should_Give_Correct_Result_For_AffectedFileRelativePath_After_Roundtrip()
             {
                 // Given
-                const string affectedFileRelativePath1 = @"src/foo1.bar";
-                const string affectedFileRelativePath2 = @"src/foo2.bar";
+                const string affectedFileRelativePath1 = "src/foo1.bar";
+                const string affectedFileRelativePath2 = "src/foo2.bar";
                 var issues =
                     new List<IIssue>
                     {
@@ -2044,11 +2038,11 @@
                     {
                         IssueBuilder
                           .NewIssue("message1", "providerType1", "providerName1")
-                            .InFile(@"src/foo.bar", line1)
+                            .InFile("src/foo.bar", line1)
                             .Create(),
                         IssueBuilder
                             .NewIssue("message2", "providerType2", "providerName2")
-                            .InFile(@"src/foo.bar", line2)
+                            .InFile("src/foo.bar", line2)
                             .Create(),
                     };
                 var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid() + ".json");
@@ -2084,11 +2078,11 @@
                     {
                         IssueBuilder
                           .NewIssue("message1", "providerType1", "providerName1")
-                            .InFile(@"src/foo.bar", 23, endLine1, null, null)
+                            .InFile("src/foo.bar", 23, endLine1, null, null)
                             .Create(),
                         IssueBuilder
                             .NewIssue("message2", "providerType2", "providerName2")
-                            .InFile(@"src/foo.bar", 42, endLine2, null, null)
+                            .InFile("src/foo.bar", 42, endLine2, null, null)
                             .Create(),
                     };
                 var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid() + ".json");
@@ -2124,11 +2118,11 @@
                     {
                         IssueBuilder
                           .NewIssue("message1", "providerType1", "providerName1")
-                            .InFile(@"src/foo.bar", 123, column1)
+                            .InFile("src/foo.bar", 123, column1)
                             .Create(),
                         IssueBuilder
                             .NewIssue("message2", "providerType2", "providerName2")
-                            .InFile(@"src/foo.bar", 123, column2)
+                            .InFile("src/foo.bar", 123, column2)
                             .Create(),
                     };
                 var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid() + ".json");
@@ -2164,11 +2158,11 @@
                     {
                         IssueBuilder
                           .NewIssue("message1", "providerType1", "providerName1")
-                            .InFile(@"src/foo.bar", 5, 50, 1, endColumn1)
+                            .InFile("src/foo.bar", 5, 50, 1, endColumn1)
                             .Create(),
                         IssueBuilder
                             .NewIssue("message2", "providerType2", "providerName2")
-                            .InFile(@"src/foo.bar", 5, 50, 1, endColumn2)
+                            .InFile("src/foo.bar", 5, 50, 1, endColumn2)
                             .Create(),
                     };
                 var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid() + ".json");

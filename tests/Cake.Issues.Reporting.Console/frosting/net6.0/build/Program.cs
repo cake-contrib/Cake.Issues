@@ -1,10 +1,6 @@
-using System.Linq;
 using Cake.Common.Diagnostics;
 using Cake.Core;
 using Cake.Frosting;
-using Cake.Issues;
-using Cake.Issues.Reporting;
-using Cake.Issues.Reporting.Console;
 
 public static class Program
 {
@@ -29,7 +25,7 @@ public sealed class PrintIssuesTask : FrostingTask<BuildContext>
 {
     public override void Run(BuildContext context)
     {
-        var issues = context.DeserializeIssuesFromJsonFile(@"../../../../../src/Cake.Issues.Reporting.Console.Tests/Testfiles/issues.json");
+        var issues = context.DeserializeIssuesFromJsonFile(@"../../../../issues.json");
         context.Information("Read {0} issues", issues.Count());
         context.CreateIssueReport(
             issues,

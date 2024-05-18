@@ -1,11 +1,6 @@
 ﻿namespace Cake.Issues.Terraform.Tests
 {
-    using System.Linq;
     using System.Runtime.InteropServices;
-    using Cake.Issues.Testing;
-    using Cake.Testing;
-    using Shouldly;
-    using Xunit;
 
     public sealed class TerraformProviderTests
     {
@@ -47,7 +42,7 @@
                 Skip.IfNot(RuntimeInformation.IsOSPlatform(OSPlatform.Windows));
 
                 // Given
-                var fixture = new TerraformProviderFixture("basic.json", @"./");
+                var fixture = new TerraformProviderFixture("basic.json", "./");
 
                 // When
                 var issues = fixture.ReadIssues().ToList();
@@ -79,7 +74,7 @@
                 Skip.IfNot(RuntimeInformation.IsOSPlatform(OSPlatform.Windows));
 
                 // Given
-                var fixture = new TerraformProviderFixture("error.json", @"./");
+                var fixture = new TerraformProviderFixture("error.json", "./");
 
                 // When
                 var issues = fixture.ReadIssues().ToList();
@@ -103,7 +98,7 @@
                 Skip.IfNot(RuntimeInformation.IsOSPlatform(OSPlatform.Windows));
 
                 // Given
-                var fixture = new TerraformProviderFixture("warning-across-multiple-lines.json", @"./");
+                var fixture = new TerraformProviderFixture("warning-across-multiple-lines.json", "./");
 
                 // When
                 var issues = fixture.ReadIssues().ToList();

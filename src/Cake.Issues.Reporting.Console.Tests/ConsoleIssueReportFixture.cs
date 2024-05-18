@@ -1,29 +1,19 @@
 ﻿namespace Cake.Issues.Reporting.Console.Tests
 {
-    using System;
-    using System.Collections.Generic;
     using System.IO;
     using Cake.Core.Diagnostics;
     using Cake.Core.IO;
     using Cake.Issues.Serialization;
-    using Cake.Testing;
-    using Shouldly;
 
     internal class ConsoleIssueReportFixture
     {
-        public ConsoleIssueReportFixture()
-        {
-            this.Log = new FakeLog { Verbosity = Verbosity.Normal };
-            this.ConsoleIssueReportFormatSettings = new ConsoleIssueReportFormatSettings();
-        }
+        public FakeLog Log { get; set; } = new() { Verbosity = Verbosity.Normal };
 
-        public FakeLog Log { get; set; }
-
-        public ConsoleIssueReportFormatSettings ConsoleIssueReportFormatSettings { get; set; }
+        public ConsoleIssueReportFormatSettings ConsoleIssueReportFormatSettings { get; set; } = new();
 
         public string CreateReport(string fileResourceName, DirectoryPath repositoryRootPath)
         {
-            fileResourceName.NotNullOrWhiteSpace(nameof(fileResourceName));
+            fileResourceName.NotNullOrWhiteSpace();
 
             var resourceName = "Cake.Issues.Reporting.Console.Tests." + fileResourceName;
 
@@ -37,7 +27,7 @@
                         nameof(fileResourceName));
                 }
 
-                var issues = IssueDeserializationExtensions.DeserializeToIssues(reader.ReadToEnd());
+                var issues = reader.ReadToEnd().DeserializeToIssues();
                 return this.CreateReport(issues, repositoryRootPath);
             }
         }

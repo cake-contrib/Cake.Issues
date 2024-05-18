@@ -1,5 +1,6 @@
 ﻿namespace Cake.Issues.PullRequests.AppVeyor
 {
+    using System;
     using System.Collections.Generic;
     using Cake.Common.Build;
     using Cake.Core;
@@ -16,11 +17,11 @@
         /// Initializes a new instance of the <see cref="AppVeyorPullRequestSystem"/> class.
         /// </summary>
         /// <param name="context">The Cake context.</param>
-        /// <param name="settings">Settings for writting issues to AppVeyor.</param>
+        /// <param name="settings">Settings for writing issues to AppVeyor.</param>
         public AppVeyorPullRequestSystem(ICakeContext context, AppVeyorBuildSettings settings)
-            : base(context?.Log)
+            : base(context?.Log ?? throw new ArgumentNullException(nameof(context)))
         {
-            settings.NotNull(nameof(settings));
+            settings.NotNull();
 
             this.context = context;
             this.settings = settings;

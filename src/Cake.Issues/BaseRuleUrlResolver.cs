@@ -5,7 +5,7 @@
     using System.Linq;
 
     /// <summary>
-    /// Base class for retrieving an URL linking to a site containing help for a rule.
+    /// Base class for retrieving a URL linking to a site containing help for a rule.
     /// </summary>
     /// <typeparam name="T">Type of the rule description.</typeparam>
     public abstract class BaseRuleUrlResolver<T>
@@ -20,7 +20,7 @@
         /// containing help for a specific <see cref="BaseRuleDescription"/>.</param>
         public void AddUrlResolver(Func<T, Uri> resolver)
         {
-            resolver.NotNull(nameof(resolver));
+            resolver.NotNull();
 
             this.AddUrlResolver(resolver, 0);
         }
@@ -34,20 +34,20 @@
         /// first during resolving of the URL.</param>
         public void AddUrlResolver(Func<T, Uri> resolver, int priority)
         {
-            resolver.NotNull(nameof(resolver));
+            resolver.NotNull();
 
             this.registeredUrlResolver.Add(new Tuple<Func<T, Uri>, int>(resolver, priority));
         }
 
         /// <summary>
-        /// Returns an URL linking to a site describing a specific rule.
+        /// Returns a URL linking to a site describing a specific rule.
         /// </summary>
         /// <param name="rule">Code of the rule for which the URL should be retrieved.</param>
         /// <returns>URL linking to a site describing the rule, or <c>null</c> if <paramref name="rule"/>
         /// could not be parsed.</returns>
         public Uri ResolveRuleUrl(string rule)
         {
-            rule.NotNullOrWhiteSpace(nameof(rule));
+            rule.NotNullOrWhiteSpace();
 
             var ruleDescription = new T { Rule = rule };
             if (!this.TryGetRuleDescription(rule, ruleDescription))
@@ -67,7 +67,7 @@
         /// </summary>
         /// <param name="rule">Rule which should be parsed.</param>
         /// <param name="ruleDescription">Description of the rule.</param>
-        /// <returns><c>true</c> if rule could by parsed successfully, otherwise <c>false</c>.</returns>
+        /// <returns><c>true</c> if rule could be parsed successfully, otherwise <c>false</c>.</returns>
         protected abstract bool TryGetRuleDescription(string rule, T ruleDescription);
     }
 }

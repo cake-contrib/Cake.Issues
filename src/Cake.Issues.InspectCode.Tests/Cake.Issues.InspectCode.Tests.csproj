@@ -1,28 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net6.0</TargetFrameworks>
     <Description>Tests for the Cake.Issues.InspectCode addin</Description>
   </PropertyGroup>
 
-  <PropertyGroup>
-    <CodeAnalysisRuleSet>..\Cake.Issues.Tests.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-  
   <ItemGroup>
-    <None Remove="Testfiles\inspectcode.xml" />
-    <None Remove="Testfiles\WithoutLineButOffset.xml" />
-    <None Remove="Testfiles\WithWikiUrl.xml" />
+    <None Remove="Testfiles\**\*" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Testfiles\inspectcode.xml" />
-    <EmbeddedResource Include="Testfiles\WithoutLineButOffset.xml" />
-    <EmbeddedResource Include="Testfiles\WithWikiUrl.xml" />
+    <EmbeddedResource Include="Testfiles\*.xml" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Cake.Issues.Testing\Cake.Issues.Testing.csproj" />
     <ProjectReference Include="..\Cake.Issues.InspectCode\Cake.Issues.InspectCode.csproj" />
   </ItemGroup>
 </Project>

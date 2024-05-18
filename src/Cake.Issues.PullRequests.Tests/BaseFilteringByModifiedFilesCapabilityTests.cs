@@ -1,12 +1,7 @@
 ﻿namespace Cake.Issues.PullRequests.Tests
 {
-    using System.Collections.Generic;
     using Cake.Core.Diagnostics;
     using Cake.Core.IO;
-    using Cake.Issues.Testing;
-    using Cake.Testing;
-    using Shouldly;
-    using Xunit;
 
     public sealed class BaseFilteringByModifiedFilesCapabilityTests
     {
@@ -104,7 +99,7 @@
                 var log = new FakeLog();
                 var pullRequestSystem = new FakePullRequestSystem(log);
                 var settings = new ReportIssuesToPullRequestSettings(@"c:\repo");
-                var modifiedFiles = new List<FilePath> { @"foo.cs" };
+                var modifiedFiles = new List<FilePath> { "foo.cs" };
                 var capability = new FakeFilteringByModifiedFilesCapability(log, pullRequestSystem, modifiedFiles);
 
                 // When

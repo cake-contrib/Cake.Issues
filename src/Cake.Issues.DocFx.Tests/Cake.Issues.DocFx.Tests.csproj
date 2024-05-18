@@ -1,30 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net6.0</TargetFrameworks>
     <Description>Tests for the Cake.Issues.DocFx addin</Description>
   </PropertyGroup>
 
-  <PropertyGroup>
-    <CodeAnalysisRuleSet>..\Cake.Issues.Tests.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-
   <ItemGroup>
-    <None Remove="Testfiles\entry-of-level-suggestion.json" />
+    <None Remove="Testfiles\**\*" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Testfiles\docfx.json" />
-    <EmbeddedResource Include="Testfiles\entry-of-level-suggestion.json" />
-    <EmbeddedResource Include="Testfiles\entry-with-line.json" />
-    <EmbeddedResource Include="Testfiles\entry-with-line-0.json" />
+    <EmbeddedResource Include="Testfiles\*.json" />
   </ItemGroup>
 
   <ItemGroup>
-    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Cake.Issues.Testing\Cake.Issues.Testing.csproj" />
     <ProjectReference Include="..\Cake.Issues.DocFx\Cake.Issues.DocFx.csproj" />
   </ItemGroup>
 </Project>

@@ -1,17 +1,11 @@
 ﻿namespace Cake.Issues.Tests
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using Shouldly;
-    using Xunit;
-
     public sealed class IIssueComparerTests
     {
         public sealed class TheCtorWithCompareOnlyPersistentPropertiesSetToFalse
         {
             [Fact]
-            public void Should_Return_False_If_First_Issue_Is_Null()
+            public void Should_Throw_If_First_Issue_Is_Null()
             {
                 // Given
                 const IIssue issue1 = null;
@@ -20,12 +14,16 @@
                         .NewIssue("message", "providerType", "providerName")
                         .Create();
 
-                // When / Then
-                CompareIssues(issue1, issue2, false);
+                // When
+                var result = Record.Exception(() =>
+                    CompareIssues(issue1, issue2, false));
+
+                // Then
+                result.IsArgumentNullException("obj");
             }
 
             [Fact]
-            public void Should_Return_False_If_Second_Issue_Is_Null()
+            public void Should_Throw_If_Second_Issue_Is_Null()
             {
                 // Given
                 var issue1 =
@@ -34,8 +32,27 @@
                         .Create();
                 const IIssue issue2 = null;
 
-                // When / Then
-                CompareIssues(issue1, issue2, false);
+                // When
+                var result = Record.Exception(() =>
+                    CompareIssues(issue1, issue2, false));
+
+                // Then
+                result.IsArgumentNullException("obj");
+            }
+
+            [Fact]
+            public void Should_Throw_If_Both_Are_Null()
+            {
+                // Given
+                const IIssue issue1 = null;
+                const IIssue issue2 = null;
+
+                // When
+                var result = Record.Exception(() =>
+                    CompareIssues(issue1, issue2, true));
+
+                // Then
+                result.IsArgumentNullException("obj");
             }
 
             [Theory]
@@ -420,17 +437,6 @@
                         .NewIssue("message", "providerType", "providerName")
                         .Create();
                 var issue2 = issue1;
-
-                // When / Then
-                CompareIssues(issue1, issue2, true);
-            }
-
-            [Fact]
-            public void Should_Return_True_If_Both_Are_Null()
-            {
-                // Given
-                const IIssue issue1 = null;
-                const IIssue issue2 = null;
 
                 // When / Then
                 CompareIssues(issue1, issue2, true);
@@ -926,7 +932,7 @@
         public sealed class TheCtorWithCompareOnlyPersistentPropertiesSetToTrue
         {
             [Fact]
-            public void Should_Return_False_If_First_Issue_Is_Null()
+            public void Should_Throw_If_First_Issue_Is_Null()
             {
                 // Given
                 const IIssue issue1 = null;
@@ -935,12 +941,16 @@
                         .NewIssue("message", "providerType", "providerName")
                         .Create();
 
-                // When / Then
-                CompareIssues(issue1, issue2, false);
+                // When
+                var result = Record.Exception(() =>
+                    CompareIssues(issue1, issue2, false));
+
+                // Then
+                result.IsArgumentNullException("obj");
             }
 
             [Fact]
-            public void Should_Return_False_If_Second_Issue_Is_Null()
+            public void Should_Throw_If_Second_Issue_Is_Null()
             {
                 // Given
                 var issue1 =
@@ -949,8 +959,27 @@
                         .Create();
                 const IIssue issue2 = null;
 
-                // When / Then
-                CompareIssues(issue1, issue2, false);
+                // When
+                var result = Record.Exception(() =>
+                    CompareIssues(issue1, issue2, false));
+
+                // Then
+                result.IsArgumentNullException("obj");
+            }
+
+            [Fact]
+            public void Should_Throw_If_Both_Are_Null()
+            {
+                // Given
+                const IIssue issue1 = null;
+                const IIssue issue2 = null;
+
+                // When
+                var result = Record.Exception(() =>
+                    CompareIssues(issue1, issue2, true));
+
+                // Then
+                result.IsArgumentNullException("obj");
             }
 
             [Theory]
@@ -1206,17 +1235,6 @@
                         .NewIssue("message", "providerType", "providerName")
                         .Create();
                 var issue2 = issue1;
-
-                // When / Then
-                CompareIssues(issue1, issue2, true);
-            }
-
-            [Fact]
-            public void Should_Return_True_If_Both_Are_Null()
-            {
-                // Given
-                const IIssue issue1 = null;
-                const IIssue issue2 = null;
 
                 // When / Then
                 CompareIssues(issue1, issue2, true);

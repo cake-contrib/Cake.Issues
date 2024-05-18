@@ -1,9 +1,6 @@
 namespace Cake.Issues.PullRequests.Tests
 {
-    using System;
-    using System.Collections.Generic;
     using Cake.Core.Diagnostics;
-    using Cake.Testing;
 
     internal class IssueFiltererFixture
     {
@@ -15,7 +12,7 @@ namespace Cake.Issues.PullRequests.Tests
         public IssueFiltererFixture(
             Func<FakePullRequestSystemBuilder, IReportIssuesToPullRequestSettings, FakePullRequestSystemBuilder> pullRequestSettings)
         {
-            pullRequestSettings.NotNull(nameof(pullRequestSettings));
+            pullRequestSettings.NotNull();
 
             this.Log = new FakeLog { Verbosity = Verbosity.Normal };
 

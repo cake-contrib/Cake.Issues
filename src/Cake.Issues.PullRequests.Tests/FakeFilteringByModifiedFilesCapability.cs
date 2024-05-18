@@ -1,6 +1,5 @@
 ﻿namespace Cake.Issues.PullRequests.Tests
 {
-    using System.Collections.Generic;
     using Cake.Core.Diagnostics;
     using Cake.Core.IO;
 
@@ -24,7 +23,7 @@
             : base(log, pullRequestSystem)
         {
             // ReSharper disable once PossibleMultipleEnumeration
-            modifiedFiles.NotNull(nameof(modifiedFiles));
+            modifiedFiles.NotNull();
 
             // ReSharper disable once PossibleMultipleEnumeration
             this.modifiedFiles.AddRange(modifiedFiles);

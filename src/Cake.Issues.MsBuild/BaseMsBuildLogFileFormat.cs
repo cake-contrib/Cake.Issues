@@ -17,8 +17,8 @@
         /// <returns>Tuple containing a value if validation was successful, and file path relative to repository root.</returns>
         protected (bool Valid, string FilePath) ValidateFilePath(string filePath, IRepositorySettings repositorySettings)
         {
-            filePath.NotNullOrWhiteSpace(nameof(filePath));
-            repositorySettings.NotNull(nameof(repositorySettings));
+            filePath.NotNullOrWhiteSpace();
+            repositorySettings.NotNull();
 
             // Ignore files from outside the repository.
             if (!filePath.IsInRepository(repositorySettings))

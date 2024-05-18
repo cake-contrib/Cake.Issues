@@ -44,10 +44,10 @@
             string providerType,
             string providerName)
         {
-            identifier.NotNullOrWhiteSpace(nameof(identifier));
-            message.NotNullOrWhiteSpace(nameof(message));
-            providerType.NotNullOrWhiteSpace(nameof(providerType));
-            providerName.NotNullOrWhiteSpace(nameof(providerName));
+            identifier.NotNullOrWhiteSpace();
+            message.NotNullOrWhiteSpace();
+            providerType.NotNullOrWhiteSpace();
+            providerName.NotNullOrWhiteSpace();
 
             this.identifier = identifier;
             this.messageText = message;
@@ -73,7 +73,7 @@
                 throw new ArgumentNullException(nameof(issueProvider));
             }
 
-            message.NotNullOrWhiteSpace(nameof(message));
+            message.NotNullOrWhiteSpace();
 
             return NewIssue(message, message, issueProvider);
         }
@@ -97,7 +97,7 @@
                 throw new ArgumentNullException(nameof(issueProvider));
             }
 
-            message.NotNullOrWhiteSpace(nameof(message));
+            message.NotNullOrWhiteSpace();
 
             return NewIssue(identifier, message, issueProvider.ProviderType, issueProvider.ProviderName);
         }
@@ -114,9 +114,9 @@
             string providerType,
             string providerName)
         {
-            message.NotNullOrWhiteSpace(nameof(message));
-            providerType.NotNullOrWhiteSpace(nameof(providerType));
-            providerName.NotNullOrWhiteSpace(nameof(providerName));
+            message.NotNullOrWhiteSpace();
+            providerType.NotNullOrWhiteSpace();
+            providerName.NotNullOrWhiteSpace();
 
             return NewIssue(message, message, providerType, providerName);
         }
@@ -135,10 +135,10 @@
             string providerType,
             string providerName)
         {
-            identifier.NotNullOrWhiteSpace(nameof(identifier));
-            message.NotNullOrWhiteSpace(nameof(message));
-            providerType.NotNullOrWhiteSpace(nameof(providerType));
-            providerName.NotNullOrWhiteSpace(nameof(providerName));
+            identifier.NotNullOrWhiteSpace();
+            message.NotNullOrWhiteSpace();
+            providerType.NotNullOrWhiteSpace();
+            providerName.NotNullOrWhiteSpace();
 
             return new IssueBuilder(identifier, message, providerType, providerName);
         }
@@ -228,17 +228,17 @@
         }
 
         /// <summary>
-        /// Sets the path to the file affected by the issue and the line in the file where the issues has occurred.
+        /// Sets the path to the file affected by the issue and the line in the file where the issues have occurred.
         /// </summary>
         /// <param name="filePath">The path to the file affected by the issue.
         /// The path needs to be relative to the repository root.
         /// <c>null</c> or <see cref="string.Empty"/> if issue is not related to a change in a file.</param>
-        /// <param name="line">The line in the file where the issues has occurred.
+        /// <param name="line">The line in the file where the issues have occurred.
         /// <c>null</c> if the issue affects the whole file or an assembly.</param>
         /// <returns>Issue Builder instance.</returns>
         public IssueBuilder InFile(string filePath, int? line)
         {
-            line?.NotNegativeOrZero(nameof(line));
+            line?.NotNegativeOrZero();
 
             this.InFile(filePath, line, null);
 
@@ -246,20 +246,20 @@
         }
 
         /// <summary>
-        /// Sets the path to the file affected by the issue and the line and column in the file where the issues has occurred.
+        /// Sets the path to the file affected by the issue and the line and column in the file where the issues have occurred.
         /// </summary>
         /// <param name="filePath">The path to the file affected by the issue.
         /// The path needs to be relative to the repository root.
         /// <c>null</c> or <see cref="string.Empty"/> if issue is not related to a change in a file.</param>
-        /// <param name="line">The line in the file where the issues has occurred.
+        /// <param name="line">The line in the file where the issues have occurred.
         /// <c>null</c> if the issue affects the whole file or an assembly.</param>
-        /// <param name="column">The column in the file where the issues has occurred.
+        /// <param name="column">The column in the file where the issues have occurred.
         /// <c>null</c> if the issue affects the whole file or an assembly.</param>
         /// <returns>Issue Builder instance.</returns>
         public IssueBuilder InFile(string filePath, int? line, int? column)
         {
-            line?.NotNegativeOrZero(nameof(line));
-            column?.NotNegativeOrZero(nameof(column));
+            line?.NotNegativeOrZero();
+            column?.NotNegativeOrZero();
 
             this.InFile(filePath, line, null, column, null);
 
@@ -267,26 +267,26 @@
         }
 
         /// <summary>
-        /// Sets the path to the file affected by the issue and the line and column in the file where the issues has occurred.
+        /// Sets the path to the file affected by the issue and the line and column in the file where the issues have occurred.
         /// </summary>
         /// <param name="filePath">The path to the file affected by the issue.
         /// The path needs to be relative to the repository root.
         /// <c>null</c> or <see cref="string.Empty"/> if issue is not related to a change in a file.</param>
-        /// <param name="startLine">The line in the file where the issues has occurred.
+        /// <param name="startLine">The line in the file where the issues have occurred.
         /// <c>null</c> if the issue affects the whole file or an assembly.</param>
-        /// <param name="endLine">The end of the line range in the file where the issues has occurred.
+        /// <param name="endLine">The end of the line range in the file where the issues have occurred.
         /// <c>null</c> if the issue affects the whole file, an assembly or only a single line.</param>
-        /// <param name="startColumn">The column in the file where the issues has occurred.
+        /// <param name="startColumn">The column in the file where the issues have occurred.
         /// <c>null</c> if the issue affects the whole file or an assembly.</param>
-        /// <param name="endColumn">The end of the column range in the file where the issues has occurred.
+        /// <param name="endColumn">The end of the column range in the file where the issues have occurred.
         /// <c>null</c> if the issue affects the whole file, an assembly or only a single column.</param>
         /// <returns>Issue Builder instance.</returns>
         public IssueBuilder InFile(string filePath, int? startLine, int? endLine, int? startColumn, int? endColumn)
         {
-            startLine?.NotNegativeOrZero(nameof(startLine));
-            endLine?.NotNegativeOrZero(nameof(endLine));
-            startColumn?.NotNegativeOrZero(nameof(startColumn));
-            endColumn?.NotNegativeOrZero(nameof(endColumn));
+            startLine?.NotNegativeOrZero();
+            endLine?.NotNegativeOrZero();
+            startColumn?.NotNegativeOrZero();
+            endColumn?.NotNegativeOrZero();
 
             this.filePath = filePath;
             this.line = startLine;
@@ -305,14 +305,13 @@
         /// <returns>Issue Builder instance.</returns>
         public IssueBuilder WithAdditionalInformation(string key, string value)
         {
-            key.NotNullOrWhiteSpace(nameof(key));
+            key.NotNullOrWhiteSpace();
 
-            if (this.additionalInformation.ContainsKey(key))
+            if (!this.additionalInformation.TryAdd(key, value))
             {
                 throw new ArgumentException("You can't assign a value to the same key twice.", nameof(key));
             }
 
-            this.additionalInformation.Add(key, value);
             return this;
         }
 
@@ -323,20 +322,20 @@
         /// <returns>Issue Builder instance.</returns>
         public IssueBuilder WithAdditionalInformation(IDictionary<string, string> additionalInformation)
         {
-            additionalInformation.NotNull(nameof(additionalInformation));
+            additionalInformation.NotNull();
 
             this.additionalInformation = new Dictionary<string, string>(additionalInformation);
             return this;
         }
 
         /// <summary>
-        /// Sets the the link to the position in the file where the issue occurred.
+        /// Sets the link to the position in the file where the issue occurred.
         /// </summary>
         /// <param name="fileLink">Link to the position in the file where the issue occurred.</param>
         /// <returns>Issue Builder instance.</returns>
         public IssueBuilder WithFileLink(Uri fileLink)
         {
-            fileLink.NotNull(nameof(fileLink));
+            fileLink.NotNull();
 
             this.fileLink = fileLink;
 
@@ -350,7 +349,7 @@
         /// <returns>Issue Builder instance.</returns>
         public IssueBuilder WithFileLinkSettings(FileLinkSettings fileLinkSettings)
         {
-            fileLinkSettings.NotNull(nameof(fileLinkSettings));
+            fileLinkSettings.NotNull();
 
             this.fileLinkSettings = fileLinkSettings;
 
@@ -454,7 +453,7 @@
         /// <returns>Issue Builder instance.</returns>
         public IssueBuilder ForRun(string run)
         {
-            run.NotNullOrWhiteSpace(nameof(run));
+            run.NotNullOrWhiteSpace();
 
             this.run = run;
 

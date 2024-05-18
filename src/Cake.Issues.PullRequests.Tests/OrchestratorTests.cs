@@ -1,12 +1,7 @@
 namespace Cake.Issues.PullRequests.Tests
 {
-    using System.Collections.Generic;
-    using System.Linq;
     using System.Runtime.InteropServices;
     using Cake.Core.IO;
-    using Cake.Issues.Testing;
-    using Shouldly;
-    using Xunit;
 
     public sealed class OrchestratorTests
     {
@@ -106,7 +101,7 @@ namespace Cake.Issues.PullRequests.Tests
             }
 
             [Fact]
-            public void Should_Not_Throw_If_Issues_Are_Empry()
+            public void Should_Not_Throw_If_Issues_Are_Empty()
             {
                 // Given
                 var fixture = new OrchestratorForIssuesFixture();
@@ -986,7 +981,7 @@ namespace Cake.Issues.PullRequests.Tests
         public sealed class TheRunMethodWithCheckingCommitIdCapability
         {
             [Fact]
-            public void Should_Skip_Posting_If_Commit_Is_Outdate()
+            public void Should_Skip_Posting_If_Commit_Is_Outdated()
             {
                 // Given
                 var issueToPost =
