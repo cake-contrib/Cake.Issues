@@ -293,6 +293,8 @@
                                     x.ChangeId,
                                     x.ItemPath))));
                     return -1;
+                default:
+                    break;
             }
 
             var changeTrackingId = change.Single().ChangeTrackingId;
