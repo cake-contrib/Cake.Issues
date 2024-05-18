@@ -27,10 +27,8 @@
         public FakeIssueProvider(ICakeLog log, IEnumerable<IIssue> issues)
             : base(log)
         {
-            // ReSharper disable once PossibleMultipleEnumeration
             issues.NotNull();
 
-            // ReSharper disable once PossibleMultipleEnumeration
             this.issues.AddRange(issues);
         }
 

@@ -1,10 +1,9 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <Description>Addin for reading code analyzer or linter issues for the Cake build automation system</Description>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Cake.Core" Version="4.0.0" />
-    <PackageReference Include="JetBrains.Annotations" Version="2023.3.0" />
   </ItemGroup>
 </Project>

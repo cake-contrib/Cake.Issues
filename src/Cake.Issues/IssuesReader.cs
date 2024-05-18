@@ -27,13 +27,11 @@
             log.NotNull();
             settings.NotNull();
 
-            // ReSharper disable once PossibleMultipleEnumeration
             issueProviders.NotNullOrEmptyOrEmptyElement();
 
             this.log = log;
             this.settings = settings;
 
-            // ReSharper disable once PossibleMultipleEnumeration
             this.issueProviders.AddRange(issueProviders);
         }
 

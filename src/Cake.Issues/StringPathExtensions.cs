@@ -34,7 +34,6 @@
                 throw new ArgumentException($"Invalid path '{path}'", nameof(path));
             }
 
-            // ReSharper disable once PossibleNullReferenceException
             return
                 Path.IsPathRooted(path) &&
                 !Path.GetPathRoot(path).Equals(Path.DirectorySeparatorChar.ToString(), StringComparison.Ordinal);

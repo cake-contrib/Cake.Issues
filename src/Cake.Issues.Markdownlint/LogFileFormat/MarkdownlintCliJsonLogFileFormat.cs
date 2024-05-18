@@ -106,7 +106,6 @@
 #pragma warning disable CS0649 // Field 'field' is never assigned to, and will always have its default value 'value'
 
         [DataContract]
-        [SuppressMessage("ReSharper", "InconsistentNaming", Justification = "Following file format")]
         private class LogFileEntry
         {
             [DataMember]

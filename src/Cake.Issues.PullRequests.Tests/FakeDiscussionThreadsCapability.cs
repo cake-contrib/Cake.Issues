@@ -23,10 +23,8 @@
             IEnumerable<IPullRequestDiscussionThread> discussionThreads)
             : base(log, pullRequestSystem)
         {
-            // ReSharper disable once PossibleMultipleEnumeration
             discussionThreads.NotNull();
 
-            // ReSharper disable once PossibleMultipleEnumeration
             this.discussionThreads.AddRange(discussionThreads);
         }
 
@@ -64,20 +62,16 @@
         /// <inheritdoc />
         protected override void InternalResolveDiscussionThreads(IEnumerable<IPullRequestDiscussionThread> threads)
         {
-            // ReSharper disable once PossibleMultipleEnumeration
             threads.NotNull();
 
-            // ReSharper disable once PossibleMultipleEnumeration
             this.resolvedThreads.AddRange(threads);
         }
 
         /// <inheritdoc />
         protected override void InternalReopenDiscussionThreads(IEnumerable<IPullRequestDiscussionThread> threads)
         {
-            // ReSharper disable once PossibleMultipleEnumeration
             threads.NotNull();
 
-            // ReSharper disable once PossibleMultipleEnumeration
             this.reopenedThreads.AddRange(threads);
         }
     }

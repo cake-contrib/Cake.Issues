@@ -1,6 +1,5 @@
 ﻿namespace Cake.Issues.InspectCode.Tests
 {
-    // ReSharper disable once ClassNeverInstantiated.Global
     public sealed class ExtensionsTests
     {
         public sealed class TheToUriExtension

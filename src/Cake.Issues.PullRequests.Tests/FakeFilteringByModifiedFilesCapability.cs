@@ -22,10 +22,8 @@
             IEnumerable<FilePath> modifiedFiles)
             : base(log, pullRequestSystem)
         {
-            // ReSharper disable once PossibleMultipleEnumeration
             modifiedFiles.NotNull();
 
-            // ReSharper disable once PossibleMultipleEnumeration
             this.modifiedFiles.AddRange(modifiedFiles);
         }
 

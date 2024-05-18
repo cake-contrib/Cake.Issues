@@ -1,5 +1,4 @@
-﻿// ReSharper disable InconsistentNaming
-namespace Cake.Issues.EsLint
+﻿namespace Cake.Issues.EsLint
 {
     using System.Runtime.Serialization;
 

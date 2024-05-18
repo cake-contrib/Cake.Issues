@@ -71,7 +71,6 @@
         /// is still up-to-date before posting comments.
         /// Default value is <c>true</c>.
         /// </summary>
-        // ReSharper disable once AutoPropertyCanBeMadeGetOnly.Global
         public bool CheckCommitId { get; set; } = true;
 
         /// <summary>
@@ -79,7 +78,6 @@
         /// resolved oder reopened.
         /// Default value is <c>true</c>.
         /// </summary>
-        // ReSharper disable once AutoPropertyCanBeMadeGetOnly.Global
         public bool ManageDiscussionThreadStatus { get; set; } = true;
 
         /// <summary>
@@ -87,7 +85,6 @@
         /// as comments or not.
         /// Default value is <c>false</c>.
         /// </summary>
-        // ReSharper disable once UnusedAutoPropertyAccessor.Global
         public bool ReportIssuesNotRelatedToAFile { get; set; }
     }
 }

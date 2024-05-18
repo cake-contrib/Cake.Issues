@@ -5,7 +5,6 @@
         public sealed class TheClass
         {
             // Ensures that it is possible to define a custom URL resolver for BaseRuleDescription
-            // ReSharper disable once UnusedType.Local
             private class FakeRuleUrlResolverForBaseRuleDescription : BaseRuleUrlResolver<BaseRuleDescription>
             {
                 /// <inheritdoc/>

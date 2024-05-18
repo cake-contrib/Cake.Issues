@@ -81,10 +81,8 @@
             context.NotNull();
             repositoryRoot.NotNull();
 
-            // ReSharper disable once PossibleMultipleEnumeration
             issueProviders.NotNullOrEmptyOrEmptyElement();
 
-            // ReSharper disable once PossibleMultipleEnumeration
             return
                 context.ReadIssues(
                     issueProviders,
@@ -175,10 +173,8 @@
             context.NotNull();
             settings.NotNull();
 
-            // ReSharper disable once PossibleMultipleEnumeration
             issueProviders.NotNullOrEmptyOrEmptyElement();
 
-            // ReSharper disable once PossibleMultipleEnumeration
             var issuesReader =
                 new IssuesReader(context.Log, issueProviders, settings);
 

@@ -3,7 +3,6 @@
     using Cake.AzureDevOps.Authentication;
     using Cake.Core.Diagnostics;
 
-    // ReSharper disable once ClassNeverInstantiated.Global
     public sealed class AzureDevOpsPullRequestSystemTests
     {
         public sealed class TheCtor
