@@ -14,7 +14,7 @@
                 const IIssue issue = null;
 
                 // When
-                var result = Record.Exception(() => issue.SerializeToJsonString());
+                var result = Record.Exception(issue.SerializeToJsonString);
 
                 // Then
                 result.IsArgumentNullException("issue");
@@ -386,7 +386,7 @@
                 const IEnumerable<IIssue> issues = null;
 
                 // When
-                var result = Record.Exception(() => issues.SerializeToJsonString());
+                var result = Record.Exception(issues.SerializeToJsonString);
 
                 // Then
                 result.IsArgumentNullException("issues");
@@ -2437,7 +2437,7 @@
                 const IIssue issue = null;
 
                 // When
-                var result = Record.Exception(() => issue.ToSerializableIssue());
+                var result = Record.Exception(issue.ToSerializableIssue);
 
                 // Then
                 result.IsArgumentNullException("issue");

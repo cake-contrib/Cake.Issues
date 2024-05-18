@@ -15,7 +15,7 @@
                 const AzureDevOpsPullRequestCommentThread thread = null;
 
                 // When
-                var result = Record.Exception(() => thread.ToPullRequestDiscussionThread());
+                var result = Record.Exception(thread.ToPullRequestDiscussionThread);
 
                 // Then
                 result.IsArgumentNullException("thread");
@@ -36,7 +36,7 @@
                     };
 
                 // When
-                var result = Record.Exception(() => thread.ToPullRequestDiscussionThread());
+                var result = Record.Exception(thread.ToPullRequestDiscussionThread);
 
                 // Then
                 result.IsInvalidOperationException("Comments list is not created.");
@@ -320,7 +320,7 @@
                 const AzureDevOpsPullRequestCommentThread thread = null;
 
                 // When
-                var result = Record.Exception(() => thread.GetCommentSource());
+                var result = Record.Exception(thread.GetCommentSource);
 
                 // Then
                 result.IsArgumentNullException("thread");
@@ -380,7 +380,7 @@
                 const AzureDevOpsPullRequestCommentThread thread = null;
 
                 // When
-                var result = Record.Exception(() => thread.GetProviderType());
+                var result = Record.Exception(thread.GetProviderType);
 
                 // Then
                 result.IsArgumentNullException("thread");
@@ -646,7 +646,7 @@
                 const AzureDevOpsPullRequestCommentThread thread = null;
 
                 // When
-                var result = Record.Exception(() => thread.GetIssueMessage());
+                var result = Record.Exception(thread.GetIssueMessage);
 
                 // Then
                 result.IsArgumentNullException("thread");

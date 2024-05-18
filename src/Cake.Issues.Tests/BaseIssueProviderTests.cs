@@ -53,7 +53,7 @@
                 var provider = new FakeIssueProvider(new FakeLog());
 
                 // When
-                var result = Record.Exception(() => provider.ReadIssues());
+                var result = Record.Exception(provider.ReadIssues);
 
                 // Then
                 result.IsInvalidOperationException("Initialize needs to be called first.");
