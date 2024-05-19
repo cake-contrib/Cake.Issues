@@ -14,7 +14,6 @@
         /// <inheritdoc />
         public FilePath CreateReport(IEnumerable<IIssue> issues)
         {
-            // ReSharper disable once PossibleMultipleEnumeration
             issues.NotNullOrEmptyElement();
 
             this.AssertInitialized();

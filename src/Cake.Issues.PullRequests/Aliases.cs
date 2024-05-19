@@ -45,10 +45,8 @@
             pullRequestSystem.NotNull();
             repositoryRoot.NotNull();
 
-            // ReSharper disable once PossibleMultipleEnumeration
             issues.NotNullOrEmptyElement();
 
-            // ReSharper disable once PossibleMultipleEnumeration
             return
                 context.ReportIssuesToPullRequest(
                     issues,
@@ -96,7 +94,6 @@
             pullRequestSystem.NotNull();
             settings.NotNull();
 
-            // ReSharper disable once PossibleMultipleEnumeration
             issues.NotNullOrEmptyElement();
 
             var orchestrator =
@@ -104,7 +101,6 @@
                     context.Log,
                     pullRequestSystem);
 
-            // ReSharper disable once PossibleMultipleEnumeration
             return orchestrator.Run(issues, settings);
         }
 
@@ -193,10 +189,8 @@
             pullRequestSystem.NotNull();
             repositoryRoot.NotNull();
 
-            // ReSharper disable once PossibleMultipleEnumeration
             issueProviders.NotNullOrEmptyOrEmptyElement();
 
-            // ReSharper disable once PossibleMultipleEnumeration
             return
                 context.ReportIssuesToPullRequest(
                     issueProviders,
@@ -301,7 +295,6 @@
             pullRequestSystem.NotNull();
             settings.NotNull();
 
-            // ReSharper disable once PossibleMultipleEnumeration
             issueProviders.NotNullOrEmptyOrEmptyElement();
 
             var orchestrator =
@@ -309,7 +302,6 @@
                     context.Log,
                     pullRequestSystem);
 
-            // ReSharper disable once PossibleMultipleEnumeration
             return orchestrator.Run(issueProviders, settings);
         }
     }

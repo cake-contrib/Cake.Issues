@@ -5,7 +5,6 @@
     using System.Diagnostics;
     using System.Linq;
     using System.Runtime.CompilerServices;
-    using JetBrains.Annotations;
 
     /// <summary>
     /// Common runtime checks that throw <see cref="ArgumentException"/> upon failure.
@@ -21,7 +20,7 @@
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="value"/> is <c>null</c>.</exception>
         [DebuggerStepThrough]
         public static void NotNull<T>(
-            [ValidatedNotNull][NoEnumeration] this T value,
+            [ValidatedNotNull] this T value,
             [CallerArgumentExpression(nameof(value))] string parameterName = null)
             where T : class
         {
@@ -95,13 +94,11 @@
         /// <exception cref="ArgumentException">Thrown if <paramref name="value"/> is empty.</exception>
         [DebuggerStepThrough]
         public static void NotNullOrEmpty<T>(
-            [NoEnumeration] this IEnumerable<T> value,
+            this IEnumerable<T> value,
             [CallerArgumentExpression(nameof(value))] string parameterName = null)
         {
-            // ReSharper disable once PossibleMultipleEnumeration
             value.NotNull(parameterName);
 
-            // ReSharper disable once PossibleMultipleEnumeration
             if (!value.Any())
             {
                 throw new ArgumentException("Empty list.", parameterName);
@@ -119,13 +116,11 @@
         /// <exception cref="ArgumentOutOfRangeException">Thrown if <paramref name="value"/> contains an empty element.</exception>
         [DebuggerStepThrough]
         public static void NotNullOrEmptyElement<T>(
-            [NoEnumeration] this IEnumerable<T> value,
+            this IEnumerable<T> value,
             [CallerArgumentExpression(nameof(value))] string parameterName = null)
         {
-            // ReSharper disable once PossibleMultipleEnumeration
             value.NotNull(parameterName);
 
-            // ReSharper disable once PossibleMultipleEnumeration
             if (value.Any(x => x == null))
             {
                 throw new ArgumentOutOfRangeException(parameterName, "List contains.");
@@ -143,13 +138,11 @@
         /// <exception cref="ArgumentOutOfRangeException">Thrown if <paramref name="value"/> contains an empty element.</exception>
         [DebuggerStepThrough]
         public static void NotNullOrEmptyOrEmptyElement<T>(
-            [NoEnumeration] this IEnumerable<T> value,
+            this IEnumerable<T> value,
             [CallerArgumentExpression(nameof(value))] string parameterName = null)
         {
-            // ReSharper disable once PossibleMultipleEnumeration
             value.NotNullOrEmpty(parameterName);
 
-            // ReSharper disable once PossibleMultipleEnumeration
             value.NotNullOrEmptyElement(parameterName);
         }
     }

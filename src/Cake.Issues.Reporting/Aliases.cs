@@ -146,14 +146,12 @@
         {
             context.NotNull();
 
-            // ReSharper disable once PossibleMultipleEnumeration
             issueProviders.NotNullOrEmptyOrEmptyElement();
 
             reportFormat.NotNull();
             repositoryRoot.NotNull();
             outputFilePath.NotNull();
 
-            // ReSharper disable once PossibleMultipleEnumeration
             return
                 context.CreateIssueReport(
                     issueProviders,
@@ -204,12 +202,10 @@
             context.NotNull();
             reportFormat.NotNull();
 
-            // ReSharper disable once PossibleMultipleEnumeration
             issueProviders.NotNullOrEmptyOrEmptyElement();
 
             var issueReportCreator = new IssueReportCreator(context.Log);
 
-            // ReSharper disable once PossibleMultipleEnumeration
             return issueReportCreator.CreateReport(issueProviders, reportFormat, settings);
         }
 
@@ -245,14 +241,12 @@
         {
             context.NotNull();
 
-            // ReSharper disable once PossibleMultipleEnumeration
             issues.NotNullOrEmptyElement();
 
             reportFormat.NotNull();
             repositoryRoot.NotNull();
             outputFilePath.NotNull();
 
-            // ReSharper disable once PossibleMultipleEnumeration
             return
                 context.CreateIssueReport(
                     issues,
@@ -292,7 +286,6 @@
         {
             context.NotNull();
 
-            // ReSharper disable once PossibleMultipleEnumeration
             issues.NotNullOrEmptyElement();
 
             reportFormat.NotNull();
@@ -300,7 +293,6 @@
 
             var issueReportCreator = new IssueReportCreator(context.Log);
 
-            // ReSharper disable once PossibleMultipleEnumeration
             return issueReportCreator.CreateReport(issues, reportFormat, settings);
         }
     }

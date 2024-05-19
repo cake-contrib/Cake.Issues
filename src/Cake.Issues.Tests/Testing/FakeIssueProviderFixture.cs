@@ -10,10 +10,8 @@
 
         public FakeIssueProviderFixture(IEnumerable<IIssue> issues)
         {
-            // ReSharper disable once PossibleMultipleEnumeration
             issues.NotNull();
 
-            // ReSharper disable once PossibleMultipleEnumeration
             this.issues.AddRange(issues);
         }
 

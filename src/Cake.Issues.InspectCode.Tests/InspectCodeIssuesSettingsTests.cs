@@ -2,7 +2,6 @@
 {
     using Cake.Core.IO;
 
-    // ReSharper disable once ClassNeverInstantiated.Global
     public sealed class InspectCodeIssuesSettingsTests
     {
         public sealed class TheCtor

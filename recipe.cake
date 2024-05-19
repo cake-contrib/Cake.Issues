@@ -16,6 +16,7 @@ BuildParameters.SetParameters(
     appVeyorAccountName: "cakecontrib",
     shouldUseDeterministicBuilds: true,
     shouldGenerateDocumentation: false, // Documentation is generated from Cake.Issues.Website
+    shouldRunInspectCode: false,
     shouldRunCoveralls: false,  // Disabled because it's currently failing
     shouldPostToGitter: false); // Disabled because it's currently failing
 
@@ -23,7 +24,6 @@ BuildParameters.PrintParameters(Context);
 
 ToolSettings.SetToolPreprocessorDirectives(
     gitReleaseManagerGlobalTool: "#tool dotnet:?package=GitReleaseManager.Tool&version=0.17.0",
-    reSharperTools: "#tool nuget:?package=JetBrains.ReSharper.CommandLineTools&version=2024.1.2",
     nugetTool: "#tool nuget:?package=NuGet.CommandLine&version=6.9.1"
 );
 

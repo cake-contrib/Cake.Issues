@@ -1,12 +1,9 @@
 ﻿namespace Cake.Issues.Reporting.Generic.Tests
 {
-    using System.Diagnostics.CodeAnalysis;
     using System.IO;
     using System.Text;
     using Cake.Core.IO;
 
-    [SuppressMessage("ReSharper", "ClassNeverInstantiated.Global", Justification = "Instantiated by test runner")]
-    [SuppressMessage("ReSharper", "ExpressionIsAlwaysNull", Justification = "By design for null tests")]
     public sealed class GenericIssueReportFormatSettingsTests
     {
         public sealed class TheCtor

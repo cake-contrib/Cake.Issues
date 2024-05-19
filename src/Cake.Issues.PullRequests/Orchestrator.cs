@@ -44,11 +44,9 @@ namespace Cake.Issues.PullRequests
             IEnumerable<IIssueProvider> issueProviders,
             IReportIssuesToPullRequestFromIssueProviderSettings settings)
         {
-            // ReSharper disable once PossibleMultipleEnumeration
             issueProviders.NotNullOrEmptyOrEmptyElement();
             settings.NotNull();
 
-            // ReSharper disable once PossibleMultipleEnumeration
             var issuesReader =
                 new IssuesReader(this.log, issueProviders, settings);
 

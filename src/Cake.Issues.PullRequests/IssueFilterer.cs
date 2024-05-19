@@ -49,12 +49,10 @@ namespace Cake.Issues.PullRequests
             IDictionary<IIssue, IssueCommentInfo> issueComments,
             IReadOnlyCollection<IPullRequestDiscussionThread> existingThreads)
         {
-            // ReSharper disable once PossibleMultipleEnumeration
             issues.NotNull();
 
             this.log.Verbose("Filtering issues before posting...");
 
-            // ReSharper disable once PossibleMultipleEnumeration
             var result = this.FilterIssuesByPath(issues as IList<IIssue> ?? issues.ToList());
 
             if (issueComments != null)

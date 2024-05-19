@@ -1,10 +1,5 @@
 ﻿namespace Cake.Issues.Reporting.Generic.Tests
 {
-    using System.Diagnostics.CodeAnalysis;
-
-    [SuppressMessage("ReSharper", "ClassNeverInstantiated.Global", Justification = "Instantiated by test runner")]
-    [SuppressMessage("ReSharper", "ExpressionIsAlwaysNull", Justification = "By design for null tests")]
-    [SuppressMessage("ReSharper", "InconsistentNaming", Justification = "Follows name of the class which is tested")]
     public sealed class IIssueExtensionsTests
     {
         public sealed class TheGetExpandoObjectExtension

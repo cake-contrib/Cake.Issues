@@ -59,10 +59,8 @@
         /// <inheritdoc />
         protected override void InternalPostDiscussionThreads(IEnumerable<IIssue> issues, string commentSource)
         {
-            // ReSharper disable once PossibleMultipleEnumeration
             issues.NotNull();
 
-            // ReSharper disable once PossibleMultipleEnumeration
             this.postedIssues.AddRange(issues);
         }
     }

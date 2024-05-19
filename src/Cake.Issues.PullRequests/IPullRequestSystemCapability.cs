@@ -1,5 +1,4 @@
-﻿// ReSharper disable RedundantTypeDeclarationBody
-namespace Cake.Issues.PullRequests
+﻿namespace Cake.Issues.PullRequests
 {
     /// <summary>
     /// Interface for all optional pull request system capabilities.

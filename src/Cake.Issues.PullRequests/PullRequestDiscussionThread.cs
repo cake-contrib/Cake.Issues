@@ -26,10 +26,8 @@
             FilePath filePath,
             IEnumerable<IPullRequestDiscussionComment> comments)
         {
-            // ReSharper disable once PossibleMultipleEnumeration
             comments.NotNull();
 
-            // File path needs to be relative to the repository root.
             if (filePath != null)
             {
                 if (!filePath.IsRelative)
@@ -42,8 +40,6 @@
 
             this.Id = id;
             this.Status = status;
-
-            // ReSharper disable once PossibleMultipleEnumeration
             this.comments.AddRange(comments);
         }
 

@@ -50,10 +50,8 @@
         /// <inheritdoc />
         protected override void InternalResolveDiscussionThreads(IEnumerable<IPullRequestDiscussionThread> threads)
         {
-            // ReSharper disable once PossibleMultipleEnumeration
             threads.NotNull();
 
-            // ReSharper disable once PossibleMultipleEnumeration
             foreach (var thread in threads)
             {
                 this.PullRequestSystem.AzureDevOpsPullRequest.ResolveCommentThread(thread.Id);
@@ -63,10 +61,8 @@
         /// <inheritdoc />
         protected override void InternalReopenDiscussionThreads(IEnumerable<IPullRequestDiscussionThread> threads)
         {
-            // ReSharper disable once PossibleMultipleEnumeration
             threads.NotNull();
 
-            // ReSharper disable once PossibleMultipleEnumeration
             foreach (var thread in threads)
             {
                 this.PullRequestSystem.AzureDevOpsPullRequest.ActivateCommentThread(thread.Id);

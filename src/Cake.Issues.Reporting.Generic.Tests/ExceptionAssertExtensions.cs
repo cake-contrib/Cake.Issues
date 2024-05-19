@@ -13,7 +13,6 @@
         /// </summary>
         /// <param name="exception">Exception to check.</param>
         /// <param name="message">Expected exception message.</param>
-        [SuppressMessage("ReSharper", "ParameterOnlyUsedForPreconditionCheck.Global", Justification = "By design for assertions")]
         public static void IsRuntimeBinderException(this Exception exception, string message)
         {
             Assert.IsType<RuntimeBinderException>(exception);

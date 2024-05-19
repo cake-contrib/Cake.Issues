@@ -8,13 +8,11 @@
         /// <summary>
         /// Gets or sets additional JavaScript which should be added.
         /// </summary>
-        // ReSharper disable once UnusedAutoPropertyAccessor.Global
         public string JavaScript { get; set; }
 
         /// <summary>
         /// Gets or sets JavaScript which should be called to open the file affected by an issue in an IDE.
         /// </summary>
-        // ReSharper disable once PropertyCanBeMadeInitOnly.Global
         public string OpenInIdeCall { get; set; }
 
         /// <summary>
@@ -22,7 +20,6 @@
         /// by an issue in an IDE.
         /// Default value is <c>Open in IDE</c>.
         /// </summary>
-        // ReSharper disable once AutoPropertyCanBeMadeGetOnly.Global
         public string MenuEntryText { get; set; } = "Open in IDE";
 
         /// <summary>

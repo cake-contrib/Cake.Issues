@@ -9,7 +9,6 @@
     /// <summary>
     /// Extension for <see cref="IIssue"/>.
     /// </summary>
-    [SuppressMessage("ReSharper", "InconsistentNaming", Justification = "Follows name of the interface which is extended")]
     public static class IIssueExtensions
     {
         /// <summary>

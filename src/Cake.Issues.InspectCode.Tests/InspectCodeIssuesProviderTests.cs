@@ -2,7 +2,6 @@
 {
     using System.Runtime.InteropServices;
 
-    // ReSharper disable once ClassNeverInstantiated.Global
     public sealed class InspectCodeIssuesProviderTests
     {
         public sealed class TheCtor

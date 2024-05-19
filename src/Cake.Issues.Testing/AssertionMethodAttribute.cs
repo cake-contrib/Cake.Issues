@@ -1,5 +1,4 @@
-﻿// ReSharper disable RedundantTypeDeclarationBody
-namespace Cake.Issues.Testing
+﻿namespace Cake.Issues.Testing
 {
     using System;
 

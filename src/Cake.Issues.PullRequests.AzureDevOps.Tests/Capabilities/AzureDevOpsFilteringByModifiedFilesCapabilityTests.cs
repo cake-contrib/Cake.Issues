@@ -4,7 +4,6 @@
     using Cake.Issues.PullRequests.AzureDevOps.Capabilities;
     using NSubstitute;
 
-    // ReSharper disable once ClassNeverInstantiated.Global
     public sealed class AzureDevOpsFilteringByModifiedFilesCapabilityTests
     {
         public sealed class TheCtor

@@ -78,7 +78,6 @@
         /// <inheritdoc/>
         protected override void InternalPostDiscussionThreads(IEnumerable<IIssue> issues, string commentSource)
         {
-            // ReSharper disable once PossibleMultipleEnumeration
             issues.NotNull();
 
             if (!this.ValidatePullRequest())
@@ -86,7 +85,6 @@
                 return;
             }
 
-            // ReSharper disable once PossibleMultipleEnumeration
             var threads = this.CreateDiscussionThreads(issues, commentSource).ToList();
 
             if (threads.Count == 0)
@@ -143,7 +141,6 @@
             IEnumerable<IIssue> issues,
             string commentSource)
         {
-            // ReSharper disable once PossibleMultipleEnumeration
             issues.NotNull();
 
             if (this.azureDevOpsPullRequest.CodeReviewId <= 0)
@@ -161,13 +158,11 @@
             // Filter issues not related to a file.
             if (!this.settings.ReportIssuesNotRelatedToAFile)
             {
-                // ReSharper disable once PossibleMultipleEnumeration
                 issues = issues.Where(x => x.AffectedFileRelativePath != null);
             }
 
             var result = new List<AzureDevOpsPullRequestCommentThread>();
 
-            // ReSharper disable once PossibleMultipleEnumeration
             foreach (var issue in issues)
             {
                 var changeTrackingId =
@@ -273,11 +268,9 @@
 
         private int TryGetCodeFlowChangeTrackingId(IEnumerable<AzureDevOpsPullRequestIterationChange> changes, FilePath path)
         {
-            // ReSharper disable once PossibleMultipleEnumeration
             changes.NotNull();
             path.NotNull();
 
-            // ReSharper disable once PossibleMultipleEnumeration
             var change =
                 changes
                     .Where(x => x.ItemPath != null && x.ItemPath.FullPath == "/" + path)

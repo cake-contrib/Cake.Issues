@@ -13,9 +13,6 @@
     /// Cake.Frosting.Issues.Reporting.Generic to use these aliases with Cake Frosting.
     /// </summary>
     [CakeAliasCategory(IssuesAliasConstants.MainCakeAliasCategory)]
-    [SuppressMessage("ReSharper", "UnusedMember.Global", Justification = "Aliases are not used in addin code")]
-    [SuppressMessage("ReSharper", "MemberCanBePrivate.Global", Justification = "Aliases are called by Cake scripts")]
-    [SuppressMessage("ReSharper", "UnusedType.Global", Justification = "Class will be loaded by Cake")]
     public static class GenericIssueReportFormatAliases
     {
         /// <summary>

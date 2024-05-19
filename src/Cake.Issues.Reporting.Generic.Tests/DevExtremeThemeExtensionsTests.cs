@@ -2,8 +2,6 @@
 {
     using System.Diagnostics.CodeAnalysis;
 
-    [SuppressMessage("ReSharper", "ClassNeverInstantiated.Global", Justification = "Instantiated by test runner")]
-    [SuppressMessage("ReSharper", "ExpressionIsAlwaysNull", Justification = "By design for null tests")]
     public sealed class DevExtremeThemeExtensionsTests
     {
         public sealed class TheGetCssFileNameMethod

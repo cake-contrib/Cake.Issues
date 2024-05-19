@@ -1,5 +1,4 @@
-﻿// ReSharper disable InconsistentNaming
-namespace Cake.Issues.DocFx
+﻿namespace Cake.Issues.DocFx
 {
     using System.Runtime.Serialization;
 

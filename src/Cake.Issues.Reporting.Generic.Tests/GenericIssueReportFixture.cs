@@ -19,12 +19,8 @@
                 GenericIssueReportFormatSettings.FromContent(templateContent);
         }
 
-        // ReSharper disable once MemberCanBePrivate.Global
-        // ReSharper disable once AutoPropertyCanBeMadeGetOnly.Global
         public FakeLog Log { get; set; }
 
-        // ReSharper disable once MemberCanBePrivate.Global
-        // ReSharper disable once AutoPropertyCanBeMadeGetOnly.Global
         public GenericIssueReportFormatSettings GenericIssueReportFormatSettings { get; set; }
 
         public string CreateReport(IEnumerable<IIssue> issues)

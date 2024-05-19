@@ -3,7 +3,6 @@
     using Cake.AzureDevOps.Repos.PullRequest.CommentThread;
     using Cake.Issues.PullRequests.AzureDevOps.Capabilities;
 
-    // ReSharper disable once ClassNeverInstantiated.Global
     public sealed class CommentThreadStatusExtensionsTests
     {
         public sealed class TheToPullRequestDiscussionStatusExtension
