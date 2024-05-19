@@ -122,7 +122,7 @@
                 var capability = new FakeDiscussionThreadsCapability(log, pullRequestSystem, discussionThreads);
 
                 // When
-                pullRequestSystem.Initialize(settings);
+                _ = pullRequestSystem.Initialize(settings);
                 var result = capability.FetchDiscussionThreads(settings.CommentSource);
 
                 // Then
@@ -200,7 +200,7 @@
                 var capability = new FakeDiscussionThreadsCapability(log, pullRequestSystem, discussionThreads);
 
                 // When
-                pullRequestSystem.Initialize(settings);
+                _ = pullRequestSystem.Initialize(settings);
                 capability.ResolveDiscussionThreads(
                     new List<IPullRequestDiscussionThread>
                     {
@@ -281,7 +281,7 @@
                 var capability = new FakeDiscussionThreadsCapability(log, pullRequestSystem, discussionThreads);
 
                 // When
-                pullRequestSystem.Initialize(settings);
+                _ = pullRequestSystem.Initialize(settings);
                 capability.ReopenDiscussionThreads(
                     new List<IPullRequestDiscussionThread>
                     {

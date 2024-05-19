@@ -240,9 +240,7 @@
         {
             line?.NotNegativeOrZero();
 
-            this.InFile(filePath, line, null);
-
-            return this;
+            return this.InFile(filePath, line, null);
         }
 
         /// <summary>
@@ -261,9 +259,7 @@
             line?.NotNegativeOrZero();
             column?.NotNegativeOrZero();
 
-            this.InFile(filePath, line, null, column, null);
-
-            return this;
+            return this.InFile(filePath, line, null, column, null);
         }
 
         /// <summary>

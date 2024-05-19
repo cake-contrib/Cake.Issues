@@ -14,8 +14,8 @@
         /// <param name="message">Expected exception message.</param>
         public static void IsRuntimeBinderException(this Exception exception, string message)
         {
-            Assert.IsType<RuntimeBinderException>(exception);
-            message.ShouldBe(exception.Message);
+            var ex = Assert.IsType<RuntimeBinderException>(exception);
+            message.ShouldBe(ex.Message);
         }
     }
 }

@@ -21,8 +21,8 @@
             {
                 var createIssueReportSettings =
                     new CreateIssueReportSettings(RepositoryRootPath, reportFile);
-                generator.Initialize(createIssueReportSettings);
-                generator.CreateReport(issues);
+                _ = generator.Initialize(createIssueReportSettings);
+                _ = generator.CreateReport(issues);
 
                 using (var stream = new FileStream(reportFile, FileMode.Open, FileAccess.Read))
                 {
@@ -61,7 +61,7 @@
 
             // Then
             // Currently only checks if generation failed or not without checking actual output.
-            result.ShouldNotBeNull();
+            _ = result.ShouldNotBeNull();
         }
     }
 }

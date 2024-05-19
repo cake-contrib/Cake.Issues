@@ -102,7 +102,7 @@
                 var capability = new FakeFilteringByModifiedFilesCapability(log, pullRequestSystem, modifiedFiles);
 
                 // When
-                pullRequestSystem.Initialize(settings);
+                _ = pullRequestSystem.Initialize(settings);
                 var result = capability.GetModifiedFilesInPullRequest();
 
                 // Then

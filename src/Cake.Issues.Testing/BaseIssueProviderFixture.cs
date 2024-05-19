@@ -66,7 +66,7 @@
                     typeof(T),
                     [.. this.GetCreateIssueProviderArguments()])
                 ?? throw new InvalidOperationException("Could not create issue provider.");
-            provider.Initialize(this.ReadIssuesSettings);
+            _ = provider.Initialize(this.ReadIssuesSettings);
             return provider;
         }
     }

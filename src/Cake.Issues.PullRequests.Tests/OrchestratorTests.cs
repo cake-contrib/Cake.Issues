@@ -94,7 +94,7 @@ namespace Cake.Issues.PullRequests.Tests
                 var issues = new List<IIssue>();
 
                 // When
-                fixture.RunOrchestrator(issues);
+                _ = fixture.RunOrchestrator(issues);
 
                 // Then
                 fixture.PullRequestSystem.Settings.ShouldBe(fixture.Settings);
@@ -218,7 +218,7 @@ namespace Cake.Issues.PullRequests.Tests
                 var fixture = new OrchestratorForIssueProvidersFixture();
 
                 // When
-                fixture.RunOrchestrator();
+                _ = fixture.RunOrchestrator();
 
                 // Then
                 fixture.PullRequestSystem.Settings.ShouldBe(fixture.Settings);
@@ -251,7 +251,7 @@ namespace Cake.Issues.PullRequests.Tests
                         }));
 
                 // When
-                fixture.RunOrchestrator();
+                _ = fixture.RunOrchestrator();
 
                 // Then
                 fixture.PullRequestSystem.PostedIssues.ShouldContain(issueToPost);
@@ -284,7 +284,7 @@ namespace Cake.Issues.PullRequests.Tests
                         }));
 
                 // When
-                fixture.RunOrchestrator();
+                _ = fixture.RunOrchestrator();
 
                 // Then
                 fixture.PullRequestSystem.PostedIssues.ShouldContain(issueToPost);
@@ -2095,7 +2095,7 @@ namespace Cake.Issues.PullRequests.Tests
                         }));
 
                 // When
-                fixture.RunOrchestrator();
+                _ = fixture.RunOrchestrator();
 
                 // Then
                 fixture.PullRequestSystem.DiscussionThreadsCapability.ResolvedThreads.ShouldContain(threadToResolve);
@@ -2145,7 +2145,7 @@ namespace Cake.Issues.PullRequests.Tests
                         }));
 
                 // When
-                fixture.RunOrchestrator();
+                _ = fixture.RunOrchestrator();
 
                 // Then
                 fixture.PullRequestSystem.DiscussionThreadsCapability.ResolvedThreads.ShouldBeEmpty();
@@ -2198,7 +2198,7 @@ namespace Cake.Issues.PullRequests.Tests
                         }));
 
                 // When
-                fixture.RunOrchestrator();
+                _ = fixture.RunOrchestrator();
 
                 // Then
                 fixture.PullRequestSystem.DiscussionThreadsCapability.ReopenedThreads.ShouldContain(threadToReopen);
@@ -2249,7 +2249,7 @@ namespace Cake.Issues.PullRequests.Tests
                         }));
 
                 // When
-                fixture.RunOrchestrator();
+                _ = fixture.RunOrchestrator();
 
                 // Then
                 fixture.PullRequestSystem.DiscussionThreadsCapability.ReopenedThreads.ShouldBeEmpty();
@@ -2280,7 +2280,7 @@ namespace Cake.Issues.PullRequests.Tests
                         }));
 
                 // When
-                fixture.RunOrchestrator();
+                _ = fixture.RunOrchestrator();
 
                 // Then
                 fixture.Log.Entries.ShouldContain(x => x.Message == "No existing threads to resolve.");
@@ -2329,7 +2329,7 @@ namespace Cake.Issues.PullRequests.Tests
                         }));
 
                 // When
-                fixture.RunOrchestrator();
+                _ = fixture.RunOrchestrator();
 
                 // Then
                 fixture.Log.Entries.ShouldContain(x => x.Message == "Thread has unknown status und matching comment(s) are ignored.");
@@ -2430,7 +2430,7 @@ namespace Cake.Issues.PullRequests.Tests
                         }));
 
                 // When
-                fixture.RunOrchestrator();
+                _ = fixture.RunOrchestrator();
 
                 // Then
                 fixture.Log.Entries.ShouldContain(x => x.Message == "All issues were filtered. Nothing new to post.");

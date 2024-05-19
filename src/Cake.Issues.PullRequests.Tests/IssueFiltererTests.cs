@@ -78,7 +78,7 @@
                 var fixture = new IssueFiltererFixture();
 
                 // When
-                fixture.FilterIssues(new List<IIssue>(), null);
+                _ = fixture.FilterIssues(new List<IIssue>(), null);
 
                 // Then
             }

@@ -25,7 +25,7 @@
         {
             foreach (var arg in this.Arguments)
             {
-                args.Append(arg);
+                _ = args.Append(arg);
             }
         }
     }

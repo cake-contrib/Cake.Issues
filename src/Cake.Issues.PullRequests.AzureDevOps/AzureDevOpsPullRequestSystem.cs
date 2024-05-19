@@ -92,7 +92,7 @@
 
             foreach (var thread in threads)
             {
-                this.azureDevOpsPullRequest.CreateCommentThread(thread);
+                _ = this.azureDevOpsPullRequest.CreateCommentThread(thread);
             }
 
             this.Log.Information("Posted {0} discussion threads", threads.Count);

@@ -32,7 +32,7 @@
             this.RuleUrl = new Uri("https://google.com");
             this.AdditionalInformation = [];
 
-            this.IssueBuilder
+            _ = this.IssueBuilder
                 .ForRun(this.Run)
                 .WithMessageInHtmlFormat(this.MessageHtml)
                 .WithMessageInMarkdownFormat(this.MessageMarkdown)

@@ -13,7 +13,7 @@
                 var result = new FakeIssueProviderFixture();
 
                 // Then
-                result.Log.ShouldNotBeNull();
+                _ = result.Log.ShouldNotBeNull();
             }
 
             [Fact]
@@ -25,7 +25,7 @@
                 var result = new FakeIssueProviderFixture();
 
                 // Then
-                result.ReadIssuesSettings.ShouldNotBeNull();
+                _ = result.ReadIssuesSettings.ShouldNotBeNull();
             }
         }
 

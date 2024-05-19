@@ -103,11 +103,11 @@
                     1);
 
                 // When
-                urlResolver.ResolveRuleUrl(rule);
+                _ = urlResolver.ResolveRuleUrl(rule);
 
                 // Then
-                ruleId.ShouldNotBeNull();
-                ruleId.Value.ShouldBe(expectedRuleId);
+                var value = ruleId.ShouldNotBeNull();
+                value.ShouldBe(expectedRuleId);
             }
         }
     }

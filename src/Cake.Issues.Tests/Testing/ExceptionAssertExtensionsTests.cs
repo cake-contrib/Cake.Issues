@@ -14,8 +14,8 @@
                 var result = Record.Exception(() => exception.IsArgumentException("Foo"));
 
                 // Then
-                result.ShouldBeOfType<Exception>();
-                result.Message.ShouldBe("Expected exception of type 'System.ArgumentException' but no exception was thrown.");
+                var ex = result.ShouldBeOfType<Exception>();
+                ex.Message.ShouldBe("Expected exception of type 'System.ArgumentException' but no exception was thrown.");
             }
 
             [Fact]
@@ -28,8 +28,8 @@
                 var result = Record.Exception(() => exception.IsArgumentException("Foo"));
 
                 // Then
-                result.ShouldBeOfType<Exception>();
-                result.Message.ShouldBe("Expected exception of type 'System.ArgumentException' but was 'System.Exception'.");
+                var ex = result.ShouldBeOfType<Exception>();
+                ex.Message.ShouldBe("Expected exception of type 'System.ArgumentException' but was 'System.Exception'.");
             }
 
             [Fact]
@@ -57,8 +57,8 @@
                 var result = Record.Exception(() => exception.IsArgumentException(expectedParamName));
 
                 // Then
-                result.ShouldBeOfType<Exception>();
-                result.Message.ShouldBe($"Expected parameter name to be '{expectedParamName}' but was '{actualParamName}'.");
+                var ex = result.ShouldBeOfType<Exception>();
+                ex.Message.ShouldBe($"Expected parameter name to be '{expectedParamName}' but was '{actualParamName}'.");
             }
 
             [Theory]
@@ -89,8 +89,8 @@
                 var result = Record.Exception(() => exception.IsArgumentNullException("Foo"));
 
                 // Then
-                result.ShouldBeOfType<Exception>();
-                result.Message.ShouldBe("Expected exception of type 'System.ArgumentNullException' but no exception was thrown.");
+                var ex = result.ShouldBeOfType<Exception>();
+                ex.Message.ShouldBe("Expected exception of type 'System.ArgumentNullException' but no exception was thrown.");
             }
 
             [Fact]
@@ -103,8 +103,8 @@
                 var result = Record.Exception(() => exception.IsArgumentNullException("Foo"));
 
                 // Then
-                result.ShouldBeOfType<Exception>();
-                result.Message.ShouldBe("Expected exception of type 'System.ArgumentNullException' but was 'System.Exception'.");
+                var ex = result.ShouldBeOfType<Exception>();
+                ex.Message.ShouldBe("Expected exception of type 'System.ArgumentNullException' but was 'System.Exception'.");
             }
 
             [Fact]
@@ -132,8 +132,8 @@
                 var result = Record.Exception(() => exception.IsArgumentNullException(expectedParamName));
 
                 // Then
-                result.ShouldBeOfType<Exception>();
-                result.Message.ShouldBe($"Expected parameter name to be '{expectedParamName}' but was '{actualParamName}'.");
+                var ex = result.ShouldBeOfType<Exception>();
+                ex.Message.ShouldBe($"Expected parameter name to be '{expectedParamName}' but was '{actualParamName}'.");
             }
 
             [Theory]
@@ -164,8 +164,8 @@
                 var result = Record.Exception(() => exception.IsArgumentOutOfRangeException("Foo"));
 
                 // Then
-                result.ShouldBeOfType<Exception>();
-                result.Message.ShouldBe("Expected exception of type 'System.ArgumentOutOfRangeException' but no exception was thrown.");
+                var ex = result.ShouldBeOfType<Exception>();
+                ex.Message.ShouldBe("Expected exception of type 'System.ArgumentOutOfRangeException' but no exception was thrown.");
             }
 
             [Fact]
@@ -178,8 +178,8 @@
                 var result = Record.Exception(() => exception.IsArgumentOutOfRangeException("Foo"));
 
                 // Then
-                result.ShouldBeOfType<Exception>();
-                result.Message.ShouldBe("Expected exception of type 'System.ArgumentOutOfRangeException' but was 'System.Exception'.");
+                var ex = result.ShouldBeOfType<Exception>();
+                ex.Message.ShouldBe("Expected exception of type 'System.ArgumentOutOfRangeException' but was 'System.Exception'.");
             }
 
             [Fact]
@@ -207,8 +207,8 @@
                 var result = Record.Exception(() => exception.IsArgumentOutOfRangeException(expectedParamName));
 
                 // Then
-                result.ShouldBeOfType<Exception>();
-                result.Message.ShouldBe($"Expected parameter name to be '{expectedParamName}' but was '{actualParamName}'.");
+                var ex = result.ShouldBeOfType<Exception>();
+                ex.Message.ShouldBe($"Expected parameter name to be '{expectedParamName}' but was '{actualParamName}'.");
             }
 
             [Theory]
@@ -239,8 +239,8 @@
                 var result = Record.Exception(() => exception.IsInvalidOperationException("Foo"));
 
                 // Then
-                result.ShouldBeOfType<Exception>();
-                result.Message.ShouldBe("Expected exception of type 'System.InvalidOperationException' but no exception was thrown.");
+                var ex = result.ShouldBeOfType<Exception>();
+                ex.Message.ShouldBe("Expected exception of type 'System.InvalidOperationException' but no exception was thrown.");
             }
 
             [Fact]
@@ -253,8 +253,8 @@
                 var result = Record.Exception(() => exception.IsInvalidOperationException("Foo"));
 
                 // Then
-                result.ShouldBeOfType<Exception>();
-                result.Message.ShouldBe("Expected exception of type 'System.InvalidOperationException' but was 'System.Exception'.");
+                var ex = result.ShouldBeOfType<Exception>();
+                ex.Message.ShouldBe("Expected exception of type 'System.InvalidOperationException' but was 'System.Exception'.");
             }
 
             [Fact]
@@ -281,8 +281,8 @@
                 var result = Record.Exception(() => exception.IsInvalidOperationException(expectedMessage));
 
                 // Then
-                result.ShouldBeOfType<Exception>();
-                result.Message.ShouldBe($"Expected exception message to be '{expectedMessage}' but was '{actualMessage}'.");
+                var ex = result.ShouldBeOfType<Exception>();
+                ex.Message.ShouldBe($"Expected exception message to be '{expectedMessage}' but was '{actualMessage}'.");
             }
 
             [Theory]

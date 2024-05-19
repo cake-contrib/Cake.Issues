@@ -47,7 +47,7 @@
                 var issueProviders = new List<FakeIssueProvider> { new(fixture.Log) };
 
                 // When
-                fixture.CreateReport(issueProviders);
+                _ = fixture.CreateReport(issueProviders);
 
                 // Then
                 fixture.IssueReportFormat.Settings.ShouldBe(fixture.CreateIssueReportFromIssueProviderSettings);
@@ -85,7 +85,7 @@
                 var result = fixture.CreateReport(issueProviders);
 
                 // Then
-                result.ShouldNotBeNull();
+                _ = result.ShouldNotBeNull();
             }
         }
 
@@ -108,7 +108,7 @@
                     };
 
                 // When
-                fixture.CreateReport(issues);
+                _ = fixture.CreateReport(issues);
 
                 // Then
                 fixture.IssueReportFormat.Settings.ShouldBe(fixture.CreateIssueReportSettings);
@@ -164,7 +164,7 @@
                 var result = fixture.CreateReport(issues);
 
                 // Then
-                result.ShouldNotBeNull();
+                _ = result.ShouldNotBeNull();
             }
         }
     }

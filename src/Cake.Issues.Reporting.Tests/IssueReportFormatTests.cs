@@ -66,7 +66,7 @@
                 var result = fixture.CreateReport(new List<IIssue>());
 
                 // Then
-                result.ShouldNotBeNull();
+                _ = result.ShouldNotBeNull();
             }
 
             [Fact]

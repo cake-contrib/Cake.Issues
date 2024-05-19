@@ -30,8 +30,8 @@
                 var result = Record.Exception(jsonString.DeserializeToIssue);
 
                 // Then
-                result.ShouldNotBeNull();
-                result.Message.ShouldBe("Not supported issue serialization format -1");
+                var value = result.ShouldNotBeNull();
+                value.Message.ShouldBe("Not supported issue serialization format -1");
             }
         }
 

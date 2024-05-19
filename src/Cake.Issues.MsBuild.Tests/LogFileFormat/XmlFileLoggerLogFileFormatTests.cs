@@ -382,7 +382,7 @@
                 var fixture = new MsBuildIssuesProviderFixture<XmlFileLoggerLogFileFormat>("IssueWithAbsoluteFileNameAndWithoutTask.xml");
 
                 var repoRootCreated = !Directory.Exists(fixture.ReadIssuesSettings.RepositoryRoot.FullPath);
-                Directory.CreateDirectory(fixture.ReadIssuesSettings.RepositoryRoot.FullPath);
+                _ = Directory.CreateDirectory(fixture.ReadIssuesSettings.RepositoryRoot.FullPath);
                 try
                 {
                     var oldWorkingDirectory = Directory.GetCurrentDirectory();

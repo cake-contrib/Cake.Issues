@@ -64,7 +64,7 @@
                     break;
                 }
 
-                categoryBuilder.Append(currentChar);
+                _ = categoryBuilder.Append(currentChar);
             }
 
             // If rule doesn't contain numbers return false.

@@ -91,7 +91,7 @@
                 var fixture = new IssuesFixture();
 
                 // When
-                fixture.ReadIssues();
+                _ = fixture.ReadIssues();
 
                 // Then
                 fixture.IssueProviders.ShouldAllBe(x => x.Settings == fixture.Settings);
@@ -141,7 +141,7 @@
                         }));
 
                 // When
-                fixture.ReadIssues();
+                _ = fixture.ReadIssues();
 
                 // Then
                 fixture.IssueProviders.ShouldAllBe(x => x.Settings == fixture.Settings);
