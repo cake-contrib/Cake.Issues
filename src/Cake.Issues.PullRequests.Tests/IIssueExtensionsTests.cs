@@ -12,8 +12,7 @@
 
                 // When
                 var result =
-                    Record.Exception(() =>
-                        issues.SortWithDefaultPrioritization());
+                    Record.Exception(issues.SortWithDefaultPrioritization);
 
                 // Then
                 result.IsArgumentNullException("issues");

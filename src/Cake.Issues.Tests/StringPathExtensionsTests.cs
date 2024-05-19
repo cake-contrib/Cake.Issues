@@ -345,7 +345,7 @@
             public void Should_Throw_If_Path_Is_Empty()
             {
                 // Given / When
-                var result = Record.Exception(() => string.Empty.NormalizePath());
+                var result = Record.Exception(string.Empty.NormalizePath);
 
                 // Then
                 result.IsArgumentOutOfRangeException("path");
@@ -355,7 +355,7 @@
             public void Should_Throw_If_Path_Is_WhiteSpace()
             {
                 // Given / When
-                var result = Record.Exception(() => " ".NormalizePath());
+                var result = Record.Exception(" ".NormalizePath);
 
                 // Then
                 result.IsArgumentOutOfRangeException("path");
@@ -365,7 +365,7 @@
             public void Should_Throw_If_Path_Is_Invalid()
             {
                 // Given / When
-                var result = Record.Exception(() => "c:\\foo\0bar".NormalizePath());
+                var result = Record.Exception("c:\\foo\0bar".NormalizePath);
 
                 // Then
                 result.IsArgumentException("path");
@@ -709,8 +709,7 @@
                 // Given / When
                 var result =
                     Record.Exception(
-                        () =>
-                            string.Empty.RemoveLeadingDirectorySeparator());
+                        string.Empty.RemoveLeadingDirectorySeparator);
 
                 // Then
                 result.IsArgumentOutOfRangeException("filePath");
@@ -722,8 +721,7 @@
                 // Given / When
                 var result =
                     Record.Exception(
-                        () =>
-                            " ".RemoveLeadingDirectorySeparator());
+                        " ".RemoveLeadingDirectorySeparator);
 
                 // Then
                 result.IsArgumentOutOfRangeException("filePath");

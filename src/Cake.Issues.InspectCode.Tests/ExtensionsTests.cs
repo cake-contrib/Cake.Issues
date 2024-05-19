@@ -11,7 +11,7 @@
                 const string value = null;
 
                 // When
-                var result = Record.Exception(() => value.ToUri());
+                var result = Record.Exception(value.ToUri);
 
                 // Then
                 result.IsArgumentNullException("value");
@@ -24,7 +24,7 @@
                 var value = string.Empty;
 
                 // When
-                var result = Record.Exception(() => value.ToUri());
+                var result = Record.Exception(value.ToUri);
 
                 // Then
                 result.IsArgumentOutOfRangeException("value");
@@ -37,7 +37,7 @@
                 const string value = " ";
 
                 // When
-                var result = Record.Exception(() => value.ToUri());
+                var result = Record.Exception(value.ToUri);
 
                 // Then
                 result.IsArgumentOutOfRangeException("value");

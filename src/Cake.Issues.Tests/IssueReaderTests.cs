@@ -14,7 +14,7 @@
                 };
 
                 // When
-                var result = Record.Exception(() => fixture.ReadIssues());
+                var result = Record.Exception(fixture.ReadIssues);
 
                 // Then
                 result.IsArgumentNullException("log");
@@ -30,7 +30,7 @@
                 };
 
                 // When
-                var result = Record.Exception(() => fixture.ReadIssues());
+                var result = Record.Exception(fixture.ReadIssues);
 
                 // Then
                 result.IsArgumentNullException("issueProviders");
@@ -44,7 +44,7 @@
                 fixture.IssueProviders.Clear();
 
                 // When
-                var result = Record.Exception(() => fixture.ReadIssues());
+                var result = Record.Exception(fixture.ReadIssues);
 
                 // Then
                 result.IsArgumentException("issueProviders");
@@ -59,7 +59,7 @@
                 fixture.IssueProviders.Add(null);
 
                 // When
-                var result = Record.Exception(() => fixture.ReadIssues());
+                var result = Record.Exception(fixture.ReadIssues);
 
                 // Then
                 result.IsArgumentOutOfRangeException("issueProviders");
@@ -75,7 +75,7 @@
                 };
 
                 // When
-                var result = Record.Exception(() => fixture.ReadIssues());
+                var result = Record.Exception(fixture.ReadIssues);
 
                 // Then
                 result.IsArgumentNullException("settings");

@@ -13,7 +13,7 @@
                 const byte[] value = null;
 
                 // When
-                var result = Record.Exception(() => value.RemovePreamble());
+                var result = Record.Exception(value.RemovePreamble);
 
                 // Then
                 result.IsArgumentNullException("value");
@@ -131,7 +131,7 @@
                 const byte[] value = null;
 
                 // When
-                var result = Record.Exception(() => value.ToStringUsingEncoding());
+                var result = Record.Exception(value.ToStringUsingEncoding);
 
                 // Then
                 result.IsArgumentNullException("value");
@@ -317,7 +317,7 @@
                 const string value = null;
 
                 // When
-                var result = Record.Exception(() => value.ToByteArray());
+                var result = Record.Exception(value.ToByteArray);
 
                 // Then
                 result.IsArgumentNullException("value");

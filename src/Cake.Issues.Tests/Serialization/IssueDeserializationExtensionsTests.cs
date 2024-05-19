@@ -14,7 +14,7 @@
                 const string jsonString = null;
 
                 // When
-                var result = Record.Exception(() => jsonString.DeserializeToIssue());
+                var result = Record.Exception(jsonString.DeserializeToIssue);
 
                 // Then
                 result.IsArgumentNullException("jsonString");
@@ -27,7 +27,7 @@
                 const string jsonString = "{\"Version\": -1}";
 
                 // When
-                var result = Record.Exception(() => jsonString.DeserializeToIssue());
+                var result = Record.Exception(jsonString.DeserializeToIssue);
 
                 // Then
                 result.ShouldNotBeNull();
@@ -44,7 +44,7 @@
                 const string jsonString = null;
 
                 // When
-                var result = Record.Exception(() => jsonString.DeserializeToIssues());
+                var result = Record.Exception(jsonString.DeserializeToIssues);
 
                 // Then
                 result.IsArgumentNullException("jsonString");
@@ -73,7 +73,7 @@
                 const FilePath filePath = null;
 
                 // When
-                var result = Record.Exception(() => filePath.DeserializeToIssue());
+                var result = Record.Exception(filePath.DeserializeToIssue);
 
                 // Then
                 result.IsArgumentNullException("filePath");
@@ -161,7 +161,7 @@
                 const FilePath filePath = null;
 
                 // When
-                var result = Record.Exception(() => filePath.DeserializeToIssues());
+                var result = Record.Exception(filePath.DeserializeToIssues);
 
                 // Then
                 result.IsArgumentNullException("filePath");

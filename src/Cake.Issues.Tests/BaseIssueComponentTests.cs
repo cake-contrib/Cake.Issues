@@ -81,7 +81,7 @@
                 var provider = new FakeIssueComponent(new FakeLog());
 
                 // When
-                var result = Record.Exception(() => provider.AssertInitialized());
+                var result = Record.Exception(provider.AssertInitialized);
 
                 // Then
                 result.IsInvalidOperationException("Initialize needs to be called first.");

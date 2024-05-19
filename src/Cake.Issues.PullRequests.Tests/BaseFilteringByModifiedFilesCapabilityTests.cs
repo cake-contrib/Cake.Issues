@@ -85,8 +85,7 @@
 
                 // When
                 var result =
-                    Record.Exception(() =>
-                        capability.GetModifiedFilesInPullRequest());
+                    Record.Exception(capability.GetModifiedFilesInPullRequest);
 
                 // Then
                 result.IsInvalidOperationException("Initialize needs to be called first.");

@@ -13,7 +13,7 @@
                 const SerializableIssueV2 serializableIssue = null;
 
                 // When
-                var result = Record.Exception(() => serializableIssue.ToIssue());
+                var result = Record.Exception(serializableIssue.ToIssue);
 
                 // Then
                 result.IsArgumentNullException("serializableIssue");

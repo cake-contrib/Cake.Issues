@@ -119,7 +119,7 @@
                 };
 
                 // When
-                var result = Record.Exception(() => fixture.ReadIssues());
+                var result = Record.Exception(fixture.ReadIssues);
 
                 // Then
                 result.IsInvalidOperationException("No log instance set.");
@@ -135,7 +135,7 @@
                 };
 
                 // When
-                var result = Record.Exception(() => fixture.ReadIssues());
+                var result = Record.Exception(fixture.ReadIssues);
 
                 // Then
                 result.IsInvalidOperationException("No settings for reading issues set.");

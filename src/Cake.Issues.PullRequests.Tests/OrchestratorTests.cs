@@ -128,7 +128,7 @@ namespace Cake.Issues.PullRequests.Tests
                 };
 
                 // When
-                var result = Record.Exception(() => fixture.RunOrchestrator());
+                var result = Record.Exception(fixture.RunOrchestrator);
 
                 // Then
                 result.IsArgumentNullException("log");
@@ -144,7 +144,7 @@ namespace Cake.Issues.PullRequests.Tests
                 };
 
                 // When
-                var result = Record.Exception(() => fixture.RunOrchestrator());
+                var result = Record.Exception(fixture.RunOrchestrator);
 
                 // Then
                 result.IsArgumentNullException("issueProviders");
@@ -158,7 +158,7 @@ namespace Cake.Issues.PullRequests.Tests
                 fixture.IssueProviders.Clear();
 
                 // When
-                var result = Record.Exception(() => fixture.RunOrchestrator());
+                var result = Record.Exception(fixture.RunOrchestrator);
 
                 // Then
                 result.IsArgumentException("issueProviders");
@@ -173,7 +173,7 @@ namespace Cake.Issues.PullRequests.Tests
                 fixture.IssueProviders.Add(null);
 
                 // When
-                var result = Record.Exception(() => fixture.RunOrchestrator());
+                var result = Record.Exception(fixture.RunOrchestrator);
 
                 // Then
                 result.IsArgumentOutOfRangeException("issueProviders");
@@ -189,7 +189,7 @@ namespace Cake.Issues.PullRequests.Tests
                 };
 
                 // When
-                var result = Record.Exception(() => fixture.RunOrchestrator());
+                var result = Record.Exception(fixture.RunOrchestrator);
 
                 // Then
                 result.IsArgumentNullException("pullRequestSystem");
@@ -205,7 +205,7 @@ namespace Cake.Issues.PullRequests.Tests
                 };
 
                 // When
-                var result = Record.Exception(() => fixture.RunOrchestrator());
+                var result = Record.Exception(fixture.RunOrchestrator);
 
                 // Then
                 result.IsArgumentNullException("settings");

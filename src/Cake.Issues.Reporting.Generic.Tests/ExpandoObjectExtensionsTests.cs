@@ -13,7 +13,7 @@
                 ExpandoObject expandoObject = null;
 
                 // When
-                var result = Record.Exception(() => expandoObject.SerializeToJsonString());
+                var result = Record.Exception(expandoObject.SerializeToJsonString);
 
                 // Then
                 result.IsArgumentNullException("expandoObject");
@@ -47,7 +47,7 @@
                 IEnumerable<ExpandoObject> expandoObjects = null;
 
                 // When
-                var result = Record.Exception(() => expandoObjects.SerializeToJsonString());
+                var result = Record.Exception(expandoObjects.SerializeToJsonString);
 
                 // Then
                 result.IsArgumentNullException("expandoObjects");

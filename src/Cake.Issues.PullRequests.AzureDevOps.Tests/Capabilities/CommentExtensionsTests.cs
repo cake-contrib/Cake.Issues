@@ -14,7 +14,7 @@
                 const AzureDevOpsComment comment = null;
 
                 // When
-                var result = Record.Exception(() => comment.ToPullRequestDiscussionComment());
+                var result = Record.Exception(comment.ToPullRequestDiscussionComment);
 
                 // Then
                 result.IsArgumentNullException("comment");

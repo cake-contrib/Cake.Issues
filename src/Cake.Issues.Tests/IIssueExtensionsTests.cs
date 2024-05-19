@@ -11,7 +11,7 @@
                 const IIssue issue = null;
 
                 // When
-                var result = Record.Exception(() => issue.LineRange());
+                var result = Record.Exception(issue.LineRange);
 
                 // Then
                 result.IsArgumentNullException("issue");
@@ -103,7 +103,7 @@
                 const IIssue issue = null;
 
                 // When
-                var result = Record.Exception(() => issue.ProjectPath());
+                var result = Record.Exception(issue.ProjectPath);
 
                 // Then
                 result.IsArgumentNullException("issue");
@@ -153,7 +153,7 @@
                 const IIssue issue = null;
 
                 // When
-                var result = Record.Exception(() => issue.ProjectDirectory());
+                var result = Record.Exception(issue.ProjectDirectory);
 
                 // Then
                 result.IsArgumentNullException("issue");
@@ -203,7 +203,7 @@
                 const IIssue issue = null;
 
                 // When
-                var result = Record.Exception(() => issue.FilePath());
+                var result = Record.Exception(issue.FilePath);
 
                 // Then
                 result.IsArgumentNullException("issue");
@@ -253,7 +253,7 @@
                 const IIssue issue = null;
 
                 // When
-                var result = Record.Exception(() => issue.FileDirectory());
+                var result = Record.Exception(issue.FileDirectory);
 
                 // Then
                 result.IsArgumentNullException("issue");
@@ -303,7 +303,7 @@
                 const IIssue issue = null;
 
                 // When
-                var result = Record.Exception(() => issue.FileName());
+                var result = Record.Exception(issue.FileName);
 
                 // Then
                 result.IsArgumentNullException("issue");
@@ -353,7 +353,7 @@
                 const IIssue issue = null;
 
                 // When
-                var result = Record.Exception(() => issue.Rule());
+                var result = Record.Exception(issue.Rule);
 
                 // Then
                 result.IsArgumentNullException("issue");
