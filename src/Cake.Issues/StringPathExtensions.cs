@@ -29,14 +29,9 @@
         {
             path.NotNullOrWhiteSpace();
 
-            if (!path.IsValidPath())
-            {
-                throw new ArgumentException($"Invalid path '{path}'", nameof(path));
-            }
-
-            return
-                Path.IsPathRooted(path) &&
-                !Path.GetPathRoot(path).Equals(Path.DirectorySeparatorChar.ToString(), StringComparison.Ordinal);
+            return path.IsValidPath()
+                ? Path.IsPathRooted(path) && !Path.GetPathRoot(path).Equals(Path.DirectorySeparatorChar.ToString(), StringComparison.Ordinal)
+                : throw new ArgumentException($"Invalid path '{path}'", nameof(path));
         }
 
         /// <summary>
@@ -84,12 +79,9 @@
         {
             path.NotNullOrWhiteSpace();
 
-            if (!path.IsValidPath())
-            {
-                throw new ArgumentException($"Invalid path '{path}'", nameof(path));
-            }
-
-            return path.Replace('/', '\\');
+            return path.IsValidPath()
+                ? path.Replace('/', '\\')
+                : throw new ArgumentException($"Invalid path '{path}'", nameof(path));
         }
 
         /// <summary>
@@ -188,13 +180,10 @@
         {
             filePath.NotNullOrWhiteSpace();
 
-            if (filePath.StartsWith('\\') ||
-                filePath.StartsWith('/'))
-            {
-                return filePath[1..];
-            }
-
-            return filePath;
+            return filePath.StartsWith('\\') ||
+                filePath.StartsWith('/')
+                ? filePath[1..]
+                : filePath;
         }
 
         /// <summary>Gets the rightmost <paramref name="length" /> characters from a string.</summary>
@@ -205,12 +194,9 @@
         {
             value.NotNull();
 
-            if (length < 0)
-            {
-                throw new ArgumentOutOfRangeException(nameof(length), length, "Length is less than zero");
-            }
-
-            return (length < value.Length) ? value[^length..] : value;
+            return length >= 0
+                ? (length < value.Length) ? value[^length..] : value
+                : throw new ArgumentOutOfRangeException(nameof(length), length, "Length is less than zero");
         }
     }
 }

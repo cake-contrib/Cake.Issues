@@ -50,16 +50,12 @@
             rule.NotNullOrWhiteSpace();
 
             var ruleDescription = new T { Rule = rule };
-            if (!this.TryGetRuleDescription(rule, ruleDescription))
-            {
-                return null;
-            }
-
-            return
-                this.registeredUrlResolver
+            return this.TryGetRuleDescription(rule, ruleDescription)
+                ? this.registeredUrlResolver
                     .OrderByDescending(x => x.Item2)
                     .Select(x => x.Item1(ruleDescription))
-                    .FirstOrDefault(x => x != null);
+                    .FirstOrDefault(x => x != null)
+                : null;
         }
 
         /// <summary>

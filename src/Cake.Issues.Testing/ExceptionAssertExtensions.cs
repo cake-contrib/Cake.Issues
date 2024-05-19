@@ -78,19 +78,11 @@
         /// <param name="exception">Exception which should be checked.</param>
         /// <returns>Converted exception.</returns>
         private static T CheckExceptionType<T>(this Exception exception)
-            where T : Exception
-        {
-            if (exception == null)
-            {
-                throw new Exception($"Expected exception of type '{typeof(T)}' but no exception was thrown.");
-            }
-
-            if (exception is not T typedException)
-            {
-                throw new Exception($"Expected exception of type '{typeof(T)}' but was '{exception.GetType()}'.");
-            }
-
-            return typedException;
-        }
+            where T : Exception =>
+            exception != null
+                ? exception is T typedException
+                ? typedException
+                : throw new Exception($"Expected exception of type '{typeof(T)}' but was '{exception.GetType()}'.")
+                : throw new Exception($"Expected exception of type '{typeof(T)}' but no exception was thrown.");
     }
 }

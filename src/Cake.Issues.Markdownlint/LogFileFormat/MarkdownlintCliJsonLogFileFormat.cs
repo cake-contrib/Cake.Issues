@@ -38,12 +38,9 @@
                 logFileEntries = jsonSerializer.ReadObject(ms) as LogFileEntry[];
             }
 
-            if (logFileEntries == null)
-            {
-                return new List<IIssue>();
-            }
-
-            return logFileEntries.Select(x => GetIssue(x, issueProvider, repositorySettings));
+            return logFileEntries != null
+                ? logFileEntries.Select(x => GetIssue(x, issueProvider, repositorySettings))
+                : new List<IIssue>();
         }
 
         /// <summary>

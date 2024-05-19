@@ -47,18 +47,14 @@
             columnExpression.NotNullOrWhiteSpace();
             endColumnExpression.NotNullOrWhiteSpace();
 
-            if (string.IsNullOrWhiteSpace(this.OpenInIdeCall))
-            {
-                return null;
-            }
-
-            return
-                this.OpenInIdeCall
+            return !string.IsNullOrWhiteSpace(this.OpenInIdeCall)
+                ? this.OpenInIdeCall
                     .Replace("{FilePath}", filePathExpression)
                     .Replace("{Line}", lineExpression)
                     .Replace("{EndLine}", endLineExpression)
                     .Replace("{Column}", columnExpression)
-                    .Replace("{EndColumn}", endColumnExpression);
+                    .Replace("{EndColumn}", endColumnExpression)
+                : null;
         }
     }
 }

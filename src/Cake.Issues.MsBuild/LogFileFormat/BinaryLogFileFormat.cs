@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
     using System.Linq;
     using System.Runtime.InteropServices;
     using Cake.Core.Diagnostics;
@@ -62,32 +63,20 @@
         /// </summary>
         /// <param name="column">Raw value from MsBuild log.</param>
         /// <returns>Column number or null if warning or error is not related to a file.</returns>
-        private static int? GetColumn(int column)
-        {
+        [SuppressMessage("StyleCop.CSharp.LayoutRules", "SA1515:Single-line comment should be preceded by blank line", Justification = "Not for expression bodies")]
+        private static int? GetColumn(int column) =>
             // Convert negative column numbers or column number 0 to null
-            if (column <= 0)
-            {
-                return null;
-            }
-
-            return column;
-        }
+            column > 0 ? column : null;
 
         /// <summary>
         /// Returns the line based on the value from a MsBuild log.
         /// </summary>
         /// <param name="line">Raw value from MsBuild log.</param>
         /// <returns>Line number or null if warning or error is not related to a file.</returns>
-        private static int? GetLine(int line)
-        {
+        [SuppressMessage("StyleCop.CSharp.LayoutRules", "SA1515:Single-line comment should be preceded by blank line", Justification = "Not for expression bodies")]
+        private static int? GetLine(int line) =>
             // Convert negative line numbers or line number 0 to null
-            if (line <= 0)
-            {
-                return null;
-            }
-
-            return line;
-        }
+            line > 0 ? line : null;
 
         /// <summary>
         /// Returns an issue for a build error.

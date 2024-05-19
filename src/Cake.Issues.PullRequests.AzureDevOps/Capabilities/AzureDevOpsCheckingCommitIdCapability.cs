@@ -11,14 +11,9 @@
         : BaseCheckingCommitIdCapability<IAzureDevOpsPullRequestSystem>(log, pullRequestSystem)
     {
         /// <inheritdoc />
-        public override string GetLastSourceCommitId()
-        {
-            if (!this.PullRequestSystem.ValidatePullRequest())
-            {
-                return string.Empty;
-            }
-
-            return this.PullRequestSystem.AzureDevOpsPullRequest.LastSourceCommitId;
-        }
+        public override string GetLastSourceCommitId() =>
+            this.PullRequestSystem.ValidatePullRequest()
+                ? this.PullRequestSystem.AzureDevOpsPullRequest.LastSourceCommitId
+                : string.Empty;
     }
 }

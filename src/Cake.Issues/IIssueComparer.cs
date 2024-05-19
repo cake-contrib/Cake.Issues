@@ -49,19 +49,11 @@
         }
 
         /// <inheritdoc/>
-        public bool Equals(IIssue x, IIssue y)
-        {
-            if (object.ReferenceEquals(x, y))
-            {
-                return true;
-            }
-
-            if (x is null || y is null)
-            {
-                return false;
-            }
-
-            return
+        public bool Equals(IIssue x, IIssue y) =>
+            ReferenceEquals(x, y) ||
+            (
+                x is not null &&
+                y is not null &&
                 (x.Identifier == y.Identifier) &&
                 (compareOnlyPersistentProperties || x.ProjectFileRelativePath?.FullPath == y.ProjectFileRelativePath?.FullPath) &&
                 (x.ProjectName == y.ProjectName) &&
@@ -82,18 +74,15 @@
                 (x.Run == y.Run) &&
                 (x.ProviderType == y.ProviderType) &&
                 (x.ProviderName == y.ProviderName) &&
-                DictionaryContentEquals(x.AdditionalInformation, y.AdditionalInformation);
-        }
+                DictionaryContentEquals(x.AdditionalInformation, y.AdditionalInformation));
 
         /// <inheritdoc/>
         public int GetHashCode(IIssue obj)
         {
             obj.NotNull(nameof(obj));
 
-            if (compareOnlyPersistentProperties)
-            {
-                return
-                    GetHashCode(
+            return compareOnlyPersistentProperties
+                ? GetHashCode(
                         obj.Identifier,
                         obj.ProjectName,
                         obj.MessageText,
@@ -108,12 +97,8 @@
                         obj.ProviderType,
                         obj.ProviderName) +
                     GetDictionaryHashCode(
-                        obj.AdditionalInformation);
-            }
-            else
-            {
-                return
-                    GetHashCode(
+                        obj.AdditionalInformation)
+                : GetHashCode(
                         obj.Identifier,
                         obj.ProjectFileRelativePath?.ToString(),
                         obj.ProjectName,
@@ -136,7 +121,6 @@
                         obj.ProviderName) +
                     GetDictionaryHashCode(
                         obj.AdditionalInformation);
-            }
         }
 
         private static int GetHashCode(params object[] objects)
@@ -168,26 +152,12 @@
 
         private static bool DictionaryContentEquals(
             IReadOnlyDictionary<string, string> dictionary,
-            IReadOnlyDictionary<string, string> anotherDictionary)
-        {
-            if (dictionary == null && anotherDictionary == null)
-            {
-                return true;
-            }
-
-            if (dictionary == null)
-            {
-                return false;
-            }
-
-            if (anotherDictionary == null)
-            {
-                return false;
-            }
-
-            return
+            IReadOnlyDictionary<string, string> anotherDictionary) =>
+            (dictionary == null && anotherDictionary == null) ||
+            (
+                dictionary != null &&
+                anotherDictionary != null &&
                 dictionary.Count == anotherDictionary.Count &&
-                !dictionary.Except(anotherDictionary).Any();
-        }
+                !dictionary.Except(anotherDictionary).Any());
     }
 }

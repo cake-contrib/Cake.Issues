@@ -30,16 +30,11 @@
                 logFileEntries = jsonSerializer.ReadObject(ms) as LogFile[];
             }
 
-            if (logFileEntries != null)
-            {
-                return
-                    from file in logFileEntries
-                    from message in file.messages
-                    select
-                        GetIssue(file, message, issueProvider, repositorySettings);
-            }
-
-            return new List<IIssue>();
+            return logFileEntries != null
+                ? (from file in logFileEntries
+                   from message in file.messages
+                   select GetIssue(file, message, issueProvider, repositorySettings))
+                : new List<IIssue>();
         }
 
         /// <summary>

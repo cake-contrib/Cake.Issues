@@ -60,15 +60,10 @@
         /// Creates a new instance of the issue provider settings.
         /// </summary>
         /// <returns>Instance of the issue provider settings.</returns>
-        protected virtual IList<object> GetCreateIssueProviderSettingsArguments()
-        {
-            if (this.LogFileContent == null)
-            {
-                throw new InvalidOperationException("No log content set.");
-            }
-
-            return new List<object> { this.LogFileContent };
-        }
+        protected virtual IList<object> GetCreateIssueProviderSettingsArguments() =>
+            this.LogFileContent != null
+                ? (IList<object>)new List<object> { this.LogFileContent }
+                : throw new InvalidOperationException("No log content set.");
 
         /// <summary>
         /// Creates a new instance of the issue provider settings.

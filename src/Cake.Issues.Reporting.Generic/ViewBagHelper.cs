@@ -12,14 +12,7 @@
         /// <param name="value">Value which should be returned.</param>
         /// <param name="defaultValue">Value which should be returned if <paramref name="value"/> is null.</param>
         /// <returns><paramref name="value"/> or <paramref name="defaultValue"/> if <paramref name="value"/> is null.</returns>
-        public static T ValueOrDefault<T>(object value, T defaultValue)
-        {
-            if (value != null)
-            {
-                return (T)value;
-            }
-
-            return defaultValue;
-        }
+        public static T ValueOrDefault<T>(object value, T defaultValue) =>
+            value != null ? (T)value : defaultValue;
     }
 }
