@@ -24,7 +24,7 @@
             public void Should_Throw_If_JsonString_Has_Unknown_Version()
             {
                 // Given
-                const string jsonString = "{\"Version\": -1}";
+                const string jsonString = /*lang=json,strict*/ "{\"Version\": -1}";
 
                 // When
                 var result = Record.Exception(jsonString.DeserializeToIssue);
