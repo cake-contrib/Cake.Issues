@@ -49,15 +49,14 @@
             // When
             var result =
                 this.CreateReport(
-                    new List<IIssue>
-                    {
-                            IssueBuilder
-                                .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
-                                .InFile(@"src\Cake.Issues.Reporting.Generic.Tests\Foo.cs", 10)
-                                .OfRule("Rule Foo")
-                                .WithPriority(IssuePriority.Warning)
-                                .Create(),
-                    });
+                    [
+                        IssueBuilder
+                            .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                            .InFile(@"src\Cake.Issues.Reporting.Generic.Tests\Foo.cs", 10)
+                            .OfRule("Rule Foo")
+                            .WithPriority(IssuePriority.Warning)
+                            .Create(),
+                    ]);
 
             // Then
             // Currently only checks if generation failed or not without checking actual output.

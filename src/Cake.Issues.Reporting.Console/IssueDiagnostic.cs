@@ -18,7 +18,7 @@
         /// </summary>
         /// <param name="issue">Issue which the diagnostic should describe.</param>
         public IssueDiagnostic(IIssue issue)
-            : this(new List<IIssue> { issue })
+            : this([issue])
         {
         }
 

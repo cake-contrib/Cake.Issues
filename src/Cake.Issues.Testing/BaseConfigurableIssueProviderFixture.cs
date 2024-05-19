@@ -62,7 +62,7 @@
         /// <returns>Instance of the issue provider settings.</returns>
         protected virtual IList<object> GetCreateIssueProviderSettingsArguments() =>
             this.LogFileContent != null
-                ? (IList<object>)new List<object> { this.LogFileContent }
+                ? [this.LogFileContent]
                 : throw new InvalidOperationException("No log content set.");
 
         /// <summary>

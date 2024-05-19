@@ -71,7 +71,7 @@
                     IssueBuilder
                         .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
                         .Create();
-                var fixture = new FakeIssueProviderFixture(new List<IIssue> { issue });
+                var fixture = new FakeIssueProviderFixture([issue]);
 
                 // When
                 var result = fixture.ReadIssues().ToList();

@@ -28,7 +28,7 @@
 
             if (markdownlintIssuesSettings.LogFileContent.Length == 0)
             {
-                return new List<IIssue>();
+                return [];
             }
 
             IEnumerable<LogFileEntry> logFileEntries;
@@ -40,7 +40,7 @@
 
             return logFileEntries != null
                 ? logFileEntries.Select(x => GetIssue(x, issueProvider, repositorySettings))
-                : new List<IIssue>();
+                : [];
         }
 
         /// <summary>

@@ -107,7 +107,7 @@
                 _ = fixture.GenericIssueReportFormatSettings.WithOption("Title", expectedResult);
 
                 // When
-                var result = fixture.CreateReport(new List<IIssue>());
+                var result = fixture.CreateReport([]);
 
                 // Then
                 result.ShouldBe(expectedResult);

@@ -16,7 +16,7 @@
                     .WithOption(HtmlDxDataGridOption.Title, title);
 
                 // When
-                var result = fixture.CreateReport(new List<IIssue>());
+                var result = fixture.CreateReport([]);
 
                 // Then
                 var doc = new HtmlDocument();
@@ -36,7 +36,7 @@
                     .WithOption(HtmlDxDataGridOption.Title, title);
 
                 // When
-                var result = fixture.CreateReport(new List<IIssue>());
+                var result = fixture.CreateReport([]);
 
                 // Then
                 var doc = new HtmlDocument();
@@ -63,7 +63,7 @@
                     .WithOption(HtmlDxDataGridOption.Theme, theme);
 
                 // When
-                var result = fixture.CreateReport(new List<IIssue>());
+                var result = fixture.CreateReport([]);
 
                 // Then
                 var doc = new HtmlDocument();
@@ -85,7 +85,7 @@
                     .WithOption(HtmlDxDataGridOption.ShowHeader, true);
 
                 // When
-                var result = fixture.CreateReport(new List<IIssue>());
+                var result = fixture.CreateReport([]);
 
                 // Then
                 var doc = new HtmlDocument();
@@ -103,7 +103,7 @@
                     .WithOption(HtmlDxDataGridOption.ShowHeader, false);
 
                 // When
-                var result = fixture.CreateReport(new List<IIssue>());
+                var result = fixture.CreateReport([]);
 
                 // Then
                 var doc = new HtmlDocument();

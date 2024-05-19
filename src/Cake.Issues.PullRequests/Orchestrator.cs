@@ -71,7 +71,7 @@ namespace Cake.Issues.PullRequests
             // Don't process issues if pull request system could not be initialized.
             if (!this.InitializePullRequestSystem(settings))
             {
-                return new PullRequestIssueResult(issues, new List<IIssue>());
+                return new PullRequestIssueResult(issues, []);
             }
 
             var issuesList = issues.ToList();

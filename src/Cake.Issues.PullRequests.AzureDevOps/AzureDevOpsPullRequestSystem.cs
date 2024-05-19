@@ -189,7 +189,7 @@
                 var newThread = new AzureDevOpsPullRequestCommentThread()
                 {
                     Status = AzureDevOpsCommentThreadStatus.Active,
-                    Comments = new List<AzureDevOpsComment> { discussionComment },
+                    Comments = [discussionComment],
                     Properties = this.GetThreadProperties(changeTrackingId, issue, iterationId),
                 };
 

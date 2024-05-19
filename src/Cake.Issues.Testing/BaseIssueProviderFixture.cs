@@ -47,7 +47,7 @@
         /// <returns>Arguments for creating a new instance of an issue provider.</returns>
         protected virtual IList<object> GetCreateIssueProviderArguments() =>
             this.Log != null
-            ? (IList<object>)new List<object> { this.Log }
+            ? [this.Log]
             : throw new InvalidOperationException("No log instance set.");
 
         /// <summary>

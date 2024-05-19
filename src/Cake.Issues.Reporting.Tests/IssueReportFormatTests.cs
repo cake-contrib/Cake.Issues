@@ -76,7 +76,7 @@
                 var reportFormat = new FakeIssueReportFormat(new FakeLog());
 
                 // When
-                var result = Record.Exception(() => reportFormat.CreateReport(new List<IIssue>()));
+                var result = Record.Exception(() => reportFormat.CreateReport([]));
 
                 // Then
                 result.IsInvalidOperationException("Initialize needs to be called first.");

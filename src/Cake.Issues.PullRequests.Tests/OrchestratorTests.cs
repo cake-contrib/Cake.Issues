@@ -245,10 +245,7 @@ namespace Cake.Issues.PullRequests.Tests
                 fixture.IssueProviders.Add(
                     new FakeIssueProvider(
                         fixture.Log,
-                        new List<IIssue>
-                        {
-                            issueToPost,
-                        }));
+                        [issueToPost]));
 
                 // When
                 _ = fixture.RunOrchestrator();
@@ -278,10 +275,7 @@ namespace Cake.Issues.PullRequests.Tests
                 fixture.IssueProviders.Add(
                     new FakeIssueProvider(
                         fixture.Log,
-                        new List<IIssue>
-                        {
-                            issueToPost,
-                        }));
+                        [issueToPost]));
 
                 // When
                 _ = fixture.RunOrchestrator();
@@ -319,10 +313,7 @@ namespace Cake.Issues.PullRequests.Tests
                 fixture.IssueProviders.Add(
                     new FakeIssueProvider(
                         fixture.Log,
-                        new List<IIssue>
-                        {
-                            postedIssue, reportedIssue,
-                        }));
+                        [postedIssue, reportedIssue]));
 
                 fixture.Settings.MaxIssuesToPost = 1;
 
@@ -369,10 +360,7 @@ namespace Cake.Issues.PullRequests.Tests
                 fixture.IssueProviders.Add(
                     new FakeIssueProvider(
                         fixture.Log,
-                        new List<IIssue>
-                        {
-                            firstIssue, secondIssue,
-                        }));
+                        [firstIssue, secondIssue]));
 
                 fixture.Settings.MaxIssuesToPost = 1;
 
@@ -411,10 +399,7 @@ namespace Cake.Issues.PullRequests.Tests
                 fixture.IssueProviders.Add(
                     new FakeIssueProvider(
                         fixture.Log,
-                        new List<IIssue>
-                        {
-                            issue1, issue2,
-                        }));
+                        [issue1, issue2]));
 
                 fixture.Settings.MaxIssuesToPost = 1;
 
@@ -454,10 +439,7 @@ namespace Cake.Issues.PullRequests.Tests
                 fixture.IssueProviders.Add(
                     new FakeIssueProvider(
                         fixture.Log,
-                        new List<IIssue>
-                        {
-                            issue1, issue2,
-                        }));
+                        [issue1, issue2]));
 
                 fixture.Settings.MaxIssuesToPost = 1;
 
@@ -496,10 +478,7 @@ namespace Cake.Issues.PullRequests.Tests
                 fixture.IssueProviders.Add(
                     new FakeIssueProvider(
                         fixture.Log,
-                        new List<IIssue>
-                        {
-                            issue1, issue2,
-                        }));
+                        [issue1, issue2]));
 
                 fixture.Settings.MaxIssuesToPost = 1;
 
@@ -553,10 +532,7 @@ namespace Cake.Issues.PullRequests.Tests
                 fixture.IssueProviders.Add(
                     new FakeIssueProvider(
                         fixture.Log,
-                        new List<IIssue>
-                        {
-                            issue1, issue2, issue3, issue4,
-                        }));
+                        [issue1, issue2, issue3, issue4]));
 
                 fixture.Settings.MaxIssuesToPostForEachIssueProvider = 1;
 
@@ -612,10 +588,7 @@ namespace Cake.Issues.PullRequests.Tests
                 fixture.IssueProviders.Add(
                     new FakeIssueProvider(
                         fixture.Log,
-                        new List<IIssue>
-                        {
-                            issue1, issue2, issue3, issue4,
-                        }));
+                        [issue1, issue2, issue3, issue4]));
 
                 fixture.Settings.MaxIssuesToPostForEachIssueProvider = 1;
 
@@ -669,10 +642,7 @@ namespace Cake.Issues.PullRequests.Tests
                 fixture.IssueProviders.Add(
                     new FakeIssueProvider(
                         fixture.Log,
-                        new List<IIssue>
-                        {
-                            issue1, issue2, issue3, issue4,
-                        }));
+                        [issue1, issue2, issue3, issue4]));
 
                 fixture.Settings.MaxIssuesToPostForEachIssueProvider = 1;
 
@@ -728,10 +698,7 @@ namespace Cake.Issues.PullRequests.Tests
                 fixture.IssueProviders.Add(
                     new FakeIssueProvider(
                         fixture.Log,
-                        new List<IIssue>
-                        {
-                            issue1, issue2, issue3, issue4,
-                        }));
+                        [issue1, issue2, issue3, issue4]));
 
                 fixture.Settings.ProviderIssueLimits.Add(
                     "ProviderTypeA",
@@ -792,10 +759,7 @@ namespace Cake.Issues.PullRequests.Tests
                 fixture.IssueProviders.Add(
                     new FakeIssueProvider(
                         fixture.Log,
-                        new List<IIssue>
-                        {
-                            issue1, issue2, issue3, issue4,
-                        }));
+                        [issue1, issue2, issue3, issue4]));
 
                 fixture.Settings.ProviderIssueLimits.Add(
                     "ProviderTypeA",
@@ -854,10 +818,7 @@ namespace Cake.Issues.PullRequests.Tests
                 fixture.IssueProviders.Add(
                     new FakeIssueProvider(
                         fixture.Log,
-                        new List<IIssue>
-                        {
-                            issue1, issue2, issue3, issue4,
-                        }));
+                        [issue1, issue2, issue3, issue4]));
 
                 fixture.Settings.ProviderIssueLimits.Add(
                     "ProviderTypeA",
@@ -953,10 +914,7 @@ namespace Cake.Issues.PullRequests.Tests
                 fixture.IssueProviders.Add(
                     new FakeIssueProvider(
                         fixture.Log,
-                        new List<IIssue>
-                        {
-                            issue1, issue2, issue3, issue4, issue5, issue6, issue7, issue8, issue9,
-                        }));
+                        [issue1, issue2, issue3, issue4, issue5, issue6, issue7, issue8, issue9]));
 
                 fixture.Settings.ProviderIssueLimits.Add(
                     "ProviderTypeA",
@@ -1001,10 +959,7 @@ namespace Cake.Issues.PullRequests.Tests
                 fixture.IssueProviders.Add(
                     new FakeIssueProvider(
                         fixture.Log,
-                        new List<IIssue>
-                        {
-                            issueToPost,
-                        }));
+                        [issueToPost]));
 
                 fixture.PullRequestSystem.CheckingCommitIdCapability.LastSourceCommitId =
                     "9ebcec39e16c39b5ffcb10f253d0c2bcf8438cf6";
@@ -1044,17 +999,13 @@ namespace Cake.Issues.PullRequests.Tests
                 var fixture =
                     new OrchestratorForIssueProvidersFixture(
                         (builder, _) => builder
-                            .WithDiscussionThreadsCapability(
-                                new List<IPullRequestDiscussionThread>()));
+                            .WithDiscussionThreadsCapability([]));
 
                 fixture.IssueProviders.Clear();
                 fixture.IssueProviders.Add(
                     new FakeIssueProvider(
                         fixture.Log,
-                        new List<IIssue>
-                        {
-                            issue1, issue2,
-                        }));
+                        [issue1, issue2]));
 
                 fixture.Settings.MaxIssuesToPostAcrossRuns = 1;
 
@@ -1091,17 +1042,13 @@ namespace Cake.Issues.PullRequests.Tests
                 var fixture =
                     new OrchestratorForIssueProvidersFixture(
                         (builder, _) => builder
-                            .WithDiscussionThreadsCapability(
-                                new List<IPullRequestDiscussionThread>()));
+                            .WithDiscussionThreadsCapability([]));
 
                 fixture.IssueProviders.Clear();
                 fixture.IssueProviders.Add(
                     new FakeIssueProvider(
                         fixture.Log,
-                        new List<IIssue>
-                        {
-                            issue1, issue2,
-                        }));
+                        [issue1, issue2]));
 
                 fixture.Settings.MaxIssuesToPostAcrossRuns = 1;
 
@@ -1138,17 +1085,13 @@ namespace Cake.Issues.PullRequests.Tests
                 var fixture =
                     new OrchestratorForIssueProvidersFixture(
                         (builder, _) => builder
-                            .WithDiscussionThreadsCapability(
-                                new List<IPullRequestDiscussionThread>()));
+                            .WithDiscussionThreadsCapability([]));
 
                 fixture.IssueProviders.Clear();
                 fixture.IssueProviders.Add(
                     new FakeIssueProvider(
                         fixture.Log,
-                        new List<IIssue>
-                        {
-                            issue1, issue2,
-                        }));
+                        [issue1, issue2]));
 
                 fixture.Settings.MaxIssuesToPostAcrossRuns = 1;
 
@@ -1194,20 +1137,18 @@ namespace Cake.Issues.PullRequests.Tests
                     new OrchestratorForIssueProvidersFixture(
                         (builder, _) => builder
                             .WithDiscussionThreadsCapability(
-                                new List<IPullRequestDiscussionThread>
-                                {
+                                [
                                     new PullRequestDiscussionThread(
                                         1,
                                         PullRequestDiscussionStatus.Active,
                                         @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
-                                        new List<IPullRequestDiscussionComment>
-                                        {
+                                        [
                                             new PullRequestDiscussionComment
                                             {
                                                 Content = "Message Foo",
                                                 IsDeleted = false,
                                             },
-                                        })
+                                        ])
                                     {
                                         CommentIdentifier = "Message Foo",
                                     },
@@ -1215,27 +1156,23 @@ namespace Cake.Issues.PullRequests.Tests
                                         2,
                                         PullRequestDiscussionStatus.Active,
                                         @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
-                                        new List<IPullRequestDiscussionComment>
-                                        {
+                                        [
                                             new PullRequestDiscussionComment
                                             {
                                                 Content = "Message Bar",
                                                 IsDeleted = false,
                                             },
-                                        })
+                                        ])
                                     {
                                         CommentIdentifier = "Message Bar",
                                     },
-                                }));
+                                ]));
 
                 fixture.IssueProviders.Clear();
                 fixture.IssueProviders.Add(
                     new FakeIssueProvider(
                         fixture.Log,
-                        new List<IIssue>
-                        {
-                            issue1, issue2, issue3,
-                        }));
+                        [issue1, issue2, issue3]));
 
                 fixture.Settings.MaxIssuesToPostAcrossRuns = 2;
 
@@ -1273,14 +1210,12 @@ namespace Cake.Issues.PullRequests.Tests
                     new OrchestratorForIssueProvidersFixture(
                         (builder, _) => builder
                             .WithDiscussionThreadsCapability(
-                                new List<IPullRequestDiscussionThread>
-                                {
+                                [
                                     new PullRequestDiscussionThread(
                                         1,
                                         PullRequestDiscussionStatus.Active,
                                         @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
-                                        new List<IPullRequestDiscussionComment>
-                                        {
+                                        [
                                             new PullRequestDiscussionComment
                                             {
                                                 Content = "Message FooBar",
@@ -1291,17 +1226,14 @@ namespace Cake.Issues.PullRequests.Tests
                                                 Content = "Additional comment",
                                                 IsDeleted = false,
                                             },
-                                        }),
-                                }));
+                                        ]),
+                                ]));
 
                 fixture.IssueProviders.Clear();
                 fixture.IssueProviders.Add(
                     new FakeIssueProvider(
                         fixture.Log,
-                        new List<IIssue>
-                        {
-                            issue1, issue2,
-                        }));
+                        [issue1, issue2]));
 
                 fixture.Settings.MaxIssuesToPostAcrossRuns = 2;
 
@@ -1340,30 +1272,25 @@ namespace Cake.Issues.PullRequests.Tests
                     new OrchestratorForIssueProvidersFixture(
                         (builder, _) => builder
                             .WithDiscussionThreadsCapability(
-                                new List<IPullRequestDiscussionThread>
-                                {
+                                [
                                     new PullRequestDiscussionThread(
                                         1,
                                         PullRequestDiscussionStatus.Active,
                                         @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
-                                        new List<IPullRequestDiscussionComment>
-                                        {
+                                        [
                                             new PullRequestDiscussionComment
                                             {
                                                 Content = "Message FooBar",
                                                 IsDeleted = false,
                                             },
-                                        }),
-                                }));
+                                        ]),
+                                ]));
 
                 fixture.IssueProviders.Clear();
                 fixture.IssueProviders.Add(
                     new FakeIssueProvider(
                         fixture.Log,
-                        new List<IIssue>
-                        {
-                            issue1, issue2,
-                        }));
+                        [issue1, issue2]));
 
                 fixture.Settings.MaxIssuesToPostAcrossRuns = 2;
 
@@ -1410,17 +1337,13 @@ namespace Cake.Issues.PullRequests.Tests
                 var fixture =
                     new OrchestratorForIssueProvidersFixture(
                         (builder, _) => builder
-                            .WithDiscussionThreadsCapability(
-                                new List<IPullRequestDiscussionThread>()));
+                            .WithDiscussionThreadsCapability([]));
 
                 fixture.IssueProviders.Clear();
                 fixture.IssueProviders.Add(
                     new FakeIssueProvider(
                         fixture.Log,
-                        new List<IIssue>
-                        {
-                            issue1, issue2, issue3,
-                        }));
+                        [issue1, issue2, issue3]));
 
                 fixture.Settings.ProviderIssueLimits.Add(
                     "ProviderType Foo",
@@ -1459,17 +1382,13 @@ namespace Cake.Issues.PullRequests.Tests
                 var fixture =
                     new OrchestratorForIssueProvidersFixture(
                         (builder, _) => builder
-                            .WithDiscussionThreadsCapability(
-                                new List<IPullRequestDiscussionThread>()));
+                            .WithDiscussionThreadsCapability([]));
 
                 fixture.IssueProviders.Clear();
                 fixture.IssueProviders.Add(
                     new FakeIssueProvider(
                         fixture.Log,
-                        new List<IIssue>
-                        {
-                            issue1, issue2,
-                        }));
+                        [issue1, issue2]));
 
                 fixture.Settings.ProviderIssueLimits.Add(
                     "ProviderType Foo",
@@ -1516,17 +1435,13 @@ namespace Cake.Issues.PullRequests.Tests
                 var fixture =
                     new OrchestratorForIssueProvidersFixture(
                         (builder, _) => builder
-                            .WithDiscussionThreadsCapability(
-                                new List<IPullRequestDiscussionThread>()));
+                            .WithDiscussionThreadsCapability([]));
 
                 fixture.IssueProviders.Clear();
                 fixture.IssueProviders.Add(
                     new FakeIssueProvider(
                         fixture.Log,
-                        new List<IIssue>
-                        {
-                            issue1, issue2, issue3,
-                        }));
+                        [issue1, issue2, issue3]));
 
                 fixture.Settings.ProviderIssueLimits.Add(
                     "ProviderType Foo",
@@ -1574,20 +1489,18 @@ namespace Cake.Issues.PullRequests.Tests
                     new OrchestratorForIssueProvidersFixture(
                         (builder, _) => builder
                             .WithDiscussionThreadsCapability(
-                                new List<IPullRequestDiscussionThread>
-                                {
+                                [
                                     new PullRequestDiscussionThread(
                                         1,
                                         PullRequestDiscussionStatus.Active,
                                         @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
-                                        new List<IPullRequestDiscussionComment>
-                                        {
+                                        [
                                             new PullRequestDiscussionComment
                                             {
                                                 Content = "Message Foo",
                                                 IsDeleted = false,
                                             },
-                                        })
+                                        ])
                                     {
                                         CommentIdentifier = "Message Foo",
                                         ProviderType = "ProviderType Foo",
@@ -1596,28 +1509,24 @@ namespace Cake.Issues.PullRequests.Tests
                                         2,
                                         PullRequestDiscussionStatus.Active,
                                         @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
-                                        new List<IPullRequestDiscussionComment>
-                                        {
+                                        [
                                             new PullRequestDiscussionComment
                                             {
                                                 Content = "Message Bar",
                                                 IsDeleted = false,
                                             },
-                                        })
+                                        ])
                                     {
                                         CommentIdentifier = "Message Bar",
                                         ProviderType = "ProviderType Foo",
                                     },
-                                }));
+                                ]));
 
                 fixture.IssueProviders.Clear();
                 fixture.IssueProviders.Add(
                     new FakeIssueProvider(
                         fixture.Log,
-                        new List<IIssue>
-                        {
-                            issue1, issue2, issue3,
-                        }));
+                        [issue1, issue2, issue3]));
 
                 fixture.Settings.ProviderIssueLimits.Add(
                     "ProviderType Foo",
@@ -1657,14 +1566,12 @@ namespace Cake.Issues.PullRequests.Tests
                     new OrchestratorForIssueProvidersFixture(
                         (builder, _) => builder
                             .WithDiscussionThreadsCapability(
-                                new List<IPullRequestDiscussionThread>
-                                {
+                                [
                                     new PullRequestDiscussionThread(
                                         1,
                                         PullRequestDiscussionStatus.Active,
                                         @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
-                                        new List<IPullRequestDiscussionComment>
-                                        {
+                                        [
                                             new PullRequestDiscussionComment
                                             {
                                                 Content = "Message FooBar",
@@ -1675,20 +1582,17 @@ namespace Cake.Issues.PullRequests.Tests
                                                 Content = "Additional comment",
                                                 IsDeleted = false,
                                             },
-                                        })
+                                        ])
                                     {
                                         ProviderType = "ProviderType Foo",
                                     },
-                                }));
+                                ]));
 
                 fixture.IssueProviders.Clear();
                 fixture.IssueProviders.Add(
                     new FakeIssueProvider(
                         fixture.Log,
-                        new List<IIssue>
-                        {
-                            issue1, issue2,
-                        }));
+                        [issue1, issue2]));
 
                 fixture.Settings.ProviderIssueLimits.Add(
                     "ProviderType Foo",
@@ -1729,33 +1633,28 @@ namespace Cake.Issues.PullRequests.Tests
                     new OrchestratorForIssueProvidersFixture(
                         (builder, _) => builder
                             .WithDiscussionThreadsCapability(
-                                new List<IPullRequestDiscussionThread>
-                                {
+                                [
                                     new PullRequestDiscussionThread(
                                         1,
                                         PullRequestDiscussionStatus.Active,
                                         @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
-                                        new List<IPullRequestDiscussionComment>
-                                        {
+                                        [
                                             new PullRequestDiscussionComment
                                             {
                                                 Content = "Message FooBar",
                                                 IsDeleted = false,
                                             },
-                                        })
+                                        ])
                                     {
                                         ProviderType = "ProviderType Foo",
                                     },
-                                }));
+                                ]));
 
                 fixture.IssueProviders.Clear();
                 fixture.IssueProviders.Add(
                     new FakeIssueProvider(
                         fixture.Log,
-                        new List<IIssue>
-                        {
-                            issue1, issue2,
-                        }));
+                        [issue1, issue2]));
 
                 fixture.Settings.ProviderIssueLimits.Add(
                     "ProviderType Foo",
@@ -1796,34 +1695,29 @@ namespace Cake.Issues.PullRequests.Tests
                     new OrchestratorForIssueProvidersFixture(
                         (builder, settings) => builder
                             .WithDiscussionThreadsCapability(
-                                new List<IPullRequestDiscussionThread>
-                                {
+                                [
                                     new PullRequestDiscussionThread(
                                         1,
                                         PullRequestDiscussionStatus.Active,
                                         new FilePath(@"src\Cake.Issues.Tests\FakeIssueProvider.cs"),
-                                        new List<IPullRequestDiscussionComment>
-                                        {
+                                        [
                                             new PullRequestDiscussionComment()
                                             {
                                                 Content = "Message Foo",
                                                 IsDeleted = false,
                                             },
-                                        })
+                                        ])
                                     {
                                         CommentIdentifier = "Message Foo",
                                         CommentSource = settings.CommentSource,
                                     },
-                                }));
+                                ]));
 
                 fixture.IssueProviders.Clear();
                 fixture.IssueProviders.Add(
                     new FakeIssueProvider(
                         fixture.Log,
-                        new List<IIssue>
-                        {
-                            issue1, issue2,
-                        }));
+                        [issue1, issue2]));
 
                 // When
                 var result = fixture.RunOrchestrator();
@@ -1867,35 +1761,30 @@ namespace Cake.Issues.PullRequests.Tests
                     new OrchestratorForIssueProvidersFixture(
                         (builder, settings) => builder
                             .WithDiscussionThreadsCapability(
-                                new List<IPullRequestDiscussionThread>
-                                {
+                                [
                                     new PullRequestDiscussionThread(
                                         1,
                                         PullRequestDiscussionStatus.Resolved,
                                         new FilePath(@"src\Cake.Issues.Tests\FakeIssueProvider.cs"),
-                                        new List<IPullRequestDiscussionComment>
-                                        {
+                                        [
                                             new PullRequestDiscussionComment()
                                             {
                                                 Content = "Message Foo",
                                                 IsDeleted = false,
                                             },
-                                        })
+                                        ])
                                     {
                                         CommentIdentifier = "Message Foo",
                                         CommentSource = settings.CommentSource,
                                         Resolution = PullRequestDiscussionResolution.WontFix,
                                     },
-                                }));
+                                ]));
 
                 fixture.IssueProviders.Clear();
                 fixture.IssueProviders.Add(
                     new FakeIssueProvider(
                         fixture.Log,
-                        new List<IIssue>
-                        {
-                            issue1, issue2,
-                        }));
+                        [issue1, issue2]));
 
                 // When
                 var result = fixture.RunOrchestrator();
@@ -1937,35 +1826,29 @@ namespace Cake.Issues.PullRequests.Tests
                     new OrchestratorForIssueProvidersFixture(
                         (builder, settings) => builder
                             .WithDiscussionThreadsCapability(
-                                new List<IPullRequestDiscussionThread>
-                                {
+                                [
                                     new PullRequestDiscussionThread(
                                         1,
                                         PullRequestDiscussionStatus.Active,
                                         null,
-                                        new List<IPullRequestDiscussionComment>
-                                        {
+                                        [
                                             new PullRequestDiscussionComment()
                                             {
                                                 Content = "Message Foo",
                                                 IsDeleted = false,
                                             },
-                                        })
+                                        ])
                                     {
                                         CommentIdentifier = "Message Foo",
                                         CommentSource = settings.CommentSource,
                                     },
-                                }));
+                                ]));
 
                 fixture.IssueProviders.Clear();
                 fixture.IssueProviders.Add(
                     new FakeIssueProvider(
                         fixture.Log,
-                        new List<IIssue>
-                        {
-                            issue1,
-                            issue2,
-                        }));
+                        [issue1, issue2]));
 
                 // When
                 var result = fixture.RunOrchestrator();
@@ -2002,34 +1885,29 @@ namespace Cake.Issues.PullRequests.Tests
                     new OrchestratorForIssueProvidersFixture(
                         (builder, _) => builder
                             .WithDiscussionThreadsCapability(
-                                new List<IPullRequestDiscussionThread>
-                                {
+                                [
                                     new PullRequestDiscussionThread(
                                         1,
                                         PullRequestDiscussionStatus.Active,
                                         new FilePath(@"src\Cake.Issues.Tests\FakeIssueProvider.cs"),
-                                        new List<IPullRequestDiscussionComment>
-                                        {
+                                        [
                                             new PullRequestDiscussionComment()
                                             {
                                                 Content = "Foo",
                                                 IsDeleted = false,
                                             },
-                                        })
+                                        ])
                                     {
                                         CommentIdentifier = "Foo",
                                         CommentSource = "DifferentCommentSource",
                                     },
-                                }));
+                                ]));
 
                 fixture.IssueProviders.Clear();
                 fixture.IssueProviders.Add(
                     new FakeIssueProvider(
                         fixture.Log,
-                        new List<IIssue>
-                        {
-                            issue,
-                        }));
+                        [issue]));
 
                 // When
                 var result = fixture.RunOrchestrator();
@@ -2057,25 +1935,23 @@ namespace Cake.Issues.PullRequests.Tests
                     new OrchestratorForIssueProvidersFixture(
                         (builder, settings) => builder
                             .WithDiscussionThreadsCapability(
-                                new List<IPullRequestDiscussionThread>
-                                {
+                                [
                                     new PullRequestDiscussionThread(
                                         1,
                                         PullRequestDiscussionStatus.Active,
                                         new FilePath(@"src\Cake.Issues.Tests\FakeIssueProvider.cs"),
-                                        new List<IPullRequestDiscussionComment>
-                                        {
+                                        [
                                             new PullRequestDiscussionComment()
                                             {
                                                 Content = "Bar",
                                                 IsDeleted = false,
                                             },
-                                        })
+                                        ])
                                     {
                                         CommentIdentifier = "Bar",
                                         CommentSource = settings.CommentSource,
                                     },
-                                }));
+                                ]));
 
                 var threadToResolve =
                     fixture.PullRequestSystem.DiscussionThreadsCapability.DiscussionThreads.Single();
@@ -2084,15 +1960,14 @@ namespace Cake.Issues.PullRequests.Tests
                 fixture.IssueProviders.Add(
                     new FakeIssueProvider(
                         fixture.Log,
-                        new List<IIssue>
-                        {
+                        [
                             IssueBuilder
                                 .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
                                 .InFile(@"src\Cake.Issues.Tests\FakeIssueProvider.cs", 10)
                                 .OfRule("Rule Foo")
                                 .WithPriority(IssuePriority.Warning)
                                 .Create(),
-                        }));
+                        ]));
 
                 // When
                 _ = fixture.RunOrchestrator();
@@ -2110,39 +1985,36 @@ namespace Cake.Issues.PullRequests.Tests
                     new OrchestratorForIssueProvidersFixture(
                         (builder, _) => builder
                             .WithDiscussionThreadsCapability(
-                                new List<IPullRequestDiscussionThread>
-                                {
+                                [
                                     new PullRequestDiscussionThread(
                                         1,
                                         PullRequestDiscussionStatus.Active,
                                         new FilePath(@"src\Cake.Issues.Tests\FakeIssueProvider.cs"),
-                                        new List<IPullRequestDiscussionComment>
-                                        {
+                                        [
                                             new PullRequestDiscussionComment()
                                             {
                                                 Content = "Bar",
                                                 IsDeleted = false,
                                             },
-                                        })
+                                        ])
                                     {
                                         CommentIdentifier = "Bar",
                                         CommentSource = "DifferentCommentSource",
                                     },
-                                }));
+                                ]));
 
                 fixture.IssueProviders.Clear();
                 fixture.IssueProviders.Add(
                     new FakeIssueProvider(
                         fixture.Log,
-                        new List<IIssue>
-                        {
+                        [
                             IssueBuilder
                                 .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
                                 .InFile(@"src\Cake.Issues.Tests\FakeIssueProvider.cs", 10)
                                 .OfRule("Rule Foo")
                                 .WithPriority(IssuePriority.Warning)
                                 .Create(),
-                        }));
+                        ]));
 
                 // When
                 _ = fixture.RunOrchestrator();
@@ -2159,26 +2031,24 @@ namespace Cake.Issues.PullRequests.Tests
                     new OrchestratorForIssueProvidersFixture(
                         (builder, settings) => builder
                             .WithDiscussionThreadsCapability(
-                                new List<IPullRequestDiscussionThread>
-                                {
+                                [
                                     new PullRequestDiscussionThread(
                                         1,
                                         PullRequestDiscussionStatus.Resolved,
                                         new FilePath(@"src\Cake.Issues.Tests\FakeIssueProvider.cs"),
-                                        new List<IPullRequestDiscussionComment>
-                                        {
+                                        [
                                             new PullRequestDiscussionComment()
                                             {
                                                 Content = "Message Foo",
                                                 IsDeleted = false,
                                             },
-                                        })
+                                        ])
                                     {
                                         CommentIdentifier = "Message Foo",
                                         CommentSource = settings.CommentSource,
                                         Resolution = PullRequestDiscussionResolution.Resolved,
                                     },
-                                }));
+                                ]));
 
                 var threadToReopen =
                     fixture.PullRequestSystem.DiscussionThreadsCapability.DiscussionThreads.Single();
@@ -2187,15 +2057,14 @@ namespace Cake.Issues.PullRequests.Tests
                 fixture.IssueProviders.Add(
                     new FakeIssueProvider(
                         fixture.Log,
-                        new List<IIssue>
-                        {
+                        [
                             IssueBuilder
                                 .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
                                 .InFile(@"src\Cake.Issues.Tests\FakeIssueProvider.cs", 10)
                                 .OfRule("Rule Foo")
                                 .WithPriority(IssuePriority.Warning)
                                 .Create(),
-                        }));
+                        ]));
 
                 // When
                 _ = fixture.RunOrchestrator();
@@ -2213,40 +2082,37 @@ namespace Cake.Issues.PullRequests.Tests
                     new OrchestratorForIssueProvidersFixture(
                         (builder, _) => builder
                             .WithDiscussionThreadsCapability(
-                                new List<IPullRequestDiscussionThread>
-                                {
+                                [
                                     new PullRequestDiscussionThread(
                                         1,
                                         PullRequestDiscussionStatus.Resolved,
                                         new FilePath(@"src\Cake.Issues.Tests\FakeIssueProvider.cs"),
-                                        new List<IPullRequestDiscussionComment>
-                                        {
+                                        [
                                             new PullRequestDiscussionComment()
                                             {
                                                 Content = "Message Foo",
                                                 IsDeleted = false,
                                             },
-                                        })
+                                        ])
                                     {
                                         CommentIdentifier = "Message Foo",
                                         CommentSource = "DifferentCommentSource",
                                         Resolution = PullRequestDiscussionResolution.Resolved,
                                     },
-                                }));
+                                ]));
 
                 fixture.IssueProviders.Clear();
                 fixture.IssueProviders.Add(
                     new FakeIssueProvider(
                         fixture.Log,
-                        new List<IIssue>
-                        {
+                        [
                             IssueBuilder
                                 .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
                                 .InFile(@"src\Cake.Issues.Tests\FakeIssueProvider.cs", 10)
                                 .OfRule("Rule Foo")
                                 .WithPriority(IssuePriority.Warning)
                                 .Create(),
-                        }));
+                        ]));
 
                 // When
                 _ = fixture.RunOrchestrator();
@@ -2262,22 +2128,20 @@ namespace Cake.Issues.PullRequests.Tests
                 var fixture =
                     new OrchestratorForIssueProvidersFixture(
                         (builder, _) => builder
-                            .WithDiscussionThreadsCapability(
-                                new List<IPullRequestDiscussionThread>()));
+                            .WithDiscussionThreadsCapability([]));
 
                 fixture.IssueProviders.Clear();
                 fixture.IssueProviders.Add(
                     new FakeIssueProvider(
                         fixture.Log,
-                        new List<IIssue>
-                        {
+                        [
                             IssueBuilder
                                 .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
                                 .InFile(@"src\Cake.Issues.Tests\FakeIssueProvider.cs", 10)
                                 .OfRule("Rule Foo")
                                 .WithPriority(IssuePriority.Warning)
                                 .Create(),
-                        }));
+                        ]));
 
                 // When
                 _ = fixture.RunOrchestrator();
@@ -2295,38 +2159,35 @@ namespace Cake.Issues.PullRequests.Tests
                     new OrchestratorForIssueProvidersFixture(
                         (builder, _) => builder
                             .WithDiscussionThreadsCapability(
-                                new List<IPullRequestDiscussionThread>
-                                {
+                                [
                                     new PullRequestDiscussionThread(
                                         1,
                                         PullRequestDiscussionStatus.Unknown,
                                         new FilePath(@"src\Cake.Issues.Tests\FakeIssueProvider.cs"),
-                                        new List<IPullRequestDiscussionComment>
-                                        {
+                                        [
                                             new PullRequestDiscussionComment()
                                             {
                                                 Content = "Message Foo",
                                                 IsDeleted = false,
                                             },
-                                        })
+                                        ])
                                     {
                                         CommentIdentifier = "Message Foo",
                                     },
-                                }));
+                                ]));
 
                 fixture.IssueProviders.Clear();
                 fixture.IssueProviders.Add(
                     new FakeIssueProvider(
                         fixture.Log,
-                        new List<IIssue>
-                        {
+                        [
                             IssueBuilder
                                 .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
                                 .InFile(@"src\Cake.Issues.Tests\FakeIssueProvider.cs", 10)
                                 .OfRule("Rule Foo")
                                 .WithPriority(IssuePriority.Warning)
                                 .Create(),
-                        }));
+                        ]));
 
                 // When
                 _ = fixture.RunOrchestrator();
@@ -2364,20 +2225,13 @@ namespace Cake.Issues.PullRequests.Tests
                     new OrchestratorForIssueProvidersFixture(
                         (builder, _) => builder
                             .WithFilteringByModifiedFilesCapability(
-                                new List<FilePath>
-                                {
-                                    new(@"src\Cake.Issues.Tests\FakeIssueProvider.cs"),
-                                }));
+                                [new(@"src\Cake.Issues.Tests\FakeIssueProvider.cs")]));
 
                 fixture.IssueProviders.Clear();
                 fixture.IssueProviders.Add(
                     new FakeIssueProvider(
                         fixture.Log,
-                        new List<IIssue>
-                        {
-                            issue1,
-                            issue2,
-                        }));
+                        [issue1, issue2]));
 
                 // When
                 var result = fixture.RunOrchestrator();
@@ -2406,15 +2260,13 @@ namespace Cake.Issues.PullRequests.Tests
                 var fixture =
                     new OrchestratorForIssueProvidersFixture(
                         (builder, _) => builder
-                            .WithFilteringByModifiedFilesCapability(
-                                new List<FilePath>()));
+                            .WithFilteringByModifiedFilesCapability([]));
 
                 fixture.IssueProviders.Clear();
                 fixture.IssueProviders.Add(
                     new FakeIssueProvider(
                         fixture.Log,
-                        new List<IIssue>
-                        {
+                        [
                             IssueBuilder
                                 .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
                                 .InFile(@"src\Cake.Issues.Tests\FakeIssueProvider.cs", 10)
@@ -2427,7 +2279,7 @@ namespace Cake.Issues.PullRequests.Tests
                                 .OfRule("Rule Bar")
                                 .WithPriority(IssuePriority.Warning)
                                 .Create(),
-                        }));
+                        ]));
 
                 // When
                 _ = fixture.RunOrchestrator();

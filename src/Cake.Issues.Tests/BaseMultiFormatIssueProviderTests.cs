@@ -97,7 +97,7 @@
                 var format =
                     new FakeLogFileFormat(
                         log,
-                        new List<IIssue> { issue1, issue2 });
+                        [issue1, issue2]);
                 var settings =
                     new FakeMultiFormatIssueProviderSettings(
                         "Foo".ToByteArray(),

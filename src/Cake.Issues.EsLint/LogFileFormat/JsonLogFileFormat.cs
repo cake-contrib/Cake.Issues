@@ -34,7 +34,7 @@
                 ? (from file in logFileEntries
                    from message in file.messages
                    select GetIssue(file, message, issueProvider, repositorySettings))
-                : new List<IIssue>();
+                : [];
         }
 
         /// <summary>
