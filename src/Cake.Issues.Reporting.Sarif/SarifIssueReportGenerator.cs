@@ -64,28 +64,28 @@
                     this.ruleIndices = [];
 
                     Run run = new()
-                        {
-                            Tool =
-                                new Tool
-                                {
-                                    Driver =
-                                        new ToolComponent
-                                        {
-                                            Name = issueGroup.Key.ProviderType,
-                                        },
-                                },
-                            Results =
-                                (from issue in issueGroup
-                                 select this.GetResult(issue)).ToList(),
-                            OriginalUriBaseIds = new Dictionary<string, ArtifactLocation>
+                    {
+                        Tool =
+                            new Tool
                             {
-                                [RepoRootUriBaseId] =
-                                    new()
+                                Driver =
+                                    new ToolComponent
                                     {
-                                        Uri = new Uri(this.Settings.RepositoryRoot.FullPath, UriKind.Absolute),
+                                        Name = issueGroup.Key.ProviderType,
                                     },
                             },
-                        };
+                        Results =
+                            (from issue in issueGroup
+                             select this.GetResult(issue)).ToList(),
+                        OriginalUriBaseIds = new Dictionary<string, ArtifactLocation>
+                        {
+                            [RepoRootUriBaseId] =
+                                new()
+                                {
+                                    Uri = new Uri(this.Settings.RepositoryRoot.FullPath, UriKind.Absolute),
+                                },
+                        },
+                    };
 
                     if (!string.IsNullOrEmpty(issueGroup.Key.Run))
                     {

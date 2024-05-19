@@ -51,13 +51,13 @@
                 bool showPrioritySummary)
             {
                 // Given
-                var fixture = new ConsoleIssueReportFixture 
-                { 
+                var fixture = new ConsoleIssueReportFixture
+                {
                     ConsoleIssueReportFormatSettings =
                     {
-                        ShowDiagnostics = showDiagnostics, 
-                        Compact = compact, 
-                        GroupByRule = groupByRule, 
+                        ShowDiagnostics = showDiagnostics,
+                        Compact = compact,
+                        GroupByRule = groupByRule,
                         ShowProviderSummary = showProviderSummary,
                         ShowPrioritySummary = showPrioritySummary
                     }
@@ -82,13 +82,13 @@
                 bool showPrioritySummary)
             {
                 // Given
-                var fixture = new ConsoleIssueReportFixture 
-                { 
+                var fixture = new ConsoleIssueReportFixture
+                {
                     ConsoleIssueReportFormatSettings =
                     {
-                        ShowDiagnostics = showDiagnostics, 
-                        Compact = compact, 
-                        GroupByRule = groupByRule, 
+                        ShowDiagnostics = showDiagnostics,
+                        Compact = compact,
+                        GroupByRule = groupByRule,
                         ShowProviderSummary = showProviderSummary,
                         ShowPrioritySummary = showPrioritySummary
                     }

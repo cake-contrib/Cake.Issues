@@ -39,7 +39,7 @@
         /// <exception cref="ArgumentOutOfRangeException">Thrown if <paramref name="value"/> is empty or consists only of white-space characters.</exception>
         [DebuggerStepThrough]
         public static void NotNullOrWhiteSpace(
-            [ValidatedNotNull]this string value,
+            [ValidatedNotNull] this string value,
             [CallerArgumentExpression(nameof(value))] string parameterName = null)
         {
             value.NotNull(parameterName);

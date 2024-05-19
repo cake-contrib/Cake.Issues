@@ -13,7 +13,7 @@
         /// Gets the identifier for the message.
         /// The identifier can be used to identify the same issue across multiple runs.
         /// </summary>
-        string Identifier { get;  }
+        string Identifier { get; }
 
         /// <summary>
         /// Gets the path to the project to which the file affected by the issue belongs.

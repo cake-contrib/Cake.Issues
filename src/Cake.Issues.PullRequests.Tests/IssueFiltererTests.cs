@@ -429,12 +429,12 @@
                         // Given
                         var fixture =
                             new IssueFiltererFixture
+                            {
+                                Settings =
                                 {
-                                    Settings =
-                                    {
-                                        MaxIssuesToPost = 1,
-                                    },
-                                };
+                                    MaxIssuesToPost = 1,
+                                },
+                            };
 
                         var issue1 =
                             IssueBuilder
