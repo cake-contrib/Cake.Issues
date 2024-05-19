@@ -469,7 +469,7 @@
         }
 
         private Issue CreateIssue(Uri fileLink) =>
-            new Issue(
+            new(
                 this.identifier,
                 this.projectFileRelativePath,
                 this.projectName,

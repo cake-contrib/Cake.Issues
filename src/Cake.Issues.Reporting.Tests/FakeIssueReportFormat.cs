@@ -27,6 +27,6 @@
         }
 
         protected override FilePath InternalCreateReport(IEnumerable<IIssue> issues) =>
-            new FilePath(@"c:\report.html");
+            new(@"c:\report.html");
     }
 }
