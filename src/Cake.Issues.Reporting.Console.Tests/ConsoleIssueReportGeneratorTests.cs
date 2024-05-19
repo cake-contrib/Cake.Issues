@@ -64,10 +64,9 @@
                 };
 
                 // When
-                var logContents =
-                    fixture.CreateReport(
-                        "Testfiles.issues.json",
-                        @"c:\Source\Cake.Issues.Reporting.Console");
+                _ = fixture.CreateReport(
+                    "Testfiles.issues.json",
+                    @"c:\Source\Cake.Issues.Reporting.Console");
 
                 // Then
             }
@@ -95,10 +94,9 @@
                 };
 
                 // When
-                var logContents =
-                    fixture.CreateReport(
-                        new List<IIssue>(),
-                        @"c:\Source\Cake.Issues.Reporting.Console");
+                _ = fixture.CreateReport(
+                    new List<IIssue>(),
+                    @"c:\Source\Cake.Issues.Reporting.Console");
 
                 // Then
             }
