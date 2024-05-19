@@ -12,9 +12,8 @@
         /// </summary>
         /// <param name="level">Level of the sarif result.</param>
         /// <returns>Priority of the issue.</returns>
-        public static IssuePriority ToPriority(this FailureLevel level)
-        {
-            return level switch
+        public static IssuePriority ToPriority(this FailureLevel level) =>
+            level switch
             {
                 FailureLevel.None => IssuePriority.Undefined,
                 FailureLevel.Note => IssuePriority.Suggestion,
@@ -22,6 +21,5 @@
                 FailureLevel.Error => IssuePriority.Error,
                 _ => IssuePriority.Undefined,
             };
-        }
     }
 }

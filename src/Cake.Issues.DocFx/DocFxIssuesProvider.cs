@@ -1,6 +1,7 @@
 ﻿namespace Cake.Issues.DocFx
 {
     using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
     using System.IO;
     using System.Linq;
     using System.Runtime.Serialization.Json;
@@ -72,27 +73,23 @@
         /// </summary>
         /// <param name="severity">Severity as reported by DocFX.</param>
         /// <returns>Priority.</returns>
-        private static IssuePriority GetPriority(string severity)
-        {
-            return severity.ToLowerInvariant() switch
+        private static IssuePriority GetPriority(string severity) =>
+            severity.ToLowerInvariant() switch
             {
                 "warning" => IssuePriority.Warning,
                 "suggestion" => IssuePriority.Suggestion,
                 _ => IssuePriority.Undefined,
             };
-        }
 
         /// <summary>
         /// Reads the affected line from an issue logged in a DocFx log file.
         /// </summary>
         /// <param name="line">The line in the current log entry.</param>
         /// <returns>The line of the issue.</returns>
-        private static int? TryGetLine(
-            int? line)
-        {
+        [SuppressMessage("StyleCop.CSharp.LayoutRules", "SA1515:Single-line comment should be preceded by blank line", Justification = "Not in expression bodies")]
+        private static int? TryGetLine(int? line) =>
             // Convert negative line numbers or line number 0 to null
-            return line is <= 0 ? null : line;
-        }
+            line is <= 0 ? null : line;
 
         /// <summary>
         /// Reads the affected file path from an issue logged in a DocFx log file.

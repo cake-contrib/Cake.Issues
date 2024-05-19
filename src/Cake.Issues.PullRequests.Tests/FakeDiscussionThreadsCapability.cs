@@ -54,10 +54,8 @@
         public IEnumerable<IPullRequestDiscussionThread> ReopenedThreads => this.reopenedThreads;
 
         /// <inheritdoc />
-        protected override IEnumerable<IPullRequestDiscussionThread> InternalFetchDiscussionThreads(string commentSource)
-        {
-            return this.discussionThreads;
-        }
+        protected override IEnumerable<IPullRequestDiscussionThread> InternalFetchDiscussionThreads(string commentSource) =>
+            this.discussionThreads;
 
         /// <inheritdoc />
         protected override void InternalResolveDiscussionThreads(IEnumerable<IPullRequestDiscussionThread> threads)

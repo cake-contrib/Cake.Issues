@@ -12,9 +12,8 @@
         /// </summary>
         /// <param name="theme">Theme for which the CSS file name should be returned.</param>
         /// <returns>CSS file name of the DevExtreme theme.</returns>
-        public static string GetCssFileName(this DevExtremeTheme theme)
-        {
-            return theme switch
+        public static string GetCssFileName(this DevExtremeTheme theme) =>
+            theme switch
             {
                 DevExtremeTheme.Light => "dx.light.css",
                 DevExtremeTheme.Dark => "dx.dark.css",
@@ -49,6 +48,5 @@
                 DevExtremeTheme.MaterialTealDarkCompact => "dx.material.teal.dark.compact.css",
                 _ => throw new ArgumentException("Unknown enumeration value", nameof(theme)),
             };
-        }
     }
 }

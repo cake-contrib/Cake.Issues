@@ -34,24 +34,18 @@ namespace Cake.Issues.PullRequests.Tests
 
         public IEnumerable<IIssue> FilterIssues(
             IEnumerable<IIssue> issues,
-            IDictionary<IIssue, IssueCommentInfo> issueComments)
-        {
-            return
+            IDictionary<IIssue, IssueCommentInfo> issueComments) =>
                 this
                     .GetIssueFilterer()
                     .FilterIssues(issues, issueComments, null);
-        }
 
         public IEnumerable<IIssue> FilterIssues(
             IEnumerable<IIssue> issues,
             IDictionary<IIssue, IssueCommentInfo> issueComments,
-            IReadOnlyCollection<IPullRequestDiscussionThread> existingThreads)
-        {
-            return
+            IReadOnlyCollection<IPullRequestDiscussionThread> existingThreads) =>
                 this
                     .GetIssueFilterer()
                     .FilterIssues(issues, issueComments, existingThreads);
-        }
 
         private IssueFilterer GetIssueFilterer()
         {

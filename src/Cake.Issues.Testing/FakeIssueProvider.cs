@@ -46,9 +46,6 @@
         public override string ProviderName => "Fake Issue Provider";
 
         /// <inheritdoc/>
-        protected override IEnumerable<IIssue> InternalReadIssues()
-        {
-            return this.issues;
-        }
+        protected override IEnumerable<IIssue> InternalReadIssues() => this.issues;
     }
 }

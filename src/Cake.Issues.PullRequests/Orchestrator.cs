@@ -88,15 +88,12 @@ namespace Cake.Issues.PullRequests
         /// <param name="issue">Issue to check.</param>
         /// <param name="thread">Comment thread to check.</param>
         /// <returns><c>true</c> if both paths are matching or if both paths are set to <c>null</c>.</returns>
-        private static bool FilePathsAreMatching(IIssue issue, IPullRequestDiscussionThread thread)
-        {
-            return
-                (issue.AffectedFileRelativePath == null && thread.AffectedFileRelativePath == null) ||
-                (
-                    issue.AffectedFileRelativePath != null &&
-                    thread.AffectedFileRelativePath != null &&
-                    thread.AffectedFileRelativePath.ToString() == issue.AffectedFileRelativePath.ToString());
-        }
+        private static bool FilePathsAreMatching(IIssue issue, IPullRequestDiscussionThread thread) =>
+            (issue.AffectedFileRelativePath == null && thread.AffectedFileRelativePath == null) ||
+            (
+                issue.AffectedFileRelativePath != null &&
+                thread.AffectedFileRelativePath != null &&
+                thread.AffectedFileRelativePath.ToString() == issue.AffectedFileRelativePath.ToString());
 
         /// <summary>
         /// Initializes the pull request system.

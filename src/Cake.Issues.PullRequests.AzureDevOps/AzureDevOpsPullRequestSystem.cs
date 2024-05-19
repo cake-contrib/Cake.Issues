@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
     using System.Globalization;
     using System.Linq;
     using Cake.AzureDevOps.Repos.PullRequest;
@@ -63,17 +64,13 @@
         AzureDevOpsPullRequest IAzureDevOpsPullRequestSystem.AzureDevOpsPullRequest => this.azureDevOpsPullRequest;
 
         /// <inheritdoc/>
-        public override bool Initialize(IReportIssuesToPullRequestSettings settings)
-        {
+        [SuppressMessage("StyleCop.CSharp.LayoutRules", "SA1515:Single-line comment should be preceded by blank line", Justification = "Not with expression body")]
+        public override bool Initialize(IReportIssuesToPullRequestSettings settings) =>
             // Fail initialization if no pull request could be found.
-            return base.Initialize(settings) && this.azureDevOpsPullRequest.HasPullRequestLoaded;
-        }
+            base.Initialize(settings) && this.azureDevOpsPullRequest.HasPullRequestLoaded;
 
         /// <inheritdoc/>
-        bool IAzureDevOpsPullRequestSystem.ValidatePullRequest()
-        {
-            return this.ValidatePullRequest();
-        }
+        bool IAzureDevOpsPullRequestSystem.ValidatePullRequest() => this.ValidatePullRequest();
 
         /// <inheritdoc/>
         protected override void InternalPostDiscussionThreads(IEnumerable<IIssue> issues, string commentSource)

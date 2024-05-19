@@ -41,9 +41,6 @@
         public override IEnumerable<IIssue> ReadIssues(
             FakeMultiFormatIssueProvider issueProvider,
             IRepositorySettings repositorySettings,
-            FakeMultiFormatIssueProviderSettings issueProviderSettings)
-        {
-            return this.issues;
-        }
+            FakeMultiFormatIssueProviderSettings issueProviderSettings) => this.issues;
     }
 }

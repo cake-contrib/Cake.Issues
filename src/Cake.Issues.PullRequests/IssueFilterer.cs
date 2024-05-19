@@ -87,15 +87,12 @@ namespace Cake.Issues.PullRequests
         /// <returns>True if there are already comments for an issue.</returns>
         private static bool IssueHasMatchingComments(
             IIssue issue,
-            IDictionary<IIssue, IssueCommentInfo> issueComments)
-        {
-            return
-                issueComments.ContainsKey(issue) &&
-                (
-                    issueComments[issue].ActiveComments.Any() ||
-                    issueComments[issue].WontFixComments.Any() ||
-                    issueComments[issue].ResolvedComments.Any());
-        }
+            IDictionary<IIssue, IssueCommentInfo> issueComments) =>
+            issueComments.ContainsKey(issue) &&
+            (
+                issueComments[issue].ActiveComments.Any() ||
+                issueComments[issue].WontFixComments.Any() ||
+                issueComments[issue].ResolvedComments.Any());
 
         /// <summary>
         /// Validate the list of modified files in the pull request.

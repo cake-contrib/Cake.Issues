@@ -224,11 +224,10 @@
         /// <returns>Relative path to the project.</returns>
         private string GetProject(
             string project,
-            IRepositorySettings repositorySettings)
-        {
+            IRepositorySettings repositorySettings) =>
+
             // Validate project path and make relative to repository root.
-            return this.ValidateFilePath(project, repositorySettings).FilePath;
-        }
+            this.ValidateFilePath(project, repositorySettings).FilePath;
 
         /// <summary>
         /// Reads the affected file path from a value in a MsBuild log.

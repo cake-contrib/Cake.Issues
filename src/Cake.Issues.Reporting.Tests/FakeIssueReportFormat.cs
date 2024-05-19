@@ -26,9 +26,7 @@
             return result && !this.ShouldFailOnInitialization;
         }
 
-        protected override FilePath InternalCreateReport(IEnumerable<IIssue> issues)
-        {
-            return new FilePath(@"c:\report.html");
-        }
+        protected override FilePath InternalCreateReport(IEnumerable<IIssue> issues) =>
+            new FilePath(@"c:\report.html");
     }
 }

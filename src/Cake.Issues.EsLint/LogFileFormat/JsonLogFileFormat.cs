@@ -80,15 +80,13 @@
         /// </summary>
         /// <param name="severity">Severity level as reported by ESLint.</param>
         /// <returns>Priority.</returns>
-        private static IssuePriority GetPriority(int severity)
-        {
-            return severity switch
+        private static IssuePriority GetPriority(int severity) =>
+            severity switch
             {
                 0 => IssuePriority.Hint,
                 1 => IssuePriority.Warning,
                 2 => IssuePriority.Error,
                 _ => IssuePriority.Undefined,
             };
-        }
     }
 }

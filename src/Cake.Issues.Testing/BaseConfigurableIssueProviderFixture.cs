@@ -74,12 +74,9 @@
         /// Creates a new instance of the issue provider settings.
         /// </summary>
         /// <returns>Instance of the issue provider.</returns>
-        private TSettings CreateIssueProviderSettings()
-        {
-            return
-                (TSettings)Activator.CreateInstance(
-                    typeof(TSettings),
-                    [.. this.GetCreateIssueProviderSettingsArguments()]);
-        }
+        private TSettings CreateIssueProviderSettings() =>
+            (TSettings)Activator.CreateInstance(
+                typeof(TSettings),
+                [.. this.GetCreateIssueProviderSettingsArguments()]);
     }
 }
