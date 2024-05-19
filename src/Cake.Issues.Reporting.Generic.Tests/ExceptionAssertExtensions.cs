@@ -1,6 +1,5 @@
 ﻿namespace Cake.Issues.Reporting.Generic.Tests
 {
-    using System.Diagnostics.CodeAnalysis;
     using Microsoft.CSharp.RuntimeBinder;
 
     /// <summary>

@@ -1,7 +1,5 @@
 ﻿namespace Cake.Issues.Reporting.Generic.Tests
 {
-    using System.Diagnostics.CodeAnalysis;
-
     public sealed class DevExtremeThemeExtensionsTests
     {
         public sealed class TheGetCssFileNameMethod

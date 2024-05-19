@@ -1,6 +1,5 @@
 ﻿namespace Cake.Issues.PullRequests.AzureDevOps
 {
-    using System.Diagnostics.CodeAnalysis;
     using Cake.Core.Annotations;
 
     /// <summary>
