@@ -1,18 +1,17 @@
-﻿namespace Cake.Issues.MsBuild
+﻿namespace Cake.Issues.MsBuild;
+
+/// <summary>
+/// Class describing rules appearing in MsBuild logs.
+/// </summary>
+public class MsBuildRuleDescription : BaseRuleDescription
 {
     /// <summary>
-    /// Class describing rules appearing in MsBuild logs.
+    /// Gets or sets the category of the rule.
     /// </summary>
-    public class MsBuildRuleDescription : BaseRuleDescription
-    {
-        /// <summary>
-        /// Gets or sets the category of the rule.
-        /// </summary>
-        public string Category { get; set; }
+    public string Category { get; set; }
 
-        /// <summary>
-        /// Gets or sets the identifier of the rule.
-        /// </summary>
-        public int RuleId { get; set; }
-    }
+    /// <summary>
+    /// Gets or sets the identifier of the rule.
+    /// </summary>
+    public int RuleId { get; set; }
 }

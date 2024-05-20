@@ -1,22 +1,21 @@
-﻿namespace Cake.Issues.Reporting.Generic.Tests
+﻿namespace Cake.Issues.Reporting.Generic.Tests;
+
+public sealed class ColumnSortOrderExtensionsTests
 {
-    public sealed class ColumnSortOrderExtensionsTests
+    public sealed class TheToShortStringMethod
     {
-        public sealed class TheToShortStringMethod
+        [Theory]
+        [InlineData(ColumnSortOrder.Ascending)]
+        [InlineData(ColumnSortOrder.Descending)]
+        public void Should_Return_Identifier(ColumnSortOrder sortOrder)
         {
-            [Theory]
-            [InlineData(ColumnSortOrder.Ascending)]
-            [InlineData(ColumnSortOrder.Descending)]
-            public void Should_Return_Identifier(ColumnSortOrder sortOrder)
-            {
-                // Given
+            // Given
 
-                // When
-                var result = sortOrder.ToShortString();
+            // When
+            var result = sortOrder.ToShortString();
 
-                // Then
-                result.ShouldNotBeNullOrWhiteSpace();
-            }
+            // Then
+            result.ShouldNotBeNullOrWhiteSpace();
         }
     }
 }

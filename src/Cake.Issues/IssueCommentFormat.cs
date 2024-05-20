@@ -1,28 +1,27 @@
-﻿namespace Cake.Issues
+﻿namespace Cake.Issues;
+
+/// <summary>
+/// Possible format options for issues.
+/// </summary>
+public enum IssueCommentFormat
 {
     /// <summary>
-    /// Possible format options for issues.
+    /// Undefined format.
     /// </summary>
-    public enum IssueCommentFormat
-    {
-        /// <summary>
-        /// Undefined format.
-        /// </summary>
-        Undefined,
+    Undefined,
 
-        /// <summary>
-        /// Plain text.
-        /// </summary>
-        PlainText,
+    /// <summary>
+    /// Plain text.
+    /// </summary>
+    PlainText,
 
-        /// <summary>
-        /// Hypertext markup language.
-        /// </summary>
-        Html,
+    /// <summary>
+    /// Hypertext markup language.
+    /// </summary>
+    Html,
 
-        /// <summary>
-        /// Markdown syntax.
-        /// </summary>
-        Markdown,
-    }
+    /// <summary>
+    /// Markdown syntax.
+    /// </summary>
+    Markdown,
 }

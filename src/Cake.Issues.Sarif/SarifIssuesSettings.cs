@@ -1,28 +1,27 @@
-﻿namespace Cake.Issues.Sarif
+﻿namespace Cake.Issues.Sarif;
+
+using Cake.Core.IO;
+
+/// <summary>
+/// Settings for <see cref="SarifIssuesAliases"/>.
+/// </summary>
+public class SarifIssuesSettings : IssueProviderSettings
 {
-    using Cake.Core.IO;
+    /// <summary>
+    /// Initializes a new instance of the <see cref="SarifIssuesSettings"/> class.
+    /// </summary>
+    /// <param name="logFilePath">Path to the Sarif file.</param>
+    public SarifIssuesSettings(FilePath logFilePath)
+        : base(logFilePath)
+    {
+    }
 
     /// <summary>
-    /// Settings for <see cref="SarifIssuesAliases"/>.
+    /// Initializes a new instance of the <see cref="SarifIssuesSettings"/> class.
     /// </summary>
-    public class SarifIssuesSettings : IssueProviderSettings
+    /// <param name="logFileContent">Content of the SARIF file.</param>
+    public SarifIssuesSettings(byte[] logFileContent)
+        : base(logFileContent)
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SarifIssuesSettings"/> class.
-        /// </summary>
-        /// <param name="logFilePath">Path to the Sarif file.</param>
-        public SarifIssuesSettings(FilePath logFilePath)
-            : base(logFilePath)
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SarifIssuesSettings"/> class.
-        /// </summary>
-        /// <param name="logFileContent">Content of the SARIF file.</param>
-        public SarifIssuesSettings(byte[] logFileContent)
-            : base(logFileContent)
-        {
-        }
     }
 }

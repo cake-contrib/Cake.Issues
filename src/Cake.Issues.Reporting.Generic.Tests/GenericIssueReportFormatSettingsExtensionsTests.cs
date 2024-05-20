@@ -1,71 +1,70 @@
-﻿namespace Cake.Issues.Reporting.Generic.Tests
+﻿namespace Cake.Issues.Reporting.Generic.Tests;
+
+public sealed class GenericIssueReportFormatSettingsExtensionsTests
 {
-    public sealed class GenericIssueReportFormatSettingsExtensionsTests
+    public sealed class TheWithOptionWithStringKeyMethod
     {
-        public sealed class TheWithOptionWithStringKeyMethod
+        [Fact]
+        public void Should_Throw_If_Settings_Are_Null()
         {
-            [Fact]
-            public void Should_Throw_If_Settings_Are_Null()
-            {
-                // Given
-                GenericIssueReportFormatSettings settings = null;
+            // Given
+            GenericIssueReportFormatSettings settings = null;
 
-                // When
-                var result = Record.Exception(() =>
-                    settings.WithOption("Foo", "Bar"));
+            // When
+            var result = Record.Exception(() =>
+                settings.WithOption("Foo", "Bar"));
 
-                // Then
-                result.IsArgumentNullException("settings");
-            }
-
-            [Fact]
-            public void Should_Add_Option()
-            {
-                // Given
-                var key = "Foo";
-                var value = "Bar";
-                var settings = GenericIssueReportFormatSettings.FromContent("Foo");
-
-                // When
-                var result = settings.WithOption(key, value);
-
-                // Then
-                result.Options.Count.ShouldBe(1);
-                result.Options.ShouldContainKeyAndValue(key, value);
-            }
+            // Then
+            result.IsArgumentNullException("settings");
         }
 
-        public sealed class TheWithOptionWithEnumKeyMethod
+        [Fact]
+        public void Should_Add_Option()
         {
-            [Fact]
-            public void Should_Throw_If_Settings_Are_Null()
-            {
-                // Given
-                GenericIssueReportFormatSettings settings = null;
+            // Given
+            var key = "Foo";
+            var value = "Bar";
+            var settings = GenericIssueReportFormatSettings.FromContent("Foo");
 
-                // When
-                var result = Record.Exception(() =>
-                    settings.WithOption(HtmlDxDataGridOption.Theme, "Bar"));
+            // When
+            var result = settings.WithOption(key, value);
 
-                // Then
-                result.IsArgumentNullException("settings");
-            }
+            // Then
+            result.Options.Count.ShouldBe(1);
+            result.Options.ShouldContainKeyAndValue(key, value);
+        }
+    }
 
-            [Fact]
-            public void Should_Add_Option()
-            {
-                // Given
-                var key = HtmlDxDataGridOption.Title;
-                var value = "Bar";
-                var settings = GenericIssueReportFormatSettings.FromContent("Foo");
+    public sealed class TheWithOptionWithEnumKeyMethod
+    {
+        [Fact]
+        public void Should_Throw_If_Settings_Are_Null()
+        {
+            // Given
+            GenericIssueReportFormatSettings settings = null;
 
-                // When
-                var result = settings.WithOption(key, value);
+            // When
+            var result = Record.Exception(() =>
+                settings.WithOption(HtmlDxDataGridOption.Theme, "Bar"));
 
-                // Then
-                result.Options.Count.ShouldBe(1);
-                result.Options.ShouldContainKeyAndValue(key.ToString(), value);
-            }
+            // Then
+            result.IsArgumentNullException("settings");
+        }
+
+        [Fact]
+        public void Should_Add_Option()
+        {
+            // Given
+            var key = HtmlDxDataGridOption.Title;
+            var value = "Bar";
+            var settings = GenericIssueReportFormatSettings.FromContent("Foo");
+
+            // When
+            var result = settings.WithOption(key, value);
+
+            // Then
+            result.Options.Count.ShouldBe(1);
+            result.Options.ShouldContainKeyAndValue(key.ToString(), value);
         }
     }
 }

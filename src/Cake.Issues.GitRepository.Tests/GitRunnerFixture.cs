@@ -1,25 +1,24 @@
-﻿namespace Cake.Issues.GitRepository.Tests
+﻿namespace Cake.Issues.GitRepository.Tests;
+
+using Cake.Testing.Fixtures;
+
+internal class GitRunnerFixture() : ToolFixture<GitRunnerSettings>("git")
 {
-    using Cake.Testing.Fixtures;
+    private readonly List<string> standardOutput = [];
 
-    internal class GitRunnerFixture() : ToolFixture<GitRunnerSettings>("git")
+    public IEnumerable<string> StandardOutput => this.standardOutput;
+
+    protected override void RunTool()
     {
-        private readonly List<string> standardOutput = [];
+        this.standardOutput.Clear();
 
-        public IEnumerable<string> StandardOutput => this.standardOutput;
+        var tool = new GitRunner(this.FileSystem, this.Environment, this.ProcessRunner, this.Tools);
 
-        protected override void RunTool()
+        var output = tool.RunCommand(this.Settings);
+
+        if (output != null)
         {
-            this.standardOutput.Clear();
-
-            var tool = new GitRunner(this.FileSystem, this.Environment, this.ProcessRunner, this.Tools);
-
-            var output = tool.RunCommand(this.Settings);
-
-            if (output != null)
-            {
-                this.standardOutput.AddRange(output);
-            }
+            this.standardOutput.AddRange(output);
         }
     }
 }

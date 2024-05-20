@@ -1,162 +1,161 @@
-﻿namespace Cake.Issues.PullRequests.Tests
+﻿namespace Cake.Issues.PullRequests.Tests;
+
+using System.Runtime.InteropServices;
+
+public sealed class PullRequestDiscussionThreadTests
 {
-    using System.Runtime.InteropServices;
-
-    public sealed class PullRequestDiscussionThreadTests
+    public sealed class TheCtor
     {
-        public sealed class TheCtor
+        [Theory]
+        [InlineData("/foo")]
+        [InlineData(@"\foo")]
+        public void Should_Throw_If_File_Path_Is_Absolute(string filePath)
         {
-            [Theory]
-            [InlineData("/foo")]
-            [InlineData(@"\foo")]
-            public void Should_Throw_If_File_Path_Is_Absolute(string filePath)
-            {
-                // Given / When
-                var result = Record.Exception(() =>
-                    new PullRequestDiscussionThread(
-                        1,
-                        PullRequestDiscussionStatus.Active,
-                        filePath,
-                        []));
+            // Given / When
+            var result = Record.Exception(() =>
+                new PullRequestDiscussionThread(
+                    1,
+                    PullRequestDiscussionStatus.Active,
+                    filePath,
+                    []));
 
-                // Then
-                result.IsArgumentOutOfRangeException("filePath");
-            }
+            // Then
+            result.IsArgumentOutOfRangeException("filePath");
+        }
 
-            [SkippableTheory]
-            [InlineData(@"c:\src\foo.cs")]
-            public void Should_Throw_If_File_Path_Is_Absolute_Windows_Path(string filePath)
-            {
-                // Uses Windows specific paths.
-                Skip.IfNot(RuntimeInformation.IsOSPlatform(OSPlatform.Windows));
+        [SkippableTheory]
+        [InlineData(@"c:\src\foo.cs")]
+        public void Should_Throw_If_File_Path_Is_Absolute_Windows_Path(string filePath)
+        {
+            // Uses Windows specific paths.
+            Skip.IfNot(RuntimeInformation.IsOSPlatform(OSPlatform.Windows));
 
-                // Given / When
-                var result = Record.Exception(() =>
-                    new PullRequestDiscussionThread(
-                        1,
-                        PullRequestDiscussionStatus.Active,
-                        filePath,
-                        []));
+            // Given / When
+            var result = Record.Exception(() =>
+                new PullRequestDiscussionThread(
+                    1,
+                    PullRequestDiscussionStatus.Active,
+                    filePath,
+                    []));
 
-                // Then
-                result.IsArgumentOutOfRangeException("filePath");
-            }
+            // Then
+            result.IsArgumentOutOfRangeException("filePath");
+        }
 
-            [Fact]
-            public void Should_Throw_If_Comments_Is_Null()
-            {
-                // Given / When
-                var result = Record.Exception(() => new PullRequestDiscussionThread(1, PullRequestDiscussionStatus.Active, "foo.cs", null));
+        [Fact]
+        public void Should_Throw_If_Comments_Is_Null()
+        {
+            // Given / When
+            var result = Record.Exception(() => new PullRequestDiscussionThread(1, PullRequestDiscussionStatus.Active, "foo.cs", null));
 
-                // Then
-                result.IsArgumentNullException("comments");
-            }
+            // Then
+            result.IsArgumentNullException("comments");
+        }
 
-            [Fact]
-            public void Should_Handle_File_Paths_Which_Are_Null()
-            {
-                // Given / When
-                var thread =
-                    new PullRequestDiscussionThread(
-                        1,
-                        PullRequestDiscussionStatus.Active,
-                        null,
-                        []);
+        [Fact]
+        public void Should_Handle_File_Paths_Which_Are_Null()
+        {
+            // Given / When
+            var thread =
+                new PullRequestDiscussionThread(
+                    1,
+                    PullRequestDiscussionStatus.Active,
+                    null,
+                    []);
 
-                // Then
-                thread.AffectedFileRelativePath.ShouldBe(null);
-            }
+            // Then
+            thread.AffectedFileRelativePath.ShouldBe(null);
+        }
 
-            [Theory]
-            [InlineData(int.MinValue)]
-            [InlineData(0)]
-            [InlineData(int.MaxValue)]
-            public void Should_Set_Id(int id)
-            {
-                // Given / When
-                var thread =
-                    new PullRequestDiscussionThread(
-                        id,
-                        PullRequestDiscussionStatus.Active,
-                        "foo.cs",
-                        []);
+        [Theory]
+        [InlineData(int.MinValue)]
+        [InlineData(0)]
+        [InlineData(int.MaxValue)]
+        public void Should_Set_Id(int id)
+        {
+            // Given / When
+            var thread =
+                new PullRequestDiscussionThread(
+                    id,
+                    PullRequestDiscussionStatus.Active,
+                    "foo.cs",
+                    []);
 
-                // Then
-                thread.Id.ShouldBe(id);
-            }
+            // Then
+            thread.Id.ShouldBe(id);
+        }
 
-            [Theory]
-            [InlineData(PullRequestDiscussionStatus.Active)]
-            [InlineData(PullRequestDiscussionStatus.Resolved)]
-            public void Should_Set_Status(PullRequestDiscussionStatus status)
-            {
-                // Given / When
-                var thread =
-                    new PullRequestDiscussionThread(
-                        1,
-                        status,
-                        "foo.cs",
-                        []);
+        [Theory]
+        [InlineData(PullRequestDiscussionStatus.Active)]
+        [InlineData(PullRequestDiscussionStatus.Resolved)]
+        public void Should_Set_Status(PullRequestDiscussionStatus status)
+        {
+            // Given / When
+            var thread =
+                new PullRequestDiscussionThread(
+                    1,
+                    status,
+                    "foo.cs",
+                    []);
 
-                // Then
-                thread.Status.ShouldBe(status);
-            }
+            // Then
+            thread.Status.ShouldBe(status);
+        }
 
-            [Fact]
-            public void Should_Set_Comments()
-            {
-                // Given
-                var comments =
-                    new List<IPullRequestDiscussionComment>
+        [Fact]
+        public void Should_Set_Comments()
+        {
+            // Given
+            var comments =
+                new List<IPullRequestDiscussionComment>
+                {
+                    new PullRequestDiscussionComment
                     {
-                        new PullRequestDiscussionComment
-                        {
-                            Content = "Foo",
-                            IsDeleted = false,
-                        },
-                        new PullRequestDiscussionComment
-                        {
-                            Content = "Bar",
-                            IsDeleted = true,
-                        },
-                    };
+                        Content = "Foo",
+                        IsDeleted = false,
+                    },
+                    new PullRequestDiscussionComment
+                    {
+                        Content = "Bar",
+                        IsDeleted = true,
+                    },
+                };
 
-                // When
-                var thread =
-                    new PullRequestDiscussionThread(
-                        1,
-                        PullRequestDiscussionStatus.Active,
-                        "foo.cs",
-                        comments);
+            // When
+            var thread =
+                new PullRequestDiscussionThread(
+                    1,
+                    PullRequestDiscussionStatus.Active,
+                    "foo.cs",
+                    comments);
 
-                // Then
-                thread.Comments.ShouldContain(comment => comments.Contains(comment), comments.Count);
-            }
+            // Then
+            thread.Comments.ShouldContain(comment => comments.Contains(comment), comments.Count);
+        }
 
-            [Theory]
-            [InlineData("foo", "foo")]
-            [InlineData(@"foo\bar", "foo/bar")]
-            [InlineData("foo/bar", "foo/bar")]
-            [InlineData(@"foo\bar\", "foo/bar")]
-            [InlineData("foo/bar/", "foo/bar")]
-            [InlineData(@".\foo", "foo")]
-            [InlineData("./foo", "foo")]
-            [InlineData(@"foo\..\bar", "foo/../bar")]
-            [InlineData("foo/../bar", "foo/../bar")]
-            public void Should_Set_File_Path(string filePath, string expectedFilePath)
-            {
-                // Given / When
-                var thread =
-                    new PullRequestDiscussionThread(
-                        1,
-                        PullRequestDiscussionStatus.Active,
-                        filePath,
-                        []);
+        [Theory]
+        [InlineData("foo", "foo")]
+        [InlineData(@"foo\bar", "foo/bar")]
+        [InlineData("foo/bar", "foo/bar")]
+        [InlineData(@"foo\bar\", "foo/bar")]
+        [InlineData("foo/bar/", "foo/bar")]
+        [InlineData(@".\foo", "foo")]
+        [InlineData("./foo", "foo")]
+        [InlineData(@"foo\..\bar", "foo/../bar")]
+        [InlineData("foo/../bar", "foo/../bar")]
+        public void Should_Set_File_Path(string filePath, string expectedFilePath)
+        {
+            // Given / When
+            var thread =
+                new PullRequestDiscussionThread(
+                    1,
+                    PullRequestDiscussionStatus.Active,
+                    filePath,
+                    []);
 
-                // Then
-                thread.AffectedFileRelativePath.ToString().ShouldBe(expectedFilePath);
-                thread.AffectedFileRelativePath.IsRelative.ShouldBe(true, "File path was not set as relative.");
-            }
+            // Then
+            thread.AffectedFileRelativePath.ToString().ShouldBe(expectedFilePath);
+            thread.AffectedFileRelativePath.IsRelative.ShouldBe(true, "File path was not set as relative.");
         }
     }
 }

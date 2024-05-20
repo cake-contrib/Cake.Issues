@@ -1,28 +1,27 @@
-﻿namespace Cake.Issues.DocFx.Tests
+﻿namespace Cake.Issues.DocFx.Tests;
+
+using Cake.Core.IO;
+
+internal class DocFxProviderFixture : BaseConfigurableIssueProviderFixture<DocFxIssuesProvider, DocFxIssuesSettings>
 {
-    using Cake.Core.IO;
+    private readonly DirectoryPath docRootPath;
 
-    internal class DocFxProviderFixture : BaseConfigurableIssueProviderFixture<DocFxIssuesProvider, DocFxIssuesSettings>
+    public DocFxProviderFixture(string fileResourceName, DirectoryPath docRootPath)
+        : base(fileResourceName)
     {
-        private readonly DirectoryPath docRootPath;
+        docRootPath.NotNull();
 
-        public DocFxProviderFixture(string fileResourceName, DirectoryPath docRootPath)
-            : base(fileResourceName)
-        {
-            docRootPath.NotNull();
+        this.docRootPath = docRootPath;
+        this.ReadIssuesSettings =
+            new ReadIssuesSettings(@"c:\Source\Cake.Issues");
+    }
 
-            this.docRootPath = docRootPath;
-            this.ReadIssuesSettings =
-                new ReadIssuesSettings(@"c:\Source\Cake.Issues");
-        }
+    protected override string FileResourceNamespace => "Cake.Issues.DocFx.Tests.Testfiles.";
 
-        protected override string FileResourceNamespace => "Cake.Issues.DocFx.Tests.Testfiles.";
-
-        protected override IList<object> GetCreateIssueProviderSettingsArguments()
-        {
-            var result = base.GetCreateIssueProviderSettingsArguments();
-            result.Add(this.docRootPath);
-            return result;
-        }
+    protected override IList<object> GetCreateIssueProviderSettingsArguments()
+    {
+        var result = base.GetCreateIssueProviderSettingsArguments();
+        result.Add(this.docRootPath);
+        return result;
     }
 }

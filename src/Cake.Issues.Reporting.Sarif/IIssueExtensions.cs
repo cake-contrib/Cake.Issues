@@ -1,106 +1,105 @@
-﻿namespace Cake.Issues.Reporting.Sarif
+﻿namespace Cake.Issues.Reporting.Sarif;
+
+using System;
+using Microsoft.CodeAnalysis.Sarif;
+
+/// <summary>
+/// Extensions for <see cref="IIssue"/>.
+/// </summary>
+internal static class IIssueExtensions
 {
-    using System;
-    using Microsoft.CodeAnalysis.Sarif;
+    /// <summary>
+    /// Returns the kind of the issue.
+    /// </summary>
+    /// <param name="issue">Issue for which the kind should be returned.</param>
+    /// <returns>Kind of the issue.</returns>
+    public static ResultKind Kind(this IIssue issue)
+    {
+        issue.NotNull();
+
+        return issue.Priority.HasValue
+            ? issue.Priority switch
+            {
+                (int)IssuePriority.Suggestion or (int)IssuePriority.Hint => ResultKind.Informational,
+                (int)IssuePriority.Warning or (int)IssuePriority.Error => ResultKind.Fail,
+                _ => ResultKind.NotApplicable,
+            }
+            : ResultKind.None;
+    }
 
     /// <summary>
-    /// Extensions for <see cref="IIssue"/>.
+    /// Returns the level of the issue.
     /// </summary>
-    internal static class IIssueExtensions
+    /// <param name="issue">Issue for which the level should be returned.</param>
+    /// <returns>Level of the issue.</returns>
+    public static FailureLevel Level(this IIssue issue)
     {
-        /// <summary>
-        /// Returns the kind of the issue.
-        /// </summary>
-        /// <param name="issue">Issue for which the kind should be returned.</param>
-        /// <returns>Kind of the issue.</returns>
-        public static ResultKind Kind(this IIssue issue)
-        {
-            issue.NotNull();
+        issue.NotNull();
 
-            return issue.Priority.HasValue
-                ? issue.Priority switch
-                {
-                    (int)IssuePriority.Suggestion or (int)IssuePriority.Hint => ResultKind.Informational,
-                    (int)IssuePriority.Warning or (int)IssuePriority.Error => ResultKind.Fail,
-                    _ => ResultKind.NotApplicable,
-                }
-                : ResultKind.None;
+        return issue.Priority.HasValue
+            ? issue.Priority switch
+            {
+                (int)IssuePriority.Suggestion or (int)IssuePriority.Hint => FailureLevel.Note,
+                (int)IssuePriority.Warning => FailureLevel.Warning,
+                (int)IssuePriority.Error => FailureLevel.Error,
+                _ => FailureLevel.None,
+            }
+            : FailureLevel.None;
+    }
+
+    /// <summary>
+    /// Returns the location of the issue.
+    /// </summary>
+    /// <param name="issue">Issue for which the location should be returned.</param>
+    /// <returns>Location of the issue.</returns>
+    public static Location Location(this IIssue issue)
+    {
+        issue.NotNull();
+
+        if (issue.AffectedFileRelativePath == null && !issue.Line.HasValue)
+        {
+            return null;
         }
 
-        /// <summary>
-        /// Returns the level of the issue.
-        /// </summary>
-        /// <param name="issue">Issue for which the level should be returned.</param>
-        /// <returns>Level of the issue.</returns>
-        public static FailureLevel Level(this IIssue issue)
+        var result = new Location
         {
-            issue.NotNull();
+            PhysicalLocation = new PhysicalLocation(),
+        };
 
-            return issue.Priority.HasValue
-                ? issue.Priority switch
+        if (issue.AffectedFileRelativePath != null)
+        {
+            result.PhysicalLocation.ArtifactLocation =
+                new ArtifactLocation
                 {
-                    (int)IssuePriority.Suggestion or (int)IssuePriority.Hint => FailureLevel.Note,
-                    (int)IssuePriority.Warning => FailureLevel.Warning,
-                    (int)IssuePriority.Error => FailureLevel.Error,
-                    _ => FailureLevel.None,
-                }
-                : FailureLevel.None;
+                    UriBaseId = SarifIssueReportGenerator.RepoRootUriBaseId,
+                    Uri = new Uri(issue.FilePath(), UriKind.RelativeOrAbsolute),
+                };
         }
 
-        /// <summary>
-        /// Returns the location of the issue.
-        /// </summary>
-        /// <param name="issue">Issue for which the location should be returned.</param>
-        /// <returns>Location of the issue.</returns>
-        public static Location Location(this IIssue issue)
+        if (issue.Line.HasValue)
         {
-            issue.NotNull();
+            result.PhysicalLocation.Region =
+                new Region
+                {
+                    StartLine = issue.Line.Value,
+                };
 
-            if (issue.AffectedFileRelativePath == null && !issue.Line.HasValue)
+            if (issue.EndLine.HasValue)
             {
-                return null;
+                result.PhysicalLocation.Region.EndLine = issue.EndLine.Value;
             }
 
-            var result = new Location
+            if (issue.Column.HasValue)
             {
-                PhysicalLocation = new PhysicalLocation(),
-            };
-
-            if (issue.AffectedFileRelativePath != null)
-            {
-                result.PhysicalLocation.ArtifactLocation =
-                    new ArtifactLocation
-                    {
-                        UriBaseId = SarifIssueReportGenerator.RepoRootUriBaseId,
-                        Uri = new Uri(issue.FilePath(), UriKind.RelativeOrAbsolute),
-                    };
+                result.PhysicalLocation.Region.StartColumn = issue.Column.Value;
             }
 
-            if (issue.Line.HasValue)
+            if (issue.EndColumn.HasValue)
             {
-                result.PhysicalLocation.Region =
-                    new Region
-                    {
-                        StartLine = issue.Line.Value,
-                    };
-
-                if (issue.EndLine.HasValue)
-                {
-                    result.PhysicalLocation.Region.EndLine = issue.EndLine.Value;
-                }
-
-                if (issue.Column.HasValue)
-                {
-                    result.PhysicalLocation.Region.StartColumn = issue.Column.Value;
-                }
-
-                if (issue.EndColumn.HasValue)
-                {
-                    result.PhysicalLocation.Region.EndColumn = issue.EndColumn.Value;
-                }
+                result.PhysicalLocation.Region.EndColumn = issue.EndColumn.Value;
             }
-
-            return result;
         }
+
+        return result;
     }
 }

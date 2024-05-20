@@ -1,36 +1,35 @@
-﻿namespace Cake.Issues
+﻿namespace Cake.Issues;
+
+using System;
+using System.Globalization;
+using System.Linq;
+
+/// <summary>
+/// Extensions for the <see cref="Uri"/> class.
+/// </summary>
+internal static class UriExtensions
 {
-    using System;
-    using System.Globalization;
-    using System.Linq;
-
     /// <summary>
-    /// Extensions for the <see cref="Uri"/> class.
+    /// Appends paths to a URI.
     /// </summary>
-    internal static class UriExtensions
+    /// <param name="uri">URI to which the paths should be appended.</param>
+    /// <param name="paths">Paths to append.</param>
+    /// <returns>URI with appended paths.</returns>
+    public static Uri Append(this Uri uri, params string[] paths)
     {
-        /// <summary>
-        /// Appends paths to a URI.
-        /// </summary>
-        /// <param name="uri">URI to which the paths should be appended.</param>
-        /// <param name="paths">Paths to append.</param>
-        /// <returns>URI with appended paths.</returns>
-        public static Uri Append(this Uri uri, params string[] paths)
-        {
-            uri.NotNull();
+        uri.NotNull();
 
-            return
-                new Uri(
-                    paths
-                        .Where(x => !string.IsNullOrWhiteSpace(x))
-                        .Aggregate(
-                            uri.AbsoluteUri,
-                            (current, path) =>
-                                string.Format(
-                                    CultureInfo.InvariantCulture,
-                                    "{0}/{1}",
-                                    current.TrimEnd('/'),
-                                    path.TrimStart('/'))));
-        }
+        return
+            new Uri(
+                paths
+                    .Where(x => !string.IsNullOrWhiteSpace(x))
+                    .Aggregate(
+                        uri.AbsoluteUri,
+                        (current, path) =>
+                            string.Format(
+                                CultureInfo.InvariantCulture,
+                                "{0}/{1}",
+                                current.TrimEnd('/'),
+                                path.TrimStart('/'))));
     }
 }

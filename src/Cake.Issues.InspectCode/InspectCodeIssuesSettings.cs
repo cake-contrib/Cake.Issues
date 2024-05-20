@@ -1,28 +1,27 @@
-﻿namespace Cake.Issues.InspectCode
+﻿namespace Cake.Issues.InspectCode;
+
+using Cake.Core.IO;
+
+/// <summary>
+/// Settings for <see cref="InspectCodeIssuesAliases"/>.
+/// </summary>
+public class InspectCodeIssuesSettings : IssueProviderSettings
 {
-    using Cake.Core.IO;
+    /// <summary>
+    /// Initializes a new instance of the <see cref="InspectCodeIssuesSettings"/> class.
+    /// </summary>
+    /// <param name="logFilePath">Path to the Inspect Code log file.</param>
+    public InspectCodeIssuesSettings(FilePath logFilePath)
+        : base(logFilePath)
+    {
+    }
 
     /// <summary>
-    /// Settings for <see cref="InspectCodeIssuesAliases"/>.
+    /// Initializes a new instance of the <see cref="InspectCodeIssuesSettings"/> class.
     /// </summary>
-    public class InspectCodeIssuesSettings : IssueProviderSettings
+    /// <param name="logFileContent">Content of the Inspect Code log file.</param>
+    public InspectCodeIssuesSettings(byte[] logFileContent)
+        : base(logFileContent)
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="InspectCodeIssuesSettings"/> class.
-        /// </summary>
-        /// <param name="logFilePath">Path to the Inspect Code log file.</param>
-        public InspectCodeIssuesSettings(FilePath logFilePath)
-            : base(logFilePath)
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="InspectCodeIssuesSettings"/> class.
-        /// </summary>
-        /// <param name="logFileContent">Content of the Inspect Code log file.</param>
-        public InspectCodeIssuesSettings(byte[] logFileContent)
-            : base(logFileContent)
-        {
-        }
     }
 }

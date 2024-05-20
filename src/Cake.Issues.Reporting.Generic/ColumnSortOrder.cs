@@ -1,18 +1,17 @@
-﻿namespace Cake.Issues.Reporting.Generic
+﻿namespace Cake.Issues.Reporting.Generic;
+
+/// <summary>
+/// Possible sort orders for columns.
+/// </summary>
+public enum ColumnSortOrder
 {
     /// <summary>
-    /// Possible sort orders for columns.
+    /// Ascending sorting.
     /// </summary>
-    public enum ColumnSortOrder
-    {
-        /// <summary>
-        /// Ascending sorting.
-        /// </summary>
-        Ascending,
+    Ascending,
 
-        /// <summary>
-        /// Descending sorting.
-        /// </summary>
-        Descending,
-    }
+    /// <summary>
+    /// Descending sorting.
+    /// </summary>
+    Descending,
 }

@@ -1,8 +1,7 @@
-﻿namespace Cake.Issues.Sarif.Tests
+﻿namespace Cake.Issues.Sarif.Tests;
+
+internal class SarifIssuesProviderFixture(string fileResourceName)
+    : BaseConfigurableIssueProviderFixture<SarifIssuesProvider, SarifIssuesSettings>(fileResourceName)
 {
-    internal class SarifIssuesProviderFixture(string fileResourceName)
-        : BaseConfigurableIssueProviderFixture<SarifIssuesProvider, SarifIssuesSettings>(fileResourceName)
-    {
-        protected override string FileResourceNamespace => "Cake.Issues.Sarif.Tests.Testfiles.";
-    }
+    protected override string FileResourceNamespace => "Cake.Issues.Sarif.Tests.Testfiles.";
 }

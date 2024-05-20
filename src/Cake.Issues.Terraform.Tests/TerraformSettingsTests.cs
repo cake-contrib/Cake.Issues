@@ -1,142 +1,141 @@
-﻿namespace Cake.Issues.Terraform.Tests
+﻿namespace Cake.Issues.Terraform.Tests;
+
+using Cake.Core.IO;
+
+public sealed class TerraformSettingsTests
 {
-    using Cake.Core.IO;
-
-    public sealed class TerraformSettingsTests
+    public sealed class TheCtor
     {
-        public sealed class TheCtor
+        [Fact]
+        public void Should_Throw_If_ValidateOutputFilePath_Is_Null()
         {
-            [Fact]
-            public void Should_Throw_If_ValidateOutputFilePath_Is_Null()
-            {
-                // Given
-                FilePath validateOutputFilePath = null;
-                var terraformRootPath = @"c:\Source\Cake.Issues\docs";
+            // Given
+            FilePath validateOutputFilePath = null;
+            var terraformRootPath = @"c:\Source\Cake.Issues\docs";
 
+            // When
+            var result = Record.Exception(() =>
+                new TerraformIssuesSettings(validateOutputFilePath, terraformRootPath));
+
+            // Then
+            result.IsArgumentNullException("logFilePath");
+        }
+
+        [Fact]
+        public void Should_Throw_If_TerraformRootPath_For_ValidateOutputFilePath_Is_Null()
+        {
+            // Given
+            DirectoryPath terraformRootPath = null;
+
+            using (var tempFile = new ResourceTempFile("Cake.Issues.Terraform.Tests.Testfiles.basic.json"))
+            {
                 // When
                 var result = Record.Exception(() =>
-                    new TerraformIssuesSettings(validateOutputFilePath, terraformRootPath));
-
-                // Then
-                result.IsArgumentNullException("logFilePath");
-            }
-
-            [Fact]
-            public void Should_Throw_If_TerraformRootPath_For_ValidateOutputFilePath_Is_Null()
-            {
-                // Given
-                DirectoryPath terraformRootPath = null;
-
-                using (var tempFile = new ResourceTempFile("Cake.Issues.Terraform.Tests.Testfiles.basic.json"))
-                {
-                    // When
-                    var result = Record.Exception(() =>
-                        new TerraformIssuesSettings(tempFile.FileName, terraformRootPath));
-
-                    // Then
-                    result.IsArgumentNullException("terraformRootPath");
-                }
-            }
-
-            [Fact]
-            public void Should_Throw_If_ValidateOutput_Is_Null()
-            {
-                // Given
-                byte[] validateOutput = null;
-                var terraformRootPath = @"c:\Source\Cake.Issues\docs";
-
-                // When
-                var result = Record.Exception(() => new TerraformIssuesSettings(validateOutput, terraformRootPath));
-
-                // Then
-                result.IsArgumentNullException("logFileContent");
-            }
-
-            [Fact]
-            public void Should_Throw_If_TerraformRootPath_For_ValidateOutput_Is_Null()
-            {
-                // Given
-                var validateOutput = "foo".ToByteArray();
-                DirectoryPath terraformRootPath = null;
-
-                // When
-                var result = Record.Exception(() =>
-                    new TerraformIssuesSettings(validateOutput, terraformRootPath));
+                    new TerraformIssuesSettings(tempFile.FileName, terraformRootPath));
 
                 // Then
                 result.IsArgumentNullException("terraformRootPath");
             }
+        }
 
-            [Fact]
-            public void Should_Set_ValidateOutput()
+        [Fact]
+        public void Should_Throw_If_ValidateOutput_Is_Null()
+        {
+            // Given
+            byte[] validateOutput = null;
+            var terraformRootPath = @"c:\Source\Cake.Issues\docs";
+
+            // When
+            var result = Record.Exception(() => new TerraformIssuesSettings(validateOutput, terraformRootPath));
+
+            // Then
+            result.IsArgumentNullException("logFileContent");
+        }
+
+        [Fact]
+        public void Should_Throw_If_TerraformRootPath_For_ValidateOutput_Is_Null()
+        {
+            // Given
+            var validateOutput = "foo".ToByteArray();
+            DirectoryPath terraformRootPath = null;
+
+            // When
+            var result = Record.Exception(() =>
+                new TerraformIssuesSettings(validateOutput, terraformRootPath));
+
+            // Then
+            result.IsArgumentNullException("terraformRootPath");
+        }
+
+        [Fact]
+        public void Should_Set_ValidateOutput()
+        {
+            // Given
+            var validateOutput = "Foo".ToByteArray();
+            var terraformRootPath = @"c:\Source\Cake.Issues\docs";
+
+            // When
+            var settings = new TerraformIssuesSettings(validateOutput, terraformRootPath);
+
+            // Then
+            settings.LogFileContent.ShouldBe(validateOutput);
+        }
+
+        [Fact]
+        public void Should_Set_ValidateOutput_If_Empty()
+        {
+            // Given
+            byte[] validateOutput = [];
+            var terraformRootPath = @"c:\Source\Cake.Issues\docs";
+
+            // When
+            var settings = new TerraformIssuesSettings(validateOutput, terraformRootPath);
+
+            // Then
+            settings.LogFileContent.ShouldBe(validateOutput);
+        }
+
+        [Fact]
+        public void Should_Set_TerraformRootPath()
+        {
+            // Given
+            var validateOutput = "Foo".ToByteArray();
+            var terraformRootPath = "c:/Source/Cake.Issues/docs";
+
+            // When
+            var settings = new TerraformIssuesSettings(validateOutput, terraformRootPath);
+
+            // Then
+            settings.TerraformRootPath.ToString().ShouldBe(terraformRootPath);
+        }
+
+        [Fact]
+        public void Should_Set_ValidateOutput_From_ValidateOutputFilePath()
+        {
+            // Given
+            var terraformRootPath = @"c:\Source\Cake.Issues\docs";
+            using (var tempFile = new ResourceTempFile("Cake.Issues.Terraform.Tests.Testfiles.basic.json"))
             {
-                // Given
-                var validateOutput = "Foo".ToByteArray();
-                var terraformRootPath = @"c:\Source\Cake.Issues\docs";
-
                 // When
-                var settings = new TerraformIssuesSettings(validateOutput, terraformRootPath);
+                var settings = new TerraformIssuesSettings(tempFile.FileName, terraformRootPath);
 
                 // Then
-                settings.LogFileContent.ShouldBe(validateOutput);
+                settings.LogFileContent.ShouldBe(tempFile.Content);
             }
+        }
 
-            [Fact]
-            public void Should_Set_ValidateOutput_If_Empty()
+        [Fact]
+        public void Should_Set_TerraformRootPath_From_ValidateOutputFilePath()
+        {
+            // Given
+            var terraformRootPath = "c:/Source/Cake.Issues/docs";
+            using (var tempFile = new ResourceTempFile("Cake.Issues.Terraform.Tests.Testfiles.basic.json"))
             {
-                // Given
-                byte[] validateOutput = [];
-                var terraformRootPath = @"c:\Source\Cake.Issues\docs";
-
                 // When
-                var settings = new TerraformIssuesSettings(validateOutput, terraformRootPath);
-
-                // Then
-                settings.LogFileContent.ShouldBe(validateOutput);
-            }
-
-            [Fact]
-            public void Should_Set_TerraformRootPath()
-            {
-                // Given
-                var validateOutput = "Foo".ToByteArray();
-                var terraformRootPath = "c:/Source/Cake.Issues/docs";
-
-                // When
-                var settings = new TerraformIssuesSettings(validateOutput, terraformRootPath);
+                var settings = new TerraformIssuesSettings(tempFile.FileName, terraformRootPath);
 
                 // Then
                 settings.TerraformRootPath.ToString().ShouldBe(terraformRootPath);
-            }
-
-            [Fact]
-            public void Should_Set_ValidateOutput_From_ValidateOutputFilePath()
-            {
-                // Given
-                var terraformRootPath = @"c:\Source\Cake.Issues\docs";
-                using (var tempFile = new ResourceTempFile("Cake.Issues.Terraform.Tests.Testfiles.basic.json"))
-                {
-                    // When
-                    var settings = new TerraformIssuesSettings(tempFile.FileName, terraformRootPath);
-
-                    // Then
-                    settings.LogFileContent.ShouldBe(tempFile.Content);
-                }
-            }
-
-            [Fact]
-            public void Should_Set_TerraformRootPath_From_ValidateOutputFilePath()
-            {
-                // Given
-                var terraformRootPath = "c:/Source/Cake.Issues/docs";
-                using (var tempFile = new ResourceTempFile("Cake.Issues.Terraform.Tests.Testfiles.basic.json"))
-                {
-                    // When
-                    var settings = new TerraformIssuesSettings(tempFile.FileName, terraformRootPath);
-
-                    // Then
-                    settings.TerraformRootPath.ToString().ShouldBe(terraformRootPath);
-                }
             }
         }
     }

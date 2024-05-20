@@ -1,12 +1,11 @@
-﻿namespace Cake.Issues
-{
-    using System;
+﻿namespace Cake.Issues;
 
-    /// <summary>
-    /// Indicates to code analysis that a method validates a particular parameter.
-    /// </summary>
-    [AttributeUsage(AttributeTargets.Parameter)]
-    internal sealed class ValidatedNotNullAttribute : Attribute
-    {
-    }
+using System;
+
+/// <summary>
+/// Indicates to code analysis that a method validates a particular parameter.
+/// </summary>
+[AttributeUsage(AttributeTargets.Parameter)]
+internal sealed class ValidatedNotNullAttribute : Attribute
+{
 }
