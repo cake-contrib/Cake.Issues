@@ -124,7 +124,7 @@
                             string.Format(
                                 CultureInfo.InvariantCulture,
                                 message.Text,
-                                arguments.ToArray());
+                                [.. arguments]);
                     }
 
                     if (!string.IsNullOrEmpty(message.Markdown))
@@ -133,7 +133,7 @@
                             string.Format(
                                 CultureInfo.InvariantCulture,
                                 message.Markdown,
-                                arguments.ToArray());
+                                [.. arguments]);
                     }
 
                     return (messageText, messageMarkdown);

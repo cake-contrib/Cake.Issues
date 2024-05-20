@@ -3,6 +3,8 @@
   <PropertyGroup>
     <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
     <LangVersion>latest</LangVersion>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
     <Authors>Cake Issues contributors</Authors>
     <Copyright>Copyright © Cake Issues contributors</Copyright>
     <Product>Cake.Issues</Product>
@@ -19,7 +21,6 @@
   <Choose>
     <When Condition="!$(MSBuildProjectName.EndsWith('.Tests'))">
       <PropertyGroup>
-        <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <CodeAnalysisRuleSet>..\Cake.Issues.ruleset</CodeAnalysisRuleSet>
         <AnalysisMode>AllEnabledByDefault</AnalysisMode>
       </PropertyGroup>

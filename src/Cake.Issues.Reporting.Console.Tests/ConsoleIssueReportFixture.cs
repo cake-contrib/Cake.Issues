@@ -11,7 +11,7 @@
 
         public ConsoleIssueReportFormatSettings ConsoleIssueReportFormatSettings { get; set; } = new();
 
-        public string CreateReport(string fileResourceName, DirectoryPath repositoryRootPath)
+        public string CreateReportForTestfile(string fileResourceName, DirectoryPath repositoryRootPath)
         {
             fileResourceName.NotNullOrWhiteSpace();
 
@@ -54,15 +54,14 @@
             // When
             var result =
                 this.CreateReport(
-                    new List<IIssue>
-                    {
-                            IssueBuilder
-                                .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
-                                .InFile(@"src\Cake.Issues.Reporting.Generic.Tests\Foo.cs", 10)
-                                .OfRule("Rule Foo")
-                                .WithPriority(IssuePriority.Warning)
-                                .Create(),
-                    },
+                    [
+                        IssueBuilder
+                            .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                            .InFile(@"src\Cake.Issues.Reporting.Generic.Tests\Foo.cs", 10)
+                            .OfRule("Rule Foo")
+                            .WithPriority(IssuePriority.Warning)
+                            .Create(),
+                    ],
                     @"c:\Source\Cake.Issues.Reporting.Console");
 
             // Then

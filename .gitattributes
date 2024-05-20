@@ -1,1 +1,4 @@
+# Enforce Windows newlines for C# files to be aligned with editorconfig.
+*.cs text eol=crlf
+
 *.cs diff=csharp

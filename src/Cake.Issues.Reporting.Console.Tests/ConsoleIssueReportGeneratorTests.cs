@@ -64,7 +64,7 @@
                 };
 
                 // When
-                _ = fixture.CreateReport(
+                _ = fixture.CreateReportForTestfile(
                     "Testfiles.issues.json",
                     @"c:\Source\Cake.Issues.Reporting.Console");
 
@@ -95,7 +95,7 @@
 
                 // When
                 _ = fixture.CreateReport(
-                    new List<IIssue>(),
+                    [],
                     @"c:\Source\Cake.Issues.Reporting.Console");
 
                 // Then
