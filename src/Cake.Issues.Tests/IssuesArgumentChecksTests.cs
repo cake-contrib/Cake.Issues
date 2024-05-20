@@ -33,10 +33,7 @@
 
             [Theory]
             [InlineData("foo")]
-            public void Should_Not_Throw_If_Value_Is_Set(object value)
-            {
-                value.NotNull("foo");
-            }
+            public void Should_Not_Throw_If_Value_Is_Set(object value) => value.NotNull("foo");
         }
 
         public sealed class TheNotNullOrWhiteSpaceExtension
@@ -124,10 +121,7 @@
 
             [Theory]
             [InlineData("foo")]
-            public void Should_Not_Throw_If_Value_Is_Valid(string value)
-            {
-                value.NotNullOrWhiteSpace("foo");
-            }
+            public void Should_Not_Throw_If_Value_Is_Valid(string value) => value.NotNullOrWhiteSpace("foo");
         }
 
         public sealed class TheNotNegativeExtension
@@ -163,10 +157,7 @@
             [InlineData(0)]
             [InlineData(1)]
             [InlineData(int.MaxValue)]
-            public void Should_Not_Throw_If_Value_Is_Valid(int value)
-            {
-                value.NotNegative("foo");
-            }
+            public void Should_Not_Throw_If_Value_Is_Valid(int value) => value.NotNegative("foo");
         }
 
         public sealed class TheNotNegativeOrZeroExtension
@@ -228,10 +219,7 @@
             [Theory]
             [InlineData(1)]
             [InlineData(int.MaxValue)]
-            public void Should_Not_Throw_If_Value_Is_Valid(int value)
-            {
-                value.NotNegative("foo");
-            }
+            public void Should_Not_Throw_If_Value_Is_Valid(int value) => value.NotNegative("foo");
         }
 
         public sealed class TheNotNullOrEmptyExtension
