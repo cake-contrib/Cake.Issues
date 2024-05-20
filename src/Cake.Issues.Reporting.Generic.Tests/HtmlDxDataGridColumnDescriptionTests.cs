@@ -9,10 +9,7 @@
             {
                 // Given
                 string id = null;
-                static object ValueRetriever(IIssue issue)
-                {
-                    return true;
-                }
+                static object ValueRetriever(IIssue issue) => true;
 
                 // When
                 var result = Record.Exception(() => new HtmlDxDataGridColumnDescription(id, ValueRetriever));
@@ -26,10 +23,7 @@
             {
                 // Given
                 var id = string.Empty;
-                static object ValueRetriever(IIssue issue)
-                {
-                    return true;
-                }
+                static object ValueRetriever(IIssue issue) => true;
 
                 // When
                 var result = Record.Exception(() => new HtmlDxDataGridColumnDescription(id, ValueRetriever));
@@ -43,10 +37,7 @@
             {
                 // Given
                 var id = " ";
-                static object ValueRetriever(IIssue issue)
-                {
-                    return true;
-                }
+                static object ValueRetriever(IIssue issue) => true;
 
                 // When
                 var result = Record.Exception(() => new HtmlDxDataGridColumnDescription(id, ValueRetriever));
@@ -74,10 +65,7 @@
             {
                 // Given
                 var id = "foo";
-                static object ValueRetriever(IIssue issue)
-                {
-                    return true;
-                }
+                static object ValueRetriever(IIssue issue) => true;
 
                 // When
                 var result = new HtmlDxDataGridColumnDescription(id, ValueRetriever);
@@ -91,10 +79,7 @@
             {
                 // Given
                 var id = "foo";
-                static object ValueRetriever(IIssue issue)
-                {
-                    return true;
-                }
+                static object ValueRetriever(IIssue issue) => true;
 
                 // When
                 var result = new HtmlDxDataGridColumnDescription(id, ValueRetriever);
