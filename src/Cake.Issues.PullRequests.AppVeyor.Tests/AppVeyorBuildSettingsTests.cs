@@ -1,5 +1,7 @@
 ﻿namespace Cake.Issues.PullRequests.AppVeyor.Tests
 {
+    using System.Diagnostics.CodeAnalysis;
+
     public sealed class AppVeyorBuildSettingsTests
     {
         public sealed class TheCtor
@@ -36,6 +38,7 @@
             [InlineData("")]
             [InlineData(" ")]
             [InlineData("foo")]
+            [SuppressMessage("Style", "IDE0017:Simplify object initialization", Justification = "Want to split between Given/When/Then")]
             public void Should_Set_MessagePattern(string messagePattern)
             {
                 // Given
@@ -52,6 +55,7 @@
             [InlineData("")]
             [InlineData(" ")]
             [InlineData("foo")]
+            [SuppressMessage("Style", "IDE0017:Simplify object initialization", Justification = "Want to split between Given/When/Then")]
             public void Should_Set_DetailsPattern(string detailsPattern)
             {
                 // Given
