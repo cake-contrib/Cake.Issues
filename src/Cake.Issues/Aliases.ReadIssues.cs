@@ -125,10 +125,7 @@
             issueProvider.NotNull();
             settings.NotNull();
 
-            return
-                context.ReadIssues(
-                    new List<IIssueProvider> { issueProvider },
-                    settings);
+            return context.ReadIssues([issueProvider], settings);
         }
 
         /// <summary>

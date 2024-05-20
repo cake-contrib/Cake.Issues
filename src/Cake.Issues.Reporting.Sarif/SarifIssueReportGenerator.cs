@@ -56,7 +56,7 @@
 
             if (issues.Any())
             {
-                log.Runs = new List<Run>();
+                log.Runs = [];
 
                 foreach (var issueGroup in from issue in issues group issue by new { issue.ProviderType, issue.Run })
                 {
@@ -64,28 +64,28 @@
                     this.ruleIndices = [];
 
                     Run run = new()
-                        {
-                            Tool =
-                                new Tool
-                                {
-                                    Driver =
-                                        new ToolComponent
-                                        {
-                                            Name = issueGroup.Key.ProviderType,
-                                        },
-                                },
-                            Results =
-                                (from issue in issueGroup
-                                 select this.GetResult(issue)).ToList(),
-                            OriginalUriBaseIds = new Dictionary<string, ArtifactLocation>
+                    {
+                        Tool =
+                            new Tool
                             {
-                                [RepoRootUriBaseId] =
-                                    new()
+                                Driver =
+                                    new ToolComponent
                                     {
-                                        Uri = new Uri(this.Settings.RepositoryRoot.FullPath, UriKind.Absolute),
+                                        Name = issueGroup.Key.ProviderType,
                                     },
                             },
-                        };
+                        Results =
+                            (from issue in issueGroup
+                             select this.GetResult(issue)).ToList(),
+                        OriginalUriBaseIds = new Dictionary<string, ArtifactLocation>
+                        {
+                            [RepoRootUriBaseId] =
+                                new()
+                                {
+                                    Uri = new Uri(this.Settings.RepositoryRoot.FullPath, UriKind.Absolute),
+                                },
+                        },
+                    };
 
                     if (!string.IsNullOrEmpty(issueGroup.Key.Run))
                     {
@@ -127,11 +127,7 @@
                         },
                     Kind = issue.Kind(),
                     Level = issue.Level(),
-                    Locations =
-                        new List<Location>
-                        {
-                            issue.Location(),
-                        },
+                    Locations = [issue.Location()],
                 };
 
             if (issue.RuleUrl != null)

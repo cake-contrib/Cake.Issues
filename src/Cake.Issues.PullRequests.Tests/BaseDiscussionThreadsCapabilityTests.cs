@@ -106,14 +106,13 @@
                             1,
                             PullRequestDiscussionStatus.Active,
                             new FilePath(@"src\Cake.Issues.Tests\FakeIssueProvider.cs"),
-                            new List<IPullRequestDiscussionComment>
-                            {
+                            [
                                 new PullRequestDiscussionComment()
                                 {
                                     Content = "Message Foo",
                                     IsDeleted = false,
                                 },
-                            })
+                            ])
                         {
                             CommentIdentifier = "Message Foo",
                             CommentSource = settings.CommentSource,
@@ -122,7 +121,7 @@
                 var capability = new FakeDiscussionThreadsCapability(log, pullRequestSystem, discussionThreads);
 
                 // When
-                pullRequestSystem.Initialize(settings);
+                _ = pullRequestSystem.Initialize(settings);
                 var result = capability.FetchDiscussionThreads(settings.CommentSource);
 
                 // Then
@@ -144,7 +143,7 @@
                 // When
                 var result =
                     Record.Exception(() =>
-                        capability.ResolveDiscussionThreads(new List<IPullRequestDiscussionThread>()));
+                        capability.ResolveDiscussionThreads([]));
 
                 // Then
                 result.IsInvalidOperationException("Initialize needs to be called first.");
@@ -162,14 +161,13 @@
                         1,
                         PullRequestDiscussionStatus.Active,
                         new FilePath(@"src\Cake.Issues.Tests\Foo.cs"),
-                        new List<IPullRequestDiscussionComment>
-                        {
+                        [
                             new PullRequestDiscussionComment()
                             {
                                 Content = "Message Foo",
                                 IsDeleted = false,
                             },
-                        })
+                        ])
                     {
                         CommentIdentifier = "Message Foo",
                         CommentSource = settings.CommentSource,
@@ -179,14 +177,13 @@
                         1,
                         PullRequestDiscussionStatus.Active,
                         new FilePath(@"src\Cake.Issues.Tests\Bar.cs"),
-                        new List<IPullRequestDiscussionComment>
-                        {
+                        [
                             new PullRequestDiscussionComment()
                             {
                                 Content = "Message Bar",
                                 IsDeleted = false,
                             },
-                        })
+                        ])
                     {
                         CommentIdentifier = "Message Bar",
                         CommentSource = settings.CommentSource,
@@ -200,12 +197,8 @@
                 var capability = new FakeDiscussionThreadsCapability(log, pullRequestSystem, discussionThreads);
 
                 // When
-                pullRequestSystem.Initialize(settings);
-                capability.ResolveDiscussionThreads(
-                    new List<IPullRequestDiscussionThread>
-                    {
-                        discussionThread1,
-                    });
+                _ = pullRequestSystem.Initialize(settings);
+                capability.ResolveDiscussionThreads([discussionThread1]);
 
                 // Then
                 capability.ResolvedThreads.ShouldContain(discussionThread1);
@@ -226,7 +219,7 @@
                 // When
                 var result =
                     Record.Exception(() =>
-                        capability.ReopenDiscussionThreads(new List<IPullRequestDiscussionThread>()));
+                        capability.ReopenDiscussionThreads([]));
 
                 // Then
                 result.IsInvalidOperationException("Initialize needs to be called first.");
@@ -244,31 +237,29 @@
                         1,
                         PullRequestDiscussionStatus.Active,
                         new FilePath(@"src\Cake.Issues.Tests\Foo.cs"),
-                        new List<IPullRequestDiscussionComment>
-                        {
+                        [
                             new PullRequestDiscussionComment()
                             {
                                 Content = "Message Foo",
                                 IsDeleted = false,
                             },
-                        })
+                        ])
                     {
                         CommentIdentifier = "Message Foo",
                         CommentSource = settings.CommentSource,
                     };
                 var discussionThread2 =
                     new PullRequestDiscussionThread(
-                            1,
-                            PullRequestDiscussionStatus.Active,
-                            new FilePath(@"src\Cake.Issues.Tests\Bar.cs"),
-                            new List<IPullRequestDiscussionComment>
+                        1,
+                        PullRequestDiscussionStatus.Active,
+                        new FilePath(@"src\Cake.Issues.Tests\Bar.cs"),
+                        [
+                            new PullRequestDiscussionComment()
                             {
-                                new PullRequestDiscussionComment()
-                                {
-                                    Content = "Message Bar",
-                                    IsDeleted = false,
-                                },
-                            })
+                                Content = "Message Bar",
+                                IsDeleted = false,
+                            },
+                        ])
                     {
                         CommentSource = settings.CommentSource,
                     };
@@ -281,12 +272,8 @@
                 var capability = new FakeDiscussionThreadsCapability(log, pullRequestSystem, discussionThreads);
 
                 // When
-                pullRequestSystem.Initialize(settings);
-                capability.ReopenDiscussionThreads(
-                    new List<IPullRequestDiscussionThread>
-                    {
-                        discussionThread1,
-                    });
+                _ = pullRequestSystem.Initialize(settings);
+                capability.ReopenDiscussionThreads([discussionThread1]);
 
                 // Then
                 capability.ReopenedThreads.ShouldContain(discussionThread1);

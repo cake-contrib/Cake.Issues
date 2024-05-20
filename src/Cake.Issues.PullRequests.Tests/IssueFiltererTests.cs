@@ -1,7 +1,6 @@
 ﻿namespace Cake.Issues.PullRequests.Tests
 {
     using System.Runtime.InteropServices;
-    using Cake.Core.IO;
 
     public sealed class IssueFiltererTests
     {
@@ -78,7 +77,7 @@
                 var fixture = new IssueFiltererFixture();
 
                 // When
-                fixture.FilterIssues(new List<IIssue>(), null);
+                _ = fixture.FilterIssues([], null);
 
                 // Then
             }
@@ -110,11 +109,10 @@
                 var issues =
                     fixture
                         .FilterIssues(
-                            new List<IIssue>
-                            {
+                            [
                                 issue1,
                                 issue2,
-                            },
+                            ],
                             new Dictionary<IIssue, IssueCommentInfo>())
                         .ToList();
 
@@ -136,23 +134,21 @@
                         new IssueFiltererFixture(
                             (builder, _) => builder
                                 .WithFilteringByModifiedFilesCapability(
-                                    new List<FilePath>
-                                    {
+                                    [
                                         new(@"c:\FakeIssueProvider.cs"),
-                                    }));
+                                    ]));
 
                     // When
                     var result = Record.Exception(() =>
                         fixture.FilterIssues(
-                            new List<IIssue>
-                            {
+                            [
                                 IssueBuilder
                                     .NewIssue("Message", "ProviderType", "ProviderName")
                                     .InFile(@"src\Cake.Issues.Tests\FakeIssueProvider.cs", 10)
                                     .OfRule("Rule")
                                     .WithPriority(IssuePriority.Warning)
                                     .Create(),
-                            },
+                            ],
                             new Dictionary<IIssue, IssueCommentInfo>()));
 
                     // Then
@@ -172,10 +168,7 @@
                         new IssueFiltererFixture(
                             (builder, _) => builder
                                 .WithFilteringByModifiedFilesCapability(
-                                    new List<FilePath>
-                                    {
-                                        new(@"src\Cake.Issues.Tests\FakeIssueProvider.cs"),
-                                    }));
+                                    [new(@"src\Cake.Issues.Tests\FakeIssueProvider.cs")]));
 
                     var issue1 =
                         IssueBuilder
@@ -196,11 +189,10 @@
                     var issues =
                         fixture
                             .FilterIssues(
-                                new List<IIssue>
-                                {
+                                [
                                     issue1,
                                     issue2,
-                                },
+                                ],
                                 new Dictionary<IIssue, IssueCommentInfo>())
                             .ToList();
 
@@ -238,26 +230,24 @@
                     var issues =
                         fixture
                             .FilterIssues(
-                                new List<IIssue>
-                                {
+                                [
                                     issue1,
                                     issue2,
-                                },
+                                ],
                                 new Dictionary<IIssue, IssueCommentInfo>
                                 {
                                     {
                                         issue1,
                                         new IssueCommentInfo(
-                                            new List<IPullRequestDiscussionComment>
-                                            {
+                                            [
                                                 new PullRequestDiscussionComment
                                                 {
                                                     Content = "Message Foo",
                                                     IsDeleted = false,
                                                 },
-                                            },
-                                            new List<IPullRequestDiscussionComment>(),
-                                            new List<IPullRequestDiscussionComment>())
+                                            ],
+                                            [],
+                                            [])
                                     },
                                 })
                             .ToList();
@@ -292,25 +282,21 @@
                     var issues =
                         fixture
                             .FilterIssues(
-                                new List<IIssue>
-                                {
-                                    issue1, issue2,
-                                },
+                                [issue1, issue2],
                                 new Dictionary<IIssue, IssueCommentInfo>
                                 {
                                     {
                                         issue1,
                                         new IssueCommentInfo(
-                                            new List<IPullRequestDiscussionComment>(),
-                                            new List<IPullRequestDiscussionComment>
-                                            {
+                                            [],
+                                            [
                                                 new PullRequestDiscussionComment
                                                 {
                                                     Content = "Message Foo",
                                                     IsDeleted = false,
                                                 },
-                                            },
-                                            new List<IPullRequestDiscussionComment>())
+                                            ],
+                                            [])
                                     },
                                 })
                             .ToList();
@@ -345,25 +331,21 @@
                     var issues =
                         fixture
                             .FilterIssues(
-                                new List<IIssue>
-                                {
-                                    issue1, issue2,
-                                },
+                                [issue1, issue2],
                                 new Dictionary<IIssue, IssueCommentInfo>
                                 {
                                     {
                                         issue1,
                                         new IssueCommentInfo(
-                                            new List<IPullRequestDiscussionComment>(),
-                                            new List<IPullRequestDiscussionComment>(),
-                                            new List<IPullRequestDiscussionComment>
-                                            {
+                                            [],
+                                            [],
+                                            [
                                                 new PullRequestDiscussionComment
                                                 {
                                                     Content = "Message Foo",
                                                     IsDeleted = false,
                                                 },
-                                            })
+                                            ])
                                     },
                                 })
                             .ToList();
@@ -410,10 +392,7 @@
                         var issues =
                             fixture
                                 .FilterIssues(
-                                    new List<IIssue>
-                                    {
-                                        issue1, issue2,
-                                    },
+                                    [issue1, issue2],
                                     new Dictionary<IIssue, IssueCommentInfo>())
                                 .ToList();
 
@@ -429,12 +408,12 @@
                         // Given
                         var fixture =
                             new IssueFiltererFixture
+                            {
+                                Settings =
                                 {
-                                    Settings =
-                                    {
-                                        MaxIssuesToPost = 1,
-                                    },
-                                };
+                                    MaxIssuesToPost = 1,
+                                },
+                            };
 
                         var issue1 =
                             IssueBuilder
@@ -455,10 +434,7 @@
                         var issues =
                             fixture
                                 .FilterIssues(
-                                    new List<IIssue>
-                                    {
-                                        issue1, issue2,
-                                    },
+                                    [issue1, issue2],
                                     new Dictionary<IIssue, IssueCommentInfo>())
                                 .ToList();
 
@@ -499,10 +475,7 @@
                         var issues =
                             fixture
                                 .FilterIssues(
-                                    new List<IIssue>
-                                    {
-                                        issue1, issue2,
-                                    },
+                                    [issue1, issue2],
                                     new Dictionary<IIssue, IssueCommentInfo>())
                                 .ToList();
 
@@ -544,25 +517,20 @@
                         var issues =
                             fixture
                                 .FilterIssues(
-                                    new List<IIssue>
-                                    {
-                                        newIssue1, newIssue2,
-                                    },
+                                    [newIssue1, newIssue2],
                                     new Dictionary<IIssue, IssueCommentInfo>(),
-                                    new List<IPullRequestDiscussionThread>
-                                    {
+                                    [
                                         new PullRequestDiscussionThread(
                                             1,
                                             PullRequestDiscussionStatus.Active,
                                             @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
-                                            new List<IPullRequestDiscussionComment>
-                                            {
+                                            [
                                                 new PullRequestDiscussionComment
                                                 {
                                                     Content = "Message FooBar",
                                                     IsDeleted = false,
                                                 },
-                                            })
+                                            ])
                                         {
                                             ProviderType = "ProviderType Foo",
                                         },
@@ -570,18 +538,17 @@
                                             1,
                                             PullRequestDiscussionStatus.Active,
                                             @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
-                                            new List<IPullRequestDiscussionComment>
-                                            {
+                                            [
                                                 new PullRequestDiscussionComment
                                                 {
                                                     Content = "Message FooBar",
                                                     IsDeleted = false,
                                                 },
-                                            })
+                                            ])
                                         {
                                             ProviderType = "ProviderType Foo",
                                         },
-                                    })
+                                    ])
                                 .ToList();
 
                         // Then
@@ -619,25 +586,20 @@
                         var issues =
                             fixture
                                 .FilterIssues(
-                                    new List<IIssue>
-                                    {
-                                        newIssue1, newIssue2,
-                                    },
+                                    [newIssue1, newIssue2],
                                     new Dictionary<IIssue, IssueCommentInfo>(),
-                                    new List<IPullRequestDiscussionThread>
-                                    {
+                                    [
                                         new PullRequestDiscussionThread(
                                             1,
                                             PullRequestDiscussionStatus.Active,
                                             @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
-                                            new List<IPullRequestDiscussionComment>
-                                            {
+                                            [
                                                 new PullRequestDiscussionComment
                                                 {
                                                     Content = "Message FooBar",
                                                     IsDeleted = false,
                                                 },
-                                            })
+                                            ])
                                         {
                                             ProviderType = "ProviderType Foo",
                                         },
@@ -645,18 +607,17 @@
                                             1,
                                             PullRequestDiscussionStatus.Active,
                                             @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
-                                            new List<IPullRequestDiscussionComment>
-                                            {
+                                            [
                                                 new PullRequestDiscussionComment
                                                 {
                                                     Content = "Message FooBar",
                                                     IsDeleted = false,
                                                 },
-                                            })
+                                            ])
                                         {
                                             ProviderType = "ProviderType Foo",
                                         },
-                                    })
+                                    ])
                                 .ToList();
 
                         // Then
@@ -694,25 +655,20 @@
                         var issues =
                             fixture
                                 .FilterIssues(
-                                    new List<IIssue>
-                                    {
-                                        newIssue1, newIssue2,
-                                    },
+                                    [newIssue1, newIssue2],
                                     new Dictionary<IIssue, IssueCommentInfo>(),
-                                    new List<IPullRequestDiscussionThread>
-                                    {
+                                    [
                                         new PullRequestDiscussionThread(
                                             1,
                                             PullRequestDiscussionStatus.Active,
                                             @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
-                                            new List<IPullRequestDiscussionComment>
-                                            {
+                                            [
                                                 new PullRequestDiscussionComment
                                                 {
                                                     Content = "Message FooBar",
                                                     IsDeleted = false,
                                                 },
-                                            })
+                                            ])
                                         {
                                             ProviderType = "ProviderType Foo",
                                         },
@@ -720,18 +676,17 @@
                                             1,
                                             PullRequestDiscussionStatus.Active,
                                             @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
-                                            new List<IPullRequestDiscussionComment>
-                                            {
+                                            [
                                                 new PullRequestDiscussionComment
                                                 {
                                                     Content = "Message FooBar",
                                                     IsDeleted = false,
                                                 },
-                                            })
+                                            ])
                                         {
                                             ProviderType = "ProviderType Foo",
                                         },
-                                    })
+                                    ])
                                 .ToList();
 
                         // Then
@@ -776,29 +731,24 @@
                         var issues =
                             fixture
                                 .FilterIssues(
-                                    new List<IIssue>
-                                    {
-                                        issue1, issue2, issue3,
-                                    },
+                                    [issue1, issue2, issue3],
                                     new Dictionary<IIssue, IssueCommentInfo>(),
-                                    new List<IPullRequestDiscussionThread>
-                                    {
-                                    new PullRequestDiscussionThread(
-                                        1,
-                                        PullRequestDiscussionStatus.Active,
-                                        @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
-                                        new List<IPullRequestDiscussionComment>
+                                    [
+                                        new PullRequestDiscussionThread(
+                                            1,
+                                            PullRequestDiscussionStatus.Active,
+                                            @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
+                                            [
+                                                new PullRequestDiscussionComment
+                                                {
+                                                    Content = "Message FooBar",
+                                                    IsDeleted = false,
+                                                },
+                                            ])
                                         {
-                                            new PullRequestDiscussionComment
-                                            {
-                                                Content = "Message FooBar",
-                                                IsDeleted = false,
-                                            },
-                                        })
-                                    {
-                                        ProviderType = "ProviderType Foo",
-                                    },
-                                    })
+                                            ProviderType = "ProviderType Foo",
+                                        },
+                                    ])
                                 .ToList();
 
                         // Then
@@ -852,29 +802,24 @@
                         var issues =
                             fixture
                                 .FilterIssues(
-                                    new List<IIssue>
-                                    {
-                                        issue1, issue2, issue3, issue4,
-                                    },
+                                    [issue1, issue2, issue3, issue4],
                                     new Dictionary<IIssue, IssueCommentInfo>(),
-                                    new List<IPullRequestDiscussionThread>
-                                    {
+                                    [
                                         new PullRequestDiscussionThread(
                                             1,
                                             PullRequestDiscussionStatus.Active,
                                             @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
-                                            new List<IPullRequestDiscussionComment>
-                                            {
+                                            [
                                                 new PullRequestDiscussionComment
                                                 {
                                                     Content = "Message FooBar",
                                                     IsDeleted = false,
                                                 },
-                                            })
+                                            ])
                                         {
                                             ProviderType = "ProviderType Foo",
                                         },
-                                    })
+                                    ])
                                 .ToList();
 
                         // Then
@@ -932,10 +877,7 @@
                         var issues =
                             fixture
                                 .FilterIssues(
-                                    new List<IIssue>
-                                    {
-                                        issue1, issue2, issue3, issue4,
-                                    },
+                                    [issue1, issue2, issue3, issue4],
                                     new Dictionary<IIssue, IssueCommentInfo>())
                                 .ToList();
 
@@ -993,10 +935,7 @@
                         var issues =
                             fixture
                                 .FilterIssues(
-                                    new List<IIssue>
-                                    {
-                                        issue1, issue2, issue3, issue4,
-                                    },
+                                    [issue1, issue2, issue3, issue4],
                                     new Dictionary<IIssue, IssueCommentInfo>())
                                 .ToList();
 
@@ -1052,10 +991,7 @@
                         var issues =
                             fixture
                                 .FilterIssues(
-                                    new List<IIssue>
-                                    {
-                                        issue1, issue2, issue3, issue4,
-                                    },
+                                    [issue1, issue2, issue3, issue4],
                                     new Dictionary<IIssue, IssueCommentInfo>())
                                 .ToList();
 
@@ -1112,10 +1048,7 @@
                         var issues =
                             fixture
                                 .FilterIssues(
-                                    new List<IIssue>
-                                    {
-                                        issue1, issue2, issue3, issue4,
-                                    },
+                                    [issue1, issue2, issue3, issue4],
                                     new Dictionary<IIssue, IssueCommentInfo>())
                                 .ToList();
 
@@ -1170,10 +1103,7 @@
                         var issues =
                             fixture
                                 .FilterIssues(
-                                    new List<IIssue>
-                                    {
-                                        issue1, issue2, issue3, issue4,
-                                    },
+                                    [issue1, issue2, issue3, issue4],
                                     new Dictionary<IIssue, IssueCommentInfo>())
                                 .ToList();
 
@@ -1265,10 +1195,7 @@
                         var issues =
                             fixture
                                 .FilterIssues(
-                                    new List<IIssue>
-                                    {
-                                        issue1, issue2, issue3, issue4, issue5, issue6, issue7, issue8, issue9,
-                                    },
+                                    [issue1, issue2, issue3, issue4, issue5, issue6, issue7, issue8, issue9],
                                     new Dictionary<IIssue, IssueCommentInfo>())
                                 .ToList();
 
@@ -1314,26 +1241,21 @@
                         var issues =
                             fixture
                                 .FilterIssues(
-                                    new List<IIssue>
-                                    {
-                                    issue1, issue2,
-                                    },
+                                    [issue1, issue2,],
                                     new Dictionary<IIssue, IssueCommentInfo>(),
-                                    new List<IPullRequestDiscussionThread>
-                                    {
-                                    new PullRequestDiscussionThread(
-                                        1,
-                                        PullRequestDiscussionStatus.Active,
-                                        @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
-                                        new List<IPullRequestDiscussionComment>
-                                        {
-                                            new PullRequestDiscussionComment
-                                            {
-                                                Content = "Message FooBar",
-                                                IsDeleted = false,
-                                            },
-                                        }),
-                                    })
+                                    [
+                                        new PullRequestDiscussionThread(
+                                            1,
+                                            PullRequestDiscussionStatus.Active,
+                                            @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
+                                            [
+                                                new PullRequestDiscussionComment
+                                                {
+                                                    Content = "Message FooBar",
+                                                    IsDeleted = false,
+                                                },
+                                            ]),
+                                    ])
                                 .ToList();
 
                         // Then
@@ -1374,26 +1296,21 @@
                         var issues =
                             fixture
                                 .FilterIssues(
-                                    new List<IIssue>
-                                    {
-                                    issue1, issue2,
-                                    },
+                                    [issue1, issue2],
                                     new Dictionary<IIssue, IssueCommentInfo>(),
-                                    new List<IPullRequestDiscussionThread>
-                                    {
-                                    new PullRequestDiscussionThread(
-                                        1,
-                                        PullRequestDiscussionStatus.Active,
-                                        @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
-                                        new List<IPullRequestDiscussionComment>
-                                        {
-                                            new PullRequestDiscussionComment
-                                            {
-                                                Content = "Message FooBar",
-                                                IsDeleted = false,
-                                            },
-                                        }),
-                                    })
+                                    [
+                                        new PullRequestDiscussionThread(
+                                            1,
+                                            PullRequestDiscussionStatus.Active,
+                                            @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
+                                            [
+                                                new PullRequestDiscussionComment
+                                                {
+                                                    Content = "Message FooBar",
+                                                    IsDeleted = false,
+                                                },
+                                            ]),
+                                    ])
                                 .ToList();
 
                         // Then
@@ -1433,26 +1350,21 @@
                         var issues =
                             fixture
                                 .FilterIssues(
-                                    new List<IIssue>
-                                    {
-                                    issue1, issue2,
-                                    },
+                                    [issue1, issue2],
                                     new Dictionary<IIssue, IssueCommentInfo>(),
-                                    new List<IPullRequestDiscussionThread>
-                                    {
-                                    new PullRequestDiscussionThread(
-                                        1,
-                                        PullRequestDiscussionStatus.Active,
-                                        @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
-                                        new List<IPullRequestDiscussionComment>
-                                        {
-                                            new PullRequestDiscussionComment
-                                            {
-                                                Content = "Message FooBar",
-                                                IsDeleted = false,
-                                            },
-                                        }),
-                                    })
+                                    [
+                                        new PullRequestDiscussionThread(
+                                            1,
+                                            PullRequestDiscussionStatus.Active,
+                                            @"src\Cake.Issues.Tests\FakeIssueProvider.cs",
+                                            [
+                                                new PullRequestDiscussionComment
+                                                {
+                                                    Content = "Message FooBar",
+                                                    IsDeleted = false,
+                                                },
+                                            ]),
+                                    ])
                                 .ToList();
 
                         // Then
@@ -1510,10 +1422,7 @@
                         var issues =
                             fixture
                                 .FilterIssues(
-                                    new List<IIssue>
-                                    {
-                                        issue1, issue2, issue3, issue4,
-                                    },
+                                    [issue1, issue2, issue3, issue4],
                                     new Dictionary<IIssue, IssueCommentInfo>())
                                 .ToList();
 
@@ -1571,10 +1480,7 @@
                         var issues =
                             fixture
                                 .FilterIssues(
-                                    new List<IIssue>
-                                    {
-                                        issue1, issue2, issue3, issue4,
-                                    },
+                                    [issue1, issue2, issue3, issue4],
                                     new Dictionary<IIssue, IssueCommentInfo>())
                                 .ToList();
 
@@ -1630,10 +1536,7 @@
                         var issues =
                             fixture
                                 .FilterIssues(
-                                    new List<IIssue>
-                                    {
-                                        issue1, issue2, issue3, issue4,
-                                    },
+                                    [issue1, issue2, issue3, issue4],
                                     new Dictionary<IIssue, IssueCommentInfo>())
                                 .ToList();
 

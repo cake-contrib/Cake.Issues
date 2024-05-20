@@ -117,12 +117,7 @@
             }
 
             project = projectAttr.Value;
-            if (string.IsNullOrWhiteSpace(project))
-            {
-                return false;
-            }
-
-            return true;
+            return !string.IsNullOrWhiteSpace(project);
         }
 
         /// <summary>
@@ -205,12 +200,7 @@
             }
 
             ruleId = codeAttr.Value;
-            if (string.IsNullOrWhiteSpace(ruleId))
-            {
-                return false;
-            }
-
-            return true;
+            return !string.IsNullOrWhiteSpace(ruleId);
         }
 
         /// <summary>
@@ -230,12 +220,7 @@
             }
 
             message = messageAttr.Value;
-            if (string.IsNullOrWhiteSpace(message))
-            {
-                return false;
-            }
-
-            return true;
+            return !string.IsNullOrWhiteSpace(message);
         }
 
         /// <summary>

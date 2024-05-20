@@ -12,20 +12,15 @@
         /// </summary>
         /// <param name="priority">Priority of the issue.</param>
         /// <returns>Category for the AppVeyor message.</returns>
-        public static AppVeyorMessageCategoryType ToAppVeyorMessageCategoryType(this int? priority)
-        {
-            if (priority == null)
-            {
-                return AppVeyorMessageCategoryType.Warning;
-            }
-
-            return priority switch
-            {
-                (int)IssuePriority.Error => AppVeyorMessageCategoryType.Error,
-                (int)IssuePriority.Warning => AppVeyorMessageCategoryType.Warning,
-                (int)IssuePriority.Hint or (int)IssuePriority.Suggestion => AppVeyorMessageCategoryType.Information,
-                _ => AppVeyorMessageCategoryType.Warning,
-            };
-        }
+        public static AppVeyorMessageCategoryType ToAppVeyorMessageCategoryType(this int? priority) =>
+            priority != null
+                ? priority switch
+                {
+                    (int)IssuePriority.Error => AppVeyorMessageCategoryType.Error,
+                    (int)IssuePriority.Warning => AppVeyorMessageCategoryType.Warning,
+                    (int)IssuePriority.Hint or (int)IssuePriority.Suggestion => AppVeyorMessageCategoryType.Information,
+                    _ => AppVeyorMessageCategoryType.Warning,
+                }
+                : AppVeyorMessageCategoryType.Warning;
     }
 }

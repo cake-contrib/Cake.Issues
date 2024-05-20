@@ -143,7 +143,7 @@
                 var pullRequestSystem = new FakePullRequestSystem(new FakeLog());
 
                 // When
-                var result = Record.Exception(() => pullRequestSystem.PostDiscussionThreads(new List<IIssue>(), "Foo"));
+                var result = Record.Exception(() => pullRequestSystem.PostDiscussionThreads([], "Foo"));
 
                 // Then
                 result.IsInvalidOperationException("Initialize needs to be called first.");

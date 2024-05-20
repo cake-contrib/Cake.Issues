@@ -201,7 +201,7 @@
                 WorkingDirectory = this.Settings.RepositoryRoot,
 
                 // git grep -IL . can return an exit code of 1 if nothing matches
-                HandleExitCode = exitCode => (exitCode == 0 || exitCode == 1),
+                HandleExitCode = exitCode => exitCode is 0 or 1,
             };
 
             settings.Arguments.Clear();

@@ -97,13 +97,13 @@
                 var format =
                     new FakeLogFileFormat(
                         log,
-                        new List<IIssue> { issue1, issue2 });
+                        [issue1, issue2]);
                 var settings =
                     new FakeMultiFormatIssueProviderSettings(
                         "Foo".ToByteArray(),
                         format);
                 var provider = new FakeMultiFormatIssueProvider(log, settings);
-                provider.Initialize(new ReadIssuesSettings(@"c:\repo"));
+                _ = provider.Initialize(new ReadIssuesSettings(@"c:\repo"));
 
                 // When
                 var result = provider.ReadIssues().ToList();

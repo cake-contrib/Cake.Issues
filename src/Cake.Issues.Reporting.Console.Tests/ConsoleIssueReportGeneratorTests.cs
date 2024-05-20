@@ -51,23 +51,22 @@
                 bool showPrioritySummary)
             {
                 // Given
-                var fixture = new ConsoleIssueReportFixture 
-                { 
+                var fixture = new ConsoleIssueReportFixture
+                {
                     ConsoleIssueReportFormatSettings =
                     {
-                        ShowDiagnostics = showDiagnostics, 
-                        Compact = compact, 
-                        GroupByRule = groupByRule, 
+                        ShowDiagnostics = showDiagnostics,
+                        Compact = compact,
+                        GroupByRule = groupByRule,
                         ShowProviderSummary = showProviderSummary,
                         ShowPrioritySummary = showPrioritySummary
                     }
                 };
 
                 // When
-                var logContents =
-                    fixture.CreateReport(
-                        "Testfiles.issues.json",
-                        @"c:\Source\Cake.Issues.Reporting.Console");
+                _ = fixture.CreateReport(
+                    "Testfiles.issues.json",
+                    @"c:\Source\Cake.Issues.Reporting.Console");
 
                 // Then
             }
@@ -82,23 +81,22 @@
                 bool showPrioritySummary)
             {
                 // Given
-                var fixture = new ConsoleIssueReportFixture 
-                { 
+                var fixture = new ConsoleIssueReportFixture
+                {
                     ConsoleIssueReportFormatSettings =
                     {
-                        ShowDiagnostics = showDiagnostics, 
-                        Compact = compact, 
-                        GroupByRule = groupByRule, 
+                        ShowDiagnostics = showDiagnostics,
+                        Compact = compact,
+                        GroupByRule = groupByRule,
                         ShowProviderSummary = showProviderSummary,
                         ShowPrioritySummary = showPrioritySummary
                     }
                 };
 
                 // When
-                var logContents =
-                    fixture.CreateReport(
-                        new List<IIssue>(),
-                        @"c:\Source\Cake.Issues.Reporting.Console");
+                _ = fixture.CreateReport(
+                    new List<IIssue>(),
+                    @"c:\Source\Cake.Issues.Reporting.Console");
 
                 // Then
             }

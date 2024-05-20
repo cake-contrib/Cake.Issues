@@ -91,7 +91,7 @@
                 var fixture = new IssuesFixture();
 
                 // When
-                fixture.ReadIssues();
+                _ = fixture.ReadIssues();
 
                 // Then
                 fixture.IssueProviders.ShouldAllBe(x => x.Settings == fixture.Settings);
@@ -106,8 +106,7 @@
                 fixture.IssueProviders.Add(
                     new FakeIssueProvider(
                         fixture.Log,
-                        new List<IIssue>
-                        {
+                        [
                             IssueBuilder
                                 .NewIssue("Foo", "ProviderTypeFoo", "ProviderNameFoo")
                                 .InFile(@"src\Cake.Issues.Tests\FakeIssueProvider.cs", 10)
@@ -120,12 +119,11 @@
                                 .OfRule("Bar")
                                 .WithPriority(IssuePriority.Warning)
                                 .Create(),
-                        }));
+                        ]));
                 fixture.IssueProviders.Add(
                     new FakeIssueProvider(
                         fixture.Log,
-                        new List<IIssue>
-                        {
+                        [
                             IssueBuilder
                                 .NewIssue("Foo", "ProviderTypeFoo", "ProviderNameFoo")
                                 .InFile(@"src\Cake.Issues.Tests\Foo.cs", 5)
@@ -138,10 +136,10 @@
                                 .OfRule("Bar")
                                 .WithPriority(IssuePriority.Warning)
                                 .Create(),
-                        }));
+                        ]));
 
                 // When
-                fixture.ReadIssues();
+                _ = fixture.ReadIssues();
 
                 // Then
                 fixture.IssueProviders.ShouldAllBe(x => x.Settings == fixture.Settings);
@@ -170,11 +168,7 @@
                 fixture.IssueProviders.Add(
                     new FakeIssueProvider(
                         fixture.Log,
-                        new List<IIssue>
-                        {
-                            issue1,
-                            issue2,
-                        }));
+                        [issue1, issue2]));
 
                 // When
                 var issues = fixture.ReadIssues().ToList();
@@ -206,11 +200,7 @@
                 fixture.IssueProviders.Add(
                     new FakeIssueProvider(
                         fixture.Log,
-                        new List<IIssue>
-                        {
-                            issue1,
-                            issue2,
-                        }));
+                        [issue1, issue2]));
 
                 // When
                 var issues = fixture.ReadIssues().ToList();
@@ -258,19 +248,11 @@
                 fixture.IssueProviders.Add(
                     new FakeIssueProvider(
                         fixture.Log,
-                        new List<IIssue>
-                        {
-                            issue1,
-                            issue2,
-                        }));
+                        [issue1, issue2]));
                 fixture.IssueProviders.Add(
                     new FakeIssueProvider(
                         fixture.Log,
-                        new List<IIssue>
-                        {
-                            issue3,
-                            issue4,
-                        }));
+                        [issue3, issue4]));
 
                 // When
                 var issues = fixture.ReadIssues().ToList();
@@ -306,11 +288,7 @@
                 fixture.IssueProviders.Add(
                     new FakeIssueProvider(
                         fixture.Log,
-                        new List<IIssue>
-                        {
-                            issue1,
-                            issue2,
-                        }));
+                        [issue1, issue2]));
                 var run = "Run";
                 fixture.Settings.Run = run;
 
@@ -353,15 +331,11 @@
                 fixture.IssueProviders.Add(
                     new FakeIssueProvider(
                         fixture.Log,
-                        new List<IIssue>
-                        {
-                            issue1,
-                            issue2,
-                        }));
+                        [issue1, issue2]));
                 var repoUrl = "https://github.com/cake-contrib/Cake.Issues.Website";
                 var branch = "develop";
                 fixture.Settings.FileLinkSettings =
-                    FileLinkSettings.ForGitHub(new System.Uri(repoUrl)).Branch(branch);
+                    FileLinkSettings.ForGitHub(new Uri(repoUrl)).Branch(branch);
 
                 // When
                 var issues = fixture.ReadIssues().ToList();

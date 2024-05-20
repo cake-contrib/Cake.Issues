@@ -12,18 +12,18 @@
                 // Given
                 var title = "Foo";
                 var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
-                fixture.GenericIssueReportFormatSettings
+                _ = fixture.GenericIssueReportFormatSettings
                     .WithOption(HtmlDxDataGridOption.Title, title);
 
                 // When
-                var result = fixture.CreateReport(new List<IIssue>());
+                var result = fixture.CreateReport([]);
 
                 // Then
                 var doc = new HtmlDocument();
                 doc.LoadHtml(result);
                 var titleElements = doc.DocumentNode.Descendants("title").ToList();
-                titleElements.ShouldHaveSingleItem();
-                titleElements.Single().InnerText.ShouldBe(title);
+                var node = titleElements.ShouldHaveSingleItem();
+                node.InnerText.ShouldBe(title);
             }
 
             [Fact]
@@ -32,18 +32,18 @@
                 // Given
                 var title = "Foo";
                 var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
-                fixture.GenericIssueReportFormatSettings
+                _ = fixture.GenericIssueReportFormatSettings
                     .WithOption(HtmlDxDataGridOption.Title, title);
 
                 // When
-                var result = fixture.CreateReport(new List<IIssue>());
+                var result = fixture.CreateReport([]);
 
                 // Then
                 var doc = new HtmlDocument();
                 doc.LoadHtml(result);
                 var headingElements = doc.DocumentNode.Descendants("h1").ToList();
-                headingElements.ShouldHaveSingleItem();
-                headingElements.Single().InnerText.ShouldBe(title);
+                var node = headingElements.ShouldHaveSingleItem();
+                node.InnerText.ShouldBe(title);
             }
         }
 
@@ -59,11 +59,11 @@
             {
                 // Given
                 var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
-                fixture.GenericIssueReportFormatSettings
+                _ = fixture.GenericIssueReportFormatSettings
                     .WithOption(HtmlDxDataGridOption.Theme, theme);
 
                 // When
-                var result = fixture.CreateReport(new List<IIssue>());
+                var result = fixture.CreateReport([]);
 
                 // Then
                 var doc = new HtmlDocument();
@@ -81,17 +81,17 @@
             {
                 // Given
                 var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
-                fixture.GenericIssueReportFormatSettings
+                _ = fixture.GenericIssueReportFormatSettings
                     .WithOption(HtmlDxDataGridOption.ShowHeader, true);
 
                 // When
-                var result = fixture.CreateReport(new List<IIssue>());
+                var result = fixture.CreateReport([]);
 
                 // Then
                 var doc = new HtmlDocument();
                 doc.LoadHtml(result);
                 var headingElements = doc.DocumentNode.Descendants("h1");
-                headingElements.ShouldHaveSingleItem();
+                _ = headingElements.ShouldHaveSingleItem();
             }
 
             [Fact]
@@ -99,11 +99,11 @@
             {
                 // Given
                 var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
-                fixture.GenericIssueReportFormatSettings
+                _ = fixture.GenericIssueReportFormatSettings
                     .WithOption(HtmlDxDataGridOption.ShowHeader, false);
 
                 // When
-                var result = fixture.CreateReport(new List<IIssue>());
+                var result = fixture.CreateReport([]);
 
                 // Then
                 var doc = new HtmlDocument();

@@ -210,8 +210,8 @@
                         fixture.AdditionalInformation));
 
                 // Then
-                result.ShouldBeOfType<Exception>();
-                result.Message.ShouldStartWith("Expected issue.ProviderType");
+                var ex = result.ShouldBeOfType<Exception>();
+                ex.Message.ShouldStartWith("Expected issue.ProviderType");
             }
 
             [Theory]
@@ -251,8 +251,8 @@
                         fixture.AdditionalInformation));
 
                 // Then
-                result.ShouldBeOfType<Exception>();
-                result.Message.ShouldStartWith("Expected issue.ProviderName");
+                var ex = result.ShouldBeOfType<Exception>();
+                ex.Message.ShouldStartWith("Expected issue.ProviderName");
             }
 
             [Theory]
@@ -296,8 +296,8 @@
                         fixture.AdditionalInformation));
 
                 // Then
-                result.ShouldBeOfType<Exception>();
-                result.Message.ShouldStartWith("Expected issue.Run");
+                var ex = result.ShouldBeOfType<Exception>();
+                ex.Message.ShouldStartWith("Expected issue.Run");
             }
 
             [Theory]
@@ -337,8 +337,8 @@
                         fixture.AdditionalInformation));
 
                 // Then
-                result.ShouldBeOfType<Exception>();
-                result.Message.ShouldStartWith("Expected issue.Identifier");
+                var ex = result.ShouldBeOfType<Exception>();
+                ex.Message.ShouldStartWith("Expected issue.Identifier");
             }
 
             [Theory]
@@ -379,8 +379,8 @@
                         fixture.AdditionalInformation));
 
                 // Then
-                result.ShouldBeOfType<Exception>();
-                result.Message.ShouldStartWith("Expected issue.ProjectFileRelativePath");
+                var ex = result.ShouldBeOfType<Exception>();
+                ex.Message.ShouldStartWith("Expected issue.ProjectFileRelativePath");
             }
 
             [Theory]
@@ -424,8 +424,8 @@
                         fixture.AdditionalInformation));
 
                 // Then
-                result.ShouldBeOfType<Exception>();
-                result.Message.ShouldStartWith("Expected issue.ProjectName");
+                var ex = result.ShouldBeOfType<Exception>();
+                ex.Message.ShouldStartWith("Expected issue.ProjectName");
             }
 
             [Theory]
@@ -466,8 +466,8 @@
                         fixture.AdditionalInformation));
 
                 // Then
-                result.ShouldBeOfType<Exception>();
-                result.Message.ShouldStartWith("Expected issue.AffectedFileRelativePath");
+                var ex = result.ShouldBeOfType<Exception>();
+                ex.Message.ShouldStartWith("Expected issue.AffectedFileRelativePath");
             }
 
             [Theory]
@@ -510,8 +510,8 @@
                         fixture.AdditionalInformation));
 
                 // Then
-                result.ShouldBeOfType<Exception>();
-                result.Message.ShouldStartWith("Expected issue.Line");
+                var ex = result.ShouldBeOfType<Exception>();
+                ex.Message.ShouldStartWith("Expected issue.Line");
             }
 
             [Theory]
@@ -554,8 +554,8 @@
                         fixture.AdditionalInformation));
 
                 // Then
-                result.ShouldBeOfType<Exception>();
-                result.Message.ShouldStartWith("Expected issue.EndLine");
+                var ex = result.ShouldBeOfType<Exception>();
+                ex.Message.ShouldStartWith("Expected issue.EndLine");
             }
 
             [Theory]
@@ -598,8 +598,8 @@
                         fixture.AdditionalInformation));
 
                 // Then
-                result.ShouldBeOfType<Exception>();
-                result.Message.ShouldStartWith("Expected issue.Column");
+                var ex = result.ShouldBeOfType<Exception>();
+                ex.Message.ShouldStartWith("Expected issue.Column");
             }
 
             [Theory]
@@ -642,8 +642,8 @@
                         fixture.AdditionalInformation));
 
                 // Then
-                result.ShouldBeOfType<Exception>();
-                result.Message.ShouldStartWith("Expected issue.EndColumn");
+                var ex = result.ShouldBeOfType<Exception>();
+                ex.Message.ShouldStartWith("Expected issue.EndColumn");
             }
 
             [Theory]
@@ -685,8 +685,8 @@
                         fixture.AdditionalInformation));
 
                 // Then
-                result.ShouldBeOfType<Exception>();
-                result.Message.ShouldStartWith("Expected issue.FileLink");
+                var ex = result.ShouldBeOfType<Exception>();
+                ex.Message.ShouldStartWith("Expected issue.FileLink");
             }
 
             [Theory]
@@ -726,8 +726,8 @@
                         fixture.AdditionalInformation));
 
                 // Then
-                result.ShouldBeOfType<Exception>();
-                result.Message.ShouldStartWith("Expected issue.MessageText");
+                var ex = result.ShouldBeOfType<Exception>();
+                ex.Message.ShouldStartWith("Expected issue.MessageText");
             }
 
             [Theory]
@@ -771,8 +771,8 @@
                         fixture.AdditionalInformation));
 
                 // Then
-                result.ShouldBeOfType<Exception>();
-                result.Message.ShouldStartWith("Expected issue.MessageHtml");
+                var ex = result.ShouldBeOfType<Exception>();
+                ex.Message.ShouldStartWith("Expected issue.MessageHtml");
             }
 
             [Theory]
@@ -816,8 +816,8 @@
                         fixture.AdditionalInformation));
 
                 // Then
-                result.ShouldBeOfType<Exception>();
-                result.Message.ShouldStartWith("Expected issue.MessageMarkdown");
+                var ex = result.ShouldBeOfType<Exception>();
+                ex.Message.ShouldStartWith("Expected issue.MessageMarkdown");
             }
 
             [Theory]
@@ -858,8 +858,8 @@
                         fixture.AdditionalInformation));
 
                 // Then
-                result.ShouldBeOfType<Exception>();
-                result.Message.ShouldStartWith("Expected issue.Priority");
+                var ex = result.ShouldBeOfType<Exception>();
+                ex.Message.ShouldStartWith("Expected issue.Priority");
             }
 
             [Theory]
@@ -903,8 +903,8 @@
                         fixture.AdditionalInformation));
 
                 // Then
-                result.ShouldBeOfType<Exception>();
-                result.Message.ShouldStartWith("Expected issue.PriorityName");
+                var ex = result.ShouldBeOfType<Exception>();
+                ex.Message.ShouldStartWith("Expected issue.PriorityName");
             }
 
             [Theory]
@@ -948,8 +948,8 @@
                         fixture.AdditionalInformation));
 
                 // Then
-                result.ShouldBeOfType<Exception>();
-                result.Message.ShouldStartWith("Expected issue.Rule");
+                var ex = result.ShouldBeOfType<Exception>();
+                ex.Message.ShouldStartWith("Expected issue.Rule");
             }
 
             [Theory]
@@ -993,8 +993,8 @@
                         fixture.AdditionalInformation));
 
                 // Then
-                result.ShouldBeOfType<Exception>();
-                result.Message.ShouldStartWith("Expected issue.RuleName");
+                var ex = result.ShouldBeOfType<Exception>();
+                ex.Message.ShouldStartWith("Expected issue.RuleName");
             }
 
             [Theory]
@@ -1035,8 +1035,8 @@
                         fixture.AdditionalInformation));
 
                 // Then
-                result.ShouldBeOfType<Exception>();
-                result.Message.ShouldStartWith("Expected issue.RuleUrl");
+                var ex = result.ShouldBeOfType<Exception>();
+                ex.Message.ShouldStartWith("Expected issue.RuleUrl");
             }
 
             [Theory]
@@ -1080,8 +1080,8 @@
                         }));
 
                 // Then
-                result.ShouldBeOfType<Exception>();
-                result.Message.ShouldStartWith("Expected issue.AdditionalInformation");
+                var ex = result.ShouldBeOfType<Exception>();
+                ex.Message.ShouldStartWith("Expected issue.AdditionalInformation");
             }
 
             [Fact]
@@ -1141,8 +1141,8 @@
                         expected));
 
                 // Then
-                result.ShouldBeOfType<Exception>();
-                result.Message.ShouldStartWith("issue.AdditionalInformation contains an item with the key");
+                var ex = result.ShouldBeOfType<Exception>();
+                ex.Message.ShouldStartWith("issue.AdditionalInformation contains an item with the key");
             }
 
             [Fact]
@@ -1202,8 +1202,8 @@
                         expected));
 
                 // Then
-                result.ShouldBeOfType<Exception>();
-                result.Message.ShouldStartWith("Expected issue.AdditionalInformation to have an item with the key");
+                var ex = result.ShouldBeOfType<Exception>();
+                ex.Message.ShouldStartWith("Expected issue.AdditionalInformation to have an item with the key");
             }
         }
     }

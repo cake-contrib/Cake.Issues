@@ -92,7 +92,7 @@
 
             foreach (var thread in threads)
             {
-                this.azureDevOpsPullRequest.CreateCommentThread(thread);
+                _ = this.azureDevOpsPullRequest.CreateCommentThread(thread);
             }
 
             this.Log.Information("Posted {0} discussion threads", threads.Count);
@@ -189,7 +189,7 @@
                 var newThread = new AzureDevOpsPullRequestCommentThread()
                 {
                     Status = AzureDevOpsCommentThreadStatus.Active,
-                    Comments = new List<AzureDevOpsComment> { discussionComment },
+                    Comments = [discussionComment],
                     Properties = this.GetThreadProperties(changeTrackingId, issue, iterationId),
                 };
 
@@ -293,6 +293,8 @@
                                     x.ChangeId,
                                     x.ItemPath))));
                     return -1;
+                default:
+                    break;
             }
 
             var changeTrackingId = change.Single().ChangeTrackingId;

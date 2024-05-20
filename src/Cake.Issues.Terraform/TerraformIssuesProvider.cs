@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
     using System.IO;
     using System.Linq;
     using System.Runtime.Serialization.Json;
@@ -46,25 +47,21 @@
                 validateFile = jsonSerializer.ReadObject(ms) as ValidateFile;
             }
 
-            if (validateFile == null)
-            {
-                throw new InvalidOperationException("Failed to read log file content.");
-            }
-
-            return
-                from diagnostic in validateFile.diagnostics
-                select
-                    IssueBuilder
-                        .NewIssue(GetMessage(diagnostic.summary, diagnostic.detail), this)
-                        .InFile(
-                            this.TryGetFile(diagnostic.range?.filename, terraformRootPath),
-                            diagnostic.range?.start?.line,
-                            diagnostic.range?.end?.line,
-                            diagnostic.range?.start?.column,
-                            diagnostic.range?.end?.column)
-                        .OfRule(GetRule(diagnostic.summary, diagnostic.detail))
-                        .WithPriority(GetPriority(diagnostic.severity))
-                        .Create();
+            return validateFile != null
+                ? (from diagnostic in validateFile.diagnostics
+                   select
+                        IssueBuilder
+                            .NewIssue(GetMessage(diagnostic.summary, diagnostic.detail), this)
+                            .InFile(
+                                this.TryGetFile(diagnostic.range?.filename, terraformRootPath),
+                                diagnostic.range?.start?.line,
+                                diagnostic.range?.end?.line,
+                                diagnostic.range?.start?.column,
+                                diagnostic.range?.end?.column)
+                            .OfRule(GetRule(diagnostic.summary, diagnostic.detail))
+                            .WithPriority(GetPriority(diagnostic.severity))
+                            .Create())
+                : throw new InvalidOperationException("Failed to read log file content.");
         }
 
         /// <summary>
@@ -73,16 +70,10 @@
         /// <param name="summary">Summary of the diagnostic entry.</param>
         /// <param name="detail">Detail of the diagnostic entry.</param>
         /// <returns>Issue message.</returns>
-        private static string GetMessage(string summary, string detail)
-        {
+        [SuppressMessage("StyleCop.CSharp.LayoutRules", "SA1515:Single-line comment should be preceded by blank line", Justification = "Not for expression bodies")]
+        private static string GetMessage(string summary, string detail) =>
             // If a diagnostic entry only contains a summary we use it for message instead of rule.
-            if (string.IsNullOrWhiteSpace(detail))
-            {
-                return summary;
-            }
-
-            return detail;
-        }
+            !string.IsNullOrWhiteSpace(detail) ? detail : summary;
 
         /// <summary>
         /// Returns the rule for an issue based on summary and detail.
@@ -90,16 +81,10 @@
         /// <param name="summary">Summary of the diagnostic entry.</param>
         /// <param name="detail">Detail of the diagnostic entry.</param>
         /// <returns>Issue message.</returns>
-        private static string GetRule(string summary, string detail)
-        {
+        [SuppressMessage("StyleCop.CSharp.LayoutRules", "SA1515:Single-line comment should be preceded by blank line", Justification = "Not for expression bodies")]
+        private static string GetRule(string summary, string detail) =>
             // If a diagnostic entry only contains a summary we don't use it for rule as it is already used for message.
-            if (string.IsNullOrWhiteSpace(detail))
-            {
-                return null;
-            }
-
-            return summary;
-        }
+            !string.IsNullOrWhiteSpace(detail) ? summary : null;
 
         /// <summary>
         /// Converts the severity to a priority.

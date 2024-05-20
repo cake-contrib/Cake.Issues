@@ -33,12 +33,9 @@
 
             var preamble = encoding.GetPreamble();
 
-            if (value.Zip(preamble, (x, y) => x == y).All(x => x))
-            {
-                return value.Skip(preamble.Length).ToArray();
-            }
-
-            return value;
+            return value.Zip(preamble, (x, y) => x == y).All(x => x)
+                ? value.Skip(preamble.Length).ToArray()
+                : value;
         }
 
         /// <summary>

@@ -65,7 +65,7 @@
                 var result = new FakeConfigurableIssueProviderFixture("Build.log");
 
                 // Then
-                result.Log.ShouldNotBeNull();
+                _ = result.Log.ShouldNotBeNull();
             }
 
             [Fact]
@@ -77,7 +77,7 @@
                 var result = new FakeConfigurableIssueProviderFixture("Build.log");
 
                 // Then
-                result.ReadIssuesSettings.ShouldNotBeNull();
+                _ = result.ReadIssuesSettings.ShouldNotBeNull();
             }
 
             [Fact]
@@ -89,8 +89,8 @@
                 var result = new FakeConfigurableIssueProviderFixture("Build.log");
 
                 // Then
-                result.LogFileContent.ShouldNotBeNull();
-                result.LogFileContent.ShouldNotBeEmpty();
+                var value = result.LogFileContent.ShouldNotBeNull();
+                value.ShouldNotBeEmpty();
             }
 
             [Fact]
@@ -102,8 +102,8 @@
                 var result = new FakeConfigurableIssueProviderFixture("Empty.log");
 
                 // Then
-                result.LogFileContent.ShouldNotBeNull();
-                result.LogFileContent.ShouldBeEmpty();
+                var value = result.LogFileContent.ShouldNotBeNull();
+                value.ShouldBeEmpty();
             }
         }
 

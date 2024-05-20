@@ -75,7 +75,7 @@
         /// <param name="template">Template to use for generating the report.</param>
         /// <returns>Instance of the <see cref="GenericIssueReportFormatSettings"/> class.</returns>
         public static GenericIssueReportFormatSettings FromEmbeddedTemplate(GenericIssueReportTemplate template) =>
-            new GenericIssueReportFormatSettings(template);
+            new(template);
 
         /// <summary>
         /// Returns a new instance of the <see cref="GenericIssueReportFormatSettings"/> class from a template file on disk.
@@ -83,7 +83,7 @@
         /// <param name="templatePath">Path to the template to use for generating the report.</param>
         /// <returns>Instance of the <see cref="GenericIssueReportFormatSettings"/> class.</returns>
         public static GenericIssueReportFormatSettings FromFilePath(FilePath templatePath) =>
-            new GenericIssueReportFormatSettings(templatePath);
+            new(templatePath);
 
         /// <summary>
         /// Returns a new instance of the <see cref="GenericIssueReportFormatSettings"/> class from the content
@@ -92,6 +92,6 @@
         /// <param name="templateContent">Content of the template to use for generating the report.</param>
         /// <returns>Instance of the <see cref="GenericIssueReportFormatSettings"/> class.</returns>
         public static GenericIssueReportFormatSettings FromContent(string templateContent) =>
-            new GenericIssueReportFormatSettings(templateContent);
+            new(templateContent);
     }
 }

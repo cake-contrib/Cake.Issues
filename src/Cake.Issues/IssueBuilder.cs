@@ -240,9 +240,7 @@
         {
             line?.NotNegativeOrZero();
 
-            this.InFile(filePath, line, null);
-
-            return this;
+            return this.InFile(filePath, line, null);
         }
 
         /// <summary>
@@ -261,9 +259,7 @@
             line?.NotNegativeOrZero();
             column?.NotNegativeOrZero();
 
-            this.InFile(filePath, line, null, column, null);
-
-            return this;
+            return this.InFile(filePath, line, null, column, null);
         }
 
         /// <summary>
@@ -307,12 +303,9 @@
         {
             key.NotNullOrWhiteSpace();
 
-            if (!this.additionalInformation.TryAdd(key, value))
-            {
-                throw new ArgumentException("You can't assign a value to the same key twice.", nameof(key));
-            }
-
-            return this;
+            return this.additionalInformation.TryAdd(key, value)
+                ? this
+                : throw new ArgumentException("You can't assign a value to the same key twice.", nameof(key));
         }
 
         /// <summary>
@@ -476,7 +469,7 @@
         }
 
         private Issue CreateIssue(Uri fileLink) =>
-            new Issue(
+            new(
                 this.identifier,
                 this.projectFileRelativePath,
                 this.projectName,

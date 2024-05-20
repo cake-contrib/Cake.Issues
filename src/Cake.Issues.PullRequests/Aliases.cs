@@ -243,7 +243,7 @@
 
             return
                 context.ReportIssuesToPullRequest(
-                    new List<IIssueProvider> { issueProvider },
+                    [issueProvider],
                     pullRequestSystem,
                     settings);
         }

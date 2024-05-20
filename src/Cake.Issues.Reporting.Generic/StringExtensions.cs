@@ -21,7 +21,7 @@
 
             // Cutoff illegal characters in the beginning
             var firstLegalCharacter = GetIndexOfFirstLetter(input);
-            input = input.Substring(firstLegalCharacter);
+            input = input[firstLegalCharacter..];
 
             return Regex.Replace(input, @"/^[^a-z]+|[^\w:-]+", "-");
         }

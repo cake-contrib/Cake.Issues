@@ -21,7 +21,7 @@
         public ICakeConfiguration Configuration { get; set; } = Substitute.For<ICakeConfiguration>();
 
         public CakeContext CreateContext() =>
-            new CakeContext(
+            new(
                 this.FileSystem,
                 this.Environment,
                 this.Globber,

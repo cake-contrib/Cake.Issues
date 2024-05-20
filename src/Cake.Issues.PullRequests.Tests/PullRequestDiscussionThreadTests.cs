@@ -17,7 +17,7 @@
                         1,
                         PullRequestDiscussionStatus.Active,
                         filePath,
-                        new List<IPullRequestDiscussionComment>()));
+                        []));
 
                 // Then
                 result.IsArgumentOutOfRangeException("filePath");
@@ -36,7 +36,7 @@
                         1,
                         PullRequestDiscussionStatus.Active,
                         filePath,
-                        new List<IPullRequestDiscussionComment>()));
+                        []));
 
                 // Then
                 result.IsArgumentOutOfRangeException("filePath");
@@ -61,7 +61,7 @@
                         1,
                         PullRequestDiscussionStatus.Active,
                         null,
-                        new List<IPullRequestDiscussionComment>());
+                        []);
 
                 // Then
                 thread.AffectedFileRelativePath.ShouldBe(null);
@@ -79,7 +79,7 @@
                         id,
                         PullRequestDiscussionStatus.Active,
                         "foo.cs",
-                        new List<IPullRequestDiscussionComment>());
+                        []);
 
                 // Then
                 thread.Id.ShouldBe(id);
@@ -96,7 +96,7 @@
                         1,
                         status,
                         "foo.cs",
-                        new List<IPullRequestDiscussionComment>());
+                        []);
 
                 // Then
                 thread.Status.ShouldBe(status);
@@ -151,7 +151,7 @@
                         1,
                         PullRequestDiscussionStatus.Active,
                         filePath,
-                        new List<IPullRequestDiscussionComment>());
+                        []);
 
                 // Then
                 thread.AffectedFileRelativePath.ToString().ShouldBe(expectedFilePath);

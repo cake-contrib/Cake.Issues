@@ -33,8 +33,8 @@
             {
                 var createIssueReportSettings =
                     new CreateIssueReportSettings(@"c:\Source\Cake.Issues.Reporting.Generic", reportFile);
-                generator.Initialize(createIssueReportSettings);
-                generator.CreateReport(issues);
+                _ = generator.Initialize(createIssueReportSettings);
+                _ = generator.CreateReport(issues);
 
                 using (var stream = new FileStream(reportFile, FileMode.Open, FileAccess.Read))
                 {
@@ -61,19 +61,18 @@
             // When
             var result =
                 this.CreateReport(
-                    new List<IIssue>
-                    {
-                            IssueBuilder
-                                .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
-                                .InFile(@"src\Cake.Issues.Reporting.Generic.Tests\Foo.cs", 10)
-                                .OfRule("Rule Foo")
-                                .WithPriority(IssuePriority.Warning)
-                                .Create(),
-                    });
+                    [
+                        IssueBuilder
+                            .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                            .InFile(@"src\Cake.Issues.Reporting.Generic.Tests\Foo.cs", 10)
+                            .OfRule("Rule Foo")
+                            .WithPriority(IssuePriority.Warning)
+                            .Create(),
+                    ]);
 
             // Then
             // Currently only checks if generation failed or not without checking actual output.
-            result.ShouldNotBeNull();
+            _ = result.ShouldNotBeNull();
         }
     }
 }

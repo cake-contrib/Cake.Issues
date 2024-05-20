@@ -9,7 +9,7 @@
             {
                 // Given
                 const IEnumerable<IIssue> reportedIssues = null;
-                IEnumerable<IIssue> postedIssues = new List<IIssue>();
+                IEnumerable<IIssue> postedIssues = [];
 
                 // When
                 var result = Record.Exception(() => new PullRequestIssueResult(reportedIssues, postedIssues));
@@ -22,7 +22,7 @@
             public void Should_Throw_If_PostedIssues_Is_Null()
             {
                 // Given
-                IEnumerable<IIssue> reportedIssues = new List<IIssue>();
+                IEnumerable<IIssue> reportedIssues = [];
                 const IEnumerable<IIssue> postedIssues = null;
 
                 // When
@@ -36,8 +36,8 @@
             public void Should_Set_ReportedIssues()
             {
                 // Given
-                IEnumerable<IIssue> reportedIssues = new List<IIssue>();
-                IEnumerable<IIssue> postedIssues = new List<IIssue>();
+                IEnumerable<IIssue> reportedIssues = [];
+                IEnumerable<IIssue> postedIssues = [];
 
                 // When
                 var result = new PullRequestIssueResult(reportedIssues, postedIssues);
@@ -50,8 +50,8 @@
             public void Should_Set_PostedIssues()
             {
                 // Given
-                IEnumerable<IIssue> reportedIssues = new List<IIssue>();
-                IEnumerable<IIssue> postedIssues = new List<IIssue>();
+                IEnumerable<IIssue> reportedIssues = [];
+                IEnumerable<IIssue> postedIssues = [];
 
                 // When
                 var result = new PullRequestIssueResult(reportedIssues, postedIssues);

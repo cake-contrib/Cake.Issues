@@ -17,17 +17,14 @@
         {
             issue.NotNull();
 
-            if (!issue.Priority.HasValue)
-            {
-                return ResultKind.None;
-            }
-
-            return issue.Priority switch
-            {
-                (int)IssuePriority.Suggestion or (int)IssuePriority.Hint => ResultKind.Informational,
-                (int)IssuePriority.Warning or (int)IssuePriority.Error => ResultKind.Fail,
-                _ => ResultKind.NotApplicable,
-            };
+            return issue.Priority.HasValue
+                ? issue.Priority switch
+                {
+                    (int)IssuePriority.Suggestion or (int)IssuePriority.Hint => ResultKind.Informational,
+                    (int)IssuePriority.Warning or (int)IssuePriority.Error => ResultKind.Fail,
+                    _ => ResultKind.NotApplicable,
+                }
+                : ResultKind.None;
         }
 
         /// <summary>
@@ -39,18 +36,15 @@
         {
             issue.NotNull();
 
-            if (!issue.Priority.HasValue)
-            {
-                return FailureLevel.None;
-            }
-
-            return issue.Priority switch
-            {
-                (int)IssuePriority.Suggestion or (int)IssuePriority.Hint => FailureLevel.Note,
-                (int)IssuePriority.Warning => FailureLevel.Warning,
-                (int)IssuePriority.Error => FailureLevel.Error,
-                _ => FailureLevel.None,
-            };
+            return issue.Priority.HasValue
+                ? issue.Priority switch
+                {
+                    (int)IssuePriority.Suggestion or (int)IssuePriority.Hint => FailureLevel.Note,
+                    (int)IssuePriority.Warning => FailureLevel.Warning,
+                    (int)IssuePriority.Error => FailureLevel.Error,
+                    _ => FailureLevel.None,
+                }
+                : FailureLevel.None;
         }
 
         /// <summary>

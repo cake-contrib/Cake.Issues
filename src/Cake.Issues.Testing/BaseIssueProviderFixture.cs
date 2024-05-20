@@ -45,15 +45,10 @@
         /// Returns arguments for creating a new instance of an issue provider.
         /// </summary>
         /// <returns>Arguments for creating a new instance of an issue provider.</returns>
-        protected virtual IList<object> GetCreateIssueProviderArguments()
-        {
-            if (this.Log == null)
-            {
-                throw new InvalidOperationException("No log instance set.");
-            }
-
-            return new List<object> { this.Log };
-        }
+        protected virtual IList<object> GetCreateIssueProviderArguments() =>
+            this.Log != null
+            ? [this.Log]
+            : throw new InvalidOperationException("No log instance set.");
 
         /// <summary>
         /// Creates and initializes a new instance of the issue provider.
@@ -71,7 +66,7 @@
                     typeof(T),
                     [.. this.GetCreateIssueProviderArguments()])
                 ?? throw new InvalidOperationException("Could not create issue provider.");
-            provider.Initialize(this.ReadIssuesSettings);
+            _ = provider.Initialize(this.ReadIssuesSettings);
             return provider;
         }
     }

@@ -2,7 +2,6 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics.CodeAnalysis;
     using System.IO;
     using System.Linq;
     using System.Runtime.Serialization;
@@ -29,7 +28,7 @@
 
             if (markdownlintIssuesSettings.LogFileContent.Length == 0)
             {
-                return new List<IIssue>();
+                return [];
             }
 
             IEnumerable<LogFileEntry> logFileEntries;
@@ -39,12 +38,9 @@
                 logFileEntries = jsonSerializer.ReadObject(ms) as LogFileEntry[];
             }
 
-            if (logFileEntries == null)
-            {
-                return new List<IIssue>();
-            }
-
-            return logFileEntries.Select(x => GetIssue(x, issueProvider, repositorySettings));
+            return logFileEntries != null
+                ? logFileEntries.Select(x => GetIssue(x, issueProvider, repositorySettings))
+                : [];
         }
 
         /// <summary>

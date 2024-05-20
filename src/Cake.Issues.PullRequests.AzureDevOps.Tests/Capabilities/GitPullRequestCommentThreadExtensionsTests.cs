@@ -51,7 +51,7 @@
                         Id = 123,
                         Status = AzureDevOpsCommentThreadStatus.Active,
                         FilePath = "/foo.cs",
-                        Comments = new List<AzureDevOpsComment>(),
+                        Comments = [],
                         Properties = null,
                     };
 
@@ -75,7 +75,7 @@
                         Id = id,
                         Status = status,
                         FilePath = filePath,
-                        Comments = new List<AzureDevOpsComment>(),
+                        Comments = [],
                         Properties = new Dictionary<string, object>(),
                     };
 
@@ -121,7 +121,7 @@
                         Id = id,
                         Status = status,
                         FilePath = filePath,
-                        Comments = new List<AzureDevOpsComment>(),
+                        Comments = [],
                         Properties = new Dictionary<string, object>(),
                     };
 
@@ -145,7 +145,7 @@
                         Id = id,
                         Status = status,
                         FilePath = filePath,
-                        Comments = new List<AzureDevOpsComment>(),
+                        Comments = [],
                         Properties = new Dictionary<string, object>(),
                     };
 
@@ -165,7 +165,7 @@
                     {
                         Id = 123,
                         Status = AzureDevOpsCommentThreadStatus.Active,
-                        Comments = new List<AzureDevOpsComment>(),
+                        Comments = [],
                         Properties = new Dictionary<string, object>(),
                     };
 
@@ -191,14 +191,14 @@
                         Id = id,
                         Status = status,
                         FilePath = filePath,
-                        Comments = new List<AzureDevOpsComment>
-                        {
+                        Comments =
+                        [
                             new()
                             {
                                 Content = commentContent,
                                 IsDeleted = commentIsDeleted,
                             },
-                        },
+                        ],
                         Properties = new Dictionary<string, object>(),
                     };
 
@@ -225,7 +225,7 @@
                         Id = id,
                         Status = status,
                         FilePath = filePath,
-                        Comments = new List<AzureDevOpsComment>(),
+                        Comments = [],
                         Properties = new Dictionary<string, object>(),
                     };
                 thread.SetCommentSource(commentSource);
@@ -251,7 +251,7 @@
                         Id = id,
                         Status = status,
                         FilePath = filePath,
-                        Comments = new List<AzureDevOpsComment>(),
+                        Comments = [],
                         Properties = new Dictionary<string, object>(),
                     };
                 thread.SetProviderType(providerType);
@@ -298,7 +298,7 @@
                         Id = id,
                         Status = status,
                         FilePath = filePath,
-                        Comments = new List<AzureDevOpsComment>(),
+                        Comments = [],
                         Properties = new Dictionary<string, object>(),
                     };
 
@@ -335,7 +335,7 @@
                         Id = 123,
                         Status = AzureDevOpsCommentThreadStatus.Active,
                         FilePath = "/foo.cs",
-                        Comments = new List<AzureDevOpsComment>(),
+                        Comments = [],
                         Properties = null,
                     };
 
@@ -357,7 +357,7 @@
                         Id = 123,
                         Status = AzureDevOpsCommentThreadStatus.Active,
                         FilePath = "/foo.cs",
-                        Comments = new List<AzureDevOpsComment>(),
+                        Comments = [],
                         Properties = new Dictionary<string, object>(),
                     };
                 thread.SetCommentSource(commentSource);
@@ -395,7 +395,7 @@
                         Id = 123,
                         Status = AzureDevOpsCommentThreadStatus.Active,
                         FilePath = "/foo.cs",
-                        Comments = new List<AzureDevOpsComment>(),
+                        Comments = [],
                         Properties = null,
                     };
 
@@ -417,7 +417,7 @@
                         Id = 123,
                         Status = AzureDevOpsCommentThreadStatus.Active,
                         FilePath = "/foo.cs",
-                        Comments = new List<AzureDevOpsComment>(),
+                        Comments = [],
                         Properties = new Dictionary<string, object>(),
                     };
                 thread.SetProviderType(providerType);
@@ -456,7 +456,7 @@
                         Id = 123,
                         Status = AzureDevOpsCommentThreadStatus.Active,
                         FilePath = "/foo.cs",
-                        Comments = new List<AzureDevOpsComment>(),
+                        Comments = [],
                         Properties = null,
                     };
                 const string value = "foo";
@@ -479,7 +479,7 @@
                         Id = 123,
                         Status = AzureDevOpsCommentThreadStatus.Active,
                         FilePath = "/foo.cs",
-                        Comments = new List<AzureDevOpsComment>(),
+                        Comments = [],
                         Properties = new Dictionary<string, object>(),
                     };
 
@@ -517,7 +517,7 @@
                         Id = 123,
                         Status = AzureDevOpsCommentThreadStatus.Active,
                         FilePath = "/foo.cs",
-                        Comments = new List<AzureDevOpsComment>(),
+                        Comments = [],
                         Properties = null,
                     };
                 var value = "foo";
@@ -540,7 +540,7 @@
                         Id = 123,
                         Status = AzureDevOpsCommentThreadStatus.Active,
                         FilePath = "/foo.cs",
-                        Comments = new List<AzureDevOpsComment>(),
+                        Comments = [],
                         Properties = new Dictionary<string, object>(),
                     };
 
@@ -578,7 +578,7 @@
                         Id = 123,
                         Status = AzureDevOpsCommentThreadStatus.Active,
                         FilePath = "/foo.cs",
-                        Comments = new List<AzureDevOpsComment>(),
+                        Comments = [],
                         Properties = null,
                     };
                 const string value = "foo";
@@ -601,7 +601,7 @@
                         Id = 123,
                         Status = AzureDevOpsCommentThreadStatus.Active,
                         FilePath = "/foo.cs",
-                        Comments = new List<AzureDevOpsComment>(),
+                        Comments = [],
                         Properties = new Dictionary<string, object>(),
                     };
                 thread.SetCommentSource(commentSource);
@@ -623,7 +623,7 @@
                         Id = 123,
                         Status = AzureDevOpsCommentThreadStatus.Active,
                         FilePath = "/foo.cs",
-                        Comments = new List<AzureDevOpsComment>(),
+                        Comments = [],
                         Properties = new Dictionary<string, object>(),
                     };
                 thread.SetCommentSource("foo");
@@ -661,7 +661,7 @@
                         Id = 123,
                         Status = AzureDevOpsCommentThreadStatus.Active,
                         FilePath = "/foo.cs",
-                        Comments = new List<AzureDevOpsComment>(),
+                        Comments = [],
                         Properties = null,
                     };
 
@@ -683,7 +683,7 @@
                         Id = 123,
                         Status = AzureDevOpsCommentThreadStatus.Active,
                         FilePath = "/foo.cs",
-                        Comments = new List<AzureDevOpsComment>(),
+                        Comments = [],
                         Properties = new Dictionary<string, object>(),
                     };
                 thread.SetIssueMessage(message);
@@ -722,7 +722,7 @@
                         Id = 123,
                         Status = AzureDevOpsCommentThreadStatus.Active,
                         FilePath = "/foo.cs",
-                        Comments = new List<AzureDevOpsComment>(),
+                        Comments = [],
                         Properties = null,
                     };
                 const string value = "foo";
@@ -745,7 +745,7 @@
                         Id = 123,
                         Status = AzureDevOpsCommentThreadStatus.Active,
                         FilePath = "/foo.cs",
-                        Comments = new List<AzureDevOpsComment>(),
+                        Comments = [],
                         Properties = new Dictionary<string, object>(),
                     };
 

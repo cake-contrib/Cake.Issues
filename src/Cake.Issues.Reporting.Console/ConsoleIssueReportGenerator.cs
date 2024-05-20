@@ -57,14 +57,14 @@
                 {
                     foreach (var issueGroup in diagnosticIssues.GroupBy(x => x.RuleId))
                     {
-                        report.AddDiagnostic(new IssueDiagnostic(issueGroup));
+                        _ = report.AddDiagnostic(new IssueDiagnostic(issueGroup));
                     }
                 }
                 else
                 {
                     foreach (var issue in diagnosticIssues)
                     {
-                        report.AddDiagnostic(new IssueDiagnostic(issue));
+                        _ = report.AddDiagnostic(new IssueDiagnostic(issue));
                     }
                 }
 
@@ -109,15 +109,16 @@
                 Border = TableBorder.Rounded,
                 Expand = true,
             };
-            priorityTable.AddColumn(new TableColumn("Issue Provider / Run").Centered());
-            priorityTable.AddColumn(new TableColumn("Number Of Issues").Centered());
+            _ = priorityTable
+                .AddColumn(new TableColumn("Issue Provider / Run").Centered())
+                .AddColumn(new TableColumn("Number Of Issues").Centered());
 
             var i = 1;
             foreach (var providerGroup in issues.GroupBy(x => x.ProviderName))
             {
                 var issueProvider = providerGroup.Key;
 
-                providerChart.AddItem(issueProvider, providerGroup.Count(), Color.FromInt32(i));
+                _ = providerChart.AddItem(issueProvider, providerGroup.Count(), Color.FromInt32(i));
 
                 foreach (var runGroup in providerGroup.GroupBy(x => x.Run))
                 {
@@ -140,10 +141,10 @@
                             .AddItem("Suggestion", suggestionCount, Color.Green)
                             .AddItem("Unknown", unknownCount, Color.DarkSlateGray1);
 
-                    priorityTable.AddRow(new Markup(issueProvider), chart);
+                    _ = priorityTable.AddRow(new Markup(issueProvider), chart);
                 }
 
-                priorityTable.AddEmptyRow();
+                _ = priorityTable.AddEmptyRow();
                 i++;
             }
 

@@ -39,8 +39,8 @@
 
             var createIssueReportSettings =
                 new CreateIssueReportSettings(repositoryRootPath, string.Empty);
-            generator.Initialize(createIssueReportSettings);
-            generator.CreateReport(issues);
+            _ = generator.Initialize(createIssueReportSettings);
+            _ = generator.CreateReport(issues);
 
             // TODO Return console output
             return string.Empty;
@@ -67,7 +67,7 @@
 
             // Then
             // Currently only checks if generation failed or not without checking actual output.
-            result.ShouldNotBeNull();
+            _ = result.ShouldNotBeNull();
         }
     }
 }

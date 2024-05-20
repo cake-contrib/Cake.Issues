@@ -49,7 +49,7 @@ namespace Cake.Issues.PullRequests.Tests
 
         private IssueFilterer GetIssueFilterer()
         {
-            this.PullRequestSystem?.Initialize(this.Settings);
+            _ = (this.PullRequestSystem?.Initialize(this.Settings));
 
             return
                 new IssueFilterer(

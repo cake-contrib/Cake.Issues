@@ -1,7 +1,6 @@
 ﻿namespace Cake.Issues.Reporting.Generic
 {
     using System;
-    using System.Diagnostics.CodeAnalysis;
     using Cake.Core;
     using Cake.Core.Annotations;
     using Cake.Core.IO;

@@ -4240,8 +4240,8 @@
                         additionalInformation);
 
                     // Then
-                    issue.AdditionalInformation.ShouldNotBeNull();
-                    issue.AdditionalInformation.ShouldBeEmpty();
+                    var value = issue.AdditionalInformation.ShouldNotBeNull();
+                    value.ShouldBeEmpty();
                 }
             }
         }

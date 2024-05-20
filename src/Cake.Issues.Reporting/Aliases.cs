@@ -101,7 +101,7 @@
             var issueReportCreator = new IssueReportCreator(context.Log);
 
             return issueReportCreator.CreateReport(
-                new List<IIssueProvider> { issueProvider },
+                [issueProvider],
                 reportFormat,
                 settings);
         }

@@ -51,7 +51,7 @@
                 var settings = new RepositorySettings(@"c:\foo");
 
                 // When
-                provider.Initialize(settings);
+                _ = provider.Initialize(settings);
 
                 // Then
                 provider.Settings.ShouldBe(settings);
@@ -93,7 +93,7 @@
                 // Given
                 var provider = new FakeIssueComponent(new FakeLog());
                 var settings = new RepositorySettings(@"c:\foo");
-                provider.Initialize(settings);
+                _ = provider.Initialize(settings);
 
                 // When
                 provider.AssertInitialized();

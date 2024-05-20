@@ -61,7 +61,7 @@
                     };
 
                 // When
-                fixture.CreateReport(issues);
+                _ = fixture.CreateReport(issues);
 
                 // Then
                 // No additional tests. We only check if template can be compiled.
@@ -104,10 +104,10 @@
                 // Given
                 var expectedResult = "Foo";
                 var fixture = new GenericIssueReportFixture("@ViewBag.Title");
-                fixture.GenericIssueReportFormatSettings.WithOption("Title", expectedResult);
+                _ = fixture.GenericIssueReportFormatSettings.WithOption("Title", expectedResult);
 
                 // When
-                var result = fixture.CreateReport(new List<IIssue>());
+                var result = fixture.CreateReport([]);
 
                 // Then
                 result.ShouldBe(expectedResult);

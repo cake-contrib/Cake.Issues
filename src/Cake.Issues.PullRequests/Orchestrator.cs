@@ -71,7 +71,7 @@ namespace Cake.Issues.PullRequests
             // Don't process issues if pull request system could not be initialized.
             if (!this.InitializePullRequestSystem(settings))
             {
-                return new PullRequestIssueResult(issues, new List<IIssue>());
+                return new PullRequestIssueResult(issues, []);
             }
 
             var issuesList = issues.ToList();
@@ -315,10 +315,10 @@ namespace Cake.Issues.PullRequests
                 // Select comments from this thread that are not deleted and that match the given message.
                 var matchingComments =
                     (from comment in thread.Comments
-                    where
-                        comment is { IsDeleted: false }
-                    select
-                        comment).ToList();
+                     where
+                         comment is { IsDeleted: false }
+                     select
+                         comment).ToList();
 
                 if (matchingComments.Count == 0)
                 {

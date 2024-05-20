@@ -35,7 +35,7 @@
                         .WithRootPath(rootPath);
 
                 // Then
-                result.ShouldNotBeNull();
+                _ = result.ShouldNotBeNull();
             }
 
             [Fact]
