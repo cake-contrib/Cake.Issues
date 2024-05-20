@@ -73,6 +73,7 @@
                 IssueCommentFormat.PlainText => issue.MessageText,
                 IssueCommentFormat.Html => !string.IsNullOrEmpty(issue.MessageHtml) ? issue.MessageHtml : issue.MessageText,
                 IssueCommentFormat.Markdown => !string.IsNullOrEmpty(issue.MessageMarkdown) ? issue.MessageMarkdown : issue.MessageText,
+                IssueCommentFormat.Undefined => throw new ArgumentOutOfRangeException(nameof(format), format, "Format needs to be defined"),
                 _ => throw new ArgumentOutOfRangeException(nameof(format)),
             };
         }
