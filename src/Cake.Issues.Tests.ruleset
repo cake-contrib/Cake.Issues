@@ -1,6 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<RuleSet Name="Ruleset for Cake.Issues test cases" Description="Rules valid for Cake.Issues test cases" ToolsVersion="14.0">
-  <Include Path="Cake.Issues.ruleset" Action="Default" />
+<RuleSet Name="Ruleset for Cake.Issues test cases" Description="Rules valid for Cake.Issues test cases" ToolsVersion="17.0">
+  <Include Path="cake.issues.ruleset" Action="Default" />
+  <Rules AnalyzerId="Microsoft.CodeAnalysis.CSharp" RuleNamespace="Microsoft.CodeAnalysis.CSharp">
+    <Rule Id="CS1591" Action="None" />
+  </Rules>
   <Rules AnalyzerId="StyleCop.Analyzers" RuleNamespace="StyleCop.Analyzers">
     <Rule Id="SA0001" Action="None" />
     <Rule Id="SA1118" Action="None" />
