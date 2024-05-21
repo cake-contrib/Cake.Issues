@@ -1,53 +1,52 @@
-﻿namespace Cake.Issues.FileLinking
+﻿namespace Cake.Issues.FileLinking;
+
+using System;
+using System.Collections.Generic;
+
+/// <summary>
+/// Class containing builder for optional settings for linking to files.
+/// </summary>
+public class FileLinkOptionalSettingsBuilder : FileLinkSettings
 {
-    using System;
-    using System.Collections.Generic;
+    private readonly Func<IIssue, IDictionary<string, string>, Uri> builder;
 
     /// <summary>
-    /// Class containing builder for optional settings for linking to files.
+    /// Initializes a new instance of the <see cref="FileLinkOptionalSettingsBuilder"/> class.
     /// </summary>
-    public class FileLinkOptionalSettingsBuilder : FileLinkSettings
+    /// <param name="builder">Callback called for building the file link.</param>
+    internal FileLinkOptionalSettingsBuilder(Func<IIssue, IDictionary<string, string>, Uri> builder)
+        : base(builder)
     {
-        private readonly Func<IIssue, IDictionary<string, string>, Uri> builder;
+        builder.NotNull();
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="FileLinkOptionalSettingsBuilder"/> class.
-        /// </summary>
-        /// <param name="builder">Callback called for building the file link.</param>
-        internal FileLinkOptionalSettingsBuilder(Func<IIssue, IDictionary<string, string>, Uri> builder)
-            : base(builder)
+        this.builder = builder;
+    }
+
+    /// <summary>
+    /// Sets the root path for the files.
+    /// </summary>
+    /// <param name="rootPath">Root path for the files.
+    /// <c>null</c> if files are in the root of the repository.</param>
+    /// <returns>Object for creating the file link.</returns>
+    public FileLinkSettings WithRootPath(string rootPath)
+    {
+        if (rootPath != null)
         {
-            builder.NotNull();
+            rootPath.NotNullOrWhiteSpace();
 
-            this.builder = builder;
-        }
-
-        /// <summary>
-        /// Sets the root path for the files.
-        /// </summary>
-        /// <param name="rootPath">Root path for the files.
-        /// <c>null</c> if files are in the root of the repository.</param>
-        /// <returns>Object for creating the file link.</returns>
-        public FileLinkSettings WithRootPath(string rootPath)
-        {
-            if (rootPath != null)
+            if (!rootPath.IsValidPath())
             {
-                rootPath.NotNullOrWhiteSpace();
-
-                if (!rootPath.IsValidPath())
-                {
-                    throw new ArgumentException($"Invalid path '{rootPath}'", nameof(rootPath));
-                }
+                throw new ArgumentException($"Invalid path '{rootPath}'", nameof(rootPath));
             }
-
-            return
-                new FileLinkSettings(
-                    (issue, values) =>
-                    {
-                        values.Add("rootPath", rootPath);
-
-                        return this.builder(issue, values);
-                    });
         }
+
+        return
+            new FileLinkSettings(
+                (issue, values) =>
+                {
+                    values.Add("rootPath", rootPath);
+
+                    return this.builder(issue, values);
+                });
     }
 }

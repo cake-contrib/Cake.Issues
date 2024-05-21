@@ -1,23 +1,22 @@
-﻿namespace Cake.Issues.PullRequests
+﻿namespace Cake.Issues.PullRequests;
+
+/// <summary>
+/// Status of discussions in pull requests.
+/// </summary>
+public enum PullRequestDiscussionStatus
 {
     /// <summary>
-    /// Status of discussions in pull requests.
+    /// Unknown discussion status.
     /// </summary>
-    public enum PullRequestDiscussionStatus
-    {
-        /// <summary>
-        /// Unknown discussion status.
-        /// </summary>
-        Unknown,
+    Unknown,
 
-        /// <summary>
-        /// Discussion is active.
-        /// </summary>
-        Active,
+    /// <summary>
+    /// Discussion is active.
+    /// </summary>
+    Active,
 
-        /// <summary>
-        /// Discussion is resolved.
-        /// </summary>
-        Resolved,
-    }
+    /// <summary>
+    /// Discussion is resolved.
+    /// </summary>
+    Resolved,
 }

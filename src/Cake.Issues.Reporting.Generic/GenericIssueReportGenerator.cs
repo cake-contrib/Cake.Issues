@@ -1,65 +1,64 @@
-﻿namespace Cake.Issues.Reporting.Generic
+﻿namespace Cake.Issues.Reporting.Generic;
+
+using System;
+using System.Collections.Generic;
+using System.IO;
+using Cake.Core.Diagnostics;
+using Cake.Core.IO;
+using Gazorator;
+
+/// <summary>
+/// Generator for creating text based issue reports.
+/// </summary>
+internal class GenericIssueReportGenerator : IssueReportFormat
 {
-    using System;
-    using System.Collections.Generic;
-    using System.IO;
-    using Cake.Core.Diagnostics;
-    using Cake.Core.IO;
-    using Gazorator;
+    private readonly GenericIssueReportFormatSettings genericIssueReportFormatSettings;
 
     /// <summary>
-    /// Generator for creating text based issue reports.
+    /// Initializes a new instance of the <see cref="GenericIssueReportGenerator"/> class.
     /// </summary>
-    internal class GenericIssueReportGenerator : IssueReportFormat
+    /// <param name="log">The Cake log context.</param>
+    /// <param name="settings">Settings for reading the log file.</param>
+    public GenericIssueReportGenerator(ICakeLog log, GenericIssueReportFormatSettings settings)
+        : base(log)
     {
-        private readonly GenericIssueReportFormatSettings genericIssueReportFormatSettings;
+        settings.NotNull();
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="GenericIssueReportGenerator"/> class.
-        /// </summary>
-        /// <param name="log">The Cake log context.</param>
-        /// <param name="settings">Settings for reading the log file.</param>
-        public GenericIssueReportGenerator(ICakeLog log, GenericIssueReportFormatSettings settings)
-            : base(log)
+        this.genericIssueReportFormatSettings = settings;
+    }
+
+    /// <inheritdoc />
+    protected override FilePath InternalCreateReport(IEnumerable<IIssue> issues)
+    {
+        this.Log.Information("Creating report '{0}'", this.Settings.OutputFilePath.FullPath);
+
+        try
         {
-            settings.NotNull();
+            using (var streamWriter = new StreamWriter(this.Settings.OutputFilePath.FullPath))
+            {
+                Gazorator.Default
+                    .WithOutput(streamWriter)
+                    .WithModel(issues)
+                    .WithReferences(
+                        typeof(System.Linq.Enumerable).Assembly,
+                        typeof(Cake.Issues.IIssue).Assembly,
+                        typeof(Cake.Issues.Reporting.IIssueReportFormat).Assembly,
+                        typeof(Cake.Issues.Reporting.Generic.DevExtremeTheme).Assembly,
+                        typeof(Cake.Core.IO.FilePath).Assembly)
+                    .WithViewBag(this.genericIssueReportFormatSettings.Options)
+                    .ProcessTemplateAsync(this.genericIssueReportFormatSettings.Template)
+                    .ConfigureAwait(false)
+                    .GetAwaiter()
+                    .GetResult();
+            }
 
-            this.genericIssueReportFormatSettings = settings;
+            return this.Settings.OutputFilePath;
         }
-
-        /// <inheritdoc />
-        protected override FilePath InternalCreateReport(IEnumerable<IIssue> issues)
+        catch (Exception e)
         {
-            this.Log.Information("Creating report '{0}'", this.Settings.OutputFilePath.FullPath);
+            this.Log.Error(e.Message);
 
-            try
-            {
-                using (var streamWriter = new StreamWriter(this.Settings.OutputFilePath.FullPath))
-                {
-                    Gazorator.Default
-                        .WithOutput(streamWriter)
-                        .WithModel(issues)
-                        .WithReferences(
-                            typeof(System.Linq.Enumerable).Assembly,
-                            typeof(Cake.Issues.IIssue).Assembly,
-                            typeof(Cake.Issues.Reporting.IIssueReportFormat).Assembly,
-                            typeof(Cake.Issues.Reporting.Generic.DevExtremeTheme).Assembly,
-                            typeof(Cake.Core.IO.FilePath).Assembly)
-                        .WithViewBag(this.genericIssueReportFormatSettings.Options)
-                        .ProcessTemplateAsync(this.genericIssueReportFormatSettings.Template)
-                        .ConfigureAwait(false)
-                        .GetAwaiter()
-                        .GetResult();
-                }
-
-                return this.Settings.OutputFilePath;
-            }
-            catch (Exception e)
-            {
-                this.Log.Error(e.Message);
-
-                throw;
-            }
+            throw;
         }
     }
 }

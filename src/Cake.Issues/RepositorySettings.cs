@@ -1,24 +1,23 @@
-﻿namespace Cake.Issues
+﻿namespace Cake.Issues;
+
+using Cake.Core.IO;
+
+/// <summary>
+/// Settings containing a path to a repository.
+/// </summary>
+public class RepositorySettings : IRepositorySettings
 {
-    using Cake.Core.IO;
-
     /// <summary>
-    /// Settings containing a path to a repository.
+    /// Initializes a new instance of the <see cref="RepositorySettings"/> class.
     /// </summary>
-    public class RepositorySettings : IRepositorySettings
+    /// <param name="repositoryRoot">Root path of the repository.</param>
+    public RepositorySettings(DirectoryPath repositoryRoot)
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="RepositorySettings"/> class.
-        /// </summary>
-        /// <param name="repositoryRoot">Root path of the repository.</param>
-        public RepositorySettings(DirectoryPath repositoryRoot)
-        {
-            repositoryRoot.NotNull();
+        repositoryRoot.NotNull();
 
-            this.RepositoryRoot = repositoryRoot;
-        }
-
-        /// <inheritdoc/>
-        public DirectoryPath RepositoryRoot { get; }
+        this.RepositoryRoot = repositoryRoot;
     }
+
+    /// <inheritdoc/>
+    public DirectoryPath RepositoryRoot { get; }
 }

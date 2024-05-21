@@ -1,9 +1,8 @@
-﻿namespace Cake.Issues.Reporting.Sarif
+﻿namespace Cake.Issues.Reporting.Sarif;
+
+/// <summary>
+/// Settings for <see cref="SarifIssueReportFormatAliases"/>.
+/// </summary>
+public class SarifIssueReportFormatSettings
 {
-    /// <summary>
-    /// Settings for <see cref="SarifIssueReportFormatAliases"/>.
-    /// </summary>
-    public class SarifIssueReportFormatSettings
-    {
-    }
 }

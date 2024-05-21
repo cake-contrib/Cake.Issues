@@ -1,56 +1,55 @@
-﻿namespace Cake.Issues.Markdownlint
+﻿namespace Cake.Issues.Markdownlint;
+
+using System;
+using System.Text.RegularExpressions;
+
+/// <summary>
+/// Class for retrieving a URL linking to a site describing a rule.
+/// </summary>
+internal class MarkdownlintRuleUrlResolver : BaseRuleUrlResolver<MarkdownlintRuleDescription>
 {
-    using System;
-    using System.Text.RegularExpressions;
+    private static readonly Lazy<MarkdownlintRuleUrlResolver> InstanceValue =
+        new(() => new MarkdownlintRuleUrlResolver());
 
     /// <summary>
-    /// Class for retrieving a URL linking to a site describing a rule.
+    /// Initializes a new instance of the <see cref="MarkdownlintRuleUrlResolver"/> class.
     /// </summary>
-    internal class MarkdownlintRuleUrlResolver : BaseRuleUrlResolver<MarkdownlintRuleDescription>
+    internal MarkdownlintRuleUrlResolver()
     {
-        private static readonly Lazy<MarkdownlintRuleUrlResolver> InstanceValue =
-            new(() => new MarkdownlintRuleUrlResolver());
+        this.AddUrlResolver(x =>
+            new Uri("https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#" + x.Rule.ToLowerInvariant()));
+    }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MarkdownlintRuleUrlResolver"/> class.
-        /// </summary>
-        internal MarkdownlintRuleUrlResolver()
+    /// <summary>
+    /// Gets the instance of the rule resolver.
+    /// </summary>
+    public static MarkdownlintRuleUrlResolver Instance => InstanceValue.Value;
+
+    /// <inheritdoc/>
+    protected override bool TryGetRuleDescription(string rule, MarkdownlintRuleDescription ruleDescription)
+    {
+        var regex = new Regex(@"^MD(\d*)$");
+        var match = regex.Match(rule);
+
+        if (!match.Success)
         {
-            this.AddUrlResolver(x =>
-                new Uri("https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#" + x.Rule.ToLowerInvariant()));
+            return false;
         }
 
-        /// <summary>
-        /// Gets the instance of the rule resolver.
-        /// </summary>
-        public static MarkdownlintRuleUrlResolver Instance => InstanceValue.Value;
+        var groups = match.Groups;
 
-        /// <inheritdoc/>
-        protected override bool TryGetRuleDescription(string rule, MarkdownlintRuleDescription ruleDescription)
+        if (groups.Count != 2)
         {
-            var regex = new Regex(@"^MD(\d*)$");
-            var match = regex.Match(rule);
-
-            if (!match.Success)
-            {
-                return false;
-            }
-
-            var groups = match.Groups;
-
-            if (groups.Count != 2)
-            {
-                return false;
-            }
-
-            if (!int.TryParse(groups[1].Value, out var ruleId))
-            {
-                return false;
-            }
-
-            ruleDescription.RuleId = ruleId;
-
-            return true;
+            return false;
         }
+
+        if (!int.TryParse(groups[1].Value, out var ruleId))
+        {
+            return false;
+        }
+
+        ruleDescription.RuleId = ruleId;
+
+        return true;
     }
 }

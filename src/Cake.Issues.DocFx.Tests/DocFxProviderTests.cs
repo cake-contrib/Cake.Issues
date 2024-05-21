@@ -1,144 +1,143 @@
-﻿namespace Cake.Issues.DocFx.Tests
+﻿namespace Cake.Issues.DocFx.Tests;
+
+using System.Runtime.InteropServices;
+
+public sealed class DocFxProviderTests
 {
-    using System.Runtime.InteropServices;
-
-    public sealed class DocFxProviderTests
+    public sealed class TheCtor
     {
-        public sealed class TheCtor
+        [Fact]
+        public void Should_Throw_If_Log_Is_Null()
         {
-            [Fact]
-            public void Should_Throw_If_Log_Is_Null()
-            {
-                // Given / When
-                var result = Record.Exception(() =>
-                    new DocFxIssuesProvider(
-                        null,
-                        new DocFxIssuesSettings("Foo".ToByteArray(), @"c:\Source\Cake.Issues")));
+            // Given / When
+            var result = Record.Exception(() =>
+                new DocFxIssuesProvider(
+                    null,
+                    new DocFxIssuesSettings("Foo".ToByteArray(), @"c:\Source\Cake.Issues")));
 
-                // Then
-                result.IsArgumentNullException("log");
-            }
-
-            [Fact]
-            public void Should_Throw_If_IssueProviderSettings_Are_Null()
-            {
-                var result = Record.Exception(() =>
-                    new DocFxIssuesProvider(
-                        new FakeLog(),
-                        null));
-
-                // Then
-                result.IsArgumentNullException("issueProviderSettings");
-            }
+            // Then
+            result.IsArgumentNullException("log");
         }
 
-        public sealed class TheReadIssuesMethod
+        [Fact]
+        public void Should_Throw_If_IssueProviderSettings_Are_Null()
         {
-            [SkippableTheory]
-            [InlineData(@"c:\Source\Cake.Issues\docs", "docs/")]
-            [InlineData("docs", "docs/")]
-            [InlineData(@"c:\Source\Cake.Issues\src\docs", "src/docs/")]
-            [InlineData(@"src\docs", "src/docs/")]
-            [InlineData(@"c:\Source\Cake.Issues", "")]
-            [InlineData("./", "")]
-            public void Should_Read_Issue_Correct(string docRootPath, string docRelativePath)
-            {
-                // Uses Windows specific paths.
-                Skip.IfNot(RuntimeInformation.IsOSPlatform(OSPlatform.Windows));
+            var result = Record.Exception(() =>
+                new DocFxIssuesProvider(
+                    new FakeLog(),
+                    null));
 
-                // Given
-                var fixture = new DocFxProviderFixture("docfx.json", docRootPath);
+            // Then
+            result.IsArgumentNullException("issueProviderSettings");
+        }
+    }
 
-                // When
-                var issues = fixture.ReadIssues().ToList();
+    public sealed class TheReadIssuesMethod
+    {
+        [SkippableTheory]
+        [InlineData(@"c:\Source\Cake.Issues\docs", "docs/")]
+        [InlineData("docs", "docs/")]
+        [InlineData(@"c:\Source\Cake.Issues\src\docs", "src/docs/")]
+        [InlineData(@"src\docs", "src/docs/")]
+        [InlineData(@"c:\Source\Cake.Issues", "")]
+        [InlineData("./", "")]
+        public void Should_Read_Issue_Correct(string docRootPath, string docRelativePath)
+        {
+            // Uses Windows specific paths.
+            Skip.IfNot(RuntimeInformation.IsOSPlatform(OSPlatform.Windows));
 
-                // Then
-                issues.Count.ShouldBe(1);
-                IssueChecker.Check(
-                    issues[0],
-                    IssueBuilder.NewIssue(
-                        "Invalid cross reference \"[Foo](xref:foo)\".",
-                        "Cake.Issues.DocFx.DocFxIssuesProvider",
-                        "DocFX")
-                        .InFile(docRelativePath + "index.md")
-                        .OfRule("Build Document.LinkPhaseHandler.Apply Templates")
-                        .WithPriority(IssuePriority.Warning));
-            }
+            // Given
+            var fixture = new DocFxProviderFixture("docfx.json", docRootPath);
 
-            [SkippableFact]
-            public void Should_Read_Line_Correct()
-            {
-                // Uses Windows specific paths.
-                Skip.IfNot(RuntimeInformation.IsOSPlatform(OSPlatform.Windows));
+            // When
+            var issues = fixture.ReadIssues().ToList();
 
-                // Given
-                var fixture = new DocFxProviderFixture("entry-with-line.json", "./");
+            // Then
+            issues.Count.ShouldBe(1);
+            IssueChecker.Check(
+                issues[0],
+                IssueBuilder.NewIssue(
+                    "Invalid cross reference \"[Foo](xref:foo)\".",
+                    "Cake.Issues.DocFx.DocFxIssuesProvider",
+                    "DocFX")
+                    .InFile(docRelativePath + "index.md")
+                    .OfRule("Build Document.LinkPhaseHandler.Apply Templates")
+                    .WithPriority(IssuePriority.Warning));
+        }
 
-                // When
-                var issues = fixture.ReadIssues().ToList();
+        [SkippableFact]
+        public void Should_Read_Line_Correct()
+        {
+            // Uses Windows specific paths.
+            Skip.IfNot(RuntimeInformation.IsOSPlatform(OSPlatform.Windows));
 
-                // Then
-                issues.Count.ShouldBe(1);
-                IssueChecker.Check(
-                    issues[0],
-                    IssueBuilder.NewIssue(
-                        "Invalid file link:(~/foo.md).",
-                        "Cake.Issues.DocFx.DocFxIssuesProvider",
-                        "DocFX")
-                        .InFile("bar.md", 45)
-                        .OfRule("Build Document.LinkPhaseHandler.ConceptualDocumentProcessor.Save")
-                        .WithPriority(IssuePriority.Warning));
-            }
+            // Given
+            var fixture = new DocFxProviderFixture("entry-with-line.json", "./");
 
-            [SkippableFact]
-            public void Should_Read_Line_Zero_Correct()
-            {
-                // Uses Windows specific paths.
-                Skip.IfNot(RuntimeInformation.IsOSPlatform(OSPlatform.Windows));
+            // When
+            var issues = fixture.ReadIssues().ToList();
 
-                // Given
-                var fixture = new DocFxProviderFixture("entry-with-line-0.json", "./");
+            // Then
+            issues.Count.ShouldBe(1);
+            IssueChecker.Check(
+                issues[0],
+                IssueBuilder.NewIssue(
+                    "Invalid file link:(~/foo.md).",
+                    "Cake.Issues.DocFx.DocFxIssuesProvider",
+                    "DocFX")
+                    .InFile("bar.md", 45)
+                    .OfRule("Build Document.LinkPhaseHandler.ConceptualDocumentProcessor.Save")
+                    .WithPriority(IssuePriority.Warning));
+        }
 
-                // When
-                var issues = fixture.ReadIssues().ToList();
+        [SkippableFact]
+        public void Should_Read_Line_Zero_Correct()
+        {
+            // Uses Windows specific paths.
+            Skip.IfNot(RuntimeInformation.IsOSPlatform(OSPlatform.Windows));
 
-                // Then
-                issues.Count.ShouldBe(1);
-                IssueChecker.Check(
-                    issues[0],
-                    IssueBuilder.NewIssue(
-                        "Invalid file link:(~/foo.md).",
-                        "Cake.Issues.DocFx.DocFxIssuesProvider",
-                        "DocFX")
-                        .InFile("~/toc.yml")
-                        .OfRule("BuildCore.Build Document.LinkPhaseHandlerWithIncremental.TocDocumentProcessor.Save")
-                        .WithPriority(IssuePriority.Warning));
-            }
+            // Given
+            var fixture = new DocFxProviderFixture("entry-with-line-0.json", "./");
 
-            [SkippableFact]
-            public void Should_Read_Suggestions_Correct()
-            {
-                // Uses Windows specific paths.
-                Skip.IfNot(RuntimeInformation.IsOSPlatform(OSPlatform.Windows));
+            // When
+            var issues = fixture.ReadIssues().ToList();
 
-                // Given
-                var fixture = new DocFxProviderFixture("entry-of-level-suggestion.json", "./");
+            // Then
+            issues.Count.ShouldBe(1);
+            IssueChecker.Check(
+                issues[0],
+                IssueBuilder.NewIssue(
+                    "Invalid file link:(~/foo.md).",
+                    "Cake.Issues.DocFx.DocFxIssuesProvider",
+                    "DocFX")
+                    .InFile("~/toc.yml")
+                    .OfRule("BuildCore.Build Document.LinkPhaseHandlerWithIncremental.TocDocumentProcessor.Save")
+                    .WithPriority(IssuePriority.Warning));
+        }
 
-                // When
-                var issues = fixture.ReadIssues().ToList();
+        [SkippableFact]
+        public void Should_Read_Suggestions_Correct()
+        {
+            // Uses Windows specific paths.
+            Skip.IfNot(RuntimeInformation.IsOSPlatform(OSPlatform.Windows));
 
-                // Then
-                issues.Count.ShouldBe(1);
-                IssueChecker.Check(
-                    issues[0],
-                    IssueBuilder.NewIssue(
-                        "Invalid file link:(~/foo.md).",
-                        "Cake.Issues.DocFx.DocFxIssuesProvider",
-                        "DocFX")
-                        .InFile("bar.md", 45)
-                        .OfRule("Build Document.LinkPhaseHandler.ConceptualDocumentProcessor.Save")
-                        .WithPriority(IssuePriority.Suggestion));
-            }
+            // Given
+            var fixture = new DocFxProviderFixture("entry-of-level-suggestion.json", "./");
+
+            // When
+            var issues = fixture.ReadIssues().ToList();
+
+            // Then
+            issues.Count.ShouldBe(1);
+            IssueChecker.Check(
+                issues[0],
+                IssueBuilder.NewIssue(
+                    "Invalid file link:(~/foo.md).",
+                    "Cake.Issues.DocFx.DocFxIssuesProvider",
+                    "DocFX")
+                    .InFile("bar.md", 45)
+                    .OfRule("Build Document.LinkPhaseHandler.ConceptualDocumentProcessor.Save")
+                    .WithPriority(IssuePriority.Suggestion));
         }
     }
 }
