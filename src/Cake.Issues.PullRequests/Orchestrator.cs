@@ -68,6 +68,28 @@ internal class Orchestrator
         issues.NotNullOrEmptyElement();
         settings.NotNull();
 
+        this.log.Verbose("Running pull request orchestrator with the following settings:");
+        this.log.Verbose("  CommitId: {0}", settings.CommitId);
+        this.log.Verbose("  CommentSource: {0}", settings.CommentSource);
+        this.log.Verbose("  MaxIssuesToPost: {0}", settings.MaxIssuesToPost);
+        this.log.Verbose("  MaxIssuesToPostAcrossRuns: {0}", settings.MaxIssuesToPostAcrossRuns);
+        this.log.Verbose("  MaxIssuesToPostForEachIssueProvider: {0}", settings.MaxIssuesToPostForEachIssueProvider);
+        this.log.Verbose("  ProviderIssueLimits: {0}", settings.ProviderIssueLimits);
+
+        if (settings.ProviderIssueLimits != null)
+        {
+            foreach (var providerIssueLimit in settings.ProviderIssueLimits)
+            {
+                this.log.Verbose("    {0}: {1}", providerIssueLimit.Key, providerIssueLimit.Value);
+            }
+        }
+        else
+        {
+            this.log.Verbose("    Not configured");
+        }
+
+        this.log.Verbose("  Number of registered IssueFilters: {0}", settings.IssueFilters.Count);
+
         // Don't process issues if pull request system could not be initialized.
         if (!this.InitializePullRequestSystem(settings))
         {
