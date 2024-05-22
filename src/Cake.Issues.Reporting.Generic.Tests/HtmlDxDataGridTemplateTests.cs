@@ -876,6 +876,23 @@ public sealed class HtmlDxDataGridTemplateTests
         }
     }
 
+    public sealed class TheDevExtremeLicenseKeyOption
+    {
+        [Fact]
+        public void Should_Not_Fail_On_Report_Creation()
+        {
+            // Given
+            var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+
+            // When / Then
+            fixture.TestReportCreation(
+                settings =>
+                    settings.WithOption(
+                        HtmlDxDataGridOption.DevExtremeLicenseKey,
+                        "SecretKey"));
+        }
+    }
+
     public sealed class TheIdeIntegrationSettingsOption
     {
         [Fact]
