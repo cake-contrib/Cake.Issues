@@ -4,6 +4,12 @@
 > This is the version of the addin compatible with [Cake .NET Tool].
 > For addin compatible with [Cake Frosting] see [Cake.Frosting.Issues.InspectCode](https://www.nuget.org/packages/Cake.Frosting.Issues.InspectCode).
 
+<!--Separator-->
+
+> **NOTE**:
+> Starting with version `2024.1` the default output format of Inspect Code is SARIF which can be parsed using the
+> [Cake.Issues.Sarif addin](https://www.nuget.org/packages/Cake.Issues.Sarif).
+
 The JetBrains Inspect Code support for the Cake.Issues addin for Cake allows you to read issues logged by JetBrains Inspect Code.
 
 Cake.Issues redefines issue management within the Cake build system by offering a comprehensive, universal, and extensible solution.
