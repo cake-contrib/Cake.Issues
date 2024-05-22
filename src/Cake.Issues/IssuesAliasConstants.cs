@@ -34,4 +34,9 @@ public static class IssuesAliasConstants
     /// Category to use for all Cake aliases creating issue providers.
     /// </summary>
     public const string IssueProviderCakeAliasCategory = "Issue Providers";
+
+    /// <summary>
+    /// Category to use for all Cake aliases providing functionality for build breaking.
+    /// </summary>
+    public const string BuildBreakingCakeAliasCategory = "Build Breaking";
 }
