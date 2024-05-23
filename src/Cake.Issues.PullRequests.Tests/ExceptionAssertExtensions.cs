@@ -1,11 +1,10 @@
-﻿namespace Cake.Issues.PullRequests.Tests
+﻿namespace Cake.Issues.PullRequests.Tests;
+
+public static class ExceptionAssertExtensions
 {
-    public static class ExceptionAssertExtensions
+    public static void IsPullRequestIssuesException(this Exception exception, string message)
     {
-        public static void IsPullRequestIssuesException(this Exception exception, string message)
-        {
-            Assert.IsType<PullRequestIssuesException>(exception);
-            Assert.Equal(message, exception.Message);
-        }
+        var ex = Assert.IsType<PullRequestIssuesException>(exception);
+        Assert.Equal(message, ex.Message);
     }
 }

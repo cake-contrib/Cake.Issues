@@ -1,45 +1,38 @@
-﻿namespace Cake.Issues.PullRequests
+﻿namespace Cake.Issues.PullRequests;
+
+using System.Collections.Generic;
+
+/// <summary>
+/// Result from reporting issues to a pull request.
+/// </summary>
+public class PullRequestIssueResult
 {
-    using System.Collections.Generic;
+    private readonly List<IIssue> reportedIssues = [];
+    private readonly List<IIssue> postedIssues = [];
 
     /// <summary>
-    /// Result from reporting issues to a pull request.
+    /// Initializes a new instance of the <see cref="PullRequestIssueResult"/> class.
     /// </summary>
-    public class PullRequestIssueResult
+    /// <param name="reportedIssues">Issues reported by the issue providers.</param>
+    /// <param name="postedIssues">Issues posted to the pull request.</param>
+    public PullRequestIssueResult(
+        IEnumerable<IIssue> reportedIssues,
+        IEnumerable<IIssue> postedIssues)
     {
-        private readonly List<IIssue> reportedIssues = [];
-        private readonly List<IIssue> postedIssues = [];
+        reportedIssues.NotNull();
+        postedIssues.NotNull();
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PullRequestIssueResult"/> class.
-        /// </summary>
-        /// <param name="reportedIssues">Issues reported by the issue providers.</param>
-        /// <param name="postedIssues">Issues posted to the pull request.</param>
-        public PullRequestIssueResult(
-            IEnumerable<IIssue> reportedIssues,
-            IEnumerable<IIssue> postedIssues)
-        {
-            // ReSharper disable once PossibleMultipleEnumeration
-            reportedIssues.NotNull();
-
-            // ReSharper disable once PossibleMultipleEnumeration
-            postedIssues.NotNull();
-
-            // ReSharper disable once PossibleMultipleEnumeration
-            this.reportedIssues.AddRange(reportedIssues);
-
-            // ReSharper disable once PossibleMultipleEnumeration
-            this.postedIssues.AddRange(postedIssues);
-        }
-
-        /// <summary>
-        /// Gets all issues reported by the issue providers.
-        /// </summary>
-        public IEnumerable<IIssue> ReportedIssues => this.reportedIssues.AsReadOnly();
-
-        /// <summary>
-        /// Gets the issues posted to the pull request.
-        /// </summary>
-        public IEnumerable<IIssue> PostedIssues => this.postedIssues.AsReadOnly();
+        this.reportedIssues.AddRange(reportedIssues);
+        this.postedIssues.AddRange(postedIssues);
     }
+
+    /// <summary>
+    /// Gets all issues reported by the issue providers.
+    /// </summary>
+    public IEnumerable<IIssue> ReportedIssues => this.reportedIssues.AsReadOnly();
+
+    /// <summary>
+    /// Gets the issues posted to the pull request.
+    /// </summary>
+    public IEnumerable<IIssue> PostedIssues => this.postedIssues.AsReadOnly();
 }

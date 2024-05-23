@@ -1,58 +1,57 @@
-﻿namespace Cake.Issues.Testing
+﻿namespace Cake.Issues.Testing;
+
+using System;
+using System.IO;
+using System.Reflection;
+
+/// <summary>
+/// Creates a temporary file from an embedded resource.
+/// </summary>
+public sealed class ResourceTempFile : IDisposable
 {
-    using System;
-    using System.IO;
-    using System.Reflection;
-
     /// <summary>
-    /// Creates a temporary file from an embedded resource.
+    /// Initializes a new instance of the <see cref="ResourceTempFile"/> class.
     /// </summary>
-    public sealed class ResourceTempFile : IDisposable
+    /// <param name="resourceName">Full name of the embedded resource in the calling assembly.</param>
+    public ResourceTempFile(string resourceName)
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ResourceTempFile"/> class.
-        /// </summary>
-        /// <param name="resourceName">Full name of the embedded resource in the calling assembly.</param>
-        public ResourceTempFile(string resourceName)
+        resourceName.NotNullOrWhiteSpace();
+
+        using (var ms = new MemoryStream())
+        using (var stream = Assembly.GetCallingAssembly().GetManifestResourceStream(resourceName))
         {
-            resourceName.NotNullOrWhiteSpace();
-
-            using (var ms = new MemoryStream())
-            using (var stream = Assembly.GetCallingAssembly().GetManifestResourceStream(resourceName))
+            if (stream == null)
             {
-                if (stream == null)
-                {
-                    throw new ArgumentException(
-                        $"Could not find resource {resourceName}", nameof(resourceName));
-                }
+                throw new ArgumentException(
+                    $"Could not find resource {resourceName}", nameof(resourceName));
+            }
 
-                stream.CopyTo(ms);
-                this.Content = ms.ToArray();
+            stream.CopyTo(ms);
+            this.Content = ms.ToArray();
 
-                using (var file = new FileStream(this.FileName, FileMode.Create, FileAccess.Write))
-                {
-                    file.Write(this.Content, 0, this.Content.Length);
-                }
+            using (var file = new FileStream(this.FileName, FileMode.Create, FileAccess.Write))
+            {
+                file.Write(this.Content, 0, this.Content.Length);
             }
         }
+    }
 
-        /// <summary>
-        /// Gets the name of the temporary file.
-        /// </summary>
-        public string FileName { get; } = Path.GetTempFileName();
+    /// <summary>
+    /// Gets the name of the temporary file.
+    /// </summary>
+    public string FileName { get; } = Path.GetTempFileName();
 
-        /// <summary>
-        /// Gets the content which was written to the temporary file.
-        /// </summary>
-        public byte[] Content { get; }
+    /// <summary>
+    /// Gets the content which was written to the temporary file.
+    /// </summary>
+    public byte[] Content { get; }
 
-        /// <inheritdoc/>
-        public void Dispose()
+    /// <inheritdoc/>
+    public void Dispose()
+    {
+        if (File.Exists(this.FileName))
         {
-            if (File.Exists(this.FileName))
-            {
-                File.Delete(this.FileName);
-            }
+            File.Delete(this.FileName);
         }
     }
 }

@@ -1,37 +1,32 @@
-﻿namespace Cake.Issues.Reporting.Generic.Tests
+﻿namespace Cake.Issues.Reporting.Generic.Tests;
+
+public sealed class StringExtensionsTests
 {
-    using System.Diagnostics.CodeAnalysis;
-
-    [SuppressMessage("ReSharper", "ClassNeverInstantiated.Global", Justification = "Instantiated by test runner")]
-    [SuppressMessage("ReSharper", "ExpressionIsAlwaysNull", Justification = "By design for null tests")]
-    public sealed class StringExtensionsTests
+    public sealed class TheSanitizeHtmlIdAttributeExtension
     {
-        public sealed class TheSanitizeHtmlIdAttributeExtension
+        [Theory]
+        [InlineData(null, "")]
+        [InlineData("", "")]
+        [InlineData(" ", "")]
+        [InlineData("foo", "foo")]
+        [InlineData("foo123", "foo123")]
+        [InlineData("foo:bar", "foo:bar")]
+        [InlineData("foo-bar", "foo-bar")]
+        [InlineData("foo_bar", "foo_bar")]
+        [InlineData("foo.bar", "foo-bar")]
+        [InlineData("foo bar", "foo-bar")]
+        [InlineData("foo@bar", "foo-bar")]
+        [InlineData("foo🐱bar", "foo-bar")]
+        [InlineData("123foo", "foo")]
+        public void Should_Sanitize_Input(string input, string expectedId)
         {
-            [Theory]
-            [InlineData(null, "")]
-            [InlineData("", "")]
-            [InlineData(" ", "")]
-            [InlineData("foo", "foo")]
-            [InlineData("foo123", "foo123")]
-            [InlineData("foo:bar", "foo:bar")]
-            [InlineData("foo-bar", "foo-bar")]
-            [InlineData("foo_bar", "foo_bar")]
-            [InlineData("foo.bar", "foo-bar")]
-            [InlineData("foo bar", "foo-bar")]
-            [InlineData("foo@bar", "foo-bar")]
-            [InlineData("foo🐱bar", "foo-bar")]
-            [InlineData("123foo", "foo")]
-            public void Should_Sanitize_Input(string input, string expectedId)
-            {
-                // Given
+            // Given
 
-                // When
-                var result = input.SanitizeHtmlIdAttribute();
+            // When
+            var result = input.SanitizeHtmlIdAttribute();
 
-                // Then
-                result.ShouldBe(expectedId);
-            }
+            // Then
+            result.ShouldBe(expectedId);
         }
     }
 }

@@ -1,105 +1,104 @@
-﻿namespace Cake.Issues.Tests
+﻿namespace Cake.Issues.Tests;
+
+public sealed class BaseIssueComponentTests
 {
-    public sealed class BaseIssueComponentTests
+    public sealed class TheCtor
     {
-        public sealed class TheCtor
+        [Fact]
+        public void Should_Throw_If_Log_Is_Null()
         {
-            [Fact]
-            public void Should_Throw_If_Log_Is_Null()
-            {
-                // Given / When
-                var result = Record.Exception(() => new FakeIssueComponent(null));
+            // Given / When
+            var result = Record.Exception(() => new FakeIssueComponent(null));
 
-                // Then
-                result.IsArgumentNullException("log");
-            }
-
-            [Fact]
-            public void Should_Set_Log()
-            {
-                // Given
-                var log = new FakeLog();
-
-                // When
-                var provider = new FakeIssueComponent(log);
-
-                // Then
-                provider.Log.ShouldBe(log);
-            }
+            // Then
+            result.IsArgumentNullException("log");
         }
 
-        public sealed class TheInitializeMethod
+        [Fact]
+        public void Should_Set_Log()
         {
-            [Fact]
-            public void Should_Throw_If_Settings_Are_Null()
-            {
-                // Given
-                var provider = new FakeIssueComponent(new FakeLog());
+            // Given
+            var log = new FakeLog();
 
-                // When
-                var result = Record.Exception(() => provider.Initialize(null));
+            // When
+            var provider = new FakeIssueComponent(log);
 
-                // Then
-                result.IsArgumentNullException("settings");
-            }
+            // Then
+            provider.Log.ShouldBe(log);
+        }
+    }
 
-            [Fact]
-            public void Should_Set_Settings()
-            {
-                // Given
-                var provider = new FakeIssueComponent(new FakeLog());
-                var settings = new RepositorySettings(@"c:\foo");
+    public sealed class TheInitializeMethod
+    {
+        [Fact]
+        public void Should_Throw_If_Settings_Are_Null()
+        {
+            // Given
+            var provider = new FakeIssueComponent(new FakeLog());
 
-                // When
-                provider.Initialize(settings);
+            // When
+            var result = Record.Exception(() => provider.Initialize(null));
 
-                // Then
-                provider.Settings.ShouldBe(settings);
-            }
-
-            [Fact]
-            public void Should_Return_True()
-            {
-                // Given
-                var provider = new FakeIssueComponent(new FakeLog());
-                var settings = new RepositorySettings(@"c:\foo");
-
-                // When
-                var result = provider.Initialize(settings);
-
-                // Then
-                result.ShouldBeTrue();
-            }
+            // Then
+            result.IsArgumentNullException("settings");
         }
 
-        public sealed class TheAssertInitializedMethod
+        [Fact]
+        public void Should_Set_Settings()
         {
-            [Fact]
-            public void Should_Throw_If_Initialize_Was_Not_Called()
-            {
-                // Given
-                var provider = new FakeIssueComponent(new FakeLog());
+            // Given
+            var provider = new FakeIssueComponent(new FakeLog());
+            var settings = new RepositorySettings(@"c:\foo");
 
-                // When
-                var result = Record.Exception(() => provider.AssertInitialized());
+            // When
+            _ = provider.Initialize(settings);
 
-                // Then
-                result.IsInvalidOperationException("Initialize needs to be called first.");
-            }
+            // Then
+            provider.Settings.ShouldBe(settings);
+        }
 
-            [Fact]
-            public void Should_Not_Throw_If_Initialize_Was_Called()
-            {
-                // Given
-                var provider = new FakeIssueComponent(new FakeLog());
-                var settings = new RepositorySettings(@"c:\foo");
-                provider.Initialize(settings);
+        [Fact]
+        public void Should_Return_True()
+        {
+            // Given
+            var provider = new FakeIssueComponent(new FakeLog());
+            var settings = new RepositorySettings(@"c:\foo");
 
-                // When
-                provider.AssertInitialized();
+            // When
+            var result = provider.Initialize(settings);
 
-                // Then
-            }
+            // Then
+            result.ShouldBeTrue();
+        }
+    }
+
+    public sealed class TheAssertInitializedMethod
+    {
+        [Fact]
+        public void Should_Throw_If_Initialize_Was_Not_Called()
+        {
+            // Given
+            var provider = new FakeIssueComponent(new FakeLog());
+
+            // When
+            var result = Record.Exception(provider.AssertInitialized);
+
+            // Then
+            result.IsInvalidOperationException("Initialize needs to be called first.");
+        }
+
+        [Fact]
+        public void Should_Not_Throw_If_Initialize_Was_Called()
+        {
+            // Given
+            var provider = new FakeIssueComponent(new FakeLog());
+            var settings = new RepositorySettings(@"c:\foo");
+            _ = provider.Initialize(settings);
+
+            // When
+            provider.AssertInitialized();
+
+            // Then
         }
     }
 }

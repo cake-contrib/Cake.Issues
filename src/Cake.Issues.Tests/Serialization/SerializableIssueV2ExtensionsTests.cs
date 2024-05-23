@@ -1,23 +1,22 @@
-﻿namespace Cake.Issues.Tests.Serialization
+﻿namespace Cake.Issues.Tests.Serialization;
+
+using Cake.Issues.Serialization;
+
+public sealed class SerializableIssueV2ExtensionsTests
 {
-    using Cake.Issues.Serialization;
-
-    public sealed class SerializableIssueV2ExtensionsTests
+    public sealed class TheToIssueExtension
     {
-        public sealed class TheToIssueExtension
+        [Fact]
+        public void Should_Throw_If_SerializableIssue_Is_Null()
         {
-            [Fact]
-            public void Should_Throw_If_SerializableIssue_Is_Null()
-            {
-                // Given
-                const SerializableIssueV2 serializableIssue = null;
+            // Given
+            const SerializableIssueV2 serializableIssue = null;
 
-                // When
-                var result = Record.Exception(() => serializableIssue.ToIssue());
+            // When
+            var result = Record.Exception(serializableIssue.ToIssue);
 
-                // Then
-                result.IsArgumentNullException("serializableIssue");
-            }
+            // Then
+            result.IsArgumentNullException("serializableIssue");
         }
     }
 }

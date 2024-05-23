@@ -1,13 +1,12 @@
-﻿namespace Cake.Issues
+﻿namespace Cake.Issues;
+
+/// <summary>
+/// Base class for all rule descriptions.
+/// </summary>
+public class BaseRuleDescription
 {
     /// <summary>
-    /// Base class for all rule descriptions.
+    /// Gets the full identifier of the rule.
     /// </summary>
-    public class BaseRuleDescription
-    {
-        /// <summary>
-        /// Gets the full identifier of the rule.
-        /// </summary>
-        public string Rule { get; init; }
-    }
+    public string Rule { get; init; }
 }

@@ -79,6 +79,7 @@
     string devExtremeLocation = ViewBagHelper.ValueOrDefault(ViewBag.DevExtremeLocation, "https://cdn3.devexpress.com/jslib/").Trim();
     devExtremeLocation = devExtremeLocation.WithEnding("/");
     string devExtremeVersion = ViewBagHelper.ValueOrDefault(ViewBag.DevExtremeVersion, "23.1.9").Trim();
+    string devExtremeLicenseKey = ViewBagHelper.ValueOrDefault<string>(ViewBag.DevExtremeLicenseKey, null);
 }
 
 @{
@@ -177,6 +178,13 @@
 
     <script type="text/javascript">
         $(function () {
+            @if (!string.IsNullOrEmpty(devExtremeLicenseKey))
+            {
+                <text>
+                    DevExpress.config({ licenseKey: '@devExtremeLicenseKey' });
+                </text>
+            }
+
             @if (ideIntegrationSettings != null && !string.IsNullOrWhiteSpace(ideIntegrationSettings.OpenInIdeCall))
             {
                 <text>
@@ -205,7 +213,7 @@
                         return element;
                     }
                 </text>
-            };
+            }
 
             $("#gridContainer").dxDataGrid({
                 dataSource: issues,

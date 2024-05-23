@@ -1,41 +1,39 @@
-﻿namespace Cake.Issues.PullRequests.AzureDevOps.Tests.Capabilities
+﻿namespace Cake.Issues.PullRequests.AzureDevOps.Tests.Capabilities;
+
+using Cake.Core.Diagnostics;
+using Cake.Issues.PullRequests.AzureDevOps.Capabilities;
+using NSubstitute;
+
+public sealed class AzureDevOpsFilteringByModifiedFilesCapabilityTests
 {
-    using Cake.Core.Diagnostics;
-    using Cake.Issues.PullRequests.AzureDevOps.Capabilities;
-    using NSubstitute;
-
-    // ReSharper disable once ClassNeverInstantiated.Global
-    public sealed class AzureDevOpsFilteringByModifiedFilesCapabilityTests
+    public sealed class TheCtor
     {
-        public sealed class TheCtor
+        [Fact]
+        public void Should_Throw_If_Log_Is_Null()
         {
-            [Fact]
-            public void Should_Throw_If_Log_Is_Null()
-            {
-                // Given
-                const ICakeLog log = null;
-                var pullRequestSystem = Substitute.For<IAzureDevOpsPullRequestSystem>();
+            // Given
+            const ICakeLog log = null;
+            var pullRequestSystem = Substitute.For<IAzureDevOpsPullRequestSystem>();
 
-                // When
-                var result = Record.Exception(() => new AzureDevOpsFilteringByModifiedFilesCapability(log, pullRequestSystem));
+            // When
+            var result = Record.Exception(() => new AzureDevOpsFilteringByModifiedFilesCapability(log, pullRequestSystem));
 
-                // Then
-                result.IsArgumentNullException("log");
-            }
+            // Then
+            result.IsArgumentNullException("log");
+        }
 
-            [Fact]
-            public void Should_Throw_If_PullRequestSystem_Is_Null()
-            {
-                // Given
-                var log = new FakeLog();
-                const AzureDevOpsPullRequestSystem pullRequestSystem = null;
+        [Fact]
+        public void Should_Throw_If_PullRequestSystem_Is_Null()
+        {
+            // Given
+            var log = new FakeLog();
+            const AzureDevOpsPullRequestSystem pullRequestSystem = null;
 
-                // When
-                var result = Record.Exception(() => new AzureDevOpsFilteringByModifiedFilesCapability(log, pullRequestSystem));
+            // When
+            var result = Record.Exception(() => new AzureDevOpsFilteringByModifiedFilesCapability(log, pullRequestSystem));
 
-                // Then
-                result.IsArgumentNullException("pullRequestSystem");
-            }
+            // Then
+            result.IsArgumentNullException("pullRequestSystem");
         }
     }
 }

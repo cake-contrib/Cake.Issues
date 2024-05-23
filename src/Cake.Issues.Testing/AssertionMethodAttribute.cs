@@ -1,12 +1,10 @@
-﻿// ReSharper disable RedundantTypeDeclarationBody
-namespace Cake.Issues.Testing
-{
-    using System;
+﻿namespace Cake.Issues.Testing;
 
-    /// <summary>
-    /// Attribute for marking custom assertion methods.
-    /// </summary>
-    public class AssertionMethodAttribute : Attribute
-    {
-    }
+using System;
+
+/// <summary>
+/// Attribute for marking custom assertion methods.
+/// </summary>
+public class AssertionMethodAttribute : Attribute
+{
 }

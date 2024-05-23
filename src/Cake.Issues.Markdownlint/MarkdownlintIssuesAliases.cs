@@ -1,13 +1,11 @@
-﻿// ReSharper disable RedundantTypeDeclarationBody
-namespace Cake.Issues.Markdownlint
-{
-    using Cake.Core.Annotations;
+﻿namespace Cake.Issues.Markdownlint;
 
-    /// <summary>
-    /// Contains functionality for reading issues from Markdownlint log files.
-    /// </summary>
-    [CakeAliasCategory(IssuesAliasConstants.MainCakeAliasCategory)]
-    public static partial class MarkdownlintIssuesAliases
-    {
-    }
+using Cake.Core.Annotations;
+
+/// <summary>
+/// Contains functionality for reading issues from Markdownlint log files.
+/// </summary>
+[CakeAliasCategory(IssuesAliasConstants.MainCakeAliasCategory)]
+public static partial class MarkdownlintIssuesAliases
+{
 }

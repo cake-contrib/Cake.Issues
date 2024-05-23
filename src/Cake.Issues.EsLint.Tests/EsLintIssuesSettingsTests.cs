@@ -1,115 +1,114 @@
-﻿namespace Cake.Issues.EsLint.Tests
+﻿namespace Cake.Issues.EsLint.Tests;
+
+using Cake.Core.IO;
+using Cake.Issues.EsLint.LogFileFormat;
+
+public sealed class EsLintIssuesSettingsTests
 {
-    using Cake.Core.IO;
-    using Cake.Issues.EsLint.LogFileFormat;
-
-    public sealed class EsLintIssuesSettingsTests
+    public sealed class TheCtor
     {
-        public sealed class TheCtor
+        [Fact]
+        public void Should_Throw_If_LogFilePath_Is_Null()
         {
-            [Fact]
-            public void Should_Throw_If_LogFilePath_Is_Null()
-            {
-                // Given
-                FilePath logFilePath = null;
-                var format = new JsonLogFileFormat(new FakeLog());
+            // Given
+            FilePath logFilePath = null;
+            var format = new JsonLogFileFormat(new FakeLog());
 
+            // When
+            var result = Record.Exception(() =>
+                new EsLintIssuesSettings(logFilePath, format));
+
+            // Then
+            result.IsArgumentNullException("logFilePath");
+        }
+
+        [Fact]
+        public void Should_Throw_If_Format_For_LogFilePath_Is_Null()
+        {
+            // Given
+            BaseEsLintLogFileFormat format = null;
+
+            using (var tempFile = new ResourceTempFile("Cake.Issues.EsLint.Tests.Testfiles.JsonLogFileFormat.jsonFormatWindows.json"))
+            {
                 // When
                 var result = Record.Exception(() =>
-                    new EsLintIssuesSettings(logFilePath, format));
-
-                // Then
-                result.IsArgumentNullException("logFilePath");
-            }
-
-            [Fact]
-            public void Should_Throw_If_Format_For_LogFilePath_Is_Null()
-            {
-                // Given
-                BaseEsLintLogFileFormat format = null;
-
-                using (var tempFile = new ResourceTempFile("Cake.Issues.EsLint.Tests.Testfiles.JsonLogFileFormat.jsonFormatWindows.json"))
-                {
-                    // When
-                    var result = Record.Exception(() =>
-                        new EsLintIssuesSettings(tempFile.FileName, format));
-
-                    // Then
-                    result.IsArgumentNullException("format");
-                }
-            }
-
-            [Fact]
-            public void Should_Throw_If_LogFileContent_Is_Null()
-            {
-                // Given
-                byte[] logFileContent = null;
-                var format = new JsonLogFileFormat(new FakeLog());
-
-                // When
-                var result = Record.Exception(() =>
-                    new EsLintIssuesSettings(logFileContent, format));
-
-                // Then
-                result.IsArgumentNullException("logFileContent");
-            }
-
-            [Fact]
-            public void Should_Throw_If_Format_For_LogFileContent_Is_Null()
-            {
-                // Given
-                var logFileContent = "foo".ToByteArray();
-                BaseEsLintLogFileFormat format = null;
-
-                // When
-                var result = Record.Exception(() =>
-                    new EsLintIssuesSettings(logFileContent, format));
+                    new EsLintIssuesSettings(tempFile.FileName, format));
 
                 // Then
                 result.IsArgumentNullException("format");
             }
+        }
 
-            [Fact]
-            public void Should_Set_LogFileContent()
+        [Fact]
+        public void Should_Throw_If_LogFileContent_Is_Null()
+        {
+            // Given
+            byte[] logFileContent = null;
+            var format = new JsonLogFileFormat(new FakeLog());
+
+            // When
+            var result = Record.Exception(() =>
+                new EsLintIssuesSettings(logFileContent, format));
+
+            // Then
+            result.IsArgumentNullException("logFileContent");
+        }
+
+        [Fact]
+        public void Should_Throw_If_Format_For_LogFileContent_Is_Null()
+        {
+            // Given
+            var logFileContent = "foo".ToByteArray();
+            BaseEsLintLogFileFormat format = null;
+
+            // When
+            var result = Record.Exception(() =>
+                new EsLintIssuesSettings(logFileContent, format));
+
+            // Then
+            result.IsArgumentNullException("format");
+        }
+
+        [Fact]
+        public void Should_Set_LogFileContent()
+        {
+            // Given
+            var logFileContent = "Foo".ToByteArray();
+            var format = new JsonLogFileFormat(new FakeLog());
+
+            // When
+            var settings = new EsLintIssuesSettings(logFileContent, format);
+
+            // Then
+            settings.LogFileContent.ShouldBe(logFileContent);
+        }
+
+        [Fact]
+        public void Should_Set_LogFileContent_If_Empty()
+        {
+            // Given
+            byte[] logFileContent = [];
+            var format = new JsonLogFileFormat(new FakeLog());
+
+            // When
+            var settings = new EsLintIssuesSettings(logFileContent, format);
+
+            // Then
+            settings.LogFileContent.ShouldBe(logFileContent);
+        }
+
+        [Fact]
+        public void Should_Set_LogFileContent_From_LogFilePath()
+        {
+            // Given
+            var format = new JsonLogFileFormat(new FakeLog());
+            using (var tempFile = new ResourceTempFile("Cake.Issues.EsLint.Tests.Testfiles.JsonLogFileFormat.jsonFormatWindows.json"))
             {
-                // Given
-                var logFileContent = "Foo".ToByteArray();
-                var format = new JsonLogFileFormat(new FakeLog());
-
                 // When
-                var settings = new EsLintIssuesSettings(logFileContent, format);
+                var settings = new EsLintIssuesSettings(tempFile.FileName, format);
 
                 // Then
-                settings.LogFileContent.ShouldBe(logFileContent);
-            }
-
-            [Fact]
-            public void Should_Set_LogFileContent_If_Empty()
-            {
-                // Given
-                byte[] logFileContent = [];
-                var format = new JsonLogFileFormat(new FakeLog());
-
-                // When
-                var settings = new EsLintIssuesSettings(logFileContent, format);
-
-                // Then
-                settings.LogFileContent.ShouldBe(logFileContent);
-            }
-
-            [Fact]
-            public void Should_Set_LogFileContent_From_LogFilePath()
-            {
-                // Given
-                var format = new JsonLogFileFormat(new FakeLog());
-                using (var tempFile = new ResourceTempFile("Cake.Issues.EsLint.Tests.Testfiles.JsonLogFileFormat.jsonFormatWindows.json"))
-                {
-                    // When
-                    var settings = new EsLintIssuesSettings(tempFile.FileName, format);
-
-                    // Then
-                    settings.LogFileContent.ShouldBe(tempFile.Content);
-                }
+                settings.LogFileContent.ShouldBe(tempFile.Content);
             }
         }
     }

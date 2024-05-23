@@ -1,111 +1,91 @@
-﻿namespace Cake.Issues.Reporting.Generic.Tests
+﻿namespace Cake.Issues.Reporting.Generic.Tests;
+
+public sealed class HtmlDxDataGridColumnDescriptionTests
 {
-    using System.Diagnostics.CodeAnalysis;
-
-    [SuppressMessage("ReSharper", "ClassNeverInstantiated.Global", Justification = "Instantiated by test runner")]
-    [SuppressMessage("ReSharper", "ExpressionIsAlwaysNull", Justification = "By design for null tests")]
-    public sealed class HtmlDxDataGridColumnDescriptionTests
+    public sealed class TheCtor
     {
-        public sealed class TheCtor
+        [Fact]
+        public void Should_Throw_If_Id_Is_Null()
         {
-            [Fact]
-            public void Should_Throw_If_Id_Is_Null()
-            {
-                // Given
-                string id = null;
-                static object ValueRetriever(IIssue issue)
-                {
-                    return true;
-                }
+            // Given
+            string id = null;
+            static object ValueRetriever(IIssue issue) => true;
 
-                // When
-                var result = Record.Exception(() => new HtmlDxDataGridColumnDescription(id, ValueRetriever));
+            // When
+            var result = Record.Exception(() => new HtmlDxDataGridColumnDescription(id, ValueRetriever));
 
-                // Then
-                result.IsArgumentNullException("id");
-            }
+            // Then
+            result.IsArgumentNullException("id");
+        }
 
-            [Fact]
-            public void Should_Throw_If_Id_Is_Empty()
-            {
-                // Given
-                var id = string.Empty;
-                static object ValueRetriever(IIssue issue)
-                {
-                    return true;
-                }
+        [Fact]
+        public void Should_Throw_If_Id_Is_Empty()
+        {
+            // Given
+            var id = string.Empty;
+            static object ValueRetriever(IIssue issue) => true;
 
-                // When
-                var result = Record.Exception(() => new HtmlDxDataGridColumnDescription(id, ValueRetriever));
+            // When
+            var result = Record.Exception(() => new HtmlDxDataGridColumnDescription(id, ValueRetriever));
 
-                // Then
-                result.IsArgumentOutOfRangeException("id");
-            }
+            // Then
+            result.IsArgumentOutOfRangeException("id");
+        }
 
-            [Fact]
-            public void Should_Throw_If_Id_Is_Whitespace()
-            {
-                // Given
-                var id = " ";
-                static object ValueRetriever(IIssue issue)
-                {
-                    return true;
-                }
+        [Fact]
+        public void Should_Throw_If_Id_Is_Whitespace()
+        {
+            // Given
+            var id = " ";
+            static object ValueRetriever(IIssue issue) => true;
 
-                // When
-                var result = Record.Exception(() => new HtmlDxDataGridColumnDescription(id, ValueRetriever));
+            // When
+            var result = Record.Exception(() => new HtmlDxDataGridColumnDescription(id, ValueRetriever));
 
-                // Then
-                result.IsArgumentOutOfRangeException("id");
-            }
+            // Then
+            result.IsArgumentOutOfRangeException("id");
+        }
 
-            [Fact]
-            public void Should_Throw_If_ValueRetriever_Is_Null()
-            {
-                // Given
-                var id = "foo";
-                Func<IIssue, object> valueRetriever = null;
+        [Fact]
+        public void Should_Throw_If_ValueRetriever_Is_Null()
+        {
+            // Given
+            var id = "foo";
+            Func<IIssue, object> valueRetriever = null;
 
-                // When
-                var result = Record.Exception(() => new HtmlDxDataGridColumnDescription(id, valueRetriever));
+            // When
+            var result = Record.Exception(() => new HtmlDxDataGridColumnDescription(id, valueRetriever));
 
-                // Then
-                result.IsArgumentNullException("valueRetriever");
-            }
+            // Then
+            result.IsArgumentNullException("valueRetriever");
+        }
 
-            [Fact]
-            public void Should_Assign_Id()
-            {
-                // Given
-                var id = "foo";
-                static object ValueRetriever(IIssue issue)
-                {
-                    return true;
-                }
+        [Fact]
+        public void Should_Assign_Id()
+        {
+            // Given
+            var id = "foo";
+            static object ValueRetriever(IIssue issue) => true;
 
-                // When
-                var result = new HtmlDxDataGridColumnDescription(id, ValueRetriever);
+            // When
+            var result = new HtmlDxDataGridColumnDescription(id, ValueRetriever);
 
-                // Then
-                result.Id.ShouldBe(id);
-            }
+            // Then
+            result.Id.ShouldBe(id);
+        }
 
-            [Fact]
-            public void Should_Assign_ValueRetriever()
-            {
-                // Given
-                var id = "foo";
-                static object ValueRetriever(IIssue issue)
-                {
-                    return true;
-                }
+        [Fact]
+        public void Should_Assign_ValueRetriever()
+        {
+            // Given
+            var id = "foo";
+            static object ValueRetriever(IIssue issue) => true;
 
-                // When
-                var result = new HtmlDxDataGridColumnDescription(id, ValueRetriever);
+            // When
+            var result = new HtmlDxDataGridColumnDescription(id, ValueRetriever);
 
-                // Then
-                result.ValueRetriever.ShouldBe(ValueRetriever);
-            }
+            // Then
+            result.ValueRetriever.ShouldBe(ValueRetriever);
         }
     }
 }

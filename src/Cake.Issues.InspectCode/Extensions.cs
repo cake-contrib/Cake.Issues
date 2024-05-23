@@ -1,22 +1,21 @@
-﻿namespace Cake.Issues.InspectCode
+﻿namespace Cake.Issues.InspectCode;
+
+using System;
+
+/// <summary>
+/// Class containing extensions.
+/// </summary>
+internal static class Extensions
 {
-    using System;
-
     /// <summary>
-    /// Class containing extensions.
+    /// Returns an <see cref="Uri"/> for a URL string.
     /// </summary>
-    internal static class Extensions
+    /// <param name="value">URL to convert.</param>
+    /// <returns><see cref="Uri"/> created from <paramref name="value"/>.</returns>
+    public static Uri ToUri(this string value)
     {
-        /// <summary>
-        /// Returns an <see cref="Uri"/> for a URL string.
-        /// </summary>
-        /// <param name="value">URL to convert.</param>
-        /// <returns><see cref="Uri"/> created from <paramref name="value"/>.</returns>
-        public static Uri ToUri(this string value)
-        {
-            value.NotNullOrWhiteSpace();
+        value.NotNullOrWhiteSpace();
 
-            return new Uri(value);
-        }
+        return new Uri(value);
     }
 }

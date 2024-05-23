@@ -1,25 +1,20 @@
-﻿namespace Cake.Issues.Reporting.Generic.Tests
+﻿namespace Cake.Issues.Reporting.Generic.Tests;
+
+public sealed class GenericIssueReportTemplateExtensionsTests
 {
-    using System.Diagnostics.CodeAnalysis;
-
-    [SuppressMessage("ReSharper", "ClassNeverInstantiated.Global", Justification = "Instantiated by test runner")]
-    [SuppressMessage("ReSharper", "ExpressionIsAlwaysNull", Justification = "By design for null tests")]
-    public sealed class GenericIssueReportTemplateExtensionsTests
+    public sealed class TheGetTemplateResourceNameMethod
     {
-        public sealed class TheGetTemplateResourceNameMethod
+        [Fact]
+        public void Should_Return_ResourceName()
         {
-            [Fact]
-            public void Should_Return_ResourceName()
-            {
-                // Given
-                var template = GenericIssueReportTemplate.HtmlDiagnostic;
+            // Given
+            var template = GenericIssueReportTemplate.HtmlDiagnostic;
 
-                // When
-                var result = template.GetTemplateResourceName();
+            // When
+            var result = template.GetTemplateResourceName();
 
-                // Then
-                result.ShouldBe("Diagnostic.cshtml");
-            }
+            // Then
+            result.ShouldBe("Diagnostic.cshtml");
         }
     }
 }

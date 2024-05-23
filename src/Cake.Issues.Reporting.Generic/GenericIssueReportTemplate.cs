@@ -1,24 +1,23 @@
-﻿namespace Cake.Issues.Reporting.Generic
+﻿namespace Cake.Issues.Reporting.Generic;
+
+/// <summary>
+/// Default templates provided by this addin.
+/// </summary>
+public enum GenericIssueReportTemplate
 {
     /// <summary>
-    /// Default templates provided by this addin.
+    /// Template for an HTML report containing a list of all issues with all properties.
     /// </summary>
-    public enum GenericIssueReportTemplate
-    {
-        /// <summary>
-        /// Template for an HTML report containing a list of all issues with all properties.
-        /// </summary>
-        HtmlDiagnostic,
+    HtmlDiagnostic,
 
-        /// <summary>
-        /// Template for an HTML report containing a rich data table view with sorting and search functionality.
-        /// </summary>
-        HtmlDataTable,
+    /// <summary>
+    /// Template for an HTML report containing a rich data table view with sorting and search functionality.
+    /// </summary>
+    HtmlDataTable,
 
-        /// <summary>
-        /// Template for an HTML report containing a rich data grid with sorting, filtering, grouping and search capabilities.
-        /// See <see cref="HtmlDxDataGridOption"/> for template specific options.
-        /// </summary>
-        HtmlDxDataGrid,
-    }
+    /// <summary>
+    /// Template for an HTML report containing a rich data grid with sorting, filtering, grouping and search capabilities.
+    /// See <see cref="HtmlDxDataGridOption"/> for template specific options.
+    /// </summary>
+    HtmlDxDataGrid,
 }

@@ -1,153 +1,152 @@
-﻿namespace Cake.Issues.PullRequests.Tests
+﻿namespace Cake.Issues.PullRequests.Tests;
+
+using Cake.Core.Diagnostics;
+
+public sealed class BasePullRequestSystemTests
 {
-    using Cake.Core.Diagnostics;
-
-    public sealed class BasePullRequestSystemTests
+    public sealed class TheCtor
     {
-        public sealed class TheCtor
+        [Fact]
+        public void Should_Throw_If_Log_Is_Null()
         {
-            [Fact]
-            public void Should_Throw_If_Log_Is_Null()
-            {
-                // Given
-                const ICakeLog log = null;
+            // Given
+            const ICakeLog log = null;
 
-                // When
-                var result = Record.Exception(() => new FakePullRequestSystem(log));
+            // When
+            var result = Record.Exception(() => new FakePullRequestSystem(log));
 
-                // Then
-                result.IsArgumentNullException("log");
-            }
-
-            [Fact]
-            public void Should_Set_Log()
-            {
-                // Given
-                var log = new FakeLog();
-
-                // When
-                var pullRequestSystem = new FakePullRequestSystem(log);
-
-                // Then
-                pullRequestSystem.Log.ShouldBe(log);
-            }
+            // Then
+            result.IsArgumentNullException("log");
         }
 
-        public sealed class TheAddCapabilityMethod
+        [Fact]
+        public void Should_Set_Log()
         {
-            [Fact]
-            public void Should_Throw_If_Capability_Is_Null()
-            {
-                // Given
-                var log = new FakeLog();
-                var pullRequestSystem = new FakePullRequestSystem(log);
-                const IPullRequestSystemCapability capability = null;
+            // Given
+            var log = new FakeLog();
 
-                // When
-                var result = Record.Exception(() => pullRequestSystem.AddCapability(capability));
+            // When
+            var pullRequestSystem = new FakePullRequestSystem(log);
 
-                // Then
-                result.IsArgumentNullException("capability");
-            }
+            // Then
+            pullRequestSystem.Log.ShouldBe(log);
+        }
+    }
 
-            [Fact]
-            public void Should_Add_Capability()
-            {
-                // Given
-                var log = new FakeLog();
-                var pullRequestSystem = new FakePullRequestSystem(log);
-                var capability = new FakePullRequestSystemCapability(log, pullRequestSystem);
+    public sealed class TheAddCapabilityMethod
+    {
+        [Fact]
+        public void Should_Throw_If_Capability_Is_Null()
+        {
+            // Given
+            var log = new FakeLog();
+            var pullRequestSystem = new FakePullRequestSystem(log);
+            const IPullRequestSystemCapability capability = null;
 
-                // When
-                pullRequestSystem.AddCapability(capability);
+            // When
+            var result = Record.Exception(() => pullRequestSystem.AddCapability(capability));
 
-                // Then
-                pullRequestSystem.HasCapability<FakePullRequestSystemCapability>().ShouldBeTrue();
-            }
+            // Then
+            result.IsArgumentNullException("capability");
         }
 
-        public sealed class TheHasCapabilityMethod
+        [Fact]
+        public void Should_Add_Capability()
         {
-            [Fact]
-            public void Should_Return_True_If_PullRequestSystem_Has_Capability()
-            {
-                // Given
-                var log = new FakeLog();
-                var pullRequestSystem = new FakePullRequestSystem(log);
-                var capability = new FakePullRequestSystemCapability(log, pullRequestSystem);
+            // Given
+            var log = new FakeLog();
+            var pullRequestSystem = new FakePullRequestSystem(log);
+            var capability = new FakePullRequestSystemCapability(log, pullRequestSystem);
 
-                // When
-                pullRequestSystem.AddCapability(capability);
+            // When
+            pullRequestSystem.AddCapability(capability);
 
-                // Then
-                pullRequestSystem.HasCapability<FakePullRequestSystemCapability>().ShouldBeTrue();
-            }
+            // Then
+            pullRequestSystem.HasCapability<FakePullRequestSystemCapability>().ShouldBeTrue();
+        }
+    }
 
-            [Fact]
-            public void Should_Return_False_If_PullRequestSystem_Does_Not_Have_Capability()
-            {
-                // Given
-                var log = new FakeLog();
-                var pullRequestSystem = new FakePullRequestSystem(log);
-                var capability = new FakePullRequestSystemCapability(log, pullRequestSystem);
+    public sealed class TheHasCapabilityMethod
+    {
+        [Fact]
+        public void Should_Return_True_If_PullRequestSystem_Has_Capability()
+        {
+            // Given
+            var log = new FakeLog();
+            var pullRequestSystem = new FakePullRequestSystem(log);
+            var capability = new FakePullRequestSystemCapability(log, pullRequestSystem);
 
-                // When
-                pullRequestSystem.AddCapability(capability);
+            // When
+            pullRequestSystem.AddCapability(capability);
 
-                // Then
-                pullRequestSystem.HasCapability<FakeCheckingCommitIdCapability>().ShouldBeFalse();
-            }
+            // Then
+            pullRequestSystem.HasCapability<FakePullRequestSystemCapability>().ShouldBeTrue();
         }
 
-        public sealed class TheGetCapabilityMethod
+        [Fact]
+        public void Should_Return_False_If_PullRequestSystem_Does_Not_Have_Capability()
         {
-            [Fact]
-            public void Should_Return_Capability_If_Capability_Exists()
-            {
-                // Given
-                var log = new FakeLog();
-                var pullRequestSystem = new FakePullRequestSystem(log);
-                var capability = new FakePullRequestSystemCapability(log, pullRequestSystem);
-                pullRequestSystem.AddCapability(capability);
+            // Given
+            var log = new FakeLog();
+            var pullRequestSystem = new FakePullRequestSystem(log);
+            var capability = new FakePullRequestSystemCapability(log, pullRequestSystem);
 
-                // When
-                var result = pullRequestSystem.GetCapability<FakePullRequestSystemCapability>();
+            // When
+            pullRequestSystem.AddCapability(capability);
 
-                // Then
-                result.ShouldBe(capability);
-            }
+            // Then
+            pullRequestSystem.HasCapability<FakeCheckingCommitIdCapability>().ShouldBeFalse();
+        }
+    }
 
-            [Fact]
-            public void Should_Return_Null_If_Capability_Does_Not_Exist()
-            {
-                // Given
-                var log = new FakeLog();
-                var pullRequestSystem = new FakePullRequestSystem(log);
-                var capability = new FakePullRequestSystemCapability(log, pullRequestSystem);
-                pullRequestSystem.AddCapability(capability);
+    public sealed class TheGetCapabilityMethod
+    {
+        [Fact]
+        public void Should_Return_Capability_If_Capability_Exists()
+        {
+            // Given
+            var log = new FakeLog();
+            var pullRequestSystem = new FakePullRequestSystem(log);
+            var capability = new FakePullRequestSystemCapability(log, pullRequestSystem);
+            pullRequestSystem.AddCapability(capability);
 
-                // When
-                var result = pullRequestSystem.GetCapability<FakeCheckingCommitIdCapability>();
+            // When
+            var result = pullRequestSystem.GetCapability<FakePullRequestSystemCapability>();
 
-                // Then
-                result.ShouldBeNull();
-            }
+            // Then
+            result.ShouldBe(capability);
         }
 
-        public sealed class ThePostDiscussionThreadsMethod
+        [Fact]
+        public void Should_Return_Null_If_Capability_Does_Not_Exist()
         {
-            [Fact]
-            public void Should_Throw_If_Settings_Is_Null()
-            {
-                // Given
-                var pullRequestSystem = new FakePullRequestSystem(new FakeLog());
+            // Given
+            var log = new FakeLog();
+            var pullRequestSystem = new FakePullRequestSystem(log);
+            var capability = new FakePullRequestSystemCapability(log, pullRequestSystem);
+            pullRequestSystem.AddCapability(capability);
 
-                // When
-                var result = Record.Exception(() => pullRequestSystem.PostDiscussionThreads(new List<IIssue>(), "Foo"));
+            // When
+            var result = pullRequestSystem.GetCapability<FakeCheckingCommitIdCapability>();
 
-                // Then
-                result.IsInvalidOperationException("Initialize needs to be called first.");
-            }
+            // Then
+            result.ShouldBeNull();
+        }
+    }
+
+    public sealed class ThePostDiscussionThreadsMethod
+    {
+        [Fact]
+        public void Should_Throw_If_Settings_Is_Null()
+        {
+            // Given
+            var pullRequestSystem = new FakePullRequestSystem(new FakeLog());
+
+            // When
+            var result = Record.Exception(() => pullRequestSystem.PostDiscussionThreads([], "Foo"));
+
+            // Then
+            result.IsInvalidOperationException("Initialize needs to be called first.");
         }
     }
 }

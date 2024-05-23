@@ -1,9 +1,8 @@
-﻿namespace Cake.Issues.PullRequests.GitHubActions.Tests
+﻿namespace Cake.Issues.PullRequests.GitHubActions.Tests;
+
+public sealed class GitHubActionsBuildSettingsTests
 {
-    public sealed class GitHubActionsBuildSettingsTests
+    public sealed class TheCtor
     {
-        public sealed class TheCtor
-        {
-        }
     }
 }

@@ -1,171 +1,170 @@
-﻿namespace Cake.Issues.Reporting.Tests
+﻿namespace Cake.Issues.Reporting.Tests;
+
+public sealed class IssueReportCreatorTests
 {
-    public sealed class IssueReportCreatorTests
+    public sealed class TheCtor
     {
-        public sealed class TheCtor
+        [Fact]
+        public void Should_Throw_If_Log_Is_Null()
         {
-            [Fact]
-            public void Should_Throw_If_Log_Is_Null()
+            // Given
+            var fixture = new IssueReportFormatFixture
             {
-                // Given
-                var fixture = new IssueReportFormatFixture
-                {
-                    Log = null,
-                };
+                Log = null,
+            };
 
-                // When
-                var result = Record.Exception(() => fixture.CreateReport(new List<IIssue>()));
+            // When
+            var result = Record.Exception(() => fixture.CreateReport(new List<IIssue>()));
 
-                // Then
-                result.IsArgumentNullException("log");
-            }
-
-            [Fact]
-            public void Should_Throw_If_Settings_Is_Null()
-            {
-                // Given
-                var fixture = new IssueReportFormatFixture
-                {
-                    CreateIssueReportSettings = null,
-                };
-
-                // When
-                var result = Record.Exception(() => fixture.CreateReport(new List<IIssue>()));
-
-                // Then
-                result.IsArgumentNullException("settings");
-            }
+            // Then
+            result.IsArgumentNullException("log");
         }
 
-        public sealed class TheCreateReportForIssueProvidersMethod
+        [Fact]
+        public void Should_Throw_If_Settings_Is_Null()
         {
-            [Fact]
-            public void Should_Initialize_Report_Format()
+            // Given
+            var fixture = new IssueReportFormatFixture
             {
-                // Given
-                var fixture = new IssueReportFormatFixture();
-                var issueProviders = new List<FakeIssueProvider> { new(fixture.Log) };
+                CreateIssueReportSettings = null,
+            };
 
-                // When
-                fixture.CreateReport(issueProviders);
+            // When
+            var result = Record.Exception(() => fixture.CreateReport(new List<IIssue>()));
 
-                // Then
-                fixture.IssueReportFormat.Settings.ShouldBe(fixture.CreateIssueReportFromIssueProviderSettings);
-            }
+            // Then
+            result.IsArgumentNullException("settings");
+        }
+    }
 
-            [Fact]
-            public void Should_Return_Null_If_Initialization_Fails()
-            {
-                // Given
-                var fixture =
-                    new IssueReportFormatFixture
-                    {
-                        IssueReportFormat =
-                        {
-                            ShouldFailOnInitialization = true,
-                        },
-                    };
-                var issueProviders = new List<FakeIssueProvider> { new(fixture.Log) };
+    public sealed class TheCreateReportForIssueProvidersMethod
+    {
+        [Fact]
+        public void Should_Initialize_Report_Format()
+        {
+            // Given
+            var fixture = new IssueReportFormatFixture();
+            var issueProviders = new List<FakeIssueProvider> { new(fixture.Log) };
 
-                // When
-                var result = fixture.CreateReport(issueProviders);
+            // When
+            _ = fixture.CreateReport(issueProviders);
 
-                // Then
-                result.ShouldBeNull();
-            }
-
-            [Fact]
-            public void Should_Return_File_Path()
-            {
-                // Given
-                var fixture = new IssueReportFormatFixture();
-                var issueProviders = new List<FakeIssueProvider> { new(fixture.Log) };
-
-                // When
-                var result = fixture.CreateReport(issueProviders);
-
-                // Then
-                result.ShouldNotBeNull();
-            }
+            // Then
+            fixture.IssueReportFormat.Settings.ShouldBe(fixture.CreateIssueReportFromIssueProviderSettings);
         }
 
-        public sealed class TheCreateReportForIssuesMethod
+        [Fact]
+        public void Should_Return_Null_If_Initialization_Fails()
         {
-            [Fact]
-            public void Should_Initialize_Report_Format()
-            {
-                // Given
-                var fixture = new IssueReportFormatFixture();
-                var issues =
-                    new List<IIssue>
+            // Given
+            var fixture =
+                new IssueReportFormatFixture
+                {
+                    IssueReportFormat =
                     {
-                        IssueBuilder
-                            .NewIssue("Message", "ProviderType", "ProviderName")
-                            .InFile(@"src\Cake.Issues.Reporting\Foo.cs", 10)
-                            .OfRule("Rule")
-                            .WithPriority(IssuePriority.Warning)
-                            .Create(),
-                    };
+                        ShouldFailOnInitialization = true,
+                    },
+                };
+            var issueProviders = new List<FakeIssueProvider> { new(fixture.Log) };
 
-                // When
-                fixture.CreateReport(issues);
+            // When
+            var result = fixture.CreateReport(issueProviders);
 
-                // Then
-                fixture.IssueReportFormat.Settings.ShouldBe(fixture.CreateIssueReportSettings);
-            }
+            // Then
+            result.ShouldBeNull();
+        }
 
-            [Fact]
-            public void Should_Return_Null_If_Initialization_Fails()
-            {
-                // Given
-                var fixture =
-                    new IssueReportFormatFixture
+        [Fact]
+        public void Should_Return_File_Path()
+        {
+            // Given
+            var fixture = new IssueReportFormatFixture();
+            var issueProviders = new List<FakeIssueProvider> { new(fixture.Log) };
+
+            // When
+            var result = fixture.CreateReport(issueProviders);
+
+            // Then
+            _ = result.ShouldNotBeNull();
+        }
+    }
+
+    public sealed class TheCreateReportForIssuesMethod
+    {
+        [Fact]
+        public void Should_Initialize_Report_Format()
+        {
+            // Given
+            var fixture = new IssueReportFormatFixture();
+            var issues =
+                new List<IIssue>
+                {
+                    IssueBuilder
+                        .NewIssue("Message", "ProviderType", "ProviderName")
+                        .InFile(@"src\Cake.Issues.Reporting\Foo.cs", 10)
+                        .OfRule("Rule")
+                        .WithPriority(IssuePriority.Warning)
+                        .Create(),
+                };
+
+            // When
+            _ = fixture.CreateReport(issues);
+
+            // Then
+            fixture.IssueReportFormat.Settings.ShouldBe(fixture.CreateIssueReportSettings);
+        }
+
+        [Fact]
+        public void Should_Return_Null_If_Initialization_Fails()
+        {
+            // Given
+            var fixture =
+                new IssueReportFormatFixture
+                {
+                    IssueReportFormat =
                     {
-                        IssueReportFormat =
-                        {
-                            ShouldFailOnInitialization = true,
-                        },
-                    };
-                var issues =
-                    new List<IIssue>
-                    {
-                        IssueBuilder
-                            .NewIssue("Message", "ProviderType", "ProviderName")
-                            .InFile(@"src\Cake.Issues.Reporting\Foo.cs", 10)
-                            .OfRule("Rule")
-                            .WithPriority(IssuePriority.Warning)
-                            .Create(),
-                    };
+                        ShouldFailOnInitialization = true,
+                    },
+                };
+            var issues =
+                new List<IIssue>
+                {
+                    IssueBuilder
+                        .NewIssue("Message", "ProviderType", "ProviderName")
+                        .InFile(@"src\Cake.Issues.Reporting\Foo.cs", 10)
+                        .OfRule("Rule")
+                        .WithPriority(IssuePriority.Warning)
+                        .Create(),
+                };
 
-                // When
-                var result = fixture.CreateReport(issues);
+            // When
+            var result = fixture.CreateReport(issues);
 
-                // Then
-                result.ShouldBeNull();
-            }
+            // Then
+            result.ShouldBeNull();
+        }
 
-            [Fact]
-            public void Should_Return_File_Path()
-            {
-                // Given
-                var fixture = new IssueReportFormatFixture();
-                var issues =
-                    new List<IIssue>
-                    {
-                        IssueBuilder
-                            .NewIssue("Message", "ProviderType", "ProviderName")
-                            .InFile(@"src\Cake.Issues.Reporting\Foo.cs", 10)
-                            .OfRule("Rule")
-                            .WithPriority(IssuePriority.Warning)
-                            .Create(),
-                    };
+        [Fact]
+        public void Should_Return_File_Path()
+        {
+            // Given
+            var fixture = new IssueReportFormatFixture();
+            var issues =
+                new List<IIssue>
+                {
+                    IssueBuilder
+                        .NewIssue("Message", "ProviderType", "ProviderName")
+                        .InFile(@"src\Cake.Issues.Reporting\Foo.cs", 10)
+                        .OfRule("Rule")
+                        .WithPriority(IssuePriority.Warning)
+                        .Create(),
+                };
 
-                // When
-                var result = fixture.CreateReport(issues);
+            // When
+            var result = fixture.CreateReport(issues);
 
-                // Then
-                result.ShouldNotBeNull();
-            }
+            // Then
+            _ = result.ShouldNotBeNull();
         }
     }
 }
