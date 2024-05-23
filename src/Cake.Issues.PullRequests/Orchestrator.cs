@@ -74,9 +74,9 @@ internal class Orchestrator
         this.log.Verbose("  MaxIssuesToPost: {0}", settings.MaxIssuesToPost);
         this.log.Verbose("  MaxIssuesToPostAcrossRuns: {0}", settings.MaxIssuesToPostAcrossRuns);
         this.log.Verbose("  MaxIssuesToPostForEachIssueProvider: {0}", settings.MaxIssuesToPostForEachIssueProvider);
-        this.log.Verbose("  ProviderIssueLimits: {0}", settings.ProviderIssueLimits);
+        this.log.Verbose("  ProviderIssueLimits:");
 
-        if (settings.ProviderIssueLimits != null)
+        if (settings.ProviderIssueLimits.Count > 0)
         {
             foreach (var providerIssueLimit in settings.ProviderIssueLimits)
             {
