@@ -380,6 +380,13 @@ public enum HtmlDxDataGridOption
     DevExtremeVersion,
 
     /// <summary>
+    /// License key for DevExtreme.
+    /// Required for version 23.2 and later.
+    /// Default value is <c>null</c>.
+    /// </summary>
+    DevExtremeLicenseKey,
+
+    /// <summary>
     /// Settings for having functionality to open files affected by issues in IDEs.
     /// Value needs to be an instance of <see cref="IdeIntegrationSettings"/>.
     /// Default value is <c>null</c>.
