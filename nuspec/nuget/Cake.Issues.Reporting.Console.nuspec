@@ -29,7 +29,7 @@ The addin requires Cake 1.2.0 or higher.
     <copyright>Copyright © Cake Issues contributors</copyright>
     <tags>cake cake-addin cake-issues cake-reportformat issues reporting console</tags>
     <readme>docs\README.md</readme>
-    <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/4.4.0</releaseNotes>
+    <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/4.5.0</releaseNotes>
   </metadata>
   <files>
     <file src="..\..\..\..\nuspec\nuget\icon.png" target="" />
