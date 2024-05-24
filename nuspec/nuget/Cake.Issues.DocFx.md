@@ -35,7 +35,7 @@ Task("Build-Documentation").Does(() =>
         LogPath = logPath
     });
 
-    // Read Issues.
+    // Read issues.
     var issues =
         ReadIssues(
             DocFxIssuesFromFilePath(logPath, docRootPath),

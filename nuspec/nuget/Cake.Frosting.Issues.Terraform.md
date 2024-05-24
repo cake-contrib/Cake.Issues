@@ -43,7 +43,7 @@ public sealed class ValidateTerraformTask : FrostingTask<BuildContext>
             out redirectedStandardOutput,
         );
 
-        // Read Issues.
+        // Read issues.
         var issues =
             context.ReadIssues(
                 context.TerraformIssuesFromContent(string.Join(Environment.NewLine, redirectedStandardOutput)),

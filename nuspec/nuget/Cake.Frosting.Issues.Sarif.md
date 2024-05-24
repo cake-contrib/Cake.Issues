@@ -31,7 +31,7 @@ public sealed class AnalyzeTask : FrostingTask<BuildContext>
         var logPath = @"c:\build\log.sarif";
         var repoRootPath = @"c:\repo";
 
-        // Read Issues.
+        // Read issues.
         var issues =
             context.ReadIssues(
                 context.SarifIssuesFromFilePath(logPath),

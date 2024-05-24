@@ -29,7 +29,7 @@ Task("Build-Documentation").Does(() =>
     var repoRootPath = @"c:\repo";
     var docRootPath = @"docs";
 
-        // Run ESLint using Cake.ESLint addin.
+    // Run ESLint using Cake.ESLint addin.
     ESLint(
         x => {
             x.AddDirectory("src");
@@ -39,7 +39,7 @@ Task("Build-Documentation").Does(() =>
             x.ContinueOnErrors = true;
         });
 
-    // Read Issues.
+    // Read issues.
     var issues =
         ReadIssues(
             EsLintIssuesFromFilePath(logPath, EsLintJsonFormat()),

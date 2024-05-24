@@ -40,7 +40,7 @@ Task("Analyze-Project").Does(() =>
     };
     InspectCode(repoRootPath.CombineWithFilePath("MySolution.sln"), settings);
 
-    // Read Issues.
+    // Read issues.
     var issues =
         ReadIssues(
             InspectCodeIssuesFromFilePath(logPath, docRootPath),

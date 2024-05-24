@@ -35,7 +35,7 @@ Task("Lint-Documentation").Does(() =>
     settings.ThrowOnIssue = false;
     RunMarkdownlintNodeJs(settings);
 
-    // Read Issues.
+    // Read issues.
     var issues =
         ReadIssues(
             MarkdownlintIssuesFromFilePath(
