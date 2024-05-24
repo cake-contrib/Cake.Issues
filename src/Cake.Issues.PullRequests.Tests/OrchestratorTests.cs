@@ -228,7 +228,21 @@ public sealed class OrchestratorTests
     public sealed class TheRunMethod
     {
         [Fact]
-        public void Should_Post_Issue()
+        public Task Should_Output_Diagnostic_Information()
+        {
+            // Given
+            var fixture = new OrchestratorForIssueProvidersFixture();
+            fixture.Log.Verbosity = Core.Diagnostics.Verbosity.Diagnostic;
+
+            // When
+            _ = fixture.RunOrchestrator();
+
+            // Then
+            return Verify(fixture.Console.Output);
+        }
+
+        [Fact]
+        public Task Should_Post_Issue()
         {
             // Given
             var issueToPost =
@@ -240,7 +254,7 @@ public sealed class OrchestratorTests
                     .Create();
 
             var fixture = new OrchestratorForIssueProvidersFixture();
-
+            fixture.Log.Verbosity = Core.Diagnostics.Verbosity.Diagnostic;
             fixture.IssueProviders.Clear();
             fixture.IssueProviders.Add(
                 new FakeIssueProvider(
@@ -252,14 +266,12 @@ public sealed class OrchestratorTests
 
             // Then
             fixture.PullRequestSystem.PostedIssues.ShouldContain(issueToPost);
-            fixture.Log.Entries.ShouldContain(
-                x =>
-                    x.Message ==
-                        $"Posting 1 issue(s):\n  Rule: {issueToPost.RuleId} Line: {issueToPost.Line} File: {issueToPost.AffectedFileRelativePath}");
+            fixture.Log.Entries.ShouldContain(x => x.Message.StartsWith("Posting 1 issue(s):"));
+            return Verify(fixture.Console.Output);
         }
 
         [Fact]
-        public void Should_Post_Issue_Not_Related_To_A_File()
+        public Task Should_Post_Issue_Not_Related_To_A_File()
         {
             // Given
             var issueToPost =
@@ -270,7 +282,7 @@ public sealed class OrchestratorTests
                     .Create();
 
             var fixture = new OrchestratorForIssueProvidersFixture();
-
+            fixture.Log.Verbosity = Core.Diagnostics.Verbosity.Diagnostic;
             fixture.IssueProviders.Clear();
             fixture.IssueProviders.Add(
                 new FakeIssueProvider(
@@ -282,10 +294,8 @@ public sealed class OrchestratorTests
 
             // Then
             fixture.PullRequestSystem.PostedIssues.ShouldContain(issueToPost);
-            fixture.Log.Entries.ShouldContain(
-                x =>
-                    x.Message ==
-                        $"Posting 1 issue(s):\n  Rule: {issueToPost.RuleId} Line: {issueToPost.Line} File: {issueToPost.AffectedFileRelativePath}");
+            fixture.Log.Entries.ShouldContain(x => x.Message.StartsWith("Posting 1 issue(s):"));
+            return Verify(fixture.Console.Output);
         }
 
         [Fact]
