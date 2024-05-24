@@ -48,6 +48,7 @@ For addin compatible with Cake Script Runners see Cake.Issues.Terraform.
   <files>
     <file src="icon.png" target="" />
     <file src="Cake.Frosting.Issues.Terraform.targets" target="build" />
+    <file src="Cake.Frosting.Issues.Terraform.targets" target="buildTransitive" />
     <file src="Cake.Frosting.Issues.Terraform.md" target="docs\README.md" />
     <file src="..\..\src\Cake.Issues.Terraform\bin\Release\net6.0\Cake.Issues.Terraform.dll" target="lib\net6.0" />
     <file src="..\..\src\Cake.Issues.Terraform\bin\Release\net6.0\Cake.Issues.Terraform.pdb" target="lib\net6.0" />
