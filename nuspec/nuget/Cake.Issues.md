@@ -86,8 +86,7 @@ available [Pull Request System] addin together with the
 [Cake.Issues.PullRequests](https://www.nuget.org/packages/Cake.Issues.PullRequests) addin for Cake .NET Tool or
 [Cake.Frosting.Issues.PullRequests](https://www.nuget.org/packages/Cake.Frosting.Issues.PullRequests) addin for Cake Frosting.
 
-
-| Cake .NET Addin | Cake Frosting Addin | Description |
+| Cake .NET Tool Addin | Cake Frosting Addin | Description |
 |:--:|-|-|
 | [Cake.Issues.PullRequests.AppVeyor](https://www.nuget.org/packages/Cake.Issues.PullRequests.AppVeyor) | [Cake.Frosting.Issues.PullRequests.AppVeyor](https://www.nuget.org/packages/Cake.Frosting.Issues.PullRequests.AppVeyor) | Integration with AppVeyor builds. |
 | [Cake.Issues.PullRequests.AzureDevOps](https://www.nuget.org/packages/Cake.Issues.PullRequests.AzureDevOps) | [Cake.Frosting.Issues.PullRequests.AzureDevOps](https://www.nuget.org/packages/Cake.Frosting.Issues.PullRequests.AzureDevOps) | Integration with Azure DevOps pull requests. |
