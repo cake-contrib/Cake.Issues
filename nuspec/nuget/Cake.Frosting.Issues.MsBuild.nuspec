@@ -52,6 +52,7 @@ For addin compatible with Cake Script Runners see Cake.Issues.MsBuild.
   <files>
     <file src="icon.png" target="" />
     <file src="Cake.Frosting.Issues.MsBuild.targets" target="build" />
+    <file src="Cake.Frosting.Issues.MsBuild.targets" target="buildTransitive" />
     <file src="Cake.Frosting.Issues.MsBuild.md" target="docs\README.md" />
     <file src="..\..\src\Cake.Issues.MsBuild\bin\Release\net6.0\Cake.Issues.MsBuild.dll" target="lib\net6.0" />
     <file src="..\..\src\Cake.Issues.MsBuild\bin\Release\net6.0\Cake.Issues.MsBuild.pdb" target="lib\net6.0" />

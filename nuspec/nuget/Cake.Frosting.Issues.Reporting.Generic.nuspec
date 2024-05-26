@@ -52,6 +52,7 @@ For addin compatible with Cake Script Runners see Cake.Issues.Reporting.Generic.
   <files>
     <file src="icon.png" target="" />
     <file src="Cake.Frosting.Issues.Reporting.Generic.targets" target="build" />
+    <file src="Cake.Frosting.Issues.Reporting.Generic.targets" target="buildTransitive" />
     <file src="Cake.Frosting.Issues.Reporting.Generic.md" target="docs\README.md" />
     <file src="..\..\src\Cake.Issues.Reporting.Generic\bin\Release\net6.0\Cake.Issues.Reporting.Generic.dll" target="lib\net6.0" />
     <file src="..\..\src\Cake.Issues.Reporting.Generic\bin\Release\net6.0\Cake.Issues.Reporting.Generic.pdb" target="lib\net6.0" />

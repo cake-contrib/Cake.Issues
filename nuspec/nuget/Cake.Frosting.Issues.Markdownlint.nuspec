@@ -48,6 +48,7 @@ For addin compatible with Cake Script Runners see Cake.Issues.Markdownlint.
   <files>
     <file src="icon.png" target="" />
     <file src="Cake.Frosting.Issues.Markdownlint.targets" target="build" />
+    <file src="Cake.Frosting.Issues.Markdownlint.targets" target="buildTransitive" />
     <file src="Cake.Frosting.Issues.Markdownlint.md" target="docs\README.md" />
     <file src="..\..\src\Cake.Issues.Markdownlint\bin\Release\net6.0\Cake.Issues.Markdownlint.dll" target="lib\net6.0" />
     <file src="..\..\src\Cake.Issues.Markdownlint\bin\Release\net6.0\Cake.Issues.Markdownlint.pdb" target="lib\net6.0" />
