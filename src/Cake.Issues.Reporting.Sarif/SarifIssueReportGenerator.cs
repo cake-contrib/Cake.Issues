@@ -47,6 +47,66 @@ internal class SarifIssueReportGenerator : IssueReportFormat
     {
         this.Log.Information("Creating report '{0}'", this.Settings.OutputFilePath.FullPath);
 
+        List<SarifIssue> sarifIssues = [];
+
+        if (this.sarifIssueReportFormatSettings.BaselineGuid != Guid.Empty &&
+            this.sarifIssueReportFormatSettings.ExistingIssues.Count > 0)
+        {
+            var issueComparerOnlyPersistentProperties = new IIssueComparer(true);
+            var issueComparerAllProperties = new IIssueComparer(false);
+
+            // compare with all properties to identify same issues
+            var unchangedIssuesNew = issues
+                .Intersect(this.sarifIssueReportFormatSettings.ExistingIssues, issueComparerAllProperties);
+
+            // compare with all properties to identify same issues
+            var unchangedIssuesOld = this.sarifIssueReportFormatSettings.ExistingIssues
+                .Intersect(issues, issueComparerAllProperties);
+
+            // exclude issues by object reference
+            var remainingIssuesNew = issues
+                .Except(unchangedIssuesNew);
+
+            // exclude issues by object reference
+            var remainingIssuesOld = this.sarifIssueReportFormatSettings.ExistingIssues
+                .Except(unchangedIssuesOld);
+
+            // compare with persistend properties to identify potentially updated issues
+            // intersect will not work at is takes the first item and produce a distinct set of item(s).
+            var updatedIssuesExcepted = remainingIssuesNew
+                .Except(remainingIssuesOld, issueComparerOnlyPersistentProperties);
+
+            // exclude issues by object reference
+            var updatedIssuesNew = remainingIssuesNew
+                .Except(updatedIssuesExcepted);
+
+            // compare with persistend properties to identify potentially updated issues
+            // intersect will not work at is takes the first item and produce a distinct set of item(s).
+            var updatedIssuesOldExpected = remainingIssuesOld
+                .Except(remainingIssuesNew, issueComparerOnlyPersistentProperties);
+
+            // exclude issues by object reference
+            var updatedIssuesOld = remainingIssuesOld
+                .Except(updatedIssuesOldExpected);
+
+            // exclude issues by object reference
+            var newIssues = remainingIssuesNew
+                .Except(updatedIssuesNew);
+
+            // exclude issues by object reference
+            var absentIssues = remainingIssuesOld
+                .Except(updatedIssuesOld);
+
+            sarifIssues.AddRange(newIssues.Select(issue => new SarifIssue { BaselineState = BaselineState.New, Issue = issue }));
+            sarifIssues.AddRange(updatedIssuesNew.Select(issue => new SarifIssue { BaselineState = BaselineState.Updated, Issue = issue }));
+            sarifIssues.AddRange(unchangedIssuesNew.Select(issue => new SarifIssue { BaselineState = BaselineState.Unchanged, Issue = issue }));
+            sarifIssues.AddRange(absentIssues.Select(issue => new SarifIssue { BaselineState = BaselineState.Absent, Issue = issue }));
+        }
+        else
+        {
+            sarifIssues.AddRange(issues.Select(issue => new SarifIssue() { Issue = issue }));
+        }
+
         var settings = new JsonSerializerSettings()
         {
             Formatting = Formatting.Indented,
@@ -54,11 +114,11 @@ internal class SarifIssueReportGenerator : IssueReportFormat
 
         var log = new SarifLog();
 
-        if (issues.Any())
+        if (sarifIssues.Count > 0)
         {
             log.Runs = [];
 
-            foreach (var issueGroup in from issue in issues group issue by new { issue.ProviderType, issue.Run })
+            foreach (var issueGroup in from sarifIssue in sarifIssues group sarifIssue by new { sarifIssue.Issue.ProviderType, sarifIssue.Issue.Run })
             {
                 this.rules = [];
                 this.ruleIndices = [];
@@ -75,8 +135,8 @@ internal class SarifIssueReportGenerator : IssueReportFormat
                                 },
                         },
                     Results =
-                        (from issue in issueGroup
-                         select this.GetResult(issue)).ToList(),
+                        (from sarifIssue in issueGroup
+                         select this.GetResult(sarifIssue)).ToList(),
                     OriginalUriBaseIds = new Dictionary<string, ArtifactLocation>
                     {
                         [RepoRootUriBaseId] =
@@ -88,7 +148,8 @@ internal class SarifIssueReportGenerator : IssueReportFormat
                 };
 
                 if (!string.IsNullOrEmpty(issueGroup.Key.Run) ||
-                    (this.sarifIssueReportFormatSettings.CorrelationGuid != Guid.Empty))
+                    (this.sarifIssueReportFormatSettings.CorrelationGuid != Guid.Empty) ||
+                    (this.sarifIssueReportFormatSettings.Guid != Guid.Empty))
                 {
                     run.AutomationDetails = new RunAutomationDetails();
 
@@ -101,6 +162,16 @@ internal class SarifIssueReportGenerator : IssueReportFormat
                     {
                         run.AutomationDetails.CorrelationGuid = this.sarifIssueReportFormatSettings.CorrelationGuid;
                     }
+
+                    if (this.sarifIssueReportFormatSettings.Guid != Guid.Empty)
+                    {
+                        run.AutomationDetails.Guid = this.sarifIssueReportFormatSettings.Guid;
+                    }
+                }
+
+                if (this.sarifIssueReportFormatSettings.BaselineGuid != Guid.Empty)
+                {
+                    run.BaselineGuid = this.sarifIssueReportFormatSettings.BaselineGuid;
                 }
 
                 if (this.rules.Count != 0)
@@ -118,38 +189,40 @@ internal class SarifIssueReportGenerator : IssueReportFormat
         return this.Settings.OutputFilePath;
     }
 
-    private Result GetResult(IIssue issue)
+    private Result GetResult(SarifIssue sarifIssue)
     {
-        issue.NotNull();
+        sarifIssue.NotNull();
+        sarifIssue.Issue.NotNull();
 
         var result =
             new Result
             {
-                RuleId = issue.RuleId,
+                RuleId = sarifIssue.Issue.RuleId,
                 Message =
                     new Message
                     {
-                        Text = issue.MessageText,
-                        Markdown = issue.MessageMarkdown,
+                        Text = sarifIssue.Issue.MessageText,
+                        Markdown = sarifIssue.Issue.MessageMarkdown,
                     },
-                Kind = issue.Kind(),
-                Level = issue.Level(),
-                Locations = [issue.Location()],
+                Kind = sarifIssue.Issue.Kind(),
+                Level = sarifIssue.Issue.Level(),
+                Locations = [sarifIssue.Issue.Location()],
+                BaselineState = sarifIssue.BaselineState,
             };
 
-        if (issue.RuleUrl != null)
+        if (sarifIssue.Issue.RuleUrl != null)
         {
-            if (!string.IsNullOrEmpty(issue.RuleId))
+            if (!string.IsNullOrEmpty(sarifIssue.Issue.RuleId))
             {
-                if (!this.ruleIndices.TryGetValue(issue.RuleId, out var value))
+                if (!this.ruleIndices.TryGetValue(sarifIssue.Issue.RuleId, out var value))
                 {
-                    this.ruleIndices.Add(issue.RuleId, this.rules.Count);
+                    this.ruleIndices.Add(sarifIssue.Issue.RuleId, this.rules.Count);
                     this.rules.Add(
                         new ReportingDescriptor
                         {
-                            Id = issue.RuleId,
-                            Name = issue.RuleName,
-                            HelpUri = issue.RuleUrl,
+                            Id = sarifIssue.Issue.RuleId,
+                            Name = sarifIssue.Issue.RuleName,
+                            HelpUri = sarifIssue.Issue.RuleUrl,
                         });
                 }
 
@@ -160,10 +233,26 @@ internal class SarifIssueReportGenerator : IssueReportFormat
                 // In the unusual case where there is a rule URL but no rule name, we put the
                 // URL in the result's property bag, because there's no rule whose metadata
                 // can hold it.
-                result.SetProperty(RuleUrlPropertyName, issue.RuleUrl);
+                result.SetProperty(RuleUrlPropertyName, sarifIssue.Issue.RuleUrl);
             }
         }
 
         return result;
+    }
+
+    /// <summary>
+    /// Contains the <see cref="BaselineState"/> and <see cref="IIssue"/>.
+    /// </summary>
+    private class SarifIssue
+    {
+        /// <summary>
+        /// Gets the BaselineState for the <see cref="SarifIssue"/>.
+        /// </summary>
+        public BaselineState BaselineState { get; init; }
+
+        /// <summary>
+        /// Gets the <see cref="IIssue"/> for the <see cref="SarifIssue"/>.
+        /// </summary>
+        public IIssue Issue { get; init; }
     }
 }
