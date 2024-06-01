@@ -20,8 +20,10 @@ internal static class IIssueExtensions
         return issue.Priority.HasValue
             ? issue.Priority switch
             {
-                (int)IssuePriority.Suggestion or (int)IssuePriority.Hint => ResultKind.Informational,
-                (int)IssuePriority.Warning or (int)IssuePriority.Error => ResultKind.Fail,
+                (int)IssuePriority.Suggestion or
+                (int)IssuePriority.Hint or
+                (int)IssuePriority.Warning or
+                (int)IssuePriority.Error => ResultKind.Fail,
                 _ => ResultKind.NotApplicable,
             }
             : ResultKind.None;
