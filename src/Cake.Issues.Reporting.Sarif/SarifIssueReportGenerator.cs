@@ -87,13 +87,20 @@ internal class SarifIssueReportGenerator : IssueReportFormat
                     },
                 };
 
-                if (!string.IsNullOrEmpty(issueGroup.Key.Run))
+                if (!string.IsNullOrEmpty(issueGroup.Key.Run) ||
+                    (this.sarifIssueReportFormatSettings.CorrelationGuid != Guid.Empty))
                 {
-                    run.AutomationDetails =
-                        new RunAutomationDetails
-                        {
-                            Id = issueGroup.Key.Run,
-                        };
+                    run.AutomationDetails = new RunAutomationDetails();
+
+                    if (!string.IsNullOrEmpty(issueGroup.Key.Run))
+                    {
+                        run.AutomationDetails.Id = issueGroup.Key.Run;
+                    }
+
+                    if (this.sarifIssueReportFormatSettings.CorrelationGuid != Guid.Empty)
+                    {
+                        run.AutomationDetails.CorrelationGuid = this.sarifIssueReportFormatSettings.CorrelationGuid;
+                    }
                 }
 
                 if (this.rules.Count != 0)

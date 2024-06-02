@@ -319,6 +319,56 @@ public sealed class SarifIssueReportGeneratorTests
             run2.AutomationDetails.Id.ShouldBe(runDescription2);
         }
 
+
+        [Fact]
+        public void Should_Set_CorrelationGuid_If_Defined()
+        {
+            // Given
+            var correlationGuid = Guid.NewGuid();
+            var fixture = new SarifIssueReportFixture();
+            fixture.SarifIssueReportFormatSettings.CorrelationGuid = correlationGuid;
+            var issues =
+                 new List<IIssue>
+                 {
+                        IssueBuilder
+                            .NewIssue("Message Foo.", "ProviderType Foo", "ProviderName Foo")
+                            .Create(),
+                 };
+
+            // When
+            var logContents = fixture.CreateReport(issues);
+
+            // Then
+            var sarifLog = JsonConvert.DeserializeObject<SarifLog>(logContents);
+
+            var run = sarifLog.Runs.ShouldHaveSingleItem();
+            run.AutomationDetails.CorrelationGuid.ShouldBe(correlationGuid);
+        }
+
+        [Fact]
+        public void Should_Not_Set_CorrelationGuid_If_Not_Defined()
+        {
+            // Given
+            var fixture = new SarifIssueReportFixture();
+            var issues =
+                 new List<IIssue>
+                 {
+                        IssueBuilder
+                            .NewIssue("Message Foo.", "ProviderType Foo", "ProviderName Foo")
+                            .ForRun("Run Foo")
+                            .Create(),
+                 };
+
+            // When
+            var logContents = fixture.CreateReport(issues);
+
+            // Then
+            var sarifLog = JsonConvert.DeserializeObject<SarifLog>(logContents);
+
+            var run = sarifLog.Runs.ShouldHaveSingleItem();
+            run.AutomationDetails.CorrelationGuid.ShouldBeNull();
+        }
+
         [Fact]
         public void Should_Set_OriginalUriBaseIds()
         {
