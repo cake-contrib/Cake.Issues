@@ -1,0 +1,28 @@
+name: Full build
+
+# Workflow Trigger
+on:
+  # Trigger the workflow on a pull request to any branch
+  pull_request:
+
+jobs:
+  Build:
+    name: Run full build
+    runs-on: windows-2022
+    steps:
+      - name: Get the sources
+        uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4
+      - name: Fetch all tags and branches
+        run: git fetch --prune --unshallow
+      - name: Install .NET
+        uses: actions/setup-dotnet@4d6c8fcf3c8f7a60068d26b594648e99df24cee3 # v4
+        with:
+          # .NET 5 required for GitVersion
+          dotnet-version: | 
+            5.x
+            6.x
+            7.x
+            8.x
+      - name: Build
+        run: ./build.sh --target=ci
+        shell: bash
