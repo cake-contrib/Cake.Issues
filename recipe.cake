@@ -1,3 +1,7 @@
+// Use never version of Cake.Codecov
+// Can be removed once https://github.com/cake-contrib/Cake.Recipe/pull/1002 has shipped
+#addin nuget:?package=Cake.Codecov&version=1.0.1
+
 #load nuget:?package=Cake.Recipe&version=3.1.1
 
 //*************************************************************************************************
@@ -23,6 +27,9 @@ BuildParameters.SetParameters(
 BuildParameters.PrintParameters(Context);
 
 ToolSettings.SetToolPreprocessorDirectives(
+    // Use CodecovUploader instead of unofficial Codecov exe.
+    // Can be removed once https://github.com/cake-contrib/Cake.Recipe/pull/1002 has shipped
+    codecovGlobalTool: "#tool nuget:?package=CodecovUploader&version=0.7.3",
     gitReleaseManagerGlobalTool: "#tool dotnet:?package=GitReleaseManager.Tool&version=0.17.0",
     nugetTool: "#tool nuget:?package=NuGet.CommandLine&version=6.9.1"
 );
@@ -124,6 +131,43 @@ BuildParameters.Tasks.InspectCodeTask
 
         // Pass path to InspectCode log file to Cake.Issues.Recipe
         IssuesParameters.InputFiles.AddInspectCodeLogFile(inspectCodeLogFilePath);
+    })
+);
+
+// Updated for CodecovUploader 
+// Can be removed once https://github.com/cake-contrib/Cake.Recipe/pull/1002 has shipped
+((CakeTask)BuildParameters.Tasks.UploadCodecovReportTask.Task).Actions.Clear();
+BuildParameters.Tasks.UploadCodecovReportTask
+    .WithCriteria(() => BuildParameters.IsMainRepository, "Skipping because not running from the main repository")
+    .WithCriteria(() => BuildParameters.ShouldRunCodecov, "Skipping because uploading to codecov is disabled")
+    .WithCriteria(() => BuildParameters.CanPublishToCodecov, "Skipping because repo token is missing, or not running on appveyor")
+    .Does<BuildVersion>((context, buildVersion) => RequireTool(BuildParameters.IsDotNetCoreBuild ? ToolSettings.CodecovGlobalTool : ToolSettings.CodecovTool, () => {
+        var coverageFiles = GetFiles(BuildParameters.Paths.Directories.TestCoverage + "/coverlet/*.xml");
+        if (FileExists(BuildParameters.Paths.Files.TestCoverageOutputFilePath))
+        {
+            coverageFiles += BuildParameters.Paths.Files.TestCoverageOutputFilePath;
+        }
+
+        if (coverageFiles.Any())
+        {
+            var settings = new CodecovSettings {
+                Files = coverageFiles.Select(f => f.FullPath),
+                Required = true,
+                Token = BuildParameters.Codecov.RepoToken
+            };
+            if (buildVersion != null &&
+                !string.IsNullOrEmpty(buildVersion.FullSemVersion) &&
+                BuildParameters.IsRunningOnAppVeyor)
+            {
+                // Required to work correctly with appveyor because environment changes isn't detected until cake is done running.
+                var localBuildVersion = string.Format("{0}.build.{1}",
+                    buildVersion.FullSemVersion,
+                    BuildSystem.AppVeyor.Environment.Build.Number);
+                settings.EnvironmentVariables = new Dictionary<string, string> { { "APPVEYOR_BUILD_VERSION", localBuildVersion }};
+            }
+
+            Codecov(settings);
+        }
     })
 );
 
