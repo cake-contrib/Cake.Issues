@@ -55,51 +55,35 @@ internal class SarifIssueReportGenerator : IssueReportFormat
             var issueComparerOnlyPersistentProperties = new IIssueComparer(true);
             var issueComparerAllProperties = new IIssueComparer(false);
 
-            // compare with all properties to identify same issues
-            var unchangedIssuesNew = issues
-                .Intersect(this.sarifIssueReportFormatSettings.ExistingIssues, issueComparerAllProperties);
+            var unchangedIssues = new List<IIssue>();
+            var updatedIssues = new List<IIssue>();
+            var newIssues = new List<IIssue>();
 
-            // compare with all properties to identify same issues
-            var unchangedIssuesOld = this.sarifIssueReportFormatSettings.ExistingIssues
-                .Intersect(issues, issueComparerAllProperties);
+            var existingIssuesSet =
+                new HashSet<IIssue>(this.sarifIssueReportFormatSettings.ExistingIssues, issueComparerOnlyPersistentProperties);
 
-            // exclude issues by object reference
-            var remainingIssuesNew = issues
-                .Except(unchangedIssuesNew);
+            foreach (var issue in issues)
+            {
+                if (existingIssuesSet.Contains(issue, issueComparerAllProperties))
+                {
+                    unchangedIssues.Add(issue);
+                }
+                else if (existingIssuesSet.Contains(issue))
+                {
+                    updatedIssues.Add(issue);
+                }
+                else
+                {
+                    newIssues.Add(issue);
+                }
+            }
 
-            // exclude issues by object reference
-            var remainingIssuesOld = this.sarifIssueReportFormatSettings.ExistingIssues
-                .Except(unchangedIssuesOld);
-
-            // compare with persistend properties to identify potentially updated issues
-            // intersect will not work at is takes the first item and produce a distinct set of item(s).
-            var updatedIssuesExcepted = remainingIssuesNew
-                .Except(remainingIssuesOld, issueComparerOnlyPersistentProperties);
-
-            // exclude issues by object reference
-            var updatedIssuesNew = remainingIssuesNew
-                .Except(updatedIssuesExcepted);
-
-            // compare with persistend properties to identify potentially updated issues
-            // intersect will not work at is takes the first item and produce a distinct set of item(s).
-            var updatedIssuesOldExpected = remainingIssuesOld
-                .Except(remainingIssuesNew, issueComparerOnlyPersistentProperties);
-
-            // exclude issues by object reference
-            var updatedIssuesOld = remainingIssuesOld
-                .Except(updatedIssuesOldExpected);
-
-            // exclude issues by object reference
-            var newIssues = remainingIssuesNew
-                .Except(updatedIssuesNew);
-
-            // exclude issues by object reference
-            var absentIssues = remainingIssuesOld
-                .Except(updatedIssuesOld);
+            var absentIssues =
+                this.sarifIssueReportFormatSettings.ExistingIssues.Except(issues, issueComparerOnlyPersistentProperties);
 
             sarifIssues.AddRange(newIssues.Select(issue => new SarifIssue { BaselineState = BaselineState.New, Issue = issue }));
-            sarifIssues.AddRange(updatedIssuesNew.Select(issue => new SarifIssue { BaselineState = BaselineState.Updated, Issue = issue }));
-            sarifIssues.AddRange(unchangedIssuesNew.Select(issue => new SarifIssue { BaselineState = BaselineState.Unchanged, Issue = issue }));
+            sarifIssues.AddRange(updatedIssues.Select(issue => new SarifIssue { BaselineState = BaselineState.Updated, Issue = issue }));
+            sarifIssues.AddRange(unchangedIssues.Select(issue => new SarifIssue { BaselineState = BaselineState.Unchanged, Issue = issue }));
             sarifIssues.AddRange(absentIssues.Select(issue => new SarifIssue { BaselineState = BaselineState.Absent, Issue = issue }));
         }
         else
