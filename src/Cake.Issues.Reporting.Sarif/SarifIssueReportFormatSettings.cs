@@ -22,21 +22,13 @@ public class SarifIssueReportFormatSettings
     public Guid CorrelationGuid { get; set; }
 
     /// <summary>
-    /// Gets or sets a Guid whose value is a GUID-valued string that provides a unique, stable identifier for theRun.
+    /// Gets or sets a Guid whose value is a GUID-valued string that provides a unique, stable identifier for the run.
     /// Will be written to the <c>automationDetails.guid</c> property.
     /// </summary>
-    /// <remarks>
-    /// Consider an engineering system that allows engineers to define “build definitions”, and that assigns a GUID
-    /// to each build definition.
-    /// In such a system, the build definition’s GUID could serve as <see cref="Guid"/>.
-    /// It would be the same for all runs produced by the same build definition, and different between any two runs
-    /// produced by different build definitions.
-    /// </remarks>
     public Guid Guid { get; set; }
 
     /// <summary>
-    /// Gets or sets a Guid whose value is a GUID-valued string which SHALL equal the automationDetails.guid
-    /// (<see cref="Guid"/>) of some previous run.
+    /// Gets or sets a Guid whose value is a GUID-valued string equal to <see cref="Guid"/> of a previous run.
     /// Will be written to the <c>run.baselineGuid</c> property.
     /// </summary>
     /// <remarks>
