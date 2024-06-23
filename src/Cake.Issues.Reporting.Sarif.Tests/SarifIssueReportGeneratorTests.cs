@@ -850,7 +850,7 @@ public sealed class SarifIssueReportGeneratorTests
         }
 
         [Fact]
-        public void Should_Generate_Report_With_BaseLineState_Unchanged_If_BaselineGuid_Set()
+        public void Should_Generate_Report_With_BaseLineState_Unchanged_If_Same_Issue()
         {
             // Given
             var fixture = new SarifIssueReportFixture();
@@ -865,7 +865,7 @@ public sealed class SarifIssueReportGeneratorTests
 
                 };
 
-            var existinIssues =
+            var existingIssues =
                 new List<IIssue>
                 {
                     IssueBuilder
@@ -874,7 +874,7 @@ public sealed class SarifIssueReportGeneratorTests
 
                 };
 
-            fixture.SarifIssueReportFormatSettings.ExistingIssues.AddRange(existinIssues);
+            fixture.SarifIssueReportFormatSettings.ExistingIssues.AddRange(existingIssues);
 
             // When
             var logContents = fixture.CreateReport(issues);
@@ -882,20 +882,13 @@ public sealed class SarifIssueReportGeneratorTests
             // Then
             var sarifLog = JsonConvert.DeserializeObject<SarifLog>(logContents);
 
-            // There are two runs because there are two issue providers.
-            sarifLog.Runs.Count.ShouldBe(1);
-
-            var run = sarifLog.Runs[0];
-            run.Tool.Driver.Name.ShouldBe("ProviderType Foo");
-            run.Results.Count.ShouldBe(1);
-
-            var result = run.Results[0];
-            result.Message.Text.ShouldBe("Message Foo.");
+            var run = sarifLog.Runs.ShouldHaveSingleItem();
+            var result = run.Results.ShouldHaveSingleItem();
             result.BaselineState.ShouldBe(BaselineState.Unchanged);
         }
 
         [Fact]
-        public void Should_Generate_Report_With_BaseLineState_New_If_BaselineGuid_Set()
+        public void Should_Generate_Report_With_BaseLineState_New_If_New_Issue()
         {
             // Given
             var fixture = new SarifIssueReportFixture();
@@ -910,7 +903,7 @@ public sealed class SarifIssueReportGeneratorTests
 
                 };
 
-            var existinIssues =
+            var existingIssues =
                 new List<IIssue>
                 {
                     IssueBuilder
@@ -919,7 +912,7 @@ public sealed class SarifIssueReportGeneratorTests
 
                 };
 
-            fixture.SarifIssueReportFormatSettings.ExistingIssues.AddRange(existinIssues);
+            fixture.SarifIssueReportFormatSettings.ExistingIssues.AddRange(existingIssues);
 
             // When
             var logContents = fixture.CreateReport(issues);
@@ -927,20 +920,14 @@ public sealed class SarifIssueReportGeneratorTests
             // Then
             var sarifLog = JsonConvert.DeserializeObject<SarifLog>(logContents);
 
-            // There are two runs because there are two issue providers.
-            sarifLog.Runs.Count.ShouldBe(1);
-
-            var run = sarifLog.Runs[0];
-            run.Tool.Driver.Name.ShouldBe("ProviderType Foo");
+            var run = sarifLog.Runs.ShouldHaveSingleItem();
             run.Results.Count.ShouldBe(2);
-
-            var result = run.Results[0];
-            result.Message.Text.ShouldBe("Message Foo 1.");
+            var result = run.Results.Single(x => x.Message.Text == "Message Foo 1.");
             result.BaselineState.ShouldBe(BaselineState.New);
         }
 
         [Fact]
-        public void Should_Generate_Report_With_BaseLineState_Absent_If_BaselineGuid_Set()
+        public void Should_Generate_Report_With_BaseLineState_Absent_If_Issue_Was_Removed()
         {
             // Given
             var fixture = new SarifIssueReportFixture();
@@ -955,7 +942,7 @@ public sealed class SarifIssueReportGeneratorTests
 
                 };
 
-            var existinIssues =
+            var existingIssues =
                 new List<IIssue>
                 {
                     IssueBuilder
@@ -964,7 +951,7 @@ public sealed class SarifIssueReportGeneratorTests
 
                 };
 
-            fixture.SarifIssueReportFormatSettings.ExistingIssues.AddRange(existinIssues);
+            fixture.SarifIssueReportFormatSettings.ExistingIssues.AddRange(existingIssues);
 
             // When
             var logContents = fixture.CreateReport(issues);
@@ -972,20 +959,14 @@ public sealed class SarifIssueReportGeneratorTests
             // Then
             var sarifLog = JsonConvert.DeserializeObject<SarifLog>(logContents);
 
-            // There are two runs because there are two issue providers.
-            sarifLog.Runs.Count.ShouldBe(1);
-
-            var run = sarifLog.Runs[0];
-            run.Tool.Driver.Name.ShouldBe("ProviderType Foo");
+            var run = sarifLog.Runs.ShouldHaveSingleItem();
             run.Results.Count.ShouldBe(2);
-
-            var result = run.Results[1];
-            result.Message.Text.ShouldBe("Message Foo.");
+            var result = run.Results.Single(x => x.Message.Text == "Message Foo.");
             result.BaselineState.ShouldBe(BaselineState.Absent);
         }
 
         [Fact]
-        public void Should_Generate_Report_With_BaseLineState_Updated_If_BaselineGuid_Set()
+        public void Should_Generate_Report_With_BaseLineState_Updated_If_FilePath_Has_Changed()
         {
             // Given
             var fixture = new SarifIssueReportFixture();
@@ -998,38 +979,18 @@ public sealed class SarifIssueReportGeneratorTests
                         .NewIssue("Message Foo.", "ProviderType Foo", "ProviderName Foo")
                         .InFile(@"src\Cake.Issues.Reporting.Sarif.Tests\newlocation\SarifIssueReportGeneratorTests.cs", 23, 42, 5, 10)
                         .Create(),
-
-                    IssueBuilder
-                        .NewIssue("Message Foo.", "ProviderType Foo", "ProviderName Foo")
-                        .InFile(@"src\Cake.Issues.Reporting.Sarif.Tests\SarifIssueReportGeneratorTests.cs", 123, 142, 15, 110)
-                        .Create(),
-
-                    IssueBuilder
-                        .NewIssue("Message Foo Bar.", "ProviderType Foo", "ProviderName Foo")
-                        .InFile(@"src\Cake.Issues.Reporting.Sarif.Tests\SarifIssueReportGeneratorTests.cs", 1234, 1253, 15, 110)
-                        .Create(),
                 };
 
-            var existinIssues =
+            var existingIssues =
                 new List<IIssue>
                 {
                     IssueBuilder
                         .NewIssue("Message Foo.", "ProviderType Foo", "ProviderName Foo")
                         .InFile(@"src\Cake.Issues.Reporting.Sarif.Tests\SarifIssueReportGeneratorTests.cs", 23, 42, 5, 10)
                         .Create(),
-
-                    IssueBuilder
-                        .NewIssue("Message Foo.", "ProviderType Foo", "ProviderName Foo")
-                        .InFile(@"src\Cake.Issues.Reporting.Sarif.Tests\SarifIssueReportGeneratorTests.cs", 125, 144, 15, 110)
-                        .Create(),
-
-                    IssueBuilder
-                        .NewIssue("Message Foo Bar.", "ProviderType Foo", "ProviderName Foo")
-                        .InFile(@"src\Cake.Issues.Reporting.Sarif.Tests\SarifIssueReportGeneratorTests.cs", 123, 142, 15, 110)
-                        .Create(),
                 };
 
-            fixture.SarifIssueReportFormatSettings.ExistingIssues.AddRange(existinIssues);
+            fixture.SarifIssueReportFormatSettings.ExistingIssues.AddRange(existingIssues);
 
             // When
             var logContents = fixture.CreateReport(issues);
@@ -1037,31 +998,51 @@ public sealed class SarifIssueReportGeneratorTests
             // Then
             var sarifLog = JsonConvert.DeserializeObject<SarifLog>(logContents);
 
-            // There are two runs because there are two issue providers.
-            sarifLog.Runs.Count.ShouldBe(1);
-
-            var run = sarifLog.Runs[0];
-            run.Tool.Driver.Name.ShouldBe("ProviderType Foo");
-            run.Results.Count.ShouldBe(3);
-
-            var result = run.Results[0];
-            result.Message.Text.ShouldBe("Message Foo.");
-            result.Locations[0].PhysicalLocation.Region.StartLine.ShouldBe(23);
-            result.BaselineState.ShouldBe(BaselineState.Updated);
-
-            result = run.Results[1];
-            result.Message.Text.ShouldBe("Message Foo.");
-            result.Locations[0].PhysicalLocation.Region.StartLine.ShouldBe(123);
-            result.BaselineState.ShouldBe(BaselineState.Updated);
-
-            result = run.Results[2];
-            result.Message.Text.ShouldBe("Message Foo Bar.");
-            result.Locations[0].PhysicalLocation.Region.StartLine.ShouldBe(1234);
+            var run = sarifLog.Runs.ShouldHaveSingleItem();
+            var result = run.Results.ShouldHaveSingleItem();
             result.BaselineState.ShouldBe(BaselineState.Updated);
         }
 
         [Fact]
-        public void Should_Generate_Report_With_BaseLineState_None_If_BaselineGuid_Not_Set()
+        public void Should_Generate_Report_With_BaseLineState_Updated_If_Position_Has_Changed()
+        {
+            // Given
+            var fixture = new SarifIssueReportFixture();
+            fixture.SarifIssueReportFormatSettings.BaselineGuid = Guid.NewGuid();
+
+            var issues =
+                new List<IIssue>
+                {
+                    IssueBuilder
+                        .NewIssue("Message Foo.", "ProviderType Foo", "ProviderName Foo")
+                        .InFile(@"src\Cake.Issues.Reporting.Sarif.Tests\SarifIssueReportGeneratorTests.cs", 123, 142, 15, 110)
+                        .Create(),
+                };
+
+            var existingIssues =
+                new List<IIssue>
+                {
+                    IssueBuilder
+                        .NewIssue("Message Foo.", "ProviderType Foo", "ProviderName Foo")
+                        .InFile(@"src\Cake.Issues.Reporting.Sarif.Tests\SarifIssueReportGeneratorTests.cs", 125, 144, 15, 110)
+                        .Create(),
+                };
+
+            fixture.SarifIssueReportFormatSettings.ExistingIssues.AddRange(existingIssues);
+
+            // When
+            var logContents = fixture.CreateReport(issues);
+
+            // Then
+            var sarifLog = JsonConvert.DeserializeObject<SarifLog>(logContents);
+
+            var run = sarifLog.Runs.ShouldHaveSingleItem();
+            var result = run.Results.ShouldHaveSingleItem();
+            result.BaselineState.ShouldBe(BaselineState.Updated);
+        }
+
+        [Fact]
+        public void Should_Generate_Report_With_BaseLineState_None_If_BaselineGuid_Is_Not_Set()
         {
             // Given
             var fixture = new SarifIssueReportFixture();
@@ -1070,46 +1051,21 @@ public sealed class SarifIssueReportGeneratorTests
                 new List<IIssue>
                 {
                     IssueBuilder
-                        .NewIssue("Message Foo.", "ProviderType Foo", "ProviderName Foo")
-                        .InFile(@"src\Cake.Issues.Reporting.Sarif.Tests\SarifIssueReportGeneratorTests.cs", 23, 42, 5, 10)
+                        .NewIssue("Message Foo 1.", "ProviderType Foo", "ProviderName Foo")
                         .Create(),
 
-                    IssueBuilder
-                        .NewIssue("Message Foo 2.", "ProviderType Foo", "ProviderName Foo")
-                        .InFile(@"src\Cake.Issues.Reporting.Sarif.Tests\SarifIssueReportGeneratorTests.cs", 123, 142, 15, 110)
-                        .Create(),
-
-                    IssueBuilder
-                        .NewIssue("Message Foo Bar.", "ProviderType Foo", "ProviderName Foo")
-                        .InFile(@"src\Cake.Issues.Reporting.Sarif.Tests\SarifIssueReportGeneratorTests.cs", 23, 42, 15, 110)
-                        .Create(),
-
-                    IssueBuilder
-                        .NewIssue("Message Foo Bar 2.", "ProviderType Foo", "ProviderName Foo")
-                        .InFile(@"src\Cake.Issues.Reporting.Sarif.Tests\SarifIssueReportGeneratorTests.cs", 123, 142, 15, 110)
-                        .Create(),
                 };
 
-            var existinIssues =
+            var existingIssues =
                 new List<IIssue>
                 {
                     IssueBuilder
                         .NewIssue("Message Foo.", "ProviderType Foo", "ProviderName Foo")
-                        .InFile(@"src\Cake.Issues.Reporting.Sarif.Tests\SarifIssueReportGeneratorTests.cs", 23, 42, 5, 10)
                         .Create(),
 
-                    IssueBuilder
-                        .NewIssue("Message Foo.", "ProviderType Foo", "ProviderName Foo")
-                        .InFile(@"src\Cake.Issues.Reporting.Sarif.Tests\SarifIssueReportGeneratorTests.cs", 125, 144, 15, 110)
-                        .Create(),
-
-                    IssueBuilder
-                        .NewIssue("Message Foo Bar.", "ProviderType Foo", "ProviderName Foo")
-                        .InFile(@"src\Cake.Issues.Reporting.Sarif.Tests\SarifIssueReportGeneratorTests.cs", 123, 142, 15, 110)
-                        .Create(),
                 };
 
-            fixture.SarifIssueReportFormatSettings.ExistingIssues.AddRange(existinIssues);
+            fixture.SarifIssueReportFormatSettings.ExistingIssues.AddRange(existingIssues);
 
             // When
             var logContents = fixture.CreateReport(issues);
@@ -1117,31 +1073,8 @@ public sealed class SarifIssueReportGeneratorTests
             // Then
             var sarifLog = JsonConvert.DeserializeObject<SarifLog>(logContents);
 
-            // There are two runs because there are two issue providers.
-            sarifLog.Runs.Count.ShouldBe(1);
-
-            var run = sarifLog.Runs[0];
-            run.Tool.Driver.Name.ShouldBe("ProviderType Foo");
-            run.Results.Count.ShouldBe(4);
-
-            var result = run.Results[0];
-            result.Message.Text.ShouldBe("Message Foo.");
-            result.Locations[0].PhysicalLocation.Region.StartLine.ShouldBe(23);
-            result.BaselineState.ShouldBe(BaselineState.None);
-
-            result = run.Results[1];
-            result.Message.Text.ShouldBe("Message Foo 2.");
-            result.Locations[0].PhysicalLocation.Region.StartLine.ShouldBe(123);
-            result.BaselineState.ShouldBe(BaselineState.None);
-
-            result = run.Results[2];
-            result.Message.Text.ShouldBe("Message Foo Bar.");
-            result.Locations[0].PhysicalLocation.Region.StartLine.ShouldBe(23);
-            result.BaselineState.ShouldBe(BaselineState.None);
-
-            result = run.Results[3];
-            result.Message.Text.ShouldBe("Message Foo Bar 2.");
-            result.Locations[0].PhysicalLocation.Region.StartLine.ShouldBe(123);
+            var run = sarifLog.Runs.ShouldHaveSingleItem();
+            var result = run.Results.ShouldHaveSingleItem();
             result.BaselineState.ShouldBe(BaselineState.None);
         }
     }
