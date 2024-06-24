@@ -49,8 +49,7 @@ internal class SarifIssueReportGenerator : IssueReportFormat
 
         List<SarifIssue> sarifIssues = [];
 
-        if (this.sarifIssueReportFormatSettings.BaselineGuid != Guid.Empty &&
-            this.sarifIssueReportFormatSettings.ExistingIssues.Count > 0)
+        if (this.sarifIssueReportFormatSettings.BaselineGuid != Guid.Empty)
         {
             var issueComparerOnlyPersistentProperties = new IIssueComparer(true);
             var issueComparerAllProperties = new IIssueComparer(false);

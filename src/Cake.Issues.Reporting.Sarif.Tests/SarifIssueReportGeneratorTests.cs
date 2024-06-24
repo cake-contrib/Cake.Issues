@@ -1078,4 +1078,31 @@ public sealed class SarifIssueReportGeneratorTests
             result.BaselineState.ShouldBe(BaselineState.None);
         }
     }
+
+    [Fact]
+    public void Should_Generate_Report_With_BaseLineState_New_If_No_Existing_Issues()
+    {
+        // Given
+        var fixture = new SarifIssueReportFixture();
+        fixture.SarifIssueReportFormatSettings.BaselineGuid = Guid.NewGuid();
+
+        var issues =
+            new List<IIssue>
+            {
+                    IssueBuilder
+                        .NewIssue("Message Foo 1.", "ProviderType Foo", "ProviderName Foo")
+                        .Create(),
+
+            };
+
+        // When
+        var logContents = fixture.CreateReport(issues);
+
+        // Then
+        var sarifLog = JsonConvert.DeserializeObject<SarifLog>(logContents);
+
+        var run = sarifLog.Runs.ShouldHaveSingleItem();
+        var result = run.Results.ShouldHaveSingleItem();
+        result.BaselineState.ShouldBe(BaselineState.New);
+    }
 }
