@@ -28,7 +28,7 @@ Task("Build-Solution").Does(() =>
     var logPath = @"c:\build\msbuild.binlog";
     var repoRootPath = @"c:\repo";
 
-    // Build solution..
+    // Build solution.
     DotNetBuild(
         repoRootPath.CombineWithFilePath("MySolution.sln"),
         new DotNetBuildSettings
@@ -42,7 +42,7 @@ Task("Build-Solution").Does(() =>
                         logPath.FullPath)
         });
 
-    // Read Issues.
+    // Read issues.
     var issues =
         ReadIssues(
             MsBuildIssuesFromFilePath(logPath, MsBuildBinaryLogFileFormat),

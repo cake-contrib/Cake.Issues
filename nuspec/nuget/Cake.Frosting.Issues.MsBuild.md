@@ -45,7 +45,7 @@ public sealed class BuildSolutionTask : FrostingTask<BuildContext>
                             logPath.FullPath)
             });
 
-        // Read Issues.
+        // Read issues.
         var issues =
             context.ReadIssues(
                 context.MsBuildIssuesFromFilePath(logPath, context.MsBuildBinaryLogFileFormat),

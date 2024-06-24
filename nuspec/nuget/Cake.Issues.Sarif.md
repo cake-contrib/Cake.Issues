@@ -28,7 +28,7 @@ Task("Analyze").Does(() =>
     var logPath = @"c:\build\log.sarif";
     var repoRootPath = @"c:\repo";
 
-    // Read Issues.
+    // Read issues.
     var issues =
         ReadIssues(
             SarifIssuesFromFilePath(logPath),

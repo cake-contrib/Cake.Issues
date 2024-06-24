@@ -38,7 +38,7 @@ public sealed class LintDocumentationTask : FrostingTask<BuildContext>
         settings.ThrowOnIssue = false;
         context.RunMarkdownlintNodeJs(settings);
 
-        // Read Issues.
+        // Read issues.
         var issues =
             context.ReadIssues(
                 context.MarkdownlintIssuesFromFilePath(

@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - name: Get the sources
-        uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
       - name: Fetch all tags and branches
         run: git fetch --prune --unshallow
       - name: Install .NET
@@ -46,12 +46,12 @@ jobs:
         os: [
           windows-2019, windows-2022,
           ubuntu-20.04, ubuntu-22.04,
-          macos-11, macos-14]
+          macos-12, macos-14]
         dotnet: [6.x, 7.x, 8.x]
     runs-on: ${{ matrix.os }}
     steps:
       - name: Get the sources
-        uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
       - name: Download build artifact
         uses: actions/download-artifact@65a9edc5881444af0b9093a5e628f2fe47ea3b2e # v4
         with:
@@ -76,12 +76,12 @@ jobs:
           windows-2019, windows-2022,
           # Disabled until https://github.com/cake-contrib/Cake.Issues/issues/514 is fixed
           # ubuntu-20.04, ubuntu-22.04,
-          macos-11, macos-14]
+          macos-12, macos-14]
         dotnet: [6.x, 7.x, 8.x]
     runs-on: ${{ matrix.os }}
     steps:
       - name: Get the sources
-        uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
       - name: Download build artifact
         uses: actions/download-artifact@65a9edc5881444af0b9093a5e628f2fe47ea3b2e # v4
         with:

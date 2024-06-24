@@ -42,7 +42,7 @@ public sealed class LintTask : FrostingTask<BuildContext>
                 x.ContinueOnErrors = true;
             });
 
-        // Read Issues.
+        // Read issues.
         var issues =
             context.ReadIssues(
                 context.EsLintIssuesFromFilePath(logPath, context.EsLintJsonFormat()),

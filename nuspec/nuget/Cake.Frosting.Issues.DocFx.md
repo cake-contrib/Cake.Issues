@@ -38,7 +38,7 @@ public sealed class BuildDocumentationTask : FrostingTask<BuildContext>
             LogPath = logPath
         });
 
-        // Read Issues.
+        // Read issues.
         var issues =
             context.ReadIssues(
                 context.DocFxIssuesFromFilePath(logPath, docRootPath),

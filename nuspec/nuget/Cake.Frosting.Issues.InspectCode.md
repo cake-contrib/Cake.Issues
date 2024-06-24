@@ -43,7 +43,7 @@ public sealed class AnalyzeProjectTask : FrostingTask<BuildContext>
         };
         context.InspectCode(repoRootPath.CombineWithFilePath("MySolution.sln"), settings);
 
-        // Read Issues.
+        // Read issues.
         var issues =
             context.ReadIssues(
                 context.InspectCodeIssuesFromFilePath(logPath, docRootPath),

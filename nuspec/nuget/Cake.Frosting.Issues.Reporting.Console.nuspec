@@ -29,7 +29,7 @@ The addin requires Cake Frosting 1.2.0 or higher.
     <copyright>Copyright © Cake Issues contributors</copyright>
     <tags>cake cake-addin cake-issues cake-reportformat issues reporting console</tags>
     <readme>docs\README.md</readme>
-    <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/4.5.1</releaseNotes>
+    <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/4.6.0</releaseNotes>
     <dependencies>
       <group targetFramework="net6.0">
         <dependency id="Cake.Core" version="4.0" exclude="Build,Analyzers" />
@@ -54,6 +54,7 @@ The addin requires Cake Frosting 1.2.0 or higher.
   <files>
     <file src="icon.png" target="" />
     <file src="Cake.Frosting.Issues.Reporting.Console.targets" target="build" />
+    <file src="Cake.Frosting.Issues.Reporting.Console.targets" target="buildTransitive" />
     <file src="Cake.Frosting.Issues.Reporting.Console.md" target="docs\README.md" />
     <file src="..\..\src\Cake.Issues.Reporting.Console\bin\Release\net6.0\Cake.Issues.Reporting.Console.dll" target="lib\net6.0" />
     <file src="..\..\src\Cake.Issues.Reporting.Console\bin\Release\net6.0\Cake.Issues.Reporting.Console.pdb" target="lib\net6.0" />

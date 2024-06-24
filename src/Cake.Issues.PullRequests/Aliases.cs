@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Cake.Core;
 using Cake.Core.Annotations;
 using Cake.Core.IO;
+using Spectre.Console;
 
 /// <summary>
 /// Contains functionality related to reporting issues to pull requests.
@@ -99,6 +100,7 @@ public static class Aliases
         var orchestrator =
             new Orchestrator(
                 context.Log,
+                AnsiConsole.Console,
                 pullRequestSystem);
 
         return orchestrator.Run(issues, settings);
@@ -300,6 +302,7 @@ public static class Aliases
         var orchestrator =
             new Orchestrator(
                 context.Log,
+                AnsiConsole.Console,
                 pullRequestSystem);
 
         return orchestrator.Run(issueProviders, settings);

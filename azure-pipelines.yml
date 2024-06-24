@@ -72,10 +72,10 @@ stages:
           imageName: 'windows-2019'
         Windows_Server_2022:
           imageName: 'windows-2022'
-        macOS_11:
-          imageName: 'macOS-11'
-        macOS_13:
-          imageName: 'macOS-13'
+        macOS_12:
+          imageName: 'macOS-12'
+        macOS_14:
+          imageName: 'macOS-14'
         Ubuntu_20_04:
           imageName: 'ubuntu-20.04'
         Ubuntu_22_04:
@@ -104,10 +104,10 @@ stages:
           imageName: 'windows-2019'
         Windows_Server_2022:
           imageName: 'windows-2022'
-        macOS_11:
-          imageName: 'macOS-11'
-        macOS_13:
-          imageName: 'macOS-13'
+        macOS_12:
+          imageName: 'macOS-12'
+        macOS_14:
+          imageName: 'macOS-14'
         Ubuntu_20_04:
           imageName: 'ubuntu-20.04'
         Ubuntu_22_04:
@@ -137,10 +137,10 @@ stages:
           imageName: 'windows-2019'
         Windows_Server_2022:
           imageName: 'windows-2022'
-        macOS_11:
-          imageName: 'macOS-11'
-        macOS_13:
-          imageName: 'macOS-13'
+        macOS_12:
+          imageName: 'macOS-12'
+        macOS_14:
+          imageName: 'macOS-14'
         Ubuntu_20_04:
           imageName: 'ubuntu-20.04'
         Ubuntu_22_04:
@@ -166,10 +166,10 @@ stages:
           imageName: 'windows-2019'
         Windows_Server_2022:
           imageName: 'windows-2022'
-        macOS_11:
-          imageName: 'macOS-11'
-        macOS_13:
-          imageName: 'macOS-13'
+        macOS_12:
+          imageName: 'macOS-12'
+        macOS_14:
+          imageName: 'macOS-14'
         Ubuntu_20_04:
           imageName: 'ubuntu-20.04'
         Ubuntu_22_04:
@@ -190,10 +190,10 @@ stages:
           imageName: 'windows-2019'
         Windows_Server_2022:
           imageName: 'windows-2022'
-        macOS_11:
-          imageName: 'macOS-11'
-        macOS_13:
-          imageName: 'macOS-13'
+        macOS_12:
+          imageName: 'macOS-12'
+        macOS_14:
+          imageName: 'macOS-14'
         Ubuntu_20_04:
           imageName: 'ubuntu-20.04'
         Ubuntu_22_04:
@@ -219,10 +219,10 @@ stages:
           imageName: 'windows-2019'
         Windows_Server_2022:
           imageName: 'windows-2022'
-        macOS_11:
-          imageName: 'macOS-11'
-        macOS_13:
-          imageName: 'macOS-13'
+        macOS_12:
+          imageName: 'macOS-12'
+        macOS_14:
+          imageName: 'macOS-14'
         Ubuntu_20_04:
           imageName: 'ubuntu-20.04'
         Ubuntu_22_04:
@@ -246,10 +246,10 @@ stages:
           imageName: 'windows-2019'
         Windows_Server_2022:
           imageName: 'windows-2022'
-        macOS_11:
-          imageName: 'macOS-11'
-        macOS_13:
-          imageName: 'macOS-13'
+        macOS_12:
+          imageName: 'macOS-12'
+        macOS_14:
+          imageName: 'macOS-14'
         Ubuntu_20_04:
           imageName: 'ubuntu-20.04'
         Ubuntu_22_04:
@@ -278,10 +278,10 @@ stages:
           imageName: 'windows-2019'
         Windows_Server_2022:
           imageName: 'windows-2022'
-        macOS_11:
-          imageName: 'macOS-11'
-        macOS_13:
-          imageName: 'macOS-13'
+        macOS_12:
+          imageName: 'macOS-12'
+        macOS_14:
+          imageName: 'macOS-14'
         Ubuntu_20_04:
           imageName: 'ubuntu-20.04'
         Ubuntu_22_04:
@@ -305,10 +305,10 @@ stages:
           imageName: 'windows-2019'
         Windows_Server_2022:
           imageName: 'windows-2022'
-        macOS_11:
-          imageName: 'macOS-11'
-        macOS_13:
-          imageName: 'macOS-13'
+        macOS_12:
+          imageName: 'macOS-12'
+        macOS_14:
+          imageName: 'macOS-14'
         Ubuntu_20_04:
           imageName: 'ubuntu-20.04'
         Ubuntu_22_04:
@@ -332,10 +332,10 @@ stages:
           imageName: 'windows-2019'
         Windows_Server_2022:
           imageName: 'windows-2022'
-        macOS_11:
-          imageName: 'macOS-11'
-        macOS_13:
-          imageName: 'macOS-13'
+        macOS_12:
+          imageName: 'macOS-12'
+        macOS_14:
+          imageName: 'macOS-14'
         Ubuntu_20_04:
           imageName: 'ubuntu-20.04'
         Ubuntu_22_04:
@@ -359,10 +359,10 @@ stages:
           imageName: 'windows-2019'
         Windows_Server_2022:
           imageName: 'windows-2022'
-        macOS_11:
-          imageName: 'macOS-11'
-        macOS_13:
-          imageName: 'macOS-13'
+        macOS_12:
+          imageName: 'macOS-12'
+        macOS_14:
+          imageName: 'macOS-14'
         Ubuntu_20_04:
           imageName: 'ubuntu-20.04'
         Ubuntu_22_04:

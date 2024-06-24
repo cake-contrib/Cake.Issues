@@ -19,11 +19,11 @@ jobs:
           windows-2019, windows-2022,
           ubuntu-20.04, ubuntu-22.04,
           # Cake.Recipe currently does not support macOS 14 (M1)
-          macos-11, macos-13]
+          macos-12, macos-13]
     runs-on: ${{ matrix.os }}
     steps:
       - name: Get the sources
-        uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
       - name: Fetch all tags and branches
         run: git fetch --prune --unshallow
       - name: Install .NET

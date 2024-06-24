@@ -1,11 +1,10 @@
 namespace Cake.Issues.PullRequests;
 
-using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Globalization;
 using System.Linq;
 using Cake.Core.Diagnostics;
+using Spectre.Console;
 
 /// <summary>
 /// Class for writing issues to pull requests.
@@ -13,22 +12,27 @@ using Cake.Core.Diagnostics;
 internal class Orchestrator
 {
     private readonly ICakeLog log;
+    private readonly IAnsiConsole console;
     private readonly IPullRequestSystem pullRequestSystem;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="Orchestrator"/> class.
     /// </summary>
     /// <param name="log">Cake log instance.</param>
+    /// <param name="console">Console instance.</param>
     /// <param name="pullRequestSystem">Object for accessing pull request system.
     /// <c>null</c> if only issues should be read.</param>
     public Orchestrator(
         ICakeLog log,
+        IAnsiConsole console,
         IPullRequestSystem pullRequestSystem)
     {
         log.NotNull();
+        console.NotNull();
         pullRequestSystem.NotNull();
 
         this.log = log;
+        this.console = console;
         this.pullRequestSystem = pullRequestSystem;
     }
 
@@ -69,26 +73,34 @@ internal class Orchestrator
         settings.NotNull();
 
         this.log.Verbose("Running pull request orchestrator with the following settings:");
-        this.log.Verbose("  CommitId: {0}", settings.CommitId);
-        this.log.Verbose("  CommentSource: {0}", settings.CommentSource);
-        this.log.Verbose("  MaxIssuesToPost: {0}", settings.MaxIssuesToPost);
-        this.log.Verbose("  MaxIssuesToPostAcrossRuns: {0}", settings.MaxIssuesToPostAcrossRuns);
-        this.log.Verbose("  MaxIssuesToPostForEachIssueProvider: {0}", settings.MaxIssuesToPostForEachIssueProvider);
-        this.log.Verbose("  ProviderIssueLimits:");
-
-        if (settings.ProviderIssueLimits.Count > 0)
+        if (this.log.Verbosity >= Verbosity.Diagnostic)
         {
+            var providerIssueLimitsTable = new Table()
+                .AddColumn("ProviderType")
+                .AddColumn("MaxIssuesToPost")
+                .AddColumn("MaxIssuesToPostAcrossRuns");
             foreach (var providerIssueLimit in settings.ProviderIssueLimits)
             {
-                this.log.Verbose("    {0}: {1}", providerIssueLimit.Key, providerIssueLimit.Value);
+#pragma warning disable IDE0058 // Expression value is never used
+                providerIssueLimitsTable.AddRow(
+                    providerIssueLimit.Key,
+                    providerIssueLimit.Value.MaxIssuesToPost.ToString(),
+                    providerIssueLimit.Value.MaxIssuesToPostAcrossRuns.ToString());
+#pragma warning restore IDE0058 // Expression value is never used
             }
-        }
-        else
-        {
-            this.log.Verbose("    Not configured");
-        }
 
-        this.log.Verbose("  Number of registered IssueFilters: {0}", settings.IssueFilters.Count);
+            var table = new Table()
+                .AddColumn("Property")
+                .AddColumn("Value")
+                .AddRow("CommitId", settings.CommitId.ToStringWithNullMarkup())
+                .AddRow("CommentSource", settings.CommentSource.ToStringWithNullMarkup())
+                .AddRow("MaxIssuesToPost", settings.MaxIssuesToPost.ToStringWithNullMarkup())
+                .AddRow("MaxIssuesToPostAcrossRuns", settings.MaxIssuesToPostAcrossRuns.ToStringWithNullMarkup())
+                .AddRow("MaxIssuesToPostForEachIssueProvider", settings.MaxIssuesToPostForEachIssueProvider.ToStringWithNullMarkup())
+                .AddRow(new Text("ProviderIssueLimits"), providerIssueLimitsTable)
+                .AddRow("Number of registered IssueFilters", settings.IssueFilters.Count.ToString());
+            this.console.Write(table);
+        }
 
         // Don't process issues if pull request system could not be initialized.
         if (!this.InitializePullRequestSystem(settings))
@@ -216,20 +228,25 @@ internal class Orchestrator
                 }
             }
 
-            var formattedMessages =
-                from issue in remainingIssues
-                select
-                    string.Format(
-                        CultureInfo.InvariantCulture,
-                        "  Rule: {0} Line: {1} File: {2}",
-                        issue.RuleId,
-                        issue.Line,
-                        issue.AffectedFileRelativePath);
+            this.log.Verbose("Posting {0} issue(s):", remainingIssues.Count);
+            if (this.log.Verbosity >= Verbosity.Diagnostic)
+            {
+                var table = new Table()
+                    .AddColumn("Rule")
+                    .AddColumn("Line")
+                    .AddColumn("File");
+                foreach (var issue in remainingIssues)
+                {
+#pragma warning disable IDE0058 // Expression value is never used
+                    table.AddRow(
+                        new Text(issue.RuleId.ToStringWithNullMarkup()),
+                        new Text(issue.Line.ToStringWithNullMarkup()),
+                        new TextPath(issue.AffectedFileRelativePath.ToStringWithNullMarkup()));
+#pragma warning restore IDE0058 // Expression value is never used
+                }
 
-            this.log.Verbose(
-                "Posting {0} issue(s):\n{1}",
-                remainingIssues.Count,
-                string.Join(Environment.NewLine, formattedMessages));
+                this.console.Write(table);
+            }
 
             this.pullRequestSystem.PostDiscussionThreads(
                 remainingIssues,

@@ -40,7 +40,7 @@ Task("Validate-Terraform").Does(() =>
         out redirectedStandardOutput,
     );
 
-    // Read Issues.
+    // Read issues.
     var issues =
         ReadIssues(
             TerraformIssuesFromContent(string.Join(Environment.NewLine, redirectedStandardOutput)),

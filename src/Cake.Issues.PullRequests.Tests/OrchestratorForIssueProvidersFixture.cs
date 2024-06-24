@@ -1,6 +1,7 @@
 namespace Cake.Issues.PullRequests.Tests;
 
 using Cake.Core.Diagnostics;
+using Spectre.Console.Testing;
 
 internal class OrchestratorForIssueProvidersFixture
 {
@@ -16,6 +17,8 @@ internal class OrchestratorForIssueProvidersFixture
 
         this.Log = new FakeLog { Verbosity = Verbosity.Normal };
 
+        this.Console = new TestConsole();
+
         this.IssueProviders = [new(this.Log)];
 
         this.Settings =
@@ -30,6 +33,8 @@ internal class OrchestratorForIssueProvidersFixture
 
     public FakeLog Log { get; set; }
 
+    public TestConsole Console { get; set; }
+
     public IList<FakeIssueProvider> IssueProviders { get; set; }
 
     public FakePullRequestSystem PullRequestSystem { get; set; }
@@ -41,6 +46,7 @@ internal class OrchestratorForIssueProvidersFixture
         var orchestrator =
             new Orchestrator(
                 this.Log,
+                this.Console,
                 this.PullRequestSystem);
         return
             orchestrator.Run(
