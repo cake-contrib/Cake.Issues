@@ -112,7 +112,7 @@ public sealed class SarifIssuesProviderTests
                     .WithMessageInMarkdownFormat(
                     "Variable `ptr` was used without being initialized." + Environment.NewLine +
                     "                           It was declared [here](0).")
-                    .InFile(@"collections\list.h", 15)
+                    .InFile(@"collections\list.h", 15, 15, 9, 10)
                     .OfRule("C2001")
                     .WithPriority(IssuePriority.Error)
                     .Create());
