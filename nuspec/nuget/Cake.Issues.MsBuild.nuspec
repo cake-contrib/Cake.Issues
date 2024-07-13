@@ -38,5 +38,6 @@ For addin compatible with Cake Frosting see Cake.Frosting.Issues.MsBuild.
     <file src="Release\**\StructuredLogger.dll" target="lib" />
     <file src="Release\**\Microsoft.Build.Framework.dll" target="lib" />
     <file src="Release\**\Microsoft.Build.Utilities.Core.dll" target="lib" />
+    <file src="Release\**\System.Configuration.ConfigurationManager.dll" target="lib" />
   </files>
 </package>
