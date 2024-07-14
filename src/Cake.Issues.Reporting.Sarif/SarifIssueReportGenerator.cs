@@ -120,6 +120,7 @@ internal class SarifIssueReportGenerator : IssueReportFormat
                                 {
                                     Name = issueGroup.Key.ProviderType,
                                     Version = versionInfo.FileVersion,
+                                    InformationUri = new Uri("https://cakeissues.net"),
                                 },
                         },
                     Results =
