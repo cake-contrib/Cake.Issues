@@ -112,7 +112,7 @@ public sealed class SarifIssuesProviderTests
                     .WithMessageInMarkdownFormat(
                     "Variable `ptr` was used without being initialized." + Environment.NewLine +
                     "                           It was declared [here](0).")
-                    .InFile(@"collections\list.h", 15)
+                    .InFile(@"collections\list.h", 15, 15, 9, 10)
                     .OfRule("C2001")
                     .WithPriority(IssuePriority.Error)
                     .Create());
@@ -163,6 +163,75 @@ public sealed class SarifIssuesProviderTests
                     "Cake.Issues.Sarif.SarifIssuesProvider",
                     "ProviderType Bar")
                     .InFile("src/Cake.Issues.Reporting.Sarif.Tests/SarifIssueReportGeneratorTests.cs", 42)
+                    .WithPriority(IssuePriority.Warning)
+                    .Create());
+        }
+
+        [Fact]
+        public void Should_Read_Issue_Correct_For_File_Generated_By_TFLint()
+        {
+            // Given
+            var fixture = new SarifIssuesProviderFixture("tflint.sarif");
+
+            // When
+            var issues = fixture.ReadIssues().ToList();
+
+            // Then
+            issues.Count.ShouldBe(4);
+
+            var issue = issues[0];
+            IssueChecker.Check(
+                issue,
+                IssueBuilder.NewIssue(
+                    "Missing version constraint for provider \"azurerm\" in `required_providers`",
+                    "Cake.Issues.Sarif.SarifIssuesProvider",
+                    "tflint")
+                    .InFile(@"modules\my-module\main.tf", 1, 1, 1, 41)
+                    .OfRule(
+                        "terraform_required_providers",
+                        new Uri("https://github.com/terraform-linters/tflint-ruleset-terraform/blob/v0.8.0/docs/rules/terraform_required_providers.md"))
+                    .WithPriority(IssuePriority.Warning)
+                    .Create());
+
+            issue = issues[1];
+            IssueChecker.Check(
+                issue,
+                IssueBuilder.NewIssue(
+                    "terraform \"required_version\" attribute is required",
+                    "Cake.Issues.Sarif.SarifIssuesProvider",
+                    "tflint")
+                    .InFile(@"modules\my-module\main.tf")
+                    .OfRule(
+                        "terraform_required_version",
+                        new Uri("https://github.com/terraform-linters/tflint-ruleset-terraform/blob/v0.8.0/docs/rules/terraform_required_version.md"))
+                    .WithPriority(IssuePriority.Warning)
+                    .Create());
+
+            issue = issues[2];
+            IssueChecker.Check(
+                issue,
+                IssueBuilder.NewIssue(
+                    "`foo` variable has no type",
+                    "Cake.Issues.Sarif.SarifIssuesProvider",
+                    "tflint")
+                    .InFile(@"modules\my-module\variables.tf", 96, 96, 1, 20)
+                    .OfRule(
+                        "terraform_typed_variables",
+                        new Uri("https://github.com/terraform-linters/tflint-ruleset-terraform/blob/v0.8.0/docs/rules/terraform_typed_variables.md"))
+                    .WithPriority(IssuePriority.Warning)
+                    .Create());
+
+            issue = issues[3];
+            IssueChecker.Check(
+                issue,
+                IssueBuilder.NewIssue(
+                    "variable \"foo\" is declared but not used",
+                    "Cake.Issues.Sarif.SarifIssuesProvider",
+                    "tflint")
+                    .InFile(@"modules\my-module\variables.tf", 16, 16, 1, 34)
+                    .OfRule(
+                        "terraform_unused_declarations",
+                        new Uri("https://github.com/terraform-linters/tflint-ruleset-terraform/blob/v0.8.0/docs/rules/terraform_unused_declarations.md"))
                     .WithPriority(IssuePriority.Warning)
                     .Create());
         }

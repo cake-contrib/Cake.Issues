@@ -1,0 +1,139 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://json.schemastore.org/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "tflint",
+          "version": "0.52.0",
+          "informationUri": "https://github.com/terraform-linters/tflint",
+          "rules": [
+            {
+              "id": "terraform_required_providers",
+              "shortDescription": {
+                "text": ""
+              },
+              "helpUri": "https://github.com/terraform-linters/tflint-ruleset-terraform/blob/v0.8.0/docs/rules/terraform_required_providers.md"
+            },
+            {
+              "id": "terraform_required_version",
+              "shortDescription": {
+                "text": ""
+              },
+              "helpUri": "https://github.com/terraform-linters/tflint-ruleset-terraform/blob/v0.8.0/docs/rules/terraform_required_version.md"
+            },
+            {
+              "id": "terraform_typed_variables",
+              "shortDescription": {
+                "text": ""
+              },
+              "helpUri": "https://github.com/terraform-linters/tflint-ruleset-terraform/blob/v0.8.0/docs/rules/terraform_typed_variables.md"
+            },
+            {
+              "id": "terraform_unused_declarations",
+              "shortDescription": {
+                "text": ""
+              },
+              "helpUri": "https://github.com/terraform-linters/tflint-ruleset-terraform/blob/v0.8.0/docs/rules/terraform_unused_declarations.md"
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "terraform_required_providers",
+          "level": "warning",
+          "message": {
+            "text": "Missing version constraint for provider \"azurerm\" in `required_providers`"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "modules/my-module/main.tf"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 41
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "terraform_required_version",
+          "level": "warning",
+          "message": {
+            "text": "terraform \"required_version\" attribute is required"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "modules/my-module/main.tf"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "terraform_typed_variables",
+          "level": "warning",
+          "message": {
+            "text": "`foo` variable has no type"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "modules/my-module/variables.tf"
+                },
+                "region": {
+                  "startLine": 96,
+                  "startColumn": 1,
+                  "endLine": 96,
+                  "endColumn": 20
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "terraform_unused_declarations",
+          "level": "warning",
+          "message": {
+            "text": "variable \"foo\" is declared but not used"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "modules/my-module/variables.tf"
+                },
+                "region": {
+                  "startLine": 16,
+                  "startColumn": 1,
+                  "endLine": 16,
+                  "endColumn": 34
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "tflint-errors",
+          "version": "0.52.0",
+          "informationUri": "https://github.com/terraform-linters/tflint"
+        }
+      },
+      "results": []
+    }
+  ]
+}
