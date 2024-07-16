@@ -29,7 +29,7 @@ For addin compatible with Cake Frosting see Cake.Frosting.Issues.MsBuild.
     <copyright>Copyright © Cake Issues contributors</copyright>
     <tags>cake cake-addin cake-issues cake-issueprovider code-analysis linting msbuild</tags>
     <readme>docs\README.md</readme>
-    <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/4.6.0</releaseNotes>
+    <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/4.7.0</releaseNotes>
   </metadata>
   <files>
     <file src="..\..\..\..\nuspec\nuget\icon.png" target="" />
@@ -38,5 +38,6 @@ For addin compatible with Cake Frosting see Cake.Frosting.Issues.MsBuild.
     <file src="Release\**\StructuredLogger.dll" target="lib" />
     <file src="Release\**\Microsoft.Build.Framework.dll" target="lib" />
     <file src="Release\**\Microsoft.Build.Utilities.Core.dll" target="lib" />
+    <file src="Release\**\System.Configuration.ConfigurationManager.dll" target="lib" />
   </files>
 </package>

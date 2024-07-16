@@ -260,6 +260,53 @@ public sealed class SarifIssueReportGeneratorTests
         }
 
         [Fact]
+        public void Should_Set_Driver_Version()
+        {
+            // Given
+            var fixture = new SarifIssueReportFixture();
+            var issues =
+                 new List<IIssue>()
+                 {
+                        IssueBuilder
+                            .NewIssue("Message Foo.", "ProviderType Foo", "ProviderName Foo")
+                            .Create(),
+                 };
+
+            // When
+            var logContents = fixture.CreateReport(issues);
+
+            // Then
+            var sarifLog = JsonConvert.DeserializeObject<SarifLog>(logContents);
+
+            var run = sarifLog.Runs.ShouldHaveSingleItem();
+            run.Tool.Driver.Version.ShouldNotBeEmpty();
+        }
+
+        [Fact]
+        public void Should_Set_Driver_InformationalUri()
+        {
+            // Given
+            var fixture = new SarifIssueReportFixture();
+            var providerType = "ProviderType Foo";
+            var issues =
+                 new List<IIssue>
+                 {
+                        IssueBuilder
+                            .NewIssue("Message Foo.", providerType, "ProviderName Foo")
+                            .Create(),
+                 };
+
+            // When
+            var logContents = fixture.CreateReport(issues);
+
+            // Then
+            var sarifLog = JsonConvert.DeserializeObject<SarifLog>(logContents);
+
+            var run = sarifLog.Runs.ShouldHaveSingleItem();
+            run.Tool.Driver.InformationUri.ToString().ShouldBe("https://cakeissues.net/");
+        }
+
+        [Fact]
         public void Should_Set_AutomationDetails_Id()
         {
             // Given

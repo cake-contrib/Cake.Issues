@@ -6,7 +6,7 @@
   "packageRules": [
     {
       "description": "Do not update Microsoft.Build.* packages in Cake.Issues.MsBuild since required version depends on the version used in MSBuild.StructuredLogger",
-      "matchFileNames": ["src/Cake.Issues.MsBuild/Cake.Issues.MsBuild.csproj"],
+      "matchFileNames": ["src/Cake.Issues.MsBuild/Cake.Issues.MsBuild.csproj", "src/Cake.Issues.MsBuild.Tests/Cake.Issues.MsBuild.Tests.csproj"],
       "matchDepNames": ["Microsoft.Build.Framework", "Microsoft.Build.Utilities.Core"],
       "enabled": false
     }

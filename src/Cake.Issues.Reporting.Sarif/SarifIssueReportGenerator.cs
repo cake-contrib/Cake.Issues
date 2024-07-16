@@ -2,8 +2,10 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using Cake.Core.Diagnostics;
 using Cake.Core.IO;
 using Microsoft.CodeAnalysis.Sarif;
@@ -95,6 +97,8 @@ internal class SarifIssueReportGenerator : IssueReportFormat
             Formatting = Formatting.Indented,
         };
 
+        var assembly = Assembly.GetAssembly(typeof(SarifIssueReportGenerator));
+        var versionInfo = FileVersionInfo.GetVersionInfo(assembly.Location);
         var log = new SarifLog();
 
         if (sarifIssues.Count > 0)
@@ -115,6 +119,8 @@ internal class SarifIssueReportGenerator : IssueReportFormat
                                 new ToolComponent
                                 {
                                     Name = issueGroup.Key.ProviderType,
+                                    Version = versionInfo.FileVersion,
+                                    InformationUri = new Uri("https://cakeissues.net"),
                                 },
                         },
                     Results =

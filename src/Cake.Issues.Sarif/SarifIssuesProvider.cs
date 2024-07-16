@@ -35,7 +35,7 @@ internal class SarifIssuesProvider(ICakeLog log, SarifIssuesSettings issueProvid
             {
                 var (text, markdown) = GetMessage(sarifResult, run);
                 var (ruleId, ruleUrl) = GetRule(sarifResult, run);
-                var (filePath, line) = GetLocation(sarifResult);
+                var (filePath, startLine, endLine, startColumn, endColumn) = GetLocation(sarifResult);
 
                 // Build issue.
                 var issueBuilder =
@@ -58,7 +58,7 @@ internal class SarifIssuesProvider(ICakeLog log, SarifIssuesSettings issueProvid
                 {
                     issueBuilder =
                         issueBuilder
-                            .InFile(filePath, line);
+                            .InFile(filePath, startLine, endLine, startColumn, endColumn);
                 }
 
                 result.Add(issueBuilder.Create());
@@ -166,7 +166,7 @@ internal class SarifIssuesProvider(ICakeLog log, SarifIssuesSettings issueProvid
     /// </summary>
     /// <param name="result">Result to read the location from.</param>
     /// <returns>File and line of the result.</returns>
-    private static (string FilePath, int? Line) GetLocation(
+    private static (string FilePath, int? StartLine, int? EndLine, int? StartColumn, int? EndColumn) GetLocation(
         Result result)
     {
         result.NotNull();
@@ -177,15 +177,21 @@ internal class SarifIssuesProvider(ICakeLog log, SarifIssuesSettings issueProvid
         {
             var filePath = location.PhysicalLocation.ArtifactLocation.Uri.ToString();
 
-            int? line = null;
+            int? startLine = null;
+            int? endLine = null;
+            int? startColumn = null;
+            int? endColumn = null;
             if (location.PhysicalLocation.Region != null)
             {
-                line = location.PhysicalLocation.Region.StartLine;
+                startLine = location.PhysicalLocation.Region.StartLine > 0 ? location.PhysicalLocation.Region.StartLine : null;
+                endLine = location.PhysicalLocation.Region.EndLine > 0 ? location.PhysicalLocation.Region.EndLine : null;
+                startColumn = location.PhysicalLocation.Region.StartColumn > 0 ? location.PhysicalLocation.Region.StartColumn : null;
+                endColumn = location.PhysicalLocation.Region.EndColumn > 0 ? location.PhysicalLocation.Region.EndColumn : null;
             }
 
-            return (filePath, line);
+            return (filePath, startLine, endLine, startColumn, endColumn);
         }
 
-        return (null, null);
+        return (null, null, null, null, null);
     }
 }
