@@ -5,7 +5,7 @@ using Cake.Core.Diagnostics;
 
 internal class SarifIssueReportFixture
 {
-    public const string RepositoryRootPath = @"c:\Source\Cake.Issues.Reporting.Sarif";
+    public const string RepositoryRootPath = @"c:\Source\Cake.Issues.Reporting.Sarif\";
 
     public FakeLog Log { get; set; } = new() { Verbosity = Verbosity.Normal };
 
