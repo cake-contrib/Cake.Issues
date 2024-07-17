@@ -131,7 +131,7 @@ internal class SarifIssueReportGenerator : IssueReportFormat
                         [RepoRootUriBaseId] =
                             new()
                             {
-                                Uri = new Uri(this.Settings.RepositoryRoot.FullPath, UriKind.Absolute),
+                                Uri = new Uri(this.Settings.RepositoryRoot.FullPath.WithEnding("\\"), UriKind.Absolute),
                             },
                     },
                 };
