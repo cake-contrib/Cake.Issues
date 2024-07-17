@@ -131,7 +131,7 @@ internal class SarifIssueReportGenerator : IssueReportFormat
                         [RepoRootUriBaseId] =
                             new()
                             {
-                                Uri = new Uri(this.Settings.RepositoryRoot.FullPath, UriKind.Absolute),
+                                Uri = new Uri(this.Settings.RepositoryRoot.FullPath.WithEnding("\\"), UriKind.Absolute),
                             },
                     },
                 };
@@ -205,7 +205,8 @@ internal class SarifIssueReportGenerator : IssueReportFormat
             {
                 if (!this.ruleIndices.TryGetValue(sarifIssue.Issue.RuleId, out var value))
                 {
-                    this.ruleIndices.Add(sarifIssue.Issue.RuleId, this.rules.Count);
+                    value = this.rules.Count;
+                    this.ruleIndices.Add(sarifIssue.Issue.RuleId, value);
                     this.rules.Add(
                         new ReportingDescriptor
                         {

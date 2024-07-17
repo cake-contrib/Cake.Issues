@@ -563,6 +563,39 @@ public sealed class SarifIssueReportGeneratorTests
         }
 
         [Fact]
+        public void Should_Set_Correct_RuleIndex()
+        {
+            // Given
+            var fixture = new SarifIssueReportFixture();
+            var firstRuleId = "Rule Foo";
+            var secondRuleId = "Rule Bar";
+            var ruleUrl = new Uri("https://www.example.come/rules/rule.html");
+            var issues =
+                 new List<IIssue>
+                 {
+                        IssueBuilder
+                            .NewIssue("Message Foo.", "ProviderType Foo", "ProviderName Foo")
+                            .OfRule(firstRuleId, ruleUrl)
+                            .Create(),
+                        IssueBuilder
+                            .NewIssue("Message Bar.", "ProviderType Foo", "ProviderName Foo")
+                            .OfRule(secondRuleId, ruleUrl)
+                            .Create(),
+                 };
+
+            // When
+            var logContents = fixture.CreateReport(issues);
+
+            // Then
+            var sarifLog = JsonConvert.DeserializeObject<SarifLog>(logContents);
+
+            var results = sarifLog.Results();
+            results.Count().ShouldBe(2);
+            results.Single(x => x.RuleId == firstRuleId).RuleIndex.ShouldBe(0);
+            results.Single(x => x.RuleId == secondRuleId).RuleIndex.ShouldBe(1);
+        }
+
+        [Fact]
         public void Should_Set_Text_Message()
         {
             // Given
