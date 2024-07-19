@@ -25,7 +25,7 @@ See the Project Site for an overview of the whole ecosystem of addins for workin
     <copyright>Copyright © Cake Issues contributors</copyright>
     <tags>cake cake-addin cake-issues code-analysis linting issues</tags>
     <readme>docs\README.md</readme>
-    <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/4.8.0</releaseNotes>
+    <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/4.8.1</releaseNotes>
   </metadata>
   <files>
     <file src="..\..\..\..\nuspec\nuget\Cake.Issues.targets" target="build" />
