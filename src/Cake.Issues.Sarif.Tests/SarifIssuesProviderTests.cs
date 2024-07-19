@@ -119,6 +119,32 @@ public sealed class SarifIssuesProviderTests
         }
 
         [Fact]
+        public void Should_Consider_UseToolNameAsIssueProviderName()
+        {
+            // Given
+            var fixture = new SarifIssuesProviderFixture("recommended-without-source.sarif")
+            {
+                UseToolNameAsIssueProviderName = false
+            };
+
+            // When
+            var issues = fixture.ReadIssues().ToList();
+
+            // Then
+            issues.Count.ShouldBe(1);
+            var issue = issues.Single();
+            IssueChecker.Check(
+                issue,
+                IssueBuilder.NewIssue(
+                    "The insecure method \"Crypto.Sha1.Encrypt\" should not be used.",
+                    "Cake.Issues.Sarif.SarifIssuesProvider",
+                    "SARIF")
+                    .OfRule("B6412")
+                    .WithPriority(IssuePriority.Warning)
+                    .Create());
+        }
+
+        [Fact]
         public void Should_Read_Issue_Correct_For_File_Generated_By_CakeIssuesReportingSarif()
         {
             // Given

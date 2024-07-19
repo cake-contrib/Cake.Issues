@@ -24,4 +24,11 @@ public class SarifIssuesSettings : IssueProviderSettings
         : base(logFileContent)
     {
     }
+
+    /// <summary>
+    /// Gets or sets a value indicating whether the tool name reported in the SARIF log or a fixed value should be
+    /// used as issue provider name.
+    /// Default value is <c>true</c>.
+    /// </summary>
+    public bool UseToolNameAsIssueProviderName { get; set; } = true;
 }

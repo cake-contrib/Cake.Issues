@@ -59,18 +59,18 @@ public abstract class BaseConfigurableIssueProviderFixture<TIssueProvider, TSett
     /// <summary>
     /// Creates a new instance of the issue provider settings.
     /// </summary>
+    /// <returns>Instance of the issue provider.</returns>
+    protected virtual TSettings CreateIssueProviderSettings() =>
+        (TSettings)Activator.CreateInstance(
+            typeof(TSettings),
+            [.. this.GetCreateIssueProviderSettingsArguments()]);
+
+    /// <summary>
+    /// Creates a new instance of the issue provider settings.
+    /// </summary>
     /// <returns>Instance of the issue provider settings.</returns>
     protected virtual IList<object> GetCreateIssueProviderSettingsArguments() =>
         this.LogFileContent != null
             ? [this.LogFileContent]
             : throw new InvalidOperationException("No log content set.");
-
-    /// <summary>
-    /// Creates a new instance of the issue provider settings.
-    /// </summary>
-    /// <returns>Instance of the issue provider.</returns>
-    private TSettings CreateIssueProviderSettings() =>
-        (TSettings)Activator.CreateInstance(
-            typeof(TSettings),
-            [.. this.GetCreateIssueProviderSettingsArguments()]);
 }
