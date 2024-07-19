@@ -29,7 +29,8 @@ internal class SarifIssuesProvider(ICakeLog log, SarifIssuesSettings issueProvid
 
         foreach (var run in logContent.Runs)
         {
-            var toolName = run.Tool.Driver.Name;
+            var issueProviderName =
+                this.IssueProviderSettings.UseToolNameAsIssueProviderName ? run.Tool.Driver.Name : this.ProviderName;
 
             foreach (var sarifResult in run.Results)
             {
@@ -43,7 +44,7 @@ internal class SarifIssuesProvider(ICakeLog log, SarifIssuesSettings issueProvid
                         .NewIssue(
                             text,
                             typeof(SarifIssuesProvider).FullName,
-                            toolName)
+                            issueProviderName)
                         .WithPriority(sarifResult.Level.ToPriority())
                         .OfRule(ruleId, ruleUrl);
 
