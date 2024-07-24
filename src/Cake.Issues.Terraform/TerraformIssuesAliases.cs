@@ -53,7 +53,7 @@ public static class TerraformIssuesAliases
         context.NotNull();
         validateOutputFilePath.NotNull();
 
-        return context.TerraformIssuesFromFilePath(validateOutputFilePath, "/");
+        return context.TerraformIssuesFromFilePath(validateOutputFilePath, "./");
     }
 
     /// <summary>
@@ -118,7 +118,7 @@ public static class TerraformIssuesAliases
         context.NotNull();
         validateOutput.NotNullOrWhiteSpace();
 
-        return context.TerraformIssues(new TerraformIssuesSettings(validateOutput.ToByteArray(), "/"));
+        return context.TerraformIssues(new TerraformIssuesSettings(validateOutput.ToByteArray(), "./"));
     }
 
     /// <summary>
