@@ -54,7 +54,10 @@ internal class SarifIssueReportGenerator : IssueReportFormat
         if (this.sarifIssueReportFormatSettings.BaselineGuid != Guid.Empty)
         {
             var issueComparerOnlyPersistentProperties = new IIssueComparer(true);
-            var issueComparerAllProperties = new IIssueComparer(false);
+
+            // Always ignore file link, since it might contain commit ID which is different even on identical issues
+            // from different runs.
+            var issueComparerAllProperties = new IIssueComparer(IIssueProperty.FileLink);
 
             var unchangedIssues = new List<IIssue>();
             var updatedIssues = new List<IIssue>();
