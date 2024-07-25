@@ -968,6 +968,46 @@ public sealed class SarifIssueReportGeneratorTests
         }
 
         [Fact]
+        public void Should_Generate_Report_With_BaseLineState_Unchanged_If_Only_File_Link_Has_Changed()
+        {
+            // Given
+            var fixture = new SarifIssueReportFixture();
+            fixture.SarifIssueReportFormatSettings.BaselineGuid = Guid.NewGuid();
+
+            var issues =
+                new List<IIssue>
+                {
+                    IssueBuilder
+                        .NewIssue("Message Foo.", "ProviderType Foo", "ProviderName Foo")
+                        .WithFileLink(new Uri("https://github.com/cake-contrib/Cake.Issues/blob/develop/src/Cake.Issues.MsBuild/BaseMsBuildLogFileFormat.cs"))
+                        .Create(),
+
+                };
+
+            var existingIssues =
+                new List<IIssue>
+                {
+                    IssueBuilder
+                        .NewIssue("Message Foo.", "ProviderType Foo", "ProviderName Foo")
+                        .WithFileLink(new Uri("https://github.com/cake-contrib/Cake.Issues/blob/master/src/Cake.Issues.MsBuild/BaseMsBuildLogFileFormat.cs"))
+                        .Create(),
+
+                };
+
+            fixture.SarifIssueReportFormatSettings.ExistingIssues.AddRange(existingIssues);
+
+            // When
+            var logContents = fixture.CreateReport(issues);
+
+            // Then
+            var sarifLog = JsonConvert.DeserializeObject<SarifLog>(logContents);
+
+            var run = sarifLog.Runs.ShouldHaveSingleItem();
+            var result = run.Results.ShouldHaveSingleItem();
+            result.BaselineState.ShouldBe(BaselineState.Unchanged);
+        }
+
+        [Fact]
         public void Should_Generate_Report_With_BaseLineState_New_If_New_Issue()
         {
             // Given
