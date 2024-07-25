@@ -27,7 +27,7 @@ For addin compatible with Cake Frosting see Cake.Frosting.Issues.Reporting.
     <copyright>Copyright © Cake Issues contributors</copyright>
     <tags>Cake Script Cake-Issues CodeAnalysis Linting Issues Reporting</tags>
     <readme>docs\README.md</readme>
-    <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/4.8.1</releaseNotes>
+    <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/4.9.0</releaseNotes>
   </metadata>
   <files>
     <file src="..\..\..\..\nuspec\nuget\icon.png" target="" />
