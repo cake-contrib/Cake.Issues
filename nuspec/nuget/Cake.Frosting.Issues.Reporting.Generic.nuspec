@@ -27,7 +27,7 @@ For addin compatible with Cake Script Runners see Cake.Issues.Reporting.Generic.
     <copyright>Copyright © Cake Issues contributors</copyright>
     <tags>cake cake-addin cake-issues cake-reportformat issues reporting html markdown razor</tags>
     <readme>docs\README.md</readme>
-    <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/4.9.0</releaseNotes>
+    <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/4.10.0</releaseNotes>
     <dependencies>
       <group targetFramework="net6.0">
         <dependency id="Cake.Core" version="4.0" exclude="Build,Analyzers" />
