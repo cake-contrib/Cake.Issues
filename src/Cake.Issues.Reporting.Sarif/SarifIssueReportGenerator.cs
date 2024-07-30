@@ -64,15 +64,15 @@ internal class SarifIssueReportGenerator : IssueReportFormat
             var newIssues = new List<IIssue>();
 
             var existingIssuesSet =
-                new HashSet<IIssue>(this.sarifIssueReportFormatSettings.ExistingIssues, issueComparerOnlyPersistentProperties);
+                new HashSet<IIssue>(this.sarifIssueReportFormatSettings.ExistingIssues, issueComparerAllProperties);
 
             foreach (var issue in issues)
             {
-                if (existingIssuesSet.Contains(issue, issueComparerAllProperties))
+                if (existingIssuesSet.Contains(issue))
                 {
                     unchangedIssues.Add(issue);
                 }
-                else if (existingIssuesSet.Contains(issue))
+                else if (existingIssuesSet.Contains(issue, issueComparerOnlyPersistentProperties))
                 {
                     updatedIssues.Add(issue);
                 }

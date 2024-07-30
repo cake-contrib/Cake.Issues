@@ -968,6 +968,56 @@ public sealed class SarifIssueReportGeneratorTests
         }
 
         [Fact]
+        public void Should_Generate_Report_With_BaseLineState_Unchanged_If_Same_Issue_And_Multiple_Issues_With_Same_Persistent_Properites()
+        {
+            // Given
+            var fixture = new SarifIssueReportFixture();
+            fixture.SarifIssueReportFormatSettings.BaselineGuid = Guid.NewGuid();
+
+            var issues =
+                new List<IIssue>
+                {
+                    IssueBuilder
+                        .NewIssue("Message Foo.", "ProviderType Foo", "ProviderName Foo")
+                        .InFile(@"a", 10, 12, 1, 2)
+                        .Create(),
+
+                    IssueBuilder
+                        .NewIssue("Message Foo.", "ProviderType Foo", "ProviderName Foo")
+                        .InFile(@"a", 20, 22, 1, 2)
+                        .Create(),
+
+                };
+
+            var existingIssues =
+                new List<IIssue>
+                {
+                    IssueBuilder
+                        .NewIssue("Message Foo.", "ProviderType Foo", "ProviderName Foo")
+                        .InFile(@"a", 10, 12, 1, 2)
+                        .Create(),
+
+                    IssueBuilder
+                        .NewIssue("Message Foo.", "ProviderType Foo", "ProviderName Foo")
+                        .InFile(@"a", 20, 22, 1, 2)
+                        .Create(),
+                };
+
+            fixture.SarifIssueReportFormatSettings.ExistingIssues.AddRange(existingIssues);
+
+            // When
+            var logContents = fixture.CreateReport(issues);
+
+            // Then
+            var sarifLog = JsonConvert.DeserializeObject<SarifLog>(logContents);
+
+            var run = sarifLog.Runs.ShouldHaveSingleItem();
+            run.Results.Count.ShouldBe(2);
+            run.Results[0].BaselineState.ShouldBe(BaselineState.Unchanged);
+            run.Results[1].BaselineState.ShouldBe(BaselineState.Unchanged);
+        }
+
+        [Fact]
         public void Should_Generate_Report_With_BaseLineState_Unchanged_If_Only_File_Link_Has_Changed()
         {
             // Given
