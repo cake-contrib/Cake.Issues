@@ -74,8 +74,7 @@ jobs:
       matrix:
         os: [
           windows-2019, windows-2022,
-          # Disabled until https://github.com/cake-contrib/Cake.Issues/issues/514 is fixed
-          # ubuntu-20.04, ubuntu-22.04,
+          ubuntu-20.04, ubuntu-22.04,
           macos-12, macos-14]
         dotnet: [6.x, 7.x, 8.x]
     runs-on: ${{ matrix.os }}
