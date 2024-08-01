@@ -119,9 +119,9 @@ stages:
     - template: .azuredevops/pipelines/templates/steps/install-markdownlint.yml 
     - template: .azuredevops/pipelines/templates/steps/provide-nuget-packages.yml 
     - powershell: ./build.ps1 --verbosity=diagnostic
-      workingDirectory: ./tests/Cake.Issues.Markdownlint
+      workingDirectory: ./tests/Cake.Issues.Markdownlint/script-runner
       displayName: 'Run integration tests'
-    - publish: $(Build.SourcesDirectory)/tests/Cake.Issues.Markdownlint/output/report.html
+    - publish: $(Build.SourcesDirectory)/tests/Cake.Issues.Markdownlint/script-runner/output/report.html
       artifact: Integration Tests Cake.Issues.Markdownlint $(System.JobName)
       displayName: 'Publish generated reports as build artifact'
 
