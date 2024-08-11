@@ -112,7 +112,7 @@ BuildParameters.Tasks.UploadCodecovReportTask
         if (coverageFiles.Any())
         {
             var settings = new CodecovSettings {
-                Files = coverageFiles.Select(f => f.FullPath),
+                Files = coverageFiles.Select(f => f.FullPath.Replace("/", "\\")),
                 NonZero = true,
                 Token = BuildParameters.Codecov.RepoToken
             };
