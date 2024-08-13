@@ -56,6 +56,8 @@ stages:
     - template: .azuredevops/pipelines/templates/steps/install-required-dotnet-versions-for-building.yml 
     - bash: ./build.sh --target=Create-NuGet-Packages
       displayName: 'Build & Run Unit Tests'
+    - publish: $(Build.SourcesDirectory)/BuildArtifacts/TestCoverage
+      artifact: CoverageReports
     - publish: $(Build.SourcesDirectory)/BuildArtifacts/Packages/NuGet
       artifact: NuGet Package
       displayName: 'Publish NuGet package as build artifact'
