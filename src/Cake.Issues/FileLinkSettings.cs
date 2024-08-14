@@ -81,11 +81,15 @@ public class FileLinkSettings
     /// for the issue <paramref name="issue"/>.
     /// </summary>
     /// <param name="issue">Issue for which the link should be returned.</param>
-    /// <returns>URL to the file on the source code hosting system.</returns>
+    /// <returns>URL to the file on the source code hosting system or <c>null</c>
+    /// if the issue is not related to a file.</returns>
     public Uri GetFileLink(IIssue issue)
     {
         issue.NotNull();
 
-        return this.builder(issue, new Dictionary<string, string>());
+        return
+            issue.AffectedFileRelativePath == null
+                ? null
+                : this.builder(issue, new Dictionary<string, string>());
     }
 }
