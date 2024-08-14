@@ -1,0 +1,15 @@
+# Runs full build pipeline
+
+stages:
+  - stage: BuildStage
+    displayName: Full Build
+    dependsOn: []
+    jobs:
+    - job: BuildJob
+      displayName: Build
+      pool:
+        vmImage: 'windows-2022'
+      steps:
+      - template: ../steps/install-required-dotnet-versions-for-building.yml 
+      - bash: ./build.sh
+        displayName: 'Build & Run Unit Tests'

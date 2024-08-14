@@ -1,0 +1,31 @@
+# Runs integration tests for Cake.Issues.MsBuild on different platforms
+
+stages:
+  - stage: IntegrationTestsMsBuildStage
+    displayName: Integration Tests Cake.Issues.MsBuild
+    dependsOn: IntegrationTestsBuildStage
+    jobs:
+    - job: TestMsBuildJob
+      displayName: Test
+      strategy:
+        matrix:
+          Windows_Server_2019:
+            imageName: 'windows-2019'
+          Windows_Server_2022:
+            imageName: 'windows-2022'
+          macOS_12:
+            imageName: 'macOS-12'
+          macOS_14:
+            imageName: 'macOS-14'
+          Ubuntu_20_04:
+            imageName: 'ubuntu-20.04'
+          Ubuntu_22_04:
+            imageName: 'ubuntu-22.04'
+      pool:
+        vmImage: $(imageName)
+      steps:
+      - template: ../steps/install-net6.yml 
+      - template: ../steps/provide-nuget-packages.yml 
+      - powershell: ./build.ps1 --verbosity=diagnostic
+        workingDirectory: ./tests/Cake.Issues.MsBuild/script-runner
+        displayName: 'Run integration tests'
