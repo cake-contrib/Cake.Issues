@@ -1,0 +1,35 @@
+# Runs integration tests for Cake.Issues.Markdownlint on different platforms
+
+stages:
+  - stage: IntegrationTestsMarkdownlintStage
+    displayName: Integration Tests Cake.Issues.Markdownlint
+    dependsOn: IntegrationTestsBuildStage
+    jobs:
+    - job: TestMarkdownlintJob
+      displayName: Test
+      strategy:
+        matrix:
+          Windows_Server_2019:
+            imageName: 'windows-2019'
+          Windows_Server_2022:
+            imageName: 'windows-2022'
+          macOS_12:
+            imageName: 'macOS-12'
+          macOS_14:
+            imageName: 'macOS-14'
+          Ubuntu_20_04:
+            imageName: 'ubuntu-20.04'
+          Ubuntu_22_04:
+            imageName: 'ubuntu-22.04'
+      pool:
+        vmImage: $(imageName)
+      steps:
+      - template: ../steps/install-net6.yml 
+      - template: ../steps/install-markdownlint.yml 
+      - template: ../steps/provide-nuget-packages.yml 
+      - powershell: ./build.ps1 --verbosity=diagnostic
+        workingDirectory: ./tests/Cake.Issues.Markdownlint/script-runner
+        displayName: 'Run integration tests'
+      - publish: $(Build.SourcesDirectory)/tests/Cake.Issues.Markdownlint/script-runner/output/report.html
+        artifact: Integration Tests Cake.Issues.Markdownlint $(System.JobName)
+        displayName: 'Publish generated reports as build artifact'

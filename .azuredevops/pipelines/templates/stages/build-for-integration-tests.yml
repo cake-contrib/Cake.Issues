@@ -1,0 +1,18 @@
+# Quick build of required artifacts for integration tests
+
+stages:
+  - stage: IntegrationTestsBuildStage
+    displayName: Build
+    dependsOn: []
+    jobs:
+    - job: CreateNuGetPackagesJob
+      displayName: Create NuGet Packages
+      pool:
+        vmImage: 'ubuntu-22.04'
+      steps:
+      - template: ../steps/install-required-dotnet-versions-for-building.yml 
+      - bash: ./build.sh --target=Create-NuGet-Packages
+        displayName: 'Build'
+      - publish: $(Build.SourcesDirectory)/BuildArtifacts/Packages/NuGet
+        artifact: NuGet Package
+        displayName: 'Publish NuGet package as build artifact'
