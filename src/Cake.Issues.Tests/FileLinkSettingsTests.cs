@@ -122,5 +122,39 @@ public sealed class FileLinkSettingsTests
             // Then
             result.IsArgumentNullException("issue");
         }
+
+        [Fact]
+        public void Should_Return_Null_If_Issue_Has_No_Path_Set()
+        {
+            // Given
+            var issue =
+                IssueBuilder
+                    .NewIssue("Foo", "ProviderTypeFoo", "ProviderNameFoo")
+                    .Create();
+
+            // When
+            var result = FileLinkSettings.ForPattern("foo").GetFileLink(issue);
+
+            // Then
+            result.ShouldBeNull();
+        }
+
+        [Fact]
+        public void Should_Return_Correct_Pattern()
+        {
+            // Given
+            var issue =
+                IssueBuilder
+                    .NewIssue("Foo", "ProviderTypeFoo", "ProviderNameFoo")
+                    .InFile(@"src\ClassLibrary1\ClassLibrary1.csproj")
+                    .Create();
+            var pattern = "https://example.com/";
+
+            // When
+            var result = FileLinkSettings.ForPattern(pattern).GetFileLink(issue);
+
+            // Then
+            result.ToString().ShouldBe(pattern);
+        }
     }
 }
