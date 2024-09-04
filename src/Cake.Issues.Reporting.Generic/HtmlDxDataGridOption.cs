@@ -489,7 +489,7 @@ public enum HtmlDxDataGridOption
     /// <summary>
     /// Version of <see href="https://github.com/simonbengtsson/jsPDF-AutoTable">jsPDF-AutoTable plugin</see> which should be used.
     /// This version needs to match the version required by the selected <see cref="DevExtremeVersion"/>.
-    /// Default value is <c>3.8.2</c>.
+    /// Default value is <c>3.8.3</c>.
     /// </summary>
     JsPdfAutotableVersion,
 }
