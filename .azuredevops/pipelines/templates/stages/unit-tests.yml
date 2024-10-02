@@ -12,7 +12,7 @@ stages:
           Windows:
             imageName: 'windows-2022'
           Ubuntu:
-            imageName: 'ubuntu-22.04'
+            imageName: 'ubuntu-24.04'
           macOS:
             imageName: 'macOS-13'
       pool:
