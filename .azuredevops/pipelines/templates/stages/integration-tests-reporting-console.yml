@@ -13,8 +13,8 @@ stages:
             imageName: 'windows-2019'
           Windows_Server_2022:
             imageName: 'windows-2022'
-          macOS_12:
-            imageName: 'macOS-12'
+          macOS_13:
+            imageName: 'macOS-13'
           macOS_14:
             imageName: 'macOS-14'
           Ubuntu_20_04:
@@ -37,8 +37,8 @@ stages:
             imageName: 'windows-2019'
           Windows_Server_2022:
             imageName: 'windows-2022'
-          macOS_12:
-            imageName: 'macOS-12'
+          macOS_13:
+            imageName: 'macOS-13'
           macOS_14:
             imageName: 'macOS-14'
           Ubuntu_20_04:
