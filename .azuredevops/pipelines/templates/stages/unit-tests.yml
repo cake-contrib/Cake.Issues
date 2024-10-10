@@ -12,12 +12,16 @@ stages:
           Windows:
             imageName: 'windows-2022'
           Ubuntu:
-            imageName: 'ubuntu-22.04'
+            imageName: 'ubuntu-24.04'
           macOS:
             imageName: 'macOS-13'
       pool:
         vmImage: $(imageName)
       steps:
       - template: ../steps/install-required-dotnet-versions-for-building.yml 
+      # Ubuntu 24.04 does not have Mono installed, which is Required for Cake.Recipe
+      - bash: sudo apt-get install mono-complete
+        condition: eq(variables['imageName'], 'ubuntu-24.04')
+        displayName: 'Install Mono'
       - bash: ./build.sh --target=Test
         displayName: 'Run Unit Tests'

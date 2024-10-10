@@ -17,7 +17,7 @@ jobs:
       matrix:
         os: [
           windows-2019, windows-2022,
-          ubuntu-20.04, ubuntu-22.04,
+          ubuntu-20.04, ubuntu-22.04, ubuntu-24.04,
           # Cake.Recipe currently does not support macOS 14 (M1)
           macos-13]
     runs-on: ${{ matrix.os }}
@@ -35,6 +35,10 @@ jobs:
             6.x
             7.x
             8.x
+      # Ubuntu 24.04 does not have Mono installed, which is Required for Cake.Recipe
+      - name: Install Mono
+        if: ${{ matrix.os == 'ubuntu-24.04' }}
+        run: sudo apt-get install mono-complete
       - name: Test
         run: ./build.sh --target=Test
         shell: bash

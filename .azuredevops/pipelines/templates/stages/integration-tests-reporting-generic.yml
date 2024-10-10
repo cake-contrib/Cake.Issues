@@ -21,6 +21,8 @@ stages:
             imageName: 'ubuntu-20.04'
           Ubuntu_22_04:
             imageName: 'ubuntu-22.04'
+          Ubuntu_24_04:
+            imageName: 'ubuntu-24.04'
       pool:
         vmImage: $(imageName)
       steps:
@@ -48,6 +50,8 @@ stages:
             imageName: 'ubuntu-20.04'
           Ubuntu_22_04:
             imageName: 'ubuntu-22.04'
+          Ubuntu_24_04:
+            imageName: 'ubuntu-24.04'
       pool:
         vmImage: $(imageName)
       steps:
