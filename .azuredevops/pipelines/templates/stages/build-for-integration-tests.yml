@@ -8,6 +8,7 @@ stages:
     - job: CreateNuGetPackagesJob
       displayName: Create NuGet Packages
       pool:
+        # Run on Ubuntu 22, since Ubuntu 24.04 does not have Mono installed, which is Required for Cake.Recipe and separate Mono installation requires more time.
         vmImage: 'ubuntu-22.04'
       steps:
       - template: ../steps/install-required-dotnet-versions-for-building.yml 
