@@ -6,7 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Cake.Frosting" Version="4.0.0" />
+    <PackageReference Include="Cake.Frosting" Version="4.2.0" />
     <PackageReference Include="Cake.Issues" Version="*-*" />
     <PackageReference Include="Cake.Frosting.Issues.Reporting" Version="*-*" />
     <PackageReference Include="Cake.Frosting.Issues.Reporting.Sarif" Version="*-*" />
