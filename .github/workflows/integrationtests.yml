@@ -16,11 +16,11 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - name: Get the sources
-        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
       - name: Fetch all tags and branches
         run: git fetch --prune --unshallow
       - name: Install .NET
-        uses: actions/setup-dotnet@6bd8b7f7774af54e05809fcc5431931b3eb1ddee # v4
+        uses: actions/setup-dotnet@3e891b0cb619bf60e2c25674b222b8940e2c1c25 # v4
         with:
           # .NET 5 required for GitVersion
           dotnet-version: | 
@@ -32,7 +32,7 @@ jobs:
         run: ./build.sh --target=Create-NuGet-Packages
         shell: bash
       - name: Publish NuGet package as build artifact
-        uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874 # v4
+        uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4
         with:
           name: NuGet Package
           path: ./BuildArtifacts/Packages/NuGet/
@@ -45,13 +45,13 @@ jobs:
       matrix:
         os: [
           windows-2019, windows-2022,
-          ubuntu-20.04, ubuntu-22.04,
+          ubuntu-20.04, ubuntu-22.04, ubuntu-24.04,
           macos-13, macos-14]
         dotnet: [6.x, 7.x, 8.x]
     runs-on: ${{ matrix.os }}
     steps:
       - name: Get the sources
-        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
       - name: Prepare integration tests
         uses: ./.github/actions/prepare-integration-test
         with:
@@ -69,13 +69,13 @@ jobs:
       matrix:
         os: [
           windows-2019, windows-2022,
-          ubuntu-20.04, ubuntu-22.04,
+          ubuntu-20.04, ubuntu-22.04, ubuntu-24.04,
           macos-13, macos-14]
         dotnet: [6.x, 7.x, 8.x]
     runs-on: ${{ matrix.os }}
     steps:
       - name: Get the sources
-        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
       - name: Prepare integration tests
         uses: ./.github/actions/prepare-integration-test
         with:

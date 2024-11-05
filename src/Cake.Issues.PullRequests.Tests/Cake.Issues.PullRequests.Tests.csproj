@@ -3,9 +3,9 @@
     <Description>Tests for the Cake.Issues.PullRequests addin</Description>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Spectre.Console" Version="0.47.0" />
-    <PackageReference Include="Spectre.Console.Testing" Version="0.47.0" />
-    <PackageReference Include="Verify.Xunit" Version="26.6.0" />
+    <PackageReference Include="Spectre.Console" Version="0.49.1" />
+    <PackageReference Include="Spectre.Console.Testing" Version="0.49.1" />
+    <PackageReference Include="Verify.Xunit" Version="28.1.3" />
   </ItemGroup>
 
    <ItemGroup>
