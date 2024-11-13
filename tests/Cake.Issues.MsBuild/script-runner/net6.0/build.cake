@@ -40,7 +40,7 @@ Task("Build")
         new DotNetMSBuildSettings()
             .WithTarget("Rebuild")
             .WithLogger(
-                "BinaryLogger," + Context.Tools.Resolve("Cake.Issues.MsBuild*/**/StructuredLogger.dll"),
+                "BinaryLogger," + Context.Tools.Resolve("Cake.Issues.MsBuild*/lib/net6.0/StructuredLogger.dll"),
                 "",
                 msBuildLogPath.FullPath
             );

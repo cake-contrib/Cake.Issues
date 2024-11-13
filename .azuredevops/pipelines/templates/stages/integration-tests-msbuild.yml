@@ -29,5 +29,5 @@ stages:
       - template: ../steps/install-net6.yml 
       - template: ../steps/provide-nuget-packages.yml 
       - powershell: ./build.ps1 --verbosity=diagnostic
-        workingDirectory: ./tests/Cake.Issues.MsBuild/script-runner
+        workingDirectory: ./tests/Cake.Issues.MsBuild/script-runner/net6.0
         displayName: 'Run integration tests'
