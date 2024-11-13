@@ -26,7 +26,7 @@ stages:
       pool:
         vmImage: $(imageName)
       steps:
-      - template: ../steps/install-net6.yml 
+      - template: ../steps/install-net8.yml 
       - template: ../steps/install-markdownlint.yml 
       - template: ../steps/provide-nuget-packages.yml 
       - powershell: ./build.ps1 --verbosity=diagnostic

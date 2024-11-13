@@ -129,14 +129,14 @@ BuildParameters.Tasks.InspectCodeTask
     })
 );
 
-// Upload only .NET 8 coverage results to avoid issues with files being too large
+// Upload only .NET 9 coverage results to avoid issues with files being too large
 ((CakeTask)BuildParameters.Tasks.UploadCodecovReportTask.Task).Actions.Clear();
 BuildParameters.Tasks.UploadCodecovReportTask
     .WithCriteria(() => BuildParameters.IsMainRepository, "Skipping because not running from the main repository")
     .WithCriteria(() => BuildParameters.ShouldRunCodecov, "Skipping because uploading to codecov is disabled")
     .WithCriteria(() => BuildParameters.CanPublishToCodecov, "Skipping because repo token is missing, or not running on appveyor")
     .Does<BuildVersion>((context, buildVersion) => RequireTool(BuildParameters.IsDotNetCoreBuild ? ToolSettings.CodecovGlobalTool : ToolSettings.CodecovTool, () => {
-        var coverageFiles = GetFiles(BuildParameters.Paths.Directories.TestCoverage + "/coverlet/*.net8.0.opencover.xml");
+        var coverageFiles = GetFiles(BuildParameters.Paths.Directories.TestCoverage + "/coverlet/*.net9.0.opencover.xml");
         if (FileExists(BuildParameters.Paths.Files.TestCoverageOutputFilePath))
         {
             coverageFiles += BuildParameters.Paths.Files.TestCoverageOutputFilePath;

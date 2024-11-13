@@ -25,9 +25,8 @@ jobs:
           # .NET 5 required for GitVersion
           dotnet-version: | 
             5.x
-            6.x
-            7.x
             8.x
+            9.x
       - name: Build
         run: ./build.sh --target=Create-NuGet-Packages
         shell: bash
@@ -47,7 +46,7 @@ jobs:
           windows-2019, windows-2022,
           ubuntu-20.04, ubuntu-22.04, ubuntu-24.04,
           macos-13, macos-14]
-        dotnet: [6.x, 7.x, 8.x]
+        dotnet: [8.x, 9.x]
     runs-on: ${{ matrix.os }}
     steps:
       - name: Get the sources
@@ -77,7 +76,7 @@ jobs:
           windows-2019, windows-2022,
           ubuntu-20.04, ubuntu-22.04, ubuntu-24.04,
           macos-13, macos-14]
-        dotnet: [6.x, 7.x, 8.x]
+        dotnet: [8.x, 9.x]
     runs-on: ${{ matrix.os }}
     steps:
       - name: Get the sources
