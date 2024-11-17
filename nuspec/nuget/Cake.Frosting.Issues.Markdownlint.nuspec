@@ -29,7 +29,7 @@ For addin compatible with Cake Script Runners see Cake.Issues.Markdownlint.
     <copyright>Copyright © Cake Issues contributors</copyright>
     <tags>cake cake-addin cake-issues cake-issueprovider linting markdown markdownlint</tags>
     <readme>docs\README.md</readme>
-    <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/4.12.0</releaseNotes>
+    <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/5.0.0-beta.1</releaseNotes>
     <dependencies>
       <group targetFramework="net8.0">
         <dependency id="Cake.Core" version="5.0" exclude="Build,Analyzers" />
