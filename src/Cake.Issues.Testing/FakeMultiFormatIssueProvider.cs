@@ -25,11 +25,6 @@ public class FakeMultiFormatIssueProvider(ICakeLog log, FakeMultiFormatIssueProv
     /// </summary>
     public new FakeMultiFormatIssueProviderSettings IssueProviderSettings => base.IssueProviderSettings;
 
-    /// <summary>
-    /// Gets the format in which issues should be returned.
-    /// </summary>
-    public IssueCommentFormat Format { get; private set; }
-
     /// <inheritdoc/>
     public override string ProviderName => "Fake Issue Provider";
 }
