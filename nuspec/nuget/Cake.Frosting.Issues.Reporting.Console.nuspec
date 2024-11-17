@@ -31,15 +31,11 @@ The addin requires Cake Frosting 1.2.0 or higher.
     <readme>docs\README.md</readme>
     <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/4.12.0</releaseNotes>
     <dependencies>
-      <group targetFramework="net6.0">
-        <dependency id="Cake.Frosting.Issues.Reporting" version="[4.0.0-beta0001,5.0)" exclude="Build,Analyzers" />
-        <dependency id="Errata" version="0.13.0" exclude="Build,Analyzers" />
-      </group>
-      <group targetFramework="net7.0">
-        <dependency id="Cake.Frosting.Issues.Reporting" version="[4.0.0-beta0001,5.0)" exclude="Build,Analyzers" />
-        <dependency id="Errata" version="0.13.0" exclude="Build,Analyzers" />
-      </group>
       <group targetFramework="net8.0">
+        <dependency id="Cake.Frosting.Issues.Reporting" version="[4.0.0-beta0001,5.0)" exclude="Build,Analyzers" />
+        <dependency id="Errata" version="0.13.0" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework="net9.0">
         <dependency id="Cake.Frosting.Issues.Reporting" version="[4.0.0-beta0001,5.0)" exclude="Build,Analyzers" />
         <dependency id="Errata" version="0.13.0" exclude="Build,Analyzers" />
       </group>
@@ -50,14 +46,11 @@ The addin requires Cake Frosting 1.2.0 or higher.
     <file src="Cake.Frosting.Issues.Reporting.Console.targets" target="build" />
     <file src="Cake.Frosting.Issues.Reporting.Console.targets" target="buildTransitive" />
     <file src="Cake.Frosting.Issues.Reporting.Console.md" target="docs\README.md" />
-    <file src="..\..\src\Cake.Issues.Reporting.Console\bin\Release\net6.0\Cake.Issues.Reporting.Console.dll" target="lib\net6.0" />
-    <file src="..\..\src\Cake.Issues.Reporting.Console\bin\Release\net6.0\Cake.Issues.Reporting.Console.pdb" target="lib\net6.0" />
-    <file src="..\..\src\Cake.Issues.Reporting.Console\bin\Release\net6.0\Cake.Issues.Reporting.Console.xml" target="lib\net6.0" />
-    <file src="..\..\src\Cake.Issues.Reporting.Console\bin\Release\net7.0\Cake.Issues.Reporting.Console.dll" target="lib\net7.0" />
-    <file src="..\..\src\Cake.Issues.Reporting.Console\bin\Release\net7.0\Cake.Issues.Reporting.Console.pdb" target="lib\net7.0" />
-    <file src="..\..\src\Cake.Issues.Reporting.Console\bin\Release\net7.0\Cake.Issues.Reporting.Console.xml" target="lib\net7.0" />
     <file src="..\..\src\Cake.Issues.Reporting.Console\bin\Release\net8.0\Cake.Issues.Reporting.Console.dll" target="lib\net8.0" />
     <file src="..\..\src\Cake.Issues.Reporting.Console\bin\Release\net8.0\Cake.Issues.Reporting.Console.pdb" target="lib\net8.0" />
     <file src="..\..\src\Cake.Issues.Reporting.Console\bin\Release\net8.0\Cake.Issues.Reporting.Console.xml" target="lib\net8.0" />
+    <file src="..\..\src\Cake.Issues.Reporting.Console\bin\Release\net9.0\Cake.Issues.Reporting.Console.dll" target="lib\net9.0" />
+    <file src="..\..\src\Cake.Issues.Reporting.Console\bin\Release\net9.0\Cake.Issues.Reporting.Console.pdb" target="lib\net9.0" />
+    <file src="..\..\src\Cake.Issues.Reporting.Console\bin\Release\net9.0\Cake.Issues.Reporting.Console.xml" target="lib\net9.0" />
   </files>
 </package>

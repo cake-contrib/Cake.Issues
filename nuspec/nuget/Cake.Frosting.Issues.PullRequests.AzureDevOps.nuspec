@@ -30,15 +30,11 @@ For addin compatible with Cake Script Runners see Cake.Issues.PullRequests.Azure
     <readme>docs\README.md</readme>
     <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/4.12.0</releaseNotes>
     <dependencies>
-      <group targetFramework="net6.0">
-        <dependency id="Cake.Frosting.Issues.PullRequests" version="[4.0.0-beta0001,5.0)" exclude="Build,Analyzers" />
-        <dependency id="Cake.AzureDevOps" version="4.0.0" exclude="Build,Analyzers" />
-      </group>
-      <group targetFramework="net7.0">
-        <dependency id="Cake.Frosting.Issues.PullRequests" version="[4.0.0-beta0001,5.0)" exclude="Build,Analyzers" />
-        <dependency id="Cake.AzureDevOps" version="4.0.0" exclude="Build,Analyzers" />
-      </group>
       <group targetFramework="net8.0">
+        <dependency id="Cake.Frosting.Issues.PullRequests" version="[4.0.0-beta0001,5.0)" exclude="Build,Analyzers" />
+        <dependency id="Cake.AzureDevOps" version="4.0.0" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework="net9.0">
         <dependency id="Cake.Frosting.Issues.PullRequests" version="[4.0.0-beta0001,5.0)" exclude="Build,Analyzers" />
         <dependency id="Cake.AzureDevOps" version="4.0.0" exclude="Build,Analyzers" />
       </group>
@@ -49,14 +45,11 @@ For addin compatible with Cake Script Runners see Cake.Issues.PullRequests.Azure
     <file src="Cake.Frosting.Issues.PullRequests.AzureDevOps.targets" target="build" />
     <file src="Cake.Frosting.Issues.PullRequests.AzureDevOps.targets" target="buildTransitive" />
     <file src="Cake.Frosting.Issues.PullRequests.AzureDevOps.md" target="docs\README.md" />
-    <file src="..\..\src\Cake.Issues.PullRequests.AzureDevOps\bin\Release\net6.0\Cake.Issues.PullRequests.AzureDevOps.dll" target="lib\net6.0" />
-    <file src="..\..\src\Cake.Issues.PullRequests.AzureDevOps\bin\Release\net6.0\Cake.Issues.PullRequests.AzureDevOps.pdb" target="lib\net6.0" />
-    <file src="..\..\src\Cake.Issues.PullRequests.AzureDevOps\bin\Release\net6.0\Cake.Issues.PullRequests.AzureDevOps.xml" target="lib\net6.0" />
-    <file src="..\..\src\Cake.Issues.PullRequests.AzureDevOps\bin\Release\net7.0\Cake.Issues.PullRequests.AzureDevOps.dll" target="lib\net7.0" />
-    <file src="..\..\src\Cake.Issues.PullRequests.AzureDevOps\bin\Release\net7.0\Cake.Issues.PullRequests.AzureDevOps.pdb" target="lib\net7.0" />
-    <file src="..\..\src\Cake.Issues.PullRequests.AzureDevOps\bin\Release\net7.0\Cake.Issues.PullRequests.AzureDevOps.xml" target="lib\net7.0" />
     <file src="..\..\src\Cake.Issues.PullRequests.AzureDevOps\bin\Release\net8.0\Cake.Issues.PullRequests.AzureDevOps.dll" target="lib\net8.0" />
     <file src="..\..\src\Cake.Issues.PullRequests.AzureDevOps\bin\Release\net8.0\Cake.Issues.PullRequests.AzureDevOps.pdb" target="lib\net8.0" />
     <file src="..\..\src\Cake.Issues.PullRequests.AzureDevOps\bin\Release\net8.0\Cake.Issues.PullRequests.AzureDevOps.xml" target="lib\net8.0" />
+    <file src="..\..\src\Cake.Issues.PullRequests.AzureDevOps\bin\Release\net9.0\Cake.Issues.PullRequests.AzureDevOps.dll" target="lib\net9.0" />
+    <file src="..\..\src\Cake.Issues.PullRequests.AzureDevOps\bin\Release\net9.0\Cake.Issues.PullRequests.AzureDevOps.pdb" target="lib\net9.0" />
+    <file src="..\..\src\Cake.Issues.PullRequests.AzureDevOps\bin\Release\net9.0\Cake.Issues.PullRequests.AzureDevOps.xml" target="lib\net9.0" />
   </files>
 </package>
