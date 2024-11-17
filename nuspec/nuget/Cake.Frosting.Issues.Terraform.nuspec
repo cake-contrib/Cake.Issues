@@ -33,11 +33,11 @@ For addin compatible with Cake Script Runners see Cake.Issues.Terraform.
     <dependencies>
       <group targetFramework="net8.0">
         <dependency id="Cake.Core" version="5.0" exclude="Build,Analyzers" />
-        <dependency id="Cake.Issues" version="[4.0.0-beta0001,5.0)" exclude="Build,Analyzers" />
+        <dependency id="Cake.Issues" version="[5.0.0-beta0001,6.0)" exclude="Build,Analyzers" />
       </group>
       <group targetFramework="net9.0">
         <dependency id="Cake.Core" version="5.0" exclude="Build,Analyzers" />
-        <dependency id="Cake.Issues" version="[4.0.0-beta0001,5.0)" exclude="Build,Analyzers" />
+        <dependency id="Cake.Issues" version="[5.0.0-beta0001,6.0)" exclude="Build,Analyzers" />
       </group>
     </dependencies>
   </metadata>
