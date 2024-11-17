@@ -10,7 +10,7 @@ public sealed class IDictionaryExtensionsTests
         public void Should_Throw_If_Dictionary_Is_Null()
         {
             // Given
-            const System.Collections.Generic.IDictionary<string, string> dictionary = null;
+            const IDictionary<string, string> dictionary = null;
 
             // When
             var result = Record.Exception(() => dictionary.GetValueOrDefault("foo", null));
@@ -25,7 +25,7 @@ public sealed class IDictionaryExtensionsTests
             // Given
             const string key = "foo";
             const string value = "bar";
-            var dictionary = new System.Collections.Generic.Dictionary<string, string> { { key, value } };
+            var dictionary = new Dictionary<string, string> { { key, value } };
 
             // When
             var result = dictionary.GetValueOrDefault(key, null);
@@ -39,7 +39,7 @@ public sealed class IDictionaryExtensionsTests
         {
             // Given
             const string defaultValue = "defaultValue";
-            var dictionary = new System.Collections.Generic.Dictionary<string, string> { { "foo", "bar" } };
+            var dictionary = new Dictionary<string, string> { { "foo", "bar" } };
 
             // When
             var result = dictionary.GetValueOrDefault("bar", defaultValue);

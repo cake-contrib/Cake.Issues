@@ -1000,9 +1000,9 @@ public sealed class IssueSerializationExtensionsTests
             }
             finally
             {
-                if (System.IO.File.Exists(filePath.FullPath))
+                if (File.Exists(filePath.FullPath))
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    File.Delete(filePath.FullPath);
                 }
             }
         }
@@ -1029,9 +1029,9 @@ public sealed class IssueSerializationExtensionsTests
             }
             finally
             {
-                if (System.IO.File.Exists(filePath.FullPath))
+                if (File.Exists(filePath.FullPath))
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    File.Delete(filePath.FullPath);
                 }
             }
         }
@@ -1059,9 +1059,9 @@ public sealed class IssueSerializationExtensionsTests
             }
             finally
             {
-                if (System.IO.File.Exists(filePath.FullPath))
+                if (File.Exists(filePath.FullPath))
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    File.Delete(filePath.FullPath);
                 }
             }
         }
@@ -1089,9 +1089,9 @@ public sealed class IssueSerializationExtensionsTests
             }
             finally
             {
-                if (System.IO.File.Exists(filePath.FullPath))
+                if (File.Exists(filePath.FullPath))
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    File.Delete(filePath.FullPath);
                 }
             }
         }
@@ -1118,9 +1118,9 @@ public sealed class IssueSerializationExtensionsTests
             }
             finally
             {
-                if (System.IO.File.Exists(filePath.FullPath))
+                if (File.Exists(filePath.FullPath))
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    File.Delete(filePath.FullPath);
                 }
             }
         }
@@ -1147,9 +1147,9 @@ public sealed class IssueSerializationExtensionsTests
             }
             finally
             {
-                if (System.IO.File.Exists(filePath.FullPath))
+                if (File.Exists(filePath.FullPath))
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    File.Delete(filePath.FullPath);
                 }
             }
         }
@@ -1177,9 +1177,9 @@ public sealed class IssueSerializationExtensionsTests
             }
             finally
             {
-                if (System.IO.File.Exists(filePath.FullPath))
+                if (File.Exists(filePath.FullPath))
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    File.Delete(filePath.FullPath);
                 }
             }
         }
@@ -1207,9 +1207,9 @@ public sealed class IssueSerializationExtensionsTests
             }
             finally
             {
-                if (System.IO.File.Exists(filePath.FullPath))
+                if (File.Exists(filePath.FullPath))
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    File.Delete(filePath.FullPath);
                 }
             }
         }
@@ -1237,9 +1237,9 @@ public sealed class IssueSerializationExtensionsTests
             }
             finally
             {
-                if (System.IO.File.Exists(filePath.FullPath))
+                if (File.Exists(filePath.FullPath))
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    File.Delete(filePath.FullPath);
                 }
             }
         }
@@ -1267,9 +1267,9 @@ public sealed class IssueSerializationExtensionsTests
             }
             finally
             {
-                if (System.IO.File.Exists(filePath.FullPath))
+                if (File.Exists(filePath.FullPath))
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    File.Delete(filePath.FullPath);
                 }
             }
         }
@@ -1297,9 +1297,9 @@ public sealed class IssueSerializationExtensionsTests
             }
             finally
             {
-                if (System.IO.File.Exists(filePath.FullPath))
+                if (File.Exists(filePath.FullPath))
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    File.Delete(filePath.FullPath);
                 }
             }
         }
@@ -1327,9 +1327,9 @@ public sealed class IssueSerializationExtensionsTests
             }
             finally
             {
-                if (System.IO.File.Exists(filePath.FullPath))
+                if (File.Exists(filePath.FullPath))
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    File.Delete(filePath.FullPath);
                 }
             }
         }
@@ -1357,9 +1357,9 @@ public sealed class IssueSerializationExtensionsTests
             }
             finally
             {
-                if (System.IO.File.Exists(filePath.FullPath))
+                if (File.Exists(filePath.FullPath))
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    File.Delete(filePath.FullPath);
                 }
             }
         }
@@ -1387,9 +1387,9 @@ public sealed class IssueSerializationExtensionsTests
             }
             finally
             {
-                if (System.IO.File.Exists(filePath.FullPath))
+                if (File.Exists(filePath.FullPath))
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    File.Delete(filePath.FullPath);
                 }
             }
         }
@@ -1417,9 +1417,9 @@ public sealed class IssueSerializationExtensionsTests
             }
             finally
             {
-                if (System.IO.File.Exists(filePath.FullPath))
+                if (File.Exists(filePath.FullPath))
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    File.Delete(filePath.FullPath);
                 }
             }
         }
@@ -1447,9 +1447,9 @@ public sealed class IssueSerializationExtensionsTests
             }
             finally
             {
-                if (System.IO.File.Exists(filePath.FullPath))
+                if (File.Exists(filePath.FullPath))
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    File.Delete(filePath.FullPath);
                 }
             }
         }
@@ -1477,9 +1477,9 @@ public sealed class IssueSerializationExtensionsTests
             }
             finally
             {
-                if (System.IO.File.Exists(filePath.FullPath))
+                if (File.Exists(filePath.FullPath))
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    File.Delete(filePath.FullPath);
                 }
             }
         }
@@ -1507,9 +1507,9 @@ public sealed class IssueSerializationExtensionsTests
             }
             finally
             {
-                if (System.IO.File.Exists(filePath.FullPath))
+                if (File.Exists(filePath.FullPath))
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    File.Delete(filePath.FullPath);
                 }
             }
         }
@@ -1537,9 +1537,9 @@ public sealed class IssueSerializationExtensionsTests
             }
             finally
             {
-                if (System.IO.File.Exists(filePath.FullPath))
+                if (File.Exists(filePath.FullPath))
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    File.Delete(filePath.FullPath);
                 }
             }
         }
@@ -1567,9 +1567,9 @@ public sealed class IssueSerializationExtensionsTests
             }
             finally
             {
-                if (System.IO.File.Exists(filePath.FullPath))
+                if (File.Exists(filePath.FullPath))
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    File.Delete(filePath.FullPath);
                 }
             }
         }
@@ -1597,9 +1597,9 @@ public sealed class IssueSerializationExtensionsTests
             }
             finally
             {
-                if (System.IO.File.Exists(filePath.FullPath))
+                if (File.Exists(filePath.FullPath))
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    File.Delete(filePath.FullPath);
                 }
             }
         }
@@ -1666,9 +1666,9 @@ public sealed class IssueSerializationExtensionsTests
             }
             finally
             {
-                if (System.IO.File.Exists(filePath.FullPath))
+                if (File.Exists(filePath.FullPath))
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    File.Delete(filePath.FullPath);
                 }
             }
         }
@@ -1704,9 +1704,9 @@ public sealed class IssueSerializationExtensionsTests
             }
             finally
             {
-                if (System.IO.File.Exists(filePath.FullPath))
+                if (File.Exists(filePath.FullPath))
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    File.Delete(filePath.FullPath);
                 }
             }
         }
@@ -1744,9 +1744,9 @@ public sealed class IssueSerializationExtensionsTests
             }
             finally
             {
-                if (System.IO.File.Exists(filePath.FullPath))
+                if (File.Exists(filePath.FullPath))
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    File.Delete(filePath.FullPath);
                 }
             }
         }
@@ -1784,9 +1784,9 @@ public sealed class IssueSerializationExtensionsTests
             }
             finally
             {
-                if (System.IO.File.Exists(filePath.FullPath))
+                if (File.Exists(filePath.FullPath))
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    File.Delete(filePath.FullPath);
                 }
             }
         }
@@ -1822,9 +1822,9 @@ public sealed class IssueSerializationExtensionsTests
             }
             finally
             {
-                if (System.IO.File.Exists(filePath.FullPath))
+                if (File.Exists(filePath.FullPath))
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    File.Delete(filePath.FullPath);
                 }
             }
         }
@@ -1860,9 +1860,9 @@ public sealed class IssueSerializationExtensionsTests
             }
             finally
             {
-                if (System.IO.File.Exists(filePath.FullPath))
+                if (File.Exists(filePath.FullPath))
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    File.Delete(filePath.FullPath);
                 }
             }
         }
@@ -1900,9 +1900,9 @@ public sealed class IssueSerializationExtensionsTests
             }
             finally
             {
-                if (System.IO.File.Exists(filePath.FullPath))
+                if (File.Exists(filePath.FullPath))
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    File.Delete(filePath.FullPath);
                 }
             }
         }
@@ -1940,9 +1940,9 @@ public sealed class IssueSerializationExtensionsTests
             }
             finally
             {
-                if (System.IO.File.Exists(filePath.FullPath))
+                if (File.Exists(filePath.FullPath))
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    File.Delete(filePath.FullPath);
                 }
             }
         }
@@ -1980,9 +1980,9 @@ public sealed class IssueSerializationExtensionsTests
             }
             finally
             {
-                if (System.IO.File.Exists(filePath.FullPath))
+                if (File.Exists(filePath.FullPath))
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    File.Delete(filePath.FullPath);
                 }
             }
         }
@@ -2020,9 +2020,9 @@ public sealed class IssueSerializationExtensionsTests
             }
             finally
             {
-                if (System.IO.File.Exists(filePath.FullPath))
+                if (File.Exists(filePath.FullPath))
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    File.Delete(filePath.FullPath);
                 }
             }
         }
@@ -2060,9 +2060,9 @@ public sealed class IssueSerializationExtensionsTests
             }
             finally
             {
-                if (System.IO.File.Exists(filePath.FullPath))
+                if (File.Exists(filePath.FullPath))
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    File.Delete(filePath.FullPath);
                 }
             }
         }
@@ -2100,9 +2100,9 @@ public sealed class IssueSerializationExtensionsTests
             }
             finally
             {
-                if (System.IO.File.Exists(filePath.FullPath))
+                if (File.Exists(filePath.FullPath))
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    File.Delete(filePath.FullPath);
                 }
             }
         }
@@ -2140,9 +2140,9 @@ public sealed class IssueSerializationExtensionsTests
             }
             finally
             {
-                if (System.IO.File.Exists(filePath.FullPath))
+                if (File.Exists(filePath.FullPath))
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    File.Delete(filePath.FullPath);
                 }
             }
         }
@@ -2180,9 +2180,9 @@ public sealed class IssueSerializationExtensionsTests
             }
             finally
             {
-                if (System.IO.File.Exists(filePath.FullPath))
+                if (File.Exists(filePath.FullPath))
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    File.Delete(filePath.FullPath);
                 }
             }
         }
@@ -2220,9 +2220,9 @@ public sealed class IssueSerializationExtensionsTests
             }
             finally
             {
-                if (System.IO.File.Exists(filePath.FullPath))
+                if (File.Exists(filePath.FullPath))
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    File.Delete(filePath.FullPath);
                 }
             }
         }
@@ -2260,9 +2260,9 @@ public sealed class IssueSerializationExtensionsTests
             }
             finally
             {
-                if (System.IO.File.Exists(filePath.FullPath))
+                if (File.Exists(filePath.FullPath))
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    File.Delete(filePath.FullPath);
                 }
             }
         }
@@ -2300,9 +2300,9 @@ public sealed class IssueSerializationExtensionsTests
             }
             finally
             {
-                if (System.IO.File.Exists(filePath.FullPath))
+                if (File.Exists(filePath.FullPath))
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    File.Delete(filePath.FullPath);
                 }
             }
         }
@@ -2340,9 +2340,9 @@ public sealed class IssueSerializationExtensionsTests
             }
             finally
             {
-                if (System.IO.File.Exists(filePath.FullPath))
+                if (File.Exists(filePath.FullPath))
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    File.Delete(filePath.FullPath);
                 }
             }
         }
@@ -2380,9 +2380,9 @@ public sealed class IssueSerializationExtensionsTests
             }
             finally
             {
-                if (System.IO.File.Exists(filePath.FullPath))
+                if (File.Exists(filePath.FullPath))
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    File.Delete(filePath.FullPath);
                 }
             }
         }
@@ -2420,9 +2420,9 @@ public sealed class IssueSerializationExtensionsTests
             }
             finally
             {
-                if (System.IO.File.Exists(filePath.FullPath))
+                if (File.Exists(filePath.FullPath))
                 {
-                    System.IO.File.Delete(filePath.FullPath);
+                    File.Delete(filePath.FullPath);
                 }
             }
         }
