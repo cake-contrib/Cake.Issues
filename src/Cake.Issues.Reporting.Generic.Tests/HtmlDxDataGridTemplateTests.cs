@@ -50,7 +50,7 @@ public sealed class HtmlDxDataGridTemplateTests
     public sealed class TheThemeOption
     {
         public static IEnumerable<object[]> DevExtremeThemes() =>
-            from object number in Enum.GetValues(typeof(DevExtremeTheme))
+            from object number in Enum.GetValues<DevExtremeTheme>()
             select new[] { number };
 
         [Theory]
