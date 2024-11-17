@@ -95,7 +95,7 @@ public class IIssueComparer(IIssueProperty ignoredProperties) : IEqualityCompare
     /// <inheritdoc/>
     public int GetHashCode(IIssue obj)
     {
-        obj.NotNull(nameof(obj));
+        obj.NotNull();
 
         var valuesToHash = new List<object>();
 

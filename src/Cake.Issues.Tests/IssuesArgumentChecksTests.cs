@@ -288,7 +288,7 @@ public sealed class IssuesArgumentChecksTests
             var values = new List<string> { value };
 
             // When
-            values.NotNullOrEmpty("foo");
+            values.NotNullOrEmpty();
 
             // Then
         }
@@ -330,7 +330,7 @@ public sealed class IssuesArgumentChecksTests
             var value = new List<int>();
 
             // When
-            value.NotNullOrEmptyElement("foo");
+            value.NotNullOrEmptyElement();
 
             // Then
         }
@@ -340,12 +340,13 @@ public sealed class IssuesArgumentChecksTests
         {
             // Given
             var value = new List<string> { null };
+            const string parameterName = "foo";
 
             // When
-            var result = Record.Exception(() => value.NotNullOrEmptyElement("foo"));
+            var result = Record.Exception(() => value.NotNullOrEmptyElement(parameterName));
 
             // Then
-            result.IsArgumentOutOfRangeException("foo");
+            result.IsArgumentOutOfRangeException(parameterName);
         }
 
         [Theory]
@@ -357,7 +358,7 @@ public sealed class IssuesArgumentChecksTests
             var values = new List<string> { value };
 
             // When
-            values.NotNullOrEmptyElement("foo");
+            values.NotNullOrEmptyElement();
 
             // Then
         }
@@ -455,7 +456,7 @@ public sealed class IssuesArgumentChecksTests
             var values = new List<string> { value };
 
             // When
-            values.NotNullOrEmptyOrEmptyElement("foo");
+            values.NotNullOrEmptyOrEmptyElement();
 
             // Then
         }
