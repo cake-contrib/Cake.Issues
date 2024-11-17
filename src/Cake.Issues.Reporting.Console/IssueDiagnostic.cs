@@ -54,43 +54,11 @@ internal sealed class IssueDiagnostic : Diagnostic
     }
 
     /// <summary>
-    /// Creates labels for the issue.
-    /// </summary>
-    private void CreateLabels()
-    {
-        var color = this.issues.First().Priority switch
-        {
-            (int)IssuePriority.Error => Color.Red,
-            (int)IssuePriority.Warning => Color.Yellow,
-            (int)IssuePriority.Suggestion or (int)IssuePriority.Hint => Color.Blue,
-            _ => throw new Exception(),
-        };
-
-        foreach (var issue in this.issues)
-        {
-            var (location, length) = this.GetLocation(issue);
-            var label =
-                new Label(
-                    issue.AffectedFileRelativePath.FullPath,
-                    location,
-                    issue.Message(IssueCommentFormat.PlainText))
-                .WithColor(color);
-
-            if (length > 0)
-            {
-                label = label.WithLength(length);
-            }
-
-            this.Labels.Add(label);
-        }
-    }
-
-    /// <summary>
     /// Returns the diagnostic location of an issue.
     /// </summary>
     /// <param name="issue">Issue for which the location should be returned.</param>
     /// <returns>Location for the diagnostic.</returns>
-    private (Location Location, int Lenght) GetLocation(IIssue issue)
+    private static (Location Location, int Lenght) GetLocation(IIssue issue)
     {
         // Errata currently doesn't support file or line level diagnostics.
         if (!issue.Line.HasValue || !issue.Column.HasValue)
@@ -107,5 +75,37 @@ internal sealed class IssueDiagnostic : Diagnostic
         }
 
         return (location, length);
+    }
+
+    /// <summary>
+    /// Creates labels for the issue.
+    /// </summary>
+    private void CreateLabels()
+    {
+        var color = this.issues.First().Priority switch
+        {
+            (int)IssuePriority.Error => Color.Red,
+            (int)IssuePriority.Warning => Color.Yellow,
+            (int)IssuePriority.Suggestion or (int)IssuePriority.Hint => Color.Blue,
+            _ => throw new Exception(),
+        };
+
+        foreach (var issue in this.issues)
+        {
+            var (location, length) = GetLocation(issue);
+            var label =
+                new Label(
+                    issue.AffectedFileRelativePath.FullPath,
+                    location,
+                    issue.Message(IssueCommentFormat.PlainText))
+                .WithColor(color);
+
+            if (length > 0)
+            {
+                label = label.WithLength(length);
+            }
+
+            this.Labels.Add(label);
+        }
     }
 }
