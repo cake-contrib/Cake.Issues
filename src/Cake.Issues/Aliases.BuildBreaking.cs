@@ -32,8 +32,7 @@ public static partial class Aliases
         context.NotNull();
         issues.NotNull();
 
-        var breaker = new BuildBreaker();
-        breaker.BreakBuildOnIssues(issues);
+        BuildBreaker.BreakBuildOnIssues(issues);
     }
 
     /// <summary>
@@ -60,8 +59,7 @@ public static partial class Aliases
         context.NotNull();
         issues.NotNull();
 
-        var breaker = new BuildBreaker();
-        breaker.BreakBuildOnIssues(issues, priority);
+        BuildBreaker.BreakBuildOnIssues(issues, priority);
     }
 
     /// <summary>
@@ -88,8 +86,7 @@ public static partial class Aliases
         context.NotNull();
         issues.NotNull();
 
-        var breaker = new BuildBreaker();
-        breaker.BreakBuildOnIssues(issues, providerType);
+        BuildBreaker.BreakBuildOnIssues(issues, providerType);
     }
 
     /// <summary>
@@ -117,7 +114,6 @@ public static partial class Aliases
         issues.NotNull();
         predicate.NotNull();
 
-        var breaker = new BuildBreaker();
-        breaker.BreakBuildOnIssues(issues, predicate);
+        BuildBreaker.BreakBuildOnIssues(issues, predicate);
     }
 }
