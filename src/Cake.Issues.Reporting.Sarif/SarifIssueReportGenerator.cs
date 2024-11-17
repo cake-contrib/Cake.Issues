@@ -236,7 +236,7 @@ internal class SarifIssueReportGenerator : IssueReportFormat
     /// <summary>
     /// Contains the <see cref="BaselineState"/> and <see cref="IIssue"/>.
     /// </summary>
-    private class SarifIssue
+    private sealed class SarifIssue
     {
         /// <summary>
         /// Gets the BaselineState for the <see cref="SarifIssue"/>.
