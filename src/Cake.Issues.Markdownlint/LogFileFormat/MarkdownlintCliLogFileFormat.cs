@@ -27,7 +27,7 @@ internal partial class MarkdownlintCliLogFileFormat(ICakeLog log)
 
         var regex = LineParsingRegEx();
 
-        foreach (var line in markdownlintIssuesSettings.LogFileContent.ToStringUsingEncoding().Split(Separator, StringSplitOptions.None).ToList().Where(s => !string.IsNullOrEmpty(s)))
+        foreach (var line in markdownlintIssuesSettings.LogFileContent.ToStringUsingEncoding().Split(Separator, StringSplitOptions.None).Where(s => !string.IsNullOrEmpty(s)))
         {
             var groups = regex.Match(line).Groups;
 
