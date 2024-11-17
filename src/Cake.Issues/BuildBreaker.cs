@@ -7,19 +7,19 @@ using System.Linq;
 /// <summary>
 /// Class for breaking builds.
 /// </summary>
-internal class BuildBreaker()
+internal static class BuildBreaker
 {
     /// <summary>
     /// Fails build if any issues are found.
     /// </summary>
     /// <param name="issues">Issues which should be checked.</param>
-    public void BreakBuildOnIssues(IEnumerable<IIssue> issues)
+    public static void BreakBuildOnIssues(IEnumerable<IIssue> issues)
     {
         issues.NotNull();
 
         if (issues.Any())
         {
-            this.BreakBuild(issues);
+            BreakBuild(issues);
         }
     }
 
@@ -28,11 +28,11 @@ internal class BuildBreaker()
     /// </summary>
     /// <param name="issues">Issues which should be checked.</param>
     /// <param name="priority">Minimum priority of issues which should be considered.</param>
-    public void BreakBuildOnIssues(IEnumerable<IIssue> issues, IssuePriority priority)
+    public static void BreakBuildOnIssues(IEnumerable<IIssue> issues, IssuePriority priority)
     {
         issues.NotNull();
 
-        this.BreakBuildOnIssues(issues, x => x.Priority >= (int)priority);
+        BreakBuildOnIssues(issues, x => x.Priority >= (int)priority);
     }
 
     /// <summary>
@@ -40,12 +40,12 @@ internal class BuildBreaker()
     /// </summary>
     /// <param name="issues">Issues which should be checked.</param>
     /// <param name="providerType">Type of the issue provider.</param>
-    public void BreakBuildOnIssues(IEnumerable<IIssue> issues, string providerType)
+    public static void BreakBuildOnIssues(IEnumerable<IIssue> issues, string providerType)
     {
         issues.NotNull();
         providerType.NotNullOrWhiteSpace();
 
-        this.BreakBuildOnIssues(issues, x => x.ProviderType == providerType);
+        BreakBuildOnIssues(issues, x => x.ProviderType == providerType);
     }
 
     /// <summary>
@@ -53,17 +53,17 @@ internal class BuildBreaker()
     /// </summary>
     /// <param name="issues">Issues which should be checked.</param>
     /// <param name="predicate">Predicate to .</param>
-    public void BreakBuildOnIssues(IEnumerable<IIssue> issues, Func<IIssue, bool> predicate)
+    public static void BreakBuildOnIssues(IEnumerable<IIssue> issues, Func<IIssue, bool> predicate)
     {
         issues.NotNull();
         predicate.NotNull();
 
         if (issues.Any(predicate))
         {
-            this.BreakBuild(issues);
+            BreakBuild(issues);
         }
     }
 
-    private void BreakBuild(IEnumerable<IIssue> issues) =>
+    private static void BreakBuild(IEnumerable<IIssue> issues) =>
         throw new IssuesFoundException(issues.Count());
 }
