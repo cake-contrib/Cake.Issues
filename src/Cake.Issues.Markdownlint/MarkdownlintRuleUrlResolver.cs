@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 /// <summary>
 /// Class for retrieving a URL linking to a site describing a rule.
 /// </summary>
-internal class MarkdownlintRuleUrlResolver : BaseRuleUrlResolver<MarkdownlintRuleDescription>
+internal partial class MarkdownlintRuleUrlResolver : BaseRuleUrlResolver<MarkdownlintRuleDescription>
 {
     private static readonly Lazy<MarkdownlintRuleUrlResolver> InstanceValue =
         new(() => new MarkdownlintRuleUrlResolver());
@@ -28,7 +28,7 @@ internal class MarkdownlintRuleUrlResolver : BaseRuleUrlResolver<MarkdownlintRul
     /// <inheritdoc/>
     protected override bool TryGetRuleDescription(string rule, MarkdownlintRuleDescription ruleDescription)
     {
-        var regex = new Regex(@"^MD(\d*)$");
+        var regex = RuleDescriptionRegEx();
         var match = regex.Match(rule);
 
         if (!match.Success)
@@ -52,4 +52,7 @@ internal class MarkdownlintRuleUrlResolver : BaseRuleUrlResolver<MarkdownlintRul
 
         return true;
     }
+
+    [GeneratedRegex(@"^MD(\d*)$")]
+    private static partial Regex RuleDescriptionRegEx();
 }

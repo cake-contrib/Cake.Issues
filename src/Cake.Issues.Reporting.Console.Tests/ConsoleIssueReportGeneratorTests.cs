@@ -34,12 +34,14 @@ public sealed class ConsoleIssueReportGeneratorTests
     public sealed class TheInternalCreateReportMethod
     {
         public static IEnumerable<object[]> ReportFormatSettingsCombinations =>
-            from b1 in new[] { false, true }
-            from b2 in new[] { false, true }
-            from b3 in new[] { false, true }
-            from b4 in new[] { false, true }
-            from b5 in new[] { false, true }
+            from b1 in boolArray
+            from b2 in boolArray
+            from b3 in boolArray
+            from b4 in boolArray
+            from b5 in boolArray
             select new object[] { b1, b2, b3, b4, b5 };
+
+        private static readonly bool[] boolArray = [false, true];
 
         [Theory]
         [MemberData(nameof(ReportFormatSettingsCombinations))]

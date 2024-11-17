@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 /// <summary>
 /// Extensions for <see cref="string"/>.
 /// </summary>
-public static class StringExtensions
+public static partial class StringExtensions
 {
     /// <summary>
     /// Sanitizes a string to be a valid HTML ID.
@@ -23,7 +23,7 @@ public static class StringExtensions
         var firstLegalCharacter = GetIndexOfFirstLetter(input);
         input = input[firstLegalCharacter..];
 
-        return Regex.Replace(input, @"/^[^a-z]+|[^\w:-]+", "-");
+        return SanitizeHtmlIdRegEx().Replace(input, "-");
     }
 
     /// <summary>
@@ -46,4 +46,7 @@ public static class StringExtensions
 
         return input.Length;
     }
+
+    [GeneratedRegex(@"/^[^a-z]+|[^\w:-]+")]
+    private static partial Regex SanitizeHtmlIdRegEx();
 }
