@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <Description>Azure DevOps support for the Cake.Issues addin for Cake Build Automation System</Description>
   </PropertyGroup>
@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Cake.AzureDevOps" Version="4.0.0" PrivateAssets="All" />
+    <PackageReference Include="Cake.AzureDevOps" Version="5.0.0-beta0001" PrivateAssets="All" />
   </ItemGroup>
 
   <ItemGroup>
