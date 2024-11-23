@@ -4,7 +4,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Cake.AzureDevOps" Version="5.0.0-beta0001" />
+    <PackageReference Include="Cake.Frosting.AzureDevOps" Version="5.0.0-beta0003" />
     <PackageReference Include="NSubstitute" Version="5.3.0" />
   </ItemGroup>
 

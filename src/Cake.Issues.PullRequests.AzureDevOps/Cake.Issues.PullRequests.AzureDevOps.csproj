@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Cake.Frosting.AzureDevOps" Version="5.0.0-beta0001" PrivateAssets="All" />
+    <PackageReference Include="Cake.Frosting.AzureDevOps" Version="5.0.0-beta0003" PrivateAssets="All" />
   </ItemGroup>
 
   <ItemGroup>
