@@ -286,6 +286,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{2CC3359B
 		..\nuspec\nuget\Cake.Issues.Sarif.nuspec = ..\nuspec\nuget\Cake.Issues.Sarif.nuspec
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tap", "Tap", "{D3CEEB00-3E23-40F3-8BFE-321AC511E725}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.Issues.Tap", "Cake.Issues.Tap\Cake.Issues.Tap.csproj", "{3B3452CA-3B1A-4390-B5D2-A906E2AD64B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.Issues.Tap.Tests", "Cake.Issues.Tap.Tests\Cake.Issues.Tap.Tests.csproj", "{58C5D37D-18B1-4F44-9527-F515C319C7BE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{9887889A-9AAC-440F-9D82-5D297A731785}"
+	ProjectSection(SolutionItems) = preProject
+		..\nuspec\nuget\Cake.Frosting.Issues.Tap.md = ..\nuspec\nuget\Cake.Frosting.Issues.Tap.md
+		..\nuspec\nuget\Cake.Frosting.Issues.Tap.nuspec = ..\nuspec\nuget\Cake.Frosting.Issues.Tap.nuspec
+		..\nuspec\nuget\Cake.Frosting.Issues.Tap.targets = ..\nuspec\nuget\Cake.Frosting.Issues.Tap.targets
+		..\nuspec\nuget\Cake.Issues.Tap.md = ..\nuspec\nuget\Cake.Issues.Tap.md
+		..\nuspec\nuget\Cake.Issues.Tap.nuspec = ..\nuspec\nuget\Cake.Issues.Tap.nuspec
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -432,6 +447,14 @@ Global
 		{7BFDC8EC-9CFB-4A15-8B00-41A922DD6019}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7BFDC8EC-9CFB-4A15-8B00-41A922DD6019}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7BFDC8EC-9CFB-4A15-8B00-41A922DD6019}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B3452CA-3B1A-4390-B5D2-A906E2AD64B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B3452CA-3B1A-4390-B5D2-A906E2AD64B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B3452CA-3B1A-4390-B5D2-A906E2AD64B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B3452CA-3B1A-4390-B5D2-A906E2AD64B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58C5D37D-18B1-4F44-9527-F515C319C7BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58C5D37D-18B1-4F44-9527-F515C319C7BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58C5D37D-18B1-4F44-9527-F515C319C7BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58C5D37D-18B1-4F44-9527-F515C319C7BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -508,6 +531,10 @@ Global
 		{FC68CD80-8D3E-4614-BD59-90DC16DE89A5} = {49FA3C0C-6261-41D0-9644-D6AFEDF89E6D}
 		{C05B7E5C-28D3-4F27-AC8B-ED17277398C7} = {1FDAECA8-746E-4B18-BC89-D0876171CE58}
 		{2CC3359B-2DBA-4D41-BAF7-86342B8A1729} = {43506DCC-B86E-418A-8626-F5C7E053B2D5}
+		{D3CEEB00-3E23-40F3-8BFE-321AC511E725} = {D404813F-4EBD-4093-BA1C-B5BFEB781A65}
+		{3B3452CA-3B1A-4390-B5D2-A906E2AD64B4} = {D3CEEB00-3E23-40F3-8BFE-321AC511E725}
+		{58C5D37D-18B1-4F44-9527-F515C319C7BE} = {D3CEEB00-3E23-40F3-8BFE-321AC511E725}
+		{9887889A-9AAC-440F-9D82-5D297A731785} = {D3CEEB00-3E23-40F3-8BFE-321AC511E725}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E9F2EC94-9A1B-4834-A464-E5208B210F11}

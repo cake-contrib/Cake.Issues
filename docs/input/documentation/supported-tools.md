@@ -33,6 +33,10 @@ This pages lists tools known to be working with Cake Issues (1)
 
 {{ read_csv('assets/tables/supported-tools-clojure.csv',keep_default_na=False) }}
 
+## CSS, SCSS, Sass
+
+{{ read_csv('assets/tables/supported-tools-css.csv',keep_default_na=False) }}
+
 ## Dockerfile
 
 {{ read_csv('assets/tables/supported-tools-docker.csv',keep_default_na=False) }}
@@ -80,6 +84,10 @@ This pages lists tools known to be working with Cake Issues (1)
 ## Markdown
 
 {{ read_csv('assets/tables/supported-tools-markdown.csv',keep_default_na=False) }}
+
+## Natural language
+
+{{ read_csv('assets/tables/supported-tools-natural-language.csv',keep_default_na=False) }}
 
 ## OpenAPI
 
