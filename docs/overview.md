@@ -38,7 +38,7 @@ Cake.Issues recipes will add the following addins to your build:
 | [Cake.Issues.PullRequests.AppVeyor] 5.0.0-beta0001      | [Cake.Frosting.Issues.PullRequests.AppVeyor] 5.0.0-beta0001      | |
 | [Cake.Issues.PullRequests.AzureDevOps] 5.0.0-beta0001   | [Cake.Frosting.Issues.PullRequests.AzureDevOps] 5.0.0-beta0001   | |
 | [Cake.Issues.PullRequests.GitHubActions] 5.0.0-beta0001 | [Cake.Frosting.Issues.PullRequests.GitHubActions] 5.0.0-beta0001 | |
-| [Cake.AzureDevOps] 5.0.0-beta0001                       | [Cake.AzureDevOps] 5.0.0-beta0001                                | |
+| [Cake.AzureDevOps] 5.0.0                                | [Cake.AzureDevOps] 5.0.0                                         | |
 
 [Cake.Issues.Recipe]: https://www.nuget.org/packages/Cake.Issues.Recipe
 [Cake.Frosting.Issues.Recipe]: https://www.nuget.org/packages/Cake.Frosting.Issues.Recipe
