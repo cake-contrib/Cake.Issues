@@ -10,7 +10,7 @@
   <ItemGroup>
     <PackageReference Include="Sarif.Sdk" Version="4.5.4" />
     <!--Transitive dependencies specified explicitely to fix security vulnerabilities-->
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
   <ItemGroup>
