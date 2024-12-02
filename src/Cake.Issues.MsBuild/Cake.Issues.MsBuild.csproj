@@ -8,25 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MSBuild.StructuredLogger" Version="2.2.383" />
+    <PackageReference Include="MSBuild.StructuredLogger" Version="2.2.386" />
   </ItemGroup>
   
   <ItemGroup>
     <ProjectReference Include="..\Cake.Issues\Cake.Issues.csproj" />
-  </ItemGroup>
-
-  <!-- 
-    Workaround to make sure correct Microsoft.Build.Framework.dll version is copied to output for net6.0.
-    Since it has a ref folder for netstandard2.0 and only target folder for net472 and net7.0, we need to copy it manually for net6.0.
-    See https://github.com/KirillOsenkov/MSBuildStructuredLog/issues/692.
-  -->
-  <ItemGroup Condition="'$(TargetFramework)' == 'net6.0'">
-    <PackageReference Include="Microsoft.Build.Framework" Version="17.5.0" ExcludeAssets="all" PrivateAssets="all" GeneratePathProperty="true" />
-    <PackageReference Include="Microsoft.Build.Utilities.Core" Version="17.5.0" ExcludeAssets="all" PrivateAssets="all" GeneratePathProperty="true" />
-  </ItemGroup>
-
-  <ItemGroup Condition="'$(TargetFramework)' == 'net6.0'">
-    <Reference Include="$(PkgMicrosoft_Build_Framework)\lib\net472\Microsoft.Build.Framework.dll" />
-    <Reference Include="$(PkgMicrosoft_Build_Utilities_Core)\lib\net472\Microsoft.Build.Utilities.Core.dll" />
   </ItemGroup>
 </Project>

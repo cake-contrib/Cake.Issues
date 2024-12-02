@@ -241,7 +241,7 @@ internal class InspectCodeIssuesProvider(ICakeLog log, InspectCodeIssuesSettings
     /// <summary>
     /// Description of an issue type.
     /// </summary>
-    private class IssueType
+    private sealed class IssueType
     {
         /// <summary>
         /// Gets the description of the issue.

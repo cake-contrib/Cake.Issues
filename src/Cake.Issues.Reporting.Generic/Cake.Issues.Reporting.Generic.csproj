@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <Description>Support for creating issue reports in any text based format (HTML, Markdown, ...) from the Cake.Issues Addin for Cake Build Automation System</Description>
   </PropertyGroup>
@@ -16,6 +16,8 @@
   <ItemGroup>
     <PackageReference Include="Gazorator" Version="0.5.2" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <!--Transitive dependencies specified explicitely to fix security vulnerabilities-->
+    <PackageReference Include="System.Text.Encodings.Web" Version="4.7.2" />
   </ItemGroup>
 
   <ItemGroup>

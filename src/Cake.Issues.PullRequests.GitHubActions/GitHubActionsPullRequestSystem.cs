@@ -3,7 +3,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Cake.Core;
 using Cake.Core.Diagnostics;
 using Cake.Core.IO;
 
@@ -26,17 +25,6 @@ public class GitHubActionsPullRequestSystem : BasePullRequestSystem
         settings.NotNull();
 
         this.settings = settings;
-    }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="GitHubActionsPullRequestSystem"/> class.
-    /// </summary>
-    /// <param name="context">The Cake context.</param>
-    /// <param name="settings">Settings for writing the issues to GitHub Actions.</param>
-    [Obsolete("Please use the constructor which takes an ICakeLog instead.")]
-    public GitHubActionsPullRequestSystem(ICakeContext context, GitHubActionsBuildSettings settings)
-        : this(context?.Log, settings)
-    {
     }
 
     /// <inheritdoc />

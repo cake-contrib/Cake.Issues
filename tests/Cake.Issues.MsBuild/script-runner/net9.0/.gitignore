@@ -1,12 +1,41 @@
-### Project specific ###
 
-output/
-
-# Created by https://www.gitignore.io/api/cake,visualstudio
+# Created by https://www.gitignore.io/api/cake,windows,visualstudio,visualstudiocode
 
 ### Cake ###
 tools/*
 !tools/packages.config
+
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+### Windows ###
+# Windows thumbnail cache files
+Thumbs.db
+ehthumbs.db
+ehthumbs_vista.db
+
+# Dump file
+*.stackdump
+
+# Folder config file
+[Dd]esktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
 
 ### VisualStudio ###
 ## Ignore Visual Studio temporary files, build results, and
@@ -339,10 +368,12 @@ ASALocalRun/
 # MFractors (Xamarin productivity tool) working folder
 .mfractor/
 
-### VisualStudio Patch ###
-# By default, sensitive information, such as encrypted password
-# should be stored in the .pubxml.user file.
-*.pubxml.user
+# Local History for Visual Studio
+.localhistory/
 
 
-# End of https://www.gitignore.io/api/cake,visualstudio
+# End of https://www.gitignore.io/api/cake,windows,visualstudio,visualstudiocode
+
+
+# Project specific folders
+BuildArtifacts

@@ -26,8 +26,8 @@ stages:
       pool:
         vmImage: $(imageName)
       steps:
-      - template: ../steps/install-net6.yml 
+      - template: ../steps/install-net8.yml 
       - template: ../steps/provide-nuget-packages.yml 
       - powershell: ./build.ps1 --verbosity=diagnostic
-        workingDirectory: ./tests/Cake.Issues.MsBuild/script-runner
+        workingDirectory: ./tests/Cake.Issues.MsBuild/script-runner/net8.0
         displayName: 'Run integration tests'

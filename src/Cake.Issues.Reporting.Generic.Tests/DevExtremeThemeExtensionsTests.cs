@@ -6,7 +6,7 @@ public sealed class DevExtremeThemeExtensionsTests
     {
         public static IEnumerable<object[]> DevExtremeThemes()
         {
-            foreach (var number in Enum.GetValues(typeof(DevExtremeTheme)))
+            foreach (var number in Enum.GetValues<DevExtremeTheme>())
             {
                 yield return [number];
             }

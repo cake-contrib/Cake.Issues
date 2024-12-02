@@ -102,7 +102,7 @@ internal class MarkdownlintCliJsonLogFileFormat(ICakeLog log)
 #pragma warning disable CS0649 // Field 'field' is never assigned to, and will always have its default value 'value'
 
     [DataContract]
-    private class LogFileEntry
+    private sealed class LogFileEntry
     {
         [DataMember]
         public string fileName;

@@ -3,5 +3,5 @@
 steps:
   - task: UseDotNet@2
     inputs:
-      version: '6.x'
-    displayName: 'Install .NET 6'
+      version: '9.x'
+    displayName: 'Install .NET 9'

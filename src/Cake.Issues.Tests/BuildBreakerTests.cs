@@ -10,11 +10,10 @@ public class BuildBreakerTests
         public void Should_Throw_If_Issues_Is_Null()
         {
             // Given
-            var buildBreaker = new BuildBreaker();
             IEnumerable<IIssue> issues = null;
 
             // When
-            var result = Record.Exception(() => buildBreaker.BreakBuildOnIssues(issues));
+            var result = Record.Exception(() => BuildBreaker.BreakBuildOnIssues(issues));
 
             // Then
             result.IsArgumentNullException("issues");
@@ -24,14 +23,13 @@ public class BuildBreakerTests
         public void Should_Throw_If_Any_Issues()
         {
             // Given
-            var buildBreaker = new BuildBreaker();
             IEnumerable<IIssue> issues = [
                 IssueBuilder
                     .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
                     .Create()];
 
             // When
-            var result = Record.Exception(() => buildBreaker.BreakBuildOnIssues(issues));
+            var result = Record.Exception(() => BuildBreaker.BreakBuildOnIssues(issues));
 
             // Then
             result.IsIssuesFoundException("Found 1 issue.");
@@ -41,11 +39,10 @@ public class BuildBreakerTests
         public void Should_Not_Throw_If_No_Issues()
         {
             // Given
-            var buildBreaker = new BuildBreaker();
             var issues = new List<IIssue>();
 
             // When
-            buildBreaker.BreakBuildOnIssues(issues);
+            BuildBreaker.BreakBuildOnIssues(issues);
 
             // Then
         }
@@ -57,12 +54,11 @@ public class BuildBreakerTests
         public void Should_Throw_If_Issues_Is_Null()
         {
             // Given
-            var buildBreaker = new BuildBreaker();
             IEnumerable<IIssue> issues = null;
             var priority = IssuePriority.Error;
 
             // When
-            var result = Record.Exception(() => buildBreaker.BreakBuildOnIssues(issues, priority));
+            var result = Record.Exception(() => BuildBreaker.BreakBuildOnIssues(issues, priority));
 
             // Then
             result.IsArgumentNullException("issues");
@@ -72,7 +68,6 @@ public class BuildBreakerTests
         public void Should_Throw_If_Matching_Issues()
         {
             // Given
-            var buildBreaker = new BuildBreaker();
             IEnumerable<IIssue> issues = [
                 IssueBuilder
                     .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
@@ -81,7 +76,7 @@ public class BuildBreakerTests
             var priority = IssuePriority.Warning;
 
             // When
-            var result = Record.Exception(() => buildBreaker.BreakBuildOnIssues(issues, priority));
+            var result = Record.Exception(() => BuildBreaker.BreakBuildOnIssues(issues, priority));
 
             // Then
             result.IsIssuesFoundException("Found 1 issue.");
@@ -91,7 +86,6 @@ public class BuildBreakerTests
         public void Should_Not_Throw_If_No_Matching_Issues()
         {
             // Given
-            var buildBreaker = new BuildBreaker();
             IEnumerable<IIssue> issues = [
                 IssueBuilder
                     .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
@@ -100,7 +94,7 @@ public class BuildBreakerTests
             var priority = IssuePriority.Error;
 
             // When
-            buildBreaker.BreakBuildOnIssues(issues, priority);
+            BuildBreaker.BreakBuildOnIssues(issues, priority);
 
             // Then
         }
@@ -112,12 +106,11 @@ public class BuildBreakerTests
         public void Should_Throw_If_Issues_Is_Null()
         {
             // Given
-            var buildBreaker = new BuildBreaker();
             IEnumerable<IIssue> issues = null;
             var providerType = "ProviderType Foo";
 
             // When
-            var result = Record.Exception(() => buildBreaker.BreakBuildOnIssues(issues, providerType));
+            var result = Record.Exception(() => BuildBreaker.BreakBuildOnIssues(issues, providerType));
 
             // Then
             result.IsArgumentNullException("issues");
@@ -127,7 +120,6 @@ public class BuildBreakerTests
         public void Should_Throw_If_ProviderType_Is_Null()
         {
             // Given
-            var buildBreaker = new BuildBreaker();
             IEnumerable<IIssue> issues = [
                 IssueBuilder
                     .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
@@ -135,7 +127,7 @@ public class BuildBreakerTests
             string providerType = null;
 
             // When
-            var result = Record.Exception(() => buildBreaker.BreakBuildOnIssues(issues, providerType));
+            var result = Record.Exception(() => BuildBreaker.BreakBuildOnIssues(issues, providerType));
 
             // Then
             result.IsArgumentNullException("providerType");
@@ -145,7 +137,6 @@ public class BuildBreakerTests
         public void Should_Throw_If_ProviderType_Is_Empty()
         {
             // Given
-            var buildBreaker = new BuildBreaker();
             IEnumerable<IIssue> issues = [
                 IssueBuilder
                     .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
@@ -153,7 +144,7 @@ public class BuildBreakerTests
             var providerType = string.Empty;
 
             // When
-            var result = Record.Exception(() => buildBreaker.BreakBuildOnIssues(issues, providerType));
+            var result = Record.Exception(() => BuildBreaker.BreakBuildOnIssues(issues, providerType));
 
             // Then
             result.IsArgumentOutOfRangeException("providerType");
@@ -163,7 +154,6 @@ public class BuildBreakerTests
         public void Should_Throw_If_ProviderType_Is_Whitespace()
         {
             // Given
-            var buildBreaker = new BuildBreaker();
             IEnumerable<IIssue> issues = [
                 IssueBuilder
                     .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
@@ -171,7 +161,7 @@ public class BuildBreakerTests
             var providerType = " ";
 
             // When
-            var result = Record.Exception(() => buildBreaker.BreakBuildOnIssues(issues, providerType));
+            var result = Record.Exception(() => BuildBreaker.BreakBuildOnIssues(issues, providerType));
 
             // Then
             result.IsArgumentOutOfRangeException("providerType");
@@ -181,7 +171,6 @@ public class BuildBreakerTests
         public void Should_Throw_If_Matching_Issues()
         {
             // Given
-            var buildBreaker = new BuildBreaker();
             IEnumerable<IIssue> issues = [
                 IssueBuilder
                     .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
@@ -189,7 +178,7 @@ public class BuildBreakerTests
             var providerType = "ProviderType Foo";
 
             // When
-            var result = Record.Exception(() => buildBreaker.BreakBuildOnIssues(issues, providerType));
+            var result = Record.Exception(() => BuildBreaker.BreakBuildOnIssues(issues, providerType));
 
             // Then
             result.IsIssuesFoundException("Found 1 issue.");
@@ -199,7 +188,6 @@ public class BuildBreakerTests
         public void Should_Not_Throw_If_No_Matching_Issues()
         {
             // Given
-            var buildBreaker = new BuildBreaker();
             IEnumerable<IIssue> issues = [
                 IssueBuilder
                     .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
@@ -208,7 +196,7 @@ public class BuildBreakerTests
             var providerType = "ProviderType Bar";
 
             // When
-            buildBreaker.BreakBuildOnIssues(issues, providerType);
+            BuildBreaker.BreakBuildOnIssues(issues, providerType);
 
             // Then
         }
@@ -220,12 +208,11 @@ public class BuildBreakerTests
         public void Should_Throw_If_Issues_Is_Null()
         {
             // Given
-            var buildBreaker = new BuildBreaker();
             IEnumerable<IIssue> issues = null;
             static bool predicate(IIssue x) => true;
 
             // When
-            var result = Record.Exception(() => buildBreaker.BreakBuildOnIssues(issues, predicate));
+            var result = Record.Exception(() => BuildBreaker.BreakBuildOnIssues(issues, predicate));
 
             // Then
             result.IsArgumentNullException("issues");
@@ -235,7 +222,6 @@ public class BuildBreakerTests
         public void Should_Throw_If_Predicate_Is_Null()
         {
             // Given
-            var buildBreaker = new BuildBreaker();
             IEnumerable<IIssue> issues = [
                 IssueBuilder
                     .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
@@ -243,7 +229,7 @@ public class BuildBreakerTests
             Func<IIssue, bool> predicate = null;
 
             // When
-            var result = Record.Exception(() => buildBreaker.BreakBuildOnIssues(issues, predicate));
+            var result = Record.Exception(() => BuildBreaker.BreakBuildOnIssues(issues, predicate));
 
             // Then
             result.IsArgumentNullException("predicate");
@@ -253,7 +239,6 @@ public class BuildBreakerTests
         public void Should_Throw_If_Matching_Issues()
         {
             // Given
-            var buildBreaker = new BuildBreaker();
             IEnumerable<IIssue> issues = [
                 IssueBuilder
                     .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
@@ -261,7 +246,7 @@ public class BuildBreakerTests
             static bool predicate(IIssue x) => x.MessageText == "Message Foo";
 
             // When
-            var result = Record.Exception(() => buildBreaker.BreakBuildOnIssues(issues, predicate));
+            var result = Record.Exception(() => BuildBreaker.BreakBuildOnIssues(issues, predicate));
 
             // Then
             result.IsIssuesFoundException("Found 1 issue.");
@@ -271,7 +256,6 @@ public class BuildBreakerTests
         public void Should_Not_Throw_If_No_Matching_Issues()
         {
             // Given
-            var buildBreaker = new BuildBreaker();
             IEnumerable<IIssue> issues = [
                 IssueBuilder
                     .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
@@ -279,7 +263,7 @@ public class BuildBreakerTests
             static bool predicate(IIssue x) => false;
 
             // When
-            buildBreaker.BreakBuildOnIssues(issues, predicate);
+            BuildBreaker.BreakBuildOnIssues(issues, predicate);
 
             // Then
         }

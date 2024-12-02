@@ -3,6 +3,5 @@
 steps:
   # .NET 5 required for Codecov.Tool
   - template: install-net5.yml
-  - template: install-net6.yml
-  - template: install-net7.yml
   - template: install-net8.yml
+  - template: install-net9.yml

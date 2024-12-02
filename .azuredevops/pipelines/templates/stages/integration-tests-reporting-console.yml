@@ -26,13 +26,13 @@ stages:
       pool:
         vmImage: $(imageName)
       steps:
-      - template: ../steps/install-net6.yml 
+      - template: ../steps/install-net8.yml 
       - template: ../steps/provide-nuget-packages.yml 
       - powershell: ./build.ps1 --verbosity=diagnostic
         workingDirectory: ./tests/Cake.Issues.Reporting.Console/script-runner
         displayName: 'Run integration tests'
-    - job: TestReportingConsoleFrostingNet6Job
-      displayName: Test Cake Frosting .NET 6
+    - job: TestReportingConsoleFrostingNet8Job
+      displayName: Test Cake Frosting .NET 8
       strategy:
         matrix:
           Windows_Server_2019:
@@ -52,8 +52,8 @@ stages:
       pool:
         vmImage: $(imageName)
       steps:
-      - template: ../steps/install-net6.yml 
+      - template: ../steps/install-net8.yml 
       - template: ../steps/provide-nuget-packages.yml 
       - powershell: ./build.ps1 --verbosity=diagnostic
-        workingDirectory: ./tests/Cake.Issues.Reporting.Console/frosting/net6.0
+        workingDirectory: ./tests/Cake.Issues.Reporting.Console/frosting/net8.0
         displayName: 'Run integration tests'

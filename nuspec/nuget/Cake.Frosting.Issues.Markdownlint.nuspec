@@ -29,19 +29,15 @@ For addin compatible with Cake Script Runners see Cake.Issues.Markdownlint.
     <copyright>Copyright © Cake Issues contributors</copyright>
     <tags>cake cake-addin cake-issues cake-issueprovider linting markdown markdownlint</tags>
     <readme>docs\README.md</readme>
-    <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/4.12.0</releaseNotes>
+    <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/5.0.0-beta.1</releaseNotes>
     <dependencies>
-      <group targetFramework="net6.0">
-        <dependency id="Cake.Core" version="4.0" exclude="Build,Analyzers" />
-        <dependency id="Cake.Issues" version="[4.0.0-beta0001,5.0)" exclude="Build,Analyzers" />
-      </group>
-      <group targetFramework="net7.0">
-        <dependency id="Cake.Core" version="4.0" exclude="Build,Analyzers" />
-        <dependency id="Cake.Issues" version="[4.0.0-beta0001,5.0)" exclude="Build,Analyzers" />
-      </group>
       <group targetFramework="net8.0">
-        <dependency id="Cake.Core" version="4.0" exclude="Build,Analyzers" />
-        <dependency id="Cake.Issues" version="[4.0.0-beta0001,5.0)" exclude="Build,Analyzers" />
+        <dependency id="Cake.Core" version="5.0" exclude="Build,Analyzers" />
+        <dependency id="Cake.Issues" version="[5.0.0-beta0001,6.0)" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework="net9.0">
+        <dependency id="Cake.Core" version="5.0" exclude="Build,Analyzers" />
+        <dependency id="Cake.Issues" version="[5.0.0-beta0001,6.0)" exclude="Build,Analyzers" />
       </group>
     </dependencies>
   </metadata>
@@ -50,14 +46,11 @@ For addin compatible with Cake Script Runners see Cake.Issues.Markdownlint.
     <file src="Cake.Frosting.Issues.Markdownlint.targets" target="build" />
     <file src="Cake.Frosting.Issues.Markdownlint.targets" target="buildTransitive" />
     <file src="Cake.Frosting.Issues.Markdownlint.md" target="docs\README.md" />
-    <file src="..\..\src\Cake.Issues.Markdownlint\bin\Release\net6.0\Cake.Issues.Markdownlint.dll" target="lib\net6.0" />
-    <file src="..\..\src\Cake.Issues.Markdownlint\bin\Release\net6.0\Cake.Issues.Markdownlint.pdb" target="lib\net6.0" />
-    <file src="..\..\src\Cake.Issues.Markdownlint\bin\Release\net6.0\Cake.Issues.Markdownlint.xml" target="lib\net6.0" />
-    <file src="..\..\src\Cake.Issues.Markdownlint\bin\Release\net7.0\Cake.Issues.Markdownlint.dll" target="lib\net7.0" />
-    <file src="..\..\src\Cake.Issues.Markdownlint\bin\Release\net7.0\Cake.Issues.Markdownlint.pdb" target="lib\net7.0" />
-    <file src="..\..\src\Cake.Issues.Markdownlint\bin\Release\net7.0\Cake.Issues.Markdownlint.xml" target="lib\net7.0" />
     <file src="..\..\src\Cake.Issues.Markdownlint\bin\Release\net8.0\Cake.Issues.Markdownlint.dll" target="lib\net8.0" />
     <file src="..\..\src\Cake.Issues.Markdownlint\bin\Release\net8.0\Cake.Issues.Markdownlint.pdb" target="lib\net8.0" />
     <file src="..\..\src\Cake.Issues.Markdownlint\bin\Release\net8.0\Cake.Issues.Markdownlint.xml" target="lib\net8.0" />
+    <file src="..\..\src\Cake.Issues.Markdownlint\bin\Release\net9.0\Cake.Issues.Markdownlint.dll" target="lib\net9.0" />
+    <file src="..\..\src\Cake.Issues.Markdownlint\bin\Release\net9.0\Cake.Issues.Markdownlint.pdb" target="lib\net9.0" />
+    <file src="..\..\src\Cake.Issues.Markdownlint\bin\Release\net9.0\Cake.Issues.Markdownlint.xml" target="lib\net9.0" />
   </files>
 </package>

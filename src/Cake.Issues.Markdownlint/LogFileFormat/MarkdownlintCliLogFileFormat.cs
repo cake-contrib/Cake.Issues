@@ -10,7 +10,7 @@ using Cake.Core.Diagnostics;
 /// Logfile format as written by markdownlint-cli.
 /// </summary>
 /// <param name="log">The Cake log instance.</param>
-internal class MarkdownlintCliLogFileFormat(ICakeLog log)
+internal partial class MarkdownlintCliLogFileFormat(ICakeLog log)
     : BaseMarkdownlintLogFileFormat(log)
 {
     private static readonly string[] Separator = ["\r\n", "\r", "\n"];
@@ -25,9 +25,9 @@ internal class MarkdownlintCliLogFileFormat(ICakeLog log)
         repositorySettings.NotNull();
         markdownlintIssuesSettings.NotNull();
 
-        var regex = new Regex(@"(?<filePath>.*[^:\d+]): ?(?<lineNumber>\d+):?(?<columnNumber>\d+)? (?<ruleId>MD\d+)/(?<ruleName>(?:\w*-*/*)*) (?<message>.*)");
+        var regex = LineParsingRegEx();
 
-        foreach (var line in markdownlintIssuesSettings.LogFileContent.ToStringUsingEncoding().Split(Separator, StringSplitOptions.None).ToList().Where(s => !string.IsNullOrEmpty(s)))
+        foreach (var line in markdownlintIssuesSettings.LogFileContent.ToStringUsingEncoding().Split(Separator, StringSplitOptions.None).Where(s => !string.IsNullOrEmpty(s)))
         {
             var groups = regex.Match(line).Groups;
 
@@ -56,6 +56,9 @@ internal class MarkdownlintCliLogFileFormat(ICakeLog log)
                     .Create();
         }
     }
+
+    [GeneratedRegex(@"(?<filePath>.*[^:\d+]): ?(?<lineNumber>\d+):?(?<columnNumber>\d+)? (?<ruleId>MD\d+)/(?<ruleName>(?:\w*-*/*)*) (?<message>.*)")]
+    private static partial Regex LineParsingRegEx();
 
     /// <summary>
     /// Reads the affected file path from a parsed entry.
