@@ -1,0 +1,136 @@
+# Project information
+site_name: Cake Issues
+site_url: https://cakeissues.net
+site_author: Cake Issues Contributors
+site_description: Issue Management for the Cake Build System
+
+# Repository
+repo_name: cake-contrib/Cake.Issues
+repo_url: https://github.com/cake-contrib/Cake.Issues
+
+# Copyright
+copyright: Copyright &copy; Cake Issues Contributors
+
+# Configuration
+theme:
+  name: material
+  # custom_dir: material/overrides
+  language: en
+  palette:
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: deep purple
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: deep purple
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+  features:
+    - content.action.edit
+    # - content.action.view
+    - content.code.copy
+    # - content.tabs.link
+    - navigation.indexes 
+    # - navigation.instant
+    # - navigation.instant.progress
+    - navigation.tabs
+    - navigation.tabs.sticky
+    # - navigation.tracking
+    # - navigation.sections
+    # - toc.follow
+    - search.highlight
+    - search.suggest
+
+# Plugins
+plugins:
+  - blog:
+      post_readtime: true
+  # - privacy
+  - search
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - toc:
+      permalink: true
+
+# Additional configuration
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/cake-contrib/Cake.Issues
+
+# Page tree
+nav:
+  - Home: index.md
+  - News:
+    - blog/index.md
+  - Documentation:
+    - Overview:
+      - Introduction: documentation/overview/introduction.md
+      - Features: documentation/overview/features.md
+      - Requirements: documentation/overview/requirements.md
+    - Fundamentals:
+      - Architecture: documentation/fundamentals/architecture.md
+      - Versioning: documentation/fundamentals/versioning.md
+      - Recipe: documentation/fundamentals/recipe.md
+      - Issue Provider: documentation/fundamentals/issue-provider.md
+      - Report Format: documentation/fundamentals/report-format.md
+      - Pull Request System: documentation/fundamentals/pull-request-system.md
+    - Usage:
+      - documentation/usage/index.md
+      - Recipe: documentation/usage/recipe/index.md
+      - Creating Issues: documentation/usage/creating-issues/creating-issues.md
+      - Reading Issues:
+        - documentation/usage/reading-issues/index.md
+        - Reading Issues: documentation/usage/reading-issues/reading-issues.md
+        - Additional Run Information: documentation/usage/reading-issues/run-information.md
+        - File Linking: documentation/usage/reading-issues/file-linking.md
+      - Creating Reports: 
+        - documentation/usage/creating-reports/index.md
+        - Creating Reports: documentation/usage/creating-reports/creating-reports.md
+      - Reporting Issues To Pull Requests: 
+        - documentation/usage/reporting-issues-to-pull-requests/index.md
+        - Report Issues To Pull Requests: documentation/usage/reporting-issues-to-pull-requests/report-issues-to-pull-requests.md
+        - Custom Issue Filter: documentation/usage/reporting-issues-to-pull-requests/custom-issue-filter.md
+    - Issue Providers:
+      - DocFx:
+        - documentation/issue-providers/docfx/index.md
+        - Features: documentation/issue-providers/docfx/features.md
+        - Examples: documentation/issue-providers/docfx/examples.md
+      - ESLint:
+        - documentation/issue-providers/eslint/index.md
+        - Features: documentation/issue-providers/eslint/features.md
+      - Git Repository:
+        - documentation/issue-providers/gitrepository/index.md
+        - Features: documentation/issue-providers/gitrepository/features.md
+        - Examples: documentation/issue-providers/gitrepository/examples.md
+        - Rules:
+          - BinaryFileNotTrackedByLfs: documentation/issue-providers/gitrepository/rules/BinaryFileNotTrackedByLfs.md
+          - FilePathTooLong: documentation/issue-providers/gitrepository/rules/FilePathTooLong.md
+  # - Reference:
+  # - Addins:
+  - API: https://cakebuild.net/extensions/cake-issues/

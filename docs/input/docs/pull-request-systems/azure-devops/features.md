@@ -23,19 +23,19 @@ The [Cake.Issues.PullRequests.AzureDevOps addin] supports all [Core features].
 
 |                                                                    | Capability                     | Remarks                        |
 |--------------------------------------------------------------------|--------------------------------|--------------------------------|
-| <span class="glyphicon glyphicon-ok" style="color:green"></span>   | Checking commit ID             |                                |
-| <span class="glyphicon glyphicon-ok" style="color:green"></span>   | Discussion threads             |                                |
-| <span class="glyphicon glyphicon-ok" style="color:green"></span>   | Filtering by modified files    |                                |
+| :material-check: | Checking commit ID             |                                |
+| :material-check: | Discussion threads             |                                |
+| :material-check: | Filtering by modified files    |                                |
 
 # Supported authentication methods
 
 | Azure DevOps Server                                                | Azure DevOps Service                                               | Authentication method          |
 |--------------------------------------------------------------------|--------------------------------------------------------------------|--------------------------------|
-| <span class="glyphicon glyphicon-ok" style="color:green"></span>   | <span class="glyphicon glyphicon-remove" style="color:red"></span> | NTLM                           |
-| <span class="glyphicon glyphicon-ok" style="color:green"></span>   | <span class="glyphicon glyphicon-remove" style="color:red"></span> | Basic authentication           |
-| <span class="glyphicon glyphicon-ok" style="color:green"></span>   | <span class="glyphicon glyphicon-ok" style="color:green"></span>   | Personal access token          |
-| <span class="glyphicon glyphicon-remove" style="color:red"></span> | <span class="glyphicon glyphicon-ok" style="color:green"></span>   | OAuth                          |
-| <span class="glyphicon glyphicon-remove" style="color:red"></span> | <span class="glyphicon glyphicon-ok" style="color:green"></span>   | Azure Active Directory         |
+| :material-check: |                  | NTLM                           |
+| :material-check: |                  | Basic authentication           |
+| :material-check: | :material-check: | Personal access token          |
+|                  | :material-check: | OAuth                          |
+|                  | :material-check: | Azure Active Directory         |
 
 For detailed instructions how to connect using the different methods see [Setup instructions].
 

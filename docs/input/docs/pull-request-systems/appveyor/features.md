@@ -23,9 +23,9 @@ The [Cake.Issues.PullRequests.AppVeyor addin] doesn't support any additional cap
 
 |                                                                    | Capability                     | Remarks                        |
 |--------------------------------------------------------------------|--------------------------------|--------------------------------|
-| <span class="glyphicon glyphicon-remove" style="color:red"></span> | Checking commit ID             |                                |
-| <span class="glyphicon glyphicon-remove" style="color:red"></span> | Discussion threads             |                                |
-| <span class="glyphicon glyphicon-remove" style="color:red"></span> | Filtering by modified files    |                                |
+|                  | Checking commit ID             |                                |
+|                  | Discussion threads             |                                |
+|                  | Filtering by modified files    |                                |
 
 [demo repository]: https://github.com/pascalberger/Cake.Issues-Demo
 [Cake.Issues.PullRequests.AppVeyor addin]: https://www.nuget.org/packages/Cake.Issues.PullRequests.AppVeyor
