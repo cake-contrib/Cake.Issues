@@ -18,8 +18,8 @@ The [Cake.Issues.PullRequests.GitHubActions addin] doesn't support any additiona
 
 |                                                                    | Capability                     | Remarks                        |
 |--------------------------------------------------------------------|--------------------------------|--------------------------------|
-| <span class="glyphicon glyphicon-remove" style="color:red"></span> | Checking commit ID             |                                |
-| <span class="glyphicon glyphicon-remove" style="color:red"></span> | Discussion threads             |                                |
-| <span class="glyphicon glyphicon-remove" style="color:red"></span> | Filtering by modified files    |                                |
+|                  | Checking commit ID             |                                |
+|                  | Discussion threads             |                                |
+|                  | Filtering by modified files    |                                |
 
 [Cake.Issues.PullRequests.GitHubActions addin]: https://www.nuget.org/packages/Cake.Issues.PullRequests.GitHubActions
