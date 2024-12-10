@@ -1,0 +1,127 @@
+---
+Order: 110
+Title: Thanks
+Description: People who brought you Cake Issues
+---
+
+@*
+Based on Code from https://github.com/reactiveui/website
+
+The MIT License (MIT)
+
+Copyright (c) 2017 Geoffrey Huntley
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*@
+
+<h1>Contributors</h1>
+
+<div class="alert alert-info">
+  Listed are GitHub users that have contributed to the following repositories:
+  <a href="https://github.com/cake-contrib/Cake.Issues">Cake.Issues</a>,
+  <a href="https://github.com/cake-contrib/Cake.Issues.DocFx">Cake.Issues.DocFx</a>,
+  <a href="https://github.com/cake-contrib/Cake.Issues.DupFinder">Cake.Issues.DupFinder</a>,
+  <a href="https://github.com/cake-contrib/Cake.Issues.EsLint">Cake.Issues.EsLint</a>,
+  <a href="https://github.com/cake-contrib/Cake.Issues.GitRepository">Cake.Issues.GitRepository</a>,
+  <a href="https://github.com/cake-contrib/Cake.Issues.InspectCode">Cake.Issues.InspectCode</a>,
+  <a href="https://github.com/cake-contrib/Cake.Issues.Markdownlint">Cake.Issues.Markdownlint</a>,
+  <a href="https://github.com/cake-contrib/Cake.Issues.MsBuild">Cake.Issues.MsBuild</a>,
+  <a href="https://github.com/cake-contrib/Cake.Issues.Sarif">Cake.Issues.Sarif</a>,
+  <a href="https://github.com/cake-contrib/Cake.Issues.PullRequests">Cake.Issues.PullRequests</a>,
+  <a href="https://github.com/cake-contrib/Cake.Issues.PullRequests.AzureDevOps">Cake.Issues.PullRequests.AzureDevOps</a>,
+  <a href="https://github.com/cake-contrib/Cake.Issues.Reporting">Cake.Issues.Reporting</a>,
+  <a href="https://github.com/cake-contrib/Cake.Issues.Reporting.Generic">Cake.Issues.Reporting.Generic</a> and
+  <a href="https://github.com/cake-contrib/Cake.Issues.Reporting.Sarif">Cake.Issues.Reporting.Sarif</a> and
+  <a href="https://github.com/cake-contrib/Cake.Issues.Reporting.SonarQube">Cake.Issues.Reporting.SonarQube</a> and
+  <a href="https://github.com/cake-contrib/Cake.Issues.Recipe">Cake.Issues.Recipe</a>,
+  <a href="https://github.com/cake-contrib/Cake.Issues.Website">Cake.Issues.Website</a>
+</div>
+
+<div class="contributors"></div>
+
+<script>
+  $.when(
+    $.ajax('https://api.github.com/repos/cake-contrib/Cake.Issues/contributors?per_page=250'),
+    $.ajax('https://api.github.com/repos/cake-contrib/Cake.Issues.DocFx/contributors?per_page=250'),
+    $.ajax('https://api.github.com/repos/cake-contrib/Cake.Issues.DupFinder/contributors?per_page=250'),
+    $.ajax('https://api.github.com/repos/cake-contrib/Cake.Issues.EsLint/contributors?per_page=250'),
+    $.ajax('https://api.github.com/repos/cake-contrib/Cake.Issues.GitRepository/contributors?per_page=250'),
+    $.ajax('https://api.github.com/repos/cake-contrib/Cake.Issues.InspectCode/contributors?per_page=250'),
+    $.ajax('https://api.github.com/repos/cake-contrib/Cake.Issues.Markdownlint/contributors?per_page=250'),
+    $.ajax('https://api.github.com/repos/cake-contrib/Cake.Issues.MsBuild/contributors?per_page=250'),
+    $.ajax('https://api.github.com/repos/cake-contrib/Cake.Issues.Sarif/contributors?per_page=250'),
+    $.ajax('https://api.github.com/repos/cake-contrib/Cake.Issues.PullRequests/contributors?per_page=250'),
+    $.ajax('https://api.github.com/repos/cake-contrib/Cake.Issues.PullRequests.AzureDevOps/contributors?per_page=250'),
+    $.ajax('https://api.github.com/repos/cake-contrib/Cake.Issues.Reporting/contributors?per_page=250'),
+    $.ajax('https://api.github.com/repos/cake-contrib/Cake.Issues.Reporting.Generic/contributors?per_page=250'),
+    $.ajax('https://api.github.com/repos/cake-contrib/Cake.Issues.Reporting.Sarif/contributors?per_page=250'),
+    $.ajax('https://api.github.com/repos/cake-contrib/Cake.Issues.Reporting.SonarQube/contributors?per_page=250'),
+    $.ajax('https://api.github.com/repos/cake-contrib/Cake.Issues.Recipe/contributors?per_page=250'),
+    $.ajax('https://api.github.com/repos/cake-contrib/Cake.Issues.Website/contributors?per_page=250'))
+  .then(function(data1, data2, data3, data4, data5, data6, data7, data8, data9, data10, data11, data12, data13, data14, data15, data16, data17) {
+    var persons = {};
+    var allData =
+      data1[0].
+        concat(data2[0]).
+        concat(data3[0]).
+        concat(data4[0]).
+        concat(data5[0]).
+        concat(data6[0]).
+        concat(data7[0]).
+        concat(data8[0]).
+        concat(data9[0]).
+        concat(data10[0]).
+        concat(data11[0]).
+        concat(data12[0]).
+        concat(data13[0]).
+        concat(data14[0]).
+        concat(data15[0]).
+        concat(data16[0]).
+        concat(data17[0]);
+
+    for(var i = 0; i < allData.length; i++) {
+        persons[allData[i].login] = allData[i];
+    }
+
+    var logins = Object.keys(persons);
+    shuffleArray(logins);
+
+    $(logins).each(function (index, login) {
+      var person = persons[login];
+      var img = '<img class="contributor" src="' + person.avatar_url + '" />';
+      $('.contributors')
+        .append('<a title="' + person.login + '" href="' + person.html_url + '">'
+                + img + '</a>');
+    });
+  });
+
+  function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+  }
+</script>
+
+<style>
+  .contributor {
+    width: 80px;
+    border-radius: 730px;
+    margin: 10px 10px 0 0;
+  }
+</style>
