@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="HtmlAgilityPack" Version="1.11.68" />
+    <PackageReference Include="HtmlAgilityPack" Version="1.11.71" />
     <!--Transitive dependencies specified explicitely to fix security vulnerabilities-->
     <PackageReference Include="System.Text.Encodings.Web" Version="4.7.2" />
   </ItemGroup>
