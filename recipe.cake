@@ -18,7 +18,8 @@ BuildParameters.SetParameters(
     shouldGenerateDocumentation: false, // Documentation is generated from Cake.Issues.Website
     shouldRunInspectCode: false,
     shouldRunCoveralls: false,  // Disabled because it's currently failing
-    shouldPostToGitter: false); // Disabled because it's currently failing
+    shouldPostToGitter: false, // Disabled because it's currently failing
+    nuGetSources: new [] { "https://api.nuget.org/v3/index.json" }); // Don't use additional MyGet feed, since CPM only supports one feed 
 
 BuildParameters.PrintParameters(Context);
 
