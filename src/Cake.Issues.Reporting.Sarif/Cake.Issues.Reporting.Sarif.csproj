@@ -8,9 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Sarif.Sdk" Version="4.5.4" />
+    <PackageReference Include="Sarif.Sdk" />
     <!--Transitive dependencies specified explicitely to fix security vulnerabilities-->
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Newtonsoft.Json" />
   </ItemGroup>
 
   <ItemGroup>

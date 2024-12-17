@@ -4,7 +4,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Cake.Common" Version="5.0.0" PrivateAssets="All" />
+    <PackageReference Include="Cake.Common" />
   </ItemGroup>
 
   <ItemGroup>
