@@ -21,7 +21,7 @@ install:
   # .NET 5 required for Codecov.Tool
   - ps: '& "$($env:DOTNET_INSTALL_DIR)/dotnet-install.ps1" -Version 5.0.408 -InstallDir $env:DOTNET_INSTALL_DIR'
   - ps: '& "$($env:DOTNET_INSTALL_DIR)/dotnet-install.ps1" -Version 8.0.404 -InstallDir $env:DOTNET_INSTALL_DIR'
-  - ps: '& "$($env:DOTNET_INSTALL_DIR)/dotnet-install.ps1" -Version 9.0.100 -InstallDir $env:DOTNET_INSTALL_DIR'
+  - ps: '& "$($env:DOTNET_INSTALL_DIR)/dotnet-install.ps1" -Version 9.0.101 -InstallDir $env:DOTNET_INSTALL_DIR'
   - ps: $env:Path = "$env:DOTNET_INSTALL_DIR;$env:Path"
   - ps: dotnet --info
 
