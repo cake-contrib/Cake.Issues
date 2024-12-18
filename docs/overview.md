@@ -24,20 +24,20 @@ Cake.Issues recipes will add the following addins to your build:
 
 | Addin Cake.Issues.Recipe                                | Addin.Frosting.Issues.Recipe                                     | Remarks |
 |---------------------------------------------------------|------------------------------------------------------------------|-|
-| [Cake.Git] 5.0.0                                        | [Cake.Frosting.Git] 5.0.0                                        | Only used if `RepositoryInfoProvider` type is set to `RepositoryInfoProviderType.CakeGit`. See [Git repository information configuration] for details. |
-| [Cake.Issues] 5.0.0                                     | [Cake.Issues] 5.0.0                                              | |
-| [Cake.Issues.MsBuild] 5.0.0                             | [Cake.Frosting.Issues.MsBuild] 5.0.0                             | |
-| [Cake.Issues.InspectCode] 5.0.0                         | [Cake.Frosting.Issues.InspectCode] 5.0.0                         | |
-| [Cake.Issues.Markdownlint] 5.0.0                        | [Cake.Frosting.Issues.Markdownlint] 5.0.0                        | |
-| [Cake.Issues.EsLint] 5.0.0                              | [Cake.Frosting.Issues.EsLint] 5.0.0                              | |
-| [Cake.Issues.Sarif] 5.0.0                               | [Cake.Frosting.Issues.Sarif] 5.0.0                               | |
-| [Cake.Issues.Reporting] 5.0.0                           | [Cake.Frosting.Issues.Reporting] 5.0.0                           | |
-| [Cake.Issues.Reporting.Generic] 5.0.0                   | [Cake.Frosting.Issues.Reporting.Generic] 5.0.0                   | |
-| [Cake.Issues.Reporting.Sarif] 5.0.0                     | [Cake.Frosting.Issues.Reporting.Sarif] 5.0.0                     | |
-| [Cake.Issues.PullRequests] 5.0.0                        | [Cake.Frosting.Issues.PullRequests] 5.0.0                        | |
-| [Cake.Issues.PullRequests.AppVeyor] 5.0.0               | [Cake.Frosting.Issues.PullRequests.AppVeyor] 5.0.0               | |
-| [Cake.Issues.PullRequests.AzureDevOps] 5.0.0            | [Cake.Frosting.Issues.PullRequests.AzureDevOps] 5.0.0            | |
-| [Cake.Issues.PullRequests.GitHubActions] 5.0.           | [Cake.Frosting.Issues.PullRequests.GitHubActions] 5.0.0          | |
+| [Cake.Git] 5.0.1                                        | [Cake.Frosting.Git] 5.0.1                                        | Only used if `RepositoryInfoProvider` type is set to `RepositoryInfoProviderType.CakeGit`. See [Git repository information configuration] for details. |
+| [Cake.Issues] 5.0.1                                     | [Cake.Issues] 5.0.1                                              | |
+| [Cake.Issues.MsBuild] 5.0.1                             | [Cake.Frosting.Issues.MsBuild] 5.0.1                             | |
+| [Cake.Issues.InspectCode] 5.0.1                         | [Cake.Frosting.Issues.InspectCode] 5.0.1                         | |
+| [Cake.Issues.Markdownlint] 5.0.1                        | [Cake.Frosting.Issues.Markdownlint] 5.0.1                        | |
+| [Cake.Issues.EsLint] 5.0.1                              | [Cake.Frosting.Issues.EsLint] 5.0.1                              | |
+| [Cake.Issues.Sarif] 5.0.1                               | [Cake.Frosting.Issues.Sarif] 5.0.1                               | |
+| [Cake.Issues.Reporting] 5.0.1                           | [Cake.Frosting.Issues.Reporting] 5.0.1                           | |
+| [Cake.Issues.Reporting.Generic] 5.0.1                   | [Cake.Frosting.Issues.Reporting.Generic] 5.0.1                   | |
+| [Cake.Issues.Reporting.Sarif] 5.0.1                     | [Cake.Frosting.Issues.Reporting.Sarif] 5.0.1                     | |
+| [Cake.Issues.PullRequests] 5.0.1                        | [Cake.Frosting.Issues.PullRequests] 5.0.1                        | |
+| [Cake.Issues.PullRequests.AppVeyor] 5.0.1               | [Cake.Frosting.Issues.PullRequests.AppVeyor] 5.0.1               | |
+| [Cake.Issues.PullRequests.AzureDevOps] 5.0.1            | [Cake.Frosting.Issues.PullRequests.AzureDevOps] 5.0.1            | |
+| [Cake.Issues.PullRequests.GitHubActions] 5.0.1          | [Cake.Frosting.Issues.PullRequests.GitHubActions] 5.0.1          | |
 | [Cake.AzureDevOps] 5.0.0                                | [Cake.AzureDevOps] 5.0.0                                         | |
 
 [Cake.Issues.Recipe]: https://www.nuget.org/packages/Cake.Issues.Recipe
