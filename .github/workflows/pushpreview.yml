@@ -20,7 +20,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Install Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@65d7f2d534ac1bc67fcd62888c5f4f3d2cb2b236 # v4
         with:
           python-version: 3.13.1
       - name: Set BASE_URL
@@ -31,7 +31,7 @@ jobs:
           pip install -r requirements.txt
           mkdocs build
       - name: Generate preview
-        uses: PushLabsHQ/pushpreview-action@1.0.6
+        uses: PushLabsHQ/pushpreview-action@cf958f7be2bf55d3f56d351bb9abf56b4c6b9a50 # 1.0.6
         with:
           source-directory: ./docs/site
           github-token: ${{ secrets.GITHUB_TOKEN }}
