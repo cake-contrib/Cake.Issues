@@ -2,12 +2,16 @@ name: Integration tests
 
 # Workflow Trigger
 on:
-  # Trigger the workflow on a pull request to any branch
+  # Trigger the workflow on a pull request to any branch, ignoring changes to /docs
   pull_request:
-  # Triggers the workflow in the event there is a push to master
+    paths-ignore:
+      - 'docs/**'
+  # Trigger the workflow on pushes to the master branch, ignoring changes to /docs
   push:
     branches: 
       - master
+    paths-ignore:
+      - 'docs/**'
 
 jobs:
   # Build
