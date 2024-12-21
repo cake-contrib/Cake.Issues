@@ -1,13 +1,23 @@
 trigger:
-- develop
-- master
-- release/*
-- hotfix/*
+  branches:
+    include:
+      - develop
+      - master
+      - release/*
+      - hotfix/*
+  paths:
+    exclude:
+      - docs/**
 
 pr:
-- develop
-- release/*
-- hotfix/*
+  branches:
+    include:
+      - develop
+      - release/*
+      - hotfix/*
+  paths:
+    exclude:
+      - docs/**
 
 stages:
   - template: .azuredevops/pipelines/templates/stages/build.yml
