@@ -1,0 +1,38 @@
+name: PushPreview
+
+# Workflow Trigger
+on:
+  # Triggers the workflow if a pull request is labeled with 'preview'
+  pull_request_target:
+    types:
+      - labeled
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    if: github.event.label.name == 'preview'
+    steps:
+      - name: Get the sources
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+      - name: Comment
+        run: |
+          gh pr comment ${{ github.event.pull_request.number }} --repo ${{ github.repository }} --body "⚙️ Hang tight! PushPreview is currently building your preview. We'll share the URL as soon as it's ready."
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Install Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.13.1
+      - name: Set BASE_URL
+        run: echo "BASE_URL=/github/${{ github.repository }}/${{ github.event.number }}/" >> $GITHUB_ENV
+      - name: Build site
+        run: |
+          cd docs
+          pip install -r requirements.txt
+          mkdocs build
+      - name: Generate preview
+        uses: PushLabsHQ/pushpreview-action@1.0.6
+        with:
+          source-directory: ./docs/site
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          pushpreview-token: ${{ secrets.PUSHPREVIEW_TOKEN }}
