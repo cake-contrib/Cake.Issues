@@ -22,6 +22,7 @@ validation:
 # Theme configuration
 theme:
   name: material
+  custom_dir: overrides
   language: en
   palette:
     # Palette toggle for automatic mode
@@ -80,6 +81,8 @@ markdown_extensions:
 
 # Additional configuration
 extra:
+  version:
+    provider: mike
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/cake-contrib/Cake.Issues
