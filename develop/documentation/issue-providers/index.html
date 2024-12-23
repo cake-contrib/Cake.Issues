@@ -924,12 +924,6 @@
       
         
       
-        
-      
-        
-      
-        
-      
     
     
       
@@ -1015,69 +1009,6 @@
   
   <span class="md-ellipsis">
     Recipe
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../fundamentals/issue-provider/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Issue Provider
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../fundamentals/report-format/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Report Format
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../fundamentals/pull-request-system/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Pull Request System
   </span>
   
 
@@ -4792,7 +4723,23 @@
 
   <h1>Issue Providers</h1>
 
-
+<p>Issue provider addins are responsible for providing the output of an analyzer or linter to the Cake Issues addin.</p>
+<div class="grid cards">
+<ul>
+<li><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 14h2v3h3v2h-3v3h-2v-3h-3v-2h3zm-6 2L2 9l9-7 9 7zm0 2.54 1-.79V18c0 .71.12 1.39.35 2L11 21.07l-9-7 1.62-1.26z"/></svg></span> <strong><a href="docfx/">DocFx</a></strong> – Issue provider for reading DocFx warnings</li>
+<li><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 14h2v3h3v2h-3v3h-2v-3h-3v-2h3zm-6 2L2 9l9-7 9 7zm0 2.54 1-.79V18c0 .71.12 1.39.35 2L11 21.07l-9-7 1.62-1.26z"/></svg></span> <strong><a href="eslint/">ESLint</a></strong> – Issue provider for reading ESLint issues</li>
+<li><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 14h2v3h3v2h-3v3h-2v-3h-3v-2h3zm-6 2L2 9l9-7 9 7zm0 2.54 1-.79V18c0 .71.12 1.39.35 2L11 21.07l-9-7 1.62-1.26z"/></svg></span> <strong><a href="gitrepository/">Git Repository</a></strong> – Issue provider for analyzing Git repositories</li>
+<li><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 14h2v3h3v2h-3v3h-2v-3h-3v-2h3zm-6 2L2 9l9-7 9 7zm0 2.54 1-.79V18c0 .71.12 1.39.35 2L11 21.07l-9-7 1.62-1.26z"/></svg></span> <strong><a href="inspectcode/">Inspect Code</a></strong> – Issue provider for reading JetBrains Inspect Code  / ReSharper issues</li>
+<li><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 14h2v3h3v2h-3v3h-2v-3h-3v-2h3zm-6 2L2 9l9-7 9 7zm0 2.54 1-.79V18c0 .71.12 1.39.35 2L11 21.07l-9-7 1.62-1.26z"/></svg></span> <strong><a href="markdownlint/">Markdownlint</a></strong> – Issue provider for reading issues from markdownlint</li>
+<li><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 14h2v3h3v2h-3v3h-2v-3h-3v-2h3zm-6 2L2 9l9-7 9 7zm0 2.54 1-.79V18c0 .71.12 1.39.35 2L11 21.07l-9-7 1.62-1.26z"/></svg></span> <strong><a href="msbuild/">MsBuild</a></strong> – Issue provider for reading MsBuild errors and warnings</li>
+<li><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 14h2v3h3v2h-3v3h-2v-3h-3v-2h3zm-6 2L2 9l9-7 9 7zm0 2.54 1-.79V18c0 .71.12 1.39.35 2L11 21.07l-9-7 1.62-1.26z"/></svg></span> <strong>Sarif</strong> – Issue provider for reading SARIF reports</li>
+<li><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 14h2v3h3v2h-3v3h-2v-3h-3v-2h3zm-6 2L2 9l9-7 9 7zm0 2.54 1-.79V18c0 .71.12 1.39.35 2L11 21.07l-9-7 1.62-1.26z"/></svg></span> <strong><a href="terraform/">Terraform</a></strong> – Issue provider for reading Terraform validation output</li>
+</ul>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>See <a href="../extending/issue-provider/overview/">How to implement issue providers</a> for instruction on how to implement support for additional issue providers.</p>
+</div>
 
 
 
