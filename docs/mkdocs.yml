@@ -101,9 +101,6 @@ nav:
       - Architecture: documentation/fundamentals/architecture.md
       - Versioning: documentation/fundamentals/versioning.md
       - Recipe: documentation/fundamentals/recipe.md
-      - Issue Provider: documentation/fundamentals/issue-provider.md
-      - Report Format: documentation/fundamentals/report-format.md
-      - Pull Request System: documentation/fundamentals/pull-request-system.md
     - Usage:
       - documentation/usage/index.md
       - Recipe: documentation/usage/recipe/index.md
