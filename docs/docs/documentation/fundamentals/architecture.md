@@ -16,6 +16,6 @@ The core consists of the following addins:
 | Cake.Issues.Reporting    | Provides aliases for creating reports for issues. Support for different report formats can be provided through additional [report format] addins.                                                      |
 | Cake.Issues.PullRequests | Provides aliases for reporting issues as comments to pull requests. Support for different pull request systems can be provided through additional [pull request system] addins.                        |
 
-[issue provider]: issue-provider.md
-[report format]: report-format.md
-[pull request system]: pull-request-system.md
+[issue provider]: ../issue-providers/index.md
+[report format]: ../report-formats/index.md
+[pull request system]: ../pull-request-systems/index.md
