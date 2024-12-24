@@ -230,4 +230,5 @@ nav:
       - How To Contribute: documentation/contributing/how-to-contribute.md
       - Build Instructions: documentation/contributing/how-to-build.md
       - Release Instructions: documentation/contributing/how-to-release.md
+  - Release Notes: https://github.com/cake-contrib/Cake.Issues/releases" target="_blank
   - API: https://cakebuild.net/extensions/cake-issues/" target="_blank
