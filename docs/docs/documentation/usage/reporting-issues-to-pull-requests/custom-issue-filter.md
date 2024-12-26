@@ -14,14 +14,8 @@ You can define custom filters which are applied to issues before they are posted
 
 The following example will filter out all issues from the rule `CA1000` from being posted to the pull request.
 
-!!! warning
-    Please note that you always should pin addins to a specific version to make sure your builds are deterministic and
-    won't break due to updates to one of the addins.
-
-    See [pinning addin versions](https://cakebuild.net/docs/writing-builds/reproducible-builds/){target="_blank"} for details.
-
 ```csharp
-#addin "Cake.Issues"
+#addin "Cake.Issues" // (1)!
 #addin "Cake.Issues.MsBuild"
 #addin "Cake.Issues.PullRequests"
 #addin "Cake.Issues.PullRequests.AzureDevOps"
@@ -49,3 +43,5 @@ Task("ReportIssuesToPullRequest").Does(() =>
         settings));
 });
 ```
+
+--8<-- "snippets/pinning.md"

@@ -5,14 +5,8 @@ description: Examples for using the Cake.Issues.Reporting.Sarif addin.
 
 The following example will create a SARIF report for issues logged as warnings by MsBuild.
 
-!!! warning
-    Please note that you always should pin addins and tools to a specific version to make sure your builds are deterministic and
-    won't break due to updates to one of the packages.
-
-    See [pinning addin versions](https://cakebuild.net/docs/writing-builds/reproducible-builds/){target="_blank"} for details.
-
 ```csharp
-#tool "nuget:?package=MSBuild.Extension.Pack"
+#tool "nuget:?package=MSBuild.Extension.Pack" // (1)!
 #addin "Cake.Issues"
 #addin "Cake.Issues.MsBuild"
 #addin "Cake.Issues.Reporting"
@@ -48,3 +42,5 @@ Task("Create-IssueReport").Does(() =>
         @"c:\report.sarif");
 });
 ```
+
+--8<-- "snippets/pinning.md"

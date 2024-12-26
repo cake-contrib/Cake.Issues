@@ -8,21 +8,19 @@ The following example will call [JetBrains InspectCode] and output the number of
 To call [JetBrains InspectCode] from a Cake script you need to add the `JetBrains.ReSharper.CommandLineTools`:
 
 ```csharp
-#tool "nuget:?package=JetBrains.ReSharper.CommandLineTools"
+#tool "nuget:?package=JetBrains.ReSharper.CommandLineTools" // (1)!
 ```
+
+--8<-- "snippets/pinning.md"
 
 To read issues from InspectCode log files you need to import the core addin and the InspectCode support:
 
 ```csharp
-#addin "Cake.Issues"
+#addin "Cake.Issues" // (1)!
 #addin "Cake.Issues.InspectCode"
 ```
 
-!!! warning
-    Please note that you always should pin addins and tools to a specific version to make sure your builds are deterministic and
-    won't break due to updates to one of the packages.
-
-    See [pinning addin versions](https://cakebuild.net/docs/writing-builds/reproducible-builds/){target="_blank"} for details.
+--8<-- "snippets/pinning.md"
 
 We need some global variables:
 

@@ -46,6 +46,7 @@ theme:
         name: Switch to system preference
   features:
     - content.action.edit
+    - content.code.annotate
     - content.code.copy
     - navigation.indexes 
     - navigation.instant

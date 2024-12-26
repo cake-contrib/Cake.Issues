@@ -9,14 +9,8 @@ description: Example how to create a report using a custom template
 
 The following example will create a HTML report for issues logged as warnings by MsBuild using a custom template.
 
-!!! warning
-    Please note that you always should pin addins and tools to a specific version to make sure your builds are deterministic and
-    won't break due to updates to one of the packages.
-
-    See [pinning addin versions](https://cakebuild.net/docs/writing-builds/reproducible-builds/){target="_blank"} for details.
-
 ```csharp
-#tool "nuget:?package=MSBuild.Extension.Pack"
+#tool "nuget:?package=MSBuild.Extension.Pack" // (1)!
 #addin "Cake.Issues"
 #addin "Cake.Issues.MsBuild"
 #addin "Cake.Issues.Reporting"
@@ -52,6 +46,8 @@ Task("Create-IssueReport").Does(() =>
         @"c:\report.html");
 });
 ```
+
+--8<-- "snippets/pinning.md"
 
 `ReportTemplate` looks like this:
 
