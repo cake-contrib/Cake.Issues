@@ -1,0 +1,2 @@
+"Tool","Tool Version","Format","Issue Provider","Supported Since","Remarks"
+"[npm-groovy-lint](https://github.com/nvuillam/npm-groovy-lint){target='_blank'}",,"[sarif](https://github.com/nvuillam/npm-groovy-lint?tab=readme-ov-file#usage){target='_blank'}","Cake.Issues.Sarif",4.2.0,
