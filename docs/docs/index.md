@@ -2,18 +2,11 @@
 hide:
   - navigation
   - toc
-layout: default
+template: home.html
 search:
   exclude: true
 title: Home
 ---
-
-<style>
-  .md-typeset h1,
-  .md-content__button {
-    display: none;
-  }
-</style>
 
 Extensive and flexible solution for processing output of linters and other tools using [Cake build system](https://cakebuild.net){target="_blank"}.
 
