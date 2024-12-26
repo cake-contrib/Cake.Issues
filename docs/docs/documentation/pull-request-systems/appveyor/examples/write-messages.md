@@ -10,17 +10,13 @@ the core pull request addin, the AppVeyor support and one or more issue provider
 in this example for JetBrains InspectCode:
 
 ```csharp
-#addin "Cake.Issues"
+#addin "Cake.Issues" // (1)!
 #addin "Cake.Issues.InspectCode"
 #addin "Cake.Issues.PullRequests"
 #addin "Cake.Issues.PullRequests.AppVeyor"
 ```
 
-!!! warning
-    Please note that you always should pin addins to a specific version to make sure your builds are deterministic and
-    won't break due to updates to one of the addins.
-
-    See [pinning addin versions](https://cakebuild.net/docs/writing-builds/reproducible-builds/){target="_blank"} for details.
+--8<-- "snippets/pinning.md"
 
 In the following task we'll first determine the remote repository URL and
 source branch of the pull request and with this information call the

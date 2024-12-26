@@ -8,21 +8,19 @@ The following example will call [markdownlint-cli] to lint some markdown files a
 To call [markdownlint-cli] from a Cake script you can use the [Cake.Markdownlint] addin.
 
 ```csharp
-#addin "Cake.Markdownlint"
+#addin "Cake.Markdownlint" // (1)!
 ```
+
+--8<-- "snippets/pinning.md"
 
 To read issues from markdownlint-cli log files you need to import the core addin and the markdownlint support:
 
 ```csharp
-#addin "Cake.Issues"
+#addin "Cake.Issues" // (1)!
 #addin "Cake.Issues.Markdownlint"
 ```
 
-!!! warning
-    Please note that you always should pin addins to a specific version to make sure your builds are deterministic and
-    won't break due to updates to one of the addins.
-
-    See [pinning addin versions](https://cakebuild.net/docs/writing-builds/reproducible-builds/){target="_blank"} for details.
+--8<-- "snippets/pinning.md"
 
 We need some global variables:
 

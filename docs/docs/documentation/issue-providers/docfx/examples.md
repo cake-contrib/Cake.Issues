@@ -10,21 +10,19 @@ To call [DocFx](https://dotnet.github.io/docfx/){target="_blank"} from a Cake sc
 use the [Cake.DocFx](https://cakebuild.net/extensions/cake-docfx/){target="_blank"} addin.
 
 ```csharp
-#addin "Cake.DocFx"
+#addin "Cake.DocFx" // (1)!
 ```
+
+--8<-- "snippets/pinning.md"
 
 To read issues from DocFx log files you need to import the core addin and the DocFx support:
 
 ```csharp
-#addin "Cake.Issues"
+#addin "Cake.Issues" // (1)!
 #addin "Cake.Issues.DocFx"
 ```
 
-!!! warning
-    Please note that you always should pin addins to a specific version to make sure your builds are deterministic and
-    won't break due to updates to one of the addins.
-
-    See [pinning addin versions](https://cakebuild.net/docs/writing-builds/reproducible-builds/){target="_blank"} for details.
+--8<-- "snippets/pinning.md"
 
 We need some global variables:
 

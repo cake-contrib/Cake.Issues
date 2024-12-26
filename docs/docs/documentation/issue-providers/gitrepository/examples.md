@@ -13,15 +13,11 @@ The following example prints the number of binary files which are not tracked by
 To analyze Git repositories you need to import the core addin and the Git repository support:
 
 ```csharp
-#addin "Cake.Issues"
+#addin "Cake.Issues" // (1)!
 #addin "Cake.Issues.GitRepository"
 ```
 
-!!! warning
-    Please note that you always should pin addins to a specific version to make sure your builds are deterministic and
-    won't break due to updates to one of the addins.
-
-    See [pinning addin versions](https://cakebuild.net/docs/writing-builds/reproducible-builds/){target="_blank"} for details.
+--8<-- "snippets/pinning.md"
 
 We need some global variables:
 

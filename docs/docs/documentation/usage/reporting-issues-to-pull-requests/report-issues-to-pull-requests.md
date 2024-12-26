@@ -6,24 +6,22 @@ description: Usage instructions how to report issues to pull requests.
 To use report issues to pull requests you need to import the following core addins:
 
 ```csharp
-#addin "Cake.Issues"
+#addin "Cake.Issues" // (1)!
 #addin "Cake.Issues.PullRequests"
 ```
+
+--8<-- "snippets/pinning.md"
 
 Also you need to import at least one issue provider and pull request system.
 In the following example the issue provider for reading warnings from MsBuild log files
 and support for Azure DevOps pull requests is imported:
 
 ```csharp
-#addin "Cake.Issues.MsBuild"
+#addin "Cake.Issues.MsBuild" // (1)!
 #addin "Cake.Issues.PullRequests.AzureDevOps"
 ```
 
-!!! warning
-    Please note that you always should pin addins to a specific version to make sure your builds are deterministic and
-    won't break due to updates to one of the addins.
-
-    See [pinning addin versions](https://cakebuild.net/docs/writing-builds/reproducible-builds/){target="_blank"} for details.
+--8<-- "snippets/pinning.md"
 
 Finally you can define a task where you call the core addin with the desired issue provider and pull request system:
 

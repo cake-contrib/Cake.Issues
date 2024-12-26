@@ -8,22 +8,20 @@ The following example will call MsBuild to build the solution and outputs the nu
 To read issues from MsBuild log files you need to import the core addin and the MsBuild support:
 
 ```csharp
-#addin "Cake.Issues"
+#addin "Cake.Issues" // (1)!
 #addin "Cake.Issues.MsBuild"
 ```
+
+--8<-- "snippets/pinning.md"
 
 In this example the log file is written by the `XmlFileLogger` class from [MSBuild Extension Pack].
 In order to use the above logger, the following line will download and install the tool from NuGet.org:
 
 ```csharp
-#tool "nuget:?package=MSBuild.Extension.Pack"
+#tool "nuget:?package=MSBuild.Extension.Pack" // (1)!
 ```
 
-!!! warning
-    Please note that you always should pin addins and tools to a specific version to make sure your builds are deterministic and
-    won't break due to updates to one of the packages.
-
-    See [pinning addin versions](https://cakebuild.net/docs/writing-builds/reproducible-builds/){target="_blank"} for details.
+--8<-- "snippets/pinning.md"
 
 We need some global variables:
 
