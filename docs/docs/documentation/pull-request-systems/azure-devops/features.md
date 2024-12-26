@@ -20,7 +20,7 @@ provides the following features.
 ## Supported capabilities
 
 The [Cake.Issues.PullRequests.AzureDevOps addin](https://cakebuild.net/extensions/cake-issues-pullrequests-azuredevops/){target="_blank"}
-supports all [Core features].
+supports the following capabilities.
 
 |                  | Capability                     | Remarks                        |
 |------------------|--------------------------------|--------------------------------|
@@ -43,5 +43,4 @@ For detailed instructions how to connect using the different methods see [Setup 
 ![Cake.Issues.PullRequests.AzureDevOps](cake.issues.pullrequests.azuredevops.png "Cake.Issues.PullRequests.AzureDevOps")
 
 [demo repository]: https://dev.azure.com/pberger/Cake.Issues-Demo
-[Core features]: ../../overview/features.md#supported-core-functionality
 [Setup instructions]: setup.md

@@ -98,13 +98,9 @@ nav:
     - blog/index.md
   - Documentation:
     - Key concepts:
-      - Overview:
-        - Introduction: documentation/overview/introduction.md
-        - Features: documentation/overview/features.md
-        - Requirements: documentation/overview/requirements.md
-      - Fundamentals:
-        - Architecture: documentation/fundamentals/architecture.md
-        - Versioning: documentation/fundamentals/versioning.md
+      - Overview: documentation/overview.md
+      - How Cake Issues Works: documentation/how-cake-issues-works.md
+      - Features: documentation/features.md
     - How To Use:
       - Usage:
         - documentation/usage/index.md
