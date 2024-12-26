@@ -89,6 +89,18 @@
          <lastmod>2024-12-26</lastmod>
     </url>
     <url>
+         <loc>https://cakeissues.net/develop/documentation/features/</loc>
+         <lastmod>2024-12-26</lastmod>
+    </url>
+    <url>
+         <loc>https://cakeissues.net/develop/documentation/how-cake-issues-works/</loc>
+         <lastmod>2024-12-26</lastmod>
+    </url>
+    <url>
+         <loc>https://cakeissues.net/develop/documentation/overview/</loc>
+         <lastmod>2024-12-26</lastmod>
+    </url>
+    <url>
          <loc>https://cakeissues.net/develop/documentation/supported-tools/</loc>
          <lastmod>2024-12-26</lastmod>
     </url>
@@ -158,14 +170,6 @@
     </url>
     <url>
          <loc>https://cakeissues.net/develop/documentation/extending/report-format/overview/</loc>
-         <lastmod>2024-12-26</lastmod>
-    </url>
-    <url>
-         <loc>https://cakeissues.net/develop/documentation/fundamentals/architecture/</loc>
-         <lastmod>2024-12-26</lastmod>
-    </url>
-    <url>
-         <loc>https://cakeissues.net/develop/documentation/fundamentals/versioning/</loc>
          <lastmod>2024-12-26</lastmod>
     </url>
     <url>
@@ -262,18 +266,6 @@
     </url>
     <url>
          <loc>https://cakeissues.net/develop/documentation/issue-providers/terraform/features/</loc>
-         <lastmod>2024-12-26</lastmod>
-    </url>
-    <url>
-         <loc>https://cakeissues.net/develop/documentation/overview/features/</loc>
-         <lastmod>2024-12-26</lastmod>
-    </url>
-    <url>
-         <loc>https://cakeissues.net/develop/documentation/overview/introduction/</loc>
-         <lastmod>2024-12-26</lastmod>
-    </url>
-    <url>
-         <loc>https://cakeissues.net/develop/documentation/overview/requirements/</loc>
          <lastmod>2024-12-26</lastmod>
     </url>
     <url>
