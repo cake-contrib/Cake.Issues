@@ -119,6 +119,6 @@ public class DefaultTask : FrostingTask
 }
 ```
 
-[Cake.Frosting.Issues.Recipe]: ../overview.md
-[configuration]: ../configuration.md
-[tasks]: ../tasks.md
+[Cake.Frosting.Issues.Recipe]: ../../recipe/overview.md
+[configuration]: ../../recipe/configuration.md
+[tasks]: ../../recipe/tasks.md
