@@ -51,6 +51,7 @@ theme:
     - navigation.indexes 
     - navigation.instant
     - navigation.instant.progress
+    - navigation.sections
     - navigation.tabs
     - navigation.tabs.sticky
     - search.highlight
@@ -95,144 +96,147 @@ nav:
   - News:
     - blog/index.md
   - Documentation:
-    - Overview:
-      - Introduction: documentation/overview/introduction.md
-      - Features: documentation/overview/features.md
-      - Requirements: documentation/overview/requirements.md
-    - Fundamentals:
-      - Architecture: documentation/fundamentals/architecture.md
-      - Versioning: documentation/fundamentals/versioning.md
-      - Recipe: documentation/fundamentals/recipe.md
-    - Usage:
-      - documentation/usage/index.md
-      - Recipe: documentation/usage/recipe/index.md
-      - Creating Issues: documentation/usage/creating-issues/creating-issues.md
-      - Reading Issues:
-        - documentation/usage/reading-issues/index.md
-        - Reading Issues: documentation/usage/reading-issues/reading-issues.md
-        - Additional Run Information: documentation/usage/reading-issues/run-information.md
-        - File Linking: documentation/usage/reading-issues/file-linking.md
-      - Creating Reports: 
-        - documentation/usage/creating-reports/index.md
-        - Creating Reports: documentation/usage/creating-reports/creating-reports.md
-      - Reporting Issues To Pull Requests: 
-        - documentation/usage/reporting-issues-to-pull-requests/index.md
-        - Report Issues To Pull Requests: documentation/usage/reporting-issues-to-pull-requests/report-issues-to-pull-requests.md
-        - Custom Issue Filter: documentation/usage/reporting-issues-to-pull-requests/custom-issue-filter.md
-    - Supported Tools: documentation/supported-tools.md
-    - Recipe:
-      - Overview: documentation/recipe/overview.md
+    - Key concepts:
+      - Overview:
+        - Introduction: documentation/overview/introduction.md
+        - Features: documentation/overview/features.md
+        - Requirements: documentation/overview/requirements.md
+      - Fundamentals:
+        - Architecture: documentation/fundamentals/architecture.md
+        - Versioning: documentation/fundamentals/versioning.md
+        - Recipe: documentation/fundamentals/recipe.md
+    - How To Use:
       - Usage:
-        - documentation/recipe/usage/index.md
-        - Cake.Issues.Recipe: documentation/recipe/usage/using-cake-issues-recipe.md
-        - Cake.Frosting.Issues.Recipe: documentation/recipe/usage/using-cake-frosting-issues-recipe.md
-      - Supported Tools: documentation/recipe/supported-tools.md
-      - Demos: documentation/recipe/demos.md
-      - Configuration: documentation/recipe/configuration.md
-      - Tasks: documentation/recipe/tasks.md
-    - Issue Providers:
-      - documentation/issue-providers/index.md
-      - DocFx:
-        - documentation/issue-providers/docfx/index.md
-        - Features: documentation/issue-providers/docfx/features.md
-        - Examples: documentation/issue-providers/docfx/examples.md
-      - ESLint:
-        - documentation/issue-providers/eslint/index.md
-        - Features: documentation/issue-providers/eslint/features.md
-      - Git Repository:
-        - documentation/issue-providers/gitrepository/index.md
-        - Features: documentation/issue-providers/gitrepository/features.md
-        - Examples: documentation/issue-providers/gitrepository/examples.md
-        - Rules:
-          - BinaryFileNotTrackedByLfs: documentation/issue-providers/gitrepository/rules/BinaryFileNotTrackedByLfs.md
-          - FilePathTooLong: documentation/issue-providers/gitrepository/rules/FilePathTooLong.md
-      - InspectCode:
-        - documentation/issue-providers/inspectcode/index.md
-        - Features: documentation/issue-providers/inspectcode/features.md
-        - Examples: documentation/issue-providers/inspectcode/examples.md
-      - markdownlint:
-        - documentation/issue-providers/markdownlint/index.md
-        - Features: documentation/issue-providers/markdownlint/features.md
-        - Examples: documentation/issue-providers/markdownlint/examples.md
-      - MsBuild:
-        - documentation/issue-providers/msbuild/index.md
-        - Features: documentation/issue-providers/msbuild/features.md
-        - Examples: documentation/issue-providers/msbuild/examples.md
-      - Sarif:
-        - documentation/issue-providers/sarif/index.md
-        - Features: documentation/issue-providers/sarif/features.md
-      - Terraform:
-        - documentation/issue-providers/terraform/index.md
-        - Features: documentation/issue-providers/terraform/features.md
-    - Report Formats:
-      - documentation/report-formats/index.md
-      - Console:
-        - documentation/report-formats/console/index.md
-        - Features: documentation/report-formats/console/features.md
-        - Examples: documentation/report-formats/console/examples.md
-      - Generic:
-        - documentation/report-formats/generic/index.md
-        - Features: documentation/report-formats/generic/features.md
-        - Examples:
-          - Embedded Default Template: documentation/report-formats/generic/examples/default-template.md
-          - Custom Template: documentation/report-formats/generic/examples/custom-template.md
-        - Template Gallery:
-          - documentation/report-formats/generic/templates/index.md
-          - HTML DevExtreme Data Grid: documentation/report-formats/generic/templates/htmldxdatagrid.md
-          - HTML Data Table: documentation/report-formats/generic/templates/htmldatatable.md
-          - HTML Diagnostic: documentation/report-formats/generic/templates/htmldiagnostic.md
-      - Sarif:
-        - documentation/report-formats/sarif/index.md
-        - Features: documentation/report-formats/sarif/features.md
-        - Examples: documentation/report-formats/sarif/examples.md
-    - Pull Request Systems:
-      - documentation/pull-request-systems/index.md
-      - AppVeyor:
-        - documentation/pull-request-systems/appveyor/index.md
-        - Features: documentation/pull-request-systems/appveyor/features.md
-        - Examples: 
-          - documentation/pull-request-systems/appveyor/examples/index.md
-          - Writing Messages To AppVeyor: documentation/pull-request-systems/appveyor/examples/write-messages.md
-          - GitHub Pull Request Integration: documentation/pull-request-systems/appveyor/examples/github-pullrequest-integration.md
-      - Azure DevOps:
-        - documentation/pull-request-systems/azure-devops/index.md
-        - Features: documentation/pull-request-systems/azure-devops/features.md
-        - Setup: documentation/pull-request-systems/azure-devops/setup.md
-        - Examples: 
-          - documentation/pull-request-systems/azure-devops/examples/index.md
-          - Using With Pull Request ID: documentation/pull-request-systems/azure-devops/examples/pullrequest-id.md
-          - Using With Repository Remote URL And Source Branch Name: documentation/pull-request-systems/azure-devops/examples/repository-information.md
-          - Using With Azure Pipelines: documentation/pull-request-systems/azure-devops/examples/azure-pipelines.md
-      - GitHub Actions:
-        - documentation/pull-request-systems/github-actions/index.md
-        - Features: documentation/pull-request-systems/github-actions/features.md
-        - Examples:
-          - Create annotations in GitHub Actions: documentation/pull-request-systems/github-actions/examples/write-annotations.md
-    - Extending:
-      - documentation/extending/index.md
-      - Fundamentals: documentation/extending/fundamentals.md
-      - Issue Provider: 
-        - Overview: documentation/extending/issue-provider/overview.md
-        - Alias Categories: documentation/extending/issue-provider/categories.md
-        - Tutorials:
-          - Simple Issue Provider: documentation/extending/issue-provider/tutorials/simple.md
-          - Provider Settings: documentation/extending/issue-provider/tutorials/settings.md
-          - Multiple Log File Formats: documentation/extending/issue-provider/tutorials/logfile-format.md
-          - Rule URL Resolving: documentation/extending/issue-provider/tutorials/rule-url-resolving.md
-        - Helper: documentation/extending/issue-provider/helper.md
-      - Report Format: 
-        - Overview: documentation/extending/report-format/overview.md
-        - Alias Categories: documentation/extending/report-format/categories.md
-      - Pull Request System: 
-        - Overview: documentation/extending/pull-request-system/overview.md
-        - Alias Categories: documentation/extending/pull-request-system/categories.md
-      - Testing: documentation/extending/testing.md
+        - documentation/usage/index.md
+        - Recipe: documentation/usage/recipe/index.md
+        - Creating Issues: documentation/usage/creating-issues/creating-issues.md
+        - Reading Issues:
+          - documentation/usage/reading-issues/index.md
+          - Reading Issues: documentation/usage/reading-issues/reading-issues.md
+          - Additional Run Information: documentation/usage/reading-issues/run-information.md
+          - File Linking: documentation/usage/reading-issues/file-linking.md
+        - Creating Reports: 
+          - documentation/usage/creating-reports/index.md
+          - Creating Reports: documentation/usage/creating-reports/creating-reports.md
+        - Reporting Issues To Pull Requests: 
+          - documentation/usage/reporting-issues-to-pull-requests/index.md
+          - Report Issues To Pull Requests: documentation/usage/reporting-issues-to-pull-requests/report-issues-to-pull-requests.md
+          - Custom Issue Filter: documentation/usage/reporting-issues-to-pull-requests/custom-issue-filter.md
+      - Supported Tools: documentation/supported-tools.md
+      - Recipe:
+        - Overview: documentation/recipe/overview.md
+        - Usage:
+          - documentation/recipe/usage/index.md
+          - Cake.Issues.Recipe: documentation/recipe/usage/using-cake-issues-recipe.md
+          - Cake.Frosting.Issues.Recipe: documentation/recipe/usage/using-cake-frosting-issues-recipe.md
+        - Supported Tools: documentation/recipe/supported-tools.md
+        - Demos: documentation/recipe/demos.md
+        - Configuration: documentation/recipe/configuration.md
+        - Tasks: documentation/recipe/tasks.md
+      - Issue Providers:
+        - documentation/issue-providers/index.md
+        - DocFx:
+          - documentation/issue-providers/docfx/index.md
+          - Features: documentation/issue-providers/docfx/features.md
+          - Examples: documentation/issue-providers/docfx/examples.md
+        - ESLint:
+          - documentation/issue-providers/eslint/index.md
+          - Features: documentation/issue-providers/eslint/features.md
+        - Git Repository:
+          - documentation/issue-providers/gitrepository/index.md
+          - Features: documentation/issue-providers/gitrepository/features.md
+          - Examples: documentation/issue-providers/gitrepository/examples.md
+          - Rules:
+            - BinaryFileNotTrackedByLfs: documentation/issue-providers/gitrepository/rules/BinaryFileNotTrackedByLfs.md
+            - FilePathTooLong: documentation/issue-providers/gitrepository/rules/FilePathTooLong.md
+        - InspectCode:
+          - documentation/issue-providers/inspectcode/index.md
+          - Features: documentation/issue-providers/inspectcode/features.md
+          - Examples: documentation/issue-providers/inspectcode/examples.md
+        - markdownlint:
+          - documentation/issue-providers/markdownlint/index.md
+          - Features: documentation/issue-providers/markdownlint/features.md
+          - Examples: documentation/issue-providers/markdownlint/examples.md
+        - MsBuild:
+          - documentation/issue-providers/msbuild/index.md
+          - Features: documentation/issue-providers/msbuild/features.md
+          - Examples: documentation/issue-providers/msbuild/examples.md
+        - Sarif:
+          - documentation/issue-providers/sarif/index.md
+          - Features: documentation/issue-providers/sarif/features.md
+        - Terraform:
+          - documentation/issue-providers/terraform/index.md
+          - Features: documentation/issue-providers/terraform/features.md
+      - Report Formats:
+        - documentation/report-formats/index.md
+        - Console:
+          - documentation/report-formats/console/index.md
+          - Features: documentation/report-formats/console/features.md
+          - Examples: documentation/report-formats/console/examples.md
+        - Generic:
+          - documentation/report-formats/generic/index.md
+          - Features: documentation/report-formats/generic/features.md
+          - Examples:
+            - Embedded Default Template: documentation/report-formats/generic/examples/default-template.md
+            - Custom Template: documentation/report-formats/generic/examples/custom-template.md
+          - Template Gallery:
+            - documentation/report-formats/generic/templates/index.md
+            - HTML DevExtreme Data Grid: documentation/report-formats/generic/templates/htmldxdatagrid.md
+            - HTML Data Table: documentation/report-formats/generic/templates/htmldatatable.md
+            - HTML Diagnostic: documentation/report-formats/generic/templates/htmldiagnostic.md
+        - Sarif:
+          - documentation/report-formats/sarif/index.md
+          - Features: documentation/report-formats/sarif/features.md
+          - Examples: documentation/report-formats/sarif/examples.md
+      - Pull Request Systems:
+        - documentation/pull-request-systems/index.md
+        - AppVeyor:
+          - documentation/pull-request-systems/appveyor/index.md
+          - Features: documentation/pull-request-systems/appveyor/features.md
+          - Examples: 
+            - documentation/pull-request-systems/appveyor/examples/index.md
+            - Writing Messages To AppVeyor: documentation/pull-request-systems/appveyor/examples/write-messages.md
+            - GitHub Pull Request Integration: documentation/pull-request-systems/appveyor/examples/github-pullrequest-integration.md
+        - Azure DevOps:
+          - documentation/pull-request-systems/azure-devops/index.md
+          - Features: documentation/pull-request-systems/azure-devops/features.md
+          - Setup: documentation/pull-request-systems/azure-devops/setup.md
+          - Examples: 
+            - documentation/pull-request-systems/azure-devops/examples/index.md
+            - Using With Pull Request ID: documentation/pull-request-systems/azure-devops/examples/pullrequest-id.md
+            - Using With Repository Remote URL And Source Branch Name: documentation/pull-request-systems/azure-devops/examples/repository-information.md
+            - Using With Azure Pipelines: documentation/pull-request-systems/azure-devops/examples/azure-pipelines.md
+        - GitHub Actions:
+          - documentation/pull-request-systems/github-actions/index.md
+          - Features: documentation/pull-request-systems/github-actions/features.md
+          - Examples:
+            - Create annotations in GitHub Actions: documentation/pull-request-systems/github-actions/examples/write-annotations.md
+    - How To Develop:
+      - Extending:
+        - documentation/extending/index.md
+        - Fundamentals: documentation/extending/fundamentals.md
+        - Issue Provider: 
+          - Overview: documentation/extending/issue-provider/overview.md
+          - Alias Categories: documentation/extending/issue-provider/categories.md
+          - Tutorials:
+            - Simple Issue Provider: documentation/extending/issue-provider/tutorials/simple.md
+            - Provider Settings: documentation/extending/issue-provider/tutorials/settings.md
+            - Multiple Log File Formats: documentation/extending/issue-provider/tutorials/logfile-format.md
+            - Rule URL Resolving: documentation/extending/issue-provider/tutorials/rule-url-resolving.md
+          - Helper: documentation/extending/issue-provider/helper.md
+        - Report Format: 
+          - Overview: documentation/extending/report-format/overview.md
+          - Alias Categories: documentation/extending/report-format/categories.md
+        - Pull Request System: 
+          - Overview: documentation/extending/pull-request-system/overview.md
+          - Alias Categories: documentation/extending/pull-request-system/categories.md
+        - Testing: documentation/extending/testing.md
+      - Contributing:
+        - How To Contribute: documentation/contributing/how-to-contribute.md
+        - Build Instructions: documentation/contributing/how-to-build.md
+        - Release Instructions: documentation/contributing/how-to-release.md
     - Resources:
       - Blog Posts: documentation/resources/blog-posts.md
       - Presentations: documentation/resources/presentations.md
-    - Contributing:
-      - How To Contribute: documentation/contributing/how-to-contribute.md
-      - Build Instructions: documentation/contributing/how-to-build.md
-      - Release Instructions: documentation/contributing/how-to-release.md
   - Release Notes: https://github.com/cake-contrib/Cake.Issues/releases" target="_blank
   - API: https://cakebuild.net/extensions/cake-issues/" target="_blank
