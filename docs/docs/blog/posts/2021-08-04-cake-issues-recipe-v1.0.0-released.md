@@ -39,7 +39,7 @@ See [Using Cake.Frosting.Issues.Recipe] for an example.
 [Cake Frosting]: https://cakebuild.net/docs/running-builds/runners/cake-frosting
 [Cake.Issues.Recipe]: https://www.nuget.org/packages/Cake.Issues.Recipe/
 [Cake.Frosting.Issues.Recipe]: https://www.nuget.org/packages/Cake.Frosting.Issues.Recipe/
-[Using Cake.Frosting.Issues.Recipe]: ../../documentation/recipe/usage/using-cake-frosting-issues-recipe.md
+[Using Cake.Frosting.Issues.Recipe]: ../../documentation/usage/recipe/using-cake-frosting-issues-recipe.md
 
 ## Support for environments not compatible with Cake.Git addin
 

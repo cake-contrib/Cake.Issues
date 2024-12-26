@@ -62,6 +62,6 @@ Task("Default")
     .IsDependentOn("Issues");
 ```
 
-[Cake.Issues.Recipe]: ../overview.md
-[configuration]: ../configuration.md
-[tasks]: ../tasks.md
+[Cake.Issues.Recipe]: ../../recipe/overview.md
+[configuration]: ../../recipe/configuration.md
+[tasks]: ../../recipe/tasks.md

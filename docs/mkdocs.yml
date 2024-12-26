@@ -104,11 +104,12 @@ nav:
       - Fundamentals:
         - Architecture: documentation/fundamentals/architecture.md
         - Versioning: documentation/fundamentals/versioning.md
-        - Recipe: documentation/fundamentals/recipe.md
     - How To Use:
       - Usage:
         - documentation/usage/index.md
-        - Recipe: documentation/usage/recipe/index.md
+        - Recipe: 
+          - Cake.Issues.Recipe: documentation/usage/recipe/using-cake-issues-recipe.md
+          - Cake.Frosting.Issues.Recipe: documentation/usage/recipe/using-cake-frosting-issues-recipe.md
         - Creating Issues: documentation/usage/creating-issues/creating-issues.md
         - Reading Issues:
           - documentation/usage/reading-issues/index.md
@@ -125,10 +126,6 @@ nav:
       - Supported Tools: documentation/supported-tools.md
       - Recipe:
         - Overview: documentation/recipe/overview.md
-        - Usage:
-          - documentation/recipe/usage/index.md
-          - Cake.Issues.Recipe: documentation/recipe/usage/using-cake-issues-recipe.md
-          - Cake.Frosting.Issues.Recipe: documentation/recipe/usage/using-cake-frosting-issues-recipe.md
         - Supported Tools: documentation/recipe/supported-tools.md
         - Demos: documentation/recipe/demos.md
         - Configuration: documentation/recipe/configuration.md
