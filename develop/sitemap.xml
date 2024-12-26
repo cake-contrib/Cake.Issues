@@ -165,10 +165,6 @@
          <lastmod>2024-12-26</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/fundamentals/recipe/</loc>
-         <lastmod>2024-12-26</lastmod>
-    </url>
-    <url>
          <loc>https://cakeissues.net/develop/documentation/fundamentals/versioning/</loc>
          <lastmod>2024-12-26</lastmod>
     </url>
@@ -365,18 +361,6 @@
          <lastmod>2024-12-26</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/recipe/usage/</loc>
-         <lastmod>2024-12-26</lastmod>
-    </url>
-    <url>
-         <loc>https://cakeissues.net/develop/documentation/recipe/usage/using-cake-frosting-issues-recipe/</loc>
-         <lastmod>2024-12-26</lastmod>
-    </url>
-    <url>
-         <loc>https://cakeissues.net/develop/documentation/recipe/usage/using-cake-issues-recipe/</loc>
-         <lastmod>2024-12-26</lastmod>
-    </url>
-    <url>
          <loc>https://cakeissues.net/develop/documentation/report-formats/</loc>
          <lastmod>2024-12-26</lastmod>
     </url>
@@ -477,7 +461,11 @@
          <lastmod>2024-12-26</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/usage/recipe/</loc>
+         <loc>https://cakeissues.net/develop/documentation/usage/recipe/using-cake-frosting-issues-recipe/</loc>
+         <lastmod>2024-12-26</lastmod>
+    </url>
+    <url>
+         <loc>https://cakeissues.net/develop/documentation/usage/recipe/using-cake-issues-recipe/</loc>
          <lastmod>2024-12-26</lastmod>
     </url>
     <url>
