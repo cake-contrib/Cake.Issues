@@ -4881,13 +4881,7 @@
   <h1>Examples</h1>
 
 <p>The following example will print issues logged as warnings by MsBuild to the console.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Please note that you always should pin addins and tools to a specific version to make sure your builds are deterministic and
-won't break due to updates to one of the packages.</p>
-<p>See <a href="https://cakebuild.net/docs/writing-builds/reproducible-builds/" target="_blank">pinning addin versions</a> for details.</p>
-</div>
-<div class="language-csharp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="err">#</span><span class="n">tool</span><span class="w"> </span><span class="s">&quot;nuget:?package=MSBuild.Extension.Pack&quot;</span>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="err">#</span><span class="n">tool</span><span class="w"> </span><span class="s">&quot;nuget:?package=MSBuild.Extension.Pack&quot;</span><span class="w"> </span><span class="c1">// (1)!</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="err">#</span><span class="n">addin</span><span class="w"> </span><span class="s">&quot;Cake.Issues&quot;</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="err">#</span><span class="n">addin</span><span class="w"> </span><span class="s">&quot;Cake.Issues.MsBuild&quot;</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="err">#</span><span class="n">addin</span><span class="w"> </span><span class="s">&quot;Cake.Issues.Reporting&quot;</span>
@@ -4929,6 +4923,13 @@ won't break due to updates to one of the packages.</p>
 </span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a><span class="w">        </span><span class="kt">string</span><span class="p">.</span><span class="n">Empty</span><span class="p">);</span>
 </span><span id="__span-0-41"><a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a><span class="p">});</span>
 </span></code></pre></div>
+<ol>
+<li>
+<p>Please note that you always should pin addins to a specific version to make sure your builds are deterministic and
+    won't break due to updates to one of the addins.</p>
+<p>See <a href="https://cakebuild.net/docs/writing-builds/reproducible-builds/" target="_blank">pinning addin versions</a> for details.</p>
+</li>
+</ol>
 
 
 
@@ -4999,7 +5000,7 @@ won't break due to updates to one of the packages.</p>
       <div class="md-progress" data-md-component="progress" role="progressbar"></div>
     
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.action.edit", "content.code.copy", "navigation.indexes", "navigation.instant", "navigation.instant.progress", "navigation.tabs", "navigation.tabs.sticky", "search.highlight", "search.suggest"], "search": "../../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "navigation.indexes", "navigation.instant", "navigation.instant.progress", "navigation.tabs", "navigation.tabs.sticky", "search.highlight", "search.suggest"], "search": "../../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../../../../assets/javascripts/bundle.88dd0f4e.min.js"></script>

@@ -4886,17 +4886,18 @@
 <p>To report issues as annotations to a GitHub Actions build you need to import the core addin,
 the core pull request addin, the GitHub Actions support and one or more issue providers,
 in this example for JetBrains InspectCode:</p>
-<div class="language-csharp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="err">#</span><span class="n">addin</span><span class="w"> </span><span class="s">&quot;Cake.Issues&quot;</span>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="err">#</span><span class="n">addin</span><span class="w"> </span><span class="s">&quot;Cake.Issues&quot;</span><span class="w"> </span><span class="c1">// (1)!</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="err">#</span><span class="n">addin</span><span class="w"> </span><span class="s">&quot;Cake.Issues.InspectCode&quot;</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="err">#</span><span class="n">addin</span><span class="w"> </span><span class="s">&quot;Cake.Issues.PullRequests&quot;</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="err">#</span><span class="n">addin</span><span class="w"> </span><span class="s">&quot;Cake.Issues.PullRequests.GitHubActions&quot;</span>
 </span></code></pre></div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
+<ol>
+<li>
 <p>Please note that you always should pin addins to a specific version to make sure your builds are deterministic and
-won't break due to updates to one of the addins.</p>
+    won't break due to updates to one of the addins.</p>
 <p>See <a href="https://cakebuild.net/docs/writing-builds/reproducible-builds/" target="_blank">pinning addin versions</a> for details.</p>
-</div>
+</li>
+</ol>
 <p>In the following task we'll first determine the remote repository URL and
 source branch of the pull request and with this information call the
 <a href="https://cakebuild.net/api/Cake.Issues.PullRequests.GitHubActions/GitHubActionsBuildsAliases/" target="_blank">GitHubActionsBuilds</a> alias:</p>
@@ -4987,7 +4988,7 @@ source branch of the pull request and with this information call the
       <div class="md-progress" data-md-component="progress" role="progressbar"></div>
     
     
-    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["content.action.edit", "content.code.copy", "navigation.indexes", "navigation.instant", "navigation.instant.progress", "navigation.tabs", "navigation.tabs.sticky", "search.highlight", "search.suggest"], "search": "../../../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "navigation.indexes", "navigation.instant", "navigation.instant.progress", "navigation.tabs", "navigation.tabs.sticky", "search.highlight", "search.suggest"], "search": "../../../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../../../../../assets/javascripts/bundle.88dd0f4e.min.js"></script>

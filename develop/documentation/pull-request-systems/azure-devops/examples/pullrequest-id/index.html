@@ -4889,18 +4889,19 @@
 <p>To write issues as comments to Azure DevOps pull requests you need to import the core addin,
 the core pull request addin, the Azure DevOps support including the Cake.AzureDevOps addin, and one or more issue providers,
 in this example for JetBrains InspectCode:</p>
-<div class="language-csharp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="err">#</span><span class="n">addin</span><span class="w"> </span><span class="s">&quot;Cake.Issues&quot;</span>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="err">#</span><span class="n">addin</span><span class="w"> </span><span class="s">&quot;Cake.Issues&quot;</span><span class="w"> </span><span class="c1">// (1)!</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="err">#</span><span class="n">addin</span><span class="w"> </span><span class="s">&quot;Cake.Issues.InspectCode&quot;</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="err">#</span><span class="n">addin</span><span class="w"> </span><span class="s">&quot;Cake.Issues.PullRequests&quot;</span>
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="err">#</span><span class="n">addin</span><span class="w"> </span><span class="s">&quot;Cake.Issues.PullRequests.AzureDevOps&quot;</span>
 </span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="err">#</span><span class="n">addin</span><span class="w"> </span><span class="s">&quot;Cake.AzureDevOps&quot;</span>
 </span></code></pre></div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
+<ol>
+<li>
 <p>Please note that you always should pin addins to a specific version to make sure your builds are deterministic and
-won't break due to updates to one of the addins.</p>
+    won't break due to updates to one of the addins.</p>
 <p>See <a href="https://cakebuild.net/docs/writing-builds/reproducible-builds/" target="_blank">pinning addin versions</a> for details.</p>
-</div>
+</li>
+</ol>
 <p>In the following task we'll first determine the remote repository URL and
 with this information call the <a href="https://cakebuild.net/api/Cake.Issues.PullRequests.AzureDevOps/AzureDevOpsPullRequestSystemAliases/" target="_blank">AzureDevOpsPullRequests</a>
 alias, which will authenticate through NTLM to an on-premise Azure DevOps Server instance:</p>
@@ -4990,7 +4991,7 @@ alias, which will authenticate through NTLM to an on-premise Azure DevOps Server
       <div class="md-progress" data-md-component="progress" role="progressbar"></div>
     
     
-    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["content.action.edit", "content.code.copy", "navigation.indexes", "navigation.instant", "navigation.instant.progress", "navigation.tabs", "navigation.tabs.sticky", "search.highlight", "search.suggest"], "search": "../../../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "navigation.indexes", "navigation.instant", "navigation.instant.progress", "navigation.tabs", "navigation.tabs.sticky", "search.highlight", "search.suggest"], "search": "../../../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../../../../../assets/javascripts/bundle.88dd0f4e.min.js"></script>

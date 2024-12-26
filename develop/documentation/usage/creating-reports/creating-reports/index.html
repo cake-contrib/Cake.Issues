@@ -4881,21 +4881,29 @@
   <h1>Creating Reports</h1>
 
 <p>To create report for issues you need to import the following core addins:</p>
-<div class="language-csharp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="err">#</span><span class="n">addin</span><span class="w"> </span><span class="s">&quot;Cake.Issues&quot;</span>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="err">#</span><span class="n">addin</span><span class="w"> </span><span class="s">&quot;Cake.Issues&quot;</span><span class="w"> </span><span class="c1">// (1)!</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="err">#</span><span class="n">addin</span><span class="w"> </span><span class="s">&quot;Cake.Issues.Reporting&quot;</span>
 </span></code></pre></div>
+<ol>
+<li>
+<p>Please note that you always should pin addins to a specific version to make sure your builds are deterministic and
+    won't break due to updates to one of the addins.</p>
+<p>See <a href="https://cakebuild.net/docs/writing-builds/reproducible-builds/" target="_blank">pinning addin versions</a> for details.</p>
+</li>
+</ol>
 <p>Also you need to import at least one issue provider and report format.
 In the following example the issue provider for reading warnings from MsBuild log files
 and generic report format is imported:</p>
-<div class="language-csharp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="err">#</span><span class="n">addin</span><span class="w"> </span><span class="s">&quot;Cake.Issues.MsBuild&quot;</span>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="err">#</span><span class="n">addin</span><span class="w"> </span><span class="s">&quot;Cake.Issues.MsBuild&quot;</span><span class="w"> </span><span class="c1">// (1)!</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="err">#</span><span class="n">addin</span><span class="w"> </span><span class="s">&quot;Cake.Issues.Reporting.Generic&quot;</span>
 </span></code></pre></div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
+<ol>
+<li>
 <p>Please note that you always should pin addins to a specific version to make sure your builds are deterministic and
-won't break due to updates to one of the addins.</p>
+    won't break due to updates to one of the addins.</p>
 <p>See <a href="https://cakebuild.net/docs/writing-builds/reproducible-builds/" target="_blank">pinning addin versions</a> for details.</p>
-</div>
+</li>
+</ol>
 <p>Finally you can define a task where you call the reporting addin with the desired issue provider and report format:</p>
 <div class="language-csharp highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">Task</span><span class="p">(</span><span class="s">&quot;Create-Report&quot;</span><span class="p">).</span><span class="n">Does</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">{</span>
@@ -4979,7 +4987,7 @@ won't break due to updates to one of the addins.</p>
       <div class="md-progress" data-md-component="progress" role="progressbar"></div>
     
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.action.edit", "content.code.copy", "navigation.indexes", "navigation.instant", "navigation.instant.progress", "navigation.tabs", "navigation.tabs.sticky", "search.highlight", "search.suggest"], "search": "../../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "navigation.indexes", "navigation.instant", "navigation.instant.progress", "navigation.tabs", "navigation.tabs.sticky", "search.highlight", "search.suggest"], "search": "../../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../../../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
