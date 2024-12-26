@@ -157,6 +157,9 @@ nav:
         - documentation/issue-providers/msbuild/index.md
         - Features: documentation/issue-providers/msbuild/features.md
         - Examples: documentation/issue-providers/msbuild/examples.md
+      - Sarif:
+        - documentation/issue-providers/sarif/index.md
+        - Features: documentation/issue-providers/sarif/features.md
       - Terraform:
         - documentation/issue-providers/terraform/index.md
         - Features: documentation/issue-providers/terraform/features.md

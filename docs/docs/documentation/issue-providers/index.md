@@ -13,7 +13,7 @@ Issue provider addins are responsible for providing the output of an analyzer or
 - :material-layers-plus: __[Inspect Code]__ – Issue provider for reading JetBrains Inspect Code  / ReSharper issues
 - :material-layers-plus: __[Markdownlint]__ – Issue provider for reading issues from markdownlint
 - :material-layers-plus: __[MsBuild]__ – Issue provider for reading MsBuild errors and warnings
-- :material-layers-plus: __Sarif__ – Issue provider for reading SARIF reports
+- :material-layers-plus: __[Sarif]__ – Issue provider for reading SARIF reports
 - :material-layers-plus: __[Terraform]__ – Issue provider for reading Terraform validation output
 
 </div>
@@ -24,6 +24,7 @@ Issue provider addins are responsible for providing the output of an analyzer or
 [Inspect Code]: inspectcode/index.md
 [Markdownlint]: markdownlint/index.md
 [MsBuild]: msbuild/index.md
+[Sarif]: sarif/index.md
 [Terraform]: terraform/index.md
 
 !!! tip
