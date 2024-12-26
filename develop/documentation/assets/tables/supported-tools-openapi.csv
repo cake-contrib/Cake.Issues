@@ -1,4 +1,4 @@
 "Tool","Tool Version","Format","Issue Provider","Supported Since","Remarks"
-"[checkov](https://www.checkov.io/){target='_blank'}",,"[SARIF](https://www.checkov.io/2.Basics/CLI%20Command%20Reference.html){target='_blank'}","Cake.Issues.Sarif",4.2.0,
-"[kics](https://kics.io/){target='_blank'}",,"[sarif](https://github.com/Checkmarx/kics/blob/master/docs/results.md#sarif){target='_blank'}","Cake.Issues.Sarif",4.2.0,
-"[Spectral](https://meta.stoplight.io/docs/spectral/674b27b261c3c-overview){target='_blank'}",,[sarif](https://meta.stoplight.io/docs/spectral/9ffa04e052cc1-spectral-cli),"Cake.Issues.Sarif",4.2.0,
+"[checkov](https://www.checkov.io/){target='_blank'}",,"[SARIF](https://www.checkov.io/2.Basics/CLI%20Command%20Reference.html){target='_blank'}","[Cake.Issues.Sarif](issue-providers/sarif/index.md)",4.2.0,
+"[kics](https://kics.io/){target='_blank'}",,"[sarif](https://github.com/Checkmarx/kics/blob/master/docs/results.md#sarif){target='_blank'}","[Cake.Issues.Sarif](issue-providers/sarif/index.md)",4.2.0,
+"[Spectral](https://meta.stoplight.io/docs/spectral/674b27b261c3c-overview){target='_blank'}",,[sarif](https://meta.stoplight.io/docs/spectral/9ffa04e052cc1-spectral-cli),"[Cake.Issues.Sarif](issue-providers/sarif/index.md)",4.2.0,

@@ -6,34 +6,34 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Overview of different helper classes for implementing issue providers.">
+        <meta name="description" content="Issue provider which allows you to read issues from SARIF files.">
       
       
         <meta name="author" content="Cake Issues Contributors">
       
       
-        <link rel="canonical" href="https://cakeissues.net/develop/documentation/extending/issue-provider/helper/">
+        <link rel="canonical" href="https://cakeissues.net/develop/documentation/issue-providers/sarif/">
       
       
-        <link rel="prev" href="../tutorials/rule-url-resolving/">
+        <link rel="prev" href="../msbuild/examples/">
       
       
-        <link rel="next" href="../../report-format/overview/">
+        <link rel="next" href="features/">
       
       
-      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.49">
     
     
       
-        <title>Helper - Cake Issues</title>
+        <title>Sarif - Cake Issues</title>
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.6f8fc17f.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6f8fc17f.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -52,7 +52,7 @@
       
     
     
-    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -77,11 +77,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#file-linking" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -93,7 +88,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="../../../../..">
+  <a href="../../../..">
     <strong>Click here to go to latest.</strong>
   </a>
 
@@ -110,7 +105,7 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../.." title="Cake Issues" class="md-header__button md-logo" aria-label="Cake Issues" data-md-component="logo">
+    <a href="../../.." title="Cake Issues" class="md-header__button md-logo" aria-label="Cake Issues" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -130,7 +125,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Helper
+              Sarif
             
           </span>
         </div>
@@ -243,7 +238,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
   
     
@@ -262,7 +257,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../blog/" class="md-tabs__link">
+        <a href="../../../blog/" class="md-tabs__link">
           
   
     
@@ -292,7 +287,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../../overview/introduction/" class="md-tabs__link">
+        <a href="../../overview/introduction/" class="md-tabs__link">
           
   
     
@@ -370,7 +365,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="Cake Issues" class="md-nav__button md-logo" aria-label="Cake Issues" data-md-component="logo">
+    <a href="../../.." title="Cake Issues" class="md-nav__button md-logo" aria-label="Cake Issues" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -400,7 +395,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -445,7 +440,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../blog/" class="md-nav__link ">
+            <a href="../../../blog/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -530,7 +525,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../blog/archive/2024/" class="md-nav__link">
+      <a href="../../../blog/archive/2024/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -553,7 +548,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../blog/archive/2023/" class="md-nav__link">
+      <a href="../../../blog/archive/2023/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -576,7 +571,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../blog/archive/2022/" class="md-nav__link">
+      <a href="../../../blog/archive/2022/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -599,7 +594,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../blog/archive/2021/" class="md-nav__link">
+      <a href="../../../blog/archive/2021/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -622,7 +617,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../blog/archive/2020/" class="md-nav__link">
+      <a href="../../../blog/archive/2020/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -697,7 +692,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../blog/category/announcements/" class="md-nav__link">
+      <a href="../../../blog/category/announcements/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -720,7 +715,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../blog/category/release-notes/" class="md-nav__link">
+      <a href="../../../blog/category/release-notes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -869,7 +864,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../overview/introduction/" class="md-nav__link">
+      <a href="../../overview/introduction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -890,7 +885,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../overview/features/" class="md-nav__link">
+      <a href="../../overview/features/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -911,7 +906,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../overview/requirements/" class="md-nav__link">
+      <a href="../../overview/requirements/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -986,7 +981,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../fundamentals/architecture/" class="md-nav__link">
+      <a href="../../fundamentals/architecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1007,7 +1002,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../fundamentals/versioning/" class="md-nav__link">
+      <a href="../../fundamentals/versioning/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1028,7 +1023,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../fundamentals/recipe/" class="md-nav__link">
+      <a href="../../fundamentals/recipe/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1090,7 +1085,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../usage/" class="md-nav__link ">
+            <a href="../../usage/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1123,7 +1118,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../usage/recipe/" class="md-nav__link">
+      <a href="../../usage/recipe/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1144,7 +1139,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../usage/creating-issues/creating-issues/" class="md-nav__link">
+      <a href="../../usage/creating-issues/creating-issues/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1192,7 +1187,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../usage/reading-issues/" class="md-nav__link ">
+            <a href="../../usage/reading-issues/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1225,7 +1220,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../usage/reading-issues/reading-issues/" class="md-nav__link">
+      <a href="../../usage/reading-issues/reading-issues/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1246,7 +1241,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../usage/reading-issues/run-information/" class="md-nav__link">
+      <a href="../../usage/reading-issues/run-information/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1267,7 +1262,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../usage/reading-issues/file-linking/" class="md-nav__link">
+      <a href="../../usage/reading-issues/file-linking/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1319,7 +1314,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../usage/creating-reports/" class="md-nav__link ">
+            <a href="../../usage/creating-reports/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1352,7 +1347,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../usage/creating-reports/creating-reports/" class="md-nav__link">
+      <a href="../../usage/creating-reports/creating-reports/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1406,7 +1401,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../usage/reporting-issues-to-pull-requests/" class="md-nav__link ">
+            <a href="../../usage/reporting-issues-to-pull-requests/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1439,7 +1434,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../usage/reporting-issues-to-pull-requests/report-issues-to-pull-requests/" class="md-nav__link">
+      <a href="../../usage/reporting-issues-to-pull-requests/report-issues-to-pull-requests/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1460,7 +1455,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../usage/reporting-issues-to-pull-requests/custom-issue-filter/" class="md-nav__link">
+      <a href="../../usage/reporting-issues-to-pull-requests/custom-issue-filter/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1497,7 +1492,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../supported-tools/" class="md-nav__link">
+      <a href="../../supported-tools/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1570,7 +1565,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../recipe/overview/" class="md-nav__link">
+      <a href="../../recipe/overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1616,7 +1611,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../recipe/usage/" class="md-nav__link ">
+            <a href="../../recipe/usage/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1649,7 +1644,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../recipe/usage/using-cake-issues-recipe/" class="md-nav__link">
+      <a href="../../recipe/usage/using-cake-issues-recipe/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1670,7 +1665,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../recipe/usage/using-cake-frosting-issues-recipe/" class="md-nav__link">
+      <a href="../../recipe/usage/using-cake-frosting-issues-recipe/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1699,7 +1694,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../recipe/supported-tools/" class="md-nav__link">
+      <a href="../../recipe/supported-tools/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1720,7 +1715,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../recipe/demos/" class="md-nav__link">
+      <a href="../../recipe/demos/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1741,7 +1736,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../recipe/configuration/" class="md-nav__link">
+      <a href="../../recipe/configuration/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1762,7 +1757,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../recipe/tasks/" class="md-nav__link">
+      <a href="../../recipe/tasks/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1788,6 +1783,8 @@
                 
   
   
+    
+  
   
   
     
@@ -1819,16 +1816,16 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" checked>
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../issue-providers/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1845,7 +1842,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_6">
             <span class="md-nav__icon md-icon"></span>
             Issue Providers
@@ -1886,7 +1883,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../issue-providers/docfx/" class="md-nav__link ">
+            <a href="../docfx/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1919,7 +1916,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../issue-providers/docfx/features/" class="md-nav__link">
+      <a href="../docfx/features/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1940,7 +1937,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../issue-providers/docfx/examples/" class="md-nav__link">
+      <a href="../docfx/examples/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1992,7 +1989,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../issue-providers/eslint/" class="md-nav__link ">
+            <a href="../eslint/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2025,7 +2022,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../issue-providers/eslint/features/" class="md-nav__link">
+      <a href="../eslint/features/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2081,7 +2078,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../issue-providers/gitrepository/" class="md-nav__link ">
+            <a href="../gitrepository/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2114,7 +2111,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../issue-providers/gitrepository/features/" class="md-nav__link">
+      <a href="../gitrepository/features/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2135,7 +2132,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../issue-providers/gitrepository/examples/" class="md-nav__link">
+      <a href="../gitrepository/examples/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2200,7 +2197,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../issue-providers/gitrepository/rules/BinaryFileNotTrackedByLfs/" class="md-nav__link">
+      <a href="../gitrepository/rules/BinaryFileNotTrackedByLfs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2221,7 +2218,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../issue-providers/gitrepository/rules/FilePathTooLong/" class="md-nav__link">
+      <a href="../gitrepository/rules/FilePathTooLong/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2283,7 +2280,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../issue-providers/inspectcode/" class="md-nav__link ">
+            <a href="../inspectcode/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2316,7 +2313,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../issue-providers/inspectcode/features/" class="md-nav__link">
+      <a href="../inspectcode/features/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2337,7 +2334,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../issue-providers/inspectcode/examples/" class="md-nav__link">
+      <a href="../inspectcode/examples/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2391,7 +2388,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../issue-providers/markdownlint/" class="md-nav__link ">
+            <a href="../markdownlint/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2424,7 +2421,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../issue-providers/markdownlint/features/" class="md-nav__link">
+      <a href="../markdownlint/features/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2445,7 +2442,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../issue-providers/markdownlint/examples/" class="md-nav__link">
+      <a href="../markdownlint/examples/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2499,7 +2496,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../issue-providers/msbuild/" class="md-nav__link ">
+            <a href="../msbuild/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2532,7 +2529,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../issue-providers/msbuild/features/" class="md-nav__link">
+      <a href="../msbuild/features/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2553,7 +2550,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../issue-providers/msbuild/examples/" class="md-nav__link">
+      <a href="../msbuild/examples/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2579,6 +2576,8 @@
                 
   
   
+    
+  
   
   
     
@@ -2596,16 +2595,16 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6_8" checked>
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../issue-providers/sarif/" class="md-nav__link ">
+            <a href="./" class="md-nav__link md-nav__link--active">
               
   
   <span class="md-ellipsis">
@@ -2616,13 +2615,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3_6_8" id="__nav_3_6_8_label" tabindex="0">
+              <label class="md-nav__link md-nav__link--active" for="__nav_3_6_8" id="__nav_3_6_8_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_6_8_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_6_8_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_6_8">
             <span class="md-nav__icon md-icon"></span>
             Sarif
@@ -2638,7 +2637,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../issue-providers/sarif/features/" class="md-nav__link">
+      <a href="features/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2690,7 +2689,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../issue-providers/terraform/" class="md-nav__link ">
+            <a href="../terraform/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2723,7 +2722,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../issue-providers/terraform/features/" class="md-nav__link">
+      <a href="../terraform/features/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2787,7 +2786,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../report-formats/" class="md-nav__link ">
+            <a href="../../report-formats/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2845,7 +2844,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../report-formats/console/" class="md-nav__link ">
+            <a href="../../report-formats/console/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2878,7 +2877,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../report-formats/console/features/" class="md-nav__link">
+      <a href="../../report-formats/console/features/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2899,7 +2898,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../report-formats/console/examples/" class="md-nav__link">
+      <a href="../../report-formats/console/examples/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2955,7 +2954,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../report-formats/generic/" class="md-nav__link ">
+            <a href="../../report-formats/generic/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2988,7 +2987,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../report-formats/generic/features/" class="md-nav__link">
+      <a href="../../report-formats/generic/features/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3053,7 +3052,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../report-formats/generic/examples/default-template/" class="md-nav__link">
+      <a href="../../report-formats/generic/examples/default-template/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3074,7 +3073,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../report-formats/generic/examples/custom-template/" class="md-nav__link">
+      <a href="../../report-formats/generic/examples/custom-template/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3130,7 +3129,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../report-formats/generic/templates/" class="md-nav__link ">
+            <a href="../../report-formats/generic/templates/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -3163,7 +3162,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../report-formats/generic/templates/htmldxdatagrid/" class="md-nav__link">
+      <a href="../../report-formats/generic/templates/htmldxdatagrid/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3184,7 +3183,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../report-formats/generic/templates/htmldatatable/" class="md-nav__link">
+      <a href="../../report-formats/generic/templates/htmldatatable/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3205,7 +3204,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../report-formats/generic/templates/htmldiagnostic/" class="md-nav__link">
+      <a href="../../report-formats/generic/templates/htmldiagnostic/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3267,7 +3266,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../report-formats/sarif/" class="md-nav__link ">
+            <a href="../../report-formats/sarif/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -3300,7 +3299,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../report-formats/sarif/features/" class="md-nav__link">
+      <a href="../../report-formats/sarif/features/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3321,7 +3320,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../report-formats/sarif/examples/" class="md-nav__link">
+      <a href="../../report-formats/sarif/examples/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3385,7 +3384,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../pull-request-systems/" class="md-nav__link ">
+            <a href="../../pull-request-systems/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -3443,7 +3442,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../pull-request-systems/appveyor/" class="md-nav__link ">
+            <a href="../../pull-request-systems/appveyor/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -3476,7 +3475,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pull-request-systems/appveyor/features/" class="md-nav__link">
+      <a href="../../pull-request-systems/appveyor/features/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3522,7 +3521,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../pull-request-systems/appveyor/examples/" class="md-nav__link ">
+            <a href="../../pull-request-systems/appveyor/examples/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -3555,7 +3554,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pull-request-systems/appveyor/examples/write-messages/" class="md-nav__link">
+      <a href="../../pull-request-systems/appveyor/examples/write-messages/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3576,7 +3575,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pull-request-systems/appveyor/examples/github-pullrequest-integration/" class="md-nav__link">
+      <a href="../../pull-request-systems/appveyor/examples/github-pullrequest-integration/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3640,7 +3639,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../pull-request-systems/azure-devops/" class="md-nav__link ">
+            <a href="../../pull-request-systems/azure-devops/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -3673,7 +3672,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pull-request-systems/azure-devops/features/" class="md-nav__link">
+      <a href="../../pull-request-systems/azure-devops/features/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3694,7 +3693,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pull-request-systems/azure-devops/setup/" class="md-nav__link">
+      <a href="../../pull-request-systems/azure-devops/setup/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3742,7 +3741,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../pull-request-systems/azure-devops/examples/" class="md-nav__link ">
+            <a href="../../pull-request-systems/azure-devops/examples/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -3775,7 +3774,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pull-request-systems/azure-devops/examples/pullrequest-id/" class="md-nav__link">
+      <a href="../../pull-request-systems/azure-devops/examples/pullrequest-id/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3796,7 +3795,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pull-request-systems/azure-devops/examples/repository-information/" class="md-nav__link">
+      <a href="../../pull-request-systems/azure-devops/examples/repository-information/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3817,7 +3816,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pull-request-systems/azure-devops/examples/azure-pipelines/" class="md-nav__link">
+      <a href="../../pull-request-systems/azure-devops/examples/azure-pipelines/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3879,7 +3878,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../pull-request-systems/github-actions/" class="md-nav__link ">
+            <a href="../../pull-request-systems/github-actions/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -3912,7 +3911,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pull-request-systems/github-actions/features/" class="md-nav__link">
+      <a href="../../pull-request-systems/github-actions/features/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3975,7 +3974,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pull-request-systems/github-actions/examples/write-annotations/" class="md-nav__link">
+      <a href="../../pull-request-systems/github-actions/examples/write-annotations/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4017,8 +4016,6 @@
                 
   
   
-    
-  
   
   
     
@@ -4044,16 +4041,16 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_9" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_9" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../" class="md-nav__link ">
+            <a href="../../extending/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -4070,7 +4067,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_9_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_9_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_9">
             <span class="md-nav__icon md-icon"></span>
             Extending
@@ -4086,7 +4083,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../fundamentals/" class="md-nav__link">
+      <a href="../../extending/fundamentals/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4104,10 +4101,8 @@
                 
   
   
-    
   
   
-  
     
     
       
@@ -4125,11 +4120,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_9_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_9_3" >
         
           
           <label class="md-nav__link" for="__nav_3_9_3" id="__nav_3_9_3_label" tabindex="0">
@@ -4143,7 +4138,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_9_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_9_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_9_3">
             <span class="md-nav__icon md-icon"></span>
             Issue Provider
@@ -4157,7 +4152,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../overview/" class="md-nav__link">
+      <a href="../../extending/issue-provider/overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4178,7 +4173,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../categories/" class="md-nav__link">
+      <a href="../../extending/issue-provider/categories/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4247,7 +4242,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorials/simple/" class="md-nav__link">
+      <a href="../../extending/issue-provider/tutorials/simple/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4268,7 +4263,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorials/settings/" class="md-nav__link">
+      <a href="../../extending/issue-provider/tutorials/settings/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4289,7 +4284,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorials/logfile-format/" class="md-nav__link">
+      <a href="../../extending/issue-provider/tutorials/logfile-format/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4310,7 +4305,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorials/rule-url-resolving/" class="md-nav__link">
+      <a href="../../extending/issue-provider/tutorials/rule-url-resolving/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4336,28 +4331,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Helper
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../extending/issue-provider/helper/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4366,33 +4343,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#file-linking" class="md-nav__link">
-    <span class="md-ellipsis">
-      File linking
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -4457,7 +4407,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../report-format/overview/" class="md-nav__link">
+      <a href="../../extending/report-format/overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4478,7 +4428,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../report-format/categories/" class="md-nav__link">
+      <a href="../../extending/report-format/categories/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4551,7 +4501,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../pull-request-system/overview/" class="md-nav__link">
+      <a href="../../extending/pull-request-system/overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4572,7 +4522,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../pull-request-system/categories/" class="md-nav__link">
+      <a href="../../extending/pull-request-system/categories/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4601,7 +4551,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../testing/" class="md-nav__link">
+      <a href="../../extending/testing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4674,7 +4624,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../resources/blog-posts/" class="md-nav__link">
+      <a href="../../resources/blog-posts/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4695,7 +4645,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../resources/presentations/" class="md-nav__link">
+      <a href="../../resources/presentations/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4770,7 +4720,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/how-to-contribute/" class="md-nav__link">
+      <a href="../../contributing/how-to-contribute/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4791,7 +4741,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/how-to-build/" class="md-nav__link">
+      <a href="../../contributing/how-to-build/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4812,7 +4762,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/how-to-release/" class="md-nav__link">
+      <a href="../../contributing/how-to-release/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4899,23 +4849,6 @@
   
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#file-linking" class="md-nav__link">
-    <span class="md-ellipsis">
-      File linking
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -4929,7 +4862,7 @@
                   
 
   
-    <a href="https://github.com/cake-contrib/Cake.Issues/edit/master/docs/documentation/extending/issue-provider/helper.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/cake-contrib/Cake.Issues/edit/master/docs/documentation/issue-providers/sarif/index.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -4937,58 +4870,10 @@
   
 
 
-  <h1>Helper</h1>
+  <h1>Sarif</h1>
 
-<p>The following helpers are provider by <code>Cake.Issues</code> for simplifying implementation of issue providers:</p>
-<table>
-<thead>
-<tr>
-<th>Helper</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://cakebuild.net/api/Cake.Issues/StringPathExtensions/" target="_blank">StringPathExtensions</a></td>
-<td>Extensions for string for handling paths.</td>
-</tr>
-<tr>
-<td><a href="https://cakebuild.net/api/Cake.Issues/ByteArrayExtensions/" target="_blank">ByteArrayExtensions</a></td>
-<td>Extensions for converting between strings an byte arrays.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="file-linking">File linking<a class="headerlink" href="#file-linking" title="Permanent link">&para;</a></h2>
-<p>Cake.Issues provides infrastructure to get links to files on source code hosts like GitHub or Azure Repos.
-This infrastructure can be used inside issue providers to generate file links which can be used inside the issue messages:</p>
-<div class="language-csharp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">protected</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="n">IEnumerable</span><span class="o">&lt;</span><span class="n">IIssue</span><span class="o">&gt;</span><span class="w"> </span><span class="n">InternalReadIssues</span><span class="p">()</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">{</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">IIssue</span><span class="o">&gt;</span><span class="p">();</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">filePath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;foo.cs&quot;</span><span class="p">;</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">;</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">fileLink</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="n">Settings</span><span class="p">.</span><span class="n">FileLinkSettings</span><span class="p">.</span><span class="n">GetFileLink</span><span class="p">(</span>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">            </span><span class="n">IssueBuilder</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">                </span><span class="p">.</span><span class="n">NewIssue</span><span class="p">(</span><span class="s">&quot;Issue for creating file link&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">)</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">                </span><span class="p">.</span><span class="n">InFile</span><span class="p">(</span><span class="n">filePath</span><span class="p">,</span><span class="w"> </span><span class="n">line</span><span class="p">)</span>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">                </span><span class="p">.</span><span class="n">Create</span><span class="p">()</span>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">        </span><span class="p">);</span>
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">htmlMessage</span><span class="w"> </span><span class="o">=</span>
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">        </span><span class="s">$&quot;This is an issues in the file &lt;a href=\&quot;{fileLink}\&quot;&gt;{filePath}&lt;/a&gt;&quot;</span><span class="p">;</span>
-</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>
-</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">issue</span><span class="w"> </span><span class="o">=</span>
-</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">        </span><span class="n">IssueBuilder</span>
-</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">            </span><span class="p">.</span><span class="n">NewIssue</span><span class="p">(</span><span class="s">&quot;MyMessage&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">)</span>
-</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">            </span><span class="p">.</span><span class="n">WithMessageInHtmlFormat</span><span class="p">(</span><span class="n">htmlMessage</span><span class="p">)</span>
-</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">            </span><span class="p">.</span><span class="n">InFile</span><span class="p">(</span><span class="n">filePath</span><span class="p">,</span><span class="w"> </span><span class="n">line</span><span class="p">)</span>
-</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">            </span><span class="p">.</span><span class="n">Create</span><span class="p">();</span>
-</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>
-</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">result</span><span class="p">;</span>
-</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="p">}</span>
-</span></code></pre></div>
+<p>Support for reading issues in <a href="https://sarifweb.azurewebsites.net/" target="_blank">SARIF</a> format
+is implemented in the <a href="https://cakebuild.net/extensions/cake-issues-sarif/" target="_blank">Cake.Issues.Sarif addin</a>.</p>
 
 
 
@@ -5059,10 +4944,10 @@ This infrastructure can be used inside issue providers to generate file links wh
       <div class="md-progress" data-md-component="progress" role="progressbar"></div>
     
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.action.edit", "content.code.copy", "navigation.indexes", "navigation.instant", "navigation.instant.progress", "navigation.tabs", "navigation.tabs.sticky", "search.highlight", "search.suggest"], "search": "../../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.code.copy", "navigation.indexes", "navigation.instant", "navigation.instant.progress", "navigation.tabs", "navigation.tabs.sticky", "search.highlight", "search.suggest"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
       
     
   </body>

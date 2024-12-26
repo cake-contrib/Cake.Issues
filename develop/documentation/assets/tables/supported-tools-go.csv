@@ -1,2 +1,2 @@
 "Tool","Tool Version","Format","Issue Provider","Supported Since","Remarks"
-"[golangci-lint](https://github.com/golangci/golangci-lint){target='_blank'}",,"[sarif](https://golangci-lint.run/usage/configuration/#output-configuration){target='_blank'}","Cake.Issues.Sarif",4.2.0,
+"[golangci-lint](https://github.com/golangci/golangci-lint){target='_blank'}",,"[sarif](https://golangci-lint.run/usage/configuration/#output-configuration){target='_blank'}","[Cake.Issues.Sarif](issue-providers/sarif/index.md)",4.2.0,

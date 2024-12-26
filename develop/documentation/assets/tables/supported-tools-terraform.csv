@@ -1,6 +1,6 @@
 "Tool","Tool Version","Format","Issue Provider","Supported Since","Remarks"
-"[checkov](https://www.checkov.io/){target='_blank'}",,"[SARIF](https://www.checkov.io/2.Basics/CLI%20Command%20Reference.html){target='_blank'}","Cake.Issues.Sarif",4.2.0,
-"[kics](https://kics.io/){target='_blank'}",,"[sarif](https://github.com/Checkmarx/kics/blob/master/docs/results.md#sarif){target='_blank'}","Cake.Issues.Sarif",4.2.0,
+"[checkov](https://www.checkov.io/){target='_blank'}",,"[SARIF](https://www.checkov.io/2.Basics/CLI%20Command%20Reference.html){target='_blank'}","[Cake.Issues.Sarif](issue-providers/sarif/index.md)",4.2.0,
+"[kics](https://kics.io/){target='_blank'}",,"[sarif](https://github.com/Checkmarx/kics/blob/master/docs/results.md#sarif){target='_blank'}","[Cake.Issues.Sarif](issue-providers/sarif/index.md)",4.2.0,
 "[Terraform Validate](https://www.terraform.io/docs/cli/commands/validate.html){target='_blank'}",,,"[Cake.Issues.Terraform](issue-providers/terraform/index.md)",1.0.0,
-"[TFLint](https://github.com/terraform-linters/tflint){target='_blank'}",,"[sarif](https://github.com/terraform-linters/tflint?tab=readme-ov-file#usage){target='_blank'}","Cake.Issues.Sarif",4.2.0,
-"[Trivy](https://trivy.dev/){target='_blank'}",,"[SARIF](https://trivy.dev/v0.58/docs/configuration/reporting/#sarif){target='_blank'}","Cake.Issues.Sarif",4.2.0,
+"[TFLint](https://github.com/terraform-linters/tflint){target='_blank'}",,"[sarif](https://github.com/terraform-linters/tflint?tab=readme-ov-file#usage){target='_blank'}","[Cake.Issues.Sarif](issue-providers/sarif/index.md)",4.2.0,
+"[Trivy](https://trivy.dev/){target='_blank'}",,"[SARIF](https://trivy.dev/v0.58/docs/configuration/reporting/#sarif){target='_blank'}","[Cake.Issues.Sarif](issue-providers/sarif/index.md)",4.2.0,
