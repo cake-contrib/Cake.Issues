@@ -1,6 +1,7 @@
 ---
 title: Examples
 description: Examples for using the Cake.Issues.InspectCode addin.
+icon: material/test-tube
 ---
 
 The following example will call [JetBrains InspectCode] and output the number of warnings.

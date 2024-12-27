@@ -1,6 +1,7 @@
 ---
 title: Features
 description: Features of the Cake.Issues.InspectCode addin.
+icon: material/creation-outline
 ---
 
 The [Cake.Issues.InspectCode addin]{target="_blank"} provides the following features.

@@ -1,6 +1,7 @@
 ---
 title: Features
 description: Features of the Cake.Issues.Sarif addin.
+icon: material/creation-outline
 ---
 
 The [Cake.Issues.Sarif addin](https://cakebuild.net/extensions/cake-issues-terraform/){target="_blank"} provides the following features.

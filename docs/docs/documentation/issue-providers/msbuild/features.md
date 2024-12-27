@@ -1,6 +1,7 @@
 ---
 title: Features
 description: Features of the Cake.Issues.MsBuild addin.
+icon: material/creation-outline
 ---
 
 The [Cake.Issues.MsBuild addin](https://cakebuild.net/extensions/cake-issues-msbuild/){target="_blank"}

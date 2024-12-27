@@ -1,6 +1,7 @@
 ---
 title: Features
 description: Features of the Cake.Issues.Markdownlint addin.
+icon: material/creation-outline
 ---
 
 The [Cake.Issues.Markdownlint addin](https://cakebuild.net/extensions/cake-issues-markdownlint/){target="_blank"}

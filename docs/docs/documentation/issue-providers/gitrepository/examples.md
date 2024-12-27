@@ -1,6 +1,7 @@
 ---
 title: Examples
 description: Examples for using the Cake.Issues.GitRepository addin.
+icon: material/test-tube
 ---
 
 The following example prints the number of binary files which are not tracked by
