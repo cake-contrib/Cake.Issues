@@ -5,7 +5,7 @@ description: Usage instructions how to apply custom filters to issues.
 
 You can define custom filters which are applied to issues before they are posted as comments to pull requests.
 
-!!! info
+??? tip "Tip: Filter to issues introduced with pull request"
     You can use a custom filter to only have issues introduced with the current code posted to the pull request.
 
     For this you need to store your log files as artifacts on your build system, then you can define a custom filter

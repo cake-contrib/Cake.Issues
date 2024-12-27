@@ -10,14 +10,13 @@ The [Cake.Issues.Recipe] package can be used to easily add issue management func
 To use Cake.Issues.Recipe in your build script you need to first load the NuGet package:
 
 ```csharp
-#load nuget:package=Cake.Issues.Recipe
+#load nuget:package=Cake.Issues.Recipe // (1)!
 ```
 
-!!! warning
-    Please note that you always should pin NuGet packages to a specific version to make sure your builds are deterministic and
+1.  Please note that you always should pin NuGet packages to a specific version to make sure your builds are deterministic and
     won't break due to updates to Cake.Issues.Recipe.
 
-    See [pinning addin versions](https://cakebuild.net/docs/tutorials/pinning-cake-version#pinning-addin-version) for details.
+    See [pinning addin versions](https://cakebuild.net/docs/tutorials/pinning-cake-version#pinning-addin-version){target="_blank"} for details.
 
 ## Configuring Cake.Issues.Recipe
 
