@@ -5056,137 +5056,63 @@
 
 <p>The <a href="https://cakebuild.net/extensions/cake-issues-markdownlint/" target="_blank">Cake.Issues.Markdownlint addin</a>
 provides the following features.</p>
-<h2 id="basic-features">Basic features<a class="headerlink" href="#basic-features" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Reads warnings from <a href="https://github.com/DavidAnson/markdownlint" target="_blank">Markdownlint</a> logfiles.</li>
-<li>Provides URLs for all issues.</li>
-<li>Support for custom URL resolving using the <a href="https://cakebuild.net/api/Cake.Issues.Markdownlint/MarkdownlintIssuesAliases/2EE35F55" target="_blank">MarkdownlintAddRuleUrlResolver</a>
-  alias (except for <a href="https://cakebuild.net/api/Cake.Issues.Markdownlint/MarkdownlintIssuesAliases/36DE6F5F" target="_blank">MarkdownlintCliJsonLogFileFormat</a>).</li>
-</ul>
-<h2 id="supported-log-file-formats">Supported log file formats<a class="headerlink" href="#supported-log-file-formats" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://cakebuild.net/api/Cake.Issues.Markdownlint/MarkdownlintIssuesAliases/65609BEB" target="_blank">MarkdownlintV1LogFileFormat</a>
-  alias for reading issues from <a href="https://github.com/DavidAnson/markdownlint" target="_blank">Markdownlint</a>
-  output generated with <code>options.resultVersion</code> set to 1.</li>
-<li><a href="https://cakebuild.net/api/Cake.Issues.Markdownlint/MarkdownlintIssuesAliases/B518F49E" target="_blank">MarkdownlintCliLogFileFormat</a>
-  alias for reading issues from <a href="https://github.com/igorshubovych/markdownlint-cli" target="_blank">markdownlint-cli</a> log files.</li>
-<li><a href="https://cakebuild.net/api/Cake.Issues.Markdownlint/MarkdownlintIssuesAliases/36DE6F5F" target="_blank">MarkdownlintCliJsonLogFileFormat</a>
-  alias for reading issues from <a href="https://github.com/igorshubovych/markdownlint-cli" target="_blank">markdownlint-cli</a>
-  log files created with the <code>--json</code> parameter.</li>
-</ul>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
+<details class="tip">
+<summary>Tip: Running markdownlint</summary>
 <p><a href="https://github.com/igorshubovych/markdownlint-cli" target="_blank">markdownlint-cli</a>
 can be run with the <a href="https://cakebuild.net/extensions/cake-markdownlint/" target="_blank">Cake.Markdownlint</a>
 addin.</p>
-</div>
+</details>
+<h2 id="basic-features">Basic features<a class="headerlink" href="#basic-features" title="Permanent link">&para;</a></h2>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Reads warnings from <a href="https://github.com/DavidAnson/markdownlint" target="_blank">Markdownlint</a> logfiles.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Provides URLs for all issues.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Support for custom URL resolving using the <a href="https://cakebuild.net/api/Cake.Issues.Markdownlint/MarkdownlintIssuesAliases/2EE35F55" target="_blank">MarkdownlintAddRuleUrlResolver</a>
+  alias (except for <a href="https://cakebuild.net/api/Cake.Issues.Markdownlint/MarkdownlintIssuesAliases/36DE6F5F" target="_blank">MarkdownlintCliJsonLogFileFormat</a>).</li>
+</ul>
+<h2 id="supported-log-file-formats">Supported log file formats<a class="headerlink" href="#supported-log-file-formats" title="Permanent link">&para;</a></h2>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://cakebuild.net/api/Cake.Issues.Markdownlint/MarkdownlintIssuesAliases/65609BEB" target="_blank">MarkdownlintV1LogFileFormat</a>
+  alias for reading issues from <a href="https://github.com/DavidAnson/markdownlint" target="_blank">Markdownlint</a>
+  output generated with <code>options.resultVersion</code> set to 1.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://cakebuild.net/api/Cake.Issues.Markdownlint/MarkdownlintIssuesAliases/B518F49E" target="_blank">MarkdownlintCliLogFileFormat</a>
+  alias for reading issues from <a href="https://github.com/igorshubovych/markdownlint-cli" target="_blank">markdownlint-cli</a> log files.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://cakebuild.net/api/Cake.Issues.Markdownlint/MarkdownlintIssuesAliases/36DE6F5F" target="_blank">MarkdownlintCliJsonLogFileFormat</a>
+  alias for reading issues from <a href="https://github.com/igorshubovych/markdownlint-cli" target="_blank">markdownlint-cli</a>
+  log files created with the <code>--json</code> parameter.</li>
+</ul>
 <h2 id="supported-iissue-properties">Supported IIssue properties<a class="headerlink" href="#supported-iissue-properties" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>Property</th>
-<th>Remarks</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59z"/></svg></span></td>
-<td><code>IIssue.ProviderType</code></td>
-<td></td>
-</tr>
-<tr>
-<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59z"/></svg></span></td>
-<td><code>IIssue.ProviderName</code></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td><code>IIssue.Run</code></td>
-<td>Can be set while reading issues</td>
-</tr>
-<tr>
-<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59z"/></svg></span></td>
-<td><code>IIssue.Identifier</code></td>
-<td>Set to <code>IIssue.MessageText</code></td>
-</tr>
-<tr>
-<td></td>
-<td><code>IIssue.ProjectName</code></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td><code>IIssue.ProjectFileRelativePath</code></td>
-<td></td>
-</tr>
-<tr>
-<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59z"/></svg></span></td>
-<td><code>IIssue.AffectedFileRelativePath</code></td>
-<td></td>
-</tr>
-<tr>
-<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59z"/></svg></span></td>
-<td><code>IIssue.Line</code></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td><code>IIssue.EndLine</code></td>
-<td></td>
-</tr>
-<tr>
-<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59z"/></svg></span></td>
-<td><code>IIssue.Column</code></td>
-<td>Only for <a href="https://cakebuild.net/api/Cake.Issues.Markdownlint/MarkdownlintIssuesAliases/B518F49E" target="_blank">MarkdownlintCliLogFileFormat</a></td>
-</tr>
-<tr>
-<td></td>
-<td><code>IIssue.EndColumn</code></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td><code>IIssue.FileLink</code></td>
-<td>Can be set while reading issues</td>
-</tr>
-<tr>
-<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59z"/></svg></span></td>
-<td><code>IIssue.MessageText</code></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td><code>IIssue.MessageHtml</code></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td><code>IIssue.MessageMarkdown</code></td>
-<td></td>
-</tr>
-<tr>
-<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59z"/></svg></span></td>
-<td><code>IIssue.Priority</code></td>
-<td>Always <a href="https://cakebuild.net/api/Cake.Issues/IssuePriority/7A0CE07F" target="_blank">IssuePriority.Warning</a></td>
-</tr>
-<tr>
-<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59z"/></svg></span></td>
-<td><code>IIssue.PriorityName</code></td>
-<td>Always <code>Warning</code></td>
-</tr>
-<tr>
-<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59z"/></svg></span></td>
-<td><code>IIssue.Rule</code></td>
-<td></td>
-</tr>
-<tr>
-<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59z"/></svg></span></td>
-<td><code>IIssue.RuleUrl</code></td>
-<td>Support for custom rules can be added through a custom <a href="https://cakebuild.net/api/Cake.Issues.Markdownlint/MarkdownlintIssuesAliases/2EE35F55" target="_blank">MarkdownlintAddRuleUrlResolver</a> except for <a href="https://cakebuild.net/api/Cake.Issues.Markdownlint/MarkdownlintIssuesAliases/36DE6F5F" target="_blank">MarkdownlintCliJsonLogFileFormat</a></td>
-</tr>
-</tbody>
-</table>
+<div class="annotate">
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>IIssue.ProviderType</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>IIssue.ProviderName</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>IIssue.Run</code> (1)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>IIssue.Identifier</code> (2)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>IIssue.ProjectName</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>IIssue.ProjectFileRelativePath</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>IIssue.AffectedFileRelativePath</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>IIssue.Line</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>IIssue.EndLine</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>IIssue.Column</code> (3)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>IIssue.EndColumn</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>IIssue.FileLink</code> (4)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>IIssue.MessageText</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>IIssue.MessageHtml</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>IIssue.MessageMarkdown</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>IIssue.Priority</code> (5)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>IIssue.PriorityName</code> (6)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>IIssue.Rule</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>IIssue.RuleUrl</code> (7)</li>
+</ul>
+</div>
+<ol>
+<li>Can be set while reading issues</li>
+<li>Set to <code>IIssue.MessageText</code></li>
+<li>Only for <a href="https://cakebuild.net/api/Cake.Issues.Markdownlint/MarkdownlintIssuesAliases/B518F49E" target="_blank">MarkdownlintCliLogFileFormat</a></li>
+<li>Can be set while reading issues</li>
+<li>Always <a href="https://cakebuild.net/api/Cake.Issues/IssuePriority/7A0CE07F" target="_blank">IssuePriority.Warning</a></li>
+<li>Always <code>Warning</code></li>
+<li>Support for custom rules can be added through a custom <a href="https://cakebuild.net/api/Cake.Issues.Markdownlint/MarkdownlintIssuesAliases/2EE35F55" target="_blank">MarkdownlintAddRuleUrlResolver</a> except for <a href="https://cakebuild.net/api/Cake.Issues.Markdownlint/MarkdownlintIssuesAliases/36DE6F5F" target="_blank">MarkdownlintCliJsonLogFileFormat</a></li>
+</ol>
 
 
 
