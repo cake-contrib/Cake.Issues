@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://cakeissues.net/develop/documentation/usage/recipe/using-cake-issues-recipe/">
       
       
-        <link rel="prev" href="../../">
+        <link rel="prev" href="../">
       
       
         <link rel="next" href="../using-cake-frosting-issues-recipe/">
@@ -1073,6 +1073,10 @@
     
       
         
+          
+        
+      
+        
       
         
       
@@ -1091,16 +1095,24 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_1_2" checked>
         
           
-          <label class="md-nav__link" for="__nav_3_2_1_2" id="__nav_3_2_1_2_label" tabindex="0">
-            
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
   
   <span class="md-ellipsis">
     Recipe
   </span>
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2_1_2" id="__nav_3_2_1_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
         
         <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_2_1_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_2_1_2">
@@ -1108,6 +1120,8 @@
             Recipe
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
             
               
                 
@@ -5043,14 +5057,15 @@
 <p>The <a href="../../../recipe/overview/">Cake.Issues.Recipe</a> package can be used to easily add issue management functionality to your build script.</p>
 <h2 id="add-cakeissuesrecipe-to-your-build-script">Add Cake.Issues.Recipe to your build script<a class="headerlink" href="#add-cakeissuesrecipe-to-your-build-script" title="Permanent link">&para;</a></h2>
 <p>To use Cake.Issues.Recipe in your build script you need to first load the NuGet package:</p>
-<div class="language-csharp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="err">#</span><span class="n">load</span><span class="w"> </span><span class="n">nuget</span><span class="p">:</span><span class="n">package</span><span class="o">=</span><span class="n">Cake</span><span class="p">.</span><span class="n">Issues</span><span class="p">.</span><span class="n">Recipe</span>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="err">#</span><span class="n">load</span><span class="w"> </span><span class="n">nuget</span><span class="p">:</span><span class="n">package</span><span class="o">=</span><span class="n">Cake</span><span class="p">.</span><span class="n">Issues</span><span class="p">.</span><span class="n">Recipe</span><span class="w"> </span><span class="c1">// (1)!</span>
 </span></code></pre></div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
+<ol>
+<li>
 <p>Please note that you always should pin NuGet packages to a specific version to make sure your builds are deterministic and
-won't break due to updates to Cake.Issues.Recipe.</p>
-<p>See <a href="https://cakebuild.net/docs/tutorials/pinning-cake-version#pinning-addin-version">pinning addin versions</a> for details.</p>
-</div>
+    won't break due to updates to Cake.Issues.Recipe.</p>
+<p>See <a href="https://cakebuild.net/docs/tutorials/pinning-cake-version#pinning-addin-version" target="_blank">pinning addin versions</a> for details.</p>
+</li>
+</ol>
 <h2 id="configuring-cakeissuesrecipe">Configuring Cake.Issues.Recipe<a class="headerlink" href="#configuring-cakeissuesrecipe" title="Permanent link">&para;</a></h2>
 <p>To make issues available to Cake.Issues.Recipe you need to set the corresponding configuration parameters.</p>
 <p>In the following example a new task is introduced which depends on existing tasks which build a MsBuild solution and run JetBrains InspectCode.

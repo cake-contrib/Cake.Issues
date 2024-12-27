@@ -1066,6 +1066,10 @@
     
       
         
+          
+        
+      
+        
       
         
       
@@ -1084,16 +1088,24 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_1_2" >
         
           
-          <label class="md-nav__link" for="__nav_3_2_1_2" id="__nav_3_2_1_2_label" tabindex="0">
-            
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../recipe/" class="md-nav__link ">
+              
   
   <span class="md-ellipsis">
     Recipe
   </span>
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2_1_2" id="__nav_3_2_1_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
         
         <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_2_1_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_2_1_2">
@@ -1101,6 +1113,8 @@
             Recipe
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
             
               
                 
@@ -4946,13 +4960,13 @@
   <h1>Custom Issue Filter</h1>
 
 <p>You can define custom filters which are applied to issues before they are posted as comments to pull requests.</p>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
+<details class="tip">
+<summary>Tip: Filter to issues introduced with pull request</summary>
 <p>You can use a custom filter to only have issues introduced with the current code posted to the pull request.</p>
 <p>For this you need to store your log files as artifacts on your build system, then you can define a custom filter
 which retrieves the logs from the previous build, parses them using the appropriate issue provider and filters
 out any issues which were already existing in the previous build.</p>
-</div>
+</details>
 <p>The following example will filter out all issues from the rule <code>CA1000</code> from being posted to the pull request.</p>
 <div class="language-csharp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="err">#</span><span class="n">addin</span><span class="w"> </span><span class="s">&quot;Cake.Issues&quot;</span><span class="w"> </span><span class="c1">// (1)!</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="err">#</span><span class="n">addin</span><span class="w"> </span><span class="s">&quot;Cake.Issues.MsBuild&quot;</span>

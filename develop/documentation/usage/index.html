@@ -18,7 +18,7 @@
         <link rel="prev" href="../features/">
       
       
-        <link rel="next" href="recipe/using-cake-issues-recipe/">
+        <link rel="next" href="recipe/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -76,6 +76,11 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#ready-to-use-distributions" class="md-skip">
+          Skip to content
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -1066,6 +1071,10 @@
     
       
         
+          
+        
+      
+        
       
         
       
@@ -1084,16 +1093,24 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_1_2" >
         
           
-          <label class="md-nav__link" for="__nav_3_2_1_2" id="__nav_3_2_1_2_label" tabindex="0">
-            
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="recipe/" class="md-nav__link ">
+              
   
   <span class="md-ellipsis">
     Recipe
   </span>
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2_1_2" id="__nav_3_2_1_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
         
         <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_2_1_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_2_1_2">
@@ -1101,6 +1118,8 @@
             Recipe
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
             
               
                 
@@ -4912,6 +4931,32 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ready-to-use-distributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ready To Use Distributions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consuming-of-individual-addins" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consuming Of Individual Addins
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -4935,7 +4980,19 @@
 
   <h1>Usage</h1>
 
-<p>How to obtain, configure, and use Cake.Issues.</p>
+<h2 id="ready-to-use-distributions">Ready To Use Distributions<a class="headerlink" href="#ready-to-use-distributions" title="Permanent link">&para;</a></h2>
+<p>The easiest way to use Cake Issues is by using one of the <a href="recipe/">Recipe packages</a>,
+which provide build scripts, delivered as a NuGet package,
+which can be used inside your projects Cake build to add issue management.</p>
+<h2 id="consuming-of-individual-addins">Consuming Of Individual Addins<a class="headerlink" href="#consuming-of-individual-addins" title="Permanent link">&para;</a></h2>
+<p>The addins can be added individually to any Cake build and allow advanced customizations:</p>
+<ul>
+<li><a href="creating-issues/creating-issues/">Creating Issues</a></li>
+<li><a href="reading-issues/">Reading Issues</a></li>
+<li><a href="creating-reports/">Creating Reports</a></li>
+<li><a href="reporting-issues-to-pull-requests/">Reporting Issues To Pull Request And Build Systems</a></li>
+<li><a href="breaking-builds/breaking-builds/">Breaking Builds</a></li>
+</ul>
 
 
 
