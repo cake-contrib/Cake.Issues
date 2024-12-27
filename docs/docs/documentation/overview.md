@@ -21,7 +21,7 @@ Some examples how Cake.Issues can help development teams to improve code quality
 
 Cake.Issues provides a seamless integration, allowing you to enforce coding standards by breaking builds when linting issues are detected.
 
-[:octicons-arrow-right-24: Aliases for build breaking](https://cakebuild.net/extensions/cake-issues/#Build-Breaking){target="_blank"}
+[:octicons-arrow-right-24: Breaking builds](usage/breaking-builds/breaking-builds.md)
 
 ### Pull Requests integration
 
