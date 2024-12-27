@@ -120,6 +120,7 @@ nav:
           - documentation/usage/reporting-issues-to-pull-requests/index.md
           - Report Issues To Pull Requests: documentation/usage/reporting-issues-to-pull-requests/report-issues-to-pull-requests.md
           - Custom Issue Filter: documentation/usage/reporting-issues-to-pull-requests/custom-issue-filter.md
+        - Breaking Builds: documentation/usage/breaking-builds/breaking-builds.md
       - Supported Tools: documentation/supported-tools.md
       - Recipe:
         - Overview: documentation/recipe/overview.md
