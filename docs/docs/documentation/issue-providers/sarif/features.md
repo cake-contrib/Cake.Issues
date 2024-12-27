@@ -3,32 +3,38 @@ title: Features
 description: Features of the Cake.Issues.Sarif addin.
 ---
 
-The [Cake.Issues.Sarif addin](https://cakebuild.net/extensions/cake-issues-terraform/){target="_blank"} provides the following features:
+The [Cake.Issues.Sarif addin](https://cakebuild.net/extensions/cake-issues-terraform/){target="_blank"} provides the following features.
 
 ## Basic features
 
-* Reads issues from files in [SARIF](https://sarifweb.azurewebsites.net/){target="_blank"} format.
+- [x] Reads issues from files in [SARIF](https://sarifweb.azurewebsites.net/){target="_blank"} format.
 
 ## Supported IIssue properties
 
-|                  | Property                          | Remarks                          |
-|------------------|-----------------------------------|----------------------------------|
-| :material-check: | `IIssue.ProviderType`             |                                  |
-| :material-check: | `IIssue.ProviderName`             |                                  |
-|                  | `IIssue.Run`                      | Can be set while reading issues  |
-| :material-check: | `IIssue.Identifier`               | Set to `IIssue.MessageText`      |
-|                  | `IIssue.ProjectName`              |                                  |
-|                  | `IIssue.ProjectFileRelativePath`  |                                  |
-| :material-check: | `IIssue.AffectedFileRelativePath` |                                  |
-| :material-check: | `IIssue.Line`                     |                                  |
-| :material-check: | `IIssue.EndLine`                  |                                  |
-| :material-check: | `IIssue.Column`                   |                                  |
-| :material-check: | `IIssue.EndColumn`                |                                  |
-|                  | `IIssue.FileLink`                 | Can be set while reading issues  |
-| :material-check: | `IIssue.MessageText`              |                                  |
-|                  | `IIssue.MessageHtml`              |                                  |
-| :material-check: | `IIssue.MessageMarkdown`          |                                  |
-| :material-check: | `IIssue.Priority`                 |                                  |
-| :material-check: | `IIssue.PriorityName`             |                                  |
-| :material-check: | `IIssue.Rule`                     |                                  |
-| :material-check: | `IIssue.RuleUrl`                  |                                  |
+<div class="annotate" markdown>
+
+- [x] `IIssue.ProviderType`
+- [x] `IIssue.ProviderName`
+- [ ] `IIssue.Run` (1)
+- [x] `IIssue.Identifier` (2)
+- [ ] `IIssue.ProjectName`
+- [ ] `IIssue.ProjectFileRelativePath`
+- [x] `IIssue.AffectedFileRelativePath`
+- [x] `IIssue.Line`
+- [x] `IIssue.EndLine`
+- [x] `IIssue.Column`
+- [x] `IIssue.EndColumn`
+- [ ] `IIssue.FileLink` (3)
+- [x] `IIssue.MessageText`
+- [ ] `IIssue.MessageHtml`
+- [x] `IIssue.MessageMarkdown`
+- [x] `IIssue.Priority`
+- [x] `IIssue.PriorityName`
+- [x] `IIssue.Rule`
+- [x] `IIssue.RuleUrl`
+
+</div>
+
+1.  Can be set while reading issues
+2.  Set to `IIssue.MessageText`
+3.  Can be set while reading issues
