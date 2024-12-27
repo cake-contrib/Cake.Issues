@@ -81,6 +81,8 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
   - toc:
       permalink: true
 

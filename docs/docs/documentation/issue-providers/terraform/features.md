@@ -3,35 +3,45 @@ title: Features
 description: Features of the Cake.Issues.Terraform addin.
 ---
 
-The [Cake.Issues.Terraform addin] provides the following features:
+The [Cake.Issues.Terraform addin]{target="_blank"} provides the following features.
+
+??? tip "Tip: Running Terraform"
+    [Terraform](https://www.terraform.io){target="_blank"} can be run with
+    [Cake.Terraform](https://cakebuild.net/extensions/cake-terraform/){target="_blank"} addin.
 
 ## Basic features
 
-* Reads warnings from [Terraform validate command].
+- [x] Reads warnings from [Terraform validate command]{target="_blank"}.
 
 ## Supported IIssue properties
 
-|                  | Property                          | Remarks                          |
-|------------------|-----------------------------------|----------------------------------|
-| :material-check: | `IIssue.ProviderType`             |                                  |
-| :material-check: | `IIssue.ProviderName`             |                                  |
-|                  | `IIssue.Run`                      | Can be set while reading issues  |
-| :material-check: | `IIssue.Identifier`               | Set to `IIssue.MessageText`      |
-|                  | `IIssue.ProjectName`              |                                  |
-|                  | `IIssue.ProjectFileRelativePath`  |                                  |
-| :material-check: | `IIssue.AffectedFileRelativePath` |                                  |
-| :material-check: | `IIssue.Line`                     |                                  |
-| :material-check: | `IIssue.EndLine`                  |                                  |
-| :material-check: | `IIssue.Column`                   |                                  |
-| :material-check: | `IIssue.EndColumn`                |                                  |
-|                  | `IIssue.FileLink`                 | Can be set while reading issues  |
-| :material-check: | `IIssue.MessageText`              |                                  |
-|                  | `IIssue.MessageHtml`              |                                  |
-|                  | `IIssue.MessageMarkdown`          |                                  |
-| :material-check: | `IIssue.Priority`                 |                                  |
-| :material-check: | `IIssue.PriorityName`             |                                  |
-| :material-check: | `IIssue.Rule`                     |                                  |
-|                  | `IIssue.RuleUrl`                  |                                  |
+<div class="annotate" markdown>
+
+- [x] `IIssue.ProviderType`
+- [x] `IIssue.ProviderName`
+- [ ] `IIssue.Run` (1)
+- [x] `IIssue.Identifier` (2)
+- [ ] `IIssue.ProjectName`
+- [ ] `IIssue.ProjectFileRelativePath`
+- [x] `IIssue.AffectedFileRelativePath`
+- [x] `IIssue.Line`
+- [x] `IIssue.EndLine`
+- [x] `IIssue.Column`
+- [x] `IIssue.EndColumn`
+- [ ] `IIssue.FileLink` (3)
+- [x] `IIssue.MessageText`
+- [ ] `IIssue.MessageHtml`
+- [ ] `IIssue.MessageMarkdown`
+- [x] `IIssue.Priority`
+- [x] `IIssue.PriorityName`
+- [x] `IIssue.Rule`
+- [x] `IIssue.RuleUrl`
+
+</div>
+
+1.  Can be set while reading issues
+2.  Set to `IIssue.MessageText`
+3.  Can be set while reading issues
 
 [Terraform validate command]: https://www.terraform.io/docs/cli/commands/validate.html
 [Cake.Issues.Terraform addin]: https://cakebuild.net/extensions/cake-issues-terraform/

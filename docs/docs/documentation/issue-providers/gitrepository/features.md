@@ -8,32 +8,38 @@ provides the following features.
 
 ## Basic features
 
-* Checks path length of files. See [FilePathTooLong] for details.
-* Checks if binary files are tracked by Git LFS. See [BinaryFileNotTrackedByLfs] for details.
+- [x] Checks path length of files. See [FilePathTooLong] for details.
+- [x] Checks if binary files are tracked by Git LFS. See [BinaryFileNotTrackedByLfs] for details.
 
 ## Supported IIssue properties
 
-|                  | Property                          | Remarks                         |
-|------------------|-----------------------------------|---------------------------------|
-| :material-check: | `IIssue.ProviderType`             |                                 |
-| :material-check: | `IIssue.ProviderName`             |                                 |
-|                  | `IIssue.Run`                      | Can be set while reading issues |
-| :material-check: | `IIssue.Identifier`               | Set to `IIssue.MessageText`     |
-|                  | `IIssue.ProjectName`              |                                 |
-|                  | `IIssue.ProjectFileRelativePath`  |                                 |
-| :material-check: | `IIssue.AffectedFileRelativePath` |                                 |
-|                  | `IIssue.Line`                     |                                 |
-|                  | `IIssue.EndLine`                  |                                 |
-|                  | `IIssue.Column`                   |                                 |
-|                  | `IIssue.EndColumn`                |                                 |
-|                  | `IIssue.FileLink`                 | Can be set while reading issues |
-| :material-check: | `IIssue.MessageText`              |                                 |
-| :material-check: | `IIssue.MessageHtml`              |                                 |
-| :material-check: | `IIssue.MessageMarkdown`          |                                 |
-| :material-check: | `IIssue.Priority`                 |                                 |
-| :material-check: | `IIssue.PriorityName`             |                                 |
-| :material-check: | `IIssue.Rule`                     |                                 |
-| :material-check: | `IIssue.RuleUrl`                  |                                 |
+<div class="annotate" markdown>
+
+- [x] `IIssue.ProviderType`
+- [x] `IIssue.ProviderName`
+- [ ] `IIssue.Run` (1)
+- [x] `IIssue.Identifier` (2)
+- [ ] `IIssue.ProjectName`
+- [ ] `IIssue.ProjectFileRelativePath`
+- [x] `IIssue.AffectedFileRelativePath`
+- [ ] `IIssue.Line`
+- [ ] `IIssue.EndLine`
+- [ ] `IIssue.Column`
+- [ ] `IIssue.EndColumn`
+- [ ] `IIssue.FileLink` (3)
+- [x] `IIssue.MessageText`
+- [x] `IIssue.MessageHtml`
+- [x] `IIssue.MessageMarkdown`
+- [x] `IIssue.Priority`
+- [x] `IIssue.PriorityName`
+- [x] `IIssue.Rule`
+- [x] `IIssue.RuleUrl`
+
+</div>
+
+1.  Can be set while reading issues
+2.  Set to `IIssue.MessageText`
+3.  Can be set while reading issues
 
 [FilePathTooLong]: rules/FilePathTooLong.md
 [BinaryFileNotTrackedByLfs]: rules/BinaryFileNotTrackedByLfs.md
