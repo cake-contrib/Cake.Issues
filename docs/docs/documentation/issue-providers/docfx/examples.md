@@ -1,6 +1,7 @@
 ---
 title: Examples
 description: Examples for using the Cake.Issues.DocFx addin.
+icon: material/test-tube
 ---
 
 The following example will call [DocFx](https://dotnet.github.io/docfx/){target="_blank"} to

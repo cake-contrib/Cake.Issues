@@ -146,6 +146,7 @@ nav:
           - Features: documentation/issue-providers/gitrepository/features.md
           - Examples: documentation/issue-providers/gitrepository/examples.md
           - Rules:
+            - documentation/issue-providers/gitrepository/rules/index.md
             - BinaryFileNotTrackedByLfs: documentation/issue-providers/gitrepository/rules/BinaryFileNotTrackedByLfs.md
             - FilePathTooLong: documentation/issue-providers/gitrepository/rules/FilePathTooLong.md
         - InspectCode:

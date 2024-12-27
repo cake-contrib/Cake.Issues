@@ -1,6 +1,7 @@
 ---
 title: Features
 description: Features of the Cake.Issues.DocFx addin.
+icon: material/creation-outline
 ---
 
 The [Cake.Issues.DocFx addin](https://cakebuild.net/extensions/cake-issues-docfx/){target="_blank"}

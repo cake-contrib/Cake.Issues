@@ -1,6 +1,7 @@
 ---
 title: Features
 description: Features of the Cake.Issues.EsLint addin.
+icon: material/creation-outline
 ---
 
 The [Cake.Issues.EsLint addin](https://cakebuild.net/extensions/cake-issues-eslint/){target="_blank"} provides the following features.

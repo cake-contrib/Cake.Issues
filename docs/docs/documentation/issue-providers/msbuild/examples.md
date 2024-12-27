@@ -1,6 +1,7 @@
 ---
 title: Examples
 description: Examples for using the Cake.Issues.MsBuild addin.
+icon: material/test-tube
 ---
 
 The following example will call MsBuild to build the solution and outputs the number of warnings.

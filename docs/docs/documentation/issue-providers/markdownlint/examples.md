@@ -1,6 +1,7 @@
 ---
 title: Examples
 description: Examples for using the Cake.Issues.Markdownlint addin.
+icon: material/test-tube
 ---
 
 The following example will call [markdownlint-cli] to lint some markdown files and outputs the number of warnings.

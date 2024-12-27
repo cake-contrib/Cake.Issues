@@ -1,6 +1,7 @@
 ---
 title: Features
 description: Features of the Cake.Issues.Terraform addin.
+icon: material/creation-outline
 ---
 
 The [Cake.Issues.Terraform addin]{target="_blank"} provides the following features.
