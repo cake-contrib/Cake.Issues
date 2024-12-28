@@ -186,6 +186,7 @@ nav:
           - documentation/report-formats/generic/index.md
           - Features: documentation/report-formats/generic/features.md
           - Examples:
+            - documentation/report-formats/generic/examples/index.md
             - Embedded Default Template: documentation/report-formats/generic/examples/default-template.md
             - Custom Template: documentation/report-formats/generic/examples/custom-template.md
           - Template Gallery:
@@ -219,6 +220,7 @@ nav:
           - documentation/pull-request-systems/github-actions/index.md
           - Features: documentation/pull-request-systems/github-actions/features.md
           - Examples:
+            - documentation/pull-request-systems/github-actions/examples/index.md
             - Create annotations in GitHub Actions: documentation/pull-request-systems/github-actions/examples/write-annotations.md
     - How To Develop:
       - Extending:

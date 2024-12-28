@@ -1,6 +1,7 @@
 ---
 title: Features
 description: Features of the Cake.Issues.PullRequests.AzureDevOps addin.
+icon: material/creation-outline
 ---
 
 The [Cake.Issues.PullRequests.AzureDevOps addin](https://cakebuild.net/extensions/cake-issues-pullrequests-azuredevops/){target="_blank"}
@@ -11,22 +12,20 @@ provides the following features.
 
 ## Basic features
 
-* Writes issues as comments to [Azure DevOps](https://azure.microsoft.com/en-us/services/devops/){target="_blank"} pull requests.
-* Identification of pull requests through source branch or pull request ID.
-* Comments written by the addin will be rendered with a specific icon corresponding to the state of the issue.
-* Adds rule number and, if provided by the issue provider, link to the rule description to the comment.
-* Support for issues messages formatted in Markdown format.
+- [x] Writes issues as comments to [Azure DevOps](https://azure.microsoft.com/en-us/services/devops/){target="_blank"} pull requests.
+- [x] Identification of pull requests through source branch or pull request ID.
+- [x] Comments written by the addin will be rendered with a specific icon corresponding to the state of the issue.
+- [x] Adds rule number and, if provided by the issue provider, link to the rule description to the comment.
+- [x] Support for issues messages formatted in Markdown format.
 
 ## Supported capabilities
 
 The [Cake.Issues.PullRequests.AzureDevOps addin](https://cakebuild.net/extensions/cake-issues-pullrequests-azuredevops/){target="_blank"}
 supports the following capabilities.
 
-|                  | Capability                     | Remarks                        |
-|------------------|--------------------------------|--------------------------------|
-| :material-check: | Checking commit ID             |                                |
-| :material-check: | Discussion threads             |                                |
-| :material-check: | Filtering by modified files    |                                |
+- [x] Checking commit ID
+- [x] Discussion threads
+- [x] Filtering by modified files
 
 ## Supported authentication methods
 
