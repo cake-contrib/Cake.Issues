@@ -5092,29 +5092,30 @@
 
   <h1>How Cake Issues Works</h1>
 
-<p>The Cake Issues addins are built in a modular architecture, allowing to easily
-enhance it for supporting additional analyzers, linters, report formats and pull request systems.</p>
+<p>The Cake Issues <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr> are built in a modular architecture, allowing to easily
+enhance it for supporting additional analyzers, <abbr title="Static code analysis tools used to flag programming errors, bugs, stylistic errors and suspicious constructs">linters</abbr>, report formats and pull request systems.</p>
 <p><img alt="Architecture Overview" src="../assets/images/overview.png" title="Architecture Overview" /></p>
 <h2 id="cakeissues-addin">Cake.Issues addin<a class="headerlink" href="#cakeissues-addin" title="Permanent link">&para;</a></h2>
-<p>The <code>Cake.Issues</code> addin provides aliases for creating issues or reading issues using one or more issue providers.</p>
-<p>Support for different code analyzers and linters is provided through <a href="../issue-providers/">issue provider</a> addins
-which cover a wide range of <a href="../supported-tools/">linters and tools</a>.</p>
+<p>The <code>Cake.Issues</code> addin provides <abbr title="Aliases are convenience methods that are easily accessible directly from a Cake build">aliases</abbr> for creating issues or reading issues using one or more issue providers.</p>
+<p>Support for different code analyzers and <abbr title="Static code analysis tools used to flag programming errors, bugs, stylistic errors and suspicious constructs">linters</abbr> is provided through <a href="../issue-providers/">issue provider</a> <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr>
+which cover a wide range of <a href="../supported-tools/"><abbr title="Static code analysis tools used to flag programming errors, bugs, stylistic errors and suspicious constructs">linters</abbr> and tools</a>.</p>
 <p>The issues are read into <a href="https://cakebuild.net/api/Cake.Issues/IIssue/" target="_blank">IIssue</a> objects
 which then can be passed to <a href="#cakeissuesreporting-addin">Cake.Issues.Reporting addin</a>,
 <a href="#cakeissuespullrequests-addin">Cake.Issues.PullRequests addin</a> or further processed in the build script.</p>
-<p>The use of <a href="../issue-providers/">issue provider</a> addins, which contain the parsing logic for individual tool output formats,
+<p>The use of <a href="../issue-providers/">issue provider</a> <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr>, which contain the parsing logic for individual tool output formats,
 and the use of <a href="https://cakebuild.net/api/Cake.Issues/IIssue/" target="_blank">IIssue</a> as common data structure,
 allows to abstract the tooling output from other concerns like integration with
 build systems, pull request workflow or the creation of reports.</p>
 <h2 id="cakeissuesreporting-addin">Cake.Issues.Reporting addin<a class="headerlink" href="#cakeissuesreporting-addin" title="Permanent link">&para;</a></h2>
-<p>The <code>Cake.Issues.Reporting</code> addin provides aliases for creating reports for issues
+<p>The <code>Cake.Issues.Reporting</code> addin provides <abbr title="Aliases are convenience methods that are easily accessible directly from a Cake build">aliases</abbr> for creating reports for issues
 which are read or have been created using the <a href="#cakeissues-addin">Cake.Issues addin</a>.</p>
-<p>Support for different report formats is provided through <a href="../report-formats/">report format</a> addins.</p>
+<p>Support for different report formats is provided through <a href="../report-formats/">report format</a> <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr>.</p>
 <h2 id="cakeissuespullrequests-addin">Cake.Issues.PullRequests addin<a class="headerlink" href="#cakeissuespullrequests-addin" title="Permanent link">&para;</a></h2>
-<p>The <code>Cake.Issues.PullRequests</code> addin provides aliases for reporting issues
+<p>The <code>Cake.Issues.PullRequests</code> addin provides <abbr title="Aliases are convenience methods that are easily accessible directly from a Cake build">aliases</abbr> for reporting issues
 which are read or have been created using the <a href="#cakeissues-addin">Cake.Issues addin</a>
 as comments to pull requests or builds.</p>
-<p>Support for different pull request systems is provided through <a href="../pull-request-systems/">pull request system</a> addins.</p>
+<p>Support for different pull request systems is provided through <a href="../pull-request-systems/">pull request system</a> <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr>.</p>
+<!-- Glossary for terms and concepts not documented on cakeissues.net -->
 
 
 
