@@ -7,6 +7,7 @@ site_description: Issue Management for the Cake Build System
 # Repository
 repo_name: cake-contrib/Cake.Issues
 repo_url: https://github.com/cake-contrib/Cake.Issues
+edit_uri: edit/develop/docs/docs/
 
 # Copyright
 copyright: Copyright &copy; Cake Issues Contributors
