@@ -1,2 +1,2 @@
-"Tool","Tool Version","Format","Issue Provider","Supported Since","Remarks"
-"[Psalm](https://psalm.dev/){target='_blank'}",,[results.sarif](https://psalm.dev/docs/security_analysis/#other-sarif-compatible-software),"[Cake.Issues.Sarif](issue-providers/sarif/index.md)",4.2.0,
+"Tool","Tool Version","Format","Issue Provider","Supported Since"
+"[Psalm](https://psalm.dev/){target='_blank'}",,[results.sarif](https://psalm.dev/docs/security_analysis/#other-sarif-compatible-software),"[Cake.Issues.Sarif](issue-providers/sarif/index.md)",4.2.0
