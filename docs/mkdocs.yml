@@ -48,6 +48,7 @@ theme:
     - content.action.edit
     - content.code.annotate
     - content.code.copy
+    - content.tooltips
     - navigation.indexes 
     - navigation.instant
     - navigation.instant.progress
