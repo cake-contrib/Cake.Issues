@@ -19,6 +19,10 @@ validation:
   unrecognized_links: warn
   anchors: warn
 
+# Preview controls
+watch:
+  - snippets
+
 # Theme configuration
 theme:
   name: material
@@ -68,6 +72,7 @@ plugins:
 
 # Extensions
 markdown_extensions:
+  - abbr
   - admonition
   - attr_list
   - md_in_html
@@ -80,7 +85,9 @@ markdown_extensions:
       line_spans: __span
       pygments_lang_class: true
   - pymdownx.inlinehilite
-  - pymdownx.snippets
+  - pymdownx.snippets:
+      auto_append:
+        - snippets/abbreviations.md
   - pymdownx.superfences
   - pymdownx.tasklist:
       custom_checkbox: true
