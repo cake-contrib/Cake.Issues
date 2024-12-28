@@ -1,6 +1,7 @@
 ---
 title: Setup
 description: Instructions how to setup the Cake.Issues.PullRequests.AzureDevOps addin.
+icon: material/cogs
 ---
 
 This page describes the different ways how the [Cake.Issues.PullRequests.AzureDevOps addin] can be setup.

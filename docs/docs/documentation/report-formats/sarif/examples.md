@@ -1,6 +1,7 @@
 ---
 title: Examples
 description: Examples for using the Cake.Issues.Reporting.Sarif addin.
+icon: material/test-tube
 ---
 
 The following example will create a SARIF report for issues logged as warnings by MsBuild.
