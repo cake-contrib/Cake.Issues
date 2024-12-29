@@ -229,7 +229,6 @@ nav:
     - How To Develop:
       - Extending:
         - documentation/extending/index.md
-        - Fundamentals: documentation/extending/fundamentals.md
         - Issue Provider: 
           - Overview: documentation/extending/issue-provider/overview.md
           - Alias Categories: documentation/extending/issue-provider/categories.md
