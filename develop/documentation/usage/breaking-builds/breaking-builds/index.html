@@ -5071,15 +5071,8 @@
 
 <p>The <code>Cake.Issues</code> addin can be used to break builds if specific issues were reported.</p>
 <p>To break builds you need to import the following core addin:</p>
-<div class="language-csharp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="err">#</span><span class="n">addin</span><span class="w"> </span><span class="s">&quot;Cake.Issues&quot;</span><span class="w"> </span><span class="c1">// (1)!</span>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="err">#</span><span class="n">addin</span><span class="w"> </span><span class="n">nuget</span><span class="p">:</span><span class="o">?</span><span class="n">package</span><span class="o">=</span><span class="n">Cake</span><span class="p">.</span><span class="n">Issues</span><span class="o">&amp;</span><span class="n">version</span><span class="o">=</span><span class="m">5.0</span><span class="p">.</span><span class="m">1</span>
 </span></code></pre></div>
-<ol>
-<li>
-<p>Please note that you always should pin <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr> to a specific version to make sure your builds are deterministic and
-    won't break due to updates to one of the <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr>.</p>
-<p>See <a href="https://cakebuild.net/docs/writing-builds/reproducible-builds/" target="_blank">pinning addin versions</a> for details.</p>
-</li>
-</ol>
 <p>The following task will fail the build if any issues were added to the <code>issues</code> global variable:</p>
 <div class="language-csharp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// Global issues list into which issues need to be added.</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">IEnumerable</span><span class="o">&lt;</span><span class="n">IIssue</span><span class="o">&gt;</span><span class="w"> </span><span class="n">issues</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>

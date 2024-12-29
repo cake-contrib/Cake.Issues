@@ -5072,29 +5072,15 @@
   <h1>Report Issues To Pull Requests</h1>
 
 <p>To use report issues to pull requests you need to import the following core <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr>:</p>
-<div class="language-csharp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="err">#</span><span class="n">addin</span><span class="w"> </span><span class="s">&quot;Cake.Issues&quot;</span><span class="w"> </span><span class="c1">// (1)!</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="err">#</span><span class="n">addin</span><span class="w"> </span><span class="s">&quot;Cake.Issues.PullRequests&quot;</span>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="err">#</span><span class="n">addin</span><span class="w"> </span><span class="n">nuget</span><span class="p">:</span><span class="o">?</span><span class="n">package</span><span class="o">=</span><span class="n">Cake</span><span class="p">.</span><span class="n">Issues</span><span class="o">&amp;</span><span class="n">version</span><span class="o">=</span><span class="m">5.0</span><span class="p">.</span><span class="m">1</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="err">#</span><span class="n">addin</span><span class="w"> </span><span class="n">nuget</span><span class="p">:</span><span class="o">?</span><span class="n">package</span><span class="o">=</span><span class="n">Cake</span><span class="p">.</span><span class="n">Issues</span><span class="p">.</span><span class="n">PullRequests</span><span class="o">&amp;</span><span class="n">version</span><span class="o">=</span><span class="m">5.0</span><span class="p">.</span><span class="m">1</span>
 </span></code></pre></div>
-<ol>
-<li>
-<p>Please note that you always should pin <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr> to a specific version to make sure your builds are deterministic and
-    won't break due to updates to one of the <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr>.</p>
-<p>See <a href="https://cakebuild.net/docs/writing-builds/reproducible-builds/" target="_blank">pinning addin versions</a> for details.</p>
-</li>
-</ol>
 <p>Also you need to import at least one issue provider and pull request system.
 In the following example the issue provider for reading warnings from MsBuild log files
 and support for Azure DevOps pull requests is imported:</p>
-<div class="language-csharp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="err">#</span><span class="n">addin</span><span class="w"> </span><span class="s">&quot;Cake.Issues.MsBuild&quot;</span><span class="w"> </span><span class="c1">// (1)!</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="err">#</span><span class="n">addin</span><span class="w"> </span><span class="s">&quot;Cake.Issues.PullRequests.AzureDevOps&quot;</span>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="err">#</span><span class="n">addin</span><span class="w"> </span><span class="n">nuget</span><span class="p">:</span><span class="o">?</span><span class="n">package</span><span class="o">=</span><span class="n">Cake</span><span class="p">.</span><span class="n">Issues</span><span class="p">.</span><span class="n">MsBuild</span><span class="o">&amp;</span><span class="n">version</span><span class="o">=</span><span class="m">5.0</span><span class="p">.</span><span class="m">1</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="err">#</span><span class="n">addin</span><span class="w"> </span><span class="n">nuget</span><span class="p">:</span><span class="o">?</span><span class="n">package</span><span class="o">=</span><span class="n">Cake</span><span class="p">.</span><span class="n">Issues</span><span class="p">.</span><span class="n">PullRequests</span><span class="p">.</span><span class="n">AzureDevOps</span><span class="o">&amp;</span><span class="n">version</span><span class="o">=</span><span class="m">5.0</span><span class="p">.</span><span class="m">1</span>
 </span></code></pre></div>
-<ol>
-<li>
-<p>Please note that you always should pin <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr> to a specific version to make sure your builds are deterministic and
-    won't break due to updates to one of the <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr>.</p>
-<p>See <a href="https://cakebuild.net/docs/writing-builds/reproducible-builds/" target="_blank">pinning addin versions</a> for details.</p>
-</li>
-</ol>
 <p>Finally you can define a task where you call the core addin with the desired issue provider and pull request system:</p>
 <div class="language-csharp highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">Task</span><span class="p">(</span><span class="s">&quot;ReportIssuesToPullRequest&quot;</span><span class="p">).</span><span class="n">Does</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">{</span>

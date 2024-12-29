@@ -5073,10 +5073,10 @@
 
 <p>The following example will print issues logged as warnings by MsBuild to the console.</p>
 <div class="language-csharp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="err">#</span><span class="n">tool</span><span class="w"> </span><span class="s">&quot;nuget:?package=MSBuild.Extension.Pack&quot;</span><span class="w"> </span><span class="c1">// (1)!</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="err">#</span><span class="n">addin</span><span class="w"> </span><span class="s">&quot;Cake.Issues&quot;</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="err">#</span><span class="n">addin</span><span class="w"> </span><span class="s">&quot;Cake.Issues.MsBuild&quot;</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="err">#</span><span class="n">addin</span><span class="w"> </span><span class="s">&quot;Cake.Issues.Reporting&quot;</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="err">#</span><span class="n">addin</span><span class="w"> </span><span class="s">&quot;Cake.Issues.Reporting.Console&quot;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="err">#</span><span class="n">addin</span><span class="w"> </span><span class="n">nuget</span><span class="p">:</span><span class="o">?</span><span class="n">package</span><span class="o">=</span><span class="n">Cake</span><span class="p">.</span><span class="n">Issues</span><span class="o">&amp;</span><span class="n">version</span><span class="o">=</span><span class="m">5.0</span><span class="p">.</span><span class="m">1</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="err">#</span><span class="n">addin</span><span class="w"> </span><span class="n">nuget</span><span class="p">:</span><span class="o">?</span><span class="n">package</span><span class="o">=</span><span class="n">Cake</span><span class="p">.</span><span class="n">Issues</span><span class="p">.</span><span class="n">MsBuild</span><span class="o">&amp;</span><span class="n">version</span><span class="o">=</span><span class="m">5.0</span><span class="p">.</span><span class="m">1</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="err">#</span><span class="n">addin</span><span class="w"> </span><span class="n">nuget</span><span class="p">:</span><span class="o">?</span><span class="n">package</span><span class="o">=</span><span class="n">Cake</span><span class="p">.</span><span class="n">Issues</span><span class="p">.</span><span class="n">Reporting</span><span class="o">&amp;</span><span class="n">version</span><span class="o">=</span><span class="m">5.0</span><span class="p">.</span><span class="m">1</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="err">#</span><span class="n">addin</span><span class="w"> </span><span class="n">nuget</span><span class="p">:</span><span class="o">?</span><span class="n">package</span><span class="o">=</span><span class="n">Cake</span><span class="p">.</span><span class="n">Issues</span><span class="p">.</span><span class="n">Reporting</span><span class="p">.</span><span class="n">Console</span><span class="o">&amp;</span><span class="n">version</span><span class="o">=</span><span class="m">5.0</span><span class="p">.</span><span class="m">1</span>
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
 </span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">Task</span><span class="p">(</span><span class="s">&quot;Create-IssueReport&quot;</span><span class="p">).</span><span class="n">Does</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span>
 </span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="p">{</span>
@@ -5116,9 +5116,9 @@
 </span></code></pre></div>
 <ol>
 <li>
-<p>Please note that you always should pin <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr> to a specific version to make sure your builds are deterministic and
-    won't break due to updates to one of the <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr>.</p>
-<p>See <a href="https://cakebuild.net/docs/writing-builds/reproducible-builds/" target="_blank">pinning addin versions</a> for details.</p>
+<p>In production code this dependency should be pinned to a specific version to make sure builds are deterministic and
+    won't break due to updates.</p>
+<p>See <a href="https://cakebuild.net/docs/writing-builds/reproducible-builds/" target="_blank">Reproducible Builds</a> for details.</p>
 </li>
 </ol>
 <!-- Glossary for terms and concepts not documented on cakeissues.net -->

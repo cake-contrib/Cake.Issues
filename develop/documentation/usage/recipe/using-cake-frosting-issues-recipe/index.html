@@ -5209,12 +5209,8 @@
 </div>
 <h2 id="add-cakefrostingissuesrecipe-to-your-cake-frosting-build">Add Cake.Frosting.Issues.Recipe to your Cake Frosting build<a class="headerlink" href="#add-cakefrostingissuesrecipe-to-your-cake-frosting-build" title="Permanent link">&para;</a></h2>
 <p>To use <a href="../../../recipe/">Cake.Frosting.Issues.Recipe</a> in your Cake Frosting build you need to first add the NuGet package in your <code>.csproj</code> file:</p>
-<div class="language-csharp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="o">&lt;</span><span class="n">PackageReference</span><span class="w"> </span><span class="n">Include</span><span class="o">=</span><span class="s">&quot;Cake.Frosting.Issues.Recipe&quot;</span><span class="w"> </span><span class="n">Version</span><span class="o">=</span><span class="s">&quot;1.0.0&quot;</span><span class="w"> </span><span class="o">/&gt;</span>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="o">&lt;</span><span class="n">PackageReference</span><span class="w"> </span><span class="n">Include</span><span class="o">=</span><span class="s">&quot;Cake.Frosting.Issues.Recipe&quot;</span><span class="w"> </span><span class="n">Version</span><span class="o">=</span><span class="s">&quot;5.0.1&quot;</span><span class="w"> </span><span class="o">/&gt;</span>
 </span></code></pre></div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Replace the version (<code>1.0.0</code>) with the version of Cake.Frosting.Issues.Recipe you want to use.</p>
-</div>
 <h2 id="register-cakeissues-tasks">Register Cake.Issues tasks<a class="headerlink" href="#register-cakeissues-tasks" title="Permanent link">&para;</a></h2>
 <p>To make Cake Issues tasks available to your Cake Frosting build you need to register them.</p>
 <p>Add the following line to the bootstrapping code in the <code>Main</code> method of your Cake Frosting project:</p>
@@ -5242,9 +5238,9 @@
 </span></code></pre></div>
 <ol>
 <li>
-<p>Please note that you always should pin <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr> to a specific version to make sure your builds are deterministic and
-    won't break due to updates to one of the <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr>.</p>
-<p>See <a href="https://cakebuild.net/docs/writing-builds/reproducible-builds/" target="_blank">pinning addin versions</a> for details.</p>
+<p>In production code this dependency should be pinned to a specific version to make sure builds are deterministic and
+    won't break due to updates.</p>
+<p>See <a href="https://cakebuild.net/docs/writing-builds/reproducible-builds/" target="_blank">Reproducible Builds</a> for details.</p>
 </li>
 </ol>
 <h2 id="create-build-context">Create build context<a class="headerlink" href="#create-build-context" title="Permanent link">&para;</a></h2>

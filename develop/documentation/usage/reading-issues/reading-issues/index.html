@@ -5074,28 +5074,14 @@
 <p>The <code>Cake.Issues</code> addin can be used to aggregate issues from different sources.
 This can for example be useful to break builds based on the reported issues.</p>
 <p>To read issues you need to import the following core addin:</p>
-<div class="language-csharp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="err">#</span><span class="n">addin</span><span class="w"> </span><span class="s">&quot;Cake.Issues&quot;</span><span class="w"> </span><span class="c1">// (1)!</span>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="err">#</span><span class="n">addin</span><span class="w"> </span><span class="n">nuget</span><span class="p">:</span><span class="o">?</span><span class="n">package</span><span class="o">=</span><span class="n">Cake</span><span class="p">.</span><span class="n">Issues</span><span class="o">&amp;</span><span class="n">version</span><span class="o">=</span><span class="m">5.0</span><span class="p">.</span><span class="m">1</span>
 </span></code></pre></div>
-<ol>
-<li>
-<p>Please note that you always should pin <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr> to a specific version to make sure your builds are deterministic and
-    won't break due to updates to one of the <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr>.</p>
-<p>See <a href="https://cakebuild.net/docs/writing-builds/reproducible-builds/" target="_blank">pinning addin versions</a> for details.</p>
-</li>
-</ol>
 <p>Also you need to import at least one issue provider.
 In the following example the issue providers for reading warnings from MsBuild log files
 and from JetBrains InspectCode are imported:</p>
-<div class="language-csharp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="err">#</span><span class="n">addin</span><span class="w"> </span><span class="s">&quot;Cake.Issues.MsBuild&quot;</span><span class="w"> </span><span class="c1">// (1)!</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="err">#</span><span class="n">addin</span><span class="w"> </span><span class="s">&quot;Cake.Issues.InspectCode&quot;</span>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="err">#</span><span class="n">addin</span><span class="w"> </span><span class="n">nuget</span><span class="p">:</span><span class="o">?</span><span class="n">package</span><span class="o">=</span><span class="n">Cake</span><span class="p">.</span><span class="n">Issues</span><span class="p">.</span><span class="n">MsBuild</span><span class="o">&amp;</span><span class="n">version</span><span class="o">=</span><span class="m">5.0</span><span class="p">.</span><span class="m">1</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="err">#</span><span class="n">addin</span><span class="w"> </span><span class="n">nuget</span><span class="p">:</span><span class="o">?</span><span class="n">package</span><span class="o">=</span><span class="n">Cake</span><span class="p">.</span><span class="n">Issues</span><span class="p">.</span><span class="n">InspectCode</span><span class="o">&amp;</span><span class="n">version</span><span class="o">=</span><span class="m">5.0</span><span class="p">.</span><span class="m">1</span>
 </span></code></pre></div>
-<ol>
-<li>
-<p>Please note that you always should pin <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr> to a specific version to make sure your builds are deterministic and
-    won't break due to updates to one of the <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr>.</p>
-<p>See <a href="https://cakebuild.net/docs/writing-builds/reproducible-builds/" target="_blank">pinning addin versions</a> for details.</p>
-</li>
-</ol>
 <p>Finally you can define a task where you call the core addin with the desired issue providers.
 The following example reads issues reported as MsBuild warnings by the <code>XmlFileLogger</code>
 class from <a href="http://www.msbuildextensionpack.com/" target="_blank">MSBuild Extension Pack</a> and issues reported by JetBrains InspectCode:</p>
