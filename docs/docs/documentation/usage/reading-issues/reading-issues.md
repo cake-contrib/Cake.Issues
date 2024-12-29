@@ -22,8 +22,8 @@ and from JetBrains InspectCode are imported:
 ```
 
 Finally you can define a task where you call the core addin with the desired issue providers.
-The following example reads issues reported as MsBuild warnings by the `XmlFileLogger`
-class from [MSBuild Extension Pack](http://www.msbuildextensionpack.com/){target="_blank"} and issues reported by JetBrains InspectCode:
+The following example reads warnings and errors reported by MsBuild from a binary log
+and issues reported by JetBrains InspectCode:
 
 ```csharp
 Task("Read-Issues").Does(() =>
@@ -34,7 +34,7 @@ Task("Read-Issues").Does(() =>
         {
             MsBuildIssuesFromFilePath(
                 @"C:\build\msbuild.log",
-                MsBuildXmlFileLoggerFormat),
+                MsBuildBinaryLogFileFormat),
             InspectCodeIssuesFromFilePath(
                 @"C:\build\inspectcode.log")
         },

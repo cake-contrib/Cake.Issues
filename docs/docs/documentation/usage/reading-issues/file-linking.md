@@ -12,7 +12,7 @@ var settings =
     {
         FileLinkSettings =
             IssueFileLinkSettingsForGitHubCommit(
-                "https://github.com/cake-contrib/Cake.Issues.Reporting.Generic",
+                "https://github.com/cake-contrib/Cake.Issues",
                 "76a7cacef7ad4295a6766646d45c9b56")
     };
 

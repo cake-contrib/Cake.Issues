@@ -34,12 +34,9 @@ Task("ReportIssuesToPullRequest").Does(() =>
         {
             MsBuildIssuesFromFilePath(
                 @"C:\build\msbuild.log",
-                MsBuildXmlFileLoggerFormat)
+                MsBuildBinaryLogFileFormat)
         },
-        AzureDevOpsPullRequests(
-            new Uri("http://myserver:8080/tfs/defaultcollection/myproject/_git/myrepository"),
-            "refs/heads/feature/myfeature",
-            AzureDevOpsAuthenticationNtlm()),
+        AzureDevOpsPullRequests(),
         settings));
 });
 ```
