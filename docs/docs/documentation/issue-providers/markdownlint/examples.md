@@ -17,11 +17,9 @@ To call [markdownlint-cli] from a Cake script you can use the [Cake.Markdownlint
 To read issues from markdownlint-cli log files you need to import the core addin and the markdownlint support:
 
 ```csharp
-#addin "Cake.Issues" // (1)!
-#addin "Cake.Issues.Markdownlint"
+#addin nuget:?package=Cake.Issues&version={{ cake_issues_version }}
+#addin nuget:?package=Cake.Issues.Markdownlint&version={{ cake_issues_version }}
 ```
-
---8<-- "snippets/pinning.md"
 
 We need some global variables:
 

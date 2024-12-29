@@ -14,11 +14,9 @@ The following example prints the number of binary files which are not tracked by
 To analyze Git repositories you need to import the core addin and the Git repository support:
 
 ```csharp
-#addin "Cake.Issues" // (1)!
-#addin "Cake.Issues.GitRepository"
+#addin nuget:?package=Cake.Issues&version={{ cake_issues_version }}
+#addin nuget:?package=Cake.Issues.GitRepository&version={{ cake_issues_version }}
 ```
-
---8<-- "snippets/pinning.md"
 
 We need some global variables:
 

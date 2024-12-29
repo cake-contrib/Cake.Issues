@@ -8,10 +8,10 @@ The following example will create a SARIF report for issues logged as warnings b
 
 ```csharp
 #tool "nuget:?package=MSBuild.Extension.Pack" // (1)!
-#addin "Cake.Issues"
-#addin "Cake.Issues.MsBuild"
-#addin "Cake.Issues.Reporting"
-#addin "Cake.Issues.Reporting.Sarif"
+#addin nuget:?package=Cake.Issues&version={{ cake_issues_version }}
+#addin nuget:?package=Cake.Issues.MsBuild&version={{ cake_issues_version }}
+#addin nuget:?package=Cake.Issues.Reporting&version={{ cake_issues_version }}
+#addin nuget:?package=Cake.Issues.Reporting.Sarif&version={{ cake_issues_version }}
 
 Task("Create-IssueReport").Does(() =>
 {

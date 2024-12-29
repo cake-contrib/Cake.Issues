@@ -7,10 +7,10 @@ The following example will create a HTML report for issues logged as warnings by
 
 ```csharp
 #tool "nuget:?package=MSBuild.Extension.Pack" // (1)!
-#addin "Cake.Issues"
-#addin "Cake.Issues.MsBuild"
-#addin "Cake.Issues.Reporting"
-#addin "Cake.Issues.Reporting.Generic"
+#addin nuget:?package=Cake.Issues&version={{ cake_issues_version }}
+#addin nuget:?package=Cake.Issues.MsBuild&version={{ cake_issues_version }}
+#addin nuget:?package=Cake.Issues.Reporting&version={{ cake_issues_version }}
+#addin nuget:?package=Cake.Issues.Reporting.Generic&version={{ cake_issues_version }}
 
 Task("Create-IssueReport").Does(() =>
 {

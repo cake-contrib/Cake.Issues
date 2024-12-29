@@ -1,6 +1,7 @@
 ---
 title: GitHub pull request integration
 description: Example how to write AppVeyor message to GitHub pull requests.
+render_macros: false
 ---
 
 This example shows how to write AppVeyor messages created by Cake.Issues to GitHub pull requests.

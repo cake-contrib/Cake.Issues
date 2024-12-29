@@ -10,13 +10,11 @@ the core pull request addin, the AppVeyor support and one or more issue provider
 in this example for JetBrains InspectCode:
 
 ```csharp
-#addin "Cake.Issues" // (1)!
-#addin "Cake.Issues.InspectCode"
-#addin "Cake.Issues.PullRequests"
-#addin "Cake.Issues.PullRequests.AppVeyor"
+#addin nuget:?package=Cake.Issues&version={{ cake_issues_version }}
+#addin nuget:?package=Cake.Issues.InspectCode&version={{ cake_issues_version }}
+#addin nuget:?package=Cake.Issues.PullRequests&version={{ cake_issues_version }}
+#addin nuget:?package=Cake.Issues.PullRequests.AppVeyor&version={{ cake_issues_version }}
 ```
-
---8<-- "snippets/pinning.md"
 
 In the following task we'll first determine the remote repository URL and
 source branch of the pull request and with this information call the

@@ -9,10 +9,8 @@ This issues can for example be used to create reports.
 To create issues you need to import the following core addin:
 
 ```csharp
-#addin "Cake.Issues" // (1)!
+#addin nuget:?package=Cake.Issues&version={{ cake_issues_version }}
 ```
-
---8<-- "snippets/pinning.md"
 
 In the following task a new warning for the myfile.txt file on line 42 is created:
 

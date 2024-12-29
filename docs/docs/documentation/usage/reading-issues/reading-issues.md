@@ -9,21 +9,17 @@ This can for example be useful to break builds based on the reported issues.
 To read issues you need to import the following core addin:
 
 ```csharp
-#addin "Cake.Issues" // (1)!
+#addin nuget:?package=Cake.Issues&version={{ cake_issues_version }}
 ```
-
---8<-- "snippets/pinning.md"
 
 Also you need to import at least one issue provider.
 In the following example the issue providers for reading warnings from MsBuild log files
 and from JetBrains InspectCode are imported:
 
 ```csharp
-#addin "Cake.Issues.MsBuild" // (1)!
-#addin "Cake.Issues.InspectCode"
+#addin nuget:?package=Cake.Issues.MsBuild&version={{ cake_issues_version }}
+#addin nuget:?package=Cake.Issues.InspectCode&version={{ cake_issues_version }}
 ```
-
---8<-- "snippets/pinning.md"
 
 Finally you can define a task where you call the core addin with the desired issue providers.
 The following example reads issues reported as MsBuild warnings by the `XmlFileLogger`

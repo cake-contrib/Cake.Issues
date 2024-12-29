@@ -8,10 +8,10 @@ The following example will print issues logged as warnings by MsBuild to the con
 
 ```csharp
 #tool "nuget:?package=MSBuild.Extension.Pack" // (1)!
-#addin "Cake.Issues"
-#addin "Cake.Issues.MsBuild"
-#addin "Cake.Issues.Reporting"
-#addin "Cake.Issues.Reporting.Console"
+#addin nuget:?package=Cake.Issues&version={{ cake_issues_version }}
+#addin nuget:?package=Cake.Issues.MsBuild&version={{ cake_issues_version }}
+#addin nuget:?package=Cake.Issues.Reporting&version={{ cake_issues_version }}
+#addin nuget:?package=Cake.Issues.Reporting.Console&version={{ cake_issues_version }}
 
 Task("Create-IssueReport").Does(() =>
 {
