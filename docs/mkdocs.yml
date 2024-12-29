@@ -53,6 +53,7 @@ theme:
     - content.action.edit
     - content.code.annotate
     - content.code.copy
+    - content.tabs.link
     - content.tooltips
     - navigation.indexes 
     - navigation.instant
@@ -90,6 +91,8 @@ markdown_extensions:
       auto_append:
         - snippets/abbreviations.md
   - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
@@ -137,11 +140,11 @@ nav:
         - Breaking Builds: documentation/usage/breaking-builds/breaking-builds.md
       - Supported Tools: documentation/supported-tools.md
       - Recipe:
-        - Overview: documentation/recipe/overview.md
+        - documentation/recipe/index.md
         - Supported Tools: documentation/recipe/supported-tools.md
-        - Demos: documentation/recipe/demos.md
         - Configuration: documentation/recipe/configuration.md
         - Tasks: documentation/recipe/tasks.md
+        - Demos: documentation/recipe/demos.md
       - Issue Providers:
         - documentation/issue-providers/index.md
         - DocFx:

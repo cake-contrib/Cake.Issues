@@ -9,18 +9,38 @@ Cake.Issues recipes support reading issues from different tools and integrates w
 
 Cake.Issues recipes support reading issues from output of the following tools:
 
-| Tool                              | Format                                 | Cake.Issues.Recipe Methods                                                                     | Cake.Frosting.Issues.Recipe Method                                                                     |
-|-----------------------------------|----------------------------------------|------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
-| MsBuild                           | [MSBuild Extension Pack XmlFileLogger] | `IssuesParameters.InputFiles.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`AddMsBuildXmlFileLoggerLogFile*()` | `IssuesContext.Parameters.InputFiles.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`AddMsBuildXmlFileLoggerLogFile*()` |
-| MsBuild                           | Binary Log File                        | `IssuesParameters.InputFiles.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`AddMsBuildBinaryLogFile*()`        | `IssuesContext.Parameters.InputFiles.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`AddMsBuildBinaryLogFile*()`        |
-| JetBrains InspectCode (ReSharper) |                                        | `IssuesParameters.InputFiles.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`AddInspectCodeLogFile*()`          | `IssuesContext.Parameters.InputFiles.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`AddInspectCodeLogFile*()`          |
-| markdownlint                      | [markdownlint-cli]                     | `IssuesParameters.InputFiles.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`AddMarkdownlintCliLogFile*()`      | `IssuesContext.Parameters.InputFiles.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`AddMarkdownlintCliLogFile*()`      |
-| markdownlint                      | [markdownlint-cli] with `--json`       | `IssuesParameters.InputFiles.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`AddMarkdownlintCliJsonLogFile*()`  | `IssuesContext.Parameters.InputFiles.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`AddMarkdownlintCliJsonLogFile*()`  |
-| markdownlint                      | [markdownlint] version 1               | `IssuesParameters.InputFiles.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`AddMarkdownlintV1LogFile*()`       | `IssuesContext.Parameters.InputFiles.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`AddMarkdownlintV1LogFile*()`       |
-| [ESLint]                          | [json formatter]                       | `IssuesParameters.InputFiles.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`AddEsLintJsonLogFile*()`           | `IssuesContext.Parameters.InputFiles.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`AddEsLintJsonLogFile*()`           |
-| Any SARIF compatible tool         | [SARIF]                                | `IssuesParameters.InputFiles.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`AddSarifLogFile*()`                | `IssuesContext.Parameters.InputFiles.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`AddSarifLogFile*()`                |
+=== "Cake.Issues.Recipe"
 
-[MSBuild Extension Pack XmlFileLogger]: http://www.msbuildextensionpack.com/help/4.0.5.0/html/242ab4fd-c2e2-f6aa-325b-7588725aed24.htm
+    | Tool                              | Format                                                  | IssuesParameters.InputFiles Method  |
+    |-----------------------------------|---------------------------------------------------------|-------------------------------------|
+    | MsBuild                           | [MSBuild Extension Pack XmlFileLogger]{target="_blank"} | `AddMsBuildXmlFileLoggerLogFile*()` |
+    | MsBuild                           | Binary Log File                                         | `AddMsBuildBinaryLogFile*()`        |
+    | JetBrains InspectCode (ReSharper) | [xml]{target="_blank"}                                  | `AddInspectCodeLogFile*()`          |
+    | markdownlint                      | [markdownlint-cli]{target="_blank"} default format      | `AddMarkdownlintCliLogFile*()`      |
+    | markdownlint                      | [markdownlint-cli]{target="_blank"} with `--json`       | `AddMarkdownlintCliJsonLogFile*()`  |
+    | markdownlint                      | [markdownlint]{target="_blank"} version 1               | `AddMarkdownlintV1LogFile*()`       |
+    | [ESLint]                          | [json formatter]{target="_blank"}                       | `AddEsLintJsonLogFile*()`           |
+    | Any SARIF compatible tool         | [SARIF]{target="_blank"}                                | `AddSarifLogFile*()`                |
+
+=== "Cake.Frosting.Issues.Recipe"
+
+    | Tool                              | Format                                                  | IssuesContext.Parameters.InputFiles Method |
+    |-----------------------------------|---------------------------------------------------------|--------------------------------------------|
+    | MsBuild                           | [MSBuild Extension Pack XmlFileLogger]{target="_blank"} | `AddMsBuildXmlFileLoggerLogFile*()`        |
+    | MsBuild                           | Binary Log File                                         | `AddMsBuildBinaryLogFile*()`               |
+    | JetBrains InspectCode (ReSharper) | [xml]{target="_blank"}                                  | `AddInspectCodeLogFile*()`                 |
+    | markdownlint                      | [markdownlint-cli]{target="_blank"} default format      | `AddMarkdownlintCliLogFile*()`             |
+    | markdownlint                      | [markdownlint-cli]{target="_blank"} with `--json`       | `AddMarkdownlintCliJsonLogFile*()`         |
+    | markdownlint                      | [markdownlint]{target="_blank"} version 1               | `AddMarkdownlintV1LogFile*()`              |
+    | [ESLint]                          | [json formatter]{target="_blank"}                       | `AddEsLintJsonLogFile*()`                  |
+    | Any SARIF compatible tool         | [SARIF]{target="_blank"}                                | `AddSarifLogFile*()`                       |
+
+!!! tip
+
+    See [Supported tools](../supported-tools.md) for a list of tools supporting the SARIF format.
+
+[MSBuild Extension Pack XmlFileLogger]: https://github.com/mikefourie-zz/MSBuildExtensionPack/blob/master/Solutions/Main/Loggers/Framework/XmlFileLogger.cs
+[xml]: https://www.jetbrains.com/help/resharper/InspectCode.html#alternative-output-formats
 [markdownlint-cli]: https://github.com/igorshubovych/markdownlint-cli
 [markdownlint]: https://github.com/DavidAnson/markdownlint
 [ESLint]: https://eslint.org/
@@ -31,17 +51,58 @@ Cake.Issues recipes support reading issues from output of the following tools:
 
 Cake.Issues recipes integrates with the following build systems:
 
-| Build System                   | Write issues to build server     | Issues summary     | Full issues report |
-|--------------------------------|----------------------------------|--------------------|--------------------|
-| AppVeyor                       | :material-check:                 |                    | :material-check:   |
-| Azure Pipelines (Azure DevOps) | :material-check: (Only first 10) | :material-check:   | :material-check:   |
-| GitHub Actions                 | :material-check:                 |                    |                    |
+=== "AppVeyor"
+
+    <div class="annotate" markdown>
+
+    - [x] Write issues to build server
+    - [ ] Issues summary
+    - [x] Full issues report
+
+    </div>
+
+=== "Azure Pipelines"
+
+    <div class="annotate" markdown>
+
+    - [x] Write issues to build server (1)
+    - [x] Issues summary
+    - [x] Full issues report
+
+    </div>
+
+    1.  Only first 10
+
+=== "GitHub Actions"
+
+    <div class="annotate" markdown>
+
+    - [x] Write issues to build server
+    - [ ] Issues summary
+    - [ ] Full issues report
+
+    </div>
 
 ## Pull request systems
 
 Cake.Issues recipes integrates with the following pull request systems:
 
-| Pull Request System        | Write issues to pull requests                     | Set pull request status |
-|----------------------------|---------------------------------------------------|-------------------------|
-| Azure Repos (Azure DevOps) | :material-check:                                  | :material-check:        |
-| GitHub                     | :material-check: (When build from GitHub Actions) |                         |
+=== "Azure Repos"
+
+    <div class="annotate" markdown>
+
+    - [x] Write issues to pull requests
+    - [x] Set pull request status
+
+    </div>
+
+=== "GitHub"
+
+    <div class="annotate" markdown>
+
+    - [x] Write issues to pull requests (1)
+    - [ ] Set pull request status
+
+    </div>
+
+    1.  When build from GitHub Actions

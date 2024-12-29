@@ -123,6 +123,6 @@ public class DefaultTask : FrostingTask
 }
 ```
 
-[Cake.Frosting.Issues.Recipe]: ../../recipe/overview.md
+[Cake.Frosting.Issues.Recipe]: ../../recipe/index.md
 [configuration]: ../../recipe/configuration.md
 [tasks]: ../../recipe/tasks.md

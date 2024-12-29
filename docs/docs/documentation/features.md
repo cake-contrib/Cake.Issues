@@ -17,7 +17,7 @@ description: Overview about core features.
     It handles all the parsing, integration with build and pull request systems for you,
     using the individual Cake Issues addins.
 
-    [:octicons-arrow-right-24: Recipes](recipe/overview.md)
+    [:octicons-arrow-right-24: Recipes](recipe/index.md)
 
 </div>
 
