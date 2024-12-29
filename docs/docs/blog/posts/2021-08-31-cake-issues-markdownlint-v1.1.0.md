@@ -41,4 +41,4 @@ To update to the new version bump the version of the addin.
 
 [MarkdownlintCliJsonLogFileFormat]: https://cakebuild.net/api/Cake.Issues.Markdownlint/MarkdownlintIssuesAliases/36DE6F5F
 [MarkdownlintCliLogFileFormat]: https://cakebuild.net/api/Cake.Issues.Markdownlint/MarkdownlintIssuesAliases/B518F49E
-[Cake Issues recipes]: ../../documentation/recipe/overview.md
+[Cake Issues recipes]: ../../documentation/recipe/index.md

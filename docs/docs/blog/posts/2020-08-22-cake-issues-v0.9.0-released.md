@@ -140,7 +140,7 @@ across all runs.
 [Cake.Issues.Recipe], the Cake Recipe script which you can integrate into your build script for easy integration of
 full feature issue management, has been updated to version 0.4.0, bringing all the new features of Cake.Issues 0.9.0.
 
-[Cake.Issues.Recipe]: ../../documentation/recipe/overview.md
+[Cake.Issues.Recipe]: ../../documentation/recipe/index.md
 
 ## Updating from previous versions
 

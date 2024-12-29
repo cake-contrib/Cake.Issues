@@ -11,8 +11,21 @@ They support different linters based on the linting log files you pass it and in
 
 There are two flavors available:
 
-* [Cake.Issues.Recipe]: For [Cake .NET Tool], [Cake runner for .NET Framework] or [Cake runner for .NET Core]
-* [Cake.Frosting.Issues.Recipe]: For [Cake Frosting]
+<div class="grid cards" markdown>
+
+-   :material-receipt-text: [Cake.Issues.Recipe]
+
+    ---
+
+    For [Cake .NET Tool]{target="_blank"}
+
+-   :material-receipt-text: [Cake.Frosting.Issues.Recipe]
+
+    ---
+
+    For [Cake Frosting]{target="_blank"}
+
+</div>
 
 ## Supported tools
 
@@ -22,29 +35,49 @@ See [supported tools] for a list of supported linters, build servers and pull re
 
 Cake.Issues recipes will add the following addins to your build:
 
-| Addin Cake.Issues.Recipe                                | Addin.Frosting.Issues.Recipe                                     | Remarks |
-|---------------------------------------------------------|------------------------------------------------------------------|-|
-| [Cake.Git] 5.0.1                                        | [Cake.Frosting.Git] 5.0.1                                        | Only used if `RepositoryInfoProvider` type is set to `RepositoryInfoProviderType.CakeGit`. See [Git repository information configuration] for details. |
-| [Cake.Issues] 5.0.1                                     | [Cake.Issues] 5.0.1                                              | |
-| [Cake.Issues.MsBuild] 5.0.1                             | [Cake.Frosting.Issues.MsBuild] 5.0.1                             | |
-| [Cake.Issues.InspectCode] 5.0.1                         | [Cake.Frosting.Issues.InspectCode] 5.0.1                         | |
-| [Cake.Issues.Markdownlint] 5.0.1                        | [Cake.Frosting.Issues.Markdownlint] 5.0.1                        | |
-| [Cake.Issues.EsLint] 5.0.1                              | [Cake.Frosting.Issues.EsLint] 5.0.1                              | |
-| [Cake.Issues.Sarif] 5.0.1                               | [Cake.Frosting.Issues.Sarif] 5.0.1                               | |
-| [Cake.Issues.Reporting] 5.0.1                           | [Cake.Frosting.Issues.Reporting] 5.0.1                           | |
-| [Cake.Issues.Reporting.Generic] 5.0.1                   | [Cake.Frosting.Issues.Reporting.Generic] 5.0.1                   | |
-| [Cake.Issues.Reporting.Sarif] 5.0.1                     | [Cake.Frosting.Issues.Reporting.Sarif] 5.0.1                     | |
-| [Cake.Issues.PullRequests] 5.0.1                        | [Cake.Frosting.Issues.PullRequests] 5.0.1                        | |
-| [Cake.Issues.PullRequests.AppVeyor] 5.0.1               | [Cake.Frosting.Issues.PullRequests.AppVeyor] 5.0.1               | |
-| [Cake.Issues.PullRequests.AzureDevOps] 5.0.1            | [Cake.Frosting.Issues.PullRequests.AzureDevOps] 5.0.1            | |
-| [Cake.Issues.PullRequests.GitHubActions] 5.0.1          | [Cake.Frosting.Issues.PullRequests.GitHubActions] 5.0.1          | |
-| [Cake.AzureDevOps] 5.0.0                                | [Cake.AzureDevOps] 5.0.0                                         | |
+=== "Cake.Issues.Recipe"
+
+    | Addin                                                     | Version |  Remarks |
+    |-----------------------------------------------------------|---------|-|
+    | [Cake.Git]{target="_blank"}                               | 5.0.1   | Only used if `RepositoryInfoProvider` type is set to `RepositoryInfoProviderType.CakeGit`. See [Git repository information configuration] for details. |
+    | [Cake.Issues]{target="_blank"}                            | 5.0.1   | |
+    | [Cake.Issues.MsBuild]{target="_blank"}                    | 5.0.1   | |
+    | [Cake.Issues.InspectCode]{target="_blank"}                | 5.0.1   | |
+    | [Cake.Issues.Markdownlint]{target="_blank"}               | 5.0.1   | |
+    | [Cake.Issues.EsLint]{target="_blank"}                     | 5.0.1   | |
+    | [Cake.Issues.Sarif]{target="_blank"}                      | 5.0.1   | |
+    | [Cake.Issues.Reporting]{target="_blank"}                  | 5.0.1   | |
+    | [Cake.Issues.Reporting.Generic]{target="_blank"}          | 5.0.1   | |
+    | [Cake.Issues.Reporting.Sarif]{target="_blank"}            | 5.0.1   | |
+    | [Cake.Issues.PullRequests]{target="_blank"}               | 5.0.1   | |
+    | [Cake.Issues.PullRequests.AppVeyor]{target="_blank"}      | 5.0.1   | |
+    | [Cake.Issues.PullRequests.AzureDevOps]{target="_blank"}   | 5.0.1   | |
+    | [Cake.Issues.PullRequests.GitHubActions]{target="_blank"} | 5.0.1   | |
+    | [Cake.AzureDevOps]{target="_blank"}                       | 5.0.0   | |
+
+=== "Cake.Frosting.Issues.Recipe"
+
+    | Addin                                                                    | Version | Remarks |
+    |--------------------------------------------------------------------------|---------|-|
+    | [Cake.Frosting.Git]{target="_blank"}                               | 5.0.1   | Only used if `RepositoryInfoProvider` type is set to `RepositoryInfoProviderType.CakeGit`. See [Git repository information configuration] for details. |
+    | [Cake.Issues]{target="_blank"}                                     | 5.0.1   | |
+    | [Cake.Frosting.Issues.MsBuild]{target="_blank"}                    | 5.0.1   | |
+    | [Cake.Frosting.Issues.InspectCode]{target="_blank"}                | 5.0.1   | |
+    | [Cake.Frosting.Issues.Markdownlint]{target="_blank"}               | 5.0.1   | |
+    | [Cake.Frosting.Issues.EsLint]{target="_blank"}                     | 5.0.1   | |
+    | [Cake.Frosting.Issues.Sarif]{target="_blank"}                      | 5.0.1   | |
+    | [Cake.Frosting.Issues.Reporting]{target="_blank"}                  | 5.0.1   | |
+    | [Cake.Frosting.Issues.Reporting.Generic]{target="_blank"}          | 5.0.1   | |
+    | [Cake.Frosting.Issues.Reporting.Sarif]{target="_blank"}            | 5.0.1   | |
+    | [Cake.Frosting.Issues.PullRequests]{target="_blank"}               | 5.0.1   | |
+    | [Cake.Frosting.Issues.PullRequests.AppVeyor]{target="_blank"}      | 5.0.1   | |
+    | [Cake.Frosting.Issues.PullRequests.AzureDevOps]{target="_blank"}   | 5.0.1   | |
+    | [Cake.Frosting.Issues.PullRequests.GitHubActions]{target="_blank"} | 5.0.1   | |
+    | [Cake.AzureDevOps]{target="_blank"}                                | 5.0.0   | |
 
 [Cake.Issues.Recipe]: https://www.nuget.org/packages/Cake.Issues.Recipe
 [Cake.Frosting.Issues.Recipe]: https://www.nuget.org/packages/Cake.Frosting.Issues.Recipe
 [Cake .NET Tool]: https://cakebuild.net/docs/running-builds/runners/dotnet-tool
-[Cake runner for .NET Framework]: https://cakebuild.net/docs/running-builds/runners/cake-runner-for-dotnet-framework
-[Cake runner for .NET Core]: https://cakebuild.net/docs/running-builds/runners/cake-runner-for-dotnet-core
 [Cake Frosting]: https://cakebuild.net/docs/running-builds/runners/cake-frosting
 [supported tools]: supported-tools.md
 [Git repository information configuration]: configuration.md#git-repository-information
