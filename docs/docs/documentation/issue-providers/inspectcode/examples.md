@@ -17,11 +17,9 @@ To call [JetBrains InspectCode] from a Cake script you need to add the `JetBrain
 To read issues from InspectCode log files you need to import the core addin and the InspectCode support:
 
 ```csharp
-#addin "Cake.Issues" // (1)!
-#addin "Cake.Issues.InspectCode"
+#addin nuget:?package=Cake.Issues&version={{ cake_issues_version }}
+#addin nuget:?package=Cake.Issues.InspectCode&version={{ cake_issues_version }}
 ```
-
---8<-- "snippets/pinning.md"
 
 We need some global variables:
 

@@ -10,11 +10,11 @@ the core pull request addin, the Azure DevOps support including the Cake.AzureDe
 in this example for JetBrains InspectCode:
 
 ```csharp
-#addin "Cake.Issues" // (1)!
-#addin "Cake.Issues.InspectCode"
-#addin "Cake.Issues.PullRequests"
-#addin "Cake.Issues.PullRequests.AzureDevOps"
-#addin "Cake.AzureDevOps"
+#addin nuget:?package=Cake.Issues&version={{ cake_issues_version }}
+#addin nuget:?package=Cake.Issues.InspectCode&version={{ cake_issues_version }}
+#addin nuget:?package=Cake.Issues.PullRequests&version={{ cake_issues_version }}
+#addin nuget:?package=Cake.Issues.PullRequests.AzureDevOps&version={{ cake_issues_version }}
+#addin "Cake.AzureDevOps" // (1)!
 ```
 
 --8<-- "snippets/pinning.md"

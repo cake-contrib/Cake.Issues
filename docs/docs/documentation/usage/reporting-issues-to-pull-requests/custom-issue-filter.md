@@ -15,10 +15,10 @@ You can define custom filters which are applied to issues before they are posted
 The following example will filter out all issues from the rule `CA1000` from being posted to the pull request.
 
 ```csharp
-#addin "Cake.Issues" // (1)!
-#addin "Cake.Issues.MsBuild"
-#addin "Cake.Issues.PullRequests"
-#addin "Cake.Issues.PullRequests.AzureDevOps"
+#addin nuget:?package=Cake.Issues&version={{ cake_issues_version }}
+#addin nuget:?package=Cake.Issues.MsBuild&version={{ cake_issues_version }}
+#addin nuget:?package=Cake.Issues.PullRequests&version={{ cake_issues_version }}
+#addin nuget:?package=Cake.Issues.PullRequests.AzureDevOps&version={{ cake_issues_version }}
 
 Task("ReportIssuesToPullRequest").Does(() =>
 {
@@ -43,5 +43,3 @@ Task("ReportIssuesToPullRequest").Does(() =>
         settings));
 });
 ```
-
---8<-- "snippets/pinning.md"

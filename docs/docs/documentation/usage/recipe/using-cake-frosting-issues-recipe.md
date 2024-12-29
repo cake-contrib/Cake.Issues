@@ -15,11 +15,8 @@ The [Cake.Frosting.Issues.Recipe] package can be used to easily add issue manage
 To use [Cake.Frosting.Issues.Recipe] in your Cake Frosting build you need to first add the NuGet package in your `.csproj` file:
 
 ```csharp
-<PackageReference Include="Cake.Frosting.Issues.Recipe" Version="1.0.0" />
+<PackageReference Include="Cake.Frosting.Issues.Recipe" Version="{{ cake_issues_version }}" />
 ```
-
-!!! warning
-    Replace the version (`1.0.0`) with the version of Cake.Frosting.Issues.Recipe you want to use.
 
 ## Register Cake.Issues tasks
 

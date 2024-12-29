@@ -8,19 +8,21 @@ This example shows how to write issues as comments to an Azure DevOps pull reque
 To determine the remote repository URL you need the [Cake.Git](https://cakebuild.net/extensions/cake-git/){target="_blank"} addin:
 
 ```csharp
-#addin "Cake.Git"
+#addin "Cake.Git" // (1)!
 ```
+
+--8<-- "snippets/pinning.md"
 
 To write issues as comments to Azure DevOps pull requests you need to import the core addin,
 the core pull request addin, the Azure DevOps support including the Cake.AzureDevOps addin, and one or more issue providers,
 in this example for JetBrains InspectCode:
 
 ```csharp
-#addin "Cake.Issues" // (1)!
-#addin "Cake.Issues.InspectCode"
-#addin "Cake.Issues.PullRequests"
-#addin "Cake.Issues.PullRequests.AzureDevOps"
-#addin "Cake.AzureDevOps"
+#addin nuget:?package=Cake.Issues&version={{ cake_issues_version }}
+#addin nuget:?package=Cake.Issues.InspectCode&version={{ cake_issues_version }}
+#addin nuget:?package=Cake.Issues.PullRequests&version={{ cake_issues_version }}
+#addin nuget:?package=Cake.Issues.PullRequests.AzureDevOps&version={{ cake_issues_version }}
+#addin "Cake.AzureDevOps" // (1)!
 ```
 
 --8<-- "snippets/pinning.md"

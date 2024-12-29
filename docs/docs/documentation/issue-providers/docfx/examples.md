@@ -19,11 +19,9 @@ use the [Cake.DocFx](https://cakebuild.net/extensions/cake-docfx/){target="_blan
 To read issues from DocFx log files you need to import the core addin and the DocFx support:
 
 ```csharp
-#addin "Cake.Issues" // (1)!
-#addin "Cake.Issues.DocFx"
+#addin nuget:?package=Cake.Issues&version={{ cake_issues_version }}
+#addin nuget:?package=Cake.Issues.DocFx&version={{ cake_issues_version }}
 ```
-
---8<-- "snippets/pinning.md"
 
 We need some global variables:
 
