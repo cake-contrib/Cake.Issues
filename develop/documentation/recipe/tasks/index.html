@@ -18,7 +18,7 @@
         <link rel="prev" href="../configuration/">
       
       
-        <link rel="next" href="../../issue-providers/">
+        <link rel="next" href="../demos/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -1577,6 +1577,8 @@
     
       
         
+          
+        
       
         
       
@@ -1601,16 +1603,24 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3_2_3" id="__nav_3_2_3_label" tabindex="0">
-            
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
   
   <span class="md-ellipsis">
     Recipe
   </span>
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2_3" id="__nav_3_2_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
         
         <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_2_3">
@@ -1619,25 +1629,6 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../overview/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Overview
-  </span>
-  
-
-      </a>
-    </li>
-  
-
               
             
               
@@ -1652,27 +1643,6 @@
   
   <span class="md-ellipsis">
     Supported Tools
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../demos/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Demos
   </span>
   
 
@@ -1727,6 +1697,27 @@
 
       </a>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../demos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Demos
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -5079,72 +5070,126 @@
   <h1>Tasks</h1>
 
 <p>Cake.Issues recipes provide the following tasks to your build script:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Cake.Issues.Recipe</label><label for="__tabbed_1_2">Cake.Frosting.Issues.Recipe</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <table>
 <thead>
 <tr>
 <th>Task</th>
 <th>Description</th>
-<th>Cake.Issues.Recipe task instance</th>
-<th>Cake.Frosting.Issues.Recipe task type</th>
+<th>IssuesBuildTasks property</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>Issues</code></td>
 <td>Main tasks for issue management integration.</td>
-<td><code>IssuesBuildTasks.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>IssuesTask</code></td>
+<td><code>IssuesTask</code></td>
+</tr>
+<tr>
+<td><code>Read-Issues</code></td>
+<td>Reads issues from the provided log files.</td>
+<td><code>ReadIssuesTask</code></td>
+</tr>
+<tr>
+<td><code>Create-FullIssuesReport</code></td>
+<td>Creates issue report.</td>
+<td><code>CreateFullIssuesReportTask</code></td>
+</tr>
+<tr>
+<td><code>Publish-IssuesArtifacts</code></td>
+<td>Publish artifacts to build server.</td>
+<td><code>PublishIssuesArtifactsTask</code></td>
+</tr>
+<tr>
+<td><code>Report-IssuesToBuildServer</code></td>
+<td>Report issues to build server.</td>
+<td><code>ReportIssuesToBuildServerTask</code></td>
+</tr>
+<tr>
+<td><code>Create-SummaryIssuesReport</code></td>
+<td>Creates a summary issue report.</td>
+<td><code>CreateSummaryIssuesReportTask</code></td>
+</tr>
+<tr>
+<td><code>Report-IssuesToPullRequest</code></td>
+<td>Report issues to pull request.</td>
+<td><code>ReportIssuesToPullRequestTask</code></td>
+</tr>
+<tr>
+<td><code>Set-PullRequestIssuesState</code></td>
+<td>Set pull request status.</td>
+<td><code>SetPullRequestIssuesStateTask</code></td>
+</tr>
+<tr>
+<td><code>Report-IssuesToConsole</code></td>
+<td>Report issues to console.</td>
+<td><code>ReportIssuesToConsoleTask</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Description</th>
+<th>Task type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Issues</code></td>
+<td>Main tasks for issue management integration.</td>
 <td><code>Cake.Frosting.Issues.Recipe.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>IssuesTask</code></td>
 </tr>
 <tr>
 <td><code>Read-Issues</code></td>
 <td>Reads issues from the provided log files.</td>
-<td><code>IssuesBuildTasks.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>ReadIssuesTask</code></td>
 <td><code>Cake.Frosting.Issues.Recipe.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>ReadIssuesTask</code></td>
 </tr>
 <tr>
 <td><code>Create-FullIssuesReport</code></td>
 <td>Creates issue report.</td>
-<td><code>IssuesBuildTasks.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>CreateFullIssuesReportTask</code></td>
 <td><code>Cake.Frosting.Issues.Recipe.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>CreateFullIssuesReportTask</code></td>
 </tr>
 <tr>
 <td><code>Publish-IssuesArtifacts</code></td>
 <td>Publish artifacts to build server.</td>
-<td><code>IssuesBuildTasks.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>PublishIssuesArtifactsTask</code></td>
 <td><code>Cake.Frosting.Issues.Recipe.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>PublishIssuesArtifactsTask</code></td>
 </tr>
 <tr>
 <td><code>Report-IssuesToBuildServer</code></td>
 <td>Report issues to build server.</td>
-<td><code>IssuesBuildTasks.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>ReportIssuesToBuildServerTask</code></td>
 <td><code>Cake.Frosting.Issues.Recipe.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>ReportIssuesToBuildServerTask</code></td>
 </tr>
 <tr>
 <td><code>Create-SummaryIssuesReport</code></td>
 <td>Creates a summary issue report.</td>
-<td><code>IssuesBuildTasks.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>CreateSummaryIssuesReportTask</code></td>
 <td><code>Cake.Frosting.Issues.Recipe.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>CreateSummaryIssuesReportTask</code></td>
 </tr>
 <tr>
 <td><code>Report-IssuesToPullRequest</code></td>
 <td>Report issues to pull request.</td>
-<td><code>IssuesBuildTasks.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>ReportIssuesToPullRequestTask</code></td>
 <td><code>Cake.Frosting.Issues.Recipe.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>ReportIssuesToPullRequestTask</code></td>
 </tr>
 <tr>
 <td><code>Set-PullRequestIssuesState</code></td>
 <td>Set pull request status.</td>
-<td><code>IssuesBuildTasks.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>SetPullRequestIssuesStateTask</code></td>
 <td><code>Cake.Frosting.Issues.Recipe.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>SetPullRequestIssuesStateTask</code></td>
 </tr>
 <tr>
 <td><code>Report-IssuesToConsole</code></td>
 <td>Report issues to console.</td>
-<td><code>IssuesBuildTasks.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>ReportIssuesToConsoleTask</code></td>
 <td><code>Cake.Frosting.Issues.Recipe.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>ReportIssuesToConsoleTask</code></td>
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+</div>
 <!-- Glossary for terms and concepts not documented on cakeissues.net -->
 
 
@@ -5166,6 +5211,8 @@
             </div>
           
           
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
@@ -5222,7 +5269,7 @@
       <div class="md-progress" data-md-component="progress" role="progressbar"></div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.indexes", "navigation.instant", "navigation.instant.progress", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "search.highlight", "search.suggest"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.indexes", "navigation.instant", "navigation.instant.progress", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "search.highlight", "search.suggest"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.88dd0f4e.min.js"></script>

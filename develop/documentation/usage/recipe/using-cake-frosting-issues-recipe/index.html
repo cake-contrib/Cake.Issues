@@ -1665,6 +1665,8 @@
     
       
         
+          
+        
       
         
       
@@ -1689,16 +1691,24 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_3" >
         
           
-          <label class="md-nav__link" for="__nav_3_2_3" id="__nav_3_2_3_label" tabindex="0">
-            
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../recipe/" class="md-nav__link ">
+              
   
   <span class="md-ellipsis">
     Recipe
   </span>
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2_3" id="__nav_3_2_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
         
         <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_2_3">
@@ -1707,25 +1717,6 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../recipe/overview/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Overview
-  </span>
-  
-
-      </a>
-    </li>
-  
-
               
             
               
@@ -1740,27 +1731,6 @@
   
   <span class="md-ellipsis">
     Supported Tools
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../recipe/demos/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Demos
   </span>
   
 
@@ -1803,6 +1773,27 @@
   
   <span class="md-ellipsis">
     Tasks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../recipe/demos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Demos
   </span>
   
 
@@ -5211,13 +5202,13 @@
 
   <h1>Cake.Frosting.Issues.Recipe</h1>
 
-<p>The <a href="../../../recipe/overview/">Cake.Frosting.Issues.Recipe</a> package can be used to easily add issue management functionality to your Cake Frosting build.</p>
+<p>The <a href="../../../recipe/">Cake.Frosting.Issues.Recipe</a> package can be used to easily add issue management functionality to your Cake Frosting build.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>See <a href="https://cakebuild.net/docs/getting-started/setting-up-a-new-frosting-project{target=&quot;_blank&quot;}">Setting Up A New Frosting Project</a> for instructions how to create a new Cake Frosting project.</p>
 </div>
 <h2 id="add-cakefrostingissuesrecipe-to-your-cake-frosting-build">Add Cake.Frosting.Issues.Recipe to your Cake Frosting build<a class="headerlink" href="#add-cakefrostingissuesrecipe-to-your-cake-frosting-build" title="Permanent link">&para;</a></h2>
-<p>To use <a href="../../../recipe/overview/">Cake.Frosting.Issues.Recipe</a> in your Cake Frosting build you need to first add the NuGet package in your <code>.csproj</code> file:</p>
+<p>To use <a href="../../../recipe/">Cake.Frosting.Issues.Recipe</a> in your Cake Frosting build you need to first add the NuGet package in your <code>.csproj</code> file:</p>
 <div class="language-csharp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="o">&lt;</span><span class="n">PackageReference</span><span class="w"> </span><span class="n">Include</span><span class="o">=</span><span class="s">&quot;Cake.Frosting.Issues.Recipe&quot;</span><span class="w"> </span><span class="n">Version</span><span class="o">=</span><span class="s">&quot;1.0.0&quot;</span><span class="w"> </span><span class="o">/&gt;</span>
 </span></code></pre></div>
 <div class="admonition warning">
@@ -5257,7 +5248,7 @@
 </li>
 </ol>
 <h2 id="create-build-context">Create build context<a class="headerlink" href="#create-build-context" title="Permanent link">&para;</a></h2>
-<p><a href="../../../recipe/overview/">Cake.Frosting.Issues.Recipe</a> provides a build context from which you need to inherit your custom build context.
+<p><a href="../../../recipe/">Cake.Frosting.Issues.Recipe</a> provides a build context from which you need to inherit your custom build context.
 The build context contains configuration parameters, but also the state of the current running build,
 like for example all collected issues.</p>
 <p>The following example creates a build context and defines that Cake Issues should use Cake.Git addin to determine
@@ -5271,9 +5262,9 @@ state of the Git repository:</p>
 </span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="p">}</span>
 </span></code></pre></div>
 <h2 id="passing-issues-to-cakefrostingissuesrecipe">Passing issues to Cake.Frosting.Issues.Recipe<a class="headerlink" href="#passing-issues-to-cakefrostingissuesrecipe" title="Permanent link">&para;</a></h2>
-<p>To make issues available to <a href="../../../recipe/overview/">Cake.Frosting.Issues.Recipe</a> you need pass the log files through the corresponding methods.
-The tasks need to also be a dependency of <code>ReadIssuesTask</code> provided by <a href="../../../recipe/overview/">Cake.Frosting.Issues.Recipe</a>.</p>
-<p>In the following example a new task is introduced which runs JetBrains InspectCode and passes the log file to <a href="../../../recipe/overview/">Cake.Frosting.Issues.Recipe</a>:</p>
+<p>To make issues available to <a href="../../../recipe/">Cake.Frosting.Issues.Recipe</a> you need pass the log files through the corresponding methods.
+The tasks need to also be a dependency of <code>ReadIssuesTask</code> provided by <a href="../../../recipe/">Cake.Frosting.Issues.Recipe</a>.</p>
+<p>In the following example a new task is introduced which runs JetBrains InspectCode and passes the log file to <a href="../../../recipe/">Cake.Frosting.Issues.Recipe</a>:</p>
 <div class="language-csharp highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="na">[TaskName(&quot;Run-InspectCode&quot;)]</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="na">[IsDependeeOf(typeof(ReadIssuesTask))]</span>
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">RunInspectCodeTask</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">FrostingTask</span><span class="o">&lt;</span><span class="n">BuildContext</span><span class="o">&gt;</span>
@@ -5296,7 +5287,7 @@ The tasks need to also be a dependency of <code>ReadIssuesTask</code> provided b
 </span></code></pre></div>
 <p>See <a href="../../../recipe/configuration/">configuration</a> for a full list of available configuration parameters.</p>
 <h2 id="calling-issues-tasks">Calling issues tasks<a class="headerlink" href="#calling-issues-tasks" title="Permanent link">&para;</a></h2>
-<p><a href="../../../recipe/overview/">Cake.Frosting.Issues.Recipe</a> will add a bunch of <a href="../../../recipe/tasks/">tasks</a> to your build script.</p>
+<p><a href="../../../recipe/">Cake.Frosting.Issues.Recipe</a> will add a bunch of <a href="../../../recipe/tasks/">tasks</a> to your build script.</p>
 <p>To add the issues functionality into your existing build pipeline you need to add
 <code>ReadIssuesTask</code> to your pipeline.</p>
 <p>In the following example the <code>Default</code> task makes sure the main <code>IssuesTask</code> is executed:</p>
@@ -5327,6 +5318,8 @@ The tasks need to also be a dependency of <code>ReadIssuesTask</code> provided b
             </div>
           
           
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
@@ -5383,7 +5376,7 @@ The tasks need to also be a dependency of <code>ReadIssuesTask</code> provided b
       <div class="md-progress" data-md-component="progress" role="progressbar"></div>
     
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.indexes", "navigation.instant", "navigation.instant.progress", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "search.highlight", "search.suggest"], "search": "../../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.indexes", "navigation.instant", "navigation.instant.progress", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "search.highlight", "search.suggest"], "search": "../../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../../../../assets/javascripts/bundle.88dd0f4e.min.js"></script>

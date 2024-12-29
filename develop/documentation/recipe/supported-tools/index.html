@@ -15,10 +15,10 @@
         <link rel="canonical" href="https://cakeissues.net/develop/documentation/recipe/supported-tools/">
       
       
-        <link rel="prev" href="../overview/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../demos/">
+        <link rel="next" href="../configuration/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -1582,6 +1582,8 @@
     
       
         
+          
+        
       
         
       
@@ -1606,16 +1608,24 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3_2_3" id="__nav_3_2_3_label" tabindex="0">
-            
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
   
   <span class="md-ellipsis">
     Recipe
   </span>
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2_3" id="__nav_3_2_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
         
         <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_2_3">
@@ -1624,25 +1634,6 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../overview/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Overview
-  </span>
-  
-
-      </a>
-    </li>
-  
-
               
             
               
@@ -1736,27 +1727,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../demos/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Demos
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../configuration/" class="md-nav__link">
         
   
@@ -1783,6 +1753,27 @@
   
   <span class="md-ellipsis">
     Tasks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../demos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Demos
   </span>
   
 
@@ -5176,121 +5167,181 @@
 <p>Cake.Issues recipes support reading issues from different tools and integrates with different build and pull request systems.</p>
 <h2 id="tools">Tools<a class="headerlink" href="#tools" title="Permanent link">&para;</a></h2>
 <p>Cake.Issues recipes support reading issues from output of the following tools:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Cake.Issues.Recipe</label><label for="__tabbed_1_2">Cake.Frosting.Issues.Recipe</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <table>
 <thead>
 <tr>
 <th>Tool</th>
 <th>Format</th>
-<th>Cake.Issues.Recipe Methods</th>
-<th>Cake.Frosting.Issues.Recipe Method</th>
+<th>IssuesParameters.InputFiles Method</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>MsBuild</td>
-<td><a href="http://www.msbuildextensionpack.com/help/4.0.5.0/html/242ab4fd-c2e2-f6aa-325b-7588725aed24.htm">MSBuild Extension Pack XmlFileLogger</a></td>
-<td><code>IssuesParameters.InputFiles.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>AddMsBuildXmlFileLoggerLogFile*()</code></td>
-<td><code>IssuesContext.Parameters.InputFiles.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>AddMsBuildXmlFileLoggerLogFile*()</code></td>
+<td><a href="https://github.com/mikefourie-zz/MSBuildExtensionPack/blob/master/Solutions/Main/Loggers/Framework/XmlFileLogger.cs" target="_blank">MSBuild Extension Pack XmlFileLogger</a></td>
+<td><code>AddMsBuildXmlFileLoggerLogFile*()</code></td>
 </tr>
 <tr>
 <td>MsBuild</td>
 <td>Binary Log File</td>
-<td><code>IssuesParameters.InputFiles.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>AddMsBuildBinaryLogFile*()</code></td>
-<td><code>IssuesContext.Parameters.InputFiles.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>AddMsBuildBinaryLogFile*()</code></td>
+<td><code>AddMsBuildBinaryLogFile*()</code></td>
 </tr>
 <tr>
 <td>JetBrains InspectCode (ReSharper)</td>
-<td></td>
-<td><code>IssuesParameters.InputFiles.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>AddInspectCodeLogFile*()</code></td>
-<td><code>IssuesContext.Parameters.InputFiles.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>AddInspectCodeLogFile*()</code></td>
+<td><a href="https://www.jetbrains.com/help/resharper/InspectCode.html#alternative-output-formats" target="_blank">xml</a></td>
+<td><code>AddInspectCodeLogFile*()</code></td>
 </tr>
 <tr>
 <td>markdownlint</td>
-<td><a href="https://github.com/igorshubovych/markdownlint-cli">markdownlint-cli</a></td>
-<td><code>IssuesParameters.InputFiles.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>AddMarkdownlintCliLogFile*()</code></td>
-<td><code>IssuesContext.Parameters.InputFiles.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>AddMarkdownlintCliLogFile*()</code></td>
+<td><a href="https://github.com/igorshubovych/markdownlint-cli" target="_blank">markdownlint-cli</a> default format</td>
+<td><code>AddMarkdownlintCliLogFile*()</code></td>
 </tr>
 <tr>
 <td>markdownlint</td>
-<td><a href="https://github.com/igorshubovych/markdownlint-cli">markdownlint-cli</a> with <code>--json</code></td>
-<td><code>IssuesParameters.InputFiles.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>AddMarkdownlintCliJsonLogFile*()</code></td>
-<td><code>IssuesContext.Parameters.InputFiles.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>AddMarkdownlintCliJsonLogFile*()</code></td>
+<td><a href="https://github.com/igorshubovych/markdownlint-cli" target="_blank">markdownlint-cli</a> with <code>--json</code></td>
+<td><code>AddMarkdownlintCliJsonLogFile*()</code></td>
 </tr>
 <tr>
 <td>markdownlint</td>
-<td><a href="https://github.com/DavidAnson/markdownlint">markdownlint</a> version 1</td>
-<td><code>IssuesParameters.InputFiles.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>AddMarkdownlintV1LogFile*()</code></td>
-<td><code>IssuesContext.Parameters.InputFiles.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>AddMarkdownlintV1LogFile*()</code></td>
+<td><a href="https://github.com/DavidAnson/markdownlint" target="_blank">markdownlint</a> version 1</td>
+<td><code>AddMarkdownlintV1LogFile*()</code></td>
 </tr>
 <tr>
 <td><a href="https://eslint.org/">ESLint</a></td>
-<td><a href="https://eslint.org/docs/user-guide/formatters/#json">json formatter</a></td>
-<td><code>IssuesParameters.InputFiles.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>AddEsLintJsonLogFile*()</code></td>
-<td><code>IssuesContext.Parameters.InputFiles.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>AddEsLintJsonLogFile*()</code></td>
+<td><a href="https://eslint.org/docs/user-guide/formatters/#json" target="_blank">json formatter</a></td>
+<td><code>AddEsLintJsonLogFile*()</code></td>
 </tr>
 <tr>
 <td>Any SARIF compatible tool</td>
-<td><a href="https://sarifweb.azurewebsites.net/">SARIF</a></td>
-<td><code>IssuesParameters.InputFiles.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>AddSarifLogFile*()</code></td>
-<td><code>IssuesContext.Parameters.InputFiles.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>AddSarifLogFile*()</code></td>
+<td><a href="https://sarifweb.azurewebsites.net/" target="_blank">SARIF</a></td>
+<td><code>AddSarifLogFile*()</code></td>
 </tr>
 </tbody>
 </table>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Format</th>
+<th>IssuesContext.Parameters.InputFiles Method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MsBuild</td>
+<td><a href="https://github.com/mikefourie-zz/MSBuildExtensionPack/blob/master/Solutions/Main/Loggers/Framework/XmlFileLogger.cs" target="_blank">MSBuild Extension Pack XmlFileLogger</a></td>
+<td><code>AddMsBuildXmlFileLoggerLogFile*()</code></td>
+</tr>
+<tr>
+<td>MsBuild</td>
+<td>Binary Log File</td>
+<td><code>AddMsBuildBinaryLogFile*()</code></td>
+</tr>
+<tr>
+<td>JetBrains InspectCode (ReSharper)</td>
+<td><a href="https://www.jetbrains.com/help/resharper/InspectCode.html#alternative-output-formats" target="_blank">xml</a></td>
+<td><code>AddInspectCodeLogFile*()</code></td>
+</tr>
+<tr>
+<td>markdownlint</td>
+<td><a href="https://github.com/igorshubovych/markdownlint-cli" target="_blank">markdownlint-cli</a> default format</td>
+<td><code>AddMarkdownlintCliLogFile*()</code></td>
+</tr>
+<tr>
+<td>markdownlint</td>
+<td><a href="https://github.com/igorshubovych/markdownlint-cli" target="_blank">markdownlint-cli</a> with <code>--json</code></td>
+<td><code>AddMarkdownlintCliJsonLogFile*()</code></td>
+</tr>
+<tr>
+<td>markdownlint</td>
+<td><a href="https://github.com/DavidAnson/markdownlint" target="_blank">markdownlint</a> version 1</td>
+<td><code>AddMarkdownlintV1LogFile*()</code></td>
+</tr>
+<tr>
+<td><a href="https://eslint.org/">ESLint</a></td>
+<td><a href="https://eslint.org/docs/user-guide/formatters/#json" target="_blank">json formatter</a></td>
+<td><code>AddEsLintJsonLogFile*()</code></td>
+</tr>
+<tr>
+<td>Any SARIF compatible tool</td>
+<td><a href="https://sarifweb.azurewebsites.net/" target="_blank">SARIF</a></td>
+<td><code>AddSarifLogFile*()</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>See <a href="../../supported-tools/">Supported tools</a> for a list of tools supporting the SARIF format.</p>
+</div>
 <h2 id="build-systems">Build systems<a class="headerlink" href="#build-systems" title="Permanent link">&para;</a></h2>
 <p>Cake.Issues recipes integrates with the following build systems:</p>
-<table>
-<thead>
-<tr>
-<th>Build System</th>
-<th>Write issues to build server</th>
-<th>Issues summary</th>
-<th>Full issues report</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>AppVeyor</td>
-<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59z"/></svg></span></td>
-<td></td>
-<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59z"/></svg></span></td>
-</tr>
-<tr>
-<td>Azure Pipelines (Azure DevOps)</td>
-<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59z"/></svg></span> (Only first 10)</td>
-<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59z"/></svg></span></td>
-<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59z"/></svg></span></td>
-</tr>
-<tr>
-<td>GitHub Actions</td>
-<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59z"/></svg></span></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">AppVeyor</label><label for="__tabbed_2_2">Azure Pipelines</label><label for="__tabbed_2_3">GitHub Actions</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="annotate" markdown>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Write issues to build server</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Issues summary</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Full issues report</li>
+</ul>
+</div>
+</div>
+<div class="tabbed-block">
+<div class="annotate" markdown>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Write issues to build server (1)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Issues summary</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Full issues report</li>
+</ul>
+</div>
+<ol>
+<li>Only first 10</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<div class="annotate" markdown>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Write issues to build server</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Issues summary</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Full issues report</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 <h2 id="pull-request-systems">Pull request systems<a class="headerlink" href="#pull-request-systems" title="Permanent link">&para;</a></h2>
 <p>Cake.Issues recipes integrates with the following pull request systems:</p>
-<table>
-<thead>
-<tr>
-<th>Pull Request System</th>
-<th>Write issues to pull requests</th>
-<th>Set pull request status</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Azure Repos (Azure DevOps)</td>
-<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59z"/></svg></span></td>
-<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59z"/></svg></span></td>
-</tr>
-<tr>
-<td>GitHub</td>
-<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59z"/></svg></span> (When build from GitHub Actions)</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Azure Repos</label><label for="__tabbed_3_2">GitHub</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="annotate" markdown>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Write issues to pull requests</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Set pull request status</li>
+</ul>
+</div>
+</div>
+<div class="tabbed-block">
+<div class="annotate" markdown>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Write issues to pull requests (1)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Set pull request status</li>
+</ul>
+</div>
+<ol>
+<li>When build from GitHub Actions</li>
+</ol>
+</div>
+</div>
+</div>
 <!-- Glossary for terms and concepts not documented on cakeissues.net -->
 
 
@@ -5312,6 +5363,8 @@
             </div>
           
           
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
@@ -5368,7 +5421,7 @@
       <div class="md-progress" data-md-component="progress" role="progressbar"></div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.indexes", "navigation.instant", "navigation.instant.progress", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "search.highlight", "search.suggest"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.indexes", "navigation.instant", "navigation.instant.progress", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "search.highlight", "search.suggest"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.88dd0f4e.min.js"></script>

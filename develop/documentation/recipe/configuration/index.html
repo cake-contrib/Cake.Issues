@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://cakeissues.net/develop/documentation/recipe/configuration/">
       
       
-        <link rel="prev" href="../demos/">
+        <link rel="prev" href="../supported-tools/">
       
       
         <link rel="next" href="../tasks/">
@@ -1582,6 +1582,8 @@
     
       
         
+          
+        
       
         
       
@@ -1606,16 +1608,24 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3_2_3" id="__nav_3_2_3_label" tabindex="0">
-            
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
   
   <span class="md-ellipsis">
     Recipe
   </span>
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2_3" id="__nav_3_2_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
         
         <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_2_3">
@@ -1624,25 +1634,6 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../overview/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Overview
-  </span>
-  
-
-      </a>
-    </li>
-  
-
               
             
               
@@ -1657,27 +1648,6 @@
   
   <span class="md-ellipsis">
     Supported Tools
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../demos/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Demos
   </span>
   
 
@@ -1810,6 +1780,27 @@
   
   <span class="md-ellipsis">
     Tasks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../demos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Demos
   </span>
   
 
@@ -5254,263 +5245,476 @@ To define the Git provider in <code>Cake.Frosting.Issues.Recipe</code> pass the 
 </table>
 <p>By default <a href="https://cakebuild.net/extensions/cake-git/" target="_blank">Cake.Git addin</a> will be used.</p>
 <h2 id="general">General<a class="headerlink" href="#general" title="Permanent link">&para;</a></h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Cake.Issues.Recipe</label><label for="__tabbed_1_2">Cake.Frosting.Issues.Recipe</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <table>
 <thead>
 <tr>
-<th>Cake.Issues.Recipe Property</th>
-<th>Cake.Frosting.Issues.Recipe Property</th>
+<th>IssuesParameters Property</th>
 <th>Default Value</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>IssuesParameters.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>OutputDirectory</code></td>
-<td><code>IssuesContext.Parameters.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>OutputDirectory</code></td>
+<td><code>OutputDirectory</code></td>
 <td><code>BuildArtifacts</code></td>
 <td>Path to the output directory. A relative path will be relative to the current working directory.</td>
 </tr>
 <tr>
-<td><code>IssuesParameters.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>BuildIdentifier</code></td>
-<td><code>IssuesContext.Parameters.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>BuildIdentifier</code></td>
+<td><code>BuildIdentifier</code></td>
 <td><code>string.Empty</code></td>
 <td>Identifier for the build run. If set this identifier will be used to identify to artifacts provided by the build if building on multiple configurations.</td>
 </tr>
 </tbody>
 </table>
-<h2 id="input-files">Input files<a class="headerlink" href="#input-files" title="Permanent link">&para;</a></h2>
+</div>
+<div class="tabbed-block">
 <table>
 <thead>
 <tr>
-<th>Cake.Issues.Recipe Methods</th>
-<th>Cake.Frosting.Issues.Recipe Methods</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>IssuesParameters.InputFiles.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>AddMsBuildXmlFileLoggerLogFilePath()</code></td>
-<td><code>IssuesContext.Parameters.InputFiles.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>AddMsBuildXmlFileLoggerLogFilePath()</code></td>
-<td>Adds a path to a MSBuild log file created by XmlFileLogger.</td>
-</tr>
-<tr>
-<td><code>IssuesParameters.InputFiles.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>AddMsBuildXmlFileLoggerLogFileContent()</code></td>
-<td><code>IssuesContext.Parameters.InputFiles.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>AddMsBuildXmlFileLoggerLogFileContent()</code></td>
-<td>Adds content of a MSBuild log file created by XmlFileLogger.</td>
-</tr>
-<tr>
-<td><code>IssuesParameters.InputFiles.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>AddMsBuildBinaryLogFilePath()</code></td>
-<td><code>IssuesContext.Parameters.InputFiles.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>AddMsBuildBinaryLogFilePath()</code></td>
-<td>Adds a path to a MSBuild binary log file.</td>
-</tr>
-<tr>
-<td><code>IssuesParameters.InputFiles.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>AddMsBuildBinaryLogFileContent()</code></td>
-<td><code>IssuesContext.Parameters.InputFiles.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>AddMsBuildBinaryLogFileContent()</code></td>
-<td>Adds content of a MSBuild binary log file.</td>
-</tr>
-<tr>
-<td><code>IssuesParameters.InputFiles.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>AddInspectCodeLogFilePath()</code></td>
-<td><code>IssuesContext.Parameters.InputFiles.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>AddInspectCodeLogFilePath()</code></td>
-<td>Adds a path to a JetBrains InspectCode log file.</td>
-</tr>
-<tr>
-<td><code>IssuesParameters.InputFiles.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>AddInspectCodeLogFileContent()</code></td>
-<td><code>IssuesContext.Parameters.InputFiles.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>AddInspectCodeLogFileContent()</code></td>
-<td>Adds content of a JetBrains InspectCode log file.</td>
-</tr>
-<tr>
-<td><code>IssuesParameters.InputFiles.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>AddMarkdownlintCliLogFilePath()</code></td>
-<td><code>IssuesContext.Parameters.InputFiles.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>AddMarkdownlintCliLogFilePath()</code></td>
-<td>Adds a path to a markdownlint-cli log file.</td>
-</tr>
-<tr>
-<td><code>IssuesParameters.InputFiles.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>AddMarkdownlintCliLogFileContent()</code></td>
-<td><code>IssuesContext.Parameters.InputFiles.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>AddMarkdownlintCliLogFileContent()</code></td>
-<td>Adds content of a markdownlint-cli log file.</td>
-</tr>
-<tr>
-<td><code>IssuesParameters.InputFiles.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>AddMarkdownlintCliJsonLogFilePath()</code></td>
-<td><code>IssuesContext.Parameters.InputFiles.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>AddMarkdownlintCliJsonLogFilePath()</code></td>
-<td>Adds a path to a markdownlint-cli log file writting with <code>--json</code>.</td>
-</tr>
-<tr>
-<td><code>IssuesParameters.InputFiles.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>AddMarkdownlintCliJsonLogFileContent()</code></td>
-<td><code>IssuesContext.Parameters.InputFiles.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>AddMarkdownlintCliJsonLogFileContent()</code></td>
-<td>Adds content of a markdownlint-cli log file writting with <code>--json</code>.</td>
-</tr>
-<tr>
-<td><code>IssuesParameters.InputFiles.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>AddMarkdownlintV1LogFilePath()</code></td>
-<td><code>IssuesContext.Parameters.InputFiles.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>AddMarkdownlintV1LogFilePath()</code></td>
-<td>Adds a path to a markdownlint log file in version 1.</td>
-</tr>
-<tr>
-<td><code>IssuesParameters.InputFiles.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>AddMarkdownlintV1LogFileContent()</code></td>
-<td><code>IssuesContext.Parameters.InputFiles.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>AddMarkdownlintV1LogFileContent()</code></td>
-<td>Adds content of a markdownlint log file in version 1.</td>
-</tr>
-<tr>
-<td><code>IssuesParameters.InputFiles.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>AddEsLintJsonLogFilePath()</code></td>
-<td><code>IssuesContext.Parameters.InputFiles.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>AddEsLintJsonLogFilePath()</code></td>
-<td>Adds a path to a ESLint log file generated by the <a href="https://eslint.org/docs/user-guide/formatters/#json" target="_blank">ESLint json formatter</a>.</td>
-</tr>
-<tr>
-<td><code>IssuesParameters.InputFiles.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>AddEsLintJsonLogFileContent()</code></td>
-<td><code>IssuesContext.Parameters.InputFiles.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>AddEsLintJsonLogFileContent()</code></td>
-<td>Adds content of a ESLint log file generated by the <a href="https://eslint.org/docs/user-guide/formatters/#json" target="_blank">ESLint json formatter</a>.</td>
-</tr>
-<tr>
-<td><code>IssuesParameters.InputFiles.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>AddSarifLogFilePath()</code></td>
-<td><code>IssuesContext.Parameters.InputFiles.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>AddSarifLogFilePath()</code></td>
-<td>Adds a path to a SARIF log file.</td>
-</tr>
-<tr>
-<td><code>IssuesParameters.InputFiles.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>AddSarifLogFileContent()</code></td>
-<td><code>IssuesContext.Parameters.InputFiles.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>AddSarifLogFileContent()</code></td>
-<td>Adds content of a SARIF log file.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="report-creation">Report creation<a class="headerlink" href="#report-creation" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Cake.Issues.Recipe Property</th>
-<th>Cake.Frosting.Issues.Recipe Property</th>
+<th>IssuesContext.Parameters Property</th>
 <th>Default Value</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>IssuesParameters.Reporting.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>ShouldCreateFullIssuesReport</code></td>
-<td><code>IssuesContext.Parameters.Reporting.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>ShouldCreateFullIssuesReport</code></td>
+<td><code>OutputDirectory</code></td>
+<td><code>BuildArtifacts</code></td>
+<td>Path to the output directory. A relative path will be relative to the current working directory.</td>
+</tr>
+<tr>
+<td><code>BuildIdentifier</code></td>
+<td><code>string.Empty</code></td>
+<td>Identifier for the build run. If set this identifier will be used to identify to artifacts provided by the build if building on multiple configurations.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<h2 id="input-files">Input files<a class="headerlink" href="#input-files" title="Permanent link">&para;</a></h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Cake.Issues.Recipe</label><label for="__tabbed_2_2">Cake.Frosting.Issues.Recipe</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>IssuesParameters.InputFiles Methods</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>AddMsBuildXmlFileLoggerLogFilePath()</code></td>
+<td>Adds a path to a MSBuild log file created by XmlFileLogger.</td>
+</tr>
+<tr>
+<td><code>AddMsBuildXmlFileLoggerLogFileContent()</code></td>
+<td>Adds content of a MSBuild log file created by XmlFileLogger.</td>
+</tr>
+<tr>
+<td><code>AddMsBuildBinaryLogFilePath()</code></td>
+<td>Adds a path to a MSBuild binary log file.</td>
+</tr>
+<tr>
+<td><code>AddMsBuildBinaryLogFileContent()</code></td>
+<td>Adds content of a MSBuild binary log file.</td>
+</tr>
+<tr>
+<td><code>AddInspectCodeLogFilePath()</code></td>
+<td>Adds a path to a JetBrains InspectCode log file.</td>
+</tr>
+<tr>
+<td><code>AddInspectCodeLogFileContent()</code></td>
+<td>Adds content of a JetBrains InspectCode log file.</td>
+</tr>
+<tr>
+<td><code>AddMarkdownlintCliLogFilePath()</code></td>
+<td>Adds a path to a markdownlint-cli log file.</td>
+</tr>
+<tr>
+<td><code>AddMarkdownlintCliLogFileContent()</code></td>
+<td>Adds content of a markdownlint-cli log file.</td>
+</tr>
+<tr>
+<td><code>AddMarkdownlintCliJsonLogFilePath()</code></td>
+<td>Adds a path to a markdownlint-cli log file writting with <code>--json</code>.</td>
+</tr>
+<tr>
+<td><code>AddMarkdownlintCliJsonLogFileContent()</code></td>
+<td>Adds content of a markdownlint-cli log file writting with <code>--json</code>.</td>
+</tr>
+<tr>
+<td><code>AddMarkdownlintV1LogFilePath()</code></td>
+<td>Adds a path to a markdownlint log file in version 1.</td>
+</tr>
+<tr>
+<td><code>AddMarkdownlintV1LogFileContent()</code></td>
+<td>Adds content of a markdownlint log file in version 1.</td>
+</tr>
+<tr>
+<td><code>AddEsLintJsonLogFilePath()</code></td>
+<td>Adds a path to a ESLint log file generated by the <a href="https://eslint.org/docs/user-guide/formatters/#json" target="_blank">ESLint json formatter</a>.</td>
+</tr>
+<tr>
+<td><code>AddEsLintJsonLogFileContent()</code></td>
+<td>Adds content of a ESLint log file generated by the <a href="https://eslint.org/docs/user-guide/formatters/#json" target="_blank">ESLint json formatter</a>.</td>
+</tr>
+<tr>
+<td><code>AddSarifLogFilePath()</code></td>
+<td>Adds a path to a SARIF log file.</td>
+</tr>
+<tr>
+<td><code>AddSarifLogFileContent()</code></td>
+<td>Adds content of a SARIF log file.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>IssuesContext.Parameters.InputFiles Methods</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>AddMsBuildXmlFileLoggerLogFilePath()</code></td>
+<td>Adds a path to a MSBuild log file created by XmlFileLogger.</td>
+</tr>
+<tr>
+<td><code>AddMsBuildXmlFileLoggerLogFileContent()</code></td>
+<td>Adds content of a MSBuild log file created by XmlFileLogger.</td>
+</tr>
+<tr>
+<td><code>AddMsBuildBinaryLogFilePath()</code></td>
+<td>Adds a path to a MSBuild binary log file.</td>
+</tr>
+<tr>
+<td><code>AddMsBuildBinaryLogFileContent()</code></td>
+<td>Adds content of a MSBuild binary log file.</td>
+</tr>
+<tr>
+<td><code>AddInspectCodeLogFilePath()</code></td>
+<td>Adds a path to a JetBrains InspectCode log file.</td>
+</tr>
+<tr>
+<td><code>AddInspectCodeLogFileContent()</code></td>
+<td>Adds content of a JetBrains InspectCode log file.</td>
+</tr>
+<tr>
+<td><code>AddMarkdownlintCliLogFilePath()</code></td>
+<td>Adds a path to a markdownlint-cli log file.</td>
+</tr>
+<tr>
+<td><code>AddMarkdownlintCliLogFileContent()</code></td>
+<td>Adds content of a markdownlint-cli log file.</td>
+</tr>
+<tr>
+<td><code>AddMarkdownlintCliJsonLogFilePath()</code></td>
+<td>Adds a path to a markdownlint-cli log file writting with <code>--json</code>.</td>
+</tr>
+<tr>
+<td><code>AddMarkdownlintCliJsonLogFileContent()</code></td>
+<td>Adds content of a markdownlint-cli log file writting with <code>--json</code>.</td>
+</tr>
+<tr>
+<td><code>AddMarkdownlintV1LogFilePath()</code></td>
+<td>Adds a path to a markdownlint log file in version 1.</td>
+</tr>
+<tr>
+<td><code>AddMarkdownlintV1LogFileContent()</code></td>
+<td>Adds content of a markdownlint log file in version 1.</td>
+</tr>
+<tr>
+<td><code>AddEsLintJsonLogFilePath()</code></td>
+<td>Adds a path to a ESLint log file generated by the <a href="https://eslint.org/docs/user-guide/formatters/#json" target="_blank">ESLint json formatter</a>.</td>
+</tr>
+<tr>
+<td><code>AddEsLintJsonLogFileContent()</code></td>
+<td>Adds content of a ESLint log file generated by the <a href="https://eslint.org/docs/user-guide/formatters/#json" target="_blank">ESLint json formatter</a>.</td>
+</tr>
+<tr>
+<td><code>AddSarifLogFilePath()</code></td>
+<td>Adds a path to a SARIF log file.</td>
+</tr>
+<tr>
+<td><code>AddSarifLogFileContent()</code></td>
+<td>Adds content of a SARIF log file.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<h2 id="report-creation">Report creation<a class="headerlink" href="#report-creation" title="Permanent link">&para;</a></h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Cake.Issues.Recipe</label><label for="__tabbed_3_2">Cake.Frosting.Issues.Recipe</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>IssuesParameters.Reporting Property</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ShouldCreateFullIssuesReport</code></td>
 <td><code>true</code></td>
 <td>Indicates whether full issues report should be created.</td>
 </tr>
 <tr>
-<td><code>IssuesParameters.Reporting.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>FullIssuesReportSettings</code></td>
-<td><code>IssuesContext.Parameters.Reporting.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>FullIssuesReportSettings</code></td>
+<td><code>FullIssuesReportSettings</code></td>
 <td><code>GenericIssueReportTemplate.HtmlDxDataGrid</code> template with <code>DevExtremeTheme.MaterialBlueLight</code> theme.</td>
 <td>Settings for creating the full issues report. See <a href="../../report-formats/generic/templates/">Template Gallery</a> for possible options.</td>
 </tr>
 <tr>
-<td><code>IssuesParameters.Reporting.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>ShouldCreateSarifReport</code></td>
-<td><code>IssuesContext.Parameters.Reporting.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>ShouldCreateSarifReport</code></td>
+<td><code>ShouldCreateSarifReport</code></td>
 <td><code>true</code></td>
 <td>Indicates whether a report in SARIF format should be created.</td>
 </tr>
 <tr>
-<td><code>IssuesParameters.Reporting.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>ShouldReportIssuesToConsole</code></td>
-<td><code>IssuesContext.Parameters.Reporting.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>ShouldReportIssuesToConsole</code></td>
+<td><code>ShouldReportIssuesToConsole</code></td>
 <td><code>false</code></td>
 <td>Indicates whether issues should be reported to the console.</td>
 </tr>
 <tr>
-<td><code>IssuesParameters.Reporting.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>ReportToConsoleSettings</code></td>
-<td><code>IssuesContext.Parameters.Reporting.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>ReportToConsoleSettings</code></td>
+<td><code>ReportToConsoleSettings</code></td>
 <td></td>
 <td>Settings for reporting issues to the console.</td>
 </tr>
 </tbody>
 </table>
-<h2 id="build-server-integration">Build server integration<a class="headerlink" href="#build-server-integration" title="Permanent link">&para;</a></h2>
+</div>
+<div class="tabbed-block">
 <table>
 <thead>
 <tr>
-<th>Cake.Issues.Recipe Property</th>
-<th>Cake.Frosting.Issues.Recipe Property</th>
+<th>IssuesContext.Parameters.Reporting Property</th>
 <th>Default Value</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>IssuesParameters.BuildServer.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>ShouldReportIssuesToBuildServer</code></td>
-<td><code>IssuesContext.Parameters.BuildServer.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>ShouldReportIssuesToBuildServer</code></td>
+<td><code>ShouldCreateFullIssuesReport</code></td>
+<td><code>true</code></td>
+<td>Indicates whether full issues report should be created.</td>
+</tr>
+<tr>
+<td><code>FullIssuesReportSettings</code></td>
+<td><code>GenericIssueReportTemplate.HtmlDxDataGrid</code> template with <code>DevExtremeTheme.MaterialBlueLight</code> theme.</td>
+<td>Settings for creating the full issues report. See <a href="../../report-formats/generic/templates/">Template Gallery</a> for possible options.</td>
+</tr>
+<tr>
+<td><code>ShouldCreateSarifReport</code></td>
+<td><code>true</code></td>
+<td>Indicates whether a report in SARIF format should be created.</td>
+</tr>
+<tr>
+<td><code>ShouldReportIssuesToConsole</code></td>
+<td><code>false</code></td>
+<td>Indicates whether issues should be reported to the console.</td>
+</tr>
+<tr>
+<td><code>ReportToConsoleSettings</code></td>
+<td></td>
+<td>Settings for reporting issues to the console.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<h2 id="build-server-integration">Build server integration<a class="headerlink" href="#build-server-integration" title="Permanent link">&para;</a></h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Cake.Issues.Recipe</label><label for="__tabbed_4_2">Cake.Frosting.Issues.Recipe</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>IssuesParameters.BuildServer Property</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ShouldReportIssuesToBuildServer</code></td>
 <td><code>true</code></td>
 <td>Indicates whether issues should be reported to the build server.</td>
 </tr>
 <tr>
-<td><code>IssuesParameters.BuildServer.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>ShouldPublishFullIssuesReport</code></td>
-<td><code>IssuesContext.Parameters.BuildServer.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>ShouldPublishFullIssuesReport</code></td>
+<td><code>ShouldPublishFullIssuesReport</code></td>
 <td><code>true</code></td>
 <td>Indicates whether full issues report should be published as artifact to the build system.</td>
 </tr>
 <tr>
-<td><code>IssuesParameters.BuildServer.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>ShouldPublishSarifReport</code></td>
-<td><code>IssuesContext.Parameters.BuildServer.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>ShouldPublishSarifReport</code></td>
+<td><code>ShouldPublishSarifReport</code></td>
 <td><code>true</code></td>
 <td>Indicates whether report int SARIF format shoudl be published as artifact to the build system.</td>
 </tr>
 <tr>
-<td><code>IssuesParameters.BuildServer.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>ShouldCreateSummaryIssuesReport</code></td>
-<td><code>IssuesContext.Parameters.BuildServer.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>ShouldCreateSummaryIssuesReport</code></td>
+<td><code>ShouldCreateSummaryIssuesReport</code></td>
 <td><code>true</code></td>
 <td>Indicates whether summary issues report should be created.</td>
 </tr>
 </tbody>
 </table>
-<h2 id="pull-request-integration">Pull request integration<a class="headerlink" href="#pull-request-integration" title="Permanent link">&para;</a></h2>
+</div>
+<div class="tabbed-block">
 <table>
 <thead>
 <tr>
-<th>Cake.Issues.Recipe Property</th>
-<th>Cake.Frosting.Issues.Recipe Property</th>
+<th>IssuesContext.Parameters.BuildServer Property</th>
 <th>Default Value</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>IssuesParameters.PullRequestSystem.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>ShouldReportIssuesToPullRequest</code></td>
-<td><code>IssuesContext.Parameters.PullRequestSystem.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>ShouldReportIssuesToPullRequest</code></td>
+<td><code>ShouldReportIssuesToBuildServer</code></td>
+<td><code>true</code></td>
+<td>Indicates whether issues should be reported to the build server.</td>
+</tr>
+<tr>
+<td><code>ShouldPublishFullIssuesReport</code></td>
+<td><code>true</code></td>
+<td>Indicates whether full issues report should be published as artifact to the build system.</td>
+</tr>
+<tr>
+<td><code>ShouldPublishSarifReport</code></td>
+<td><code>true</code></td>
+<td>Indicates whether report int SARIF format shoudl be published as artifact to the build system.</td>
+</tr>
+<tr>
+<td><code>ShouldCreateSummaryIssuesReport</code></td>
+<td><code>true</code></td>
+<td>Indicates whether summary issues report should be created.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<h2 id="pull-request-integration">Pull request integration<a class="headerlink" href="#pull-request-integration" title="Permanent link">&para;</a></h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Cake.Issues.Recipe</label><label for="__tabbed_5_2">Cake.Frosting.Issues.Recipe</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>IssuesParameters.PullRequestSystem Property</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ShouldReportIssuesToPullRequest</code></td>
 <td><code>true</code></td>
 <td>Indicates whether issues should be reported to the pull request system.</td>
 </tr>
 <tr>
-<td><code>IssuesParameters.PullRequestSystem.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>MaxIssuesToPost</code></td>
-<td><code>IssuesContext.Parameters.PullRequestSystem.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>MaxIssuesToPost</code></td>
+<td><code>MaxIssuesToPost</code></td>
 <td><code>null</code></td>
 <td>Global number of issues which should be posted at maximum over all issue provider. Issues are filtered by priority and issues with a file path are prioritized. <code>null</code> won't set a global limit.</td>
 </tr>
 <tr>
-<td><code>IssuesParameters.PullRequestSystem.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>MaxIssuesToPostAcrossRuns</code></td>
-<td><code>IssuesContext.Parameters.PullRequestSystem.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>MaxIssuesToPostAcrossRuns</code></td>
+<td><code>MaxIssuesToPostAcrossRuns</code></td>
 <td><code>null</code></td>
 <td>Global number of issues which should be posted at maximum over all issue providers and across multiple runs. Issues are filtered by priority and issues with a file path are prioritized. <code>null</code> won't set a limit across multiple runs.</td>
 </tr>
 <tr>
-<td><code>IssuesParameters.PullRequestSystem.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>MaxIssuesToPostForEachIssueProvider</code></td>
-<td><code>IssuesContext.Parameters.PullRequestSystem.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>MaxIssuesToPostForEachIssueProvider</code></td>
+<td><code>MaxIssuesToPostForEachIssueProvider</code></td>
 <td><code>100</code></td>
 <td>Number of issues which should be posted at maximum for each issue provider. Issues are filtered by priority and issues with a file path are prioritized. <code>null</code> won't limit issues per issue provider.</td>
 </tr>
 <tr>
-<td><code>IssuesParameters.PullRequestSystem.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>ProviderIssueLimits</code></td>
-<td><code>IssuesContext.Parameters.PullRequestSystem.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>ProviderIssueLimits</code></td>
+<td><code>ProviderIssueLimits</code></td>
 <td>Empty</td>
 <td>Issue limits for individual issue provider. The key must be the <code>IIssue.ProviderType</code> of a specific provider to which the limits should be applied to.</td>
 </tr>
 <tr>
-<td><code>IssuesParameters.PullRequestSystem.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>IssueFilters</code></td>
-<td><code>IssuesContext.Parameters.PullRequestSystem.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>IssueFilters</code></td>
+<td><code>IssueFilters</code></td>
 <td>Empty</td>
 <td>List of filter functions which should be applied before posting issues to pull requests.</td>
 </tr>
 <tr>
-<td><code>IssuesParameters.PullRequestSystem.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>ShouldSetPullRequestStatus</code></td>
-<td><code>IssuesContext.Parameters.PullRequestSystem.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>ShouldSetPullRequestStatus</code></td>
+<td><code>ShouldSetPullRequestStatus</code></td>
 <td><code>true</code></td>
 <td>Indicates whether a status on the pull request should be set if there are any issues found.</td>
 </tr>
 <tr>
-<td><code>IssuesParameters.PullRequestSystem.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>ShouldSetSeparatePullRequestStatusForEachIssueProviderAndRun</code></td>
-<td><code>IssuesContext.Parameters.PullRequestSystem.</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>ShouldSetSeparatePullRequestStatusForEachIssueProviderAndRun</code></td>
+<td><code>ShouldSetSeparatePullRequestStatusForEachIssueProviderAndRun</code></td>
 <td><code>true</code></td>
 <td>Indicates whether a separate status should be set for issues of every issue provider and run.</td>
 </tr>
 </tbody>
 </table>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>IssuesContext.Parameters.PullRequestSystem Property</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ShouldReportIssuesToPullRequest</code></td>
+<td><code>true</code></td>
+<td>Indicates whether issues should be reported to the pull request system.</td>
+</tr>
+<tr>
+<td><code>MaxIssuesToPost</code></td>
+<td><code>null</code></td>
+<td>Global number of issues which should be posted at maximum over all issue provider. Issues are filtered by priority and issues with a file path are prioritized. <code>null</code> won't set a global limit.</td>
+</tr>
+<tr>
+<td><code>MaxIssuesToPostAcrossRuns</code></td>
+<td><code>null</code></td>
+<td>Global number of issues which should be posted at maximum over all issue providers and across multiple runs. Issues are filtered by priority and issues with a file path are prioritized. <code>null</code> won't set a limit across multiple runs.</td>
+</tr>
+<tr>
+<td><code>MaxIssuesToPostForEachIssueProvider</code></td>
+<td><code>100</code></td>
+<td>Number of issues which should be posted at maximum for each issue provider. Issues are filtered by priority and issues with a file path are prioritized. <code>null</code> won't limit issues per issue provider.</td>
+</tr>
+<tr>
+<td><code>ProviderIssueLimits</code></td>
+<td>Empty</td>
+<td>Issue limits for individual issue provider. The key must be the <code>IIssue.ProviderType</code> of a specific provider to which the limits should be applied to.</td>
+</tr>
+<tr>
+<td><code>IssueFilters</code></td>
+<td>Empty</td>
+<td>List of filter functions which should be applied before posting issues to pull requests.</td>
+</tr>
+<tr>
+<td><code>ShouldSetPullRequestStatus</code></td>
+<td><code>true</code></td>
+<td>Indicates whether a status on the pull request should be set if there are any issues found.</td>
+</tr>
+<tr>
+<td><code>ShouldSetSeparatePullRequestStatusForEachIssueProviderAndRun</code></td>
+<td><code>true</code></td>
+<td>Indicates whether a separate status should be set for issues of every issue provider and run.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
 <!-- Glossary for terms and concepts not documented on cakeissues.net -->
 
 
@@ -5532,6 +5736,8 @@ To define the Git provider in <code>Cake.Frosting.Issues.Recipe</code> pass the 
             </div>
           
           
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
@@ -5588,7 +5794,7 @@ To define the Git provider in <code>Cake.Frosting.Issues.Recipe</code> pass the 
       <div class="md-progress" data-md-component="progress" role="progressbar"></div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.indexes", "navigation.instant", "navigation.instant.progress", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "search.highlight", "search.suggest"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.indexes", "navigation.instant", "navigation.instant.progress", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "search.highlight", "search.suggest"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
