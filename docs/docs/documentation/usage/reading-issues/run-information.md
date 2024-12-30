@@ -19,7 +19,7 @@ issues.AddRange(
     ReadIssues(
         MsBuildIssuesFromFilePath(
             @"C:\build\solution1-msbuild.log",
-            MsBuildXmlFileLoggerFormat),
+            MsBuildBinaryLogFileFormat),
         new ReadIssuesSettings(@"c:\repo")
         {
             Run = "Solution 1"
@@ -32,7 +32,7 @@ issues.AddRange(
     ReadIssues(
         MsBuildIssuesFromFilePath(
             @"C:\build\solution2-msbuild.log",
-            MsBuildXmlFileLoggerFormat),
+            MsBuildBinaryLogFileFormat),
         new ReadIssuesSettings(@"c:\repo")
         {
             Run = "Solution 2"

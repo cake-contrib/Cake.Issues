@@ -19,10 +19,19 @@ in this example for JetBrains InspectCode:
 
 --8<-- "snippets/pinning.md"
 
-In the following task we'll first determine if the build is running on Azure DevOps and for a pull request,
-then read the remote repository URL and pull request id from environment variables set by the Azure Pipelines build
-and finally call the [AzureDevOpsPullRequests](https://cakebuild.net/api/Cake.Issues.PullRequests.AzureDevOps/AzureDevOpsPullRequestSystemAliases/){target="_blank"}
-alias using the OAuth token provided by the Azure Pipeline build.
+The following task will call the [AzureDevOpsPullRequests](https://cakebuild.net/api/Cake.Issues.PullRequests.AzureDevOps/AzureDevOpsPullRequestSystemAliases/){target="_blank"}
+alias to connect to the pull request using the environment variables provided by Azure Pipelines.
+
+```csharp
+Task("ReportIssuesToPullRequest").Does(() =>
+{
+    ReportIssuesToPullRequest(
+        InspectCodeIssuesFromFilePath(
+            @"C:\build\inspectcode.log"),
+        AzureDevOpsPullRequests(),
+        repoRootFolder);
+});
+```
 
 !!! info
     Please note that you'll need to setup your Azure Pipelines build to
@@ -30,48 +39,5 @@ alias using the OAuth token provided by the Azure Pipeline build.
     and need to setup proper permissions.
 
     See [OAuth authentication from Azure Pipelines] for details.
-
-```csharp
-Task("ReportIssuesToPullRequest").Does(() =>
-{
-    var isRunningOnAzureDevOps =
-        !string.IsNullOrWhiteSpace(context.EnvironmentVariable("TF_BUILD")) &&
-        !string.IsNullOrWhiteSpace(context.EnvironmentVariable("SYSTEM_COLLECTIONURI")) &&
-        (
-            new Uri(context.EnvironmentVariable("SYSTEM_COLLECTIONURI")).Host == "dev.azure.com" ||
-            new Uri(context.EnvironmentVariable("SYSTEM_COLLECTIONURI")).Host.EndsWith("visualstudio.com")
-        );
-
-    var isPullRequestBuild =
-        !string.IsNullOrWhiteSpace(context.EnvironmentVariable("SYSTEM_PULLREQUEST_PULLREQUESTID"));
-
-    if (isRunningOnAzureDevOps)
-        {
-            var repositoryUrl = new Uri(context.EnvironmentVariable("BUILD_REPOSITORY_URI"));
-
-            if (isPullRequestBuild)
-            {
-                var pullRequestIdVariable = context.EnvironmentVariable("SYSTEM_PULLREQUEST_PULLREQUESTID");
-                if (!Int32.TryParse(pullRequestIdVariable, out var pullRequestId))
-                {
-                    throw new Exception($"Invalid pull request ID: {pullRequestIdVariable}");
-                }
-                else
-                {
-                    var repoRootFolder = MakeAbsolute(Directory("./"));
-
-                    ReportIssuesToPullRequest(
-                        InspectCodeIssuesFromFilePath(
-                            @"C:\build\inspectcode.log"),
-                        AzureDevOpsPullRequests(
-                            repositoryUrl,
-                            pullRequestId,
-                            AzureDevOpsAuthenticationOAuth(EnvironmentVariable("SYSTEM_ACCESSTOKEN"))),
-                        repoRootFolder);
-                }
-            }
-        }
-});
-```
 
 [OAuth authentication from Azure Pipelines]: ../setup.md#oauth-authentication-from-azure-pipelines

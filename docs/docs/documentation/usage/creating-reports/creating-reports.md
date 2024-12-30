@@ -28,7 +28,7 @@ Task("Create-Report").Does(() =>
     CreateIssueReport(
         MsBuildIssuesFromFilePath(
             @"C:\build\msbuild.log",
-            MsBuildXmlFileLoggerFormat),
+            MsBuildBinaryLogFileFormat),
         GenericIssueReportFormatFromEmbeddedTemplate(GenericIssueReportTemplate.HtmlDiagnostic),
         repoRootFolder,
         @"c:\report.html");

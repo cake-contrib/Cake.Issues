@@ -10,7 +10,6 @@ description: Example how to create a report using a custom template
 The following example will create a HTML report for issues logged as warnings by MsBuild using a custom template.
 
 ```csharp
-#tool "nuget:?package=MSBuild.Extension.Pack" // (1)!
 #addin nuget:?package=Cake.Issues&version={{ cake_issues_version }}
 #addin nuget:?package=Cake.Issues.MsBuild&version={{ cake_issues_version }}
 #addin nuget:?package=Cake.Issues.Reporting&version={{ cake_issues_version }}
@@ -20,18 +19,16 @@ Task("Create-IssueReport").Does(() =>
 {
     var repoRootFolder = new DirectoryPath(@"c:\repo");
 
-    // Build MySolution.sln solution in the repository root folder and log issues
-    // using XmlFileLogger from MSBuild Extension Pack.
+    // Build MySolution.sln solution in the repository root folder and write a binary log.
     FilePath msBuildLogFile = @"c:\build\msbuild.log";
-    var settings = new MsBuildSettings()
-        .WithLogger(
-            Context.Tools.Resolve("MSBuild.ExtensionPack.Loggers.dll").FullPath,
-            "XmlFileLogger",
-            string.Format(
-                "logfile=\"{0}\";verbosity=Detailed;encoding=UTF-8",
-                msBuildLogFile)
-        );
-    MSBuild(repoRootFolder.CombineWithFilePath("MySolution.sln"), settings);
+    var msBuildSettings =
+        new MSBuildSettings().WithLogger(
+            "BinaryLogger," + Context.Tools.Resolve("Cake.Issues.MsBuild*/**/StructuredLogger.dll"),
+            "",
+            msBuildLogFile)
+    DotNetBuild(
+        repoRootPath.CombineWithFilePath("MySolution.sln"),
+        new DotNetBuildSettings{MSBuildSettings = msBuildSettings});
 
     // Create HTML report using Diagnostic template.
     CreateIssueReport(
@@ -39,15 +36,13 @@ Task("Create-IssueReport").Does(() =>
         {
             MsBuildIssuesFromFilePath(
                 msBuildLogFile,
-                MsBuildXmlFileLoggerFormat)
+                MsBuildBinaryLogFileFormat)
         },
         GenericIssueReportFormatFromFilePath(@"c:\ReportTemplate.cshtml"),
         repoRootFolder,
         @"c:\report.html");
 });
 ```
-
---8<-- "snippets/pinning.md"
 
 `ReportTemplate` looks like this:
 
