@@ -37,4 +37,4 @@ The change should not have any impact for users.
 While Cake.Issues 4.0.0 is a breaking release, there are no breaking changes beside the update to Cake 4.x and
 the changes to target framework version.
 
-For details see [release notes](https://github.com/cake-contrib/Cake.Issues/releases/tag/4.0.0)
+For details see [release notes](https://github.com/cake-contrib/Cake.Issues/releases/tag/4.0.0){target="_blank"}

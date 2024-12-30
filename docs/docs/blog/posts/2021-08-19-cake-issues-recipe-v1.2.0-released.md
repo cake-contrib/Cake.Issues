@@ -10,7 +10,7 @@ Version 1.2.0 of Cake Issues recipes have been released adding support to custom
 <!-- more -->
 
 This post shows the highlights included in this release.
-For details see [full release notes].
+For details see [full release notes]{target="_blank"}.
 For update instructions skip to [Updating from previous versions](#updating-from-previous-versions).
 
 ❤ Huge thanks to our community! This release would not have been possible without your support and contributions! ❤

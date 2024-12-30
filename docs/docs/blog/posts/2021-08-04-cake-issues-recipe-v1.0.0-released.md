@@ -31,10 +31,10 @@ See [announcement for release 1.0 of Cake.Issues addins] for features added in t
 
 ## Support for Cake Frosting
 
-Additionally to the existing [Cake.Issues.Recipe] package, which works fine for Cake script runners, there's a new
-[Cake.Frosting.Issues.Recipe] package suitable for builds using [Cake Frosting].
+Additionally to the existing [Cake.Issues.Recipe]{target="_blank"} package, which works fine for Cake script runners, there's a new
+[Cake.Frosting.Issues.Recipe]{target="_blank"} package suitable for builds using [Cake Frosting]{target="_blank"}.
 
-See [Using Cake.Frosting.Issues.Recipe] for an example.
+See [Using Cake.Frosting.Issues.Recipe]{target="_blank"} for an example.
 
 [Cake Frosting]: https://cakebuild.net/docs/running-builds/runners/cake-frosting
 [Cake.Issues.Recipe]: https://www.nuget.org/packages/Cake.Issues.Recipe/
@@ -43,10 +43,10 @@ See [Using Cake.Frosting.Issues.Recipe] for an example.
 
 ## Support for environments not compatible with Cake.Git addin
 
-In previous versions Cake.Issues recipes had used [Cake.Git addin] to determine state of the Git repository.
-While this works in most cases, there are some environments where [Cake.Git addin] currently does not work.
+In previous versions Cake.Issues recipes had used [Cake.Git addin]{target="_blank"} to determine state of the Git repository.
+While this works in most cases, there are some environments where [Cake.Git addin]{target="_blank"} currently does not work.
 
-Starting with this version it is now possible to define if [Cake.Git addin] or Git CLI should be used.
+Starting with this version it is now possible to define if [Cake.Git addin]{target="_blank"} or Git CLI should be used.
 
 See [Git repository information configuration](../../documentation/recipe/configuration.md#git-repository-information) for details.
 

@@ -22,11 +22,11 @@ People working on this release:
 ## Support for markdownlint-cli JSON format
 
 Since version 0.28.0 markdownlint-cli supports a `--json` option to output result in JSON format.
-This version adds support for this format through the [MarkdownlintCliJsonLogFileFormat] alias.
+This version adds support for this format through the [MarkdownlintCliJsonLogFileFormat]{target="_blank"} alias.
 
 ## Provide column information
 
-This release of Cake.Issues.Markdownlint enhances the [MarkdownlintCliLogFileFormat] to provide column information
+This release of Cake.Issues.Markdownlint enhances the [MarkdownlintCliLogFileFormat]{target="_blank"} to provide column information
 if reported by markdownlint.
 
 ## Recipe packages
