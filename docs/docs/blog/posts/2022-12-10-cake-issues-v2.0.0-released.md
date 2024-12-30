@@ -28,7 +28,7 @@ People working on this release:
 All addins have been updated to support Cake 2.x.
 
 Target framework have been updated to .NET Core 3.1, .NET 5 and .NET 6 to be in line with Cake.
-See [Sunsetting of .NET Framework and .NET Core runners in Cake 2.0] for details.
+See [Sunsetting of .NET Framework and .NET Core runners in Cake 2.0]{target="_blank"} for details.
 
 ## Support for MsBuild binary logs version 9
 
@@ -50,20 +50,20 @@ This section documents the most common changes which might be required:
 
 For details see release notes of the individual addins:
 
-* [Cake.Issues 2.0.0](https://github.com/cake-contrib/Cake.Issues/releases/tag/2.0.0)
-* [Cake.Issues.DocFx 2.0.0](https://github.com/cake-contrib/Cake.Issues.DocFx/releases/tag/2.0.0)
-* [Cake.Issues.DupFinder 2.0.0](https://github.com/cake-contrib/Cake.Issues.DupFinder/releases/tag/2.0.0)
-* [Cake.Issues.EsLint 2.0.0](https://github.com/cake-contrib/Cake.Issues.EsLint/releases/tag/2.0.0)
-* [Cake.Issues.GitRepository 2.0.0](https://github.com/cake-contrib/Cake.Issues.GitRepository/releases/tag/2.0.0)
-* [Cake.Issues.InspectCode 2.0.0](https://github.com/cake-contrib/Cake.Issues.InspectCode/releases/tag/2.0.0)
-* [Cake.Issues.Markdownlint 2.0.0](https://github.com/cake-contrib/Cake.Issues.Markdownlint/releases/tag/2.0.0)
-* [Cake.Issues.MsBuild 2.0.0](https://github.com/cake-contrib/Cake.Issues.MsBuild/releases/tag/2.0.0)
-* [Cake.Issues.Terraform 2.0.0](https://github.com/cake-contrib/Cake.Issues.Terraform/releases/tag/2.0.0)
-* [Cake.Issues.Reporting.Console 2.0.0](https://github.com/cake-contrib/Cake.Issues.Reporting.Console/releases/tag/2.0.0)
-* [Cake.Issues.Reporting.Generic 2.0.0](https://github.com/cake-contrib/Cake.Issues.Reporting.Generic/releases/tag/2.0.0)
-* [Cake.Issues.Reporting.Sarif 2.0.0](https://github.com/cake-contrib/Cake.Issues.Reporting.Sarif/releases/tag/2.0.0)
-* [Cake.Issues.PullRequests.AppVeyor 2.0.0](https://github.com/cake-contrib/Cake.Issues.PullRequests.AppVeyor/releases/tag/2.0.0)
-* [Cake.Issues.PullRequests.AzureDevOps 2.0.0](https://github.com/cake-contrib/Cake.Issues.PullRequests.AzureDevOps/releases/tag/2.0.0)
-* [Cake.Issues.PullRequests.GitHubActions 2.0.0](https://github.com/cake-contrib/Cake.Issues.PullRequests.GitHubActions/releases/tag/2.0.0)
+* [Cake.Issues 2.0.0](https://github.com/cake-contrib/Cake.Issues/releases/tag/2.0.0){target="_blank"}
+* [Cake.Issues.DocFx 2.0.0](https://github.com/cake-contrib/Cake.Issues.DocFx/releases/tag/2.0.0){target="_blank"}
+* [Cake.Issues.DupFinder 2.0.0](https://github.com/cake-contrib/Cake.Issues.DupFinder/releases/tag/2.0.0){target="_blank"}
+* [Cake.Issues.EsLint 2.0.0](https://github.com/cake-contrib/Cake.Issues.EsLint/releases/tag/2.0.0){target="_blank"}
+* [Cake.Issues.GitRepository 2.0.0](https://github.com/cake-contrib/Cake.Issues.GitRepository/releases/tag/2.0.0){target="_blank"}
+* [Cake.Issues.InspectCode 2.0.0](https://github.com/cake-contrib/Cake.Issues.InspectCode/releases/tag/2.0.0){target="_blank"}
+* [Cake.Issues.Markdownlint 2.0.0](https://github.com/cake-contrib/Cake.Issues.Markdownlint/releases/tag/2.0.0){target="_blank"}
+* [Cake.Issues.MsBuild 2.0.0](https://github.com/cake-contrib/Cake.Issues.MsBuild/releases/tag/2.0.0){target="_blank"}
+* [Cake.Issues.Terraform 2.0.0](https://github.com/cake-contrib/Cake.Issues.Terraform/releases/tag/2.0.0){target="_blank"}
+* [Cake.Issues.Reporting.Console 2.0.0](https://github.com/cake-contrib/Cake.Issues.Reporting.Console/releases/tag/2.0.0){target="_blank"}
+* [Cake.Issues.Reporting.Generic 2.0.0](https://github.com/cake-contrib/Cake.Issues.Reporting.Generic/releases/tag/2.0.0){target="_blank"}
+* [Cake.Issues.Reporting.Sarif 2.0.0](https://github.com/cake-contrib/Cake.Issues.Reporting.Sarif/releases/tag/2.0.0){target="_blank"}
+* [Cake.Issues.PullRequests.AppVeyor 2.0.0](https://github.com/cake-contrib/Cake.Issues.PullRequests.AppVeyor/releases/tag/2.0.0){target="_blank"}
+* [Cake.Issues.PullRequests.AzureDevOps 2.0.0](https://github.com/cake-contrib/Cake.Issues.PullRequests.AzureDevOps/releases/tag/2.0.0){target="_blank"}
+* [Cake.Issues.PullRequests.GitHubActions 2.0.0](https://github.com/cake-contrib/Cake.Issues.PullRequests.GitHubActions/releases/tag/2.0.0){target="_blank"}
 
 [Sunsetting of .NET Framework and .NET Core runners in Cake 2.0]: https://cakebuild.net/blog/2021/10/sunsetting-runners

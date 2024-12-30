@@ -33,7 +33,7 @@ Support for binary logs in version 16 has been added to `Cake.Issues.MsBuild`.
 
 ## Out of the box support for more rule links
 
-`Cake.Issues.MsBuild` now will automatically provide links for [Roslynator] and [SonarLint] rules.
+`Cake.Issues.MsBuild` now will automatically provide links for [Roslynator]{target="_blank"} and [SonarLint]{target="_blank"} rules.
 Links for `CA` rules have updated to link to `learn.microsoft.com`.
 
 ## Updating from previous versions
@@ -45,28 +45,28 @@ This section documents the most common changes which might be required:
   * `StringPathExtensions.IsValideRepositoryFilePath` has been renamed to `StringPathExtensions.IsValidRepositoryFilePath`
   * `BaseRuleDescription.Rule` has been made immutable after initialization
 * Cake.Issues.Recipe
-  * Since [Dupfinder has been sunsetted] end of 2021, out of the box support for it has been removed from Cake Issues Recipe
+  * Since [Dupfinder has been sunsetted]{target="_blank"} end of 2021, out of the box support for it has been removed from Cake Issues Recipe
     and `DupFinderLogFilePaths` is no longer available.
     To keep using DupFinder you need to manually add `Cake.Issues.DupFinder` and add issues using the `AddIssues` method.
 
 For details see release notes of the individual addins:
 
-* [Cake.Issues.Recipe 3.0.0](https://github.com/cake-contrib/Cake.Issues.Recipe/releases/tag/3.0.0)
-* [Cake.Issues 3.0.0](https://github.com/cake-contrib/Cake.Issues/releases/tag/3.0.0)
-* [Cake.Issues.DocFx 3.0.0](https://github.com/cake-contrib/Cake.Issues.DocFx/releases/tag/3.0.0)
-* [Cake.Issues.DupFinder 3.0.0](https://github.com/cake-contrib/Cake.Issues.DupFinder/releases/tag/3.0.0)
-* [Cake.Issues.EsLint 3.0.0](https://github.com/cake-contrib/Cake.Issues.EsLint/releases/tag/3.0.0)
-* [Cake.Issues.GitRepository 3.0.0](https://github.com/cake-contrib/Cake.Issues.GitRepository/releases/tag/3.0.0)
-* [Cake.Issues.InspectCode 3.0.0](https://github.com/cake-contrib/Cake.Issues.InspectCode/releases/tag/3.0.0)
-* [Cake.Issues.Markdownlint 3.0.0](https://github.com/cake-contrib/Cake.Issues.Markdownlint/releases/tag/3.0.0)
-* [Cake.Issues.MsBuild 3.0.0](https://github.com/cake-contrib/Cake.Issues.MsBuild/releases/tag/3.0.0)
-* [Cake.Issues.Terraform 3.0.0](https://github.com/cake-contrib/Cake.Issues.Terraform/releases/tag/3.0.0)
-* [Cake.Issues.Reporting.Console 3.0.0](https://github.com/cake-contrib/Cake.Issues.Reporting.Console/releases/tag/3.0.0)
-* [Cake.Issues.Reporting.Generic 3.0.0](https://github.com/cake-contrib/Cake.Issues.Reporting.Generic/releases/tag/3.0.0)
-* [Cake.Issues.Reporting.Sarif 3.0.0](https://github.com/cake-contrib/Cake.Issues.Reporting.Sarif/releases/tag/3.0.0)
-* [Cake.Issues.PullRequests.AppVeyor 3.0.0](https://github.com/cake-contrib/Cake.Issues.PullRequests.AppVeyor/releases/tag/3.0.0)
-* [Cake.Issues.PullRequests.AzureDevOps 3.0.0](https://github.com/cake-contrib/Cake.Issues.PullRequests.AzureDevOps/releases/tag/3.0.0)
-* [Cake.Issues.PullRequests.GitHubActions 3.0.0](https://github.com/cake-contrib/Cake.Issues.PullRequests.GitHubActions/releases/tag/3.0.0)
+* [Cake.Issues.Recipe 3.0.0](https://github.com/cake-contrib/Cake.Issues.Recipe/releases/tag/3.0.0){target="_blank"}
+* [Cake.Issues 3.0.0](https://github.com/cake-contrib/Cake.Issues/releases/tag/3.0.0){target="_blank"}
+* [Cake.Issues.DocFx 3.0.0](https://github.com/cake-contrib/Cake.Issues.DocFx/releases/tag/3.0.0){target="_blank"}
+* [Cake.Issues.DupFinder 3.0.0](https://github.com/cake-contrib/Cake.Issues.DupFinder/releases/tag/3.0.0){target="_blank"}
+* [Cake.Issues.EsLint 3.0.0](https://github.com/cake-contrib/Cake.Issues.EsLint/releases/tag/3.0.0){target="_blank"}
+* [Cake.Issues.GitRepository 3.0.0](https://github.com/cake-contrib/Cake.Issues.GitRepository/releases/tag/3.0.0){target="_blank"}
+* [Cake.Issues.InspectCode 3.0.0](https://github.com/cake-contrib/Cake.Issues.InspectCode/releases/tag/3.0.0){target="_blank"}
+* [Cake.Issues.Markdownlint 3.0.0](https://github.com/cake-contrib/Cake.Issues.Markdownlint/releases/tag/3.0.0){target="_blank"}
+* [Cake.Issues.MsBuild 3.0.0](https://github.com/cake-contrib/Cake.Issues.MsBuild/releases/tag/3.0.0){target="_blank"}
+* [Cake.Issues.Terraform 3.0.0](https://github.com/cake-contrib/Cake.Issues.Terraform/releases/tag/3.0.0){target="_blank"}
+* [Cake.Issues.Reporting.Console 3.0.0](https://github.com/cake-contrib/Cake.Issues.Reporting.Console/releases/tag/3.0.0){target="_blank"}
+* [Cake.Issues.Reporting.Generic 3.0.0](https://github.com/cake-contrib/Cake.Issues.Reporting.Generic/releases/tag/3.0.0){target="_blank"}
+* [Cake.Issues.Reporting.Sarif 3.0.0](https://github.com/cake-contrib/Cake.Issues.Reporting.Sarif/releases/tag/3.0.0){target="_blank"}
+* [Cake.Issues.PullRequests.AppVeyor 3.0.0](https://github.com/cake-contrib/Cake.Issues.PullRequests.AppVeyor/releases/tag/3.0.0){target="_blank"}
+* [Cake.Issues.PullRequests.AzureDevOps 3.0.0](https://github.com/cake-contrib/Cake.Issues.PullRequests.AzureDevOps/releases/tag/3.0.0){target="_blank"}
+* [Cake.Issues.PullRequests.GitHubActions 3.0.0](https://github.com/cake-contrib/Cake.Issues.PullRequests.GitHubActions/releases/tag/3.0.0){target="_blank"}
 
 [Roslynator]: https://josefpihrt.github.io/docs/roslynator/
 [SonarLint]: https://www.sonarsource.com/products/sonarlint/

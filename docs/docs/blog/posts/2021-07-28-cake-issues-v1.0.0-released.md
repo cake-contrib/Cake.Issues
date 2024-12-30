@@ -30,7 +30,7 @@ All addins have been updated to support Cake 1.x.
 
 ## Support for Cake Frosting
 
-All addins can be used with [Cake Frosting].
+All addins can be used with [Cake Frosting]{target="_blank"}.
 
 Cake Issues addins have always been self-contained, shipping with all required dependencies, to provide the best user experience.
 While this approach makes sense for Cake script runners, it makes things more complex than required when running under [Cake Frosting].
@@ -38,10 +38,10 @@ This is especially true for the [Cake.Issues.Reporting.Generic addin], which use
 
 It was therefore decided to release separate versions of the Cake.Issues.Reporting.Generic addin for the different script runners:
 
-* [Cake.Issues.Reporting.Generic]: The addin packaged in a self-contained NuGet package for use with Cake script runners
-* [Cake.Frosting.Issues.Reporting.Generic]: The addin packaged in a NuGet package containing dependencies for use with [Cake Frosting]
+* [Cake.Issues.Reporting.Generic]{target="_blank"}: The addin packaged in a self-contained NuGet package for use with Cake script runners
+* [Cake.Frosting.Issues.Reporting.Generic]{target="_blank"}: The addin packaged in a NuGet package containing dependencies for use with [Cake Frosting]
 
-[Cake.Frosting.Issues.Reporting.Generic] has the additional benefit for the user that it gives the user full control
+[Cake.Frosting.Issues.Reporting.Generic]{target="_blank"} has the additional benefit for the user that it gives the user full control
 of what exact version of dependencies should be used.
 In the future more Cake Issues addins might be released in Frosting specific packages.
 
@@ -57,7 +57,7 @@ These kind of information can now be stored in the `IIssue.AdditionalInformation
 
 ## New provider type property
 
-While there are aliases to get provider type name (e.g. [MsBuildIssuesProviderTypeName]), this information was in previous versions
+While there are aliases to get provider type name (e.g. [MsBuildIssuesProviderTypeName]{target="_blank"}), this information was in previous versions
 not available through the `IIssueProvider` interface.
 There is a new `IIssueProvider.ProviderType` property which can be used to retrieve the provider type.
 
@@ -71,8 +71,8 @@ A new PDF export has been added to the `HtmlDxDataGrid` template of the `Cake.Is
 
 Starting with Cake Issues 1.0.0 the three core addins `Cake.Issues`, `Cake.Issues.PullRequests` and
 `Cake.Issues.Reporting` will be always released together.
-For that source code for the addin has been merged in the [Cake.Issues repository].
-Please open any issues related to any of the core addins in the [Cake.Issues issue tracker].
+For that source code for the addin has been merged in the [Cake.Issues repository]{target="_blank"}.
+Please open any issues related to any of the core addins in the [Cake.Issues issue tracker]{target="_blank"}.
 
 [Cake.Issues repository]: https://github.com/cake-contrib/Cake.Issues
 [Cake.Issues issue tracker]: https://github.com/cake-contrib/Cake.Issues/issues

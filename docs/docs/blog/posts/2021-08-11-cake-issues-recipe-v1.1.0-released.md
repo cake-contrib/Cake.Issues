@@ -22,7 +22,7 @@ People working on this release:
 
 This version of Cake Issues recipes adds a new `FullIssuesReportSettings` configuration parameter which allows
 to customize the generated issue report.
-See [Report creation parameters] for details.
+See [Report creation parameters]{target="_blank"} for details.
 
 The following example enables exporting of the report when using Cake.Issues.Recipe:
 
@@ -42,7 +42,7 @@ context.Parameters.Reporting.FullIssuesReportSettings
 
 `Cake.Git` has been updated to version 1.1.0 which comes with an updated version of LibGit2Sharp which adds support for Ubuntu 20.
 
-See [Cake.Git 1.1.0 release notes] for details.
+See [Cake.Git 1.1.0 release notes]{target="_blank"} for details.
 
 ## Updating from previous versions
 

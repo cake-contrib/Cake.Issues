@@ -33,7 +33,7 @@ Provider report is now rendered in different colors for the individual bars, mak
 
 ## Errata 0.6.0
 
-Underlying [Errata] library has been updated to 0.6.0, containing additional bug fixes and rendering improvements.
+Underlying [Errata]{target="_blank"} library has been updated to 0.6.0, containing additional bug fixes and rendering improvements.
 
 ## Updating from previous versions
 

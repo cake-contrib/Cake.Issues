@@ -18,7 +18,7 @@ bringing first class integration for GitHub pull requests to Cake.Issues:
 
 ![Pull request integration](../../documentation/pull-request-systems/github-actions/githubactions-pullrequest-integration.png "Pull request integration")
 
-This integration was [first released in Cake.Issues.Recipe 0.4.2] and has now been moved to its own addin, which can also be used outside of
+This integration was [first released in Cake.Issues.Recipe 0.4.2]{target="_blank"} and has now been moved to its own addin, which can also be used outside of
 Cake.Issues.Recipe.
 
 [Cake.Issues.PullRequest.GitHubActions addin]: ../../documentation/pull-request-systems/github-actions/index.md
