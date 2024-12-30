@@ -9,8 +9,8 @@ Template for a HTML report containing a list of all issues with all properties.
 
 ## Features
 
-* Unstyled table listing all properties of [IIssue](https://cakebuild.net/api/Cake.Issues/IIssue/){target="_blank"}
-* No internet access required for displaying.
+- [x] Unstyled table listing all properties of [IIssue](https://cakebuild.net/api/Cake.Issues/IIssue/){target="_blank"}
+- [x] No internet access required for displaying.
 
 ## Requirements
 

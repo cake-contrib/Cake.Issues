@@ -9,15 +9,15 @@ Template for a HTML report containing a rich data grid with sorting, filtering, 
 
 ## Features
 
-* Table with `Provider`, `Severity`, `Project`, `Path`, `File`, `Location`, `Rule`, `Message` by default.
-* Support for grouping by multiple columns by user.
-* Total number of issues by each group level.
-* Each column sortable by user.
-* Data can be filtered by any column by user.
-* Paged view.
-* Client-side full text search.
-* Client-side export to Microsoft Excel or PDF.
-* Fully customizable through [options](#options).
+- [x] Table with `Provider`, `Severity`, `Project`, `Path`, `File`, `Location`, `Rule`, `Message` by default.
+- [x] Support for grouping by multiple columns by user.
+- [x] Total number of issues by each group level.
+- [x] Each column sortable by user.
+- [x] Data can be filtered by any column by user.
+- [x] Paged view.
+- [x] Client-side full text search.
+- [x] Client-side export to Microsoft Excel or PDF.
+- [x] Fully customizable through [options](#options).
 
 ## Requirements
 
