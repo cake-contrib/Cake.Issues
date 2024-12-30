@@ -3,6 +3,8 @@ title: New website
 date: 2024-12-21
 categories:
   - Announcements
+search:
+  boost: 0.5
 ---
 
 Today a new version of the Cake Issues website has been published.

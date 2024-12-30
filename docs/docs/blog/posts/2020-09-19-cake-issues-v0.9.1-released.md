@@ -3,6 +3,8 @@ title: Cake Issues v0.9.1 Released
 date: 2020-09-19
 categories:
   - Release Notes
+search:
+  boost: 0.5
 ---
 
 Version 0.9.1 of Cake Issues and Cake.Issues.PullRequests.AzureDevOps have been released.

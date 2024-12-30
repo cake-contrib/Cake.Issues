@@ -3,6 +3,8 @@ title: Cake Issues Recipe v0.4.4 released, bringing support for ESLint
 date: 2020-12-01
 categories:
   - Release Notes
+search:
+  boost: 0.5
 ---
 
 Version 0.4.4 of Cake Issues Recipe has been released bringing support for ESLint.

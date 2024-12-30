@@ -3,6 +3,8 @@ title: Cake Issues v2.0.0 Released
 date: 2022-12-10
 categories:
   - Release Notes
+search:
+  boost: 0.5
 ---
 
 After several months with beta releases Cake Issues version 2.0.0 has been released.

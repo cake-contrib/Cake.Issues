@@ -3,6 +3,8 @@ title: Cake Issues v4.3.0 Released
 date: 2024-04-20
 categories:
   - Release Notes
+search:
+  boost: 0.5
 ---
 
 Cake Issues version 4.3.0 has been released with support for MsBuild binary log format version 20.

@@ -3,6 +3,8 @@ title: Cake Issues v4.1.0 Released
 date: 2024-02-21
 categories:
   - Release Notes
+search:
+  boost: 0.5
 ---
 
 Cake Issues version 4.1.0 has been released with improvements for Cake Frosting and support for latest MsBuild binary log format.

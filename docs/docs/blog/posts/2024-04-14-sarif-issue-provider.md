@@ -3,6 +3,8 @@ title: New addin for reading SARIF files
 date: 2024-04-14
 categories:
   - New Addin
+search:
+  boost: 0.5
 ---
 
 A new [Cake.Issues.Sarif addin] has been released which adds support for reading issues in [SARIF]{target="_blank"} format.
