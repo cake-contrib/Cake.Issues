@@ -71,6 +71,8 @@ plugins:
       post_readtime: true
   - macros
   - search
+  - social:
+      enabled: !ENV [GITHUB_ACTIONS, false]
   - table-reader
 
 # Extensions
