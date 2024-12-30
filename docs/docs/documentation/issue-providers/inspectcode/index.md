@@ -10,5 +10,6 @@ is implemented in the [Cake.Issues.InspectCode addin](https://www.nuget.org/pack
 
 - :material-creation-outline: [Features](features.md)
 - :material-test-tube: [Examples](examples.md)
+- :material-api: [API](https://cakebuild.net/extensions/cake-issues-inspectcode){target="_blank"}
 
 </div>

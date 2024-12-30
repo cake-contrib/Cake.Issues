@@ -11,5 +11,6 @@ Support for creating reports in any text based format like HTML or Markdown is i
 - :material-creation-outline: [Features](features.md)
 - :material-test-tube: [Examples](examples/index.md)
 - :material-image: [Template Gallery](templates/index.md)
+- :material-api: [API](https://cakebuild.net/extensions/cake-issues-reporting-generic){target="_blank"}
 
 </div>

@@ -153,9 +153,11 @@ nav:
           - documentation/issue-providers/docfx/index.md
           - Features: documentation/issue-providers/docfx/features.md
           - Examples: documentation/issue-providers/docfx/examples.md
+          - API: https://cakebuild.net/extensions/cake-issues-docfx" target="_blank
         - ESLint:
           - documentation/issue-providers/eslint/index.md
           - Features: documentation/issue-providers/eslint/features.md
+          - API: https://cakebuild.net/extensions/cake-issues-eslint" target="_blank
         - Git Repository:
           - documentation/issue-providers/gitrepository/index.md
           - Features: documentation/issue-providers/gitrepository/features.md
@@ -164,30 +166,37 @@ nav:
             - documentation/issue-providers/gitrepository/rules/index.md
             - BinaryFileNotTrackedByLfs: documentation/issue-providers/gitrepository/rules/BinaryFileNotTrackedByLfs.md
             - FilePathTooLong: documentation/issue-providers/gitrepository/rules/FilePathTooLong.md
+          - API: https://cakebuild.net/extensions/cake-issues-gitrepository" target="_blank
         - InspectCode:
           - documentation/issue-providers/inspectcode/index.md
           - Features: documentation/issue-providers/inspectcode/features.md
           - Examples: documentation/issue-providers/inspectcode/examples.md
+          - API: https://cakebuild.net/extensions/cake-issues-inspectcode" target="_blank
         - markdownlint:
           - documentation/issue-providers/markdownlint/index.md
           - Features: documentation/issue-providers/markdownlint/features.md
           - Examples: documentation/issue-providers/markdownlint/examples.md
+          - API: https://cakebuild.net/extensions/cake-issues-markdownlint" target="_blank
         - MsBuild:
           - documentation/issue-providers/msbuild/index.md
           - Features: documentation/issue-providers/msbuild/features.md
           - Examples: documentation/issue-providers/msbuild/examples.md
+          - API: https://cakebuild.net/extensions/cake-issues-msbuild" target="_blank
         - Sarif:
           - documentation/issue-providers/sarif/index.md
           - Features: documentation/issue-providers/sarif/features.md
+          - API: https://cakebuild.net/extensions/cake-issues-sarif" target="_blank
         - Terraform:
           - documentation/issue-providers/terraform/index.md
           - Features: documentation/issue-providers/terraform/features.md
+          - API: https://cakebuild.net/extensions/cake-issues-terraform" target="_blank
       - Report Formats:
         - documentation/report-formats/index.md
         - Console:
           - documentation/report-formats/console/index.md
           - Features: documentation/report-formats/console/features.md
           - Examples: documentation/report-formats/console/examples.md
+          - API: https://cakebuild.net/extensions/cake-issues-reporting-console" target="_blank
         - Generic:
           - documentation/report-formats/generic/index.md
           - Features: documentation/report-formats/generic/features.md
@@ -200,10 +209,12 @@ nav:
             - HTML DevExtreme Data Grid: documentation/report-formats/generic/templates/htmldxdatagrid.md
             - HTML Data Table: documentation/report-formats/generic/templates/htmldatatable.md
             - HTML Diagnostic: documentation/report-formats/generic/templates/htmldiagnostic.md
+          - API: https://cakebuild.net/extensions/cake-issues-reporting-generic" target="_blank
         - Sarif:
           - documentation/report-formats/sarif/index.md
           - Features: documentation/report-formats/sarif/features.md
           - Examples: documentation/report-formats/sarif/examples.md
+          - API: https://cakebuild.net/extensions/cake-issues-reporting-sarif" target="_blank
       - Pull Request Systems:
         - documentation/pull-request-systems/index.md
         - AppVeyor:
@@ -213,6 +224,7 @@ nav:
             - documentation/pull-request-systems/appveyor/examples/index.md
             - Writing Messages To AppVeyor: documentation/pull-request-systems/appveyor/examples/write-messages.md
             - GitHub Pull Request Integration: documentation/pull-request-systems/appveyor/examples/github-pullrequest-integration.md
+          - API: https://cakebuild.net/extensions/cake-issues-pullrequests-appveyor" target="_blank
         - Azure DevOps:
           - documentation/pull-request-systems/azure-devops/index.md
           - Features: documentation/pull-request-systems/azure-devops/features.md
@@ -222,12 +234,14 @@ nav:
             - Using With Pull Request ID: documentation/pull-request-systems/azure-devops/examples/pullrequest-id.md
             - Using With Repository Remote URL And Source Branch Name: documentation/pull-request-systems/azure-devops/examples/repository-information.md
             - Using With Azure Pipelines: documentation/pull-request-systems/azure-devops/examples/azure-pipelines.md
+          - API: https://cakebuild.net/extensions/cake-issues-pullrequests-azuredevops" target="_blank
         - GitHub Actions:
           - documentation/pull-request-systems/github-actions/index.md
           - Features: documentation/pull-request-systems/github-actions/features.md
           - Examples:
             - documentation/pull-request-systems/github-actions/examples/index.md
             - Create annotations in GitHub Actions: documentation/pull-request-systems/github-actions/examples/write-annotations.md
+          - API: https://cakebuild.net/extensions/cake-issues-pullrequests-githubactions" target="_blank
     - How To Develop:
       - Extending:
         - documentation/extending/index.md
@@ -255,5 +269,5 @@ nav:
     - Resources:
       - Blog Posts: documentation/resources/blog-posts.md
       - Presentations: documentation/resources/presentations.md
+  - API: api.md
   - Release Notes: https://github.com/cake-contrib/Cake.Issues/releases" target="_blank
-  - API: https://cakebuild.net/extensions/cake-issues/" target="_blank

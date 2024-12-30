@@ -9,5 +9,6 @@ is implemented in the [Cake.Issues.Sarif addin](https://cakebuild.net/extensions
 <div class="grid cards" markdown>
 
 - :material-creation-outline: [Features](features.md)
+- :material-api: [API](https://cakebuild.net/extensions/cake-issues-sarif){target="_blank"}
 
 </div>
