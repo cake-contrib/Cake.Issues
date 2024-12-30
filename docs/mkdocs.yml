@@ -68,6 +68,7 @@ theme:
 # Plugins
 plugins:
   - blog:
+      blog_dir: news
       post_readtime: true
   - macros
   - search
@@ -115,7 +116,7 @@ extra:
 nav:
   - Home: index.md
   - News:
-    - blog/index.md
+    - news/index.md
   - Documentation:
     - Key concepts:
       - Overview: documentation/overview.md
