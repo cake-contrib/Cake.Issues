@@ -27,7 +27,9 @@ jobs:
         run: pip install -r requirements.txt
         working-directory: ./docs
       - name: Install Required Libraries
-        run: apt-get install pngquant
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pngquant
       - name: Configure Git
         run: |
           git config --global user.name "Build Server"
