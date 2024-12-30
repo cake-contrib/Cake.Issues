@@ -10,5 +10,6 @@ Support for AppVeyor is implemented in the
 
 - :material-creation-outline: [Features](features.md)
 - :material-test-tube: [Examples](examples/index.md)
+- :material-api: [API](https://cakebuild.net/extensions/cake-issues-pullrequests-appveyor){target="_blank"}
 
 </div>

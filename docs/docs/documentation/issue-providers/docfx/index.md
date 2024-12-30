@@ -10,5 +10,6 @@ Support for reading warnings reported by [DocFx](https://dotnet.github.io/docfx/
 
 - :material-creation-outline: [Features](features.md)
 - :material-test-tube: [Examples](examples.md)
+- :material-api: [API](https://cakebuild.net/extensions/cake-issues-docfx){target="_blank"}
 
 </div>

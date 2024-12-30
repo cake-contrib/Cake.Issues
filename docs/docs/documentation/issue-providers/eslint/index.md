@@ -9,5 +9,6 @@ is implemented in the [Cake.Issues.EsLint addin](https://cakebuild.net/extension
 <div class="grid cards" markdown>
 
 - :material-creation-outline: [Features](features.md)
+- :material-api: [API](https://cakebuild.net/extensions/cake-issues-eslint){target="_blank"}
 
 </div>
