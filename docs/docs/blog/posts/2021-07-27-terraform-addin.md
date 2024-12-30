@@ -5,7 +5,7 @@ categories:
   - New Addin
 ---
 
-A new [Cake.Issues.Terraform addin] has been released which adds support for reading issues from Terraform `validate` command..
+A new [Cake.Issues.Terraform addin] has been released which adds support for reading issues from Terraform `validate` command.
 
 <!-- more -->
 
