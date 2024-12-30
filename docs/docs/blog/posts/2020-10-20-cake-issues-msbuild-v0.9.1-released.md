@@ -3,6 +3,8 @@ title: Cake Issues MsBuild v0.9.1 Released
 date: 2020-10-20
 categories:
   - Release Notes
+search:
+  boost: 0.5
 ---
 
 Version 0.9.1 of MsBuild support for Cake.Issues has been released.

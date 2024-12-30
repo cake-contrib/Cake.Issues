@@ -3,6 +3,8 @@ title: Cake Issues v1.0.0 Released
 date: 2021-07-28
 categories:
   - Release Notes
+search:
+  boost: 0.5
 ---
 
 More than 4 years after the [first commit for Cake.Prca](https://github.com/cake-contrib/Cake.Prca/commit/438b3a1a609e5b9cc9e6f8f489a73988f9ed1f4d){target="_blank"},

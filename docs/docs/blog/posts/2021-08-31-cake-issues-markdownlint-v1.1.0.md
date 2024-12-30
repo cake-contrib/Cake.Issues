@@ -3,6 +3,8 @@ title: Cake Issues Markdownlint v1.1.0 Released
 date: 2021-08-31
 categories:
   - Release Notes
+search:
+  boost: 0.5
 ---
 
 Version 1.1.0 of Markdownlint support for Cake.Issues has been released.

@@ -3,6 +3,8 @@ title: Cake Issues v4.2.0 Released
 date: 2024-04-14
 categories:
   - Release Notes
+search:
+  boost: 0.5
 ---
 
 Cake Issues version 4.2.0 has been released introducing a new issue provider for SARIF compatible files.
