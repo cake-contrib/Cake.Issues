@@ -10,12 +10,12 @@ Template for a HTML report containing a rich data table view with sorting and se
 
 ## Features
 
-* Separate table for issues of each issue provider.
-* Table with `Severity`, `Project`, `Path`, `File`, `Location`, `Rule`, `Message`.
-* Each column sortable by user.
-* Paged table with possibility for user to change number of entries per page.
-* Client-side full text search.
-* No internet access required for displaying.
+- [x] Separate table for issues of each issue provider.
+- [x] Table with `Severity`, `Project`, `Path`, `File`, `Location`, `Rule`, `Message`.
+- [x] Each column sortable by user.
+- [x] Paged table with possibility for user to change number of entries per page.
+- [x] Client-side full text search.
+- [x] No internet access required for displaying.
 
 ## Requirements
 
