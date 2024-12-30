@@ -5060,8 +5060,8 @@ and from JetBrains InspectCode are imported:</p>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="err">#</span><span class="n">addin</span><span class="w"> </span><span class="n">nuget</span><span class="p">:</span><span class="o">?</span><span class="n">package</span><span class="o">=</span><span class="n">Cake</span><span class="p">.</span><span class="n">Issues</span><span class="p">.</span><span class="n">InspectCode</span><span class="o">&amp;</span><span class="n">version</span><span class="o">=</span><span class="m">5.0</span><span class="p">.</span><span class="m">1</span>
 </span></code></pre></div>
 <p>Finally you can define a task where you call the core addin with the desired issue providers.
-The following example reads issues reported as MsBuild warnings by the <code>XmlFileLogger</code>
-class from <a href="http://www.msbuildextensionpack.com/" target="_blank">MSBuild Extension Pack</a> and issues reported by JetBrains InspectCode:</p>
+The following example reads warnings and errors reported by MsBuild from a binary log
+and issues reported by JetBrains InspectCode:</p>
 <div class="language-csharp highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">Task</span><span class="p">(</span><span class="s">&quot;Read-Issues&quot;</span><span class="p">).</span><span class="n">Does</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">{</span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">repoRootFolder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DirectoryPath</span><span class="p">(</span><span class="s">@&quot;C:\repo&quot;</span><span class="p">);</span>
@@ -5070,7 +5070,7 @@ class from <a href="http://www.msbuildextensionpack.com/" target="_blank">MSBuil
 </span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">        </span><span class="p">{</span>
 </span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">            </span><span class="n">MsBuildIssuesFromFilePath</span><span class="p">(</span>
 </span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">                </span><span class="s">@&quot;C:\build\msbuild.log&quot;</span><span class="p">,</span>
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">                </span><span class="n">MsBuildXmlFileLoggerFormat</span><span class="p">),</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">                </span><span class="n">MsBuildBinaryLogFileFormat</span><span class="p">),</span>
 </span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">            </span><span class="n">InspectCodeIssuesFromFilePath</span><span class="p">(</span>
 </span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">                </span><span class="s">@&quot;C:\build\inspectcode.log&quot;</span><span class="p">)</span>
 </span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">        </span><span class="p">},</span>
