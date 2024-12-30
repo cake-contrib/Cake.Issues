@@ -12,13 +12,13 @@
         <meta name="author" content="Cake Issues Contributors">
       
       
-        <link rel="canonical" href="https://cakeissues.net/develop/blog/2024/12/02/cake-issues-v500-released/">
+        <link rel="canonical" href="https://cakeissues.net/develop/blog/2024/04/14/cake-issues-v420-released/">
       
       
-        <link rel="prev" href="../../../04/14/cake-issues-v420-released/">
+        <link rel="prev" href="../new-addin-for-reading-sarif-files/">
       
       
-        <link rel="next" href="../../21/new-website/">
+        <link rel="next" href="../../../12/02/cake-issues-v500-released/">
       
       
       <link rel="icon" href="../../../../../assets/images/favicon.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>Cake Issues v5.0.0 Released - Cake Issues</title>
+        <title>Cake Issues v4.2.0 Released - Cake Issues</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#support-for-cake-50" class="md-skip">
+        <a href="#new-issue-provider-for-sarif-files" class="md-skip">
           Skip to content
         </a>
       
@@ -130,7 +130,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Cake Issues v5.0.0 Released
+              Cake Issues v4.2.0 Released
             
           </span>
         </div>
@@ -5366,27 +5366,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#support-for-cake-50" class="md-nav__link">
+  <a href="#new-issue-provider-for-sarif-files" class="md-nav__link">
     <span class="md-ellipsis">
-      Support for Cake 5.0
+      New issue provider for SARIF files
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#improvements-for-cake-frosting" class="md-nav__link">
+  <a href="#improvement-for-cake-frosting" class="md-nav__link">
     <span class="md-ellipsis">
-      Improvements for Cake Frosting
+      Improvement for Cake Frosting
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#security-improvements" class="md-nav__link">
+  <a href="#alignment-of-release-lifecycle" class="md-nav__link">
     <span class="md-ellipsis">
-      Security improvements
+      Alignment of release lifecycle
     </span>
   </a>
   
@@ -5438,7 +5438,7 @@
                     <li class="md-nav__item">
                       <div class="md-nav__link">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
-                        <time datetime="2024-12-02 00:00:00+00:00" class="md-ellipsis">December 2, 2024</time>
+                        <time datetime="2024-04-14 00:00:00+00:00" class="md-ellipsis">April 14, 2024</time>
                       </div>
                     </li>
                     
@@ -5460,7 +5460,7 @@
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
                           <span class="md-ellipsis">
                             
-                              1 min read
+                              2 min read
                             
                           </span>
                         </div>
@@ -5480,7 +5480,7 @@
         
 
   
-    <a href="https://github.com/cake-contrib/Cake.Issues/edit/develop/docs/docs/blog/posts/2024-12-02-cake-issues-v5.0.0-released.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/cake-contrib/Cake.Issues/edit/develop/docs/docs/blog/posts/2024-04-14-cake-issues-v4.2.0-released.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -5488,10 +5488,9 @@
   
 
 
-  <h1>Cake Issues v5.0.0 Released</h1>
+  <h1>Cake Issues v4.2.0 Released</h1>
 
-<p>Cake Issues version 5.0.0 has been released.
-This is a major release, containing breaking changes beside bringing new features and bug fixes across all <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr>.</p>
+<p>Cake Issues version 4.2.0 has been released introducing a new issue provider for SARIF compatible files.</p>
 <!-- more -->
 
 <p>This post shows the highlights included in this release.
@@ -5502,22 +5501,41 @@ For update instructions skip to <a href="#updating-from-previous-versions">Updat
 <li><a href="https://github.com/eoehen" target="_blank">eoehen</a></li>
 <li><a href="https://github.com/pascalberger" target="_blank">pascalberger</a></li>
 </ul>
-<h2 id="support-for-cake-50">Support for Cake 5.0<a class="headerlink" href="#support-for-cake-50" title="Permanent link">&para;</a></h2>
-<p>All <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr> have been updated to support Cake 5.x.</p>
-<p>Target framework have been updated to .NET 8 and .NET 9 to be in line with Cake.</p>
-<h2 id="improvements-for-cake-frosting">Improvements for Cake Frosting<a class="headerlink" href="#improvements-for-cake-frosting" title="Permanent link">&para;</a></h2>
-<p><code>Cake.Frosting.Issues.PullRequests.AzureDevOps</code> now references <code>Cake.Frosting.AzureDevOps</code>,
-a version of <code>Cake.AzureDevOps</code>, optimized for Cake Frosting.</p>
-<p>Instead of shipping client assemblies to access Azure DevOps as part of <code>Cake.AzureDevOps</code>,
-<code>Cake.Frosting.AzureDevOps</code> references the corresponding NuGet packages, which for example
-allows to control version of the libraries used.</p>
-<h2 id="security-improvements">Security improvements<a class="headerlink" href="#security-improvements" title="Permanent link">&para;</a></h2>
-<p>Transitive dependencies which contain known security vulnerabilities have been updated to
-newer versions where the vulnerabilities are fixed.</p>
+<h2 id="new-issue-provider-for-sarif-files">New issue provider for SARIF files<a class="headerlink" href="#new-issue-provider-for-sarif-files" title="Permanent link">&para;</a></h2>
+<p>A new <a href="../../../../../documentation/issue-providers/sarif/">Cake.Issues.Sarif addin</a> has been released which adds support for reading issues in <a href="https://sarifweb.azurewebsites.net/" target="_blank">SARIF</a> format.</p>
+<p>See <a href="../new-addin-for-reading-sarif-files/">New addin for reading SARIF files</a> for details.</p>
+<h2 id="improvement-for-cake-frosting">Improvement for Cake Frosting<a class="headerlink" href="#improvement-for-cake-frosting" title="Permanent link">&para;</a></h2>
+<p>Optimized versions for Cake Frosting have been released for the following <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr>:</p>
+<ul>
+<li><a href="https://www.nuget.org/packages/Cake.Frosting.Issues.DocFx" target="_blank">Cake.Frosting.Issues.DocFx</a></li>
+<li><a href="https://www.nuget.org/packages/Cake.Frosting.Issues.EsLint" target="_blank">Cake.Frosting.Issues.EsLint</a></li>
+<li><a href="https://www.nuget.org/packages/Cake.Frosting.Issues.GitRepository" target="_blank">Cake.Frosting.Issues.GitRepository</a></li>
+<li><a href="https://www.nuget.org/packages/Cake.Frosting.Issues.InspectCode" target="_blank">Cake.Frosting.Issues.InspectCode</a></li>
+<li><a href="https://www.nuget.org/packages/Cake.Frosting.Issues.Markdownlint" target="_blank">Cake.Frosting.Issues.Markdownlint</a></li>
+<li><a href="https://www.nuget.org/packages/Cake.Frosting.Issues.Terraform" target="_blank">Cake.Frosting.Issues.Terraform</a></li>
+<li><a href="https://www.nuget.org/packages/Cake.Frosting.Issues.PullRequests.AppVeyor" target="_blank">Cake.Frosting.Issues.PullRequests.AppVeyor</a></li>
+<li><a href="https://www.nuget.org/packages/Cake.Frosting.Issues.PullRequests.AzureDevOps" target="_blank">Cake.Frosting.Issues.PullRequests.AzureDevOps</a></li>
+<li><a href="https://www.nuget.org/packages/Cake.Frosting.Issues.PullRequests.GitHubActions" target="_blank">Cake.Frosting.Issues.PullRequests.GitHubActions</a></li>
+</ul>
+<p>These <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr> come with a dependency to the core <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr>, allowing the core <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr> to be consumed as transitive dependencies.</p>
+<h2 id="alignment-of-release-lifecycle">Alignment of release lifecycle<a class="headerlink" href="#alignment-of-release-lifecycle" title="Permanent link">&para;</a></h2>
+<p>As announced in <a href="../../../01/14/alignment-of-addin-lifecycles/">Alignment of addin lifecycles</a> work as started to move
+<abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr> into the main Cake Issues repository.</p>
+<p>Starting with this release the following <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr> will be released together with the core <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr>:</p>
+<ul>
+<li>Cake.Issues.GitRepository</li>
+<li>Cake.Issues.Terraform</li>
+<li>Cake.Issues.PullRequests.AppVeyor</li>
+<li>Cake.Issues.PullRequests.AzureDevOps</li>
+<li>Cake.Issues.PullRequsts.GitHubActions</li>
+<li>Cake.Issues.Reporting.Console</li>
+<li>Cake.Issues.Reporting.Generic</li>
+<li>Cake.Issues.Reporting.Sarif</li>
+</ul>
 <h2 id="updating-from-previous-versions">Updating from previous versions<a class="headerlink" href="#updating-from-previous-versions" title="Permanent link">&para;</a></h2>
-<p>Cake.Issues 5.0.0 is a breaking release, which means that there is a small change that changes to your
-build script are required.</p>
-<p>For details see <a href="https://github.com/cake-contrib/Cake.Issues/releases/tag/5.0.0" target="_blank">release notes</a></p>
+<p>Cake.Issues 4.2.0 <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr> are compatible with any 4.x <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr>.
+To update to the new version bump the version of the specific <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr>.</p>
+<p>For details see <a href="https://github.com/cake-contrib/Cake.Issues/releases/tag/4.2.0" target="_blank">release notes</a></p>
 <!-- Glossary for terms and concepts not documented on cakeissues.net -->
 
 
