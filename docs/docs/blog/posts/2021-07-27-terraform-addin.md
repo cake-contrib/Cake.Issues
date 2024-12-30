@@ -2,7 +2,7 @@
 title: New addin for Terraform support
 date: 2021-07-27
 categories:
-  - Release Notes
+  - New Addin
 ---
 
 A new [Cake.Issues.Terraform addin] has been released which adds support for reading issues from Terraform `validate` command..

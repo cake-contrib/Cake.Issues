@@ -2,7 +2,7 @@
 title: New GitHub Actions addin
 date: 2020-09-27
 categories:
-  - Release Notes
+  - New Addin
 ---
 
 A new [Cake.Issues.PullRequest.GitHubActions addin] has been released which brings integration with GitHub Actions and GitHub pull requests.
