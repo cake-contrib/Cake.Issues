@@ -31,7 +31,7 @@ stages:
       - powershell: ./build.ps1 --verbosity=diagnostic
         workingDirectory: ./tests/Cake.Issues.Reporting.Generic/script-runner
         displayName: 'Run integration tests'
-      - publish: $(Build.SourcesDirectory)/docs/docs/documentation/report-formats/generic/templates
+      - publish: $(Build.SourcesDirectory)/docs/input/documentation/report-formats/generic/templates
         artifact: Integration Tests Cake.Issues.Reporting.Generic Cake Scripting $(System.JobName)
         displayName: 'Publish generated reports as build artifact'
     - job: TestReportingGenericFrostingNet8Job
@@ -60,6 +60,6 @@ stages:
       - powershell: ./build.ps1 --verbosity=diagnostic
         workingDirectory: ./tests/Cake.Issues.Reporting.Generic/frosting
         displayName: 'Run integration tests'
-      - publish: $(Build.SourcesDirectory)/docs/docs/documentation/report-formats/generic/templates
+      - publish: $(Build.SourcesDirectory)/docs/input/documentation/report-formats/generic/templates
         artifact: Integration Tests Cake.Issues.Reporting.Generic Cake Frosting .NET 8 $(System.JobName)
         displayName: 'Publish generated reports as build artifact'
