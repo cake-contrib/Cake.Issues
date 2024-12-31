@@ -106,7 +106,9 @@ markdown_extensions:
 
 # Additional configuration
 extra:
+  cake_version: 5.0.0
   cake_issues_version: 5.0.1
+  example_tfm: net9.0
   version:
     provider: mike
   social:

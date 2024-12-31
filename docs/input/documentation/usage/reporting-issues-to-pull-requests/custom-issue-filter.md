@@ -14,29 +14,88 @@ You can define custom filters which are applied to issues before they are posted
 
 The following example will filter out all issues from the rule `CA1000` from being posted to the pull request.
 
-```csharp
-#addin nuget:?package=Cake.Issues&version={{ cake_issues_version }}
-#addin nuget:?package=Cake.Issues.MsBuild&version={{ cake_issues_version }}
-#addin nuget:?package=Cake.Issues.PullRequests&version={{ cake_issues_version }}
-#addin nuget:?package=Cake.Issues.PullRequests.AzureDevOps&version={{ cake_issues_version }}
+=== "Cake .NET Tool"
 
-Task("ReportIssuesToPullRequest").Does(() =>
-{
-    var repoRootFolder = new DirectoryPath(@"C:\repo");
+    ```csharp title="build.cake"
+    #addin nuget:?package=Cake.Issues&version={{ cake_issues_version }}
+    #addin nuget:?package=Cake.Issues.MsBuild&version={{ cake_issues_version }}
+    #addin nuget:?package=Cake.Issues.PullRequests&version={{ cake_issues_version }}
+    #addin nuget:?package=Cake.Issues.PullRequests.AzureDevOps&version={{ cake_issues_version }}    
 
-    var settings = new ReportIssuesToPullRequestSettings(repoRootFolder);
+    Task("ReportIssuesToPullRequest").Does(() =>
+    {
+        var repoRootFolder = new DirectoryPath(@"C:\repo");    
 
-    // Add custom filter.
-    settings.IssueFilters.Add(x => x.Where(issue => issue.Rule != "CA1000"));
+        var settings = new ReportIssuesToPullRequestFromIssueProviderSettings(repoRootFolder);    
 
-    ReportIssuesToPullRequest(
-        new List<IIssueProvider>
+        // Add custom filter.
+        settings.IssueFilters.Add(x => x.Where(issue => issue.RuleId != "CA1000"));    
+
+        ReportIssuesToPullRequest(
+            new List<IIssueProvider>
+            {
+                MsBuildIssuesFromFilePath(
+                    @"C:\build\msbuild.log",
+                    MsBuildBinaryLogFileFormat)
+            },
+            AzureDevOpsPullRequests(),
+            settings);
+    });
+    ```
+
+=== "Cake Frosting"
+
+    ```csharp title="Build.csproj"
+    <Project Sdk="Microsoft.NET.Sdk">
+      <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>{{ example_tfm }}</TargetFramework>
+        <RunWorkingDirectory>$(MSBuildProjectDirectory)</RunWorkingDirectory>
+        <ImplicitUsings>enable</ImplicitUsings>
+      </PropertyGroup>
+      <ItemGroup>
+        <PackageReference Include="Cake.Frosting" Version="{{ cake_version }}" />
+        <PackageReference Include="Cake.Frosting.Issues.MsBuild" Version="{{ cake_issues_version }}" />
+        <PackageReference Include="Cake.Frosting.Issues.PullRequests.AzureDevOps" Version="{{ cake_issues_version }}" />
+      </ItemGroup>
+    </Project>
+    ```
+
+    ```csharp title="Program.cs"
+    using Cake.Core.IO;
+    using Cake.Frosting;
+
+    public static class Program
+    {
+        public static int Main(string[] args)
         {
-            MsBuildIssuesFromFilePath(
-                @"C:\build\msbuild.log",
-                MsBuildBinaryLogFileFormat)
-        },
-        AzureDevOpsPullRequests(),
-        settings));
-});
-```
+            return new CakeHost()
+                .Run(args);
+        }
+    }
+
+    [TaskName("ReportIssuesToPullRequest")]
+    public sealed class ReportIssuesToPullRequestTask : FrostingTask<FrostingContext>
+    {
+        public override void Run(FrostingContext context)
+        {
+            var repoRootFolder = new DirectoryPath(@"C:\repo");        
+
+            var settings = new ReportIssuesToPullRequestFromIssueProviderSettings(repoRootFolder);        
+
+            // Add custom filter.
+            settings.IssueFilters.Add(x => x.Where(issue => issue.RuleId != "CA1000"));        
+
+            context.ReportIssuesToPullRequest(
+                new List<IIssueProvider>
+                {
+                    context.MsBuildIssuesFromFilePath(
+                        @"C:\build\msbuild.log",
+                        context.MsBuildBinaryLogFileFormat())
+                },
+                context.AzureDevOpsPullRequests(),
+                settings);
+        }
+    }
+    ```
+
