@@ -97,15 +97,15 @@ In Cake Frosting they can be added using package references:
 <PackageReference Include="Cake.Issues" Version="x.x.x" />
 ```
 
-See [list of available addins](https://cakeissues.net/addins/).
+See [list of available addins](#addins).
 
 ### Compatibility
 
-See [Release Notes](https://cakeissues.net/docs/overview/release-notes/Cake.Issues) for requirements for each specific version.
+See [Release Notes](https://github.com/cake-contrib/Cake.Issues/releases) for requirements for each specific version.
 
 ## Usage
 
-See [Website](https://cakeissues.net/docs/usage/) for detailed usage instructions.
+See [Website](https://cakeissues.net/latest/documentation/usage/) for detailed usage instructions.
 
 ## Support & Discussion
 
@@ -136,7 +136,7 @@ For questions and to discuss ideas & feature requests, use the [GitHub discussio
 ## API
 
 The Cake Issues addins provide a wide range of additional aliases which can be used in Cake builds.
-See [API reference](https://cakeissues.net/dsl/) for an overview.
+See [API reference](https://cakeissues.net/latest/api/) for an overview.
 
 ## Contributing
 
@@ -149,9 +149,9 @@ Contributions are welcome. See [Contribution Guidelines](CONTRIBUTING.md).
 Binary distributions for some addins contain third-party code which is licensed under its own respective license.
 See [LICENSE](LICENSE) for details.
 
-[modular architecture]: https://cakeissues.net/docs/fundamentals/architecture
-[extension points]: https://cakeissues.net/docs/extending/
-[set of aliases]: https://cakeissues.net/dsl/
-[variety of analyzers and linters]: https://cakeissues.net/addins/issue-provider/
-[over 15 distinct addins]: https://cakeissues.net/addins/
-[75 aliases]: https://cakeissues.net/dsl/
+[modular architecture]: https://cakeissues.net/latest/documentation/how-cake-issues-works/
+[extension points]: https://cakeissues.net/latest/documentation/extending/
+[set of aliases]: https://cakeissues.net/latest/api/
+[variety of analyzers and linters]: https://cakeissues.net/latest/documentation/supported-tools/
+[over 15 distinct addins]: #addins
+[75 aliases]: https://cakeissues.net/latest/api/
