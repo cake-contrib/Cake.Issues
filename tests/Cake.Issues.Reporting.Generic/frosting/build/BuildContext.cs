@@ -13,7 +13,7 @@ public class BuildContext : FrostingContext
         : base(context)
     {
         this.RepoRootFolder = context.MakeAbsolute(context.Directory("./../.."));
-        this.TemplateGalleryFolder = this.RepoRootFolder.Combine("../../docs/docs/documentation/report-formats/generic/templates");
+        this.TemplateGalleryFolder = this.RepoRootFolder.Combine("../../docs/input/documentation/report-formats/generic/templates");
  
         this.Issues = new List<IIssue>();
     }
