@@ -4,37 +4,136 @@ description: Examples for using the Cake.Issues.MsBuild addin.
 icon: material/test-tube
 ---
 
-The following example will call MsBuild to build the solution and outputs the number of warnings.
+To read issues from MsBuild log files you need to import the MsBuild issue provider needs to be imported:
 
-To read issues from MsBuild log files you need to import the core addin and the MsBuild support:
+=== "Cake .NET Tool"
 
-```csharp
-#addin nuget:?package=Cake.Issues&version={{ cake_issues_version }}
-#addin nuget:?package=Cake.Issues.MsBuild&version={{ cake_issues_version }}
-```
+    ```csharp title="build.cake"
+    #addin nuget:?package=Cake.Issues&version={{ cake_issues_version }}
+    #addin nuget:?package=Cake.Issues.MsBuild&version={{ cake_issues_version }}
+    ```
 
-We need some global variables:
+    !!! note
+        In addition to the MsBuild issue provider the `Cake.Issues` core addin needs to be added.
 
-```csharp
-var logPath = @"c:\build\msbuild.log";
-var repoRootPath = @"c:\repo";
-```
+=== "Cake Frosting"
 
-The following task will build the solution and write a binary log file:
+    ```csharp title="Build.csproj"
+    <Project Sdk="Microsoft.NET.Sdk">
+      <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>{{ example_tfm }}</TargetFramework>
+        <RunWorkingDirectory>$(MSBuildProjectDirectory)</RunWorkingDirectory>
+        <ImplicitUsings>enable</ImplicitUsings>
+      </PropertyGroup>
+      <ItemGroup>
+        <PackageReference Include="Cake.Frosting" Version="{{ cake_version }}" />
+        <PackageReference Include="Cake.Frosting.Issues.MsBuild" Version="{{ cake_issues_version }}" />
+      </ItemGroup>
+    </Project>
+    ```
 
-```csharp
-Task("Build-Solution").Does(() =>
-{
-    var msBuildSettings =
-        new MSBuildSettings().WithLogger(
-            "BinaryLogger," + Context.Tools.Resolve("Cake.Issues.MsBuild*/**/StructuredLogger.dll"),
-            "",
-            logPath)
-    DotNetBuild(
-        repoRootPath.CombineWithFilePath("MySolution.sln"),
-        new DotNetBuildSettings{MSBuildSettings = msBuildSettings});
-});
-```
+The following example contains a task which will call MsBuild to build the solution and write a binary log file
+and a task to read issues from the binary log file and write the number of warnings to the console:
+
+=== "Cake .NET Tool"
+
+    ```csharp title="build.cake"
+    var logPath = @"c:\build\msbuild.xml";
+    var repoRootPath = MakeAbsolute(Directory("./"));
+
+    Task("Build-Solution").Does(() =>
+    {
+        // Build solution.
+        var msBuildSettings =
+            new DotNetMSBuildSettings().WithLogger(
+                "BinaryLogger," + Context.Tools.Resolve("Cake.Issues.MsBuild*/**/StructuredLogger.dll"),
+                "",
+                logPath.FullPath);
+        DotNetBuild(
+            repoRootPath.CombineWithFilePath("MySolution.sln").FullPath,
+            new DotNetBuildSettings{MSBuildSettings = msBuildSettings});
+    });
+    
+    Task("Read-Issues")
+        .IsDependentOn("Build-Solution")
+        .Does(() =>
+        {
+            // Read issues.
+            var issues =
+                ReadIssues(
+                    MsBuildIssuesFromFilePath(
+                        logPath,
+                        MsBuildBinaryLogFileFormat),
+                    repoRootPath);
+
+            Information("{0} issues are found.", issues.Count());
+    });
+    ```
+
+=== "Cake Frosting"
+
+    ```csharp title="Program.cs"
+    using Cake.Common.Diagnostics;
+    using Cake.Common.IO;
+    using Cake.Common.Tools.DotNet;
+    using Cake.Common.Tools.DotNet.Build;
+    using Cake.Core;
+    using Cake.Core.IO;
+    using Cake.Frosting;
+
+    public static class Program
+    {
+        public static int Main(string[] args)
+        {
+            return new CakeHost()
+                .UseContext<BuildContext>()
+                .Run(args);
+        }
+    }
+
+    public class BuildContext(ICakeContext context) : FrostingContext(context)
+    {
+        public FilePath LogPath { get; } = @"c:\build\msbuild.xml";
+        public DirectoryPath RepoRootPath { get; } =
+            context.MakeAbsolute(context.Directory("./"));
+    }
+
+    [TaskName("Build-Solution")]
+    public sealed class BuildSolutionTask : FrostingTask<BuildContext>
+    {
+        public override void Run(BuildContext context)
+        {
+            // Build solution.
+            var msBuildSettings =
+                new DotNetMSBuildSettings().WithLogger(
+                    "BinaryLogger," + context.Tools.Resolve("Cake.Issues.MsBuild*/**/StructuredLogger.dll"),
+                    "",
+                    context.LogPath.FullPath);
+            context.DotNetBuild(
+                context.RepoRootPath.CombineWithFilePath("MySolution.sln").FullPath,
+                new DotNetBuildSettings{MSBuildSettings = msBuildSettings});
+        }
+    }
+
+    [TaskName("Read-Issues")]
+    [IsDependentOn(typeof(BuildSolutionTask))]
+    public sealed class ReadIssuesTask : FrostingTask<BuildContext>
+    {
+        public override void Run(BuildContext context)
+        {
+            // Read issues.
+            var issues =
+                context.ReadIssues(
+                    context.MsBuildIssuesFromFilePath(
+                        context.LogPath,
+                        context.MsBuildBinaryLogFileFormat()),
+                    context.RepoRootPath);
+
+            context.Information("{0} issues are found.", issues.Count());
+        }
+    }
+    ```
 
 !!! Tip
     When using `MSBuildSettings.BinaryLogger` property to write a binary log, the version of the binary log format written
@@ -43,23 +142,3 @@ Task("Build-Solution").Does(() =>
     To avoid the risk of breaking builds when the .NET SDK is updated and introduces a new binary log format, which is not supported
     in the used version of Cake.Issues.MsBuild, the binary logger instance shipped as part of Cake.Issues.MsBuild is
     used in the above example.
-
-Finally you can define a task where you call the core addin with the desired issue provider.
-The following example reads warnings and errors reported as MsBuild in a binary log:
-
-```csharp
-Task("Read-Issues")
-    .IsDependentOn("Build-Solution")
-    .Does(() =>
-    {
-        // Read Issues.
-        var issues =
-            ReadIssues(
-                MsBuildIssuesFromFilePath(
-                    logPath,
-                    MsBuildBinaryLogFileFormat),
-                repoRootFolder);
-
-        Information("{0} issues are found.", issues.Count());
-    });
-```

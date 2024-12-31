@@ -4,59 +4,135 @@ description: Examples for using the Cake.Issues.InspectCode addin.
 icon: material/test-tube
 ---
 
-The following example will call [JetBrains InspectCode] and output the number of warnings.
+To read issues from InspectCode log files the InspectCode issue provider needs to be imported:
 
-To call [JetBrains InspectCode] from a Cake script you need to add the `JetBrains.ReSharper.CommandLineTools`:
+=== "Cake .NET Tool"
 
-```csharp
-#tool "nuget:?package=JetBrains.ReSharper.CommandLineTools" // (1)!
-```
+    ```csharp title="build.cake"
+    #addin nuget:?package=Cake.Issues&version={{ cake_issues_version }}
+    #addin nuget:?package=Cake.Issues.InspectCode&version={{ cake_issues_version }}
+    ```
 
---8<-- "snippets/pinning.md"
+    !!! note
+        In addition to the InspectCode issue provider the `Cake.Issues` core addin needs to be added.
 
-To read issues from InspectCode log files you need to import the core addin and the InspectCode support:
+=== "Cake Frosting"
 
-```csharp
-#addin nuget:?package=Cake.Issues&version={{ cake_issues_version }}
-#addin nuget:?package=Cake.Issues.InspectCode&version={{ cake_issues_version }}
-```
+    ```csharp title="Build.csproj"
+    <Project Sdk="Microsoft.NET.Sdk">
+      <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>{{ example_tfm }}</TargetFramework>
+        <RunWorkingDirectory>$(MSBuildProjectDirectory)</RunWorkingDirectory>
+        <ImplicitUsings>enable</ImplicitUsings>
+      </PropertyGroup>
+      <ItemGroup>
+        <PackageReference Include="Cake.Frosting" Version="{{ cake_version }}" />
+        <PackageReference Include="Cake.Frosting.Issues.InspectCode" Version="{{ cake_issues_version }}" />
+      </ItemGroup>
+    </Project>
+    ```
 
-We need some global variables:
+The following example contains a task which will run [JetBrains InspectCode]{target="_blank"}
+and write a log file and a task to read issues from the log file and write the number of warnings to the console.
+[JetBrains InspectCode] is installed using `JetBrains.ReSharper.CommandLineTools`:
 
-```csharp
-var logPath = @"c:\build\inspectcode.xml";
-var repoRootPath = @"c:\repo";
-```
+=== "Cake .NET Tool"
 
-The following task will run [JetBrains InspectCode] and write a log file:
+    ```csharp title="build.cake"
+    #tool "nuget:?package=JetBrains.ReSharper.CommandLineTools" // (1)!
 
-```csharp
-Task("Analyze-Project").Does(() =>
-{
-    // Run InspectCode.
-    var settings = new InspectCodeSettings() {
-        OutputFile = logPath
-    };
+    var logPath = @"c:\build\inspectcode.xml";
+    var repoRootFolder = MakeAbsolute(Directory("./"));
 
-    InspectCode(repoRootPath.CombineWithFilePath("MySolution.sln"), settings);
-});
-```
-
-Finally you can define a task where you call the core addin with the desired issue provider.
-
-```csharp
-Task("Read-Issues")
-    .IsDependentOn("Analyze-Project")
-    .Does(() =>
+    Task("Analyze-Project").Does(() =>
     {
-        // Read Issues.
-        var issues =
-            ReadIssues(
-                InspectCodeIssuesFromFilePath(logPath),
-                repoRootPath);
-
-        Information("{0} issues are found.", issues.Count());
+        // Run InspectCode.
+        var settings = new InspectCodeSettings() {
+            OutputFile = logPath
+        };
+    
+        InspectCode(repoRootPath.CombineWithFilePath("MySolution.sln"), settings);
     });
-```
+    
+    Task("Read-Issues")
+        .IsDependentOn("Analyze-Project")
+        .Does(() =>
+        {
+            // Read issues.
+            var issues =
+                ReadIssues(
+                    InspectCodeIssuesFromFilePath(logPath),
+                    repoRootPath);
+    
+            Information("{0} issues are found.", issues.Count());
+    });
+    ```
+
+    --8<-- "snippets/pinning.md"
+
+=== "Cake Frosting"
+
+    ```csharp title="Program.cs"
+    using Cake.Common.Diagnostics;
+    using Cake.Core.IO;
+    using Cake.Core;
+    using Cake.Frosting;
+    using Cake.Common.Tools.InspectCode;
+
+    public static class Program
+    {
+        public static int Main(string[] args)
+        {
+            return new CakeHost()
+                .UseContext<BuildContext>()
+                .InstallTool(
+                new Uri(
+                    "nuget:?package=JetBrains.ReSharper.CommandLineTools")) // (1)!
+                .Run(args);
+        }
+    }
+
+    public class BuildContext(ICakeContext context) : FrostingContext(context)
+    {
+        public FilePath LogPath { get; } = @"c:\build\inspectcode.xml";
+        public DirectoryPath RepoRootPath { get; } =
+            context.MakeAbsolute(context.Directory("./"));
+    }
+
+    [TaskName("Analyze-Project")]
+    public sealed class AnalyzeProjectTask : FrostingTask<BuildContext>
+    {
+        public override void Run(BuildContext context)
+        {
+            // Run InspectCode.
+            var settings = new InspectCodeSettings() {
+                OutputFile = context.LogPath
+            };
+        
+            context.InspectCode(
+                context.RepoRootPath.CombineWithFilePath("MySolution.sln"),
+                settings);
+        }
+    }
+
+    [TaskName("Read-Issues")]
+    [IsDependentOn(typeof(AnalyzeProjectTask))]
+    public sealed class ReadIssuesTask : FrostingTask<BuildContext>
+    {
+        public override void Run(BuildContext context)
+        {
+            // Read issues.
+            var issues =
+                context.ReadIssues(
+                    context.InspectCodeIssuesFromFilePath(context.LogPath),
+                    context.RepoRootPath);
+    
+            context.Information("{0} issues are found.", issues.Count());
+        }
+    }
+    ```
+
+    --8<-- "snippets/pinning.md"
 
 [JetBrains InspectCode]: https://www.jetbrains.com/help/resharper/InspectCode.html
