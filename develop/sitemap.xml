@@ -549,6 +549,10 @@
          <lastmod>2024-12-31</lastmod>
     </url>
     <url>
+         <loc>https://cakeissues.net/develop/news/2024/07/19/cake-issues-v480-released/</loc>
+         <lastmod>2024-12-31</lastmod>
+    </url>
+    <url>
          <loc>https://cakeissues.net/develop/news/2024/12/02/cake-issues-v500-released/</loc>
          <lastmod>2024-12-31</lastmod>
     </url>
@@ -610,6 +614,10 @@
     </url>
     <url>
          <loc>https://cakeissues.net/develop/news/category/release-notes/page/3/</loc>
+         <lastmod>2024-12-31</lastmod>
+    </url>
+    <url>
+         <loc>https://cakeissues.net/develop/news/category/release-notes/page/4/</loc>
          <lastmod>2024-12-31</lastmod>
     </url>
 </urlset>
