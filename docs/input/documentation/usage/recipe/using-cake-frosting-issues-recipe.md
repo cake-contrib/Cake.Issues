@@ -44,14 +44,12 @@ public static class Program
             .UseContext<BuildContext>()
             .InstallTool(
                 new Uri(
-                    "nuget:?package=JetBrains.ReSharper.CommandLineTools")) // (1)
+                    "nuget:?package=JetBrains.ReSharper.CommandLineTools&version={{ resharper_commandlinetool_version }}"))
             .AddAssembly(Assembly.GetAssembly(typeof(IssuesTask)))
             .Run(args);
     }
 }
 ```
-
---8<-- "snippets/pinning.md"
 
 ## Create build context
 
