@@ -5448,7 +5448,7 @@
 
 <p>To call <a href="https://github.com/igorshubovych/markdownlint-cli" target="_blank">markdownlint-cli</a> from a Cake script the <a href="https://cakebuild.net/extensions/cake-markdownlint/" target="_blank">Cake.Markdownlint</a> addin can be used.
 To read issues from markdownlint-cli log files the markdownlint issue provider needs to be imported:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Cake .NET Tool</label><label for="__tabbed_1_2">Cake Frosting</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="cake-net-tool" name="__tabbed_1" type="radio" /><input id="cake-frosting" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="cake-net-tool">Cake .NET Tool</label><label for="cake-frosting">Cake Frosting</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="language-csharp highlight"><span class="filename">build.cake</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="err">#</span><span class="n">addin</span><span class="w"> </span><span class="s">&quot;Cake.Markdownlint&quot;</span><span class="w"> </span><span class="c1">// (1)!</span>
@@ -5490,7 +5490,7 @@ To read issues from markdownlint-cli log files the markdownlint issue provider n
 </div>
 <p>The following example contains a task which will run <a href="https://github.com/igorshubovych/markdownlint-cli" target="_blank">markdownlint-cli</a> and write a log file
 and a task to read issues from the log file and write the number of warnings to the console:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Cake .NET Tool</label><label for="__tabbed_2_2">Cake Frosting</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="cake-net-tool_1" name="__tabbed_2" type="radio" /><input id="cake-frosting_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="cake-net-tool_1">Cake .NET Tool</label><label for="cake-frosting_1">Cake Frosting</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="language-csharp highlight"><span class="filename">build.cake</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kt">var</span><span class="w"> </span><span class="n">logPath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">@&quot;c:\build\markdownlint.log&quot;</span><span class="p">;</span>

@@ -5449,7 +5449,7 @@
 <p>To use report issues to pull requests you need to import the corresponding pull request system addin.
 In the following example the issue provider for reading warnings from MsBuild log files
 and support for Azure DevOps pull requests is imported:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Cake .NET Tool</label><label for="__tabbed_1_2">Cake Frosting</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="cake-net-tool" name="__tabbed_1" type="radio" /><input id="cake-frosting" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="cake-net-tool">Cake .NET Tool</label><label for="cake-frosting">Cake Frosting</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="language-csharp highlight"><span class="filename">build.cake</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="err">#</span><span class="n">addin</span><span class="w"> </span><span class="n">nuget</span><span class="p">:</span><span class="o">?</span><span class="n">package</span><span class="o">=</span><span class="n">Cake</span><span class="p">.</span><span class="n">Issues</span><span class="o">&amp;</span><span class="n">version</span><span class="o">=</span><span class="m">5.0</span><span class="p">.</span><span class="m">1</span>
@@ -5481,7 +5481,7 @@ and support for Azure DevOps pull requests is imported:</p>
 </div>
 </div>
 <p>Afterwards you can define a task where you call the core addin with the desired issue provider and pull request system:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Cake .NET Tool</label><label for="__tabbed_2_2">Cake Frosting</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="cake-net-tool_1" name="__tabbed_2" type="radio" /><input id="cake-frosting_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="cake-net-tool_1">Cake .NET Tool</label><label for="cake-frosting_1">Cake Frosting</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="language-csharp highlight"><span class="filename">build.cake</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="w">    </span><span class="n">Task</span><span class="p">(</span><span class="s">&quot;ReportIssuesToPullRequest&quot;</span><span class="p">).</span><span class="n">Does</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span>
