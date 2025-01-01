@@ -5481,7 +5481,7 @@ and write a log file and a task to read issues from the log file and write the n
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="cake-net-tool_1" name="__tabbed_2" type="radio" /><input id="cake-frosting_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="cake-net-tool_1">Cake .NET Tool</label><label for="cake-frosting_1">Cake Frosting</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="language-csharp highlight"><span class="filename">build.cake</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="err">#</span><span class="n">tool</span><span class="w"> </span><span class="s">&quot;nuget:?package=JetBrains.ReSharper.CommandLineTools&quot;</span><span class="w"> </span><span class="c1">// (1)!</span>
+<div class="language-csharp highlight"><span class="filename">build.cake</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="err">#</span><span class="n">tool</span><span class="w"> </span><span class="s">&quot;nuget:?package=JetBrains.ReSharper.CommandLineTools&amp;version=1.0.0&quot;</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="kt">var</span><span class="w"> </span><span class="n">logPath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">@&quot;c:\build\inspectcode.xml&quot;</span><span class="p">;</span>
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="kt">var</span><span class="w"> </span><span class="n">repoRootFolder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MakeAbsolute</span><span class="p">(</span><span class="n">Directory</span><span class="p">(</span><span class="s">&quot;./&quot;</span><span class="p">));</span>
@@ -5509,13 +5509,6 @@ and write a log file and a task to read issues from the log file and write the n
 </span><span id="__span-2-26"><a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a><span class="w">        </span><span class="n">Information</span><span class="p">(</span><span class="s">&quot;{0} issues are found.&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">issues</span><span class="p">.</span><span class="n">Count</span><span class="p">());</span>
 </span><span id="__span-2-27"><a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="p">});</span>
 </span></code></pre></div>
-<ol>
-<li>
-<p>In production code this dependency should be pinned to a specific version to make sure builds are deterministic and
-    won't break due to updates.</p>
-<p>See <a href="https://cakebuild.net/docs/writing-builds/reproducible-builds/" target="_blank">Reproducible Builds</a> for details.</p>
-</li>
-</ol>
 </div>
 <div class="tabbed-block">
 <div class="language-csharp highlight"><span class="filename">Program.cs</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">using</span><span class="w"> </span><span class="nn">Cake.Common.Diagnostics</span><span class="p">;</span>
@@ -5532,7 +5525,7 @@ and write a log file and a task to read issues from the log file and write the n
 </span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">            </span><span class="p">.</span><span class="n">UseContext</span><span class="o">&lt;</span><span class="n">BuildContext</span><span class="o">&gt;</span><span class="p">()</span>
 </span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">            </span><span class="p">.</span><span class="n">InstallTool</span><span class="p">(</span>
 </span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">            </span><span class="k">new</span><span class="w"> </span><span class="nf">Uri</span><span class="p">(</span>
-</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">                </span><span class="s">&quot;nuget:?package=JetBrains.ReSharper.CommandLineTools&quot;</span><span class="p">))</span><span class="w"> </span><span class="c1">// (1)!</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">                </span><span class="s">&quot;nuget:?package=JetBrains.ReSharper.CommandLineTools&amp;version=1.0.0&quot;</span><span class="p">))</span>
 </span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">            </span><span class="p">.</span><span class="n">Run</span><span class="p">(</span><span class="n">args</span><span class="p">);</span>
 </span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="p">}</span>
@@ -5576,13 +5569,6 @@ and write a log file and a task to read issues from the log file and write the n
 </span><span id="__span-3-56"><a id="__codelineno-3-56" name="__codelineno-3-56" href="#__codelineno-3-56"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-3-57"><a id="__codelineno-3-57" name="__codelineno-3-57" href="#__codelineno-3-57"></a><span class="p">}</span>
 </span></code></pre></div>
-<ol>
-<li>
-<p>In production code this dependency should be pinned to a specific version to make sure builds are deterministic and
-    won't break due to updates.</p>
-<p>See <a href="https://cakebuild.net/docs/writing-builds/reproducible-builds/" target="_blank">Reproducible Builds</a> for details.</p>
-</li>
-</ol>
 </div>
 </div>
 </div>
