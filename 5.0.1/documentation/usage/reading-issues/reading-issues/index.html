@@ -513,6 +513,8 @@
       
         
       
+        
+      
     
     
       
@@ -545,6 +547,29 @@
             Archive
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../news/archive/2025/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2025
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -5423,19 +5448,46 @@
 
 <p>The <code>Cake.Issues</code> addin can be used to aggregate issues from different sources.
 This can for example be useful to break builds based on the reported issues.</p>
-<p>To read issues you need to import the following core addin:</p>
-<div class="language-csharp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="err">#</span><span class="n">addin</span><span class="w"> </span><span class="n">nuget</span><span class="p">:</span><span class="o">?</span><span class="n">package</span><span class="o">=</span><span class="n">Cake</span><span class="p">.</span><span class="n">Issues</span><span class="o">&amp;</span><span class="n">version</span><span class="o">=</span><span class="m">5.0</span><span class="p">.</span><span class="m">1</span>
-</span></code></pre></div>
-<p>Also you need to import at least one issue provider.
+<p>To read issues you need to import at least one issue provider.
 In the following example the issue providers for reading warnings from MsBuild log files
 and from JetBrains InspectCode are imported:</p>
-<div class="language-csharp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="err">#</span><span class="n">addin</span><span class="w"> </span><span class="n">nuget</span><span class="p">:</span><span class="o">?</span><span class="n">package</span><span class="o">=</span><span class="n">Cake</span><span class="p">.</span><span class="n">Issues</span><span class="p">.</span><span class="n">MsBuild</span><span class="o">&amp;</span><span class="n">version</span><span class="o">=</span><span class="m">5.0</span><span class="p">.</span><span class="m">1</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="err">#</span><span class="n">addin</span><span class="w"> </span><span class="n">nuget</span><span class="p">:</span><span class="o">?</span><span class="n">package</span><span class="o">=</span><span class="n">Cake</span><span class="p">.</span><span class="n">Issues</span><span class="p">.</span><span class="n">InspectCode</span><span class="o">&amp;</span><span class="n">version</span><span class="o">=</span><span class="m">5.0</span><span class="p">.</span><span class="m">1</span>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Cake .NET Tool</label><label for="__tabbed_1_2">Cake Frosting</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-csharp highlight"><span class="filename">build.cake</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="err">#</span><span class="n">addin</span><span class="w"> </span><span class="n">nuget</span><span class="p">:</span><span class="o">?</span><span class="n">package</span><span class="o">=</span><span class="n">Cake</span><span class="p">.</span><span class="n">Issues</span><span class="o">&amp;</span><span class="n">version</span><span class="o">=</span><span class="m">5.0</span><span class="p">.</span><span class="m">1</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="err">#</span><span class="n">addin</span><span class="w"> </span><span class="n">nuget</span><span class="p">:</span><span class="o">?</span><span class="n">package</span><span class="o">=</span><span class="n">Cake</span><span class="p">.</span><span class="n">Issues</span><span class="p">.</span><span class="n">MsBuild</span><span class="o">&amp;</span><span class="n">version</span><span class="o">=</span><span class="m">5.0</span><span class="p">.</span><span class="m">1</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="err">#</span><span class="n">addin</span><span class="w"> </span><span class="n">nuget</span><span class="p">:</span><span class="o">?</span><span class="n">package</span><span class="o">=</span><span class="n">Cake</span><span class="p">.</span><span class="n">Issues</span><span class="p">.</span><span class="n">InspectCode</span><span class="o">&amp;</span><span class="n">version</span><span class="o">=</span><span class="m">5.0</span><span class="p">.</span><span class="m">1</span>
 </span></code></pre></div>
-<p>Finally you can define a task where you call the core addin with the desired issue providers.
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In addition to the issue providers the <code>Cake.Issues</code> core addin needs to be added.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<div class="language-csharp highlight"><span class="filename">Build.csproj</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="o">&lt;</span><span class="n">Project</span><span class="w"> </span><span class="n">Sdk</span><span class="o">=</span><span class="s">&quot;Microsoft.NET.Sdk&quot;</span><span class="o">&gt;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="o">&lt;</span><span class="n">PropertyGroup</span><span class="o">&gt;</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="o">&lt;</span><span class="n">OutputType</span><span class="o">&gt;</span><span class="n">Exe</span><span class="o">&lt;/</span><span class="n">OutputType</span><span class="o">&gt;</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="o">&lt;</span><span class="n">TargetFramework</span><span class="o">&gt;</span><span class="n">net9</span><span class="p">.</span><span class="m">0</span><span class="o">&lt;/</span><span class="n">TargetFramework</span><span class="o">&gt;</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="o">&lt;</span><span class="n">RunWorkingDirectory</span><span class="o">&gt;</span><span class="err">$</span><span class="p">(</span><span class="n">MSBuildProjectDirectory</span><span class="p">)</span><span class="o">&lt;/</span><span class="n">RunWorkingDirectory</span><span class="o">&gt;</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="o">&lt;</span><span class="n">ImplicitUsings</span><span class="o">&gt;</span><span class="n">enable</span><span class="o">&lt;/</span><span class="n">ImplicitUsings</span><span class="o">&gt;</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span><span class="o">&lt;/</span><span class="n">PropertyGroup</span><span class="o">&gt;</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">  </span><span class="o">&lt;</span><span class="n">ItemGroup</span><span class="o">&gt;</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="o">&lt;</span><span class="n">PackageReference</span><span class="w"> </span><span class="n">Include</span><span class="o">=</span><span class="s">&quot;Cake.Frosting&quot;</span><span class="w"> </span><span class="n">Version</span><span class="o">=</span><span class="s">&quot;5.0.0&quot;</span><span class="w"> </span><span class="o">/&gt;</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="o">&lt;</span><span class="n">PackageReference</span><span class="w"> </span><span class="n">Include</span><span class="o">=</span><span class="s">&quot;Cake.Frosting.Issues.MsBuild&quot;</span><span class="w"> </span><span class="n">Version</span><span class="o">=</span><span class="s">&quot;5.0.1&quot;</span><span class="w"> </span><span class="o">/&gt;</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="o">&lt;</span><span class="n">PackageReference</span><span class="w"> </span><span class="n">Include</span><span class="o">=</span><span class="s">&quot;Cake.Frosting.Issues.InspectCode&quot;</span><span class="w"> </span><span class="n">Version</span><span class="o">=</span><span class="s">&quot;5.0.1&quot;</span><span class="w"> </span><span class="o">/&gt;</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">  </span><span class="o">&lt;/</span><span class="n">ItemGroup</span><span class="o">&gt;</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="o">&lt;/</span><span class="n">Project</span><span class="o">&gt;</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<p>Afterwards you can define a task where you call the core addin with the desired issue providers.
 The following example reads warnings and errors reported by MsBuild from a binary log
 and issues reported by JetBrains InspectCode:</p>
-<div class="language-csharp highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">Task</span><span class="p">(</span><span class="s">&quot;Read-Issues&quot;</span><span class="p">).</span><span class="n">Does</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Cake .NET Tool</label><label for="__tabbed_2_2">Cake Frosting</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-csharp highlight"><span class="filename">build.cake</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">Task</span><span class="p">(</span><span class="s">&quot;Read-Issues&quot;</span><span class="p">).</span><span class="n">Does</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">{</span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">repoRootFolder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DirectoryPath</span><span class="p">(</span><span class="s">@&quot;C:\repo&quot;</span><span class="p">);</span>
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">issues</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ReadIssues</span><span class="p">(</span>
@@ -5452,6 +5504,45 @@ and issues reported by JetBrains InspectCode:</p>
 </span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">    </span><span class="n">Information</span><span class="p">(</span><span class="s">&quot;{0} issues are found.&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">issues</span><span class="p">.</span><span class="n">Count</span><span class="p">());</span>
 </span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="p">});</span>
 </span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-csharp highlight"><span class="filename">Program.cs</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">using</span><span class="w"> </span><span class="nn">Cake.Common.Diagnostics</span><span class="p">;</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">using</span><span class="w"> </span><span class="nn">Cake.Core.IO</span><span class="p">;</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">using</span><span class="w"> </span><span class="nn">Cake.Frosting</span><span class="p">;</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Program</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="p">{</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">CakeHost</span><span class="p">()</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">            </span><span class="p">.</span><span class="n">Run</span><span class="p">(</span><span class="n">args</span><span class="p">);</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="p">}</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="na">[TaskName(&quot;Read-Issues&quot;)]</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="k">public</span><span class="w"> </span><span class="k">sealed</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ReadIssuesTask</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">FrostingTask</span><span class="o">&lt;</span><span class="n">FrostingContext</span><span class="o">&gt;</span>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="p">{</span>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Run</span><span class="p">(</span><span class="n">FrostingContext</span><span class="w"> </span><span class="n">context</span><span class="p">)</span>
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">repoRootFolder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DirectoryPath</span><span class="p">(</span><span class="s">@&quot;C:\repo&quot;</span><span class="p">);</span>
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">issues</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">context</span><span class="p">.</span><span class="n">ReadIssues</span><span class="p">(</span>
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w">            </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">IIssueProvider</span><span class="o">&gt;</span>
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="w">            </span><span class="p">{</span>
+</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="w">                </span><span class="n">context</span><span class="p">.</span><span class="n">MsBuildIssuesFromFilePath</span><span class="p">(</span>
+</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="w">                    </span><span class="s">@&quot;C:\build\msbuild.log&quot;</span><span class="p">,</span>
+</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="w">                    </span><span class="n">context</span><span class="p">.</span><span class="n">MsBuildBinaryLogFileFormat</span><span class="p">()),</span>
+</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="w">                </span><span class="n">context</span><span class="p">.</span><span class="n">InspectCodeIssuesFromFilePath</span><span class="p">(</span>
+</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a><span class="w">                    </span><span class="s">@&quot;C:\build\inspectcode.log&quot;</span><span class="p">)</span>
+</span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a><span class="w">            </span><span class="p">},</span>
+</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a><span class="w">            </span><span class="n">repoRootFolder</span><span class="p">);</span>
+</span><span id="__span-3-30"><a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>
+</span><span id="__span-3-31"><a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a><span class="w">        </span><span class="n">context</span><span class="p">.</span><span class="n">Information</span><span class="p">(</span><span class="s">&quot;{0} issues are found.&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">issues</span><span class="p">.</span><span class="n">Count</span><span class="p">());</span>
+</span><span id="__span-3-32"><a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-3-33"><a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a><span class="p">}</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
 <!-- Glossary for terms and concepts not documented on cakeissues.net -->
 
 
