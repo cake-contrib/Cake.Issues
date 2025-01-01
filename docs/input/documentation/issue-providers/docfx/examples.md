@@ -11,12 +11,10 @@ To read issues from DocFx log files the DocFx issue provider needs to be importe
 === "Cake .NET Tool"
 
     ```csharp title="build.cake"
-    #addin "Cake.DocFx" // (1)!
+    #addin nuget:?package=Cake.DocFx&version={{ cake_docfx_version }}
     #addin nuget:?package=Cake.Issues&version={{ cake_issues_version }}
     #addin nuget:?package=Cake.Issues.DocFx&version={{ cake_issues_version }}
     ```
-
-    --8<-- "snippets/pinning.md"
 
     !!! note
         In addition to the DocFx issue provider the `Cake.Issues` core addin needs to be added.
@@ -32,14 +30,12 @@ To read issues from DocFx log files the DocFx issue provider needs to be importe
         <ImplicitUsings>enable</ImplicitUsings>
       </PropertyGroup>
       <ItemGroup>
-        <PackageReference Include="Cake.DocFx" Version="1.0.0" /> // (1)!
+        <PackageReference Include="Cake.DocFx" Version="{{ cake_docfx_version }}" />
         <PackageReference Include="Cake.Frosting" Version="{{ cake_version }}" />
         <PackageReference Include="Cake.Frosting.Issues.DocFx" Version="{{ cake_issues_version }}" />
       </ItemGroup>
     </Project>
     ```
-
-    --8<-- "snippets/version-placeholder.md"
 
 The following example contains a task which will build the [DocFx](https://dotnet.github.io/docfx/){target="_blank"}
 project and write a log file and a task to read issues from the log file and write the number of warnings to the console:

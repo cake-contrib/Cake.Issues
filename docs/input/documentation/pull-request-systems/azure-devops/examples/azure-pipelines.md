@@ -13,10 +13,8 @@ For this example the JetBrains InspectCode issue provider is additionally used f
     #addin nuget:?package=Cake.Issues.InspectCode&version={{ cake_issues_version }}
     #addin nuget:?package=Cake.Issues.PullRequests&version={{ cake_issues_version }}
     #addin nuget:?package=Cake.Issues.PullRequests.AzureDevOps&version={{ cake_issues_version }}
-    #addin "Cake.AzureDevOps" // (1)!
+    #addin nuget:?package=Cake.AzureDevOps&version={{ cake_azuredevops_version }}
     ```
-
-    --8<-- "snippets/pinning.md"
 
     !!! note
         In addition to the Azure DevOps pull request system the `Cake.Issues` and `Cake.Issues.PullRequests` core addins

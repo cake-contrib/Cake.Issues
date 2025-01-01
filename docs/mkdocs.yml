@@ -109,8 +109,20 @@ markdown_extensions:
 
 # Additional configuration
 extra:
+  # renovate: datasource=nuget depName=Cake.Tool versioning=loose
   cake_version: 5.0.0
+  # renovate: datasource=nuget depName=Cake.AzureDevOps versioning=loose
+  cake_azuredevops_version: 1.0.0
+  # renovate: datasource=nuget depName=Cake.DocFx versioning=loose
+  cake_docfx_version: 1.0.0
+  # renovate: datasource=nuget depName=Cake.Issues versioning=loose
   cake_issues_version: 5.0.1
+  # renovate: datasource=nuget depName=Cake.Markdownlint versioning=loose
+  cake_markdownlint_version: 1.0.0
+  # renovate: datasource=nuget depName=Cake.Git versioning=loose
+  cake_git_version: 1.0.0
+  # renovate: datasource=nuget depName=JetBrains.ReSharper.CommandLineTools versioning=loose
+  resharper_commandlinetool_version: 1.0.0
   example_tfm: net9.0
   version:
     provider: mike

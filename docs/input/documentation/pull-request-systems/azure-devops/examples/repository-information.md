@@ -10,15 +10,13 @@ For this example the JetBrains InspectCode issue provider is additionally used f
 === "Cake .NET Tool"
 
     ```csharp title="build.cake"
-    #addin "Cake.Git" // (1)!
+    #addin nuget:?package=Cake.Git&version={{ cake_git_version }}
     #addin nuget:?package=Cake.Issues&version={{ cake_issues_version }}
     #addin nuget:?package=Cake.Issues.InspectCode&version={{ cake_issues_version }}
     #addin nuget:?package=Cake.Issues.PullRequests&version={{ cake_issues_version }}
     #addin nuget:?package=Cake.Issues.PullRequests.AzureDevOps&version={{ cake_issues_version }}
-    #addin "Cake.AzureDevOps" // (1)!
+    #addin nuget:?package=Cake.AzureDevOps&version={{ cake_azuredevops_version }}
     ```
-
-    --8<-- "snippets/pinning.md"
 
     !!! note
         In addition to the Azure DevOps pull request system the `Cake.Issues` and `Cake.Issues.PullRequests` core addins
@@ -36,14 +34,12 @@ For this example the JetBrains InspectCode issue provider is additionally used f
       </PropertyGroup>
       <ItemGroup>
         <PackageReference Include="Cake.Frosting" Version="{{ cake_version }}" />
-        <PackageReference Include="Cake.Frosting.Git" Version="1.0.0" /> // (1)!
+        <PackageReference Include="Cake.Frosting.Git" Version="{{ cake_git_version }}" />
         <PackageReference Include="Cake.Frosting.Issues.InspectCode" Version="{{ cake_issues_version }}" />
         <PackageReference Include="Cake.Frosting.Issues.PullRequests.AzureDevOps" Version="{{ cake_issues_version }}" />
       </ItemGroup>
     </Project>
     ```
-
-    --8<-- "snippets/version-placeholder.md"
 
 The following example shows a task which will first determine the remote repository URL and
 source branch of the pull request and with this information call the [AzureDevOpsPullRequests](https://cakebuild.net/api/Cake.Issues.PullRequests.AzureDevOps/AzureDevOpsPullRequestSystemAliases/){target="_blank"}

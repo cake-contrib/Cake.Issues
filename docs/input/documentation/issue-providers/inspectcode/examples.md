@@ -40,7 +40,7 @@ and write a log file and a task to read issues from the log file and write the n
 === "Cake .NET Tool"
 
     ```csharp title="build.cake"
-    #tool "nuget:?package=JetBrains.ReSharper.CommandLineTools" // (1)!
+    #tool "nuget:?package=JetBrains.ReSharper.CommandLineTools&version={{ resharper_commandlinetool_version }}"
 
     var logPath = @"c:\build\inspectcode.xml";
     var repoRootFolder = MakeAbsolute(Directory("./"));
@@ -69,8 +69,6 @@ and write a log file and a task to read issues from the log file and write the n
     });
     ```
 
-    --8<-- "snippets/pinning.md"
-
 === "Cake Frosting"
 
     ```csharp title="Program.cs"
@@ -88,7 +86,7 @@ and write a log file and a task to read issues from the log file and write the n
                 .UseContext<BuildContext>()
                 .InstallTool(
                 new Uri(
-                    "nuget:?package=JetBrains.ReSharper.CommandLineTools")) // (1)!
+                    "nuget:?package=JetBrains.ReSharper.CommandLineTools&version={{ resharper_commandlinetool_version }}"))
                 .Run(args);
         }
     }
@@ -132,7 +130,5 @@ and write a log file and a task to read issues from the log file and write the n
         }
     }
     ```
-
-    --8<-- "snippets/pinning.md"
 
 [JetBrains InspectCode]: https://www.jetbrains.com/help/resharper/InspectCode.html

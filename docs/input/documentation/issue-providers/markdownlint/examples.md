@@ -10,12 +10,10 @@ To read issues from markdownlint-cli log files the markdownlint issue provider n
 === "Cake .NET Tool"
 
     ```csharp title="build.cake"
-    #addin "Cake.Markdownlint" // (1)!
+    #addin nuget:?package=Cake.Markdownlint&version={{ cake_markdownlint_version }}
     #addin nuget:?package=Cake.Issues&version={{ cake_issues_version }}
     #addin nuget:?package=Cake.Issues.Markdownlint&version={{ cake_issues_version }}
     ```
-
-    --8<-- "snippets/pinning.md"
 
     !!! note
         In addition to the markdownlint issue provider the `Cake.Issues` core addin needs to be added.
@@ -31,14 +29,12 @@ To read issues from markdownlint-cli log files the markdownlint issue provider n
         <ImplicitUsings>enable</ImplicitUsings>
       </PropertyGroup>
       <ItemGroup>
-        <PackageReference Include="Cake.Markdownlint" Version="1.0.0" /> // (1)!
+        <PackageReference Include="Cake.Markdownlint" Version="{{ cake_markdownlint_version }}" />
         <PackageReference Include="Cake.Frosting" Version="{{ cake_version }}" />
         <PackageReference Include="Cake.Frosting.Issues.Markdownlint" Version="{{ cake_issues_version }}" />
       </ItemGroup>
     </Project>
     ```
-
-    --8<-- "snippets/version-placeholder.md"
 
 The following example contains a task which will run [markdownlint-cli]{target="_blank"} and write a log file
 and a task to read issues from the log file and write the number of warnings to the console:
