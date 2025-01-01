@@ -22,13 +22,27 @@ To create a report using the HTML diagnostic template you can use the
 [GenericIssueReportTemplate.HtmlDiagnostic](https://cakebuild.net/api/Cake.Issues.Reporting.Generic/GenericIssueReportTemplate/4F88BD05){target="_blank"}
 enum value:
 
-```csharp
-CreateIssueReport(
-    issues,
-    GenericIssueReportFormatFromEmbeddedTemplate(GenericIssueReportTemplate.HtmlDiagnostic),
-    @"c:\repo",
-    @"c:\report.html");
-```
+=== "Cake .NET Tool"
+
+    ```csharp
+    CreateIssueReport(
+        issues,
+        GenericIssueReportFormatFromEmbeddedTemplate(
+            GenericIssueReportTemplate.HtmlDiagnostic),
+        @"c:\repo",
+        @"c:\report.html");
+    ```
+
+=== "Cake Frosting"
+
+    ```csharp
+    context.CreateIssueReport(
+        issues,
+        context.GenericIssueReportFormatFromEmbeddedTemplate(
+            GenericIssueReportTemplate.HtmlDiagnostic),
+        @"c:\repo",
+        @"c:\report.html");
+    ```
 
 ## Options
 

@@ -27,13 +27,27 @@ To create a report using the HTML Data Table template you can use the
 [GenericIssueReportTemplate.HtmlDataTable](https://cakebuild.net/api/Cake.Issues.Reporting.Generic/GenericIssueReportTemplate/62ADE81F){target="_blank"}
 enum value:
 
-```csharp
-CreateIssueReport(
-    issues,
-    GenericIssueReportFormatFromEmbeddedTemplate(GenericIssueReportTemplate.HtmlDataTable),
-    @"c:\repo",
-    @"c:\report.html");
-```
+=== "Cake .NET Tool"
+
+    ```csharp
+    CreateIssueReport(
+        issues,
+        GenericIssueReportFormatFromEmbeddedTemplate(
+            GenericIssueReportTemplate.HtmlDataTable),
+        @"c:\repo",
+        @"c:\report.html");
+    ```
+
+=== "Cake Frosting"
+
+    ```csharp
+    context.CreateIssueReport(
+        issues,
+        context.GenericIssueReportFormatFromEmbeddedTemplate(
+            GenericIssueReportTemplate.HtmlDataTable),
+        @"c:\repo",
+        @"c:\report.html");
+    ```
 
 ## Options
 
