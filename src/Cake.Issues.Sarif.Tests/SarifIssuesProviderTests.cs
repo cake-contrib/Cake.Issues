@@ -261,5 +261,18 @@ public sealed class SarifIssuesProviderTests
                     .WithPriority(IssuePriority.Warning)
                     .Create());
         }
+
+        [Fact]
+        public void Should_Read_Issue_Correct_For_File_Generated_By_InspectCode()
+        {
+            // Given
+            var fixture = new SarifIssuesProviderFixture("inspectcode.sarif");
+
+            // When
+            var issues = fixture.ReadIssues().ToList();
+
+            // Then
+            issues.Count.ShouldBe(1106);
+        }
     }
 }
