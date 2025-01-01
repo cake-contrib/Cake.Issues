@@ -13,6 +13,12 @@
           "Microsoft.Win32.Registry": "5.0.0"
         }
       },
+      "CakeContrib.Guidelines": {
+        "type": "Direct",
+        "requested": "[1.6.1, )",
+        "resolved": "1.6.1",
+        "contentHash": "+rGs7qsmkaRsrMXhMepnCpYMHhDaN5/fbCoyvdISN4TfvezwxZHiKnK2o0paF1tN/95GnNcodJhJEOty9FBrag=="
+      },
       "Microsoft.CodeAnalysis.NetAnalyzers": {
         "type": "Direct",
         "requested": "[9.0.0, )",
@@ -79,6 +85,12 @@
           "Microsoft.NETCore.Platforms": "7.0.4",
           "Microsoft.Win32.Registry": "5.0.0"
         }
+      },
+      "CakeContrib.Guidelines": {
+        "type": "Direct",
+        "requested": "[1.6.1, )",
+        "resolved": "1.6.1",
+        "contentHash": "+rGs7qsmkaRsrMXhMepnCpYMHhDaN5/fbCoyvdISN4TfvezwxZHiKnK2o0paF1tN/95GnNcodJhJEOty9FBrag=="
       },
       "Microsoft.CodeAnalysis.NetAnalyzers": {
         "type": "Direct",

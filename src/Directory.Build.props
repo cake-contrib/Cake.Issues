@@ -18,6 +18,17 @@
         <CodeAnalysisRuleSet>..\Cake.Issues.ruleset</CodeAnalysisRuleSet>
         <AnalysisMode>AllEnabledByDefault</AnalysisMode>
       </PropertyGroup>
+
+      <ItemGroup>
+        <PackageReference Include="CakeContrib.Guidelines" PrivateAssets="all"/>
+      </ItemGroup>
+      <ItemGroup>
+        <!-- 
+        Disable CCG0009 until central package management is supported.
+        See https://github.com/cake-contrib/CakeContrib.Guidelines/issues/387
+        -->
+        <CakeContribGuidelinesOmitRecommendedCakeVersion Include="Cake.Core" />
+      </ItemGroup>
     </When>
   </Choose>
 
