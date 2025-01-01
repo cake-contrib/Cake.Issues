@@ -3,35 +3,93 @@ title: Using with Azure Pipelines
 description: Example how to use the Cake.Issues.PullRequests.AzureDevOps addin from an Azure Pipelines build.
 ---
 
-This example shows how to write issues as comments to an Azure DevOps pull request from an Azure Pipelines build.
+To write issues as comments to Azure DevOps pull requests, the Azure DevOps addin needs to be imported.
+For this example the JetBrains InspectCode issue provider is additionally used for reading issues:
 
-To write issues as comments to Azure DevOps pull requests you need to import the core addin,
-the core pull request addin, the Azure DevOps support including the Cake.AzureDevOps addin, and one or more issue providers,
-in this example for JetBrains InspectCode:
+=== "Cake .NET Tool"
 
-```csharp
-#addin nuget:?package=Cake.Issues&version={{ cake_issues_version }}
-#addin nuget:?package=Cake.Issues.InspectCode&version={{ cake_issues_version }}
-#addin nuget:?package=Cake.Issues.PullRequests&version={{ cake_issues_version }}
-#addin nuget:?package=Cake.Issues.PullRequests.AzureDevOps&version={{ cake_issues_version }}
-#addin "Cake.AzureDevOps" // (1)!
-```
+    ```csharp title="build.cake"
+    #addin nuget:?package=Cake.Issues&version={{ cake_issues_version }}
+    #addin nuget:?package=Cake.Issues.InspectCode&version={{ cake_issues_version }}
+    #addin nuget:?package=Cake.Issues.PullRequests&version={{ cake_issues_version }}
+    #addin nuget:?package=Cake.Issues.PullRequests.AzureDevOps&version={{ cake_issues_version }}
+    #addin "Cake.AzureDevOps" // (1)!
+    ```
 
---8<-- "snippets/pinning.md"
+    --8<-- "snippets/pinning.md"
 
-The following task will call the [AzureDevOpsPullRequests](https://cakebuild.net/api/Cake.Issues.PullRequests.AzureDevOps/AzureDevOpsPullRequestSystemAliases/){target="_blank"}
-alias to connect to the pull request using the environment variables provided by Azure Pipelines.
+    !!! note
+        In addition to the Azure DevOps pull request system the `Cake.Issues` and `Cake.Issues.PullRequests` core addins
+        and the Cake.AzureDevOps addin need to be added.
 
-```csharp
-Task("ReportIssuesToPullRequest").Does(() =>
-{
-    ReportIssuesToPullRequest(
-        InspectCodeIssuesFromFilePath(
-            @"C:\build\inspectcode.log"),
-        AzureDevOpsPullRequests(),
-        repoRootFolder);
-});
-```
+=== "Cake Frosting"
+
+    ```csharp title="Build.csproj"
+    <Project Sdk="Microsoft.NET.Sdk">
+      <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>{{ example_tfm }}</TargetFramework>
+        <RunWorkingDirectory>$(MSBuildProjectDirectory)</RunWorkingDirectory>
+        <ImplicitUsings>enable</ImplicitUsings>
+      </PropertyGroup>
+      <ItemGroup>
+        <PackageReference Include="Cake.Frosting" Version="{{ cake_version }}" />
+        <PackageReference Include="Cake.Frosting.Issues.InspectCode" Version="{{ cake_issues_version }}" />
+        <PackageReference Include="Cake.Frosting.Issues.PullRequests.AzureDevOps" Version="{{ cake_issues_version }}" />
+      </ItemGroup>
+    </Project>
+    ```
+
+The following example shows a task which will call the [AzureDevOpsPullRequests](https://cakebuild.net/api/Cake.Issues.PullRequests.AzureDevOps/AzureDevOpsPullRequestSystemAliases/){target="_blank"}
+alias to connect to the pull request using the environment variables provided by Azure Pipelines.:
+
+=== "Cake .NET Tool"
+
+    ```csharp title="build.cake"
+    Task("Report-IssuesToPullRequest").Does(() =>
+    {
+        var repoRootFolder =
+            MakeAbsolute(Directory("./"));
+
+        ReportIssuesToPullRequest(
+            InspectCodeIssuesFromFilePath(
+                @"C:\build\inspectcode.log"),
+            AzureDevOpsPullRequests(),
+            repoRootPath);
+    });
+    ```
+
+=== "Cake Frosting"
+
+    ```csharp title="Program.cs"
+    using Cake.Common.IO;
+    using Cake.Frosting;
+
+    public static class Program
+    {
+        public static int Main(string[] args)
+        {
+            return new CakeHost()
+                .Run(args);
+        }
+    }
+
+    [TaskName("Report-IssuesToPullRequest")]
+    public sealed class ReportIssuesToPullRequestTask : FrostingTask<FrostingContext>
+    {
+        public override void Run(FrostingContext context)
+        {
+            var repoRootPath =
+                context.MakeAbsolute(context.Directory("./"));
+
+            context.ReportIssuesToPullRequest(
+                context.InspectCodeIssuesFromFilePath(
+                    @"C:\build\inspectcode.log"),
+                context.AzureDevOpsPullRequests(),
+                repoRootPath);
+        }
+    }
+    ```
 
 !!! info
     Please note that you'll need to setup your Azure Pipelines build to
