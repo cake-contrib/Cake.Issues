@@ -112,7 +112,7 @@ extra:
   # renovate: datasource=nuget depName=Cake.Tool versioning=loose
   cake_version: 5.0.0
   # renovate: datasource=nuget depName=Cake.AzureDevOps versioning=loose
-  cake_azuredevops_version: 1.0.0
+  cake_azuredevops_version: 5.0.0
   # renovate: datasource=nuget depName=Cake.DocFx versioning=loose
   cake_docfx_version: 1.0.0
   # renovate: datasource=nuget depName=Cake.Issues versioning=loose
