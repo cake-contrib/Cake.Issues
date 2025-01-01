@@ -120,7 +120,7 @@ extra:
   # renovate: datasource=nuget depName=Cake.Markdownlint versioning=loose
   cake_markdownlint_version: 1.0.0
   # renovate: datasource=nuget depName=Cake.Git versioning=loose
-  cake_git_version: 1.0.0
+  cake_git_version: 1.1.0
   # renovate: datasource=nuget depName=JetBrains.ReSharper.CommandLineTools versioning=loose
   resharper_commandlinetool_version: 1.0.0
   example_tfm: net9.0
