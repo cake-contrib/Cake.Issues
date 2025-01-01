@@ -27,13 +27,27 @@ Template for a HTML report containing a rich data grid with sorting, filtering, 
 
 To create a report using the HTML DevExtreme Data Grid template you can use the [GenericIssueReportTemplate.HtmlDxDataGrid] enum value:
 
-```csharp
-CreateIssueReport(
-    issues,
-    GenericIssueReportFormatFromEmbeddedTemplate(GenericIssueReportTemplate.HtmlDxDataGrid),
-    @"c:\repo",
-    @"c:\report.html");
-```
+=== "Cake .NET Tool"
+
+    ```csharp
+    CreateIssueReport(
+        issues,
+        GenericIssueReportFormatFromEmbeddedTemplate(
+          GenericIssueReportTemplate.HtmlDxDataGrid),
+        @"c:\repo",
+        @"c:\report.html");
+    ```
+
+=== "Cake Frosting"
+
+    ```csharp
+    context.CreateIssueReport(
+        issues,
+        context.GenericIssueReportFormatFromEmbeddedTemplate(
+          GenericIssueReportTemplate.HtmlDxDataGrid),
+        @"c:\repo",
+        @"c:\report.html");
+    ```
 
 ## Options
 
@@ -50,15 +64,35 @@ The following demo shows the template with its default options:
 
 The template supports the teams defined in the [DevExtremeTheme] enumeration which can be set using the [HtmlDxDataGridOption.Theme]:
 
-```csharp
-CreateIssueReport(
-    issues,
-    GenericIssueReportFormatFromEmbeddedTemplate(
-        GenericIssueReportTemplate.HtmlDxDataGrid,
-        settings => settings.WithOption(HtmlDxDataGridOption.Theme, DevExtremeTheme.MaterialBlueLight)),
-    @"c:\repo",
-    @"c:\report.html");
-```
+=== "Cake .NET Tool"
+
+    ```csharp
+    CreateIssueReport(
+        issues,
+        GenericIssueReportFormatFromEmbeddedTemplate(
+            GenericIssueReportTemplate.HtmlDxDataGrid,
+            settings => settings
+                .WithOption(
+                    HtmlDxDataGridOption.Theme,
+                    DevExtremeTheme.MaterialBlueLight)),
+        @"c:\repo",
+        @"c:\report.html");
+    ```
+
+=== "Cake Frosting"
+
+    ```csharp
+    context.CreateIssueReport(
+        issues,
+        context.GenericIssueReportFormatFromEmbeddedTemplate(
+            GenericIssueReportTemplate.HtmlDxDataGrid,
+            settings => settings
+                .WithOption(
+                      HtmlDxDataGridOption.Theme,
+                      DevExtremeTheme.MaterialBlueLight)),
+        @"c:\repo",
+        @"c:\report.html");
+    ```
 
 * [Light Theme](htmldxdatagrid-demo-theme-light.html){target="_blank"}
   ([Source Code](https://github.com/cake-contrib/Cake.Issues.Reporting.Generic/blob/develop/demos/script-runner/build/create-reports/create-reports-htmldxdatagrid-theme-light.cake){target="_blank"})
@@ -127,15 +161,35 @@ CreateIssueReport(
 
 Visible columns can be defined using the `ColumnNameVisible` option:
 
-```csharp
-CreateIssueReport(
-    issues,
-    GenericIssueReportFormatFromEmbeddedTemplate(
-        GenericIssueReportTemplate.HtmlDxDataGrid,
-        settings => settings.WithOption(HtmlDxDataGridOption.LineVisible, false)),
-    @"c:\repo",
-    @"c:\report.html");
-```
+=== "Cake .NET Tool"
+
+    ```csharp
+    CreateIssueReport(
+        issues,
+        GenericIssueReportFormatFromEmbeddedTemplate(
+            GenericIssueReportTemplate.HtmlDxDataGrid,
+            settings => settings
+                .WithOption(
+                    HtmlDxDataGridOption.LineVisible,
+                    false)),
+        @"c:\repo",
+        @"c:\report.html");
+    ```
+
+=== "Cake Frosting"
+
+    ```csharp
+    context.CreateIssueReport(
+        issues,
+        context.GenericIssueReportFormatFromEmbeddedTemplate(
+            GenericIssueReportTemplate.HtmlDxDataGrid,
+            settings => settings
+                .WithOption(
+                    HtmlDxDataGridOption.LineVisible,
+                    false)),
+        @"c:\repo",
+        @"c:\report.html");
+    ```
 
 Additional columns can be added using the [HtmlDxDataGridOption.AdditionalColumns] option.
 
@@ -149,17 +203,41 @@ Additional columns can be added using the [HtmlDxDataGridOption.AdditionalColumn
 Sorted columns can be defined using the [HtmlDxDataGridOption.SortedColumns] and the
 `ColumnNameSortOder` options:
 
-```csharp
-CreateIssueReport(
-    issues,
-    GenericIssueReportFormatFromEmbeddedTemplate(
-        GenericIssueReportTemplate.HtmlDxDataGrid,
-        settings => settings
-            .WithOption(HtmlDxDataGridOption.SortedColumns, new List<ReportColumn> { ReportColumn.RuleId })
-            .WithOption(HtmlDxDataGridOption.RuleIdSortOder, ColumnSortOderDescending )),
-    @"c:\repo",
-    @"c:\report.html");
-```
+=== "Cake .NET Tool"
+
+    ```csharp
+    CreateIssueReport(
+        issues,
+        GenericIssueReportFormatFromEmbeddedTemplate(
+            GenericIssueReportTemplate.HtmlDxDataGrid,
+            settings => settings
+                .WithOption(
+                    HtmlDxDataGridOption.SortedColumns,
+                    new List<ReportColumn> { ReportColumn.RuleId })
+                .WithOption(
+                    HtmlDxDataGridOption.RuleIdSortOrder,
+                    ColumnSortOrder.Descending )),
+        @"c:\repo",
+        @"c:\report.html");
+    ```
+
+=== "Cake Frosting"
+
+    ```csharp
+    context.CreateIssueReport(
+        issues,
+        context.GenericIssueReportFormatFromEmbeddedTemplate(
+            GenericIssueReportTemplate.HtmlDxDataGrid,
+            settings => settings
+                .WithOption(
+                    HtmlDxDataGridOption.SortedColumns,
+                    new List<ReportColumn> { ReportColumn.RuleId })
+                .WithOption(
+                    HtmlDxDataGridOption.RuleIdSortOrder, 
+                    ColumnSortOrder.Descending )),
+        @"c:\repo",
+        @"c:\report.html");
+    ```
 
 * [Change sorting](htmldxdatagrid-demo-sorting.html){target="_blank"}
   ([Source Code](https://github.com/cake-contrib/Cake.Issues.Reporting.Generic/blob/develop/demos/script-runner/build/create-reports/create-reports-htmldxdatagrid-sorting.cake){target="_blank"})
@@ -168,15 +246,35 @@ CreateIssueReport(
 
 Grouping can be defined using the [HtmlDxDataGridOption.GroupedColumns] option:
 
-```csharp
-CreateIssueReport(
-    issues,
-    GenericIssueReportFormatFromEmbeddedTemplate(
-        GenericIssueReportTemplate.HtmlDxDataGrid,
-        settings => settings.WithOption(HtmlDxDataGridOption.GroupedColumns, new List<ReportColumn> { ReportColumn.RuleId })),
-    @"c:\repo",
-    @"c:\report.html");
-```
+=== "Cake .NET Tool"
+
+    ```csharp
+    CreateIssueReport(
+        issues,
+        GenericIssueReportFormatFromEmbeddedTemplate(
+            GenericIssueReportTemplate.HtmlDxDataGrid,
+            settings => settings
+                .WithOption(
+                    HtmlDxDataGridOption.GroupedColumns, 
+                    new List<ReportColumn> { ReportColumn.RuleId })),
+        @"c:\repo",
+        @"c:\report.html");
+    ```
+
+=== "Cake Frosting"
+
+    ```csharp
+    context.CreateIssueReport(
+        issues,
+        context.GenericIssueReportFormatFromEmbeddedTemplate(
+            GenericIssueReportTemplate.HtmlDxDataGrid,
+            settings => settings
+                .WithOption(
+                    HtmlDxDataGridOption.GroupedColumns, 
+                    new List<ReportColumn> { ReportColumn.RuleId })),
+        @"c:\repo",
+        @"c:\report.html");
+    ```
 
 * [Change grouping](htmldxdatagrid-demo-grouping.html){target="_blank"}
   ([Source Code](https://github.com/cake-contrib/Cake.Issues.Reporting.Generic/blob/develop/demos/script-runner/build/create-reports/create-reports-htmldxdatagrid-grouping.cake){target="_blank"})
@@ -187,15 +285,35 @@ CreateIssueReport(
 
 Exporting can be enabled using the [HtmlDxDataGridOption.EnableExporting] option:
 
-```csharp
-CreateIssueReport(
-    issues,
-    GenericIssueReportFormatFromEmbeddedTemplate(
-        GenericIssueReportTemplate.HtmlDxDataGrid,
-        settings => settings.WithOption(HtmlDxDataGridOption.EnableExporting, true)),
-    @"c:\repo",
-    @"c:\report.html");
-```
+=== "Cake .NET Tool"
+
+    ```csharp
+    CreateIssueReport(
+        issues,
+        GenericIssueReportFormatFromEmbeddedTemplate(
+            GenericIssueReportTemplate.HtmlDxDataGrid,
+            settings => settings
+                .WithOption(
+                    HtmlDxDataGridOption.EnableExporting,
+                    true)),
+        @"c:\repo",
+        @"c:\report.html");
+    ```
+
+=== "Cake Frosting"
+
+    ```csharp
+    context.CreateIssueReport(
+        issues,
+        context.GenericIssueReportFormatFromEmbeddedTemplate(
+            GenericIssueReportTemplate.HtmlDxDataGrid,
+            settings => settings
+                .WithOption(
+                    HtmlDxDataGridOption.EnableExporting,
+                    true)),
+        @"c:\repo",
+        @"c:\report.html");
+    ```
 
 * [Enable exporting](htmldxdatagrid-demo-enableexporting.html){target="_blank"}
   ([Source Code](https://github.com/cake-contrib/Cake.Issues.Reporting.Generic/blob/develop/demos/script-runner/build/create-reports/create-reports-htmldxdatagrid-enable-exporting.cake){target="_blank"})
