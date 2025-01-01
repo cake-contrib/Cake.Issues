@@ -100,4 +100,4 @@ The template retrieves an `IEnumerable<Cake.Issues.IIssue>` as model.
     * Cake.Issues.dll
     * Cake.Issues.Reporting.Generic.dll
 
-[create a pull request]: https://github.com/cake-contrib/Cake.Issues.Reporting.Generic/blob/develop/CONTRIBUTING.md
+[create a pull request]: ../../../contributing/how-to-contribute.md
