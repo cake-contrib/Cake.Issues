@@ -274,10 +274,7 @@
         }
       },
       "cake.issues": {
-        "type": "Project",
-        "dependencies": {
-          "Cake.Core": "[5.0.0, )"
-        }
+        "type": "Project"
       },
       "cake.issues.pullrequests": {
         "type": "Project",
@@ -602,10 +599,7 @@
         }
       },
       "cake.issues": {
-        "type": "Project",
-        "dependencies": {
-          "Cake.Core": "[5.0.0, )"
-        }
+        "type": "Project"
       },
       "cake.issues.pullrequests": {
         "type": "Project",

@@ -8,6 +8,7 @@
     <PackageVersion Include="Cake.Core" Version="5.0.0" />
     <PackageVersion Include="Cake.Frosting.AzureDevOps" Version="5.0.0" />
     <PackageVersion Include="Cake.Testing" Version="5.0.0" />
+    <PackageVersion Include="CakeContrib.Guidelines" Version="1.6.1" />
     <PackageVersion Include="Errata" Version="0.13.0" />
     <PackageVersion Include="Gazorator" Version="0.5.2" />
     <PackageVersion Include="HtmlAgilityPack" Version="1.11.72" />
@@ -23,7 +24,7 @@
     <PackageVersion Include="Verify.Xunit" Version="28.7.0" />
     <PackageVersion Include="xunit" Version="2.9.2" />
     <PackageVersion Include="Xunit.SkippableFact" Version="1.5.23" />
-  </ItemGroup>
+</ItemGroup>
 
   <!--Transitive dependencies specified explicitly to fix security vulnerabilities-->
   <ItemGroup>

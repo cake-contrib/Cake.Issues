@@ -20,6 +20,12 @@
           "TfsUrlParser": "1.5.0"
         }
       },
+      "CakeContrib.Guidelines": {
+        "type": "Direct",
+        "requested": "[1.6.1, )",
+        "resolved": "1.6.1",
+        "contentHash": "+rGs7qsmkaRsrMXhMepnCpYMHhDaN5/fbCoyvdISN4TfvezwxZHiKnK2o0paF1tN/95GnNcodJhJEOty9FBrag=="
+      },
       "Microsoft.CodeAnalysis.NetAnalyzers": {
         "type": "Direct",
         "requested": "[9.0.0, )",
@@ -1191,10 +1197,7 @@
         "contentHash": "tirXtR8maG+zsPHMNMIOu07ixymf6NC6N5Y3aU+wNxHAV0kzcBSQ8sz5Q5bvmoTTnsQmepbgfrxR0/S8VruonA=="
       },
       "cake.issues": {
-        "type": "Project",
-        "dependencies": {
-          "Cake.Core": "[5.0.0, )"
-        }
+        "type": "Project"
       },
       "cake.issues.pullrequests": {
         "type": "Project",
@@ -1252,6 +1255,12 @@
           "TfsUrlParser": "1.5.0"
         }
       },
+      "CakeContrib.Guidelines": {
+        "type": "Direct",
+        "requested": "[1.6.1, )",
+        "resolved": "1.6.1",
+        "contentHash": "+rGs7qsmkaRsrMXhMepnCpYMHhDaN5/fbCoyvdISN4TfvezwxZHiKnK2o0paF1tN/95GnNcodJhJEOty9FBrag=="
+      },
       "Microsoft.CodeAnalysis.NetAnalyzers": {
         "type": "Direct",
         "requested": "[9.0.0, )",
@@ -2423,10 +2432,7 @@
         "contentHash": "tirXtR8maG+zsPHMNMIOu07ixymf6NC6N5Y3aU+wNxHAV0kzcBSQ8sz5Q5bvmoTTnsQmepbgfrxR0/S8VruonA=="
       },
       "cake.issues": {
-        "type": "Project",
-        "dependencies": {
-          "Cake.Core": "[5.0.0, )"
-        }
+        "type": "Project"
       },
       "cake.issues.pullrequests": {
         "type": "Project",

@@ -4,6 +4,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Cake.Core" />
+    <PackageReference Include="Cake.Core" PrivateAssets="all"/>
   </ItemGroup>
 </Project>
