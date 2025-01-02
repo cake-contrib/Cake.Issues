@@ -29,6 +29,10 @@ This pages lists tools known to be working with Cake Issues (1)
 
 {{ read_csv('assets/tables/supported-tools-bicep.csv',keep_default_na=False) }}
 
+## Clojure
+
+{{ read_csv('assets/tables/supported-tools-clojure.csv',keep_default_na=False) }}
+
 ## Dockerfile
 
 {{ read_csv('assets/tables/supported-tools-docker.csv',keep_default_na=False) }}
