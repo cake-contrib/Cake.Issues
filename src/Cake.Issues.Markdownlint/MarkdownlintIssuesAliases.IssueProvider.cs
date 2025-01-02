@@ -112,7 +112,7 @@ public static partial class MarkdownlintIssuesAliases
     ///
     ///     var issues =
     ///         ReadIssues(
-    ///             MarkdownlintIssuesFromFilePath(settings),
+    ///             MarkdownlintIssues(settings),
     ///             @"c:\repo");
     /// ]]>
     /// </code>
