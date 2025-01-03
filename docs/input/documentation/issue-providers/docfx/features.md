@@ -36,7 +36,7 @@ provides the following features.
 - [ ] `IIssue.MessageMarkdown`
 - [x] `IIssue.Priority`
 - [x] `IIssue.PriorityName`
-- [x] `IIssue.Rule`
+- [x] `IIssue.RuleId`
 - [x] `IIssue.RuleUrl`
 
 </div>

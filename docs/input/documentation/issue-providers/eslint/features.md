@@ -44,7 +44,7 @@ The [Cake.Issues.EsLint addin](https://cakebuild.net/extensions/cake-issues-esli
 - [ ] `IIssue.MessageMarkdown`
 - [x] `IIssue.Priority`
 - [x] `IIssue.PriorityName`
-- [x] `IIssue.Rule`
+- [x] `IIssue.RuleId`
 - [x] `IIssue.RuleUrl` (4)
 
 </div>

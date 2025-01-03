@@ -35,7 +35,7 @@ The [Cake.Issues.Terraform addin]{target="_blank"} provides the following featur
 - [ ] `IIssue.MessageMarkdown`
 - [x] `IIssue.Priority`
 - [x] `IIssue.PriorityName`
-- [x] `IIssue.Rule`
+- [x] `IIssue.RuleId`
 - [x] `IIssue.RuleUrl`
 
 </div>
