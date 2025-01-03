@@ -31,7 +31,7 @@ The [Cake.Issues.Sarif addin](https://cakebuild.net/extensions/cake-issues-sarif
 - [x] `IIssue.MessageMarkdown`
 - [x] `IIssue.Priority`
 - [x] `IIssue.PriorityName`
-- [x] `IIssue.Rule`
+- [x] `IIssue.RuleId`
 - [x] `IIssue.RuleUrl`
 
 </div>

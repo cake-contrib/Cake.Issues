@@ -51,7 +51,7 @@ provides the following features.
 - [ ] `IIssue.MessageMarkdown`
 - [x] `IIssue.Priority` (5)
 - [x] `IIssue.PriorityName` (6)
-- [x] `IIssue.Rule`
+- [x] `IIssue.RuleId`
 - [x] `IIssue.RuleUrl` (7)
 
 </div>
