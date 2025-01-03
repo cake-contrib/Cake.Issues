@@ -20,7 +20,7 @@
       "fileMatch": ["\\.nuspec$"],
       "matchStringsStrategy": "any",
       "matchStrings": [
-        "<dependency\\s+id=\"(?<depName>.*?)\"\\s+version=\"(?<currentValue>.*?)\"\\s*\\/>"
+        "<dependency\\s+[^>]*?id=\\\"(?<depName>.*?)\\\"\\s+[^>]*?version=\\\"(?<currentValue>.*?)\\\"[^>]*\\/?>"
       ],
       "datasourceTemplate": "nuget",
       "versioningTemplate": "nuget"
