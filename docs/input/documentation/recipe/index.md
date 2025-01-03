@@ -109,3 +109,4 @@ Cake.Issues recipes will add the following addins to your build:
 [Cake.Issues.PullRequests.GitHubActions]: https://cakebuild.net/extensions/cake-issues-pullrequests-githubactions/
 [Cake.Frosting.Issues.PullRequests.GitHubActions]: https://cakebuild.net/extensions/cake-issues-pullrequests-githubactions/
 [Cake.AzureDevOps]: https://cakebuild.net/extensions/cake-azuredevops/
+[Cake.Frosting.AzureDevOps]: https://cakebuild.net/extensions/cake-azuredevops/
