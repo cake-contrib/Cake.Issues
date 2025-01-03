@@ -1,0 +1,11 @@
+TAP version 13
+1..1
+not ok 1 - c:\Source\Cake.Issues\file.md
+  ---
+  message: 'Found TODO: ''- [ ] Write usage instructions'''
+  severity: error
+  data:
+    line: 3
+    column: 3
+    ruleId: no-todo
+  ...

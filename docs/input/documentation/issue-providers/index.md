@@ -14,6 +14,7 @@ Issue provider addins are responsible for providing the output of an analyzer or
 - :material-layers-plus: __[Markdownlint]__ – Issue provider for reading issues from markdownlint
 - :material-layers-plus: __[MsBuild]__ – Issue provider for reading MsBuild errors and warnings
 - :material-layers-plus: __[Sarif]__ – Issue provider for reading SARIF reports
+- :material-layers-plus: __[Test Anything Protocol (TAP)]__ – Issue provider for reading TAP reports
 - :material-layers-plus: __[Terraform]__ – Issue provider for reading Terraform validation output
 
 </div>
@@ -25,6 +26,7 @@ Issue provider addins are responsible for providing the output of an analyzer or
 [Markdownlint]: markdownlint/index.md
 [MsBuild]: msbuild/index.md
 [Sarif]: sarif/index.md
+[Test Anything Protocol (TAP)]: tap/index.md
 [Terraform]: terraform/index.md
 
 !!! tip

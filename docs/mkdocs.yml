@@ -207,6 +207,10 @@ nav:
           - documentation/issue-providers/sarif/index.md
           - Features: documentation/issue-providers/sarif/features.md
           - API: https://cakebuild.net/extensions/cake-issues-sarif" target="_blank
+        - Test Anything Protocol (TAP):
+          - documentation/issue-providers/tap/index.md
+          - Features: documentation/issue-providers/tap/features.md
+          - API: https://cakebuild.net/extensions/cake-issues-tap" target="_blank
         - Terraform:
           - documentation/issue-providers/terraform/index.md
           - Features: documentation/issue-providers/terraform/features.md

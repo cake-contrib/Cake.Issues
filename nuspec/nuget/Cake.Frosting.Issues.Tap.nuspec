@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <id>Cake.Frosting.Issues.Tap</id>
+    <title>Cake.Frosting.Issues.Tap</title>
+    <version>0.0.0</version>
+    <authors>Cake Issues contributors</authors>
+    <owners>pascalberger, cake-contrib</owners>
+    <summary>Support for reading TAP compatible files using the Cake.Issues addin for Cake Frosting</summary>
+    <description>
+The TAP support for the Cake.Issues addin for Cake allows you to read Test Anything Protocol (TAP) compatible files.
+
+This addin provides the aliases for reading issues from TAP compatible files and providing them to the Cake.Issues addin.
+It also requires the core Cake.Issues addin.
+
+There are also additional addins for generating reports or posting issues to pull requests.
+
+See the Project Site for an overview of the whole ecosystem of addins for working with issues in Cake scripts.
+
+NOTE:
+This is the version of the addin compatible with Cake Frosting.
+For addin compatible with Cake Script Runners see Cake.Issues.Tap.
+    </description>
+    <license type="expression">MIT</license>
+    <projectUrl>https://cakeissues.net</projectUrl>
+    <icon>icon.png</icon>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <repository type="git" url="https://github.com/cake-contrib/Cake.Issues.git"/>
+    <copyright>Copyright © Cake Issues contributors</copyright>
+    <tags>cake cake-addin cake-issues cake-issueprovider linting tap</tags>
+    <readme>docs\README.md</readme>
+    <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/5.0.1</releaseNotes>
+    <dependencies>
+      <group targetFramework="net8.0">
+        <dependency id="Cake.Core" version="5.0" exclude="Build,Analyzers" />
+        <dependency id="Cake.Issues" version="[5.0.0-beta0001,6.0)" exclude="Build,Analyzers" />
+        <dependency id="YamlDotNet" version="16.3.0" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework="net9.0">
+        <dependency id="Cake.Core" version="5.0" exclude="Build,Analyzers" />
+        <dependency id="Cake.Issues" version="[5.0.0-beta0001,6.0)" exclude="Build,Analyzers" />
+        <dependency id="YamlDotNet" version="16.3.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="icon.png" target="" />
+    <file src="Cake.Frosting.Issues.Tap.targets" target="build" />
+    <file src="Cake.Frosting.Issues.Tap.targets" target="buildTransitive" />
+    <file src="Cake.Frosting.Issues.Tap.md" target="docs\README.md" />
+    <file src="..\..\src\Cake.Issues.Tap\bin\Release\net8.0\Cake.Issues.Tap.dll" target="lib\net8.0" />
+    <file src="..\..\src\Cake.Issues.Tap\bin\Release\net8.0\Cake.Issues.Tap.pdb" target="lib\net8.0" />
+    <file src="..\..\src\Cake.Issues.Tap\bin\Release\net8.0\Cake.Issues.Tap.xml" target="lib\net8.0" />
+    <file src="..\..\src\Cake.Issues.Tap\bin\Release\net9.0\Cake.Issues.Tap.dll" target="lib\net9.0" />
+    <file src="..\..\src\Cake.Issues.Tap\bin\Release\net9.0\Cake.Issues.Tap.pdb" target="lib\net9.0" />
+    <file src="..\..\src\Cake.Issues.Tap\bin\Release\net9.0\Cake.Issues.Tap.xml" target="lib\net9.0" />
+  </files>
+</package>
