@@ -3,6 +3,18 @@
   "extends": [
     "github>cake-contrib/renovate-presets:cake-issues"
   ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "Update versions of NuGet packages used in documentation",
+      "fileMatch": [
+        "docs/mkdocs.yml$"
+      ],
+      "matchStrings": [
+        "\\s*#\\srenovate:\\sdatasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?( extractVersion=(?<extractVersion>.*?))?\\s*.*?_version\\s*:\\s*(?<currentValue>.*)"
+      ]
+    }
+  ],
   "packageRules": [
     {
       "description": "Ignore Cake runner minor and patch updates",

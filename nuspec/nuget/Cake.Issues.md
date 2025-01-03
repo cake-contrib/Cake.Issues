@@ -107,8 +107,8 @@ Contributions are welcome. See [Contribution Guidelines](https://github.com/cake
 Binary distributions for some addins contain third-party code which is licensed under its own respective license.
 See [LICENSE](https://github.com/cake-contrib/Cake.Issues/blob/develop/LICENSE) for details.
 
-[modular architecture]: https://cakeissues.net/docs/fundamentals/architecture
-[set of aliases]: https://cakeissues.net/dsl/
-[Issue Providers]: https://cakeissues.net/addins/issue-provider/
-[Report Format]: https://cakeissues.net/docs/report-formats/
-[Pull Request System]: https://cakeissues.net/docs/pull-request-systems/
+[modular architecture]: https://cakeissues.net/latest/documentation/how-cake-issues-works/
+[set of aliases]: https://cakeissues.net/latest/api/
+[Issue Providers]: https://cakeissues.net/latest/documentation/issue-providers/
+[Report Format]: https://cakeissues.net/latest/documentation/report-formats/
+[Pull Request System]: https://cakeissues.net/latest/documentation/pull-request-systems/

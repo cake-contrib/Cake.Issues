@@ -1,0 +1,298 @@
+# Project information
+site_name: Cake Issues
+site_url: https://cakeissues.net
+site_author: Cake Issues Contributors
+site_description: Issue Management for the Cake Build System
+
+# Repository
+repo_name: cake-contrib/Cake.Issues
+repo_url: https://github.com/cake-contrib/Cake.Issues
+edit_uri: edit/develop/docs/input/
+
+# Copyright
+copyright: Copyright &copy; Cake Issues Contributors
+
+# Build configuration
+docs_dir: input
+strict: true
+validation:
+  omitted_files: warn
+  absolute_links: warn
+  unrecognized_links: warn
+  anchors: warn
+
+# Preview controls
+watch:
+  - snippets
+
+# Theme configuration
+theme:
+  name: material
+  custom_dir: overrides
+  language: en
+  palette:
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: light blue
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: deep purple
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+  features:
+    - content.action.edit
+    - content.code.annotate
+    - content.code.copy
+    - content.tabs.link
+    - content.tooltips
+    - navigation.indexes 
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.sections
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.top
+    - search.highlight
+    - search.suggest
+
+# Plugins
+plugins:
+  - blog:
+      blog_dir: news
+      post_readtime: true
+  - macros
+  - search
+  - social:
+      enabled: !ENV [GITHUB_ACTIONS, false]
+  - table-reader
+
+# Extensions
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - md_in_html
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets:
+      auto_append:
+        - snippets/abbreviations.md
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+  - toc:
+      permalink: true
+
+# Additional configuration
+extra:
+  # renovate: datasource=nuget depName=Cake.Tool versioning=loose
+  cake_version: 5.0.0
+  # renovate: datasource=nuget depName=Cake.AzureDevOps versioning=loose
+  cake_azuredevops_version: 5.0.0
+  # renovate: datasource=nuget depName=Cake.DocFx versioning=loose
+  cake_docfx_version: 1.0.0
+  # renovate: datasource=nuget depName=Cake.Issues versioning=loose
+  cake_issues_version: 5.1.0
+  # renovate: datasource=nuget depName=Cake.Markdownlint versioning=loose
+  cake_markdownlint_version: 4.0.0
+  # renovate: datasource=nuget depName=Cake.Git versioning=loose
+  cake_git_version: 5.0.1
+  # renovate: datasource=nuget depName=JetBrains.ReSharper.CommandLineTools versioning=loose
+  resharper_commandlinetool_version: 2024.3.3
+  example_tfm: net9.0
+  version:
+    provider: mike
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/cake-contrib/Cake.Issues
+
+# Page tree
+nav:
+  - Home: index.md
+  - News:
+    - news/index.md
+  - Documentation:
+    - Key concepts:
+      - Overview: documentation/overview.md
+      - How Cake Issues Works: documentation/how-cake-issues-works.md
+      - Features: documentation/features.md
+    - How To Use:
+      - Usage:
+        - documentation/usage/index.md
+        - Recipe: 
+          - documentation/usage/recipe/index.md
+          - Cake.Issues.Recipe: documentation/usage/recipe/using-cake-issues-recipe.md
+          - Cake.Frosting.Issues.Recipe: documentation/usage/recipe/using-cake-frosting-issues-recipe.md
+        - Creating Issues: documentation/usage/creating-issues/creating-issues.md
+        - Reading Issues:
+          - documentation/usage/reading-issues/index.md
+          - Reading Issues: documentation/usage/reading-issues/reading-issues.md
+          - Additional Run Information: documentation/usage/reading-issues/run-information.md
+          - File Linking: documentation/usage/reading-issues/file-linking.md
+        - Creating Reports: 
+          - documentation/usage/creating-reports/index.md
+          - Creating Reports: documentation/usage/creating-reports/creating-reports.md
+        - Reporting Issues To Pull Requests: 
+          - documentation/usage/reporting-issues-to-pull-requests/index.md
+          - Report Issues To Pull Requests: documentation/usage/reporting-issues-to-pull-requests/report-issues-to-pull-requests.md
+          - Custom Issue Filter: documentation/usage/reporting-issues-to-pull-requests/custom-issue-filter.md
+        - Breaking Builds: documentation/usage/breaking-builds/breaking-builds.md
+      - Supported Tools: documentation/supported-tools.md
+      - Recipe:
+        - documentation/recipe/index.md
+        - Supported Tools: documentation/recipe/supported-tools.md
+        - Configuration: documentation/recipe/configuration.md
+        - Tasks: documentation/recipe/tasks.md
+        - Demos: documentation/recipe/demos.md
+      - Issue Providers:
+        - documentation/issue-providers/index.md
+        - DocFx:
+          - documentation/issue-providers/docfx/index.md
+          - Features: documentation/issue-providers/docfx/features.md
+          - Examples: documentation/issue-providers/docfx/examples.md
+          - API: https://cakebuild.net/extensions/cake-issues-docfx" target="_blank
+        - ESLint:
+          - documentation/issue-providers/eslint/index.md
+          - Features: documentation/issue-providers/eslint/features.md
+          - API: https://cakebuild.net/extensions/cake-issues-eslint" target="_blank
+        - Git Repository:
+          - documentation/issue-providers/gitrepository/index.md
+          - Features: documentation/issue-providers/gitrepository/features.md
+          - Examples: documentation/issue-providers/gitrepository/examples.md
+          - Rules:
+            - documentation/issue-providers/gitrepository/rules/index.md
+            - BinaryFileNotTrackedByLfs: documentation/issue-providers/gitrepository/rules/BinaryFileNotTrackedByLfs.md
+            - FilePathTooLong: documentation/issue-providers/gitrepository/rules/FilePathTooLong.md
+          - API: https://cakebuild.net/extensions/cake-issues-gitrepository" target="_blank
+        - InspectCode:
+          - documentation/issue-providers/inspectcode/index.md
+          - Features: documentation/issue-providers/inspectcode/features.md
+          - Examples: documentation/issue-providers/inspectcode/examples.md
+          - API: https://cakebuild.net/extensions/cake-issues-inspectcode" target="_blank
+        - markdownlint:
+          - documentation/issue-providers/markdownlint/index.md
+          - Features: documentation/issue-providers/markdownlint/features.md
+          - Examples: documentation/issue-providers/markdownlint/examples.md
+          - API: https://cakebuild.net/extensions/cake-issues-markdownlint" target="_blank
+        - MsBuild:
+          - documentation/issue-providers/msbuild/index.md
+          - Features: documentation/issue-providers/msbuild/features.md
+          - Examples: documentation/issue-providers/msbuild/examples.md
+          - API: https://cakebuild.net/extensions/cake-issues-msbuild" target="_blank
+        - Sarif:
+          - documentation/issue-providers/sarif/index.md
+          - Features: documentation/issue-providers/sarif/features.md
+          - API: https://cakebuild.net/extensions/cake-issues-sarif" target="_blank
+        - Test Anything Protocol (TAP):
+          - documentation/issue-providers/tap/index.md
+          - Features: documentation/issue-providers/tap/features.md
+          - API: https://cakebuild.net/extensions/cake-issues-tap" target="_blank
+        - Terraform:
+          - documentation/issue-providers/terraform/index.md
+          - Features: documentation/issue-providers/terraform/features.md
+          - API: https://cakebuild.net/extensions/cake-issues-terraform" target="_blank
+      - Report Formats:
+        - documentation/report-formats/index.md
+        - Console:
+          - documentation/report-formats/console/index.md
+          - Features: documentation/report-formats/console/features.md
+          - Examples: documentation/report-formats/console/examples.md
+          - API: https://cakebuild.net/extensions/cake-issues-reporting-console" target="_blank
+        - Generic:
+          - documentation/report-formats/generic/index.md
+          - Features: documentation/report-formats/generic/features.md
+          - Examples:
+            - documentation/report-formats/generic/examples/index.md
+            - Embedded Default Template: documentation/report-formats/generic/examples/default-template.md
+            - Custom Template: documentation/report-formats/generic/examples/custom-template.md
+          - Template Gallery:
+            - documentation/report-formats/generic/templates/index.md
+            - HTML DevExtreme Data Grid: documentation/report-formats/generic/templates/htmldxdatagrid.md
+            - HTML Data Table: documentation/report-formats/generic/templates/htmldatatable.md
+            - HTML Diagnostic: documentation/report-formats/generic/templates/htmldiagnostic.md
+          - API: https://cakebuild.net/extensions/cake-issues-reporting-generic" target="_blank
+        - Sarif:
+          - documentation/report-formats/sarif/index.md
+          - Features: documentation/report-formats/sarif/features.md
+          - Examples: documentation/report-formats/sarif/examples.md
+          - API: https://cakebuild.net/extensions/cake-issues-reporting-sarif" target="_blank
+      - Pull Request Systems:
+        - documentation/pull-request-systems/index.md
+        - AppVeyor:
+          - documentation/pull-request-systems/appveyor/index.md
+          - Features: documentation/pull-request-systems/appveyor/features.md
+          - Examples: 
+            - documentation/pull-request-systems/appveyor/examples/index.md
+            - Writing Messages To AppVeyor: documentation/pull-request-systems/appveyor/examples/write-messages.md
+            - GitHub Pull Request Integration: documentation/pull-request-systems/appveyor/examples/github-pullrequest-integration.md
+          - API: https://cakebuild.net/extensions/cake-issues-pullrequests-appveyor" target="_blank
+        - Azure DevOps:
+          - documentation/pull-request-systems/azure-devops/index.md
+          - Features: documentation/pull-request-systems/azure-devops/features.md
+          - Setup: documentation/pull-request-systems/azure-devops/setup.md
+          - Examples: 
+            - documentation/pull-request-systems/azure-devops/examples/index.md
+            - Using With Pull Request ID: documentation/pull-request-systems/azure-devops/examples/pullrequest-id.md
+            - Using With Repository Remote URL And Source Branch Name: documentation/pull-request-systems/azure-devops/examples/repository-information.md
+            - Using With Azure Pipelines: documentation/pull-request-systems/azure-devops/examples/azure-pipelines.md
+          - API: https://cakebuild.net/extensions/cake-issues-pullrequests-azuredevops" target="_blank
+        - GitHub Actions:
+          - documentation/pull-request-systems/github-actions/index.md
+          - Features: documentation/pull-request-systems/github-actions/features.md
+          - Examples:
+            - documentation/pull-request-systems/github-actions/examples/index.md
+            - Create annotations in GitHub Actions: documentation/pull-request-systems/github-actions/examples/write-annotations.md
+          - API: https://cakebuild.net/extensions/cake-issues-pullrequests-githubactions" target="_blank
+    - How To Develop:
+      - Extending:
+        - documentation/extending/index.md
+        - Issue Provider: 
+          - Overview: documentation/extending/issue-provider/overview.md
+          - Alias Categories: documentation/extending/issue-provider/categories.md
+          - Tutorials:
+            - Simple Issue Provider: documentation/extending/issue-provider/tutorials/simple.md
+            - Provider Settings: documentation/extending/issue-provider/tutorials/settings.md
+            - Multiple Log File Formats: documentation/extending/issue-provider/tutorials/logfile-format.md
+            - Rule URL Resolving: documentation/extending/issue-provider/tutorials/rule-url-resolving.md
+          - Helper: documentation/extending/issue-provider/helper.md
+        - Report Format: 
+          - Overview: documentation/extending/report-format/overview.md
+          - Alias Categories: documentation/extending/report-format/categories.md
+        - Pull Request System: 
+          - Overview: documentation/extending/pull-request-system/overview.md
+          - Alias Categories: documentation/extending/pull-request-system/categories.md
+        - Testing: documentation/extending/testing.md
+      - Contributing:
+        - How To Contribute: documentation/contributing/how-to-contribute.md
+        - Open issues: https://github.com/cake-contrib/Cake.Issues/issues" target="_blank
+        - Build Instructions: documentation/contributing/how-to-build.md
+        - Release Instructions: documentation/contributing/how-to-release.md
+    - Resources:
+      - Blog Posts: documentation/resources/blog-posts.md
+      - Presentations: documentation/resources/presentations.md
+  - API: api.md
+  - Release Notes: https://github.com/cake-contrib/Cake.Issues/releases" target="_blank

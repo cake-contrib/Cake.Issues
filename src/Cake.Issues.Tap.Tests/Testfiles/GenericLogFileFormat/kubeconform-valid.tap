@@ -1,0 +1,3 @@
+﻿TAP version 13
+ok 1 - .\valid.yaml (v1/ReplicationController//bob)
+1..1

@@ -1,0 +1,39 @@
+name: Publish Develop Docs 
+
+# Workflow Trigger
+on:
+  # Triggers the workflow in the event there is a push to develop
+  push:
+    branches:
+      - develop
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    name: Build & Publish Docs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get the sources
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        with:
+          fetch-depth: 0
+      - name: Install Python
+        uses: actions/setup-python@0b93645e9fea7318ecaed2b359559ac225c90a2b # v5
+        with:
+          python-version: 3.13.1
+      - name: Install Python Dependencies
+        run: pip install -r requirements.txt
+        working-directory: ./docs
+      - name: Install Required Libraries
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pngquant
+      - name: Configure Git
+        run: |
+          git config --global user.name "Build Server"
+          git config --global user.email "ci@cakeissues.net"
+      - name: Build & Publish
+        run: mike deploy --push develop
+        working-directory: ./docs

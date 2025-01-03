@@ -1,0 +1,4 @@
+﻿TAP version 13
+ok 1 - .\list_invalid.yaml (v1/Service//redis-master)
+not ok 2 - .\list_invalid.yaml (v1/ReplicationController//bob): problem validating schema. Check JSON formatting: jsonschema: '/spec/replicas' does not validate with https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master-standalone/replicationcontroller-v1.json#/properties/spec/properties/replicas/type: expected integer or null, but got string
+1..2

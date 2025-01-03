@@ -10,7 +10,7 @@
     <PackageVersion Include="Cake.Testing" Version="5.0.0" />
     <PackageVersion Include="Errata" Version="0.13.0" />
     <PackageVersion Include="Gazorator" Version="0.5.2" />
-    <PackageVersion Include="HtmlAgilityPack" Version="1.11.71" />
+    <PackageVersion Include="HtmlAgilityPack" Version="1.11.72" />
     <PackageVersion Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
     <PackageVersion Include="MSBuild.StructuredLogger" Version="2.2.386" />
@@ -20,9 +20,10 @@
     <PackageVersion Include="Spectre.Console" Version="0.49.1" />
     <PackageVersion Include="Spectre.Console.Analyzer" Version="1.0.0" />
     <PackageVersion Include="Spectre.Console.Testing" Version="0.49.1" />
-    <PackageVersion Include="Verify.Xunit" Version="28.6.0" />
+    <PackageVersion Include="Verify.Xunit" Version="28.7.0" />
     <PackageVersion Include="xunit" Version="2.9.2" />
     <PackageVersion Include="Xunit.SkippableFact" Version="1.5.23" />
+    <PackageVersion Include="YamlDotNet" Version="16.3.0" />
   </ItemGroup>
 
   <!--Transitive dependencies specified explicitly to fix security vulnerabilities-->
@@ -43,7 +44,7 @@
 
   <!-- Runners for test projects -->
   <ItemGroup Condition="$(MSBuildProjectName.EndsWith('.Tests'))">
-    <GlobalPackageReference Include="coverlet.msbuild" Version="6.0.2" />
+    <GlobalPackageReference Include="coverlet.msbuild" Version="6.0.3" />
     <GlobalPackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" />
     <GlobalPackageReference Include="xunit.runner.visualstudio" Version="3.0.0" />
   </ItemGroup>

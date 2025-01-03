@@ -2,12 +2,16 @@ name: Integration tests
 
 # Workflow Trigger
 on:
-  # Trigger the workflow on a pull request to any branch
+  # Trigger the workflow on a pull request to any branch, ignoring changes to /docs
   pull_request:
-  # Triggers the workflow in the event there is a push to master
+    paths-ignore:
+      - 'docs/**'
+  # Trigger the workflow on pushes to the master branch, ignoring changes to /docs
   push:
     branches: 
       - master
+    paths-ignore:
+      - 'docs/**'
 
 jobs:
   # Build
@@ -20,7 +24,7 @@ jobs:
       - name: Fetch all tags and branches
         run: git fetch --prune --unshallow
       - name: Install .NET
-        uses: actions/setup-dotnet@3e891b0cb619bf60e2c25674b222b8940e2c1c25 # v4
+        uses: actions/setup-dotnet@87b7050bc53ea08284295505d98d2aa94301e852 # v4
         with:
           # .NET 5 required for GitVersion
           dotnet-version: | 
@@ -31,7 +35,7 @@ jobs:
         run: ./build.sh --target=Create-NuGet-Packages
         shell: bash
       - name: Publish NuGet package as build artifact
-        uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4
+        uses: actions/upload-artifact@6f51ac03b9356f520e9adb1b1b7802705f340c2b # v4
         with:
           name: NuGet Package
           path: ./BuildArtifacts/Packages/NuGet/

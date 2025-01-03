@@ -65,7 +65,7 @@ Contributions are welcome. See [Contribution Guidelines](https://github.com/cake
 Binary distributions for some addins contain third-party code which is licensed under its own respective license.
 See [LICENSE](https://github.com/cake-contrib/Cake.Issues/blob/develop/LICENSE) for details.
 
-[modular architecture]: https://cakeissues.net/docs/fundamentals/architecture
-[set of aliases]: https://cakeissues.net/dsl/
+[modular architecture]: https://cakeissues.net/latest/documentation/how-cake-issues-works/
+[set of aliases]: https://cakeissues.net/latest/api/
 [Cake Frosting]: https://cakebuild.net/docs/running-builds/runners/cake-frosting
 [Cake .NET Tool]: https://cakebuild.net/docs/running-builds/runners/dotnet-tool

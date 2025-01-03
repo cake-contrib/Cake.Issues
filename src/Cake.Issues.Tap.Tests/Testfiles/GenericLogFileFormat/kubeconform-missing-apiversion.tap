@@ -1,0 +1,3 @@
+﻿TAP version 13
+not ok 1 - .\missing_apiversion.yaml: error while parsing: missing 'apiVersion' key
+1..1

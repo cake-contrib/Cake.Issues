@@ -169,6 +169,33 @@ BuildParameters.Tasks.UploadCodecovReportTask
 // Custom tasks
 //*************************************************************************************************
 
+Task("Install-WebsiteDependencies")
+    .Description("Install dependencies required for building website.")
+    .Does(() =>
+{
+    StartProcess(
+         "pip",
+         new ProcessSettings {
+             Arguments = "install -r requirements.txt",
+             WorkingDirectory = "./docs"
+         }
+    );
+});
+
+Task("Website")
+    .Description("Previews website.")
+    .IsDependentOn("Install-WebsiteDependencies")
+    .Does(() =>
+{
+    StartProcess(
+         "mkdocs",
+         new ProcessSettings {
+             Arguments = "serve",
+             WorkingDirectory = "./docs"
+         }
+    );
+});
+
 Task("BreakBuildOnIssues")
     .Description("Breaks build if any issues in the code are found.")
     .Does<IssuesData>((data) =>

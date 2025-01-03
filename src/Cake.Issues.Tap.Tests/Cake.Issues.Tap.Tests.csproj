@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Description>Tests for the Cake.Issues.Tap addin</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Testfiles\**\*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Testfiles\GenericLogFileFormat\*.tap" />
+    <EmbeddedResource Include="Testfiles\StylelintLogFileFormat\*.tap" />
+    <EmbeddedResource Include="Testfiles\TextlintLogFileFormat\*.tap" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Cake.Issues.Tap\Cake.Issues.Tap.csproj" />
+  </ItemGroup>
+</Project>
