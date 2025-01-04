@@ -5704,13 +5704,21 @@
 <p>The <a href="https://cakebuild.net/extensions/cake-issues-inspectcode/" target="_blank">Cake.Issues.InspectCode addin</a> provides the following features.</p>
 <details class="tip">
 <summary>Tip: Running InspectCode</summary>
-<p><a href="https://www.jetbrains.com/help/resharper/InspectCode.html" target="_blank">JetBrains InsepectCode</a> can be run using the <a href="https://cakebuild.net/dsl/resharper/#InspectCode" target="_blank">InspectCode alias</a>.</p>
+<p><a href="https://www.jetbrains.com/help/resharper/InspectCode.html" target="_blank">JetBrains InspectCode</a> can be run using the <a href="https://cakebuild.net/dsl/resharper/#InspectCode" target="_blank">InspectCode alias</a>.</p>
 </details>
 <h2 id="basic-features">Basic features<a class="headerlink" href="#basic-features" title="Permanent link">&para;</a></h2>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Reads warnings from <a href="https://www.jetbrains.com/help/resharper/InspectCode.html" target="_blank">JetBrains InsepectCode</a> log files.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Reads warnings from <a href="https://www.jetbrains.com/help/resharper/InspectCode.html" target="_blank">JetBrains InspectCode</a> XML log files.</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Provides URLs for issues containing a Wiki URL.</li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Starting from version 2024.1, the default output format of <a href="https://www.jetbrains.com/help/resharper/InspectCode.html">JetBrains InspectCode</a> is Static Analysis Results Interchange Format (SARIF).
+The XML format, which was the default in previous versions, will soon be deprecated.
+Results in the XML format are still available with the <code>-f="xml"</code> parameter.</p>
+<p>This issue provider is only for the deprecated XML format.
+For the new default SARIF format <a href="../../sarif/">Cake.Issues.Sarif</a> can be used.</p>
+</div>
 <h2 id="supported-iissue-properties">Supported IIssue properties<a class="headerlink" href="#supported-iissue-properties" title="Permanent link">&para;</a></h2>
 <div class="annotate">
 <ul class="task-list">
