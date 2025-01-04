@@ -5737,7 +5737,10 @@ provides the following features.</p>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://cakebuild.net/api/Cake.Issues.MsBuild/MsBuildIssuesAliases/051D7B6E" target="_blank">MsBuildXmlFileLoggerFormat</a> alias for reading issues from log files created by <a href="https://github.com/mikefourie-zz/MSBuildExtensionPack/blob/master/Solutions/Main/Loggers/Framework/XmlFileLogger.cs" target="_blank">MSBuild Extension Pack XmlFileLogger</a>.</li>
 </ul>
 <h2 id="supported-iissue-properties">Supported IIssue properties<a class="headerlink" href="#supported-iissue-properties" title="Permanent link">&para;</a></h2>
-<div class="annotate">
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="msbuildbinarylogfileformat" name="__tabbed_1" type="radio" /><input id="msbuildxmlfileloggerformat" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="msbuildbinarylogfileformat">MsBuildBinaryLogFileFormat</label><label for="msbuildxmlfileloggerformat">MsBuildXmlFileLoggerFormat</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="annotate" markdown>
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>IIssue.ProviderType</code></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>IIssue.ProviderName</code></li>
@@ -5748,25 +5751,58 @@ provides the following features.</p>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>IIssue.AffectedFileRelativePath</code></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>IIssue.Line</code></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>IIssue.EndLine</code></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>IIssue.Column</code> (3)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>IIssue.Column</code></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>IIssue.EndColumn</code></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>IIssue.FileLink</code> (4)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>IIssue.FileLink</code> (3)</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>IIssue.MessageText</code></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>IIssue.MessageHtml</code></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>IIssue.MessageMarkdown</code></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>IIssue.Priority</code></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>IIssue.PriorityName</code></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>IIssue.RuleId</code></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>IIssue.RuleUrl</code> (5)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>IIssue.RuleUrl</code> (4)</li>
 </ul>
 </div>
 <ol>
 <li>Can be set while reading issues</li>
 <li>Set to <code>IIssue.MessageText</code></li>
-<li>Only for <a href="https://cakebuild.net/api/Cake.Issues.MsBuild/MsBuildIssuesAliases/051D7B6E" target="_blank">MsBuildXmlFileLoggerFormat</a></li>
 <li>Can be set while reading issues</li>
-<li>For code analysis (<code>CA*</code>) and StyleCop (<code>SA*</code>) warnings. Support for additional rules can be added through a custom <a href="https://cakebuild.net/api/Cake.Issues.MsBuild/MsBuildIssuesAliases/93C21487" target="_blank">MsBuildAddRuleUrlResolver</a></li>
+<li>For .NET SDK analyzers (<code>CA*</code>), StyleCop analyzer rules (<code>SA*</code>), SonarLint rules (<code>S*</code>) and Roslynator rules (<code>RCS*</code>). Support for additional rules can be added through a custom <a href="https://cakebuild.net/api/Cake.Issues.MsBuild/MsBuildIssuesAliases/93C21487" target="_blank">MsBuildAddRuleUrlResolver</a></li>
 </ol>
+</div>
+<div class="tabbed-block">
+<div class="annotate" markdown>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>IIssue.ProviderType</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>IIssue.ProviderName</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>IIssue.Run</code> (1)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>IIssue.Identifier</code> (2)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>IIssue.ProjectName</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>IIssue.ProjectFileRelativePath</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>IIssue.AffectedFileRelativePath</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>IIssue.Line</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>IIssue.EndLine</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>IIssue.Column</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>IIssue.EndColumn</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>IIssue.FileLink</code> (3)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>IIssue.MessageText</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>IIssue.MessageHtml</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>IIssue.MessageMarkdown</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>IIssue.Priority</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>IIssue.PriorityName</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>IIssue.RuleId</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>IIssue.RuleUrl</code> (4)</li>
+</ul>
+</div>
+<ol>
+<li>Can be set while reading issues</li>
+<li>Set to <code>IIssue.MessageText</code></li>
+<li>Can be set while reading issues</li>
+<li>For .NET SDK analyzers (<code>CA*</code>), StyleCop analyzer rules (<code>SA*</code>), SonarLint rules (<code>S*</code>) and Roslynator rules (<code>RCS*</code>). Support for additional rules can be added through a custom <a href="https://cakebuild.net/api/Cake.Issues.MsBuild/MsBuildIssuesAliases/93C21487" target="_blank">MsBuildAddRuleUrlResolver</a></li>
+</ol>
+</div>
+</div>
+</div>
 <!-- Glossary for terms and concepts not documented on cakeissues.net -->
 
 
