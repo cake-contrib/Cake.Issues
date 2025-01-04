@@ -47,9 +47,10 @@ and write a log file and a task to read issues from the log file and write the n
 
     Task("Analyze-Project").Does(() =>
     {
-        // Run InspectCode.
+        // Run InspectCode and enforce XML output.
         var settings = new InspectCodeSettings() {
-            OutputFile = logPath
+            OutputFile = logPath,
+            ArgumentCustomization = x => x.Append("-f=xml")
         };
     
         InspectCode(repoRootPath.CombineWithFilePath("MySolution.sln"), settings);
@@ -103,9 +104,10 @@ and write a log file and a task to read issues from the log file and write the n
     {
         public override void Run(BuildContext context)
         {
-            // Run InspectCode.
+            // Run InspectCode and enforce XML output.
             var settings = new InspectCodeSettings() {
-                OutputFile = context.LogPath
+                OutputFile = context.LogPath,
+                ArgumentCustomization = x => x.Append("-f=xml")
             };
         
             context.InspectCode(
