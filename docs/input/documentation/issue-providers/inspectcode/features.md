@@ -7,12 +7,20 @@ icon: material/creation-outline
 The [Cake.Issues.InspectCode addin]{target="_blank"} provides the following features.
 
 ??? tip "Tip: Running InspectCode"
-    [JetBrains InsepectCode]{target="_blank"} can be run using the [InspectCode alias]{target="_blank"}.
+    [JetBrains InspectCode]{target="_blank"} can be run using the [InspectCode alias]{target="_blank"}.
 
 ## Basic features
 
-- [x]  Reads warnings from [JetBrains InsepectCode]{target="_blank"} log files.
+- [x]  Reads warnings from [JetBrains InspectCode]{target="_blank"} XML log files.
 - [x]  Provides URLs for issues containing a Wiki URL.
+
+!!! note
+    Starting from version 2024.1, the default output format of [JetBrains InspectCode] is Static Analysis Results Interchange Format (SARIF).
+    The XML format, which was the default in previous versions, will soon be deprecated.
+    Results in the XML format are still available with the `-f="xml"` parameter.
+
+    This issue provider is only for the deprecated XML format.
+    For the new default SARIF format [Cake.Issues.Sarif] can be used.
 
 ## Supported IIssue properties
 
@@ -44,6 +52,7 @@ The [Cake.Issues.InspectCode addin]{target="_blank"} provides the following feat
 2.  Set to `IIssue.MessageText`
 3.  Can be set while reading issues
 
-[JetBrains InsepectCode]: https://www.jetbrains.com/help/resharper/InspectCode.html
+[JetBrains InspectCode]: https://www.jetbrains.com/help/resharper/InspectCode.html
 [Cake.Issues.InspectCode addin]: https://cakebuild.net/extensions/cake-issues-inspectcode/
 [InspectCode alias]: https://cakebuild.net/dsl/resharper/#InspectCode
+[Cake.Issues.Sarif]: ../sarif/index.md
