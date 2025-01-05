@@ -209,6 +209,43 @@ Task("BreakBuildOnIssues")
 IssuesBuildTasks.IssuesTask
     .IsDependentOn("BreakBuildOnIssues");
 
+Task("Create-ReleaseBranch")
+    .Description("Creates a new release branch.")
+    .Does<IssuesData>((data) =>
+{
+    if (data.Issues.Any())
+    {
+        throw new Exception("Issues found in code.");
+    }
+});
+
+Task("Update-ReleaseNotesLinks")
+    .Description("Updates links to release notes in NuGet packages.")
+    .Does<IssuesData>((data) =>
+{
+    if (data.Issues.Any())
+    {
+        throw new Exception("Issues found in code.");
+    }
+});
+
+Task("Create-NewsEntry")
+    .Description("Create a draft news entry.")
+    .Does<IssuesData>((data) =>
+{
+    if (data.Issues.Any())
+    {
+        throw new Exception("Issues found in code.");
+    }
+});
+
+Task("Create-Release")
+    .Description("Starts a new release.")
+    .IsDependentOn("Create-ReleaseBranch")
+    .IsDependentOn("Releasenotes")
+    .IsDependentOn("Update-ReleaseNotesLinks")
+    .IsDependentOn("Create-NewsEntry")
+
 //*************************************************************************************************
 // Execution
 //*************************************************************************************************
