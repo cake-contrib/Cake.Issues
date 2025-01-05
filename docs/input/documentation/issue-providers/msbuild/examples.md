@@ -39,7 +39,7 @@ and a task to read issues from the binary log file and write the number of warni
 === "Cake .NET Tool"
 
     ```csharp title="build.cake"
-    var logPath = @"c:\build\msbuild.xml";
+    var logPath = @"c:\build\msbuild.binlog";
     var repoRootPath = MakeAbsolute(Directory("./"));
 
     Task("Build-Solution").Does(() =>
@@ -94,7 +94,7 @@ and a task to read issues from the binary log file and write the number of warni
 
     public class BuildContext(ICakeContext context) : FrostingContext(context)
     {
-        public FilePath LogPath { get; } = @"c:\build\msbuild.xml";
+        public FilePath LogPath { get; } = @"c:\build\msbuild.binlog";
         public DirectoryPath RepoRootPath { get; } =
             context.MakeAbsolute(context.Directory("./"));
     }
@@ -107,7 +107,7 @@ and a task to read issues from the binary log file and write the number of warni
             // Build solution.
             var msBuildSettings =
                 new DotNetMSBuildSettings().WithLogger(
-                    "BinaryLogger," + context.Tools.Resolve("Cake.Issues.MsBuild*/**/StructuredLogger.dll"),
+                    "BinaryLogger," + context.Environment.ApplicationRoot.CombineWithFilePath("StructuredLogger.dll"),
                     "",
                     context.LogPath.FullPath);
             context.DotNetBuild(

@@ -26,6 +26,7 @@ hide:
 - [Cake.Issues.Markdownlint](https://cakebuild.net/extensions/cake-issues-markdownlint){target="_blank"}
 - [Cake.Issues.MsBuild](https://cakebuild.net/extensions/cake-issues-msbuild){target="_blank"}
 - [Cake.Issues.Sarif](https://cakebuild.net/extensions/cake-issues-sarif){target="_blank"}
+- [Cake.Issues.Tap](https://cakebuild.net/extensions/cake-issues-tap){target="_blank"}
 - [Cake.Issues.Terraform](https://cakebuild.net/extensions/cake-issues-terraform){target="_blank"}
 
 </div>

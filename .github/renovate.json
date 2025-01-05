@@ -13,6 +13,17 @@
       "matchStrings": [
         "\\s*#\\srenovate:\\sdatasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?( extractVersion=(?<extractVersion>.*?))?\\s*.*?_version\\s*:\\s*(?<currentValue>.*)"
       ]
+    },
+    {
+      "customType": "regex",
+      "description": "Nuspec files manager",
+      "fileMatch": ["\\.nuspec$"],
+      "matchStringsStrategy": "any",
+      "matchStrings": [
+        "<dependency\\s+[^>]*?id=\\\"(?<depName>.*?)\\\"\\s+[^>]*?version=\\\"(?<currentValue>.*?)\\\"[^>]*\\/?>"
+      ],
+      "datasourceTemplate": "nuget",
+      "versioningTemplate": "nuget"
     }
   ],
   "packageRules": [

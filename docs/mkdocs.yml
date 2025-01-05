@@ -140,7 +140,7 @@ nav:
       - Overview: documentation/overview.md
       - How Cake Issues Works: documentation/how-cake-issues-works.md
       - Features: documentation/features.md
-    - How To Use:
+    - User Guide:
       - Usage:
         - documentation/usage/index.md
         - Recipe: 
@@ -267,7 +267,7 @@ nav:
             - documentation/pull-request-systems/github-actions/examples/index.md
             - Create annotations in GitHub Actions: documentation/pull-request-systems/github-actions/examples/write-annotations.md
           - API: https://cakebuild.net/extensions/cake-issues-pullrequests-githubactions" target="_blank
-    - How To Develop:
+    - Developer Guide:
       - Extending:
         - documentation/extending/index.md
         - Issue Provider: 
@@ -289,8 +289,9 @@ nav:
       - Contributing:
         - How To Contribute: documentation/contributing/how-to-contribute.md
         - Open issues: https://github.com/cake-contrib/Cake.Issues/issues" target="_blank
-        - Build Instructions: documentation/contributing/how-to-build.md
-        - Release Instructions: documentation/contributing/how-to-release.md
+    - Maintainer Guide:
+      - Building Source Code: documentation/contributing/how-to-build.md
+      - Performing Release: documentation/contributing/how-to-release.md
     - Resources:
       - Blog Posts: documentation/resources/blog-posts.md
       - Presentations: documentation/resources/presentations.md
