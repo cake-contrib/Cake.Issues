@@ -30,9 +30,9 @@ This release fixes dependencies of the following Cake Frosting optimized NuGet p
 
 ## Updating from previous versions
 
-Cake.Issues 4.7.2 addins are compatible with any 4.x addins.
+Cake.Issues 5.0.1 addins are compatible with any 5.x addins.
 To update to the new version bump the version of the specific addins.
 
-For details see [release notes](https://github.com/cake-contrib/Cake.Issues/releases/tag/4.7.2){target="_blank"}
+For details see [release notes](https://github.com/cake-contrib/Cake.Issues/releases/tag/5.0.1){target="_blank"}
 
 [Cake.Frosting.Issues.PullRequests.AppVeyor]: https://www.nuget.org/packages/Cake.Frosting.Issues.PullRequests.AppVeyor/5.0.1#dependencies-body-tab
