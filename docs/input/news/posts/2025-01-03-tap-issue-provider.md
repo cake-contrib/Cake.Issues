@@ -7,7 +7,7 @@ search:
   boost: 0.5
 ---
 
-A new [Cake.Issues.Tap addin] has been released which adds support for reading issues in [Test Anything Protocol (TAP)]{target="_blank"} format.
+In [version 5.1.0] a new [Cake.Issues.Tap addin] has been released which adds support for reading issues in [Test Anything Protocol (TAP)]{target="_blank"} format.
 
 <!-- more -->
 
@@ -29,6 +29,7 @@ See [Supported Tools] for an updated list of supported tools.
 The addins is available in a version for Cake .NET Tool ([Cake.Issues.Tap]{target="_blank"})
 and Cake Frosting ([Cake.Frosting.Issues.Tap]{target="_blank"}).
 
+[version 5.1.0]: 2025-01-03-cake-issues-v5.1.0-released.md
 [Cake.Issues.Tap addin]: ../../documentation/issue-providers/tap/index.md
 [Test Anything Protocol (TAP)]: https://testanything.org/
 [Supported Tools]: ../../documentation/supported-tools.md
