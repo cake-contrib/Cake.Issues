@@ -29,6 +29,12 @@ For addin compatible with Cake Frosting see Cake.Frosting.Issues.PullRequests.Az
     <tags>cake cake-addin cake-issues cake-pullrequestsystem issues pullrequest tfs azure-devops azure-devops-server</tags>
     <readme>docs\README.md</readme>
     <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/5.1.1</releaseNotes>
+    <dependencies>
+      <group targetFramework="net8.0">
+      </group>
+      <group targetFramework="net9.0">
+      </group>
+    </dependencies>
   </metadata>
   <files>
     <file src="..\..\..\..\nuspec\nuget\icon.png" target="" />

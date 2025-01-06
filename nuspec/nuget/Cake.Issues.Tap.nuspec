@@ -30,6 +30,12 @@ For addin compatible with Cake Frosting see Cake.Frosting.Issues.Tap.
     <tags>cake cake-addin cake-issues cake-issueprovider linting tap</tags>
     <readme>docs\README.md</readme>
     <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/5.1.1</releaseNotes>
+    <dependencies>
+      <group targetFramework="net8.0">
+      </group>
+      <group targetFramework="net9.0">
+      </group>
+    </dependencies>
   </metadata>
   <files>
     <file src="..\..\..\..\nuspec\nuget\icon.png" target="" />
