@@ -7,7 +7,7 @@ search:
   boost: 0.5
 ---
 
-A new [Cake.Issues.Sarif addin] has been released which adds support for reading issues in [SARIF]{target="_blank"} format.
+In [version 4.2.0] a new [Cake.Issues.Sarif addin] has been released which adds support for reading issues in [SARIF]{target="_blank"} format.
 
 <!-- more -->
 
@@ -20,6 +20,7 @@ See [Supported Tools] for an updated list of supported tools.
 The addins is available in a version for Cake .NET Tool ([Cake.Issues.Sarif]{target="_blank"})
 and Cake Frosting ([Cake.Frosting.Issues.Sarif]{target="_blank"}).
 
+[version 4.2.0]: 2024-04-14-cake-issues-v4.2.0-released.md
 [Cake.Issues.Sarif addin]: ../../documentation/issue-providers/sarif/index.md
 [SARIF]: https://sarifweb.azurewebsites.net/
 [Supported Tools]: ../../documentation/supported-tools.md
