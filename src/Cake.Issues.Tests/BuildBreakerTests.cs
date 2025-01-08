@@ -202,6 +202,294 @@ public class BuildBreakerTests
         }
     }
 
+    public sealed class TheBreakBuildOnIssuesMethodWithPriorityAndProviderTypeParameters
+    {
+        [Fact]
+        public void Should_Throw_If_Issues_Is_Null()
+        {
+            // Given
+            IEnumerable<IIssue> issues = null;
+            var minimumPriority = IssuePriority.Undefined;
+            IList<string> issueProvidersToConsider = [];
+            IList<string> issueProvidersToIgnore = [];
+
+            // When
+            var result = Record.Exception(() => BuildBreaker.BreakBuildOnIssues(
+                issues,
+                minimumPriority,
+                issueProvidersToConsider,
+                issueProvidersToIgnore));
+
+            // Then
+            result.IsArgumentNullException("issues");
+        }
+
+        [Fact]
+        public void Should_Throw_If_IssueProvidersToConsider_Is_Null()
+        {
+            // Given
+            IEnumerable<IIssue> issues = [
+                IssueBuilder
+                    .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                    .Create()];
+            var minimumPriority = IssuePriority.Undefined;
+            IList<string> issueProvidersToConsider = null;
+            IList<string> issueProvidersToIgnore = [];
+
+            // When
+            var result = Record.Exception(() => BuildBreaker.BreakBuildOnIssues(
+                issues,
+                minimumPriority,
+                issueProvidersToConsider,
+                issueProvidersToIgnore));
+
+            // Then
+            result.IsArgumentNullException("issueProvidersToConsider");
+        }
+
+        [Fact]
+        public void Should_Throw_If_IssueProvidersToIgnore_Is_Null()
+        {
+            // Given
+            IEnumerable<IIssue> issues = [
+                IssueBuilder
+                    .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                    .WithPriority(IssuePriority.Error)
+                    .Create()];
+            var minimumPriority = IssuePriority.Warning;
+            IList<string> issueProvidersToConsider = [];
+            IList<string> issueProvidersToIgnore = null;
+
+            // When
+            var result = Record.Exception(() => BuildBreaker.BreakBuildOnIssues(
+                issues,
+                minimumPriority,
+                issueProvidersToConsider,
+                issueProvidersToIgnore));
+
+            // Then
+            result.IsArgumentNullException("issueProvidersToIgnore");
+        }
+
+        [Fact]
+        public void Should_Throw_If_Any_Issue_And_No_Filter()
+        {
+            // Given
+            IEnumerable<IIssue> issues = [
+                IssueBuilder
+                    .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                    .Create()];
+            var minimumPriority = IssuePriority.Undefined;
+            IList<string> issueProvidersToConsider = [];
+            IList<string> issueProvidersToIgnore = [];
+
+            // When
+            var result = Record.Exception(() => BuildBreaker.BreakBuildOnIssues(
+                issues,
+                minimumPriority,
+                issueProvidersToConsider,
+                issueProvidersToIgnore));
+
+            // Then
+            result.IsIssuesFoundException("Found 1 issue.");
+        }
+
+        [Theory]
+        [InlineData(IssuePriority.Undefined)]
+        [InlineData(IssuePriority.Hint)]
+        [InlineData(IssuePriority.Suggestion)]
+        [InlineData(IssuePriority.Warning)]
+        public void Should_Throw_If_Issue_Of_Relevant_Priority(IssuePriority priority)
+        {
+            // Given
+            IEnumerable<IIssue> issues = [
+                IssueBuilder
+                    .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                    .WithPriority(IssuePriority.Warning)
+                    .Create()];
+            var minimumPriority = priority;
+            IList<string> issueProvidersToConsider = [];
+            IList<string> issueProvidersToIgnore = [];
+
+            // When
+            var result = Record.Exception(() => BuildBreaker.BreakBuildOnIssues(
+                issues,
+                minimumPriority,
+                issueProvidersToConsider,
+                issueProvidersToIgnore));
+
+            // Then
+            result.IsIssuesFoundException("Found 1 issue.");
+        }
+
+        [Theory]
+        [InlineData(IssuePriority.Error)]
+        public void Should_Not_Throw_If_No_Issue_Of_Relevant_Priority(IssuePriority priority)
+        {
+            // Given
+            IEnumerable<IIssue> issues = [
+                IssueBuilder
+                    .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                    .WithPriority(IssuePriority.Warning)
+                    .Create()];
+            var minimumPriority = priority;
+            IList<string> issueProvidersToConsider = [];
+            IList<string> issueProvidersToIgnore = [];
+
+            // When
+            BuildBreaker.BreakBuildOnIssues(
+                issues,
+                minimumPriority,
+                issueProvidersToConsider,
+                issueProvidersToIgnore);
+
+            // Then
+        }
+
+        [Theory]
+        [InlineData("ProviderType Foo")]
+        [InlineData("ProviderType Foo,ProviderType Bar")]
+        public void Should_Throw_If_IssueProvider_To_Consider(string value)
+        {
+            // Given
+            IEnumerable<IIssue> issues = [
+                IssueBuilder
+                    .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                    .Create()];
+            var minimumPriority = IssuePriority.Undefined;
+            IList<string> issueProvidersToConsider = value.Split(',');
+            IList<string> issueProvidersToIgnore = [];
+
+            // When
+            var result = Record.Exception(() => BuildBreaker.BreakBuildOnIssues(
+                issues,
+                minimumPriority,
+                issueProvidersToConsider,
+                issueProvidersToIgnore));
+
+            // Then
+            result.IsIssuesFoundException("Found 1 issue.");
+        }
+
+        [Theory]
+        [InlineData("ProviderType Bar")]
+        public void Should_Not_Throw_If_No_Issue_Is_Not_In_List_Of_Issue_Providers_To_Consider(string value)
+        {
+            // Given
+            IEnumerable<IIssue> issues = [
+                IssueBuilder
+                    .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                    .WithPriority(IssuePriority.Warning)
+                    .Create()];
+            var minimumPriority = IssuePriority.Undefined;
+            IList<string> issueProvidersToConsider = value.Split(',');
+            IList<string> issueProvidersToIgnore = [];
+
+            // When
+            BuildBreaker.BreakBuildOnIssues(
+                issues,
+                minimumPriority,
+                issueProvidersToConsider,
+                issueProvidersToIgnore);
+
+            // Then
+        }
+
+        [Theory]
+        [InlineData("ProviderType Bar")]
+        public void Should_Throw_If_IssueProvider_Is_Not_Ignored(string value)
+        {
+            // Given
+            IEnumerable<IIssue> issues = [
+                IssueBuilder
+                    .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                    .Create()];
+            var minimumPriority = IssuePriority.Undefined;
+            IList<string> issueProvidersToConsider = [];
+            IList<string> issueProvidersToIgnore = value.Split(',');
+
+            // When
+            var result = Record.Exception(() => BuildBreaker.BreakBuildOnIssues(
+                issues,
+                minimumPriority,
+                issueProvidersToConsider,
+                issueProvidersToIgnore));
+
+            // Then
+            result.IsIssuesFoundException("Found 1 issue.");
+        }
+
+        [Theory]
+        [InlineData("ProviderType Foo")]
+        [InlineData("ProviderType Foo,ProviderType Bar")]
+        public void Should_Not_Throw_If_IssueProvider_Is_Ignored(string value)
+        {
+            // Given
+            IEnumerable<IIssue> issues = [
+                IssueBuilder
+                    .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                    .WithPriority(IssuePriority.Warning)
+                    .Create()];
+            var minimumPriority = IssuePriority.Undefined;
+            IList<string> issueProvidersToConsider = [];
+            IList<string> issueProvidersToIgnore = value.Split(',');
+
+            // When
+            BuildBreaker.BreakBuildOnIssues(
+                issues,
+                minimumPriority,
+                issueProvidersToConsider,
+                issueProvidersToIgnore);
+
+            // Then
+        }
+
+        [Fact]
+        public void Should_Not_Throw_If_IssueProvider_Is_To_Consider_And_Ignored()
+        {
+            // Given
+            IEnumerable<IIssue> issues = [
+                IssueBuilder
+                    .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                    .Create()];
+            var minimumPriority = IssuePriority.Undefined;
+            IList<string> issueProvidersToConsider = ["ProviderType Foo"];
+            IList<string> issueProvidersToIgnore = ["ProviderType Foo"];
+
+            // When
+            BuildBreaker.BreakBuildOnIssues(
+                issues,
+                minimumPriority,
+                issueProvidersToConsider,
+                issueProvidersToIgnore);
+
+            // Then
+        }
+
+        [Fact]
+        public void Should_Not_Throw_If_Priority_Matches_But_IssueProvider_Is_Ignored()
+        {
+            // Given
+            IEnumerable<IIssue> issues = [
+                IssueBuilder
+                    .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                    .WithPriority(IssuePriority.Warning)
+                    .Create()];
+            var minimumPriority = IssuePriority.Warning;
+            IList<string> issueProvidersToConsider = [];
+            IList<string> issueProvidersToIgnore = ["ProviderType Foo"];
+
+            // When
+            BuildBreaker.BreakBuildOnIssues(
+                issues,
+                minimumPriority,
+                issueProvidersToConsider,
+                issueProvidersToIgnore);
+
+            // Then
+        }
+    }
+
     public sealed class TheBreakBuildOnIssuesMethodWithPredicateParameter
     {
         [Fact]

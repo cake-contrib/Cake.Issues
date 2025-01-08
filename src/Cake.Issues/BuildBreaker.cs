@@ -49,6 +49,36 @@ internal static class BuildBreaker
     }
 
     /// <summary>
+    /// Fails build if any issues are found with possibility to limit to priority and issue provider types.
+    /// </summary>
+    /// <param name="issues">Issues which should be checked.</param>
+    /// <param name="minimumPriority">Minimum priority of issues which should be considered.
+    /// If set to <see cref="IssuePriority.Undefined"/>, all issues are considered.</param>
+    /// <param name="issueProvidersToConsider">Issue providers to consider.
+    /// If empty, all providers are considered.</param>
+    /// <param name="issueProvidersToIgnore">Issue providers to ignore.</param>
+    public static void BreakBuildOnIssues(
+        IEnumerable<IIssue> issues,
+        IssuePriority minimumPriority,
+        IEnumerable<string> issueProvidersToConsider,
+        IEnumerable<string> issueProvidersToIgnore)
+    {
+        issues.NotNull();
+        issueProvidersToConsider.NotNull();
+        issueProvidersToIgnore.NotNull();
+
+        BreakBuildOnIssues(
+            issues,
+            x =>
+            {
+                return
+                    (x.Priority == null || x.Priority >= (int)minimumPriority) &&
+                    (!issueProvidersToConsider.Any() || issueProvidersToConsider.Contains(x.ProviderType)) &&
+                    !issueProvidersToIgnore.Contains(x.ProviderType);
+            });
+    }
+
+    /// <summary>
     /// Fails build if any issues are found matching a specific predicate.
     /// </summary>
     /// <param name="issues">Issues which should be checked.</param>
