@@ -1,0 +1,66 @@
+{
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Checkov",
+          "version": "3.2.351",
+          "informationUri": "https://checkov.io",
+          "rules": [
+            {
+              "id": "CKV_DOCKER_3",
+              "name": "Ensure that a user for the container has been created",
+              "shortDescription": {
+                "text": "Ensure that a user for the container has been created"
+              },
+              "fullDescription": {
+                "text": "Ensure that a user for the container has been created"
+              },
+              "help": {
+                "text": "Ensure that a user for the container has been created\nResource: /TenantInstance/TenantInstance.Frontend/Dockerfile."
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "helpUri": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/docker-policies/docker-policy-index/ensure-that-a-user-for-the-container-has-been-created"
+            }
+          ],
+          "organization": "bridgecrew"
+        }
+      },
+      "results": [
+        {
+          "ruleId": "CKV_DOCKER_3",
+          "ruleIndex": 0,
+          "level": "warning",
+          "attachments": [],
+          "message": {
+            "text": "Ensure that a user for the container has been created"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/Dockerfile"
+                },
+                "region": {
+                  "startLine": 1,
+                  "endLine": 24
+                }
+              }
+            }
+          ],
+          "suppressions": [
+            {
+              "kind": "external",
+              "status": "rejected",
+              "justification": " Is not used in production and therefore is OK to run as root user"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
