@@ -1,5 +1,5 @@
 "Tool","Tool Version","Format","Issue Provider","Supported Since"
-"~~[dupFinder](https://www.jetbrains.com/help/resharper/2021.2/dupFinder.html){target='_blank'}~~{ title='Deprecated since dupFinder Command Line Tool has been sunsetted' } ",,,"Cake.Issues.DupFinder",0.8.0
+"~~[dupFinder](https://www.jetbrains.com/help/resharper/2021.2/dupFinder.html){target='_blank'}~~{ title='Deprecated since dupFinder Command Line Tool has been sunsetted. See Copy/Paste Detection for alternative tools.' } ",,,"Cake.Issues.DupFinder",0.8.0
 "[InspectCode](https://www.jetbrains.com/help/resharper/InspectCode.html){target='_blank'}",,"[xml](https://www.jetbrains.com/help/resharper/InspectCode.html#alternative-output-formats){target='_blank'}","[Cake.Issues.InspectCode](issue-providers/inspectcode/index.md)",0.1.0
 "[InspectCode](https://www.jetbrains.com/help/resharper/InspectCode.html){target='_blank'}",">= 2024.1","[SARIF](https://www.jetbrains.com/help/resharper/InspectCode.html#understanding-output){target='_blank'}","[Cake.Issues.Sarif](issue-providers/sarif/index.md)",4.2.0
 "[MsBuild](https://docs.microsoft.com/visualstudio/msbuild/msbuild){target='_blank'}",,"[Binary Log 7](https://learn.microsoft.com/en-us/visualstudio/msbuild/obtaining-build-logs-with-msbuild#save-a-binary-log){target='_blank'}","[Cake.Issues.MsBuild](issue-providers/msbuild/index.md)",0.6.1
