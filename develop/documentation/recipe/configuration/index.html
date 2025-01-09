@@ -1837,6 +1837,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#build-breaking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Build breaking
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -5744,6 +5753,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#build-breaking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Build breaking
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -6260,6 +6278,77 @@ To define the Git provider in <code>Cake.Frosting.Issues.Recipe</code> pass the 
 <td><code>ShouldSetSeparatePullRequestStatusForEachIssueProviderAndRun</code></td>
 <td><code>true</code></td>
 <td>Indicates whether a separate status should be set for issues of every issue provider and run.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<h2 id="build-breaking">Build breaking<a class="headerlink" href="#build-breaking" title="Permanent link">&para;</a></h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="cakeissuesrecipe_5" name="__tabbed_6" type="radio" /><input id="cakefrostingissuesrecipe_5" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="cakeissuesrecipe_5">Cake.Issues.Recipe</label><label for="cakefrostingissuesrecipe_5">Cake.Frosting.Issues.Recipe</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>IssuesParameters.BuildBreaking Property</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ShouldFailBuildOnIssues</code></td>
+<td><code>false</code></td>
+<td>Indicates whether build should fail if any issues are found.</td>
+</tr>
+<tr>
+<td><code>MinimumPriority</code></td>
+<td><code>IssuePriority.Undefined</code></td>
+<td>The minimum priority of issues considered to fail the build. If set to <code>IssuePriority.Undefined</code>, all issues are considered.</td>
+</tr>
+<tr>
+<td><code>IssueProvidersToConsider</code></td>
+<td><code>[]</code></td>
+<td>List of issue provider types to consider.</td>
+</tr>
+<tr>
+<td><code>IssueProvidersToIgnore</code></td>
+<td><code>[]</code></td>
+<td>List of issue provider types to ignore.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>IssuesContext.Parameters.BuildBreaking Property</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ShouldFailBuildOnIssues</code></td>
+<td><code>false</code></td>
+<td>Indicates whether build should fail if any issues are found.</td>
+</tr>
+<tr>
+<td><code>MinimumPriority</code></td>
+<td><code>IssuePriority.Undefined</code></td>
+<td>The minimum priority of issues considered to fail the build. If set to <code>IssuePriority.Undefined</code>, all issues are considered.</td>
+</tr>
+<tr>
+<td><code>IssueProvidersToConsider</code></td>
+<td><code>[]</code></td>
+<td>List of issue provider types to consider.</td>
+</tr>
+<tr>
+<td><code>IssueProvidersToIgnore</code></td>
+<td><code>[]</code></td>
+<td>List of issue provider types to ignore.</td>
 </tr>
 </tbody>
 </table>
