@@ -31,4 +31,10 @@ public class SarifIssuesSettings : IssueProviderSettings
     /// Default value is <c>true</c>.
     /// </summary>
     public bool UseToolNameAsIssueProviderName { get; set; } = true;
+
+    /// <summary>
+    /// Gets or sets a value indicating whether issues containing supressions should be ignored.
+    /// Default value is <c>true</c>.
+    /// </summary>
+    public bool IgnoreSuppressedIssues { get; set; } = true;
 }

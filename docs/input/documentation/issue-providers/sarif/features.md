@@ -9,6 +9,7 @@ The [Cake.Issues.Sarif addin](https://cakebuild.net/extensions/cake-issues-sarif
 ## Basic features
 
 - [x] Reads issues from files in [SARIF](https://sarifweb.azurewebsites.net/){target="_blank"} format.
+- [x] Support for reading issues reported as suppressed by the linter
 
 ## Supported IIssue properties
 
