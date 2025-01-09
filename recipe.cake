@@ -200,10 +200,7 @@ Task("BreakBuildOnIssues")
     .Description("Breaks build if any issues in the code are found.")
     .Does<IssuesData>((data) =>
 {
-    if (data.Issues.Any())
-    {
-        throw new Exception("Issues found in code.");
-    }
+    BreakBuildOnIssues(data.Issues);
 });
 
 IssuesBuildTasks.IssuesTask
