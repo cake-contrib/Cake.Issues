@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text.RegularExpressions;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
@@ -75,6 +76,9 @@ internal partial class TapParser
 
     [GeneratedRegex(@"^#\s*(.*)$")]
     private static partial Regex CommentRegEx14();
+
+    [GeneratedRegex(": \"(.*)\"$")]
+    private static partial Regex YamlSanitizeUnescapedDoubeQuotesRegEx();
 
     /// <summary>
     /// Parses the content of a TAP file.
@@ -157,6 +161,38 @@ internal partial class TapParser
 
     private void ParseYamlVersion14(List<string> yamlLines)
     {
+        // Deserializes YAML content into diagnostics of a TapTestPoint.
+        static void DeserializeYaml(TapTestPoint testPoint, string yamlContent)
+        {
+            var deserializer = new DeserializerBuilder()
+                .WithNamingConvention(CamelCaseNamingConvention.Instance)
+                .Build();
+            var yamlData = deserializer.Deserialize<Dictionary<string, object>>(yamlContent);
+
+            foreach (var entry in yamlData)
+            {
+                testPoint.Diagnostics[entry.Key] = entry.Value;
+            }
+        }
+
+        // Tries to sanitizes invalid YAML content reported by linters.
+        static string SanitizeYaml(string yamlContent)
+        {
+            var lines = yamlContent.Split('\n');
+            return string.Join("\n", lines.Select(line =>
+            {
+                // Replace unescaped double quotes with escaped double quotes.
+                var match = YamlSanitizeUnescapedDoubeQuotesRegEx().Match(line);
+                if (match.Success)
+                {
+                    var value = match.Groups[1].Value.Replace("\"", "\\\"");
+                    return line.Replace(match.Groups[1].Value, value);
+                }
+
+                return line;
+            }));
+        }
+
         if (this.Results.Count == 0)
         {
             return;
@@ -167,14 +203,13 @@ internal partial class TapParser
 
         try
         {
-            var deserializer = new DeserializerBuilder()
-                .WithNamingConvention(CamelCaseNamingConvention.Instance)
-                .Build();
-            var yamlData = deserializer.Deserialize<Dictionary<string, object>>(yamlContent);
-            foreach (var entry in yamlData)
-            {
-                lastResult.Diagnostics[entry.Key] = entry.Value;
-            }
+            DeserializeYaml(lastResult, yamlContent);
+        }
+        catch (YamlDotNet.Core.SemanticErrorException)
+        {
+            // Attempt to sanitize and retry parsing
+            yamlContent = SanitizeYaml(yamlContent);
+            DeserializeYaml(lastResult, yamlContent);
         }
         catch (Exception ex)
         {
