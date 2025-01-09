@@ -37,12 +37,19 @@ internal class StylelintLogFileFormat(ICakeLog log)
                     {
                         if (diagnostic is Dictionary<object, object> diagnosticDict)
                         {
+                            // Read affected file from the result.
+                            if (!TryGetFile(tapResult, repositorySettings, out var fileName))
+                            {
+                                this.Log.Information("Skip element since file path could not be parsed");
+                                continue;
+                            }
+
                             // Build issue.
                             var issueBuilder =
                                 IssueBuilder
                                     .NewIssue(diagnosticDict["message"].ToString(), issueProvider)
                                     .InFile(
-                                        tapResult.Description.ToString(),
+                                        fileName,
                                         diagnosticDict.ContainsKey("line") ? int.Parse(diagnosticDict["line"].ToString()) : null,
                                         diagnosticDict.ContainsKey("endLine") ? int.Parse(diagnosticDict["endLine"].ToString()) : null,
                                         diagnosticDict.ContainsKey("column") ? int.Parse(diagnosticDict["column"].ToString()) : null,
@@ -65,4 +72,23 @@ internal class StylelintLogFileFormat(ICakeLog log)
         "warning" => IssuePriority.Warning,
         _ => IssuePriority.Undefined,
     };
+
+    /// <summary>
+    /// Reads the affected file path from a result.
+    /// </summary>
+    /// <param name="tapResult">Result entry.</param>
+    /// <param name="repositorySettings">Repository settings to use.</param>
+    /// <param name="fileName">Returns the full path to the affected file.</param>
+    /// <returns>True if the file path could be parsed.</returns>
+    private static bool TryGetFile(
+        TapTestPoint tapResult,
+        IRepositorySettings repositorySettings,
+        out string fileName)
+    {
+        fileName = tapResult.Description.ToString();
+
+        // Validate file path and make relative to repository root.
+        (var result, fileName) = ValidateFilePath(fileName, repositorySettings);
+        return result;
+    }
 }
