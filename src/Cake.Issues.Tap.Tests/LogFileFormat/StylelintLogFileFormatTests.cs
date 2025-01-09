@@ -129,5 +129,30 @@ public sealed class StylelintLogFileFormatTests
                     .OfRule("unknown")
                     .Create());
         }
+
+        [Fact]
+        public void Should_Read_Issue_Correct_When_Message_Contains_Double_Quotes()
+        {
+            // Given
+            var fixture = new TapIssuesProviderFixture<StylelintLogFileFormat>("double-quotes-in-message.tap");
+
+            // When
+            var issues = fixture.ReadIssues().ToList();
+
+            // Then
+            issues.Count.ShouldBe(1);
+
+            var issue = issues[0];
+            IssueChecker.Check(
+                issue,
+                IssueBuilder.NewIssue(
+                    "Unexpected \"width\" property. Use \"inline-size\". (csstools/use-logical)",
+                    "Cake.Issues.Tap.TapIssuesProvider",
+                    "TAP")
+                    .InFile("path/to/file.css", 13, 13, 3, 15)
+                    .WithPriority(IssuePriority.Error)
+                    .OfRule("csstools/use-logical")
+                    .Create());
+        }
     }
 }
