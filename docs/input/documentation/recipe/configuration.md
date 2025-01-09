@@ -153,3 +153,24 @@ By default [Cake.Git addin](https://cakebuild.net/extensions/cake-git/){target="
     | `IssueFilters`                                                 | Empty         | List of filter functions which should be applied before posting issues to pull requests.                                                                                                                                                 |
     | `ShouldSetPullRequestStatus`                                   | `true`        | Indicates whether a status on the pull request should be set if there are any issues found.                                                                                                                                              |
     | `ShouldSetSeparatePullRequestStatusForEachIssueProviderAndRun` | `true`        | Indicates whether a separate status should be set for issues of every issue provider and run.                                                                                                                                            |
+
+## Build breaking
+
+=== "Cake.Issues.Recipe"
+
+    | IssuesParameters.BuildBreaking Property | Default Value             | Description                                                                                                                  |
+    |-----------------------------------------|---------------------------|------------------------------------------------------------------------------------------------------------------------------|
+    | `ShouldFailBuildOnIssues`               | `false`                   | Indicates whether build should fail if any issues are found.                                                                 |
+    | `MinimumPriority`                       | `IssuePriority.Undefined` | The minimum priority of issues considered to fail the build. If set to `IssuePriority.Undefined`, all issues are considered. |
+    | `IssueProvidersToConsider`              | `[]`                      | List of issue provider types to consider.                                                                                    |
+    | `IssueProvidersToIgnore`                | `[]`                      | List of issue provider types to ignore.                                                                                      |
+
+=== "Cake.Frosting.Issues.Recipe"
+
+    | IssuesContext.Parameters.BuildBreaking Property | Default Value             | Description                                                                                                                  |
+    |-------------------------------------------------|---------------------------|------------------------------------------------------------------------------------------------------------------------------|
+    | `ShouldFailBuildOnIssues`                       | `false`                   | Indicates whether build should fail if any issues are found.                                                                 |
+    | `MinimumPriority`                               | `IssuePriority.Undefined` | The minimum priority of issues considered to fail the build. If set to `IssuePriority.Undefined`, all issues are considered. |
+    | `IssueProvidersToConsider`                      | `[]`                      | List of issue provider types to consider.                                                                                    |
+    | `IssueProvidersToIgnore`                        | `[]`                      | List of issue provider types to ignore.                                                                                      |
+
