@@ -90,6 +90,58 @@ public static partial class Aliases
     }
 
     /// <summary>
+    /// Fails build if any issues are found with settings to limit to priority and issue provider types.
+    /// </summary>
+    /// <param name="context">The context.</param>
+    /// <param name="issues">Issues which should be checked.</param>
+    /// <param name="settings">Settings to apply.</param>
+    /// <example>
+    /// <para>Fails build if issues with severity warning or higher from MsBuild are found:</para>
+    /// <code>
+    /// <![CDATA[
+    ///     BreakBuildOnIssues(
+    ///         issues,
+    ///         new BuildBreakingSettings
+    ///         {
+    ///             MinimumPriority = IssuePriority.Warning
+    ///             IssueProvidersToConsider = [MsBuildIssuesProviderTypeName]
+    ///         });
+    /// ]]>
+    /// </code>
+    /// </example>
+    /// <example>
+    /// <para>Fails build if issues with severity warning or higher are found, ignoring MsBuild issues:</para>
+    /// <code>
+    /// <![CDATA[
+    ///     BreakBuildOnIssues(
+    ///         issues,
+    ///         new BuildBreakingSettings
+    ///         {
+    ///             MinimumPriority = IssuePriority.Warning
+    ///             IssueProvidersToIgnore = [MsBuildIssuesProviderTypeName]
+    ///         });
+    /// ]]>
+    /// </code>
+    /// </example>
+    [CakeMethodAlias]
+    [CakeAliasCategory(IssuesAliasConstants.BuildBreakingCakeAliasCategory)]
+    public static void BreakBuildOnIssues(
+        this ICakeContext context,
+        IEnumerable<IIssue> issues,
+        BuildBreakingSettings settings)
+    {
+        context.NotNull();
+        issues.NotNull();
+        settings.NotNull();
+
+        BuildBreaker.BreakBuildOnIssues(
+            issues,
+            settings.MinimumPriority,
+            settings.IssueProvidersToConsider,
+            settings.IssueProvidersToIgnore);
+    }
+
+    /// <summary>
     /// Fails build if any issues are found matching a specific predicate.
     /// </summary>
     /// <param name="context">The context.</param>

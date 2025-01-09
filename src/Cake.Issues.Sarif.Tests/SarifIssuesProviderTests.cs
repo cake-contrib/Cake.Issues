@@ -94,7 +94,10 @@ public sealed class SarifIssuesProviderTests
         public void Should_Read_Issue_Correct_For_Comprehensive_File()
         {
             // Given
-            var fixture = new SarifIssuesProviderFixture("comprehensive.sarif");
+            var fixture = new SarifIssuesProviderFixture("comprehensive.sarif")
+            {
+                IgnoreSuppressedIssues = false
+            };
 
             // When
             var issues = fixture.ReadIssues().ToList();
@@ -116,6 +119,86 @@ public sealed class SarifIssuesProviderTests
                     .OfRule("C2001")
                     .WithPriority(IssuePriority.Error)
                     .Create());
+        }
+
+        [Fact]
+        public void Should_Ignore_Suppressed_Issues_If_IgnoreSuppressedIssues_Is_Enabled()
+        {
+            // Given
+            var fixture = new SarifIssuesProviderFixture("suppression-without-status.sarif")
+            {
+                IgnoreSuppressedIssues = true
+            };
+
+            // When
+            var issues = fixture.ReadIssues().ToList();
+
+            // Then
+            issues.Count.ShouldBe(0);
+        }
+
+        [Fact]
+        public void Should_Read_Suppressed_Issues_If_IgnoreSuppressedIssues_Is_Disabled()
+        {
+            // Given
+            var fixture = new SarifIssuesProviderFixture("suppression-without-status.sarif")
+            {
+                IgnoreSuppressedIssues = false
+            };
+
+            // When
+            var issues = fixture.ReadIssues().ToList();
+
+            // Then
+            issues.Count.ShouldBe(1);
+        }
+
+        [Fact]
+        public void Should_Ignore_Suppressed_Issues_With_Status_Accepted()
+        {
+            // Given
+            var fixture = new SarifIssuesProviderFixture("suppression-accepted.sarif")
+            {
+                IgnoreSuppressedIssues = true
+            };
+
+            // When
+            var issues = fixture.ReadIssues().ToList();
+
+            // Then
+            issues.Count.ShouldBe(0);
+        }
+
+        [Fact]
+        public void Should_Read_Suppressed_Issues_With_Status_Under_Review()
+        {
+            // Given
+            var fixture = new SarifIssuesProviderFixture("suppression-under-review.sarif")
+            {
+                IgnoreSuppressedIssues = true
+            };
+
+            // When
+            var issues = fixture.ReadIssues().ToList();
+
+            // Then
+            issues.Count.ShouldBe(1);
+        }
+
+        [Fact]
+        public void Should_Read_Suppressed_Issues_With_Status_Rejected()
+        {
+            // Given
+            var fixture = new SarifIssuesProviderFixture("suppression-rejected.sarif")
+            {
+                IgnoreSuppressedIssues = true
+            };
+
+            // When
+            var issues = fixture.ReadIssues().ToList();
+
+            // Then
+            issues.Count.ShouldBe(1);
         }
 
         [Fact]

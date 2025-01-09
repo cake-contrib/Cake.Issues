@@ -34,6 +34,17 @@ internal class SarifIssuesProvider(ICakeLog log, SarifIssuesSettings issueProvid
 
             foreach (var sarifResult in run.Results)
             {
+                if (sarifResult.Suppressions != null &&
+                    sarifResult.Suppressions.Any(x =>
+                        x != null &&
+                        (
+                            x.Status == SuppressionStatus.None ||
+                            x.Status == SuppressionStatus.Accepted)) &&
+                    this.IssueProviderSettings.IgnoreSuppressedIssues)
+                {
+                    continue;
+                }
+
                 var (text, markdown) = GetMessage(sarifResult, run);
                 var (ruleId, ruleUrl) = GetRule(sarifResult, run);
                 var (filePath, startLine, endLine, startColumn, endColumn) = GetLocation(sarifResult);

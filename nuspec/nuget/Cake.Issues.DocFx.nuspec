@@ -29,7 +29,13 @@ For addin compatible with Cake Frosting see Cake.Frosting.Issues.DocFx.
     <copyright>Copyright © Cake Issues contributors</copyright>
     <tags>cake cake-addin cake-issues cake-issueprovider linting docfx</tags>
     <readme>docs\README.md</readme>
-    <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/5.1.1</releaseNotes>
+    <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/5.2.0</releaseNotes>
+    <dependencies>
+      <group targetFramework="net8.0">
+      </group>
+      <group targetFramework="net9.0">
+      </group>
+    </dependencies>
   </metadata>
   <files>
     <file src="..\..\..\..\nuspec\nuget\icon.png" target="" />
