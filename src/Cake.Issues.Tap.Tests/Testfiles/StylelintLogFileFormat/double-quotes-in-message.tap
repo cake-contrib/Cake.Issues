@@ -1,0 +1,12 @@
+﻿TAP version 14
+1..1
+not ok 1 - path/to/file.css
+  ---
+  csstools/use-logical:
+    - message: "Unexpected "width" property. Use "inline-size". (csstools/use-logical)"
+      severity: error
+      line: 13
+      column: 3
+      endLine: 13
+      endColumn: 15
+  ...
