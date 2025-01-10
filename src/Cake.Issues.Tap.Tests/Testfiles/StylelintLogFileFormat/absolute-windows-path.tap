@@ -1,0 +1,12 @@
+﻿TAP version 14
+1..153
+not ok 123 - c:\Source\Cake.Issues\test.scss
+  ---
+  block-no-empty:
+    - message: "Unexpected empty block (block-no-empty)"
+      severity: error
+      line: 16
+      column: 6
+      endLine: 16
+      endColumn: 8
+  ...
