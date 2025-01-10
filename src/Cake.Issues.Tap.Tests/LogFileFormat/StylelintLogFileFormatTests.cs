@@ -216,5 +216,18 @@ public sealed class StylelintLogFileFormatTests
                     .OfRule("block-no-empty")
                     .Create());
         }
+
+        [Fact]
+        public void Should_Ignore_Issues_From_Outside_Repository()
+        {
+            // Given
+            var fixture = new TapIssuesProviderFixture<StylelintLogFileFormat>("absolute-windows-path.tap", @"c:\foo");
+
+            // When
+            var issues = fixture.ReadIssues().ToList();
+
+            // Then
+            issues.Count.ShouldBe(0);
+        }
     }
 }

@@ -40,7 +40,7 @@ internal class StylelintLogFileFormat(ICakeLog log)
                             // Read affected file from the result.
                             if (!TryGetFile(tapResult, repositorySettings, out var fileName))
                             {
-                                this.Log.Information("Skip element since file path could not be parsed");
+                                this.Log.Warning("Skip result {0} since file path could not be parsed", tapResult.TestPointID);
                                 continue;
                             }
 

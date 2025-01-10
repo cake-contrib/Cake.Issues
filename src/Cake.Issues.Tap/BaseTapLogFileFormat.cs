@@ -21,9 +21,15 @@ public abstract class BaseTapLogFileFormat(ICakeLog log)
         filePath.NotNullOrWhiteSpace();
         repositorySettings.NotNull();
 
-        // Make path relative to repository root.
         if (!new FilePath(filePath).IsRelative)
         {
+            // Ignore files from outside the repository.
+            if (!filePath.IsInRepository(repositorySettings))
+            {
+                return (false, string.Empty);
+            }
+
+            // Make path relative to repository root.
             filePath = filePath.NormalizePath().MakeFilePathRelativeToRepositoryRoot(repositorySettings);
         }
 
