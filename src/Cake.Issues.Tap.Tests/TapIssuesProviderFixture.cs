@@ -5,10 +5,15 @@ internal class TapIssuesProviderFixture<T>
     where T : BaseTapLogFileFormat
 {
     public TapIssuesProviderFixture(string fileResourceName)
+        : this(fileResourceName, @"c:\Source\Cake.Issues")
+    {
+    }
+
+    public TapIssuesProviderFixture(string fileResourceName, string repositoryRoot)
         : base(fileResourceName)
     {
         this.ReadIssuesSettings =
-            new ReadIssuesSettings(@"c:\Source\Cake.Issues");
+            new ReadIssuesSettings(repositoryRoot);
     }
 
     protected override string FileResourceNamespace => "Cake.Issues.Tap.Tests.Testfiles." + typeof(T).Name + ".";

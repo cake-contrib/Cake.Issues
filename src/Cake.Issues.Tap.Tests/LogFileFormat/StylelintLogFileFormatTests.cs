@@ -154,5 +154,67 @@ public sealed class StylelintLogFileFormatTests
                     .OfRule("csstools/use-logical")
                     .Create());
         }
+
+        [Theory]
+        [InlineData(@"c:\Source\Cake.Issues", "test.scss")]
+        [InlineData(@"c:\Source\Cake.Issues\", "test.scss")]
+        [InlineData(@"c:/Source/Cake.Issues", "test.scss")]
+        [InlineData(@"c:/Source/Cake.Issues/", "test.scss")]
+        [InlineData(@"c:\Source", @"Cake.Issues\test.scss")]
+        [InlineData(@"c:\Source\", @"Cake.Issues\test.scss")]
+        [InlineData(@"c:/Source", @"Cake.Issues\test.scss")]
+        [InlineData(@"c:/Source/", @"Cake.Issues\test.scss")]
+        public void Should_Read_Issue_Correct_When_Absolute_Windows_Path(string repositoryRoot, string relativeFilePath)
+        {
+            // Given
+            var fixture = new TapIssuesProviderFixture<StylelintLogFileFormat>("absolute-windows-path.tap", repositoryRoot);
+
+            // When
+            var issues = fixture.ReadIssues().ToList();
+
+            // Then
+            issues.Count.ShouldBe(1);
+
+            var issue = issues[0];
+            IssueChecker.Check(
+                issue,
+                IssueBuilder.NewIssue(
+                    "Unexpected empty block (block-no-empty)",
+                    "Cake.Issues.Tap.TapIssuesProvider",
+                    "TAP")
+                    .InFile(relativeFilePath, 16, 16, 6, 8)
+                    .WithPriority(IssuePriority.Error)
+                    .OfRule("block-no-empty")
+                    .Create());
+        }
+
+        [Theory]
+        [InlineData("/src/Cake.Issues", "test.scss")]
+        [InlineData("/src/Cake.Issues/", "test.scss")]
+        [InlineData("/src", "Cake.Issues/test.scss")]
+        [InlineData("/src/", "Cake.Issues/test.scss")]
+        public void Should_Read_Issue_Correct_When_Absolute_Linux_Path(string repositoryRoot, string relativeFilePath)
+        {
+            // Given
+            var fixture = new TapIssuesProviderFixture<StylelintLogFileFormat>("absolute-linux-path.tap", repositoryRoot);
+
+            // When
+            var issues = fixture.ReadIssues().ToList();
+
+            // Then
+            issues.Count.ShouldBe(1);
+
+            var issue = issues[0];
+            IssueChecker.Check(
+                issue,
+                IssueBuilder.NewIssue(
+                    "Unexpected empty block (block-no-empty)",
+                    "Cake.Issues.Tap.TapIssuesProvider",
+                    "TAP")
+                    .InFile(relativeFilePath, 16, 16, 6, 8)
+                    .WithPriority(IssuePriority.Error)
+                    .OfRule("block-no-empty")
+                    .Create());
+        }
     }
 }
