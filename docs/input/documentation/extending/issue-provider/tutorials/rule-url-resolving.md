@@ -45,7 +45,9 @@ class.
 internal class MyRuleUrlResolver : BaseUrlResolver<MyRuleDescription>
 {
         /// <inheritdoc/>
-        protected override bool TryGetRuleDescription(string rule, MyRuleDescription ruleDescription)
+        protected override bool TryGetRuleDescription(
+            string rule,
+            MyRuleDescription ruleDescription)
         {
             ruleDescription.RuleId = rule.Substring(3, rule.Length - 3);
             ruleDescription.Category = rule.Substring(0, 3);
@@ -72,7 +74,8 @@ Afterwards different resolvers can be registered which return the actual URL bas
 internal class MyRuleUrlResolver : BaseUrlResolver<MyRuleDescription>
 {
         /// <summary>
-        /// Initializes a new instance of the <see cref="MyRuleUrlResolver"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="MyRuleUrlResolver"/> class.
         /// </summary>
         private MyRuleUrlResolver()
         {
@@ -117,7 +120,8 @@ public static class MyIssueProviderAliases
     /// Registers a new URL resolver with default priority of 0.
     /// </summary>
     /// <param name="context">The context.</param>
-    /// <param name="resolver">Resolver which returns an <see cref="Uri"/> linking to a site
+    /// <param name="resolver">Resolver which returns an
+    /// <see cref="Uri"/> linking to a site
     /// containing help for a specific <see cref="MyRuleDescription"/>.</param>
     [CakeMethodAlias]
     [CakeAliasCategory(IssuesAliasConstants.IssueProviderCakeAliasCategory)]

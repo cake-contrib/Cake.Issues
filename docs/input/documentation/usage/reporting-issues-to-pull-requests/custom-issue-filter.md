@@ -26,10 +26,11 @@ The following example will filter out all issues from the rule `CA1000` from bei
     {
         var repoRootFolder = new DirectoryPath(@"C:\repo");    
 
-        var settings = new ReportIssuesToPullRequestFromIssueProviderSettings(repoRootFolder);    
+        var settings =
+            new ReportIssuesToPullRequestFromIssueProviderSettings(repoRootFolder);
 
         // Add custom filter.
-        settings.IssueFilters.Add(x => x.Where(issue => issue.RuleId != "CA1000"));    
+        settings.IssueFilters.Add(x => x.Where(issue => issue.RuleId != "CA1000"));
 
         ReportIssuesToPullRequest(
             new List<IIssueProvider>
@@ -79,12 +80,15 @@ The following example will filter out all issues from the rule `CA1000` from bei
     {
         public override void Run(FrostingContext context)
         {
-            var repoRootFolder = new DirectoryPath(@"C:\repo");        
+            var repoRootFolder = new DirectoryPath(@"C:\repo");
 
-            var settings = new ReportIssuesToPullRequestFromIssueProviderSettings(repoRootFolder);        
+            var settings =
+                new ReportIssuesToPullRequestFromIssueProviderSettings(
+                    repoRootFolder);
 
             // Add custom filter.
-            settings.IssueFilters.Add(x => x.Where(issue => issue.RuleId != "CA1000"));        
+            settings.IssueFilters.Add(x =>
+                x.Where(issue => issue.RuleId != "CA1000"));
 
             context.ReportIssuesToPullRequest(
                 new List<IIssueProvider>

@@ -45,7 +45,8 @@ The following example will create a HTML report for issues logged as warnings by
     {
         var repoRootPath = MakeAbsolute(Directory("./"));
     
-        // Build MySolution.sln solution in the repository root folder and write a binary log.
+        // Build MySolution.sln solution in the repository root folder
+        // and write a binary log.
         FilePath msBuildLogFile = @"c:\build\msbuild.log";
         var msBuildSettings =
             new DotNetMSBuildSettings().WithLogger(
@@ -61,7 +62,8 @@ The following example will create a HTML report for issues logged as warnings by
             MsBuildIssuesFromFilePath(
                 msBuildLogFile,
                 MsBuildBinaryLogFileFormat),
-            GenericIssueReportFormatFromEmbeddedTemplate(GenericIssueReportTemplate.HtmlDiagnostic),
+            GenericIssueReportFormatFromEmbeddedTemplate(
+                GenericIssueReportTemplate.HtmlDiagnostic),
             repoRootPath,
             @"c:\report.html");
     });
@@ -93,7 +95,8 @@ The following example will create a HTML report for issues logged as warnings by
         {
             var repoRootPath = context.MakeAbsolute(context.Directory("./"));
 
-            // Build MySolution.sln solution in the repository root folder and write a binary log.
+            // Build MySolution.sln solution in the repository root folder
+            // and write a binary log.
             FilePath msBuildLogFile = @"c:\build\msbuild.log";
             var msBuildSettings =
                 new DotNetMSBuildSettings().WithLogger(
@@ -109,7 +112,8 @@ The following example will create a HTML report for issues logged as warnings by
                 context.MsBuildIssuesFromFilePath(
                     msBuildLogFile,
                     context.MsBuildBinaryLogFileFormat()),
-                context.GenericIssueReportFormatFromEmbeddedTemplate(GenericIssueReportTemplate.HtmlDiagnostic),
+                context.GenericIssueReportFormatFromEmbeddedTemplate(
+                    GenericIssueReportTemplate.HtmlDiagnostic),
                 repoRootPath,
                 @"c:\report.html");
         }

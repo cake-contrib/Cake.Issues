@@ -49,7 +49,8 @@ The following example will create a HTML report for issues logged as warnings by
     {
         var repoRootFolder = new DirectoryPath(@"c:\repo");
     
-        // Build MySolution.sln solution in the repository root folder and write a binary log.
+        // Build MySolution.sln solution in the repository root folder
+        // and write a binary log.
         FilePath msBuildLogFile = @"c:\build\msbuild.log";
         var msBuildSettings =
             new MSBuildSettings().WithLogger(
@@ -68,7 +69,8 @@ The following example will create a HTML report for issues logged as warnings by
                     msBuildLogFile,
                     MsBuildBinaryLogFileFormat)
             },
-            GenericIssueReportFormatFromFilePath(@"c:\ReportTemplate.cshtml"),
+            GenericIssueReportFormatFromFilePath(
+                @"c:\ReportTemplate.cshtml"),
             repoRootFolder,
             @"c:\report.html");
     });
@@ -99,7 +101,8 @@ The following example will create a HTML report for issues logged as warnings by
         {
             var repoRootPath = context.MakeAbsolute(context.Directory("./"));
 
-            // Build MySolution.sln solution in the repository root folder and write a binary log.
+            // Build MySolution.sln solution in the repository root folder
+            // and write a binary log.
             FilePath msBuildLogFile = @"c:\build\msbuild.log";
             var msBuildSettings =
                 new DotNetMSBuildSettings().WithLogger(
@@ -115,7 +118,8 @@ The following example will create a HTML report for issues logged as warnings by
                 context.MsBuildIssuesFromFilePath(
                     msBuildLogFile,
                     context.MsBuildBinaryLogFileFormat()),
-                context.GenericIssueReportFormatFromFilePath(@"c:\ReportTemplate.cshtml"),
+                context.GenericIssueReportFormatFromFilePath(
+                    @"c:\ReportTemplate.cshtml"),
                 repoRootPath,
                 @"c:\report.html");
         }

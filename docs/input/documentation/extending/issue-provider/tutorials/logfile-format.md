@@ -18,7 +18,8 @@ needs to be implemented defining the concrete types.
 /// <summary>
 /// My issue provider.
 /// </summary>
-public class MyIssuesProvider : BaseMultiFormatIssueProvider<MyIssuesSettings, MyIssuesProvider>
+public class MyIssuesProvider 
+    : BaseMultiFormatIssueProvider<MyIssuesSettings, MyIssuesProvider>
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="MyIssuesProvider"/> class.
@@ -44,14 +45,16 @@ or memory can be made public:
 /// <summary>
 /// Settings for my issue provider.
 /// </summary>
-public class MyIssuesSettings : BaseMultiFormatIssueProviderSettings<MyIssuesProvider, MyIssuesSettings>
+public class MyIssuesSettings
+    : BaseMultiFormatIssueProviderSettings<MyIssuesProvider, MyIssuesSettings>
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="MyIssuesSettings"/> class
     /// for reading a log file on disk.
     /// </summary>
     /// <param name="logFilePath">Path to the log file.
-    /// The log file needs to be in the format as defined by the <paramref name="format"/> parameter.</param>
+    /// The log file needs to be in the format as defined by the
+    /// <paramref name="format"/> parameter.</param>
     /// <param name="format">Format of the provided log file.</param>
     public MyIssuesSettings(FilePath logFilePath, MyLogFileFormat format)
         : base(logFilePath, format)
@@ -63,7 +66,8 @@ public class MyIssuesSettings : BaseMultiFormatIssueProviderSettings<MyIssuesPro
     /// for a log file content in memory.
     /// </summary>
     /// <param name="logFileContent">Content of the log file.
-    /// The log file needs to be in the format as defined by the <paramref name="format"/> parameter.</param>
+    /// The log file needs to be in the format as defined by the
+    /// <paramref name="format"/> parameter.</param>
     /// <param name="format">Format of the provided log file.</param>
     public MyIssuesSettings(byte[] logFileContent, MyLogFileFormat format)
         : base(logFileContent, format)
@@ -81,7 +85,8 @@ needs to be implemented defining the concrete types for the issue provider:
 /// <summary>
 /// Base class for all log file formats supported by my issue provider.
 /// </summary>
-public abstract class MyLogFileFormat : BaseLogFileFormat<MyIssuesProvider, MyIssuesSettings>
+public abstract class MyLogFileFormat
+    : BaseLogFileFormat<MyIssuesProvider, MyIssuesSettings>
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="MyLogFileFormat"/> class.
@@ -105,7 +110,8 @@ The different log file formats of an issue provider need to be inherited from th
 internal class MyConcreteLogFileFormat : MyLogFileFormat
 {
     /// <summary>
-    /// Initializes a new instance of the <see cref="MyConcreteLogFileFormat"/> class.
+    /// Initializes a new instance of the
+    /// <see cref="MyConcreteLogFileFormat"/> class.
     /// </summary>
     /// <param name="log">The Cake log instance.</param>
     public MyConcreteLogFileFormat(ICakeLog log)
@@ -206,7 +212,8 @@ from the file system or from memory can be added:
 /// </summary>
 /// <param name="context">The context.</param>
 /// <param name="logFilePath">Path to the log file.
-/// The log file needs to be in the format as defined by the <paramref name="format"/> parameter.</param>
+/// The log file needs to be in the format as defined by the
+/// <paramref name="format"/> parameter.</param>
 /// <param name="format">Format of the provided log file.</param>
 /// <returns>Instance of my issues provider.</returns>
 /// <example>
@@ -240,7 +247,8 @@ public static IIssueProvider MyIssuesFromFilePath(
 /// </summary>
 /// <param name="context">The context.</param>
 /// <param name="logFileContent">Content of the log file.
-/// The log content needs to be in the format as defined by the <paramref name="format"/> parameter.</param>
+/// The log content needs to be in the format as defined by the
+/// <paramref name="format"/> parameter.</param>
 /// <param name="format">Format of the provided log content.</param>
 /// <returns>Instance of my issues provider.</returns>
 /// <example>
@@ -266,7 +274,11 @@ public static IIssueProvider MyIssuesFromContent(
     logFileContent.NotNullOrWhiteSpace(nameof(logFileContent));
     format.NotNull(nameof(format));
 
-    return context.MyIssues(new MyIssuesSettings(logFileContent.ToByteArray(), format));
+    return
+        context.MyIssues(
+            new MyIssuesSettings(
+                logFileContent.ToByteArray(),
+                format));
 }
 ```
 
@@ -275,7 +287,8 @@ Finally an additional property alias for returning the provider type name should
 ```csharp
 /// <summary>
 /// Gets the name of my issue provider.
-/// This name can be used to identify issues based on the <see cref="IIssue.ProviderType"/> property.
+/// This name can be used to identify issues based on the
+/// <see cref="IIssue.ProviderType"/> property.
 /// </summary>
 /// <param name="context">The context.</param>
 /// <returns>Name of my issue provider.</returns>
