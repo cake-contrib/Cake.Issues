@@ -3,8 +3,10 @@ title: Additional run information
 description: Example how to add run specific information.
 ---
 
-If a build script needs to parse multiple log files from the same tool, e.g. because multiple MsBuild solutions were built,
+If a build script needs to parse multiple log files using the same issue provider,
+e.g. by importing results in [SARIF] or [Test Anything Protocol] format from different tools,
 this can be done by calling the issue provider multiple times.
+
 If the results are read into the same list and shown on the same report,
 individual issues could not be assigned to any of the calls, since issue provider type and name are identical.
 
@@ -74,3 +76,6 @@ which then will be stored with each issues in the `IIssue.Run` property:
         )
     );
     ```
+
+[SARIF]: ../../issue-providers/sarif/index.md
+[Test Anything Protocol]: ../../issue-providers/tap/index.md
