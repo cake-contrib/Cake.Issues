@@ -18,10 +18,16 @@ internal class MsBuildRuleUrlResolver : BaseRuleUrlResolver<MsBuildRuleDescripti
     {
         // Add resolver for common known issue categories.
 
-        // .NET SDK analyzers
+        // .NET SDK analyzers code quality rules
         this.AddUrlResolver(x =>
             x.Category.Equals("CA", StringComparison.OrdinalIgnoreCase) ?
                 new Uri("https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/" + x.Rule) :
+                null);
+
+        // .NET SDK analyzers code style rules
+        this.AddUrlResolver(x =>
+            x.Category.Equals("IDE", StringComparison.OrdinalIgnoreCase) ?
+                new Uri("https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/" + x.Rule) :
                 null);
 
         // StyleCop analyzer rules

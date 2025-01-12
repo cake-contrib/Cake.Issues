@@ -36,6 +36,7 @@ public sealed class MsBuildRuleUrlResolverTests
 
         [Theory]
         [InlineData("CA2201", "https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/CA2201")]
+        [InlineData("IDE0001", "https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/IDE0001")]
         [InlineData("SA1652", "https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1652.md")]
         [InlineData("S1075", "https://rules.sonarsource.com/csharp/RSPEC-1075")]
         [InlineData("RCS1001", "https://github.com/JosefPihrt/Roslynator/blob/main/docs/analyzers/RCS1001.md")]
