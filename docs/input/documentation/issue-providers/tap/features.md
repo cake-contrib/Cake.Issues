@@ -80,13 +80,14 @@ The [Cake.Issues.Tap addin](https://cakebuild.net/extensions/cake-issues-tap/){t
     - [x] `IIssue.Priority`
     - [x] `IIssue.PriorityName`
     - [x] `IIssue.RuleId`
-    - [ ] `IIssue.RuleUrl`
+    - [x] `IIssue.RuleUrl` (4)
     
     </div>
     
     1.  Can be set while reading issues
     2.  Set to `IIssue.MessageText`
     3.  Can be set while reading issues
+    4.  For rules shipped with stylelint. Support for additional rules can be added through a custom `TapTextlintAddRuleUrlResolver`.
 
 === "TextlintLogFileFormat"
 
@@ -110,13 +111,14 @@ The [Cake.Issues.Tap addin](https://cakebuild.net/extensions/cake-issues-tap/){t
     - [x] `IIssue.Priority`
     - [x] `IIssue.PriorityName`
     - [x] `IIssue.RuleId`
-    - [ ] `IIssue.RuleUrl`
+    - [x] `IIssue.RuleUrl` (4)
     
     </div>
     
     1.  Can be set while reading issues
     2.  Set to `IIssue.MessageText`
     3.  Can be set while reading issues
+    4.  For rules shipped with Textlint. Support for additional rules can be added through a custom `TapStylelintAddRuleUrlResolver`.
 
 [Test Anything Protocol (TAP)]: https://testanything.org/
 [GenericLogFileFormat]: https://cakebuild.net/api/Cake.Issues.Tap/TapIssuesAliases/2A2A0459
