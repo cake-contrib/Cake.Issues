@@ -104,9 +104,10 @@ internal static class BuildBreaker
         issues.NotNull();
         predicate.NotNull();
 
-        if (issues.Any(predicate))
+        var issuesToCheck = issues.Where(predicate).ToList();
+        if (issuesToCheck.Any(predicate))
         {
-            BreakBuild(issues, handler);
+            BreakBuild(issuesToCheck, handler);
         }
     }
 
