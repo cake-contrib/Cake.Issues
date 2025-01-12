@@ -37,7 +37,7 @@ public sealed class JsonLogFileFormatTests
                     "Cake.Issues.EsLint.EsLintIssuesProvider",
                     "ESLint")
                     .InFile(@"src\Cake.Issues.EsLint.Tests\Testfiles\fullOfProblems.js", 1, 10)
-                    .OfRule("no-unused-vars", new Uri("http://eslint.org/docs/rules/no-unused-vars"))
+                    .OfRule("no-unused-vars", new Uri("https://eslint.org/docs/rules/no-unused-vars"))
                     .WithPriority(IssuePriority.Error)
                     .Create());
             IssueChecker.Check(
@@ -47,7 +47,7 @@ public sealed class JsonLogFileFormatTests
                     "Cake.Issues.EsLint.EsLintIssuesProvider",
                     "ESLint")
                     .InFile(@"src\Cake.Issues.EsLint.Tests\Testfiles\fullOfProblems.js", 2, 9)
-                    .OfRule("use-isnan", new Uri("http://eslint.org/docs/rules/use-isnan"))
+                    .OfRule("use-isnan", new Uri("https://eslint.org/docs/rules/use-isnan"))
                     .WithPriority(IssuePriority.Error)
                     .Create());
             IssueChecker.Check(
@@ -57,7 +57,7 @@ public sealed class JsonLogFileFormatTests
                     "Cake.Issues.EsLint.EsLintIssuesProvider",
                     "ESLint")
                     .InFile(@"src\Cake.Issues.EsLint.Tests\Testfiles\fullOfProblems.js", 3, 16)
-                    .OfRule("space-unary-ops", new Uri("http://eslint.org/docs/rules/space-unary-ops"))
+                    .OfRule("space-unary-ops", new Uri("https://eslint.org/docs/rules/space-unary-ops"))
                     .WithPriority(IssuePriority.Error)
                     .Create());
             IssueChecker.Check(
@@ -67,7 +67,7 @@ public sealed class JsonLogFileFormatTests
                     "Cake.Issues.EsLint.EsLintIssuesProvider",
                     "ESLint")
                     .InFile(@"src\Cake.Issues.EsLint.Tests\Testfiles\fullOfProblems.js", 3, 20)
-                    .OfRule("semi", new Uri("http://eslint.org/docs/rules/semi"))
+                    .OfRule("semi", new Uri("https://eslint.org/docs/rules/semi"))
                     .WithPriority(IssuePriority.Warning)
                     .Create());
             IssueChecker.Check(
@@ -77,7 +77,7 @@ public sealed class JsonLogFileFormatTests
                     "Cake.Issues.EsLint.EsLintIssuesProvider",
                     "ESLint")
                     .InFile(@"src\Cake.Issues.EsLint.Tests\Testfiles\fullOfProblems.js", 4, 12)
-                    .OfRule("no-else-return", new Uri("http://eslint.org/docs/rules/no-else-return"))
+                    .OfRule("no-else-return", new Uri("https://eslint.org/docs/rules/no-else-return"))
                     .WithPriority(IssuePriority.Warning)
                     .Create());
             IssueChecker.Check(
@@ -87,7 +87,7 @@ public sealed class JsonLogFileFormatTests
                     "Cake.Issues.EsLint.EsLintIssuesProvider",
                     "ESLint")
                     .InFile(@"src\Cake.Issues.EsLint.Tests\Testfiles\fullOfProblems.js", 5, 1)
-                    .OfRule("indent", new Uri("http://eslint.org/docs/rules/indent"))
+                    .OfRule("indent", new Uri("https://eslint.org/docs/rules/indent"))
                     .WithPriority(IssuePriority.Warning)
                     .Create());
             IssueChecker.Check(
@@ -97,7 +97,7 @@ public sealed class JsonLogFileFormatTests
                     "Cake.Issues.EsLint.EsLintIssuesProvider",
                     "ESLint")
                     .InFile(@"src\Cake.Issues.EsLint.Tests\Testfiles\fullOfProblems.js", 5, 7)
-                    .OfRule("consistent-return", new Uri("http://eslint.org/docs/rules/consistent-return"))
+                    .OfRule("consistent-return", new Uri("https://eslint.org/docs/rules/consistent-return"))
                     .WithPriority(IssuePriority.Error)
                     .Create());
             IssueChecker.Check(
@@ -107,7 +107,7 @@ public sealed class JsonLogFileFormatTests
                     "Cake.Issues.EsLint.EsLintIssuesProvider",
                     "ESLint")
                     .InFile(@"src\Cake.Issues.EsLint.Tests\Testfiles\fullOfProblems.js", 5, 13)
-                    .OfRule("semi", new Uri("http://eslint.org/docs/rules/semi"))
+                    .OfRule("semi", new Uri("https://eslint.org/docs/rules/semi"))
                     .WithPriority(IssuePriority.Warning)
                     .Create());
             IssueChecker.Check(
@@ -117,7 +117,7 @@ public sealed class JsonLogFileFormatTests
                     "Cake.Issues.EsLint.EsLintIssuesProvider",
                     "ESLint")
                     .InFile(@"src\Cake.Issues.EsLint.Tests\Testfiles\fullOfProblems.js", 7, 2)
-                    .OfRule("no-extra-semi", new Uri("http://eslint.org/docs/rules/no-extra-semi"))
+                    .OfRule("no-extra-semi", new Uri("https://eslint.org/docs/rules/no-extra-semi"))
                     .WithPriority(IssuePriority.Error)
                     .Create());
         }
@@ -140,7 +140,7 @@ public sealed class JsonLogFileFormatTests
                     "Cake.Issues.EsLint.EsLintIssuesProvider",
                     "ESLint")
                     .InFile(@"src\Cake.Issues.EsLint.Tests\Testfiles\fullOfProblems.js")
-                    .OfRule("some-rule", new Uri("http://eslint.org/docs/rules/some-rule"))
+                    .OfRule("some-rule", new Uri("https://eslint.org/docs/rules/some-rule"))
                     .WithPriority(IssuePriority.Error)
                     .Create());
         }

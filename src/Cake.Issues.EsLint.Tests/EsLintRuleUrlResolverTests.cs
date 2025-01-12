@@ -35,8 +35,8 @@ public sealed class EsLintRuleUrlResolverTests
         }
 
         [Theory]
-        [InlineData("no-unused-vars", "http://eslint.org/docs/rules/no-unused-vars")]
-        [InlineData("no-await-in-loop", "http://eslint.org/docs/rules/no-await-in-loop")]
+        [InlineData("no-unused-vars", "https://eslint.org/docs/rules/no-unused-vars")]
+        [InlineData("no-await-in-loop", "https://eslint.org/docs/rules/no-await-in-loop")]
         public void Should_Resolve_Url(string rule, string expectedUrl)
         {
             // Given
