@@ -47,7 +47,8 @@ internal class TextlintLogFileFormat(ICakeLog log)
 
             if (dataDict != null && dataDict.ContainsKey("line"))
             {
-                issueBuilder = issueBuilder.OfRule(dataDict["ruleId"].ToString());
+                var ruleId = dataDict["ruleId"].ToString();
+                issueBuilder = issueBuilder.OfRule(ruleId, TextlintRuleUrlResolver.Instance.ResolveRuleUrl(ruleId));
             }
 
             result.Add(issueBuilder.Create());
