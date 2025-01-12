@@ -33,7 +33,7 @@ description: Overview about core features.
 
     There are overloads for reading using a single or multiple [issue provider].
 
-    [:octicons-arrow-right-24: Reading issues](usage/reading-issues/index.md)
+    [:octicons-arrow-right-24: Reading issues](usage/reading-issues/reading-issues.md)
 
 -   :material-creation-outline:{ .lg .middle } __Create issues in your build__
 
