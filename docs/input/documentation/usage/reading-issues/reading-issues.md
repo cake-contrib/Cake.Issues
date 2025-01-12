@@ -6,9 +6,15 @@ description: Usage instructions how to read issues.
 The `Cake.Issues` addin can be used to aggregate issues from different sources.
 This can for example be useful to break builds based on the reported issues.
 
+??? Tip "List of all aliases for reading issues"
+    See all available [Aliases for reading issues](https://cakebuild.net/extensions/cake-issues/#Reading-Issues){target="_blank"}
+
 To read issues you need to import at least one issue provider.
 In the following example the issue providers for reading warnings from MsBuild log files
 and from JetBrains InspectCode are imported:
+
+??? tip "Example for other tools"
+    For examples for issue providers for reading issues form other tools see [Issue Provider Examples](../../issue-providers/index.md).
 
 === "Cake .NET Tool"
 

@@ -3,9 +3,17 @@ title: Creating reports
 description: Usage instructions how to create reports.
 ---
 
+The `Cake.Issues.Reporting` addin can be used to create issue reports in different formats.
+
+??? Tip "List of all aliases for creating reports"
+    See all available [Aliases for creating reports](https://cakebuild.net/extensions/cake-issues-reporting/#Creating-Issue-Reports){target="_blank"}
+
 To create report for issues you need to import the corresponding report format.
 In the following example the issue provider for reading warnings from MsBuild log files
 and generic report format is imported:
+
+??? tip "Example for other report formats"
+    For examples for other formats see [Report Format Examples](../../report-formats/index.md).
 
 === "Cake .NET Tool"
 

@@ -5,6 +5,9 @@ description: Usage instructions how to break builds.
 
 The `Cake.Issues` addin can be used to break builds if specific issues were reported.
 
+??? Tip "List of all aliases for breaking builds"
+    See all available [Aliases for breaking builds](https://cakebuild.net/extensions/cake-issues/#Build-Breaking){target="_blank"}
+
 To break builds you need to import the following core addin:
 
 === "Cake .NET Tool"

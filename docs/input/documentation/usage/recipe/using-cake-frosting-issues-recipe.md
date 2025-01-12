@@ -99,7 +99,8 @@ public class RunInspectCodeTask : FrostingTask<BuildContext>
 }
 ```
 
-See [configuration] for a full list of available configuration parameters.
+!!! tip
+    See [configuration] for a full list of available configuration parameters.
 
 ## Calling issues tasks
 

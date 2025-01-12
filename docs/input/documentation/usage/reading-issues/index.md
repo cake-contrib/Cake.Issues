@@ -10,6 +10,3 @@ description: How to read issues using Cake.Issues.
 - :material-test-tube: [Configure File Links](file-linking.md)
 
 </div>
-
-!!! tip
-    For more issue provider specific examples see [Issue Provider Examples](../../issue-providers/index.md).
