@@ -3,7 +3,7 @@ title: How to contribute
 description: Instructions how to contribute to Cake Issues addins.
 ---
 
-The repositories are using [GitFlow] with default configuration.
+The repositories are using [GitFlow]{target="_blank"} with default configuration.
 Development is happening on `develop` branch.
 
 To contribute:
