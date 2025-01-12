@@ -16,7 +16,7 @@ internal class EsLintRuleUrlResolver : BaseRuleUrlResolver<BaseRuleDescription>
     private EsLintRuleUrlResolver()
     {
         this.AddUrlResolver(x =>
-            new Uri("http://eslint.org/docs/rules/" + x.Rule));
+            new Uri("https://eslint.org/docs/rules/" + x.Rule));
     }
 
     /// <summary>
