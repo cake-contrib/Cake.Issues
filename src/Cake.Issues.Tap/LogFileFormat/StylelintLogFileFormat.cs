@@ -54,7 +54,7 @@ internal class StylelintLogFileFormat(ICakeLog log)
                                         diagnosticDict.ContainsKey("endLine") ? int.Parse(diagnosticDict["endLine"].ToString()) : null,
                                         diagnosticDict.ContainsKey("column") ? int.Parse(diagnosticDict["column"].ToString()) : null,
                                         diagnosticDict.ContainsKey("endColumn") ? int.Parse(diagnosticDict["endColumn"].ToString()) : null)
-                                    .OfRule(diagnosticKey)
+                                    .OfRule(diagnosticKey, StylelintRuleUrlResolver.Instance.ResolveRuleUrl(diagnosticKey))
                                     .WithPriority(GetPriority(diagnosticDict["severity"].ToString()));
                             result.Add(issueBuilder.Create());
                         }

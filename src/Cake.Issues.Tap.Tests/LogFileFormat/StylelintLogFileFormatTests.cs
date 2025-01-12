@@ -53,7 +53,7 @@ public sealed class StylelintLogFileFormatTests
                     "TAP")
                     .InFile("path/to/file1.css", 2, 3, 1, 3)
                     .WithPriority(IssuePriority.Error)
-                    .OfRule("baz")
+                    .OfRule("baz", new Uri("https://stylelint.io/user-guide/rules/baz"))
                     .Create());
 
             issue = issues[1];
@@ -65,7 +65,7 @@ public sealed class StylelintLogFileFormatTests
                     "TAP")
                     .InFile("path/to/file2.css", 1, 2, 1, 3)
                     .WithPriority(IssuePriority.Error)
-                    .OfRule("bar")
+                    .OfRule("bar", new Uri("https://stylelint.io/user-guide/rules/bar"))
                     .Create());
 
             issue = issues[2];
@@ -77,7 +77,7 @@ public sealed class StylelintLogFileFormatTests
                     "TAP")
                     .InFile("path/to/file2.css", 4, 5, 1, 3)
                     .WithPriority(IssuePriority.Error)
-                    .OfRule("bar")
+                    .OfRule("bar", new Uri("https://stylelint.io/user-guide/rules/bar"))
                     .Create());
 
             issue = issues[3];
@@ -89,7 +89,7 @@ public sealed class StylelintLogFileFormatTests
                     "TAP")
                     .InFile("path/to/file2.css", 10, 11, 1, 2)
                     .WithPriority(IssuePriority.Error)
-                    .OfRule("bar2")
+                    .OfRule("bar2", new Uri("https://stylelint.io/user-guide/rules/bar2"))
                     .Create());
         }
 
@@ -184,7 +184,7 @@ public sealed class StylelintLogFileFormatTests
                     "TAP")
                     .InFile(relativeFilePath, 16, 16, 6, 8)
                     .WithPriority(IssuePriority.Error)
-                    .OfRule("block-no-empty")
+                    .OfRule("block-no-empty", new Uri("https://stylelint.io/user-guide/rules/block-no-empty"))
                     .Create());
         }
 
@@ -213,7 +213,7 @@ public sealed class StylelintLogFileFormatTests
                     "TAP")
                     .InFile(relativeFilePath, 16, 16, 6, 8)
                     .WithPriority(IssuePriority.Error)
-                    .OfRule("block-no-empty")
+                    .OfRule("block-no-empty", new Uri("https://stylelint.io/user-guide/rules/block-no-empty"))
                     .Create());
         }
 
