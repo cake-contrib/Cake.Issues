@@ -13,7 +13,7 @@ provides the following features.
 ## Basic features
 
 - [x] Reads errors and warnings from MSBuild log files.
-- [x] Provides URLs for all code analysis (`CA*`) and StyleCop (`SA*`) warnings.
+- [x] Provides URLs .NET SDK analyzers (`CA*`), StyleCop analyzer rules (`SA*`), SonarLint rules (`S*`) and Roslynator rules (`RCS*`).
 - [x] Support for custom URL resolving using the [MsBuildAddRuleUrlResolver](https://cakebuild.net/api/Cake.Issues.MsBuild/MsBuildIssuesAliases/93C21487){target="_blank"} alias.
 
 ## Supported log file formats
