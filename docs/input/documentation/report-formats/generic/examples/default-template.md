@@ -97,7 +97,7 @@ The following example will create a HTML report for issues logged as warnings by
             FilePath msBuildLogFile = @"c:\build\msbuild.log";
             var msBuildSettings =
                 new DotNetMSBuildSettings().WithLogger(
-                    "BinaryLogger," + context.Tools.Resolve("Cake.Issues.MsBuild*/**/StructuredLogger.dll"),
+                    "BinaryLogger," + context.Environment.ApplicationRoot.CombineWithFilePath("StructuredLogger.dll"),
                     "",
                     msBuildLogFile.FullPath);
             context.DotNetBuild(

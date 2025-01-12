@@ -104,7 +104,7 @@ The following example will print issues logged as warnings by MsBuild to the con
             FilePath msBuildLogFile = @"c:\build\msbuild.log";
             var msBuildSettings =
                 new DotNetMSBuildSettings().WithLogger(
-                    "BinaryLogger," + context.Tools.Resolve("Cake.Issues.MsBuild*/**/StructuredLogger.dll"),
+                    "BinaryLogger," + context.Environment.ApplicationRoot.CombineWithFilePath("StructuredLogger.dll"),
                     "",
                     msBuildLogFile.FullPath);
             context.DotNetBuild(
