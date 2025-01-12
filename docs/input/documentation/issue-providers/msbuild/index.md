@@ -9,7 +9,7 @@ Support for reading warnings reported by MsBuild is implemented in the
 <div class="grid cards" markdown>
 
 - :material-creation-outline: [Features](features.md)
-- :material-test-tube: [Examples](examples.md)
+- :material-test-tube: [Examples](examples/index.md)
 - :material-api: [API](https://cakebuild.net/extensions/cake-issues-msbuild){target="_blank"}
 
 </div>

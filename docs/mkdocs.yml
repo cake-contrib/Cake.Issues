@@ -201,7 +201,10 @@ nav:
         - MsBuild:
           - documentation/issue-providers/msbuild/index.md
           - Features: documentation/issue-providers/msbuild/features.md
-          - Examples: documentation/issue-providers/msbuild/examples.md
+          - Examples:
+            - documentation/issue-providers/msbuild/examples/index.md
+            - Read binary log file: documentation/issue-providers/msbuild/examples/read-binary-log.md
+            - Use custom URL resolver: documentation/issue-providers/msbuild/examples/use-custom-url-resolver.md
           - API: https://cakebuild.net/extensions/cake-issues-msbuild" target="_blank
         - Sarif:
           - documentation/issue-providers/sarif/index.md
