@@ -40,7 +40,7 @@ public sealed class TextlintLogFileFormatTests
                     "TAP")
                     .InFile(@"file.md", 3, 3)
                     .WithPriority(IssuePriority.Error)
-                    .OfRule("no-todo")
+                    .OfRule("no-todo", new Uri("https://github.com/textlint-rule/textlint-rule-no-todo"))
                     .Create());
         }
     }
