@@ -13,7 +13,7 @@ provides the following features.
 ## Basic features
 
 - [x] Reads errors and warnings from MSBuild log files.
-- [x] Provides URLs .NET SDK analyzers (`CA*`), StyleCop analyzer rules (`SA*`), SonarLint rules (`S*`) and Roslynator rules (`RCS*`).
+- [x] Provides URLs .NET SDK analyzers code quality rules (`CA*`), .NET SDK analyzers code style rules (`IDE*`), StyleCop analyzer rules (`SA*`), SonarLint rules (`S*`) and Roslynator rules (`RCS*`).
 - [x] Support for custom URL resolving using the [MsBuildAddRuleUrlResolver](https://cakebuild.net/api/Cake.Issues.MsBuild/MsBuildIssuesAliases/93C21487){target="_blank"} alias.
 
 ## Supported log file formats
@@ -83,7 +83,7 @@ provides the following features.
     1.  Can be set while reading issues
     2.  Set to `IIssue.MessageText`
     3.  Can be set while reading issues
-    4.  For .NET SDK analyzers (`CA*`), StyleCop analyzer rules (`SA*`), SonarLint rules (`S*`) and Roslynator rules (`RCS*`). Support for additional rules can be added through a custom [MsBuildAddRuleUrlResolver]{target="_blank"}
+    4.  For .NET SDK analyzers code quality rules (`CA*`), .NET SDK analyzers code style rules (`IDE*`), StyleCop analyzer rules (`SA*`), SonarLint rules (`S*`) and Roslynator rules (`RCS*`). Support for additional rules can be added through a custom [MsBuildAddRuleUrlResolver]{target="_blank"}
 
 [DotNet aliases]: https://cakebuild.net/dsl/dotnet/#Built-In
 [MsBuild aliases]: https://cakebuild.net/dsl/msbuild/#Built-In
