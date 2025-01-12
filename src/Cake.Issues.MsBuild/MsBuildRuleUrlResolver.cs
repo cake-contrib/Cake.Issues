@@ -21,7 +21,7 @@ internal class MsBuildRuleUrlResolver : BaseRuleUrlResolver<MsBuildRuleDescripti
         // .NET SDK analyzers
         this.AddUrlResolver(x =>
             x.Category.Equals("CA", StringComparison.OrdinalIgnoreCase) ?
-                new Uri("https://www.google.com/search?q=%22" + x.Rule + ":%22+site:learn.microsoft.com") :
+                new Uri("https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/" + x.Rule) :
                 null);
 
         // StyleCop analyzer rules
