@@ -46,7 +46,8 @@ The following example will create a SARIF report for issues logged as warnings b
     {
         var repoRootPath = MakeAbsolute(Directory("./"));
 
-        // Build MySolution.sln solution in the repository root folder and write a binary log.
+        // Build MySolution.sln solution in the repository root folder
+        // and write a binary log.
         FilePath msBuildLogFile = @"c:\build\msbuild.log";
         var msBuildSettings =
             new DotNetMSBuildSettings().WithLogger(
@@ -94,7 +95,8 @@ The following example will create a SARIF report for issues logged as warnings b
         {
             var repoRootPath = context.MakeAbsolute(context.Directory("./"));
 
-            // Build MySolution.sln solution in the repository root folder and write a binary log.
+            // Build MySolution.sln solution in the repository root folder
+            // and write a binary log.
             FilePath msBuildLogFile = @"c:\build\msbuild.log";
             var msBuildSettings =
                 new DotNetMSBuildSettings().WithLogger(

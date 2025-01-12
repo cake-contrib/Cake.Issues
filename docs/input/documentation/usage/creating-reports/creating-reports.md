@@ -56,7 +56,8 @@ Afterwards you can define a task where you call the reporting addin with the des
             MsBuildIssuesFromFilePath(
                 @"C:\build\msbuild.log",
                 MsBuildBinaryLogFileFormat),
-            GenericIssueReportFormatFromEmbeddedTemplate(GenericIssueReportTemplate.HtmlDiagnostic),
+            GenericIssueReportFormatFromEmbeddedTemplate(
+                GenericIssueReportTemplate.HtmlDiagnostic),
             repoRootFolder,
             @"c:\report.html");
     });
@@ -87,7 +88,8 @@ Afterwards you can define a task where you call the reporting addin with the des
                 context.MsBuildIssuesFromFilePath(
                     @"C:\build\msbuild.log",
                     context.MsBuildBinaryLogFileFormat()),
-                context.GenericIssueReportFormatFromEmbeddedTemplate(GenericIssueReportTemplate.HtmlDiagnostic),
+                context.GenericIssueReportFormatFromEmbeddedTemplate(
+                    GenericIssueReportTemplate.HtmlDiagnostic),
                 repoRootFolder,
                 @"c:\report.html");
         }

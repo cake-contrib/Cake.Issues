@@ -52,7 +52,9 @@ In the following task a new warning for the myfile.txt file on line 42 is create
                 .WithPriority(IssuePriority.Warning)
                 .Create();
     
-        Information("Issue created with message: {0}", issue.MessageText);
+        Information(
+            "Issue created with message: {0}",
+            issue.MessageText);
     });
     ```
 
@@ -87,7 +89,9 @@ In the following task a new warning for the myfile.txt file on line 42 is create
                     .WithPriority(IssuePriority.Warning)
                     .Create();
         
-            context.Information("Issue created with message: {0}", issue.MessageText);
+            context.Information(
+                "Issue created with message: {0}",
+                issue.MessageText);
         }
     }
     ```

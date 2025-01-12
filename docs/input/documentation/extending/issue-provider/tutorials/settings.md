@@ -188,7 +188,8 @@ Finally an additional property alias for returning the provider type name should
 ```csharp
 /// <summary>
 /// Gets the name of my issue provider.
-/// This name can be used to identify issues based on the <see cref="IIssue.ProviderType"/> property.
+/// This name can be used to identify issues based on the
+/// <see cref="IIssue.ProviderType"/> property.
 /// </summary>
 /// <param name="context">The context.</param>
 /// <returns>Name of my issue provider.</returns>
