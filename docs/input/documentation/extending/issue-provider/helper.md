@@ -12,7 +12,7 @@ The following helpers are provider by `Cake.Issues` for simplifying implementati
 
 ## File linking
 
-Cake.Issues provides infrastructure to get links to files on source code hosts like GitHub or Azure Repos.
+Cake.Issues provides infrastructure to [get links to files] on source code hosts like GitHub or Azure Repos.
 This infrastructure can be used inside issue providers to generate file links which can be used inside the issue messages:
 
 ```csharp
@@ -44,3 +44,5 @@ protected override IEnumerable<IIssue> InternalReadIssues()
     return result;
 }
 ```
+
+[get links to files]: ../../usage/reading-issues/file-linking.md
