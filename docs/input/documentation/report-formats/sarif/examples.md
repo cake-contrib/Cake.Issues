@@ -98,7 +98,7 @@ The following example will create a SARIF report for issues logged as warnings b
             FilePath msBuildLogFile = @"c:\build\msbuild.log";
             var msBuildSettings =
                 new DotNetMSBuildSettings().WithLogger(
-                    "BinaryLogger," + context.Tools.Resolve("Cake.Issues.MsBuild*/**/StructuredLogger.dll"),
+                    "BinaryLogger," + context.Environment.ApplicationRoot.CombineWithFilePath("StructuredLogger.dll"),
                     "",
                     msBuildLogFile.FullPath);
             context.DotNetBuild(
