@@ -14,6 +14,8 @@ To contribute:
 * Push your feature branch.
 * Create a pull request.
 
-For getting started see issues marked with `Up-for-grabs` in the individual repositories.
+!!! tip
+    For getting started see [issues marked with Up-for-grabs]{target="_blank"}.
 
 [GitFlow]: https://nvie.com/posts/a-successful-git-branching-model/
+[issues marked with Up-for-grabs]: https://github.com/cake-contrib/Cake.Issues/labels/up-for-grabs
