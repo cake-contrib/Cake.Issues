@@ -8,6 +8,3 @@ description: How to create reports using Cake.Issues.Reporting.
 - :material-test-tube: [Create Reports](creating-reports.md)
 
 </div>
-
-!!! tip
-    For more report format specific examples see [Report Format Examples](../../report-formats/index.md).

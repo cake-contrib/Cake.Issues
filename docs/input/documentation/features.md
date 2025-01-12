@@ -33,7 +33,7 @@ description: Overview about core features.
 
     There are overloads for reading using a single or multiple [issue provider].
 
-    [:octicons-arrow-right-24: Aliases](https://cakebuild.net/extensions/cake-issues/#Reading-Issues){target="_blank"}
+    [:octicons-arrow-right-24: Reading issues](usage/reading-issues/index.md)
 
 -   :material-creation-outline:{ .lg .middle } __Create issues in your build__
 
@@ -41,7 +41,7 @@ description: Overview about core features.
 
     The `NewIssue` aliases can be used for creating issues in the build script.
 
-    [:octicons-arrow-right-24: Aliases](https://cakebuild.net/extensions/cake-issues/#Creating-Issues){target="_blank"}
+    [:octicons-arrow-right-24: Creating issues](usage/creating-issues/creating-issues.md)
 
 -   :material-file-link:{ .lg .middle } __Support for file links__
 
@@ -49,7 +49,7 @@ description: Overview about core features.
 
     Support for creating links to file & location on source code hosting system (GitHub, Azure Repos, etc).
 
-    [:octicons-arrow-right-24: Aliases](https://cakebuild.net/extensions/cake-issues/#File-Linking){target="_blank"}
+    [:octicons-arrow-right-24: Linking to file repositories](usage/reading-issues/file-linking.md)
 
 -   :material-swap-vertical-bold:{ .lg .middle } __Issue serialization__
 
@@ -86,7 +86,7 @@ description: Overview about core features.
     There are overloads for failing if issues of certain minimum priority or issue providers are found,
     or by passing any custom function.
 
-    [:octicons-arrow-right-24: Aliases](https://cakebuild.net/extensions/cake-issues/#Build-Breaking){target="_blank"}
+    [:octicons-arrow-right-24: Failing builds](usage/breaking-builds/breaking-builds.md)
 
 </div>
 
@@ -102,7 +102,7 @@ description: Overview about core features.
 
     There are overloads for reading issues from a single or multiple [issue provider] or for passing an existing list of issues.
 
-    [:octicons-arrow-right-24: Aliases](https://cakebuild.net/extensions/cake-issues-reporting/#Creating-Issue-Reports){target="_blank"}
+    [:octicons-arrow-right-24: Creating reports](usage/creating-reports/creating-reports.md)
 
 </div>
 
@@ -118,7 +118,7 @@ description: Overview about core features.
 
     There are overloads for reading issues from a single or multiple [issue provider] or for passing an existing list of issues.
 
-    [:octicons-arrow-right-24: Aliases](https://cakebuild.net/extensions/cake-issues-pullrequests/#Reporting-Issues-To-Pull-Requests){target="_blank"}
+    [:octicons-arrow-right-24: Reporting issues to pull request systems](usage/reporting-issues-to-pull-requests/report-issues-to-pull-requests.md)
 
 -   :material-message-plus:{ .lg .middle } __Report issues to build runs__
 
@@ -128,7 +128,7 @@ description: Overview about core features.
 
     There are overloads for reading issues from a single or multiple [issue provider] or for passing an existing list of issues.
 
-    [:octicons-arrow-right-24: Aliases](https://cakebuild.net/extensions/cake-issues-pullrequests/#Reporting-Issues-To-Pull-Requests){target="_blank"}
+    [:octicons-arrow-right-24: Reporting issues to build servers](usage/reporting-issues-to-pull-requests/report-issues-to-pull-requests.md)
 
 -   :material-filter:{ .lg .middle } __Issue filters__
 
@@ -136,7 +136,7 @@ description: Overview about core features.
 
     Support for passing custom issue filter routines.
 
-    [:octicons-arrow-right-24: Setting](https://cakebuild.net/api/Cake.Issues.PullRequests/IReportIssuesToPullRequestSettings/48CB35E4){target="_blank"}
+    [:octicons-arrow-right-24: Using custom issue filter](usage/reporting-issues-to-pull-requests/custom-issue-filter.md)
 
 -   :material-car-speed-limiter:{ .lg .middle } __Limit reported issues__
 
