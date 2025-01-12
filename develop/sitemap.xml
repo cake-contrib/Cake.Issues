@@ -165,11 +165,19 @@
          <lastmod>2025-01-12</lastmod>
     </url>
     <url>
+         <loc>https://cakeissues.net/develop/documentation/issue-providers/msbuild/features/</loc>
+         <lastmod>2025-01-12</lastmod>
+    </url>
+    <url>
          <loc>https://cakeissues.net/develop/documentation/issue-providers/msbuild/examples/</loc>
          <lastmod>2025-01-12</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/issue-providers/msbuild/features/</loc>
+         <loc>https://cakeissues.net/develop/documentation/issue-providers/msbuild/examples/read-binary-log/</loc>
+         <lastmod>2025-01-12</lastmod>
+    </url>
+    <url>
+         <loc>https://cakeissues.net/develop/documentation/issue-providers/msbuild/examples/use-custom-url-resolver/</loc>
          <lastmod>2025-01-12</lastmod>
     </url>
     <url>
