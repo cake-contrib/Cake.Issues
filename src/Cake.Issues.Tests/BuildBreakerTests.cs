@@ -13,7 +13,7 @@ public class BuildBreakerTests
             IEnumerable<IIssue> issues = null;
 
             // When
-            var result = Record.Exception(() => BuildBreaker.BreakBuildOnIssues(issues));
+            var result = Record.Exception(() => BuildBreaker.BreakBuildOnIssues(issues, null));
 
             // Then
             result.IsArgumentNullException("issues");
@@ -29,7 +29,7 @@ public class BuildBreakerTests
                     .Create()];
 
             // When
-            var result = Record.Exception(() => BuildBreaker.BreakBuildOnIssues(issues));
+            var result = Record.Exception(() => BuildBreaker.BreakBuildOnIssues(issues, null));
 
             // Then
             result.IsIssuesFoundException("Found 1 issue.");
@@ -42,9 +42,43 @@ public class BuildBreakerTests
             var issues = new List<IIssue>();
 
             // When
-            BuildBreaker.BreakBuildOnIssues(issues);
+            BuildBreaker.BreakBuildOnIssues(issues, null);
 
             // Then
+        }
+
+        [Fact]
+        public void Should_Call_Handler_If_Any_Issues()
+        {
+            // Given
+            IEnumerable<IIssue> issues = [
+                IssueBuilder
+                    .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                    .Create()];
+            IEnumerable<IIssue> issuesPassedToHandler = null;
+            void handler(IEnumerable<IIssue> x) => issuesPassedToHandler = x;
+
+            // When
+            var result = Record.Exception(() => BuildBreaker.BreakBuildOnIssues(issues, handler));
+
+            // Then
+            issuesPassedToHandler.ShouldNotBeNull().ShouldContain(issues.Single());
+            result.IsIssuesFoundException("Found 1 issue.");
+        }
+
+        [Fact]
+        public void Should_Not_Call_Handler_If_No_Issues()
+        {
+            // Given
+            var issues = new List<IIssue>();
+            IEnumerable<IIssue> issuesPassedToHandler = null;
+            void handler(IEnumerable<IIssue> x) => issuesPassedToHandler = x;
+
+            // When
+            BuildBreaker.BreakBuildOnIssues(issues, handler);
+
+            // Then
+            issuesPassedToHandler.ShouldBeNull();
         }
     }
 
@@ -58,7 +92,7 @@ public class BuildBreakerTests
             var priority = IssuePriority.Error;
 
             // When
-            var result = Record.Exception(() => BuildBreaker.BreakBuildOnIssues(issues, priority));
+            var result = Record.Exception(() => BuildBreaker.BreakBuildOnIssues(issues, priority, null));
 
             // Then
             result.IsArgumentNullException("issues");
@@ -76,7 +110,7 @@ public class BuildBreakerTests
             var priority = IssuePriority.Warning;
 
             // When
-            var result = Record.Exception(() => BuildBreaker.BreakBuildOnIssues(issues, priority));
+            var result = Record.Exception(() => BuildBreaker.BreakBuildOnIssues(issues, priority, null));
 
             // Then
             result.IsIssuesFoundException("Found 1 issue.");
@@ -94,9 +128,50 @@ public class BuildBreakerTests
             var priority = IssuePriority.Error;
 
             // When
-            BuildBreaker.BreakBuildOnIssues(issues, priority);
+            BuildBreaker.BreakBuildOnIssues(issues, priority, null);
 
             // Then
+        }
+
+        [Fact]
+        public void Should_Call_Handler_If_Any_Issues()
+        {
+            // Given
+            IEnumerable<IIssue> issues = [
+                IssueBuilder
+                    .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                    .WithPriority(IssuePriority.Warning)
+                    .Create()];
+            var priority = IssuePriority.Warning;
+            IEnumerable<IIssue> issuesPassedToHandler = null;
+            void handler(IEnumerable<IIssue> x) => issuesPassedToHandler = x;
+
+            // When
+            var result = Record.Exception(() => BuildBreaker.BreakBuildOnIssues(issues, priority, handler));
+
+            // Then
+            issuesPassedToHandler.ShouldNotBeNull().ShouldContain(issues.Single());
+            result.IsIssuesFoundException("Found 1 issue.");
+        }
+
+        [Fact]
+        public void Should_Not_Call_Handler_If_No_Issues()
+        {
+            // Given
+            IEnumerable<IIssue> issues = [
+                IssueBuilder
+                    .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                    .WithPriority(IssuePriority.Warning)
+                    .Create()];
+            var priority = IssuePriority.Error;
+            IEnumerable<IIssue> issuesPassedToHandler = null;
+            void handler(IEnumerable<IIssue> x) => issuesPassedToHandler = x;
+
+            // When
+            BuildBreaker.BreakBuildOnIssues(issues, priority, handler);
+
+            // Then
+            issuesPassedToHandler.ShouldBeNull();
         }
     }
 
@@ -110,7 +185,7 @@ public class BuildBreakerTests
             var providerType = "ProviderType Foo";
 
             // When
-            var result = Record.Exception(() => BuildBreaker.BreakBuildOnIssues(issues, providerType));
+            var result = Record.Exception(() => BuildBreaker.BreakBuildOnIssues(issues, providerType, null));
 
             // Then
             result.IsArgumentNullException("issues");
@@ -127,7 +202,7 @@ public class BuildBreakerTests
             string providerType = null;
 
             // When
-            var result = Record.Exception(() => BuildBreaker.BreakBuildOnIssues(issues, providerType));
+            var result = Record.Exception(() => BuildBreaker.BreakBuildOnIssues(issues, providerType, null));
 
             // Then
             result.IsArgumentNullException("providerType");
@@ -144,7 +219,7 @@ public class BuildBreakerTests
             var providerType = string.Empty;
 
             // When
-            var result = Record.Exception(() => BuildBreaker.BreakBuildOnIssues(issues, providerType));
+            var result = Record.Exception(() => BuildBreaker.BreakBuildOnIssues(issues, providerType, null));
 
             // Then
             result.IsArgumentOutOfRangeException("providerType");
@@ -161,7 +236,7 @@ public class BuildBreakerTests
             var providerType = " ";
 
             // When
-            var result = Record.Exception(() => BuildBreaker.BreakBuildOnIssues(issues, providerType));
+            var result = Record.Exception(() => BuildBreaker.BreakBuildOnIssues(issues, providerType, null));
 
             // Then
             result.IsArgumentOutOfRangeException("providerType");
@@ -178,7 +253,7 @@ public class BuildBreakerTests
             var providerType = "ProviderType Foo";
 
             // When
-            var result = Record.Exception(() => BuildBreaker.BreakBuildOnIssues(issues, providerType));
+            var result = Record.Exception(() => BuildBreaker.BreakBuildOnIssues(issues, providerType, null));
 
             // Then
             result.IsIssuesFoundException("Found 1 issue.");
@@ -196,9 +271,49 @@ public class BuildBreakerTests
             var providerType = "ProviderType Bar";
 
             // When
-            BuildBreaker.BreakBuildOnIssues(issues, providerType);
+            BuildBreaker.BreakBuildOnIssues(issues, providerType, null);
 
             // Then
+        }
+
+        [Fact]
+        public void Should_Call_Handler_If_Any_Issues()
+        {
+            // Given
+            IEnumerable<IIssue> issues = [
+                IssueBuilder
+                    .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                    .Create()];
+            var providerType = "ProviderType Foo";
+            IEnumerable<IIssue> issuesPassedToHandler = null;
+            void handler(IEnumerable<IIssue> x) => issuesPassedToHandler = x;
+
+            // When
+            var result = Record.Exception(() => BuildBreaker.BreakBuildOnIssues(issues, providerType, handler));
+
+            // Then
+            issuesPassedToHandler.ShouldNotBeNull().ShouldContain(issues.Single());
+            result.IsIssuesFoundException("Found 1 issue.");
+        }
+
+        [Fact]
+        public void Should_Not_Call_Handler_If_No_Issues()
+        {
+            // Given
+            IEnumerable<IIssue> issues = [
+                IssueBuilder
+                    .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                    .WithPriority(IssuePriority.Warning)
+                    .Create()];
+            var providerType = "ProviderType Bar";
+            IEnumerable<IIssue> issuesPassedToHandler = null;
+            void handler(IEnumerable<IIssue> x) => issuesPassedToHandler = x;
+
+            // When
+            BuildBreaker.BreakBuildOnIssues(issues, providerType, handler);
+
+            // Then
+            issuesPassedToHandler.ShouldBeNull();
         }
     }
 
@@ -218,7 +333,8 @@ public class BuildBreakerTests
                 issues,
                 minimumPriority,
                 issueProvidersToConsider,
-                issueProvidersToIgnore));
+                issueProvidersToIgnore,
+                null));
 
             // Then
             result.IsArgumentNullException("issues");
@@ -241,7 +357,8 @@ public class BuildBreakerTests
                 issues,
                 minimumPriority,
                 issueProvidersToConsider,
-                issueProvidersToIgnore));
+                issueProvidersToIgnore,
+                null));
 
             // Then
             result.IsArgumentNullException("issueProvidersToConsider");
@@ -265,7 +382,8 @@ public class BuildBreakerTests
                 issues,
                 minimumPriority,
                 issueProvidersToConsider,
-                issueProvidersToIgnore));
+                issueProvidersToIgnore,
+                null));
 
             // Then
             result.IsArgumentNullException("issueProvidersToIgnore");
@@ -288,7 +406,8 @@ public class BuildBreakerTests
                 issues,
                 minimumPriority,
                 issueProvidersToConsider,
-                issueProvidersToIgnore));
+                issueProvidersToIgnore,
+                null));
 
             // Then
             result.IsIssuesFoundException("Found 1 issue.");
@@ -316,7 +435,8 @@ public class BuildBreakerTests
                 issues,
                 minimumPriority,
                 issueProvidersToConsider,
-                issueProvidersToIgnore));
+                issueProvidersToIgnore,
+                null));
 
             // Then
             result.IsIssuesFoundException("Found 1 issue.");
@@ -341,7 +461,8 @@ public class BuildBreakerTests
                 issues,
                 minimumPriority,
                 issueProvidersToConsider,
-                issueProvidersToIgnore);
+                issueProvidersToIgnore,
+                null);
 
             // Then
         }
@@ -365,7 +486,8 @@ public class BuildBreakerTests
                 issues,
                 minimumPriority,
                 issueProvidersToConsider,
-                issueProvidersToIgnore));
+                issueProvidersToIgnore,
+                null));
 
             // Then
             result.IsIssuesFoundException("Found 1 issue.");
@@ -390,7 +512,8 @@ public class BuildBreakerTests
                 issues,
                 minimumPriority,
                 issueProvidersToConsider,
-                issueProvidersToIgnore);
+                issueProvidersToIgnore,
+                null);
 
             // Then
         }
@@ -413,7 +536,8 @@ public class BuildBreakerTests
                 issues,
                 minimumPriority,
                 issueProvidersToConsider,
-                issueProvidersToIgnore));
+                issueProvidersToIgnore,
+                null));
 
             // Then
             result.IsIssuesFoundException("Found 1 issue.");
@@ -439,7 +563,8 @@ public class BuildBreakerTests
                 issues,
                 minimumPriority,
                 issueProvidersToConsider,
-                issueProvidersToIgnore);
+                issueProvidersToIgnore,
+                null);
 
             // Then
         }
@@ -461,7 +586,8 @@ public class BuildBreakerTests
                 issues,
                 minimumPriority,
                 issueProvidersToConsider,
-                issueProvidersToIgnore);
+                issueProvidersToIgnore,
+                null);
 
             // Then
         }
@@ -484,9 +610,57 @@ public class BuildBreakerTests
                 issues,
                 minimumPriority,
                 issueProvidersToConsider,
-                issueProvidersToIgnore);
+                issueProvidersToIgnore,
+                null);
 
             // Then
+        }
+
+        [Fact]
+        public void Should_Call_Handler_If_Any_Issues()
+        {
+            // Given
+            IEnumerable<IIssue> issues = [
+                IssueBuilder
+                    .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                    .Create()];
+            var minimumPriority = IssuePriority.Undefined;
+            IList<string> issueProvidersToConsider = [];
+            IList<string> issueProvidersToIgnore = [];
+            IEnumerable<IIssue> issuesPassedToHandler = null;
+            void handler(IEnumerable<IIssue> x) => issuesPassedToHandler = x;
+
+            // When
+            var result = Record.Exception(() => BuildBreaker.BreakBuildOnIssues(
+                issues,
+                minimumPriority,
+                issueProvidersToConsider,
+                issueProvidersToIgnore,
+                handler));
+
+            // Then
+            issuesPassedToHandler.ShouldNotBeNull().ShouldContain(issues.Single());
+            result.IsIssuesFoundException("Found 1 issue.");
+        }
+
+        [Fact]
+        public void Should_Not_Call_Handler_If_No_Issues()
+        {
+            // Given
+            IEnumerable<IIssue> issues = [
+                IssueBuilder
+                    .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                    .WithPriority(IssuePriority.Warning)
+                    .Create()];
+            var providerType = "ProviderType Bar";
+            IEnumerable<IIssue> issuesPassedToHandler = null;
+            void handler(IEnumerable<IIssue> x) => issuesPassedToHandler = x;
+
+            // When
+            BuildBreaker.BreakBuildOnIssues(issues, providerType, handler);
+
+            // Then
+            issuesPassedToHandler.ShouldBeNull();
         }
     }
 
@@ -500,7 +674,7 @@ public class BuildBreakerTests
             static bool predicate(IIssue x) => true;
 
             // When
-            var result = Record.Exception(() => BuildBreaker.BreakBuildOnIssues(issues, predicate));
+            var result = Record.Exception(() => BuildBreaker.BreakBuildOnIssues(issues, predicate, null));
 
             // Then
             result.IsArgumentNullException("issues");
@@ -517,7 +691,7 @@ public class BuildBreakerTests
             Func<IIssue, bool> predicate = null;
 
             // When
-            var result = Record.Exception(() => BuildBreaker.BreakBuildOnIssues(issues, predicate));
+            var result = Record.Exception(() => BuildBreaker.BreakBuildOnIssues(issues, predicate, null));
 
             // Then
             result.IsArgumentNullException("predicate");
@@ -534,7 +708,7 @@ public class BuildBreakerTests
             static bool predicate(IIssue x) => x.MessageText == "Message Foo";
 
             // When
-            var result = Record.Exception(() => BuildBreaker.BreakBuildOnIssues(issues, predicate));
+            var result = Record.Exception(() => BuildBreaker.BreakBuildOnIssues(issues, predicate, null));
 
             // Then
             result.IsIssuesFoundException("Found 1 issue.");
@@ -551,9 +725,48 @@ public class BuildBreakerTests
             static bool predicate(IIssue x) => false;
 
             // When
-            BuildBreaker.BreakBuildOnIssues(issues, predicate);
+            BuildBreaker.BreakBuildOnIssues(issues, predicate, null);
 
             // Then
+        }
+
+        [Fact]
+        public void Should_Call_Handler_If_Any_Issues()
+        {
+            // Given
+            IEnumerable<IIssue> issues = [
+                IssueBuilder
+                    .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                    .Create()];
+            static bool predicate(IIssue x) => x.MessageText == "Message Foo";
+            IEnumerable<IIssue> issuesPassedToHandler = null;
+            void handler(IEnumerable<IIssue> x) => issuesPassedToHandler = x;
+
+            // When
+            var result = Record.Exception(() => BuildBreaker.BreakBuildOnIssues(issues, predicate, handler));
+
+            // Then
+            issuesPassedToHandler.ShouldNotBeNull().ShouldContain(issues.Single());
+            result.IsIssuesFoundException("Found 1 issue.");
+        }
+
+        [Fact]
+        public void Should_Not_Call_Handler_If_No_Issues()
+        {
+            // Given
+            IEnumerable<IIssue> issues = [
+                IssueBuilder
+                    .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                    .Create()];
+            static bool predicate(IIssue x) => false;
+            IEnumerable<IIssue> issuesPassedToHandler = null;
+            void handler(IEnumerable<IIssue> x) => issuesPassedToHandler = x;
+
+            // When
+            BuildBreaker.BreakBuildOnIssues(issues, predicate, handler);
+
+            // Then
+            issuesPassedToHandler.ShouldBeNull();
         }
     }
 }

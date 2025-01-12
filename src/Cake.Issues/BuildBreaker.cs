@@ -13,13 +13,14 @@ internal static class BuildBreaker
     /// Fails build if any issues are found.
     /// </summary>
     /// <param name="issues">Issues which should be checked.</param>
-    public static void BreakBuildOnIssues(IEnumerable<IIssue> issues)
+    /// <param name="handler">Optional handler to call if <paramref name="issues"/> contains items.</param>
+    public static void BreakBuildOnIssues(IEnumerable<IIssue> issues, Action<IEnumerable<IIssue>> handler)
     {
         issues.NotNull();
 
         if (issues.Any())
         {
-            BreakBuild(issues);
+            BreakBuild(issues, handler);
         }
     }
 
@@ -28,11 +29,15 @@ internal static class BuildBreaker
     /// </summary>
     /// <param name="issues">Issues which should be checked.</param>
     /// <param name="priority">Minimum priority of issues which should be considered.</param>
-    public static void BreakBuildOnIssues(IEnumerable<IIssue> issues, IssuePriority priority)
+    /// <param name="handler">Optional handler to call when issues of <paramref name="priority"/> are found.</param>
+    public static void BreakBuildOnIssues(
+        IEnumerable<IIssue> issues,
+        IssuePriority priority,
+        Action<IEnumerable<IIssue>> handler)
     {
         issues.NotNull();
 
-        BreakBuildOnIssues(issues, x => x.Priority >= (int)priority);
+        BreakBuildOnIssues(issues, x => x.Priority >= (int)priority, handler);
     }
 
     /// <summary>
@@ -40,12 +45,16 @@ internal static class BuildBreaker
     /// </summary>
     /// <param name="issues">Issues which should be checked.</param>
     /// <param name="providerType">Type of the issue provider.</param>
-    public static void BreakBuildOnIssues(IEnumerable<IIssue> issues, string providerType)
+    /// <param name="handler">Optional handler to call when issues from <paramref name="providerType"/> are found.</param>
+    public static void BreakBuildOnIssues(
+        IEnumerable<IIssue> issues,
+        string providerType,
+        Action<IEnumerable<IIssue>> handler)
     {
         issues.NotNull();
         providerType.NotNullOrWhiteSpace();
 
-        BreakBuildOnIssues(issues, x => x.ProviderType == providerType);
+        BreakBuildOnIssues(issues, x => x.ProviderType == providerType, handler);
     }
 
     /// <summary>
@@ -57,11 +66,13 @@ internal static class BuildBreaker
     /// <param name="issueProvidersToConsider">Issue providers to consider.
     /// If empty, all providers are considered.</param>
     /// <param name="issueProvidersToIgnore">Issue providers to ignore.</param>
+    /// <param name="handler">Optional handler to call when issues matching parameters are found.</param>
     public static void BreakBuildOnIssues(
         IEnumerable<IIssue> issues,
         IssuePriority minimumPriority,
         IEnumerable<string> issueProvidersToConsider,
-        IEnumerable<string> issueProvidersToIgnore)
+        IEnumerable<string> issueProvidersToIgnore,
+        Action<IEnumerable<IIssue>> handler)
     {
         issues.NotNull();
         issueProvidersToConsider.NotNull();
@@ -75,7 +86,8 @@ internal static class BuildBreaker
                     (x.Priority == null || x.Priority >= (int)minimumPriority) &&
                     (!issueProvidersToConsider.Any() || issueProvidersToConsider.Contains(x.ProviderType)) &&
                     !issueProvidersToIgnore.Contains(x.ProviderType);
-            });
+            },
+            handler);
     }
 
     /// <summary>
@@ -83,17 +95,25 @@ internal static class BuildBreaker
     /// </summary>
     /// <param name="issues">Issues which should be checked.</param>
     /// <param name="predicate">Predicate to .</param>
-    public static void BreakBuildOnIssues(IEnumerable<IIssue> issues, Func<IIssue, bool> predicate)
+    /// <param name="handler">Optional handler to call when issues matching <paramref name="predicate"/> are found.</param>
+    public static void BreakBuildOnIssues(
+        IEnumerable<IIssue> issues,
+        Func<IIssue, bool> predicate,
+        Action<IEnumerable<IIssue>> handler)
     {
         issues.NotNull();
         predicate.NotNull();
 
         if (issues.Any(predicate))
         {
-            BreakBuild(issues);
+            BreakBuild(issues, handler);
         }
     }
 
-    private static void BreakBuild(IEnumerable<IIssue> issues) =>
+    private static void BreakBuild(IEnumerable<IIssue> issues, Action<IEnumerable<IIssue>> handler)
+    {
+        handler?.Invoke(issues);
+
         throw new IssuesFoundException(issues.Count());
+    }
 }
