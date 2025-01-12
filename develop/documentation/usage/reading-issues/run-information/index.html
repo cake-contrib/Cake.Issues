@@ -5715,9 +5715,10 @@
 
   <h1>Additional Run Information</h1>
 
-<p>If a build script needs to parse multiple log files from the same tool, e.g. because multiple MsBuild solutions were built,
-this can be done by calling the issue provider multiple times.
-If the results are read into the same list and shown on the same report,
+<p>If a build script needs to parse multiple log files using the same issue provider,
+e.g. by importing results in <a href="../../../issue-providers/sarif/">SARIF</a> or <a href="../../../issue-providers/tap/">Test Anything Protocol</a> format from different tools,
+this can be done by calling the issue provider multiple times.</p>
+<p>If the results are read into the same list and shown on the same report,
 individual issues could not be assigned to any of the calls, since issue provider type and name are identical.</p>
 <p>Starting with Cake.Issues 0.9.0 it is possible to pass additional run information while reading issues,
 which then will be stored with each issues in the <code>IIssue.Run</code> property:</p>
