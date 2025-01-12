@@ -195,7 +195,7 @@ public sealed class XmlFileLoggerLogFileFormatTests
                     "Cake.Issues.MsBuild.MsBuildIssuesProvider",
                     "MSBuild")
                     .InProject(@"src\ClassLibrary1\ClassLibrary1.csproj", "ClassLibrary1")
-                    .OfRule("CA2210", new Uri("https://www.google.com/search?q=\"CA2210:\"+site:learn.microsoft.com"))
+                    .OfRule("CA2210", new Uri("https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/CA2210"))
                     .WithPriority(IssuePriority.Warning));
             IssueChecker.Check(
                 issues[16],
@@ -204,7 +204,7 @@ public sealed class XmlFileLoggerLogFileFormatTests
                     "Cake.Issues.MsBuild.MsBuildIssuesProvider",
                     "MSBuild")
                     .InProject(@"src\ClassLibrary1\ClassLibrary1.csproj", "ClassLibrary1")
-                    .OfRule("CA1014", new Uri("https://www.google.com/search?q=\"CA1014:\"+site:learn.microsoft.com"))
+                    .OfRule("CA1014", new Uri("https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/CA1014"))
                     .WithPriority(IssuePriority.Warning));
             IssueChecker.Check(
                 issues[17],
@@ -214,7 +214,7 @@ public sealed class XmlFileLoggerLogFileFormatTests
                     "MSBuild")
                     .InProject(@"src\ClassLibrary1\ClassLibrary1.csproj", "ClassLibrary1")
                     .InFile(@"src\ClassLibrary1\Class1.cs", 12)
-                    .OfRule("CA1822", new Uri("https://www.google.com/search?q=\"CA1822:\"+site:learn.microsoft.com"))
+                    .OfRule("CA1822", new Uri("https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/CA1822"))
                     .WithPriority(IssuePriority.Warning));
             IssueChecker.Check(
                 issues[18],
@@ -224,7 +224,7 @@ public sealed class XmlFileLoggerLogFileFormatTests
                     "MSBuild")
                     .InProject(@"src\ClassLibrary1\ClassLibrary1.csproj", "ClassLibrary1")
                     .InFile(@"src\ClassLibrary1\Class1.cs", 13)
-                    .OfRule("CA1804", new Uri("https://www.google.com/search?q=\"CA1804:\"+site:learn.microsoft.com"))
+                    .OfRule("CA1804", new Uri("https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/CA1804"))
                     .WithPriority(IssuePriority.Warning));
         }
 
@@ -250,7 +250,7 @@ public sealed class XmlFileLoggerLogFileFormatTests
                     "MSBuild")
                     .InProjectOfName(string.Empty)
                     .InFile(@"src\Cake.Issues.MsBuild.Tests\MsBuildIssuesProviderTests.cs", 1311)
-                    .OfRule("CA2201", new Uri("https://www.google.com/search?q=\"CA2201:\"+site:learn.microsoft.com"))
+                    .OfRule("CA2201", new Uri("https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/CA2201"))
                     .WithPriority(IssuePriority.Warning));
         }
 
@@ -324,7 +324,7 @@ public sealed class XmlFileLoggerLogFileFormatTests
                     "Cake.Issues.MsBuild.MsBuildIssuesProvider",
                     "MSBuild")
                     .InProjectOfName(string.Empty)
-                    .OfRule("CA1711", new Uri("https://www.google.com/search?q=\"CA1711:\"+site:learn.microsoft.com"))
+                    .OfRule("CA1711", new Uri("https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/CA1711"))
                     .WithPriority(IssuePriority.Warning));
         }
 
@@ -452,7 +452,7 @@ public sealed class XmlFileLoggerLogFileFormatTests
                         "MSBuild")
                     .InProjectOfName(string.Empty)
                     .InFile(@"src\Cake.Issues.MsBuild.Tests\MsBuildIssuesProviderTests.cs", 1311)
-                    .OfRule("CA2201", new Uri("https://www.google.com/search?q=\"CA2201:\"+site:learn.microsoft.com"))
+                    .OfRule("CA2201", new Uri("https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/CA2201"))
                     .WithPriority(IssuePriority.Warning));
             IssueChecker.Check(
                 issues[1],
