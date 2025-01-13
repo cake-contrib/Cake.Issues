@@ -14,7 +14,7 @@ provides the following features.
 
 - [x] Reads errors and warnings from MSBuild log files.
 - [x] Provides URLs .NET SDK analyzers code quality rules (`CA*`), .NET SDK analyzers code style rules (`IDE*`), StyleCop analyzer rules (`SA*`), SonarLint rules (`S*`) and Roslynator rules (`RCS*`).
-- [x] Support for custom URL resolving using the [MsBuildAddRuleUrlResolver](https://cakebuild.net/api/Cake.Issues.MsBuild/MsBuildIssuesAliases/93C21487){target="_blank"} alias.
+- [x] Support for [custom URL resolving] using the `MsBuildAddRuleUrlResolver` alias.
 
 ## Supported log file formats
 
@@ -88,3 +88,4 @@ provides the following features.
 [DotNet aliases]: https://cakebuild.net/dsl/dotnet/#Built-In
 [MsBuild aliases]: https://cakebuild.net/dsl/msbuild/#Built-In
 [MsBuildAddRuleUrlResolver]: https://cakebuild.net/api/Cake.Issues.MsBuild/MsBuildIssuesAliases/93C21487
+[custom URL resolving]: examples/use-custom-url-resolver.md

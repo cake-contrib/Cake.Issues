@@ -14,8 +14,7 @@ The [Cake.Issues.PullRequests.AppVeyor addin]{target="_blank"} reports issues as
 ## Basic features
 
 - [x] Reports issues as messages to AppVeyor builds.
-- [x] Messages can be written as comment to GitHub pull requests.
-      See [GitHub pull request integration] for an example.
+- [x] Messages can be [written as comment to GitHub pull requests].
 
 ## Supported capabilities
 
@@ -27,4 +26,4 @@ The [Cake.Issues.PullRequests.AppVeyor addin]{target="_blank"} doesn't support a
 
 [demo repository]: https://github.com/pascalberger/Cake.Issues-Demo
 [Cake.Issues.PullRequests.AppVeyor addin]: https://cakebuild.net/extensions/cake-issues-pullrequests-appveyor/
-[GitHub pull request integration]: ./examples/github-pullrequest-integration.md
+[written as comment to GitHub pull requests]: examples/github-pullrequest-integration.md
