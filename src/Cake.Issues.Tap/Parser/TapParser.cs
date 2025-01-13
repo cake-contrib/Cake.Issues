@@ -147,7 +147,7 @@ internal partial class TapParser
                 insideYaml = true;
                 yamlLines = [];
             }
-            else
+            else if (!VersionRegEx().IsMatch(line))
             {
                 Console.WriteLine($"Warning: Unrecognized line: {line}");
             }
