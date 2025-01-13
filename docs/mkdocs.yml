@@ -281,6 +281,7 @@ nav:
             - Provider Settings: documentation/extending/issue-provider/tutorials/settings.md
             - Multiple Log File Formats: documentation/extending/issue-provider/tutorials/logfile-format.md
             - Rule URL Resolving: documentation/extending/issue-provider/tutorials/rule-url-resolving.md
+            - File Links In Messages: documentation/extending/issue-provider/tutorials/file-linking.md
           - Helper: documentation/extending/issue-provider/helper.md
         - Report Format: 
           - Overview: documentation/extending/report-format/overview.md
