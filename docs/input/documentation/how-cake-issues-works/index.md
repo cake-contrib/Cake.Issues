@@ -39,7 +39,12 @@ as comments to pull requests or builds.
 
 Support for different pull request systems is provided through [pull request system] addins.
 
-[issue provider]: issue-providers/index.md
-[linters and tools]: supported-tools.md
-[report format]: report-formats/index.md
-[pull request system]: pull-request-systems/index.md
+!!! tip
+    See [Pull Request Integration] for details how integration with build servers and
+    pull request systems works.
+
+[issue provider]: ../issue-providers/index.md
+[linters and tools]: ../supported-tools.md
+[report format]: ../report-formats/index.md
+[pull request system]: ../pull-request-systems/index.md
+[Pull Request Integration]: pull-request-integration.md

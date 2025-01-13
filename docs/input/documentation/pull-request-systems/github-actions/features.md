@@ -17,8 +17,8 @@ The [Cake.Issues.PullRequests.GitHubActions addin]{target="_blank"} creates anno
 
 The [Cake.Issues.PullRequests.GitHubActions addin]{target="_blank"} doesn't support any additional capabilities.
 
-- [ ] Checking commit ID
-- [ ] Discussion threads
-- [ ] Filtering by modified files
+- [ ] [Checking commit ID](../../how-cake-issues-works/pull-request-integration.md#check-commit-id)
+- [ ] [Discussion threads](../../how-cake-issues-works/pull-request-integration.md#handle-existing-discussion-threads)
+- [ ] [Filtering by modified files](../../how-cake-issues-works/pull-request-integration.md#filter-issues-by-path)
 
 [Cake.Issues.PullRequests.GitHubActions addin]: https://cakebuild.net/extensions/cake-issues-pullrequests-githubactions/

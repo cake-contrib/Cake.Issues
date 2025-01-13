@@ -23,9 +23,9 @@ provides the following features.
 The [Cake.Issues.PullRequests.AzureDevOps addin](https://cakebuild.net/extensions/cake-issues-pullrequests-azuredevops/){target="_blank"}
 supports the following capabilities.
 
-- [x] Checking commit ID
-- [x] Discussion threads
-- [x] Filtering by modified files
+- [x] [Checking commit ID](../../how-cake-issues-works/pull-request-integration.md#check-commit-id)
+- [x] [Discussion threads](../../how-cake-issues-works/pull-request-integration.md#handle-existing-discussion-threads)
+- [x] [Filtering by modified files](../../how-cake-issues-works/pull-request-integration.md#filter-issues-by-path)
 
 ## Supported authentication methods
 

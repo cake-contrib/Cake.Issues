@@ -20,9 +20,9 @@ The [Cake.Issues.PullRequests.AppVeyor addin]{target="_blank"} reports issues as
 
 The [Cake.Issues.PullRequests.AppVeyor addin]{target="_blank"} doesn't support any additional capabilities.
 
-- [ ] Checking commit ID
-- [ ] Discussion threads
-- [ ] Filtering by modified files
+- [ ] [Checking commit ID](../../how-cake-issues-works/pull-request-integration.md#check-commit-id)
+- [ ] [Discussion threads](../../how-cake-issues-works/pull-request-integration.md#handle-existing-discussion-threads)
+- [ ] [Filtering by modified files](../../how-cake-issues-works/pull-request-integration.md#filter-issues-by-path)
 
 [demo repository]: https://github.com/pascalberger/Cake.Issues-Demo
 [Cake.Issues.PullRequests.AppVeyor addin]: https://cakebuild.net/extensions/cake-issues-pullrequests-appveyor/
