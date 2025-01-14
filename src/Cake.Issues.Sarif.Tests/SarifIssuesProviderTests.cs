@@ -477,5 +477,59 @@ public sealed class SarifIssuesProviderTests
             // Then
             issues.Count.ShouldBe(1106);
         }
+
+        [Fact]
+        public void Should_Read_Issue_Correct_For_File_Generated_By_jscpd_On_Windows()
+        {
+            // Given
+            var fixture = new SarifIssuesProviderFixture("jscpd-windows.sarif");
+
+            // When
+            var issues = fixture.ReadIssues().ToList();
+
+            // Then
+            issues.Count.ShouldBe(1);
+
+            var issue = issues[0];
+            IssueChecker.Check(
+                issue,
+                IssueBuilder.NewIssue(
+                    "Clone detected in tsx, - C:/Source/Cake.Issues/foo.tsx[55:26 - 70:2] and C:/Source/Cake.Issues/bar.tsx[35:27 - 51:9]",
+                    "Cake.Issues.Sarif.SarifIssuesProvider",
+                    "jscpd")
+                    .InFile(@"foo.tsx", 55, 70, 26, 2)
+                    .OfRule(
+                        "duplication",
+                        new Uri("https://github.com/kucherenko/jscpd/"))
+                    .WithPriority(IssuePriority.Warning)
+                    .Create());
+        }
+
+        [Fact]
+        public void Should_Read_Issue_Correct_For_File_Generated_By_jscpd_On_Linux()
+        {
+            // Given
+            var fixture = new SarifIssuesProviderFixture("jscpd-linux.sarif", "/source/cake.issues");
+
+            // When
+            var issues = fixture.ReadIssues().ToList();
+
+            // Then
+            issues.Count.ShouldBe(1);
+
+            var issue = issues[0];
+            IssueChecker.Check(
+                issue,
+                IssueBuilder.NewIssue(
+                    "Clone detected in tsx, - /source/cake.issues/foo.tsx[55:26 - 70:2] and /source/cake.issues/bar.tsx[35:27 - 51:9]",
+                    "Cake.Issues.Sarif.SarifIssuesProvider",
+                    "jscpd")
+                    .InFile(@"foo.tsx", 55, 70, 26, 2)
+                    .OfRule(
+                        "duplication",
+                        new Uri("https://github.com/kucherenko/jscpd/"))
+                    .WithPriority(IssuePriority.Warning)
+                    .Create());
+        }
     }
 }
