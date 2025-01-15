@@ -63,7 +63,7 @@ The Cake.Issues addin breaks away from the norm by offering a modular architectu
 Comprising over 15 distinct addins, it presents a cohesive solution through more than 75 aliases for Cake builds,
 providing unparalleled flexibility.
 
-[:octicons-arrow-right-24: Architecture](how-cake-issues-works.md)
+[:octicons-arrow-right-24: Architecture](how-cake-issues-works/index.md)
 
 ### Extensible Infrastructure
 
@@ -73,4 +73,4 @@ This adaptability ensures that your build scripts can evolve with the ever-chang
 
 [:octicons-arrow-right-24: Documentation](extending/index.md)
 
-[modular architecture]: how-cake-issues-works.md
+[modular architecture]: how-cake-issues-works/index.md

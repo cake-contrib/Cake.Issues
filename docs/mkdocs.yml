@@ -66,6 +66,10 @@ theme:
     - search.highlight
     - search.suggest
 
+# Additional styling
+extra_css:
+  - stylesheets/extra.css
+
 # Plugins
 plugins:
   - blog:
@@ -95,7 +99,11 @@ markdown_extensions:
   - pymdownx.snippets:
       auto_append:
         - snippets/abbreviations.md
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.tabbed:
       alternate_style: true
       slugify: !!python/object/apply:pymdownx.slugs.slugify
@@ -138,7 +146,9 @@ nav:
   - Documentation:
     - Key concepts:
       - Overview: documentation/overview.md
-      - How Cake Issues Works: documentation/how-cake-issues-works.md
+      - How Cake Issues Works:
+        - documentation/how-cake-issues-works/index.md
+        - Pull Request Integration: documentation/how-cake-issues-works/pull-request-integration.md
       - Features: documentation/features.md
     - User Guide:
       - Usage:
