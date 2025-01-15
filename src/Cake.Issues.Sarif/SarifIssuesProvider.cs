@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using Cake.Core.Diagnostics;
+using Cake.Core.IO;
 using Cake.Issues;
 using Microsoft.CodeAnalysis.Sarif;
 using Newtonsoft.Json;
@@ -47,7 +48,7 @@ internal class SarifIssuesProvider(ICakeLog log, SarifIssuesSettings issueProvid
 
                 var (text, markdown) = GetMessage(sarifResult, run);
                 var (ruleId, ruleUrl) = GetRule(sarifResult, run);
-                var (filePath, startLine, endLine, startColumn, endColumn) = GetLocation(sarifResult);
+                var (filePath, startLine, endLine, startColumn, endColumn) = GetLocation(sarifResult, this.Settings);
 
                 // Build issue.
                 var issueBuilder =
@@ -177,9 +178,10 @@ internal class SarifIssuesProvider(ICakeLog log, SarifIssuesSettings issueProvid
     /// Determines the location for a SARIF result.
     /// </summary>
     /// <param name="result">Result to read the location from.</param>
+    /// <param name="repositorySettings">Repository settings.</param>
     /// <returns>File and line of the result.</returns>
     private static (string FilePath, int? StartLine, int? EndLine, int? StartColumn, int? EndColumn) GetLocation(
-        Result result)
+        Result result, IRepositorySettings repositorySettings)
     {
         result.NotNull();
 
@@ -187,7 +189,52 @@ internal class SarifIssuesProvider(ICakeLog log, SarifIssuesSettings issueProvid
         var location = result.Locations.FirstOrDefault();
         if (location is { PhysicalLocation: not null })
         {
-            var filePath = location.PhysicalLocation.ArtifactLocation.Uri.ToString();
+            // Depending on tool Uri is written differently:
+            // - Absolute path on Windows RFC 3986 conform: file://C:/path/to/file
+            // - Absolute path on Windows not RFC 3986 conform: C:/path/to/file
+            // - Absolute path on Linux not RFC 3986 conform: /path/to/file
+            // - Absolute path on Linux RFC 3986 conform: file://path/to/file
+            // - Relative path on Windows: path/to/file
+            string filePath;
+            bool isAbsolutePath;
+            try
+            {
+                if (location.PhysicalLocation.ArtifactLocation.Uri.IsFile)
+                {
+                    // Handle RFC 3986 conform URIs.
+                    if (!string.IsNullOrEmpty(location.PhysicalLocation.ArtifactLocation.Uri.Host))
+                    {
+                        // The case for Linux style URIs: file://path/to/file
+                        filePath = $"/{location.PhysicalLocation.ArtifactLocation.Uri.Host}{location.PhysicalLocation.ArtifactLocation.Uri.AbsolutePath}";
+                    }
+                    else
+                    {
+                        // The case for Windows style URIs: file://C:/path/to/file
+                        filePath = location.PhysicalLocation.ArtifactLocation.Uri.AbsolutePath;
+                    }
+                }
+                else
+                {
+                    // Handle URIs without file scheme.
+                    filePath = location.PhysicalLocation.ArtifactLocation.Uri.AbsolutePath;
+                }
+
+                isAbsolutePath = location.PhysicalLocation.ArtifactLocation.Uri.IsAbsoluteUri;
+            }
+            catch (InvalidOperationException)
+            {
+                // Handle relative paths.
+                filePath = location.PhysicalLocation.ArtifactLocation.Uri.ToString();
+                isAbsolutePath = !new FilePath(filePath).IsRelative;
+            }
+
+            // Validate file path and make relative to repository root if it is an absolute path.
+            (var pathValidationResult, filePath) = ValidateFilePath(filePath, isAbsolutePath, repositorySettings);
+
+            if (!pathValidationResult)
+            {
+                return (null, null, null, null, null);
+            }
 
             int? startLine = null;
             int? endLine = null;
@@ -205,5 +252,35 @@ internal class SarifIssuesProvider(ICakeLog log, SarifIssuesSettings issueProvid
         }
 
         return (null, null, null, null, null);
+    }
+
+    /// <summary>
+    /// Validates a file path.
+    /// </summary>
+    /// <param name="filePath">Full file path.</param>
+    /// <param name="isAbsolutePath">Indicates if the file path is an absolute path.</param>
+    /// <param name="repositorySettings">Repository settings.</param>
+    /// <returns>Tuple containing a value if validation was successful, and file path relative to repository root.</returns>
+    private static (bool Valid, string FilePath) ValidateFilePath(
+        string filePath,
+        bool isAbsolutePath,
+        IRepositorySettings repositorySettings)
+    {
+        filePath.NotNullOrWhiteSpace();
+        repositorySettings.NotNull();
+
+        if (isAbsolutePath)
+        {
+            // Ignore files from outside the repository.
+            if (!filePath.IsInRepository(repositorySettings))
+            {
+                return (false, string.Empty);
+            }
+
+            // Make path relative to repository root.
+            filePath = filePath.NormalizePath().MakeFilePathRelativeToRepositoryRoot(repositorySettings);
+        }
+
+        return (true, filePath);
     }
 }

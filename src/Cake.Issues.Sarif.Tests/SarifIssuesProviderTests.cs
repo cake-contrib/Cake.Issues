@@ -122,6 +122,126 @@ public sealed class SarifIssuesProviderTests
         }
 
         [Fact]
+        public void Should_Read_Issue_Correct_For_File_With_Absolute_Path_Not_Conform_To_RFC3986_Generated_On_Linux()
+        {
+            // Given
+            var fixture = new SarifIssuesProviderFixture("absolute-path-linux-non-rfc3986.sarif", "/src/cake.issues");
+
+            // When
+            var issues = fixture.ReadIssues().ToList();
+
+            // Then
+            issues.Count.ShouldBe(1);
+            var issue = issues.Single();
+            IssueChecker.Check(
+                issue,
+                IssueBuilder.NewIssue(
+                    "Variable \"count\" was used without being initialized.",
+                    "Cake.Issues.Sarif.SarifIssuesProvider",
+                    "CodeScanner")
+                    .InFile(@"collections\list.cpp", 15)
+                    .OfRule("C2001")
+                    .WithPriority(IssuePriority.Warning)
+                    .Create());
+        }
+
+        [Fact]
+        public void Should_Read_Issue_Correct_For_File_With_Absolute_Path_Conform_To_RFC3986_Generated_On_Linux()
+        {
+            // Given
+            var fixture = new SarifIssuesProviderFixture("absolute-path-linux-rfc3986.sarif", "/src/cake.issues");
+
+            // When
+            var issues = fixture.ReadIssues().ToList();
+
+            // Then
+            issues.Count.ShouldBe(1);
+            var issue = issues.Single();
+            IssueChecker.Check(
+                issue,
+                IssueBuilder.NewIssue(
+                    "Variable \"count\" was used without being initialized.",
+                    "Cake.Issues.Sarif.SarifIssuesProvider",
+                    "CodeScanner")
+                    .InFile(@"collections\list.cpp", 15)
+                    .OfRule("C2001")
+                    .WithPriority(IssuePriority.Warning)
+                    .Create());
+        }
+
+        [Fact]
+        public void Should_Read_Issue_Correct_For_File_With_Absolute_Path_Not_Conform_To_RFC3986_Generated_On_Windows()
+        {
+            // Given
+            var fixture = new SarifIssuesProviderFixture("absolute-path-windows-non-rfc3986.sarif");
+
+            // When
+            var issues = fixture.ReadIssues().ToList();
+
+            // Then
+            issues.Count.ShouldBe(1);
+            var issue = issues.Single();
+            IssueChecker.Check(
+                issue,
+                IssueBuilder.NewIssue(
+                    "Variable \"count\" was used without being initialized.",
+                    "Cake.Issues.Sarif.SarifIssuesProvider",
+                    "CodeScanner")
+                    .InFile(@"collections\list.cpp", 15)
+                    .OfRule("C2001")
+                    .WithPriority(IssuePriority.Warning)
+                    .Create());
+        }
+
+        [Fact]
+        public void Should_Read_Issue_Correct_For_File_With_Absolute_Path_Conform_To_RFC3986_Generated_On_Windows()
+        {
+            // Given
+            var fixture = new SarifIssuesProviderFixture("absolute-path-windows-rfc3986.sarif");
+
+            // When
+            var issues = fixture.ReadIssues().ToList();
+
+            // Then
+            issues.Count.ShouldBe(1);
+            var issue = issues.Single();
+            IssueChecker.Check(
+                issue,
+                IssueBuilder.NewIssue(
+                    "Variable \"count\" was used without being initialized.",
+                    "Cake.Issues.Sarif.SarifIssuesProvider",
+                    "CodeScanner")
+                    .InFile(@"collections\list.cpp", 15)
+                    .OfRule("C2001")
+                    .WithPriority(IssuePriority.Warning)
+                    .Create());
+        }
+
+        [Fact]
+        public void Should_Read_Issue_Correct_For_File_With_Relative_Path()
+        {
+            // Given
+            var fixture = new SarifIssuesProviderFixture("relative-path.sarif");
+
+            // When
+            var issues = fixture.ReadIssues().ToList();
+
+            // Then
+            issues.Count.ShouldBe(1);
+            var issue = issues.Single();
+            IssueChecker.Check(
+                issue,
+                IssueBuilder.NewIssue(
+                    "Variable \"count\" was used without being initialized.",
+                    "Cake.Issues.Sarif.SarifIssuesProvider",
+                    "CodeScanner")
+                    .InFile(@"src\collections\list.cpp", 15)
+                    .OfRule("C2001")
+                    .WithPriority(IssuePriority.Warning)
+                    .Create());
+        }
+
+        [Fact]
         public void Should_Ignore_Suppressed_Issues_If_IgnoreSuppressedIssues_Is_Enabled()
         {
             // Given

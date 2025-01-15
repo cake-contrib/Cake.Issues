@@ -1,8 +1,20 @@
 ﻿namespace Cake.Issues.Sarif.Tests;
 
-internal class SarifIssuesProviderFixture(string fileResourceName)
-    : BaseConfigurableIssueProviderFixture<SarifIssuesProvider, SarifIssuesSettings>(fileResourceName)
+internal class SarifIssuesProviderFixture
+    : BaseConfigurableIssueProviderFixture<SarifIssuesProvider, SarifIssuesSettings>
 {
+    public SarifIssuesProviderFixture(string fileResourceName)
+        : this(fileResourceName, @"c:\Source\Cake.Issues")
+    {
+    }
+
+    public SarifIssuesProviderFixture(string fileResourceName, string repositoryRoot)
+        : base(fileResourceName)
+    {
+        this.ReadIssuesSettings =
+            new ReadIssuesSettings(repositoryRoot);
+    }
+
     public bool UseToolNameAsIssueProviderName { get; set; } = true;
 
     public bool IgnoreSuppressedIssues { get; set; } = true;
