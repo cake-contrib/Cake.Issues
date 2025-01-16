@@ -12,6 +12,7 @@
     // Read options and apply default values.
     var title = ViewBagHelper.ValueOrDefault(ViewBag.Title, "Issues Report");
     DevExtremeTheme theme = ViewBagHelper.ValueOrDefault(ViewBag.Theme, DevExtremeTheme.Light);
+    HtmlDxDataGridDisplayMode displayMode = ViewBagHelper.ValueOrDefault(ViewBag.DisplayMode, HtmlDxDataGridDisplayMode.Paged);
     bool showHeader = ViewBagHelper.ValueOrDefault(ViewBag.ShowHeader, true);
     bool enableSearching = ViewBagHelper.ValueOrDefault(ViewBag.EnableSearching, true);
     bool enableGrouping = ViewBagHelper.ValueOrDefault(ViewBag.EnableGrouping, true);
@@ -240,9 +241,24 @@
                 loadPanel: {
                     enabled: true
                 },
-                pager: {
-                    showPageSizeSelector: true
-                },
+                @switch (displayMode)
+                {
+                    case HtmlDxDataGridDisplayMode.Paged:
+                        <text>
+                        pager: {
+                            showPageSizeSelector: true
+                        },
+                        </text>
+                        break;
+                    case HtmlDxDataGridDisplayMode.InfiniteScroll:
+                        <text>
+                        scrolling:
+                        {
+                            mode: "virtual"
+                        },
+                        </text>
+                        break;
+                }
                 searchPanel: {
                     visible: @enableSearching.ToString().ToLowerInvariant()
                 },
