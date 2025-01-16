@@ -59,9 +59,9 @@ This template doesn't support any options.
 
 ## Source Code
 
-!!! info
+!!! tip
     You can use the source code as a template for your [custom template].
 
-Source code is available on [GitHub](https://github.com/cake-contrib/Cake.Issues.Reporting.Generic/blob/develop/src/Cake.Issues.Reporting.Generic/Templates/DataTable.cshtml){target="_blank"}.
+Source code is available on [GitHub](https://github.com/cake-contrib/Cake.Issues/blob/develop/src/Cake.Issues.Reporting.Generic/Templates/DataTable.cshtml){target="_blank"}.
 
 [custom template]: ../examples/custom-template.md
