@@ -1,0 +1,3 @@
+"Tool","Tool Version","Format","Issue Provider","Supported Since"
+"[detekt](https://detekt.dev/){target='_blank'}",,[sarif](https://detekt.dev/docs/introduction/reporting#sarif),"[Cake.Issues.Sarif](issue-providers/sarif/index.md)",4.2.0
+"[ktlint](https://pinterest.github.io/ktlint){target='_blank'}",,[sarif](https://pinterest.github.io/ktlint/latest/install/cli/#violation-reporting),"[Cake.Issues.Sarif](issue-providers/sarif/index.md)",4.2.0
