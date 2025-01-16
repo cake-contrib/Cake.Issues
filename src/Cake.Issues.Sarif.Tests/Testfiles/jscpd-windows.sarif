@@ -1,0 +1,65 @@
+{
+    "$schema": "http://json.schemastore.org/sarif-2.1.0-rtm.5.json",
+    "version": "2.1.0",
+    "runs": [
+        {
+            "tool": {
+                "driver": {
+                    "name": "jscpd",
+                    "rules": [
+                        {
+                            "id": "duplication",
+                            "shortDescription": {
+                                "text": "Found code duplication"
+                            },
+                            "helpUri": "https://github.com/kucherenko/jscpd/"
+                        },
+                        {
+                            "id": "duplications-threshold",
+                            "shortDescription": {
+                                "text": "Level of duplication is too high"
+                            },
+                            "helpUri": "https://github.com/kucherenko/jscpd/"
+                        }
+                    ],
+                    "version": "4.0.3",
+                    "informationUri": "https://github.com/kucherenko/jscpd/"
+                }
+            },
+            "results": [
+                {
+                    "level": "warning",
+                    "message": {
+                        "text": "Clone detected in tsx, - C:/Source/Cake.Issues/foo.tsx[55:26 - 70:2] and C:/Source/Cake.Issues/bar.tsx[35:27 - 51:9]"
+                    },
+                    "ruleId": "duplication",
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "C:/Source/Cake.Issues/foo.tsx",
+                                    "index": 0
+                                },
+                                "region": {
+                                    "startLine": 55,
+                                    "startColumn": 26,
+                                    "endLine": 70,
+                                    "endColumn": 2
+                                }
+                            }
+                        }
+                    ],
+                    "ruleIndex": 0
+                }
+           ],
+            "artifacts": [
+                {
+                    "sourceLanguage": "XML",
+                    "location": {
+                        "uri": "C:/Source/Cake.Issues/foo.tsx"
+                    }
+                }
+            ]
+        }
+    ]
+}

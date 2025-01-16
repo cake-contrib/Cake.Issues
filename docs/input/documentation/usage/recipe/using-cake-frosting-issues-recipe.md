@@ -84,22 +84,28 @@ public class RunInspectCodeTask : FrostingTask<BuildContext>
 {
     public override void Run(BuildContext context)
     {
-        var inspectCodeLogFilePath = context.Parameters.OutputDirectory..CombineWithFilePath("inspectCode.log");
+        var inspectCodeLogFilePath =
+            context.Parameters.OutputDirectory
+                .CombineWithFilePath("inspectCode.log");
 
         // Run JetBrains InspectCode
         context.InspectCode(
-            context.State.RepositoryRootDirectory.Combine("src").CombineWithFilePath("ClassLibrary1.sln"),
+            context.State.RepositoryRootDirectory
+                .Combine("src")
+                .CombineWithFilePath("ClassLibrary1.sln"),
             new InspectCodeSettings() {
                 OutputFile = context.InspectCodeLogFilePath
             });
 
         // Pass path to InspectCode log file to Cake.Frosting.Issues.Recipe
-        context.Parameters.InputFiles.AddInspectCodeLogFilePath(context.InspectCodeLogFilePath);
+        context.Parameters.InputFiles
+            .AddInspectCodeLogFilePath(context.InspectCodeLogFilePath);
     }
 }
 ```
 
-See [configuration] for a full list of available configuration parameters.
+!!! tip
+    See [configuration] for a full list of available configuration parameters.
 
 ## Calling issues tasks
 

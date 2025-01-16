@@ -1,10 +1,10 @@
 ---
-title: Examples
-description: Examples for using the Cake.Issues.MsBuild addin.
+title: Read MsBuild binary log file
+description: Examples for reading a binary logfile using the Cake.Issues.MsBuild addin.
 icon: material/test-tube
 ---
 
-To read issues from MsBuild log files you need to import the MsBuild issue provider needs to be imported:
+To read issues from MsBuild log files the MsBuild issue provider needs to be imported:
 
 === "Cake .NET Tool"
 

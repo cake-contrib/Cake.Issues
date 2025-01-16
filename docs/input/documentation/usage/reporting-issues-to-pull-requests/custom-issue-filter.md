@@ -3,7 +3,8 @@ title: Custom issue filter
 description: Usage instructions how to apply custom filters to issues.
 ---
 
-You can define custom filters which are applied to issues before they are posted as comments to pull requests.
+The [IssueFilters setting property]{target="_blank"} allows to define custom filters which are applied to issues
+before they are posted as comments to pull requests.
 
 ??? tip "Tip: Filter to issues introduced with pull request"
     You can use a custom filter to only have issues introduced with the current code posted to the pull request.
@@ -26,10 +27,11 @@ The following example will filter out all issues from the rule `CA1000` from bei
     {
         var repoRootFolder = new DirectoryPath(@"C:\repo");    
 
-        var settings = new ReportIssuesToPullRequestFromIssueProviderSettings(repoRootFolder);    
+        var settings =
+            new ReportIssuesToPullRequestFromIssueProviderSettings(repoRootFolder);
 
         // Add custom filter.
-        settings.IssueFilters.Add(x => x.Where(issue => issue.RuleId != "CA1000"));    
+        settings.IssueFilters.Add(x => x.Where(issue => issue.RuleId != "CA1000"));
 
         ReportIssuesToPullRequest(
             new List<IIssueProvider>
@@ -79,12 +81,15 @@ The following example will filter out all issues from the rule `CA1000` from bei
     {
         public override void Run(FrostingContext context)
         {
-            var repoRootFolder = new DirectoryPath(@"C:\repo");        
+            var repoRootFolder = new DirectoryPath(@"C:\repo");
 
-            var settings = new ReportIssuesToPullRequestFromIssueProviderSettings(repoRootFolder);        
+            var settings =
+                new ReportIssuesToPullRequestFromIssueProviderSettings(
+                    repoRootFolder);
 
             // Add custom filter.
-            settings.IssueFilters.Add(x => x.Where(issue => issue.RuleId != "CA1000"));        
+            settings.IssueFilters.Add(x =>
+                x.Where(issue => issue.RuleId != "CA1000"));
 
             context.ReportIssuesToPullRequest(
                 new List<IIssueProvider>
@@ -99,3 +104,4 @@ The following example will filter out all issues from the rule `CA1000` from bei
     }
     ```
 
+[IssueFilters Setting Property]: https://cakebuild.net/api/Cake.Issues.PullRequests/IReportIssuesToPullRequestSettings/48CB35E4

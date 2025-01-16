@@ -8,10 +8,8 @@ The [Cake.Issues.Reporting.Generic addin](https://cakebuild.net/extensions/cake-
 provides the following features:
 
 - [x] Creates reports in any text based format like HTML or Markdown.
-- [x] Provides out of the box templates
-- [x] Possibility to use custom templates using Razor
+- [x] Provides [out of the box templates]
+- [x] Possibility to [use custom templates] using Razor
 
-!!! info
-    See [Template Gallery] for a list of available out of the box and 3rd party templates.
-
-[Template Gallery]: templates/index.md
+[out of the box templates]: templates/index.md
+[use custom templates]: examples/custom-template.md

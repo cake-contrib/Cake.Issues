@@ -22,4 +22,4 @@ release lifecycle of the three core addins have been aligned, resulting in a sim
 Starting with the next release we'll begin to move also the remaining issue provider, report format and
 pull request system addins into the main Cake Issues repository and have them released together with the core addins.
 
-[modular architecture]: ../../documentation/how-cake-issues-works.md
+[modular architecture]: ../../documentation/how-cake-issues-works/index.md

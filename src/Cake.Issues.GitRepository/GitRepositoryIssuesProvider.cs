@@ -2,7 +2,9 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
 using Cake.Core;
 using Cake.Core.Diagnostics;
 using Cake.Core.IO;
@@ -75,14 +77,20 @@ internal class GitRepositoryIssuesProvider : BaseIssueProvider
     {
         var result = new List<IIssue>();
 
+        var assembly = Assembly.GetAssembly(typeof(GitRepositoryIssuesProvider));
+        var fileVersion = FileVersionInfo.GetVersionInfo(assembly.Location).FileVersion;
+        var versionParts = fileVersion.Split('.');
+        var issueProviderVersion = $"{versionParts[0]}.{versionParts[1]}.{versionParts[2]}";
+
         if (this.IssueProviderSettings.CheckBinaryFilesTrackedByLfs)
         {
-            result.AddRange(this.CheckForBinaryFilesNotTrackedByLfs());
+            result.AddRange(
+                this.CheckForBinaryFilesNotTrackedByLfs(issueProviderVersion));
         }
 
         if (this.IssueProviderSettings.CheckFilesPathLength)
         {
-            result.AddRange(this.CheckForFilesPathLength());
+            result.AddRange(this.CheckForFilesPathLength(issueProviderVersion));
         }
 
         return result;
@@ -91,8 +99,9 @@ internal class GitRepositoryIssuesProvider : BaseIssueProvider
     /// <summary>
     /// Checks for binary files which are not tracked by LFS.
     /// </summary>
+    /// <param name="issueProviderVersion">Version of the issue provider.</param>
     /// <returns>List of issues for binary files which are not tracked by LFS.</returns>
-    private List<IIssue> CheckForBinaryFilesNotTrackedByLfs()
+    private List<IIssue> CheckForBinaryFilesNotTrackedByLfs(string issueProviderVersion)
     {
         if (!this.allFiles.Value.Any())
         {
@@ -119,7 +128,7 @@ internal class GitRepositoryIssuesProvider : BaseIssueProvider
                     .WithMessageInHtmlFormat($"The binary file <code>{file}</code> is not tracked by Git LFS")
                     .WithMessageInMarkdownFormat($"The binary file `{file}` is not tracked by Git LFS")
                     .InFile(file)
-                    .OfRule(ruleDescription)
+                    .OfRule(ruleDescription, issueProviderVersion)
                     .Create());
         }
 
@@ -129,8 +138,9 @@ internal class GitRepositoryIssuesProvider : BaseIssueProvider
     /// <summary>
     /// Checks for files path length.
     /// </summary>
+    /// <param name="issueProviderVersion">Version of the issue provider.</param>
     /// <returns>List of issues for repository files with paths exceeding the allowed maximum.</returns>
-    private List<IIssue> CheckForFilesPathLength()
+    private List<IIssue> CheckForFilesPathLength(string issueProviderVersion)
     {
         if (!this.allFiles.Value.Any())
         {
@@ -150,7 +160,7 @@ internal class GitRepositoryIssuesProvider : BaseIssueProvider
                         .WithMessageInHtmlFormat($"The path for the file <code>{file}</code> is too long. Maximum allowed path length is {this.IssueProviderSettings.MaxFilePathLength}, actual path length is {file.Length}.")
                         .WithMessageInMarkdownFormat($"The path for the file `{file}` is too long. Maximum allowed path length is {this.IssueProviderSettings.MaxFilePathLength}, actual path length is {file.Length}.")
                         .InFile(file)
-                        .OfRule(ruleDescription)
+                        .OfRule(ruleDescription, issueProviderVersion)
                         .Create());
             }
         }

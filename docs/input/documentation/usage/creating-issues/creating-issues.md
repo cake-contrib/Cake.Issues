@@ -6,6 +6,9 @@ description: Usage instructions how to create issues.
 The `Cake.Issues` addin can be used to create issues directly in the build script.
 This issues can for example be used to create reports.
 
+??? Tip "List of all aliases for creating issues"
+    See all available [Aliases for creating issues](https://cakebuild.net/extensions/cake-issues/#Creating-Issues){target="_blank"}
+
 To create issues you need to import the following core addin:
 
 === "Cake .NET Tool"
@@ -49,7 +52,9 @@ In the following task a new warning for the myfile.txt file on line 42 is create
                 .WithPriority(IssuePriority.Warning)
                 .Create();
     
-        Information("Issue created with message: {0}", issue.MessageText);
+        Information(
+            "Issue created with message: {0}",
+            issue.MessageText);
     });
     ```
 
@@ -84,7 +89,9 @@ In the following task a new warning for the myfile.txt file on line 42 is create
                     .WithPriority(IssuePriority.Warning)
                     .Create();
         
-            context.Information("Issue created with message: {0}", issue.MessageText);
+            context.Information(
+                "Issue created with message: {0}",
+                issue.MessageText);
         }
     }
     ```

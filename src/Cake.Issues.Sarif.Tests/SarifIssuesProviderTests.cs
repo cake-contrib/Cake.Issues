@@ -122,6 +122,126 @@ public sealed class SarifIssuesProviderTests
         }
 
         [Fact]
+        public void Should_Read_Issue_Correct_For_File_With_Absolute_Path_Not_Conform_To_RFC3986_Generated_On_Linux()
+        {
+            // Given
+            var fixture = new SarifIssuesProviderFixture("absolute-path-linux-non-rfc3986.sarif", "/src/cake.issues");
+
+            // When
+            var issues = fixture.ReadIssues().ToList();
+
+            // Then
+            issues.Count.ShouldBe(1);
+            var issue = issues.Single();
+            IssueChecker.Check(
+                issue,
+                IssueBuilder.NewIssue(
+                    "Variable \"count\" was used without being initialized.",
+                    "Cake.Issues.Sarif.SarifIssuesProvider",
+                    "CodeScanner")
+                    .InFile(@"collections\list.cpp", 15)
+                    .OfRule("C2001")
+                    .WithPriority(IssuePriority.Warning)
+                    .Create());
+        }
+
+        [Fact]
+        public void Should_Read_Issue_Correct_For_File_With_Absolute_Path_Conform_To_RFC3986_Generated_On_Linux()
+        {
+            // Given
+            var fixture = new SarifIssuesProviderFixture("absolute-path-linux-rfc3986.sarif", "/src/cake.issues");
+
+            // When
+            var issues = fixture.ReadIssues().ToList();
+
+            // Then
+            issues.Count.ShouldBe(1);
+            var issue = issues.Single();
+            IssueChecker.Check(
+                issue,
+                IssueBuilder.NewIssue(
+                    "Variable \"count\" was used without being initialized.",
+                    "Cake.Issues.Sarif.SarifIssuesProvider",
+                    "CodeScanner")
+                    .InFile(@"collections\list.cpp", 15)
+                    .OfRule("C2001")
+                    .WithPriority(IssuePriority.Warning)
+                    .Create());
+        }
+
+        [Fact]
+        public void Should_Read_Issue_Correct_For_File_With_Absolute_Path_Not_Conform_To_RFC3986_Generated_On_Windows()
+        {
+            // Given
+            var fixture = new SarifIssuesProviderFixture("absolute-path-windows-non-rfc3986.sarif");
+
+            // When
+            var issues = fixture.ReadIssues().ToList();
+
+            // Then
+            issues.Count.ShouldBe(1);
+            var issue = issues.Single();
+            IssueChecker.Check(
+                issue,
+                IssueBuilder.NewIssue(
+                    "Variable \"count\" was used without being initialized.",
+                    "Cake.Issues.Sarif.SarifIssuesProvider",
+                    "CodeScanner")
+                    .InFile(@"collections\list.cpp", 15)
+                    .OfRule("C2001")
+                    .WithPriority(IssuePriority.Warning)
+                    .Create());
+        }
+
+        [Fact]
+        public void Should_Read_Issue_Correct_For_File_With_Absolute_Path_Conform_To_RFC3986_Generated_On_Windows()
+        {
+            // Given
+            var fixture = new SarifIssuesProviderFixture("absolute-path-windows-rfc3986.sarif");
+
+            // When
+            var issues = fixture.ReadIssues().ToList();
+
+            // Then
+            issues.Count.ShouldBe(1);
+            var issue = issues.Single();
+            IssueChecker.Check(
+                issue,
+                IssueBuilder.NewIssue(
+                    "Variable \"count\" was used without being initialized.",
+                    "Cake.Issues.Sarif.SarifIssuesProvider",
+                    "CodeScanner")
+                    .InFile(@"collections\list.cpp", 15)
+                    .OfRule("C2001")
+                    .WithPriority(IssuePriority.Warning)
+                    .Create());
+        }
+
+        [Fact]
+        public void Should_Read_Issue_Correct_For_File_With_Relative_Path()
+        {
+            // Given
+            var fixture = new SarifIssuesProviderFixture("relative-path.sarif");
+
+            // When
+            var issues = fixture.ReadIssues().ToList();
+
+            // Then
+            issues.Count.ShouldBe(1);
+            var issue = issues.Single();
+            IssueChecker.Check(
+                issue,
+                IssueBuilder.NewIssue(
+                    "Variable \"count\" was used without being initialized.",
+                    "Cake.Issues.Sarif.SarifIssuesProvider",
+                    "CodeScanner")
+                    .InFile(@"src\collections\list.cpp", 15)
+                    .OfRule("C2001")
+                    .WithPriority(IssuePriority.Warning)
+                    .Create());
+        }
+
+        [Fact]
         public void Should_Ignore_Suppressed_Issues_If_IgnoreSuppressedIssues_Is_Enabled()
         {
             // Given
@@ -356,6 +476,60 @@ public sealed class SarifIssuesProviderTests
 
             // Then
             issues.Count.ShouldBe(1106);
+        }
+
+        [Fact]
+        public void Should_Read_Issue_Correct_For_File_Generated_By_jscpd_On_Windows()
+        {
+            // Given
+            var fixture = new SarifIssuesProviderFixture("jscpd-windows.sarif");
+
+            // When
+            var issues = fixture.ReadIssues().ToList();
+
+            // Then
+            issues.Count.ShouldBe(1);
+
+            var issue = issues[0];
+            IssueChecker.Check(
+                issue,
+                IssueBuilder.NewIssue(
+                    "Clone detected in tsx, - C:/Source/Cake.Issues/foo.tsx[55:26 - 70:2] and C:/Source/Cake.Issues/bar.tsx[35:27 - 51:9]",
+                    "Cake.Issues.Sarif.SarifIssuesProvider",
+                    "jscpd")
+                    .InFile(@"foo.tsx", 55, 70, 26, 2)
+                    .OfRule(
+                        "duplication",
+                        new Uri("https://github.com/kucherenko/jscpd/"))
+                    .WithPriority(IssuePriority.Warning)
+                    .Create());
+        }
+
+        [Fact]
+        public void Should_Read_Issue_Correct_For_File_Generated_By_jscpd_On_Linux()
+        {
+            // Given
+            var fixture = new SarifIssuesProviderFixture("jscpd-linux.sarif", "/source/cake.issues");
+
+            // When
+            var issues = fixture.ReadIssues().ToList();
+
+            // Then
+            issues.Count.ShouldBe(1);
+
+            var issue = issues[0];
+            IssueChecker.Check(
+                issue,
+                IssueBuilder.NewIssue(
+                    "Clone detected in tsx, - /source/cake.issues/foo.tsx[55:26 - 70:2] and /source/cake.issues/bar.tsx[35:27 - 51:9]",
+                    "Cake.Issues.Sarif.SarifIssuesProvider",
+                    "jscpd")
+                    .InFile(@"foo.tsx", 55, 70, 26, 2)
+                    .OfRule(
+                        "duplication",
+                        new Uri("https://github.com/kucherenko/jscpd/"))
+                    .WithPriority(IssuePriority.Warning)
+                    .Create());
         }
     }
 }

@@ -27,12 +27,15 @@ Task("Configure-CakeIssuesRecipe")
     .IsDependentOn("Run-InspectCode")
     .Does(() =>
 {
-    IssuesParameters.InputFiles.AddMsBuildBinaryLogFilePath(msBuildLogFilePath);
-    IssuesParameters.InputFiles.AddInspectCodeLogFilePath(inspectCodeLogFilePath);
+    IssuesParameters.InputFiles
+        .AddMsBuildBinaryLogFilePath(msBuildLogFilePath);
+    IssuesParameters.InputFiles
+        .AddInspectCodeLogFilePath(inspectCodeLogFilePath);
 }
 ```
 
-See [configuration] for a full list of available configuration parameters.
+!!! tip
+    See [configuration] for a full list of available configuration parameters.
 
 ## Calling issues tasks
 

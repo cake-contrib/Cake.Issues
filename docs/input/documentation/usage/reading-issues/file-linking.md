@@ -6,6 +6,9 @@ description: Example how to define file link settings.
 File link settings can be defined while reading issues and are passed through the `IIssue.FileLink` property to
 reporting formats, pull request systems and build server implementations:
 
+??? Tip "List of all aliases for file linking"
+    See all available [Aliases for file linking](https://cakebuild.net/extensions/cake-issues/#File-Linking){target="_blank"}
+
 === "Cake .NET Tool"
 
     ```csharp

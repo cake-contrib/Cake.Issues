@@ -66,6 +66,10 @@ theme:
     - search.highlight
     - search.suggest
 
+# Additional styling
+extra_css:
+  - stylesheets/extra.css
+
 # Plugins
 plugins:
   - blog:
@@ -95,7 +99,11 @@ markdown_extensions:
   - pymdownx.snippets:
       auto_append:
         - snippets/abbreviations.md
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.tabbed:
       alternate_style: true
       slugify: !!python/object/apply:pymdownx.slugs.slugify
@@ -116,7 +124,7 @@ extra:
   # renovate: datasource=nuget depName=Cake.DocFx versioning=loose
   cake_docfx_version: 1.0.0
   # renovate: datasource=nuget depName=Cake.Issues versioning=loose
-  cake_issues_version: 5.3.0
+  cake_issues_version: 5.4.0
   # renovate: datasource=nuget depName=Cake.Markdownlint versioning=loose
   cake_markdownlint_version: 4.0.0
   # renovate: datasource=nuget depName=Cake.Git versioning=loose
@@ -138,7 +146,9 @@ nav:
   - Documentation:
     - Key concepts:
       - Overview: documentation/overview.md
-      - How Cake Issues Works: documentation/how-cake-issues-works.md
+      - How Cake Issues Works:
+        - documentation/how-cake-issues-works/index.md
+        - Pull Request Integration: documentation/how-cake-issues-works/pull-request-integration.md
       - Features: documentation/features.md
     - User Guide:
       - Usage:
@@ -201,7 +211,10 @@ nav:
         - MsBuild:
           - documentation/issue-providers/msbuild/index.md
           - Features: documentation/issue-providers/msbuild/features.md
-          - Examples: documentation/issue-providers/msbuild/examples.md
+          - Examples:
+            - documentation/issue-providers/msbuild/examples/index.md
+            - Read binary log file: documentation/issue-providers/msbuild/examples/read-binary-log.md
+            - Use custom URL resolver: documentation/issue-providers/msbuild/examples/use-custom-url-resolver.md
           - API: https://cakebuild.net/extensions/cake-issues-msbuild" target="_blank
         - Sarif:
           - documentation/issue-providers/sarif/index.md
@@ -278,6 +291,7 @@ nav:
             - Provider Settings: documentation/extending/issue-provider/tutorials/settings.md
             - Multiple Log File Formats: documentation/extending/issue-provider/tutorials/logfile-format.md
             - Rule URL Resolving: documentation/extending/issue-provider/tutorials/rule-url-resolving.md
+            - File Links In Messages: documentation/extending/issue-provider/tutorials/file-linking.md
           - Helper: documentation/extending/issue-provider/helper.md
         - Report Format: 
           - Overview: documentation/extending/report-format/overview.md
