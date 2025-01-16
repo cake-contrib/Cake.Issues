@@ -32,24 +32,36 @@ internal class ConsoleIssueReportGenerator : IssueReportFormat
     protected override FilePath InternalCreateReport(IEnumerable<IIssue> issues)
     {
         var enumeratedIssues = issues.ToList();
+        this.Log.Verbose("Starting rendering of console output for {0} issues", enumeratedIssues.Count);
+
         if (this.consoleIssueReportFormatSettings.ShowDiagnostics)
         {
             // Filter to issues from existing files
+            var countBefore = enumeratedIssues.Count;
             var diagnosticIssues =
             enumeratedIssues
                 .Where(x =>
                     x.AffectedFileRelativePath != null &&
                     File.Exists(this.Settings.RepositoryRoot.CombineWithFilePath(x.AffectedFileRelativePath).FullPath))
                 .ToList();
+            this.Log.Verbose(
+                "{0} issue(s) were filtered because they either don't belong to a file or the file does not exist.",
+                countBefore - enumeratedIssues.Count);
 
             // Filter to issues with line and column information
             // Errata currently doesn't support file or line level diagnostics.
             // https://github.com/cake-contrib/Cake.Issues.Reporting.Console/issues/4
             // https://github.com/cake-contrib/Cake.Issues.Reporting.Console/issues/5
+            countBefore = enumeratedIssues.Count;
             diagnosticIssues =
                 diagnosticIssues
                     .Where(x => x.Line.HasValue && x.Column.HasValue)
                     .ToList();
+            this.Log.Verbose(
+                "{0} issue(s) were filtered because they don't contain line or column information.",
+                countBefore - diagnosticIssues.Count);
+
+            this.Log.Verbose("{0} issue to write after filtering", diagnosticIssues.Count);
 
             var report = new Report(new FileSystemRepository(this.Settings));
 
