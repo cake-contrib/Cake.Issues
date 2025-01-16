@@ -17,6 +17,20 @@
     <script type="text/javascript" src="https://cdn3.devexpress.com/jslib/23.1.11/js/dx.all.js"></script>
 
     <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        #gridContainer {
+            flex: 1;
+            overflow: auto;
+        }
         .dx-theme-material-typography h1
         {
             font-weight: 200;
@@ -37,9 +51,8 @@
     </style>
 </head>
 <body class="dx-viewport">
-        <h1>Issues Report</h1>
-
     <div class="container">
+            <h1>Issues Report</h1>
         <div id="gridContainer"></div>
     </div>
 
