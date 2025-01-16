@@ -3,7 +3,7 @@ title: HTML DevExtreme Data Grid
 description: Template for a HTML report containing a rich data grid with sorting, filtering, grouping and search capabilities.
 ---
 
-Template for a HTML report containing a rich data grid with sorting, filtering, grouping and search capabilities powered by [DevExtreme].
+Template for a HTML report containing a rich data grid with sorting, filtering, grouping and search capabilities powered by [DevExtreme]{target="_blank"}.
 
 ![HTML DevExtreme Data Grid](htmldxdatagrid01.png "HTML DevExtreme Data Grid")
 
@@ -25,7 +25,7 @@ Template for a HTML report containing a rich data grid with sorting, filtering, 
 
 ## Usage
 
-To create a report using the HTML DevExtreme Data Grid template you can use the [GenericIssueReportTemplate.HtmlDxDataGrid] enum value:
+To create a report using the HTML DevExtreme Data Grid template you can use the [GenericIssueReportTemplate.HtmlDxDataGrid]{target="_blank"} enum value:
 
 === "Cake .NET Tool"
 
@@ -51,7 +51,7 @@ To create a report using the HTML DevExtreme Data Grid template you can use the 
 
 ## Options
 
-See [HtmlDxDataGridOption] for a list of possible options.
+See [HtmlDxDataGridOption]{target="_blank"} for a list of possible options.
 
 ## Demos
 
@@ -62,7 +62,8 @@ The following demo shows the template with its default options:
 
 ### Themes
 
-The template supports the teams defined in the [DevExtremeTheme] enumeration which can be set using the [HtmlDxDataGridOption.Theme]:
+The template supports the teams defined in the [DevExtremeTheme]{target="_blank"} enumeration which can be set
+using the [HtmlDxDataGridOption.Theme]{target="_blank"}:
 
 === "Cake .NET Tool"
 
@@ -191,7 +192,7 @@ Visible columns can be defined using the `ColumnNameVisible` option:
         @"c:\report.html");
     ```
 
-Additional columns can be added using the [HtmlDxDataGridOption.AdditionalColumns] option.
+Additional columns can be added using the [HtmlDxDataGridOption.AdditionalColumns]{target="_blank"} option.
 
 * [Show and hide columns](htmldxdatagrid-demo-columnhiding.html)
   ([Source Code](https://github.com/cake-contrib/Cake.Issues.Reporting.Generic/blob/develop/demos/script-runner/build/create-reports/create-reports-htmldxdatagrid-hide-columns.cake))
@@ -200,7 +201,7 @@ Additional columns can be added using the [HtmlDxDataGridOption.AdditionalColumn
 
 ### Sorting
 
-Sorted columns can be defined using the [HtmlDxDataGridOption.SortedColumns] and the
+Sorted columns can be defined using the [HtmlDxDataGridOption.SortedColumns]{target="_blank"} and the
 `ColumnNameSortOder` options:
 
 === "Cake .NET Tool"
@@ -244,7 +245,7 @@ Sorted columns can be defined using the [HtmlDxDataGridOption.SortedColumns] and
 
 ### Grouping
 
-Grouping can be defined using the [HtmlDxDataGridOption.GroupedColumns] option:
+Grouping can be defined using the [HtmlDxDataGridOption.GroupedColumns]{target="_blank"} option:
 
 === "Cake .NET Tool"
 
@@ -283,7 +284,7 @@ Grouping can be defined using the [HtmlDxDataGridOption.GroupedColumns] option:
 
 ### Exporting
 
-Exporting can be enabled using the [HtmlDxDataGridOption.EnableExporting] option:
+Exporting can be enabled using the [HtmlDxDataGridOption.EnableExporting]{target="_blank"} option:
 
 === "Cake .NET Tool"
 
@@ -342,7 +343,7 @@ Exporting can be enabled using the [HtmlDxDataGridOption.EnableExporting] option
 !!! info
     You can use the source code as a template for your [custom template].
 
-Source code is available on [GitHub].
+Source code is available on [GitHub]{target="_blank"}.
 
 [DevExtreme]: https://js.devexpress.com
 [GenericIssueReportTemplate.HtmlDxDataGrid]: https://cakebuild.net/api/Cake.Issues.Reporting.Generic/GenericIssueReportTemplate/0E9E9D94
