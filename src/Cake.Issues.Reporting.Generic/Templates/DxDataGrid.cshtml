@@ -146,6 +146,21 @@
     }
 
     <style>
+        @* Set grid to use 100% of height *@
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        #gridContainer {
+            flex: 1;
+            overflow: auto;
+        }
         @* Reduce title size for material themes *@
         .dx-theme-material-typography h1
         {
@@ -169,12 +184,11 @@
     </style>
 </head>
 <body class="dx-viewport">
-    @if (showHeader)
-    {
-        <h1>@title</h1>
-    }
-
     <div class="container">
+        @if (showHeader)
+        {
+            <h1>@title</h1>
+        }
         <div id="gridContainer"></div>
     </div>
 
