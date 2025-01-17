@@ -1036,4 +1036,23 @@ public sealed class HtmlDxDataGridTemplateTests
                         "foo"));
         }
     }
+
+    public sealed class TheDisplayModeOption
+    {
+        [Theory]
+        [InlineData(HtmlDxDataGridDisplayMode.Paged)]
+        [InlineData(HtmlDxDataGridDisplayMode.InfiniteScroll)]
+        public void Should_Not_Fail_On_Report_Creation(HtmlDxDataGridDisplayMode displayMode)
+        {
+            // Given
+            var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+
+            // When / Then
+            fixture.TestReportCreation(
+                settings =>
+                    settings.WithOption(
+                        HtmlDxDataGridOption.DisplayMode,
+                        displayMode));
+        }
+    }
 }

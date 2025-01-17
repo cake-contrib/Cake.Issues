@@ -492,4 +492,11 @@ public enum HtmlDxDataGridOption
     /// Default value is <c>3.8.4</c>.
     /// </summary>
     JsPdfAutotableVersion,
+
+    /// <summary>
+    /// Display mode of the grid.
+    /// See <see cref="HtmlDxDataGridDisplayMode"/> for possible values.
+    /// Default value is <see cref="HtmlDxDataGridDisplayMode.Paged"/>.
+    /// </summary>
+    DisplayMode,
 }

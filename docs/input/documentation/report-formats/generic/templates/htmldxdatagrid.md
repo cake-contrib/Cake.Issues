@@ -335,6 +335,8 @@ Exporting can be enabled using the [HtmlDxDataGridOption.EnableExporting]{target
   ([Source Code](https://github.com/cake-contrib/Cake.Issues/blob/develop/demos/script-runner/build/create-reports/create-reports-htmldxdatagrid-disable-filtering.cake){target="_blank"})
 * [Disable searching](htmldxdatagrid-demo-disablesearching.html){target="_blank"}
   ([Source Code](https://github.com/cake-contrib/Cake.Issues/blob/develop/demos/script-runner/build/create-reports/create-reports-htmldxdatagrid-disable-searching.cake){target="_blank"})
+* [Infinite scrolling](htmldxdatagrid-demo-infinitescrolling.html){target="_blank"}
+  ([Source Code](https://github.com/cake-contrib/Cake.Issues/blob/develop/demos/script-runner/build/create-reports/create-reports-htmldxdatagrid-infinitescrolling.cake){target="_blank"})
 * [Custom script location and version](htmldxdatagrid-demo-customscriptlocation.html){target="_blank"}
   ([Source Code](https://github.com/cake-contrib/Cake.Issues/blob/develop/demos/script-runner/build/create-reports/create-reports-htmldxdatagrid-custom-script-location.cake){target="_blank"})
 
