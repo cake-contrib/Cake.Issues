@@ -39,31 +39,49 @@ To run only part of the build a task can be passed using the `--target=<TASK>` s
 
 ## Building and running website locally
 
-Ensure the following prerequisites are fulfilled:
+=== "Using Visual Studio Code Dev Container"
 
-* Latest .NET version installed
-* Python 3 installed
+    For building and running website locally a [Visual Studio Code Dev Container]{target="_blank"} can be used.
 
-To build and serve the website [Cake]{target="_blank"} is used:
+    Follow [installation instructions]{target="_blank"} to setup prerequisites.
 
-=== ":material-microsoft-windows: Windows"
+    To build and serve the website follow these steps:
 
-    ```powershell
-    .\build.ps1 --target=website
-    ```
+    * Clone and open the repository in Visual Studio Code
+    * Open the website Dev Container: ++f1++ :material-arrow-right: `Dev Containers: Reopen in Container`
+    * Start website in preview mode: ++f5++
 
-=== ":material-apple: macOS"
+    Website preview will be opened in Chrome.
 
-    ```bash
-    ./build.sh --target=website
-    ```
+=== "Running on local machine"
 
-=== ":material-linux: Linux"
-
-    ```bash
-    ./build.sh --target=website
-    ```
-
-Website is available on `http://127.0.0.1:8000/`
+    Ensure the following prerequisites are fulfilled:
+    
+    * Latest .NET version installed
+    * Python 3 installed
+    
+    To build and serve the website [Cake]{target="_blank"} is used:
+    
+    === ":material-microsoft-windows: Windows"
+    
+        ```powershell
+        .\build.ps1 --target=website
+        ```
+    
+    === ":material-apple: macOS"
+    
+        ```bash
+        ./build.sh --target=website
+        ```
+    
+    === ":material-linux: Linux"
+    
+        ```bash
+        ./build.sh --target=website
+        ```
+    
+    Website is available on `http://127.0.0.1:8000/`
 
 [Cake]: https://cakebuild.net/
+[Visual Studio Code Dev Container]: https://code.visualstudio.com/docs/devcontainers/containers
+[installation instructions]: https://code.visualstudio.com/docs/devcontainers/containers#_installation
