@@ -1,0 +1,13 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Preview Website",
+            "type": "chrome",
+            "request": "launch",
+            "url": "http://127.0.0.1:8000",
+            "preLaunchTask": "mkdocs-serve",
+            "postDebugTask": "mkdocs-stop"
+        }
+    ]
+}
