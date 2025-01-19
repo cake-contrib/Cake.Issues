@@ -159,4 +159,68 @@ public enum DevExtremeTheme
     /// Theme in Google Material design in a compact dark teal color scheme.
     /// </summary>
     MaterialTealDarkCompact,
+
+    /// <summary>
+    /// Theme in Fluent design in a light blue color scheme.
+    /// Only available in commercial versions starting with 23.2.
+    /// To use requires <see cref="HtmlDxDataGridOption.DevExtremeVersion"/> and
+    /// <see cref="HtmlDxDataGridOption.DevExtremeLicenseKey"/> been set.
+    /// </summary>
+    FluentBlueLight,
+
+    /// <summary>
+    /// Theme in Fluent design in a light SaaS color scheme.
+    /// Only available in commercial versions starting with 23.2.
+    /// To use requires <see cref="HtmlDxDataGridOption.DevExtremeVersion"/> and
+    /// <see cref="HtmlDxDataGridOption.DevExtremeLicenseKey"/> been set.
+    /// </summary>
+    FluentSaaSLight,
+
+    /// <summary>
+    /// Theme in Fluent design in a compact light blue color scheme.
+    /// Only available in commercial versions starting with 23.2.
+    /// To use requires <see cref="HtmlDxDataGridOption.DevExtremeVersion"/> and
+    /// <see cref="HtmlDxDataGridOption.DevExtremeLicenseKey"/> been set.
+    /// </summary>
+    FluentBlueLightCompact,
+
+    /// <summary>
+    /// Theme in Fluent design in a compact light SaaS color scheme.
+    /// Only available in commercial versions starting with 23.2.
+    /// To use requires <see cref="HtmlDxDataGridOption.DevExtremeVersion"/> and
+    /// <see cref="HtmlDxDataGridOption.DevExtremeLicenseKey"/> been set.
+    /// </summary>
+    FluentSaaSLightCompact,
+
+    /// <summary>
+    /// Theme in Fluent design in a dark blue color scheme.
+    /// Only available in commercial versions starting with 23.2.
+    /// To use requires <see cref="HtmlDxDataGridOption.DevExtremeVersion"/> and
+    /// <see cref="HtmlDxDataGridOption.DevExtremeLicenseKey"/> been set.
+    /// </summary>
+    FluentBlueDark,
+
+    /// <summary>
+    /// Theme in Fluent design in a dark SaaS color scheme.
+    /// Only available in commercial versions starting with 23.2.
+    /// To use requires <see cref="HtmlDxDataGridOption.DevExtremeVersion"/> and
+    /// <see cref="HtmlDxDataGridOption.DevExtremeLicenseKey"/> been set.
+    /// </summary>
+    FluentSaaSDark,
+
+    /// <summary>
+    /// Theme in Fluent design in a compact dark blue color scheme.
+    /// Only available in commercial versions starting with 23.2.
+    /// To use requires <see cref="HtmlDxDataGridOption.DevExtremeVersion"/> and
+    /// <see cref="HtmlDxDataGridOption.DevExtremeLicenseKey"/> been set.
+    /// </summary>
+    FluentBlueDarkCompact,
+
+    /// <summary>
+    /// Theme in Fluent design in a compact dark SaaS color scheme.
+    /// Only available in commercial versions starting with 23.2.
+    /// To use requires <see cref="HtmlDxDataGridOption.DevExtremeVersion"/> and
+    /// <see cref="HtmlDxDataGridOption.DevExtremeLicenseKey"/> been set.
+    /// </summary>
+    FluentSaaSDarkCompact,
 }

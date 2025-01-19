@@ -46,6 +46,14 @@ public static class DevExtremeThemeExtensions
             DevExtremeTheme.MaterialOrangeDarkCompact => "dx.material.orange.dark.compact.css",
             DevExtremeTheme.MaterialPurpleDarkCompact => "dx.material.purple.dark.compact.css",
             DevExtremeTheme.MaterialTealDarkCompact => "dx.material.teal.dark.compact.css",
+            DevExtremeTheme.FluentBlueLight => "dx.fluent.blue.light.css",
+            DevExtremeTheme.FluentSaaSLight => "dx.fluent.saas.light.css",
+            DevExtremeTheme.FluentBlueLightCompact => "dx.fluent.blue.light.compact.css",
+            DevExtremeTheme.FluentSaaSLightCompact => "dx.fluent.saas.light.compact.css",
+            DevExtremeTheme.FluentBlueDark => "dx.fluent.blue.dark.css",
+            DevExtremeTheme.FluentSaaSDark => "dx.fluent.saas.dark.css",
+            DevExtremeTheme.FluentBlueDarkCompact => "dx.fluent.blue.dark.compact.css",
+            DevExtremeTheme.FluentSaaSDarkCompact => "dx.fluent.saas.dark.compact.css",
             _ => throw new ArgumentException("Unknown enumeration value", nameof(theme)),
         };
 }
