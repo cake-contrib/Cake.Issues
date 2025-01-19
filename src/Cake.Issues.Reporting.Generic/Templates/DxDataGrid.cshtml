@@ -14,6 +14,7 @@
     DevExtremeTheme theme = ViewBagHelper.ValueOrDefault(ViewBag.Theme, DevExtremeTheme.Light);
     HtmlDxDataGridDisplayMode displayMode = ViewBagHelper.ValueOrDefault(ViewBag.DisplayMode, HtmlDxDataGridDisplayMode.Paged);
     bool showHeader = ViewBagHelper.ValueOrDefault(ViewBag.ShowHeader, true);
+    bool showColumnChooser = ViewBagHelper.ValueOrDefault(ViewBag.ShowColumnChooser, true);
     bool enableSearching = ViewBagHelper.ValueOrDefault(ViewBag.EnableSearching, true);
     bool enableGrouping = ViewBagHelper.ValueOrDefault(ViewBag.EnableGrouping, true);
     bool enableFiltering = ViewBagHelper.ValueOrDefault(ViewBag.EnableFiltering, true);
@@ -259,6 +260,9 @@
                         </text>
                         break;
                 }
+                columnChooser: {
+                    enabled: @showColumnChooser.ToString().ToLowerInvariant()
+                },
                 searchPanel: {
                     visible: @enableSearching.ToString().ToLowerInvariant()
                 },

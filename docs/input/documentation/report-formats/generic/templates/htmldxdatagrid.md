@@ -198,6 +198,8 @@ Additional columns can be added using the [HtmlDxDataGridOption.AdditionalColumn
   ([Source Code](https://github.com/cake-contrib/Cake.Issues/blob/develop/demos/script-runner/build/create-reports/create-reports-htmldxdatagrid-hide-columns.cake))
 * [Add additional columns](htmldxdatagrid-demo-additionalcolumns.html)
   ([Source Code](https://github.com/cake-contrib/Cake.Issues/blob/develop/demos/script-runner/build/create-reports/create-reports-htmldxdatagrid-additional-columns.cake))
+* [Hide column chooser](htmldxdatagrid-demo-disablecolumnchooser.html){target="_blank"}
+  ([Source Code](https://github.com/cake-contrib/Cake.Issues/blob/develop/demos/script-runner/build/create-reports/create-reports-htmldxdatagrid-disable-column-chooser.cake){target="_blank"})
 
 ### Sorting
 
