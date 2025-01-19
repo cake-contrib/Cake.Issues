@@ -22,6 +22,9 @@ Template for a HTML report containing a rich data grid with sorting, filtering, 
 ## Requirements
 
 * Cake.Issues.Reporting.Generic 0.3.1 or higher
+* The template ships with DevExtreme version `23.1`, which was available under a non-commercial license.
+  Some features in the template require a never version and a commercial [License]{target="_blank"} to be set.
+  See [Using commercial version] for examples.
 
 ## Usage
 
@@ -45,6 +48,49 @@ To create a report using the HTML DevExtreme Data Grid template you can use the 
         issues,
         context.GenericIssueReportFormatFromEmbeddedTemplate(
           GenericIssueReportTemplate.HtmlDxDataGrid),
+        @"c:\repo",
+        @"c:\report.html");
+    ```
+
+### Using commercial version
+
+The template ships with DevExtreme version `23.1`, which was available under a non-commercial license.
+To use a never version a commercial [License]{target="_blank"} is required.
+
+To use the template with a never version and commercial license the following options need to be set:
+
+=== "Cake .NET Tool"
+
+    ```csharp
+    CreateIssueReport(
+        issues,
+        GenericIssueReportFormatFromEmbeddedTemplate(
+            GenericIssueReportTemplate.HtmlDxDataGrid,
+            settings => settings
+                .WithOption(
+                    HtmlDxDataGridOption.DevExtremeLicenseKey,
+                    "<LICENSE_KEY>")
+                .WithOption(
+                    HtmlDxDataGridOption.DevExtremeVersion,
+                    "23.2")),
+        @"c:\repo",
+        @"c:\report.html");
+    ```
+
+=== "Cake Frosting"
+
+    ```csharp
+    context.CreateIssueReport(
+        issues,
+        context.GenericIssueReportFormatFromEmbeddedTemplate(
+            GenericIssueReportTemplate.HtmlDxDataGrid,
+            settings => settings
+                .WithOption(
+                    HtmlDxDataGridOption.DevExtremeLicenseKey,
+                    "<LICENSE_KEY>")
+                .WithOption(
+                      HtmlDxDataGridOption.DevExtremeVersion,
+                      "23.2")),
         @"c:\repo",
         @"c:\report.html");
     ```
@@ -350,6 +396,8 @@ Exporting can be enabled using the [HtmlDxDataGridOption.EnableExporting]{target
 Source code is available on [GitHub]{target="_blank"}.
 
 [DevExtreme]: https://js.devexpress.com
+[License]: https://js.devexpress.com/jQuery/Documentation/Guide/Common/Licensing/
+[Using commercial version]: #using-commercial-version
 [GenericIssueReportTemplate.HtmlDxDataGrid]: https://cakebuild.net/api/Cake.Issues.Reporting.Generic/GenericIssueReportTemplate/0E9E9D94
 [HtmlDxDataGridOption]: https://cakebuild.net/api/Cake.Issues.Reporting.Generic/HtmlDxDataGridOption/
 [DevExtremeTheme]: https://cakebuild.net/api/Cake.Issues.Reporting.Generic/DevExtremeTheme/
