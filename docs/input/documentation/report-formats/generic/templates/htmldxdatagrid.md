@@ -203,6 +203,14 @@ using the [HtmlDxDataGridOption.Theme]{target="_blank"}:
   ([Source Code](https://github.com/cake-contrib/Cake.Issues/blob/develop/tests/Cake.Issues.Reporting.Generic/script-runner/build/create-reports/create-reports-htmldxdatagrid-theme-materialpurpledarkcompact.cake){target="_blank"})
 * [Material Teal Dark Compact Theme](htmldxdatagrid-demo-theme-materialtealdarkcompact.html){target="_blank"}
   ([Source Code](https://github.com/cake-contrib/Cake.Issues/blob/develop/tests/Cake.Issues.Reporting.Generic/script-runner/build/create-reports/create-reports-htmldxdatagrid-theme-materialtealdarkcompact.cake){target="_blank"})
+* Fluent Blue Light Theme <!-- md:badge commercial -->
+* Fluent SaaS Light Theme <!-- md:badge commercial -->
+* Fluent Blue Light Compact Theme <!-- md:badge commercial -->
+* Fluent SaaS Light Compact Theme <!-- md:badge commercial -->
+* Fluent Blue Dark Theme <!-- md:badge commercial -->
+* Fluent SaaS Dark Theme <!-- md:badge commercial -->
+* Fluent Blue Dark Compact Theme <!-- md:badge commercial -->
+* Fluent SaaS Dark Compact Theme <!-- md:badge commercial -->
 
 ### Column visibility
 
