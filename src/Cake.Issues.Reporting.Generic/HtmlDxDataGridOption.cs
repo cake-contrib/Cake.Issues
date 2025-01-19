@@ -499,4 +499,11 @@ public enum HtmlDxDataGridOption
     /// Default value is <see cref="HtmlDxDataGridDisplayMode.Paged"/>.
     /// </summary>
     DisplayMode,
+
+    /// <summary>
+    /// Flag if the column chooser to show and hide columns should be available or not.
+    /// Either <c>true</c> or <c>false</c>.
+    /// Default value is <c>true</c>.
+    /// </summary>
+    ShowColumnChooser,
 }

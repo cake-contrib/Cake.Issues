@@ -113,6 +113,23 @@ public sealed class HtmlDxDataGridTemplateTests
         }
     }
 
+    public sealed class TheShowColumnChooserOption
+    {
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void Should_Not_Fail_On_Report_Creation(bool value)
+        {
+            // Given
+            var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+
+            // When / Then
+            fixture.TestReportCreation(
+                settings =>
+                    settings.WithOption(HtmlDxDataGridOption.ShowColumnChooser, value));
+        }
+    }
+
     public sealed class TheEnableSearchingOption
     {
         [Theory]
