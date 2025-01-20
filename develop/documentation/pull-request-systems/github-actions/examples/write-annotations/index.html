@@ -87,7 +87,16 @@
       
     
     
-  </head>
+   <link href="../../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -5890,11 +5899,11 @@ For this example the JetBrains InspectCode issue provider is additionally used f
 </div>
 </div>
 <p>The output will show up in the build log grouped by issue provider / run:</p>
-<p><img alt="Log output" src="../../githubactions-log-output.png" title="Log output" /></p>
+<p><a class="glightbox" href="../../githubactions-log-output.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Log output" src="../../githubactions-log-output.png" title="Log output" /></a></p>
 <p>Additionally the issues show up as annotations:</p>
-<p><img alt="Annotations" src="../../githubactions-annotations.png" title="Annotations" /></p>
+<p><a class="glightbox" href="../../githubactions-annotations.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Annotations" src="../../githubactions-annotations.png" title="Annotations" /></a></p>
 <p>Having issues available as annotations also means that they will be shown in pull requests on the related file / position:</p>
-<p><img alt="Pull request integration" src="../../githubactions-pullrequest-integration.png" title="Pull request integration" /></p>
+<p><a class="glightbox" href="../../githubactions-pullrequest-integration.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Pull request integration" src="../../githubactions-pullrequest-integration.png" title="Pull request integration" /></a></p>
 <!-- Glossary for terms and concepts not documented on cakeissues.net -->
 
 
@@ -5980,5 +5989,7 @@ For this example the JetBrains InspectCode issue provider is additionally used f
       <script src="../../../../../assets/javascripts/bundle.60a45f97.min.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

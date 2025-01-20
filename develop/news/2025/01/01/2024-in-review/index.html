@@ -87,7 +87,16 @@
       
     
     
-  </head>
+   <link href="../../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -5908,7 +5917,7 @@
   <h1>2024 In Review</h1>
 
 <p>2024 had been an amazing year for Cake Issues. In this post we'll look back to what had been achieved in 2024.</p>
-<p><img alt="Cake Issues contribution graph for 2024" src="../../../../2025-01-01-2024-contributions.png" title="Cake Issues contribution graph for 2024" /></p>
+<p><a class="glightbox" href="../../../../2025-01-01-2024-contributions.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Cake Issues contribution graph for 2024" src="../../../../2025-01-01-2024-contributions.png" title="Cake Issues contribution graph for 2024" /></a></p>
 <!-- more -->
 
 <h2 id="alignment-of-addin-lifecycles">Alignment of addin lifecycles<a class="headerlink" href="#alignment-of-addin-lifecycles" title="Permanent link">&para;</a></h2>
@@ -5918,7 +5927,7 @@ which has been finished by now.</p>
 This resulted in a total of 20 releases of Cake Issues in 2024, including one major release with <a href="../../../../2024/12/02/cake-issues-v500-released/">5.0.0</a>, bringing constant improvements and bugfixes.</p>
 <p>Core <code>Cake.Issues</code> addin has seen a steady, and stronger than 2023, rise of downloads during 2024,
 resulting in nearly 1 million downloads by the end of the year:</p>
-<p><img alt="Cake.Issues NuGet package downloads for 2024" src="../../../../2025-01-01-downloads.png" title="Cake.Issues NuGet package downloads for 2024" /></p>
+<p><a class="glightbox" href="../../../../2025-01-01-downloads.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Cake.Issues NuGet package downloads for 2024" src="../../../../2025-01-01-downloads.png" title="Cake.Issues NuGet package downloads for 2024" /></a></p>
 <p>See <a href="https://nugettrends.com/packages?ids=Cake.Issues&amp;months=12" target="_blank">NuGet Trends</a> for details.</p>
 <p>The individual <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr> had a different age, some up to <a href="https://github.com/cake-contrib/Cake.Prca/commit/438b3a1a609e5b9cc9e6f8f489a73988f9ed1f4d" target="_blank">7 years old</a>, written for .NET Framework.
 As part of the consolidation of all <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr> in a single mono-repository effort was made to unify and modernize the code base across all <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr>.</p>
@@ -6034,5 +6043,7 @@ Examples and documentation have also been updated to latest Cake Issues and .NET
       <script src="../../../../../assets/javascripts/bundle.60a45f97.min.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

@@ -87,7 +87,16 @@
       
     
     
-  </head>
+   <link href="../../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -5855,14 +5864,14 @@
 <p><a href="../../../../../documentation/report-formats/console/">Cake.Issues.Reporting.Console addin</a> can be used to print issues to the console and is built on top
 of the excellent <a href="https://github.com/spectreconsole/errata" target="_blank">Errata library</a> by Patrik Svensson.</p>
 <p>Its main focus is to annotate source code with issues:</p>
-<p><img alt="Source annotation" src="../../../../2021-08-29-diagnostics.png" title="Source annotation" /></p>
+<p><a class="glightbox" href="../../../../2021-08-29-diagnostics.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Source annotation" src="../../../../2021-08-29-diagnostics.png" title="Source annotation" /></a></p>
 <p>It currently only supports issues containing line and column information.
 Output can be grouped by rule, like in the image above, or individual entries for every issue.</p>
 <p>Beside printing issues it can also show summary tables.</p>
 <p>There's one summary which shows the number of issues for everyprovider and run:</p>
-<p><img alt="Summary by provider &amp; rule" src="../../../../2021-08-29-summary-by-provider.png" title="Summary by provider &amp; rule" /></p>
+<p><a class="glightbox" href="../../../../2021-08-29-summary-by-provider.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Summary by provider &amp; rule" src="../../../../2021-08-29-summary-by-provider.png" title="Summary by provider &amp; rule" /></a></p>
 <p>Another summary shows the number of issues by priority for every provider and run:</p>
-<p><img alt="Summary of priorities" src="../../../../2021-08-29-summary-of-priorities.png" title="Summary of priorities" /></p>
+<p><a class="glightbox" href="../../../../2021-08-29-summary-of-priorities.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Summary of priorities" src="../../../../2021-08-29-summary-of-priorities.png" title="Summary of priorities" /></a></p>
 <!-- Glossary for terms and concepts not documented on cakeissues.net -->
 
 
@@ -5950,5 +5959,7 @@ Output can be grouped by rule, like in the image above, or individual entries fo
       <script src="../../../../../assets/javascripts/bundle.60a45f97.min.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

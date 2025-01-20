@@ -87,7 +87,16 @@
       
     
     
-  </head>
+   <link href="../../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -5853,10 +5862,10 @@
 <!-- more -->
 
 <p><a href="../../../../../documentation/pull-request-systems/github-actions/">Cake.Issues.PullRequest.GitHubActions addin</a> creates annotations from issues when running on GitHub Actions:</p>
-<p><img alt="Annotations" src="../../../../../documentation/pull-request-systems/github-actions/githubactions-annotations.png" title="Annotations" /></p>
+<p><a class="glightbox" href="../../../../../documentation/pull-request-systems/github-actions/githubactions-annotations.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Annotations" src="../../../../../documentation/pull-request-systems/github-actions/githubactions-annotations.png" title="Annotations" /></a></p>
 <p>These annotations will also be shown in pull requests on the related file / position,
 bringing first class integration for GitHub pull requests to Cake.Issues:</p>
-<p><img alt="Pull request integration" src="../../../../../documentation/pull-request-systems/github-actions/githubactions-pullrequest-integration.png" title="Pull request integration" /></p>
+<p><a class="glightbox" href="../../../../../documentation/pull-request-systems/github-actions/githubactions-pullrequest-integration.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Pull request integration" src="../../../../../documentation/pull-request-systems/github-actions/githubactions-pullrequest-integration.png" title="Pull request integration" /></a></p>
 <p>This integration was <a href="../../24/cake-issues-recipe-v042-released-bringing-support-for-github-actions/" target="_blank">first released in Cake.Issues.Recipe 0.4.2</a> and has now been moved to its own addin, which can also be used outside of
 Cake.Issues.Recipe.</p>
 <!-- Glossary for terms and concepts not documented on cakeissues.net -->
@@ -5946,5 +5955,7 @@ Cake.Issues.Recipe.</p>
       <script src="../../../../../assets/javascripts/bundle.60a45f97.min.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

@@ -87,7 +87,16 @@
       
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -5838,7 +5847,7 @@
 
 <p>The Cake Issues <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr> are built in a modular architecture, allowing to easily
 enhance it for supporting additional analyzers, <abbr title="Static code analysis tools used to flag programming errors, bugs, stylistic errors and suspicious constructs">linters</abbr>, report formats and pull request systems.</p>
-<p><img alt="Architecture Overview" src="assets/images/overview.png" title="Architecture Overview" /></p>
+<p><a class="glightbox" href="assets/images/overview.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Architecture Overview" src="assets/images/overview.png" title="Architecture Overview" /></a></p>
 <h2 id="cakeissues-addin">Cake.Issues addin<a class="headerlink" href="#cakeissues-addin" title="Permanent link">&para;</a></h2>
 <p>The <code>Cake.Issues</code> addin provides <abbr title="Aliases are convenience methods that are easily accessible directly from a Cake build">aliases</abbr> for creating issues or reading issues using one or more issue providers.</p>
 <p>Support for different code analyzers and <abbr title="Static code analysis tools used to flag programming errors, bugs, stylistic errors and suspicious constructs">linters</abbr> is provided through <a href="../issue-providers/">issue provider</a> <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr>
@@ -5949,5 +5958,7 @@ pull request systems works.</p>
       <script src="../../assets/javascripts/bundle.60a45f97.min.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

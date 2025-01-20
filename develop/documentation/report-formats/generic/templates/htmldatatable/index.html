@@ -87,7 +87,16 @@
       
     
     
-  </head>
+   <link href="../../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -5959,7 +5968,7 @@
 
 <p>Template for a HTML report containing a rich data table view with sorting and search functionality powered by
 <a href="https://github.com/fiduswriter/Simple-DataTables" target="_blank">Simple-DataTables</a>.</p>
-<p><img alt="HTML Data Table" src="../htmldatatable01.png" title="HTML Data Table" /></p>
+<p><a class="glightbox" href="../htmldatatable01.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="HTML Data Table" src="../htmldatatable01.png" title="HTML Data Table" /></a></p>
 <h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h2>
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Separate table for issues of each issue provider.</li>
@@ -6096,5 +6105,7 @@ enum value:</p>
       <script src="../../../../../assets/javascripts/bundle.60a45f97.min.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

@@ -87,7 +87,16 @@
       
     
     
-  </head>
+   <link href="../../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -5915,7 +5924,7 @@ For update instructions skip to <a href="#updating-from-previous-versions">Updat
 therefore will support all Cake runners.</p>
 <h2 id="improved-reporting">Improved reporting<a class="headerlink" href="#improved-reporting" title="Permanent link">&para;</a></h2>
 <p>Provider report is now rendered in different colors for the individual bars, making it easier to read:</p>
-<p><img alt="Summary by provider &amp; rule" src="../../../../2021-09-05-summary-by-provider.png" title="Summary by provider &amp; rule" /></p>
+<p><a class="glightbox" href="../../../../2021-09-05-summary-by-provider.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Summary by provider &amp; rule" src="../../../../2021-09-05-summary-by-provider.png" title="Summary by provider &amp; rule" /></a></p>
 <h2 id="errata-060">Errata 0.6.0<a class="headerlink" href="#errata-060" title="Permanent link">&para;</a></h2>
 <p>Underlying <a href="https://github.com/spectreconsole/errata" target="_blank">Errata</a> library has been updated to 0.6.0, containing additional bug fixes and rendering improvements.</p>
 <h2 id="updating-from-previous-versions">Updating from previous versions<a class="headerlink" href="#updating-from-previous-versions" title="Permanent link">&para;</a></h2>
@@ -6008,5 +6017,7 @@ To update to the new version bump the version of the addin.</p>
       <script src="../../../../../assets/javascripts/bundle.60a45f97.min.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>
