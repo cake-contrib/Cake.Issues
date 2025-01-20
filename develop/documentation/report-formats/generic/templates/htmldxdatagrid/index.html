@@ -3924,6 +3924,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#state-persistence" class="md-nav__link">
+    <span class="md-ellipsis">
+      State persistence
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#other-features" class="md-nav__link">
     <span class="md-ellipsis">
       Other features
@@ -6060,6 +6069,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#state-persistence" class="md-nav__link">
+    <span class="md-ellipsis">
+      State persistence
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#other-features" class="md-nav__link">
     <span class="md-ellipsis">
       Other features
@@ -6468,6 +6486,17 @@ using the <a href="https://cakebuild.net/api/Cake.Issues.Reporting.Generic/HtmlD
   (<a href="https://github.com/cake-contrib/Cake.Issues/blob/develop/tests/Cake.Issues.Reporting.Generic/script-runner/build/create-reports/create-reports-htmldxdatagrid-exportformat-pdf.cake" target="_blank">Source Code</a>)</li>
 <li><a href="../htmldxdatagrid-demo-customexportfilename.html" target="_blank">Custom export file name</a>
   (<a href="https://github.com/cake-contrib/Cake.Issues/blob/develop/tests/Cake.Issues.Reporting.Generic/script-runner/build/create-reports/create-reports-htmldxdatagrid-custom-export-filename.cake" target="_blank">Source Code</a>)</li>
+</ul>
+<h3 id="state-persistence">State persistence<a class="headerlink" href="#state-persistence" title="Permanent link">&para;</a></h3>
+<p>By default customizations made by the user are persisted and re-applied next time the report is shown.
+If multiple reports are created, or Cake Issues is used in multiple repositories, all reports share by default the same storage.</p>
+<p>This can be changed per generated report using the <code>HtmlDxDataGridOption.StorageKey</code> option.
+Persistance can be disabled using the <code>HtmlDxDataGridOption.PersistState</code> option.</p>
+<ul>
+<li><a href="../htmldxdatagrid-demo-custom-storage-key.html" target="_blank">Custom storage key</a>
+  (<a href="https://github.com/cake-contrib/Cake.Issues/blob/develop/tests/Cake.Issues.Reporting.Generic/script-runner/build/create-reports/create-reports-htmldxdatagrid-custom-storage-key.cake" target="_blank">Source Code</a>)</li>
+<li><a href="../htmldxdatagrid-demo-disable-persistence.html" target="_blank">Disable state persistence</a>
+  (<a href="https://github.com/cake-contrib/Cake.Issues/blob/develop/tests/Cake.Issues.Reporting.Generic/script-runner/build/create-reports/create-reports-htmldxdatagrid-disable-persistence.cake" target="_blank">Source Code</a>)</li>
 </ul>
 <h3 id="other-features">Other features<a class="headerlink" href="#other-features" title="Permanent link">&para;</a></h3>
 <ul>
