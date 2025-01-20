@@ -76,6 +76,7 @@ plugins:
   - blog:
       blog_dir: news
       post_readtime: true
+  - glightbox
   - macros
   - search
   - social:
