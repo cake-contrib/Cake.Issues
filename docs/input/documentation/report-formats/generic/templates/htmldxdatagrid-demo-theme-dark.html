@@ -10,9 +10,9 @@
     <title>Issues Report</title>
 
     <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.7.1.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/23.1.11/css/dx.common.css" />
-    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/23.1.11/css/dx.dark.css" />
-    <script type="text/javascript" src="https://cdn3.devexpress.com/jslib/23.1.11/js/dx.all.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/23.1.13/css/dx.common.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/23.1.13/css/dx.dark.css" />
+    <script type="text/javascript" src="https://cdn3.devexpress.com/jslib/23.1.13/js/dx.all.js"></script>
 
     <style>
         html, body {
@@ -66,6 +66,11 @@
                 dataSource: issues,
                 loadPanel: {
                     enabled: true
+                },
+                stateStoring: {
+                    enabled: true,
+                    type: 'localStorage',
+                    storageKey: 'CakeIssuesReportingGeneric',
                 },
 
                         pager: {
