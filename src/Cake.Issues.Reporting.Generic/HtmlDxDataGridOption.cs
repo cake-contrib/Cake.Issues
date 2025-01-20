@@ -506,4 +506,18 @@ public enum HtmlDxDataGridOption
     /// Default value is <c>true</c>.
     /// </summary>
     ShowColumnChooser,
+
+    /// <summary>
+    /// Flag if customization in the report should be persisted.
+    /// Either <c>true</c> or <c>false</c>.
+    /// Default value is <c>true</c>.
+    /// </summary>
+    PersistState,
+
+    /// <summary>
+    /// Key for the state storage.
+    /// Reports with the same key will share customizations.
+    /// Default value is <c>CakeIssuesReportingGeneric</c>.
+    /// </summary>
+    StorageKey,
 }

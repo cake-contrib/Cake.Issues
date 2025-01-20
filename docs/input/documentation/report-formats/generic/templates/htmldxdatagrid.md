@@ -381,6 +381,19 @@ Exporting can be enabled using the [HtmlDxDataGridOption.EnableExporting]{target
 * [Custom export file name](htmldxdatagrid-demo-customexportfilename.html){target="_blank"}
   ([Source Code](https://github.com/cake-contrib/Cake.Issues/blob/develop/tests/Cake.Issues.Reporting.Generic/script-runner/build/create-reports/create-reports-htmldxdatagrid-custom-export-filename.cake){target="_blank"})
 
+### State persistence
+
+By default customizations made by the user are persisted and re-applied next time the report is shown.
+If multiple reports are created, or Cake Issues is used in multiple repositories, all reports share by default the same storage.
+
+This can be changed per generated report using the `HtmlDxDataGridOption.StorageKey` option.
+Persistance can be disabled using the `HtmlDxDataGridOption.PersistState` option.
+
+* [Custom storage key](htmldxdatagrid-demo-custom-storage-key.html){target="_blank"}
+  ([Source Code](https://github.com/cake-contrib/Cake.Issues/blob/develop/tests/Cake.Issues.Reporting.Generic/script-runner/build/create-reports/create-reports-htmldxdatagrid-custom-storage-key.cake){target="_blank"})
+* [Disable state persistence](htmldxdatagrid-demo-disable-persistence.html){target="_blank"}
+  ([Source Code](https://github.com/cake-contrib/Cake.Issues/blob/develop/tests/Cake.Issues.Reporting.Generic/script-runner/build/create-reports/create-reports-htmldxdatagrid-disable-persistence.cake){target="_blank"})
+
 ### Other features
 
 * [Change title](htmldxdatagrid-demo-changetitle.html){target="_blank"}

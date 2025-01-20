@@ -1072,4 +1072,37 @@ public sealed class HtmlDxDataGridTemplateTests
                         displayMode));
         }
     }
+
+    public sealed class ThePersistStateOption
+    {
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void Should_Not_Fail_On_Report_Creation(bool value)
+        {
+            // Given
+            var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+
+            // When / Then
+            fixture.TestReportCreation(
+                settings =>
+                    settings.WithOption(HtmlDxDataGridOption.PersistState, value));
+        }
+    }
+
+    public sealed class TheStorageKeyOption
+    {
+        [Theory]
+        [InlineData("foo")]
+        public void Should_Not_Fail_On_Report_Creation(string value)
+        {
+            // Given
+            var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+
+            // When / Then
+            fixture.TestReportCreation(
+                settings =>
+                    settings.WithOption(HtmlDxDataGridOption.StorageKey, value));
+        }
+    }
 }
