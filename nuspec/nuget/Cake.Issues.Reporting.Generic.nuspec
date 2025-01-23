@@ -36,10 +36,10 @@ For addin compatible with Cake Frosting see Cake.Frosting.Issues.Reporting.Gener
     </dependencies>
   </metadata>
   <files>
-    <file src="..\..\..\..\nuspec\nuget\icon.png" target="" />
-    <file src="..\..\..\..\nuspec\nuget\Cake.Issues.Reporting.Generic.md" target="docs\README.md" />
-    <file src="Release\**\Cake.Issues.Reporting.Generic.*" target="lib" exclude="**\*.deps.json" />
-    <file src="Release\**\Gazorator.dll" target="lib" />
-    <file src="Release\**\Microsoft.AspNetCore.Razor.Language.dll" target="lib" />
+    <file src="icon.png" target="" />
+    <file src="Cake.Issues.Reporting.Generic.md" target="docs\README.md" />
+    <file src="..\..\src\Cake.Issues.Reporting.Generic\bin\Release\**\Cake.Issues.Reporting.Generic.*" target="lib" exclude="**\*.deps.json" />
+    <file src="..\..\src\Cake.Issues.Reporting.Generic\bin\Release\**\Gazorator.dll" target="lib" />
+    <file src="..\..\src\Cake.Issues.Reporting.Generic\bin\Release\**\Microsoft.AspNetCore.Razor.Language.dll" target="lib" />
   </files>
 </package>

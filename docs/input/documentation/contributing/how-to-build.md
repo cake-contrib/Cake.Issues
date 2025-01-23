@@ -31,11 +31,11 @@ To build the addins and run unit tests [Cake]{target="_blank"} is used:
 
 To run only part of the build a task can be passed using the `--target=<TASK>` syntax:
 
-| Task                    | Description                                                                                                                         |
-|-------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
-| `DotNetCore-Build`      | Builds all addins                                                                                                                   |
-| `Create-NuGet-Packages` | Builds an creates NuGet packages for all addins. The NuGet packages are available in the `BuildArtifacts\Packages\NuGet` directory. |
-| `Test`                  | Builds all addins and runs unit tests. Coverage report is available in the `BuildArtifacts\TestCoverage` directory.                 |
+| Task      | Description                                                                                                                         |
+|-----------|-------------------------------------------------------------------------------------------------------------------------------------|
+| `Build`   | Builds all addins                                                                                                                   |
+| `Package` | Builds an creates NuGet packages for all addins. The NuGet packages are available in the `BuildArtifacts\Packages\NuGet` directory. |
+| `Test`    | Builds all addins and runs unit tests. Coverage report is available in the `BuildArtifacts\TestCoverage` directory.                 |
 
 ## Building and running website locally
 
