@@ -36,6 +36,7 @@ It needs an additional NuGet package to provide the specific issue provider impl
 | [Cake.Issues.InspectCode](https://www.nuget.org/packages/Cake.Issues.InspectCode) | [Cake.Frosting.Issues.InspectCode](https://www.nuget.org/packages/Cake.Frosting.Issues.InspectCode) | Issue provider for reading JetBrains Inspect Code issues. |
 | [Cake.Issues.Markdownlint](https://www.nuget.org/packages/Cake.Issues.Markdownlint) | [Cake.Frosting.Issues.Markdownlint](https://www.nuget.org/packages/Cake.Frosting.Issues.Markdownlint) | Issue provider for reading issues from markdownlint. |
 | [Cake.Issues.Sarif](https://www.nuget.org/packages/Cake.Issues.Sarif) | [Cake.Frosting.Issues.Sarif](https://www.nuget.org/packages/Cake.Frosting.Issues.Sarif) | Issue provider for reading SARIF reports. |
+| [Cake.Issues.Tap](https://www.nuget.org/packages/Cake.Issues.Tap) | [Cake.Frosting.Issues.Tap](https://www.nuget.org/packages/Cake.Frosting.Issues.Tap) | Issue provider for reading files in Test Anything Protocol format. |
 | [Cake.Issues.Terraform](https://www.nuget.org/packages/Cake.Issues.Terraform) | [Cake.Frosting.Issues.Terraform](https://www.nuget.org/packages/Cake.Frosting.Issues.Terraform) | Issue provider for reading Terraform validation output. |
 
 See [Issue Providers] for a list of available issue providers and detailed documentation.
