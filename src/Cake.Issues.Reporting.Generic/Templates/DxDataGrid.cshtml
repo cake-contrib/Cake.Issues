@@ -12,7 +12,11 @@
     // Read options and apply default values.
     var title = ViewBagHelper.ValueOrDefault(ViewBag.Title, "Issues Report");
     DevExtremeTheme theme = ViewBagHelper.ValueOrDefault(ViewBag.Theme, DevExtremeTheme.Light);
+    bool persistState = ViewBagHelper.ValueOrDefault(ViewBag.persistState, true);
+    string storageKey = ViewBagHelper.ValueOrDefault(ViewBag.StorageKey, "CakeIssuesReportingGeneric");
+    HtmlDxDataGridDisplayMode displayMode = ViewBagHelper.ValueOrDefault(ViewBag.DisplayMode, HtmlDxDataGridDisplayMode.Paged);
     bool showHeader = ViewBagHelper.ValueOrDefault(ViewBag.ShowHeader, true);
+    bool showColumnChooser = ViewBagHelper.ValueOrDefault(ViewBag.ShowColumnChooser, true);
     bool enableSearching = ViewBagHelper.ValueOrDefault(ViewBag.EnableSearching, true);
     bool enableGrouping = ViewBagHelper.ValueOrDefault(ViewBag.EnableGrouping, true);
     bool enableFiltering = ViewBagHelper.ValueOrDefault(ViewBag.EnableFiltering, true);
@@ -78,7 +82,7 @@
     string jsPdfAutoTableVersion = ViewBagHelper.ValueOrDefault(ViewBag.JsPdfAutoTableVersion, "3.8.4").Trim();
     string devExtremeLocation = ViewBagHelper.ValueOrDefault(ViewBag.DevExtremeLocation, "https://cdn3.devexpress.com/jslib/").Trim();
     devExtremeLocation = devExtremeLocation.WithEnding("/");
-    string devExtremeVersion = ViewBagHelper.ValueOrDefault(ViewBag.DevExtremeVersion, "23.1.11").Trim();
+    string devExtremeVersion = ViewBagHelper.ValueOrDefault(ViewBag.DevExtremeVersion, "23.1.13").Trim();
     string devExtremeLicenseKey = ViewBagHelper.ValueOrDefault<string>(ViewBag.DevExtremeLicenseKey, null);
 }
 
@@ -146,6 +150,27 @@
     }
 
     <style>
+        @* Set grid to use 100% of height *@
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        #gridContainer {
+            flex: 1;
+            overflow: auto;
+        }
+        @* Reduce title size for material themes *@
+        .dx-theme-material-typography h1
+        {
+            font-weight: 200;
+            font-size: 34px;
+        }
         @* Styles for making sure drop down glyph is not shown for menu in file column in any theme *@
         td[role=gridcell] .dx-menu-item-popout
         {
@@ -163,12 +188,11 @@
     </style>
 </head>
 <body class="dx-viewport">
-    @if (showHeader)
-    {
-        <h1>@title</h1>
-    }
-
     <div class="container">
+        @if (showHeader)
+        {
+            <h1>@title</h1>
+        }
         <div id="gridContainer"></div>
     </div>
 
@@ -219,6 +243,32 @@
                 dataSource: issues,
                 loadPanel: {
                     enabled: true
+                },
+                stateStoring: {
+                    enabled: @persistState.ToString().ToLowerInvariant(),
+                    type: 'localStorage',
+                    storageKey: '@(storageKey)',
+                },
+                @switch (displayMode)
+                {
+                    case HtmlDxDataGridDisplayMode.Paged:
+                        <text>
+                        pager: {
+                            showPageSizeSelector: true
+                        },
+                        </text>
+                        break;
+                    case HtmlDxDataGridDisplayMode.InfiniteScroll:
+                        <text>
+                        scrolling:
+                        {
+                            mode: "virtual"
+                        },
+                        </text>
+                        break;
+                }
+                columnChooser: {
+                    enabled: @showColumnChooser.ToString().ToLowerInvariant()
                 },
                 searchPanel: {
                     visible: @enableSearching.ToString().ToLowerInvariant()
@@ -290,6 +340,9 @@
                     }
                 }
                 rowAlternationEnabled: true,
+                wordWrapEnabled: true,
+                @* Auto width with infinite scrolling would lead to changing column widths during scrolling *@
+                columnAutoWidth: @((displayMode != HtmlDxDataGridDisplayMode.InfiniteScroll).ToString().ToLowerInvariant()),
                 allowColumnResizing: true,
                 columns: [
                     @if (providerTypeVisible)

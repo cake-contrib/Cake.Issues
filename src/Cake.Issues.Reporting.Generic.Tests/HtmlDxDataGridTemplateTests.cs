@@ -113,6 +113,23 @@ public sealed class HtmlDxDataGridTemplateTests
         }
     }
 
+    public sealed class TheShowColumnChooserOption
+    {
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void Should_Not_Fail_On_Report_Creation(bool value)
+        {
+            // Given
+            var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+
+            // When / Then
+            fixture.TestReportCreation(
+                settings =>
+                    settings.WithOption(HtmlDxDataGridOption.ShowColumnChooser, value));
+        }
+    }
+
     public sealed class TheEnableSearchingOption
     {
         [Theory]
@@ -1034,6 +1051,58 @@ public sealed class HtmlDxDataGridTemplateTests
                     settings.WithOption(
                         HtmlDxDataGridOption.FileSaverJsVersion,
                         "foo"));
+        }
+    }
+
+    public sealed class TheDisplayModeOption
+    {
+        [Theory]
+        [InlineData(HtmlDxDataGridDisplayMode.Paged)]
+        [InlineData(HtmlDxDataGridDisplayMode.InfiniteScroll)]
+        public void Should_Not_Fail_On_Report_Creation(HtmlDxDataGridDisplayMode displayMode)
+        {
+            // Given
+            var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+
+            // When / Then
+            fixture.TestReportCreation(
+                settings =>
+                    settings.WithOption(
+                        HtmlDxDataGridOption.DisplayMode,
+                        displayMode));
+        }
+    }
+
+    public sealed class ThePersistStateOption
+    {
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void Should_Not_Fail_On_Report_Creation(bool value)
+        {
+            // Given
+            var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+
+            // When / Then
+            fixture.TestReportCreation(
+                settings =>
+                    settings.WithOption(HtmlDxDataGridOption.PersistState, value));
+        }
+    }
+
+    public sealed class TheStorageKeyOption
+    {
+        [Theory]
+        [InlineData("foo")]
+        public void Should_Not_Fail_On_Report_Creation(string value)
+        {
+            // Given
+            var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDxDataGrid);
+
+            // When / Then
+            fixture.TestReportCreation(
+                settings =>
+                    settings.WithOption(HtmlDxDataGridOption.StorageKey, value));
         }
     }
 }

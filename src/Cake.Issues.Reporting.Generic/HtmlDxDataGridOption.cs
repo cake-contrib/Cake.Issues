@@ -375,7 +375,7 @@ public enum HtmlDxDataGridOption
     /// <summary>
     /// Version of the <see href="https://js.devexpress.com/">DevExtreme </see> libraries which should be used.
     /// If setting this the matching <see cref="JQueryVersion"/> needs to also be set.
-    /// Default value is <c>23.1.11</c>.
+    /// Default value is <c>23.1.13</c>.
     /// </summary>
     DevExtremeVersion,
 
@@ -492,4 +492,32 @@ public enum HtmlDxDataGridOption
     /// Default value is <c>3.8.4</c>.
     /// </summary>
     JsPdfAutotableVersion,
+
+    /// <summary>
+    /// Display mode of the grid.
+    /// See <see cref="HtmlDxDataGridDisplayMode"/> for possible values.
+    /// Default value is <see cref="HtmlDxDataGridDisplayMode.Paged"/>.
+    /// </summary>
+    DisplayMode,
+
+    /// <summary>
+    /// Flag if the column chooser to show and hide columns should be available or not.
+    /// Either <c>true</c> or <c>false</c>.
+    /// Default value is <c>true</c>.
+    /// </summary>
+    ShowColumnChooser,
+
+    /// <summary>
+    /// Flag if customization in the report should be persisted.
+    /// Either <c>true</c> or <c>false</c>.
+    /// Default value is <c>true</c>.
+    /// </summary>
+    PersistState,
+
+    /// <summary>
+    /// Key for the state storage.
+    /// Reports with the same key will share customizations.
+    /// Default value is <c>CakeIssuesReportingGeneric</c>.
+    /// </summary>
+    StorageKey,
 }

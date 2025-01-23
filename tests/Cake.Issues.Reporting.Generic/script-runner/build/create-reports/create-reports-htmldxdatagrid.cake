@@ -44,6 +44,10 @@
 #load create-reports-htmldxdatagrid-exportformat-pdf.cake
 #load create-reports-htmldxdatagrid-exportformat-xlsx.cake
 #load create-reports-htmldxdatagrid-custom-export-filename.cake
+#load create-reports-htmldxdatagrid-infinitescrolling.cake
+#load create-reports-htmldxdatagrid-disable-column-chooser.cake
+#load create-reports-htmldxdatagrid-custom-storage-key.cake
+#load create-reports-htmldxdatagrid-disable-persistence.cake
 
 Task("Create-Reports-HtmlDxDataGrid")
     .Description("Creates HtmlDxDataGrid demo reports")
@@ -92,4 +96,8 @@ Task("Create-Reports-HtmlDxDataGrid")
     .IsDependentOn("Create-Reports-HtmlDxDataGrid-Enable-Exporting")
     .IsDependentOn("Create-Reports-HtmlDxDataGrid-ExportFormat-Xlsx")
     .IsDependentOn("Create-Reports-HtmlDxDataGrid-ExportFormat-Pdf")
-    .IsDependentOn("Create-Reports-HtmlDxDataGrid-Custom-Export-Filename");
+    .IsDependentOn("Create-Reports-HtmlDxDataGrid-Custom-Export-Filename")
+    .IsDependentOn("Create-Reports-HtmlDxDataGrid-InfiniteScrolling")
+    .IsDependentOn("Create-Reports-HtmlDxDataGrid-Custom-Storage-Key")
+    .IsDependentOn("Create-Reports-HtmlDxDataGrid-Disable-Persistence")
+    .IsDependentOn("Create-Reports-HtmlDxDataGrid-Disable-Column-Chooser");

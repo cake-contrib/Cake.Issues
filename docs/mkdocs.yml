@@ -23,6 +23,7 @@ validation:
 
 # Preview controls
 watch:
+  - overrides
   - snippets
 
 # Theme configuration
@@ -75,7 +76,13 @@ plugins:
   - blog:
       blog_dir: news
       post_readtime: true
+  - glightbox
   - macros
+  - minify:
+      minify_html: true
+      htmlmin_opts:
+        remove_comments: true
+        reduce_boolean_attributes: true
   - search
   - social:
       enabled: !ENV [GITHUB_ACTIONS, false]
@@ -96,6 +103,7 @@ markdown_extensions:
       line_spans: __span
       pygments_lang_class: true
   - pymdownx.inlinehilite
+  - pymdownx.keys
   - pymdownx.snippets:
       auto_append:
         - snippets/abbreviations.md
@@ -115,6 +123,10 @@ markdown_extensions:
   - toc:
       permalink: true
 
+# Hooks
+hooks:
+  - overrides/hooks/shortcodes.py
+  
 # Additional configuration
 extra:
   # renovate: datasource=nuget depName=Cake.Tool versioning=loose
@@ -124,13 +136,13 @@ extra:
   # renovate: datasource=nuget depName=Cake.DocFx versioning=loose
   cake_docfx_version: 1.0.0
   # renovate: datasource=nuget depName=Cake.Issues versioning=loose
-  cake_issues_version: 5.4.0
+  cake_issues_version: 5.5.0
   # renovate: datasource=nuget depName=Cake.Markdownlint versioning=loose
   cake_markdownlint_version: 4.0.0
   # renovate: datasource=nuget depName=Cake.Git versioning=loose
   cake_git_version: 5.0.1
   # renovate: datasource=nuget depName=JetBrains.ReSharper.CommandLineTools versioning=loose
-  resharper_commandlinetool_version: 2024.3.3
+  resharper_commandlinetool_version: 2024.3.4
   example_tfm: net9.0
   version:
     provider: mike
@@ -303,9 +315,9 @@ nav:
       - Contributing:
         - How To Contribute: documentation/contributing/how-to-contribute.md
         - Open issues: https://github.com/cake-contrib/Cake.Issues/issues" target="_blank
-    - Maintainer Guide:
-      - Building Source Code: documentation/contributing/how-to-build.md
-      - Performing Release: documentation/contributing/how-to-release.md
+        - Building Source Code: documentation/contributing/how-to-build.md
+      - Maintainer Guide:
+        - Performing Release: documentation/contributing/how-to-release.md
     - Resources:
       - Blog Posts: documentation/resources/blog-posts.md
       - Presentations: documentation/resources/presentations.md

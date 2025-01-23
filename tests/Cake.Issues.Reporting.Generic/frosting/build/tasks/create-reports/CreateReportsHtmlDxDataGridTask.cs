@@ -47,6 +47,10 @@ using Cake.Frosting;
 [IsDependentOn(typeof(CreateReportsHtmlDxDataGridExportFormatXlsxTask))]
 [IsDependentOn(typeof(CreateReportsHtmlDxDataGridExportFormatPdfTask))]
 [IsDependentOn(typeof(CreateReportsHtmlDxDataGridCustomExportFilenameTask))]
+[IsDependentOn(typeof(CreateReportsHtmlDxDataGridInfiniteScrollingTask))]
+[IsDependentOn(typeof(CreateReportsHtmlDxDataGridDisableColumnChooserTask))]
+[IsDependentOn(typeof(CreateReportsHtmlDxDataGridCustomStorageKeyTask))]
+[IsDependentOn(typeof(CreateReportsHtmlDxDataGridDisablePersistenceTask))]
 public class CreateReportsHtmlDxDataGridTask : FrostingTask
 {
 }

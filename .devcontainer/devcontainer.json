@@ -1,0 +1,26 @@
+{
+	"name": "Website editing",
+	"image": "python:3.13.1-slim-bookworm",
+	"workspaceMount": "source=${localWorkspaceFolder}/docs,target=/docs,type=bind",
+	"workspaceFolder": "/docs",
+
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	"features": {},
+
+	"forwardPorts": [
+		8000
+	],
+
+	"postCreateCommand": "pip install -r requirements.txt",
+
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"terminal.integrated.shell.linux": "/bin/bash",
+			},
+			"extensions": [
+				"davidanson.vscode-markdownlint"
+			]
+		}
+	}
+}

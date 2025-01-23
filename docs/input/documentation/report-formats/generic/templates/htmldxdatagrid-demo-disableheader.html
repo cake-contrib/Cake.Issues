@@ -10,11 +10,30 @@
     <title>Issues Report</title>
 
     <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.7.1.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/23.1.11/css/dx.common.css" />
-    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/23.1.11/css/dx.light.css" />
-    <script type="text/javascript" src="https://cdn3.devexpress.com/jslib/23.1.11/js/dx.all.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/23.1.13/css/dx.common.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/23.1.13/css/dx.light.css" />
+    <script type="text/javascript" src="https://cdn3.devexpress.com/jslib/23.1.13/js/dx.all.js"></script>
 
     <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        #gridContainer {
+            flex: 1;
+            overflow: auto;
+        }
+        .dx-theme-material-typography h1
+        {
+            font-weight: 200;
+            font-size: 34px;
+        }
         td[role=gridcell] .dx-menu-item-popout
         {
             display: none;
@@ -30,7 +49,6 @@
     </style>
 </head>
 <body class="dx-viewport">
-
     <div class="container">
         <div id="gridContainer"></div>
     </div>
@@ -46,6 +64,18 @@
             $("#gridContainer").dxDataGrid({
                 dataSource: issues,
                 loadPanel: {
+                    enabled: true
+                },
+                stateStoring: {
+                    enabled: true,
+                    type: 'localStorage',
+                    storageKey: 'CakeIssuesReportingGeneric',
+                },
+
+                        pager: {
+                            showPageSizeSelector: true
+                        },
+                                        columnChooser: {
                     enabled: true
                 },
                 searchPanel: {
@@ -65,6 +95,8 @@
                     mode: "multiple"
                 },
                 rowAlternationEnabled: true,
+                wordWrapEnabled: true,
+                columnAutoWidth: true,
                 allowColumnResizing: true,
                 columns: [
 
