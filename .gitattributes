@@ -1,6 +1,7 @@
 # Enforce Windows newlines for C# files to be aligned with editorconfig.
 *.cs text eol=crlf
 *.cs diff=csharp
-
 # Binary files tracked by LFS
 *.gif filter=lfs diff=lfs merge=lfs -text
+*.jpg filter=lfs diff=lfs merge=lfs -text
+*.png filter=lfs diff=lfs merge=lfs -text
