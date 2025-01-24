@@ -18,6 +18,7 @@ jobs:
       - name: Get the sources
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
         with:
+          lfs: true
           fetch-depth: 0
       - name: Install Python
         uses: actions/setup-python@0b93645e9fea7318ecaed2b359559ac225c90a2b # v5
