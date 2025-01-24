@@ -5,6 +5,9 @@ on:
   # Triggers the workflow in the event there is a release created
   release:
     types: [published]
+  # Allow manual triggering of the workflow.
+  # This will deploy current development branch as latest version.
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -34,6 +37,22 @@ jobs:
         run: |
           git config --global user.name "Build Server"
           git config --global user.email "ci@cakeissues.net"
+      # Determine the version (either from the release or manually inputted)
+      - name: Set version to deploy
+        id: set-version
+        run: |
+          if [[ "${{ github.event_name }}" == "release" ]]; then
+            echo "VERSION=${{ github.event.release.tag_name }}" >> $GITHUB_ENV
+          elif [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            LATEST_TAG=$(curl -s https://api.github.com/repos/${{ github.repository }}/releases/latest | jq -r .tag_name)
+            if [ "$LATEST_TAG" != "null" ]; then
+              echo "VERSION=$LATEST_TAG" >> $GITHUB_ENV
+            else
+              echo "No latest release found" && exit 1
+            fi
+          else
+            echo "No version specified, cannot deploy." && exit 1
+          fi
       - name: Build & Publish
-        run: mike deploy --push --update-aliases ${{ github.event.release.tag_name }} latest
+        run: mike deploy --push --update-aliases $VERSION latest
         working-directory: ./docs
