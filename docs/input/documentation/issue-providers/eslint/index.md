@@ -1,5 +1,5 @@
 ---
-title: ESLint
+title: ESLint issue provider
 description: Issue provider which allows you to read issues logged by ESLint.
 ---
 

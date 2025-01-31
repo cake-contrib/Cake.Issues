@@ -1,5 +1,5 @@
 ---
-title: AppVeyor
+title: AppVeyor support
 description: Support for AppVeyor.
 ---
 

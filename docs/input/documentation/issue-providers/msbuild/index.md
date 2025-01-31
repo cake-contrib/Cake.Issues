@@ -1,5 +1,5 @@
 ---
-title: MsBuild
+title: MsBuild issue provider
 description: Issue provider which allows you to read warnings logged by MsBuild.
 ---
 
