@@ -5,6 +5,8 @@ categories:
   - Release Notes
 search:
   boost: 0.5
+links:
+  - documentation/issue-providers/sarif/index.md
 ---
 
 Cake Issues version 4.2.0 has been released introducing a new issue provider for SARIF compatible files.

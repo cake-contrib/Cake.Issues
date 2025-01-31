@@ -5,6 +5,8 @@ categories:
   - New Addin
 search:
   boost: 0.5
+links:
+  - documentation/pull-request-systems/github-actions/index.md
 ---
 
 A new [Cake.Issues.PullRequest.GitHubActions addin] has been released which brings integration with GitHub Actions and GitHub pull requests.

@@ -5,6 +5,8 @@ categories:
   - New Addin
 search:
   boost: 0.5
+links:
+  - documentation/issue-providers/sarif/index.md
 ---
 
 In [version 4.2.0] a new [Cake.Issues.Sarif addin] has been released which adds support for reading issues in [SARIF]{target="_blank"} format.

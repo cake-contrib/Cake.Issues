@@ -5,6 +5,8 @@ categories:
   - Release Notes
 search:
   boost: 0.5
+links:
+  - documentation/issue-providers/markdownlint/index.md
 ---
 
 Version 1.1.0 of Markdownlint support for Cake.Issues has been released.

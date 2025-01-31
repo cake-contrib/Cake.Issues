@@ -5,6 +5,9 @@ categories:
   - Release Notes
 search:
   boost: 0.5
+links:
+  - documentation/usage/breaking-builds/breaking-builds.md
+  - documentation/issue-providers/sarif/index.md
 ---
 
 Cake Issues version 5.2.0 has been released bringing improvements to build breaking and SARIF issue provider.

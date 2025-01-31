@@ -5,6 +5,8 @@ categories:
   - Release Notes
 search:
   boost: 0.5
+links:
+  - documentation/issue-providers/msbuild/index.md
 ---
 
 Version 0.9.1 of MsBuild support for Cake.Issues has been released.

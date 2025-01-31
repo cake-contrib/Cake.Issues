@@ -5,6 +5,9 @@ categories:
   - Release Notes
 search:
   boost: 0.5
+links:
+  - documentation/usage/breaking-builds/breaking-builds.md
+  - documentation/report-formats/generic/templates/htmldxdatagrid.md
 ---
 
 Cake Issues version 4.5.0 has been released adding support for [build breaking].
