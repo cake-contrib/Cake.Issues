@@ -5,6 +5,9 @@ categories:
   - Release Notes
 search:
   boost: 0.5
+links:
+  - documentation/issue-providers/msbuild/index.md
+  - documentation/issue-providers/sarif/index.md
 ---
 
 Cake Issues version 4.7.0 has been released with detailed line information for SARIF issue provider and 

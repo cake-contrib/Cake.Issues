@@ -5,6 +5,8 @@ categories:
   - Release Notes
 search:
   boost: 0.5
+links:
+  - documentation/report-formats/generic/templates/htmldxdatagrid.md
 ---
 
 Cake Issues version 5.5.0 has been released bringing improvements to HTML reports.

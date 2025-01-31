@@ -5,6 +5,9 @@ categories:
   - Release Notes
 search:
   boost: 0.5
+links:
+  - Cake v3.0.0 released: https://cakebuild.net/blog/2022/11/cake-v3.0.0-released
+  - documentation/issue-providers/msbuild/index.md
 ---
 
 Cake Issues version 3.0.0 has been released.

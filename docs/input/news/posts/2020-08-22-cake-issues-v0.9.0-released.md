@@ -5,6 +5,8 @@ categories:
   - Release Notes
 search:
   boost: 0.5
+links:
+  - documentation/usage/reading-issues/file-linking.md
 ---
 
 Cake Issues version 0.9.0 has been released. This is a major release bringing a lot of new features across all addins.

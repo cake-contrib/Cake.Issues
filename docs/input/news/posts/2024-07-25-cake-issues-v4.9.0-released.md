@@ -5,6 +5,9 @@ categories:
   - Release Notes
 search:
   boost: 0.5
+links:
+  - documentation/issue-providers/sarif/index.md
+  - documentation/issue-providers/terraform/index.md
 ---
 
 Cake Issues version 4.9.0 has been released with bugfixes for SARIF report format and Terraform issue provider.

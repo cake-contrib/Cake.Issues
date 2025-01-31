@@ -5,6 +5,8 @@ categories:
   - Announcements
 search:
   boost: 0.5
+links:
+  - Material for MkDocs: https://squidfunk.github.io/mkdocs-material/
 ---
 
 Today a new version of the Cake Issues website has been published.
