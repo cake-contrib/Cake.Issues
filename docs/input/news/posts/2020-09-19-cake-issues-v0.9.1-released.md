@@ -3,8 +3,6 @@ title: Cake Issues v0.9.1 Released
 date: 2020-09-19
 categories:
   - Release Notes
-search:
-  boost: 0.5
 links:
   - documentation/usage/reading-issues/file-linking.md
   - documentation/pull-request-systems/azure-devops/index.md

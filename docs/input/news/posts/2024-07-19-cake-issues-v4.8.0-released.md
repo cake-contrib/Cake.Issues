@@ -3,8 +3,6 @@ title: Cake Issues v4.8.0 Released
 date: 2024-07-19
 categories:
   - Release Notes
-search:
-  boost: 0.5
 links:
   - documentation/issue-providers/sarif/index.md
 ---

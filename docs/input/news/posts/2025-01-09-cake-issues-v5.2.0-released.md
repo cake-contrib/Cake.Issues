@@ -3,8 +3,6 @@ title: Cake Issues v5.2.0 Released
 date: 2025-01-09
 categories:
   - Release Notes
-search:
-  boost: 0.5
 links:
   - documentation/usage/breaking-builds/breaking-builds.md
   - documentation/issue-providers/sarif/index.md

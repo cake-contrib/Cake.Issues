@@ -3,8 +3,6 @@ title: Cake Issues v1.0.0 Released
 date: 2021-07-28
 categories:
   - Release Notes
-search:
-  boost: 0.5
 links:
   - Cake v1.0.0 released: https://cakebuild.net/blog/2021/02/cake-v1.0.0-released
 ---

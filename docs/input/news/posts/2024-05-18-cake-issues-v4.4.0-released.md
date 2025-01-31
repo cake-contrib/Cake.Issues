@@ -3,8 +3,6 @@ title: Cake Issues v4.4.0 Released
 date: 2024-05-18
 categories:
   - Release Notes
-search:
-  boost: 0.5
 links:
   - documentation/report-formats/generic/templates/htmldxdatagrid.md
 ---

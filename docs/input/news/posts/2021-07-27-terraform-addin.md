@@ -3,8 +3,6 @@ title: New addin for Terraform support
 date: 2021-07-27
 categories:
   - New Addin
-search:
-  boost: 0.5
 links:
   - documentation/issue-providers/terraform/index.md
 ---

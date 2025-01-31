@@ -3,8 +3,6 @@ title: New GitHub Actions addin
 date: 2020-09-27
 categories:
   - New Addin
-search:
-  boost: 0.5
 links:
   - documentation/pull-request-systems/github-actions/index.md
 ---

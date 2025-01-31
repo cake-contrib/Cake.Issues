@@ -3,8 +3,6 @@ title: Cake Issues v5.1.1 Released
 date: 2025-01-05
 categories:
   - Release Notes
-search:
-  boost: 0.5
 ---
 
 Cake Issues version 5.1.1 has been released containing bug fixes for Cake Frosting addins

@@ -3,8 +3,6 @@ title: Cake Issues Reporting Console v0.3.0 released, adding support for all Cak
 date: 2021-09-05
 categories:
   - Release Notes
-search:
-  boost: 0.5
 links:
   - documentation/report-formats/console/index.md
 ---
