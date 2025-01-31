@@ -1,5 +1,5 @@
 ---
-title: Test Anything Protocol
+title: Test Anything Protocol issue provider
 description: Issue provider which allows you to read issues from Test Anything Protocol files.
 status: new
 ---
