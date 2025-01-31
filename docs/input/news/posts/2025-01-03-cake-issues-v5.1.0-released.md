@@ -3,8 +3,6 @@ title: Cake Issues v5.1.0 Released
 date: 2025-01-03
 categories:
   - Release Notes
-search:
-  boost: 0.5
 links:
   - documentation/issue-providers/tap/index.md
 ---

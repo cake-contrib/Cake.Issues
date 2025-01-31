@@ -3,8 +3,6 @@ title: Cake Issues v4.11.0 Released
 date: 2024-10-06
 categories:
   - Release Notes
-search:
-  boost: 0.5
 links:
   - documentation/issue-providers/msbuild/index.md
 ---

@@ -3,8 +3,6 @@ title: Cake Issues PullRequests v0.9.1 Released
 date: 2020-10-09
 categories:
   - Release Notes
-search:
-  boost: 0.5
 ---
 
 Version 0.9.1 of Cake.Issues.PullRequests has been released.

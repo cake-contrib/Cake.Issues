@@ -3,8 +3,6 @@ title: Alignment of addin lifecycles
 date: 2024-01-14
 categories:
   - Announcements
-search:
-  boost: 0.5
 ---
 
 Cake Issues has a [modular architecture] consisting of multiple addins.

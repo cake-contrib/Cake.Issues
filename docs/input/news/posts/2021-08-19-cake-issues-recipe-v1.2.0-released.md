@@ -3,8 +3,6 @@ title: Cake Issues Recipes v1.2.0 released
 date: 2021-08-19 
 categories:
   - Release Notes
-search:
-  boost: 0.5
 ---
 
 Version 1.2.0 of Cake Issues recipes have been released adding support to customize issue reporting to pull requests.

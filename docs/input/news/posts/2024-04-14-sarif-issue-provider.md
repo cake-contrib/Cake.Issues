@@ -3,8 +3,6 @@ title: New addin for reading SARIF files
 date: 2024-04-14
 categories:
   - New Addin
-search:
-  boost: 0.5
 links:
   - documentation/issue-providers/sarif/index.md
 ---

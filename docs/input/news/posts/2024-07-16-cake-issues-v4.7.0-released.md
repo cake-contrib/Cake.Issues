@@ -3,8 +3,6 @@ title: Cake Issues v4.7.0 Released
 date: 2024-07-16
 categories:
   - Release Notes
-search:
-  boost: 0.5
 links:
   - documentation/issue-providers/msbuild/index.md
   - documentation/issue-providers/sarif/index.md

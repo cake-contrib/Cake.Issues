@@ -3,8 +3,6 @@ title: Cake Issues Recipe v1.0.0 Released, bringing support for Cake Frosting
 date: 2021-08-04 
 categories:
   - Release Notes
-search:
-  boost: 0.5
 ---
 
 Hard on the heels of the [announcement for release 1.0 of Cake.Issues addins],

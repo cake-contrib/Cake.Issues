@@ -3,8 +3,6 @@ title: New website
 date: 2024-12-21
 categories:
   - Announcements
-search:
-  boost: 0.5
 links:
   - Material for MkDocs: https://squidfunk.github.io/mkdocs-material/
 ---

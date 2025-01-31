@@ -3,8 +3,6 @@ title: Cake Issues Recipes v3.1.0 released
 date: 2023-08-16
 categories:
   - Release Notes
-search:
-  boost: 0.5
 ---
 
 Version 3.1.0 of Cake Issues recipes have been released adding support for creating of reports in SARIF format.

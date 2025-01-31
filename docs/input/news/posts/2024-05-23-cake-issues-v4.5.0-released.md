@@ -3,8 +3,6 @@ title: Cake Issues v4.5.0 Released
 date: 2024-05-23
 categories:
   - Release Notes
-search:
-  boost: 0.5
 links:
   - documentation/usage/breaking-builds/breaking-builds.md
   - documentation/report-formats/generic/templates/htmldxdatagrid.md

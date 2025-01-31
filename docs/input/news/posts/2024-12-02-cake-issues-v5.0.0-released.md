@@ -3,8 +3,6 @@ title: Cake Issues v5.0.0 Released
 date: 2024-12-02
 categories:
   - Release Notes
-search:
-  boost: 0.5
 links:
   - Cake v5.0.0 released: https://cakebuild.net/blog/2024/11/cake-v5.0.0-released
 ---

@@ -78,6 +78,7 @@ plugins:
       post_readtime: true
   - glightbox
   - macros
+  - meta
   - minify:
       minify_html: true
       htmlmin_opts:
