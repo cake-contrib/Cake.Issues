@@ -1,5 +1,5 @@
 ---
-title: Sarif
+title: Sarif issue provider
 description: Issue provider which allows you to read issues from SARIF files.
 ---
 

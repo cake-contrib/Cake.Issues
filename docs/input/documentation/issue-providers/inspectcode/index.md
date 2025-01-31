@@ -1,5 +1,5 @@
 ---
-title: InspectCode
+title: InspectCode issue provider
 description: Issue provider which allows you to read issues logged by JetBrains Inspect Code.
 ---
 
