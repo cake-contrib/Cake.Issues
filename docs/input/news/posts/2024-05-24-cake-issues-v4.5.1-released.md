@@ -3,8 +3,6 @@ title: Cake Issues v4.5.1 Released
 date: 2024-05-24
 categories:
   - Release Notes
-search:
-  boost: 0.5
 ---
 
 Cake Issues version 4.5.1 has been released containing bug fixes.

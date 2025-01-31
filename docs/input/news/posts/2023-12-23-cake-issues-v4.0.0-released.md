@@ -3,8 +3,8 @@ title: Cake Issues v4.0.0 Released
 date: 2023-12-23
 categories:
   - Release Notes
-search:
-  boost: 0.5
+links:
+  - Cake v4.0.0 released: https://cakebuild.net/blog/2023/11/cake-v4.0.0-released
 ---
 
 Cake Issues version 4.0.0 has been released.

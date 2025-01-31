@@ -3,8 +3,8 @@ title: Cake Issues v0.9.0 Released
 date: 2020-08-22
 categories:
   - Release Notes
-search:
-  boost: 0.5
+links:
+  - documentation/usage/reading-issues/file-linking.md
 ---
 
 Cake Issues version 0.9.0 has been released. This is a major release bringing a lot of new features across all addins.

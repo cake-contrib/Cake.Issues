@@ -3,8 +3,8 @@ title: Cake Issues ESLint v1.0.1 Released
 date: 2021-07-30
 categories:
   - Release Notes
-search:
-  boost: 0.5
+links:
+  - documentation/issue-providers/eslint/index.md
 ---
 
 Version 1.0.1 of ESLint support for Cake.Issues has been released.

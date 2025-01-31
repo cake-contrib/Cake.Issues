@@ -3,8 +3,8 @@ title: New addin for reading Test Anything Protocol (TAP) files
 date: 2025-01-03
 categories:
   - New Addin
-search:
-  boost: 0.5
+links:
+  - documentation/issue-providers/tap/index.md
 ---
 
 In [version 5.1.0] a new [Cake.Issues.Tap addin] has been released which adds support for reading issues in [Test Anything Protocol (TAP)]{target="_blank"} format.

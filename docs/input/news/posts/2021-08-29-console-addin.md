@@ -3,8 +3,8 @@ title: New addin for printing issues to console
 date: 2021-08-29
 categories:
   - New Addin
-search:
-  boost: 0.5
+links:
+  - documentation/report-formats/console/index.md
 ---
 
 A new [Cake.Issues.Reporting.Console addin] has been released which allows to output issues to the console.

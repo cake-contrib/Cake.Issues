@@ -3,8 +3,8 @@ title: Cake Issues v5.3.0 Released
 date: 2025-01-10
 categories:
   - Release Notes
-search:
-  boost: 0.5
+links:
+  - documentation/issue-providers/tap/index.md
 ---
 
 Cake Issues version 5.3.0 has been released bringing improvements to Test Anything Protocol issue provider.

@@ -3,8 +3,6 @@ title: Cake Issues Recipe v0.4.2 released, bringing support for GitHub Actions
 date: 2020-09-24
 categories:
   - Release Notes
-search:
-  boost: 0.5
 ---
 
 Version 0.4.2 of Cake Issues Recipe has been released bringing support for GitHub Actions.
