@@ -5,6 +5,8 @@ categories:
   - Release Notes
 search:
   boost: 0.5
+links:
+  - documentation/issue-providers/sarif/index.md
 ---
 
 Cake Issues version 4.8.0 has been released with improvements for SARIF issue provider.

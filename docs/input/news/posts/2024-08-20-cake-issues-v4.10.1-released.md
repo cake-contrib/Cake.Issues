@@ -5,6 +5,8 @@ categories:
   - Release Notes
 search:
   boost: 0.5
+links:
+  - documentation/usage/reading-issues/file-linking.md
 ---
 
 Cake Issues version v4.10.1 has been released with bugfixes for Cake Frosting and file linking

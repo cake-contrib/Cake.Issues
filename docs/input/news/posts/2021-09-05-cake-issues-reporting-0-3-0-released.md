@@ -5,6 +5,8 @@ categories:
   - Release Notes
 search:
   boost: 0.5
+links:
+  - documentation/report-formats/console/index.md
 ---
 
 Version 0.3.0 of [Cake.Issues.Reporting.Console] has been released.

@@ -5,6 +5,8 @@ categories:
   - Release Notes
 search:
   boost: 0.5
+links:
+  - documentation/issue-providers/msbuild/index.md
 ---
 
 Cake Issues version 4.11.0 has been released with support for MsBuild binary log format version 23.
