@@ -1,5 +1,5 @@
 ---
-title: GitHub Actions
+title: GitHub Actions support
 description: Support for GitHub Actions.
 ---
 

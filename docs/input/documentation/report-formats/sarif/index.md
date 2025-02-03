@@ -1,5 +1,5 @@
 ---
-title: Sarif
+title: Sarif reporter
 description: Report format to create SARIF compatible reports.
 ---
 

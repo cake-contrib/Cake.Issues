@@ -1,5 +1,5 @@
 ---
-title: Generic
+title: HTML reporter
 description: Report format to create reports in any text based format (HTML, Markdown, ...).
 ---
 

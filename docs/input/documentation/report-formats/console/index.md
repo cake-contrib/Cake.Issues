@@ -1,5 +1,5 @@
 ---
-title: Console
+title: Console reporter
 description: Report format to print issues to the console.
 ---
 

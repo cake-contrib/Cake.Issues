@@ -1,5 +1,5 @@
 ---
-title: Terraform
+title: Terraform issue provider
 description: Issue provider which allows you to read issues from Terraform validate command.
 ---
 
