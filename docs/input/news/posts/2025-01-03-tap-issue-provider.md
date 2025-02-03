@@ -3,8 +3,6 @@ title: New addin for reading Test Anything Protocol (TAP) files
 date: 2025-01-03
 categories:
   - New Addin
-search:
-  boost: 0.5
 links:
   - documentation/issue-providers/tap/index.md
 ---
