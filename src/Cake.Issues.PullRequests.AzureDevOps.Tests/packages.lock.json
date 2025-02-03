@@ -1368,7 +1368,7 @@
       "cake.issues.pullrequests.azuredevops": {
         "type": "Project",
         "dependencies": {
-          "Cake.Frosting.AzureDevOps": "[5.0.0, )",
+          "Cake.Frosting.AzureDevOps": "[5.0.1, )",
           "Cake.Issues.PullRequests": "[1.0.0, )"
         }
       },
@@ -1392,9 +1392,9 @@
       },
       "Cake.Frosting.AzureDevOps": {
         "type": "CentralTransitive",
-        "requested": "[5.0.0, )",
-        "resolved": "5.0.0",
-        "contentHash": "P0WE3e2Z1pmfIdrRG7vuWQE+29vNZzuWUprvi5inOc08pPBe0HfmOnK6Bkd4cY1yFw6tBaPStUDFjG+wQSKafQ==",
+        "requested": "[5.0.1, )",
+        "resolved": "5.0.1",
+        "contentHash": "zNAnv6euiisLnT/WaWvdk/vKx0EKhGbP2hI/5G7gAKUwqdM75flZadUf5e4WZ0NE2lRpml+2RNT2/vn3zwL3wg==",
         "dependencies": {
           "Cake.Core": "5.0.0",
           "Microsoft.Identity.Client": "4.66.2",
@@ -2806,7 +2806,7 @@
       "cake.issues.pullrequests.azuredevops": {
         "type": "Project",
         "dependencies": {
-          "Cake.Frosting.AzureDevOps": "[5.0.0, )",
+          "Cake.Frosting.AzureDevOps": "[5.0.1, )",
           "Cake.Issues.PullRequests": "[1.0.0, )"
         }
       },
@@ -2830,9 +2830,9 @@
       },
       "Cake.Frosting.AzureDevOps": {
         "type": "CentralTransitive",
-        "requested": "[5.0.0, )",
-        "resolved": "5.0.0",
-        "contentHash": "P0WE3e2Z1pmfIdrRG7vuWQE+29vNZzuWUprvi5inOc08pPBe0HfmOnK6Bkd4cY1yFw6tBaPStUDFjG+wQSKafQ==",
+        "requested": "[5.0.1, )",
+        "resolved": "5.0.1",
+        "contentHash": "zNAnv6euiisLnT/WaWvdk/vKx0EKhGbP2hI/5G7gAKUwqdM75flZadUf5e4WZ0NE2lRpml+2RNT2/vn3zwL3wg==",
         "dependencies": {
           "Cake.Core": "5.0.0",
           "Microsoft.Identity.Client": "4.66.2",
