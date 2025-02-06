@@ -29,7 +29,7 @@ install:
 #  Build Script                   #
 #---------------------------------#
 build_script:
-  - ps: .\build.ps1 --target=CI
+  - ps: .\build.ps1 --target=Publish
 
 # Tests
 test: off

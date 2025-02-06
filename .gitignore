@@ -305,4 +305,5 @@ __pycache__/
 # Project specific 
 
 BuildArtifacts/
+build/tools/*
 docs/.cache/

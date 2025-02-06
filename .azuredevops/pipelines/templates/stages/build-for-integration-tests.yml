@@ -12,7 +12,7 @@ stages:
         vmImage: 'ubuntu-22.04'
       steps:
       - template: ../steps/install-required-dotnet-versions-for-building.yml 
-      - bash: ./build.sh --target=Create-NuGet-Packages
+      - bash: ./build.sh --target=Package
         displayName: 'Build'
       - publish: $(Build.SourcesDirectory)/BuildArtifacts/Packages/NuGet
         artifact: NuGet Package
