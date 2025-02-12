@@ -53,7 +53,7 @@ Cake.Issues recipes will add the following addins to your build:
     | [Cake.Issues.PullRequests.AppVeyor]{target="_blank"}      | {{ cake_issues_version }} | |
     | [Cake.Issues.PullRequests.AzureDevOps]{target="_blank"}   | {{ cake_issues_version }} | |
     | [Cake.Issues.PullRequests.GitHubActions]{target="_blank"} | {{ cake_issues_version }} | |
-    | [Cake.AzureDevOps]{target="_blank"}                       | 5.0.0                     | |
+    | [Cake.AzureDevOps]{target="_blank"}                       | 5.0.1                     | |
 
 === "Cake.Frosting.Issues.Recipe"
 
@@ -73,7 +73,7 @@ Cake.Issues recipes will add the following addins to your build:
     | [Cake.Frosting.Issues.PullRequests.AppVeyor]{target="_blank"}      | {{ cake_issues_version }} | |
     | [Cake.Frosting.Issues.PullRequests.AzureDevOps]{target="_blank"}   | {{ cake_issues_version }} | |
     | [Cake.Frosting.Issues.PullRequests.GitHubActions]{target="_blank"} | {{ cake_issues_version }} | |
-    | [Cake.Frosting.AzureDevOps]{target="_blank"}                       | 5.0.0                     | |
+    | [Cake.Frosting.AzureDevOps]{target="_blank"}                       | 5.0.1                     | |
 
 [Cake.Issues.Recipe]: https://www.nuget.org/packages/Cake.Issues.Recipe
 [Cake.Frosting.Issues.Recipe]: https://www.nuget.org/packages/Cake.Frosting.Issues.Recipe
