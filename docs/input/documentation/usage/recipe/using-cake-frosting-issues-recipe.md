@@ -61,12 +61,11 @@ The following example creates a build context and defines that Cake Issues shoul
 state of the Git repository:
 
 ```csharp
-public class BuildContext : IssuesContext
+using Cake.Core;
+
+public class BuildContext(ICakeContext context)
+    : IssuesContext(context, RepositoryInfoProviderType.CakeGit)
 {
-    public BuildContext(ICakeContext context)
-        : base(context, RepositoryInfoProviderType.CakeGit)
-    {
-    }
 }
 ```
 
@@ -78,6 +77,10 @@ The tasks need to also be a dependency of `ReadIssuesTask` provided by [Cake.Fro
 In the following example a new task is introduced which runs JetBrains InspectCode and passes the log file to [Cake.Frosting.Issues.Recipe]:
 
 ```csharp
+using Cake.Common.IO;
+using Cake.Common.Tools.InspectCode;
+using Cake.Frosting;
+
 [TaskName("Run-InspectCode")]
 [IsDependeeOf(typeof(ReadIssuesTask))]
 public class RunInspectCodeTask : FrostingTask<BuildContext>
@@ -117,6 +120,8 @@ To add the issues functionality into your existing build pipeline you need to ad
  In the following example the `Default` task makes sure the main `IssuesTask` is executed:
 
 ```csharp
+using Cake.Frosting;
+
 [TaskName("Default")]
 [IsDependentOn(typeof(IssuesTask))]
 public class DefaultTask : FrostingTask
