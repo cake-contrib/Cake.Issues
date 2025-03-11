@@ -37,7 +37,7 @@ jobs:
           dotnet-version: | 
             5.x
             8.x
-            9.x
+            9.0.102
       # Ubuntu 24.04 does not have Mono installed, which is Required for Cake.Recipe
       - name: Install Mono
         if: ${{ matrix.os == 'ubuntu-24.04' }}

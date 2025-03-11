@@ -19,6 +19,10 @@ stages:
         vmImage: $(imageName)
       steps:
       - template: ../steps/install-required-dotnet-versions-for-building.yml 
+      - task: UseDotNet@2
+        inputs:
+          version: '9.0.102'
+        displayName: 'Install .NET 9'
       # Ubuntu 24.04 does not have Mono installed, which is Required for Cake.Recipe
       - bash: sudo apt-get install mono-complete
         condition: eq(variables['imageName'], 'ubuntu-24.04')
