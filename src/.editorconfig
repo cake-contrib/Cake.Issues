@@ -229,3 +229,4 @@ dotnet_naming_style.begins_with_i.capitalization = pascal_case
 
 # Escalate 'Style' / IDE diagnostics to warnings to have them enabled in CLI builds
 dotnet_analyzer_diagnostic.category-Style.severity = warning
+dotnet_diagnostic.IDE0305.severity = none # Use collection expression for fluent
