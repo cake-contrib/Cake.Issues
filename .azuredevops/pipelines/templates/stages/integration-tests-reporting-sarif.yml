@@ -17,8 +17,6 @@ stages:
             imageName: 'macOS-13'
           macOS_14:
             imageName: 'macOS-14'
-          Ubuntu_20_04:
-            imageName: 'ubuntu-20.04'
           Ubuntu_22_04:
             imageName: 'ubuntu-22.04'
           Ubuntu_24_04:
@@ -46,8 +44,6 @@ stages:
             imageName: 'macOS-13'
           macOS_14:
             imageName: 'macOS-14'
-          Ubuntu_20_04:
-            imageName: 'ubuntu-20.04'
           Ubuntu_22_04:
             imageName: 'ubuntu-22.04'
           Ubuntu_24_04:
@@ -75,8 +71,6 @@ stages:
             imageName: 'macOS-13'
           macOS_14:
             imageName: 'macOS-14'
-          Ubuntu_20_04:
-            imageName: 'ubuntu-20.04'
           Ubuntu_22_04:
             imageName: 'ubuntu-22.04'
           Ubuntu_24_04:
