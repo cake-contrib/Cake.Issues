@@ -143,7 +143,7 @@ extra:
   # renovate: datasource=nuget depName=Cake.Git versioning=loose
   cake_git_version: 5.0.1
   # renovate: datasource=nuget depName=JetBrains.ReSharper.CommandLineTools versioning=loose
-  resharper_commandlinetool_version: 2025.1.0
+  resharper_commandlinetool_version: 2025.1.1
   example_tfm: net9.0
   version:
     provider: mike
