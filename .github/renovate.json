@@ -24,6 +24,19 @@
       ],
       "datasourceTemplate": "nuget",
       "versioningTemplate": "nuget"
+    },
+    {
+      "customType": "regex",
+      "description": "Update NuGet package versions in C# files",
+      "fileMatch": [
+        "build/{{arg0}}$",
+        "src/{{arg1}}$"
+      ],
+      "matchStrings": [
+        "// renovate:( datasource=(?<datasource>.*?))? depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?( extractVersion=(?<extractVersion>.*?))?\\s*const string \\w*[vV]ersion = \"(?<currentValue>\\S*)\";\\s?"
+      ],
+      "datasourceTemplate": "nuget",
+      "versioningTemplate": "nuget"
     }
   ],
   "packageRules": [

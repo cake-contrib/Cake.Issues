@@ -32,7 +32,7 @@ jobs:
             8.x
             9.x
       - name: Build
-        run: ./build.sh --target=Create-NuGet-Packages
+        run: ./build.sh --target=Package
         shell: bash
       - name: Publish NuGet package as build artifact
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
