@@ -8,7 +8,7 @@
     <PackageVersion Include="Cake.Core" Version="5.0.0" />
     <PackageVersion Include="Cake.Frosting.AzureDevOps" Version="5.0.0" />
     <PackageVersion Include="Cake.Testing" Version="5.0.0" />
-    <PackageVersion Include="Errata" Version="0.13.0" />
+    <PackageVersion Include="Errata" Version="0.14.0" />
     <PackageVersion Include="Gazorator" Version="0.5.2" />
     <PackageVersion Include="HtmlAgilityPack" Version="1.12.1" />
     <PackageVersion Include="Microsoft.CSharp" Version="4.7.0" />
