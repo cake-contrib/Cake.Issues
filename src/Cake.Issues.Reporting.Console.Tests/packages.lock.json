@@ -146,8 +146,8 @@
       },
       "System.Memory": {
         "type": "Transitive",
-        "resolved": "4.5.5",
-        "contentHash": "XIWiDvKPXaTveaB7HVganDlOCRoj03l+jrwNvcge/t8vhGYKvqV+dMv6G4SAX2NoNmN0wZfVPTAlFwZcZvVOUw=="
+        "resolved": "4.6.3",
+        "contentHash": "qdcDOgnFZY40+Q9876JUHnlHu7bosOHX8XISRoH94fwk6hgaeQGSgfZd8srWRZNt5bV9ZW2TljcegDNxsf+96A=="
       },
       "System.Reflection.Metadata": {
         "type": "Transitive",
@@ -229,7 +229,7 @@
         "type": "Project",
         "dependencies": {
           "Cake.Issues.Reporting": "[1.0.0, )",
-          "Errata": "[0.13.0, )"
+          "Errata": "[0.14.0, )"
         }
       },
       "cake.issues.testing": {
@@ -264,11 +264,11 @@
       },
       "Errata": {
         "type": "CentralTransitive",
-        "requested": "[0.13.0, )",
-        "resolved": "0.13.0",
-        "contentHash": "Nt8Tj8LnDE4vZ9DG6m2yO+zT+yUbqxbCTXnYFacBxDIdrQNqeglPMsm8cuiEzMR6jwQ7pxZW8OzhjomnFFfGZw==",
+        "requested": "[0.14.0, )",
+        "resolved": "0.14.0",
+        "contentHash": "/UEPufQeiwHgQSw1Eu6mVFP+GsdvsGk7n1SImoZRHjxIV9L5XWboRKjpVbmpinDd0lmzn2XIvLt0cs1cKzPv2Q==",
         "dependencies": {
-          "Spectre.Console": "0.47.0"
+          "Spectre.Console": "0.50.0"
         }
       },
       "Microsoft.CSharp": {
@@ -286,10 +286,10 @@
       "Spectre.Console": {
         "type": "CentralTransitive",
         "requested": "[0.49.1, )",
-        "resolved": "0.47.0",
-        "contentHash": "wz8mszcZr0cSOo8GyoG9e2DFW0SkMT8/n78Q/lIXX7EbCtHNXOoOKWpJ9Str+rCYtmQOGGyDutZzubrUHK/XkA==",
+        "resolved": "0.50.0",
+        "contentHash": "gkwYncFqMjlPF6Yz8KeVsKWpdfv15sr6uKm+vXVa/8Q4tvx52LPzMQOO5m+bXwI3AGGFeY3cok3ZJbguYizswg==",
         "dependencies": {
-          "System.Memory": "4.5.5"
+          "System.Memory": "4.6.3"
         }
       }
     },
@@ -438,8 +438,8 @@
       },
       "System.Memory": {
         "type": "Transitive",
-        "resolved": "4.5.5",
-        "contentHash": "XIWiDvKPXaTveaB7HVganDlOCRoj03l+jrwNvcge/t8vhGYKvqV+dMv6G4SAX2NoNmN0wZfVPTAlFwZcZvVOUw=="
+        "resolved": "4.6.3",
+        "contentHash": "qdcDOgnFZY40+Q9876JUHnlHu7bosOHX8XISRoH94fwk6hgaeQGSgfZd8srWRZNt5bV9ZW2TljcegDNxsf+96A=="
       },
       "System.Reflection.Metadata": {
         "type": "Transitive",
@@ -521,7 +521,7 @@
         "type": "Project",
         "dependencies": {
           "Cake.Issues.Reporting": "[1.0.0, )",
-          "Errata": "[0.13.0, )"
+          "Errata": "[0.14.0, )"
         }
       },
       "cake.issues.testing": {
@@ -556,11 +556,11 @@
       },
       "Errata": {
         "type": "CentralTransitive",
-        "requested": "[0.13.0, )",
-        "resolved": "0.13.0",
-        "contentHash": "Nt8Tj8LnDE4vZ9DG6m2yO+zT+yUbqxbCTXnYFacBxDIdrQNqeglPMsm8cuiEzMR6jwQ7pxZW8OzhjomnFFfGZw==",
+        "requested": "[0.14.0, )",
+        "resolved": "0.14.0",
+        "contentHash": "/UEPufQeiwHgQSw1Eu6mVFP+GsdvsGk7n1SImoZRHjxIV9L5XWboRKjpVbmpinDd0lmzn2XIvLt0cs1cKzPv2Q==",
         "dependencies": {
-          "Spectre.Console": "0.47.0"
+          "Spectre.Console": "0.50.0"
         }
       },
       "Microsoft.CSharp": {
@@ -578,10 +578,10 @@
       "Spectre.Console": {
         "type": "CentralTransitive",
         "requested": "[0.49.1, )",
-        "resolved": "0.47.0",
-        "contentHash": "wz8mszcZr0cSOo8GyoG9e2DFW0SkMT8/n78Q/lIXX7EbCtHNXOoOKWpJ9Str+rCYtmQOGGyDutZzubrUHK/XkA==",
+        "resolved": "0.50.0",
+        "contentHash": "gkwYncFqMjlPF6Yz8KeVsKWpdfv15sr6uKm+vXVa/8Q4tvx52LPzMQOO5m+bXwI3AGGFeY3cok3ZJbguYizswg==",
         "dependencies": {
-          "System.Memory": "4.5.5"
+          "System.Memory": "4.6.3"
         }
       }
     }
