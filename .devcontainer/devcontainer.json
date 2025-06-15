@@ -1,6 +1,6 @@
 {
 	"name": "Website editing",
-	"image": "python:3.13.4-slim-bookworm",
+	"image": "python:3.13.5-slim-bookworm",
 	"workspaceMount": "source=${localWorkspaceFolder}/docs,target=/docs,type=bind",
 	"workspaceFolder": "/docs",
 
