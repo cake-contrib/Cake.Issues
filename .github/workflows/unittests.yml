@@ -20,7 +20,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [
-          windows-2019, windows-2022,
+          windows-2022, windows-2025, 
           ubuntu-22.04, ubuntu-24.04,
           # Cake.Recipe currently does not support macOS 14 (M1)
           macos-13]
