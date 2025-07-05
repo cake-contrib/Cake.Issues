@@ -417,7 +417,6 @@ public sealed class IssueReaderTests
             // Create a failing provider by passing null settings later
             var failingProvider = new FakeFailingIssueProvider(fixture.Log);
             fixture.IssueProviders.Add(failingProvider);
-            
             fixture.IssueProviders.Add(new FakeIssueProvider(fixture.Log, [
                 IssueBuilder.NewIssue("Success2", "ProviderType2", "ProviderName2")
                     .InFile(@"src\File2.cs", 2)
@@ -463,20 +462,19 @@ public sealed class IssueReaderTests
 
             // Then
             issues.Count.ShouldBe(providerCount);
-            
+
             // With parallel processing, total time should be significantly less than 
             // sum of all delays (providerCount * delayPerProviderMs)
             var expectedSequentialTime = providerCount * delayPerProviderMs;
             var actualTime = stopwatch.ElapsedMilliseconds;
-            
+
             // Allow for some overhead but expect significant improvement
             var maxExpectedParallelTime = expectedSequentialTime * 0.4; // Should be much faster than 40% of sequential time
-            
+
             System.Console.WriteLine($"Sequential time would be ~{expectedSequentialTime}ms, parallel time was {actualTime}ms");
-            
+
             // This assertion may be flaky in CI environments, so we'll use a generous threshold
             actualTime.ShouldBeLessThan(expectedSequentialTime);
-            
             // Verify all issues have correct properties set
             // The Run property should be set to the same value from settings (even if null)
             issues.ShouldAllBe(x => x.Run == fixture.Settings.Run);
