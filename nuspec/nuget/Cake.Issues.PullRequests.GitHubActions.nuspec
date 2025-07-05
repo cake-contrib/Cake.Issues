@@ -27,7 +27,7 @@ For addin compatible with Cake Frosting see Cake.Frosting.Issues.PullRequests.Gi
     <copyright>Copyright © Cake Issues contributors</copyright>
     <tags>cake cake-addin cake-issues cake-pullrequestsystem issues pullrequest buildserver github github-actions</tags>
     <readme>docs\README.md</readme>
-    <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/5.5.0</releaseNotes>
+    <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/5.6.0</releaseNotes>
     <dependencies>
       <group targetFramework="net8.0">
       </group>
