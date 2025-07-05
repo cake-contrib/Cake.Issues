@@ -50,38 +50,7 @@ public class IssuesReader
         // Process providers in parallel
         _ = Parallel.For(0, this.issueProviders.Count, i =>
         {
-            var issueProvider = this.issueProviders[i];
-            var providerName = issueProvider.GetType().Name;
-            this.log.Verbose("Initialize issue provider {0}...", providerName);
-
-            if (issueProvider.Initialize(this.settings))
-            {
-                this.log.Verbose("Reading issues from {0}...", providerName);
-                var currentIssues = issueProvider.ReadIssues().ToList();
-
-                this.log.Verbose(
-                    "Found {0} issues using issue provider {1}...",
-                    currentIssues.Count,
-                    providerName);
-
-                // Post-process issues - this is thread-safe as each provider gets its own issues
-                currentIssues.ForEach(x =>
-                {
-                    x.Run = this.settings.Run;
-
-                    if (this.settings.FileLinkSettings != null)
-                    {
-                        x.FileLink = this.settings.FileLinkSettings.GetFileLink(x);
-                    }
-                });
-
-                results[i] = currentIssues;
-            }
-            else
-            {
-                this.log.Warning("Error initializing issue provider {0}.", providerName);
-                results[i] = [];
-            }
+            results[i] = this.ReadIssuesFromProvider(this.issueProviders[i]);
         });
 
         stopwatch.Stop();
@@ -94,5 +63,40 @@ public class IssuesReader
             stopwatch.ElapsedMilliseconds);
 
         return issuesList;
+    }
+
+    private List<IIssue> ReadIssuesFromProvider(IIssueProvider issueProvider)
+    {
+        var providerName = issueProvider.GetType().Name;
+        this.log.Verbose("Initialize issue provider {0}...", providerName);
+
+        if (issueProvider.Initialize(this.settings))
+        {
+            this.log.Verbose("Reading issues from {0}...", providerName);
+            var currentIssues = issueProvider.ReadIssues().ToList();
+
+            this.log.Verbose(
+                "Found {0} issues using issue provider {1}...",
+                currentIssues.Count,
+                providerName);
+
+            // Post-process issues - this is thread-safe as each provider gets its own issues
+            currentIssues.ForEach(x =>
+            {
+                x.Run = this.settings.Run;
+
+                if (this.settings.FileLinkSettings != null)
+                {
+                    x.FileLink = this.settings.FileLinkSettings.GetFileLink(x);
+                }
+            });
+            return currentIssues;
+        }
+        else
+        {
+            this.log.Warning("Error initializing issue provider {0}.", providerName);
+            return [];
+        }
+
     }
 }
