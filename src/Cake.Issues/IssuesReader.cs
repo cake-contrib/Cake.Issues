@@ -1,6 +1,5 @@
 ﻿namespace Cake.Issues;
 
-using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -46,12 +45,12 @@ public class IssuesReader
     {
         var stopwatch = Stopwatch.StartNew();
 
-        // Use thread-safe collection for collecting results
-        var allIssues = new ConcurrentBag<IIssue>();
+        var results = new List<IIssue>[this.issueProviders.Count];
 
         // Process providers in parallel
-        _ = Parallel.ForEach(this.issueProviders, issueProvider =>
+        _ = Parallel.For(0, this.issueProviders.Count, i =>
         {
+            var issueProvider = this.issueProviders[i];
             var providerName = issueProvider.GetType().Name;
             this.log.Verbose("Initialize issue provider {0}...", providerName);
 
@@ -76,21 +75,18 @@ public class IssuesReader
                     }
                 });
 
-                // Add to thread-safe collection
-                foreach (var issue in currentIssues)
-                {
-                    allIssues.Add(issue);
-                }
+                results[i] = currentIssues;
             }
             else
             {
                 this.log.Warning("Error initializing issue provider {0}.", providerName);
+                results[i] = [];
             }
         });
 
         stopwatch.Stop();
 
-        var issuesList = allIssues.ToList();
+        var issuesList = results.SelectMany(r => r).ToList();
         this.log.Verbose(
             "Reading {0} issues from {1} providers took {2} ms",
             issuesList.Count,
