@@ -1,7 +1,10 @@
 ﻿namespace Cake.Issues;
 
+using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Threading.Tasks;
 using Cake.Core.Diagnostics;
 
 /// <summary>
@@ -41,12 +44,17 @@ public class IssuesReader
     /// <returns>List of issues.</returns>
     public IEnumerable<IIssue> ReadIssues()
     {
-        // Initialize issue providers and read issues.
-        var issues = new List<IIssue>();
-        foreach (var issueProvider in this.issueProviders)
+        var stopwatch = Stopwatch.StartNew();
+
+        // Use thread-safe collection for collecting results
+        var allIssues = new ConcurrentBag<IIssue>();
+
+        // Process providers in parallel
+        _ = Parallel.ForEach(this.issueProviders, issueProvider =>
         {
             var providerName = issueProvider.GetType().Name;
             this.log.Verbose("Initialize issue provider {0}...", providerName);
+
             if (issueProvider.Initialize(this.settings))
             {
                 this.log.Verbose("Reading issues from {0}...", providerName);
@@ -57,6 +65,7 @@ public class IssuesReader
                     currentIssues.Count,
                     providerName);
 
+                // Post-process issues - this is thread-safe as each provider gets its own issues
                 currentIssues.ForEach(x =>
                 {
                     x.Run = this.settings.Run;
@@ -67,14 +76,27 @@ public class IssuesReader
                     }
                 });
 
-                issues.AddRange(currentIssues);
+                // Add to thread-safe collection
+                foreach (var issue in currentIssues)
+                {
+                    allIssues.Add(issue);
+                }
             }
             else
             {
                 this.log.Warning("Error initializing issue provider {0}.", providerName);
             }
-        }
+        });
 
-        return issues;
+        stopwatch.Stop();
+
+        var issuesList = allIssues.ToList();
+        this.log.Verbose(
+            "Reading {0} issues from {1} providers took {2} ms",
+            issuesList.Count,
+            this.issueProviders.Count,
+            stopwatch.ElapsedMilliseconds);
+
+        return issuesList;
     }
 }
