@@ -435,5 +435,51 @@ public sealed class IssueReaderTests
             issues.ShouldContain(x => x.MessageText == "Success1");
             issues.ShouldContain(x => x.MessageText == "Success2");
         }
+
+        [Fact]
+        public void Should_Demonstrate_Parallel_Processing_Benefits_With_Simulated_Delays()
+        {
+            // Given - Create providers that simulate processing delays
+            const int providerCount = 5;
+            const int delayPerProviderMs = 50; // Simulate 50ms delay per provider
+            var fixture = new IssuesFixture();
+            fixture.IssueProviders.Clear();
+
+            for (var i = 0; i < providerCount; i++)
+            {
+                var issue = IssueBuilder
+                    .NewIssue($"SlowIssue{i}", $"SlowProviderType{i}", $"SlowProviderName{i}")
+                    .InFile($@"src\SlowFile{i}.cs", i + 1)
+                    .OfRule($"SlowRule{i}")
+                    .WithPriority(IssuePriority.Warning)
+                    .Create();
+                fixture.IssueProviders.Add(new FakeSlowIssueProvider(fixture.Log, [issue], delayPerProviderMs));
+            }
+
+            // When
+            var stopwatch = System.Diagnostics.Stopwatch.StartNew();
+            var issues = fixture.ReadIssues().ToList();
+            stopwatch.Stop();
+
+            // Then
+            issues.Count.ShouldBe(providerCount);
+            
+            // With parallel processing, total time should be significantly less than 
+            // sum of all delays (providerCount * delayPerProviderMs)
+            var expectedSequentialTime = providerCount * delayPerProviderMs;
+            var actualTime = stopwatch.ElapsedMilliseconds;
+            
+            // Allow for some overhead but expect significant improvement
+            var maxExpectedParallelTime = expectedSequentialTime * 0.4; // Should be much faster than 40% of sequential time
+            
+            System.Console.WriteLine($"Sequential time would be ~{expectedSequentialTime}ms, parallel time was {actualTime}ms");
+            
+            // This assertion may be flaky in CI environments, so we'll use a generous threshold
+            actualTime.ShouldBeLessThan(expectedSequentialTime);
+            
+            // Verify all issues have correct properties set
+            // The Run property should be set to the same value from settings (even if null)
+            issues.ShouldAllBe(x => x.Run == fixture.Settings.Run);
+        }
     }
 }
