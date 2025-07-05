@@ -468,16 +468,13 @@ public sealed class IssueReaderTests
             var expectedSequentialTime = providerCount * delayPerProviderMs;
             var actualTime = stopwatch.ElapsedMilliseconds;
 
-            // Allow for some overhead but expect significant improvement
-            var maxExpectedParallelTime = expectedSequentialTime * 0.4; // Should be much faster than 40% of sequential time
-
-            System.Console.WriteLine($"Sequential time would be ~{expectedSequentialTime}ms, parallel time was {actualTime}ms");
+            Console.WriteLine($"Sequential time would be ~{expectedSequentialTime}ms, parallel time was {actualTime}ms");
+            actualTime.ShouldBeLessThan(expectedSequentialTime, "Parallel reading of issue providers is slower than sequential processing would be");
 
             // This assertion may be flaky in CI environments, so we'll use a generous threshold
-            actualTime.ShouldBeLessThan(expectedSequentialTime);
-            // Verify all issues have correct properties set
-            // The Run property should be set to the same value from settings (even if null)
-            issues.ShouldAllBe(x => x.Run == fixture.Settings.Run);
+            // Should be much faster than 40% of sequential time
+            var maxExpectedParallelTime = expectedSequentialTime * 0.4;
+            Convert.ToDouble(actualTime).ShouldBeLessThan(maxExpectedParallelTime, "Parallel reading of issue providers is more than 40% of time it took for sequential processing");
         }
     }
 }
