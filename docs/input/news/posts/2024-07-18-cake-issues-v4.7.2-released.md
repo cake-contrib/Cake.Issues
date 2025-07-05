@@ -3,8 +3,8 @@ title: Cake Issues v4.7.2 Released
 date: 2024-07-18
 categories:
   - Release Notes
-search:
-  boost: 0.5
+links:
+  - documentation/report-formats/generic/templates/htmldxdatagrid.md
 ---
 
 Cake Issues version 4.7.2 has been released containing bug fixes for generic reporting addin.

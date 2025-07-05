@@ -3,8 +3,8 @@ title: Cake Issues v4.7.1 Released
 date: 2024-07-17
 categories:
   - Release Notes
-search:
-  boost: 0.5
+links:
+  - documentation/issue-providers/sarif/index.md
 ---
 
 Cake Issues version 4.7.1 has been released with bugfixes for SARIF reports

@@ -3,8 +3,9 @@ title: Cake Issues v2.0.0 Released
 date: 2022-12-10
 categories:
   - Release Notes
-search:
-  boost: 0.5
+links:
+  - Cake v2.0.0 released: https://cakebuild.net/blog/2021/11/cake-v2.0.0-released
+  - documentation/issue-providers/msbuild/index.md
 ---
 
 After several months with beta releases Cake Issues version 2.0.0 has been released.

@@ -78,6 +78,7 @@ plugins:
       post_readtime: true
   - glightbox
   - macros
+  - meta
   - minify:
       minify_html: true
       htmlmin_opts:
@@ -136,13 +137,13 @@ extra:
   # renovate: datasource=nuget depName=Cake.DocFx versioning=loose
   cake_docfx_version: 1.0.0
   # renovate: datasource=nuget depName=Cake.Issues versioning=loose
-  cake_issues_version: 5.5.0
+  cake_issues_version: 5.6.0
   # renovate: datasource=nuget depName=Cake.Markdownlint versioning=loose
   cake_markdownlint_version: 4.0.0
   # renovate: datasource=nuget depName=Cake.Git versioning=loose
   cake_git_version: 5.0.1
   # renovate: datasource=nuget depName=JetBrains.ReSharper.CommandLineTools versioning=loose
-  resharper_commandlinetool_version: 2024.3.4
+  resharper_commandlinetool_version: 2025.1.2
   example_tfm: net9.0
   version:
     provider: mike

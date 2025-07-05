@@ -7,8 +7,8 @@
     {
       "customType": "regex",
       "description": "Update versions of NuGet packages used in documentation",
-      "fileMatch": [
-        "docs/mkdocs.yml$"
+      "managerFilePatterns": [
+        "/docs/mkdocs.yml$/"
       ],
       "matchStrings": [
         "\\s*#\\srenovate:\\sdatasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?( extractVersion=(?<extractVersion>.*?))?\\s*.*?_version\\s*:\\s*(?<currentValue>.*)"
@@ -17,7 +17,9 @@
     {
       "customType": "regex",
       "description": "Nuspec files manager",
-      "fileMatch": ["\\.nuspec$"],
+      "managerFilePatterns": [
+        "/\\.nuspec$/"
+      ],
       "matchStringsStrategy": "any",
       "matchStrings": [
         "<dependency\\s+[^>]*?id=\\\"(?<depName>.*?)\\\"\\s+[^>]*?version=\\\"(?<currentValue>.*?)\\\"[^>]*\\/?>"
@@ -30,16 +32,37 @@
     {
       "description": "Ignore Cake runner minor and patch updates",
       "matchDepNames": [
-          "Cake.Tool",
-          "Cake.Frosting"
+        "Cake.Tool",
+        "Cake.Frosting"
       ],
-      "matchUpdateTypes": ["minor", "patch"],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "enabled": false
+    },
+    {
+      "description": "Ignore Cake.AzureDevOps minor and patch updates",
+      "matchDepNames": [
+        "Cake.AzureDevOps",
+        "Cake.Frosting.AzureDevOps"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
       "enabled": false
     },
     {
       "description": "Do not update Microsoft.Build.* packages in Cake.Issues.MsBuild since required version depends on the version used in MSBuild.StructuredLogger",
-      "matchFileNames": ["src/Cake.Issues.MsBuild/Cake.Issues.MsBuild.csproj", "src/Cake.Issues.MsBuild.Tests/Cake.Issues.MsBuild.Tests.csproj"],
-      "matchDepNames": ["Microsoft.Build.Framework", "Microsoft.Build.Utilities.Core"],
+      "matchFileNames": [
+        "src/Cake.Issues.MsBuild/Cake.Issues.MsBuild.csproj",
+        "src/Cake.Issues.MsBuild.Tests/Cake.Issues.MsBuild.Tests.csproj"
+      ],
+      "matchDepNames": [
+        "Microsoft.Build.Framework",
+        "Microsoft.Build.Utilities.Core"
+      ],
       "enabled": false
     }
   ]

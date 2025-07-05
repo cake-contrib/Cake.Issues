@@ -3,8 +3,11 @@ title: Cake Issues v5.4.0 Released
 date: 2025-01-16
 categories:
   - Release Notes
-search:
-  boost: 0.5
+links:
+  - documentation/usage/breaking-builds/breaking-builds.md
+  - documentation/issue-providers/sarif/index.md
+  - documentation/issue-providers/tap/index.md
+  - documentation/how-cake-issues-works/pull-request-integration.md
 ---
 
 Cake Issues version 5.4.0 has been released bringing improvements for build breaking and multiple issue providers.

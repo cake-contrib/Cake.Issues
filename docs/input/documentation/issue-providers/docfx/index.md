@@ -1,5 +1,5 @@
 ---
-title: DocFx
+title: DocFx issue provider
 description: Issue provider which allows you to read warnings logged by DocFx.
 ---
 

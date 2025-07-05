@@ -1,5 +1,5 @@
 ---
-title: Azure DevOps
+title: Azure DevOps support
 description: Support for Azure DevOps.
 ---
 

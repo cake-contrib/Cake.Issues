@@ -1,5 +1,5 @@
 ---
-title: Git Repository
+title: Git Repository issue provider
 description: Issue provider which allows you to analyzing Git repositories and create issues resulting from it.
 ---
 

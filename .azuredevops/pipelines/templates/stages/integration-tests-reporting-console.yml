@@ -9,16 +9,14 @@ stages:
       displayName: Test Cake Scripting
       strategy:
         matrix:
-          Windows_Server_2019:
-            imageName: 'windows-2019'
           Windows_Server_2022:
             imageName: 'windows-2022'
+          Windows_Server_2025:
+            imageName: 'windows-2025'
           macOS_13:
             imageName: 'macOS-13'
           macOS_14:
             imageName: 'macOS-14'
-          Ubuntu_20_04:
-            imageName: 'ubuntu-20.04'
           Ubuntu_22_04:
             imageName: 'ubuntu-22.04'
           Ubuntu_24_04:
@@ -35,16 +33,14 @@ stages:
       displayName: Test Cake Frosting .NET 8
       strategy:
         matrix:
-          Windows_Server_2019:
-            imageName: 'windows-2019'
           Windows_Server_2022:
             imageName: 'windows-2022'
+          Windows_Server_2025:
+            imageName: 'windows-2025'
           macOS_13:
             imageName: 'macOS-13'
           macOS_14:
             imageName: 'macOS-14'
-          Ubuntu_20_04:
-            imageName: 'ubuntu-20.04'
           Ubuntu_22_04:
             imageName: 'ubuntu-22.04'
           Ubuntu_24_04:
