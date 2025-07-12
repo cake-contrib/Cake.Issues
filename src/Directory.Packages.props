@@ -6,7 +6,7 @@
   <ItemGroup>
     <PackageVersion Include="Cake.Common" Version="5.0.0" />
     <PackageVersion Include="Cake.Core" Version="5.0.0" />
-    <PackageVersion Include="Cake.Frosting.AzureDevOps" Version="5.0.0" />
+    <PackageVersion Include="Cake.Frosting.AzureDevOps" Version="5.0.2" />
     <PackageVersion Include="Cake.Testing" Version="5.0.0" />
     <PackageVersion Include="Errata" Version="0.14.0" />
     <PackageVersion Include="Gazorator" Version="0.5.2" />

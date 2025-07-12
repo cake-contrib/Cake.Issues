@@ -20,8 +20,8 @@ install:
   - ps: Invoke-WebRequest -Uri "https://dotnet.microsoft.com/download/dotnet/scripts/v1/dotnet-install.ps1" -OutFile "$($env:DOTNET_INSTALL_DIR)/dotnet-install.ps1"
   # .NET 5 required for Codecov.Tool
   - ps: '& "$($env:DOTNET_INSTALL_DIR)/dotnet-install.ps1" -Version 5.0.408 -InstallDir $env:DOTNET_INSTALL_DIR'
-  - ps: '& "$($env:DOTNET_INSTALL_DIR)/dotnet-install.ps1" -Version 8.0.411 -InstallDir $env:DOTNET_INSTALL_DIR'
-  - ps: '& "$($env:DOTNET_INSTALL_DIR)/dotnet-install.ps1" -Version 9.0.301 -InstallDir $env:DOTNET_INSTALL_DIR'
+  - ps: '& "$($env:DOTNET_INSTALL_DIR)/dotnet-install.ps1" -Version 8.0.412 -InstallDir $env:DOTNET_INSTALL_DIR'
+  - ps: '& "$($env:DOTNET_INSTALL_DIR)/dotnet-install.ps1" -Version 9.0.302 -InstallDir $env:DOTNET_INSTALL_DIR'
   - ps: $env:Path = "$env:DOTNET_INSTALL_DIR;$env:Path"
   - ps: dotnet --info
 
