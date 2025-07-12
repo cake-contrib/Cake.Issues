@@ -4,12 +4,12 @@
     "net8.0": {
       "Cake.Frosting.AzureDevOps": {
         "type": "Direct",
-        "requested": "[5.0.0, )",
-        "resolved": "5.0.0",
-        "contentHash": "P0WE3e2Z1pmfIdrRG7vuWQE+29vNZzuWUprvi5inOc08pPBe0HfmOnK6Bkd4cY1yFw6tBaPStUDFjG+wQSKafQ==",
+        "requested": "[5.0.2, )",
+        "resolved": "5.0.2",
+        "contentHash": "Jlgnmh7kSgvBK4AwUjOq0NM/fBUJFcJjuvTFiosaGj7vamFWHIVc6N/efzgCu/woLXZBIBs5XnYGBDl7ZcjDcA==",
         "dependencies": {
           "Cake.Core": "5.0.0",
-          "Microsoft.Identity.Client": "4.66.2",
+          "Microsoft.Identity.Client": "4.72.1",
           "Microsoft.TeamFoundationServer.Client": "19.225.1",
           "Microsoft.VisualStudio.Services.InteractiveClient": "19.225.1",
           "System.Data.SqlClient": "4.9.0",
@@ -46,8 +46,8 @@
       },
       "Microsoft.Identity.Client": {
         "type": "Transitive",
-        "resolved": "4.66.2",
-        "contentHash": "OsWRWpJs5iY9DxAF7DfWRGVNeFhjz75x+/bpHKB9Hbnu3THUgqYfQrYeQMgwx30ctweiV7h00aQpEua2kLeUpg==",
+        "resolved": "4.72.1",
+        "contentHash": "U3FbgYeKbU34zP17vi4xO70U5WiVO4GcqHbGwfqzAGJMQQfzkdEK5Ue69mI1tWj7Ft2lbJJ9Wsho9/6Jn5OKqQ==",
         "dependencies": {
           "Microsoft.IdentityModel.Abstractions": "6.35.0",
           "System.Diagnostics.DiagnosticSource": "6.0.1"
@@ -1244,12 +1244,12 @@
     "net9.0": {
       "Cake.Frosting.AzureDevOps": {
         "type": "Direct",
-        "requested": "[5.0.0, )",
-        "resolved": "5.0.0",
-        "contentHash": "P0WE3e2Z1pmfIdrRG7vuWQE+29vNZzuWUprvi5inOc08pPBe0HfmOnK6Bkd4cY1yFw6tBaPStUDFjG+wQSKafQ==",
+        "requested": "[5.0.2, )",
+        "resolved": "5.0.2",
+        "contentHash": "Jlgnmh7kSgvBK4AwUjOq0NM/fBUJFcJjuvTFiosaGj7vamFWHIVc6N/efzgCu/woLXZBIBs5XnYGBDl7ZcjDcA==",
         "dependencies": {
           "Cake.Core": "5.0.0",
-          "Microsoft.Identity.Client": "4.66.2",
+          "Microsoft.Identity.Client": "4.72.1",
           "Microsoft.TeamFoundationServer.Client": "19.225.1",
           "Microsoft.VisualStudio.Services.InteractiveClient": "19.225.1",
           "System.Data.SqlClient": "4.9.0",
@@ -1286,8 +1286,8 @@
       },
       "Microsoft.Identity.Client": {
         "type": "Transitive",
-        "resolved": "4.66.2",
-        "contentHash": "OsWRWpJs5iY9DxAF7DfWRGVNeFhjz75x+/bpHKB9Hbnu3THUgqYfQrYeQMgwx30ctweiV7h00aQpEua2kLeUpg==",
+        "resolved": "4.72.1",
+        "contentHash": "U3FbgYeKbU34zP17vi4xO70U5WiVO4GcqHbGwfqzAGJMQQfzkdEK5Ue69mI1tWj7Ft2lbJJ9Wsho9/6Jn5OKqQ==",
         "dependencies": {
           "Microsoft.IdentityModel.Abstractions": "6.35.0",
           "System.Diagnostics.DiagnosticSource": "6.0.1"
