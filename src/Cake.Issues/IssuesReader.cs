@@ -97,6 +97,5 @@ public class IssuesReader
             this.log.Warning("Error initializing issue provider {0}.", providerName);
             return [];
         }
-
     }
 }
