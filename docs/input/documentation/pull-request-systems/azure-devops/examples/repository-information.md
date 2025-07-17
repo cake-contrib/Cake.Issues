@@ -22,6 +22,22 @@ For this example the JetBrains InspectCode issue provider is additionally used f
         In addition to the Azure DevOps pull request system the `Cake.Issues` and `Cake.Issues.PullRequests` core addins
         and the Cake.AzureDevOps addin need to be added.
 
+=== "Cake SDK"
+
+    ```csharp title="Build.csproj"
+    <Project Sdk="Cake.Sdk">
+      <PropertyGroup>
+        <TargetFramework>{{ example_tfm }}</TargetFramework>
+        <RunWorkingDirectory>$(MSBuildProjectDirectory)</RunWorkingDirectory>
+      </PropertyGroup>
+      <ItemGroup>
+        <PackageReference Include="Cake.Frosting.Git" Version="{{ cake_git_version }}" />
+        <PackageReference Include="Cake.Frosting.Issues.InspectCode" Version="{{ cake_issues_version }}" />
+        <PackageReference Include="Cake.Frosting.Issues.PullRequests.AzureDevOps" Version="{{ cake_issues_version }}" />
+      </ItemGroup>
+    </Project>
+    ```
+
 === "Cake Frosting"
 
     ```csharp title="Build.csproj"
@@ -48,6 +64,30 @@ alias, which will authenticate through NTLM to an on-premise Azure DevOps Server
 === "Cake .NET Tool"
 
     ```csharp title="build.cake"
+    Task("Report-IssuesToPullRequest").Does(() =>
+    {
+        var repoRootFolder =
+            MakeAbsolute(Directory("./"));
+        var currentBranch =
+            GitBranchCurrent(repoRootFolder);
+        var repoRemoteUrl =
+            new Uri(currentBranch.Remotes.Single(x => x.Name == "origin").Url);
+        var sourceBranchName = currentBranch.CanonicalName;
+
+        ReportIssuesToPullRequest(
+            InspectCodeIssuesFromFilePath(
+                @"C:\build\inspectcode.log"),
+            AzureDevOpsPullRequests(
+                repoRemoteUrl,
+                sourceBranchName,
+                AzureDevOpsAuthenticationNtlm()),
+            repoRootFolder);
+    });
+    ```
+
+=== "Cake SDK"
+
+    ```csharp title="build.cs"
     Task("Report-IssuesToPullRequest").Does(() =>
     {
         var repoRootFolder =

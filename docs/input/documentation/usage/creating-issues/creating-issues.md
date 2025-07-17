@@ -17,6 +17,20 @@ To create issues you need to import the following core addin:
     #addin nuget:?package=Cake.Issues&version={{ cake_issues_version }}
     ```
 
+=== "Cake SDK"
+
+    ```csharp title="Build.csproj"
+    <Project Sdk="Cake.Sdk">
+      <PropertyGroup>
+        <TargetFramework>{{ example_tfm }}</TargetFramework>
+        <RunWorkingDirectory>$(MSBuildProjectDirectory)</RunWorkingDirectory>
+      </PropertyGroup>
+      <ItemGroup>
+        <PackageReference Include="Cake.Issues" Version="{{ cake_issues_version }}" />
+      </ItemGroup>
+    </Project>
+    ```
+
 === "Cake Frosting"
 
     ```csharp title="Build.csproj"
@@ -39,6 +53,28 @@ In the following task a new warning for the myfile.txt file on line 42 is create
 === "Cake .NET Tool"
 
     ```csharp title="build.cake"
+    Task("Create-Issue").Does(() =>
+    {
+        var issue =
+            NewIssue(
+                "Something went wrong",
+                "MyCakeScript",
+                "My Cake Script")
+                .WithMessageInHtmlFormat("Something went <b>wrong</b>")
+                .WithMessageInMarkdownFormat("Something went **wrong**")
+                .InFile("myfile.txt", 42)
+                .WithPriority(IssuePriority.Warning)
+                .Create();
+    
+        Information(
+            "Issue created with message: {0}",
+            issue.MessageText);
+    });
+    ```
+
+=== "Cake SDK"
+
+    ```csharp title="build.cs"
     Task("Create-Issue").Does(() =>
     {
         var issue =

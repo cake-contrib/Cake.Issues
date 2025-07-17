@@ -27,6 +27,21 @@ and from JetBrains InspectCode are imported:
     !!! note
         In addition to the issue providers the `Cake.Issues` core addin needs to be added.
 
+=== "Cake SDK"
+
+    ```csharp title="Build.csproj"
+    <Project Sdk="Cake.Sdk">
+      <PropertyGroup>
+        <TargetFramework>{{ example_tfm }}</TargetFramework>
+        <RunWorkingDirectory>$(MSBuildProjectDirectory)</RunWorkingDirectory>
+      </PropertyGroup>
+      <ItemGroup>
+        <PackageReference Include="Cake.Frosting.Issues.MsBuild" Version="{{ cake_issues_version }}" />
+        <PackageReference Include="Cake.Frosting.Issues.InspectCode" Version="{{ cake_issues_version }}" />
+      </ItemGroup>
+    </Project>
+    ```
+
 === "Cake Frosting"
 
     ```csharp title="Build.csproj"
@@ -52,6 +67,27 @@ and issues reported by JetBrains InspectCode:
 === "Cake .NET Tool"
 
     ```csharp title="build.cake"
+    Task("Read-Issues").Does(() =>
+    {
+        var repoRootFolder = new DirectoryPath(@"C:\repo");
+        var issues = ReadIssues(
+            new List<IIssueProvider>
+            {
+                MsBuildIssuesFromFilePath(
+                    @"C:\build\msbuild.log",
+                    MsBuildBinaryLogFileFormat),
+                InspectCodeIssuesFromFilePath(
+                    @"C:\build\inspectcode.log")
+            },
+            repoRootFolder);
+    
+        Information("{0} issues are found.", issues.Count());
+    });
+    ```
+
+=== "Cake SDK"
+
+    ```csharp title="build.cs"
     Task("Read-Issues").Does(() =>
     {
         var repoRootFolder = new DirectoryPath(@"C:\repo");

@@ -19,6 +19,21 @@ For this example the MsBuild issue provider is additionally used for reading iss
     !!! note
         In addition to the Console report format the `Cake.Issues` and `Cake.Issues.Reporting` core addins need to be added.
 
+=== "Cake SDK"
+
+    ```csharp title="Build.csproj"
+    <Project Sdk="Cake.Sdk">
+      <PropertyGroup>
+        <TargetFramework>{{ example_tfm }}</TargetFramework>
+        <RunWorkingDirectory>$(MSBuildProjectDirectory)</RunWorkingDirectory>
+      </PropertyGroup>
+      <ItemGroup>
+        <PackageReference Include="Cake.Frosting.Issues.MsBuild" Version="{{ cake_issues_version }}" />
+        <PackageReference Include="Cake.Frosting.Issues.Reporting.Console" Version="{{ cake_issues_version }}" />
+      </ItemGroup>
+    </Project>
+    ```
+
 === "Cake Frosting"
 
     ```csharp title="Build.csproj"
@@ -51,6 +66,41 @@ The following example will print issues logged as warnings by MsBuild to the con
         var msBuildSettings =
             new DotNetMSBuildSettings().WithLogger(
                 "BinaryLogger," + Context.Tools.Resolve("Cake.Issues.MsBuild*/**/StructuredLogger.dll"),
+                "",
+                msBuildLogFile.FullPath);
+        DotNetBuild(
+            repoRootPath.CombineWithFilePath("MySolution.sln").FullPath,
+            new DotNetBuildSettings{MSBuildSettings = msBuildSettings});
+
+        // Write issues to console.
+        CreateIssueReport(
+            MsBuildIssuesFromFilePath(
+                msBuildLogFile,
+                MsBuildBinaryLogFileFormat),
+            ConsoleIssueReportFormat(
+                new ConsoleIssueReportFormatSettings
+                {
+                    GroupByRule = true,
+                    ShowProviderSummary = true,
+                    ShowPrioritySummary = true
+                }),
+            repoRootPath,
+            string.Empty);
+    });
+    ```
+
+=== "Cake SDK"
+
+    ```csharp title="build.cs"
+    Task("Create-IssueReport").Does(() =>
+    {
+        var repoRootPath = MakeAbsolute(Directory("./"));
+
+        // Build MySolution.sln solution in the repository root folder and write a binary log.
+        FilePath msBuildLogFile = @"c:\build\msbuild.log";
+        var msBuildSettings =
+            new DotNetMSBuildSettings().WithLogger(
+                "BinaryLogger," + Context.Environment.ApplicationRoot.CombineWithFilePath("StructuredLogger.dll"),
                 "",
                 msBuildLogFile.FullPath);
         DotNetBuild(

@@ -27,6 +27,21 @@ and support for Azure DevOps pull requests is imported:
     !!! note
         In addition to the pull request system the `Cake.Issues` and `Cake.Issues.PullRequests` core addins need to be added.
 
+=== "Cake SDK"
+
+    ```csharp title="Build.csproj"
+    <Project Sdk="Cake.Sdk">
+      <PropertyGroup>
+        <TargetFramework>{{ example_tfm }}</TargetFramework>
+        <RunWorkingDirectory>$(MSBuildProjectDirectory)</RunWorkingDirectory>
+      </PropertyGroup>
+      <ItemGroup>
+        <PackageReference Include="Cake.Frosting.Issues.MsBuild" Version="{{ cake_issues_version }}" />
+        <PackageReference Include="Cake.Frosting.Issues.PullRequests.AzureDevOps" Version="{{ cake_issues_version }}" />
+      </ItemGroup>
+    </Project>
+    ```
+
 === "Cake Frosting"
 
     ```csharp title="Build.csproj"
@@ -50,6 +65,21 @@ Afterwards you can define a task where you call the core addin with the desired 
 === "Cake .NET Tool"
 
     ```csharp title="build.cake"
+        Task("ReportIssuesToPullRequest").Does(() =>
+        {
+            var repoRootFolder = new DirectoryPath(@"C:\repo");
+            ReportIssuesToPullRequest(
+                MsBuildIssuesFromFilePath(
+                    @"C:\build\msbuild.log",
+                    MsBuildBinaryLogFileFormat),
+                AzureDevOpsPullRequests(),
+                repoRootFolder);
+        });
+    ```
+
+=== "Cake SDK"
+
+    ```csharp title="build.cs"
         Task("ReportIssuesToPullRequest").Does(() =>
         {
             var repoRootFolder = new DirectoryPath(@"C:\repo");

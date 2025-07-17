@@ -38,6 +38,31 @@ Before reading the issues a custom rule URL resolver can be registered to have a
     });
     ```
 
+=== "Cake SDK"
+
+    ```csharp title="build.cs"
+    Task("Read-Issues")
+        .IsDependentOn("Build-Solution")
+        .Does(() =>
+        {
+            // Define custom URL resolver adding URL for all rules starting with FOO.
+            MsBuildAddRuleUrlResolver(x =>
+                x.Category.ToUpperInvariant() == "CUS" ?
+                new Uri("https://myIntranet/rules/" + x.Rule) :
+                null);
+
+            // Read issues.
+            var issues =
+                ReadIssues(
+                    MsBuildIssuesFromFilePath(
+                        logPath,
+                        MsBuildBinaryLogFileFormat),
+                    repoRootPath);
+
+            Information("{0} issues are found.", issues.Count());
+    });
+    ```
+
 === "Cake Frosting"
 
     ```csharp title="Program.cs"
