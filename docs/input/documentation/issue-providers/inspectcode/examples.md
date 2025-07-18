@@ -16,6 +16,20 @@ To read issues from InspectCode log files the InspectCode issue provider needs t
     !!! note
         In addition to the InspectCode issue provider the `Cake.Issues` core addin needs to be added.
 
+=== "Cake SDK"
+
+    ```csharp title="Build.csproj"
+    <Project Sdk="Cake.Sdk">
+      <PropertyGroup>
+        <TargetFramework>{{ example_tfm }}</TargetFramework>
+        <RunWorkingDirectory>$(MSBuildProjectDirectory)</RunWorkingDirectory>
+      </PropertyGroup>
+      <ItemGroup>
+        <PackageReference Include="Cake.Frosting.Issues.InspectCode" Version="{{ cake_issues_version }}" />
+      </ItemGroup>
+    </Project>
+    ```
+
 === "Cake Frosting"
 
     ```csharp title="Build.csproj"
@@ -40,6 +54,39 @@ and write a log file and a task to read issues from the log file and write the n
 === "Cake .NET Tool"
 
     ```csharp title="build.cake"
+    #tool "nuget:?package=JetBrains.ReSharper.CommandLineTools&version={{ resharper_commandlinetool_version }}"
+
+    var logPath = @"c:\build\inspectcode.xml";
+    var repoRootFolder = MakeAbsolute(Directory("./"));
+
+    Task("Analyze-Project").Does(() =>
+    {
+        // Run InspectCode and enforce XML output.
+        var settings = new InspectCodeSettings() {
+            OutputFile = logPath,
+            ArgumentCustomization = x => x.Append("-f=xml")
+        };
+    
+        InspectCode(repoRootPath.CombineWithFilePath("MySolution.sln"), settings);
+    });
+    
+    Task("Read-Issues")
+        .IsDependentOn("Analyze-Project")
+        .Does(() =>
+        {
+            // Read issues.
+            var issues =
+                ReadIssues(
+                    InspectCodeIssuesFromFilePath(logPath),
+                    repoRootPath);
+    
+            Information("{0} issues are found.", issues.Count());
+    });
+    ```
+
+=== "Cake SDK"
+
+    ```csharp title="build.cs"
     #tool "nuget:?package=JetBrains.ReSharper.CommandLineTools&version={{ resharper_commandlinetool_version }}"
 
     var logPath = @"c:\build\inspectcode.xml";

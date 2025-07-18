@@ -16,6 +16,20 @@ To break builds you need to import the following core addin:
     #addin nuget:?package=Cake.Issues&version={{ cake_issues_version }}
     ```
 
+=== "Cake SDK"
+
+    ```csharp title="Build.csproj"
+    <Project Sdk="Cake.Sdk">
+      <PropertyGroup>
+        <TargetFramework>{{ example_tfm }}</TargetFramework>
+        <RunWorkingDirectory>$(MSBuildProjectDirectory)</RunWorkingDirectory>
+      </PropertyGroup>
+      <ItemGroup>
+        <PackageReference Include="Cake.Issues" Version="{{ cake_issues_version }}" />
+      </ItemGroup>
+    </Project>
+    ```
+
 === "Cake Frosting"
 
     ```csharp title="Build.csproj"
@@ -38,6 +52,20 @@ The following task will fail the build if any issues were added to the `issues` 
 === "Cake .NET Tool"
 
     ```csharp title="build.cake"
+    // Global issues list into which issues need to be added.
+    IEnumerable<IIssue> issues = null;
+    
+    Task("BreakBuildOnIssues")
+        .Description("Breaks build if any issues in the code are found.")
+        .Does(() =>
+    {
+        BreakBuildOnIssues(issues);
+    });
+    ```
+
+=== "Cake SDK"
+
+    ```csharp title="build.cs"
     // Global issues list into which issues need to be added.
     IEnumerable<IIssue> issues = null;
     

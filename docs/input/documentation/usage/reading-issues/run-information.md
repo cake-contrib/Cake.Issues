@@ -45,6 +45,38 @@ which then will be stored with each issues in the `IIssue.Run` property:
     );
     ```
 
+=== "Cake SDK"
+
+    ```csharp
+    var issues = new List<IIssue>();
+    
+    // Parse issues from build of solution 1
+    issues.AddRange(
+        ReadIssues(
+            MsBuildIssuesFromFilePath(
+                @"C:\build\solution1-msbuild.log",
+                MsBuildBinaryLogFileFormat),
+            new ReadIssuesSettings(@"c:\repo")
+            {
+                Run = "Solution 1"
+            }
+        )
+    );
+    
+    // Parse issues from build of solution 2
+    issues.AddRange(
+        ReadIssues(
+            MsBuildIssuesFromFilePath(
+                @"C:\build\solution2-msbuild.log",
+                MsBuildBinaryLogFileFormat),
+            new ReadIssuesSettings(@"c:\repo")
+            {
+                Run = "Solution 2"
+            }
+        )
+    );
+    ```
+
 === "Cake Frosting"
 
     ```csharp

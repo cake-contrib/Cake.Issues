@@ -16,6 +16,20 @@ To analyze Git repositories you need to import the Git repository issue provider
     !!! note
         In addition to the Git repository issue provider the `Cake.Issues` core addin needs to be added.
 
+=== "Cake SDK"
+
+    ```csharp title="Build.csproj"
+    <Project Sdk="Cake.Sdk">
+      <PropertyGroup>
+        <TargetFramework>{{ example_tfm }}</TargetFramework>
+        <RunWorkingDirectory>$(MSBuildProjectDirectory)</RunWorkingDirectory>
+      </PropertyGroup>
+      <ItemGroup>
+        <PackageReference Include="Cake.Frosting.Issues.GitRepository" Version="{{ cake_issues_version }}" />
+      </ItemGroup>
+    </Project>
+    ```
+
 === "Cake Frosting"
 
     ```csharp title="Build.csproj"
@@ -43,6 +57,29 @@ The following example prints the number of binary files which are not tracked by
 === "Cake .NET Tool"
 
     ```csharp title="build.cake"
+    Task("Analyze-Repo")
+    .Does(() =>
+    {
+        // Read issues.
+        var repoRootPath = MakeAbsolute(Directory("./"));
+        var settings =
+            new GitRepositoryIssuesSettings
+            {
+                CheckBinaryFilesTrackedByLfs = true
+            };    
+
+        var issues =
+            ReadIssues(
+                GitRepositoryIssues(settings),
+                repoRootPath);    
+
+        Information("{0} issues are found.", issues.Count());
+    });
+    ```
+
+=== "Cake SDK"
+
+    ```csharp title="build.cs"
     Task("Analyze-Repo")
     .Does(() =>
     {

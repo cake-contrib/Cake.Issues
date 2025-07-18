@@ -45,6 +45,45 @@ The following example will filter out all issues from the rule `CA1000` from bei
     });
     ```
 
+=== "Cake SDK"
+
+    ```csharp title="Build.csproj"
+    <Project Sdk="Cake.Sdk">
+      <PropertyGroup>
+        <TargetFramework>{{ example_tfm }}</TargetFramework>
+        <RunWorkingDirectory>$(MSBuildProjectDirectory)</RunWorkingDirectory>
+      </PropertyGroup>
+      </PropertyGroup>
+      <ItemGroup>
+        <PackageReference Include="Cake.Frosting.Issues.MsBuild" Version="{{ cake_issues_version }}" />
+        <PackageReference Include="Cake.Frosting.Issues.PullRequests.AzureDevOps" Version="{{ cake_issues_version }}" />
+      </ItemGroup>
+    </Project>
+    ```
+
+    ```csharp title="build.cs"
+    Task("ReportIssuesToPullRequest").Does(() =>
+    {
+        var repoRootFolder = new DirectoryPath(@"C:\repo");    
+
+        var settings =
+            new ReportIssuesToPullRequestFromIssueProviderSettings(repoRootFolder);
+
+        // Add custom filter.
+        settings.IssueFilters.Add(x => x.Where(issue => issue.RuleId != "CA1000"));
+
+        ReportIssuesToPullRequest(
+            new List<IIssueProvider>
+            {
+                MsBuildIssuesFromFilePath(
+                    @"C:\build\msbuild.log",
+                    MsBuildBinaryLogFileFormat)
+            },
+            AzureDevOpsPullRequests(),
+            settings);
+    });
+    ```
+
 === "Cake Frosting"
 
     ```csharp title="Build.csproj"

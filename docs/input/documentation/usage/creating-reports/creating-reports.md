@@ -27,6 +27,21 @@ and generic report format is imported:
     !!! note
         In addition to the report format the `Cake.Issues` and `Cake.Issues.Reporting` core addins need to be added.
 
+=== "Cake SDK"
+
+    ```csharp title="Build.csproj"
+    <Project Sdk="Cake.Sdk">
+      <PropertyGroup>
+        <TargetFramework>{{ example_tfm }}</TargetFramework>
+        <RunWorkingDirectory>$(MSBuildProjectDirectory)</RunWorkingDirectory>
+      </PropertyGroup>
+      <ItemGroup>
+        <PackageReference Include="Cake.Frosting.Issues.MsBuild" Version="{{ cake_issues_version }}" />
+        <PackageReference Include="Cake.Frosting.Issues.Reporting.Generic" Version="{{ cake_issues_version }}" />
+      </ItemGroup>
+    </Project>
+    ```
+
 === "Cake Frosting"
 
     ```csharp title="Build.csproj"
@@ -49,6 +64,23 @@ Afterwards you can define a task where you call the reporting addin with the des
 === "Cake .NET Tool"
 
     ```csharp title="build.cake"
+    Task("Create-Report").Does(() =>
+    {
+        var repoRootFolder = new DirectoryPath(@"C:\repo");
+        CreateIssueReport(
+            MsBuildIssuesFromFilePath(
+                @"C:\build\msbuild.log",
+                MsBuildBinaryLogFileFormat),
+            GenericIssueReportFormatFromEmbeddedTemplate(
+                GenericIssueReportTemplate.HtmlDiagnostic),
+            repoRootFolder,
+            @"c:\report.html");
+    });
+    ```
+
+=== "Cake SDK"
+
+    ```csharp title="build.cs"
     Task("Create-Report").Does(() =>
     {
         var repoRootFolder = new DirectoryPath(@"C:\repo");

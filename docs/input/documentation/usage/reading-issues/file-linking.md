@@ -28,6 +28,25 @@ reporting formats, pull request systems and build server implementations:
                 settings));
     ```
 
+=== "Cake SDK"
+
+    ```csharp
+    var settings =
+        new ReadIssuesSettings(@"c:\repo")
+        {
+            FileLinkSettings =
+                IssueFileLinkSettingsForGitHubCommit(
+                    "https://github.com/cake-contrib/Cake.Issues",
+                    "76a7cacef7ad4295a6766646d45c9b56")
+        };    
+
+        var issues =
+            ReadIssues(
+                InspectCodeIssuesFromFilePath(
+                    @"C:\build\inspectcode.log"),
+                settings));
+    ```
+
 === "Cake Frosting"
 
     ```csharp
