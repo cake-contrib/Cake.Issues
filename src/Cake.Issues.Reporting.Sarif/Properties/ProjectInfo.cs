@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following
@@ -18,4 +17,3 @@ using System.Runtime.InteropServices;
 [assembly: Guid("2b32529d-dd2b-458d-ae6f-81cec5b06d0b")]
 
 [assembly: CLSCompliant(true)]
-[assembly: InternalsVisibleTo("Cake.Issues.Reporting.Sarif.Tests")]

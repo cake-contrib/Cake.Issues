@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // Setting ComVisible to false makes the types in this assembly not visible
@@ -11,4 +10,3 @@ using System.Runtime.InteropServices;
 [assembly: Guid("956ee163-6e8b-44a9-ae58-50185de4f878")]
 
 [assembly: CLSCompliant(true)]
-[assembly: InternalsVisibleTo("Cake.Issues.Tests")]
