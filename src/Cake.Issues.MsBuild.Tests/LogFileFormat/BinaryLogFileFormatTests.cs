@@ -230,5 +230,24 @@ public sealed class BinaryLogFileFormatTests
                     .OfRule("CA1804", new Uri("https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/CA1804"))
                     .WithPriority(IssuePriority.Warning));
         }
+
+        [SkippableFact]
+        public void Should_Read_Warning_Without_ProjectFile_Correct()
+        {
+            // Uses Windows specific paths.
+            Skip.IfNot(RuntimeInformation.IsOSPlatform(OSPlatform.Windows));
+
+            // Given
+            var fixture = new MsBuildIssuesProviderFixture<BinaryLogFileFormat>("NoProjectFile.binlog")
+            {
+                ReadIssuesSettings = new ReadIssuesSettings(@"C:\projects\cake-issues-demo\"),
+            };
+
+            // When
+            var issues = fixture.ReadIssues().ToList();
+
+            // Then
+            issues.ShouldBeEmpty();
+        }
     }
 }
