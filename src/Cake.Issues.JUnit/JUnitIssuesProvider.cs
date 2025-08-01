@@ -14,7 +14,7 @@ using Cake.Core.IO;
 /// </summary>
 /// <param name="log">The Cake log context.</param>
 /// <param name="issueProviderSettings">Settings for the issue provider.</param>
-internal class JUnitIssuesProvider(ICakeLog log, JUnitIssuesSettings issueProviderSettings) : BaseConfigurableIssueProvider<JUnitIssuesSettings>(log, issueProviderSettings)
+public class JUnitIssuesProvider(ICakeLog log, JUnitIssuesSettings issueProviderSettings) : BaseConfigurableIssueProvider<JUnitIssuesSettings>(log, issueProviderSettings)
 {
     /// <summary>
     /// Gets the name of the JUnit issue provider.

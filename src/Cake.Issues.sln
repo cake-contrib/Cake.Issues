@@ -301,6 +301,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{9887889A
 		..\nuspec\nuget\Cake.Issues.Tap.nuspec = ..\nuspec\nuget\Cake.Issues.Tap.nuspec
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.Issues.JUnit", "Cake.Issues.JUnit\Cake.Issues.JUnit.csproj", "{993E2A82-6E24-47EB-BBA7-0E735B0E8172}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.Issues.JUnit.Tests", "Cake.Issues.JUnit.Tests\Cake.Issues.JUnit.Tests.csproj", "{9AFF330A-9151-4AF9-BAFE-B79DB6016228}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -455,6 +459,14 @@ Global
 		{58C5D37D-18B1-4F44-9527-F515C319C7BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58C5D37D-18B1-4F44-9527-F515C319C7BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{58C5D37D-18B1-4F44-9527-F515C319C7BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{993E2A82-6E24-47EB-BBA7-0E735B0E8172}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{993E2A82-6E24-47EB-BBA7-0E735B0E8172}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{993E2A82-6E24-47EB-BBA7-0E735B0E8172}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{993E2A82-6E24-47EB-BBA7-0E735B0E8172}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AFF330A-9151-4AF9-BAFE-B79DB6016228}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AFF330A-9151-4AF9-BAFE-B79DB6016228}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AFF330A-9151-4AF9-BAFE-B79DB6016228}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AFF330A-9151-4AF9-BAFE-B79DB6016228}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
