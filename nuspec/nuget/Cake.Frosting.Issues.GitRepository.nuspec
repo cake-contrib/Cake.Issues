@@ -46,11 +46,6 @@ For addin compatible with Cake Script Runners see Cake.Issues.GitRepository.
     <file src="Cake.Frosting.Issues.GitRepository.targets" target="build" />
     <file src="Cake.Frosting.Issues.GitRepository.targets" target="buildTransitive" />
     <file src="Cake.Frosting.Issues.GitRepository.md" target="docs\README.md" />
-    <file src="..\..\src\Cake.Issues.GitRepository\bin\Release\net8.0\Cake.Issues.GitRepository.dll" target="lib\net8.0" />
-    <file src="..\..\src\Cake.Issues.GitRepository\bin\Release\net8.0\Cake.Issues.GitRepository.pdb" target="lib\net8.0" />
-    <file src="..\..\src\Cake.Issues.GitRepository\bin\Release\net8.0\Cake.Issues.GitRepository.xml" target="lib\net8.0" />
-    <file src="..\..\src\Cake.Issues.GitRepository\bin\Release\net9.0\Cake.Issues.GitRepository.dll" target="lib\net9.0" />
-    <file src="..\..\src\Cake.Issues.GitRepository\bin\Release\net9.0\Cake.Issues.GitRepository.pdb" target="lib\net9.0" />
-    <file src="..\..\src\Cake.Issues.GitRepository\bin\Release\net9.0\Cake.Issues.GitRepository.xml" target="lib\net9.0" />
+    <file src="..\..\src\Cake.Issues.GitRepository\bin\Release\**\Cake.Issues.GitRepository.*" target="lib" exclude="**\*.deps.json" />
   </files>
 </package>

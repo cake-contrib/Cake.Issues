@@ -42,11 +42,6 @@ For addin compatible with Cake Script Runners see Cake.Issues.PullRequests.GitHu
     <file src="Cake.Frosting.Issues.PullRequests.GitHubActions.targets" target="build" />
     <file src="Cake.Frosting.Issues.PullRequests.GitHubActions.targets" target="buildTransitive" />
     <file src="Cake.Frosting.Issues.PullRequests.GitHubActions.md" target="docs\README.md" />
-    <file src="..\..\src\Cake.Issues.PullRequests.GitHubActions\bin\Release\net8.0\Cake.Issues.PullRequests.GitHubActions.dll" target="lib\net8.0" />
-    <file src="..\..\src\Cake.Issues.PullRequests.GitHubActions\bin\Release\net8.0\Cake.Issues.PullRequests.GitHubActions.pdb" target="lib\net8.0" />
-    <file src="..\..\src\Cake.Issues.PullRequests.GitHubActions\bin\Release\net8.0\Cake.Issues.PullRequests.GitHubActions.xml" target="lib\net8.0" />
-    <file src="..\..\src\Cake.Issues.PullRequests.GitHubActions\bin\Release\net9.0\Cake.Issues.PullRequests.GitHubActions.dll" target="lib\net9.0" />
-    <file src="..\..\src\Cake.Issues.PullRequests.GitHubActions\bin\Release\net9.0\Cake.Issues.PullRequests.GitHubActions.pdb" target="lib\net9.0" />
-    <file src="..\..\src\Cake.Issues.PullRequests.GitHubActions\bin\Release\net9.0\Cake.Issues.PullRequests.GitHubActions.xml" target="lib\net9.0" />
+    <file src="..\..\src\Cake.Issues.PullRequests.GitHubActions\bin\Release\**\Cake.Issues.PullRequests.GitHubActions.*" target="lib" exclude="**\*.deps.json" />
   </files>
 </package>
