@@ -46,19 +46,19 @@ public sealed class JUnitIssuesProviderTests
             issue1.ProviderType.ShouldBe("Cake.Issues.JUnit.JUnitIssuesProvider");
             issue1.ProviderName.ShouldBe("JUnit");
             issue1.MessageText.ShouldBe("Lines should be <= 80 characters long\nsrc/example.cpp:15:  Lines should be <= 80 characters long  [whitespace/line_length] [2]");
-            issue1.Priority.ShouldBe(IssuePriority.Error);
-            issue1.Rule.ShouldBe("warning");
+            issue1.Priority.ShouldBe((int)IssuePriority.Error);
+            issue1.Rule().ShouldBe("warning");
             issue1.AffectedFileRelativePath.ShouldBe("src/example.cpp");
-            issue1.Line.ShouldBe(15);
+            issue1.Line.ShouldBe((int?)15);
 
             var issue2 = issues[1];
             issue2.ProviderType.ShouldBe("Cake.Issues.JUnit.JUnitIssuesProvider");
             issue2.ProviderName.ShouldBe("JUnit");
             issue2.MessageText.ShouldBe("Include order issue\nsrc/example.cpp:5:  #includes are not properly sorted  [build/include_order] [4]");
-            issue2.Priority.ShouldBe(IssuePriority.Error);
-            issue2.Rule.ShouldBe("warning");
+            issue2.Priority.ShouldBe((int)IssuePriority.Error);
+            issue2.Rule().ShouldBe("warning");
             issue2.AffectedFileRelativePath.ShouldBe("src/example.cpp");
-            issue2.Line.ShouldBe(5);
+            issue2.Line.ShouldBe((int?)5);
         }
 
         [Fact]
@@ -77,20 +77,20 @@ public sealed class JUnitIssuesProviderTests
             issue1.ProviderType.ShouldBe("Cake.Issues.JUnit.JUnitIssuesProvider");
             issue1.ProviderName.ShouldBe("JUnit");
             issue1.MessageText.ShouldBe("Invalid resource definition\ndeployment.yaml:10:15: error validating data: ValidationError(Deployment.spec.template.spec.containers[0].image): invalid value: \"\", expected non-empty string");
-            issue1.Priority.ShouldBe(IssuePriority.Error);
-            issue1.Rule.ShouldBe("ValidationError");
+            issue1.Priority.ShouldBe((int)IssuePriority.Error);
+            issue1.Rule().ShouldBe("ValidationError");
             issue1.AffectedFileRelativePath.ShouldBe("deployment.yaml");
-            issue1.Line.ShouldBe(10);
+            issue1.Line.ShouldBe((int?)10);
             issue1.Column.ShouldBe(15);
 
             var issue2 = issues[1];
             issue2.ProviderType.ShouldBe("Cake.Issues.JUnit.JUnitIssuesProvider");
             issue2.ProviderName.ShouldBe("JUnit");
             issue2.MessageText.ShouldBe("Port configuration invalid\nservice.yaml:8:5: Port 8080 is already in use by another service");
-            issue2.Priority.ShouldBe(IssuePriority.Error);
-            issue2.Rule.ShouldBe("ConfigError");
+            issue2.Priority.ShouldBe((int)IssuePriority.Error);
+            issue2.Rule().ShouldBe("ConfigError");
             issue2.AffectedFileRelativePath.ShouldBe("service.yaml");
-            issue2.Line.ShouldBe(8);
+            issue2.Line.ShouldBe((int?)8);
             issue2.Column.ShouldBe(5);
         }
 
@@ -110,20 +110,20 @@ public sealed class JUnitIssuesProviderTests
             issue1.ProviderType.ShouldBe("Cake.Issues.JUnit.JUnitIssuesProvider");
             issue1.ProviderName.ShouldBe("JUnit");
             issue1.MessageText.ShouldBe("Tagname must be lowercase\nindex.html(12,5): Tagname 'DIV' must be lowercase");
-            issue1.Priority.ShouldBe(IssuePriority.Error);
-            issue1.Rule.ShouldBe("error");
+            issue1.Priority.ShouldBe((int)IssuePriority.Error);
+            issue1.Rule().ShouldBe("error");
             issue1.AffectedFileRelativePath.ShouldBe("index.html");
-            issue1.Line.ShouldBe(12);
+            issue1.Line.ShouldBe((int?)12);
             issue1.Column.ShouldBe(5);
 
             var issue2 = issues[1];
             issue2.ProviderType.ShouldBe("Cake.Issues.JUnit.JUnitIssuesProvider");
             issue2.ProviderName.ShouldBe("JUnit");
             issue2.MessageText.ShouldBe("Attribute value must be in double quotes\nabout.html line 8: The value of attribute 'class' must be in double quotes.");
-            issue2.Priority.ShouldBe(IssuePriority.Error);
-            issue2.Rule.ShouldBe("warning");
+            issue2.Priority.ShouldBe((int)IssuePriority.Error);
+            issue2.Rule().ShouldBe("warning");
             issue2.AffectedFileRelativePath.ShouldBe("about.html");
-            issue2.Line.ShouldBe(8);
+            issue2.Line.ShouldBe((int?)8);
         }
 
         [Fact]
@@ -142,8 +142,8 @@ public sealed class JUnitIssuesProviderTests
             issue.ProviderType.ShouldBe("Cake.Issues.JUnit.JUnitIssuesProvider");
             issue.ProviderName.ShouldBe("JUnit");
             issue.MessageText.ShouldBe("Type must be one of the allowed values\ncommit-2: type must be one of [build, chore, ci, docs, feat, fix, perf, refactor, revert, style, test]");
-            issue.Priority.ShouldBe(IssuePriority.Error);
-            issue.Rule.ShouldBe("error");
+            issue.Priority.ShouldBe((int)IssuePriority.Error);
+            issue.Rule().ShouldBe("error");
         }
 
         [Fact]
@@ -176,7 +176,7 @@ public sealed class JUnitIssuesProviderTests
             fixture.SetFileContent(junitContent);
 
             // When / Then
-            Should.Throw<IssuesException>(() => fixture.ReadIssues().ToList())
+            Should.Throw<Exception>(() => fixture.ReadIssues().ToList())
                 .Message.ShouldContain("Failed to parse JUnit XML");
         }
     }

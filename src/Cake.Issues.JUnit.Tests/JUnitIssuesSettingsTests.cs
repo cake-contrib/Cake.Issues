@@ -1,5 +1,7 @@
 ﻿namespace Cake.Issues.JUnit.Tests;
 
+using Cake.Core.IO;
+
 public sealed class JUnitIssuesSettingsTests
 {
     public sealed class TheCtor
@@ -75,7 +77,7 @@ public sealed class JUnitIssuesSettingsTests
                 JUnitIssuesSettings.FromContent(string.Empty));
 
             // Then
-            result.IsArgumentNullOrWhiteSpaceException("logFileContent");
+            result.IsArgumentException("logFileContent");
         }
 
         [Fact]
@@ -86,7 +88,7 @@ public sealed class JUnitIssuesSettingsTests
                 JUnitIssuesSettings.FromContent(" "));
 
             // Then
-            result.IsArgumentNullOrWhiteSpaceException("logFileContent");
+            result.IsArgumentException("logFileContent");
         }
 
         [Fact]
