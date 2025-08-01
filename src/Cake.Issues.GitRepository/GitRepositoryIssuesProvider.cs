@@ -182,7 +182,7 @@ internal class GitRepositoryIssuesProvider : BaseIssueProvider
         };
 
         settings.Arguments.Clear();
-        settings.Arguments.Add("ls-files -z");
+        settings.Arguments.Add("ls-files -t -z");
         var output =
             this.runner.RunCommand(settings)
             ?? throw new Exception("Error reading files from repository");
@@ -192,6 +192,8 @@ internal class GitRepositoryIssuesProvider : BaseIssueProvider
                     output)
                 .Split('\0')
                 .Where(x => !string.IsNullOrEmpty(x))
+                .Where(x => !x.StartsWith("S ")) // Exclude skip-worktree files (sparse checkout)
+                .Select(x => x.Length > 2 ? x.Substring(2) : x) // Remove status prefix (e.g., "H ")
                 .ToList();
         this.Log.Verbose("Found {0} file(s)", result.Count);
 
