@@ -1,0 +1,228 @@
+<Solution>
+  <Folder Name="/Build/">
+    <File Path="../recipe.cake" />
+  </Folder>
+  <Folder Name="/Core/" />
+  <Folder Name="/Core/Cake.Issues.PullRequests/">
+    <Project Path="Cake.Issues.PullRequests.Tests/Cake.Issues.PullRequests.Tests.csproj" />
+    <Project Path="Cake.Issues.PullRequests/Cake.Issues.PullRequests.csproj" />
+  </Folder>
+  <Folder Name="/Core/Cake.Issues.PullRequests/NuGet/">
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.PullRequests.md" />
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.PullRequests.nuspec" />
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.PullRequests.targets" />
+    <File Path="../nuspec/nuget/Cake.Issues.PullRequests.md" />
+    <File Path="../nuspec/nuget/Cake.Issues.PullRequests.nuspec" />
+  </Folder>
+  <Folder Name="/Core/Cake.Issues.Reporting/">
+    <Project Path="Cake.Issues.Reporting.Tests/Cake.Issues.Reporting.Tests.csproj" />
+    <Project Path="Cake.Issues.Reporting/Cake.Issues.Reporting.csproj" />
+  </Folder>
+  <Folder Name="/Core/Cake.Issues.Reporting/NuGet/">
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.Reporting.md" />
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.Reporting.nuspec" />
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.Reporting.targets" />
+    <File Path="../nuspec/nuget/Cake.Issues.Reporting.md" />
+    <File Path="../nuspec/nuget/Cake.Issues.Reporting.nuspec" />
+  </Folder>
+  <Folder Name="/Core/Cake.Issues.Testing/">
+    <Project Path="Cake.Issues.Testing/Cake.Issues.Testing.csproj" />
+  </Folder>
+  <Folder Name="/Core/Cake.Issues.Testing/NuGet/">
+    <File Path="../nuspec/nuget/Cake.Issues.Testing.md" />
+    <File Path="../nuspec/nuget/Cake.Issues.Testing.nuspec" />
+  </Folder>
+  <Folder Name="/Core/Cake.Issues/">
+    <Project Path="Cake.Issues.Tests/Cake.Issues.Tests.csproj" />
+    <Project Path="Cake.Issues/Cake.Issues.csproj" />
+  </Folder>
+  <Folder Name="/Core/Cake.Issues/NuGet/">
+    <File Path="../nuspec/nuget/Cake.Issues.md" />
+    <File Path="../nuspec/nuget/Cake.Issues.nuspec" />
+    <File Path="../nuspec/nuget/Cake.Issues.targets" />
+  </Folder>
+  <Folder Name="/Issue Provider/" />
+  <Folder Name="/Issue Provider/DocFx/">
+    <Project Path="Cake.Issues.DocFx.Tests/Cake.Issues.DocFx.Tests.csproj" />
+    <Project Path="Cake.Issues.DocFx/Cake.Issues.DocFx.csproj" />
+  </Folder>
+  <Folder Name="/Issue Provider/DocFx/NuGet/">
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.DocFx.md" />
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.DocFx.nuspec" />
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.DocFx.targets" />
+    <File Path="../nuspec/nuget/Cake.Issues.DocFx.md" />
+    <File Path="../nuspec/nuget/Cake.Issues.DocFx.nuspec" />
+  </Folder>
+  <Folder Name="/Issue Provider/EsLint/">
+    <Project Path="Cake.Issues.EsLint.Tests/Cake.Issues.EsLint.Tests.csproj" />
+    <Project Path="Cake.Issues.EsLint/Cake.Issues.EsLint.csproj" />
+  </Folder>
+  <Folder Name="/Issue Provider/EsLint/NuGet/">
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.EsLint.md" />
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.EsLint.nuspec" />
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.EsLint.targets" />
+    <File Path="../nuspec/nuget/Cake.Issues.EsLint.md" />
+    <File Path="../nuspec/nuget/Cake.Issues.EsLint.nuspec" />
+  </Folder>
+  <Folder Name="/Issue Provider/GitRepository/">
+    <Project Path="Cake.Issues.GitRepository.Tests/Cake.Issues.GitRepository.Tests.csproj" />
+    <Project Path="Cake.Issues.GitRepository/Cake.Issues.GitRepository.csproj" />
+  </Folder>
+  <Folder Name="/Issue Provider/GitRepository/NuGet/">
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.GitRepository.md" />
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.GitRepository.nuspec" />
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.GitRepository.targets" />
+    <File Path="../nuspec/nuget/Cake.Issues.GitRepository.md" />
+    <File Path="../nuspec/nuget/Cake.Issues.GitRepository.nuspec" />
+  </Folder>
+  <Folder Name="/Issue Provider/InspectCode/">
+    <Project Path="Cake.Issues.InspectCode.Tests/Cake.Issues.InspectCode.Tests.csproj" />
+    <Project Path="Cake.Issues.InspectCode/Cake.Issues.InspectCode.csproj" />
+  </Folder>
+  <Folder Name="/Issue Provider/InspectCode/NuGet/">
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.InspectCode.md" />
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.InspectCode.nuspec" />
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.InspectCode.targets" />
+    <File Path="../nuspec/nuget/Cake.Issues.InspectCode.md" />
+    <File Path="../nuspec/nuget/Cake.Issues.InspectCode.nuspec" />
+  </Folder>
+  <Folder Name="/Issue Provider/JUnit/">
+    <Project Path="Cake.Issues.JUnit.Tests/Cake.Issues.JUnit.Tests.csproj" />
+    <Project Path="Cake.Issues.JUnit/Cake.Issues.JUnit.csproj" />
+  </Folder>
+  <Folder Name="/Issue Provider/JUnit/NuGet/">
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.JUnit.md" />
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.JUnit.nuspec" />
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.JUnit.targets" />
+    <File Path="../nuspec/nuget/Cake.Issues.JUnit.md" />
+    <File Path="../nuspec/nuget/Cake.Issues.JUnit.nuspec" />
+  </Folder>
+  <Folder Name="/Issue Provider/Markdownlint/">
+    <Project Path="Cake.Issues.Markdownlint.Tests/Cake.Issues.Markdownlint.Tests.csproj" />
+    <Project Path="Cake.Issues.Markdownlint/Cake.Issues.Markdownlint.csproj" />
+  </Folder>
+  <Folder Name="/Issue Provider/Markdownlint/NuGet/">
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.Markdownlint.md" />
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.Markdownlint.nuspec" />
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.Markdownlint.targets" />
+    <File Path="../nuspec/nuget/Cake.Issues.Markdownlint.md" />
+    <File Path="../nuspec/nuget/Cake.Issues.Markdownlint.nuspec" />
+  </Folder>
+  <Folder Name="/Issue Provider/MsBuild/">
+    <Project Path="Cake.Issues.MsBuild.Tests/Cake.Issues.MsBuild.Tests.csproj" />
+    <Project Path="Cake.Issues.MsBuild/Cake.Issues.MsBuild.csproj" />
+  </Folder>
+  <Folder Name="/Issue Provider/MsBuild/NuGet/">
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.MsBuild.md" />
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.MsBuild.nuspec" />
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.MsBuild.targets" />
+    <File Path="../nuspec/nuget/Cake.Issues.MsBuild.md" />
+    <File Path="../nuspec/nuget/Cake.Issues.MsBuild.nuspec" />
+  </Folder>
+  <Folder Name="/Issue Provider/Sarif/">
+    <Project Path="Cake.Issues.Sarif.Tests/Cake.Issues.Sarif.Tests.csproj" />
+    <Project Path="Cake.Issues.Sarif/Cake.Issues.Sarif.csproj" />
+  </Folder>
+  <Folder Name="/Issue Provider/Sarif/NuGet/">
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.Sarif.md" />
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.Sarif.nuspec" />
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.Sarif.targets" />
+    <File Path="../nuspec/nuget/Cake.Issues.Sarif.md" />
+    <File Path="../nuspec/nuget/Cake.Issues.Sarif.nuspec" />
+  </Folder>
+  <Folder Name="/Issue Provider/Tap/">
+    <Project Path="Cake.Issues.Tap.Tests/Cake.Issues.Tap.Tests.csproj" />
+    <Project Path="Cake.Issues.Tap/Cake.Issues.Tap.csproj" />
+  </Folder>
+  <Folder Name="/Issue Provider/Tap/NuGet/">
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.Tap.md" />
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.Tap.nuspec" />
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.Tap.targets" />
+    <File Path="../nuspec/nuget/Cake.Issues.Tap.md" />
+    <File Path="../nuspec/nuget/Cake.Issues.Tap.nuspec" />
+  </Folder>
+  <Folder Name="/Issue Provider/Terraform/">
+    <Project Path="Cake.Issues.Terraform.Tests/Cake.Issues.Terraform.Tests.csproj" />
+    <Project Path="Cake.Issues.Terraform/Cake.Issues.Terraform.csproj" />
+  </Folder>
+  <Folder Name="/Issue Provider/Terraform/NuGet/">
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.Terraform.md" />
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.Terraform.nuspec" />
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.Terraform.targets" />
+    <File Path="../nuspec/nuget/Cake.Issues.Terraform.md" />
+    <File Path="../nuspec/nuget/Cake.Issues.Terraform.nuspec" />
+  </Folder>
+  <Folder Name="/Pull Request Systems/" />
+  <Folder Name="/Pull Request Systems/AppVeyor/">
+    <Project Path="Cake.Issues.PullRequests.AppVeyor.Tests/Cake.Issues.PullRequests.AppVeyor.Tests.csproj" />
+    <Project Path="Cake.Issues.PullRequests.AppVeyor/Cake.Issues.PullRequests.AppVeyor.csproj" />
+  </Folder>
+  <Folder Name="/Pull Request Systems/AppVeyor/NuGet/">
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.PullRequests.AppVeyor.md" />
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.PullRequests.AppVeyor.nuspec" />
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.PullRequests.AppVeyor.targets" />
+    <File Path="../nuspec/nuget/Cake.Issues.PullRequests.AppVeyor.md" />
+    <File Path="../nuspec/nuget/Cake.Issues.PullRequests.AppVeyor.nuspec" />
+  </Folder>
+  <Folder Name="/Pull Request Systems/AzureDevOps/">
+    <Project Path="Cake.Issues.PullRequests.AzureDevOps.Tests/Cake.Issues.PullRequests.AzureDevOps.Tests.csproj" />
+    <Project Path="Cake.Issues.PullRequests.AzureDevOps/Cake.Issues.PullRequests.AzureDevOps.csproj" />
+  </Folder>
+  <Folder Name="/Pull Request Systems/AzureDevOps/NuGet/">
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.PullRequests.AzureDevOps.md" />
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.PullRequests.AzureDevOps.nuspec" />
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.PullRequests.AzureDevOps.targets" />
+    <File Path="../nuspec/nuget/Cake.Issues.PullRequests.AzureDevOps.md" />
+    <File Path="../nuspec/nuget/Cake.Issues.PullRequests.AzureDevOps.nuspec" />
+  </Folder>
+  <Folder Name="/Pull Request Systems/GitHubActions/">
+    <Project Path="Cake.Issues.PullRequests.GitHubActions.Tests/Cake.Issues.PullRequests.GitHubActions.Tests.csproj" />
+    <Project Path="Cake.Issues.PullRequests.GitHubActions/Cake.Issues.PullRequests.GitHubActions.csproj" />
+  </Folder>
+  <Folder Name="/Pull Request Systems/GitHubActions/NuGet/">
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.PullRequests.GitHubActions.md" />
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.PullRequests.GitHubActions.nuspec" />
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.PullRequests.GitHubActions.targets" />
+    <File Path="../nuspec/nuget/Cake.Issues.PullRequests.GitHubActions.md" />
+    <File Path="../nuspec/nuget/Cake.Issues.PullRequests.GitHubActions.nuspec" />
+  </Folder>
+  <Folder Name="/Report Formats/" />
+  <Folder Name="/Report Formats/Console/">
+    <Project Path="Cake.Issues.Reporting.Console.Tests/Cake.Issues.Reporting.Console.Tests.csproj" />
+    <Project Path="Cake.Issues.Reporting.Console/Cake.Issues.Reporting.Console.csproj" />
+  </Folder>
+  <Folder Name="/Report Formats/Console/NuGet/">
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.Reporting.Console.md" />
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.Reporting.Console.nuspec" />
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.Reporting.Console.targets" />
+    <File Path="../nuspec/nuget/Cake.Issues.Reporting.Console.md" />
+    <File Path="../nuspec/nuget/Cake.Issues.Reporting.Console.nuspec" />
+  </Folder>
+  <Folder Name="/Report Formats/Generic/">
+    <Project Path="Cake.Issues.Reporting.Generic.Tests/Cake.Issues.Reporting.Generic.Tests.csproj" />
+    <Project Path="Cake.Issues.Reporting.Generic/Cake.Issues.Reporting.Generic.csproj" />
+  </Folder>
+  <Folder Name="/Report Formats/Generic/NuGet/">
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.Reporting.Generic.md" />
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.Reporting.Generic.nuspec" />
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.Reporting.Generic.targets" />
+    <File Path="../nuspec/nuget/Cake.Issues.Reporting.Generic.md" />
+    <File Path="../nuspec/nuget/Cake.Issues.Reporting.Generic.nuspec" />
+  </Folder>
+  <Folder Name="/Report Formats/Sarif/">
+    <Project Path="Cake.Issues.Reporting.Sarif.Tests/Cake.Issues.Reporting.Sarif.Tests.csproj" />
+    <Project Path="Cake.Issues.Reporting.Sarif/Cake.Issues.Reporting.Sarif.csproj" />
+  </Folder>
+  <Folder Name="/Report Formats/Sarif/NuGet/">
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.Reporting.Sarif.md" />
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.Reporting.Sarif.nuspec" />
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.Reporting.Sarif.targets" />
+    <File Path="../nuspec/nuget/Cake.Issues.Reporting.Sarif.md" />
+    <File Path="../nuspec/nuget/Cake.Issues.Sarif.nuspec" />
+  </Folder>
+  <Folder Name="/Solution Items/">
+    <File Path=".editorconfig" />
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Packages.props" />
+  </Folder>
+</Solution>
