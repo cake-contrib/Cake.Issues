@@ -1,0 +1,9 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Description>Tests for the Cake.Issues.CodeClimate addin</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Cake.Issues.CodeClimate\Cake.Issues.CodeClimate.csproj" />
+  </ItemGroup>
+</Project>
