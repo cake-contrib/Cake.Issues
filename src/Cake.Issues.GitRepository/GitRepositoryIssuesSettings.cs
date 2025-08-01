@@ -1,5 +1,7 @@
 ﻿namespace Cake.Issues.GitRepository;
 
+using System.Collections.Generic;
+
 /// <summary>
 /// Settings for <see cref="GitRepositoryIssuesAliases"/>.
 /// </summary>
@@ -23,4 +25,22 @@ public class GitRepositoryIssuesSettings
     /// <see cref="CheckFilesPathLength"/> is enabled.
     /// </summary>
     public int MaxFilePathLength { get; set; }
+
+    /// <summary>
+    /// Gets the list of file patterns to exclude from all checks.
+    /// Supports glob patterns (e.g., "*.tmp", "**/temp/**", "docs/generated/*").
+    /// </summary>
+    public IList<string> FilesToExclude { get; } = [];
+
+    /// <summary>
+    /// Gets the list of file patterns to exclude from binary files LFS tracking checks.
+    /// Supports glob patterns (e.g., "*.tmp", "**/temp/**", "docs/generated/*").
+    /// </summary>
+    public IList<string> FilesToExcludeFromBinaryFilesLfsCheck { get; } = [];
+
+    /// <summary>
+    /// Gets the list of file patterns to exclude from file path length checks.
+    /// Supports glob patterns (e.g., "*.tmp", "**/temp/**", "docs/generated/*").
+    /// </summary>
+    public IList<string> FilesToExcludeFromFilePathLengthCheck { get; } = [];
 }
