@@ -11,6 +11,7 @@ provides the following features.
 
 - [x] Checks path length of files. See [FilePathTooLong] for details.
 - [x] Checks if binary files are tracked by Git LFS. See [BinaryFileNotTrackedByLfs] for details.
+- [x] Supports excluding files from checks using glob patterns. See [Examples](examples.md#supported-exclusion-patterns) for details.
 
 ## Supported IIssue properties
 
