@@ -90,7 +90,7 @@ public sealed class FilePatternMatcherTests
             // When & Then
             FilePatternMatcher.IsMatch(null, "*.txt").ShouldBeFalse();
             FilePatternMatcher.IsMatch("", "*.txt").ShouldBeFalse();
-            FilePatternMatcher.IsMatch("file.txt", null).ShouldBeFalse();
+            FilePatternMatcher.IsMatch("file.txt", (string)null).ShouldBeFalse();
             FilePatternMatcher.IsMatch("file.txt", "").ShouldBeFalse();
         }
 

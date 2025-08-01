@@ -16,15 +16,10 @@ internal static class FilePatternMatcher
     /// <param name="filePath">The file path to check.</param>
     /// <param name="patterns">The list of patterns to match against.</param>
     /// <returns>True if the file path matches any pattern; otherwise, false.</returns>
-    public static bool IsMatch(string filePath, IEnumerable<string> patterns)
-    {
-        if (string.IsNullOrEmpty(filePath) || patterns == null)
-        {
-            return false;
-        }
-
-        return patterns.Any(pattern => IsMatch(filePath, pattern));
-    }
+    public static bool IsMatch(string filePath, IEnumerable<string> patterns) =>
+        !string.IsNullOrEmpty(filePath) &&
+        patterns != null &&
+        patterns.Any(pattern => IsMatch(filePath, pattern));
 
     /// <summary>
     /// Checks if a file path matches a specific pattern.
@@ -45,7 +40,7 @@ internal static class FilePatternMatcher
 
         // Convert glob pattern to regex
         var regexPattern = ConvertGlobToRegex(normalizedPattern);
-        
+
         try
         {
             return Regex.IsMatch(normalizedPath, regexPattern, RegexOptions.IgnoreCase);
@@ -65,11 +60,11 @@ internal static class FilePatternMatcher
     private static string ConvertGlobToRegex(string globPattern)
     {
         var regexPattern = "^";
-        
-        for (int i = 0; i < globPattern.Length; i++)
+
+        for (var i = 0; i < globPattern.Length; i++)
         {
-            char c = globPattern[i];
-            
+            var c = globPattern[i];
+
             switch (c)
             {
                 case '*':
@@ -92,13 +87,14 @@ internal static class FilePatternMatcher
                         // * matches any characters except /
                         regexPattern += "[^/]*";
                     }
+
                     break;
-                    
+
                 case '?':
                     // ? matches any single character except /
                     regexPattern += "[^/]";
                     break;
-                    
+
                 case '.':
                 case '^':
                 case '$':
@@ -114,13 +110,13 @@ internal static class FilePatternMatcher
                     // Escape regex special characters
                     regexPattern += "\\" + c;
                     break;
-                    
+
                 default:
                     regexPattern += c;
                     break;
             }
         }
-        
+
         regexPattern += "$";
         return regexPattern;
     }

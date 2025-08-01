@@ -21,14 +21,14 @@ public sealed class GitRepositoryIssuesProviderTests
             }
 
             var provider = this.CreateProvider(settings);
-            
+
             // Use reflection to access the private IsFileExcluded method
-            var isFileExcludedMethod = typeof(GitRepositoryIssuesProvider).GetMethod("IsFileExcluded", 
+            var isFileExcludedMethod = typeof(GitRepositoryIssuesProvider).GetMethod("IsFileExcluded",
                 BindingFlags.NonPublic | BindingFlags.Instance);
             var checkTypeEnum = this.GetCheckTypeEnumValue(checkType);
 
             // When
-            var result = (bool)isFileExcludedMethod.Invoke(provider, new[] { filePath, checkTypeEnum });
+            var result = (bool)isFileExcludedMethod.Invoke(provider, [filePath, checkTypeEnum]);
 
             // Then
             result.ShouldBe(expectedExcluded);
@@ -48,14 +48,14 @@ public sealed class GitRepositoryIssuesProviderTests
             }
 
             var provider = this.CreateProvider(settings);
-            
+
             // Use reflection to access the private IsFileExcluded method
-            var isFileExcludedMethod = typeof(GitRepositoryIssuesProvider).GetMethod("IsFileExcluded", 
+            var isFileExcludedMethod = typeof(GitRepositoryIssuesProvider).GetMethod("IsFileExcluded",
                 BindingFlags.NonPublic | BindingFlags.Instance);
             var checkTypeEnum = this.GetCheckTypeEnumValue("BinaryFilesLfs");
 
             // When
-            var result = (bool)isFileExcludedMethod.Invoke(provider, new[] { filePath, checkTypeEnum });
+            var result = (bool)isFileExcludedMethod.Invoke(provider, [filePath, checkTypeEnum]);
 
             // Then
             result.ShouldBe(expectedExcluded);
@@ -75,14 +75,14 @@ public sealed class GitRepositoryIssuesProviderTests
             }
 
             var provider = this.CreateProvider(settings);
-            
+
             // Use reflection to access the private IsFileExcluded method
-            var isFileExcludedMethod = typeof(GitRepositoryIssuesProvider).GetMethod("IsFileExcluded", 
+            var isFileExcludedMethod = typeof(GitRepositoryIssuesProvider).GetMethod("IsFileExcluded",
                 BindingFlags.NonPublic | BindingFlags.Instance);
             var checkTypeEnum = this.GetCheckTypeEnumValue("FilePathLength");
 
             // When
-            var result = (bool)isFileExcludedMethod.Invoke(provider, new[] { filePath, checkTypeEnum });
+            var result = (bool)isFileExcludedMethod.Invoke(provider, [filePath, checkTypeEnum]);
 
             // Then
             result.ShouldBe(expectedExcluded);
@@ -95,16 +95,15 @@ public sealed class GitRepositoryIssuesProviderTests
             var settings = new GitRepositoryIssuesSettings();
             settings.FilesToExclude.Add("*.tmp");
             // Even if it's not in the specific exclusion list, global should take precedence
-            
             var provider = this.CreateProvider(settings);
-            
+
             // Use reflection to access the private IsFileExcluded method
-            var isFileExcludedMethod = typeof(GitRepositoryIssuesProvider).GetMethod("IsFileExcluded", 
+            var isFileExcludedMethod = typeof(GitRepositoryIssuesProvider).GetMethod("IsFileExcluded",
                 BindingFlags.NonPublic | BindingFlags.Instance);
             var checkTypeEnum = this.GetCheckTypeEnumValue("BinaryFilesLfs");
 
             // When
-            var result = (bool)isFileExcludedMethod.Invoke(provider, new[] { "file.tmp", checkTypeEnum });
+            var result = (bool)isFileExcludedMethod.Invoke(provider, ["file.tmp", checkTypeEnum]);
 
             // Then
             result.ShouldBeTrue();
@@ -113,12 +112,12 @@ public sealed class GitRepositoryIssuesProviderTests
         private GitRepositoryIssuesProvider CreateProvider(GitRepositoryIssuesSettings settings)
         {
             var log = new FakeLog();
-            var fileSystem = new FakeFileSystem(new FakeCakeEnvironment());
-            var environment = new FakeCakeEnvironment();
-            var processRunner = new FakeProcessRunner();
-            var toolLocator = new FakeToolLocator();
-            
-            return new GitRepositoryIssuesProvider(log, fileSystem, environment, processRunner, toolLocator, settings);
+            var environment = new FakeEnvironment(Core.PlatformFamily.Linux);
+            var fileSystem = new FakeFileSystem(environment);
+            //var processRunner = new FakeProcessRunner();
+            //var toolLocator = new FakeToolLocator();
+
+            return new GitRepositoryIssuesProvider(log, fileSystem, environment, null, null, settings);
         }
 
         private object GetCheckTypeEnumValue(string checkTypeName)
