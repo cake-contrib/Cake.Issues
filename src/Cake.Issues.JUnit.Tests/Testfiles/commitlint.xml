@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="commitlint" tests="3" failures="1" errors="0" time="0.012">
+  <testcase classname="commit-1" name="header-max-length" time="0.004"/>
+  <testcase classname="commit-2" name="type-enum" time="0.004">
+    <failure message="Type must be one of the allowed values" type="error">
+commit-2: type must be one of [build, chore, ci, docs, feat, fix, perf, refactor, revert, style, test]
+    </failure>
+  </testcase>
+  <testcase classname="commit-3" name="subject-case" time="0.004"/>
+</testsuite>

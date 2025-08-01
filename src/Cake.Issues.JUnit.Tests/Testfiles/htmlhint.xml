@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="htmlhint" tests="2" failures="2" errors="0" time="0.089">
+  <testcase classname="index.html" name="tagname-lowercase" time="0.044">
+    <failure message="Tagname must be lowercase" type="error">
+index.html(12,5): Tagname 'DIV' must be lowercase
+    </failure>
+  </testcase>
+  <testcase classname="about.html" name="attr-value-double-quotes" time="0.045">
+    <failure message="Attribute value must be in double quotes" type="warning">
+about.html line 8: The value of attribute 'class' must be in double quotes.
+    </failure>
+  </testcase>
+</testsuite>

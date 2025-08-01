@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Description>Tests for the Cake.Issues.JUnit addin</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Testfiles\**\*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Testfiles\*.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Cake.Issues.JUnit\Cake.Issues.JUnit.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,129 @@
+﻿namespace Cake.Issues.JUnit.Tests;
+
+public sealed class JUnitIssuesSettingsTests
+{
+    public sealed class TheCtor
+    {
+        [Fact]
+        public void Should_Throw_If_LogFilePath_Is_Null()
+        {
+            // Given / When
+            var result = Record.Exception(() =>
+                new JUnitIssuesSettings((FilePath)null));
+
+            // Then
+            result.IsArgumentNullException("logFilePath");
+        }
+
+        [Fact]
+        public void Should_Throw_If_LogFileContent_Is_Null()
+        {
+            // Given / When
+            var result = Record.Exception(() =>
+                new JUnitIssuesSettings((byte[])null));
+
+            // Then
+            result.IsArgumentNullException("logFileContent");
+        }
+
+        [Fact]
+        public void Should_Set_LogFileContent()
+        {
+            // Given
+            var logFileContent = "foo".ToByteArray();
+
+            // When
+            var settings = new JUnitIssuesSettings(logFileContent);
+
+            // Then
+            settings.LogFileContent.ShouldBe(logFileContent);
+        }
+    }
+
+    public sealed class TheFromFilePathMethod
+    {
+        [Fact]
+        public void Should_Throw_If_LogFilePath_Is_Null()
+        {
+            // Given / When
+            var result = Record.Exception(() =>
+                JUnitIssuesSettings.FromFilePath(null));
+
+            // Then
+            result.IsArgumentNullException("logFilePath");
+        }
+    }
+
+    public sealed class TheFromContentMethod
+    {
+        [Fact]
+        public void Should_Throw_If_LogFileContent_Is_Null()
+        {
+            // Given / When
+            var result = Record.Exception(() =>
+                JUnitIssuesSettings.FromContent((string)null));
+
+            // Then
+            result.IsArgumentNullException("logFileContent");
+        }
+
+        [Fact]
+        public void Should_Throw_If_LogFileContent_Is_Empty()
+        {
+            // Given / When
+            var result = Record.Exception(() =>
+                JUnitIssuesSettings.FromContent(string.Empty));
+
+            // Then
+            result.IsArgumentNullOrWhiteSpaceException("logFileContent");
+        }
+
+        [Fact]
+        public void Should_Throw_If_LogFileContent_Is_WhiteSpace()
+        {
+            // Given / When
+            var result = Record.Exception(() =>
+                JUnitIssuesSettings.FromContent(" "));
+
+            // Then
+            result.IsArgumentNullOrWhiteSpaceException("logFileContent");
+        }
+
+        [Fact]
+        public void Should_Set_LogFileContent()
+        {
+            // Given
+            var logFileContent = "foo";
+
+            // When
+            var settings = JUnitIssuesSettings.FromContent(logFileContent);
+
+            // Then
+            settings.LogFileContent.ShouldBe(logFileContent.ToByteArray());
+        }
+
+        [Fact]
+        public void Should_Throw_If_LogFileContent_Byte_Array_Is_Null()
+        {
+            // Given / When
+            var result = Record.Exception(() =>
+                JUnitIssuesSettings.FromContent((byte[])null));
+
+            // Then
+            result.IsArgumentNullException("logFileContent");
+        }
+
+        [Fact]
+        public void Should_Set_LogFileContent_From_Byte_Array()
+        {
+            // Given
+            var logFileContent = "foo".ToByteArray();
+
+            // When
+            var settings = JUnitIssuesSettings.FromContent(logFileContent);
+
+            // Then
+            settings.LogFileContent.ShouldBe(logFileContent);
+        }
+    }
+}
