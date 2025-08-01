@@ -21,11 +21,10 @@ public sealed class GitRepositoryIssuesProviderTests
             var result = gitOutput
                 .Where(x => !string.IsNullOrEmpty(x))
                 .Where(x => !x.StartsWith("S ")) // Exclude skip-worktree files (sparse checkout)
-                .Select(x => x.Length > 2 ? x.Substring(2) : x) // Remove status prefix (e.g., "H ")
+                .Select(x => x.Length > 2 ? x[2..] : x) // Remove status prefix (e.g., "H ")
                 .ToList();
 
             // Then - Only non-skip-worktree files should remain
-            result.ShouldNotBeNull();
             result.Count.ShouldBe(2);
             result.ShouldContain("file1.txt");
             result.ShouldContain("subdir/file3.txt");
@@ -43,12 +42,11 @@ public sealed class GitRepositoryIssuesProviderTests
             var result = gitOutput
                 .Where(x => !string.IsNullOrEmpty(x))
                 .Where(x => !x.StartsWith("S "))
-                .Select(x => x.Length > 2 ? x.Substring(2) : x)
+                .Select(x => x.Length > 2 ? x[2..] : x)
                 .ToList();
 
             // Then - Result should be empty
-            result.ShouldNotBeNull();
-            result.Count.ShouldBe(0);
+            result.ShouldNotBeNull().Count.ShouldBe(0);
         }
 
         [Fact]
@@ -70,11 +68,10 @@ public sealed class GitRepositoryIssuesProviderTests
             var result = gitOutput
                 .Where(x => !string.IsNullOrEmpty(x))
                 .Where(x => !x.StartsWith("S "))
-                .Select(x => x.Length > 2 ? x.Substring(2) : x)
+                .Select(x => x.Length > 2 ? x[2..] : x)
                 .ToList();
 
             // Then - Only skip-worktree files should be filtered out
-            result.ShouldNotBeNull();
             result.Count.ShouldBe(5);
             result.ShouldContain("cached_file.txt");
             result.ShouldContain("modified_file.txt");
@@ -102,11 +99,10 @@ public sealed class GitRepositoryIssuesProviderTests
             var result = gitOutput
                 .Where(x => !string.IsNullOrEmpty(x))
                 .Where(x => !x.StartsWith("S "))
-                .Select(x => x.Length > 2 ? x.Substring(2) : x)
+                .Select(x => x.Length > 2 ? x[2..] : x)
                 .ToList();
 
             // Then
-            result.ShouldNotBeNull();
             result.Count.ShouldBe(4);
             result.ShouldContain("normal_file.txt");
             result.ShouldContain("Sfile_without_space.txt"); // This wasn't filtered because no space after S
