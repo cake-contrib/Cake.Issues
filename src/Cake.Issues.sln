@@ -229,6 +229,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{EE8D20F0
 		..\nuspec\nuget\Cake.Issues.Sarif.nuspec = ..\nuspec\nuget\Cake.Issues.Sarif.nuspec
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{9F6A8B2C-3D4E-5F1A-8B9C-0D1E2F3A4B5C}"
+	ProjectSection(SolutionItems) = preProject
+		..\nuspec\nuget\Cake.Frosting.Issues.CodeClimate.md = ..\nuspec\nuget\Cake.Frosting.Issues.CodeClimate.md
+		..\nuspec\nuget\Cake.Frosting.Issues.CodeClimate.nuspec = ..\nuspec\nuget\Cake.Frosting.Issues.CodeClimate.nuspec
+		..\nuspec\nuget\Cake.Frosting.Issues.CodeClimate.targets = ..\nuspec\nuget\Cake.Frosting.Issues.CodeClimate.targets
+		..\nuspec\nuget\Cake.Issues.CodeClimate.md = ..\nuspec\nuget\Cake.Issues.CodeClimate.md
+		..\nuspec\nuget\Cake.Issues.CodeClimate.nuspec = ..\nuspec\nuget\Cake.Issues.CodeClimate.nuspec
+	EndProjectSection
+EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{D5B8697D-48F9-4AE8-A3E2-D0E28444FFB8}"
 	ProjectSection(SolutionItems) = preProject
 		..\nuspec\nuget\Cake.Frosting.Issues.Terraform.md = ..\nuspec\nuget\Cake.Frosting.Issues.Terraform.md
@@ -541,6 +550,7 @@ Global
 		{31C6C8A1-EF5E-42B2-A3B2-691D34154447} = {3E907A2C-F70B-45F7-AF5A-6C55EDBDE4B7}
 		{CD14F49A-6F1B-43B3-AE96-EFEAEE61CB46} = {9A930DB7-DC39-4983-A979-16547DAB56F5}
 		{EE8D20F0-C126-46AE-A28B-F0844DF8287D} = {308A600B-0745-464E-9487-9FCFB1BBAC7D}
+		{9F6A8B2C-3D4E-5F1A-8B9C-0D1E2F3A4B5C} = {8F5B9A1C-8D3E-4F1E-9C2B-5A4B3C2D1E0F}
 		{D5B8697D-48F9-4AE8-A3E2-D0E28444FFB8} = {9323409D-2A31-4D93-8479-3DBBC154816A}
 		{CC4B1EB9-CAB1-4459-8E24-F0AE42EFED7A} = {1740ABB7-C3AE-437D-A7A5-0841BEEC3AF0}
 		{A61E1CBF-0AC9-47CA-ABC0-84F71728FDA4} = {2502A3E6-F9F4-41A9-BCC5-BB815DC3F0FA}
