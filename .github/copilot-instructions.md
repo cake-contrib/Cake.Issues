@@ -39,5 +39,7 @@ Follow these guidelines when contributing:
 2. For specific issue providers, report formats and pull request systems, refer to the documentation at https://cakeissues.net/latest/documentation/extending/ and sub pages.
 3. Maintain existing code structure and organization
 4. Write unit tests for new functionality.
+  - Use helpers from `src/Cake.Issues.Testing` when writing unit tests.
+  - Use `src/Cake.Issues.Testing/IssueChecker.cs` to compare issues against expected results. 
 5. Write integration tests for new functionality which can't be tested with unit tests.
 6. Maintain basic documentation in the `docs/` folder. Avoid API documentation which is automatically generated.
