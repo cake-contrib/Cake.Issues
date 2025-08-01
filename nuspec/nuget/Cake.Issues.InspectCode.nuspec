@@ -38,8 +38,8 @@ For addin compatible with Cake Frosting see Cake.Frosting.Issues.InspectCode.
     </dependencies>
   </metadata>
   <files>
-    <file src="..\..\..\..\nuspec\nuget\icon.png" target="" />
-    <file src="..\..\..\..\nuspec\nuget\Cake.Issues.InspectCode.md" target="docs\README.md" />
-    <file src="Release\**\Cake.Issues.InspectCode.*" target="lib" exclude="**\*.deps.json" />
+    <file src="icon.png" target="" />
+    <file src="Cake.Issues.InspectCode.md" target="docs\README.md" />
+    <file src="..\..\src\Cake.Issues.InspectCode\bin\Release\**\Cake.Issues.InspectCode.*" target="lib" exclude="**\*.deps.json" />
   </files>
 </package>
