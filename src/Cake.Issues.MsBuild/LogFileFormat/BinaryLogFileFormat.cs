@@ -163,8 +163,6 @@ internal class BinaryLogFileFormat(ICakeLog log) : BaseMsBuildLogFileFormat(log)
             return null;
         }
 
-        var projectFileRelativePath = this.GetProject(projectFile, repositorySettings);
-
         // Read affected file from the warning or error.
         var (result, fileName) = this.TryGetFile(file, projectFile, repositorySettings);
         if (!result)
@@ -186,15 +184,22 @@ internal class BinaryLogFileFormat(ICakeLog log) : BaseMsBuildLogFileFormat(log)
             ruleUrl = MsBuildRuleUrlResolver.Instance.ResolveRuleUrl(rule);
         }
 
-        // Build issue.
-        return
+        var builder =
             IssueBuilder
                 .NewIssue(message, issueProvider)
                 .WithPriority(priority)
-                .InProject(projectFileRelativePath, System.IO.Path.GetFileNameWithoutExtension(projectFileRelativePath))
                 .InFile(fileName, line, endLine, column, endColumn)
-                .OfRule(rule, ruleUrl)
-                .Create();
+                .OfRule(rule, ruleUrl);
+
+        if (!string.IsNullOrWhiteSpace(projectFile))
+        {
+            var projectFileRelativePath = this.GetProject(projectFile, repositorySettings);
+            builder =
+                builder.InProject(projectFileRelativePath, System.IO.Path.GetFileNameWithoutExtension(projectFileRelativePath));
+        }
+
+        // Build issue.
+        return builder.Create();
     }
 
     /// <summary>
