@@ -46,11 +46,6 @@ For addin compatible with Cake Script Runners see Cake.Issues.EsLint.
     <file src="Cake.Frosting.Issues.EsLint.targets" target="build" />
     <file src="Cake.Frosting.Issues.EsLint.targets" target="buildTransitive" />
     <file src="Cake.Frosting.Issues.EsLint.md" target="docs\README.md" />
-    <file src="..\..\src\Cake.Issues.EsLint\bin\Release\net8.0\Cake.Issues.EsLint.dll" target="lib\net8.0" />
-    <file src="..\..\src\Cake.Issues.EsLint\bin\Release\net8.0\Cake.Issues.EsLint.pdb" target="lib\net8.0" />
-    <file src="..\..\src\Cake.Issues.EsLint\bin\Release\net8.0\Cake.Issues.EsLint.xml" target="lib\net8.0" />
-    <file src="..\..\src\Cake.Issues.EsLint\bin\Release\net9.0\Cake.Issues.EsLint.dll" target="lib\net9.0" />
-    <file src="..\..\src\Cake.Issues.EsLint\bin\Release\net9.0\Cake.Issues.EsLint.pdb" target="lib\net9.0" />
-    <file src="..\..\src\Cake.Issues.EsLint\bin\Release\net9.0\Cake.Issues.EsLint.xml" target="lib\net9.0" />
+    <file src="..\..\src\Cake.Issues.EsLint\bin\Release\**\Cake.Issues.EsLint.*" target="lib" exclude="**\*.deps.json" />
   </files>
 </package>
