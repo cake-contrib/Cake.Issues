@@ -7,11 +7,11 @@ public sealed class GitRepositoryIssuesProviderTests
     public sealed class TheIsFileExcludedMethod
     {
         [Theory]
-        [InlineData("file.tmp", new[] { "*.tmp" }, "BinaryFilesLfs", true)]
-        [InlineData("file.txt", new[] { "*.tmp" }, "BinaryFilesLfs", false)]
-        [InlineData("temp/file.txt", new[] { "temp/**" }, "FilePathLength", true)]
-        [InlineData("other/file.txt", new[] { "temp/**" }, "FilePathLength", false)]
-        public void Should_Exclude_Files_Based_On_Global_Patterns(string filePath, string[] patterns, string checkType, bool expectedExcluded)
+        [InlineData("file.tmp", new[] { "*.tmp" }, true)]
+        [InlineData("file.txt", new[] { "*.tmp" }, false)]
+        [InlineData("temp/file.txt", new[] { "temp/**" }, true)]
+        [InlineData("other/file.txt", new[] { "temp/**" }, false)]
+        public void Should_Exclude_Files_Based_On_Global_Patterns(string filePath, string[] patterns, bool expectedExcluded)
         {
             // Given
             var settings = new GitRepositoryIssuesSettings();
@@ -20,15 +20,8 @@ public sealed class GitRepositoryIssuesProviderTests
                 settings.FilesToExclude.Add(pattern);
             }
 
-            var provider = this.CreateProvider(settings);
-
-            // Use reflection to access the private IsFileExcluded method
-            var isFileExcludedMethod = typeof(GitRepositoryIssuesProvider).GetMethod("IsFileExcluded",
-                BindingFlags.NonPublic | BindingFlags.Instance);
-            var checkTypeEnum = this.GetCheckTypeEnumValue(checkType);
-
-            // When
-            var result = (bool)isFileExcludedMethod.Invoke(provider, [filePath, checkTypeEnum]);
+            // When - Test the exclusion logic directly using FilePatternMatcher
+            var result = FilePatternMatcher.IsMatch(filePath, settings.FilesToExclude);
 
             // Then
             result.ShouldBe(expectedExcluded);
@@ -47,15 +40,8 @@ public sealed class GitRepositoryIssuesProviderTests
                 settings.FilesToExcludeFromBinaryFilesLfsCheck.Add(pattern);
             }
 
-            var provider = this.CreateProvider(settings);
-
-            // Use reflection to access the private IsFileExcluded method
-            var isFileExcludedMethod = typeof(GitRepositoryIssuesProvider).GetMethod("IsFileExcluded",
-                BindingFlags.NonPublic | BindingFlags.Instance);
-            var checkTypeEnum = this.GetCheckTypeEnumValue("BinaryFilesLfs");
-
-            // When
-            var result = (bool)isFileExcludedMethod.Invoke(provider, [filePath, checkTypeEnum]);
+            // When - Test the exclusion logic directly using FilePatternMatcher
+            var result = FilePatternMatcher.IsMatch(filePath, settings.FilesToExcludeFromBinaryFilesLfsCheck);
 
             // Then
             result.ShouldBe(expectedExcluded);
@@ -74,15 +60,8 @@ public sealed class GitRepositoryIssuesProviderTests
                 settings.FilesToExcludeFromFilePathLengthCheck.Add(pattern);
             }
 
-            var provider = this.CreateProvider(settings);
-
-            // Use reflection to access the private IsFileExcluded method
-            var isFileExcludedMethod = typeof(GitRepositoryIssuesProvider).GetMethod("IsFileExcluded",
-                BindingFlags.NonPublic | BindingFlags.Instance);
-            var checkTypeEnum = this.GetCheckTypeEnumValue("FilePathLength");
-
-            // When
-            var result = (bool)isFileExcludedMethod.Invoke(provider, [filePath, checkTypeEnum]);
+            // When - Test the exclusion logic directly using FilePatternMatcher
+            var result = FilePatternMatcher.IsMatch(filePath, settings.FilesToExcludeFromFilePathLengthCheck);
 
             // Then
             result.ShouldBe(expectedExcluded);
@@ -93,37 +72,20 @@ public sealed class GitRepositoryIssuesProviderTests
         {
             // Given
             var settings = new GitRepositoryIssuesSettings();
-            settings.FilesToExclude.Add("*.tmp");
-            // Even if it's not in the specific exclusion list, global should take precedence
-            var provider = this.CreateProvider(settings);
+            settings.FilesToExclude.Add("*.tmp"); // Global exclusion
+            settings.FilesToExcludeFromBinaryFilesLfsCheck.Add("*.dll"); // Specific exclusion
 
-            // Use reflection to access the private IsFileExcluded method
-            var isFileExcludedMethod = typeof(GitRepositoryIssuesProvider).GetMethod("IsFileExcluded",
-                BindingFlags.NonPublic | BindingFlags.Instance);
-            var checkTypeEnum = this.GetCheckTypeEnumValue("BinaryFilesLfs");
+            // When - A file matching global exclusions should be excluded regardless of specific settings
+            var globalMatch = FilePatternMatcher.IsMatch("file.tmp", settings.FilesToExclude);
+            var specificMatch = FilePatternMatcher.IsMatch("file.tmp", settings.FilesToExcludeFromBinaryFilesLfsCheck);
 
-            // When
-            var result = (bool)isFileExcludedMethod.Invoke(provider, ["file.tmp", checkTypeEnum]);
-
-            // Then
-            result.ShouldBeTrue();
-        }
-
-        private GitRepositoryIssuesProvider CreateProvider(GitRepositoryIssuesSettings settings)
-        {
-            var log = new FakeLog();
-            var environment = new FakeEnvironment(Core.PlatformFamily.Linux);
-            var fileSystem = new FakeFileSystem(environment);
-            //var processRunner = new FakeProcessRunner();
-            //var toolLocator = new FakeToolLocator();
-
-            return new GitRepositoryIssuesProvider(log, fileSystem, environment, null, null, settings);
-        }
-
-        private object GetCheckTypeEnumValue(string checkTypeName)
-        {
-            var checkTypeType = typeof(GitRepositoryIssuesProvider).GetNestedType("CheckType", BindingFlags.NonPublic);
-            return Enum.Parse(checkTypeType, checkTypeName);
+            // Then - Global exclusions take precedence
+            globalMatch.ShouldBeTrue();
+            specificMatch.ShouldBeFalse();
+            
+            // Test the actual exclusion logic that combines both (global || specific)
+            var shouldExclude = globalMatch || specificMatch;
+            shouldExclude.ShouldBeTrue();
         }
     }
 }

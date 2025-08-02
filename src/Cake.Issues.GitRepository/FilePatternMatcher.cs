@@ -36,10 +36,9 @@ internal static class FilePatternMatcher
 
         // Normalize path separators to forward slashes for consistent matching
         var normalizedPath = filePath.Replace('\\', '/');
-        var normalizedPattern = pattern.Replace('\\', '/');
-
-        // Convert glob pattern to regex
-        var regexPattern = ConvertGlobToRegex(normalizedPattern);
+        
+        // Convert glob pattern to regex (don't normalize backslashes in pattern as they may be escape characters)
+        var regexPattern = ConvertGlobToRegex(pattern);
 
         try
         {
@@ -48,7 +47,7 @@ internal static class FilePatternMatcher
         catch (ArgumentException)
         {
             // If regex is invalid, fall back to exact string comparison
-            return string.Equals(normalizedPath, normalizedPattern, StringComparison.OrdinalIgnoreCase);
+            return string.Equals(normalizedPath, pattern, StringComparison.OrdinalIgnoreCase);
         }
     }
 
@@ -71,10 +70,10 @@ internal static class FilePatternMatcher
                     if (i + 1 < globPattern.Length && globPattern[i + 1] == '*')
                     {
                         // ** matches zero or more directories
-                        if (i + 2 < globPattern.Length && globPattern[i + 2] == '/')
+                        if (i + 2 < globPattern.Length && (globPattern[i + 2] == '/' || globPattern[i + 2] == '\\'))
                         {
-                            regexPattern += "(?:[^/]+/)*";
-                            i += 2; // Skip the next * and /
+                            regexPattern += "(?:[^/\\\\]+[/\\\\])*";
+                            i += 2; // Skip the next * and separator
                         }
                         else
                         {
@@ -84,15 +83,45 @@ internal static class FilePatternMatcher
                     }
                     else
                     {
-                        // * matches any characters except /
-                        regexPattern += "[^/]*";
+                        // * matches any characters except path separators
+                        regexPattern += "[^/\\\\]*";
                     }
 
                     break;
 
                 case '?':
-                    // ? matches any single character except /
-                    regexPattern += "[^/]";
+                    // ? matches any single character except path separators
+                    regexPattern += "[^/\\\\]";
+                    break;
+
+                case '\\':
+                    // Handle escaped characters in glob patterns
+                    if (i + 1 < globPattern.Length)
+                    {
+                        var nextChar = globPattern[i + 1];
+                        // If the next character is not a path separator, treat this as an escape
+                        if (nextChar != '/' && nextChar != '\\')
+                        {
+                            // Escape the next character for regex
+                            regexPattern += "\\" + nextChar;
+                            i++; // Skip the next character
+                        }
+                        else
+                        {
+                            // This is a path separator, normalize to forward slash in regex
+                            regexPattern += "/";
+                        }
+                    }
+                    else
+                    {
+                        // Backslash at end of pattern, treat as literal path separator
+                        regexPattern += "/";
+                    }
+                    break;
+
+                case '/':
+                    // Always normalize path separators to forward slash in regex
+                    regexPattern += "/";
                     break;
 
                 case '.':
@@ -106,7 +135,6 @@ internal static class FilePatternMatcher
                 case '(':
                 case ')':
                 case '|':
-                case '\\':
                     // Escape regex special characters
                     regexPattern += "\\" + c;
                     break;
