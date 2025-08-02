@@ -206,7 +206,10 @@ nav:
         - Git Repository:
           - documentation/issue-providers/gitrepository/index.md
           - Features: documentation/issue-providers/gitrepository/features.md
-          - Examples: documentation/issue-providers/gitrepository/examples.md
+          - Examples:
+            - documentation/issue-providers/gitrepository/examples/index.md
+            - Basic usage: documentation/issue-providers/gitrepository/examples/basic-usage.md
+            - Excluding files: documentation/issue-providers/gitrepository/examples/excluding-files.md
           - Rules:
             - documentation/issue-providers/gitrepository/rules/index.md
             - BinaryFileNotTrackedByLfs: documentation/issue-providers/gitrepository/rules/BinaryFileNotTrackedByLfs.md
