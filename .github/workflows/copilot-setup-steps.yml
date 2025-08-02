@@ -37,5 +37,4 @@ jobs:
             9.x
       # Ubuntu 24.04 does not have Mono installed, which is Required for Cake.Recipe
       - name: Install Mono
-        if: ${{ matrix.os == 'ubuntu-24.04' }}
         run: sudo apt-get install mono-complete
