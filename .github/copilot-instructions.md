@@ -6,6 +6,7 @@ Follow these guidelines when contributing:
 - Ensure no warning or error messages from Roslyn analyzers are present in the code.
 - Ensure Tests are passing.
 - Ensure Integration Tests for the affected addins are passing.
+- If documentation has been changed, ensure it builds successfully.
 
 ## Development Flow
 - Only building: `build.sh --target=DotNetCore-Build`
