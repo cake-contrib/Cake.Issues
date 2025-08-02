@@ -1,7 +1,5 @@
 ﻿namespace Cake.Issues.GitRepository.Tests;
 
-using System.Reflection;
-
 public sealed class GitRepositoryIssuesProviderTests
 {
     public sealed class TheIsFileExcludedMethod
@@ -82,7 +80,7 @@ public sealed class GitRepositoryIssuesProviderTests
             // Then - Global exclusions take precedence
             globalMatch.ShouldBeTrue();
             specificMatch.ShouldBeFalse();
-            
+
             // Test the actual exclusion logic that combines both (global || specific)
             var shouldExclude = globalMatch || specificMatch;
             shouldExclude.ShouldBeTrue();

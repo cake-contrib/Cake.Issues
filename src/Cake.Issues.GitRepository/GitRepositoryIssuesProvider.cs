@@ -59,6 +59,15 @@ internal class GitRepositoryIssuesProvider : BaseIssueProvider
     }
 
     /// <summary>
+    /// Enum representing the different types of checks performed by the provider.
+    /// </summary>
+    private enum CheckType
+    {
+        BinaryFilesLfs,
+        FilePathLength,
+    }
+
+    /// <summary>
     /// Gets the name of the Git repository issue provider.
     /// This name can be used to identify issues based on the <see cref="IIssue.ProviderType"/> property.
     /// </summary>
@@ -151,10 +160,10 @@ internal class GitRepositoryIssuesProvider : BaseIssueProvider
         }
 
         var result = new List<IIssue>();
-        
+
         // Filter out excluded files and check path length
-        var filesToCheck = this.allFiles.Value.Where(file => 
-            !this.IsFileExcluded(file, CheckType.FilePathLength) && 
+        var filesToCheck = this.allFiles.Value.Where(file =>
+            !this.IsFileExcluded(file, CheckType.FilePathLength) &&
             file.Length > this.IssueProviderSettings.MaxFilePathLength);
 
         foreach (var file in filesToCheck)
@@ -310,15 +319,6 @@ internal class GitRepositoryIssuesProvider : BaseIssueProvider
     }
 
     /// <summary>
-    /// Enum representing the different types of checks performed by the provider.
-    /// </summary>
-    private enum CheckType
-    {
-        BinaryFilesLfs,
-        FilePathLength
-    }
-
-    /// <summary>
     /// Determines if a file should be excluded from the specified check type.
     /// </summary>
     /// <param name="filePath">The file path to check.</param>
@@ -337,7 +337,7 @@ internal class GitRepositoryIssuesProvider : BaseIssueProvider
         {
             CheckType.BinaryFilesLfs => FilePatternMatcher.IsMatch(filePath, this.IssueProviderSettings.FilesToExcludeFromBinaryFilesLfsCheck),
             CheckType.FilePathLength => FilePatternMatcher.IsMatch(filePath, this.IssueProviderSettings.FilesToExcludeFromFilePathLengthCheck),
-            _ => false
+            _ => false,
         };
     }
 }

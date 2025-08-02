@@ -36,7 +36,7 @@ internal static class FilePatternMatcher
 
         // Normalize path separators to forward slashes for consistent matching
         var normalizedPath = filePath.Replace('\\', '/');
-        
+
         // Convert glob pattern to regex (don't normalize backslashes in pattern as they may be escape characters)
         var regexPattern = ConvertGlobToRegex(pattern);
 
@@ -99,8 +99,9 @@ internal static class FilePatternMatcher
                     if (i + 1 < globPattern.Length)
                     {
                         var nextChar = globPattern[i + 1];
+
                         // If the next character is not a path separator, treat this as an escape
-                        if (nextChar != '/' && nextChar != '\\')
+                        if (nextChar is not '/' and not '\\')
                         {
                             // Escape the next character for regex
                             regexPattern += "\\" + nextChar;
@@ -117,6 +118,7 @@ internal static class FilePatternMatcher
                         // Backslash at end of pattern, treat as literal path separator
                         regexPattern += "/";
                     }
+
                     break;
 
                 case '/':

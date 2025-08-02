@@ -11,13 +11,15 @@ public sealed class GitRepositoryIssuesSettingsTests
             var settings = new GitRepositoryIssuesSettings();
 
             // Then
-            settings.FilesToExclude.ShouldNotBeNull();
-            settings.FilesToExcludeFromBinaryFilesLfsCheck.ShouldNotBeNull();
-            settings.FilesToExcludeFromFilePathLengthCheck.ShouldNotBeNull();
-            
-            settings.FilesToExclude.ShouldBeEmpty();
-            settings.FilesToExcludeFromBinaryFilesLfsCheck.ShouldBeEmpty();
-            settings.FilesToExcludeFromFilePathLengthCheck.ShouldBeEmpty();
+            settings.FilesToExclude
+                .ShouldNotBeNull()
+                .ShouldBeEmpty();
+            settings.FilesToExcludeFromBinaryFilesLfsCheck
+                .ShouldNotBeNull()
+                .ShouldBeEmpty();
+            settings.FilesToExcludeFromFilePathLengthCheck
+                .ShouldNotBeNull()
+                .ShouldBeEmpty();
         }
 
         [Fact]
@@ -36,10 +38,10 @@ public sealed class GitRepositoryIssuesSettingsTests
             settings.FilesToExclude.Count.ShouldBe(2);
             settings.FilesToExclude.ShouldContain("*.tmp");
             settings.FilesToExclude.ShouldContain("temp/**");
-            
+
             settings.FilesToExcludeFromBinaryFilesLfsCheck.Count.ShouldBe(1);
             settings.FilesToExcludeFromBinaryFilesLfsCheck.ShouldContain("*.dll");
-            
+
             settings.FilesToExcludeFromFilePathLengthCheck.Count.ShouldBe(1);
             settings.FilesToExcludeFromFilePathLengthCheck.ShouldContain("very/long/path/**");
         }
