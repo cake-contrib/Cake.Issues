@@ -13,7 +13,7 @@ public class CodeClimateIntegrationTests
 
         // Then
         issues.Count.ShouldBe(2);
-        
+
         // Check first issue (line-based)
         var firstIssue = issues.First(i => i.Rule() == "EditorConfig/indent_style");
         firstIssue.Message(IssueCommentFormat.PlainText).ShouldBe("Wrong indentation type (expected: space, found: tab)");

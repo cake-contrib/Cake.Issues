@@ -2,7 +2,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Cake.Core.Diagnostics;
 using Cake.Core.IO;
 using Cake.Issues;
@@ -24,7 +23,7 @@ internal class CodeClimateIssuesProvider(ICakeLog log, CodeClimateIssuesSettings
         var result = new List<IIssue>();
 
         var logContent = this.IssueProviderSettings.LogFileContent.ToStringUsingEncoding();
-        
+
         CodeClimateIssue[] issues;
         try
         {
@@ -98,7 +97,7 @@ internal class CodeClimateIssuesProvider(ICakeLog log, CodeClimateIssuesSettings
         }
 
         var filePath = location.Path;
-        var isAbsolutePath = new FilePath(filePath).IsRelative == false;
+        var isAbsolutePath = !new FilePath(filePath).IsRelative;
 
         // Validate file path and make relative to repository root if it is an absolute path.
         (var pathValidationResult, filePath) = ValidateFilePath(filePath, isAbsolutePath, repositorySettings);
@@ -119,6 +118,7 @@ internal class CodeClimateIssuesProvider(ICakeLog log, CodeClimateIssuesSettings
             startLine = location.Lines.Begin > 0 ? location.Lines.Begin : null;
             endLine = location.Lines.End > 0 ? location.Lines.End : null;
         }
+
         // Handle position-based location
         else if (location.Positions != null)
         {
@@ -143,18 +143,16 @@ internal class CodeClimateIssuesProvider(ICakeLog log, CodeClimateIssuesSettings
     /// </summary>
     /// <param name="severity">CodeClimate severity.</param>
     /// <returns>Cake.Issues priority.</returns>
-    private static IssuePriority GetPriority(string severity)
-    {
-        return severity?.ToLowerInvariant() switch
+    private static IssuePriority GetPriority(string severity) =>
+        severity?.ToLowerInvariant() switch
         {
             "blocker" => IssuePriority.Error,
             "critical" => IssuePriority.Error,
             "major" => IssuePriority.Warning,
             "minor" => IssuePriority.Suggestion,
             "info" => IssuePriority.Hint,
-            _ => IssuePriority.Undefined
+            _ => IssuePriority.Undefined,
         };
-    }
 
     /// <summary>
     /// Validates a file path.

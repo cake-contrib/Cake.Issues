@@ -161,24 +161,40 @@ public class CodeClimateIssuesProviderTests
             }
 
             if (line.HasValue)
+            {
                 issue.Line.ShouldBe(line.Value);
+            }
             else
+            {
                 issue.Line.ShouldBeNull();
-                
+            }
+
             if (endLine.HasValue)
+            {
                 issue.EndLine.ShouldBe(endLine.Value);
+            }
             else
+            {
                 issue.EndLine.ShouldBeNull();
-                
+            }
+
             if (column.HasValue)
+            {
                 issue.Column.ShouldBe(column.Value);
+            }
             else
+            {
                 issue.Column.ShouldBeNull();
-                
+            }
+
             if (endColumn.HasValue)
+            {
                 issue.EndColumn.ShouldBe(endColumn.Value);
+            }
             else
+            {
                 issue.EndColumn.ShouldBeNull();
+            }
             issue.FileLink.ShouldBeNull();
             issue.Rule().ShouldBe(rule);
             issue.RuleUrl.ShouldBeNull();
