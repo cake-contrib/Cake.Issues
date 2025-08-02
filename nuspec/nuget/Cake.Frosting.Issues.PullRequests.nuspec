@@ -46,11 +46,6 @@ For addin compatible with Cake Script Runners see Cake.Issues.PullRequests.
 	  <file src="Cake.Frosting.Issues.PullRequests.targets" target="build" />
 	  <file src="Cake.Frosting.Issues.PullRequests.targets" target="buildTransitive" />
 	  <file src="Cake.Frosting.Issues.PullRequests.md" target="docs\README.md" />
-    <file src="..\..\src\Cake.Issues.PullRequests\bin\Release\net8.0\Cake.Issues.PullRequests.dll" target="lib\net8.0" />
-    <file src="..\..\src\Cake.Issues.PullRequests\bin\Release\net8.0\Cake.Issues.PullRequests.pdb" target="lib\net8.0" />
-    <file src="..\..\src\Cake.Issues.PullRequests\bin\Release\net8.0\Cake.Issues.PullRequests.xml" target="lib\net8.0" />
-    <file src="..\..\src\Cake.Issues.PullRequests\bin\Release\net9.0\Cake.Issues.PullRequests.dll" target="lib\net9.0" />
-    <file src="..\..\src\Cake.Issues.PullRequests\bin\Release\net9.0\Cake.Issues.PullRequests.pdb" target="lib\net9.0" />
-    <file src="..\..\src\Cake.Issues.PullRequests\bin\Release\net9.0\Cake.Issues.PullRequests.xml" target="lib\net9.0" />
+    <file src="..\..\src\Cake.Issues.PullRequests\bin\Release\**\Cake.Issues.PullRequests.*" target="lib" exclude="**\*.deps.json" />
   </files>
 </package>

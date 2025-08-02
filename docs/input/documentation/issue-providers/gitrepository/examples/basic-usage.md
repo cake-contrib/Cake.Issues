@@ -1,6 +1,6 @@
 ---
-title: Examples
-description: Examples for using the Cake.Issues.GitRepository addin.
+title: Basic repository analysis
+description: Example showing basic Git repository analysis.
 icon: material/test-tube
 ---
 

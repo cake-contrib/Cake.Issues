@@ -46,11 +46,6 @@ For addin compatible with Cake Script Runners see Cake.Issues.DocFx.
     <file src="Cake.Frosting.Issues.DocFx.targets" target="build" />
     <file src="Cake.Frosting.Issues.DocFx.targets" target="buildTransitive" />
     <file src="Cake.Frosting.Issues.DocFx.md" target="docs\README.md" />
-    <file src="..\..\src\Cake.Issues.DocFx\bin\Release\net8.0\Cake.Issues.DocFx.dll" target="lib\net8.0" />
-    <file src="..\..\src\Cake.Issues.DocFx\bin\Release\net8.0\Cake.Issues.DocFx.pdb" target="lib\net8.0" />
-    <file src="..\..\src\Cake.Issues.DocFx\bin\Release\net8.0\Cake.Issues.DocFx.xml" target="lib\net8.0" />
-    <file src="..\..\src\Cake.Issues.DocFx\bin\Release\net9.0\Cake.Issues.DocFx.dll" target="lib\net9.0" />
-    <file src="..\..\src\Cake.Issues.DocFx\bin\Release\net9.0\Cake.Issues.DocFx.pdb" target="lib\net9.0" />
-    <file src="..\..\src\Cake.Issues.DocFx\bin\Release\net9.0\Cake.Issues.DocFx.xml" target="lib\net9.0" />
+    <file src="..\..\src\Cake.Issues.DocFx\bin\Release\**\Cake.Issues.DocFx.*" target="lib" exclude="**\*.deps.json" />
   </files>
 </package>
