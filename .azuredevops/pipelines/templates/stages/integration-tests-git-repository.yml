@@ -31,6 +31,3 @@ stages:
       - powershell: ./build.ps1 --verbosity=diagnostic
         workingDirectory: ./tests/Cake.Issues.GitRepository/script-runner
         displayName: 'Run integration tests'
-      - publish: $(Build.SourcesDirectory)/BuildArtifacts/TestResults/Integration
-        artifact: Integration Tests Cake.Issues.GitRepository Cake Scripting $(System.JobName)
-        displayName: 'Publish generated reports as build artifact'
