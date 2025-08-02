@@ -64,6 +64,7 @@ public static class GitRepositoryIssuesAliases
                 context.Environment,
                 context.ProcessRunner,
                 context.Tools,
+                context.Globber,
                 settings);
     }
 }

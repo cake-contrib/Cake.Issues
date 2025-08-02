@@ -28,6 +28,7 @@ internal class GitRepositoryIssuesProvider : BaseIssueProvider
     /// <param name="environment">The Cake environment.</param>
     /// <param name="processRunner">The process runner.</param>
     /// <param name="toolLocator">The tool locator.</param>
+    /// <param name="globber">The globber.</param>
     /// <param name="issueProviderSettings">Settings for the issue provider.</param>
     public GitRepositoryIssuesProvider(
         ICakeLog log,
@@ -35,6 +36,7 @@ internal class GitRepositoryIssuesProvider : BaseIssueProvider
         ICakeEnvironment environment,
         IProcessRunner processRunner,
         IToolLocator toolLocator,
+        IGlobber globber,
         GitRepositoryIssuesSettings issueProviderSettings)
         : base(log)
     {
@@ -42,10 +44,12 @@ internal class GitRepositoryIssuesProvider : BaseIssueProvider
         environment.NotNull();
         processRunner.NotNull();
         toolLocator.NotNull();
+        globber.NotNull();
         issueProviderSettings.NotNull();
 
         this.IssueProviderSettings = issueProviderSettings;
         this.runner = new GitRunner(fileSystem, environment, processRunner, toolLocator);
+        this.Globber = globber;
 
         this.allFiles =
             new Lazy<IEnumerable<string>>(
@@ -57,6 +61,11 @@ internal class GitRepositoryIssuesProvider : BaseIssueProvider
             new Lazy<IEnumerable<string>>(
                 () => this.DetermineBinaryFiles(this.allFiles.Value, this.textFiles.Value));
     }
+
+    /// <summary>
+    /// Gets the globber.
+    /// </summary>
+    protected IGlobber Globber { get; private set; }
 
     /// <summary>
     /// Enum representing the different types of checks performed by the provider.
