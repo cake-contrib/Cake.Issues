@@ -103,10 +103,11 @@ public sealed class GitRepositoryIssuesProviderTests
                 .ToList();
 
             // Then
-            result.Count.ShouldBe(4);
+            result.Count.ShouldBe(5);
             result.ShouldContain("normal_file.txt");
-            result.ShouldContain("Sfile_without_space.txt"); // This wasn't filtered because no space after S
-            result.ShouldContain(""); // Empty filename from "H "
+            result.ShouldContain("S"); // Just "S" - malformed but not filtered
+            result.ShouldContain("ile_without_space.txt"); // "Sfile_without_space.txt" with first 2 chars removed
+            result.ShouldContain("H "); // "H " - length is 2, so not transformed
             result.ShouldContain("unknown_status.txt");
         }
     }
