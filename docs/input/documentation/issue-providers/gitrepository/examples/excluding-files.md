@@ -4,6 +4,49 @@ description: Example showing how to exclude files from repository analysis using
 icon: material/test-tube
 ---
 
+To analyze Git repositories you need to import the Git repository issue provider:
+
+=== "Cake .NET Tool"
+
+    ```csharp title="build.cake"
+    #addin nuget:?package=Cake.Issues&version={{ cake_issues_version }}
+    #addin nuget:?package=Cake.Issues.GitRepository&version={{ cake_issues_version }}
+    ```
+
+    !!! note
+        In addition to the Git repository issue provider the `Cake.Issues` core addin needs to be added.
+
+=== "Cake SDK"
+
+    ```csharp title="Build.csproj"
+    <Project Sdk="Cake.Sdk">
+      <PropertyGroup>
+        <TargetFramework>{{ example_tfm }}</TargetFramework>
+        <RunWorkingDirectory>$(MSBuildProjectDirectory)</RunWorkingDirectory>
+      </PropertyGroup>
+      <ItemGroup>
+        <PackageReference Include="Cake.Frosting.Issues.GitRepository" Version="{{ cake_issues_version }}" />
+      </ItemGroup>
+    </Project>
+    ```
+
+=== "Cake Frosting"
+
+    ```csharp title="Build.csproj"
+    <Project Sdk="Microsoft.NET.Sdk">
+      <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>{{ example_tfm }}</TargetFramework>
+        <RunWorkingDirectory>$(MSBuildProjectDirectory)</RunWorkingDirectory>
+        <ImplicitUsings>enable</ImplicitUsings>
+      </PropertyGroup>
+      <ItemGroup>
+        <PackageReference Include="Cake.Frosting" Version="{{ cake_version }}" />
+        <PackageReference Include="Cake.Frosting.Issues.GitRepository" Version="{{ cake_issues_version }}" />
+      </ItemGroup>
+    </Project>
+    ```
+
 The following example shows how to exclude files from repository analysis using glob patterns.
 
 === "Cake .NET Tool"
@@ -22,7 +65,7 @@ The following example shows how to exclude files from repository analysis using 
                 MaxFilePathLength = 260
             };    
 
-        // Exclude temporary and build files from all checks
+        // Exclude temporary files from all checks
         settings.FilesToExclude.Add("*.tmp");
         settings.FilesToExclude.Add("temp/**");
         
@@ -60,7 +103,7 @@ The following example shows how to exclude files from repository analysis using 
                 MaxFilePathLength = 260
             };    
 
-        // Exclude temporary and build files from all checks
+        // Exclude temporary files from all checks
         settings.FilesToExclude.Add("*.tmp");
         settings.FilesToExclude.Add("temp/**");
         
@@ -112,7 +155,7 @@ The following example shows how to exclude files from repository analysis using 
                     MaxFilePathLength = 260
                 };    
 
-            // Exclude temporary and build files from all checks
+            // Exclude temporary files from all checks
             settings.FilesToExclude.Add("*.tmp");
             settings.FilesToExclude.Add("temp/**");
             
@@ -139,10 +182,10 @@ The following example shows how to exclude files from repository analysis using 
 
 The exclusion functionality supports glob-style patterns:
 
-| Pattern      | Description                                      | Example matches          |
-|--------------|--------------------------------------------------|--------------------------|
-| `*.txt`      | All files with .txt extension in current level  | `file.txt`, `readme.txt` |
-| `**/*.txt`   | All .txt files in any subdirectory             | `docs/file.txt`, `a/b/c/file.txt` |
-| `temp/**`    | All files in temp directory and subdirectories | `temp/file.log`, `temp/sub/file.txt` |
-| `**/bin/**`  | All files in any bin directory                 | `project/bin/file.dll`, `bin/debug/file.exe` |
-| `file?.txt`  | Files matching single character wildcard       | `file1.txt`, `fileA.txt` |
+| Pattern      | Description                                      | Example matches                              |
+|--------------|--------------------------------------------------|----------------------------------------------|
+| `*.txt`      | All files with .txt extension in current level   | `file.txt`, `readme.txt`                     |
+| `**/*.txt`   | All .txt files in any subdirectory               | `docs/file.txt`, `a/b/c/file.txt`            |
+| `temp/**`    | All files in temp directory and subdirectories   | `temp/file.log`, `temp/sub/file.txt`         |
+| `**/bin/**`  | All files in any bin directory                   | `project/bin/file.dll`, `bin/debug/file.exe` |
+| `file?.txt`  | Files matching single character wildcard         | `file1.txt`, `fileA.txt`                     |
