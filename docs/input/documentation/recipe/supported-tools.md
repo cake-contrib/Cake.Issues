@@ -57,6 +57,7 @@ Cake.Issues recipes integrates with the following build systems:
 
     - [x] Write issues to build server
     - [ ] Issues summary
+    - [x] SARIF report
     - [x] Full issues report
 
     </div>
@@ -67,6 +68,7 @@ Cake.Issues recipes integrates with the following build systems:
 
     - [x] Write issues to build server (1)
     - [x] Issues summary
+    - [x] SARIF report
     - [x] Full issues report
 
     </div>
@@ -79,9 +81,12 @@ Cake.Issues recipes integrates with the following build systems:
 
     - [x] Write issues to build server
     - [ ] Issues summary
+    - [x] SARIF report (1)
     - [ ] Full issues report
 
     </div>
+
+    1.  Uploaded to [GitHub code scanning](https://docs.github.com/en/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning){target="_blank"}
 
 ## Pull request systems
 
@@ -101,7 +106,7 @@ Cake.Issues recipes integrates with the following pull request systems:
     <div class="annotate" markdown>
 
     - [x] Write issues to pull requests (1)
-    - [ ] Set pull request status
+    - [x] Set pull request status
 
     </div>
 
