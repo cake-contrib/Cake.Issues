@@ -2,15 +2,19 @@ This is a .NET based repository containing addins for the Cake Build Automation 
 The individual addins are published as NuGet packages.
 Follow these guidelines when contributing:
 
-## Code Standards
-- Roslyn analyzers are used to enforce code quality and style.
-- Ensure not warning or error messages are present in the code.
+## Before committing code
+- Ensure no warning or error messages from Roslyn analyzers are present in the code.
+- Ensure Tests are passing.
+- Ensure Integration Tests for the affected addins are passing.
 
 ## Development Flow
-- Build: `build.sh --target=DotNetCore-Build`
+- Only building: `build.sh --target=DotNetCore-Build`
 - Publish NuGet Packages: `build.sh --target=Create-NuGet-Packages`
-- Test: `build.sh --target=Test`
-- Full CI check: `build.sh` (includes build, lint, test)
+- Run Tests: `build.sh --target=Test`
+- Run Integration Tests:
+  - Run first `build.sh --target=Create-NuGet-Packages` in the root directory to create the NuGet packages.
+  - Run `build.sh` in the `tests/<ADDIN-NAME>/script-runner` or `tests/<ADDIN-NAME>/frosting` directory to run the integration tests for the corresponding addin
+- Full CI check: `build.sh` (includes build, publish, test)
 - Building website: `build.sh --target=website`. Website is available on http://127.0.0.1:8000/
 
 ## Repository Structure
