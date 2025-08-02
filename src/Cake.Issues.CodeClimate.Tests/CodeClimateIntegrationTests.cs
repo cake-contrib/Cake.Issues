@@ -6,44 +6,7 @@ public class CodeClimateIntegrationTests
     public void Should_Parse_Sample_CodeClimate_Output()
     {
         // Given
-        var sampleJson = @"[
-  {
-    ""type"": ""issue"",
-    ""check_name"": ""EditorConfig/indent_style"",
-    ""description"": ""Wrong indentation type (expected: space, found: tab)"",
-    ""categories"": [""Style""],
-    ""location"": {
-      ""path"": ""src/example.js"",
-      ""lines"": {
-        ""begin"": 5,
-        ""end"": 5
-      }
-    },
-    ""severity"": ""minor""
-  },
-  {
-    ""type"": ""issue"",
-    ""check_name"": ""complexity"",
-    ""description"": ""Function has too many parameters"",  
-    ""categories"": [""Complexity""],
-    ""location"": {
-      ""path"": ""src/complex.ts"",
-      ""positions"": {
-        ""begin"": {
-          ""line"": 15,
-          ""column"": 5
-        },
-        ""end"": {
-          ""line"": 18,
-          ""column"": 10
-        }
-      }
-    },
-    ""severity"": ""critical""
-  }
-]";
-
-        var fixture = new CodeClimateIssuesProviderFixture(sampleJson);
+        var fixture = new CodeClimateIssuesProviderFixture("integration_test.json");
 
         // When
         var issues = fixture.ReadIssues().ToList();
@@ -52,33 +15,32 @@ public class CodeClimateIntegrationTests
         issues.Count.ShouldBe(2);
         
         // Check first issue (line-based)
-        var firstIssue = issues.First(i => i.Rule == "EditorConfig/indent_style");
-        firstIssue.Message.ShouldBe("Wrong indentation type (expected: space, found: tab)");
+        var firstIssue = issues.First(i => i.Rule() == "EditorConfig/indent_style");
+        firstIssue.Message(IssueCommentFormat.PlainText).ShouldBe("Wrong indentation type (expected: space, found: tab)");
         firstIssue.AffectedFileRelativePath?.ToString().ShouldBe(@"src\example.js");
         firstIssue.Line.ShouldBe(5);
         firstIssue.EndLine.ShouldBe(5);
-        firstIssue.Priority.ShouldBe(IssuePriority.Suggestion);
+        firstIssue.Priority.ShouldBe((int)IssuePriority.Suggestion);
 
         // Check second issue (position-based)
-        var secondIssue = issues.First(i => i.Rule == "complexity");
-        secondIssue.Message.ShouldBe("Function has too many parameters");
+        var secondIssue = issues.First(i => i.Rule() == "complexity");
+        secondIssue.Message(IssueCommentFormat.PlainText).ShouldBe("Function has too many parameters");
         secondIssue.AffectedFileRelativePath?.ToString().ShouldBe(@"src\complex.ts");
         secondIssue.Line.ShouldBe(15);
         secondIssue.EndLine.ShouldBe(18);
         secondIssue.Column.ShouldBe(5);
         secondIssue.EndColumn.ShouldBe(10);
-        secondIssue.Priority.ShouldBe(IssuePriority.Error);
+        secondIssue.Priority.ShouldBe((int)IssuePriority.Error);
     }
 
     private sealed class CodeClimateIssuesProviderFixture : BaseConfigurableIssueProviderFixture<CodeClimateIssuesProvider, CodeClimateIssuesSettings>
     {
-        public CodeClimateIssuesProviderFixture(string fileContent)
-            : base(fileContent)
+        public CodeClimateIssuesProviderFixture(string fileResourceName)
+            : base(fileResourceName)
         {
+            this.ReadIssuesSettings = new ReadIssuesSettings(@"C:\build\");
         }
 
-        protected override string FilePathPrefix => "C:\\build\\";
-
-        protected override string FilePathSuffix => "log.json";
+        protected override string FileResourceNamespace => "Cake.Issues.CodeClimate.Tests.Testfiles.";
     }
 }

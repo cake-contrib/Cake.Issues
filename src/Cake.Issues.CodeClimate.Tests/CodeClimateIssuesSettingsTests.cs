@@ -1,5 +1,7 @@
 namespace Cake.Issues.CodeClimate.Tests;
 
+using Cake.Core.IO;
+
 public class CodeClimateIssuesSettingsTests
 {
     public sealed class TheCtor
@@ -35,16 +37,16 @@ public class CodeClimateIssuesSettingsTests
         }
 
         [Fact]
-        public void Should_Set_LogFilePath()
+        public void Should_Set_LogFileContent_From_ByteArray()
         {
             // Given
-            var logFilePath = @"C:\build\log.json";
+            var logFileContent = "test content"u8.ToArray();
 
             // When
-            var settings = new CodeClimateIssuesSettings(logFilePath);
+            var settings = new CodeClimateIssuesSettings(logFileContent);
 
             // Then
-            settings.LogFilePath.FullPath.ShouldBe(logFilePath);
+            settings.LogFileContent.ShouldBe(logFileContent);
         }
 
         [Fact]

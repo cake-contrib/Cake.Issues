@@ -6,4 +6,8 @@
   <ItemGroup>
     <ProjectReference Include="..\Cake.Issues.CodeClimate\Cake.Issues.CodeClimate.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Testfiles\**\*" />
+  </ItemGroup>
 </Project>
