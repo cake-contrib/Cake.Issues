@@ -1,0 +1,40 @@
+name: "Copilot Setup Steps"
+
+# Automatically run the setup steps when they are changed to allow for easy validation, and
+# allow manual testing through the repository's "Actions" tab
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/copilot-setup-steps.yml
+  pull_request:
+    paths:
+      - .github/workflows/copilot-setup-steps.yml
+
+jobs:
+  # The job MUST be called `copilot-setup-steps` or it will not be picked up by Copilot.
+  copilot-setup-steps:
+    runs-on: ubuntu-latest
+
+    # Set the permissions to the lowest permissions possible needed for the steps.
+    # Copilot will be given its own token for its operations.
+    permissions:
+      contents: read
+
+    # Defined steps will run before the agent starts.
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+      - name: Fetch all tags and branches
+        run: git fetch --prune --unshallow
+      - name: Install .NET
+        uses: actions/setup-dotnet@67a3573c9a986a3f9c594539f4ab511d57bb3ce9 # v4
+        with:
+          # .NET 5 required for GitVersion
+          dotnet-version: | 
+            5.x
+            8.x
+            9.x
+      # Ubuntu 24.04 does not have Mono installed, which is Required for Cake.Recipe
+      - name: Install Mono
+        run: sudo apt-get install mono-complete

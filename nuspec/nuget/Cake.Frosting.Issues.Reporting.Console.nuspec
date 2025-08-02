@@ -46,11 +46,6 @@ The addin requires Cake Frosting 1.2.0 or higher.
     <file src="Cake.Frosting.Issues.Reporting.Console.targets" target="build" />
     <file src="Cake.Frosting.Issues.Reporting.Console.targets" target="buildTransitive" />
     <file src="Cake.Frosting.Issues.Reporting.Console.md" target="docs\README.md" />
-    <file src="..\..\src\Cake.Issues.Reporting.Console\bin\Release\net8.0\Cake.Issues.Reporting.Console.dll" target="lib\net8.0" />
-    <file src="..\..\src\Cake.Issues.Reporting.Console\bin\Release\net8.0\Cake.Issues.Reporting.Console.pdb" target="lib\net8.0" />
-    <file src="..\..\src\Cake.Issues.Reporting.Console\bin\Release\net8.0\Cake.Issues.Reporting.Console.xml" target="lib\net8.0" />
-    <file src="..\..\src\Cake.Issues.Reporting.Console\bin\Release\net9.0\Cake.Issues.Reporting.Console.dll" target="lib\net9.0" />
-    <file src="..\..\src\Cake.Issues.Reporting.Console\bin\Release\net9.0\Cake.Issues.Reporting.Console.pdb" target="lib\net9.0" />
-    <file src="..\..\src\Cake.Issues.Reporting.Console\bin\Release\net9.0\Cake.Issues.Reporting.Console.xml" target="lib\net9.0" />
+    <file src="..\..\src\Cake.Issues.Reporting.Console\bin\Release\**\Cake.Issues.Reporting.Console*" target="lib" exclude="**\*.deps.json" />
   </files>
 </package>

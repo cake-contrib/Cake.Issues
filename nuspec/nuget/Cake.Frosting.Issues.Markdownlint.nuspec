@@ -46,11 +46,6 @@ For addin compatible with Cake Script Runners see Cake.Issues.Markdownlint.
     <file src="Cake.Frosting.Issues.Markdownlint.targets" target="build" />
     <file src="Cake.Frosting.Issues.Markdownlint.targets" target="buildTransitive" />
     <file src="Cake.Frosting.Issues.Markdownlint.md" target="docs\README.md" />
-    <file src="..\..\src\Cake.Issues.Markdownlint\bin\Release\net8.0\Cake.Issues.Markdownlint.dll" target="lib\net8.0" />
-    <file src="..\..\src\Cake.Issues.Markdownlint\bin\Release\net8.0\Cake.Issues.Markdownlint.pdb" target="lib\net8.0" />
-    <file src="..\..\src\Cake.Issues.Markdownlint\bin\Release\net8.0\Cake.Issues.Markdownlint.xml" target="lib\net8.0" />
-    <file src="..\..\src\Cake.Issues.Markdownlint\bin\Release\net9.0\Cake.Issues.Markdownlint.dll" target="lib\net9.0" />
-    <file src="..\..\src\Cake.Issues.Markdownlint\bin\Release\net9.0\Cake.Issues.Markdownlint.pdb" target="lib\net9.0" />
-    <file src="..\..\src\Cake.Issues.Markdownlint\bin\Release\net9.0\Cake.Issues.Markdownlint.xml" target="lib\net9.0" />
+    <file src="..\..\src\Cake.Issues.Markdownlint\bin\Release\**\Cake.Issues.Markdownlint.*" target="lib" exclude="**\*.deps.json" />
   </files>
 </package>

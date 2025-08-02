@@ -44,11 +44,6 @@ For addin compatible with Cake Script Runners see Cake.Issues.Reporting.Sarif.
     <file src="Cake.Frosting.Issues.Reporting.Sarif.targets" target="build" />
     <file src="Cake.Frosting.Issues.Reporting.Sarif.targets" target="buildTransitive" />
     <file src="Cake.Frosting.Issues.Reporting.Sarif.md" target="docs\README.md" />
-    <file src="..\..\src\Cake.Issues.Reporting.Sarif\bin\Release\net8.0/Cake.Issues.Reporting.Sarif.dll" target="lib\net8.0" />
-    <file src="..\..\src\Cake.Issues.Reporting.Sarif\bin\Release\net8.0/Cake.Issues.Reporting.Sarif.pdb" target="lib\net8.0" />
-    <file src="..\..\src\Cake.Issues.Reporting.Sarif\bin\Release\net8.0/Cake.Issues.Reporting.Sarif.xml" target="lib\net8.0" />
-    <file src="..\..\src\Cake.Issues.Reporting.Sarif\bin\Release\net9.0/Cake.Issues.Reporting.Sarif.dll" target="lib\net9.0" />
-    <file src="..\..\src\Cake.Issues.Reporting.Sarif\bin\Release\net9.0/Cake.Issues.Reporting.Sarif.pdb" target="lib\net9.0" />
-    <file src="..\..\src\Cake.Issues.Reporting.Sarif\bin\Release\net9.0/Cake.Issues.Reporting.Sarif.xml" target="lib\net9.0" />
+    <file src="..\..\src\Cake.Issues.Reporting.Sarif\bin\Release\**\Cake.Issues.Reporting.Sarif.*" target="lib" exclude="**\*.deps.json" />
   </files>
 </package>
