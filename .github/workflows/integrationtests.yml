@@ -119,9 +119,15 @@ jobs:
         uses: ./.github/actions/prepare-integration-test
         with:
           dotnet-version: ${{ matrix.dotnet }}
+      - name: Determine TFM
+        run: |
+          DOTNET_VERSION="${{ matrix.dotnet }}"
+          DOTNET_MAJOR_VERSION="${DOTNET_VERSION%%.*}"
+          echo "TFM=net${DOTNET_MAJOR_VERSION}.0" >> $GITHUB_ENV
+        shell: bash
       - name: Run integration tests
         run: ./build.sh --verbosity=diagnostic
-        working-directory: ./tests/Cake.Issues.JUnit/frosting/net8.0
+        working-directory: ./tests/Cake.Issues.JUnit/frosting/${{ env.TFM }}
         shell: bash
   # Integration Tests Cake.Issues.PullRequests.GitHubActions Cake Scripting
   IntegrationTestsPullRequestsGitHubActionsCakeScripting:
