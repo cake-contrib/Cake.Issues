@@ -25,10 +25,43 @@ Teardown(ctx =>
 // TARGETS
 //////////////////////////////////////////////////
 
-Task("CheckBinaryFilesTrackedByLfs")
+Task("CheckBinaryFilesTrackedByLfs-Should-Return-Files-Not-Tracked-By-Lfs")
     .Does(() =>
 {
-    var repoRootDir = MakeAbsolute(Directory("../../../"));
+    var repoRootDir = MakeAbsolute(Directory("./"));
+
+    var issues =
+        ReadIssues(
+            GitRepositoryIssuesAliases.GitRepositoryIssues(
+                Context,
+                new GitRepositoryIssuesSettings
+                {
+                    CheckBinaryFilesTrackedByLfs = true
+                }),
+            new ReadIssuesSettings(repoRootDir));
+
+    if (issues.Count() != 2)
+    {
+        throw new Exception($"Expected 2 issues, but found {issues.Count()}");
+    }
+
+    if (!issues.Any(i => i.AffectedFileRelativePath.GetFilename().ToString().Equals("cake-contrib-small.png", StringComparison.InvariantCultureIgnoreCase)))
+    {
+        throw new Exception("Expected issue for 'cake-contrib-small.png' not found.");
+    }
+
+    if (!issues.Any(i => i.AffectedFileRelativePath.GetFilename().ToString().Equals("file-with-umlaut-ä.png", StringComparison.InvariantCultureIgnoreCase)))
+    {
+        throw new Exception("Expected issue for 'file-with-umlaut-ä.png' not found.");
+    }
+
+    Information("Successful");
+});
+
+Task("CheckBinaryFilesTrackedByLfs-Should-Ignore-Empty-Files")
+    .Does(() =>
+{
+    var repoRootDir = MakeAbsolute(Directory("./"));
 
     var issues =
         ReadIssues(
@@ -45,23 +78,13 @@ Task("CheckBinaryFilesTrackedByLfs")
         throw new Exception("The empty files should not be treated as binary");
     }
 
-    var reportDir =
-        repoRootDir.Combine("BuildArtifacts").Combine("TestResults").Combine("Integration");
-    var reportFilePath =
-        reportDir.CombineWithFilePath("CheckBinaryFilesTrackedByLfs.html");
-    EnsureDirectoryExists(reportDir);
-
-    CreateIssueReport(
-        issues,
-        GenericIssueReportFormatFromEmbeddedTemplate(GenericIssueReportTemplate.HtmlDiagnostic),
-        repoRootDir,
-        reportFilePath);
+    Information("Successful");
 });
 
-Task("CheckFilesPathLength")
+Task("CheckFilesPathLength-Should-Return-Issues-For-Files-Exceeding-Maximum-Length")
     .Does(() =>
 {
-    var repoRootDir = MakeAbsolute(Directory("../../../"));
+    var repoRootDir = MakeAbsolute(Directory("./"));
 
     var issues =
         ReadIssues(
@@ -70,26 +93,32 @@ Task("CheckFilesPathLength")
                 new GitRepositoryIssuesSettings
                 {
                     CheckFilesPathLength = true,
-                    MaxFilePathLength = 60
+                    MaxFilePathLength = 30
                 }),
             new ReadIssuesSettings(repoRootDir));
 
-    var reportDir =
-        repoRootDir.Combine("BuildArtifacts").Combine("TestResults").Combine("Integration");
-    var reportFilePath =
-        reportDir.CombineWithFilePath("FilePathTooLong.html");
-    EnsureDirectoryExists(reportDir);
+    if (issues.Count() != 2)
+    {
+        throw new Exception($"Expected 2 issues, but found {issues.Count()}");
+    }
 
-    CreateIssueReport(
-        issues,
-        GenericIssueReportFormatFromEmbeddedTemplate(GenericIssueReportTemplate.HtmlDiagnostic),
-        repoRootDir,
-        reportFilePath);
+    if (!issues.Any(i => i.AffectedFileRelativePath.GetFilename().ToString().Equals("cake-contrib-small.png", StringComparison.InvariantCultureIgnoreCase)))
+    {
+        throw new Exception("Expected issue for 'cake-contrib-small.png' not found.");
+    }
+
+    if (!issues.Any(i => i.AffectedFileRelativePath.GetFilename().ToString().Equals("file-with-umlaut-ä.png", StringComparison.InvariantCultureIgnoreCase)))
+    {
+        throw new Exception("Expected issue for 'file-with-umlaut-ä.png' not found.");
+    }
+
+    Information("Successful");
 });
 
 Task("Run-All-Tests")
-    .IsDependentOn("CheckBinaryFilesTrackedByLfs")
-    .IsDependentOn("CheckFilesPathLength");
+    .IsDependentOn("CheckBinaryFilesTrackedByLfs-Should-Return-Files-Not-Tracked-By-Lfs")
+    .IsDependentOn("CheckBinaryFilesTrackedByLfs-Should-Ignore-Empty-Files")
+    .IsDependentOn("CheckFilesPathLength-Should-Return-Issues-For-Files-Exceeding-Maximum-Length");
 
 //////////////////////////////////////////////////
 
