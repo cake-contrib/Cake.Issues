@@ -69,6 +69,60 @@ jobs:
         run: ./build.sh --verbosity=diagnostic
         working-directory: ./tests/Cake.Issues.MsBuild/script-runner/${{ env.TFM }}
         shell: bash
+  # Integration Tests Cake.Issues.JUnit Cake Scripting
+  IntegrationTestsJUnitCakeScripting:
+    name: Integration Tests Cake.Issues.JUnit Cake Scripting
+    needs: Build
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [
+          windows-2022, windows-2025, 
+          ubuntu-22.04, ubuntu-24.04,
+          macos-13, macos-14]
+        dotnet: [8.x, 9.x]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Get the sources
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+      - name: Prepare integration tests
+        uses: ./.github/actions/prepare-integration-test
+        with:
+          dotnet-version: ${{ matrix.dotnet }}
+      - name: Determine TFM
+        run: |
+          DOTNET_VERSION="${{ matrix.dotnet }}"
+          DOTNET_MAJOR_VERSION="${DOTNET_VERSION%%.*}"
+          echo "TFM=net${DOTNET_MAJOR_VERSION}.0" >> $GITHUB_ENV
+        shell: bash
+      - name: Run integration tests
+        run: ./build.sh --verbosity=diagnostic
+        working-directory: ./tests/Cake.Issues.JUnit/script-runner/${{ env.TFM }}
+        shell: bash
+  # Integration Tests Cake.Issues.JUnit Cake Frosting
+  IntegrationTestsJUnitCakeFrosting:
+    name: Integration Tests Cake.Issues.JUnit Cake Frosting
+    needs: Build
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [
+          windows-2022, windows-2025, 
+          ubuntu-22.04, ubuntu-24.04,
+          macos-13, macos-14]
+        dotnet: [8.x]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Get the sources
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+      - name: Prepare integration tests
+        uses: ./.github/actions/prepare-integration-test
+        with:
+          dotnet-version: ${{ matrix.dotnet }}
+      - name: Run integration tests
+        run: ./build.sh --verbosity=diagnostic
+        working-directory: ./tests/Cake.Issues.JUnit/frosting/net8.0
+        shell: bash
   # Integration Tests Cake.Issues.PullRequests.GitHubActions Cake Scripting
   IntegrationTestsPullRequestsGitHubActionsCakeScripting:
     name: Integration Tests Cake.Issues.PullRequests.GitHubActions Cake Scripting
