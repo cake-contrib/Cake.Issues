@@ -48,11 +48,6 @@ For addin compatible with Cake Script Runners see Cake.Issues.Tap.
     <file src="Cake.Frosting.Issues.Tap.targets" target="build" />
     <file src="Cake.Frosting.Issues.Tap.targets" target="buildTransitive" />
     <file src="Cake.Frosting.Issues.Tap.md" target="docs\README.md" />
-    <file src="..\..\src\Cake.Issues.Tap\bin\Release\net8.0\Cake.Issues.Tap.dll" target="lib\net8.0" />
-    <file src="..\..\src\Cake.Issues.Tap\bin\Release\net8.0\Cake.Issues.Tap.pdb" target="lib\net8.0" />
-    <file src="..\..\src\Cake.Issues.Tap\bin\Release\net8.0\Cake.Issues.Tap.xml" target="lib\net8.0" />
-    <file src="..\..\src\Cake.Issues.Tap\bin\Release\net9.0\Cake.Issues.Tap.dll" target="lib\net9.0" />
-    <file src="..\..\src\Cake.Issues.Tap\bin\Release\net9.0\Cake.Issues.Tap.pdb" target="lib\net9.0" />
-    <file src="..\..\src\Cake.Issues.Tap\bin\Release\net9.0\Cake.Issues.Tap.xml" target="lib\net9.0" />
+    <file src="..\..\src\Cake.Issues.Tap\bin\Release\**\Cake.Issues.Tap.*" target="lib" exclude="**\*.deps.json" />
   </files>
 </package>

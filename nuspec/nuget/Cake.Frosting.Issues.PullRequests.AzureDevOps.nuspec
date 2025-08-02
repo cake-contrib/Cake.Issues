@@ -45,11 +45,6 @@ For addin compatible with Cake Script Runners see Cake.Issues.PullRequests.Azure
     <file src="Cake.Frosting.Issues.PullRequests.AzureDevOps.targets" target="build" />
     <file src="Cake.Frosting.Issues.PullRequests.AzureDevOps.targets" target="buildTransitive" />
     <file src="Cake.Frosting.Issues.PullRequests.AzureDevOps.md" target="docs\README.md" />
-    <file src="..\..\src\Cake.Issues.PullRequests.AzureDevOps\bin\Release\net8.0\Cake.Issues.PullRequests.AzureDevOps.dll" target="lib\net8.0" />
-    <file src="..\..\src\Cake.Issues.PullRequests.AzureDevOps\bin\Release\net8.0\Cake.Issues.PullRequests.AzureDevOps.pdb" target="lib\net8.0" />
-    <file src="..\..\src\Cake.Issues.PullRequests.AzureDevOps\bin\Release\net8.0\Cake.Issues.PullRequests.AzureDevOps.xml" target="lib\net8.0" />
-    <file src="..\..\src\Cake.Issues.PullRequests.AzureDevOps\bin\Release\net9.0\Cake.Issues.PullRequests.AzureDevOps.dll" target="lib\net9.0" />
-    <file src="..\..\src\Cake.Issues.PullRequests.AzureDevOps\bin\Release\net9.0\Cake.Issues.PullRequests.AzureDevOps.pdb" target="lib\net9.0" />
-    <file src="..\..\src\Cake.Issues.PullRequests.AzureDevOps\bin\Release\net9.0\Cake.Issues.PullRequests.AzureDevOps.xml" target="lib\net9.0" />
+    <file src="..\..\src\Cake.Issues.PullRequests.AzureDevOps\bin\Release\**\Cake.Issues.PullRequests.AzureDevOps.*" target="lib" exclude="**\*.deps.json" />
   </files>
 </package>

@@ -48,11 +48,6 @@ For addin compatible with Cake Script Runners see Cake.Issues.Reporting.Generic.
     <file src="Cake.Frosting.Issues.Reporting.Generic.targets" target="build" />
     <file src="Cake.Frosting.Issues.Reporting.Generic.targets" target="buildTransitive" />
     <file src="Cake.Frosting.Issues.Reporting.Generic.md" target="docs\README.md" />
-    <file src="..\..\src\Cake.Issues.Reporting.Generic\bin\Release\net8.0\Cake.Issues.Reporting.Generic.dll" target="lib\net8.0" />
-    <file src="..\..\src\Cake.Issues.Reporting.Generic\bin\Release\net8.0\Cake.Issues.Reporting.Generic.pdb" target="lib\net8.0" />
-    <file src="..\..\src\Cake.Issues.Reporting.Generic\bin\Release\net8.0\Cake.Issues.Reporting.Generic.xml" target="lib\net8.0" />
-    <file src="..\..\src\Cake.Issues.Reporting.Generic\bin\Release\net9.0\Cake.Issues.Reporting.Generic.dll" target="lib\net9.0" />
-    <file src="..\..\src\Cake.Issues.Reporting.Generic\bin\Release\net9.0\Cake.Issues.Reporting.Generic.pdb" target="lib\net9.0" />
-    <file src="..\..\src\Cake.Issues.Reporting.Generic\bin\Release\net9.0\Cake.Issues.Reporting.Generic.xml" target="lib\net9.0" />
+    <file src="..\..\src\Cake.Issues.Reporting.Generic\bin\Release\**\Cake.Issues.Reporting.Generic.*" target="lib" exclude="**\*.deps.json" />
   </files>
 </package>

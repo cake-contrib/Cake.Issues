@@ -44,11 +44,6 @@ For addin compatible with Cake Script Runners see Cake.Issues.Reporting.
     <file src="Cake.Frosting.Issues.Reporting.targets" target="build" />
     <file src="Cake.Frosting.Issues.Reporting.targets" target="buildTransitive" />
     <file src="Cake.Frosting.Issues.Reporting.md" target="docs\README.md" />
-    <file src="..\..\src\Cake.Issues.Reporting\bin\Release\net8.0\Cake.Issues.Reporting.dll" target="lib\net8.0" />
-    <file src="..\..\src\Cake.Issues.Reporting\bin\Release\net8.0\Cake.Issues.Reporting.pdb" target="lib\net8.0" />
-    <file src="..\..\src\Cake.Issues.Reporting\bin\Release\net8.0\Cake.Issues.Reporting.xml" target="lib\net8.0" />
-    <file src="..\..\src\Cake.Issues.Reporting\bin\Release\net9.0\Cake.Issues.Reporting.dll" target="lib\net9.0" />
-    <file src="..\..\src\Cake.Issues.Reporting\bin\Release\net9.0\Cake.Issues.Reporting.pdb" target="lib\net9.0" />
-    <file src="..\..\src\Cake.Issues.Reporting\bin\Release\net9.0\Cake.Issues.Reporting.xml" target="lib\net9.0" />
+    <file src="..\..\src\Cake.Issues.Reporting\bin\Release\**\Cake.Issues.Reporting.*" target="lib" exclude="**\*.deps.json" />
   </files>
 </package>

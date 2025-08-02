@@ -46,11 +46,6 @@ For addin compatible with Cake Script Runners see Cake.Issues.InspectCode.
     <file src="Cake.Frosting.Issues.InspectCode.targets" target="build" />
     <file src="Cake.Frosting.Issues.InspectCode.targets" target="buildTransitive" />
     <file src="Cake.Frosting.Issues.InspectCode.md" target="docs\README.md" />
-    <file src="..\..\src\Cake.Issues.InspectCode\bin\Release\net8.0\Cake.Issues.InspectCode.dll" target="lib\net8.0" />
-    <file src="..\..\src\Cake.Issues.InspectCode\bin\Release\net8.0\Cake.Issues.InspectCode.pdb" target="lib\net8.0" />
-    <file src="..\..\src\Cake.Issues.InspectCode\bin\Release\net8.0\Cake.Issues.InspectCode.xml" target="lib\net8.0" />
-    <file src="..\..\src\Cake.Issues.InspectCode\bin\Release\net9.0\Cake.Issues.InspectCode.dll" target="lib\net9.0" />
-    <file src="..\..\src\Cake.Issues.InspectCode\bin\Release\net9.0\Cake.Issues.InspectCode.pdb" target="lib\net9.0" />
-    <file src="..\..\src\Cake.Issues.InspectCode\bin\Release\net9.0\Cake.Issues.InspectCode.xml" target="lib\net9.0" />
+    <file src="..\..\src\Cake.Issues.InspectCode\bin\Release\**\Cake.Issues.InspectCode.*" target="lib" exclude="**\*.deps.json" />
   </files>
 </package>
