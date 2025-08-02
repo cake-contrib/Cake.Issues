@@ -1,0 +1,61 @@
+[
+  {
+    "type": "issue",
+    "check_name": "editorconfig-checker/indent_style",
+    "description": "Wrong indentation type (expected: space, found: tab)",
+    "content": {
+      "body": "The indentation style doesn't match the project's EditorConfig settings."
+    },
+    "categories": ["Style"],
+    "location": {
+      "path": "src/example.js",
+      "lines": {
+        "begin": 5,
+        "end": 5
+      }
+    },
+    "severity": "info",
+    "fingerprint": "abc123def456"
+  },
+  {
+    "type": "issue",
+    "check_name": "complexity",
+    "description": "Function has too many parameters",
+    "content": {
+      "body": "Consider refactoring this function to reduce the number of parameters."
+    },
+    "categories": ["Complexity"],
+    "location": {
+      "path": "src/complex.ts",
+      "positions": {
+        "begin": {
+          "line": 15,
+          "column": 5
+        },
+        "end": {
+          "line": 18,
+          "column": 10
+        }
+      }
+    },
+    "severity": "critical",
+    "fingerprint": "def456ghi789"
+  },
+  {
+    "type": "issue",
+    "check_name": "eslint/no-unused-vars",
+    "description": "Variable 'unusedVar' is declared but never used",
+    "content": {
+      "body": "Remove unused variables to improve code clarity."
+    },
+    "categories": ["Bug Risk"],
+    "location": {
+      "path": "src/unused.js",
+      "lines": {
+        "begin": 10
+      }
+    },
+    "severity": "major",
+    "fingerprint": "ghi789jkl012"
+  }
+]

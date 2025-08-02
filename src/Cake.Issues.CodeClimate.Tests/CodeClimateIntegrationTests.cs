@@ -17,7 +17,7 @@ public class CodeClimateIntegrationTests
         // Check first issue (line-based)
         var firstIssue = issues.First(i => i.Rule() == "EditorConfig/indent_style");
         firstIssue.Message(IssueCommentFormat.PlainText).ShouldBe("Wrong indentation type (expected: space, found: tab)");
-        firstIssue.AffectedFileRelativePath?.ToString().ShouldBe(@"src\example.js");
+        firstIssue.AffectedFileRelativePath?.ToString().ShouldBe("src/example.js");
         firstIssue.Line.ShouldBe(5);
         firstIssue.EndLine.ShouldBe(5);
         firstIssue.Priority.ShouldBe((int)IssuePriority.Suggestion);
@@ -25,7 +25,7 @@ public class CodeClimateIntegrationTests
         // Check second issue (position-based)
         var secondIssue = issues.First(i => i.Rule() == "complexity");
         secondIssue.Message(IssueCommentFormat.PlainText).ShouldBe("Function has too many parameters");
-        secondIssue.AffectedFileRelativePath?.ToString().ShouldBe(@"src\complex.ts");
+        secondIssue.AffectedFileRelativePath?.ToString().ShouldBe("src/complex.ts");
         secondIssue.Line.ShouldBe(15);
         secondIssue.EndLine.ShouldBe(18);
         secondIssue.Column.ShouldBe(5);

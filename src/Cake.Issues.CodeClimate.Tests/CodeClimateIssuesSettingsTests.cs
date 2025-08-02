@@ -27,13 +27,16 @@ public class CodeClimateIssuesSettingsTests
         }
 
         [Fact]
-        public void Should_Throw_If_LogFileContent_Is_Empty()
+        public void Should_Set_LogFileContent_If_Empty()
         {
-            // Given / When
-            var result = Record.Exception(() => new CodeClimateIssuesSettings([]));
+            // Given
+            byte[] logFileContent = [];
+
+            // When
+            var settings = new CodeClimateIssuesSettings(logFileContent);
 
             // Then
-            result.IsArgumentOutOfRangeException("logFileContent");
+            settings.LogFileContent.ShouldBe(logFileContent);
         }
 
         [Fact]

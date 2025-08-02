@@ -13,7 +13,7 @@ public class CodeClimateIssuesProviderTests
             var result = Record.Exception(() =>
                 new CodeClimateIssuesProvider(
                     null!,
-                    new CodeClimateIssuesSettings(@"C:\build\log.json")));
+                    new CodeClimateIssuesSettings("Foo".ToByteArray())));
 
             // Then
             result.IsArgumentNullException("log");
@@ -42,7 +42,7 @@ public class CodeClimateIssuesProviderTests
             var provider =
                 new CodeClimateIssuesProvider(
                     new FakeLog(),
-                    new CodeClimateIssuesSettings(@"C:\build\log.json"));
+                    new CodeClimateIssuesSettings("Foo".ToByteArray()));
 
             // When
             var result = provider.ProviderName;
@@ -80,7 +80,7 @@ public class CodeClimateIssuesProviderTests
             issues.Count.ShouldBe(1);
             CheckIssue(
                 issues[0],
-                @"src\foo.js",
+                "src/foo.js",
                 10,
                 12,
                 null,
@@ -103,7 +103,7 @@ public class CodeClimateIssuesProviderTests
             issues.Count.ShouldBe(1);
             CheckIssue(
                 issues[0],
-                @"src\bar.js",
+                "src/bar.js",
                 5,
                 5,
                 10,
