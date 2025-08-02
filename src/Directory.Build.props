@@ -11,6 +11,11 @@
     <Product>Cake.Issues</Product>
   </PropertyGroup>
 
+  <ItemGroup>
+    <InternalsVisibleTo Include="$(MSBuildProjectName).Tests" />
+    <InternalsVisibleTo Include="DynamicProxyGenAssembly2" />
+  </ItemGroup>
+
   <!-- Properties for addin projects -->
   <Choose>
     <When Condition="!$(MSBuildProjectName.EndsWith('.Tests'))">
