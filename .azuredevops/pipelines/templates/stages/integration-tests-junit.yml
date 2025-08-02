@@ -6,7 +6,7 @@ stages:
     dependsOn: IntegrationTestsBuildStage
     jobs:
     - job: TestCakeScriptingJob
-      displayName: Test Cake Scripting
+      displayName: Test Cake Scripting .NET 8
       strategy:
         matrix:
           Windows_Server_2022:
@@ -28,10 +28,7 @@ stages:
       - template: ../steps/provide-nuget-packages.yml 
       - powershell: ./build.ps1 --verbosity=diagnostic
         workingDirectory: ./tests/Cake.Issues.JUnit/script-runner/net8.0
-        displayName: 'Run integration tests (.NET 8.0)'
-      - powershell: ./build.ps1 --verbosity=diagnostic
-        workingDirectory: ./tests/Cake.Issues.JUnit/script-runner/net9.0
-        displayName: 'Run integration tests (.NET 9.0)'
+        displayName: 'Run integration tests'
     - job: TestCakeFrostingJob
       displayName: Test Cake Frosting .NET 8
       strategy:
@@ -55,4 +52,4 @@ stages:
       - template: ../steps/provide-nuget-packages.yml 
       - powershell: ./build.ps1 --verbosity=diagnostic
         workingDirectory: ./tests/Cake.Issues.JUnit/frosting/net8.0
-        displayName: 'Run integration tests (Frosting .NET 8.0)'
+        displayName: 'Run integration tests'
