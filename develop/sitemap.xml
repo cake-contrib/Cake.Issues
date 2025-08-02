@@ -1,739 +1,739 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://cakeissues.net/develop/</loc>
+         <loc>https://cakeissues.net/develop/index.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/api/</loc>
+         <loc>https://cakeissues.net/develop/api.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/features/</loc>
+         <loc>https://cakeissues.net/develop/documentation/features.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/overview/</loc>
+         <loc>https://cakeissues.net/develop/documentation/overview.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/supported-tools/</loc>
+         <loc>https://cakeissues.net/develop/documentation/supported-tools.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/contributing/how-to-build/</loc>
+         <loc>https://cakeissues.net/develop/documentation/contributing/how-to-build.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/contributing/how-to-contribute/</loc>
+         <loc>https://cakeissues.net/develop/documentation/contributing/how-to-contribute.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/contributing/how-to-release/</loc>
+         <loc>https://cakeissues.net/develop/documentation/contributing/how-to-release.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/extending/</loc>
+         <loc>https://cakeissues.net/develop/documentation/extending/index.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/extending/testing/</loc>
+         <loc>https://cakeissues.net/develop/documentation/extending/testing.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/extending/issue-provider/categories/</loc>
+         <loc>https://cakeissues.net/develop/documentation/extending/issue-provider/categories.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/extending/issue-provider/helper/</loc>
+         <loc>https://cakeissues.net/develop/documentation/extending/issue-provider/helper.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/extending/issue-provider/overview/</loc>
+         <loc>https://cakeissues.net/develop/documentation/extending/issue-provider/overview.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/extending/issue-provider/tutorials/file-linking/</loc>
+         <loc>https://cakeissues.net/develop/documentation/extending/issue-provider/tutorials/file-linking.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/extending/issue-provider/tutorials/logfile-format/</loc>
+         <loc>https://cakeissues.net/develop/documentation/extending/issue-provider/tutorials/logfile-format.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/extending/issue-provider/tutorials/rule-url-resolving/</loc>
+         <loc>https://cakeissues.net/develop/documentation/extending/issue-provider/tutorials/rule-url-resolving.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/extending/issue-provider/tutorials/settings/</loc>
+         <loc>https://cakeissues.net/develop/documentation/extending/issue-provider/tutorials/settings.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/extending/issue-provider/tutorials/simple/</loc>
+         <loc>https://cakeissues.net/develop/documentation/extending/issue-provider/tutorials/simple.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/extending/pull-request-system/categories/</loc>
+         <loc>https://cakeissues.net/develop/documentation/extending/pull-request-system/categories.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/extending/pull-request-system/overview/</loc>
+         <loc>https://cakeissues.net/develop/documentation/extending/pull-request-system/overview.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/extending/report-format/categories/</loc>
+         <loc>https://cakeissues.net/develop/documentation/extending/report-format/categories.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/extending/report-format/overview/</loc>
+         <loc>https://cakeissues.net/develop/documentation/extending/report-format/overview.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/how-cake-issues-works/</loc>
+         <loc>https://cakeissues.net/develop/documentation/how-cake-issues-works/index.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/how-cake-issues-works/pull-request-integration/</loc>
+         <loc>https://cakeissues.net/develop/documentation/how-cake-issues-works/pull-request-integration.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/issue-providers/</loc>
+         <loc>https://cakeissues.net/develop/documentation/issue-providers/index.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/issue-providers/docfx/</loc>
+         <loc>https://cakeissues.net/develop/documentation/issue-providers/docfx/index.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/issue-providers/docfx/examples/</loc>
+         <loc>https://cakeissues.net/develop/documentation/issue-providers/docfx/examples.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/issue-providers/docfx/features/</loc>
+         <loc>https://cakeissues.net/develop/documentation/issue-providers/docfx/features.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/issue-providers/eslint/</loc>
+         <loc>https://cakeissues.net/develop/documentation/issue-providers/eslint/index.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/issue-providers/eslint/features/</loc>
+         <loc>https://cakeissues.net/develop/documentation/issue-providers/eslint/features.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/issue-providers/gitrepository/</loc>
+         <loc>https://cakeissues.net/develop/documentation/issue-providers/gitrepository/index.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/issue-providers/gitrepository/examples/</loc>
+         <loc>https://cakeissues.net/develop/documentation/issue-providers/gitrepository/examples.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/issue-providers/gitrepository/features/</loc>
+         <loc>https://cakeissues.net/develop/documentation/issue-providers/gitrepository/features.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/issue-providers/gitrepository/rules/</loc>
+         <loc>https://cakeissues.net/develop/documentation/issue-providers/gitrepository/rules/index.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/issue-providers/gitrepository/rules/BinaryFileNotTrackedByLfs/</loc>
+         <loc>https://cakeissues.net/develop/documentation/issue-providers/gitrepository/rules/BinaryFileNotTrackedByLfs.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/issue-providers/gitrepository/rules/FilePathTooLong/</loc>
+         <loc>https://cakeissues.net/develop/documentation/issue-providers/gitrepository/rules/FilePathTooLong.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/issue-providers/inspectcode/</loc>
+         <loc>https://cakeissues.net/develop/documentation/issue-providers/inspectcode/index.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/issue-providers/inspectcode/examples/</loc>
+         <loc>https://cakeissues.net/develop/documentation/issue-providers/inspectcode/examples.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/issue-providers/inspectcode/features/</loc>
+         <loc>https://cakeissues.net/develop/documentation/issue-providers/inspectcode/features.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/issue-providers/markdownlint/</loc>
+         <loc>https://cakeissues.net/develop/documentation/issue-providers/markdownlint/index.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/issue-providers/markdownlint/examples/</loc>
+         <loc>https://cakeissues.net/develop/documentation/issue-providers/markdownlint/examples.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/issue-providers/markdownlint/features/</loc>
+         <loc>https://cakeissues.net/develop/documentation/issue-providers/markdownlint/features.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/issue-providers/msbuild/</loc>
+         <loc>https://cakeissues.net/develop/documentation/issue-providers/msbuild/index.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/issue-providers/msbuild/features/</loc>
+         <loc>https://cakeissues.net/develop/documentation/issue-providers/msbuild/features.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/issue-providers/msbuild/examples/</loc>
+         <loc>https://cakeissues.net/develop/documentation/issue-providers/msbuild/examples/index.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/issue-providers/msbuild/examples/read-binary-log/</loc>
+         <loc>https://cakeissues.net/develop/documentation/issue-providers/msbuild/examples/read-binary-log.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/issue-providers/msbuild/examples/use-custom-url-resolver/</loc>
+         <loc>https://cakeissues.net/develop/documentation/issue-providers/msbuild/examples/use-custom-url-resolver.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/issue-providers/sarif/</loc>
+         <loc>https://cakeissues.net/develop/documentation/issue-providers/sarif/index.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/issue-providers/sarif/features/</loc>
+         <loc>https://cakeissues.net/develop/documentation/issue-providers/sarif/features.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/issue-providers/tap/</loc>
+         <loc>https://cakeissues.net/develop/documentation/issue-providers/tap/index.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/issue-providers/tap/features/</loc>
+         <loc>https://cakeissues.net/develop/documentation/issue-providers/tap/features.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/issue-providers/terraform/</loc>
+         <loc>https://cakeissues.net/develop/documentation/issue-providers/terraform/index.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/issue-providers/terraform/features/</loc>
+         <loc>https://cakeissues.net/develop/documentation/issue-providers/terraform/features.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/pull-request-systems/</loc>
+         <loc>https://cakeissues.net/develop/documentation/pull-request-systems/index.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/pull-request-systems/appveyor/</loc>
+         <loc>https://cakeissues.net/develop/documentation/pull-request-systems/appveyor/index.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/pull-request-systems/appveyor/features/</loc>
+         <loc>https://cakeissues.net/develop/documentation/pull-request-systems/appveyor/features.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/pull-request-systems/appveyor/examples/</loc>
+         <loc>https://cakeissues.net/develop/documentation/pull-request-systems/appveyor/examples/index.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/pull-request-systems/appveyor/examples/github-pullrequest-integration/</loc>
+         <loc>https://cakeissues.net/develop/documentation/pull-request-systems/appveyor/examples/github-pullrequest-integration.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/pull-request-systems/appveyor/examples/write-messages/</loc>
+         <loc>https://cakeissues.net/develop/documentation/pull-request-systems/appveyor/examples/write-messages.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/pull-request-systems/azure-devops/</loc>
+         <loc>https://cakeissues.net/develop/documentation/pull-request-systems/azure-devops/index.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/pull-request-systems/azure-devops/features/</loc>
+         <loc>https://cakeissues.net/develop/documentation/pull-request-systems/azure-devops/features.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/pull-request-systems/azure-devops/setup/</loc>
+         <loc>https://cakeissues.net/develop/documentation/pull-request-systems/azure-devops/setup.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/pull-request-systems/azure-devops/examples/</loc>
+         <loc>https://cakeissues.net/develop/documentation/pull-request-systems/azure-devops/examples/index.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/pull-request-systems/azure-devops/examples/azure-pipelines/</loc>
+         <loc>https://cakeissues.net/develop/documentation/pull-request-systems/azure-devops/examples/azure-pipelines.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/pull-request-systems/azure-devops/examples/pullrequest-id/</loc>
+         <loc>https://cakeissues.net/develop/documentation/pull-request-systems/azure-devops/examples/pullrequest-id.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/pull-request-systems/azure-devops/examples/repository-information/</loc>
+         <loc>https://cakeissues.net/develop/documentation/pull-request-systems/azure-devops/examples/repository-information.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/pull-request-systems/github-actions/</loc>
+         <loc>https://cakeissues.net/develop/documentation/pull-request-systems/github-actions/index.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/pull-request-systems/github-actions/features/</loc>
+         <loc>https://cakeissues.net/develop/documentation/pull-request-systems/github-actions/features.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/pull-request-systems/github-actions/examples/</loc>
+         <loc>https://cakeissues.net/develop/documentation/pull-request-systems/github-actions/examples/index.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/pull-request-systems/github-actions/examples/write-annotations/</loc>
+         <loc>https://cakeissues.net/develop/documentation/pull-request-systems/github-actions/examples/write-annotations.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/recipe/</loc>
+         <loc>https://cakeissues.net/develop/documentation/recipe/index.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/recipe/configuration/</loc>
+         <loc>https://cakeissues.net/develop/documentation/recipe/configuration.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/recipe/demos/</loc>
+         <loc>https://cakeissues.net/develop/documentation/recipe/demos.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/recipe/supported-tools/</loc>
+         <loc>https://cakeissues.net/develop/documentation/recipe/supported-tools.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/recipe/tasks/</loc>
+         <loc>https://cakeissues.net/develop/documentation/recipe/tasks.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/report-formats/</loc>
+         <loc>https://cakeissues.net/develop/documentation/report-formats/index.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/report-formats/console/</loc>
+         <loc>https://cakeissues.net/develop/documentation/report-formats/console/index.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/report-formats/console/examples/</loc>
+         <loc>https://cakeissues.net/develop/documentation/report-formats/console/examples.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/report-formats/console/features/</loc>
+         <loc>https://cakeissues.net/develop/documentation/report-formats/console/features.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/report-formats/generic/</loc>
+         <loc>https://cakeissues.net/develop/documentation/report-formats/generic/index.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/report-formats/generic/features/</loc>
+         <loc>https://cakeissues.net/develop/documentation/report-formats/generic/features.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/report-formats/generic/examples/</loc>
+         <loc>https://cakeissues.net/develop/documentation/report-formats/generic/examples/index.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/report-formats/generic/examples/custom-template/</loc>
+         <loc>https://cakeissues.net/develop/documentation/report-formats/generic/examples/custom-template.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/report-formats/generic/examples/default-template/</loc>
+         <loc>https://cakeissues.net/develop/documentation/report-formats/generic/examples/default-template.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/report-formats/generic/templates/</loc>
+         <loc>https://cakeissues.net/develop/documentation/report-formats/generic/templates/index.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/report-formats/generic/templates/htmldatatable/</loc>
+         <loc>https://cakeissues.net/develop/documentation/report-formats/generic/templates/htmldatatable.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/report-formats/generic/templates/htmldiagnostic/</loc>
+         <loc>https://cakeissues.net/develop/documentation/report-formats/generic/templates/htmldiagnostic.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/report-formats/generic/templates/htmldxdatagrid/</loc>
+         <loc>https://cakeissues.net/develop/documentation/report-formats/generic/templates/htmldxdatagrid.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/report-formats/sarif/</loc>
+         <loc>https://cakeissues.net/develop/documentation/report-formats/sarif/index.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/report-formats/sarif/examples/</loc>
+         <loc>https://cakeissues.net/develop/documentation/report-formats/sarif/examples.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/report-formats/sarif/features/</loc>
+         <loc>https://cakeissues.net/develop/documentation/report-formats/sarif/features.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/resources/blog-posts/</loc>
+         <loc>https://cakeissues.net/develop/documentation/resources/blog-posts.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/resources/presentations/</loc>
+         <loc>https://cakeissues.net/develop/documentation/resources/presentations.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/usage/</loc>
+         <loc>https://cakeissues.net/develop/documentation/usage/index.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/usage/breaking-builds/breaking-builds/</loc>
+         <loc>https://cakeissues.net/develop/documentation/usage/breaking-builds/breaking-builds.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/usage/creating-issues/creating-issues/</loc>
+         <loc>https://cakeissues.net/develop/documentation/usage/creating-issues/creating-issues.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/usage/creating-reports/</loc>
+         <loc>https://cakeissues.net/develop/documentation/usage/creating-reports/index.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/usage/creating-reports/creating-reports/</loc>
+         <loc>https://cakeissues.net/develop/documentation/usage/creating-reports/creating-reports.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/usage/reading-issues/</loc>
+         <loc>https://cakeissues.net/develop/documentation/usage/reading-issues/index.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/usage/reading-issues/file-linking/</loc>
+         <loc>https://cakeissues.net/develop/documentation/usage/reading-issues/file-linking.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/usage/reading-issues/reading-issues/</loc>
+         <loc>https://cakeissues.net/develop/documentation/usage/reading-issues/reading-issues.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/usage/reading-issues/run-information/</loc>
+         <loc>https://cakeissues.net/develop/documentation/usage/reading-issues/run-information.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/usage/recipe/</loc>
+         <loc>https://cakeissues.net/develop/documentation/usage/recipe/index.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/usage/recipe/using-cake-frosting-issues-recipe/</loc>
+         <loc>https://cakeissues.net/develop/documentation/usage/recipe/using-cake-frosting-issues-recipe.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/usage/recipe/using-cake-issues-recipe/</loc>
+         <loc>https://cakeissues.net/develop/documentation/usage/recipe/using-cake-issues-recipe.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/usage/reporting-issues-to-pull-requests/</loc>
+         <loc>https://cakeissues.net/develop/documentation/usage/reporting-issues-to-pull-requests/index.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/usage/reporting-issues-to-pull-requests/custom-issue-filter/</loc>
+         <loc>https://cakeissues.net/develop/documentation/usage/reporting-issues-to-pull-requests/custom-issue-filter.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/usage/reporting-issues-to-pull-requests/report-issues-to-pull-requests/</loc>
+         <loc>https://cakeissues.net/develop/documentation/usage/reporting-issues-to-pull-requests/report-issues-to-pull-requests.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/</loc>
+         <loc>https://cakeissues.net/develop/news/index.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/2020/08/22/cake-issues-v090-released/</loc>
+         <loc>https://cakeissues.net/develop/news/2020/08/22/cake-issues-v090-released.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/2020/09/19/cake-issues-v091-released/</loc>
+         <loc>https://cakeissues.net/develop/news/2020/09/19/cake-issues-v091-released.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/2020/09/24/cake-issues-recipe-v042-released-bringing-support-for-github-actions/</loc>
+         <loc>https://cakeissues.net/develop/news/2020/09/24/cake-issues-recipe-v042-released-bringing-support-for-github-actions.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/2020/09/27/new-github-actions-addin/</loc>
+         <loc>https://cakeissues.net/develop/news/2020/09/27/new-github-actions-addin.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/2020/10/09/cake-issues-pullrequests-v091-released/</loc>
+         <loc>https://cakeissues.net/develop/news/2020/10/09/cake-issues-pullrequests-v091-released.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/2020/10/20/cake-issues-msbuild-v091-released/</loc>
+         <loc>https://cakeissues.net/develop/news/2020/10/20/cake-issues-msbuild-v091-released.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/2020/12/01/cake-issues-recipe-v044-released-bringing-support-for-eslint/</loc>
+         <loc>https://cakeissues.net/develop/news/2020/12/01/cake-issues-recipe-v044-released-bringing-support-for-eslint.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/2021/07/27/new-addin-for-terraform-support/</loc>
+         <loc>https://cakeissues.net/develop/news/2021/07/27/new-addin-for-terraform-support.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/2021/07/28/cake-issues-v100-released/</loc>
+         <loc>https://cakeissues.net/develop/news/2021/07/28/cake-issues-v100-released.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/2021/07/30/cake-issues-eslint-v101-released/</loc>
+         <loc>https://cakeissues.net/develop/news/2021/07/30/cake-issues-eslint-v101-released.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/2021/08/04/cake-issues-recipe-v100-released-bringing-support-for-cake-frosting/</loc>
+         <loc>https://cakeissues.net/develop/news/2021/08/04/cake-issues-recipe-v100-released-bringing-support-for-cake-frosting.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/2021/08/11/cake-issues-recipes-v110-released/</loc>
+         <loc>https://cakeissues.net/develop/news/2021/08/11/cake-issues-recipes-v110-released.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/2021/08/19/cake-issues-recipes-v120-released/</loc>
+         <loc>https://cakeissues.net/develop/news/2021/08/19/cake-issues-recipes-v120-released.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/2021/08/29/new-addin-for-printing-issues-to-console/</loc>
+         <loc>https://cakeissues.net/develop/news/2021/08/29/new-addin-for-printing-issues-to-console.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/2021/08/31/cake-issues-markdownlint-v110-released/</loc>
+         <loc>https://cakeissues.net/develop/news/2021/08/31/cake-issues-markdownlint-v110-released.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/2021/09/05/cake-issues-reporting-console-v030-released-adding-support-for-all-cake-runners/</loc>
+         <loc>https://cakeissues.net/develop/news/2021/09/05/cake-issues-reporting-console-v030-released-adding-support-for-all-cake-runners.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/2022/12/10/cake-issues-v200-released/</loc>
+         <loc>https://cakeissues.net/develop/news/2022/12/10/cake-issues-v200-released.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/2023/07/22/cake-issues-v300-released/</loc>
+         <loc>https://cakeissues.net/develop/news/2023/07/22/cake-issues-v300-released.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/2023/08/16/cake-issues-recipes-v310-released/</loc>
+         <loc>https://cakeissues.net/develop/news/2023/08/16/cake-issues-recipes-v310-released.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/2023/12/23/cake-issues-v400-released/</loc>
+         <loc>https://cakeissues.net/develop/news/2023/12/23/cake-issues-v400-released.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/2024/01/14/alignment-of-addin-lifecycles/</loc>
+         <loc>https://cakeissues.net/develop/news/2024/01/14/alignment-of-addin-lifecycles.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/2024/02/21/cake-issues-v410-released/</loc>
+         <loc>https://cakeissues.net/develop/news/2024/02/21/cake-issues-v410-released.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/2024/04/14/cake-issues-v420-released/</loc>
+         <loc>https://cakeissues.net/develop/news/2024/04/14/cake-issues-v420-released.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/2024/04/14/new-addin-for-reading-sarif-files/</loc>
+         <loc>https://cakeissues.net/develop/news/2024/04/14/new-addin-for-reading-sarif-files.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/2024/04/16/cake-issues-v421-released/</loc>
+         <loc>https://cakeissues.net/develop/news/2024/04/16/cake-issues-v421-released.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/2024/04/20/cake-issues-v430-released/</loc>
+         <loc>https://cakeissues.net/develop/news/2024/04/20/cake-issues-v430-released.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/2024/04/25/cake-issues-v431-released/</loc>
+         <loc>https://cakeissues.net/develop/news/2024/04/25/cake-issues-v431-released.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/2024/05/18/cake-issues-v440-released/</loc>
+         <loc>https://cakeissues.net/develop/news/2024/05/18/cake-issues-v440-released.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/2024/05/23/cake-issues-v450-released/</loc>
+         <loc>https://cakeissues.net/develop/news/2024/05/23/cake-issues-v450-released.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/2024/05/24/cake-issues-v451-released/</loc>
+         <loc>https://cakeissues.net/develop/news/2024/05/24/cake-issues-v451-released.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/2024/06/24/cake-issues-v460-released/</loc>
+         <loc>https://cakeissues.net/develop/news/2024/06/24/cake-issues-v460-released.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/2024/07/16/cake-issues-v470-released/</loc>
+         <loc>https://cakeissues.net/develop/news/2024/07/16/cake-issues-v470-released.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/2024/07/17/cake-issues-v471-released/</loc>
+         <loc>https://cakeissues.net/develop/news/2024/07/17/cake-issues-v471-released.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/2024/07/18/cake-issues-v472-released/</loc>
+         <loc>https://cakeissues.net/develop/news/2024/07/18/cake-issues-v472-released.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/2024/07/19/cake-issues-v480-released/</loc>
+         <loc>https://cakeissues.net/develop/news/2024/07/19/cake-issues-v480-released.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/2024/07/25/cake-issues-v490-released/</loc>
+         <loc>https://cakeissues.net/develop/news/2024/07/25/cake-issues-v490-released.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/2024/07/30/cake-issues-v4100-released/</loc>
+         <loc>https://cakeissues.net/develop/news/2024/07/30/cake-issues-v4100-released.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/2024/08/20/cake-issues-v4101-released/</loc>
+         <loc>https://cakeissues.net/develop/news/2024/08/20/cake-issues-v4101-released.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/2024/10/06/cake-issues-v4110-released/</loc>
+         <loc>https://cakeissues.net/develop/news/2024/10/06/cake-issues-v4110-released.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/2024/11/05/cake-issues-v4120-released/</loc>
+         <loc>https://cakeissues.net/develop/news/2024/11/05/cake-issues-v4120-released.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/2024/12/02/cake-issues-v500-released/</loc>
+         <loc>https://cakeissues.net/develop/news/2024/12/02/cake-issues-v500-released.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/2024/12/17/cake-issues-v501-released/</loc>
+         <loc>https://cakeissues.net/develop/news/2024/12/17/cake-issues-v501-released.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/2024/12/21/new-website/</loc>
+         <loc>https://cakeissues.net/develop/news/2024/12/21/new-website.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/2025/01/01/2024-in-review/</loc>
+         <loc>https://cakeissues.net/develop/news/2025/01/01/2024-in-review.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/2025/01/03/cake-issues-v510-released/</loc>
+         <loc>https://cakeissues.net/develop/news/2025/01/03/cake-issues-v510-released.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/2025/01/03/new-addin-for-reading-test-anything-protocol-tap-files/</loc>
+         <loc>https://cakeissues.net/develop/news/2025/01/03/new-addin-for-reading-test-anything-protocol-tap-files.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/2025/01/05/cake-issues-v511-released/</loc>
+         <loc>https://cakeissues.net/develop/news/2025/01/05/cake-issues-v511-released.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/2025/01/09/cake-issues-v520-released/</loc>
+         <loc>https://cakeissues.net/develop/news/2025/01/09/cake-issues-v520-released.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/2025/01/10/cake-issues-v530-released/</loc>
+         <loc>https://cakeissues.net/develop/news/2025/01/10/cake-issues-v530-released.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/2025/01/16/cake-issues-v540-released/</loc>
+         <loc>https://cakeissues.net/develop/news/2025/01/16/cake-issues-v540-released.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/2025/01/23/cake-issues-v550-released/</loc>
+         <loc>https://cakeissues.net/develop/news/2025/01/23/cake-issues-v550-released.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/2025/07/05/cake-issues-v560-released/</loc>
+         <loc>https://cakeissues.net/develop/news/2025/07/05/cake-issues-v560-released.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/2025/07/11/cake-issues-56-has-been-left-padded-by-microsoft/</loc>
+         <loc>https://cakeissues.net/develop/news/2025/07/11/cake-issues-56-has-been-left-padded-by-microsoft.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/2025/07/12/cake-issues-v561-released/</loc>
+         <loc>https://cakeissues.net/develop/news/2025/07/12/cake-issues-v561-released.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/archive/2025/</loc>
+         <loc>https://cakeissues.net/develop/news/archive/2025.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/archive/2024/</loc>
+         <loc>https://cakeissues.net/develop/news/archive/2024.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/archive/2023/</loc>
+         <loc>https://cakeissues.net/develop/news/archive/2023.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/archive/2022/</loc>
+         <loc>https://cakeissues.net/develop/news/archive/2022.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/archive/2021/</loc>
+         <loc>https://cakeissues.net/develop/news/archive/2021.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/archive/2020/</loc>
+         <loc>https://cakeissues.net/develop/news/archive/2020.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/category/release-notes/</loc>
+         <loc>https://cakeissues.net/develop/news/category/release-notes.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/category/announcements/</loc>
+         <loc>https://cakeissues.net/develop/news/category/announcements.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/category/new-addin/</loc>
+         <loc>https://cakeissues.net/develop/news/category/new-addin.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/page/2/</loc>
+         <loc>https://cakeissues.net/develop/news/page/2/index.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/page/3/</loc>
+         <loc>https://cakeissues.net/develop/news/page/3/index.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/page/4/</loc>
+         <loc>https://cakeissues.net/develop/news/page/4/index.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/page/5/</loc>
+         <loc>https://cakeissues.net/develop/news/page/5/index.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/page/6/</loc>
+         <loc>https://cakeissues.net/develop/news/page/6/index.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/archive/2025/page/2/</loc>
+         <loc>https://cakeissues.net/develop/news/archive/2025/page/2.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/archive/2024/page/2/</loc>
+         <loc>https://cakeissues.net/develop/news/archive/2024/page/2.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/archive/2024/page/3/</loc>
+         <loc>https://cakeissues.net/develop/news/archive/2024/page/3.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/category/release-notes/page/2/</loc>
+         <loc>https://cakeissues.net/develop/news/category/release-notes/page/2.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/category/release-notes/page/3/</loc>
+         <loc>https://cakeissues.net/develop/news/category/release-notes/page/3.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/category/release-notes/page/4/</loc>
+         <loc>https://cakeissues.net/develop/news/category/release-notes/page/4.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/news/category/release-notes/page/5/</loc>
+         <loc>https://cakeissues.net/develop/news/category/release-notes/page/5.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
 </urlset>
