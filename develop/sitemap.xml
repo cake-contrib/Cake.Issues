@@ -125,11 +125,19 @@
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/issue-providers/gitrepository/examples.html</loc>
+         <loc>https://cakeissues.net/develop/documentation/issue-providers/gitrepository/features.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/issue-providers/gitrepository/features.html</loc>
+         <loc>https://cakeissues.net/develop/documentation/issue-providers/gitrepository/examples/index.html</loc>
+         <lastmod>2025-08-02</lastmod>
+    </url>
+    <url>
+         <loc>https://cakeissues.net/develop/documentation/issue-providers/gitrepository/examples/basic-usage.html</loc>
+         <lastmod>2025-08-02</lastmod>
+    </url>
+    <url>
+         <loc>https://cakeissues.net/develop/documentation/issue-providers/gitrepository/examples/excluding-files.html</loc>
          <lastmod>2025-08-02</lastmod>
     </url>
     <url>
