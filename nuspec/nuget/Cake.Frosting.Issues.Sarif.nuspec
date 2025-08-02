@@ -52,11 +52,6 @@ For addin compatible with Cake Script Runners see Cake.Issues.Sarif.
     <file src="Cake.Frosting.Issues.Sarif.targets" target="build" />
     <file src="Cake.Frosting.Issues.Sarif.targets" target="buildTransitive" />
     <file src="Cake.Frosting.Issues.Sarif.md" target="docs\README.md" />
-    <file src="..\..\src\Cake.Issues.Sarif\bin\Release\net8.0\Cake.Issues.Sarif.dll" target="lib\net8.0" />
-    <file src="..\..\src\Cake.Issues.Sarif\bin\Release\net8.0\Cake.Issues.Sarif.pdb" target="lib\net8.0" />
-    <file src="..\..\src\Cake.Issues.Sarif\bin\Release\net8.0\Cake.Issues.Sarif.xml" target="lib\net8.0" />
-    <file src="..\..\src\Cake.Issues.Sarif\bin\Release\net9.0\Cake.Issues.Sarif.dll" target="lib\net9.0" />
-    <file src="..\..\src\Cake.Issues.Sarif\bin\Release\net9.0\Cake.Issues.Sarif.pdb" target="lib\net9.0" />
-    <file src="..\..\src\Cake.Issues.Sarif\bin\Release\net9.0\Cake.Issues.Sarif.xml" target="lib\net9.0" />
+    <file src="..\..\src\Cake.Issues.Sarif\bin\Release\**\Cake.Issues.Sarif.*" target="lib" exclude="**\*.deps.json" />
   </files>
 </package>

@@ -59,6 +59,15 @@ internal class GitRepositoryIssuesProvider : BaseIssueProvider
     }
 
     /// <summary>
+    /// Enum representing the different types of checks performed by the provider.
+    /// </summary>
+    private enum CheckType
+    {
+        BinaryFilesLfs,
+        FilePathLength,
+    }
+
+    /// <summary>
     /// Gets the name of the Git repository issue provider.
     /// This name can be used to identify issues based on the <see cref="IIssue.ProviderType"/> property.
     /// </summary>
@@ -117,8 +126,11 @@ internal class GitRepositoryIssuesProvider : BaseIssueProvider
         var binaryFilesNotTrackedByLfs =
             this.DetermineBinaryFilesNotTrackedWithLfs(this.binaryFiles.Value, lfsTrackedFiles);
 
+        // Filter out excluded files
+        var filteredFiles = binaryFilesNotTrackedByLfs.Where(file => !this.IsFileExcluded(file, CheckType.BinaryFilesLfs)).ToList();
+
         var result = new List<IIssue>();
-        foreach (var file in binaryFilesNotTrackedByLfs)
+        foreach (var file in filteredFiles)
         {
             var ruleDescription = new BinaryFileNotTrackedByLfsRuleDescription();
 
@@ -148,21 +160,24 @@ internal class GitRepositoryIssuesProvider : BaseIssueProvider
         }
 
         var result = new List<IIssue>();
-        foreach (var file in this.allFiles.Value)
-        {
-            if (file.Length > this.IssueProviderSettings.MaxFilePathLength)
-            {
-                var ruleDescription = new FilePathTooLongRuleDescription();
 
-                result.Add(
-                    IssueBuilder
-                        .NewIssue($"The path for the file \"{file}\" is too long. Maximum allowed path length is {this.IssueProviderSettings.MaxFilePathLength}, actual path length is {file.Length}.", this)
-                        .WithMessageInHtmlFormat($"The path for the file <code>{file}</code> is too long. Maximum allowed path length is {this.IssueProviderSettings.MaxFilePathLength}, actual path length is {file.Length}.")
-                        .WithMessageInMarkdownFormat($"The path for the file `{file}` is too long. Maximum allowed path length is {this.IssueProviderSettings.MaxFilePathLength}, actual path length is {file.Length}.")
-                        .InFile(file)
-                        .OfRule(ruleDescription, issueProviderVersion)
-                        .Create());
-            }
+        // Filter out excluded files and check path length
+        var filesToCheck = this.allFiles.Value.Where(file =>
+            !this.IsFileExcluded(file, CheckType.FilePathLength) &&
+            file.Length > this.IssueProviderSettings.MaxFilePathLength);
+
+        foreach (var file in filesToCheck)
+        {
+            var ruleDescription = new FilePathTooLongRuleDescription();
+
+            result.Add(
+                IssueBuilder
+                    .NewIssue($"The path for the file \"{file}\" is too long. Maximum allowed path length is {this.IssueProviderSettings.MaxFilePathLength}, actual path length is {file.Length}.", this)
+                    .WithMessageInHtmlFormat($"The path for the file <code>{file}</code> is too long. Maximum allowed path length is {this.IssueProviderSettings.MaxFilePathLength}, actual path length is {file.Length}.")
+                    .WithMessageInMarkdownFormat($"The path for the file `{file}` is too long. Maximum allowed path length is {this.IssueProviderSettings.MaxFilePathLength}, actual path length is {file.Length}.")
+                    .InFile(file)
+                    .OfRule(ruleDescription, issueProviderVersion)
+                    .Create());
         }
 
         return result;
@@ -301,5 +316,28 @@ internal class GitRepositoryIssuesProvider : BaseIssueProvider
         this.Log.Verbose("Found {0} binary file(s) not tracked by LFS", binaryFilesNotTrackedWithLfs.Count);
 
         return binaryFilesNotTrackedWithLfs;
+    }
+
+    /// <summary>
+    /// Determines if a file should be excluded from the specified check type.
+    /// </summary>
+    /// <param name="filePath">The file path to check.</param>
+    /// <param name="checkType">The type of check being performed.</param>
+    /// <returns>True if the file should be excluded; otherwise, false.</returns>
+    private bool IsFileExcluded(string filePath, CheckType checkType)
+    {
+        // Check global exclusions first
+        if (FilePatternMatcher.IsMatch(filePath, this.IssueProviderSettings.FilesToExclude))
+        {
+            return true;
+        }
+
+        // Check specific exclusions based on check type
+        return checkType switch
+        {
+            CheckType.BinaryFilesLfs => FilePatternMatcher.IsMatch(filePath, this.IssueProviderSettings.FilesToExcludeFromBinaryFilesLfsCheck),
+            CheckType.FilePathLength => FilePatternMatcher.IsMatch(filePath, this.IssueProviderSettings.FilesToExcludeFromFilePathLengthCheck),
+            _ => false,
+        };
     }
 }

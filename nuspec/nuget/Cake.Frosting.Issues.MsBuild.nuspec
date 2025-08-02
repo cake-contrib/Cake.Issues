@@ -49,11 +49,6 @@ For addin compatible with Cake Script Runners see Cake.Issues.MsBuild.
     <file src="Cake.Frosting.Issues.MsBuild.targets" target="build" />
     <file src="Cake.Frosting.Issues.MsBuild.targets" target="buildTransitive" />
     <file src="Cake.Frosting.Issues.MsBuild.md" target="docs\README.md" />
-    <file src="..\..\src\Cake.Issues.MsBuild\bin\Release\net8.0\Cake.Issues.MsBuild.dll" target="lib\net8.0" />
-    <file src="..\..\src\Cake.Issues.MsBuild\bin\Release\net8.0\Cake.Issues.MsBuild.pdb" target="lib\net8.0" />
-    <file src="..\..\src\Cake.Issues.MsBuild\bin\Release\net8.0\Cake.Issues.MsBuild.xml" target="lib\net8.0" />
-    <file src="..\..\src\Cake.Issues.MsBuild\bin\Release\net9.0\Cake.Issues.MsBuild.dll" target="lib\net9.0" />
-    <file src="..\..\src\Cake.Issues.MsBuild\bin\Release\net9.0\Cake.Issues.MsBuild.pdb" target="lib\net9.0" />
-    <file src="..\..\src\Cake.Issues.MsBuild\bin\Release\net9.0\Cake.Issues.MsBuild.xml" target="lib\net9.0" />
+    <file src="..\..\src\Cake.Issues.MsBuild\bin\Release\**\Cake.Issues.MsBuild.*" target="lib" exclude="**\*.deps.json" />
   </files>
 </package>

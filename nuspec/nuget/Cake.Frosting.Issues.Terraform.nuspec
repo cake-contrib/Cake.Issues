@@ -46,11 +46,6 @@ For addin compatible with Cake Script Runners see Cake.Issues.Terraform.
     <file src="Cake.Frosting.Issues.Terraform.targets" target="build" />
     <file src="Cake.Frosting.Issues.Terraform.targets" target="buildTransitive" />
     <file src="Cake.Frosting.Issues.Terraform.md" target="docs\README.md" />
-    <file src="..\..\src\Cake.Issues.Terraform\bin\Release\net8.0\Cake.Issues.Terraform.dll" target="lib\net8.0" />
-    <file src="..\..\src\Cake.Issues.Terraform\bin\Release\net8.0\Cake.Issues.Terraform.pdb" target="lib\net8.0" />
-    <file src="..\..\src\Cake.Issues.Terraform\bin\Release\net8.0\Cake.Issues.Terraform.xml" target="lib\net8.0" />
-    <file src="..\..\src\Cake.Issues.Terraform\bin\Release\net9.0\Cake.Issues.Terraform.dll" target="lib\net9.0" />
-    <file src="..\..\src\Cake.Issues.Terraform\bin\Release\net9.0\Cake.Issues.Terraform.pdb" target="lib\net9.0" />
-    <file src="..\..\src\Cake.Issues.Terraform\bin\Release\net9.0\Cake.Issues.Terraform.xml" target="lib\net9.0" />
+    <file src="..\..\src\Cake.Issues.Terraform\bin\Release\**\Cake.Issues.Terraform.*" target="lib" exclude="**\*.deps.json" />
   </files>
 </package>
