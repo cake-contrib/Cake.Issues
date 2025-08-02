@@ -58,7 +58,7 @@ public class JUnitIssuesProvider(ICakeLog log, JUnitIssuesSettings issueProvider
                     // Process failures
                     foreach (var failure in testCase.Elements("failure"))
                     {
-                        var issue = this.ProcessTestFailure(failure, className, testName, suiteName, IssuePriority.Error);
+                        var issue = this.ProcessTestFailure(failure, className, testName, IssuePriority.Error);
                         if (issue != null)
                         {
                             result.Add(issue);
@@ -68,29 +68,12 @@ public class JUnitIssuesProvider(ICakeLog log, JUnitIssuesSettings issueProvider
                     // Process errors
                     foreach (var error in testCase.Elements("error"))
                     {
-                        var issue = this.ProcessTestFailure(error, className, testName, suiteName, IssuePriority.Error);
+                        var issue = this.ProcessTestFailure(error, className, testName, IssuePriority.Error);
                         if (issue != null)
                         {
                             result.Add(issue);
                         }
                     }
-
-                    //// Process system-out for additional context
-                    //var systemOut = testCase.Element("system-out")?.Value;
-                    //if (!string.IsNullOrEmpty(systemOut) && (testCase.Elements("failure").Any() || testCase.Elements("error").Any()))
-                    //{
-                    //    // Try to extract file path and line number from system-out
-                    //    var fileInfo = ExtractFileInfoFromOutput(systemOut);
-                    //    if (fileInfo.HasValue)
-                    //    {
-                    //        // Update the last added issue with file information if it doesn't have it
-                    //        var lastIssue = result.LastOrDefault();
-                    //        if (lastIssue != null && lastIssue.AffectedFileRelativePath != null)
-                    //        {
-                    //            result[^1] = UpdateIssueWithFileInfo(lastIssue, fileInfo.Value);
-                    //        }
-                    //    }
-                    //}
                 }
             }
         }
@@ -116,11 +99,10 @@ public class JUnitIssuesProvider(ICakeLog log, JUnitIssuesSettings issueProvider
 
         // Common patterns for file paths and line numbers in linter output:
         // file.txt:123:45: message
-        // file.txt(123,45): message  
+        // file.txt(123,45): message
         // file.txt line 123: message
         // /path/to/file.txt:123: message
         // file.txt:123 message
-
         var patterns = new[]
         {
             @"([^\s:]+):(\d+):(\d+)",        // file:line:column
@@ -139,7 +121,7 @@ public class JUnitIssuesProvider(ICakeLog log, JUnitIssuesSettings issueProvider
                 var filePath = match.Groups[1].Value.Trim();
 
                 // Skip if it looks like a URL or doesn't look like a file path
-                if (filePath.StartsWith("http") || filePath.StartsWith("www."))
+                if (filePath.StartsWith("http", StringComparison.Ordinal) || filePath.StartsWith("www.", StringComparison.Ordinal))
                 {
                     continue;
                 }
@@ -197,38 +179,19 @@ public class JUnitIssuesProvider(ICakeLog log, JUnitIssuesSettings issueProvider
         return null;
     }
 
-    ///// <summary>
-    ///// Updates an existing issue with file information.
-    ///// </summary>
-    ///// <param name="issue">The original issue.</param>
-    ///// <param name="fileInfo">The file information to add.</param>
-    ///// <returns>A new issue with the file information.</returns>
-    //private static IIssue UpdateIssueWithFileInfo(IIssue issue, (string FilePath, int? Line, int? Column) fileInfo)
-    //{
-    //    var (filePath, line, column) = fileInfo;
-
-    //    return IssueBuilder
-    //        .NewIssue(issue.MessageText, issue.ProviderType, issue.ProviderName)
-    //        .WithPriority(issue.Priority)
-    //        .OfRule(issue.Rule, issue.RuleUrl)
-    //        .InFile(filePath, line, line, column, column)
-    //        .Create();
-    //}
-
     /// <summary>
     /// Processes a test failure or error element and creates an issue.
     /// </summary>
     /// <param name="failureElement">The failure or error XML element.</param>
     /// <param name="className">The test class name.</param>
     /// <param name="testName">The test name.</param>
-    /// <param name="suiteName">The test suite name.</param>
     /// <param name="priority">The issue priority.</param>
     /// <returns>The created issue or null if the failure should be ignored.</returns>
-    private IIssue ProcessTestFailure(XElement failureElement, string className, string testName, string suiteName, IssuePriority priority)
+    private IIssue ProcessTestFailure(XElement failureElement, string className, string testName, IssuePriority priority)
     {
         var message = failureElement.Attribute("message")?.Value ?? string.Empty;
         var type = failureElement.Attribute("type")?.Value ?? string.Empty;
-        var content = failureElement.Value ?? string.Empty;
+        var content = failureElement.Value?.Trim() ?? string.Empty;
 
         // Combine message and content for full description
         var fullMessage = string.IsNullOrEmpty(message) ? content :

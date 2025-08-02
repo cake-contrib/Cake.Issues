@@ -41,7 +41,7 @@ public sealed class JUnitIssuesProviderTests
 
             // Then
             issues.Count.ShouldBe(2);
-            
+
             var issue1 = issues[0];
             issue1.ProviderType.ShouldBe("Cake.Issues.JUnit.JUnitIssuesProvider");
             issue1.ProviderName.ShouldBe("JUnit");
@@ -49,7 +49,7 @@ public sealed class JUnitIssuesProviderTests
             issue1.Priority.ShouldBe((int)IssuePriority.Error);
             issue1.Rule().ShouldBe("warning");
             issue1.AffectedFileRelativePath.ShouldBe("src/example.cpp");
-            issue1.Line.ShouldBe((int?)15);
+            issue1.Line.ShouldBe(15);
 
             var issue2 = issues[1];
             issue2.ProviderType.ShouldBe("Cake.Issues.JUnit.JUnitIssuesProvider");
@@ -58,7 +58,7 @@ public sealed class JUnitIssuesProviderTests
             issue2.Priority.ShouldBe((int)IssuePriority.Error);
             issue2.Rule().ShouldBe("warning");
             issue2.AffectedFileRelativePath.ShouldBe("src/example.cpp");
-            issue2.Line.ShouldBe((int?)5);
+            issue2.Line.ShouldBe(5);
         }
 
         [Fact]
@@ -80,7 +80,7 @@ public sealed class JUnitIssuesProviderTests
             issue1.Priority.ShouldBe((int)IssuePriority.Error);
             issue1.Rule().ShouldBe("ValidationError");
             issue1.AffectedFileRelativePath.ShouldBe("deployment.yaml");
-            issue1.Line.ShouldBe((int?)10);
+            issue1.Line.ShouldBe(10);
             issue1.Column.ShouldBe(15);
 
             var issue2 = issues[1];
@@ -90,7 +90,7 @@ public sealed class JUnitIssuesProviderTests
             issue2.Priority.ShouldBe((int)IssuePriority.Error);
             issue2.Rule().ShouldBe("ConfigError");
             issue2.AffectedFileRelativePath.ShouldBe("service.yaml");
-            issue2.Line.ShouldBe((int?)8);
+            issue2.Line.ShouldBe(8);
             issue2.Column.ShouldBe(5);
         }
 
@@ -113,7 +113,7 @@ public sealed class JUnitIssuesProviderTests
             issue1.Priority.ShouldBe((int)IssuePriority.Error);
             issue1.Rule().ShouldBe("error");
             issue1.AffectedFileRelativePath.ShouldBe("index.html");
-            issue1.Line.ShouldBe((int?)12);
+            issue1.Line.ShouldBe(12);
             issue1.Column.ShouldBe(5);
 
             var issue2 = issues[1];
@@ -123,7 +123,7 @@ public sealed class JUnitIssuesProviderTests
             issue2.Priority.ShouldBe((int)IssuePriority.Error);
             issue2.Rule().ShouldBe("warning");
             issue2.AffectedFileRelativePath.ShouldBe("about.html");
-            issue2.Line.ShouldBe((int?)8);
+            issue2.Line.ShouldBe(8);
         }
 
         [Fact]
