@@ -216,7 +216,7 @@ internal class JUnitIssuesProvider(ICakeLog log, JUnitIssuesSettings issueProvid
         if (fileInfo.HasValue)
         {
             var (filePath, line, column) = fileInfo.Value;
-            issueBuilder = issueBuilder.InFile(filePath, line, line, column, column);
+            issueBuilder = issueBuilder.InFile(filePath, line, column);
         }
 
         return issueBuilder.Create();

@@ -42,23 +42,29 @@ public sealed class JUnitIssuesProviderTests
             // Then
             issues.Count.ShouldBe(2);
 
-            var issue1 = issues[0];
-            issue1.ProviderType.ShouldBe("Cake.Issues.JUnit.JUnitIssuesProvider");
-            issue1.ProviderName.ShouldBe("JUnit");
-            issue1.MessageText.ShouldBe("Lines should be <= 80 characters long\nsrc/example.cpp:15:  Lines should be <= 80 characters long  [whitespace/line_length] [2]");
-            issue1.Priority.ShouldBe((int)IssuePriority.Error);
-            issue1.Rule().ShouldBe("warning");
-            issue1.AffectedFileRelativePath.ShouldBe("src/example.cpp");
-            issue1.Line.ShouldBe(15);
+            var issue = issues[0];
+            IssueChecker.Check(
+                issue,
+                IssueBuilder.NewIssue(
+                    "Lines should be <= 80 characters long\nsrc/example.cpp:15:  Lines should be <= 80 characters long  [whitespace/line_length] [2]",
+                    "Cake.Issues.JUnit.JUnitIssuesProvider",
+                    "JUnit")
+                    .InFile(@"src/example.cpp", 15)
+                    .OfRule("warning")
+                    .WithPriority(IssuePriority.Error)
+                    .Create());
 
-            var issue2 = issues[1];
-            issue2.ProviderType.ShouldBe("Cake.Issues.JUnit.JUnitIssuesProvider");
-            issue2.ProviderName.ShouldBe("JUnit");
-            issue2.MessageText.ShouldBe("Include order issue\nsrc/example.cpp:5:  #includes are not properly sorted  [build/include_order] [4]");
-            issue2.Priority.ShouldBe((int)IssuePriority.Error);
-            issue2.Rule().ShouldBe("warning");
-            issue2.AffectedFileRelativePath.ShouldBe("src/example.cpp");
-            issue2.Line.ShouldBe(5);
+            issue = issues[1];
+            IssueChecker.Check(
+                issue,
+                IssueBuilder.NewIssue(
+                    "Include order issue\nsrc/example.cpp:5:  #includes are not properly sorted  [build/include_order] [4]",
+                    "Cake.Issues.JUnit.JUnitIssuesProvider",
+                    "JUnit")
+                    .InFile(@"src/example.cpp", 5)
+                    .OfRule("warning")
+                    .WithPriority(IssuePriority.Error)
+                    .Create());
         }
 
         [Fact]
