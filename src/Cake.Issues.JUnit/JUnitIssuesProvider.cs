@@ -53,55 +53,6 @@ internal class JUnitIssuesProvider(ICakeLog log, JUnitIssuesSettings issueProvid
     }
 
     /// <summary>
-    /// Recursively processes a testsuite element and its nested testsuites and testcases.
-    /// </summary>
-    /// <param name="testSuite">The testsuite element to process.</param>
-    /// <param name="result">The list to add found issues to.</param>
-    private void ProcessTestSuite(XElement testSuite, List<IIssue> result)
-    {
-        if (testSuite == null)
-        {
-            return;
-        }
-
-        var suiteName = testSuite.Attribute("name")?.Value ?? string.Empty;
-
-        // Process direct testcase children
-        foreach (var testCase in testSuite.Elements("testcase"))
-        {
-            var className = testCase.Attribute("classname")?.Value ?? string.Empty;
-            var testName = testCase.Attribute("name")?.Value ?? string.Empty;
-            var time = testCase.Attribute("time")?.Value;
-
-            // Process failures
-            foreach (var failure in testCase.Elements("failure"))
-            {
-                var issue = this.ProcessTestFailure(failure, className, testName, IssuePriority.Error);
-                if (issue != null)
-                {
-                    result.Add(issue);
-                }
-            }
-
-            // Process errors
-            foreach (var error in testCase.Elements("error"))
-            {
-                var issue = this.ProcessTestFailure(error, className, testName, IssuePriority.Error);
-                if (issue != null)
-                {
-                    result.Add(issue);
-                }
-            }
-        }
-
-        // Recursively process nested testsuite elements
-        foreach (var nestedTestSuite in testSuite.Elements("testsuite"))
-        {
-            this.ProcessTestSuite(nestedTestSuite, result);
-        }
-    }
-
-    /// <summary>
     /// Tries to extract file path and line information from output text.
     /// </summary>
     /// <param name="output">The output text to parse.</param>
@@ -193,6 +144,53 @@ internal class JUnitIssuesProvider(ICakeLog log, JUnitIssuesSettings issueProvid
         }
 
         return null;
+    }
+
+    /// <summary>
+    /// Recursively processes a testsuite element and its nested testsuites and testcases.
+    /// </summary>
+    /// <param name="testSuite">The testsuite element to process.</param>
+    /// <param name="result">The list to add found issues to.</param>
+    private void ProcessTestSuite(XElement testSuite, List<IIssue> result)
+    {
+        if (testSuite == null)
+        {
+            return;
+        }
+
+        // Process direct testcase children
+        foreach (var testCase in testSuite.Elements("testcase"))
+        {
+            var className = testCase.Attribute("classname")?.Value ?? string.Empty;
+            var testName = testCase.Attribute("name")?.Value ?? string.Empty;
+            var time = testCase.Attribute("time")?.Value;
+
+            // Process failures
+            foreach (var failure in testCase.Elements("failure"))
+            {
+                var issue = this.ProcessTestFailure(failure, className, testName, IssuePriority.Error);
+                if (issue != null)
+                {
+                    result.Add(issue);
+                }
+            }
+
+            // Process errors
+            foreach (var error in testCase.Elements("error"))
+            {
+                var issue = this.ProcessTestFailure(error, className, testName, IssuePriority.Error);
+                if (issue != null)
+                {
+                    result.Add(issue);
+                }
+            }
+        }
+
+        // Recursively process nested testsuite elements
+        foreach (var nestedTestSuite in testSuite.Elements("testsuite"))
+        {
+            this.ProcessTestSuite(nestedTestSuite, result);
+        }
     }
 
     /// <summary>
