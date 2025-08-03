@@ -210,8 +210,42 @@ internal class JUnitIssuesProvider(ICakeLog log, JUnitIssuesSettings issueProvid
             issueBuilder = issueBuilder.OfRule(testName);
         }
 
-        // Try to extract file information from the message or content
+        // Try to extract file information from the message or content first
         var fileInfo = ExtractFileInfoFromOutput(fullMessage) ?? ExtractFileInfoFromClassName(className);
+
+        // For cpplint-style output, if we don't have file info and the test name looks like a file name,
+        // use the test name as the file name and try to extract line info from the message
+        if (!fileInfo.HasValue && !string.IsNullOrEmpty(testName) && testName != "errors")
+        {
+            // Check if the message contains line info in cpplint format like "5: FailMsg [category/subcategory] [3]"
+            // This is a strong indicator that it's a cpplint-style failure where the test name is the file name
+            var lineMatch = Regex.Match(
+                fullMessage,
+                @"^(\d+):\s*.*\[.*\].*\[.*\]",
+                RegexOptions.Multiline);
+            if (lineMatch.Success && int.TryParse(lineMatch.Groups[1].Value, out var lineNum))
+            {
+                fileInfo = (testName, lineNum, null);
+            }
+
+            // Also check for simple line number pattern without the category/subcategory format
+            else
+            {
+                var simpleLineMatch = Regex.Match(
+                    fullMessage,
+                    @"^(\d+):",
+                    RegexOptions.Multiline);
+                if (simpleLineMatch.Success &&
+                    int.TryParse(simpleLineMatch.Groups[1].Value, out var simpleLineNum))
+                {
+                    // Only treat as file if the test name doesn't contain hyphens (which are common in rule names)
+                    if (!testName.Contains('-') && !testName.Contains('_'))
+                    {
+                        fileInfo = (testName, simpleLineNum, null);
+                    }
+                }
+            }
+        }
 
         if (fileInfo.HasValue)
         {

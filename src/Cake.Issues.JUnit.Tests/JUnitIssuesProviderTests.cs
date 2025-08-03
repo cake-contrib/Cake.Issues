@@ -79,25 +79,27 @@ public sealed class JUnitIssuesProviderTests
             // Then
             issues.Count.ShouldBe(2);
 
-            var issue1 = issues[0];
-            issue1.ProviderType.ShouldBe("Cake.Issues.JUnit.JUnitIssuesProvider");
-            issue1.ProviderName.ShouldBe("JUnit");
-            issue1.MessageText.ShouldBe("Invalid resource definition\ndeployment.yaml:10:15: error validating data: ValidationError(Deployment.spec.template.spec.containers[0].image): invalid value: \"\", expected non-empty string");
-            issue1.Priority.ShouldBe((int)IssuePriority.Error);
-            issue1.Rule().ShouldBe("ValidationError");
-            issue1.AffectedFileRelativePath.ShouldBe("deployment.yaml");
-            issue1.Line.ShouldBe(10);
-            issue1.Column.ShouldBe(15);
+            IssueChecker.Check(
+                issues[0],
+                IssueBuilder.NewIssue(
+                    "Invalid resource definition\ndeployment.yaml:10:15: error validating data: ValidationError(Deployment.spec.template.spec.containers[0].image): invalid value: \"\", expected non-empty string",
+                    "Cake.Issues.JUnit.JUnitIssuesProvider",
+                    "JUnit")
+                    .InFile(@"deployment.yaml", 10, 15)
+                    .OfRule("ValidationError")
+                    .WithPriority(IssuePriority.Error)
+                    .Create());
 
-            var issue2 = issues[1];
-            issue2.ProviderType.ShouldBe("Cake.Issues.JUnit.JUnitIssuesProvider");
-            issue2.ProviderName.ShouldBe("JUnit");
-            issue2.MessageText.ShouldBe("Port configuration invalid\nservice.yaml:8:5: Port 8080 is already in use by another service");
-            issue2.Priority.ShouldBe((int)IssuePriority.Error);
-            issue2.Rule().ShouldBe("ConfigError");
-            issue2.AffectedFileRelativePath.ShouldBe("service.yaml");
-            issue2.Line.ShouldBe(8);
-            issue2.Column.ShouldBe(5);
+            IssueChecker.Check(
+                issues[1],
+                IssueBuilder.NewIssue(
+                    "Port configuration invalid\nservice.yaml:8:5: Port 8080 is already in use by another service",
+                    "Cake.Issues.JUnit.JUnitIssuesProvider",
+                    "JUnit")
+                    .InFile(@"service.yaml", 8, 5)
+                    .OfRule("ConfigError")
+                    .WithPriority(IssuePriority.Error)
+                    .Create());
         }
 
         [Fact]
@@ -112,24 +114,27 @@ public sealed class JUnitIssuesProviderTests
             // Then
             issues.Count.ShouldBe(2);
 
-            var issue1 = issues[0];
-            issue1.ProviderType.ShouldBe("Cake.Issues.JUnit.JUnitIssuesProvider");
-            issue1.ProviderName.ShouldBe("JUnit");
-            issue1.MessageText.ShouldBe("Tagname must be lowercase\nindex.html(12,5): Tagname 'DIV' must be lowercase");
-            issue1.Priority.ShouldBe((int)IssuePriority.Error);
-            issue1.Rule().ShouldBe("error");
-            issue1.AffectedFileRelativePath.ShouldBe("index.html");
-            issue1.Line.ShouldBe(12);
-            issue1.Column.ShouldBe(5);
+            IssueChecker.Check(
+                issues[0],
+                IssueBuilder.NewIssue(
+                    "Tagname must be lowercase\nindex.html(12,5): Tagname 'DIV' must be lowercase",
+                    "Cake.Issues.JUnit.JUnitIssuesProvider",
+                    "JUnit")
+                    .InFile(@"index.html", 12, 5)
+                    .OfRule("error")
+                    .WithPriority(IssuePriority.Error)
+                    .Create());
 
-            var issue2 = issues[1];
-            issue2.ProviderType.ShouldBe("Cake.Issues.JUnit.JUnitIssuesProvider");
-            issue2.ProviderName.ShouldBe("JUnit");
-            issue2.MessageText.ShouldBe("Attribute value must be in double quotes\nabout.html line 8: The value of attribute 'class' must be in double quotes.");
-            issue2.Priority.ShouldBe((int)IssuePriority.Error);
-            issue2.Rule().ShouldBe("warning");
-            issue2.AffectedFileRelativePath.ShouldBe("about.html");
-            issue2.Line.ShouldBe(8);
+            IssueChecker.Check(
+                issues[1],
+                IssueBuilder.NewIssue(
+                    "Attribute value must be in double quotes\nabout.html line 8: The value of attribute 'class' must be in double quotes.",
+                    "Cake.Issues.JUnit.JUnitIssuesProvider",
+                    "JUnit")
+                    .InFile(@"about.html", 8)
+                    .OfRule("warning")
+                    .WithPriority(IssuePriority.Error)
+                    .Create());
         }
 
         [Fact]
@@ -144,12 +149,15 @@ public sealed class JUnitIssuesProviderTests
             // Then
             issues.Count.ShouldBe(1);
 
-            var issue = issues[0];
-            issue.ProviderType.ShouldBe("Cake.Issues.JUnit.JUnitIssuesProvider");
-            issue.ProviderName.ShouldBe("JUnit");
-            issue.MessageText.ShouldBe("Type must be one of the allowed values\ncommit-2: type must be one of [build, chore, ci, docs, feat, fix, perf, refactor, revert, style, test]");
-            issue.Priority.ShouldBe((int)IssuePriority.Error);
-            issue.Rule().ShouldBe("error");
+            IssueChecker.Check(
+                issues[0],
+                IssueBuilder.NewIssue(
+                    "Type must be one of the allowed values\ncommit-2: type must be one of [build, chore, ci, docs, feat, fix, perf, refactor, revert, style, test]",
+                    "Cake.Issues.JUnit.JUnitIssuesProvider",
+                    "JUnit")
+                    .OfRule("error")
+                    .WithPriority(IssuePriority.Error)
+                    .Create());
         }
 
         [Fact]
@@ -184,6 +192,168 @@ public sealed class JUnitIssuesProviderTests
             // When / Then
             Should.Throw<Exception>(() => fixture.ReadIssues().ToList())
                 .Message.ShouldContain("Failed to parse JUnit XML");
+        }
+
+        [Fact]
+        public void Should_Handle_CppLint_Passed_Test()
+        {
+            // Given
+            var fixture = new JUnitIssuesProviderFixture("cpplint-passed.xml");
+
+            // When
+            var issues = fixture.ReadIssues().ToList();
+
+            // Then
+            issues.Count.ShouldBe(0);
+        }
+
+        [Fact]
+        public void Should_Handle_CppLint_Single_Error()
+        {
+            // Given
+            var fixture = new JUnitIssuesProviderFixture("cpplint-single-error.xml");
+
+            // When
+            var issues = fixture.ReadIssues().ToList();
+
+            // Then
+            issues.Count.ShouldBe(1);
+
+            IssueChecker.Check(
+                issues[0],
+                IssueBuilder.NewIssue(
+                    "ErrMsg1",
+                    "Cake.Issues.JUnit.JUnitIssuesProvider",
+                    "JUnit")
+                    .OfRule("errors")
+                    .WithPriority(IssuePriority.Error)
+                    .Create());
+        }
+
+        [Fact]
+        public void Should_Handle_CppLint_Multiple_Errors()
+        {
+            // Given
+            var fixture = new JUnitIssuesProviderFixture("cpplint-multiple-errors.xml");
+
+            // When
+            var issues = fixture.ReadIssues().ToList();
+
+            // Then
+            issues.Count.ShouldBe(1);
+
+            IssueChecker.Check(
+                issues[0],
+                IssueBuilder.NewIssue(
+                    "ErrMsg1\nErrMsg2",
+                    "Cake.Issues.JUnit.JUnitIssuesProvider",
+                    "JUnit")
+                    .OfRule("errors")
+                    .WithPriority(IssuePriority.Error)
+                    .Create());
+        }
+
+        [Fact]
+        public void Should_Handle_CppLint_Mixed_Error_And_Failure()
+        {
+            // Given
+            var fixture = new JUnitIssuesProviderFixture("cpplint-mixed-error-failure.xml");
+
+            // When
+            var issues = fixture.ReadIssues().ToList();
+
+            // Then
+            issues.Count.ShouldBe(2);
+
+            IssueChecker.Check(
+                issues[0],
+                IssueBuilder.NewIssue(
+                    "ErrMsg",
+                    "Cake.Issues.JUnit.JUnitIssuesProvider",
+                    "JUnit")
+                    .OfRule("errors")
+                    .WithPriority(IssuePriority.Error)
+                    .Create());
+
+            IssueChecker.Check(
+                issues[1],
+                IssueBuilder.NewIssue(
+                    "5: FailMsg [category/subcategory] [3]",
+                    "Cake.Issues.JUnit.JUnitIssuesProvider",
+                    "JUnit")
+                    .InFile("File", 5)
+                    .OfRule("File")
+                    .WithPriority(IssuePriority.Error)
+                    .Create());
+        }
+
+        [Fact]
+        public void Should_Handle_CppLint_Multiple_Failures_Grouped_By_File()
+        {
+            // Given
+            var fixture = new JUnitIssuesProviderFixture("cpplint-multiple-failures.xml");
+
+            // When
+            var issues = fixture.ReadIssues().ToList();
+
+            // Then
+            issues.Count.ShouldBe(2);
+
+            IssueChecker.Check(
+                issues[0],
+                IssueBuilder.NewIssue(
+                    "5: FailMsg1 [category/subcategory] [3]\n19: FailMsg3 [category/subcategory] [3]",
+                    "Cake.Issues.JUnit.JUnitIssuesProvider",
+                    "JUnit")
+                    .InFile("File1", 5)
+                    .OfRule("File1")
+                    .WithPriority(IssuePriority.Error)
+                    .Create());
+
+            IssueChecker.Check(
+                issues[1],
+                IssueBuilder.NewIssue(
+                    "99: FailMsg2 [category/subcategory] [3]",
+                    "Cake.Issues.JUnit.JUnitIssuesProvider",
+                    "JUnit")
+                    .InFile("File2", 99)
+                    .OfRule("File2")
+                    .WithPriority(IssuePriority.Error)
+                    .Create());
+        }
+
+        [Fact]
+        public void Should_Handle_CppLint_XML_Escaping()
+        {
+            // Given
+            var fixture = new JUnitIssuesProviderFixture("cpplint-xml-escaping.xml");
+
+            // When
+            var issues = fixture.ReadIssues().ToList();
+
+            // Then
+            issues.Count.ShouldBe(2);
+
+            IssueChecker.Check(
+                issues[0],
+                IssueBuilder.NewIssue(
+                    "&</error>",
+                    "Cake.Issues.JUnit.JUnitIssuesProvider",
+                    "JUnit")
+                    .OfRule("errors")
+                    .WithPriority(IssuePriority.Error)
+                    .Create());
+
+            IssueChecker.Check(
+                issues[1],
+                IssueBuilder.NewIssue(
+                    "5: &</failure> [category/subcategory] [3]",
+                    "Cake.Issues.JUnit.JUnitIssuesProvider",
+                    "JUnit")
+                    .InFile("File1", 5)
+                    .OfRule("File1")
+                    .WithPriority(IssuePriority.Error)
+                    .Create());
         }
     }
 }

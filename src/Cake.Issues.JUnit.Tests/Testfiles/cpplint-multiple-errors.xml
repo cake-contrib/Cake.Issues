@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite errors="2" failures="0" name="cpplint" tests="2">
+  <testcase name="errors">
+    <error>ErrMsg1
+ErrMsg2</error>
+  </testcase>
+</testsuite>
