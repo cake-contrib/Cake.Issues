@@ -37,6 +37,10 @@ This pages lists tools known to be working with Cake Issues (1)
 
 {{ read_csv('assets/tables/supported-tools-copypaste.csv',keep_default_na=False) }}
 
+## C++
+
+{{ read_csv('assets/tables/supported-tools-cpp.csv',keep_default_na=False) }}
+
 ## CSS, SCSS, Sass
 
 {{ read_csv('assets/tables/supported-tools-css.csv',keep_default_na=False) }}
