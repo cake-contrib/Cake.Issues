@@ -1,6 +1,7 @@
 ---
 title: JUnit issue provider
 description: Issue provider which allows you to read issues from JUnit XML files.
+status: new
 ---
 
 Support for reading issues reported by tools that output JUnit XML format
