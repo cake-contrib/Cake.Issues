@@ -9,7 +9,7 @@ Support for analyzing Git repositories is implemented in the
 <div class="grid cards" markdown>
 
 - :material-creation-outline: [Features](features.md)
-- :material-test-tube: [Examples](examples.md)
+- :material-test-tube: [Examples](examples/index.md)
 - :fontawesome-solid-scroll: [Rules](rules/index.md)
 - :material-api: [API](https://cakebuild.net/extensions/cake-issues-gitrepository){target="_blank"}
 

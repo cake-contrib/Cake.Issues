@@ -30,7 +30,7 @@ For addin compatible with Cake Script Runners see Cake.Issues.MsBuild.
     <copyright>Copyright © Cake Issues contributors</copyright>
     <tags>cake cake-addin cake-issues cake-issueprovider code-analysis linting msbuild</tags>
     <readme>docs\README.md</readme>
-    <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/5.6.1</releaseNotes>
+    <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/5.7.0</releaseNotes>
     <dependencies>
       <group targetFramework="net8.0">
         <dependency id="Cake.Core" version="5.0" exclude="Build,Analyzers" />
@@ -49,11 +49,6 @@ For addin compatible with Cake Script Runners see Cake.Issues.MsBuild.
     <file src="Cake.Frosting.Issues.MsBuild.targets" target="build" />
     <file src="Cake.Frosting.Issues.MsBuild.targets" target="buildTransitive" />
     <file src="Cake.Frosting.Issues.MsBuild.md" target="docs\README.md" />
-    <file src="..\..\src\Cake.Issues.MsBuild\bin\Release\net8.0\Cake.Issues.MsBuild.dll" target="lib\net8.0" />
-    <file src="..\..\src\Cake.Issues.MsBuild\bin\Release\net8.0\Cake.Issues.MsBuild.pdb" target="lib\net8.0" />
-    <file src="..\..\src\Cake.Issues.MsBuild\bin\Release\net8.0\Cake.Issues.MsBuild.xml" target="lib\net8.0" />
-    <file src="..\..\src\Cake.Issues.MsBuild\bin\Release\net9.0\Cake.Issues.MsBuild.dll" target="lib\net9.0" />
-    <file src="..\..\src\Cake.Issues.MsBuild\bin\Release\net9.0\Cake.Issues.MsBuild.pdb" target="lib\net9.0" />
-    <file src="..\..\src\Cake.Issues.MsBuild\bin\Release\net9.0\Cake.Issues.MsBuild.xml" target="lib\net9.0" />
+    <file src="..\..\src\Cake.Issues.MsBuild\bin\Release\**\Cake.Issues.MsBuild.*" target="lib" exclude="**\*.deps.json" />
   </files>
 </package>

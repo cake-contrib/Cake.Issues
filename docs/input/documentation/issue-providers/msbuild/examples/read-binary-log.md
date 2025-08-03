@@ -16,6 +16,20 @@ To read issues from MsBuild log files the MsBuild issue provider needs to be imp
     !!! note
         In addition to the MsBuild issue provider the `Cake.Issues` core addin needs to be added.
 
+=== "Cake SDK"
+
+    ```csharp title="Build.csproj"
+    <Project Sdk="Cake.Sdk">
+      <PropertyGroup>
+        <TargetFramework>{{ example_tfm }}</TargetFramework>
+        <RunWorkingDirectory>$(MSBuildProjectDirectory)</RunWorkingDirectory>
+      </PropertyGroup>
+      <ItemGroup>
+        <PackageReference Include="Cake.Frosting.Issues.MsBuild" Version="{{ cake_issues_version }}" />
+      </ItemGroup>
+    </Project>
+    ```
+
 === "Cake Frosting"
 
     ```csharp title="Build.csproj"
@@ -48,6 +62,41 @@ and a task to read issues from the binary log file and write the number of warni
         var msBuildSettings =
             new DotNetMSBuildSettings().WithLogger(
                 "BinaryLogger," + Context.Tools.Resolve("Cake.Issues.MsBuild*/**/StructuredLogger.dll"),
+                "",
+                logPath.FullPath);
+        DotNetBuild(
+            repoRootPath.CombineWithFilePath("MySolution.sln").FullPath,
+            new DotNetBuildSettings{MSBuildSettings = msBuildSettings});
+    });
+    
+    Task("Read-Issues")
+        .IsDependentOn("Build-Solution")
+        .Does(() =>
+        {
+            // Read issues.
+            var issues =
+                ReadIssues(
+                    MsBuildIssuesFromFilePath(
+                        logPath,
+                        MsBuildBinaryLogFileFormat),
+                    repoRootPath);
+
+            Information("{0} issues are found.", issues.Count());
+    });
+    ```
+
+=== "Cake SDK"
+
+    ```csharp title="build.cs"
+    var logPath = @"c:\build\msbuild.binlog";
+    var repoRootPath = MakeAbsolute(Directory("./"));
+
+    Task("Build-Solution").Does(() =>
+    {
+        // Build solution.
+        var msBuildSettings =
+            new DotNetMSBuildSettings().WithLogger(
+                "BinaryLogger," + Context.Environment.ApplicationRoot.CombineWithFilePath("StructuredLogger.dll"),
                 "",
                 logPath.FullPath);
         DotNetBuild(

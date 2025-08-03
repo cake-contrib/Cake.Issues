@@ -1,5 +1,5 @@
 {
-    "dotnet.defaultSolution": "src\\Cake.Issues.sln",
+    "dotnet.defaultSolution": "src\\Cake.Issues.slnx",
     "yaml.schemas": {
         "https://squidfunk.github.io/mkdocs-material/schema.json": "mkdocs.yml"
     },

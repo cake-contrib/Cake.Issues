@@ -19,6 +19,21 @@ To read issues from DocFx log files the DocFx issue provider needs to be importe
     !!! note
         In addition to the DocFx issue provider the `Cake.Issues` core addin needs to be added.
 
+=== "Cake SDK"
+
+    ```csharp title="Build.csproj"
+    <Project Sdk="Cake.Sdk">
+      <PropertyGroup>
+        <TargetFramework>{{ example_tfm }}</TargetFramework>
+        <RunWorkingDirectory>$(MSBuildProjectDirectory)</RunWorkingDirectory>
+      </PropertyGroup>
+      <ItemGroup>
+        <PackageReference Include="Cake.DocFx" Version="{{ cake_docfx_version }}" />
+        <PackageReference Include="Cake.Frosting.Issues.DocFx" Version="{{ cake_issues_version }}" />
+      </ItemGroup>
+    </Project>
+    ```
+
 === "Cake Frosting"
 
     ```csharp title="Build.csproj"
@@ -43,6 +58,36 @@ project and write a log file and a task to read issues from the log file and wri
 === "Cake .NET Tool"
 
     ```csharp title="build.cake"
+    var logPath = @"c:\build\docfx.log";
+    var repoRootFolder = MakeAbsolute(Directory("./"));
+    var docRootPath = @"docs";
+
+    Task("Build-Documentation").Does(() =>
+    {
+        // Run DocFx.
+        DocFxBuild(new DocFxBuildSettings()
+        {
+            LogPath = logPath
+        });
+    });
+
+    Task("Read-Issues")
+        .IsDependentOn("Build-Documentation")
+        .Does(() =>
+        {
+            // Read issues.
+            var issues =
+                ReadIssues(
+                    DocFxIssuesFromFilePath(logPath, docRootPath),
+                    repoRootPath);    
+
+            Information("{0} issues are found.", issues.Count());
+        });
+    ```
+
+=== "Cake SDK"
+
+    ```csharp title="build.cs"
     var logPath = @"c:\build\docfx.log";
     var repoRootFolder = MakeAbsolute(Directory("./"));
     var docRootPath = @"docs";

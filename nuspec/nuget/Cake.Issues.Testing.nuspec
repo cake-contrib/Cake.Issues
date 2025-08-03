@@ -18,7 +18,7 @@ Common helpers for testing add-ins based on Cake.Issues
     <copyright>Copyright © Cake Issues contributors</copyright>
     <tags>Cake Script Cake-Issues Issues Testing</tags>
     <readme>docs\README.md</readme>
-    <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/5.6.1</releaseNotes>
+    <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/5.7.0</releaseNotes>
     <dependencies>
       <group targetFramework="net8.0">
       </group>
@@ -27,8 +27,8 @@ Common helpers for testing add-ins based on Cake.Issues
     </dependencies>
   </metadata>
   <files>
-    <file src="..\..\..\..\nuspec\nuget\icon.png" target="" />
-    <file src="..\..\..\..\nuspec\nuget\Cake.Issues.Testing.md" target="docs\README.md" />
-    <file src="Release\**\Cake.Issues.Testing.*" target="lib" exclude="**\*.deps.json" />
+    <file src="icon.png" target="" />
+    <file src="Cake.Issues.Testing.md" target="docs\README.md" />
+    <file src="..\..\src\Cake.Issues.Testing\bin\Release\**\Cake.Issues.Testing.*" target="lib" exclude="**\*.deps.json" />
   </files>
 </package>

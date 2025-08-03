@@ -27,7 +27,7 @@ For addin compatible with Cake Script Runners see Cake.Issues.Reporting.Sarif.
     <copyright>Copyright © Cake Issues contributors</copyright>
     <tags>cake cake-addin cake-issues cake-reportformat issues reporting sarif</tags>
     <readme>docs\README.md</readme>
-    <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/5.6.1</releaseNotes>
+    <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/5.7.0</releaseNotes>
     <dependencies>
       <group targetFramework="net8.0">
         <dependency id="Cake.Frosting.Issues.Reporting" version="[5.0.0-beta0001,6.0)" exclude="Build,Analyzers" />
@@ -44,11 +44,6 @@ For addin compatible with Cake Script Runners see Cake.Issues.Reporting.Sarif.
     <file src="Cake.Frosting.Issues.Reporting.Sarif.targets" target="build" />
     <file src="Cake.Frosting.Issues.Reporting.Sarif.targets" target="buildTransitive" />
     <file src="Cake.Frosting.Issues.Reporting.Sarif.md" target="docs\README.md" />
-    <file src="..\..\src\Cake.Issues.Reporting.Sarif\bin\Release\net8.0/Cake.Issues.Reporting.Sarif.dll" target="lib\net8.0" />
-    <file src="..\..\src\Cake.Issues.Reporting.Sarif\bin\Release\net8.0/Cake.Issues.Reporting.Sarif.pdb" target="lib\net8.0" />
-    <file src="..\..\src\Cake.Issues.Reporting.Sarif\bin\Release\net8.0/Cake.Issues.Reporting.Sarif.xml" target="lib\net8.0" />
-    <file src="..\..\src\Cake.Issues.Reporting.Sarif\bin\Release\net9.0/Cake.Issues.Reporting.Sarif.dll" target="lib\net9.0" />
-    <file src="..\..\src\Cake.Issues.Reporting.Sarif\bin\Release\net9.0/Cake.Issues.Reporting.Sarif.pdb" target="lib\net9.0" />
-    <file src="..\..\src\Cake.Issues.Reporting.Sarif\bin\Release\net9.0/Cake.Issues.Reporting.Sarif.xml" target="lib\net9.0" />
+    <file src="..\..\src\Cake.Issues.Reporting.Sarif\bin\Release\**\Cake.Issues.Reporting.Sarif.*" target="lib" exclude="**\*.deps.json" />
   </files>
 </package>

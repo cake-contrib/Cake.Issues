@@ -18,6 +18,21 @@ To read issues from markdownlint-cli log files the markdownlint issue provider n
     !!! note
         In addition to the markdownlint issue provider the `Cake.Issues` core addin needs to be added.
 
+=== "Cake SDK"
+
+    ```csharp title="Build.csproj"
+    <Project Sdk="Cake.Sdk">
+      <PropertyGroup>
+        <TargetFramework>{{ example_tfm }}</TargetFramework>
+        <RunWorkingDirectory>$(MSBuildProjectDirectory)</RunWorkingDirectory>
+      </PropertyGroup>
+      <ItemGroup>
+        <PackageReference Include="Cake.Markdownlint" Version="{{ cake_markdownlint_version }}" />
+        <PackageReference Include="Cake.Frosting.Issues.Markdownlint" Version="{{ cake_issues_version }}" />
+      </ItemGroup>
+    </Project>
+    ```
+
 === "Cake Frosting"
 
     ```csharp title="Build.csproj"
@@ -42,6 +57,40 @@ and a task to read issues from the log file and write the number of warnings to 
 === "Cake .NET Tool"
 
     ```csharp title="build.cake"
+    var logPath = @"c:\build\markdownlint.log";
+    var repoRootFolder = MakeAbsolute(Directory("./"));
+
+    Task("Lint-Documentation").Does(() =>
+    {
+        // Run markdownlint-cli.
+        var settings =
+            MarkdownlintNodeJsRunnerSettings.ForDirectory(
+                context.RepoRootPath.Combine("docs"));
+        settings.OutputFile = logPath;
+        settings.ThrowOnIssue = false;
+        RunMarkdownlintNodeJs(settings);
+    });
+
+    Task("Read-Issues")
+        .IsDependentOn("Lint-Documentation")
+        .Does(() =>
+        {
+            // Read issues.
+            var issues =
+                ReadIssues(
+                    MarkdownlintIssuesFromFilePath(
+                        logPath,
+                        MarkdownlintCliLogFileFormat),
+                    repoRootPath);
+
+            Information("{0} issues are found.", issues.Count());
+    });
+
+    ```
+
+=== "Cake SDK"
+
+    ```csharp title="build.cs"
     var logPath = @"c:\build\markdownlint.log";
     var repoRootFolder = MakeAbsolute(Directory("./"));
 

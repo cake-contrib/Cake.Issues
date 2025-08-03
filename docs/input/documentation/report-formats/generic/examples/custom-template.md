@@ -22,6 +22,21 @@ For this example the MsBuild issue provider is additionally used for reading iss
     !!! note
         In addition to the Generic report format the `Cake.Issues` and `Cake.Issues.Reporting` core addins need to be added.
 
+=== "Cake SDK"
+
+    ```csharp title="Build.csproj"
+    <Project Sdk="Cake.Sdk">
+      <PropertyGroup>
+        <TargetFramework>{{ example_tfm }}</TargetFramework>
+        <RunWorkingDirectory>$(MSBuildProjectDirectory)</RunWorkingDirectory>
+      </PropertyGroup>
+      <ItemGroup>
+        <PackageReference Include="Cake.Frosting.Issues.MsBuild" Version="{{ cake_issues_version }}" />
+        <PackageReference Include="Cake.Frosting.Issues.Reporting.Generic" Version="{{ cake_issues_version }}" />
+      </ItemGroup>
+    </Project>
+    ```
+
 === "Cake Frosting"
 
     ```csharp title="Build.csproj"
@@ -75,6 +90,41 @@ The following example will create a HTML report for issues logged as warnings by
             @"c:\report.html");
     });
     ```
+
+=== "Cake SDK"
+
+    ```csharp title="build.cs"
+    Task("Create-IssueReport").Does(() =>
+    {
+        var repoRootFolder = new DirectoryPath(@"c:\repo");
+    
+        // Build MySolution.sln solution in the repository root folder
+        // and write a binary log.
+        FilePath msBuildLogFile = @"c:\build\msbuild.log";
+        var msBuildSettings =
+            new MSBuildSettings().WithLogger(
+                "BinaryLogger," + Context.Environment.ApplicationRoot.CombineWithFilePath("StructuredLogger.dll"),
+                "",
+                msBuildLogFile)
+        DotNetBuild(
+            repoRootPath.CombineWithFilePath("MySolution.sln"),
+            new DotNetBuildSettings{MSBuildSettings = msBuildSettings});
+    
+        // Create HTML report using Diagnostic template.
+        CreateIssueReport(
+            new List<IIssueProvider>
+            {
+                MsBuildIssuesFromFilePath(
+                    msBuildLogFile,
+                    MsBuildBinaryLogFileFormat)
+            },
+            GenericIssueReportFormatFromFilePath(
+                @"c:\ReportTemplate.cshtml"),
+            repoRootFolder,
+            @"c:\report.html");
+    });
+    ```
+
 === "Cake Frosting"
 
     ```csharp title="Program.cs"

@@ -27,7 +27,7 @@ For addin compatible with Cake Script Runners see Cake.Issues.Reporting.Generic.
     <copyright>Copyright © Cake Issues contributors</copyright>
     <tags>cake cake-addin cake-issues cake-reportformat issues reporting html markdown razor</tags>
     <readme>docs\README.md</readme>
-    <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/5.6.1</releaseNotes>
+    <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/5.7.0</releaseNotes>
     <dependencies>
       <group targetFramework="net8.0">
         <dependency id="Cake.Frosting.Issues.Reporting" version="[5.0.0-beta0001,6.0)" exclude="Build,Analyzers" />
@@ -48,11 +48,6 @@ For addin compatible with Cake Script Runners see Cake.Issues.Reporting.Generic.
     <file src="Cake.Frosting.Issues.Reporting.Generic.targets" target="build" />
     <file src="Cake.Frosting.Issues.Reporting.Generic.targets" target="buildTransitive" />
     <file src="Cake.Frosting.Issues.Reporting.Generic.md" target="docs\README.md" />
-    <file src="..\..\src\Cake.Issues.Reporting.Generic\bin\Release\net8.0\Cake.Issues.Reporting.Generic.dll" target="lib\net8.0" />
-    <file src="..\..\src\Cake.Issues.Reporting.Generic\bin\Release\net8.0\Cake.Issues.Reporting.Generic.pdb" target="lib\net8.0" />
-    <file src="..\..\src\Cake.Issues.Reporting.Generic\bin\Release\net8.0\Cake.Issues.Reporting.Generic.xml" target="lib\net8.0" />
-    <file src="..\..\src\Cake.Issues.Reporting.Generic\bin\Release\net9.0\Cake.Issues.Reporting.Generic.dll" target="lib\net9.0" />
-    <file src="..\..\src\Cake.Issues.Reporting.Generic\bin\Release\net9.0\Cake.Issues.Reporting.Generic.pdb" target="lib\net9.0" />
-    <file src="..\..\src\Cake.Issues.Reporting.Generic\bin\Release\net9.0\Cake.Issues.Reporting.Generic.xml" target="lib\net9.0" />
+    <file src="..\..\src\Cake.Issues.Reporting.Generic\bin\Release\**\Cake.Issues.Reporting.Generic.*" target="lib" exclude="**\*.deps.json" />
   </files>
 </package>

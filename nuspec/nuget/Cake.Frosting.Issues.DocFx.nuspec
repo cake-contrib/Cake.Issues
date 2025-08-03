@@ -29,7 +29,7 @@ For addin compatible with Cake Script Runners see Cake.Issues.DocFx.
     <copyright>Copyright © Cake Issues contributors</copyright>
     <tags>cake cake-addin cake-issues cake-issueprovider linting docfx</tags>
     <readme>docs\README.md</readme>
-    <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/5.6.1</releaseNotes>
+    <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/5.7.0</releaseNotes>
     <dependencies>
       <group targetFramework="net8.0">
         <dependency id="Cake.Core" version="5.0" exclude="Build,Analyzers" />
@@ -46,11 +46,6 @@ For addin compatible with Cake Script Runners see Cake.Issues.DocFx.
     <file src="Cake.Frosting.Issues.DocFx.targets" target="build" />
     <file src="Cake.Frosting.Issues.DocFx.targets" target="buildTransitive" />
     <file src="Cake.Frosting.Issues.DocFx.md" target="docs\README.md" />
-    <file src="..\..\src\Cake.Issues.DocFx\bin\Release\net8.0\Cake.Issues.DocFx.dll" target="lib\net8.0" />
-    <file src="..\..\src\Cake.Issues.DocFx\bin\Release\net8.0\Cake.Issues.DocFx.pdb" target="lib\net8.0" />
-    <file src="..\..\src\Cake.Issues.DocFx\bin\Release\net8.0\Cake.Issues.DocFx.xml" target="lib\net8.0" />
-    <file src="..\..\src\Cake.Issues.DocFx\bin\Release\net9.0\Cake.Issues.DocFx.dll" target="lib\net9.0" />
-    <file src="..\..\src\Cake.Issues.DocFx\bin\Release\net9.0\Cake.Issues.DocFx.pdb" target="lib\net9.0" />
-    <file src="..\..\src\Cake.Issues.DocFx\bin\Release\net9.0\Cake.Issues.DocFx.xml" target="lib\net9.0" />
+    <file src="..\..\src\Cake.Issues.DocFx\bin\Release\**\Cake.Issues.DocFx.*" target="lib" exclude="**\*.deps.json" />
   </files>
 </package>

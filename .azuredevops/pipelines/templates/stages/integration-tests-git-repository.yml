@@ -24,11 +24,10 @@ stages:
       pool:
         vmImage: $(imageName)
       steps:
+      - checkout: self
+        lfs: true
       - template: ../steps/install-net8.yml 
       - template: ../steps/provide-nuget-packages.yml 
       - powershell: ./build.ps1 --verbosity=diagnostic
         workingDirectory: ./tests/Cake.Issues.GitRepository/script-runner
         displayName: 'Run integration tests'
-      - publish: $(Build.SourcesDirectory)/BuildArtifacts/TestResults/Integration
-        artifact: Integration Tests Cake.Issues.GitRepository Cake Scripting $(System.JobName)
-        displayName: 'Publish generated reports as build artifact'

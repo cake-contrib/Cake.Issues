@@ -9,6 +9,9 @@ links:
 
 `Cake.Frosting.Issues.PullRequests.AzureDevOps` version 5.6.0 has been deleted by Microsoft.
 
+!!! info "Update July 16th"
+
+    The package has now been restored and is available again on nuget.org.
 <!-- more -->
 
 We've received the following email from Microsoft:

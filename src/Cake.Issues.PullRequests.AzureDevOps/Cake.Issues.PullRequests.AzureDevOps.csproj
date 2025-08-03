@@ -4,8 +4,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <InternalsVisibleTo Include="Cake.Issues.PullRequests.AzureDevOps.Tests" />
-    <InternalsVisibleTo Include="DynamicProxyGenAssembly2" />
+    <!-- Remove the default CLSCompliant attribute -->
+    <AssemblyAttribute Remove="System.CLSCompliantAttribute" />
+    <!-- Not all types are CLS compliant in this addin -->
+    <AssemblyAttribute Include="System.CLSCompliantAttribute">
+      <_Parameter1>false</_Parameter1>
+    </AssemblyAttribute>
   </ItemGroup>
 
   <ItemGroup>
