@@ -1,7 +1,5 @@
 ﻿namespace Cake.Issues.JUnit.Tests;
 
-using System.Text;
-
 internal class JUnitIssuesProviderFixture
     : BaseConfigurableIssueProviderFixture<JUnitIssuesProvider, JUnitIssuesSettings>
 {
@@ -18,14 +16,4 @@ internal class JUnitIssuesProviderFixture
     }
 
     protected override string FileResourceNamespace => "Cake.Issues.JUnit.Tests.Testfiles.";
-
-    /// <summary>
-    /// Sets the content of the log file.
-    /// </summary>
-    /// <param name="content">Content to set.</param>
-    public void SetFileContent(string content)
-    {
-        content.NotNullOrWhiteSpace();
-        this.LogFileContent = Encoding.UTF8.GetBytes(content);
-    }
 }

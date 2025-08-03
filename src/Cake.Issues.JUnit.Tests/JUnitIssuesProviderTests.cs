@@ -309,10 +309,10 @@ public sealed class JUnitIssuesProviderTests
             var issues = fixture.ReadIssues().ToList();
 
             // Then
-            issues.Count.ShouldBe(1);
+            var issue = issues.ShouldHaveSingleItem();
 
             IssueChecker.Check(
-                issues[0],
+                issue,
                 IssueBuilder.NewIssue(
                     "type must be one of [build, chore, ci, docs, feat, fix, perf, refactor, revert, style, test] (type-enum)\n\nfoo: bar",
                     "Cake.Issues.JUnit.JUnitIssuesProvider",
@@ -326,30 +326,20 @@ public sealed class JUnitIssuesProviderTests
         public void Should_Handle_Empty_TestSuite()
         {
             // Given
-            var junitContent = @"<?xml version=""1.0"" encoding=""UTF-8""?>
-<testsuite name=""empty"" tests=""0"" failures=""0"" errors=""0"" time=""0.000"">
-</testsuite>";
             var fixture = new JUnitIssuesProviderFixture("empty.xml");
-            fixture.SetFileContent(junitContent);
 
             // When
             var issues = fixture.ReadIssues().ToList();
 
             // Then
-            issues.Count.ShouldBe(0);
+            issues.ShouldBeEmpty();
         }
 
         [Fact]
         public void Should_Handle_Invalid_XML()
         {
             // Given
-            var junitContent = @"<?xml version=""1.0"" encoding=""UTF-8""?>
-<testsuite name=""invalid"" tests=""1"" failures=""1"" errors=""0"">
-  <testcase classname=""test"" name=""test"">
-    <failure message=""test failure"">
-  </testcase>";
             var fixture = new JUnitIssuesProviderFixture("invalid.xml");
-            fixture.SetFileContent(junitContent);
 
             // When / Then
             Should.Throw<Exception>(() => fixture.ReadIssues().ToList())
