@@ -68,6 +68,168 @@ public sealed class JUnitIssuesProviderTests
         }
 
         [Fact]
+        public void Should_Handle_CppLint_Passed_Test()
+        {
+            // Given
+            var fixture = new JUnitIssuesProviderFixture("cpplint-passed.xml");
+
+            // When
+            var issues = fixture.ReadIssues().ToList();
+
+            // Then
+            issues.ShouldBeEmpty();
+        }
+
+        [Fact]
+        public void Should_Handle_CppLint_Single_Error()
+        {
+            // Given
+            var fixture = new JUnitIssuesProviderFixture("cpplint-single-error.xml");
+
+            // When
+            var issues = fixture.ReadIssues().ToList();
+
+            // Then
+            var issue = issues.ShouldHaveSingleItem();
+
+            IssueChecker.Check(
+                issue,
+                IssueBuilder.NewIssue(
+                    "ErrMsg1",
+                    "Cake.Issues.JUnit.JUnitIssuesProvider",
+                    "JUnit")
+                    .OfRule("errors")
+                    .WithPriority(IssuePriority.Error)
+                    .Create());
+        }
+
+        [Fact]
+        public void Should_Handle_CppLint_Multiple_Errors()
+        {
+            // Given
+            var fixture = new JUnitIssuesProviderFixture("cpplint-multiple-errors.xml");
+
+            // When
+            var issues = fixture.ReadIssues().ToList();
+
+            // Then
+            var issue = issues.ShouldHaveSingleItem();
+
+            IssueChecker.Check(
+                issue,
+                IssueBuilder.NewIssue(
+                    "ErrMsg1\nErrMsg2",
+                    "Cake.Issues.JUnit.JUnitIssuesProvider",
+                    "JUnit")
+                    .OfRule("errors")
+                    .WithPriority(IssuePriority.Error)
+                    .Create());
+        }
+
+        [Fact]
+        public void Should_Handle_CppLint_Mixed_Error_And_Failure()
+        {
+            // Given
+            var fixture = new JUnitIssuesProviderFixture("cpplint-mixed-error-failure.xml");
+
+            // When
+            var issues = fixture.ReadIssues().ToList();
+
+            // Then
+            issues.Count.ShouldBe(2);
+
+            IssueChecker.Check(
+                issues[0],
+                IssueBuilder.NewIssue(
+                    "ErrMsg",
+                    "Cake.Issues.JUnit.JUnitIssuesProvider",
+                    "JUnit")
+                    .OfRule("errors")
+                    .WithPriority(IssuePriority.Error)
+                    .Create());
+
+            IssueChecker.Check(
+                issues[1],
+                IssueBuilder.NewIssue(
+                    "5: FailMsg [category/subcategory] [3]",
+                    "Cake.Issues.JUnit.JUnitIssuesProvider",
+                    "JUnit")
+                    .InFile("File", 5)
+                    .OfRule("File")
+                    .WithPriority(IssuePriority.Error)
+                    .Create());
+        }
+
+        [Fact]
+        public void Should_Handle_CppLint_Multiple_Failures_Grouped_By_File()
+        {
+            // Given
+            var fixture = new JUnitIssuesProviderFixture("cpplint-multiple-failures.xml");
+
+            // When
+            var issues = fixture.ReadIssues().ToList();
+
+            // Then
+            issues.Count.ShouldBe(2);
+
+            IssueChecker.Check(
+                issues[0],
+                IssueBuilder.NewIssue(
+                    "5: FailMsg1 [category/subcategory] [3]\n19: FailMsg3 [category/subcategory] [3]",
+                    "Cake.Issues.JUnit.JUnitIssuesProvider",
+                    "JUnit")
+                    .InFile("File1", 5)
+                    .OfRule("File1")
+                    .WithPriority(IssuePriority.Error)
+                    .Create());
+
+            IssueChecker.Check(
+                issues[1],
+                IssueBuilder.NewIssue(
+                    "99: FailMsg2 [category/subcategory] [3]",
+                    "Cake.Issues.JUnit.JUnitIssuesProvider",
+                    "JUnit")
+                    .InFile("File2", 99)
+                    .OfRule("File2")
+                    .WithPriority(IssuePriority.Error)
+                    .Create());
+        }
+
+        [Fact]
+        public void Should_Handle_CppLint_XML_Escaping()
+        {
+            // Given
+            var fixture = new JUnitIssuesProviderFixture("cpplint-xml-escaping.xml");
+
+            // When
+            var issues = fixture.ReadIssues().ToList();
+
+            // Then
+            issues.Count.ShouldBe(2);
+
+            IssueChecker.Check(
+                issues[0],
+                IssueBuilder.NewIssue(
+                    "&</error>",
+                    "Cake.Issues.JUnit.JUnitIssuesProvider",
+                    "JUnit")
+                    .OfRule("errors")
+                    .WithPriority(IssuePriority.Error)
+                    .Create());
+
+            IssueChecker.Check(
+                issues[1],
+                IssueBuilder.NewIssue(
+                    "5: &</failure> [category/subcategory] [3]",
+                    "Cake.Issues.JUnit.JUnitIssuesProvider",
+                    "JUnit")
+                    .InFile("File1", 5)
+                    .OfRule("File1")
+                    .WithPriority(IssuePriority.Error)
+                    .Create());
+        }
+
+        [Fact]
         public void Should_Read_Issues_Correct_For_Kubeconform()
         {
             // Given
@@ -192,168 +354,6 @@ public sealed class JUnitIssuesProviderTests
             // When / Then
             Should.Throw<Exception>(() => fixture.ReadIssues().ToList())
                 .Message.ShouldContain("Failed to parse JUnit XML");
-        }
-
-        [Fact]
-        public void Should_Handle_CppLint_Passed_Test()
-        {
-            // Given
-            var fixture = new JUnitIssuesProviderFixture("cpplint-passed.xml");
-
-            // When
-            var issues = fixture.ReadIssues().ToList();
-
-            // Then
-            issues.Count.ShouldBe(0);
-        }
-
-        [Fact]
-        public void Should_Handle_CppLint_Single_Error()
-        {
-            // Given
-            var fixture = new JUnitIssuesProviderFixture("cpplint-single-error.xml");
-
-            // When
-            var issues = fixture.ReadIssues().ToList();
-
-            // Then
-            issues.Count.ShouldBe(1);
-
-            IssueChecker.Check(
-                issues[0],
-                IssueBuilder.NewIssue(
-                    "ErrMsg1",
-                    "Cake.Issues.JUnit.JUnitIssuesProvider",
-                    "JUnit")
-                    .OfRule("errors")
-                    .WithPriority(IssuePriority.Error)
-                    .Create());
-        }
-
-        [Fact]
-        public void Should_Handle_CppLint_Multiple_Errors()
-        {
-            // Given
-            var fixture = new JUnitIssuesProviderFixture("cpplint-multiple-errors.xml");
-
-            // When
-            var issues = fixture.ReadIssues().ToList();
-
-            // Then
-            issues.Count.ShouldBe(1);
-
-            IssueChecker.Check(
-                issues[0],
-                IssueBuilder.NewIssue(
-                    "ErrMsg1\nErrMsg2",
-                    "Cake.Issues.JUnit.JUnitIssuesProvider",
-                    "JUnit")
-                    .OfRule("errors")
-                    .WithPriority(IssuePriority.Error)
-                    .Create());
-        }
-
-        [Fact]
-        public void Should_Handle_CppLint_Mixed_Error_And_Failure()
-        {
-            // Given
-            var fixture = new JUnitIssuesProviderFixture("cpplint-mixed-error-failure.xml");
-
-            // When
-            var issues = fixture.ReadIssues().ToList();
-
-            // Then
-            issues.Count.ShouldBe(2);
-
-            IssueChecker.Check(
-                issues[0],
-                IssueBuilder.NewIssue(
-                    "ErrMsg",
-                    "Cake.Issues.JUnit.JUnitIssuesProvider",
-                    "JUnit")
-                    .OfRule("errors")
-                    .WithPriority(IssuePriority.Error)
-                    .Create());
-
-            IssueChecker.Check(
-                issues[1],
-                IssueBuilder.NewIssue(
-                    "5: FailMsg [category/subcategory] [3]",
-                    "Cake.Issues.JUnit.JUnitIssuesProvider",
-                    "JUnit")
-                    .InFile("File", 5)
-                    .OfRule("File")
-                    .WithPriority(IssuePriority.Error)
-                    .Create());
-        }
-
-        [Fact]
-        public void Should_Handle_CppLint_Multiple_Failures_Grouped_By_File()
-        {
-            // Given
-            var fixture = new JUnitIssuesProviderFixture("cpplint-multiple-failures.xml");
-
-            // When
-            var issues = fixture.ReadIssues().ToList();
-
-            // Then
-            issues.Count.ShouldBe(2);
-
-            IssueChecker.Check(
-                issues[0],
-                IssueBuilder.NewIssue(
-                    "5: FailMsg1 [category/subcategory] [3]\n19: FailMsg3 [category/subcategory] [3]",
-                    "Cake.Issues.JUnit.JUnitIssuesProvider",
-                    "JUnit")
-                    .InFile("File1", 5)
-                    .OfRule("File1")
-                    .WithPriority(IssuePriority.Error)
-                    .Create());
-
-            IssueChecker.Check(
-                issues[1],
-                IssueBuilder.NewIssue(
-                    "99: FailMsg2 [category/subcategory] [3]",
-                    "Cake.Issues.JUnit.JUnitIssuesProvider",
-                    "JUnit")
-                    .InFile("File2", 99)
-                    .OfRule("File2")
-                    .WithPriority(IssuePriority.Error)
-                    .Create());
-        }
-
-        [Fact]
-        public void Should_Handle_CppLint_XML_Escaping()
-        {
-            // Given
-            var fixture = new JUnitIssuesProviderFixture("cpplint-xml-escaping.xml");
-
-            // When
-            var issues = fixture.ReadIssues().ToList();
-
-            // Then
-            issues.Count.ShouldBe(2);
-
-            IssueChecker.Check(
-                issues[0],
-                IssueBuilder.NewIssue(
-                    "&</error>",
-                    "Cake.Issues.JUnit.JUnitIssuesProvider",
-                    "JUnit")
-                    .OfRule("errors")
-                    .WithPriority(IssuePriority.Error)
-                    .Create());
-
-            IssueChecker.Check(
-                issues[1],
-                IssueBuilder.NewIssue(
-                    "5: &</failure> [category/subcategory] [3]",
-                    "Cake.Issues.JUnit.JUnitIssuesProvider",
-                    "JUnit")
-                    .InFile("File1", 5)
-                    .OfRule("File1")
-                    .WithPriority(IssuePriority.Error)
-                    .Create());
         }
     }
 }
