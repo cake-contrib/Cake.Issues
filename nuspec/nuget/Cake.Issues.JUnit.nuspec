@@ -29,7 +29,7 @@ For addin compatible with Cake Frosting see Cake.Frosting.Issues.JUnit.
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <repository type="git" url="https://github.com/cake-contrib/Cake.Issues.git"/>
     <copyright>Copyright © Cake Issues contributors</copyright>
-    <tags>cake cake-addin cake-issues cake-issueprovider linting junit xml cpplint commitlint kubeconform htmlhint</tags>
+    <tags>cake cake-addin cake-issues cake-issueprovider linting junit xml</tags>
     <readme>docs\README.md</readme>
     <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/5.6.1</releaseNotes>
     <dependencies>

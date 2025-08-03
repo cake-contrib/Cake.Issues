@@ -1,10 +1,9 @@
 ﻿namespace Cake.Issues.JUnit;
 
-using System.Text;
 using Cake.Core.IO;
 
 /// <summary>
-/// Settings for <see cref="JUnitIssuesProvider"/>.
+/// Settings for <see cref="JUnitIssuesAliases"/>.
 /// </summary>
 public class JUnitIssuesSettings : IssueProviderSettings
 {
@@ -26,41 +25,5 @@ public class JUnitIssuesSettings : IssueProviderSettings
     public JUnitIssuesSettings(byte[] logFileContent)
         : base(logFileContent)
     {
-    }
-
-    /// <summary>
-    /// Returns a new instance of the <see cref="JUnitIssuesSettings"/> class from a log file on disk.
-    /// </summary>
-    /// <param name="logFilePath">Path to the JUnit log file.</param>
-    /// <returns>Instance of the <see cref="JUnitIssuesSettings"/> class.</returns>
-    public static JUnitIssuesSettings FromFilePath(FilePath logFilePath)
-    {
-        logFilePath.NotNull();
-
-        return new JUnitIssuesSettings(logFilePath);
-    }
-
-    /// <summary>
-    /// Returns a new instance of the <see cref="JUnitIssuesSettings"/> class from log file content.
-    /// </summary>
-    /// <param name="logFileContent">Content of the JUnit log file.</param>
-    /// <returns>Instance of the <see cref="JUnitIssuesSettings"/> class.</returns>
-    public static JUnitIssuesSettings FromContent(string logFileContent)
-    {
-        logFileContent.NotNullOrWhiteSpace();
-
-        return new JUnitIssuesSettings(Encoding.UTF8.GetBytes(logFileContent));
-    }
-
-    /// <summary>
-    /// Returns a new instance of the <see cref="JUnitIssuesSettings"/> class from log file content.
-    /// </summary>
-    /// <param name="logFileContent">Content of the JUnit log file.</param>
-    /// <returns>Instance of the <see cref="JUnitIssuesSettings"/> class.</returns>
-    public static JUnitIssuesSettings FromContent(byte[] logFileContent)
-    {
-        logFileContent.NotNull();
-
-        return new JUnitIssuesSettings(logFileContent);
     }
 }

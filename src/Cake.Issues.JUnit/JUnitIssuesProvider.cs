@@ -12,15 +12,9 @@ using Cake.Core.Diagnostics;
 /// </summary>
 /// <param name="log">The Cake log context.</param>
 /// <param name="issueProviderSettings">Settings for the issue provider.</param>
-public class JUnitIssuesProvider(ICakeLog log, JUnitIssuesSettings issueProviderSettings)
+internal class JUnitIssuesProvider(ICakeLog log, JUnitIssuesSettings issueProviderSettings)
     : BaseConfigurableIssueProvider<JUnitIssuesSettings>(log, issueProviderSettings)
 {
-    /// <summary>
-    /// Gets the name of the JUnit issue provider.
-    /// This name can be used to identify issues based on the <see cref="IIssue.ProviderType"/> property.
-    /// </summary>
-    public static string ProviderTypeName => typeof(JUnitIssuesProvider).FullName;
-
     /// <inheritdoc />
     public override string ProviderName => "JUnit";
 
@@ -204,7 +198,7 @@ public class JUnitIssuesProvider(ICakeLog log, JUnitIssuesSettings issueProvider
         }
 
         var issueBuilder = IssueBuilder
-            .NewIssue(fullMessage, ProviderTypeName, this.ProviderName)
+            .NewIssue(fullMessage, typeof(JUnitIssuesProvider).FullName, this.ProviderName)
             .WithPriority(priority);
 
         if (!string.IsNullOrEmpty(type))

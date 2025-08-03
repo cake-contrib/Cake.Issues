@@ -5,7 +5,7 @@ using Cake.Core.Annotations;
 using Cake.Core.IO;
 
 /// <summary>
-/// Contains functionality related to <see cref="JUnitIssuesProvider"/>.
+/// Contains functionality for reading issues from JUnit XML files.
 /// </summary>
 [CakeAliasCategory(IssuesAliasConstants.MainCakeAliasCategory)]
 public static class JUnitIssuesAliases
@@ -23,7 +23,7 @@ public static class JUnitIssuesAliases
     {
         context.NotNull();
 
-        return JUnitIssuesProvider.ProviderTypeName;
+        return typeof(JUnitIssuesProvider).FullName;
     }
 
     /// <summary>
@@ -33,7 +33,7 @@ public static class JUnitIssuesAliases
     /// <param name="logFilePath">Path to the JUnit log file.</param>
     /// <returns>Instance of a provider for issues reported in JUnit XML format.</returns>
     /// <example>
-    /// <para>Report issues reported by cpplint:</para>
+    /// <para>Read issues from a JUnit XML file:</para>
     /// <code>
     /// <![CDATA[
     ///     var issues =
@@ -52,7 +52,7 @@ public static class JUnitIssuesAliases
         context.NotNull();
         logFilePath.NotNull();
 
-        return context.JUnitIssues(JUnitIssuesSettings.FromFilePath(logFilePath));
+        return context.JUnitIssues(new JUnitIssuesSettings(logFilePath));
     }
 
     /// <summary>
@@ -62,7 +62,7 @@ public static class JUnitIssuesAliases
     /// <param name="logFileContent">Content of the JUnit log file.</param>
     /// <returns>Instance of a provider for issues reported in JUnit XML format.</returns>
     /// <example>
-    /// <para>Report issues reported by kubeconform:</para>
+    /// <para>Read issues the content of JUnit XML file:</para>
     /// <code>
     /// <![CDATA[
     ///     var issues =
@@ -81,36 +81,7 @@ public static class JUnitIssuesAliases
         context.NotNull();
         logFileContent.NotNullOrWhiteSpace();
 
-        return context.JUnitIssues(JUnitIssuesSettings.FromContent(logFileContent));
-    }
-
-    /// <summary>
-    /// Gets an instance of a provider for issues reported in JUnit XML format using log file content.
-    /// </summary>
-    /// <param name="context">The context.</param>
-    /// <param name="logFileContent">Content of the JUnit log file.</param>
-    /// <returns>Instance of a provider for issues reported in JUnit XML format.</returns>
-    /// <example>
-    /// <para>Report issues reported by htmlhint:</para>
-    /// <code>
-    /// <![CDATA[
-    ///     var issues =
-    ///         ReadIssues(
-    ///             JUnitIssuesFromContent(junitLogContent),
-    ///             @"c:\repo");
-    /// ]]>
-    /// </code>
-    /// </example>
-    [CakeMethodAlias]
-    [CakeAliasCategory(IssuesAliasConstants.IssueProviderCakeAliasCategory)]
-    public static IIssueProvider JUnitIssuesFromContent(
-        this ICakeContext context,
-        byte[] logFileContent)
-    {
-        context.NotNull();
-        logFileContent.NotNull();
-
-        return context.JUnitIssues(JUnitIssuesSettings.FromContent(logFileContent));
+        return context.JUnitIssues(new JUnitIssuesSettings(logFileContent.ToByteArray()));
     }
 
     /// <summary>
@@ -120,7 +91,7 @@ public static class JUnitIssuesAliases
     /// <param name="settings">Settings for reading the JUnit log.</param>
     /// <returns>Instance of a provider for issues reported in JUnit XML format.</returns>
     /// <example>
-    /// <para>Report issues reported by commitlint-format-junit:</para>
+    /// <para>Read issues from a JUnit XML file:</para>
     /// <code>
     /// <![CDATA[
     ///     var settings =
