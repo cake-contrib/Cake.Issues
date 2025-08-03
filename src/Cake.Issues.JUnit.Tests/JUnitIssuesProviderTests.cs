@@ -314,7 +314,7 @@ public sealed class JUnitIssuesProviderTests
             IssueChecker.Check(
                 issues[0],
                 IssueBuilder.NewIssue(
-                    "Type must be one of the allowed values\ncommit-2: type must be one of [build, chore, ci, docs, feat, fix, perf, refactor, revert, style, test]",
+                    "type must be one of [build, chore, ci, docs, feat, fix, perf, refactor, revert, style, test] (type-enum)\n\nfoo: bar",
                     "Cake.Issues.JUnit.JUnitIssuesProvider",
                     "JUnit")
                     .OfRule("error")
