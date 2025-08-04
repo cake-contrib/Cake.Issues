@@ -70,13 +70,14 @@ internal class JUnitIssuesProvider(ICakeLog log, JUnitIssuesSettings issueProvid
         // file.txt line 123: message
         // /path/to/file.txt:123: message
         // file.txt:123 message
+        // Line 3, Column 10 (markdownlint-cli2 format)
         var patterns = new[]
         {
             @"([^\s:]+):(\d+):(\d+)",        // file:line:column
             @"([^\s:]+):(\d+)",              // file:line
             @"([^\s\(\)]+)\((\d+),(\d+)\)",  // file(line,column)
             @"([^\s\(\)]+)\((\d+)\)",        // file(line)
-            @"([^\s]+)\s+line\s+(\d+)",      // file line 123
+            @"^([^\s]+)\s+line\s+(\d+)",     // file line 123 (must start at beginning of line)
             @"File:\s*([^\s]+)",             // File: path
         };
 
@@ -107,6 +108,53 @@ internal class JUnitIssuesProvider(ICakeLog log, JUnitIssuesSettings issueProvid
                 }
 
                 return (filePath, line, column);
+            }
+        }
+
+        return null;
+    }
+
+    /// <summary>
+    /// Tries to extract line and column information from markdownlint-cli2 format text.
+    /// </summary>
+    /// <param name="output">The output text to parse.</param>
+    /// <returns>Line and column information if found, null otherwise.</returns>
+    private static (int? Line, int? Column)? ExtractLineColumnFromMarkdownlintCli2(string output)
+    {
+        if (string.IsNullOrEmpty(output))
+        {
+            return null;
+        }
+
+        // Patterns for markdownlint-cli2 format:
+        // Line 3, Column 10, Expected: 0 or 2; Actual: 1
+        // Line 5, Expected: 1; Actual: 2
+        // Line 6, Context: "# Description"
+        var patterns = new[]
+        {
+            @"Line\s+(\d+),\s+Column\s+(\d+)",  // Line 3, Column 10
+            @"Line\s+(\d+)",                    // Line 5
+        };
+
+        foreach (var pattern in patterns)
+        {
+            var match = Regex.Match(output, pattern, RegexOptions.IgnoreCase);
+            if (match.Success)
+            {
+                int? line = null;
+                int? column = null;
+
+                if (int.TryParse(match.Groups[1].Value, out var lineNum))
+                {
+                    line = lineNum;
+                }
+
+                if (match.Groups.Count > 2 && int.TryParse(match.Groups[2].Value, out var colNum))
+                {
+                    column = colNum;
+                }
+
+                return (line, column);
             }
         }
 
@@ -230,8 +278,27 @@ internal class JUnitIssuesProvider(ICakeLog log, JUnitIssuesSettings issueProvid
             issueBuilder = issueBuilder.OfRule(testName);
         }
 
-        // Try to extract file information from the message or content first
-        var fileInfo = ExtractFileInfoFromOutput(fullMessage) ?? ExtractFileInfoFromClassName(className);
+        // Initialize fileInfo variable
+        (string FilePath, int? Line, int? Column)? fileInfo = null;
+
+        // For markdownlint-cli2 style output, check if the content contains the specific format
+        // and use the class name as file path in that case
+        if (!string.IsNullOrEmpty(className) && !string.IsNullOrEmpty(content))
+        {
+            var lineColumnInfo = ExtractLineColumnFromMarkdownlintCli2(content);
+            if (lineColumnInfo.HasValue)
+            {
+                // This looks like markdownlint-cli2 format, use class name as file path
+                var (line, column) = lineColumnInfo.Value;
+                fileInfo = (className, line, column);
+            }
+        }
+
+        // If we don't have file info yet, try to extract from the message or content
+        if (!fileInfo.HasValue)
+        {
+            fileInfo = ExtractFileInfoFromOutput(fullMessage) ?? ExtractFileInfoFromClassName(className);
+        }
 
         // For cpplint-style output, if we don't have file info and the test name looks like a file name,
         // use the test name as the file name and try to extract line info from the message

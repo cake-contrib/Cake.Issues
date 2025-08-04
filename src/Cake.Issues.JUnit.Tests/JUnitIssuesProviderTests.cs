@@ -323,6 +323,74 @@ public sealed class JUnitIssuesProviderTests
         }
 
         [Fact]
+        public void Should_Read_Issues_Correct_For_MarkdownlintCli2()
+        {
+            // Given
+            var fixture = new JUnitIssuesProviderFixture("markdownlint-cli2.xml");
+
+            // When
+            var issues = fixture.ReadIssues().ToList();
+
+            // Then
+            issues.Count.ShouldBe(5);
+
+            IssueChecker.Check(
+                issues[0],
+                IssueBuilder.NewIssue(
+                    "Trailing spaces\nLine 3, Column 10, Expected: 0 or 2; Actual: 1",
+                    "Cake.Issues.JUnit.JUnitIssuesProvider",
+                    "JUnit")
+                    .InFile(@"viewme.md", 3, 10)
+                    .OfRule("MD009/no-trailing-spaces")
+                    .WithPriority(IssuePriority.Error)
+                    .Create());
+
+            IssueChecker.Check(
+                issues[1],
+                IssueBuilder.NewIssue(
+                    "Multiple consecutive blank lines\nLine 5, Expected: 1; Actual: 2",
+                    "Cake.Issues.JUnit.JUnitIssuesProvider",
+                    "JUnit")
+                    .InFile(@"viewme.md", 5)
+                    .OfRule("MD012/no-multiple-blanks")
+                    .WithPriority(IssuePriority.Error)
+                    .Create());
+
+            IssueChecker.Check(
+                issues[2],
+                IssueBuilder.NewIssue(
+                    "Multiple top-level headings in the same document\nLine 6, Context: \"# Description\"",
+                    "Cake.Issues.JUnit.JUnitIssuesProvider",
+                    "JUnit")
+                    .InFile(@"viewme.md", 6)
+                    .OfRule("MD025/single-title/single-h1")
+                    .WithPriority(IssuePriority.Error)
+                    .Create());
+
+            IssueChecker.Check(
+                issues[3],
+                IssueBuilder.NewIssue(
+                    "Multiple spaces after hash on atx style heading\nLine 12, Column 1, Context: \"##  Summary\"",
+                    "Cake.Issues.JUnit.JUnitIssuesProvider",
+                    "JUnit")
+                    .InFile(@"viewme.md", 12, 1)
+                    .OfRule("MD019/no-multiple-space-atx")
+                    .WithPriority(IssuePriority.Error)
+                    .Create());
+
+            IssueChecker.Check(
+                issues[4],
+                IssueBuilder.NewIssue(
+                    "Files should end with a single newline character\nLine 14, Column 14",
+                    "Cake.Issues.JUnit.JUnitIssuesProvider",
+                    "JUnit")
+                    .InFile(@"viewme.md", 14, 14)
+                    .OfRule("MD047/single-trailing-newline")
+                    .WithPriority(IssuePriority.Error)
+                    .Create());
+        }
+
+        [Fact]
         public void Should_Handle_Empty_TestSuite()
         {
             // Given
