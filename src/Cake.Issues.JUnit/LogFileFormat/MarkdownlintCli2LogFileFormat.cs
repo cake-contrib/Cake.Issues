@@ -31,12 +31,7 @@ internal class MarkdownlintCli2LogFileFormat(ICakeLog log)
 
         try
         {
-            var doc = XDocument.Parse(logContent);
-
-            // Handle both single testsuite and testsuites root elements
-            var testSuites = doc.Root?.Name.LocalName == "testsuites"
-                ? doc.Root.Elements("testsuite")
-                : new[] { doc.Root }.Where(x => x?.Name.LocalName == "testsuite");
+            var testSuites = ParseJUnitXml(logContent);
 
             foreach (var testSuite in testSuites)
             {
@@ -45,7 +40,7 @@ internal class MarkdownlintCli2LogFileFormat(ICakeLog log)
                     continue;
                 }
 
-                this.ProcessTestSuite(testSuite, result, repositorySettings);
+                ProcessTestSuite(testSuite, result, repositorySettings, this.ProcessMarkdownlintCli2Failure, this.ProcessMarkdownlintCli2Failure);
             }
         }
         catch (Exception ex)
@@ -56,40 +51,7 @@ internal class MarkdownlintCli2LogFileFormat(ICakeLog log)
         return result;
     }
 
-    /// <summary>
-    /// Normalizes XML content by removing XML formatting indentation while preserving intentional structure.
-    /// </summary>
-    /// <param name="content">The XML content to normalize.</param>
-    /// <returns>The normalized content.</returns>
-    private static string NormalizeXmlContent(string content)
-    {
-        if (string.IsNullOrEmpty(content))
-        {
-            return string.Empty;
-        }
 
-        // Split by lines, trim each line to remove XML indentation, then rejoin
-        var lines = content.Split(['\r', '\n'], StringSplitOptions.None);
-        var normalizedLines = new List<string>();
-
-        foreach (var line in lines)
-        {
-            // Trim leading and trailing whitespace (including tabs) from each line
-            var trimmedLine = line.Trim();
-            normalizedLines.Add(trimmedLine);
-        }
-
-        // Join lines back together and clean up multiple consecutive empty lines
-        var result = string.Join("\n", normalizedLines);
-
-        // Remove leading and trailing empty lines
-        result = result.Trim('\n');
-
-        // Normalize multiple consecutive newlines to double newlines maximum
-        result = Regex.Replace(result, @"\n{3,}", "\n\n");
-
-        return result;
-    }
 
     /// <summary>
     /// Tries to extract line and column information from markdownlint-cli2 format text.
@@ -138,52 +100,7 @@ internal class MarkdownlintCli2LogFileFormat(ICakeLog log)
         return null;
     }
 
-    /// <summary>
-    /// Recursively processes a testsuite element and its nested testsuites and testcases.
-    /// </summary>
-    /// <param name="testSuite">The testsuite element to process.</param>
-    /// <param name="result">The list to add found issues to.</param>
-    /// <param name="repositorySettings">Repository settings.</param>
-    private void ProcessTestSuite(XElement testSuite, List<IIssue> result, IRepositorySettings repositorySettings)
-    {
-        if (testSuite == null)
-        {
-            return;
-        }
 
-        // Process direct testcase children
-        foreach (var testCase in testSuite.Elements("testcase"))
-        {
-            var className = testCase.Attribute("classname")?.Value ?? string.Empty;
-            var testName = testCase.Attribute("name")?.Value ?? string.Empty;
-
-            // Process failures
-            foreach (var failure in testCase.Elements("failure"))
-            {
-                var issue = this.ProcessMarkdownlintCli2Failure(failure, className, testName, IssuePriority.Error, repositorySettings);
-                if (issue != null)
-                {
-                    result.Add(issue);
-                }
-            }
-
-            // Process errors
-            foreach (var error in testCase.Elements("error"))
-            {
-                var issue = this.ProcessMarkdownlintCli2Failure(error, className, testName, IssuePriority.Error, repositorySettings);
-                if (issue != null)
-                {
-                    result.Add(issue);
-                }
-            }
-        }
-
-        // Recursively process nested testsuite elements
-        foreach (var nestedTestSuite in testSuite.Elements("testsuite"))
-        {
-            this.ProcessTestSuite(nestedTestSuite, result, repositorySettings);
-        }
-    }
 
     /// <summary>
     /// Processes a markdownlint-cli2 test failure or error element and creates an issue.
