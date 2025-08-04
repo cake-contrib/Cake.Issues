@@ -1,6 +1,7 @@
 ﻿namespace Cake.Issues.JUnit.Tests;
 
 using Cake.Core.IO;
+using Cake.Issues.JUnit.LogFileFormat;
 
 public sealed class JUnitIssuesSettingsTests
 {
@@ -11,7 +12,7 @@ public sealed class JUnitIssuesSettingsTests
         {
             // Given / When
             var result = Record.Exception(() =>
-                new JUnitIssuesSettings((FilePath)null));
+                new JUnitIssuesSettings((FilePath)null, new GenericJUnitLogFileFormat(new FakeLog())));
 
             // Then
             result.IsArgumentNullException("logFilePath");
@@ -22,7 +23,7 @@ public sealed class JUnitIssuesSettingsTests
         {
             // Given / When
             var result = Record.Exception(() =>
-                new JUnitIssuesSettings((byte[])null));
+                new JUnitIssuesSettings((byte[])null, new GenericJUnitLogFileFormat(new FakeLog())));
 
             // Then
             result.IsArgumentNullException("logFileContent");
@@ -35,7 +36,7 @@ public sealed class JUnitIssuesSettingsTests
             var logFileContent = "foo".ToByteArray();
 
             // When
-            var settings = new JUnitIssuesSettings(logFileContent);
+            var settings = new JUnitIssuesSettings(logFileContent, new GenericJUnitLogFileFormat(new FakeLog()));
 
             // Then
             settings.LogFileContent.ShouldBe(logFileContent);

@@ -1,7 +1,10 @@
 ﻿namespace Cake.Issues.JUnit.Tests;
 
-internal class JUnitIssuesProviderFixture
-    : BaseConfigurableIssueProviderFixture<JUnitIssuesProvider, JUnitIssuesSettings>
+using Cake.Issues.Testing;
+
+internal class JUnitIssuesProviderFixture<T>
+    : BaseMultiFormatIssueProviderFixture<JUnitIssuesProvider, JUnitIssuesSettings, T>
+    where T : BaseJUnitLogFileFormat
 {
     public JUnitIssuesProviderFixture(string fileResourceName)
         : this(fileResourceName, @"c:\Source\Cake.Issues")
