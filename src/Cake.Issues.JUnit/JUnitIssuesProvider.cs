@@ -242,6 +242,41 @@ internal class JUnitIssuesProvider(ICakeLog log, JUnitIssuesSettings issueProvid
     }
 
     /// <summary>
+    /// Normalizes XML content by removing XML formatting indentation while preserving intentional structure.
+    /// </summary>
+    /// <param name="content">The XML content to normalize.</param>
+    /// <returns>The normalized content.</returns>
+    private string NormalizeXmlContent(string content)
+    {
+        if (string.IsNullOrEmpty(content))
+        {
+            return string.Empty;
+        }
+
+        // Split by lines, trim each line to remove XML indentation, then rejoin
+        var lines = content.Split(new[] { '\r', '\n' }, StringSplitOptions.None);
+        var normalizedLines = new List<string>();
+
+        foreach (var line in lines)
+        {
+            // Trim leading and trailing whitespace (including tabs) from each line
+            var trimmedLine = line.Trim();
+            normalizedLines.Add(trimmedLine);
+        }
+
+        // Join lines back together and clean up multiple consecutive empty lines
+        var result = string.Join("\n", normalizedLines);
+        
+        // Remove leading and trailing empty lines
+        result = result.Trim('\n');
+        
+        // Normalize multiple consecutive newlines to double newlines maximum
+        result = Regex.Replace(result, @"\n{3,}", "\n\n");
+        
+        return result;
+    }
+
+    /// <summary>
     /// Processes a test failure or error element and creates an issue.
     /// </summary>
     /// <param name="failureElement">The failure or error XML element.</param>
@@ -253,7 +288,7 @@ internal class JUnitIssuesProvider(ICakeLog log, JUnitIssuesSettings issueProvid
     {
         var message = failureElement.Attribute("message")?.Value ?? string.Empty;
         var type = failureElement.Attribute("type")?.Value ?? string.Empty;
-        var content = failureElement.Value?.Trim() ?? string.Empty;
+        var content = this.NormalizeXmlContent(failureElement.Value) ?? string.Empty;
 
         // Combine message and content for full description
         var fullMessage = string.IsNullOrEmpty(message) ? content :
