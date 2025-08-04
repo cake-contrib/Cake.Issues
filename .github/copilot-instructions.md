@@ -18,6 +18,8 @@ Follow these guidelines when contributing:
 - Full CI check: `build.sh` (includes build, publish, test)
 - Building website: `build.sh --target=website`. Website is available on http://127.0.0.1:8000/
 
+To have verbose output of build.sh the following parameter can be add `--verbosity=diagnostic`
+
 ## Repository Structure
 - `src`: Contains the source code for the addins
   - Each addin should have its own subdirectory under `src`
