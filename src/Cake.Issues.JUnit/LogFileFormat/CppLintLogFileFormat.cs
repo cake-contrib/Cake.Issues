@@ -57,6 +57,41 @@ internal class CppLintLogFileFormat(ICakeLog log)
     }
 
     /// <summary>
+    /// Normalizes XML content by removing XML formatting indentation while preserving intentional structure.
+    /// </summary>
+    /// <param name="content">The XML content to normalize.</param>
+    /// <returns>The normalized content.</returns>
+    private static string NormalizeXmlContent(string content)
+    {
+        if (string.IsNullOrEmpty(content))
+        {
+            return string.Empty;
+        }
+
+        // Split by lines, trim each line to remove XML indentation, then rejoin
+        var lines = content.Split(['\r', '\n'], StringSplitOptions.None);
+        var normalizedLines = new List<string>();
+
+        foreach (var line in lines)
+        {
+            // Trim leading and trailing whitespace (including tabs) from each line
+            var trimmedLine = line.Trim();
+            normalizedLines.Add(trimmedLine);
+        }
+
+        // Join lines back together and clean up multiple consecutive empty lines
+        var result = string.Join("\n", normalizedLines);
+
+        // Remove leading and trailing empty lines
+        result = result.Trim('\n');
+
+        // Normalize multiple consecutive newlines to double newlines maximum
+        result = Regex.Replace(result, @"\n{3,}", "\n\n");
+
+        return result;
+    }
+
+    /// <summary>
     /// Recursively processes a testsuite element and its nested testsuites and testcases.
     /// </summary>
     /// <param name="testSuite">The testsuite element to process.</param>
@@ -78,7 +113,7 @@ internal class CppLintLogFileFormat(ICakeLog log)
             // Process failures
             foreach (var failure in testCase.Elements("failure"))
             {
-                var issue = this.ProcessCppLintFailure(failure, className, testName, IssuePriority.Error, repositorySettings);
+                var issue = this.ProcessCppLintFailure(failure, testName, IssuePriority.Error, repositorySettings);
                 if (issue != null)
                 {
                     result.Add(issue);
@@ -88,7 +123,7 @@ internal class CppLintLogFileFormat(ICakeLog log)
             // Process errors
             foreach (var error in testCase.Elements("error"))
             {
-                var issue = this.ProcessCppLintFailure(error, className, testName, IssuePriority.Error, repositorySettings);
+                var issue = this.ProcessCppLintFailure(error, testName, IssuePriority.Error, repositorySettings);
                 if (issue != null)
                 {
                     result.Add(issue);
@@ -104,50 +139,14 @@ internal class CppLintLogFileFormat(ICakeLog log)
     }
 
     /// <summary>
-    /// Normalizes XML content by removing XML formatting indentation while preserving intentional structure.
-    /// </summary>
-    /// <param name="content">The XML content to normalize.</param>
-    /// <returns>The normalized content.</returns>
-    private static string NormalizeXmlContent(string content)
-    {
-        if (string.IsNullOrEmpty(content))
-        {
-            return string.Empty;
-        }
-
-        // Split by lines, trim each line to remove XML indentation, then rejoin
-        var lines = content.Split(new[] { '\r', '\n' }, StringSplitOptions.None);
-        var normalizedLines = new List<string>();
-
-        foreach (var line in lines)
-        {
-            // Trim leading and trailing whitespace (including tabs) from each line
-            var trimmedLine = line.Trim();
-            normalizedLines.Add(trimmedLine);
-        }
-
-        // Join lines back together and clean up multiple consecutive empty lines
-        var result = string.Join("\n", normalizedLines);
-        
-        // Remove leading and trailing empty lines
-        result = result.Trim('\n');
-        
-        // Normalize multiple consecutive newlines to double newlines maximum
-        result = Regex.Replace(result, @"\n{3,}", "\n\n");
-        
-        return result;
-    }
-
-    /// <summary>
     /// Processes a cpplint test failure or error element and creates an issue.
     /// </summary>
     /// <param name="failureElement">The failure or error XML element.</param>
-    /// <param name="className">The test class name.</param>
     /// <param name="testName">The test name.</param>
     /// <param name="priority">The issue priority.</param>
     /// <param name="repositorySettings">Repository settings.</param>
     /// <returns>The created issue or null if the failure should be ignored.</returns>
-    private IIssue ProcessCppLintFailure(XElement failureElement, string className, string testName, IssuePriority priority, IRepositorySettings repositorySettings)
+    private IIssue ProcessCppLintFailure(XElement failureElement, string testName, IssuePriority priority, IRepositorySettings repositorySettings)
     {
         var message = failureElement.Attribute("message")?.Value ?? string.Empty;
         var type = failureElement.Attribute("type")?.Value ?? string.Empty;
@@ -188,12 +187,13 @@ internal class CppLintLogFileFormat(ICakeLog log)
                 RegexOptions.Multiline);
             if (lineMatch.Success && int.TryParse(lineMatch.Groups[1].Value, out var lineNum))
             {
-                var pathValidation = ValidateFilePath(testName, repositorySettings);
-                if (pathValidation.Valid)
+                var (valid, filePath) = ValidateFilePath(testName, repositorySettings);
+                if (valid)
                 {
-                    issueBuilder = issueBuilder.InFile(pathValidation.FilePath, lineNum, null);
+                    issueBuilder = issueBuilder.InFile(filePath, lineNum, null);
                 }
             }
+
             // Also check for simple line number pattern without the category/subcategory format
             else
             {
@@ -207,10 +207,10 @@ internal class CppLintLogFileFormat(ICakeLog log)
                     // Only treat as file if the test name doesn't contain hyphens (which are common in rule names)
                     if (!testName.Contains('-') && !testName.Contains('_'))
                     {
-                        var pathValidation = ValidateFilePath(testName, repositorySettings);
-                        if (pathValidation.Valid)
+                        var (valid, filePath) = ValidateFilePath(testName, repositorySettings);
+                        if (valid)
                         {
-                            issueBuilder = issueBuilder.InFile(pathValidation.FilePath, simpleLineNum, null);
+                            issueBuilder = issueBuilder.InFile(filePath, simpleLineNum, null);
                         }
                     }
                 }

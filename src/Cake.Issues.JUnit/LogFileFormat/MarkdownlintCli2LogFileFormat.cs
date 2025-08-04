@@ -57,6 +57,88 @@ internal class MarkdownlintCli2LogFileFormat(ICakeLog log)
     }
 
     /// <summary>
+    /// Normalizes XML content by removing XML formatting indentation while preserving intentional structure.
+    /// </summary>
+    /// <param name="content">The XML content to normalize.</param>
+    /// <returns>The normalized content.</returns>
+    private static string NormalizeXmlContent(string content)
+    {
+        if (string.IsNullOrEmpty(content))
+        {
+            return string.Empty;
+        }
+
+        // Split by lines, trim each line to remove XML indentation, then rejoin
+        var lines = content.Split(['\r', '\n'], StringSplitOptions.None);
+        var normalizedLines = new List<string>();
+
+        foreach (var line in lines)
+        {
+            // Trim leading and trailing whitespace (including tabs) from each line
+            var trimmedLine = line.Trim();
+            normalizedLines.Add(trimmedLine);
+        }
+
+        // Join lines back together and clean up multiple consecutive empty lines
+        var result = string.Join("\n", normalizedLines);
+
+        // Remove leading and trailing empty lines
+        result = result.Trim('\n');
+
+        // Normalize multiple consecutive newlines to double newlines maximum
+        result = Regex.Replace(result, @"\n{3,}", "\n\n");
+
+        return result;
+    }
+
+    /// <summary>
+    /// Tries to extract line and column information from markdownlint-cli2 format text.
+    /// </summary>
+    /// <param name="output">The output text to parse.</param>
+    /// <returns>Line and column information if found, null otherwise.</returns>
+    private static (int? Line, int? Column)? ExtractLineColumnFromMarkdownlintCli2(string output)
+    {
+        if (string.IsNullOrEmpty(output))
+        {
+            return null;
+        }
+
+        // Patterns for markdownlint-cli2 format:
+        // Line 3, Column 10, Expected: 0 or 2; Actual: 1
+        // Line 5, Expected: 1; Actual: 2
+        // Line 6, Context: "# Description"
+        string[] patterns =
+        [
+            @"Line\s+(\d+),\s+Column\s+(\d+)",  // Line 3, Column 10
+            @"Line\s+(\d+)",                    // Line 5
+        ];
+
+        foreach (var pattern in patterns)
+        {
+            var match = Regex.Match(output, pattern, RegexOptions.IgnoreCase);
+            if (match.Success)
+            {
+                int? line = null;
+                int? column = null;
+
+                if (int.TryParse(match.Groups[1].Value, out var lineNum))
+                {
+                    line = lineNum;
+                }
+
+                if (match.Groups.Count > 2 && int.TryParse(match.Groups[2].Value, out var colNum))
+                {
+                    column = colNum;
+                }
+
+                return (line, column);
+            }
+        }
+
+        return null;
+    }
+
+    /// <summary>
     /// Recursively processes a testsuite element and its nested testsuites and testcases.
     /// </summary>
     /// <param name="testSuite">The testsuite element to process.</param>
@@ -101,88 +183,6 @@ internal class MarkdownlintCli2LogFileFormat(ICakeLog log)
         {
             this.ProcessTestSuite(nestedTestSuite, result, repositorySettings);
         }
-    }
-
-    /// <summary>
-    /// Normalizes XML content by removing XML formatting indentation while preserving intentional structure.
-    /// </summary>
-    /// <param name="content">The XML content to normalize.</param>
-    /// <returns>The normalized content.</returns>
-    private static string NormalizeXmlContent(string content)
-    {
-        if (string.IsNullOrEmpty(content))
-        {
-            return string.Empty;
-        }
-
-        // Split by lines, trim each line to remove XML indentation, then rejoin
-        var lines = content.Split(new[] { '\r', '\n' }, StringSplitOptions.None);
-        var normalizedLines = new List<string>();
-
-        foreach (var line in lines)
-        {
-            // Trim leading and trailing whitespace (including tabs) from each line
-            var trimmedLine = line.Trim();
-            normalizedLines.Add(trimmedLine);
-        }
-
-        // Join lines back together and clean up multiple consecutive empty lines
-        var result = string.Join("\n", normalizedLines);
-        
-        // Remove leading and trailing empty lines
-        result = result.Trim('\n');
-        
-        // Normalize multiple consecutive newlines to double newlines maximum
-        result = Regex.Replace(result, @"\n{3,}", "\n\n");
-        
-        return result;
-    }
-
-    /// <summary>
-    /// Tries to extract line and column information from markdownlint-cli2 format text.
-    /// </summary>
-    /// <param name="output">The output text to parse.</param>
-    /// <returns>Line and column information if found, null otherwise.</returns>
-    private static (int? Line, int? Column)? ExtractLineColumnFromMarkdownlintCli2(string output)
-    {
-        if (string.IsNullOrEmpty(output))
-        {
-            return null;
-        }
-
-        // Patterns for markdownlint-cli2 format:
-        // Line 3, Column 10, Expected: 0 or 2; Actual: 1
-        // Line 5, Expected: 1; Actual: 2
-        // Line 6, Context: "# Description"
-        var patterns = new[]
-        {
-            @"Line\s+(\d+),\s+Column\s+(\d+)",  // Line 3, Column 10
-            @"Line\s+(\d+)",                    // Line 5
-        };
-
-        foreach (var pattern in patterns)
-        {
-            var match = Regex.Match(output, pattern, RegexOptions.IgnoreCase);
-            if (match.Success)
-            {
-                int? line = null;
-                int? column = null;
-
-                if (int.TryParse(match.Groups[1].Value, out var lineNum))
-                {
-                    line = lineNum;
-                }
-
-                if (match.Groups.Count > 2 && int.TryParse(match.Groups[2].Value, out var colNum))
-                {
-                    column = colNum;
-                }
-
-                return (line, column);
-            }
-        }
-
-        return null;
     }
 
     /// <summary>
@@ -233,10 +233,10 @@ internal class MarkdownlintCli2LogFileFormat(ICakeLog log)
             {
                 // This looks like markdownlint-cli2 format, use class name as file path
                 var (line, column) = lineColumnInfo.Value;
-                var pathValidation = ValidateFilePath(className, repositorySettings);
-                if (pathValidation.Valid)
+                var (valid, filePath) = ValidateFilePath(className, repositorySettings);
+                if (valid)
                 {
-                    issueBuilder = issueBuilder.InFile(pathValidation.FilePath, line, column);
+                    issueBuilder = issueBuilder.InFile(filePath, line, column);
                 }
             }
         }

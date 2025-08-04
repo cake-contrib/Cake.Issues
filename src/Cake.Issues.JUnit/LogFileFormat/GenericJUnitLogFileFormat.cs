@@ -57,53 +57,6 @@ internal class GenericJUnitLogFileFormat(ICakeLog log)
     }
 
     /// <summary>
-    /// Recursively processes a testsuite element and its nested testsuites and testcases.
-    /// </summary>
-    /// <param name="testSuite">The testsuite element to process.</param>
-    /// <param name="result">The list to add found issues to.</param>
-    /// <param name="repositorySettings">Repository settings.</param>
-    private void ProcessTestSuite(XElement testSuite, List<IIssue> result, IRepositorySettings repositorySettings)
-    {
-        if (testSuite == null)
-        {
-            return;
-        }
-
-        // Process direct testcase children
-        foreach (var testCase in testSuite.Elements("testcase"))
-        {
-            var className = testCase.Attribute("classname")?.Value ?? string.Empty;
-            var testName = testCase.Attribute("name")?.Value ?? string.Empty;
-
-            // Process failures
-            foreach (var failure in testCase.Elements("failure"))
-            {
-                var issue = this.ProcessTestFailure(failure, className, testName, IssuePriority.Error, repositorySettings);
-                if (issue != null)
-                {
-                    result.Add(issue);
-                }
-            }
-
-            // Process errors
-            foreach (var error in testCase.Elements("error"))
-            {
-                var issue = this.ProcessTestFailure(error, className, testName, IssuePriority.Error, repositorySettings);
-                if (issue != null)
-                {
-                    result.Add(issue);
-                }
-            }
-        }
-
-        // Recursively process nested testsuite elements
-        foreach (var nestedTestSuite in testSuite.Elements("testsuite"))
-        {
-            this.ProcessTestSuite(nestedTestSuite, result, repositorySettings);
-        }
-    }
-
-    /// <summary>
     /// Normalizes XML content by removing XML formatting indentation while preserving intentional structure.
     /// </summary>
     /// <param name="content">The XML content to normalize.</param>
@@ -116,7 +69,7 @@ internal class GenericJUnitLogFileFormat(ICakeLog log)
         }
 
         // Split by lines, trim each line to remove XML indentation, then rejoin
-        var lines = content.Split(new[] { '\r', '\n' }, StringSplitOptions.None);
+        var lines = content.Split(['\r', '\n'], StringSplitOptions.None);
         var normalizedLines = new List<string>();
 
         foreach (var line in lines)
@@ -128,13 +81,13 @@ internal class GenericJUnitLogFileFormat(ICakeLog log)
 
         // Join lines back together and clean up multiple consecutive empty lines
         var result = string.Join("\n", normalizedLines);
-        
+
         // Remove leading and trailing empty lines
         result = result.Trim('\n');
-        
+
         // Normalize multiple consecutive newlines to double newlines maximum
         result = Regex.Replace(result, @"\n{3,}", "\n\n");
-        
+
         return result;
     }
 
@@ -189,15 +142,15 @@ internal class GenericJUnitLogFileFormat(ICakeLog log)
         // file.txt line 123: message
         // /path/to/file.txt:123: message
         // file.txt:123 message
-        var patterns = new[]
-        {
+        string[] patterns =
+        [
             @"([^\s:]+):(\d+):(\d+)",        // file:line:column
             @"([^\s:]+):(\d+)",              // file:line
             @"([^\s\(\)]+)\((\d+),(\d+)\)",  // file(line,column)
             @"([^\s\(\)]+)\((\d+)\)",        // file(line)
             @"^([^\s]+)\s+line\s+(\d+)",     // file line 123 (must start at beginning of line)
             @"File:\s*([^\s]+)",             // File: path
-        };
+        ];
 
         foreach (var pattern in patterns)
         {
@@ -230,6 +183,53 @@ internal class GenericJUnitLogFileFormat(ICakeLog log)
         }
 
         return null;
+    }
+
+    /// <summary>
+    /// Recursively processes a testsuite element and its nested testsuites and testcases.
+    /// </summary>
+    /// <param name="testSuite">The testsuite element to process.</param>
+    /// <param name="result">The list to add found issues to.</param>
+    /// <param name="repositorySettings">Repository settings.</param>
+    private void ProcessTestSuite(XElement testSuite, List<IIssue> result, IRepositorySettings repositorySettings)
+    {
+        if (testSuite == null)
+        {
+            return;
+        }
+
+        // Process direct testcase children
+        foreach (var testCase in testSuite.Elements("testcase"))
+        {
+            var className = testCase.Attribute("classname")?.Value ?? string.Empty;
+            var testName = testCase.Attribute("name")?.Value ?? string.Empty;
+
+            // Process failures
+            foreach (var failure in testCase.Elements("failure"))
+            {
+                var issue = this.ProcessTestFailure(failure, className, testName, IssuePriority.Error, repositorySettings);
+                if (issue != null)
+                {
+                    result.Add(issue);
+                }
+            }
+
+            // Process errors
+            foreach (var error in testCase.Elements("error"))
+            {
+                var issue = this.ProcessTestFailure(error, className, testName, IssuePriority.Error, repositorySettings);
+                if (issue != null)
+                {
+                    result.Add(issue);
+                }
+            }
+        }
+
+        // Recursively process nested testsuite elements
+        foreach (var nestedTestSuite in testSuite.Elements("testsuite"))
+        {
+            this.ProcessTestSuite(nestedTestSuite, result, repositorySettings);
+        }
     }
 
     /// <summary>
@@ -276,10 +276,10 @@ internal class GenericJUnitLogFileFormat(ICakeLog log)
         if (fileInfo.HasValue)
         {
             var (filePath, line, column) = fileInfo.Value;
-            var pathValidation = ValidateFilePath(filePath, repositorySettings);
-            if (pathValidation.Valid)
+            var (valid, validatedPath) = ValidateFilePath(filePath, repositorySettings);
+            if (valid)
             {
-                issueBuilder = issueBuilder.InFile(pathValidation.FilePath, line, column);
+                issueBuilder = issueBuilder.InFile(validatedPath, line, column);
             }
         }
 

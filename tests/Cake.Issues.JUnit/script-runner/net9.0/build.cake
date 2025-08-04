@@ -31,7 +31,7 @@ Task("ReadIssues")
 
     data.AddIssues(
         ReadIssues(
-            JUnitIssuesFromFilePath(junitLogPath),
+            JUnitIssuesFromFilePath(junitLogPath, CppLintJUnitLogFileFormat),
             repoRootFolder)
     );
 

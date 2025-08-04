@@ -29,7 +29,7 @@ public sealed class ReadIssuesTask : FrostingTask<BuildContext>
         var junitLogPath = @"../testdata/cpplint.xml";
 
         var issues = context.ReadIssues(
-            context.JUnitIssuesFromFilePath(junitLogPath),
+            context.JUnitIssuesFromFilePath(junitLogPath, context.CppLintJUnitLogFileFormat()),
             @"../");
 
         context.Information("Found {0} issues", issues.Count());
