@@ -49,6 +49,10 @@ This pages lists tools known to be working with Cake Issues (1)
 
 {{ read_csv('assets/tables/supported-tools-docker.csv',keep_default_na=False) }}
 
+## Git
+
+{{ read_csv('assets/tables/supported-tools-git.csv',keep_default_na=False) }}
+
 ## GitHub Actions
 
 {{ read_csv('assets/tables/supported-tools-github-actions.csv',keep_default_na=False) }}
@@ -64,6 +68,10 @@ This pages lists tools known to be working with Cake Issues (1)
 ## Helm charts
 
 {{ read_csv('assets/tables/supported-tools-helm.csv',keep_default_na=False) }}
+
+## HTML
+
+{{ read_csv('assets/tables/supported-tools-html.csv',keep_default_na=False) }}
 
 ## Java
 

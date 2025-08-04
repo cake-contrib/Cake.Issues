@@ -1,2 +1,2 @@
 "Tool","Tool Version","Format","Issue Provider","Supported Since"
-"[cpplint](https://github.com/cpplint/cpplint){target='_blank'} :material-alert-decagram:",,"[junit](https://github.com/cpplint/cpplint){target='_blank'}","[Cake.Issues.JUnit](issue-providers/junit/index.md)",5.7.0
+"[cpplint](https://github.com/cpplint/cpplint){target='_blank'} :material-alert-decagram:",,"[junit](https://github.com/cpplint/cpplint){target='_blank'}","[Cake.Issues.JUnit](issue-providers/junit/index.md)",5.8.0
