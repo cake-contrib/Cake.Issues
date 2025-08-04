@@ -16,11 +16,14 @@
     <InternalsVisibleTo Include="DynamicProxyGenAssembly2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <GlobalAnalyzerConfigFiles Include="$(MSBuildThisFileDirectory)AnalyzerSeverity.globalconfig" />
+  </ItemGroup>
+
   <!-- Properties for addin projects -->
   <Choose>
     <When Condition="!$(MSBuildProjectName.EndsWith('.Tests'))">
       <PropertyGroup>
-        <CodeAnalysisRuleSet>..\Cake.Issues.ruleset</CodeAnalysisRuleSet>
         <AnalysisMode>AllEnabledByDefault</AnalysisMode>
       </PropertyGroup>
 
@@ -37,7 +40,6 @@
   <Choose>
     <When Condition="$(MSBuildProjectName.EndsWith('.Tests'))">
       <PropertyGroup>
-        <CodeAnalysisRuleSet>..\Cake.Issues.Tests.ruleset</CodeAnalysisRuleSet>
         <ImplicitUsings>enable</ImplicitUsings>
       </PropertyGroup>
       
@@ -58,6 +60,10 @@
         <Using Include="Cake.Testing" />
         <Using Include="Cake.Issues.Testing" />
       </ItemGroup>
-   </When>
+
+      <ItemGroup>
+        <GlobalAnalyzerConfigFiles Include="$(MSBuildThisFileDirectory)AnalyzerSeverityTests.globalconfig" />
+      </ItemGroup>
+    </When>
   </Choose>
 </Project>
