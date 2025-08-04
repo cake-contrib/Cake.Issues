@@ -51,8 +51,6 @@ internal class GenericJUnitLogFileFormat(ICakeLog log)
         return result;
     }
 
-
-
     /// <summary>
     /// Tries to extract file path from a class name.
     /// </summary>
@@ -146,8 +144,6 @@ internal class GenericJUnitLogFileFormat(ICakeLog log)
 
         return null;
     }
-
-
 
     /// <summary>
     /// Processes a test failure or error element and creates an issue.

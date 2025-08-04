@@ -2,7 +2,6 @@ namespace Cake.Issues.JUnit.LogFileFormat;
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
 using Cake.Core.Diagnostics;
@@ -51,8 +50,6 @@ internal class MarkdownlintCli2LogFileFormat(ICakeLog log)
         return result;
     }
 
-
-
     /// <summary>
     /// Tries to extract line and column information from markdownlint-cli2 format text.
     /// </summary>
@@ -99,8 +96,6 @@ internal class MarkdownlintCli2LogFileFormat(ICakeLog log)
 
         return null;
     }
-
-
 
     /// <summary>
     /// Processes a markdownlint-cli2 test failure or error element and creates an issue.

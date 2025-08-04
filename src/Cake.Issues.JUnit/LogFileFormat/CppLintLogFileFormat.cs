@@ -2,7 +2,6 @@ namespace Cake.Issues.JUnit.LogFileFormat;
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
 using Cake.Core.Diagnostics;
@@ -50,8 +49,6 @@ internal class CppLintLogFileFormat(ICakeLog log)
 
         return result;
     }
-
-
 
     /// <summary>
     /// Processes a cpplint test failure or error element and creates an issue.
