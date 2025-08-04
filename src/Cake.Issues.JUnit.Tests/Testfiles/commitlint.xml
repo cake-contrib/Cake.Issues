@@ -1,10 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="commitlint" failures="1" tests="1">
-  <testsuite name="foo: bar" failures="1" tests="1">
-    <testcase name="type-enum">
-      <failure type="error">type must be one of [build, chore, ci, docs, feat, fix, perf, refactor, revert, style, test] (type-enum)
+<?xml version="1.0" encoding="utf-8"?>
+<testsuites>
+	<testsuite name="commitlint" failures="1" tests="1">
+		<testsuite name="foo: bar" failures="1" tests="1">
+			<testcase name="type-enum">
+				<failure type="error">
+					type must be one of [build, chore, ci, docs, feat, fix, perf, refactor, revert, style, test] (type-enum)
 
-foo: bar</failure>
-    </testcase>
-  </testsuite>
-</testsuite>
+					foo: bar
+				</failure>
+			</testcase>
+		</testsuite>
+	</testsuite>
+</testsuites>
