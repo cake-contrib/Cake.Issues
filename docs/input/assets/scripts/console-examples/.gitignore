@@ -1,0 +1,14 @@
+# Tool artifacts
+tools/
+.dotnet/
+
+# Build artifacts
+bin/
+obj/
+
+# NuGet packages
+*.nupkg
+packages/
+
+# Cake Build
+.cake/
