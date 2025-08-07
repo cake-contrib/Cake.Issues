@@ -24,6 +24,7 @@ stages:
   - template: .azuredevops/pipelines/templates/stages/unit-tests.yml
   - template: .azuredevops/pipelines/templates/stages/build-for-integration-tests.yml
   - template: .azuredevops/pipelines/templates/stages/integration-tests-git-repository.yml
+  - template: .azuredevops/pipelines/templates/stages/integration-tests-junit.yml
   - template: .azuredevops/pipelines/templates/stages/integration-tests-markdownlint.yml
   - template: .azuredevops/pipelines/templates/stages/integration-tests-msbuild.yml
   - template: .azuredevops/pipelines/templates/stages/integration-tests-reporting-console.yml

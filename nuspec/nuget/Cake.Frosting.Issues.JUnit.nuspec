@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <id>Cake.Frosting.Issues.JUnit</id>
+    <title>Cake.Frosting.Issues.JUnit</title>
+    <version>0.0.0</version>
+    <authors>Cake Issues contributors</authors>
+    <owners>pascalberger, cake-contrib</owners>
+    <summary>Support for reading JUnit XML files using the Cake.Issues addin for Cake Frosting</summary>
+    <description>
+The JUnit XML support for the Cake.Issues addin for Cake allows you to read JUnit XML files from various linters and tools.
+
+This addin provides the aliases for reading issues from JUnit XML files and providing them to the Cake.Issues addin.
+It also requires the core Cake.Issues addin.
+
+The provider supports JUnit XML files from various tools including cpplint, commitlint-format-junit, kubeconform, and htmlhint.
+
+There are also additional addins for generating reports or posting issues to pull requests.
+
+See the Project Site for an overview of the whole ecosystem of addins for working with issues in Cake scripts.
+
+NOTE:
+This is the version of the addin compatible with Cake Frosting.
+For addin compatible with Cake Script Runners see Cake.Issues.JUnit.
+    </description>
+    <license type="expression">MIT</license>
+    <projectUrl>https://cakeissues.net</projectUrl>
+    <icon>icon.png</icon>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <repository type="git" url="https://github.com/cake-contrib/Cake.Issues.git"/>
+    <copyright>Copyright © Cake Issues contributors</copyright>
+    <tags>cake cake-addin cake-issues cake-issueprovider linting junit xml</tags>
+    <readme>docs\README.md</readme>
+    <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/5.6.1</releaseNotes>
+    <dependencies>
+      <group targetFramework="net8.0">
+        <dependency id="Cake.Core" version="5.0" exclude="Build,Analyzers" />
+        <dependency id="Cake.Issues" version="[5.0.0-beta0001,6.0)" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework="net9.0">
+        <dependency id="Cake.Core" version="5.0" exclude="Build,Analyzers" />
+        <dependency id="Cake.Issues" version="[5.0.0-beta0001,6.0)" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="icon.png" target="" />
+    <file src="Cake.Frosting.Issues.JUnit.targets" target="build" />
+    <file src="Cake.Frosting.Issues.JUnit.targets" target="buildTransitive" />
+    <file src="Cake.Frosting.Issues.JUnit.md" target="docs\README.md" />
+    <file src="..\..\src\Cake.Issues.JUnit\bin\Release\**\Cake.Issues.JUnit.*" target="lib" exclude="**\*.deps.json" />
+  </files>
+</package>
