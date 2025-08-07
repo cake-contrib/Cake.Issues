@@ -1,0 +1,19 @@
+# Tool artifacts
+tools/
+.dotnet/
+
+# Build artifacts
+bin/
+obj/
+
+# NuGet packages
+*.nupkg
+packages/
+
+# Cake Build
+.cake/
+
+# Sample files for testing (not part of the real project structure)
+src/
+docs/
+myfile.txt
