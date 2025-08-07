@@ -45,9 +45,30 @@ internal sealed class IssueDiagnostic : Diagnostic
                 _ => throw new Exception(),
             };
 
+        var noteComponents = new List<string>();
+
+        // Add project information if available
+        if (!string.IsNullOrEmpty(firstIssue.ProjectName) || firstIssue.ProjectFileRelativePath != null)
+        {
+            if (firstIssue.ProjectFileRelativePath != null)
+            {
+                noteComponents.Add($"Project: {firstIssue.ProjectFileRelativePath.FullPath}");
+            }
+            else if (!string.IsNullOrEmpty(firstIssue.ProjectName))
+            {
+                noteComponents.Add($"Project: {firstIssue.ProjectName}");
+            }
+        }
+
+        // Add rule URL if available
         if (firstIssue.RuleUrl != null)
         {
-            this.Note = $"See {firstIssue.RuleUrl} for more information";
+            noteComponents.Add($"See {firstIssue.RuleUrl} for more information");
+        }
+
+        if (noteComponents.Count > 0)
+        {
+            this.Note = string.Join(Environment.NewLine, noteComponents);
         }
 
         this.CreateLabels();
