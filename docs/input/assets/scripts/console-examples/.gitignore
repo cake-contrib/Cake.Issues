@@ -12,3 +12,8 @@ packages/
 
 # Cake Build
 .cake/
+
+# Sample files for testing (not part of the real project structure)
+src/
+docs/
+myfile.txt

@@ -22,7 +22,11 @@ Task("Print-Issues-Default")
     
     CreateIssueReport(
         issues,
-        ConsoleIssueReportFormat(),
+        ConsoleIssueReportFormat(
+            new ConsoleIssueReportFormatSettings 
+            { 
+                ShowDiagnostics = true
+            }),
         @".",
         string.Empty);
 });
