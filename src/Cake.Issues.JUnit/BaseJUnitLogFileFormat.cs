@@ -12,7 +12,7 @@ using Cake.Core.IO;
 /// Base class for all log file formats supported by the JUnit issue provider.
 /// </summary>
 /// <param name="log">The Cake log instance.</param>
-public abstract class BaseJUnitLogFileFormat(ICakeLog log)
+public abstract partial class BaseJUnitLogFileFormat(ICakeLog log)
     : BaseLogFileFormat<JUnitIssuesProvider, JUnitIssuesSettings>(log)
 {
     /// <summary>
@@ -71,7 +71,7 @@ public abstract class BaseJUnitLogFileFormat(ICakeLog log)
         result = result.Trim('\n');
 
         // Normalize multiple consecutive newlines to double newlines maximum
-        result = Regex.Replace(result, @"\n{3,}", "\n\n");
+        result = DoubleNewlinesRegex().Replace(result, "\n\n");
 
         return result;
     }
@@ -144,4 +144,7 @@ public abstract class BaseJUnitLogFileFormat(ICakeLog log)
             ProcessTestSuite(nestedTestSuite, result, repositorySettings, failureProcessor, errorProcessor);
         }
     }
+
+    [GeneratedRegex(@"\n{3,}")]
+    private static partial Regex DoubleNewlinesRegex();
 }

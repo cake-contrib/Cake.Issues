@@ -11,7 +11,7 @@ using Cake.Core.Diagnostics;
 /// Optimized for cpplint's specific JUnit format where test case names represent file names.
 /// </summary>
 /// <param name="log">The Cake log instance.</param>
-internal class CppLintLogFileFormat(ICakeLog log)
+internal partial class CppLintLogFileFormat(ICakeLog log)
     : BaseJUnitLogFileFormat(log)
 {
     /// <inheritdoc />
@@ -49,6 +49,12 @@ internal class CppLintLogFileFormat(ICakeLog log)
 
         return result;
     }
+
+    [GeneratedRegex(@"^(\d+):\s*.*\[.*\].*\[.*\]", RegexOptions.Multiline)]
+    private static partial Regex LineRegex();
+
+    [GeneratedRegex(@"^(\d+):", RegexOptions.Multiline)]
+    private static partial Regex SimpleLineRegex();
 
     /// <summary>
     /// Processes a cpplint test failure or error element and creates an issue.
@@ -94,10 +100,7 @@ internal class CppLintLogFileFormat(ICakeLog log)
         {
             // Check if the message contains line info in cpplint format like "5: FailMsg [category/subcategory] [3]"
             // This is a strong indicator that it's a cpplint-style failure where the test name is the file name
-            var lineMatch = Regex.Match(
-                fullMessage,
-                @"^(\d+):\s*.*\[.*\].*\[.*\]",
-                RegexOptions.Multiline);
+            var lineMatch = LineRegex().Match(fullMessage);
             if (lineMatch.Success && int.TryParse(lineMatch.Groups[1].Value, out var lineNum))
             {
                 var (valid, filePath) = ValidateFilePath(testName, repositorySettings);
@@ -110,10 +113,7 @@ internal class CppLintLogFileFormat(ICakeLog log)
             // Also check for simple line number pattern without the category/subcategory format
             else
             {
-                var simpleLineMatch = Regex.Match(
-                    fullMessage,
-                    @"^(\d+):",
-                    RegexOptions.Multiline);
+                var simpleLineMatch = SimpleLineRegex().Match(fullMessage);
                 if (simpleLineMatch.Success &&
                     int.TryParse(simpleLineMatch.Groups[1].Value, out var simpleLineNum))
                 {
