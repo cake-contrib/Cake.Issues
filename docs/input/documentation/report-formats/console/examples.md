@@ -52,7 +52,147 @@ For this example the MsBuild issue provider is additionally used for reading iss
     </Project>
     ```
 
-The following example will print issues logged as warnings by MsBuild to the console.
+## Console Output Examples
+
+The Console report format can be configured with various settings to customize the output. Below are examples showing different configuration options and their visual impact.
+
+### Default Settings
+
+By default, the Console report format shows individual diagnostics for each issue:
+
+=== "Cake .NET Tool"
+
+    ```csharp title="build.cake"
+    CreateIssueReport(
+        issues,
+        ConsoleIssueReportFormat(),
+        repoRootPath,
+        string.Empty);
+    ```
+
+=== "Cake Frosting"
+
+    ```csharp title="Program.cs"
+    context.CreateIssueReport(
+        issues,
+        context.ConsoleIssueReportFormat(),
+        repoRootPath,
+        string.Empty);
+    ```
+
+![Default Console Output](../../assets/images/console-examples/console-default.png)
+
+### Grouped by Rule
+
+When `GroupByRule` is set to `true`, issues with the same rule ID are grouped together:
+
+=== "Cake .NET Tool"
+
+    ```csharp title="build.cake"
+    CreateIssueReport(
+        issues,
+        ConsoleIssueReportFormat(
+            new ConsoleIssueReportFormatSettings
+            {
+                GroupByRule = true
+            }),
+        repoRootPath,
+        string.Empty);
+    ```
+
+=== "Cake Frosting"
+
+    ```csharp title="Program.cs"
+    context.CreateIssueReport(
+        issues,
+        context.ConsoleIssueReportFormat(
+            new ConsoleIssueReportFormatSettings
+            {
+                GroupByRule = true
+            }),
+        repoRootPath,
+        string.Empty);
+    ```
+
+![Grouped by Rule Output](../../assets/images/console-examples/console-grouped.png)
+
+### With Summary Tables
+
+Enable summary tables to see issue counts by provider and priority:
+
+=== "Cake .NET Tool"
+
+    ```csharp title="build.cake"
+    CreateIssueReport(
+        issues,
+        ConsoleIssueReportFormat(
+            new ConsoleIssueReportFormatSettings
+            {
+                ShowProviderSummary = true,
+                ShowPrioritySummary = true
+            }),
+        repoRootPath,
+        string.Empty);
+    ```
+
+=== "Cake Frosting"
+
+    ```csharp title="Program.cs"
+    context.CreateIssueReport(
+        issues,
+        context.ConsoleIssueReportFormat(
+            new ConsoleIssueReportFormatSettings
+            {
+                ShowProviderSummary = true,
+                ShowPrioritySummary = true
+            }),
+        repoRootPath,
+        string.Empty);
+    ```
+
+![Console Output with Summaries](../../assets/images/console-examples/console-summaries.png)
+
+### Combined Features
+
+Combine grouping with summary tables for the most comprehensive output:
+
+=== "Cake .NET Tool"
+
+    ```csharp title="build.cake"
+    CreateIssueReport(
+        issues,
+        ConsoleIssueReportFormat(
+            new ConsoleIssueReportFormatSettings
+            {
+                GroupByRule = true,
+                ShowProviderSummary = true,
+                ShowPrioritySummary = true
+            }),
+        repoRootPath,
+        string.Empty);
+    ```
+
+=== "Cake Frosting"
+
+    ```csharp title="Program.cs"
+    context.CreateIssueReport(
+        issues,
+        context.ConsoleIssueReportFormat(
+            new ConsoleIssueReportFormatSettings
+            {
+                GroupByRule = true,
+                ShowProviderSummary = true,
+                ShowPrioritySummary = true
+            }),
+        repoRootPath,
+        string.Empty);
+    ```
+
+![Combined Features Output](../../assets/images/console-examples/console-combined.png)
+
+## Complete Build Example
+
+The following example shows how to build a solution and create a console report with MsBuild issues:
 
 === "Cake .NET Tool"
 
