@@ -4,14 +4,14 @@ Follow these guidelines when contributing:
 
 ## Before committing code
 - Ensure no warning or error messages from Roslyn analyzers are present in the code.
-- Ensure Tests are passing.
+- Ensure Unit Tests are passing.
 - Ensure Integration Tests for the affected addins are passing.
 - If documentation has been changed, ensure it builds successfully.
 
 ## Development Flow
 - Only building: `build.sh --target=DotNetCore-Build`
 - Publish NuGet Packages: `build.sh --target=Create-NuGet-Packages`
-- Run Tests: `build.sh --target=Test`
+- Run Unit Tests: `build.sh --target=Test`
 - Run Integration Tests:
   - Run first `build.sh --target=Create-NuGet-Packages` in the root directory to create the NuGet packages.
   - Run `build.sh` in the `tests/<ADDIN-NAME>/script-runner` or `tests/<ADDIN-NAME>/frosting` directory to run the integration tests for the corresponding addin
