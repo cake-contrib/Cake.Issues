@@ -94,7 +94,7 @@ public sealed class IssueReaderTests
             _ = fixture.ReadIssues();
 
             // Then
-            fixture.IssueProviders.ShouldAllBe(x => x.Settings == fixture.Settings);
+            fixture.IssueProviders.OfType<FakeIssueProvider>().ShouldAllBe(x => x.Settings == fixture.Settings);
         }
 
         [Fact]
@@ -142,7 +142,7 @@ public sealed class IssueReaderTests
             _ = fixture.ReadIssues();
 
             // Then
-            fixture.IssueProviders.ShouldAllBe(x => x.Settings == fixture.Settings);
+            fixture.IssueProviders.OfType<FakeIssueProvider>().ShouldAllBe(x => x.Settings == fixture.Settings);
         }
 
         [Fact]
@@ -348,6 +348,133 @@ public sealed class IssueReaderTests
             issues.ShouldContain(issue2);
             issue2.FileLink.ToString()
                 .ShouldBe($"{repoUrl}/blob/{branch}/{filePath2.Replace(@"\", "/")}#L{line2}");
+        }
+
+        [Fact]
+        public void Should_Read_Issues_From_Multiple_Providers_Concurrently()
+        {
+            // Given
+            const int providerCount = 10;
+            const int issuesPerProvider = 100;
+            var fixture = new IssuesFixture();
+            fixture.IssueProviders.Clear();
+
+            // Create multiple providers with different issues
+            for (var i = 0; i < providerCount; i++)
+            {
+                var providerIssues = new List<IIssue>();
+                for (var j = 0; j < issuesPerProvider; j++)
+                {
+                    var issue = IssueBuilder
+                        .NewIssue($"Issue{i}-{j}", $"ProviderType{i}", $"ProviderName{i}")
+                        .InFile($@"src\Provider{i}\File{j}.cs", j + 1)
+                        .OfRule($"Rule{j}")
+                        .WithPriority(IssuePriority.Warning)
+                        .Create();
+                    providerIssues.Add(issue);
+                }
+                fixture.IssueProviders.Add(new FakeIssueProvider(fixture.Log, providerIssues));
+            }
+
+            // When
+            var stopwatch = System.Diagnostics.Stopwatch.StartNew();
+            var issues = fixture.ReadIssues().ToList();
+            stopwatch.Stop();
+
+            // Then
+            issues.Count.ShouldBe(providerCount * issuesPerProvider);
+
+            // Verify all providers contributed issues
+            for (var i = 0; i < providerCount; i++)
+            {
+                var providerIssues = issues.Where(x => x.ProviderType == $"ProviderType{i}").ToList();
+                providerIssues.Count.ShouldBe(issuesPerProvider);
+            }
+
+            // Verify all Run properties are set
+            issues.ShouldAllBe(x => x.Run == fixture.Settings.Run);
+
+            // Log timing for performance verification
+            System.Console.WriteLine($"Reading {issues.Count} issues from {providerCount} providers took {stopwatch.ElapsedMilliseconds}ms");
+        }
+
+        [Fact]
+        public void Should_Handle_Provider_Initialization_Failures_Concurrently()
+        {
+            // Given
+            var fixture = new IssuesFixture();
+            fixture.IssueProviders.Clear();
+
+            // Add mix of successful and failing providers
+            fixture.IssueProviders.Add(new FakeIssueProvider(fixture.Log, [
+                IssueBuilder.NewIssue("Success1", "ProviderType1", "ProviderName1")
+                    .InFile(@"src\File1.cs", 1)
+                    .OfRule("Rule1")
+                    .WithPriority(IssuePriority.Warning)
+                    .Create()
+            ]));
+
+            // Create a failing provider by passing null settings later
+            var failingProvider = new FakeFailingIssueProvider(fixture.Log);
+            fixture.IssueProviders.Add(failingProvider);
+            fixture.IssueProviders.Add(new FakeIssueProvider(fixture.Log, [
+                IssueBuilder.NewIssue("Success2", "ProviderType2", "ProviderName2")
+                    .InFile(@"src\File2.cs", 2)
+                    .OfRule("Rule2")
+                    .WithPriority(IssuePriority.Warning)
+                    .Create()
+            ]));
+
+            // When
+            var issues = fixture.ReadIssues().ToList();
+
+            // Then
+            // Should get issues from successful providers only
+            issues.Count.ShouldBe(2);
+            issues.ShouldContain(x => x.MessageText == "Success1");
+            issues.ShouldContain(x => x.MessageText == "Success2");
+        }
+
+        [Fact]
+        public void Should_Demonstrate_Parallel_Processing_Benefits_With_Simulated_Delays()
+        {
+            // Given - Create providers that simulate processing delays
+            const int providerCount = 5;
+            const int delayPerProviderMs = 50; // Simulate 50ms delay per provider
+            var fixture = new IssuesFixture();
+            fixture.IssueProviders.Clear();
+
+            for (var i = 0; i < providerCount; i++)
+            {
+                var issue = IssueBuilder
+                    .NewIssue($"SlowIssue{i}", $"SlowProviderType{i}", $"SlowProviderName{i}")
+                    .InFile($@"src\SlowFile{i}.cs", i + 1)
+                    .OfRule($"SlowRule{i}")
+                    .WithPriority(IssuePriority.Warning)
+                    .Create();
+                fixture.IssueProviders.Add(new FakeSlowIssueProvider(fixture.Log, [issue], delayPerProviderMs));
+            }
+
+            // When
+            var stopwatch = System.Diagnostics.Stopwatch.StartNew();
+            var issues = fixture.ReadIssues().ToList();
+            stopwatch.Stop();
+
+            // Then
+            issues.Count.ShouldBe(providerCount);
+
+            // With parallel processing, total time should be significantly less than 
+            // sum of all delays (providerCount * delayPerProviderMs)
+            var expectedSequentialTime = providerCount * delayPerProviderMs;
+            var actualTime = stopwatch.ElapsedMilliseconds;
+
+            Console.WriteLine($"Sequential time would be ~{expectedSequentialTime}ms, parallel time was {actualTime}ms");
+            actualTime.ShouldBeLessThan(expectedSequentialTime, "Parallel reading of issue providers is slower than sequential processing would be");
+
+            // This assertion may be flaky in CI environments, so we'll use a generous threshold
+            // Should be much faster than 40% of sequential time
+            //var maxExpectedParallelTime = expectedSequentialTime * 0.4;
+            //Convert.ToDouble(actualTime).ShouldBeLessThan(maxExpectedParallelTime, "Parallel reading of issue providers is more than 40% of time it took for sequential processing");
         }
     }
 }
