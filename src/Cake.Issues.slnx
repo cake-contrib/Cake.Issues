@@ -42,6 +42,17 @@
     <File Path="../nuspec/nuget/Cake.Issues.targets" />
   </Folder>
   <Folder Name="/Issue Provider/" />
+  <Folder Name="/Issue Provider/CodeClimate/">
+    <Project Path="Cake.Issues.CodeClimate.Tests/Cake.Issues.CodeClimate.Tests.csproj" />
+    <Project Path="Cake.Issues.CodeClimate/Cake.Issues.CodeClimate.csproj" />
+  </Folder>
+  <Folder Name="/Issue Provider/CodeClimate/NuGet/">
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.CodeClimate.md" />
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.CodeClimate.nuspec" />
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.CodeClimate.targets" />
+    <File Path="../nuspec/nuget/Cake.Issues.CodeClimate.md" />
+    <File Path="../nuspec/nuget/Cake.Issues.CodeClimate.nuspec" />
+  </Folder>
   <Folder Name="/Issue Provider/DocFx/">
     <Project Path="Cake.Issues.DocFx.Tests/Cake.Issues.DocFx.Tests.csproj" />
     <Project Path="Cake.Issues.DocFx/Cake.Issues.DocFx.csproj" />

@@ -1,2 +1,3 @@
 "Tool","Tool Version","Format","Issue Provider","Supported Since"
 "[ESLint](https://eslint.org){target='_blank'}","Current","[json](https://eslint.org/docs/latest/use/formatters/#json){target='_blank'}","[Cake.Issues.EsLint](issue-providers/eslint/index.md)",0.1.0
+"[ESLint](https://eslint.org){target='_blank'}","Current","CodeClimate","[Cake.Issues.CodeClimate](issue-providers/codeclimate/index.md)",5.7.0

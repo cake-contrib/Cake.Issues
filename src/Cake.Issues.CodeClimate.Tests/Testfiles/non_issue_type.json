@@ -1,0 +1,15 @@
+[
+  {
+    "type": "measurement",
+    "check_name": "complexity",
+    "description": "Complexity measurement",
+    "categories": ["Complexity"],
+    "location": {
+      "path": "src/foo.js",
+      "lines": {
+        "begin": 10,
+        "end": 12
+      }
+    }
+  }
+]
