@@ -39,6 +39,60 @@ jobs:
         with:
           name: NuGet Package
           path: ./BuildArtifacts/Packages/NuGet/
+  # Integration Tests Cake.Issues.GitRepository Cake Scripting
+  IntegrationTestsGitRepositoryCakeScripting:
+    name: Integration Tests Cake.Issues.GitRepository Cake Scripting
+    needs: Build
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [
+          windows-2019, windows-2022,
+          ubuntu-20.04, ubuntu-22.04,
+          macos-12, macos-14]
+        dotnet: [6.x, 7.x, 8.x]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Get the sources
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
+        with:
+          lfs: true
+      - name: Prepare integration tests
+        uses: ./.github/actions/prepare-integration-test
+        with:
+          dotnet-version: ${{ matrix.dotnet }}
+      - name: Run integration tests
+        run: ./build.sh --verbosity=diagnostic
+        working-directory: ./tests/Cake.Issues.GitRepository/script-runner/
+        shell: bash
+  # Integration Tests Cake.Issues.GitRepository Cake Scripting with sparse checkout
+  IntegrationTestsGitRepositoryCakeScriptingSparseCheckout:
+    name: Integration Tests Cake.Issues.GitRepository Cake Scripting with sparse checkout
+    needs: Build
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [
+          windows-2019, windows-2022,
+          ubuntu-20.04, ubuntu-22.04,
+          macos-12, macos-14]
+        dotnet: [6.x, 7.x, 8.x]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Get the sources
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
+        with:
+          lfs: true
+          sparse-checkout: |
+            tests/Cake.Issues.GitRepository/script-runner/
+      - name: Prepare integration tests
+        uses: ./.github/actions/prepare-integration-test
+        with:
+          dotnet-version: ${{ matrix.dotnet }}
+      - name: Run integration tests
+        run: ./build.sh --verbosity=diagnostic
+        working-directory: ./tests/Cake.Issues.GitRepository/script-runner/
+        shell: bash
   # Integration Tests Cake.Issues.MsBuild Cake Scripting
   IntegrationTestsMsBuildCakeScripting:
     name: Integration Tests Cake.Issues.MsBuild Cake Scripting
