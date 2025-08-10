@@ -109,7 +109,6 @@ internal class MarkdownlintCli2LogFileFormat(ICakeLog log)
     private IIssue ProcessMarkdownlintCli2Failure(XElement failureElement, string className, string testName, IssuePriority priority, IRepositorySettings repositorySettings)
     {
         var message = failureElement.Attribute("message")?.Value ?? string.Empty;
-        var type = failureElement.Attribute("type")?.Value ?? string.Empty;
         var content = NormalizeXmlContent(failureElement.Value) ?? string.Empty;
 
         // Combine message and content for full description
@@ -130,10 +129,6 @@ internal class MarkdownlintCli2LogFileFormat(ICakeLog log)
         if (!string.IsNullOrEmpty(testName))
         {
             issueBuilder = issueBuilder.OfRule(testName);
-        }
-        else if (!string.IsNullOrEmpty(type))
-        {
-            issueBuilder = issueBuilder.OfRule(type);
         }
 
         // For markdownlint-cli2 style output, check if the content contains the specific format

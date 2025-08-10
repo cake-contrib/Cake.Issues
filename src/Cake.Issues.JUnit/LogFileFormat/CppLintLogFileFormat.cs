@@ -67,40 +67,29 @@ internal partial class CppLintLogFileFormat(ICakeLog log)
     /// <returns>The created issue or null if the failure should be ignored.</returns>
     private IIssue ProcessCppLintFailure(XElement failureElement, string className, string testName, IssuePriority priority, IRepositorySettings repositorySettings)
     {
-        var message = failureElement.Attribute("message")?.Value ?? string.Empty;
-        var type = failureElement.Attribute("type")?.Value ?? string.Empty;
         var content = NormalizeXmlContent(failureElement.Value) ?? string.Empty;
 
-        // Combine message and content for full description
-        var fullMessage = string.IsNullOrEmpty(message) ? content :
-                         string.IsNullOrEmpty(content) ? message :
-                         $"{message}\n{content}";
-
-        if (string.IsNullOrEmpty(fullMessage))
+        if (string.IsNullOrEmpty(content))
         {
             return null;
         }
 
         var issueBuilder = IssueBuilder
-            .NewIssue(fullMessage, typeof(JUnitIssuesProvider).FullName, "JUnit")
+            .NewIssue(content, typeof(JUnitIssuesProvider).FullName, "JUnit")
             .WithPriority(priority);
 
-        if (!string.IsNullOrEmpty(type))
-        {
-            issueBuilder = issueBuilder.OfRule(type);
-        }
-        else if (!string.IsNullOrEmpty(testName))
+        if (!string.IsNullOrEmpty(testName))
         {
             issueBuilder = issueBuilder.OfRule(testName);
         }
 
         // For cpplint-style output, if the test name looks like a file name,
         // use the test name as the file name and try to extract line info from the message
-        if (!string.IsNullOrEmpty(testName) && testName != "errors")
+        if (!string.IsNullOrEmpty(testName))
         {
             // Check if the message contains line info in cpplint format like "5: FailMsg [category/subcategory] [3]"
             // This is a strong indicator that it's a cpplint-style failure where the test name is the file name
-            var lineMatch = LineRegex().Match(fullMessage);
+            var lineMatch = LineRegex().Match(content);
             if (lineMatch.Success && int.TryParse(lineMatch.Groups[1].Value, out var lineNum))
             {
                 var (valid, filePath) = ValidateFilePath(testName, repositorySettings);
@@ -113,7 +102,7 @@ internal partial class CppLintLogFileFormat(ICakeLog log)
             // Also check for simple line number pattern without the category/subcategory format
             else
             {
-                var simpleLineMatch = SimpleLineRegex().Match(fullMessage);
+                var simpleLineMatch = SimpleLineRegex().Match(content);
                 if (simpleLineMatch.Success &&
                     int.TryParse(simpleLineMatch.Groups[1].Value, out var simpleLineNum))
                 {
