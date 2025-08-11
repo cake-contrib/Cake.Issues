@@ -1,7 +1,0 @@
-<Project>
-  <ItemGroup Condition="'$(Language)' == 'C#' AND ('$(ImplicitUsings)' == 'true' or '$(ImplicitUsings)' == 'enable')">
-    <Using Include="Cake.Issues" />
-    <Using Include="Cake.Issues.FileLinking" />
-    <Using Include="Cake.Issues.Serialization" />
-  </ItemGroup>
-</Project>
