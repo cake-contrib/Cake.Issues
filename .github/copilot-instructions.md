@@ -42,10 +42,11 @@ Available integration test directories:
 - `tests/Cake.Issues.Reporting.Generic/script-runner/`
 - `tests/Cake.Issues.Reporting.Sarif/script-runner/`
 
-### Documentation (VALIDATED but limited)
+### Documentation (VALIDATED)
 - Install dependencies: `cd docs && pip install -r requirements.txt` (48 seconds)
-- **NOTE**: `mkdocs serve` fails in sandboxed environments due to network restrictions (fonts.gstatic.com access)
-- Website target: `./build.sh --target=website` may have similar network issues
+- **Development server**: `cd docs && mkdocs serve` (builds in ~10 seconds, serves on http://127.0.0.1:8000)
+- **Build static site**: `cd docs && mkdocs build --site-dir ../BuildArtifacts/temp/_PublishedDocumentation` (10 seconds)
+- **Website target**: `./build.sh --target=website` (builds and serves documentation)
 
 ### Debug Output
 Add `--verbosity=diagnostic` to any build command for detailed output.
@@ -124,7 +125,6 @@ Add `--verbosity=diagnostic` to any build command for detailed output.
 - **Permission denied**: Some integration test `build.sh` files may need `chmod +x build.sh` to make executable
 
 ### Website Issues
-- **Font loading errors**: Expected in sandboxed environments - fonts.gstatic.com blocked
 - **mkdocs not found**: Install with `cd docs && pip install -r requirements.txt`
 
 ## Key Guidelines
@@ -157,8 +157,10 @@ cd tests/Cake.Issues.MsBuild/script-runner/net9.0
 # Full validation
 ./build.sh                                    # 4 min   - complete CI build
 
-# Documentation (limited in sandboxed environments)
+# Documentation
 cd docs && pip install -r requirements.txt   # 48 sec  - install deps
+cd docs && mkdocs serve                       # 10 sec  - dev server on http://127.0.0.1:8000
+cd docs && mkdocs build                       # 10 sec  - build static site
 ```
 
 **Remember**: NEVER CANCEL long-running builds. Set timeouts appropriately and wait for completion.
