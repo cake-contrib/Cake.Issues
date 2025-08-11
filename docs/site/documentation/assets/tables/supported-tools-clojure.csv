@@ -1,2 +1,0 @@
-"Tool","Tool Version","Format","Issue Provider","Supported Since"
-"[clj-kondo](https://github.com/clj-kondo/clj-kondo){target='_blank'}",,"[sarif](https://github.com/clj-kondo/clj-kondo/blob/master/doc/config.md#print-results-in-sarif-format){target='_blank'}","[Cake.Issues.Sarif](issue-providers/sarif/index.md)",4.2.0

@@ -1,8 +1,0 @@
-"Tool","Tool Version","Format","Issue Provider","Supported Since"
-"[DocFx](https://dotnet.github.io/docfx/){target='_blank'}",,,"[Cake.Issues.DocFx](issue-providers/docfx/index.md)",0.1.0
-"[markdownlint](https://github.com/DavidAnson/markdownlint){target='_blank'}",,"[resultVersion=1](https://github.com/DavidAnson/markdownlint?tab=readme-ov-file#optionsresultversion){target='_blank'}","[Cake.Issues.Markdownlint](issue-providers/markdownlint/index.md)",0.1.0
-"[markdownlint-cli](https://github.com/igorshubovych/markdownlint-cli){target='_blank'}",< 0.9.0,"Default","[Cake.Issues.Markdownlint](issue-providers/markdownlint/index.md)",0.2.0
-"[markdownlint-cli](https://github.com/igorshubovych/markdownlint-cli){target='_blank'}",>= 0.9.0,"Default","[Cake.Issues.Markdownlint](issue-providers/markdownlint/index.md)",0.3.0
-"[markdownlint-cli](https://github.com/igorshubovych/markdownlint-cli){target='_blank'}",>= 0.19.0,"Default","[Cake.Issues.Markdownlint](issue-providers/markdownlint/index.md)",0.8.1
-"[markdownlint-cli](https://github.com/igorshubovych/markdownlint-cli){target='_blank'}",>= 0.22.0,"Default","[Cake.Issues.Markdownlint](issue-providers/markdownlint/index.md)",0.8.2
-"[markdownlint-cli](https://github.com/igorshubovych/markdownlint-cli){target='_blank'}",,"[json](https://github.com/igorshubovych/markdownlint-cli?tab=readme-ov-file#usage){target='_blank'}","[Cake.Issues.Markdownlint](issue-providers/markdownlint/index.md)",1.1.0

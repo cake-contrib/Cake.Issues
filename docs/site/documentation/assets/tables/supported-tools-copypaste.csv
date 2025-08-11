@@ -1,3 +1,0 @@
-"Tool","Tool Version","Format","Issue Provider","Supported Since"
-"~~[dupFinder](https://www.jetbrains.com/help/resharper/2021.2/dupFinder.html){target='_blank'}~~{ title='Deprecated since dupFinder Command Line Tool has been sunsetted' } ",,,"Cake.Issues.DupFinder",0.8.0
-"[jscpd](https://github.com/kucherenko/jscpd){target='_blank'}",,"[jscpd-sarif-reporter](https://www.npmjs.com/package/jscpd-sarif-reporter){target='_blank'}","[Cake.Issues.Sarif](issue-providers/sarif/index.md)",5.4.0

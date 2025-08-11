@@ -1,3 +1,0 @@
-"Tool","Tool Version","Format","Issue Provider","Supported Since"
-"[actionlint](https://github.com/rhysd/actionlint){target='_blank'}",,"[SARIF](https://github.com/rhysd/actionlint/blob/v1.7.4/docs/usage.md#example-sarif-format){target='_blank'}","[Cake.Issues.Sarif](issue-providers/sarif/index.md)",4.2.0
-"[checkov](https://www.checkov.io/){target='_blank'}",,"[SARIF](https://www.checkov.io/2.Basics/CLI%20Command%20Reference.html){target='_blank'}","[Cake.Issues.Sarif](issue-providers/sarif/index.md)",4.2.0

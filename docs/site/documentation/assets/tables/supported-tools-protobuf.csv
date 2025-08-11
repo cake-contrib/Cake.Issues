@@ -1,2 +1,0 @@
-"Tool","Tool Version","Format","Issue Provider","Supported Since"
-"[protolint](https://github.com/yoheimuta/protolint){target='_blank'}",,[sarif](https://github.com/yoheimuta/protolint?tab=readme-ov-file#reporters),"[Cake.Issues.Sarif](issue-providers/sarif/index.md)",4.2.0
