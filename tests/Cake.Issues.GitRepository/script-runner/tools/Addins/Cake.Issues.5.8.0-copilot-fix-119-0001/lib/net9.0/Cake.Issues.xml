@@ -1,0 +1,2913 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cake.Issues</name>
+    </assembly>
+    <members>
+        <member name="T:Cake.Issues.Aliases">
+            <content>
+            Contains functionality for breaking builds.
+            </content>
+            <summary>
+            Contains functionality related to reading and creating issues.
+            </summary>
+            <content>
+            Contains functionality related to linking to files.
+            </content>
+            <content>
+            Contains functionality related to serializing and deserializing issues.
+            </content>
+            <content>
+            Contains functionality related to creating issues.
+            </content>
+            <content>
+            Contains functionality related to reading issues.
+            </content>
+        </member>
+        <member name="M:Cake.Issues.Aliases.BreakBuildOnIssues(Cake.Core.ICakeContext,System.Collections.Generic.IEnumerable{Cake.Issues.IIssue})">
+            <summary>
+            Fails build if any issues are found.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="issues">Issues which should be checked.</param>
+            <example>
+            <para>Fails build if issues are found:</para>
+            <code>
+            <![CDATA[
+                BreakBuildOnIssues(issues);
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:Cake.Issues.Aliases.BreakBuildOnIssues(Cake.Core.ICakeContext,System.Collections.Generic.IEnumerable{Cake.Issues.IIssue},System.Action{System.Collections.Generic.IEnumerable{Cake.Issues.IIssue}})">
+            <summary>
+            Fails build if any issues are found.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="issues">Issues which should be checked.</param>
+            <param name="handler">Optional handler to call if <paramref name="issues"/> contains items.</param>
+            <example>
+            <para>Fails build if issues are found:</para>
+            <code>
+            <![CDATA[
+                BreakBuildOnIssues(
+                    issues,
+                    x => Information("{0} issues found", x.Count()));
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:Cake.Issues.Aliases.BreakBuildOnIssues(Cake.Core.ICakeContext,System.Collections.Generic.IEnumerable{Cake.Issues.IIssue},Cake.Issues.IssuePriority)">
+            <summary>
+            Fails build if any issues of certain minimum priority are found.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="issues">Issues which should be checked.</param>
+            <param name="priority">Minimum priority of issues which should be considered.</param>
+            <example>
+            <para>Fails build if errors are found:</para>
+            <code>
+            <![CDATA[
+                BreakBuildOnIssues(issues, IssuePriority.Error);
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:Cake.Issues.Aliases.BreakBuildOnIssues(Cake.Core.ICakeContext,System.Collections.Generic.IEnumerable{Cake.Issues.IIssue},Cake.Issues.IssuePriority,System.Action{System.Collections.Generic.IEnumerable{Cake.Issues.IIssue}})">
+            <summary>
+            Fails build if any issues of certain minimum priority are found.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="issues">Issues which should be checked.</param>
+            <param name="priority">Minimum priority of issues which should be considered.</param>
+            <param name="handler">Optional handler to call when issues of <paramref name="priority"/> are found.</param>
+            <example>
+            <para>Fails build if errors are found:</para>
+            <code>
+            <![CDATA[
+                BreakBuildOnIssues(
+                    issues,
+                    IssuePriority.Error,
+                    x => Information("{0} issues found", x.Count()));
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:Cake.Issues.Aliases.BreakBuildOnIssues(Cake.Core.ICakeContext,System.Collections.Generic.IEnumerable{Cake.Issues.IIssue},System.String)">
+            <summary>
+            Fails build if any issues from a specific issue provider are found.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="issues">Issues which should be checked.</param>
+            <param name="providerType">Type of the issue provider.</param>
+            <example>
+            <para>Fails build if issues from MsBuild are found:</para>
+            <code>
+            <![CDATA[
+                BreakBuildOnIssues(issues, MsBuildIssuesProviderTypeName);
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:Cake.Issues.Aliases.BreakBuildOnIssues(Cake.Core.ICakeContext,System.Collections.Generic.IEnumerable{Cake.Issues.IIssue},System.String,System.Action{System.Collections.Generic.IEnumerable{Cake.Issues.IIssue}})">
+            <summary>
+            Fails build if any issues from a specific issue provider are found.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="issues">Issues which should be checked.</param>
+            <param name="providerType">Type of the issue provider.</param>
+            <param name="handler">Optional handler to call when issues from <paramref name="providerType"/> are found.</param>
+            <example>
+            <para>Fails build if issues from MsBuild are found:</para>
+            <code>
+            <![CDATA[
+                BreakBuildOnIssues(
+                    issues,
+                    MsBuildIssuesProviderTypeName,
+                    x => Information("{0} issues found", x.Count()));
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:Cake.Issues.Aliases.BreakBuildOnIssues(Cake.Core.ICakeContext,System.Collections.Generic.IEnumerable{Cake.Issues.IIssue},Cake.Issues.BuildBreakingSettings)">
+            <summary>
+            Fails build if any issues are found with settings to limit to priority and issue provider types.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="issues">Issues which should be checked.</param>
+            <param name="settings">Settings to apply.</param>
+            <example>
+            <para>Fails build if issues with severity warning or higher from MsBuild are found:</para>
+            <code>
+            <![CDATA[
+                BreakBuildOnIssues(
+                    issues,
+                    new BuildBreakingSettings
+                    {
+                        MinimumPriority = IssuePriority.Warning
+                        IssueProvidersToConsider = [MsBuildIssuesProviderTypeName]
+                    });
+            ]]>
+            </code>
+            </example>
+            <example>
+            <para>Fails build if issues with severity warning or higher are found, ignoring MsBuild issues:</para>
+            <code>
+            <![CDATA[
+                BreakBuildOnIssues(
+                    issues,
+                    new BuildBreakingSettings
+                    {
+                        MinimumPriority = IssuePriority.Warning
+                        IssueProvidersToIgnore = [MsBuildIssuesProviderTypeName]
+                    });
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:Cake.Issues.Aliases.BreakBuildOnIssues(Cake.Core.ICakeContext,System.Collections.Generic.IEnumerable{Cake.Issues.IIssue},Cake.Issues.BuildBreakingSettings,System.Action{System.Collections.Generic.IEnumerable{Cake.Issues.IIssue}})">
+            <summary>
+            Fails build if any issues are found with settings to limit to priority and issue provider types.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="issues">Issues which should be checked.</param>
+            <param name="settings">Settings to apply.</param>
+            <param name="handler">Optional handler to call when issues matching parameters are found.</param>
+            <example>
+            <para>Fails build if issues with severity warning or higher from MsBuild are found:</para>
+            <code>
+            <![CDATA[
+                BreakBuildOnIssues(
+                    issues,
+                    new BuildBreakingSettings
+                    {
+                        MinimumPriority = IssuePriority.Warning
+                        IssueProvidersToConsider = [MsBuildIssuesProviderTypeName]
+                    },
+                    x => Information("{0} issues found", x.Count()));
+            ]]>
+            </code>
+            </example>
+            <example>
+            <para>Fails build if issues with severity warning or higher are found, ignoring MsBuild issues:</para>
+            <code>
+            <![CDATA[
+                BreakBuildOnIssues(
+                    issues,
+                    new BuildBreakingSettings
+                    {
+                        MinimumPriority = IssuePriority.Warning
+                        IssueProvidersToIgnore = [MsBuildIssuesProviderTypeName]
+                    },
+                    x => Information("{0} issues found", x.Count()));
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:Cake.Issues.Aliases.BreakBuildOnIssues(Cake.Core.ICakeContext,System.Collections.Generic.IEnumerable{Cake.Issues.IIssue},System.Func{Cake.Issues.IIssue,System.Boolean})">
+            <summary>
+            Fails build if any issues are found matching a specific predicate.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="issues">Issues which should be checked.</param>
+            <param name="predicate">Predicate to .</param>
+            <example>
+            <para>Fails build if errors are found:</para>
+            <code>
+            <![CDATA[
+                BreakBuildOnIssues(
+                    issues,
+                    x => x.Priority >= (int)IssuePriority.Error);
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:Cake.Issues.Aliases.BreakBuildOnIssues(Cake.Core.ICakeContext,System.Collections.Generic.IEnumerable{Cake.Issues.IIssue},System.Func{Cake.Issues.IIssue,System.Boolean},System.Action{System.Collections.Generic.IEnumerable{Cake.Issues.IIssue}})">
+            <summary>
+            Fails build if any issues are found matching a specific predicate.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="issues">Issues which should be checked.</param>
+            <param name="predicate">Predicate to .</param>
+            <param name="handler">Optional handler to call when issues matching <paramref name="predicate"/> are found.</param>
+            <example>
+            <para>Fails build if errors are found:</para>
+            <code>
+            <![CDATA[
+                BreakBuildOnIssues(
+                    issues,
+                    x => x.Priority >= (int)IssuePriority.Error,
+                    x => Information("{0} issues found", x.Count()));
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:Cake.Issues.Aliases.IssueFileLinkSettings(Cake.Core.ICakeContext,System.String)">
+            <summary>
+            Gets an instance of the file link settings for linking to files
+            based on a custom pattern.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="pattern">Pattern of the file link.
+            See <see cref="M:Cake.Issues.IIssueExtensions.ReplaceIssuePattern(System.String,Cake.Issues.IIssue)"/>
+            for a list of tokens supported in the pattern.</param>
+            <returns>Settings for linking files.</returns>
+            <example>
+            <para>Creates file link settings to an internal source hosting site:</para>
+            <code>
+            <![CDATA[
+                var fileLinkSettings =
+                    IssueFileLinkSettings("https://awesomesource/{FilePath}?line={Line}");
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:Cake.Issues.Aliases.IssueFileLinkSettings(Cake.Core.ICakeContext,System.Func{Cake.Issues.IIssue,System.Uri})">
+             <summary>
+             Gets an instance of the file link settings for linking to files
+             based on a custom action.
+             </summary>
+             <param name="context">The context.</param>
+             <param name="builder">Callback called for building the file link.</param>
+             <returns>File link settings.</returns>
+             <returns>Settings for linking files.</returns>
+             <example>
+             <para>Creates file link settings to an internal source hosting site with
+             parameters set dynamically, based on values of the issue:</para>
+             <code>
+             <![CDATA[
+                 var fileLinkSettings =
+                     IssueFileLinkSettings(issue =>
+                     {
+                         var result =
+                             new Uri("https://awesomesource/")
+                                 .Append(issue.FilePath());
+            
+                         if (issue.Line.HasValue)
+                         {
+                             result = result.Append("?line={issue.Line.Value}")
+                         }
+            
+                         return result;
+                     });
+             ]]>
+             </code>
+             </example>
+        </member>
+        <member name="M:Cake.Issues.Aliases.IssueFileLinkSettingsForGitHubBranch(Cake.Core.ICakeContext,System.Uri,System.String)">
+            <summary>
+            Gets an instance of the file link settings for linking files hosted on GitHub on a specific branch.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="repositoryUrl">Full URL of the Git repository,
+            e.g. <code>https://github.com/cake-contrib/Cake.Issues.Reporting.Generic</code>.</param>
+            <param name="branch">Name of the branch on which the file linking will be based on.</param>
+            <returns>Settings for linking to files hosted in GitHub.</returns>
+        </member>
+        <member name="M:Cake.Issues.Aliases.IssueFileLinkSettingsForGitHubBranch(Cake.Core.ICakeContext,System.Uri,System.String,System.String)">
+            <summary>
+            Gets an instance of the file link settings for linking files hosted on GitHub
+            in a sub-folder on a specific branch.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="repositoryUrl">Full URL of the Git repository,
+            e.g. <code>https://github.com/cake-contrib/Cake.Issues.Reporting.Generic</code>.</param>
+            <param name="branch">Name of the branch on which the file linking will be based on.</param>
+            <param name="rootPath">Root path of the files.
+            <c>null</c> if files are in the root of the repository.</param>
+            <returns>Settings for linking to files hosted in GitHub.</returns>
+        </member>
+        <member name="M:Cake.Issues.Aliases.IssueFileLinkSettingsForGitHubCommit(Cake.Core.ICakeContext,System.Uri,System.String)">
+            <summary>
+            Gets an instance of the file link settings for linking files hosted on GitHub fo a specific commit.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="repositoryUrl">Full URL of the Git repository,
+            e.g. <code>https://github.com/cake-contrib/Cake.Issues.Reporting.Generic</code>.</param>
+            <param name="commitId">The commit id on which the file linking will be based on.</param>
+            <returns>Settings for linking to files hosted in GitHub.</returns>
+        </member>
+        <member name="M:Cake.Issues.Aliases.IssueFileLinkSettingsForGitHubCommit(Cake.Core.ICakeContext,System.Uri,System.String,System.String)">
+            <summary>
+            Gets an instance of the file link settings for linking files hosted on GitHub
+            in a sub-folder for a specific commit.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="repositoryUrl">Full URL of the Git repository,
+            e.g. <code>https://github.com/cake-contrib/Cake.Issues.Reporting.Generic</code>.</param>
+            <param name="commitId">The commit id on which the file linking will be based on.</param>
+            <param name="rootPath">Root path of the files.
+            <c>null</c> or <see cref="F:System.String.Empty"/> if files are in the root of the repository.</param>
+            <returns>Settings for linking to files hosted in GitHub.</returns>
+        </member>
+        <member name="M:Cake.Issues.Aliases.IssueFileLinkSettingsForAzureDevOpsBranch(Cake.Core.ICakeContext,System.Uri,System.String)">
+            <summary>
+            Gets an instance of the file link settings for linking to files hosted in Azure DevOps
+            on a specific branch.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="repositoryUrl">Full URL of the Git repository,
+            e.g. <code>https://dev.azure.com/myorganization/_git/myrepo</code>.</param>
+            <param name="branch">Name of the branch on which the file linking will be based on.</param>
+            <returns>Settings for linking files hosted on Azure DevOps or Azure DevOps Server.</returns>
+        </member>
+        <member name="M:Cake.Issues.Aliases.IssueFileLinkSettingsForAzureDevOpsBranch(Cake.Core.ICakeContext,System.Uri,System.String,System.String)">
+            <summary>
+            Gets an instance of the file link settings for linking to files hosted in Azure DevOps
+            in a sub-folder on a specific branch.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="repositoryUrl">Full URL of the Git repository,
+            e.g. <code>https://dev.azure.com/myorganization/_git/myrepo</code>.</param>
+            <param name="branch">Name of the branch on which the file linking will be based on.</param>
+            <param name="rootPath">Root path of the files.
+            <c>null</c> if files are in the root of the repository.</param>
+            <returns>Settings for linking files hosted on Azure DevOps.</returns>
+        </member>
+        <member name="M:Cake.Issues.Aliases.IssueFileLinkSettingsForAzureDevOpsCommit(Cake.Core.ICakeContext,System.Uri,System.String)">
+            <summary>
+            Gets an instance of the file link settings for linking to files hosted in Azure DevOps
+            for a specific commit.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="repositoryUrl">Full URL of the Git repository,
+            e.g. <code>https://dev.azure.com/myorganization/_git/myrepo</code>.</param>
+            <param name="commitId">The commit id on which the file linking will be based on.</param>
+            <returns>Settings for linking files hosted on Azure DevOps or Azure DevOps Server.</returns>
+        </member>
+        <member name="M:Cake.Issues.Aliases.IssueFileLinkSettingsForAzureDevOpsCommit(Cake.Core.ICakeContext,System.Uri,System.String,System.String)">
+            <summary>
+            Gets an instance of the file link settings for linking to files hosted in Azure DevOps
+            in a sub-folder for a specific commit.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="repositoryUrl">Full URL of the Git repository,
+            e.g. <code>https://dev.azure.com/myorganization/_git/myrepo</code>.</param>
+            <param name="commitId">The commit id on which the file linking will be based on.</param>
+            <param name="rootPath">Root path of the files.
+            <c>null</c> if files are in the root of the repository.</param>
+            <returns>Settings for linking files hosted on Azure DevOps.</returns>
+        </member>
+        <member name="M:Cake.Issues.Aliases.SerializeIssueToJsonString(Cake.Core.ICakeContext,Cake.Issues.IIssue)">
+            <summary>
+            Serializes an <see cref="T:Cake.Issues.IIssue"/> to a JSON string.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="issue">Issue which should be serialized.</param>
+            <returns>Serialized issue.</returns>
+            <example>
+            <para>Serializes an issue to a JSON string:</para>
+            <code>
+            <![CDATA[
+                var jsonString =
+                    SerializeIssueToJsonString(issue);
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:Cake.Issues.Aliases.SerializeIssuesToJsonString(Cake.Core.ICakeContext,System.Collections.Generic.IEnumerable{Cake.Issues.IIssue})">
+            <summary>
+            Serializes an <see cref="T:System.Collections.Generic.IEnumerable`1"/> to a JSON string.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="issues">Issues which should be serialized.</param>
+            <returns>Serialized issues.</returns>
+            <example>
+            <para>Serializes a list of issues to a JSON string:</para>
+            <code>
+            <![CDATA[
+                var jsonString =
+                    SerializeIssuesToJsonString(issues);
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:Cake.Issues.Aliases.SerializeIssueToJsonFile(Cake.Core.ICakeContext,Cake.Issues.IIssue,Cake.Core.IO.FilePath)">
+            <summary>
+            Serializes an <see cref="T:Cake.Issues.IIssue"/> to a JSON file.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="issue">Issue which should be serialized.</param>
+            <param name="filePath">Path to the file.</param>
+            <example>
+            <para>Serializes an issue to a JSON file:</para>
+            <code>
+            <![CDATA[
+                SerializeIssueToJsonFile(issue, @"c:\issue.json");
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:Cake.Issues.Aliases.SerializeIssuesToJsonFile(Cake.Core.ICakeContext,System.Collections.Generic.IEnumerable{Cake.Issues.IIssue},Cake.Core.IO.FilePath)">
+            <summary>
+            Serializes an <see cref="T:System.Collections.Generic.IEnumerable`1"/> to a JSON file.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="issues">Issues which should be serialized.</param>
+            <param name="filePath">Path to the file.</param>
+            <example>
+            <para>Serializes a list of issues to a JSON file:</para>
+            <code>
+            <![CDATA[
+                SerializeIssuesToJsonFile(@"c:\issues.json");
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:Cake.Issues.Aliases.DeserializeIssueFromJsonString(Cake.Core.ICakeContext,System.String)">
+            <summary>
+            Deserializes an <see cref="T:Cake.Issues.Issue"/> from a JSON string.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="jsonString">JSON representation of the issue.</param>
+            <returns>Instance of the issue.</returns>
+            <example>
+            <para>Deserializes an issue from a JSON string:</para>
+            <code>
+            <![CDATA[
+                var issue =
+                    DeserializeIssueFromJsonString(jsonString);
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:Cake.Issues.Aliases.DeserializeIssuesFromJsonString(Cake.Core.ICakeContext,System.String)">
+            <summary>
+            Deserializes an <see cref="T:System.Collections.Generic.IEnumerable`1"/> from a JSON string.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="jsonString">JSON representation of the issues.</param>
+            <returns>List of issues.</returns>
+            <example>
+            <para>Deserializes a list of issue from a JSON string:</para>
+            <code>
+            <![CDATA[
+                var issues =
+                    DeserializeIssuesFromJsonString(jsonString);
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:Cake.Issues.Aliases.DeserializeIssueFromJsonFile(Cake.Core.ICakeContext,Cake.Core.IO.FilePath)">
+            <summary>
+            Deserializes an <see cref="T:Cake.Issues.Issue"/> from a JSON file.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="filePath">Path to the JSON file.</param>
+            <returns>Instance of the issue.</returns>
+            <example>
+            <para>Deserializes an issue from a JSON file:</para>
+            <code>
+            <![CDATA[
+                var issue =
+                    DeserializeIssueFromJsonFile(@"c:\issue.json");
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:Cake.Issues.Aliases.DeserializeIssuesFromJsonFile(Cake.Core.ICakeContext,Cake.Core.IO.FilePath)">
+            <summary>
+            Deserializes an <see cref="T:System.Collections.Generic.IEnumerable`1"/> from a JSON file.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="filePath">Path to the JSON file.</param>
+            <returns>List of issues.</returns>
+            <example>
+            <para>Deserializes a list of issue from a JSON file:</para>
+            <code>
+            <![CDATA[
+                var issues =
+                    DeserializeIssuesFromJsonFile(@"c:\issues.json");
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:Cake.Issues.Aliases.NewIssue(Cake.Core.ICakeContext,System.String,System.String,System.String)">
+            <summary>
+            Initiates the creation of a new <see cref="T:Cake.Issues.IIssue"/> with <paramref name="message"/> as identifier.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="message">The message of the issue.</param>
+            <param name="providerType">The unique identifier of the issue provider.</param>
+            <param name="providerName">The human friendly name of the issue provider.</param>
+            <returns>Builder class for creating a new <see cref="T:Cake.Issues.IIssue"/>.</returns>
+            <example>
+            <para>Create a new warning for the <c>myfile.txt</c> file on line 42:</para>
+            <code>
+            <![CDATA[
+                var issue =
+                    NewIssue(
+                        "Something went wrong",
+                        "MyCakeScript",
+                        "My Cake Script")
+                        .InFile("myfile.txt", 42)
+                        .WithPriority(IssuePriority.Warning)
+                        .Create();
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:Cake.Issues.Aliases.NewIssue(Cake.Core.ICakeContext,System.String,System.String,System.String,System.String)">
+            <summary>
+            Initiates the creation of a new <see cref="T:Cake.Issues.IIssue"/>.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="identifier">The identifier of the issue.</param>
+            <param name="message">The message of the issue.</param>
+            <param name="providerType">The unique identifier of the issue provider.</param>
+            <param name="providerName">The human friendly name of the issue provider.</param>
+            <returns>Builder class for creating a new <see cref="T:Cake.Issues.IIssue"/>.</returns>
+            <example>
+            <para>Create a new warning for the <c>myfile.txt</c> file on line 42:</para>
+            <code>
+            <![CDATA[
+                var issue =
+                    NewIssue(
+                        "Issue identifier",
+                        "Something went wrong",
+                        "MyCakeScript",
+                        "My Cake Script")
+                        .InFile("myfile.txt", 42)
+                        .WithPriority(IssuePriority.Warning)
+                        .Create();
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:Cake.Issues.Aliases.ReadIssues(Cake.Core.ICakeContext,Cake.Issues.IIssueProvider,Cake.Core.IO.DirectoryPath)">
+            <summary>
+            Reads issues from a single issue provider.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="issueProvider">The provider for issues.</param>
+            <param name="repositoryRoot">Root path of the repository.</param>
+            <returns>Issues reported by issue provider.</returns>
+            <example>
+            <para>Read issues reported by JetBrains inspect code:</para>
+            <code>
+            <![CDATA[
+                var issues =
+                    ReadIssues(
+                        InspectCodeIssuesFromFilePath(
+                            @"C:\build\inspectcode.log"),
+                        @"c:\repo"));
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:Cake.Issues.Aliases.ReadIssues(Cake.Core.ICakeContext,System.Collections.Generic.IEnumerable{Cake.Issues.IIssueProvider},Cake.Core.IO.DirectoryPath)">
+            <summary>
+            Reads issues from issue providers.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="issueProviders">The list of provider for issues.</param>
+            <param name="repositoryRoot">Root path of the repository.</param>
+            <returns>Issues reported by all issue providers.</returns>
+            <example>
+            <para>Read issues reported as MsBuild warnings and issues reported by JetBrains inspect code:</para>
+            <code>
+            <![CDATA[
+                var issues =
+                    ReadIssues(
+                        new List<IIssueProvider>
+                        {
+                            MsBuildIssuesFromFilePath(
+                                @"C:\build\msbuild.log",
+                                MsBuildXmlFileLoggerFormat),
+                            InspectCodeIssuesFromFilePath(
+                                @"C:\build\inspectcode.log")
+                        },
+                        @"c:\repo"));
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:Cake.Issues.Aliases.ReadIssues(Cake.Core.ICakeContext,Cake.Issues.IIssueProvider,Cake.Issues.IReadIssuesSettings)">
+             <summary>
+             Reads issues from a single issue provider using the specified settings.
+             </summary>
+             <param name="context">The context.</param>
+             <param name="issueProvider">The provider for issues.</param>
+             <param name="settings">The settings.</param>
+             <returns>Issues reported by issue provider.</returns>
+             <example>
+             <para>Read issues reported by JetBrains inspect code and set run information:</para>
+             <code>
+             <![CDATA[
+                 var settings =
+                     new ReadIssuesSettings(@"c:\repo")
+                     {
+                         Run = "My run"
+                     };
+            
+                 var issues =
+                     ReadIssues(
+                         InspectCodeIssuesFromFilePath(
+                             @"C:\build\inspectcode.log"),
+                         settings));
+             ]]>
+             </code>
+             </example>
+        </member>
+        <member name="M:Cake.Issues.Aliases.ReadIssues(Cake.Core.ICakeContext,System.Collections.Generic.IEnumerable{Cake.Issues.IIssueProvider},Cake.Issues.IReadIssuesSettings)">
+             <summary>
+             Reads issues from issue providers using the specified settings.
+             </summary>
+             <param name="context">The context.</param>
+             <param name="issueProviders">The list of provider for issues.</param>
+             <param name="settings">The settings.</param>
+             <returns>Issues reported by all issue providers.</returns>
+             <example>
+             <para>Read issues reported as MsBuild warnings and issues reported by JetBrains inspect code
+             and set run information:</para>
+             <code>
+             <![CDATA[
+                 var settings =
+                     new ReadIssuesSettings(@"c:\repo")
+                     {
+                         Run = "My run"
+                     };
+            
+                 var issues =
+                     ReadIssues(
+                         new List<IIssueProvider>
+                         {
+                             MsBuildIssuesFromFilePath(
+                                 @"C:\build\msbuild.log",
+                                 MsBuildXmlFileLoggerFormat),
+                             InspectCodeIssuesFromFilePath(
+                                 @"C:\build\inspectcode.log")
+                         },
+                         settings));
+             ]]>
+             </code>
+             </example>
+        </member>
+        <member name="T:Cake.Issues.BaseConfigurableIssueProvider`1">
+            <summary>
+            Base class for all issue provider implementations with issue provider specific settings.
+            </summary>
+            <typeparam name="T">Type of the issue provider settings.</typeparam>
+        </member>
+        <member name="M:Cake.Issues.BaseConfigurableIssueProvider`1.#ctor(Cake.Core.Diagnostics.ICakeLog,`0)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cake.Issues.BaseConfigurableIssueProvider`1"/> class.
+            </summary>
+            <param name="log">The Cake log context.</param>
+            <param name="issueProviderSettings">Settings for the issue provider.</param>
+        </member>
+        <member name="P:Cake.Issues.BaseConfigurableIssueProvider`1.IssueProviderSettings">
+            <summary>
+            Gets the settings for the issue provider.
+            </summary>
+        </member>
+        <member name="T:Cake.Issues.BaseIssueComponent`1">
+            <summary>
+            Base class for all Cake.Issues component.
+            </summary>
+            <typeparam name="T">Type of settings.</typeparam>
+        </member>
+        <member name="M:Cake.Issues.BaseIssueComponent`1.#ctor(Cake.Core.Diagnostics.ICakeLog)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cake.Issues.BaseIssueComponent`1"/> class.
+            </summary>
+            <param name="log">The Cake log context.</param>
+        </member>
+        <member name="P:Cake.Issues.BaseIssueComponent`1.Log">
+            <summary>
+            Gets the Cake log context.
+            </summary>
+        </member>
+        <member name="P:Cake.Issues.BaseIssueComponent`1.Settings">
+            <summary>
+            Gets the settings.
+            Is set after <see cref="M:Cake.Issues.BaseIssueComponent`1.Initialize(`0)"/> was called from the core add-in.
+            </summary>
+        </member>
+        <member name="M:Cake.Issues.BaseIssueComponent`1.Initialize(`0)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cake.Issues.BaseIssueComponent`1.AssertInitialized">
+            <inheritdoc/>
+        </member>
+        <member name="T:Cake.Issues.BaseIssueProvider">
+            <summary>
+            Base class for all issue provider implementations.
+            </summary>
+            <param name="log">The Cake log context.</param>
+        </member>
+        <member name="M:Cake.Issues.BaseIssueProvider.#ctor(Cake.Core.Diagnostics.ICakeLog)">
+            <summary>
+            Base class for all issue provider implementations.
+            </summary>
+            <param name="log">The Cake log context.</param>
+        </member>
+        <member name="P:Cake.Issues.BaseIssueProvider.ProviderName">
+            <inheritdoc/>
+        </member>
+        <member name="P:Cake.Issues.BaseIssueProvider.ProviderType">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cake.Issues.BaseIssueProvider.ReadIssues">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cake.Issues.BaseIssueProvider.InternalReadIssues">
+            <summary>
+            Gets all issues.
+            Compared to <see cref="M:Cake.Issues.BaseIssueProvider.ReadIssues"/> it is safe to access Settings from this method.
+            </summary>
+            <returns>List of issues.</returns>
+        </member>
+        <member name="T:Cake.Issues.BaseLogFileFormat`2">
+            <summary>
+            Base class for all log file format implementations.
+            </summary>
+            <typeparam name="TIssueProvider">Type of the issue provider.</typeparam>
+            <typeparam name="TSettings">Type of the settings.</typeparam>
+        </member>
+        <member name="M:Cake.Issues.BaseLogFileFormat`2.#ctor(Cake.Core.Diagnostics.ICakeLog)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cake.Issues.BaseLogFileFormat`2"/> class.
+            </summary>
+            <param name="log">The Cake log instance.</param>
+        </member>
+        <member name="P:Cake.Issues.BaseLogFileFormat`2.Log">
+            <summary>
+            Gets the Cake log instance.
+            </summary>
+        </member>
+        <member name="M:Cake.Issues.BaseLogFileFormat`2.ReadIssues(`0,Cake.Issues.IRepositorySettings,`1)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Cake.Issues.BaseMultiFormatIssueProvider`2">
+            <summary>
+            Base class for issue providers supporting multiple log formats.
+            </summary>
+            <typeparam name="TSettings">Type of the settings.</typeparam>
+            <typeparam name="TIssueProvider">Type of the issue provider.</typeparam>
+            <param name="log">The Cake log context.</param>
+            <param name="settings">Settings for the issue provider.</param>
+        </member>
+        <member name="M:Cake.Issues.BaseMultiFormatIssueProvider`2.#ctor(Cake.Core.Diagnostics.ICakeLog,`0)">
+            <summary>
+            Base class for issue providers supporting multiple log formats.
+            </summary>
+            <typeparam name="TSettings">Type of the settings.</typeparam>
+            <typeparam name="TIssueProvider">Type of the issue provider.</typeparam>
+            <param name="log">The Cake log context.</param>
+            <param name="settings">Settings for the issue provider.</param>
+        </member>
+        <member name="M:Cake.Issues.BaseMultiFormatIssueProvider`2.InternalReadIssues">
+            <inheritdoc/>
+        </member>
+        <member name="T:Cake.Issues.BaseMultiFormatIssueProviderSettings`2">
+            <summary>
+            Base settings for <see cref="T:Cake.Issues.BaseMultiFormatIssueProvider`2"/>.
+            </summary>
+            <typeparam name="TIssueProvider">Type of the issue provider.</typeparam>
+            <typeparam name="TSettings">Type of the settings.</typeparam>
+        </member>
+        <member name="M:Cake.Issues.BaseMultiFormatIssueProviderSettings`2.#ctor(Cake.Core.IO.FilePath,Cake.Issues.ILogFileFormat{`0,`1})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cake.Issues.BaseMultiFormatIssueProviderSettings`2"/> class
+            for reading a log file on disk.
+            </summary>
+            <param name="logFilePath">Path to the log file.
+            The log file needs to be in the format as defined by the <paramref name="format"/> parameter.</param>
+            <param name="format">Format of the provided log file.</param>
+        </member>
+        <member name="M:Cake.Issues.BaseMultiFormatIssueProviderSettings`2.#ctor(System.Byte[],Cake.Issues.ILogFileFormat{`0,`1})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cake.Issues.BaseMultiFormatIssueProviderSettings`2"/> class
+            for a log file content in memory.
+            </summary>
+            <param name="logFileContent">Content of the log file.
+            The log file needs to be in the format as defined by the <paramref name="format"/> parameter.</param>
+            <param name="format">Format of the provided log file.</param>
+        </member>
+        <member name="P:Cake.Issues.BaseMultiFormatIssueProviderSettings`2.Format">
+            <summary>
+            Gets the format of the log file.
+            </summary>
+        </member>
+        <member name="T:Cake.Issues.BaseRuleDescription">
+            <summary>
+            Base class for all rule descriptions.
+            </summary>
+        </member>
+        <member name="P:Cake.Issues.BaseRuleDescription.Rule">
+            <summary>
+            Gets the full identifier of the rule.
+            </summary>
+        </member>
+        <member name="T:Cake.Issues.BaseRuleUrlResolver`1">
+            <summary>
+            Base class for retrieving a URL linking to a site containing help for a rule.
+            </summary>
+            <typeparam name="T">Type of the rule description.</typeparam>
+        </member>
+        <member name="M:Cake.Issues.BaseRuleUrlResolver`1.AddUrlResolver(System.Func{`0,System.Uri})">
+            <summary>
+            Registers a new resolver with default priority of <c>0</c>.
+            </summary>
+            <param name="resolver">Resolver which returns an <see cref="T:System.Uri"/> linking to a site
+            containing help for a specific <see cref="T:Cake.Issues.BaseRuleDescription"/>.</param>
+        </member>
+        <member name="M:Cake.Issues.BaseRuleUrlResolver`1.AddUrlResolver(System.Func{`0,System.Uri},System.Int32)">
+            <summary>
+            Registers a new resolver with a specific priority.
+            </summary>
+            <param name="resolver">Resolver which returns an <see cref="T:System.Uri"/> linking to a site
+            containing help for a specific <see cref="T:Cake.Issues.BaseRuleDescription"/>.</param>
+            <param name="priority">Priority of the resolver. Resolver with a higher priority are considered
+            first during resolving of the URL.</param>
+        </member>
+        <member name="M:Cake.Issues.BaseRuleUrlResolver`1.ResolveRuleUrl(System.String)">
+            <summary>
+            Returns a URL linking to a site describing a specific rule.
+            </summary>
+            <param name="rule">Code of the rule for which the URL should be retrieved.</param>
+            <returns>URL linking to a site describing the rule, or <c>null</c> if <paramref name="rule"/>
+            could not be parsed.</returns>
+        </member>
+        <member name="M:Cake.Issues.BaseRuleUrlResolver`1.TryGetRuleDescription(System.String,`0)">
+            <summary>
+            Parses a rule into a <see cref="T:Cake.Issues.BaseRuleDescription"/>.
+            </summary>
+            <param name="rule">Rule which should be parsed.</param>
+            <param name="ruleDescription">Description of the rule.</param>
+            <returns><c>true</c> if rule could be parsed successfully, otherwise <c>false</c>.</returns>
+        </member>
+        <member name="T:Cake.Issues.BuildBreaker">
+            <summary>
+            Class for breaking builds.
+            </summary>
+        </member>
+        <member name="M:Cake.Issues.BuildBreaker.BreakBuildOnIssues(System.Collections.Generic.IEnumerable{Cake.Issues.IIssue},System.Action{System.Collections.Generic.IEnumerable{Cake.Issues.IIssue}})">
+            <summary>
+            Fails build if any issues are found.
+            </summary>
+            <param name="issues">Issues which should be checked.</param>
+            <param name="handler">Optional handler to call if <paramref name="issues"/> contains items.</param>
+        </member>
+        <member name="M:Cake.Issues.BuildBreaker.BreakBuildOnIssues(System.Collections.Generic.IEnumerable{Cake.Issues.IIssue},Cake.Issues.IssuePriority,System.Action{System.Collections.Generic.IEnumerable{Cake.Issues.IIssue}})">
+            <summary>
+            Fails build if any issues of certain minimum priority are found.
+            </summary>
+            <param name="issues">Issues which should be checked.</param>
+            <param name="priority">Minimum priority of issues which should be considered.</param>
+            <param name="handler">Optional handler to call when issues of <paramref name="priority"/> are found.</param>
+        </member>
+        <member name="M:Cake.Issues.BuildBreaker.BreakBuildOnIssues(System.Collections.Generic.IEnumerable{Cake.Issues.IIssue},System.String,System.Action{System.Collections.Generic.IEnumerable{Cake.Issues.IIssue}})">
+            <summary>
+            Fails build if any issues from a specific issue provider are found.
+            </summary>
+            <param name="issues">Issues which should be checked.</param>
+            <param name="providerType">Type of the issue provider.</param>
+            <param name="handler">Optional handler to call when issues from <paramref name="providerType"/> are found.</param>
+        </member>
+        <member name="M:Cake.Issues.BuildBreaker.BreakBuildOnIssues(System.Collections.Generic.IEnumerable{Cake.Issues.IIssue},Cake.Issues.IssuePriority,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Action{System.Collections.Generic.IEnumerable{Cake.Issues.IIssue}})">
+            <summary>
+            Fails build if any issues are found with possibility to limit to priority and issue provider types.
+            </summary>
+            <param name="issues">Issues which should be checked.</param>
+            <param name="minimumPriority">Minimum priority of issues which should be considered.
+            If set to <see cref="F:Cake.Issues.IssuePriority.Undefined"/>, all issues are considered.</param>
+            <param name="issueProvidersToConsider">Issue providers to consider.
+            If empty, all providers are considered.</param>
+            <param name="issueProvidersToIgnore">Issue providers to ignore.</param>
+            <param name="handler">Optional handler to call when issues matching parameters are found.</param>
+        </member>
+        <member name="M:Cake.Issues.BuildBreaker.BreakBuildOnIssues(System.Collections.Generic.IEnumerable{Cake.Issues.IIssue},System.Func{Cake.Issues.IIssue,System.Boolean},System.Action{System.Collections.Generic.IEnumerable{Cake.Issues.IIssue}})">
+            <summary>
+            Fails build if any issues are found matching a specific predicate.
+            </summary>
+            <param name="issues">Issues which should be checked.</param>
+            <param name="predicate">Predicate to .</param>
+            <param name="handler">Optional handler to call when issues matching <paramref name="predicate"/> are found.</param>
+        </member>
+        <member name="T:Cake.Issues.BuildBreakingSettings">
+            <summary>
+            Settings for build breaking aliases.
+            </summary>
+        </member>
+        <member name="P:Cake.Issues.BuildBreakingSettings.MinimumPriority">
+            <summary>
+            Gets or sets the minimum minimum priority of issues which should be considered.
+            If set to <see cref="F:Cake.Issues.IssuePriority.Undefined"/>, all issues are considered.
+            Default value is <see cref="F:Cake.Issues.IssuePriority.Undefined"/>.
+            </summary>
+        </member>
+        <member name="P:Cake.Issues.BuildBreakingSettings.IssueProvidersToConsider">
+            <summary>
+            Gets or sets the issue provider types to consider.
+            If empty, all providers are considered.
+            Default value is empty.
+            </summary>
+        </member>
+        <member name="P:Cake.Issues.BuildBreakingSettings.IssueProvidersToIgnore">
+            <summary>
+            Gets or sets the issue provider types to ignore.
+            Default value is empty.
+            </summary>
+        </member>
+        <member name="T:Cake.Issues.ByteArrayExtensions">
+            <summary>
+            Extensions for working with byte arrays.
+            </summary>
+        </member>
+        <member name="M:Cake.Issues.ByteArrayExtensions.RemovePreamble(System.Byte[])">
+            <summary>
+            Removes the BOM of a UTF-8 encoded byte array.
+            </summary>
+            <param name="value">UTF-8 encoded byte array.</param>
+            <returns>UTF-8 encoded byte array without BOM.</returns>
+        </member>
+        <member name="M:Cake.Issues.ByteArrayExtensions.RemovePreamble(System.Byte[],System.Text.Encoding)">
+            <summary>
+            Removes the preamble from a byte array.
+            </summary>
+            <param name="value">Byte array.</param>
+            <param name="encoding">Encoding of the byte array.</param>
+            <returns>Byte array without preamble.</returns>
+        </member>
+        <member name="M:Cake.Issues.ByteArrayExtensions.ToStringUsingEncoding(System.Byte[])">
+            <summary>
+            Converts a byte array of a UTF-8 encoded string to a string.
+            </summary>
+            <param name="value">Value to convert.</param>
+            <returns>Converted string.</returns>
+        </member>
+        <member name="M:Cake.Issues.ByteArrayExtensions.ToStringUsingEncoding(System.Byte[],System.Boolean)">
+            <summary>
+            Converts a byte array of a UTF-8 encoded string to a string.
+            </summary>
+            <param name="value">Value to convert.</param>
+            <param name="skipPreamble">True if <paramref name="value"/> contains a BOM which should not be returned.</param>
+            <returns>Converted string.</returns>
+        </member>
+        <member name="M:Cake.Issues.ByteArrayExtensions.ToStringUsingEncoding(System.Byte[],System.Text.Encoding,System.Boolean)">
+            <summary>
+            Converts a byte array to a string.
+            </summary>
+            <param name="value">Value to convert.</param>
+            <param name="encoding">Encoding of the string.</param>
+            <param name="skipPreamble">True if <paramref name="value"/> contains a preamble which should not be returned.</param>
+            <returns>Converted string.</returns>
+        </member>
+        <member name="M:Cake.Issues.ByteArrayExtensions.ToByteArray(System.String)">
+            <summary>
+            Converts a string to a byte array using UTF-8 encoding.
+            </summary>
+            <param name="value">String value to convert.</param>
+            <returns>Byte array with string value in UTF-8 encoding.</returns>
+        </member>
+        <member name="M:Cake.Issues.ByteArrayExtensions.ToByteArray(System.String,System.Text.Encoding)">
+            <summary>
+            Converts a string to a byte array using a specific encoding.
+            </summary>
+            <param name="value">String value to convert.</param>
+            <param name="encoding">Encoding to use.</param>
+            <returns>Byte array with string value in specified encoding.</returns>
+        </member>
+        <member name="T:Cake.Issues.FileLinking.AzureDevOpsFileLinkSettingsBuilder">
+            <summary>
+            Class for building settings for file links of files hosted on Azure DevOps.
+            </summary>
+        </member>
+        <member name="M:Cake.Issues.FileLinking.AzureDevOpsFileLinkSettingsBuilder.#ctor(System.Uri)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cake.Issues.FileLinking.AzureDevOpsFileLinkSettingsBuilder"/> class.
+            </summary>
+            <param name="repositoryUrl">Full URL of the Git repository,
+            e.g. <code>https://github.com/cake-contrib/Cake.Issues</code>.</param>
+        </member>
+        <member name="M:Cake.Issues.FileLinking.AzureDevOpsFileLinkSettingsBuilder.Branch(System.String)">
+            <summary>
+            Returns settings to files on AzureDevOps on a specific branch.
+            </summary>
+            <param name="branchName">Name of the branch.</param>
+            <returns>Class for setting additional settings.</returns>
+        </member>
+        <member name="M:Cake.Issues.FileLinking.AzureDevOpsFileLinkSettingsBuilder.Commit(System.String)">
+            <summary>
+            Returns settings to files on AzureDevOps on a specific commit.
+            </summary>
+            <param name="commitId">The commit id on which the file linking will be based on.</param>
+            <returns>Class for setting additional settings.</returns>
+        </member>
+        <member name="T:Cake.Issues.FileLinking.FileLinkOptionalSettingsBuilder">
+            <summary>
+            Class containing builder for optional settings for linking to files.
+            </summary>
+        </member>
+        <member name="M:Cake.Issues.FileLinking.FileLinkOptionalSettingsBuilder.#ctor(System.Func{Cake.Issues.IIssue,System.Collections.Generic.IDictionary{System.String,System.String},System.Uri})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cake.Issues.FileLinking.FileLinkOptionalSettingsBuilder"/> class.
+            </summary>
+            <param name="builder">Callback called for building the file link.</param>
+        </member>
+        <member name="M:Cake.Issues.FileLinking.FileLinkOptionalSettingsBuilder.WithRootPath(System.String)">
+            <summary>
+            Sets the root path for the files.
+            </summary>
+            <param name="rootPath">Root path for the files.
+            <c>null</c> if files are in the root of the repository.</param>
+            <returns>Object for creating the file link.</returns>
+        </member>
+        <member name="T:Cake.Issues.FileLinking.GitHubFileLinkSettingsBuilder">
+            <summary>
+            Class for building settings for file links of files hosted on GitHub.
+            </summary>
+        </member>
+        <member name="M:Cake.Issues.FileLinking.GitHubFileLinkSettingsBuilder.#ctor(System.Uri)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cake.Issues.FileLinking.GitHubFileLinkSettingsBuilder"/> class.
+            </summary>
+            <param name="repositoryUrl">Full URL of the Git repository,
+            e.g. <code>https://github.com/cake-contrib/Cake.Issues</code>.</param>
+        </member>
+        <member name="M:Cake.Issues.FileLinking.GitHubFileLinkSettingsBuilder.Branch(System.String)">
+            <summary>
+            Returns settings to files on GitHub on a specific branch.
+            </summary>
+            <param name="branchName">Name of the branch.</param>
+            <returns>Class for setting additional settings.</returns>
+        </member>
+        <member name="M:Cake.Issues.FileLinking.GitHubFileLinkSettingsBuilder.Commit(System.String)">
+            <summary>
+            Returns settings to files on GitHub on a specific commit.
+            </summary>
+            <param name="commitId">The commit id on which the file linking will be based on.</param>
+            <returns>Class for setting additional settings.</returns>
+        </member>
+        <member name="M:Cake.Issues.FileLinking.GitHubFileLinkSettingsBuilder.GetFilePathPattern(Cake.Issues.IIssue)">
+            <summary>
+            Returns the pattern for the file path and line information.
+            </summary>
+            <param name="issue">Issue for which the pattern should be returned.</param>
+            <returns>Pattern.</returns>
+        </member>
+        <member name="T:Cake.Issues.FileLinking.IDictionaryExtensions">
+            <summary>
+            Extensions for <see cref="T:System.Collections.Generic.IDictionary`2"/>.
+            </summary>
+        </member>
+        <member name="M:Cake.Issues.FileLinking.IDictionaryExtensions.GetValueOrDefault``2(System.Collections.Generic.IDictionary{``0,``1},``0,``1)">
+            <summary>
+            Gets the value associated with a key or the default value.
+            </summary>
+            <typeparam name="TKey">Type of the key in the dictionary.</typeparam>
+            <typeparam name="TValue">Type of the value in the dictionary.</typeparam>
+            <param name="dictionary">Dictionary to read the key from.</param>
+            <param name="key">The key whose value to get.</param>
+            <param name="defaultValue">Value to return if key does not exist.</param>
+            <returns>The value associated with the key if it exists or <paramref name="defaultValue"/>.</returns>
+        </member>
+        <member name="T:Cake.Issues.FileLinkSettings">
+            <summary>
+            Settings how issues should be linked to files.
+            </summary>
+        </member>
+        <member name="M:Cake.Issues.FileLinkSettings.#ctor(System.Func{Cake.Issues.IIssue,System.Collections.Generic.IDictionary{System.String,System.String},System.Uri})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cake.Issues.FileLinkSettings"/> class.
+            </summary>
+            <param name="builder">Callback called for building the file link.</param>
+        </member>
+        <member name="M:Cake.Issues.FileLinkSettings.ForPattern(System.String)">
+            <summary>
+            Returns settings to link files based on a custom pattern.
+            </summary>
+            <param name="pattern">Pattern of the file link.
+            See <see cref="M:Cake.Issues.IIssueExtensions.ReplaceIssuePattern(System.String,Cake.Issues.IIssue)"/>
+            for a list of tokens supported in the pattern.</param>
+            <returns>File link settings.</returns>
+        </member>
+        <member name="M:Cake.Issues.FileLinkSettings.ForAction(System.Func{Cake.Issues.IIssue,System.Uri})">
+            <summary>
+            Returns settings to link files based on a custom pattern.
+            </summary>
+            <param name="builder">Callback called for building the file link.</param>
+            <returns>File link settings.</returns>
+        </member>
+        <member name="M:Cake.Issues.FileLinkSettings.ForGitHub(System.Uri)">
+            <summary>
+            Returns builder class for settings for linking to files hosted in GitHub.
+            </summary>
+            <param name="repositoryUrl">Full URL of the Git repository,
+            e.g. <code>https://github.com/cake-contrib/Cake.Issues</code>.</param>
+            <returns>Builder class for the settings.</returns>
+        </member>
+        <member name="M:Cake.Issues.FileLinkSettings.ForAzureDevOps(System.Uri)">
+            <summary>
+            Returns builder class for settings for linking to files hosted in Azure DevOps.
+            </summary>
+            <param name="repositoryUrl">Full URL of the Git repository,
+            e.g. <code>https://dev.azure.com/myorganization/_git/myrepo</code>.</param>
+            <returns>Builder class for the settings.</returns>
+        </member>
+        <member name="M:Cake.Issues.FileLinkSettings.GetFileLink(Cake.Issues.IIssue)">
+            <summary>
+            Returns the URL to the file on the source code hosting system
+            for the issue <paramref name="issue"/>.
+            </summary>
+            <param name="issue">Issue for which the link should be returned.</param>
+            <returns>URL to the file on the source code hosting system or <c>null</c>
+            if the issue is not related to a file.</returns>
+        </member>
+        <member name="T:Cake.Issues.IBaseIssueComponent`1">
+            <summary>
+            Interface describing a Cake.Issues component.
+            </summary>
+            <typeparam name="T">Type of settings.</typeparam>
+        </member>
+        <member name="M:Cake.Issues.IBaseIssueComponent`1.Initialize(`0)">
+            <summary>
+            Initializes the component.
+            </summary>
+            <param name="settings">The settings.</param>
+            <returns><c>true</c> if the initialization was successful, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Cake.Issues.IBaseIssueComponent`1.AssertInitialized">
+            <summary>
+            Asserts that <see cref="M:Cake.Issues.IBaseIssueComponent`1.Initialize(`0)"/> was called.
+            </summary>
+            <exception cref="T:System.InvalidOperationException">If <see cref="M:Cake.Issues.IBaseIssueComponent`1.Initialize(`0)"/> was not called.</exception>
+        </member>
+        <member name="T:Cake.Issues.IIssue">
+            <summary>
+            Description of an issue.
+            </summary>
+        </member>
+        <member name="P:Cake.Issues.IIssue.Identifier">
+            <summary>
+            Gets the identifier for the message.
+            The identifier can be used to identify the same issue across multiple runs.
+            </summary>
+        </member>
+        <member name="P:Cake.Issues.IIssue.ProjectFileRelativePath">
+            <summary>
+            Gets the path to the project to which the file affected by the issue belongs.
+            The path is relative to the repository root.
+            Can be <c>null</c> if issue is not related to a project.
+            </summary>
+        </member>
+        <member name="P:Cake.Issues.IIssue.ProjectName">
+            <summary>
+            Gets the name of the project to which the file affected by the issue belongs.
+            Can be <c>null</c> or <see cref="F:System.String.Empty"/> if issue is not related to a project.
+            </summary>
+        </member>
+        <member name="P:Cake.Issues.IIssue.AffectedFileRelativePath">
+            <summary>
+            Gets the path to the file affected by the issue.
+            The path is relative to the repository root.
+            Can be <c>null</c> if issue is not related to a change in a file.
+            </summary>
+        </member>
+        <member name="P:Cake.Issues.IIssue.Line">
+            <summary>
+            Gets the line in the file where the issues have occurred.
+            <c>null</c> if the issue affects the whole file or an assembly.
+            </summary>
+        </member>
+        <member name="P:Cake.Issues.IIssue.EndLine">
+            <summary>
+            Gets the end of the line range in the file where the issues have occurred.
+            <c>null</c> if the issue affects the whole file, an assembly or only a single line.
+            </summary>
+        </member>
+        <member name="P:Cake.Issues.IIssue.Column">
+            <summary>
+            Gets the column in the file where the issues have occurred.
+            <c>null</c> if the issue affects the whole file or an assembly.
+            </summary>
+        </member>
+        <member name="P:Cake.Issues.IIssue.EndColumn">
+            <summary>
+            Gets the end of the column range in the file where the issues have occurred.
+            <c>null</c> if the issue affects the whole file, an assembly or only a single column.
+            </summary>
+        </member>
+        <member name="P:Cake.Issues.IIssue.FileLink">
+            <summary>
+            Gets or sets a link to the position in the file where the issue occurred.
+            <c>null</c> if <see cref="P:Cake.Issues.IReadIssuesSettings.FileLinkSettings"/> was not set while reading issue.
+            </summary>
+        </member>
+        <member name="P:Cake.Issues.IIssue.MessageText">
+            <summary>
+            Gets the message of the issue in text format.
+            </summary>
+        </member>
+        <member name="P:Cake.Issues.IIssue.MessageHtml">
+            <summary>
+            Gets the message of the issue in HTML format.
+            </summary>
+        </member>
+        <member name="P:Cake.Issues.IIssue.MessageMarkdown">
+            <summary>
+            Gets the message of the issue in Markdown format.
+            </summary>
+        </member>
+        <member name="P:Cake.Issues.IIssue.Priority">
+            <summary>
+            Gets the priority of the message. A higher value indicates a higher priority.
+            <c>null</c> if no priority was assigned.
+            </summary>
+        </member>
+        <member name="P:Cake.Issues.IIssue.PriorityName">
+            <summary>
+            Gets the human friendly name of the priority.
+            <c>null</c> or <see cref="F:System.String.Empty"/> if no priority was assigned.
+            </summary>
+        </member>
+        <member name="P:Cake.Issues.IIssue.RuleId">
+            <summary>
+            Gets the id of the rule of the issue.
+            Can be <c>null</c> or <see cref="F:System.String.Empty"/> if the issue provider provides no rule.
+            </summary>
+        </member>
+        <member name="P:Cake.Issues.IIssue.RuleName">
+            <summary>
+            Gets the name of the rule of the issue.
+            Can be <c>null</c> or <see cref="F:System.String.Empty"/> if the issue provider provides no rule.
+            </summary>
+        </member>
+        <member name="P:Cake.Issues.IIssue.RuleUrl">
+            <summary>
+            Gets the URL containing information about the failing rule.
+            Can be <c>null</c> if the issue provider provides no URL.
+            </summary>
+        </member>
+        <member name="P:Cake.Issues.IIssue.Run">
+            <summary>
+            Gets or sets the description of the run.
+            Can be <c>null</c> or <see cref="F:System.String.Empty"/> if no run information is provided.
+            </summary>
+        </member>
+        <member name="P:Cake.Issues.IIssue.ProviderType">
+            <summary>
+            Gets the type of the issue provider.
+            </summary>
+        </member>
+        <member name="P:Cake.Issues.IIssue.ProviderName">
+            <summary>
+            Gets the human friendly name of the issue provider.
+            </summary>
+        </member>
+        <member name="P:Cake.Issues.IIssue.AdditionalInformation">
+            <summary>
+            Gets a dictionary with additional information regarding the issue.
+            </summary>
+        </member>
+        <member name="T:Cake.Issues.IIssueComparer">
+            <summary>
+            Comparer to compare if two issues are identical.
+            </summary>
+        </member>
+        <member name="M:Cake.Issues.IIssueComparer.#ctor(Cake.Issues.IIssueProperty)">
+            <summary>
+            Comparer to compare if two issues are identical.
+            </summary>
+        </member>
+        <member name="M:Cake.Issues.IIssueComparer.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cake.Issues.IIssueComparer"/> class.
+            Two issues are seen as identical if all properties have identical values.
+            </summary>
+        </member>
+        <member name="M:Cake.Issues.IIssueComparer.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cake.Issues.IIssueComparer"/> class.
+            </summary>
+            <param name="compareOnlyPersistentProperties">Flag indicating whether properties which
+            are affected by changes in files should be considered while comparing issues.
+            If set to <c>true</c>, the comparer can be used to compare issues from different
+            build runs, where files might have been changed or renamed.</param>
+            <remarks>
+            If <paramref name="compareOnlyPersistentProperties"/> is set to <c>true</c> the following
+            properties will be ignored while comparing the issue:
+            <list type="bullet">
+            <item>
+            <description><see cref="P:Cake.Issues.IIssue.ProjectFileRelativePath"/></description>
+            </item>
+            <item>
+            <description><see cref="P:Cake.Issues.IIssue.AffectedFileRelativePath"/></description>
+            </item>
+            <item>
+            <description><see cref="P:Cake.Issues.IIssue.Line"/></description>
+            </item>
+            <item>
+            <description><see cref="P:Cake.Issues.IIssue.EndLine"/></description>
+            </item>
+            <item>
+            <description><see cref="P:Cake.Issues.IIssue.Column"/></description>
+            </item>
+            <item>
+            <description><see cref="P:Cake.Issues.IIssue.EndColumn"/></description>
+            </item>
+            <item>
+            <description><see cref="P:Cake.Issues.IIssue.FileLink"/></description>
+            </item>
+            </list>
+            </remarks>
+        </member>
+        <member name="M:Cake.Issues.IIssueComparer.Equals(Cake.Issues.IIssue,Cake.Issues.IIssue)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Cake.Issues.IIssueComparer.GetHashCode(Cake.Issues.IIssue)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Cake.Issues.IIssueExtensions">
+            <summary>
+            Extensions for <see cref="T:Cake.Issues.IIssue"/>.
+            </summary>
+        </member>
+        <member name="M:Cake.Issues.IIssueExtensions.LineRange(Cake.Issues.IIssue)">
+            <summary>
+            Returns the line and column range in the format <c>{Line}:{Column}-{EndLine}:{EndColumn}</c>.
+            </summary>
+            <param name="issue">Issue for which the line and column range should be returned.</param>
+            <returns>Line and column range.</returns>
+        </member>
+        <member name="M:Cake.Issues.IIssueExtensions.LineRange(Cake.Issues.IIssue,System.Boolean)">
+            <summary>
+            Returns the line range in the format <c>{Line}:{Column}-{EndLine}:{EndColumn}</c>.
+            </summary>
+            <param name="issue">Issue for which the line range should be returned.</param>
+            <param name="addColumn">Flag if column information should also be returned.</param>
+            <returns>Line and column range.</returns>
+        </member>
+        <member name="M:Cake.Issues.IIssueExtensions.Message(Cake.Issues.IIssue,Cake.Issues.IssueCommentFormat)">
+            <summary>
+            Gets the message of the issue in a specific format.
+            If the message is not available in the specific format, the message in
+            text format will be returned.
+            </summary>
+            <param name="issue">Issue for which the message should be returned.</param>
+            <param name="format">Format in which the message should be returned.</param>
+            <returns>Message in the format specified by <paramref name="format"/> or message in text
+            format if it is not available in the desired format.</returns>
+        </member>
+        <member name="M:Cake.Issues.IIssueExtensions.ProjectPath(Cake.Issues.IIssue)">
+            <summary>
+            Returns the full path of <see cref="P:Cake.Issues.IIssue.ProjectFileRelativePath"/> or <c>null</c>.
+            </summary>
+            <param name="issue">Issue for which the path should be returned.</param>
+            <returns>Full path to the project to which the file affected by the issue belongs.</returns>
+        </member>
+        <member name="M:Cake.Issues.IIssueExtensions.ProjectDirectory(Cake.Issues.IIssue)">
+            <summary>
+            Returns the directory of the <see cref="P:Cake.Issues.IIssue.ProjectFileRelativePath"/>.
+            </summary>
+            <param name="issue">Issue for which the project directory should be returned.</param>
+            <returns>Directory of the project to which the file affected by the issue belongs.</returns>
+        </member>
+        <member name="M:Cake.Issues.IIssueExtensions.FilePath(Cake.Issues.IIssue)">
+            <summary>
+            Returns the full path of the <see cref="P:Cake.Issues.IIssue.AffectedFileRelativePath"/>.
+            </summary>
+            <param name="issue">Issue for which the path should be returned.</param>
+            <returns>Full path of the file affected by the issue.</returns>
+        </member>
+        <member name="M:Cake.Issues.IIssueExtensions.FileDirectory(Cake.Issues.IIssue)">
+            <summary>
+            Returns the directory of the <see cref="P:Cake.Issues.IIssue.AffectedFileRelativePath"/>.
+            </summary>
+            <param name="issue">Issue for which the directory should be returned.</param>
+            <returns>Directory of the file affected by the issue.</returns>
+        </member>
+        <member name="M:Cake.Issues.IIssueExtensions.FileName(Cake.Issues.IIssue)">
+            <summary>
+            Returns the name of the file of the <see cref="P:Cake.Issues.IIssue.AffectedFileRelativePath"/>.
+            </summary>
+            <param name="issue">Issue for which the file name should be returned.</param>
+            <returns>Name of the file affected by the issue.</returns>
+        </member>
+        <member name="M:Cake.Issues.IIssueExtensions.Rule(Cake.Issues.IIssue)">
+            <summary>
+            Returns the name or id of the rule.
+            </summary>
+            <param name="issue">Issue for which the rule should be returned.</param>
+            <returns>Returns <see cref="P:Cake.Issues.IIssue.RuleName"/> if it is set, otherwise <see cref="P:Cake.Issues.IIssue.RuleId"/>.</returns>
+        </member>
+        <member name="M:Cake.Issues.IIssueExtensions.ReplaceIssuePattern(System.String,Cake.Issues.IIssue)">
+            <summary>
+            Returns a string with all patterns replaced by the values of <paramref name="issue"/>.
+            </summary>
+            <param name="pattern">Pattern whose values should be replaced.
+            The following tokens are supported:
+            <list type="table">
+                <listheader>
+                    <term>Token</term>
+                    <description>Description</description>
+                </listheader>
+                <item>
+                    <term>{ProviderType}</term>
+                    <description>The value of <see cref="P:Cake.Issues.IIssue.ProviderType"/>.</description>
+                </item>
+                <item>
+                    <term>{ProviderName}</term>
+                    <description>The value of <see cref="P:Cake.Issues.IIssue.ProviderName"/>.</description>
+                </item>
+                <item>
+                    <term>{Identifier}</term>
+                    <description>The value of <see cref="P:Cake.Issues.IIssue.Identifier"/>.</description>
+                </item>
+                <item>
+                    <term>{Priority}</term>
+                    <description>The value of <see cref="P:Cake.Issues.IIssue.Priority"/>.</description>
+                </item>
+                <item>
+                    <term>{PriorityName}</term>
+                    <description>The value of <see cref="P:Cake.Issues.IIssue.PriorityName"/>.</description>
+                </item>
+                <item>
+                    <term>{ProjectPath}</term>
+                    <description>The value of <see cref="M:Cake.Issues.IIssueExtensions.ProjectPath(Cake.Issues.IIssue)"/>.</description>
+                </item>
+                <item>
+                    <term>{ProjectDirectory}</term>
+                    <description>The value of <see cref="M:Cake.Issues.IIssueExtensions.ProjectDirectory(Cake.Issues.IIssue)"/>.</description>
+                </item>
+                <item>
+                    <term>{ProjectName}</term>
+                    <description>The value of <see cref="P:Cake.Issues.IIssue.ProjectName"/>.</description>
+                </item>
+                <item>
+                    <term>{FilePath}</term>
+                    <description>The value of <see cref="M:Cake.Issues.IIssueExtensions.FilePath(Cake.Issues.IIssue)"/>.</description>
+                </item>
+                <item>
+                    <term>{FileDirectory}</term>
+                    <description>The value of <see cref="M:Cake.Issues.IIssueExtensions.FileDirectory(Cake.Issues.IIssue)"/>.</description>
+                </item>
+                <item>
+                    <term>{FileName}</term>
+                    <description>The value of <see cref="M:Cake.Issues.IIssueExtensions.FileName(Cake.Issues.IIssue)"/>.</description>
+                </item>
+                <item>
+                    <term>{Line}</term>
+                    <description>The value of <see cref="P:Cake.Issues.IIssue.Line"/>.</description>
+                </item>
+                <item>
+                    <term>{EndLine}</term>
+                    <description>The value of <see cref="P:Cake.Issues.IIssue.EndLine"/>.</description>
+                </item>
+                <item>
+                    <term>{Column}</term>
+                    <description>The value of <see cref="P:Cake.Issues.IIssue.Column"/>.</description>
+                </item>
+                <item>
+                    <term>{EndColumn}</term>
+                    <description>The value of <see cref="P:Cake.Issues.IIssue.EndColumn"/>.</description>
+                </item>
+                <item>
+                    <term>{FileLink}</term>
+                    <description>The value of <see cref="P:Cake.Issues.IIssue.FileLink"/>.</description>
+                </item>
+                <item>
+                    <term>{RuleId}</term>
+                    <description>The value of <see cref="P:Cake.Issues.IIssue.RuleId"/>.</description>
+                </item>
+                <item>
+                    <term>{RuleName}</term>
+                    <description>The value of <see cref="P:Cake.Issues.IIssue.RuleName"/>.</description>
+                </item>
+                <item>
+                    <term>{RuleUrl}</term>
+                    <description>The value of <see cref="P:Cake.Issues.IIssue.RuleUrl"/>.</description>
+                </item>
+                <item>
+                    <term>{Run}</term>
+                    <description>The value of <see cref="P:Cake.Issues.IIssue.Run"/>.</description>
+                </item>
+                <item>
+                    <term>{MessageText}</term>
+                    <description>The value of <see cref="P:Cake.Issues.IIssue.MessageText"/>.</description>
+                </item>
+                <item>
+                    <term>{MessageHtml}</term>
+                    <description>The value of <see cref="P:Cake.Issues.IIssue.MessageHtml"/> or <see cref="P:Cake.Issues.IIssue.MessageText"/>
+                    if message in HTML format is not available.</description>
+                </item>
+                <item>
+                    <term>{MessageMarkdown}</term>
+                    <description>The value of <see cref="P:Cake.Issues.IIssue.MessageMarkdown"/> or <see cref="P:Cake.Issues.IIssue.MessageText"/>
+                    if message in Markdown format is not available.</description>
+                </item>
+                <item>
+                    <term>{AdditionalInformation:Key}</term>
+                    <description>
+                    The value of the key <c>Key</c> in <see cref="P:Cake.Issues.IIssue.AdditionalInformation"/>.
+                    If the key <c>Key</c> does not exist in <see cref="P:Cake.Issues.IIssue.AdditionalInformation"/>, nothing will be replaced.
+                    </description>
+                </item>
+            </list>
+            </param>
+            <param name="issue">Issue whose values should be used to replace the patterns.</param>
+            <returns>Value with all patterns replaced.</returns>
+        </member>
+        <member name="T:Cake.Issues.IIssueProperty">
+            <summary>
+            List of properties of <see cref="T:Cake.Issues.IIssue"/>.
+            </summary>
+        </member>
+        <member name="F:Cake.Issues.IIssueProperty.None">
+            <summary>
+            No property.
+            </summary>
+        </member>
+        <member name="F:Cake.Issues.IIssueProperty.Identifier">
+            <summary>
+            <see cref="P:Cake.Issues.IIssue.Identifier"/> property.
+            </summary>
+        </member>
+        <member name="F:Cake.Issues.IIssueProperty.ProjectFileRelativePath">
+            <summary>
+            <see cref="P:Cake.Issues.IIssue.ProjectFileRelativePath"/> property.
+            </summary>
+        </member>
+        <member name="F:Cake.Issues.IIssueProperty.ProjectName">
+            <summary>
+            <see cref="P:Cake.Issues.IIssue.ProjectName"/> property.
+            </summary>
+        </member>
+        <member name="F:Cake.Issues.IIssueProperty.AffectedFileRelativePath">
+            <summary>
+            <see cref="P:Cake.Issues.IIssue.AffectedFileRelativePath"/> property.
+            </summary>
+        </member>
+        <member name="F:Cake.Issues.IIssueProperty.Line">
+            <summary>
+            <see cref="P:Cake.Issues.IIssue.Line"/> property.
+            </summary>
+        </member>
+        <member name="F:Cake.Issues.IIssueProperty.EndLine">
+            <summary>
+            <see cref="P:Cake.Issues.IIssue.EndLine"/> property.
+            </summary>
+        </member>
+        <member name="F:Cake.Issues.IIssueProperty.Column">
+            <summary>
+            <see cref="P:Cake.Issues.IIssue.Column"/> property.
+            </summary>
+        </member>
+        <member name="F:Cake.Issues.IIssueProperty.EndColumn">
+            <summary>
+            <see cref="P:Cake.Issues.IIssue.EndColumn"/> property.
+            </summary>
+        </member>
+        <member name="F:Cake.Issues.IIssueProperty.FileLink">
+            <summary>
+            <see cref="P:Cake.Issues.IIssue.FileLink"/> property.
+            </summary>
+        </member>
+        <member name="F:Cake.Issues.IIssueProperty.MessageText">
+            <summary>
+            <see cref="P:Cake.Issues.IIssue.MessageText"/> property.
+            </summary>
+        </member>
+        <member name="F:Cake.Issues.IIssueProperty.MessageHtml">
+            <summary>
+            <see cref="P:Cake.Issues.IIssue.MessageHtml"/> property.
+            </summary>
+        </member>
+        <member name="F:Cake.Issues.IIssueProperty.MessageMarkdown">
+            <summary>
+            <see cref="P:Cake.Issues.IIssue.MessageMarkdown"/> property.
+            </summary>
+        </member>
+        <member name="F:Cake.Issues.IIssueProperty.Priority">
+            <summary>
+            <see cref="P:Cake.Issues.IIssue.Priority"/> property.
+            </summary>
+        </member>
+        <member name="F:Cake.Issues.IIssueProperty.PriorityName">
+            <summary>
+            <see cref="P:Cake.Issues.IIssue.PriorityName"/> property.
+            </summary>
+        </member>
+        <member name="F:Cake.Issues.IIssueProperty.RuleId">
+            <summary>
+            <see cref="P:Cake.Issues.IIssue.RuleId"/> property.
+            </summary>
+        </member>
+        <member name="F:Cake.Issues.IIssueProperty.RuleName">
+            <summary>
+            <see cref="P:Cake.Issues.IIssue.RuleName"/> property.
+            </summary>
+        </member>
+        <member name="F:Cake.Issues.IIssueProperty.RuleUrl">
+            <summary>
+            <see cref="P:Cake.Issues.IIssue.RuleUrl"/> property.
+            </summary>
+        </member>
+        <member name="F:Cake.Issues.IIssueProperty.Run">
+            <summary>
+            <see cref="P:Cake.Issues.IIssue.Run"/> property.
+            </summary>
+        </member>
+        <member name="F:Cake.Issues.IIssueProperty.ProviderType">
+            <summary>
+            <see cref="P:Cake.Issues.IIssue.ProviderType"/> property.
+            </summary>
+        </member>
+        <member name="F:Cake.Issues.IIssueProperty.ProviderName">
+            <summary>
+            <see cref="P:Cake.Issues.IIssue.ProviderName"/> property.
+            </summary>
+        </member>
+        <member name="F:Cake.Issues.IIssueProperty.AdditionalInformation">
+            <summary>
+            <see cref="P:Cake.Issues.IIssue.AdditionalInformation"/> property.
+            </summary>
+        </member>
+        <member name="T:Cake.Issues.IIssueProvider">
+            <summary>
+            Interface describing a provider for issues.
+            </summary>
+        </member>
+        <member name="P:Cake.Issues.IIssueProvider.ProviderName">
+            <summary>
+            Gets the human friendly name of the issue provider.
+            </summary>
+        </member>
+        <member name="P:Cake.Issues.IIssueProvider.ProviderType">
+            <summary>
+            Gets the type of the issue provider.
+            </summary>
+        </member>
+        <member name="M:Cake.Issues.IIssueProvider.ReadIssues">
+            <summary>
+            Gets all issues.
+            </summary>
+            <returns>List of issues.</returns>
+        </member>
+        <member name="T:Cake.Issues.ILogFileFormat`2">
+            <summary>
+            Definition of a log file format for <see cref="T:Cake.Issues.IIssueProvider"/> which support different log file formats.
+            </summary>
+            <typeparam name="TIssueProvider">Type of the issue provider.</typeparam>
+            <typeparam name="TSettings">Type of the settings.</typeparam>
+        </member>
+        <member name="M:Cake.Issues.ILogFileFormat`2.ReadIssues(`0,Cake.Issues.IRepositorySettings,`1)">
+            <summary>
+            Gets all issues.
+            </summary>
+            <param name="issueProvider">Issue provider instance.</param>
+            <param name="repositorySettings">Repository settings to use.</param>
+            <param name="issueProviderSettings">Settings for issue provider to use.</param>
+            <returns>List of issues.</returns>
+        </member>
+        <member name="T:Cake.Issues.IReadIssuesSettings">
+            <summary>
+            Interface for settings for reading issues.
+            </summary>
+        </member>
+        <member name="P:Cake.Issues.IReadIssuesSettings.Run">
+            <summary>
+            Gets or sets the name of the run.
+            </summary>
+        </member>
+        <member name="P:Cake.Issues.IReadIssuesSettings.FileLinkSettings">
+            <summary>
+            Gets or sets settings which can be used for resolving links to source files.
+            </summary>
+        </member>
+        <member name="T:Cake.Issues.IRepositorySettings">
+            <summary>
+            Interface for settings containing a path to a repository.
+            </summary>
+        </member>
+        <member name="P:Cake.Issues.IRepositorySettings.RepositoryRoot">
+            <summary>
+            Gets the Root path of the repository.
+            </summary>
+        </member>
+        <member name="T:Cake.Issues.Issue">
+            <summary>
+            Base class for an issue.
+            </summary>
+        </member>
+        <member name="M:Cake.Issues.Issue.#ctor(System.String,System.String,System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Uri,System.String,System.String,System.String,System.Nullable{System.Int32},System.String,System.String,System.String,System.Uri,System.String,System.String,System.String,System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cake.Issues.Issue"/> class.
+            </summary>
+            <param name="identifier">The identifier of the issue.
+            The identifier needs to be identical across multiple runs of an issue provider for the same issue.</param>
+            <param name="projectFileRelativePath">The path to the project to which the file affected by the issue belongs.
+            The path needs to be relative to the repository root.
+            Can be <c>null</c> or <see cref="F:System.String.Empty"/> if issue is not related to a project.</param>
+            <param name="projectName">The name of the project to which the file affected by the issue belongs.
+            Can be <c>null</c> or <see cref="F:System.String.Empty"/> if issue is not related to a project.</param>
+            <param name="affectedFileRelativePath">The path to the file affected by the issue.
+            The path needs to be relative to the repository root.
+            <c>null</c> or <see cref="F:System.String.Empty"/> if issue is not related to a change in a file.</param>
+            <param name="line">The line in the file where the issues have occurred.
+            <c>null</c> if the issue affects the whole file or an assembly.</param>
+            <param name="endLine">The end of the line range in the file where the issues have occurred.
+            <c>null</c> if the issue affects the whole file, an assembly or only a single line.</param>
+            <param name="column">The column in the file where the issues have occurred.
+            <c>null</c> if the issue affects the whole file or an assembly.</param>
+            <param name="endColumn">The end of the column range in the file where the issues have occurred.
+            <c>null</c> if the issue affects the whole file, an assembly or only a single column.</param>
+            <param name="fileLink">Link to the position in the file where the issue occurred.
+            <c>null</c> if no link is available.</param>
+            <param name="messageText">The message of the issue in plain text format.</param>
+            <param name="messageHtml">The message of the issue in Html format.</param>
+            <param name="messageMarkdown">The message of the issue in Markdown format.</param>
+            <param name="priority">The priority of the message.
+            <c>null</c> if no priority was assigned.</param>
+            <param name="priorityName">The human friendly name of the priority.
+            <c>null</c> or <see cref="F:System.String.Empty"/> if no priority was assigned.</param>
+            <param name="ruleId">The ID of the rule of the issue.
+            <c>null</c> or <see cref="F:System.String.Empty"/> if issue has no specific rule.</param>
+            <param name="ruleName">The name of the rule of the issue.
+            <c>null</c> or <see cref="F:System.String.Empty"/> if issue has no specific rule.</param>
+            <param name="ruleUrl">The URL containing information about the failing rule.
+            <c>null</c> if no URL is available.</param>
+            <param name="run">Gets the description of the run.</param>
+            <param name="providerType">The type of the issue provider.</param>
+            <param name="providerName">The human friendly name of the issue provider.</param>
+            <param name="additionalInformation">Custom information regarding the issue.</param>
+        </member>
+        <member name="P:Cake.Issues.Issue.Identifier">
+            <inheritdoc/>
+        </member>
+        <member name="P:Cake.Issues.Issue.ProjectFileRelativePath">
+            <inheritdoc/>
+        </member>
+        <member name="P:Cake.Issues.Issue.ProjectName">
+            <inheritdoc/>
+        </member>
+        <member name="P:Cake.Issues.Issue.AffectedFileRelativePath">
+            <inheritdoc/>
+        </member>
+        <member name="P:Cake.Issues.Issue.Line">
+            <inheritdoc/>
+        </member>
+        <member name="P:Cake.Issues.Issue.EndLine">
+            <inheritdoc/>
+        </member>
+        <member name="P:Cake.Issues.Issue.Column">
+            <inheritdoc/>
+        </member>
+        <member name="P:Cake.Issues.Issue.EndColumn">
+            <inheritdoc/>
+        </member>
+        <member name="P:Cake.Issues.Issue.FileLink">
+            <inheritdoc/>
+        </member>
+        <member name="P:Cake.Issues.Issue.MessageText">
+            <inheritdoc/>
+        </member>
+        <member name="P:Cake.Issues.Issue.MessageHtml">
+            <inheritdoc/>
+        </member>
+        <member name="P:Cake.Issues.Issue.MessageMarkdown">
+            <inheritdoc/>
+        </member>
+        <member name="P:Cake.Issues.Issue.Priority">
+            <inheritdoc/>
+        </member>
+        <member name="P:Cake.Issues.Issue.PriorityName">
+            <inheritdoc/>
+        </member>
+        <member name="P:Cake.Issues.Issue.RuleId">
+            <inheritdoc/>
+        </member>
+        <member name="P:Cake.Issues.Issue.RuleName">
+            <inheritdoc/>
+        </member>
+        <member name="P:Cake.Issues.Issue.RuleUrl">
+            <inheritdoc/>
+        </member>
+        <member name="P:Cake.Issues.Issue.Run">
+            <inheritdoc/>
+        </member>
+        <member name="P:Cake.Issues.Issue.ProviderType">
+            <inheritdoc/>
+        </member>
+        <member name="P:Cake.Issues.Issue.ProviderName">
+            <inheritdoc/>
+        </member>
+        <member name="P:Cake.Issues.Issue.AdditionalInformation">
+            <inheritdoc/>
+        </member>
+        <member name="T:Cake.Issues.IssueBuilder">
+            <summary>
+            Class to create instances of <see cref="T:Cake.Issues.IIssue"/> with a fluent API.
+            </summary>
+        </member>
+        <member name="M:Cake.Issues.IssueBuilder.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cake.Issues.IssueBuilder"/> class.
+            </summary>
+            <param name="identifier">The identifier of the message.</param>
+            <param name="message">The message of the issue in plain text format.</param>
+            <param name="providerType">The type of the issue provider.</param>
+            <param name="providerName">The human friendly name of the issue provider.</param>
+        </member>
+        <member name="M:Cake.Issues.IssueBuilder.NewIssue``1(System.String,``0)">
+            <summary>
+            Initiates the creation of a new <see cref="T:Cake.Issues.IIssue"/> with <paramref name="message"/>
+            as identifier.
+            </summary>
+            <typeparam name="T">Type of the issue provider which has the issue created.</typeparam>
+            <param name="message">The message of the issue in plain text format.</param>
+            <param name="issueProvider">Issue provider which has the issue created.</param>
+            <returns>Builder class for creating a new issue.</returns>
+        </member>
+        <member name="M:Cake.Issues.IssueBuilder.NewIssue``1(System.String,System.String,``0)">
+            <summary>
+            Initiates the creation of a new <see cref="T:Cake.Issues.IIssue"/>.
+            </summary>
+            <typeparam name="T">Type of the issue provider which has the issue created.</typeparam>
+            <param name="identifier">The identifier of the message.</param>
+            <param name="message">The message of the issue in plain text format.</param>
+            <param name="issueProvider">Issue provider which has the issue created.</param>
+            <returns>Builder class for creating a new issue.</returns>
+        </member>
+        <member name="M:Cake.Issues.IssueBuilder.NewIssue(System.String,System.String,System.String)">
+            <summary>
+            Initiates the creation of a new <see cref="T:Cake.Issues.IIssue"/> with <paramref name="message"/> as identifier.
+            </summary>
+            <param name="message">The message of the issue in plain text format.</param>
+            <param name="providerType">The type of the issue provider.</param>
+            <param name="providerName">The human friendly name of the issue provider.</param>
+            <returns>Builder class for creating a new issue.</returns>
+        </member>
+        <member name="M:Cake.Issues.IssueBuilder.NewIssue(System.String,System.String,System.String,System.String)">
+            <summary>
+            Initiates the creation of a new <see cref="T:Cake.Issues.IIssue"/>.
+            </summary>
+            <param name="identifier">The identifier of the message.</param>
+            <param name="message">The message of the issue in plain text format.</param>
+            <param name="providerType">The type of the issue provider.</param>
+            <param name="providerName">The human friendly name of the issue provider.</param>
+            <returns>Builder class for creating a new issue.</returns>
+        </member>
+        <member name="M:Cake.Issues.IssueBuilder.WithMessageInHtmlFormat(System.String)">
+            <summary>
+            Sets the message in HTML format.
+            </summary>
+            <param name="message">Message in HTML format.
+            Can be <c>null</c> or <see cref="F:System.String.Empty"/> if issue doesn't have a message in HTML format.</param>
+            <returns>Issue Builder instance.</returns>
+        </member>
+        <member name="M:Cake.Issues.IssueBuilder.WithMessageInMarkdownFormat(System.String)">
+            <summary>
+            Sets the message in Markdown format.
+            </summary>
+            <param name="message">Message in Markdown format.
+            Can be <c>null</c> or <see cref="F:System.String.Empty"/> if issue doesn't have a message in Markdown format.</param>
+            <returns>Issue Builder instance.</returns>
+        </member>
+        <member name="M:Cake.Issues.IssueBuilder.InProjectFile(System.String)">
+            <summary>
+            Sets the path of the project to which the file affected by the issue belongs.
+            </summary>
+            <param name="projectFileRelativePath">The path to the project to which the file affected by the issue belongs.
+            The path needs to be relative to the repository root.
+            Can be <c>null</c> or <see cref="F:System.String.Empty"/> if issue is not related to a project.</param>
+            <returns>Issue Builder instance.</returns>
+        </member>
+        <member name="M:Cake.Issues.IssueBuilder.InProjectOfName(System.String)">
+            <summary>
+            Sets the name of the project to which the file affected by the issue belongs.
+            </summary>
+            <param name="projectName">Name of the project to which the file affected by the issue belongs.
+            <c>null</c> or <see cref="F:System.String.Empty"/> if issue is not related to a project.</param>
+            <returns>Issue Builder instance.</returns>
+        </member>
+        <member name="M:Cake.Issues.IssueBuilder.InProject(System.String,System.String)">
+            <summary>
+            Sets the project to which the file affected by the issue belongs.
+            </summary>
+            <param name="projectFileRelativePath">The path to the project to which the file affected by the issue belongs.
+            The path needs to be relative to the repository root.
+            Can be <c>null</c> or <see cref="F:System.String.Empty"/> if issue is not related to a project.</param>
+            <param name="projectName">Name of the project to which the file affected by the issue belongs.
+            <c>null</c> or <see cref="F:System.String.Empty"/> if issue is not related to a project.</param>
+            <returns>Issue Builder instance.</returns>
+        </member>
+        <member name="M:Cake.Issues.IssueBuilder.InFile(System.String)">
+            <summary>
+            Sets the path to the file affected by the issue.
+            </summary>
+            <param name="filePath">The path to the file affected by the issue.
+            The path needs to be relative to the repository root.
+            <c>null</c> or <see cref="F:System.String.Empty"/> if issue is not related to a change in a file.</param>
+            <returns>Issue Builder instance.</returns>
+        </member>
+        <member name="M:Cake.Issues.IssueBuilder.InFile(System.String,System.Nullable{System.Int32})">
+            <summary>
+            Sets the path to the file affected by the issue and the line in the file where the issues have occurred.
+            </summary>
+            <param name="filePath">The path to the file affected by the issue.
+            The path needs to be relative to the repository root.
+            <c>null</c> or <see cref="F:System.String.Empty"/> if issue is not related to a change in a file.</param>
+            <param name="line">The line in the file where the issues have occurred.
+            <c>null</c> if the issue affects the whole file or an assembly.</param>
+            <returns>Issue Builder instance.</returns>
+        </member>
+        <member name="M:Cake.Issues.IssueBuilder.InFile(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Sets the path to the file affected by the issue and the line and column in the file where the issues have occurred.
+            </summary>
+            <param name="filePath">The path to the file affected by the issue.
+            The path needs to be relative to the repository root.
+            <c>null</c> or <see cref="F:System.String.Empty"/> if issue is not related to a change in a file.</param>
+            <param name="line">The line in the file where the issues have occurred.
+            <c>null</c> if the issue affects the whole file or an assembly.</param>
+            <param name="column">The column in the file where the issues have occurred.
+            <c>null</c> if the issue affects the whole file or an assembly.</param>
+            <returns>Issue Builder instance.</returns>
+        </member>
+        <member name="M:Cake.Issues.IssueBuilder.InFile(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Sets the path to the file affected by the issue and the line and column in the file where the issues have occurred.
+            </summary>
+            <param name="filePath">The path to the file affected by the issue.
+            The path needs to be relative to the repository root.
+            <c>null</c> or <see cref="F:System.String.Empty"/> if issue is not related to a change in a file.</param>
+            <param name="startLine">The line in the file where the issues have occurred.
+            <c>null</c> if the issue affects the whole file or an assembly.</param>
+            <param name="endLine">The end of the line range in the file where the issues have occurred.
+            <c>null</c> if the issue affects the whole file, an assembly or only a single line.</param>
+            <param name="startColumn">The column in the file where the issues have occurred.
+            <c>null</c> if the issue affects the whole file or an assembly.</param>
+            <param name="endColumn">The end of the column range in the file where the issues have occurred.
+            <c>null</c> if the issue affects the whole file, an assembly or only a single column.</param>
+            <returns>Issue Builder instance.</returns>
+        </member>
+        <member name="M:Cake.Issues.IssueBuilder.WithAdditionalInformation(System.String,System.String)">
+            <summary>
+            Sets additional information regarding the issue.
+            </summary>
+            <param name="key">Key for the additional information to be assigned to.</param>
+            <param name="value">The additional information to be set.</param>
+            <returns>Issue Builder instance.</returns>
+        </member>
+        <member name="M:Cake.Issues.IssueBuilder.WithAdditionalInformation(System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            Sets additional information regarding the issue.
+            </summary>
+            <param name="additionalInformation">The additional information to be assigned to the issue.</param>
+            <returns>Issue Builder instance.</returns>
+        </member>
+        <member name="M:Cake.Issues.IssueBuilder.WithFileLink(System.Uri)">
+            <summary>
+            Sets the link to the position in the file where the issue occurred.
+            </summary>
+            <param name="fileLink">Link to the position in the file where the issue occurred.</param>
+            <returns>Issue Builder instance.</returns>
+        </member>
+        <member name="M:Cake.Issues.IssueBuilder.WithFileLinkSettings(Cake.Issues.FileLinkSettings)">
+            <summary>
+            Sets a <see cref="T:Cake.Issues.FileLinkSettings"/> to create the link of the position in the file where the issue occurred.
+            </summary>
+            <param name="fileLinkSettings">Settings to create the link of the position in the file where the issue occurred.</param>
+            <returns>Issue Builder instance.</returns>
+        </member>
+        <member name="M:Cake.Issues.IssueBuilder.WithPriority(Cake.Issues.IssuePriority)">
+            <summary>
+            Sets the priority of the issue.
+            </summary>
+            <param name="priority">The priority of the issue.</param>
+            <returns>Issue Builder instance.</returns>
+        </member>
+        <member name="M:Cake.Issues.IssueBuilder.WithPriority(System.Nullable{System.Int32},System.String)">
+            <summary>
+            Sets the priority of the issue.
+            </summary>
+            <param name="value">The priority of the issue.
+            <c>null</c> if no priority should be assigned.</param>
+            <param name="name">The human friendly name of the priority.
+            <c>null</c> or <see cref="F:System.String.Empty"/> if no priority should be assigned.</param>
+            <returns>Issue Builder instance.</returns>
+        </member>
+        <member name="M:Cake.Issues.IssueBuilder.OfRule(System.String)">
+            <summary>
+            Sets the rule of the issue.
+            </summary>
+            <param name="id">The ID of the rule of the issue.
+            <c>null</c> or <see cref="F:System.String.Empty"/> if issue has no specific rule ID.</param>
+            <returns>Issue Builder instance.</returns>
+        </member>
+        <member name="M:Cake.Issues.IssueBuilder.OfRule(System.String,System.String)">
+            <summary>
+            Sets the rule of the issue.
+            </summary>
+            <param name="id">The ID of the rule of the issue.
+            <c>null</c> or <see cref="F:System.String.Empty"/> if issue has no specific rule ID.</param>
+            <param name="name">The name of the rule of the issue.
+            <c>null</c> or <see cref="F:System.String.Empty"/> if issue has no specific rule name.</param>
+            <returns>Issue Builder instance.</returns>
+        </member>
+        <member name="M:Cake.Issues.IssueBuilder.OfRule(System.String,System.Uri)">
+            <summary>
+            Sets the rule of the issue.
+            </summary>
+            <param name="id">The ID of the rule of the issue.
+            <c>null</c> or <see cref="F:System.String.Empty"/> if issue has no specific rule ID.</param>
+            <param name="uri">The URL containing information about the failing rule.
+            <c>null</c> if no URL is available.</param>
+            <returns>Issue Builder instance.</returns>
+        </member>
+        <member name="M:Cake.Issues.IssueBuilder.OfRule(System.String,System.String,System.Uri)">
+            <summary>
+            Sets the rule of the issue.
+            </summary>
+            <param name="id">The ID of the rule of the issue.
+            <c>null</c> or <see cref="F:System.String.Empty"/> if issue has no specific rule ID.</param>
+            <param name="name">The name of the rule of the issue.
+            <c>null</c> or <see cref="F:System.String.Empty"/> if issue has no specific rule name.</param>
+            <param name="uri">The URL containing information about the failing rule.
+            <c>null</c> if no URL is available.</param>
+            <returns>Issue Builder instance.</returns>
+        </member>
+        <member name="M:Cake.Issues.IssueBuilder.ForRun(System.String)">
+            <summary>
+            Sets the name of the run where the issue was reported.
+            </summary>
+            <param name="run">The name of the run where the issue was reported.</param>
+            <returns>Issue Builder instance.</returns>
+        </member>
+        <member name="M:Cake.Issues.IssueBuilder.Create">
+            <summary>
+            Creates a new <see cref="T:Cake.Issues.IIssue"/>.
+            </summary>
+            <returns>New issue object.</returns>
+        </member>
+        <member name="T:Cake.Issues.IssueCommentFormat">
+            <summary>
+            Possible format options for issues.
+            </summary>
+        </member>
+        <member name="F:Cake.Issues.IssueCommentFormat.Undefined">
+            <summary>
+            Undefined format.
+            </summary>
+        </member>
+        <member name="F:Cake.Issues.IssueCommentFormat.PlainText">
+            <summary>
+            Plain text.
+            </summary>
+        </member>
+        <member name="F:Cake.Issues.IssueCommentFormat.Html">
+            <summary>
+            Hypertext markup language.
+            </summary>
+        </member>
+        <member name="F:Cake.Issues.IssueCommentFormat.Markdown">
+            <summary>
+            Markdown syntax.
+            </summary>
+        </member>
+        <member name="T:Cake.Issues.IssuePriority">
+            <summary>
+            Default priorities for <see cref="P:Cake.Issues.IIssue.Priority"/>.
+            </summary>
+        </member>
+        <member name="F:Cake.Issues.IssuePriority.Undefined">
+            <summary>
+            Undefined priority.
+            </summary>
+        </member>
+        <member name="F:Cake.Issues.IssuePriority.Hint">
+            <summary>
+            Issues which brings attention to a specific part of the code or recommends a way of improvement.
+            </summary>
+        </member>
+        <member name="F:Cake.Issues.IssuePriority.Suggestion">
+            <summary>
+            Issues which aren't necessarily bad or wrong, but probably useful to know.
+            </summary>
+        </member>
+        <member name="F:Cake.Issues.IssuePriority.Warning">
+            <summary>
+            Issues that do not prevent code from compiling but may nevertheless represent serious coding inefficiencies.
+            </summary>
+        </member>
+        <member name="F:Cake.Issues.IssuePriority.Error">
+            <summary>
+            Issues that either prevent code from compiling or result in runtime errors.
+            </summary>
+        </member>
+        <member name="T:Cake.Issues.IssueProviderSettings">
+            <summary>
+            Base settings for an <see cref="T:Cake.Issues.BaseConfigurableIssueProvider`1"/>.
+            </summary>
+        </member>
+        <member name="M:Cake.Issues.IssueProviderSettings.#ctor(Cake.Core.IO.FilePath)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cake.Issues.IssueProviderSettings"/> class
+            for reading a log file on disk.
+            </summary>
+            <param name="logFilePath">Path to the log file.</param>
+        </member>
+        <member name="M:Cake.Issues.IssueProviderSettings.#ctor(System.Byte[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cake.Issues.IssueProviderSettings"/> class
+            for a log file content in memory.
+            </summary>
+            <param name="logFileContent">Content of the log file.</param>
+        </member>
+        <member name="P:Cake.Issues.IssueProviderSettings.LogFileContent">
+            <summary>
+            Gets the content of the log file.
+            </summary>
+        </member>
+        <member name="T:Cake.Issues.IssuesAliasConstants">
+            <summary>
+            Class containing constants used for defining Cake aliases.
+            </summary>
+        </member>
+        <member name="F:Cake.Issues.IssuesAliasConstants.MainCakeAliasCategory">
+            <summary>
+            Main category to use on all Cake aliases.
+            </summary>
+        </member>
+        <member name="F:Cake.Issues.IssuesAliasConstants.CreateCakeAliasCategory">
+            <summary>
+            Category to use for all Cake aliases providing functionality for creating issues.
+            </summary>
+        </member>
+        <member name="F:Cake.Issues.IssuesAliasConstants.ReadCakeAliasCategory">
+            <summary>
+            Category to use for all Cake aliases providing functionality for reading issues.
+            </summary>
+        </member>
+        <member name="F:Cake.Issues.IssuesAliasConstants.SerializationCakeAliasCategory">
+            <summary>
+            Category to use for all Cake aliases providing functionality for serializing and deserializing issues.
+            </summary>
+        </member>
+        <member name="F:Cake.Issues.IssuesAliasConstants.FileLinkingCakeAliasCategory">
+            <summary>
+            Category to use for all Cake aliases providing functionality for linking to files.
+            </summary>
+        </member>
+        <member name="F:Cake.Issues.IssuesAliasConstants.IssueProviderCakeAliasCategory">
+            <summary>
+            Category to use for all Cake aliases creating issue providers.
+            </summary>
+        </member>
+        <member name="F:Cake.Issues.IssuesAliasConstants.BuildBreakingCakeAliasCategory">
+            <summary>
+            Category to use for all Cake aliases providing functionality for build breaking.
+            </summary>
+        </member>
+        <member name="T:Cake.Issues.IssuesArgumentChecks">
+            <summary>
+            Common runtime checks that throw <see cref="T:System.ArgumentException"/> upon failure.
+            </summary>
+        </member>
+        <member name="M:Cake.Issues.IssuesArgumentChecks.NotNull``1(``0,System.String)">
+            <summary>
+            Throws an exception if the specified parameter's value is null.
+            </summary>
+            <typeparam name="T">The type of the parameter.</typeparam>
+            <param name="value">The value of the argument.</param>
+            <param name="parameterName">The name of the parameter to include in any thrown exception.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="value"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Cake.Issues.IssuesArgumentChecks.NotNullOrWhiteSpace(System.String,System.String)">
+            <summary>
+            Throws an exception if the specified parameter's value is null, empty or consists only of white-space characters.
+            </summary>
+            <param name="value">The value of the argument.</param>
+            <param name="parameterName">The name of the parameter to include in any thrown exception.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="value"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">Thrown if <paramref name="value"/> is empty or consists only of white-space characters.</exception>
+        </member>
+        <member name="M:Cake.Issues.IssuesArgumentChecks.NotNegative(System.Int32,System.String)">
+            <summary>
+            Throws an exception if the specified parameter's value is negative.
+            </summary>
+            <param name="value">The value of the argument.</param>
+            <param name="parameterName">The name of the parameter to include in any thrown exception.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">Thrown if <paramref name="value"/> is negative.</exception>
+        </member>
+        <member name="M:Cake.Issues.IssuesArgumentChecks.NotNegativeOrZero(System.Int32,System.String)">
+            <summary>
+            Throws an exception if the specified parameter's value is negative or zero.
+            </summary>
+            <param name="value">The value of the argument.</param>
+            <param name="parameterName">The name of the parameter to include in any thrown exception.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">Thrown if <paramref name="value"/> is negative or zero.</exception>
+        </member>
+        <member name="M:Cake.Issues.IssuesArgumentChecks.NotNullOrEmpty``1(System.Collections.Generic.IEnumerable{``0},System.String)">
+            <summary>
+            Throws an exception if the specified parameter's value is null or empty.
+            </summary>
+            <typeparam name="T">The type of the parameter.</typeparam>
+            <param name="value">The value of the argument.</param>
+            <param name="parameterName">The name of the parameter to include in any thrown exception.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="value"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentException">Thrown if <paramref name="value"/> is empty.</exception>
+        </member>
+        <member name="M:Cake.Issues.IssuesArgumentChecks.NotNullOrEmptyElement``1(System.Collections.Generic.IEnumerable{``0},System.String)">
+            <summary>
+            Throws an exception if the specified parameter's value is null, empty or contains an empty element.
+            </summary>
+            <typeparam name="T">The type of the parameter.</typeparam>
+            <param name="value">The value of the argument.</param>
+            <param name="parameterName">The name of the parameter to include in any thrown exception.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="value"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentException">Thrown if <paramref name="value"/> is empty.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">Thrown if <paramref name="value"/> contains an empty element.</exception>
+        </member>
+        <member name="M:Cake.Issues.IssuesArgumentChecks.NotNullOrEmptyOrEmptyElement``1(System.Collections.Generic.IEnumerable{``0},System.String)">
+            <summary>
+            Throws an exception if the specified parameter's value is null, empty or contains an empty element.
+            </summary>
+            <typeparam name="T">The type of the parameter.</typeparam>
+            <param name="value">The value of the argument.</param>
+            <param name="parameterName">The name of the parameter to include in any thrown exception.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="value"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentException">Thrown if <paramref name="value"/> is empty.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">Thrown if <paramref name="value"/> contains an empty element.</exception>
+        </member>
+        <member name="T:Cake.Issues.IssuesFoundException">
+            <summary>
+            Exception thrown when issues are found and build should fail.
+            </summary>
+        </member>
+        <member name="M:Cake.Issues.IssuesFoundException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cake.Issues.IssuesFoundException"/> class.
+            </summary>
+        </member>
+        <member name="M:Cake.Issues.IssuesFoundException.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cake.Issues.IssuesFoundException"/> class for a list of issues.
+            </summary>
+            <param name="issueCount">Number of issues which are found.</param>
+        </member>
+        <member name="T:Cake.Issues.IssuesReader">
+            <summary>
+            Class for reading issues.
+            </summary>
+        </member>
+        <member name="M:Cake.Issues.IssuesReader.#ctor(Cake.Core.Diagnostics.ICakeLog,System.Collections.Generic.IEnumerable{Cake.Issues.IIssueProvider},Cake.Issues.IReadIssuesSettings)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cake.Issues.IssuesReader"/> class.
+            </summary>
+            <param name="log">Cake log instance.</param>
+            <param name="issueProviders">List of issue providers to use.</param>
+            <param name="settings">Settings to use.</param>
+        </member>
+        <member name="M:Cake.Issues.IssuesReader.ReadIssues">
+            <summary>
+            Read issues from issue providers.
+            </summary>
+            <returns>List of issues.</returns>
+        </member>
+        <member name="T:Cake.Issues.ReadIssuesSettings">
+            <summary>
+            Settings for reading issues.
+            </summary>
+            <param name="repositoryRoot">Root path of the repository.</param>
+        </member>
+        <member name="M:Cake.Issues.ReadIssuesSettings.#ctor(Cake.Core.IO.DirectoryPath)">
+            <summary>
+            Settings for reading issues.
+            </summary>
+            <param name="repositoryRoot">Root path of the repository.</param>
+        </member>
+        <member name="P:Cake.Issues.ReadIssuesSettings.Run">
+            <inheritdoc/>
+        </member>
+        <member name="P:Cake.Issues.ReadIssuesSettings.FileLinkSettings">
+            <inheritdoc/>
+        </member>
+        <member name="T:Cake.Issues.RepositorySettings">
+            <summary>
+            Settings containing a path to a repository.
+            </summary>
+        </member>
+        <member name="M:Cake.Issues.RepositorySettings.#ctor(Cake.Core.IO.DirectoryPath)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cake.Issues.RepositorySettings"/> class.
+            </summary>
+            <param name="repositoryRoot">Root path of the repository.</param>
+        </member>
+        <member name="P:Cake.Issues.RepositorySettings.RepositoryRoot">
+            <inheritdoc/>
+        </member>
+        <member name="T:Cake.Issues.Serialization.IssueDeserializationExtensions">
+            <summary>
+            Extensions for deserializing an <see cref="T:Cake.Issues.IIssue"/>.
+            </summary>
+        </member>
+        <member name="M:Cake.Issues.Serialization.IssueDeserializationExtensions.DeserializeToIssue(System.String)">
+            <summary>
+            Deserializes an <see cref="T:Cake.Issues.Issue"/> from a JSON string.
+            </summary>
+            <param name="jsonString">JSON representation of the issue.</param>
+            <returns>Instance of the issue.</returns>
+        </member>
+        <member name="M:Cake.Issues.Serialization.IssueDeserializationExtensions.DeserializeToIssue(Cake.Core.IO.FilePath)">
+            <summary>
+            Deserializes an <see cref="T:Cake.Issues.Issue"/> from a JSON file.
+            </summary>
+            <param name="filePath">Path to the JSON file.</param>
+            <returns>Instance of the issue.</returns>
+        </member>
+        <member name="M:Cake.Issues.Serialization.IssueDeserializationExtensions.DeserializeToIssues(System.String)">
+            <summary>
+            Deserializes an <see cref="T:System.Collections.Generic.IEnumerable`1"/> from a JSON string.
+            </summary>
+            <param name="jsonString">JSON representation of the issues.</param>
+            <returns>List of issues.</returns>
+        </member>
+        <member name="M:Cake.Issues.Serialization.IssueDeserializationExtensions.DeserializeToIssues(Cake.Core.IO.FilePath)">
+            <summary>
+            Deserializes an <see cref="T:System.Collections.Generic.IEnumerable`1"/> from a JSON file.
+            </summary>
+            <param name="filePath">Path to the JSON file.</param>
+            <returns>List of issues.</returns>
+        </member>
+        <member name="M:Cake.Issues.Serialization.IssueDeserializationExtensions.DeserializeStreamToIssue(System.IO.Stream)">
+            <summary>
+            Deserializes a stream containing the JSON representation of an issue to an <see cref="T:Cake.Issues.Issue"/>.
+            </summary>
+            <param name="stream">Stream whose content should be deserialized.</param>
+            <returns>Issue instance.</returns>
+        </member>
+        <member name="M:Cake.Issues.Serialization.IssueDeserializationExtensions.DeserializeStreamToIssues(System.IO.Stream)">
+            <summary>
+            Deserializes a stream containing the JSON representation of an array of issues to an <see cref="T:System.Collections.Generic.IEnumerable`1"/>.
+            </summary>
+            <param name="stream">Stream whose content should be deserialized.</param>
+            <returns>List of issues.</returns>
+        </member>
+        <member name="M:Cake.Issues.Serialization.IssueDeserializationExtensions.DeserializeJsonDataToIssue(System.Text.Json.Nodes.JsonNode)">
+            <summary>
+            Deserializes JSON representation of an issue to an <see cref="T:Cake.Issues.Issue"/>.
+            Supports serialization format of the current version of Cake.Issues as versions
+            written with previous versions of Cake.Issues.
+            </summary>
+            <param name="data">JSON representation of the issue.</param>
+            <returns>Issue instance.</returns>
+        </member>
+        <member name="T:Cake.Issues.Serialization.IssueSerializationExtensions">
+            <summary>
+            Extensions for serializing an <see cref="T:Cake.Issues.IIssue"/> to the latest serialization format.
+            </summary>
+        </member>
+        <member name="M:Cake.Issues.Serialization.IssueSerializationExtensions.SerializeToJsonString(Cake.Issues.IIssue)">
+            <summary>
+            Serializes an <see cref="T:Cake.Issues.IIssue"/> to a JSON string.
+            </summary>
+            <param name="issue">Issue which should be serialized.</param>
+            <returns>Serialized issue.</returns>
+        </member>
+        <member name="M:Cake.Issues.Serialization.IssueSerializationExtensions.SerializeToJsonString(System.Collections.Generic.IEnumerable{Cake.Issues.IIssue})">
+            <summary>
+            Serializes an <see cref="T:System.Collections.Generic.IEnumerable`1"/> to a JSON string.
+            </summary>
+            <param name="issues">Issues which should be serialized.</param>
+            <returns>Serialized issues.</returns>
+        </member>
+        <member name="M:Cake.Issues.Serialization.IssueSerializationExtensions.SerializeToJsonFile(Cake.Issues.IIssue,Cake.Core.IO.FilePath)">
+            <summary>
+            Serializes an <see cref="T:Cake.Issues.IIssue"/> to a JSON file.
+            </summary>
+            <param name="issue">Issue which should be serialized.</param>
+            <param name="filePath">Path to the file.</param>
+        </member>
+        <member name="M:Cake.Issues.Serialization.IssueSerializationExtensions.SerializeToJsonFile(System.Collections.Generic.IEnumerable{Cake.Issues.IIssue},Cake.Core.IO.FilePath)">
+            <summary>
+            Serializes an <see cref="T:System.Collections.Generic.IEnumerable`1"/> to a JSON file.
+            </summary>
+            <param name="issues">Issues which should be serialized.</param>
+            <param name="filePath">Path to the file.</param>
+        </member>
+        <member name="M:Cake.Issues.Serialization.IssueSerializationExtensions.ToSerializableIssue(Cake.Issues.IIssue)">
+            <summary>
+            Converts an <see cref="T:Cake.Issues.IIssue"/> to a <see cref="T:Cake.Issues.Serialization.SerializableIssueV4"/>.
+            </summary>
+            <param name="issue">Issue which should be converted.</param>
+            <returns>Converted issue.</returns>
+        </member>
+        <member name="T:Cake.Issues.Serialization.SerializableIssue">
+            <summary>
+            Class for serializing and deserializing an <see cref="T:Cake.Issues.IIssue"/> instance.
+            </summary>
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssue.ProjectFileRelativePath">
+            <inheritdoc cref="P:Cake.Issues.IIssue.ProjectFileRelativePath" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssue.ProjectName">
+            <inheritdoc cref="P:Cake.Issues.IIssue.ProjectName" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssue.AffectedFileRelativePath">
+            <inheritdoc cref="P:Cake.Issues.IIssue.AffectedFileRelativePath" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssue.Line">
+            <inheritdoc cref="P:Cake.Issues.IIssue.Line" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssue.Message">
+            <inheritdoc cref="P:Cake.Issues.IIssue.MessageText" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssue.Priority">
+            <inheritdoc cref="P:Cake.Issues.IIssue.Priority" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssue.PriorityName">
+            <inheritdoc cref="P:Cake.Issues.IIssue.PriorityName" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssue.Rule">
+            <inheritdoc cref="P:Cake.Issues.IIssue.RuleId" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssue.RuleUrl">
+            <inheritdoc cref="P:Cake.Issues.IIssue.RuleUrl" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssue.ProviderType">
+            <inheritdoc cref="P:Cake.Issues.IIssue.ProviderType" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssue.ProviderName">
+            <inheritdoc cref="P:Cake.Issues.IIssue.ProviderName" />
+        </member>
+        <member name="T:Cake.Issues.Serialization.SerializableIssueExtensions">
+            <summary>
+            Extensions for <see cref="T:Cake.Issues.Serialization.SerializableIssue"/>.
+            </summary>
+        </member>
+        <member name="M:Cake.Issues.Serialization.SerializableIssueExtensions.ToIssue(Cake.Issues.Serialization.SerializableIssue)">
+            <summary>
+            Converts a <see cref="T:Cake.Issues.Serialization.SerializableIssue"/> to an <see cref="T:Cake.Issues.Issue"/>.
+            </summary>
+            <param name="serializableIssue">Issue which should be converted.</param>
+            <returns>Converted issue.</returns>
+        </member>
+        <member name="T:Cake.Issues.Serialization.SerializableIssueV2">
+            <summary>
+            Class for serializing and deserializing an <see cref="T:Cake.Issues.IIssue"/> instance.
+            </summary>
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV2.Version">
+            <summary>
+            Gets the version of the serialization format.
+            </summary>
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV2.ProjectFileRelativePath">
+            <inheritdoc cref="P:Cake.Issues.IIssue.ProjectFileRelativePath" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV2.ProjectName">
+            <inheritdoc cref="P:Cake.Issues.IIssue.ProjectName" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV2.AffectedFileRelativePath">
+            <inheritdoc cref="P:Cake.Issues.IIssue.AffectedFileRelativePath" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV2.Line">
+            <inheritdoc cref="P:Cake.Issues.IIssue.Line" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV2.MessageText">
+            <inheritdoc cref="P:Cake.Issues.IIssue.MessageText" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV2.MessageMarkdown">
+            <inheritdoc cref="P:Cake.Issues.IIssue.MessageMarkdown" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV2.MessageHtml">
+            <inheritdoc cref="P:Cake.Issues.IIssue.MessageHtml" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV2.Priority">
+            <inheritdoc cref="P:Cake.Issues.IIssue.Priority" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV2.PriorityName">
+            <inheritdoc cref="P:Cake.Issues.IIssue.PriorityName" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV2.Rule">
+            <inheritdoc cref="P:Cake.Issues.IIssue.RuleId" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV2.RuleUrl">
+            <inheritdoc cref="P:Cake.Issues.IIssue.RuleUrl" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV2.ProviderType">
+            <inheritdoc cref="P:Cake.Issues.IIssue.ProviderType" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV2.ProviderName">
+            <inheritdoc cref="P:Cake.Issues.IIssue.ProviderName" />
+        </member>
+        <member name="T:Cake.Issues.Serialization.SerializableIssueV2Extensions">
+            <summary>
+            Extensions for <see cref="T:Cake.Issues.Serialization.SerializableIssueV2"/>.
+            </summary>
+        </member>
+        <member name="M:Cake.Issues.Serialization.SerializableIssueV2Extensions.ToIssue(Cake.Issues.Serialization.SerializableIssueV2)">
+            <summary>
+            Converts a <see cref="T:Cake.Issues.Serialization.SerializableIssueV2"/> to an <see cref="T:Cake.Issues.Issue"/>.
+            </summary>
+            <param name="serializableIssue">Issue which should be converted.</param>
+            <returns>Converted issue.</returns>
+        </member>
+        <member name="T:Cake.Issues.Serialization.SerializableIssueV3">
+            <summary>
+            Class for serializing and deserializing an <see cref="T:Cake.Issues.IIssue"/> instance.
+            </summary>
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV3.Version">
+            <summary>
+            Gets the version of the serialization format.
+            </summary>
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV3.Identifier">
+            <inheritdoc cref="P:Cake.Issues.IIssue.Identifier" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV3.ProjectFileRelativePath">
+            <inheritdoc cref="P:Cake.Issues.IIssue.ProjectFileRelativePath" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV3.ProjectName">
+            <inheritdoc cref="P:Cake.Issues.IIssue.ProjectName" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV3.AffectedFileRelativePath">
+            <inheritdoc cref="P:Cake.Issues.IIssue.AffectedFileRelativePath" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV3.Line">
+            <inheritdoc cref="P:Cake.Issues.IIssue.Line" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV3.EndLine">
+            <inheritdoc cref="P:Cake.Issues.IIssue.EndLine" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV3.Column">
+            <inheritdoc cref="P:Cake.Issues.IIssue.Column" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV3.EndColumn">
+            <inheritdoc cref="P:Cake.Issues.IIssue.EndColumn" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV3.FileLink">
+            <inheritdoc cref="P:Cake.Issues.IIssue.FileLink" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV3.MessageText">
+            <inheritdoc cref="P:Cake.Issues.IIssue.MessageText" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV3.MessageMarkdown">
+            <inheritdoc cref="P:Cake.Issues.IIssue.MessageMarkdown" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV3.MessageHtml">
+            <inheritdoc cref="P:Cake.Issues.IIssue.MessageHtml" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV3.Priority">
+            <inheritdoc cref="P:Cake.Issues.IIssue.Priority" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV3.PriorityName">
+            <inheritdoc cref="P:Cake.Issues.IIssue.PriorityName" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV3.Rule">
+            <inheritdoc cref="P:Cake.Issues.IIssue.RuleId" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV3.RuleUrl">
+            <inheritdoc cref="P:Cake.Issues.IIssue.RuleUrl" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV3.ProviderType">
+            <inheritdoc cref="P:Cake.Issues.IIssue.ProviderType" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV3.ProviderName">
+            <inheritdoc cref="P:Cake.Issues.IIssue.ProviderName" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV3.Run">
+            <inheritdoc cref="P:Cake.Issues.IIssue.Run" />
+        </member>
+        <member name="T:Cake.Issues.Serialization.SerializableIssueV3Extensions">
+            <summary>
+            Extensions for <see cref="T:Cake.Issues.Serialization.SerializableIssueV3"/>.
+            </summary>
+        </member>
+        <member name="M:Cake.Issues.Serialization.SerializableIssueV3Extensions.ToIssue(Cake.Issues.Serialization.SerializableIssueV3)">
+            <summary>
+            Converts a <see cref="T:Cake.Issues.Serialization.SerializableIssueV3"/> to an <see cref="T:Cake.Issues.Issue"/>.
+            </summary>
+            <param name="serializableIssue">Issue which should be converted.</param>
+            <returns>Converted issue.</returns>
+        </member>
+        <member name="T:Cake.Issues.Serialization.SerializableIssueV4">
+            <summary>
+            Class for serializing and deserializing an <see cref="T:Cake.Issues.IIssue"/> instance.
+            </summary>
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV4.Version">
+            <summary>
+            Gets the version of the serialization format.
+            </summary>
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV4.Identifier">
+            <inheritdoc cref="P:Cake.Issues.IIssue.Identifier" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV4.ProjectFileRelativePath">
+            <inheritdoc cref="P:Cake.Issues.IIssue.ProjectFileRelativePath" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV4.ProjectName">
+            <inheritdoc cref="P:Cake.Issues.IIssue.ProjectName" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV4.AffectedFileRelativePath">
+            <inheritdoc cref="P:Cake.Issues.IIssue.AffectedFileRelativePath" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV4.Line">
+            <inheritdoc cref="P:Cake.Issues.IIssue.Line" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV4.EndLine">
+            <inheritdoc cref="P:Cake.Issues.IIssue.EndLine" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV4.Column">
+            <inheritdoc cref="P:Cake.Issues.IIssue.Column" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV4.EndColumn">
+            <inheritdoc cref="P:Cake.Issues.IIssue.EndColumn" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV4.FileLink">
+            <inheritdoc cref="P:Cake.Issues.IIssue.FileLink" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV4.MessageText">
+            <inheritdoc cref="P:Cake.Issues.IIssue.MessageText" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV4.MessageMarkdown">
+            <inheritdoc cref="P:Cake.Issues.IIssue.MessageMarkdown" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV4.MessageHtml">
+            <inheritdoc cref="P:Cake.Issues.IIssue.MessageHtml" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV4.Priority">
+            <inheritdoc cref="P:Cake.Issues.IIssue.Priority" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV4.PriorityName">
+            <inheritdoc cref="P:Cake.Issues.IIssue.PriorityName" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV4.Rule">
+            <inheritdoc cref="P:Cake.Issues.IIssue.RuleId" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV4.RuleUrl">
+            <inheritdoc cref="P:Cake.Issues.IIssue.RuleUrl" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV4.ProviderType">
+            <inheritdoc cref="P:Cake.Issues.IIssue.ProviderType" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV4.ProviderName">
+            <inheritdoc cref="P:Cake.Issues.IIssue.ProviderName" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV4.Run">
+            <inheritdoc cref="P:Cake.Issues.IIssue.Run" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV4.AdditionalInformation">
+            <inheritdoc cref="P:Cake.Issues.IIssue.AdditionalInformation" />
+        </member>
+        <member name="T:Cake.Issues.Serialization.SerializableIssueV4Extensions">
+            <summary>
+            Extensions for <see cref="T:Cake.Issues.Serialization.SerializableIssueV4"/>.
+            </summary>
+        </member>
+        <member name="M:Cake.Issues.Serialization.SerializableIssueV4Extensions.ToIssue(Cake.Issues.Serialization.SerializableIssueV4)">
+            <summary>
+            Converts a <see cref="T:Cake.Issues.Serialization.SerializableIssueV4"/> to an <see cref="T:Cake.Issues.Issue"/>.
+            </summary>
+            <param name="serializableIssue">Issue which should be converted.</param>
+            <returns>Converted issue.</returns>
+        </member>
+        <member name="T:Cake.Issues.Serialization.SerializableIssueV5">
+            <summary>
+            Class for serializing and deserializing an <see cref="T:Cake.Issues.IIssue"/> instance.
+            </summary>
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV5.Version">
+            <summary>
+            Gets the version of the serialization format.
+            </summary>
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV5.Identifier">
+            <inheritdoc cref="P:Cake.Issues.IIssue.Identifier" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV5.ProjectFileRelativePath">
+            <inheritdoc cref="P:Cake.Issues.IIssue.ProjectFileRelativePath" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV5.ProjectName">
+            <inheritdoc cref="P:Cake.Issues.IIssue.ProjectName" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV5.AffectedFileRelativePath">
+            <inheritdoc cref="P:Cake.Issues.IIssue.AffectedFileRelativePath" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV5.Line">
+            <inheritdoc cref="P:Cake.Issues.IIssue.Line" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV5.EndLine">
+            <inheritdoc cref="P:Cake.Issues.IIssue.EndLine" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV5.Column">
+            <inheritdoc cref="P:Cake.Issues.IIssue.Column" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV5.EndColumn">
+            <inheritdoc cref="P:Cake.Issues.IIssue.EndColumn" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV5.FileLink">
+            <inheritdoc cref="P:Cake.Issues.IIssue.FileLink" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV5.MessageText">
+            <inheritdoc cref="P:Cake.Issues.IIssue.MessageText" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV5.MessageMarkdown">
+            <inheritdoc cref="P:Cake.Issues.IIssue.MessageMarkdown" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV5.MessageHtml">
+            <inheritdoc cref="P:Cake.Issues.IIssue.MessageHtml" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV5.Priority">
+            <inheritdoc cref="P:Cake.Issues.IIssue.Priority" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV5.PriorityName">
+            <inheritdoc cref="P:Cake.Issues.IIssue.PriorityName" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV5.RuleId">
+            <inheritdoc cref="P:Cake.Issues.IIssue.RuleId" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV5.RuleName">
+            <inheritdoc cref="P:Cake.Issues.IIssue.RuleName" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV5.RuleUrl">
+            <inheritdoc cref="P:Cake.Issues.IIssue.RuleUrl" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV5.ProviderType">
+            <inheritdoc cref="P:Cake.Issues.IIssue.ProviderType" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV5.ProviderName">
+            <inheritdoc cref="P:Cake.Issues.IIssue.ProviderName" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV5.Run">
+            <inheritdoc cref="P:Cake.Issues.IIssue.Run" />
+        </member>
+        <member name="P:Cake.Issues.Serialization.SerializableIssueV5.AdditionalInformation">
+            <inheritdoc cref="P:Cake.Issues.IIssue.AdditionalInformation" />
+        </member>
+        <member name="T:Cake.Issues.Serialization.SerializableIssueV5Extensions">
+            <summary>
+            Extensions for <see cref="T:Cake.Issues.Serialization.SerializableIssueV5"/>.
+            </summary>
+        </member>
+        <member name="M:Cake.Issues.Serialization.SerializableIssueV5Extensions.ToIssue(Cake.Issues.Serialization.SerializableIssueV5)">
+            <summary>
+            Converts a <see cref="T:Cake.Issues.Serialization.SerializableIssueV5"/> to an <see cref="T:Cake.Issues.Issue"/>.
+            </summary>
+            <param name="serializableIssue">Issue which should be converted.</param>
+            <returns>Converted issue.</returns>
+        </member>
+        <member name="T:Cake.Issues.StringExtensions">
+            <summary>
+            Extension methods for <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="M:Cake.Issues.StringExtensions.ToStringWithNullMarkup(System.Object)">
+            <summary>
+            Returns the string value or a <c>Not set</c>> markup suitable for Spectre.Console.
+            </summary>
+            <param name="value">String which should be returned.</param>
+            <returns>String value or a <c>Not set</c>> markup.</returns>
+        </member>
+        <member name="T:Cake.Issues.StringPathExtensions">
+            <summary>
+            Extensions for <see cref="T:System.String"/> for handling paths.
+            </summary>
+        </member>
+        <member name="M:Cake.Issues.StringPathExtensions.IsValidPath(System.String)">
+            <summary>
+            Checks if a string containing a path is a valid path string.
+            </summary>
+            <param name="path">Path to check.</param>
+            <returns><c>True</c> if valid path.</returns>
+        </member>
+        <member name="M:Cake.Issues.StringPathExtensions.IsFullPath(System.String)">
+            <summary>
+            Checks if a string containing a path is a full path.
+            </summary>
+            <param name="path">Path which should be checked.</param>
+            <returns><c>True</c> if full path.</returns>
+        </member>
+        <member name="M:Cake.Issues.StringPathExtensions.IsSubpathOf(System.String,System.String)">
+            <summary>
+            Checks if a path is a sub path of another path.
+            The comparison is case-insensitive, handles <c>/</c> and <c>\</c> slashes as folder separators and
+            only matches if the base dir folder name is matched exactly
+            (<c>c:\foobar\file.txt</c> is not a sub path of <c>c:\foo</c>).
+            </summary>
+            <param name="path">Full path which should be checked if it is a sub path.</param>
+            <param name="baseDirPath">Path for which should be checked if <paramref name="path"/>is a sub path of.</param>
+            <returns>Returns true if <paramref name="path"/> starts with the path <paramref name="baseDirPath"/>.</returns>
+        </member>
+        <member name="M:Cake.Issues.StringPathExtensions.NormalizePath(System.String)">
+            <summary>
+            Normalize path string.
+            All <c>/</c> are changed to <c>\</c>.
+            </summary>
+            <param name="path">Path string to normalize.</param>
+            <returns>Normalized path string.</returns>
+        </member>
+        <member name="M:Cake.Issues.StringPathExtensions.WithEnding(System.String,System.String)">
+            <summary>
+            Returns <paramref name="value"/> with the minimal concatenation of <paramref name="ending"/> (starting from end) that
+            results in satisfying .EndsWith(ending).
+            </summary>
+            <example>"hel".WithEnding("llo") returns "hello", which is the result of "hel" + "lo".</example>
+            <param name="value">String to which <paramref name="ending"/> should be added.</param>
+            <param name="ending">String which should be added to <paramref name="value"/>.</param>
+            <returns><paramref name="value"/> with the minimal concatenation of <paramref name="ending"/>.</returns>
+        </member>
+        <member name="M:Cake.Issues.StringPathExtensions.IsValidRepositoryFilePath(System.String,Cake.Issues.IRepositorySettings)">
+            <summary>
+            Validates if a file path is a valid path below <see cref="P:Cake.Issues.IRepositorySettings.RepositoryRoot"/>.
+            </summary>
+            <param name="filePath">Full file path.</param>
+            <param name="repositorySettings">Repository settings.</param>
+            <returns>Tuple containing a value if validation was successful,
+            and file path relative to <see cref="P:Cake.Issues.IRepositorySettings.RepositoryRoot"/>.</returns>
+        </member>
+        <member name="M:Cake.Issues.StringPathExtensions.IsInRepository(System.String,Cake.Issues.IRepositorySettings)">
+            <summary>
+            Checks if a file is part of the repository.
+            </summary>
+            <param name="filePath">Full file path.</param>
+            <param name="repositorySettings">Repository settings.</param>
+            <returns>True if file is in repository, false otherwise.</returns>
+        </member>
+        <member name="M:Cake.Issues.StringPathExtensions.MakeFilePathRelativeToRepositoryRoot(System.String,Cake.Issues.IRepositorySettings)">
+            <summary>
+            Make path relative to repository root.
+            </summary>
+            <param name="filePath">Full file path.</param>
+            <param name="repositorySettings">Repository settings.</param>
+            <returns>File path relative to the repository root.</returns>
+        </member>
+        <member name="M:Cake.Issues.StringPathExtensions.RemoveLeadingDirectorySeparator(System.String)">
+            <summary>
+            Remove the leading directory separator from a file path.
+            </summary>
+            <param name="filePath">Full file path.</param>
+            <returns>File path without leading directory separator.</returns>
+        </member>
+        <member name="M:Cake.Issues.StringPathExtensions.Right(System.String,System.Int32)">
+            <summary>Gets the rightmost <paramref name="length" /> characters from a string.</summary>
+            <param name="value">The string to retrieve the substring from.</param>
+            <param name="length">The number of characters to retrieve.</param>
+            <returns>The substring.</returns>
+        </member>
+        <member name="T:Cake.Issues.UriExtensions">
+            <summary>
+            Extensions for the <see cref="T:System.Uri"/> class.
+            </summary>
+        </member>
+        <member name="M:Cake.Issues.UriExtensions.Append(System.Uri,System.String[])">
+            <summary>
+            Appends paths to a URI.
+            </summary>
+            <param name="uri">URI to which the paths should be appended.</param>
+            <param name="paths">Paths to append.</param>
+            <returns>URI with appended paths.</returns>
+        </member>
+        <member name="T:Cake.Issues.ValidatedNotNullAttribute">
+            <summary>
+            Indicates to code analysis that a method validates a particular parameter.
+            </summary>
+        </member>
+    </members>
+</doc>

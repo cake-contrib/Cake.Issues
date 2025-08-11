@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Cake.Issues.Reporting.Generic</id>
+    <version>5.8.0-copilot-fix-119-0001</version>
+    <title>Cake.Issues.Reporting.Generic</title>
+    <authors>Cake Issues contributors</authors>
+    <owners>pascalberger, cake-contrib</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
+    <icon>icon.png</icon>
+    <readme>docs\README.md</readme>
+    <projectUrl>https://cakeissues.net/</projectUrl>
+    <description>The generic report support for the Cake.Issues addin for Cake Script Runners allows you to create issue reports in any text format (HTML, Markdown, ...).
+
+This addin provides the aliases for any text based report format.
+It also requires the core Cake.Issues and Cake.Issues.Reporting addins and one or more issue providers.
+
+See the Project Site for an overview of the whole ecosystem of addins for working with issues in Cake scripts.
+
+NOTE:
+This is the version of the addin compatible with Cake Script Runners.
+For addin compatible with Cake Frosting see Cake.Frosting.Issues.Reporting.Generic.</description>
+    <summary>Support for creating any reports in any text based format (HTML, Markdown, ...) for the Cake.Issues addin for Cake Build Automation System</summary>
+    <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/5.7.0</releaseNotes>
+    <copyright>Copyright © Cake Issues contributors</copyright>
+    <tags>cake cake-addin cake-issues cake-reportformat issues reporting html markdown razor</tags>
+    <repository type="git" url="https://github.com/cake-contrib/Cake.Issues.git" />
+    <dependencies>
+      <group targetFramework="net8.0" />
+      <group targetFramework="net9.0" />
+    </dependencies>
+  </metadata>
+</package>
