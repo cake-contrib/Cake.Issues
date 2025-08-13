@@ -106,8 +106,9 @@ Cake.Issues recipes integrates with the following pull request systems:
     <div class="annotate" markdown>
 
     - [x] Write issues to pull requests (1)
-    - [x] Set pull request status
+    - [x] Set pull request status (2)
 
     </div>
 
     1.  When build from GitHub Actions
+    2.  Requires `statuses: write` permission
