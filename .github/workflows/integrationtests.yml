@@ -59,12 +59,6 @@ jobs:
         uses: ./.github/actions/prepare-integration-test
         with:
           dotnet-version: ${{ matrix.dotnet }}
-      - name: Determine TFM
-        run: |
-          DOTNET_VERSION="${{ matrix.dotnet }}"
-          DOTNET_MAJOR_VERSION="${DOTNET_VERSION%%.*}"
-          echo "TFM=net${DOTNET_MAJOR_VERSION}.0" >> $GITHUB_ENV
-        shell: bash
       - name: Run integration tests
         run: ./build.sh --verbosity=diagnostic
         working-directory: ./tests/Cake.Issues.MsBuild/script-runner/${{ env.TFM }}
@@ -91,5 +85,5 @@ jobs:
           dotnet-version: ${{ matrix.dotnet }}
       - name: Run integration tests
         run: ./build.sh --verbosity=diagnostic
-        working-directory: ./tests/Cake.Issues.PullRequests.GitHubActions/script-runner/
+        working-directory: ./tests/Cake.Issues.PullRequests.GitHubActions/script-runner/${{ env.TFM }}
         shell: bash

@@ -20,7 +20,7 @@ public class BuildData
     public BuildData(ICakeContext context)
     {
         this.TestRootFolder = context.MakeAbsolute(context.Directory("./"));
-        this.RepoRootFolder = this.TestRootFolder.Combine("..").Combine("..");
+        this.RepoRootFolder = this.TestRootFolder.Combine("..").Combine("..").Combine("..");
         this.DocsFolder = this.TestRootFolder.Combine("docs");
         this.OutputFolder = this.TestRootFolder.Combine("output");
 

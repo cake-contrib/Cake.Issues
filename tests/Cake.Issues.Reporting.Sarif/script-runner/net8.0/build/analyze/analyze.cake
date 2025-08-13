@@ -7,5 +7,6 @@ Task("Analyze")
             data.RepoRootFolder
                 .Combine("..")
                 .Combine("..")
+                .Combine("..")
                 .CombineWithFilePath("issues.json")));
 });

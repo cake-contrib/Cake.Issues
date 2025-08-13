@@ -31,16 +31,7 @@ For documentation building:
 ### Integration Tests (VALIDATED)
 **CRITICAL**: Must create packages FIRST before running integration tests:
 1. `./build.sh --target=Create-NuGet-Packages` (2 minutes)
-2. `cd tests/<ADDIN-NAME>/<TEST-DIR> && ./build.sh --verbosity=diagnostic` (15 seconds per test)
-
-Available integration test directories:
-- `tests/Cake.Issues.MsBuild/script-runner/net8.0` and `net9.0`
-- `tests/Cake.Issues.GitRepository/script-runner/`
-- `tests/Cake.Issues.Markdownlint/script-runner/`
-- `tests/Cake.Issues.PullRequests.GitHubActions/script-runner/`
-- `tests/Cake.Issues.Reporting.Console/script-runner/`
-- `tests/Cake.Issues.Reporting.Generic/script-runner/`
-- `tests/Cake.Issues.Reporting.Sarif/script-runner/`
+2. `cd tests/<ADDIN-NAME>/<RUNNER>/<TFM> && ./build.sh --verbosity=diagnostic` (15 seconds per test)
 
 ### Documentation (VALIDATED)
 - Install dependencies: `cd docs && pip install -r requirements.txt` (48 seconds)
