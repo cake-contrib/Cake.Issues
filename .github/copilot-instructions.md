@@ -31,7 +31,7 @@ For documentation building:
 ### Integration Tests (VALIDATED)
 **CRITICAL**: Must create packages FIRST before running integration tests:
 1. `./build.sh --target=Create-NuGet-Packages` (2 minutes)
-2. `cd tests/<ADDIN-NAME>/script-runner/net9.0 && ./build.sh --verbosity=diagnostic` (15 seconds per test)
+2. `cd tests/<ADDIN-NAME>/<TEST-DIR> && ./build.sh --verbosity=diagnostic` (15 seconds per test)
 
 Available integration test directories:
 - `tests/Cake.Issues.MsBuild/script-runner/net8.0` and `net9.0`
@@ -46,7 +46,7 @@ Available integration test directories:
 - Install dependencies: `cd docs && pip install -r requirements.txt` (48 seconds)
 - **Development server**: `cd docs && mkdocs serve` (builds in ~10 seconds, serves on http://127.0.0.1:8000)
 - **Build static site**: `cd docs && mkdocs build --site-dir ../BuildArtifacts/temp/_PublishedDocumentation` (10 seconds)
-- **Website target**: `./build.sh --target=website` (builds and serves documentation)
+- **Builds and serves documentation**: `./build.sh --target=website` (builds and serves documentation)
 
 ### Debug Output
 Add `--verbosity=diagnostic` to any build command for detailed output.
