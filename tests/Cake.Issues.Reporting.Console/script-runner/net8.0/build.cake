@@ -15,7 +15,7 @@ var target = Argument("target", "Default");
 Task("Print-Issues")
     .Does(() =>
 {
-    var issues = DeserializeIssuesFromJsonFile(@"../../issues.json");
+    var issues = DeserializeIssuesFromJsonFile(@"../../../issues.json");
     Information("Read {0} issues", issues.Count());
     CreateIssueReport(
         issues,

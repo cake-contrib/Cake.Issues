@@ -28,8 +28,8 @@ stages:
       - template: ../steps/install-markdownlint.yml 
       - template: ../steps/provide-nuget-packages.yml 
       - powershell: ./build.ps1 --verbosity=diagnostic
-        workingDirectory: ./tests/Cake.Issues.Markdownlint/script-runner
+        workingDirectory: ./tests/Cake.Issues.Markdownlint/script-runner/net8.0
         displayName: 'Run integration tests'
-      - publish: $(Build.SourcesDirectory)/tests/Cake.Issues.Markdownlint/script-runner/output/report.html
+      - publish: $(Build.SourcesDirectory)/tests/Cake.Issues.Markdownlint/script-runner/net8.0/output/report.html
         artifact: Integration Tests Cake.Issues.Markdownlint $(System.JobName)
         displayName: 'Publish generated reports as build artifact'
