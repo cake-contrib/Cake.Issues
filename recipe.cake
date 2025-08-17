@@ -1,4 +1,4 @@
-#load nuget:?package=Cake.Recipe&version=3.1.1
+#load nuget:https://pkgs.dev.azure.com/cake-contrib/Home/_packaging/addins/nuget/v3/index.json?package=Cake.Recipe&version=4.0.0-alpha0144
 
 //*************************************************************************************************
 // Settings
@@ -19,16 +19,15 @@ BuildParameters.SetParameters(
     shouldGenerateDocumentation: false, // Documentation is generated from Cake.Issues.Website
     shouldRunInspectCode: false,
     shouldRunCoveralls: false,  // Disabled because it's currently failing
-    shouldPostToGitter: false, // Disabled because it's currently failing
     nuGetSources: new [] { "https://api.nuget.org/v3/index.json" }); // Don't use additional MyGet feed, since CPM only supports one feed 
 
 BuildParameters.PrintParameters(Context);
 
-ToolSettings.SetToolPreprocessorDirectives(
-    gitReleaseManagerGlobalTool: "#tool dotnet:?package=GitReleaseManager.Tool&version=0.17.0",
-    nugetTool: "#tool nuget:?package=NuGet.CommandLine&version=6.9.1",
-    gitVersionGlobalTool: "#tool dotnet:?package=GitVersion.Tool&version=5.12.0"
-);
+// ToolSettings.SetToolPreprocessorDirectives(
+//     gitReleaseManagerGlobalTool: "#tool dotnet:?package=GitReleaseManager.Tool&version=0.17.0",
+//     nugetTool: "#tool nuget:?package=NuGet.CommandLine&version=6.9.1",
+//     gitVersionGlobalTool: "#tool dotnet:?package=GitVersion.Tool&version=5.12.0"
+// );
 
 ToolSettings.SetToolSettings(
     context: Context,
@@ -57,7 +56,7 @@ Setup(context =>
 // Task overrides
 //*************************************************************************************************
 
-// Since Cake.Recipe does not detect the correct settings when using Directory.Build.pros we need
+// Since Cake.Recipe does not detect the correct settings when using Directory.Build.props we need
 // to override the test task
 ((CakeTask)BuildParameters.Tasks.DotNetCoreTestTask.Task).Actions.Clear();
 BuildParameters.Tasks.DotNetCoreTestTask.Does<DotNetCoreMSBuildSettings>((context, msBuildSettings) => {
@@ -105,38 +104,38 @@ BuildParameters.Tasks.DotNetCoreTestTask.Does<DotNetCoreMSBuildSettings>((contex
     }
 });
 
-// Update to latest InspectCode version which generates a SARIF file
-((CakeTask)BuildParameters.Tasks.InspectCodeTask.Task).Actions.Clear();
-BuildParameters.Tasks.InspectCodeTask
-    .WithCriteria(() => BuildParameters.BuildAgentOperatingSystem == PlatformFamily.Windows, "Skipping due to not running on Windows")
-    .WithCriteria(() => BuildParameters.ShouldRunInspectCode, "Skipping because InspectCode has been disabled")
-    .Does<BuildData>(data => RequireTool(ToolSettings.ReSharperTools, () => {
-        var inspectCodeLogFilePath = BuildParameters.Paths.Directories.InspectCodeTestResults.CombineWithFilePath("inspectcode.xml");
+// // Update to latest InspectCode version which generates a SARIF file
+// ((CakeTask)BuildParameters.Tasks.InspectCodeTask.Task).Actions.Clear();
+// BuildParameters.Tasks.InspectCodeTask
+//     .WithCriteria(() => BuildParameters.BuildAgentOperatingSystem == PlatformFamily.Windows, "Skipping due to not running on Windows")
+//     .WithCriteria(() => BuildParameters.ShouldRunInspectCode, "Skipping because InspectCode has been disabled")
+//     .Does<BuildData>(data => RequireTool(ToolSettings.ReSharperTools, () => {
+//         var inspectCodeLogFilePath = BuildParameters.Paths.Directories.InspectCodeTestResults.CombineWithFilePath("inspectcode.xml");
 
-        var settings = new InspectCodeSettings() {
-            SolutionWideAnalysis = true,
-            OutputFile = inspectCodeLogFilePath,
-            ArgumentCustomization = x => x.Append("--no-build").Append("-f=xml")
-        };
+//         var settings = new InspectCodeSettings() {
+//             SolutionWideAnalysis = true,
+//             OutputFile = inspectCodeLogFilePath,
+//             ArgumentCustomization = x => x.Append("--no-build").Append("-f=xml")
+//         };
 
-        if (FileExists(BuildParameters.SourceDirectoryPath.CombineWithFilePath(BuildParameters.ResharperSettingsFileName)))
-        {
-            settings.Profile = BuildParameters.SourceDirectoryPath.CombineWithFilePath(BuildParameters.ResharperSettingsFileName);
-        }
+//         if (FileExists(BuildParameters.SourceDirectoryPath.CombineWithFilePath(BuildParameters.ResharperSettingsFileName)))
+//         {
+//             settings.Profile = BuildParameters.SourceDirectoryPath.CombineWithFilePath(BuildParameters.ResharperSettingsFileName);
+//         }
 
-        InspectCode(BuildParameters.SolutionFilePath, settings);
+//         InspectCode(BuildParameters.SolutionFilePath, settings);
 
-        // Pass path to InspectCode log file to Cake.Issues.Recipe
-        IssuesParameters.InputFiles.AddInspectCodeLogFile(inspectCodeLogFilePath);
-    })
-);
+//         // Pass path to InspectCode log file to Cake.Issues.Recipe
+//         IssuesParameters.InputFiles.AddInspectCodeLogFile(inspectCodeLogFilePath);
+//     })
+// );
 
 // Upload only .NET 9 coverage results to avoid issues with files being too large
 ((CakeTask)BuildParameters.Tasks.UploadCodecovReportTask.Task).Actions.Clear();
 BuildParameters.Tasks.UploadCodecovReportTask
     .WithCriteria(() => BuildParameters.IsMainRepository, "Skipping because not running from the main repository")
     .WithCriteria(() => BuildParameters.ShouldRunCodecov, "Skipping because uploading to codecov is disabled")
-    .WithCriteria(() => BuildParameters.CanPublishToCodecov, "Skipping because repo token is missing, or not running on appveyor")
+    .WithCriteria(() => BuildParameters.CanPublishToCodecov, "Skipping because repo token is missing, or not running on GitHub CI")
     .Does<BuildVersion>((context, buildVersion) => RequireTool(BuildParameters.IsDotNetCoreBuild ? ToolSettings.CodecovGlobalTool : ToolSettings.CodecovTool, () => {
         var coverageFiles = GetFiles(BuildParameters.Paths.Directories.TestCoverage + "/coverlet/*.net9.0.opencover.xml");
         if (FileExists(BuildParameters.Paths.Files.TestCoverageOutputFilePath))
@@ -148,8 +147,8 @@ BuildParameters.Tasks.UploadCodecovReportTask
         {
             var settings = new CodecovSettings {
                 Files = coverageFiles.Select(f => f.FullPath),
-                Required = true
-            };
+                NonZero = true,
+                Token = BuildParameters.Codecov.RepoToken            };
             if (buildVersion != null &&
                 !string.IsNullOrEmpty(buildVersion.FullSemVersion) &&
                 BuildParameters.IsRunningOnAppVeyor)

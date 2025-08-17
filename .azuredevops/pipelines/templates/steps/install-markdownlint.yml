@@ -3,7 +3,7 @@
 steps:
   - task: NodeTool@0
     inputs:
-      versionSpec: '20.x'
-    displayName: 'Install NodeJs 20.x'
+      versionSpec: '22.x'
+    displayName: 'Install NodeJs 22.x'
   - script: npm install -g markdownlint-cli
     displayName: 'Install markdownlint'

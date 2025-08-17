@@ -16,3 +16,9 @@ runs:
       uses: actions/setup-dotnet@67a3573c9a986a3f9c594539f4ab511d57bb3ce9 # v4.3.1
       with:
         dotnet-version: ${{ inputs.dotnet-version }}
+    - name: Determine TFM
+      run: |
+        DOTNET_VERSION="${{ inputs.dotnet-version }}"
+        DOTNET_MAJOR_VERSION="${DOTNET_VERSION%%.*}"
+        echo "TFM=net${DOTNET_MAJOR_VERSION}.0" >> $GITHUB_ENV
+      shell: bash
