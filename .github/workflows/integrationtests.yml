@@ -85,6 +85,8 @@ jobs:
         uses: ./.github/actions/prepare-integration-test
         with:
           dotnet-version: ${{ matrix.dotnet }}
+      - name: Install Markdownlint
+        uses: ./.github/actions/install-markdownlint
       - name: Run integration tests
         run: ./build.sh --verbosity=diagnostic
         working-directory: ./tests/Cake.Issues.Markdownlint/script-runner/${{ env.TFM }}
