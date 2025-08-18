@@ -391,7 +391,7 @@ public sealed class Aliases
         }
 
         [Fact]
-        public void Should_Throw_If_ProvderType_Is_Null()
+        public void Should_Throw_If_ProviderType_Is_Null()
         {
             // Given
             var fixture = new CakeContextFixture();
