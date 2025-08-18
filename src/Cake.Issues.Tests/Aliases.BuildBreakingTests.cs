@@ -304,7 +304,7 @@ public sealed class Aliases
         }
 
         [Fact]
-        public void Should_Throw_If_ProvderType_Is_Empty()
+        public void Should_Throw_If_ProviderType_Is_Empty()
         {
             // Given
             var fixture = new CakeContextFixture();
