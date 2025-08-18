@@ -425,7 +425,7 @@ public sealed class Aliases
         }
 
         [Fact]
-        public void Should_Throw_If_ProvderType_Is_Whitespace()
+        public void Should_Throw_If_ProviderType_Is_Whitespace()
         {
             // Given
             var fixture = new CakeContextFixture();
