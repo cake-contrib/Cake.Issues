@@ -20,11 +20,11 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - name: Get the sources
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
       - name: Fetch all tags and branches
         run: git fetch --prune --unshallow
       - name: Install .NET
-        uses: actions/setup-dotnet@67a3573c9a986a3f9c594539f4ab511d57bb3ce9 # v4
+        uses: actions/setup-dotnet@67a3573c9a986a3f9c594539f4ab511d57bb3ce9 # v4.3.1
         with:
           # .NET 5 required for GitVersion
           dotnet-version: | 
@@ -35,10 +35,65 @@ jobs:
         run: ./build.sh --target=Create-NuGet-Packages
         shell: bash
       - name: Publish NuGet package as build artifact
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: NuGet Package
           path: ./BuildArtifacts/Packages/NuGet/
+
+  # Integration Tests Cake.Issues.GitRepository
+  IntegrationTestsGitRepositoryCakeScripting:
+    name: Integration Tests Cake.Issues.GitRepository Cake Scripting
+    needs: Build
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [
+          windows-2022, windows-2025, 
+          ubuntu-22.04, ubuntu-24.04,
+          macos-13, macos-14]
+        dotnet: [8.x]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Get the sources
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        with:
+          lfs: true
+      - name: Prepare integration tests
+        uses: ./.github/actions/prepare-integration-test
+        with:
+          dotnet-version: ${{ matrix.dotnet }}
+      - name: Run integration tests
+        run: ./build.sh --verbosity=diagnostic
+        working-directory: ./tests/Cake.Issues.GitRepository/script-runner/${{ env.TFM }}
+        shell: bash
+
+  # Integration Tests Cake.Issues.Markdownlint
+  IntegrationTestsMarkdownlintCakeScripting:
+    name: Integration Tests Cake.Issues.Markdownlint Cake Scripting
+    needs: Build
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [
+          windows-2022, windows-2025, 
+          ubuntu-22.04, ubuntu-24.04,
+          macos-13, macos-14]
+        dotnet: [8.x]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Get the sources
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      - name: Prepare integration tests
+        uses: ./.github/actions/prepare-integration-test
+        with:
+          dotnet-version: ${{ matrix.dotnet }}
+      - name: Install Markdownlint
+        uses: ./.github/actions/install-markdownlint
+      - name: Run integration tests
+        run: ./build.sh --verbosity=diagnostic
+        working-directory: ./tests/Cake.Issues.Markdownlint/script-runner/${{ env.TFM }}
+        shell: bash
+
   # Integration Tests Cake.Issues.MsBuild Cake Scripting
   IntegrationTestsMsBuildCakeScripting:
     name: Integration Tests Cake.Issues.MsBuild Cake Scripting
@@ -54,21 +109,16 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - name: Get the sources
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
       - name: Prepare integration tests
         uses: ./.github/actions/prepare-integration-test
         with:
           dotnet-version: ${{ matrix.dotnet }}
-      - name: Determine TFM
-        run: |
-          DOTNET_VERSION="${{ matrix.dotnet }}"
-          DOTNET_MAJOR_VERSION="${DOTNET_VERSION%%.*}"
-          echo "TFM=net${DOTNET_MAJOR_VERSION}.0" >> $GITHUB_ENV
-        shell: bash
       - name: Run integration tests
         run: ./build.sh --verbosity=diagnostic
         working-directory: ./tests/Cake.Issues.MsBuild/script-runner/${{ env.TFM }}
         shell: bash
+
   # Integration Tests Cake.Issues.PullRequests.GitHubActions Cake Scripting
   IntegrationTestsPullRequestsGitHubActionsCakeScripting:
     name: Integration Tests Cake.Issues.PullRequests.GitHubActions Cake Scripting
@@ -84,12 +134,163 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - name: Get the sources
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
       - name: Prepare integration tests
         uses: ./.github/actions/prepare-integration-test
         with:
           dotnet-version: ${{ matrix.dotnet }}
       - name: Run integration tests
         run: ./build.sh --verbosity=diagnostic
-        working-directory: ./tests/Cake.Issues.PullRequests.GitHubActions/script-runner/
+        working-directory: ./tests/Cake.Issues.PullRequests.GitHubActions/script-runner/${{ env.TFM }}
         shell: bash
+
+  # Integration Tests Cake.Issues.Reporting.Console Cake Scripting
+  IntegrationTestsReportingConsoleCakeScripting:
+    name: Integration Tests Cake.Issues.Reporting.Console Cake Scripting
+    needs: Build
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [
+          windows-2022, windows-2025,
+          ubuntu-22.04, ubuntu-24.04,
+          macos-13, macos-14]
+        dotnet: [8.x]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Get the sources
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      - name: Prepare integration tests
+        uses: ./.github/actions/prepare-integration-test
+        with:
+          dotnet-version: ${{ matrix.dotnet }}
+      - name: Run integration tests
+        run: ./build.sh --verbosity=diagnostic
+        working-directory: ./tests/Cake.Issues.Reporting.Console/script-runner/${{ env.TFM }}
+        shell: bash
+
+  # Integration Tests Cake.Issues.Reporting.Console Cake Frosting
+  IntegrationTestsReportingConsoleCakeFrosting:
+    name: Integration Tests Cake.Issues.Reporting.Console Frosting
+    needs: Build
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [
+          windows-2022, windows-2025,
+          ubuntu-22.04, ubuntu-24.04,
+          macos-13, macos-14]
+        dotnet: [8.x]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Get the sources
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      - name: Prepare integration tests
+        uses: ./.github/actions/prepare-integration-test
+        with:
+          dotnet-version: ${{ matrix.dotnet }}
+      - name: Run integration tests
+        run: ./build.sh --verbosity=diagnostic
+        working-directory: ./tests/Cake.Issues.Reporting.Console/frosting/${{ env.TFM }}
+        shell: bash
+
+  # Integration Tests Cake.Issues.Reporting.Generic Cake Scripting
+  IntegrationTestsReportingGenericCakeScripting:
+    name: Integration Tests Cake.Issues.Reporting.Generic Cake Scripting
+    needs: Build
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [
+          windows-2022, windows-2025,
+          ubuntu-22.04, ubuntu-24.04,
+          macos-13, macos-14]
+        dotnet: [8.x]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Get the sources
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      - name: Prepare integration tests
+        uses: ./.github/actions/prepare-integration-test
+        with:
+          dotnet-version: ${{ matrix.dotnet }}
+      - name: Run integration tests
+        run: ./build.sh --verbosity=diagnostic
+        working-directory: ./tests/Cake.Issues.Reporting.Generic/script-runner/${{ env.TFM }}
+        shell: bash
+
+  # Integration Tests Cake.Issues.Reporting.Generic Cake Frosting
+  IntegrationTestsReportingGenericCakeFrosting:
+    name: Integration Tests Cake.Issues.Reporting.Generic Cake Frosting
+    needs: Build
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [
+          windows-2022, windows-2025,
+          ubuntu-22.04, ubuntu-24.04,
+          macos-13, macos-14]
+        dotnet: [8.x]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Get the sources
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      - name: Prepare integration tests
+        uses: ./.github/actions/prepare-integration-test
+        with:
+          dotnet-version: ${{ matrix.dotnet }}
+      - name: Run integration tests
+        run: ./build.sh --verbosity=diagnostic
+        working-directory: ./tests/Cake.Issues.Reporting.Generic/frosting/${{ env.TFM }}
+        shell: bash
+
+  # Integration Tests Cake.Issues.Reporting.Sarif Cake Scripting
+  IntegrationTestsReportingSarifCakeScripting:
+    name: Integration Tests Cake.Issues.Reporting.Sarif Cake Scripting
+    needs: Build
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [
+          windows-2022, windows-2025,
+          ubuntu-22.04, ubuntu-24.04,
+          macos-13, macos-14]
+        dotnet: [8.x]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Get the sources
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      - name: Prepare integration tests
+        uses: ./.github/actions/prepare-integration-test
+        with:
+          dotnet-version: ${{ matrix.dotnet }}
+      - name: Run integration tests
+        run: ./build.sh --verbosity=diagnostic
+        working-directory: ./tests/Cake.Issues.Reporting.Sarif/script-runner/${{ env.TFM }}
+        shell: bash
+
+  # Integration Tests Cake.Issues.Reporting.Sarif Cake Frosting
+  IntegrationTestsReportingSarifCakeFrosting:
+    name: Integration Tests Cake.Issues.Reporting.Sarif Cake Frosting
+    needs: Build
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [
+          windows-2022, windows-2025,
+          ubuntu-22.04, ubuntu-24.04,
+          macos-13, macos-14]
+        dotnet: [8.x, 9.x]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Get the sources
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      - name: Prepare integration tests
+        uses: ./.github/actions/prepare-integration-test
+        with:
+          dotnet-version: ${{ matrix.dotnet }}
+      - name: Run integration tests
+        run: ./build.sh --verbosity=diagnostic
+        working-directory: ./tests/Cake.Issues.Reporting.Sarif/frosting/${{ env.TFM }}
+        shell: bash
+

@@ -29,5 +29,5 @@ stages:
       - template: ../steps/install-net8.yml 
       - template: ../steps/provide-nuget-packages.yml 
       - powershell: ./build.ps1 --verbosity=diagnostic
-        workingDirectory: ./tests/Cake.Issues.GitRepository/script-runner
+        workingDirectory: ./tests/Cake.Issues.GitRepository/script-runner/net8.0
         displayName: 'Run integration tests'

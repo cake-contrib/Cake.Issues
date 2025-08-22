@@ -1,0 +1,27 @@
+is_global=true
+# Define priority of the file.
+# A file named .globalconfig in a project has an implicit level of 100 
+# A file with a name different than .globalconfig in a project has an implicit level of 0
+# Value from the file with a higher level takes precedence over the value from the file with a lower level if the same rules are defined in both files.
+global_level=10
+
+################################################################################
+# Microsoft.CodeAnalysis.CSharp
+################################################################################
+
+dotnet_diagnostic.CS1591.severity = none
+
+################################################################################
+# StyleCop.Analyzers
+################################################################################
+
+dotnet_diagnostic.SA0001.severity = none
+dotnet_diagnostic.SA1118.severity = none
+dotnet_diagnostic.SA1600.severity = none
+dotnet_diagnostic.SA1652.severity = none
+
+################################################################################
+# StyleCop.Analyzers
+################################################################################
+
+dotnet_diagnostic.xUnit1042.severity = suggestion

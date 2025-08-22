@@ -27,7 +27,7 @@ stages:
       - template: ../steps/install-net8.yml 
       - template: ../steps/provide-nuget-packages.yml 
       - powershell: ./build.ps1 --verbosity=diagnostic
-        workingDirectory: ./tests/Cake.Issues.Reporting.Generic/script-runner
+        workingDirectory: ./tests/Cake.Issues.Reporting.Generic/script-runner/net8.0
         displayName: 'Run integration tests'
       - publish: $(Build.SourcesDirectory)/docs/input/documentation/report-formats/generic/templates
         artifact: Integration Tests Cake.Issues.Reporting.Generic Cake Scripting $(System.JobName)
@@ -54,7 +54,7 @@ stages:
       - template: ../steps/install-net8.yml 
       - template: ../steps/provide-nuget-packages.yml 
       - powershell: ./build.ps1 --verbosity=diagnostic
-        workingDirectory: ./tests/Cake.Issues.Reporting.Generic/frosting
+        workingDirectory: ./tests/Cake.Issues.Reporting.Generic/frosting/net8.0
         displayName: 'Run integration tests'
       - publish: $(Build.SourcesDirectory)/docs/input/documentation/report-formats/generic/templates
         artifact: Integration Tests Cake.Issues.Reporting.Generic Cake Frosting .NET 8 $(System.JobName)

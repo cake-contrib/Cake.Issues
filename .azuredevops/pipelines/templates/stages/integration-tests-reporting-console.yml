@@ -27,7 +27,7 @@ stages:
       - template: ../steps/install-net8.yml 
       - template: ../steps/provide-nuget-packages.yml 
       - powershell: ./build.ps1 --verbosity=diagnostic
-        workingDirectory: ./tests/Cake.Issues.Reporting.Console/script-runner
+        workingDirectory: ./tests/Cake.Issues.Reporting.Console/script-runner/net8.0
         displayName: 'Run integration tests'
     - job: TestReportingConsoleFrostingNet8Job
       displayName: Test Cake Frosting .NET 8

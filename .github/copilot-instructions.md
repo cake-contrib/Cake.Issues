@@ -1,50 +1,157 @@
-This is a .NET based repository containing addins for the Cake Build Automation System.
-The individual addins are published as NuGet packages.
-Follow these guidelines when contributing:
+# Cake Issues Addins for .NET
 
-## Before committing code
-- Ensure no warning or error messages from Roslyn analyzers are present in the code.
-- Ensure Tests are passing.
-- Ensure Integration Tests for the affected addins are passing.
-- If documentation has been changed, ensure it builds successfully.
+**ALWAYS reference these instructions first and fallback to search or bash commands only when you encounter unexpected information that does not match the info here.**
 
-## Development Flow
-- Only building: `build.sh --target=DotNetCore-Build`
-- Publish NuGet Packages: `build.sh --target=Create-NuGet-Packages`
-- Run Tests: `build.sh --target=Test`
-- Run Integration Tests:
-  - Run first `build.sh --target=Create-NuGet-Packages` in the root directory to create the NuGet packages.
-  - Run `build.sh` in the `tests/<ADDIN-NAME>/script-runner` or `tests/<ADDIN-NAME>/frosting` directory to run the integration tests for the corresponding addin
-- Full CI check: `build.sh` (includes build, publish, test)
-- Building website: `build.sh --target=website`. Website is available on http://127.0.0.1:8000/
+This is a .NET based repository containing addins for the Cake Build Automation System. The individual addins are published as NuGet packages. All commands have been validated and timing measured.
+
+## Prerequisites
+
+**CRITICAL**: .NET 9 SDK is required (specified in `src/global.json`):
+- Check version: `dotnet --version` (should be 9.0.304 or compatible)
+- Restore tools: `dotnet tool restore` (takes 5 seconds)
+
+For documentation building:
+- Python 3.12+ is required
+- Install dependencies: `cd docs && pip install -r requirements.txt` (takes 48 seconds)
+
+## Working Effectively - Build Commands
+
+**NEVER CANCEL builds or tests - all timing below includes 50% safety buffer:**
+
+### Basic Operations (VALIDATED)
+- **Basic build only**: `./build.sh --target=DotNetCore-Build` 
+  - Time: 3.5 minutes - NEVER CANCEL, set timeout to 10+ minutes
+- **Create NuGet packages**: `./build.sh --target=Create-NuGet-Packages`
+  - Time: 2 minutes - NEVER CANCEL, set timeout to 5+ minutes  
+- **Run unit tests**: `./build.sh --target=Test`
+  - Time: 3 minutes - NEVER CANCEL, set timeout to 10+ minutes
+- **Full CI build**: `./build.sh` (build + test + package + issues analysis)
+  - Time: 4 minutes - NEVER CANCEL, set timeout to 15+ minutes
+
+### Integration Tests (VALIDATED)
+**CRITICAL**: Must create packages FIRST before running integration tests:
+1. `./build.sh --target=Create-NuGet-Packages` (2 minutes)
+2. `cd tests/<ADDIN-NAME>/<RUNNER>/<TFM> && ./build.sh --verbosity=diagnostic` (15 seconds per test)
+
+### Documentation (VALIDATED)
+- Install dependencies: `cd docs && pip install -r requirements.txt` (48 seconds)
+- **Development server**: `cd docs && mkdocs serve` (builds in ~10 seconds, serves on http://127.0.0.1:8000)
+- **Build static site**: `cd docs && mkdocs build --site-dir ../BuildArtifacts/temp/_PublishedDocumentation` (10 seconds)
+- **Builds and serves documentation**: `./build.sh --target=website` (builds and serves documentation)
+
+### Debug Output
+Add `--verbosity=diagnostic` to any build command for detailed output.
+
+## Validation Scenarios
+
+**ALWAYS run these validation steps after making changes:**
+
+### Basic Validation Workflow
+1. **Clean build**: `./build.sh --target=DotNetCore-Build` (3.5 min)
+2. **Unit tests**: `./build.sh --target=Test` (3 min) 
+3. **Package creation**: `./build.sh --target=Create-NuGet-Packages` (2 min)
+4. **Integration test**: Pick one from `tests/` and run it (15 sec)
+5. **Full CI check**: `./build.sh` (4 min)
+
+### Before Committing Code
+- Ensure no warning or error messages from Roslyn analyzers are present
+- Ensure Unit Tests are passing: `./build.sh --target=Test`
+- Ensure Integration Tests for affected addins are passing
+- Run full build: `./build.sh` to catch any issues
 
 ## Repository Structure
-- `src`: Contains the source code for the addins
-  - Each addin should have its own subdirectory under `src`
-  - Use a consistent naming convention for directories and files
-- `nuspec/nuget`: Contains the NuGet specification files for each addin
-  - Each addin should have its own `.nuspec` file
-  - Each addin is published for Cake .NET Tool and Cake Frosting in their separate `.nuspec` files
-  - Each package should have a README file in Markdown format
-  - Cake Frosting packages should contain a targets file to import the namespace of the addin
-- `docs`: Contains documentation for the addins
-  - Documentation is created uses Material for MkDocs
-  - Use Markdown format for documentation files
-  - Include usage examples where applicable
-- `tests`: Contains integration tests for the addins
-  - Each addin should have its own subdirectory under `tests`
-  - Cake .NET Tool tests should be in `tests/<ADDIN-NAME>/script-runner`
-  - Cake Frosting tests should be in `tests/<ADDIN-NAME>/frosting`
-  - Cake Frosting tests should be available for all supported .NET Framework versions
-- `.github/workflows`: Contains GitHub Actions workflows for CI/CD which need to be maintained
-- `.azuredevops/pipelines/templates`: Contains Azure Pipelines templates which need to be maintained. The main file is `azure-pipelines.yml` in the root directory.
+
+**Key directories and their purposes:**
+
+### Source Code (`src/`)
+- Contains 15+ addins, each in its own subdirectory
+- Use consistent naming: `Cake.Issues.*` for main addins
+- Each addin has corresponding `.Tests` project
+- **Important files**:
+  - `src/global.json` - specifies .NET 9 SDK requirement
+  - `src/Cake.Issues.slnx` - main solution file
+  - `src/Cake.Issues.Testing/` - shared testing utilities
+  - `src/Cake.Issues.Testing/IssueChecker.cs` - use for comparing issues in tests
+
+### NuGet Packages (`nuspec/nuget/`)
+- Each addin has separate `.nuspec` files for Cake .NET Tool and Cake Frosting
+- Each package includes README.md file
+- Cake Frosting packages contain targets files for namespace imports
+
+### Integration Tests (`tests/`)
+- Each addin has subdirectory with integration tests
+- Structure: `tests/<ADDIN-NAME>/script-runner/net8.0` and `net9.0`
+- Some addins also have `frosting/` subdirectories
+- **CRITICAL**: Run `./build.sh --target=Create-NuGet-Packages` first to create local packages
+
+### Documentation (`docs/`)
+- Uses Material for MkDocs (Python-based)
+- `docs/requirements.txt` - Python dependencies  
+- `docs/mkdocs.yml` - configuration file
+- Markdown format with usage examples
+
+### CI/CD
+- `.github/workflows/` - GitHub Actions (unit tests, integration tests)
+- `.azuredevops/pipelines/` - Azure Pipelines templates
+- `azure-pipelines.yml` - main Azure pipeline file
+
+## Build System Details
+
+**Cake.Recipe powered build system:**
+- `recipe.cake` - main build configuration
+- `build.sh` - entry point script (calls dotnet cake)
+- `.config/dotnet-tools.json` - specifies Cake Tool 1.3.0
+- Uses GitVersion for semantic versioning
+
+## Common Issues and Troubleshooting
+
+### Build Issues
+- **"Tool not found"**: Run `dotnet tool restore` first
+- **Package not found**: Ensure NuGet packages created with `./build.sh --target=Create-NuGet-Packages`
+- **GitVersion errors**: Ensure you're in git repository with proper remotes
+
+### Integration Test Issues  
+- **Package version mismatch**: Delete `~/.nuget/packages/cake.issues*` and rebuild packages
+- **Test failures**: Check that you're using correct .NET target framework (net8.0 or net9.0)
+- **Permission denied**: Some integration test `build.sh` files may need `chmod +x build.sh` to make executable
+
+### Website Issues
+- **mkdocs not found**: Install with `cd docs && pip install -r requirements.txt`
 
 ## Key Guidelines
-1. Follow best practices for writing Cake addins as documented at https://cakebuild.net/docs/extending/addins/best-practices
-2. For specific issue providers, report formats and pull request systems, refer to the documentation at https://cakeissues.net/latest/documentation/extending/ and sub pages.
-3. Maintain existing code structure and organization
-4. Write unit tests for new functionality.
-  - Use helpers from `src/Cake.Issues.Testing` when writing unit tests.
-  - Use `src/Cake.Issues.Testing/IssueChecker.cs` to compare issues against expected results. 
-5. Write integration tests for new functionality which can't be tested with unit tests.
-6. Maintain basic documentation in the `docs/` folder. Avoid API documentation which is automatically generated.
+
+**Development Best Practices:**
+1. Follow Cake addin best practices: https://cakebuild.net/docs/extending/addins/best-practices
+2. For issue providers/report formats: https://cakeissues.net/latest/documentation/extending/
+3. **Always write unit tests** using helpers from `src/Cake.Issues.Testing`
+4. **Use `IssueChecker.cs`** to compare issues against expected results in tests
+5. Write integration tests for functionality that can't be unit tested
+6. Maintain documentation in `docs/` (basic docs only, API docs auto-generated)
+7. Keep existing code structure and organization
+8. Test changes with both Cake .NET Tool and Cake Frosting when applicable
+
+## Frequently Used Commands Summary
+
+```bash
+# Setup (run once)
+dotnet tool restore
+
+# Development cycle (run these in order)
+./build.sh --target=DotNetCore-Build          # 3.5 min - build only
+./build.sh --target=Test                      # 3 min   - run tests  
+./build.sh --target=Create-NuGet-Packages     # 2 min   - create packages
+
+# Integration testing (after packages created)
+cd tests/Cake.Issues.MsBuild/script-runner/net9.0
+./build.sh --verbosity=diagnostic             # 15 sec  - test specific addin
+
+# Full validation
+./build.sh                                    # 4 min   - complete CI build
+
+# Documentation
+cd docs && pip install -r requirements.txt   # 48 sec  - install deps
+cd docs && mkdocs serve                       # 10 sec  - dev server on http://127.0.0.1:8000
+cd docs && mkdocs build                       # 10 sec  - build static site
+```
+
+**Remember**: NEVER CANCEL long-running builds. Set timeouts appropriately and wait for completion.
