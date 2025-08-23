@@ -19,7 +19,8 @@
 				"terminal.integrated.shell.linux": "/bin/bash",
 			},
 			"extensions": [
-				"davidanson.vscode-markdownlint"
+				"davidanson.vscode-markdownlint",
+				"mechatroner.rainbow-csv"
 			]
 		}
 	}
