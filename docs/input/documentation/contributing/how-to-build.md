@@ -39,6 +39,18 @@ To run only part of the build a task can be passed using the `--target=<TASK>` s
 
 ## Building and running website locally
 
+=== "Running in GitHub Codespaces"
+
+    Website can be built and run in [GitHub Codespaces]{target="_blank"}.
+
+    Follow [Creating a codespace for a repository]{target="_blank"} to start codespace.
+
+    To build and serve the website follow these steps:
+
+    * Start website in preview mode: ++f5++
+
+    Website preview can be opened in browser.
+
 === "Using Visual Studio Code Dev Container"
 
     For building and running website locally a [Visual Studio Code Dev Container]{target="_blank"} can be used.
@@ -51,7 +63,7 @@ To run only part of the build a task can be passed using the `--target=<TASK>` s
     * Open the website Dev Container: ++f1++ :material-arrow-right: `Dev Containers: Reopen in Container`
     * Start website in preview mode: ++f5++
 
-    Website preview will be opened in Chrome.
+    Website preview will be opened in browser.
 
 === "Running on local machine"
 
@@ -85,3 +97,5 @@ To run only part of the build a task can be passed using the `--target=<TASK>` s
 [Cake]: https://cakebuild.net/
 [Visual Studio Code Dev Container]: https://code.visualstudio.com/docs/devcontainers/containers
 [installation instructions]: https://code.visualstudio.com/docs/devcontainers/containers#_installation
+[GitHub Codespaces]: https://docs.github.com/en/codespaces
+[Creating a codespace for a repository]: https://docs.github.com/en/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository
