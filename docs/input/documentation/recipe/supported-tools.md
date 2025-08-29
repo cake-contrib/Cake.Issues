@@ -80,7 +80,7 @@ Cake.Issues recipes integrates with the following build systems:
     <div class="annotate" markdown>
 
     - [x] Write issues to build server
-    - [ ] Issues summary
+    - [x] Issues summary
     - [x] SARIF report (1)
     - [ ] Full issues report
 
