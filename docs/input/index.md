@@ -40,10 +40,11 @@ Extensive and flexible solution for processing output of linters and other tools
 
     Issues found on a feature branch can be reported to pull requests or build runs giving developers instant and direct feedback.
     There's out of the box support for [Azure DevOps](documentation/pull-request-systems/azure-devops/index.md),
-    [GitHub Actions](documentation/pull-request-systems/github-actions/index.md) and
-    [AppVeyor](documentation/pull-request-systems/appveyor/index.md).
+    [GitHub Actions](documentation/build-servers/github-actions/index.md) and
+    [AppVeyor](documentation/build-servers/appveyor/index.md).
 
     [:octicons-arrow-right-24: Pull Request Systems](documentation/pull-request-systems/index.md)
+    [:octicons-arrow-right-24: Build Servers](documentation/build-servers/index.md)
 
 -   :material-monitor-dashboard:{ .lg .middle } __Reporting__
 
