@@ -21,6 +21,46 @@
          <lastmod>2025-08-29</lastmod>
     </url>
     <url>
+         <loc>https://cakeissues.net/develop/documentation/build-servers/</loc>
+         <lastmod>2025-08-29</lastmod>
+    </url>
+    <url>
+         <loc>https://cakeissues.net/develop/documentation/build-servers/appveyor/</loc>
+         <lastmod>2025-08-29</lastmod>
+    </url>
+    <url>
+         <loc>https://cakeissues.net/develop/documentation/build-servers/appveyor/features/</loc>
+         <lastmod>2025-08-29</lastmod>
+    </url>
+    <url>
+         <loc>https://cakeissues.net/develop/documentation/build-servers/appveyor/examples/</loc>
+         <lastmod>2025-08-29</lastmod>
+    </url>
+    <url>
+         <loc>https://cakeissues.net/develop/documentation/build-servers/appveyor/examples/github-pullrequest-integration/</loc>
+         <lastmod>2025-08-29</lastmod>
+    </url>
+    <url>
+         <loc>https://cakeissues.net/develop/documentation/build-servers/appveyor/examples/write-messages/</loc>
+         <lastmod>2025-08-29</lastmod>
+    </url>
+    <url>
+         <loc>https://cakeissues.net/develop/documentation/build-servers/github-actions/</loc>
+         <lastmod>2025-08-29</lastmod>
+    </url>
+    <url>
+         <loc>https://cakeissues.net/develop/documentation/build-servers/github-actions/features/</loc>
+         <lastmod>2025-08-29</lastmod>
+    </url>
+    <url>
+         <loc>https://cakeissues.net/develop/documentation/build-servers/github-actions/examples/</loc>
+         <lastmod>2025-08-29</lastmod>
+    </url>
+    <url>
+         <loc>https://cakeissues.net/develop/documentation/build-servers/github-actions/examples/write-annotations/</loc>
+         <lastmod>2025-08-29</lastmod>
+    </url>
+    <url>
          <loc>https://cakeissues.net/develop/documentation/contributing/how-to-build/</loc>
          <lastmod>2025-08-29</lastmod>
     </url>
@@ -38,6 +78,14 @@
     </url>
     <url>
          <loc>https://cakeissues.net/develop/documentation/extending/testing/</loc>
+         <lastmod>2025-08-29</lastmod>
+    </url>
+    <url>
+         <loc>https://cakeissues.net/develop/documentation/extending/build-servers/categories/</loc>
+         <lastmod>2025-08-29</lastmod>
+    </url>
+    <url>
+         <loc>https://cakeissues.net/develop/documentation/extending/build-servers/overview/</loc>
          <lastmod>2025-08-29</lastmod>
     </url>
     <url>
@@ -225,26 +273,6 @@
          <lastmod>2025-08-29</lastmod>
     </url>
     <url>
-         <loc>https://cakeissues.net/develop/documentation/pull-request-systems/appveyor/</loc>
-         <lastmod>2025-08-29</lastmod>
-    </url>
-    <url>
-         <loc>https://cakeissues.net/develop/documentation/pull-request-systems/appveyor/features/</loc>
-         <lastmod>2025-08-29</lastmod>
-    </url>
-    <url>
-         <loc>https://cakeissues.net/develop/documentation/pull-request-systems/appveyor/examples/</loc>
-         <lastmod>2025-08-29</lastmod>
-    </url>
-    <url>
-         <loc>https://cakeissues.net/develop/documentation/pull-request-systems/appveyor/examples/github-pullrequest-integration/</loc>
-         <lastmod>2025-08-29</lastmod>
-    </url>
-    <url>
-         <loc>https://cakeissues.net/develop/documentation/pull-request-systems/appveyor/examples/write-messages/</loc>
-         <lastmod>2025-08-29</lastmod>
-    </url>
-    <url>
          <loc>https://cakeissues.net/develop/documentation/pull-request-systems/azure-devops/</loc>
          <lastmod>2025-08-29</lastmod>
     </url>
@@ -270,22 +298,6 @@
     </url>
     <url>
          <loc>https://cakeissues.net/develop/documentation/pull-request-systems/azure-devops/examples/repository-information/</loc>
-         <lastmod>2025-08-29</lastmod>
-    </url>
-    <url>
-         <loc>https://cakeissues.net/develop/documentation/pull-request-systems/github-actions/</loc>
-         <lastmod>2025-08-29</lastmod>
-    </url>
-    <url>
-         <loc>https://cakeissues.net/develop/documentation/pull-request-systems/github-actions/features/</loc>
-         <lastmod>2025-08-29</lastmod>
-    </url>
-    <url>
-         <loc>https://cakeissues.net/develop/documentation/pull-request-systems/github-actions/examples/</loc>
-         <lastmod>2025-08-29</lastmod>
-    </url>
-    <url>
-         <loc>https://cakeissues.net/develop/documentation/pull-request-systems/github-actions/examples/write-annotations/</loc>
          <lastmod>2025-08-29</lastmod>
     </url>
     <url>
