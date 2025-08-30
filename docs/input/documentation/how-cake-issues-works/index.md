@@ -37,7 +37,8 @@ The `Cake.Issues.PullRequests` addin provides aliases for reporting issues
 which are read or have been created using the [Cake.Issues addin](#read-and-create-issues)
 as comments to pull requests or builds.
 
-Support for different pull request systems is provided through [pull request system] addins.
+Support for different pull request systems is provided through [pull request system] addins,
+for build server through [build server] addins.
 
 !!! tip
     See [Pull Request Integration] for details how integration with build servers and
@@ -47,4 +48,5 @@ Support for different pull request systems is provided through [pull request sys
 [linters and tools]: ../supported-tools.md
 [report format]: ../report-formats/index.md
 [pull request system]: ../pull-request-systems/index.md
+[build server]: ../build-servers/index.md
 [Pull Request Integration]: pull-request-integration.md
