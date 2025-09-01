@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <id>Cake.Issues.Build</id>
+    <title>Cake.Issues.Build</title>
+    <version>0.0.0</version>
+    <authors>Cake Issues contributors</authors>
+    <owners>bbtsoftware, pascalberger, cake-contrib</owners>
+    <summary>Addin for reporting issues to build servers for the Cake build automation system</summary>
+    <description>
+The issues addin for Cake allows you to report issues to build servers.
+
+This addin provides the aliases for reporting issues to build servers.
+It requires the core Cake.Issues addin and one or more issue provider addins for reading issues from different analyzers or linters.
+
+See the Project Site for an overview of the whole ecosystem of addins for working with issues in Cake scripts.
+    </description>
+    <license type="expression">MIT</license>
+    <projectUrl>https://cakeissues.net</projectUrl>
+    <icon>icon.png</icon>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <repository type="git" url="https://github.com/cake-contrib/Cake.Issues.git"/>
+    <copyright>Copyright © Cake Issues contributors</copyright>
+    <tags>cake cake-addin cake-issues build-server ci issues</tags>
+    <readme>docs\README.md</readme>
+    <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/5.8.0</releaseNotes>
+    <dependencies>
+      <group targetFramework="net8.0">
+        <dependency id="Cake.Issues" version="5.8.0" />
+      </group>
+      <group targetFramework="net9.0">
+        <dependency id="Cake.Issues" version="5.8.0" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="icon.png" target="" />
+    <file src="Cake.Issues.Build.md" target="docs\README.md" />
+    <file src="..\..\src\Cake.Issues.Build\bin\Release\**\Cake.Issues.Build.*" target="lib" exclude="**\*.deps.json" />
+    <file src="..\..\src\Cake.Issues.Shared\bin\Release\**\Cake.Issues.Shared.*" target="lib" exclude="**\*.deps.json" />
+  </files>
+</package>
