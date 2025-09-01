@@ -64,15 +64,8 @@
       "cake.issues.pullrequests": {
         "type": "Project",
         "dependencies": {
-          "Cake.Issues": "[5.9.0-copilot-fix-123-0001, )",
-          "Cake.Issues.Shared": "[5.9.0-copilot-fix-123-0001, )",
+          "Cake.Issues": "[1.0.0, )",
           "Spectre.Console": "[0.50.0, )"
-        }
-      },
-      "cake.issues.shared": {
-        "type": "Project",
-        "dependencies": {
-          "Cake.Issues": "[5.9.0-copilot-fix-123-0001, )"
         }
       },
       "Cake.Core": {
@@ -165,15 +158,8 @@
       "cake.issues.pullrequests": {
         "type": "Project",
         "dependencies": {
-          "Cake.Issues": "[5.9.0-copilot-fix-123-0001, )",
-          "Cake.Issues.Shared": "[5.9.0-copilot-fix-123-0001, )",
+          "Cake.Issues": "[1.0.0, )",
           "Spectre.Console": "[0.50.0, )"
-        }
-      },
-      "cake.issues.shared": {
-        "type": "Project",
-        "dependencies": {
-          "Cake.Issues": "[5.9.0-copilot-fix-123-0001, )"
         }
       },
       "Cake.Core": {
