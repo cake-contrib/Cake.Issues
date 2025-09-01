@@ -6,7 +6,7 @@ using System.Linq;
 /// <summary>
 /// Extensions for <see cref="IIssue"/>s.
 /// </summary>
-internal static class IIssueExtensions
+public static class IIssueExtensions
 {
     /// <summary>
     /// Sorts issues based on the following criteria:

@@ -68,6 +68,12 @@
           "Cake.Core": "[5.0.0, )"
         }
       },
+      "cake.issues.shared": {
+        "type": "Project",
+        "dependencies": {
+          "Cake.Issues": "[5.9.0-copilot-fix-123-0001, )"
+        }
+      },
       "Cake.Core": {
         "type": "CentralTransitive",
         "requested": "[5.0.0, )",
@@ -151,6 +157,12 @@
         "type": "Project",
         "dependencies": {
           "Cake.Core": "[5.0.0, )"
+        }
+      },
+      "cake.issues.shared": {
+        "type": "Project",
+        "dependencies": {
+          "Cake.Issues": "[5.9.0-copilot-fix-123-0001, )"
         }
       },
       "Cake.Core": {
