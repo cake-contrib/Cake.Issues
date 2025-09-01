@@ -88,11 +88,6 @@ plugins:
   - glightbox
   - macros
   - meta
-  - minify:
-      minify_html: true
-      htmlmin_opts:
-        remove_comments: true
-        reduce_boolean_attributes: true
   - search
   - social:
       enabled: !ENV [GITHUB_ACTIONS, false]
