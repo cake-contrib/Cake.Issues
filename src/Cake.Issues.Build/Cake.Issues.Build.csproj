@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <Description>Contains functionality for reporting issues to build servers.</Description>
@@ -15,7 +15,8 @@
 
   <ItemGroup>
     <ProjectReference Include="../Cake.Issues/Cake.Issues.csproj" />
-    <ProjectReference Include="../Cake.Issues.Shared/Cake.Issues.Shared.csproj" />
   </ItemGroup>
+
+  <Import Project="..\IssueFiltering\IssueFiltering.projitems" Label="Shared" />
 
 </Project>

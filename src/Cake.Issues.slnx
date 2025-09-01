@@ -36,9 +36,6 @@
     <File Path="../nuspec/nuget/Cake.Issues.Reporting.md" />
     <File Path="../nuspec/nuget/Cake.Issues.Reporting.nuspec" />
   </Folder>
-  <Folder Name="/Core/Cake.Issues.Shared/">
-    <Project Path="Cake.Issues.Shared/Cake.Issues.Shared.csproj" />
-  </Folder>
   <Folder Name="/Core/Cake.Issues.Testing/">
     <Project Path="Cake.Issues.Testing/Cake.Issues.Testing.csproj" />
   </Folder>
@@ -54,6 +51,9 @@
     <File Path="../nuspec/nuget/Cake.Issues.md" />
     <File Path="../nuspec/nuget/Cake.Issues.nuspec" />
     <File Path="../nuspec/nuget/Cake.Issues.targets" />
+  </Folder>
+  <Folder Name="/Core/Shared/">
+    <Project Path="IssueFiltering/IssueFiltering.shproj" Id="8dbb6a22-fdec-41fa-8904-35ce1dbf463f" />
   </Folder>
   <Folder Name="/Issue Provider/" />
   <Folder Name="/Issue Provider/DocFx/">

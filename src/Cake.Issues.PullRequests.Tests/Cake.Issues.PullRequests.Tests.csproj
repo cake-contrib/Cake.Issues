@@ -10,6 +10,5 @@
 
    <ItemGroup>
     <ProjectReference Include="..\Cake.Issues.PullRequests\Cake.Issues.PullRequests.csproj" />
-    <ProjectReference Include="..\Cake.Issues.Shared\Cake.Issues.Shared.csproj" />
    </ItemGroup>
 </Project>
