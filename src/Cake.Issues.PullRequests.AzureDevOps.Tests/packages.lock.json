@@ -1374,7 +1374,8 @@
       "cake.issues.pullrequests": {
         "type": "Project",
         "dependencies": {
-          "Cake.Issues": "[1.0.0, )",
+          "Cake.Issues": "[5.9.0-copilot-fix-123-0001, )",
+          "Cake.Issues.Shared": "[5.9.0-copilot-fix-123-0001, )",
           "Spectre.Console": "[0.50.0, )"
         }
       },
@@ -1382,13 +1383,19 @@
         "type": "Project",
         "dependencies": {
           "Cake.Frosting.AzureDevOps": "[5.0.2, )",
-          "Cake.Issues.PullRequests": "[1.0.0, )"
+          "Cake.Issues.PullRequests": "[5.9.0-copilot-fix-123-0001, )"
+        }
+      },
+      "cake.issues.shared": {
+        "type": "Project",
+        "dependencies": {
+          "Cake.Issues": "[5.9.0-copilot-fix-123-0001, )"
         }
       },
       "cake.issues.testing": {
         "type": "Project",
         "dependencies": {
-          "Cake.Issues": "[1.0.0, )",
+          "Cake.Issues": "[5.9.0-copilot-fix-123-0001, )",
           "Cake.Testing": "[5.0.0, )"
         }
       },
@@ -2828,7 +2835,8 @@
       "cake.issues.pullrequests": {
         "type": "Project",
         "dependencies": {
-          "Cake.Issues": "[1.0.0, )",
+          "Cake.Issues": "[5.9.0-copilot-fix-123-0001, )",
+          "Cake.Issues.Shared": "[5.9.0-copilot-fix-123-0001, )",
           "Spectre.Console": "[0.50.0, )"
         }
       },
@@ -2836,13 +2844,19 @@
         "type": "Project",
         "dependencies": {
           "Cake.Frosting.AzureDevOps": "[5.0.2, )",
-          "Cake.Issues.PullRequests": "[1.0.0, )"
+          "Cake.Issues.PullRequests": "[5.9.0-copilot-fix-123-0001, )"
+        }
+      },
+      "cake.issues.shared": {
+        "type": "Project",
+        "dependencies": {
+          "Cake.Issues": "[5.9.0-copilot-fix-123-0001, )"
         }
       },
       "cake.issues.testing": {
         "type": "Project",
         "dependencies": {
-          "Cake.Issues": "[1.0.0, )",
+          "Cake.Issues": "[5.9.0-copilot-fix-123-0001, )",
           "Cake.Testing": "[5.0.0, )"
         }
       },
