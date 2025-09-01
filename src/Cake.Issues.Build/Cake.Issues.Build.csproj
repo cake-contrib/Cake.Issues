@@ -1,7 +1,10 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Description>Addin for the Cake build automation system for writing code analyzer or linter issues as comments to pull requests</Description>
+    <Description>Contains functionality for reporting issues to build servers.</Description>
+    <PackageTags>Cake Script Build Server CI Issues</PackageTags>
   </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="Spectre.Console" />
     <PackageReference Include="Spectre.Console.Analyzer">
@@ -11,7 +14,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Cake.Issues\Cake.Issues.csproj" />
-    <ProjectReference Include="..\Cake.Issues.Shared\Cake.Issues.Shared.csproj" />
+    <ProjectReference Include="../Cake.Issues/Cake.Issues.csproj" />
+    <ProjectReference Include="../Cake.Issues.Shared/Cake.Issues.Shared.csproj" />
   </ItemGroup>
+
 </Project>
