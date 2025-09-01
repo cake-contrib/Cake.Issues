@@ -67,23 +67,27 @@ theme:
     - search.highlight
     - search.suggest
 
+# Additional JavaScript
+extra_javascript:
+  - https://viewer.diagrams.net/js/viewer-static.min.js
+  # Required for mkdocs-drawio to support instant-loading of Material theme (navigation.instant). See https://github.com/tuunit/mkdocs-drawio?tab=readme-ov-file#material-integration
+  - assets/javascripts/drawio-reload.js
+
 # Additional styling
 extra_css:
-  - stylesheets/extra.css
+  - assets/stylesheets/extra.css
 
 # Plugins
 plugins:
   - blog:
       blog_dir: news
       post_readtime: true
+  - drawio:
+      edit: false
+      darkmode: true
   - glightbox
   - macros
   - meta
-  - minify:
-      minify_html: true
-      htmlmin_opts:
-        remove_comments: true
-        reduce_boolean_attributes: true
   - search
   - social:
       enabled: !ENV [GITHUB_ACTIONS, false]
