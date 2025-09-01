@@ -325,7 +325,8 @@ nav:
       - Contributing:
         - How To Contribute: documentation/contributing/how-to-contribute.md
         - Open issues: https://github.com/cake-contrib/Cake.Issues/issues" target="_blank
-        - Building Source Code: documentation/contributing/how-to-build.md
+        - Building addins: documentation/contributing/how-to-build-addins.md
+        - Running website: documentation/contributing/how-to-run-website.md
       - Maintainer Guide:
         - Performing Release: documentation/contributing/how-to-release.md
     - Resources:
