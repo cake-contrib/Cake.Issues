@@ -7,7 +7,7 @@ Ensure the following prerequisites are fulfilled:
 
 * Latest .NET version installed
 
-To build the addins and run unit tests [Cake]{target="_blank"} is used:
+To build the addins and run unit tests [Cake] is used:
 
 === ":material-microsoft-windows: Windows"
 

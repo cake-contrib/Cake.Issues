@@ -9,9 +9,9 @@ hide:
 
 <div class="grid cards" markdown>
 
-- [Cake.Issues](https://cakebuild.net/extensions/cake-issues){target="_blank"}
-- [Cake.Issues.Reporting](https://cakebuild.net/extensions/cake-issues-reporting){target="_blank"}
-- [Cake.Issues.PullRequests](https://cakebuild.net/extensions/cake-issues-pullrequests){target="_blank"}
+- [Cake.Issues](https://cakebuild.net/extensions/cake-issues)
+- [Cake.Issues.Reporting](https://cakebuild.net/extensions/cake-issues-reporting)
+- [Cake.Issues.PullRequests](https://cakebuild.net/extensions/cake-issues-pullrequests)
 
 </div>
 
@@ -19,15 +19,15 @@ hide:
 
 <div class="grid cards" markdown>
 
-- [Cake.Issues.DocFx](https://cakebuild.net/extensions/cake-issues-docfx){target="_blank"}
-- [Cake.Issues.EsLint](https://cakebuild.net/extensions/cake-issues-eslint){target="_blank"}
-- [Cake.Issues.GitRepository](https://cakebuild.net/extensions/cake-issues-gitrepository){target="_blank"}
-- [Cake.Issues.InspectCode](https://cakebuild.net/extensions/cake-issues-inspectcode){target="_blank"}
-- [Cake.Issues.Markdownlint](https://cakebuild.net/extensions/cake-issues-markdownlint){target="_blank"}
-- [Cake.Issues.MsBuild](https://cakebuild.net/extensions/cake-issues-msbuild){target="_blank"}
-- [Cake.Issues.Sarif](https://cakebuild.net/extensions/cake-issues-sarif){target="_blank"}
-- [Cake.Issues.Tap](https://cakebuild.net/extensions/cake-issues-tap){target="_blank"}
-- [Cake.Issues.Terraform](https://cakebuild.net/extensions/cake-issues-terraform){target="_blank"}
+- [Cake.Issues.DocFx](https://cakebuild.net/extensions/cake-issues-docfx)
+- [Cake.Issues.EsLint](https://cakebuild.net/extensions/cake-issues-eslint)
+- [Cake.Issues.GitRepository](https://cakebuild.net/extensions/cake-issues-gitrepository)
+- [Cake.Issues.InspectCode](https://cakebuild.net/extensions/cake-issues-inspectcode)
+- [Cake.Issues.Markdownlint](https://cakebuild.net/extensions/cake-issues-markdownlint)
+- [Cake.Issues.MsBuild](https://cakebuild.net/extensions/cake-issues-msbuild)
+- [Cake.Issues.Sarif](https://cakebuild.net/extensions/cake-issues-sarif)
+- [Cake.Issues.Tap](https://cakebuild.net/extensions/cake-issues-tap)
+- [Cake.Issues.Terraform](https://cakebuild.net/extensions/cake-issues-terraform)
 
 </div>
 
@@ -35,9 +35,9 @@ hide:
 
 <div class="grid cards" markdown>
 
-- [Cake.Issues.Reporting.Console](https://cakebuild.net/extensions/cake-issues-reporting-console){target="_blank"}
-- [Cake.Issues.Reporting.Generic](https://cakebuild.net/extensions/cake-issues-reporting-Generic){target="_blank"}
-- [Cake.Issues.Reporting.Sarif](https://cakebuild.net/extensions/cake-issues-reporting-Sarif){target="_blank"}
+- [Cake.Issues.Reporting.Console](https://cakebuild.net/extensions/cake-issues-reporting-console)
+- [Cake.Issues.Reporting.Generic](https://cakebuild.net/extensions/cake-issues-reporting-Generic)
+- [Cake.Issues.Reporting.Sarif](https://cakebuild.net/extensions/cake-issues-reporting-Sarif)
 
 </div>
 
@@ -45,8 +45,8 @@ hide:
 
 <div class="grid cards" markdown>
 
-- [Cake.Issues.PullRequests.AppVeyor](https://cakebuild.net/extensions/cake-issues-pullrequests-appveyor){target="_blank"}
-- [Cake.Issues.PullRequests.AzureDevOps](https://cakebuild.net/extensions/cake-issues-pullrequests-azuredevops){target="_blank"}
-- [Cake.Issues.PullRequests.GitHubActions](https://cakebuild.net/extensions/cake-issues-pullrequests-githubactions){target="_blank"}
+- [Cake.Issues.PullRequests.AppVeyor](https://cakebuild.net/extensions/cake-issues-pullrequests-appveyor)
+- [Cake.Issues.PullRequests.AzureDevOps](https://cakebuild.net/extensions/cake-issues-pullrequests-azuredevops)
+- [Cake.Issues.PullRequests.GitHubActions](https://cakebuild.net/extensions/cake-issues-pullrequests-githubactions)
 
 </div>

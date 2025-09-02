@@ -17,13 +17,13 @@ There are two flavors available:
 
     ---
 
-    For [Cake .NET Tool]{target="_blank"}
+    For [Cake .NET Tool]
 
 -   :material-receipt-text: [Cake.Frosting.Issues.Recipe]
 
     ---
 
-    For [Cake Frosting]{target="_blank"}
+    For [Cake Frosting]
 
 </div>
 
@@ -39,41 +39,41 @@ Cake.Issues recipes will add the following addins to your build:
 
     | Addin                                                     | Version                   |  Remarks |
     |-----------------------------------------------------------|---------------------------|-|
-    | [Cake.Git]{target="_blank"}                               | 5.0.1                     | Only used if `RepositoryInfoProvider` type is set to `RepositoryInfoProviderType.CakeGit`. See [Git repository information configuration] for details. |
-    | [Cake.Issues]{target="_blank"}                            | {{ cake_issues_version }} | |
-    | [Cake.Issues.MsBuild]{target="_blank"}                    | {{ cake_issues_version }} | |
-    | [Cake.Issues.InspectCode]{target="_blank"}                | {{ cake_issues_version }} | |
-    | [Cake.Issues.Markdownlint]{target="_blank"}               | {{ cake_issues_version }} | |
-    | [Cake.Issues.EsLint]{target="_blank"}                     | {{ cake_issues_version }} | |
-    | [Cake.Issues.Sarif]{target="_blank"}                      | {{ cake_issues_version }} | |
-    | [Cake.Issues.Reporting]{target="_blank"}                  | {{ cake_issues_version }} | |
-    | [Cake.Issues.Reporting.Generic]{target="_blank"}          | {{ cake_issues_version }} | |
-    | [Cake.Issues.Reporting.Sarif]{target="_blank"}            | {{ cake_issues_version }} | |
-    | [Cake.Issues.PullRequests]{target="_blank"}               | {{ cake_issues_version }} | |
-    | [Cake.Issues.PullRequests.AppVeyor]{target="_blank"}      | {{ cake_issues_version }} | |
-    | [Cake.Issues.PullRequests.AzureDevOps]{target="_blank"}   | {{ cake_issues_version }} | |
-    | [Cake.Issues.PullRequests.GitHubActions]{target="_blank"} | {{ cake_issues_version }} | |
-    | [Cake.AzureDevOps]{target="_blank"}                       | 5.0.1                     | |
+    | [Cake.Git]                               | 5.0.1                     | Only used if `RepositoryInfoProvider` type is set to `RepositoryInfoProviderType.CakeGit`. See [Git repository information configuration] for details. |
+    | [Cake.Issues]                            | {{ cake_issues_version }} | |
+    | [Cake.Issues.MsBuild]                    | {{ cake_issues_version }} | |
+    | [Cake.Issues.InspectCode]                | {{ cake_issues_version }} | |
+    | [Cake.Issues.Markdownlint]               | {{ cake_issues_version }} | |
+    | [Cake.Issues.EsLint]                     | {{ cake_issues_version }} | |
+    | [Cake.Issues.Sarif]                      | {{ cake_issues_version }} | |
+    | [Cake.Issues.Reporting]                  | {{ cake_issues_version }} | |
+    | [Cake.Issues.Reporting.Generic]          | {{ cake_issues_version }} | |
+    | [Cake.Issues.Reporting.Sarif]            | {{ cake_issues_version }} | |
+    | [Cake.Issues.PullRequests]               | {{ cake_issues_version }} | |
+    | [Cake.Issues.PullRequests.AppVeyor]      | {{ cake_issues_version }} | |
+    | [Cake.Issues.PullRequests.AzureDevOps]   | {{ cake_issues_version }} | |
+    | [Cake.Issues.PullRequests.GitHubActions] | {{ cake_issues_version }} | |
+    | [Cake.AzureDevOps]                       | 5.0.1                     | |
 
 === "Cake.Frosting.Issues.Recipe"
 
     | Addin                                                              | Version                   | Remarks |
     |--------------------------------------------------------------------|---------------------------|-|
-    | [Cake.Frosting.Git]{target="_blank"}                               | 5.0.1                     | Only used if `RepositoryInfoProvider` type is set to `RepositoryInfoProviderType.CakeGit`. See [Git repository information configuration] for details. |
-    | [Cake.Issues]{target="_blank"}                                     | {{ cake_issues_version }} | |
-    | [Cake.Frosting.Issues.MsBuild]{target="_blank"}                    | {{ cake_issues_version }} | |
-    | [Cake.Frosting.Issues.InspectCode]{target="_blank"}                | {{ cake_issues_version }} | |
-    | [Cake.Frosting.Issues.Markdownlint]{target="_blank"}               | {{ cake_issues_version }} | |
-    | [Cake.Frosting.Issues.EsLint]{target="_blank"}                     | {{ cake_issues_version }} | |
-    | [Cake.Frosting.Issues.Sarif]{target="_blank"}                      | {{ cake_issues_version }} | |
-    | [Cake.Frosting.Issues.Reporting]{target="_blank"}                  | {{ cake_issues_version }} | |
-    | [Cake.Frosting.Issues.Reporting.Generic]{target="_blank"}          | {{ cake_issues_version }} | |
-    | [Cake.Frosting.Issues.Reporting.Sarif]{target="_blank"}            | {{ cake_issues_version }} | |
-    | [Cake.Frosting.Issues.PullRequests]{target="_blank"}               | {{ cake_issues_version }} | |
-    | [Cake.Frosting.Issues.PullRequests.AppVeyor]{target="_blank"}      | {{ cake_issues_version }} | |
-    | [Cake.Frosting.Issues.PullRequests.AzureDevOps]{target="_blank"}   | {{ cake_issues_version }} | |
-    | [Cake.Frosting.Issues.PullRequests.GitHubActions]{target="_blank"} | {{ cake_issues_version }} | |
-    | [Cake.Frosting.AzureDevOps]{target="_blank"}                       | 5.0.1                     | |
+    | [Cake.Frosting.Git]                               | 5.0.1                     | Only used if `RepositoryInfoProvider` type is set to `RepositoryInfoProviderType.CakeGit`. See [Git repository information configuration] for details. |
+    | [Cake.Issues]                                     | {{ cake_issues_version }} | |
+    | [Cake.Frosting.Issues.MsBuild]                    | {{ cake_issues_version }} | |
+    | [Cake.Frosting.Issues.InspectCode]                | {{ cake_issues_version }} | |
+    | [Cake.Frosting.Issues.Markdownlint]               | {{ cake_issues_version }} | |
+    | [Cake.Frosting.Issues.EsLint]                     | {{ cake_issues_version }} | |
+    | [Cake.Frosting.Issues.Sarif]                      | {{ cake_issues_version }} | |
+    | [Cake.Frosting.Issues.Reporting]                  | {{ cake_issues_version }} | |
+    | [Cake.Frosting.Issues.Reporting.Generic]          | {{ cake_issues_version }} | |
+    | [Cake.Frosting.Issues.Reporting.Sarif]            | {{ cake_issues_version }} | |
+    | [Cake.Frosting.Issues.PullRequests]               | {{ cake_issues_version }} | |
+    | [Cake.Frosting.Issues.PullRequests.AppVeyor]      | {{ cake_issues_version }} | |
+    | [Cake.Frosting.Issues.PullRequests.AzureDevOps]   | {{ cake_issues_version }} | |
+    | [Cake.Frosting.Issues.PullRequests.GitHubActions] | {{ cake_issues_version }} | |
+    | [Cake.Frosting.AzureDevOps]                       | 5.0.1                     | |
 
 [Cake.Issues.Recipe]: https://www.nuget.org/packages/Cake.Issues.Recipe
 [Cake.Frosting.Issues.Recipe]: https://www.nuget.org/packages/Cake.Frosting.Issues.Recipe

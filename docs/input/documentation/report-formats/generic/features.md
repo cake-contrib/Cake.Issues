@@ -4,7 +4,7 @@ description: Features of the Cake.Issues.Reporting.Generic addin.
 icon: material/creation-outline
 ---
 
-The [Cake.Issues.Reporting.Generic addin](https://cakebuild.net/extensions/cake-issues-reporting-generic/){target="_blank"}
+The [Cake.Issues.Reporting.Generic addin](https://cakebuild.net/extensions/cake-issues-reporting-generic/)
 provides the following features:
 
 - [x] Creates reports in any text based format like HTML or Markdown.

@@ -4,7 +4,7 @@ description: Features of the Cake.Issues.PullRequests.GitHubActions addin.
 icon: material/creation-outline
 ---
 
-The [Cake.Issues.PullRequests.GitHubActions addin]{target="_blank"} creates annotations from issues when running on GitHub actions.
+The [Cake.Issues.PullRequests.GitHubActions addin] creates annotations from issues when running on GitHub actions.
 
 ![Pull request integration](githubactions-pullrequest-integration.png "Pull request integration")
 
@@ -15,7 +15,7 @@ The [Cake.Issues.PullRequests.GitHubActions addin]{target="_blank"} creates anno
 
 ## Supported capabilities
 
-The [Cake.Issues.PullRequests.GitHubActions addin]{target="_blank"} doesn't support any additional capabilities.
+The [Cake.Issues.PullRequests.GitHubActions addin] doesn't support any additional capabilities.
 
 - [ ] [Checking commit ID](../../how-cake-issues-works/pull-request-integration.md#check-commit-id)
 - [ ] [Discussion threads](../../how-cake-issues-works/pull-request-integration.md#handle-existing-discussion-threads)

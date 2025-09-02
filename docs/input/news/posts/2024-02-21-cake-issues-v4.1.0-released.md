@@ -18,12 +18,12 @@ For update instructions skip to [Updating from previous versions](#updating-from
 
 People working on this release:
 
-* [christianbumann](https://github.com/christianbumann){target="_blank"}
-* [pascalberger](https://github.com/pascalberger){target="_blank"}
+* [christianbumann](https://github.com/christianbumann)
+* [pascalberger](https://github.com/pascalberger)
 
 ## Improvement for Cake Frosting
 
-[Cake.Frosting.Issues.Reporting]{target="_blank"} and [Cake.Frosting.Issues.PullRequests]{target="_blank"} have been released
+[Cake.Frosting.Issues.Reporting] and [Cake.Frosting.Issues.PullRequests] have been released
 as optimized version of the `Cake.Issues.Reporting` and `Cake.Issues.PullRequests` for Cake Frosting.
 
 These addins come with a dependency to the core `Cake.Issues` addin, allowing it to be consumed as transitive dependency.
@@ -50,7 +50,7 @@ Starting with this release the following addins will be released together with t
 Cake.Issues 4.1.0 addins are compatible with any 4.x addins.
 To update to the new version bump the version of the specific addins.
 
-For details see [release notes](https://github.com/cake-contrib/Cake.Issues/releases/tag/4.1.0){target="_blank"}
+For details see [release notes](https://github.com/cake-contrib/Cake.Issues/releases/tag/4.1.0)
 
 [Cake.Frosting.Issues.Reporting]: https://www.nuget.org/packages/Cake.Frosting.Issues.Reporting
 [Cake.Frosting.Issues.PullRequests]: https://www.nuget.org/packages/Cake.Frosting.Issues.PullRequests

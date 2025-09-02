@@ -21,11 +21,11 @@ For update instructions skip to [Updating from previous versions](#updating-from
 
 People working on this release:
 
-* [pascalberger](https://github.com/pascalberger){target="_blank"}
+* [pascalberger](https://github.com/pascalberger)
 
 ## Improvements for build breaking
 
-This version adds additional overloads to the [build breaking aliases]{target="_blank"} to support passing
+This version adds additional overloads to the [build breaking aliases] to support passing
 in an action which is called before the build is failed.
 
 The following example fails the build if issues with severity warning or higher are found, ignoring MsBuild issues.
@@ -78,8 +78,8 @@ The SARIF issue provider has been improved to also support files which use absol
 
 Rule URL resolving has been implemented in the Test Anything Provider for the following log formats:
 
-* `StylelintLogFileFormat` for [rules shipped with stylelint]{target="_blank"}
-* `TextlintLogFileFormat` for [rules shipped with Textlint]{target="_blank"}
+* `StylelintLogFileFormat` for [rules shipped with stylelint]
+* `TextlintLogFileFormat` for [rules shipped with Textlint]
 
 Starting with this version there also new aliases for providing custom URL resolvers to support plugins or custom rules.
 
@@ -93,7 +93,7 @@ including the available customization options.
 Cake.Issues 5.4.0 addins are compatible with any 5.x addins.
 To update to the new version bump the version of the specific addins.
 
-For details see [release notes](https://github.com/cake-contrib/Cake.Issues/releases/tag/5.4.0){target="_blank"}
+For details see [release notes](https://github.com/cake-contrib/Cake.Issues/releases/tag/5.4.0)
 
 [build breaking aliases]: https://cakebuild.net/extensions/cake-issues/#Build-Breaking
 [process to report issues to build servers and pull requests]: ../../documentation/how-cake-issues-works/pull-request-integration.md

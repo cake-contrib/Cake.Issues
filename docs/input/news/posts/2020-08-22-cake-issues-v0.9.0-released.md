@@ -18,15 +18,15 @@ For update instructions skip to [Updating from previous versions](#updating-from
 
 People working on this release:
 
-* [AdmiringWorm](https://github.com/AdmiringWorm){target="_blank"}
-* [christianbumann](https://github.com/christianbumann){target="_blank"}
-* [eoehen](https://github.com/eoehen){target="_blank"}
-* [gep13](https://github.com/gep13){target="_blank"}
-* [janniksam](https://github.com/janniksam){target="_blank"}
-* [mholo65](https://github.com/mholo65){target="_blank"}
-* [pascalberger](https://github.com/pascalberger){target="_blank"}
-* [Speeedy01](https://github.com/Speeedy01){target="_blank"}
-* [jokay](https://github.com/jokay){target="_blank"}
+* [AdmiringWorm](https://github.com/AdmiringWorm)
+* [christianbumann](https://github.com/christianbumann)
+* [eoehen](https://github.com/eoehen)
+* [gep13](https://github.com/gep13)
+* [janniksam](https://github.com/janniksam)
+* [mholo65](https://github.com/mholo65)
+* [pascalberger](https://github.com/pascalberger)
+* [Speeedy01](https://github.com/Speeedy01)
+* [jokay](https://github.com/jokay)
 
 ## Full cross-platform support
 
@@ -35,11 +35,11 @@ While in previous versions most parts of Cake Issues was already targeting .NET 
 .NET Core.
 With this release `Cake.Issues.Reporting.Generic` was ported to also run on .NET Core.
 
-The migration was done by [gep13](https://github.com/gep13){target="_blank"} on his
-[Twitch stream](https://www.twitch.tv/gep13){target="_blank"} and you
-can watch work done in [Stream 90 - Working on Cake.Issues.Recipe](https://www.youtube.com/watch?v=7roa5Q6KcrQ){target="_blank"},
-[Stream 91 - Working on Cake.Issues.Reporting.Generic and Gazorator](https://www.youtube.com/watch?v=ocacOz3CxME){target="_blank"} and
-[Stream 92 - Working on Cake.Issues.Reporting.Generic and Gazorator - Part 2](https://www.youtube.com/watch?v=P0IpkL9gUAE){target="_blank"}.
+The migration was done by [gep13](https://github.com/gep13) on his
+[Twitch stream](https://www.twitch.tv/gep13) and you
+can watch work done in [Stream 90 - Working on Cake.Issues.Recipe](https://www.youtube.com/watch?v=7roa5Q6KcrQ),
+[Stream 91 - Working on Cake.Issues.Reporting.Generic and Gazorator](https://www.youtube.com/watch?v=ocacOz3CxME) and
+[Stream 92 - Working on Cake.Issues.Reporting.Generic and Gazorator - Part 2](https://www.youtube.com/watch?v=P0IpkL9gUAE).
 
 ## Enhanced issue information
 
@@ -154,7 +154,7 @@ This section documents the most common changes which might be required:
     Older version are still supported for deserialization.
 * Cake.Issues.Markdownlint
   * `MarkdownlintLogFileFormat` alias has been renamed to `MarkdownlintV1LogFileFormat`
-    ([#116](https://github.com/cake-contrib/Cake.Issues.Markdownlint/issues/116){target="_blank"}).
+    ([#116](https://github.com/cake-contrib/Cake.Issues.Markdownlint/issues/116)).
 * Cake.Issues.PullRequest
   * `ReportIssuesToPullRequest` alias which accepts an issue provider, or a list of issue providers, and settings requires now settings of type
     `IReportIssuesToPullRequestFromIssueProviderSettings` instead of `ReportIssuesToPullRequestSettings` to
@@ -170,30 +170,30 @@ This section documents the most common changes which might be required:
   * `HtmlDxDataGridOption.FileLinkSettings` has been removed.
     File link settings can now be defined while reading the issues.
     For details see [File linking].
-    ([#265](https://github.com/cake-contrib/Cake.Issues.Reporting.Generic/issues/265){target="_blank"}).
+    ([#265](https://github.com/cake-contrib/Cake.Issues.Reporting.Generic/issues/265)).
   * `HtmlDxDataGridOption.JSZipLocation` has been split into `HtmlDxDataGridOption.JsZipLocation` and
     `HtmlDxDataGridOption.JsZipVersion`
-    ([#320](https://github.com/cake-contrib/Cake.Issues.Reporting.Generic/issues/320){target="_blank"}).
+    ([#320](https://github.com/cake-contrib/Cake.Issues.Reporting.Generic/issues/320)).
 * Cake.Issues.Recipe
   * Cake.Issues.Recipe requires at least Cake 0.38.0
 
 For details see release notes of the individual addins:
 
-* [Cake.Issues 0.9.0](https://github.com/cake-contrib/Cake.Issues/releases/tag/0.9.0){target="_blank"}
-* [Cake.Issues.MsBuild 0.9.0](https://github.com/cake-contrib/Cake.Issues.MsBuild/releases/tag/0.9.0){target="_blank"}
-* [Cake.Issues.InspectCode 0.9.0](https://github.com/cake-contrib/Cake.Issues.InspectCode/releases/tag/0.9.0){target="_blank"}
-* [Cake.Issues.DupFinder 0.9.0](https://github.com/cake-contrib/Cake.Issues.DupFinder/releases/tag/0.9.0){target="_blank"}
-* [Cake.Issues.GitRepository 0.9.0](https://github.com/cake-contrib/Cake.Issues.GitRepository/releases/tag/0.9.0){target="_blank"}
-* [Cake.Issues.Markdownlint 0.9.0](https://github.com/cake-contrib/Cake.Issues.Markdownlint/releases/tag/0.9.0){target="_blank"}
-* [Cake.Issues.EsLint 0.9.0](https://github.com/cake-contrib/Cake.Issues.EsLint/releases/tag/0.9.0){target="_blank"}
-* [Cake.Issues.DocFx 0.9.0](https://github.com/cake-contrib/Cake.Issues.DocFx/releases/tag/0.9.0){target="_blank"}
-* [Cake.Issues.PullRequests 0.9.0](https://github.com/cake-contrib/Cake.Issues.PullRequests/releases/tag/0.9.0){target="_blank"}
-* [Cake.Issues.PullRequests.AzureDevOps 0.9.0](https://github.com/cake-contrib/Cake.Issues.PullRequests.AzureDevOps/releases/tag/0.9.0){target="_blank"}
-* [Cake.Issues.PullRequests.AppVeyor 0.9.0](https://github.com/cake-contrib/Cake.Issues.PullRequests.AppVeyor/releases/tag/0.9.0){target="_blank"}
-* [Cake.Issues.Reporting 0.9.0](https://github.com/cake-contrib/Cake.Issues.Reporting/releases/tag/0.9.0){target="_blank"}
-* [Cake.Issues.Reporting.Generic 0.9.0](https://github.com/cake-contrib/Cake.Issues.Reporting.Generic/releases/tag/0.9.0){target="_blank"}
-* [Cake.Issues.Reporting.Sarif 0.9.0](https://github.com/cake-contrib/Cake.Issues.Reporting.Sarif/releases/tag/0.9.0){target="_blank"}
-* [Cake.Issues.Recipe 0.4.0](https://github.com/cake-contrib/Cake.Issues.Recipe/releases/tag/0.4.0){target="_blank"}
+* [Cake.Issues 0.9.0](https://github.com/cake-contrib/Cake.Issues/releases/tag/0.9.0)
+* [Cake.Issues.MsBuild 0.9.0](https://github.com/cake-contrib/Cake.Issues.MsBuild/releases/tag/0.9.0)
+* [Cake.Issues.InspectCode 0.9.0](https://github.com/cake-contrib/Cake.Issues.InspectCode/releases/tag/0.9.0)
+* [Cake.Issues.DupFinder 0.9.0](https://github.com/cake-contrib/Cake.Issues.DupFinder/releases/tag/0.9.0)
+* [Cake.Issues.GitRepository 0.9.0](https://github.com/cake-contrib/Cake.Issues.GitRepository/releases/tag/0.9.0)
+* [Cake.Issues.Markdownlint 0.9.0](https://github.com/cake-contrib/Cake.Issues.Markdownlint/releases/tag/0.9.0)
+* [Cake.Issues.EsLint 0.9.0](https://github.com/cake-contrib/Cake.Issues.EsLint/releases/tag/0.9.0)
+* [Cake.Issues.DocFx 0.9.0](https://github.com/cake-contrib/Cake.Issues.DocFx/releases/tag/0.9.0)
+* [Cake.Issues.PullRequests 0.9.0](https://github.com/cake-contrib/Cake.Issues.PullRequests/releases/tag/0.9.0)
+* [Cake.Issues.PullRequests.AzureDevOps 0.9.0](https://github.com/cake-contrib/Cake.Issues.PullRequests.AzureDevOps/releases/tag/0.9.0)
+* [Cake.Issues.PullRequests.AppVeyor 0.9.0](https://github.com/cake-contrib/Cake.Issues.PullRequests.AppVeyor/releases/tag/0.9.0)
+* [Cake.Issues.Reporting 0.9.0](https://github.com/cake-contrib/Cake.Issues.Reporting/releases/tag/0.9.0)
+* [Cake.Issues.Reporting.Generic 0.9.0](https://github.com/cake-contrib/Cake.Issues.Reporting.Generic/releases/tag/0.9.0)
+* [Cake.Issues.Reporting.Sarif 0.9.0](https://github.com/cake-contrib/Cake.Issues.Reporting.Sarif/releases/tag/0.9.0)
+* [Cake.Issues.Recipe 0.4.0](https://github.com/cake-contrib/Cake.Issues.Recipe/releases/tag/0.4.0)
 
 [File linking]: #file-linking
 [Support for passing additional run information]: #support-for-passing-additional-run-information

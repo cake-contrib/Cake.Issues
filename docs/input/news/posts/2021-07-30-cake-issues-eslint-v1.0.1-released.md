@@ -19,9 +19,9 @@ For update instructions skip to [Updating from previous versions](#updating-from
 
 People working on this release:
 
-* [eoehen](https://github.com/eoehen){target="_blank"}
-* [pascalberger](https://github.com/pascalberger){target="_blank"}
-* [Speeedy01](https://github.com/Speeedy01){target="_blank"}
+* [eoehen](https://github.com/eoehen)
+* [pascalberger](https://github.com/pascalberger)
+* [Speeedy01](https://github.com/Speeedy01)
 
 ## Bug fix for issues with line, column or rule
 

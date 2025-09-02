@@ -19,12 +19,12 @@ For update instructions skip to [Updating from previous versions](#updating-from
 
 People working on this release:
 
-* [eoehen](https://github.com/eoehen){target="_blank"}
-* [pascalberger](https://github.com/pascalberger){target="_blank"}
+* [eoehen](https://github.com/eoehen)
+* [pascalberger](https://github.com/pascalberger)
 
 ## Support for suppressed issues in SARIF files.
 
-SARIF supports [suppressions]{target="_blank"} for issues which are suppressed, either in the source code or through some external tool.
+SARIF supports [suppressions] for issues which are suppressed, either in the source code or through some external tool.
 
 Until now this property was ignored.
 Starting with Cake Issues 5.2.0 issues which are marked as suppressed in a SARIF file will no longer be imported by default.
@@ -33,7 +33,7 @@ There is a new setting `IgnoreSuppressedIssues` which can be disabled to continu
 ## Additional alias for build breaking
 
 There is a new alias for fails build if any issues are found with settings to limit to priority and issue provider types to complement
-the already existing [aliases for failing builds]{target="_blank"}.
+the already existing [aliases for failing builds].
 
 The following example fails build if issues with severity warning or higher from MsBuild are found:
 
@@ -101,7 +101,7 @@ Cake Issues Recipe has new configuration options to support failing of builds if
 Cake.Issues 5.2.0 addins are compatible with any 5.x addins.
 To update to the new version bump the version of the specific addins.
 
-For details see [release notes](https://github.com/cake-contrib/Cake.Issues/releases/tag/5.2.0){target="_blank"}
+For details see [release notes](https://github.com/cake-contrib/Cake.Issues/releases/tag/5.2.0)
 
 [suppressions]: https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/os/sarif-v2.1.0-errata01-os-complete.html#_Toc141790911
 [aliases for failing builds]: https://cakebuild.net/extensions/cake-issues/#Build-Breaking

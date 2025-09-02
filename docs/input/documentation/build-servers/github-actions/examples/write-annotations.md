@@ -52,7 +52,7 @@ For this example the JetBrains InspectCode issue provider is additionally used f
     ```
 
 This example shows how to report issues as annotations to GitHubActions build using the
-[GitHubActionsBuilds](https://cakebuild.net/api/Cake.Issues.PullRequests.GitHubActions/GitHubActionsBuildsAliases/){target="_blank"} alias:
+[GitHubActionsBuilds](https://cakebuild.net/api/Cake.Issues.PullRequests.GitHubActions/GitHubActionsBuildsAliases/) alias:
 
 === "Cake .NET Tool"
 

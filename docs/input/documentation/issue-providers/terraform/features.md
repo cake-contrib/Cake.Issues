@@ -4,15 +4,15 @@ description: Features of the Cake.Issues.Terraform addin.
 icon: material/creation-outline
 ---
 
-The [Cake.Issues.Terraform addin]{target="_blank"} provides the following features.
+The [Cake.Issues.Terraform addin] provides the following features.
 
 ??? tip "Tip: Running Terraform"
-    [Terraform](https://www.terraform.io){target="_blank"} can be run with
-    [Cake.Terraform](https://cakebuild.net/extensions/cake-terraform/){target="_blank"} addin.
+    [Terraform](https://www.terraform.io) can be run with
+    [Cake.Terraform](https://cakebuild.net/extensions/cake-terraform/) addin.
 
 ## Basic features
 
-- [x] Reads warnings from [Terraform validate command]{target="_blank"}.
+- [x] Reads warnings from [Terraform validate command].
 
 ## Supported IIssue properties
 

@@ -7,11 +7,11 @@ links:
   - documentation/issue-providers/tap/index.md
 ---
 
-In [version 5.1.0] a new [Cake.Issues.Tap addin] has been released which adds support for reading issues in [Test Anything Protocol (TAP)]{target="_blank"} format.
+In [version 5.1.0] a new [Cake.Issues.Tap addin] has been released which adds support for reading issues in [Test Anything Protocol (TAP)] format.
 
 <!-- more -->
 
-[Test Anything Protocol (TAP)]{target="_blank"} is a protocol for communicating between test logic in a language-agnostic way.
+[Test Anything Protocol (TAP)] is a protocol for communicating between test logic in a language-agnostic way.
 There are several linting tools which can output their result in a TAP compatible format.
 
 The [Cake.Issues.Tap addin] supports multiple log file formats.
@@ -21,13 +21,13 @@ To retrieve detailed information a tool specific log file format needs to be use
 
 There are additional log file formats for the following tools available:
 
-* [stylelint](https://stylelint.io/){target="_blank"}
-* [Textlint](https://textlint.github.io/){target="_blank"}
+* [stylelint](https://stylelint.io/)
+* [Textlint](https://textlint.github.io/)
 
 See [Supported Tools] for an updated list of supported tools.
 
-The addins is available in a version for Cake .NET Tool ([Cake.Issues.Tap]{target="_blank"})
-and Cake Frosting ([Cake.Frosting.Issues.Tap]{target="_blank"}).
+The addins is available in a version for Cake .NET Tool ([Cake.Issues.Tap])
+and Cake Frosting ([Cake.Frosting.Issues.Tap]).
 
 [version 5.1.0]: 2025-01-03-cake-issues-v5.1.0-released.md
 [Cake.Issues.Tap addin]: ../../documentation/issue-providers/tap/index.md

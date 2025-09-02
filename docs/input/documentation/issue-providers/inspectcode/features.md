@@ -4,14 +4,14 @@ description: Features of the Cake.Issues.InspectCode addin.
 icon: material/creation-outline
 ---
 
-The [Cake.Issues.InspectCode addin]{target="_blank"} provides the following features.
+The [Cake.Issues.InspectCode addin] provides the following features.
 
 ??? tip "Tip: Running InspectCode"
-    [JetBrains InspectCode]{target="_blank"} can be run using the [InspectCode alias]{target="_blank"}.
+    [JetBrains InspectCode] can be run using the [InspectCode alias].
 
 ## Basic features
 
-- [x]  Reads warnings from [JetBrains InspectCode]{target="_blank"} XML log files.
+- [x]  Reads warnings from [JetBrains InspectCode] XML log files.
 - [x]  Provides URLs for issues containing a Wiki URL.
 
 !!! note

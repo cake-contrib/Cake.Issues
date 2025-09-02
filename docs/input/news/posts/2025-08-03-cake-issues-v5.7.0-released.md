@@ -21,9 +21,9 @@ For update instructions skip to [Updating from previous versions](#updating-from
 
 People working on this release:
 
-* [christianbumann](https://github.com/christianbumann){target="_blank"}
-* [eoehen](https://github.com/eoehen){target="_blank"}
-* [pascalberger](https://github.com/pascalberger){target="_blank"}
+* [christianbumann](https://github.com/christianbumann)
+* [eoehen](https://github.com/eoehen)
+* [pascalberger](https://github.com/pascalberger)
 
 ## Possibility to ignore files in Git Repository issue provider
 
@@ -183,6 +183,6 @@ With this enabled issues will become visible in the repository's `Security` → 
 Cake.Issues 5.7.0 addins are compatible with any 5.x addins.
 To update to the new version bump the version of the specific addins.
 
-For details see [release notes](https://github.com/cake-contrib/Cake.Issues/releases/tag/5.7.0){target="_blank"}
+For details see [release notes](https://github.com/cake-contrib/Cake.Issues/releases/tag/5.7.0)
 
 [Excluding files with patterns]: ../../documentation/issue-providers/gitrepository/examples/excluding-files.md

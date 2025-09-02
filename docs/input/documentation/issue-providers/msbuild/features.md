@@ -4,11 +4,11 @@ description: Features of the Cake.Issues.MsBuild addin.
 icon: material/creation-outline
 ---
 
-The [Cake.Issues.MsBuild addin](https://cakebuild.net/extensions/cake-issues-msbuild/){target="_blank"}
+The [Cake.Issues.MsBuild addin](https://cakebuild.net/extensions/cake-issues-msbuild/)
 provides the following features.
 
 ??? tip "Tip: Running MSBuild"
-    MSBuild can be run using the [DotNet aliases]{target="_blank"} or [MsBuild aliases]{target="_blank"}.
+    MSBuild can be run using the [DotNet aliases] or [MsBuild aliases].
 
 ## Basic features
 
@@ -18,8 +18,8 @@ provides the following features.
 
 ## Supported log file formats
 
-- [x] [MsBuildBinaryLogFileFormat](https://cakebuild.net/api/Cake.Issues.MsBuild/MsBuildIssuesAliases/AD50C7E1){target="_blank"} alias for reading issues from binary log files.
-- [x] [MsBuildXmlFileLoggerFormat](https://cakebuild.net/api/Cake.Issues.MsBuild/MsBuildIssuesAliases/051D7B6E){target="_blank"} alias for reading issues from log files created by [MSBuild Extension Pack XmlFileLogger](https://github.com/mikefourie-zz/MSBuildExtensionPack/blob/master/Solutions/Main/Loggers/Framework/XmlFileLogger.cs){target="_blank"}.
+- [x] [MsBuildBinaryLogFileFormat](https://cakebuild.net/api/Cake.Issues.MsBuild/MsBuildIssuesAliases/AD50C7E1) alias for reading issues from binary log files.
+- [x] [MsBuildXmlFileLoggerFormat](https://cakebuild.net/api/Cake.Issues.MsBuild/MsBuildIssuesAliases/051D7B6E) alias for reading issues from log files created by [MSBuild Extension Pack XmlFileLogger](https://github.com/mikefourie-zz/MSBuildExtensionPack/blob/master/Solutions/Main/Loggers/Framework/XmlFileLogger.cs).
 
 ## Supported IIssue properties
 
@@ -52,7 +52,7 @@ provides the following features.
     1.  Can be set while reading issues
     2.  Set to `IIssue.MessageText`
     3.  Can be set while reading issues
-    4.  For .NET SDK analyzers (`CA*`), StyleCop analyzer rules (`SA*`), SonarLint rules (`S*`) and Roslynator rules (`RCS*`). Support for additional rules can be added through a custom [MsBuildAddRuleUrlResolver]{target="_blank"}
+    4.  For .NET SDK analyzers (`CA*`), StyleCop analyzer rules (`SA*`), SonarLint rules (`S*`) and Roslynator rules (`RCS*`). Support for additional rules can be added through a custom [MsBuildAddRuleUrlResolver]
 
 === "MsBuildXmlFileLoggerFormat"
 
@@ -83,7 +83,7 @@ provides the following features.
     1.  Can be set while reading issues
     2.  Set to `IIssue.MessageText`
     3.  Can be set while reading issues
-    4.  For .NET SDK analyzers code quality rules (`CA*`), .NET SDK analyzers code style rules (`IDE*`), StyleCop analyzer rules (`SA*`), SonarLint rules (`S*`) and Roslynator rules (`RCS*`). Support for additional rules can be added through a custom [MsBuildAddRuleUrlResolver]{target="_blank"}
+    4.  For .NET SDK analyzers code quality rules (`CA*`), .NET SDK analyzers code style rules (`IDE*`), StyleCop analyzer rules (`SA*`), SonarLint rules (`S*`) and Roslynator rules (`RCS*`). Support for additional rules can be added through a custom [MsBuildAddRuleUrlResolver]
 
 [DotNet aliases]: https://cakebuild.net/dsl/dotnet/#Built-In
 [MsBuild aliases]: https://cakebuild.net/dsl/msbuild/#Built-In

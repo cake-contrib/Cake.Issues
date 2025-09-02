@@ -4,7 +4,7 @@ description: Features of the Cake.Issues.Reporting.Console addin.
 icon: material/creation-outline
 ---
 
-The [Cake.Issues.Reporting.Console addin]{target="_blank"} provides the following features:
+The [Cake.Issues.Reporting.Console addin] provides the following features:
 
 - [x] Prints issues containing line and column information.
 - [x] Group issues by rule

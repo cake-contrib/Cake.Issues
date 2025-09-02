@@ -9,7 +9,7 @@ icon: material/test-tube
     This example builds on top of the [Read binary log file](read-binary-log.md) example.
 
 The following example shows how URL schema for custom Roslyn analyzers can be defined
-using the [MsBuildAddRuleUrlResolver]{target="_blank"} alias.
+using the [MsBuildAddRuleUrlResolver] alias.
 
 Before reading the issues a custom rule URL resolver can be registered to have all issues starting with `CUS` linking to an internal URL:
 

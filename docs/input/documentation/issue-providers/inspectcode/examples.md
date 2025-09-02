@@ -47,7 +47,7 @@ To read issues from InspectCode log files the InspectCode issue provider needs t
     </Project>
     ```
 
-The following example contains a task which will run [JetBrains InspectCode]{target="_blank"}
+The following example contains a task which will run [JetBrains InspectCode]
 and write a log file and a task to read issues from the log file and write the number of warnings to the console.
 [JetBrains InspectCode] is installed using `JetBrains.ReSharper.CommandLineTools`:
 

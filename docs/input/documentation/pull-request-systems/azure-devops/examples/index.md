@@ -13,5 +13,5 @@ icon: material/test-tube
 </div>
 
 !!! info
-    There's a [demo repository](https://dev.azure.com/pberger/Cake.Issues-Demo){target="_blank"}
+    There's a [demo repository](https://dev.azure.com/pberger/Cake.Issues-Demo)
     available which you can fork and to which you can create pull requests to test the integration functionality.

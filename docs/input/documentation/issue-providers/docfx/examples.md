@@ -4,8 +4,8 @@ description: Examples for using the Cake.Issues.DocFx addin.
 icon: material/test-tube
 ---
 
-To call [DocFx](https://dotnet.github.io/docfx/){target="_blank"} from a Cake script
-the [Cake.DocFx](https://cakebuild.net/extensions/cake-docfx/){target="_blank"} addin can be used.
+To call [DocFx](https://dotnet.github.io/docfx/) from a Cake script
+the [Cake.DocFx](https://cakebuild.net/extensions/cake-docfx/) addin can be used.
 To read issues from DocFx log files the DocFx issue provider needs to be imported:
 
 === "Cake .NET Tool"
@@ -52,7 +52,7 @@ To read issues from DocFx log files the DocFx issue provider needs to be importe
     </Project>
     ```
 
-The following example contains a task which will build the [DocFx](https://dotnet.github.io/docfx/){target="_blank"}
+The following example contains a task which will build the [DocFx](https://dotnet.github.io/docfx/)
 project and write a log file and a task to read issues from the log file and write the number of warnings to the console:
 
 === "Cake .NET Tool"

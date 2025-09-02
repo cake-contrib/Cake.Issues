@@ -10,14 +10,14 @@ Version 1.2.0 of Cake Issues recipes have been released adding support to custom
 <!-- more -->
 
 This post shows the highlights included in this release.
-For details see [full release notes]{target="_blank"}.
+For details see [full release notes].
 For update instructions skip to [Updating from previous versions](#updating-from-previous-versions).
 
 ❤ Huge thanks to our community! This release would not have been possible without your support and contributions! ❤
 
 People working on this release:
 
-* [pascalberger](https://github.com/pascalberger){target="_blank"}
+* [pascalberger](https://github.com/pascalberger)
 
 ## Customization of pull request integration
 

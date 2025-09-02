@@ -4,13 +4,13 @@ description: Instructions how to implement rule URL resolving.
 ---
 
 For cases where additional logic is required to determine the URL for a rule, the `Cake.Issue`
-addin provides the [BaseRuleDescription](https://cakebuild.net/api/Cake.Issues/BaseRuleDescription/){target="_blank"}
-and [BaseRuleUrlResolver](https://cakebuild.net/api/Cake.Issues/BaseRuleUrlResolver_1/){target="_blank"}
+addin provides the [BaseRuleDescription](https://cakebuild.net/api/Cake.Issues/BaseRuleDescription/)
+and [BaseRuleUrlResolver](https://cakebuild.net/api/Cake.Issues/BaseRuleUrlResolver_1/)
 classes for simplifying implementation of providing URLs linking to site providing information about issues.
 
 ## Implementing RuleUrlResolver
 
-In the issue provider a concrete class inheriting from [BaseRuleDescription](https://cakebuild.net/api/Cake.Issues/BaseRuleDescription/){target="_blank"}
+In the issue provider a concrete class inheriting from [BaseRuleDescription](https://cakebuild.net/api/Cake.Issues/BaseRuleDescription/)
 should be implemented containing all properties required to determine the URL to a rule.
 
 The following class adds two properties `Category` and `RuleId` to the description, to handle rules following a pattern like `ABC123`,
@@ -20,10 +20,10 @@ where `ABC` is the `Category`, and `123` is the `RuleId`:
 --8<-- "snippets/extending/issue-provider/rule-url-resolving/RuleDescription.cs"
 ```
 
-A class inheriting from [BaseRuleUrlResolver](https://cakebuild.net/api/Cake.Issues/BaseRuleUrlResolver_1/){target="_blank"}
+A class inheriting from [BaseRuleUrlResolver](https://cakebuild.net/api/Cake.Issues/BaseRuleUrlResolver_1/)
 needs to be implemented containing an implementation of
-[TryGetRuleDescription](https://cakebuild.net/api/Cake.Issues/BaseRuleUrlResolver_1/D9DB5D44){target="_blank"}
-for parsing rule urls to the concrete [BaseRuleDescription](https://cakebuild.net/api/Cake.Issues/BaseRuleDescription/){target="_blank"}
+[TryGetRuleDescription](https://cakebuild.net/api/Cake.Issues/BaseRuleUrlResolver_1/D9DB5D44)
+for parsing rule urls to the concrete [BaseRuleDescription](https://cakebuild.net/api/Cake.Issues/BaseRuleDescription/)
 class.
 Additionally different resolvers need to be registered which return the actual URL based on the rule description.
 
@@ -39,7 +39,7 @@ Additionally different resolvers need to be registered which return the actual U
     --8<-- "snippets/extending/issue-provider/rule-url-resolving/RuleUrlResolver.cs"
     ```
 
-To use the URL resolver the [ResolveRuleUrl](https://cakebuild.net/api/Cake.Issues/BaseRuleUrlResolver_1/6B23EC74){target="_blank"}
+To use the URL resolver the [ResolveRuleUrl](https://cakebuild.net/api/Cake.Issues/BaseRuleUrlResolver_1/6B23EC74)
 method can be called from the issue provider:
 
 ```csharp
@@ -49,7 +49,7 @@ var url = resolver.ResolveRuleUrl(rule)
 
 ## Support custom URL resolvers
 
-The [AddUrlResolver](https://cakebuild.net/api/Cake.Issues/BaseRuleUrlResolver_1/AAA4FB20){target="_blank"}
+The [AddUrlResolver](https://cakebuild.net/api/Cake.Issues/BaseRuleUrlResolver_1/AAA4FB20)
 method can also be called from a Cake alias to allow users of the addin to register custom resolvers.
 For this the URL resolver class needs to be implemented as a singleton:
 

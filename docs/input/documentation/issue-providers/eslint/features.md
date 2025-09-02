@@ -4,24 +4,24 @@ description: Features of the Cake.Issues.EsLint addin.
 icon: material/creation-outline
 ---
 
-The [Cake.Issues.EsLint addin](https://cakebuild.net/extensions/cake-issues-eslint/){target="_blank"} provides the following features.
+The [Cake.Issues.EsLint addin](https://cakebuild.net/extensions/cake-issues-eslint/) provides the following features.
 
 ??? tip "Tip: Running ESLint"
-    [ESLint](https://eslint.org){target="_blank"} can be run with
-    [Cake.ESLint](https://cakebuild.net/extensions/cake-eslint/){target="_blank"} addin.
+    [ESLint](https://eslint.org) can be run with
+    [Cake.ESLint](https://cakebuild.net/extensions/cake-eslint/) addin.
 
 ## Basic features
 
 - [x] Reads issues reported by ESLint.
 - [x] Provides URLs for all issues.
-- [x] Support for custom URL resolving using the [EsLintAddRuleUrlResolver](https://cakebuild.net/api/Cake.Issues.EsLint/EsLintIssuesAliases/0F6CCE21){target="_blank"}
+- [x] Support for custom URL resolving using the [EsLintAddRuleUrlResolver](https://cakebuild.net/api/Cake.Issues.EsLint/EsLintIssuesAliases/0F6CCE21)
   alias.
 
 ## Supported log file formats
 
-- [x] [EsLintJsonFormat](https://cakebuild.net/api/Cake.Issues.EsLint/EsLintIssuesAliases/230C6E27){target="_blank"}
+- [x] [EsLintJsonFormat](https://cakebuild.net/api/Cake.Issues.EsLint/EsLintIssuesAliases/230C6E27)
     alias for reading issues from log files created by
-    [ESLint json formatter](https://eslint.org/docs/user-guide/formatters/#json){target="_blank"}.
+    [ESLint json formatter](https://eslint.org/docs/user-guide/formatters/#json).
 
 ## Supported IIssue properties
 
@@ -52,4 +52,4 @@ The [Cake.Issues.EsLint addin](https://cakebuild.net/extensions/cake-issues-esli
 1.  Can be set while reading issues
 2.  Set to `IIssue.MessageText`
 3.  Can be set while reading issues
-4.  Support for custom rules can be added through a custom [EsLintAddRuleUrlResolver](https://cakebuild.net/api/Cake.Issues.EsLint/EsLintIssuesAliases/0F6CCE21){target="_blank"}
+4.  Support for custom rules can be added through a custom [EsLintAddRuleUrlResolver](https://cakebuild.net/api/Cake.Issues.EsLint/EsLintIssuesAliases/0F6CCE21)

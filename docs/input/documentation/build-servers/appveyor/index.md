@@ -4,12 +4,12 @@ description: Support for AppVeyor.
 ---
 
 Support for AppVeyor is implemented in the
-[Cake.Issues.PullRequests.AppVeyor addin](https://cakebuild.net/extensions/cake-issues-pullrequests-appveyor/){target="_blank"}.
+[Cake.Issues.PullRequests.AppVeyor addin](https://cakebuild.net/extensions/cake-issues-pullrequests-appveyor/).
 
 <div class="grid cards" markdown>
 
 - :material-creation-outline: [Features](features.md)
 - :material-test-tube: [Examples](examples/index.md)
-- :material-api: [API](https://cakebuild.net/extensions/cake-issues-pullrequests-appveyor){target="_blank"}
+- :material-api: [API](https://cakebuild.net/extensions/cake-issues-pullrequests-appveyor)
 
 </div>

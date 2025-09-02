@@ -17,13 +17,13 @@ There are two flavors available:
 
     ---
 
-    For [Cake .NET Tool]{target="_blank"}
+    For [Cake .NET Tool]
 
 -   :material-receipt-text: [Cake.Frosting.Issues.Recipe]
 
     ---
 
-    For [Cake Frosting]{target="_blank"}
+    For [Cake Frosting]
 
 </div>
 

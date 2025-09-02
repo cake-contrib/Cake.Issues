@@ -4,11 +4,11 @@ description: Features of the Cake.Issues.Sarif addin.
 icon: material/creation-outline
 ---
 
-The [Cake.Issues.Sarif addin](https://cakebuild.net/extensions/cake-issues-sarif/){target="_blank"} provides the following features.
+The [Cake.Issues.Sarif addin](https://cakebuild.net/extensions/cake-issues-sarif/) provides the following features.
 
 ## Basic features
 
-- [x] Reads issues from files in [SARIF](https://sarifweb.azurewebsites.net/){target="_blank"} format.
+- [x] Reads issues from files in [SARIF](https://sarifweb.azurewebsites.net/) format.
 - [x] Support for reading issues reported as suppressed by the linter
 
 ## Supported IIssue properties

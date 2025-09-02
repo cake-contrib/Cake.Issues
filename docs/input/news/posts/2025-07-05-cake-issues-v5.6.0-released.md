@@ -19,8 +19,8 @@ For update instructions skip to [Updating from previous versions](#updating-from
 
 People working on this release:
 
-* [eoehen](https://github.com/eoehen){target="_blank"}
-* [pascalberger](https://github.com/pascalberger){target="_blank"}
+* [eoehen](https://github.com/eoehen)
+* [pascalberger](https://github.com/pascalberger)
 
 ## Improvements for MsBuild binary logs
 
@@ -35,7 +35,7 @@ The PDF export functionallity in the [HtmlDxDataGrid template] has been updated 
 Cake.Issues 5.6.0 addins are compatible with any 5.x addins.
 To update to the new version bump the version of the specific addins.
 
-For details see [release notes](https://github.com/cake-contrib/Cake.Issues/releases/tag/5.6.0){target="_blank"}
+For details see [release notes](https://github.com/cake-contrib/Cake.Issues/releases/tag/5.6.0)
 
 [MsBuild.StructuredLogger]: https://github.com/KirillOsenkov/MSBuildStructuredLog
 [HtmlDxDataGrid template]: ../../documentation/report-formats/generic/templates/htmldxdatagrid.md

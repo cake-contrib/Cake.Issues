@@ -19,10 +19,10 @@ For update instructions skip to [Updating from previous versions](#updating-from
 
 People working on this release:
 
-* [cho-trackman](https://github.com/cho-trackman){target="_blank"}
-* [eoehen](https://github.com/eoehen){target="_blank"}
-* [pascalberger](https://github.com/pascalberger){target="_blank"}
-* [jokay](https://github.com/jokay){target="_blank"}
+* [cho-trackman](https://github.com/cho-trackman)
+* [eoehen](https://github.com/eoehen)
+* [pascalberger](https://github.com/pascalberger)
+* [jokay](https://github.com/jokay)
 
 ## Support for reading of errors
 

@@ -4,16 +4,16 @@ description: Features of the Cake.Issues.DocFx addin.
 icon: material/creation-outline
 ---
 
-The [Cake.Issues.DocFx addin](https://cakebuild.net/extensions/cake-issues-docfx/){target="_blank"}
+The [Cake.Issues.DocFx addin](https://cakebuild.net/extensions/cake-issues-docfx/)
 provides the following features.
 
 ??? tip "Tip: Running DocFx"
-    [DocFx](https://dotnet.github.io/docfx/){target="_blank"} can be run with
-    [Cake.DocFx](https://cakebuild.net/extensions/cake-docfx/){target="_blank"} addin.
+    [DocFx](https://dotnet.github.io/docfx/) can be run with
+    [Cake.DocFx](https://cakebuild.net/extensions/cake-docfx/) addin.
 
 ## Basic features
 
-- [x] Reads warnings from [DocFx](https://dotnet.github.io/docfx/){target="_blank"} log files.
+- [x] Reads warnings from [DocFx](https://dotnet.github.io/docfx/) log files.
 
 ## Supported IIssue properties
 
