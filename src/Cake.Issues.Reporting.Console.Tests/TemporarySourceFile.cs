@@ -8,11 +8,11 @@ internal class TemporarySourceFile : IDisposable
 {
     public string FilePath { get; }
 
-    public TemporarySourceFile(string resourcePartialName, Assembly? assembly = null)
+    public TemporarySourceFile(string resourcePartialName, Assembly assembly = null)
     {
         assembly ??= Assembly.GetCallingAssembly();
 
-        var fullResourceName = FindFullResourceName(assembly, resourcePartialName) 
+        var fullResourceName = FindFullResourceName(assembly, resourcePartialName)
             ?? throw new ArgumentException($"Resource '{resourcePartialName}' not found in assembly '{assembly.FullName}'.");
 
         using var resourceStream = assembly.GetManifestResourceStream(fullResourceName)
