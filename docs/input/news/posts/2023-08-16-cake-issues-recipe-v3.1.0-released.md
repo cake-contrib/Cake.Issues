@@ -10,14 +10,14 @@ Version 3.1.0 of Cake Issues recipes have been released adding support for creat
 <!-- more -->
 
 This post shows the highlights included in this release.
-For details see [full release notes]{target="_blank"}.
+For details see [full release notes].
 For update instructions skip to [Updating from previous versions](#updating-from-previous-versions).
 
 ❤ Huge thanks to our community! This release would not have been possible without your support and contributions! ❤
 
 People working on this release:
 
-* [pascalberger](https://github.com/pascalberger){target="_blank"}
+* [pascalberger](https://github.com/pascalberger)
 
 ## Reports in SARIF format
 
@@ -26,7 +26,7 @@ This version of Cake Issues recipes adds a new configuration parameter which all
 See [Report parameters] for details.
 
 If running on Azure Pipelines the generated SARIF file is uploaded so that it will be
-shown in the [SARIF SAST Scans Tab extension]{target="_blank"}.
+shown in the [SARIF SAST Scans Tab extension].
 
 ## Updating from previous versions
 

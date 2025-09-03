@@ -19,8 +19,8 @@ For update instructions skip to [Updating from previous versions](#updating-from
 
 People working on this release:
 
-* [pascalberger](https://github.com/pascalberger){target="_blank"}
-* [patriksvensson](https://github.com/patriksvensson){target="_blank"}
+* [pascalberger](https://github.com/pascalberger)
+* [patriksvensson](https://github.com/patriksvensson)
 
 ## Support for all Cake runners
 
@@ -35,7 +35,7 @@ Provider report is now rendered in different colors for the individual bars, mak
 
 ## Errata 0.6.0
 
-Underlying [Errata]{target="_blank"} library has been updated to 0.6.0, containing additional bug fixes and rendering improvements.
+Underlying [Errata] library has been updated to 0.6.0, containing additional bug fixes and rendering improvements.
 
 ## Updating from previous versions
 

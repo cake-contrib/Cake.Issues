@@ -48,10 +48,10 @@ To analyze Git repositories you need to import the Git repository issue provider
     ```
 
 The following example prints the number of binary files which are not tracked by
-[Git Large File Storage](https://git-lfs.github.com/){target="_blank"} in a repository.
+[Git Large File Storage](https://git-lfs.github.com/) in a repository.
 
 !!! warning
-    Checking binary files requires Git and [Git Large File Storage](https://git-lfs.github.com/){target="_blank"}
+    Checking binary files requires Git and [Git Large File Storage](https://git-lfs.github.com/)
     available on the local machine.
 
 === "Cake .NET Tool"

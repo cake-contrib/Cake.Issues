@@ -4,7 +4,7 @@ description: Features of the Cake.Issues.PullRequests.AzureDevOps addin.
 icon: material/creation-outline
 ---
 
-The [Cake.Issues.PullRequests.AzureDevOps addin](https://cakebuild.net/extensions/cake-issues-pullrequests-azuredevops/){target="_blank"}
+The [Cake.Issues.PullRequests.AzureDevOps addin](https://cakebuild.net/extensions/cake-issues-pullrequests-azuredevops/)
 provides the following features.
 
 !!! info
@@ -12,7 +12,7 @@ provides the following features.
 
 ## Basic features
 
-- [x] Writes issues as comments to [Azure DevOps](https://azure.microsoft.com/en-us/services/devops/){target="_blank"} pull requests.
+- [x] Writes issues as comments to [Azure DevOps](https://azure.microsoft.com/en-us/services/devops/) pull requests.
 - [x] Identification of pull requests through source branch or pull request ID.
 - [x] Comments written by the addin will be rendered with a specific icon corresponding to the state of the issue.
 - [x] Adds rule number and, if provided by the issue provider, link to the rule description to the comment.
@@ -20,7 +20,7 @@ provides the following features.
 
 ## Supported capabilities
 
-The [Cake.Issues.PullRequests.AzureDevOps addin](https://cakebuild.net/extensions/cake-issues-pullrequests-azuredevops/){target="_blank"}
+The [Cake.Issues.PullRequests.AzureDevOps addin](https://cakebuild.net/extensions/cake-issues-pullrequests-azuredevops/)
 supports the following capabilities.
 
 - [x] [Checking commit ID](../../how-cake-issues-works/pull-request-integration.md#check-commit-id)

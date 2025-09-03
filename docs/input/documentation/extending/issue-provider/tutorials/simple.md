@@ -4,12 +4,12 @@ description: Instructions how to implement a simple issue provider.
 ---
 
 This tutorial explains how to implement a simple issue provider using the
-[BaseIssueProvider](https://cakebuild.net/api/Cake.Issues/BaseIssueProvider/){target="_blank"}
+[BaseIssueProvider](https://cakebuild.net/api/Cake.Issues/BaseIssueProvider/)
 class from the `Cake.Issue` addin.
 
 ## Implementing issue provider
 
-A concrete class inheriting from [BaseIssueProvider](https://cakebuild.net/api/Cake.Issues/BaseIssueProvider/){target="_blank"}
+A concrete class inheriting from [BaseIssueProvider](https://cakebuild.net/api/Cake.Issues/BaseIssueProvider/)
 needs to be implemented:
 
 ```csharp

@@ -17,9 +17,9 @@ For update instructions skip to [Updating from previous versions](#updating-from
 
 People working on this release:
 
-* [janniksam](https://github.com/janniksam){target="_blank"}
-* [pascalberger](https://github.com/pascalberger){target="_blank"}
-* [phlorian](https://github.com/phlorian){target="_blank"}
+* [janniksam](https://github.com/janniksam)
+* [pascalberger](https://github.com/pascalberger)
+* [phlorian](https://github.com/phlorian)
 
 ## Don't post issues if a provider limit is set to 0
 

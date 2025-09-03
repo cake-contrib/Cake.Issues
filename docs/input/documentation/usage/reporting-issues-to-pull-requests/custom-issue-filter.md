@@ -3,7 +3,7 @@ title: Custom issue filter
 description: Usage instructions how to apply custom filters to issues.
 ---
 
-The [IssueFilters setting property]{target="_blank"} allows to define custom filters which are applied to issues
+The [IssueFilters setting property] allows to define custom filters which are applied to issues
 before they are posted as comments to pull requests.
 
 ??? tip "Tip: Filter to issues introduced with pull request"

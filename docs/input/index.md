@@ -8,7 +8,7 @@ search:
 title: Home
 ---
 
-Extensive and flexible solution for processing output of linters and other tools using [Cake build system](https://cakebuild.net){target="_blank"}.
+Extensive and flexible solution for processing output of linters and other tools using [Cake build system](https://cakebuild.net).
 
 ## Why use Cake Issues?
 
@@ -22,7 +22,7 @@ Extensive and flexible solution for processing output of linters and other tools
     working together and providing you with over 75 aliases which you can use in your Cake
     build scripts to work with issues.
 
-    [:octicons-arrow-right-24: Reference](https://cakebuild.net/extensions/cake-issues/){target="_blank"}
+    [:octicons-arrow-right-24: Reference](https://cakebuild.net/extensions/cake-issues/)
 
 -   :material-wrench:{ .lg .middle } __Supports your tooling__
 
@@ -69,8 +69,8 @@ Extensive and flexible solution for processing output of linters and other tools
     ---
 
     Cake Issues is free to use, improve, contribute and distribute.
-    Source code is available on [GitHub](https://github.com/cake-contrib/Cake.Issues){target="_blank"} under MIT license.
+    Source code is available on [GitHub](https://github.com/cake-contrib/Cake.Issues) under MIT license.
 
-    [:octicons-arrow-right-24: Source code & license](https://github.com/cake-contrib/Cake.Issues){target="_blank"}
+    [:octicons-arrow-right-24: Source code & license](https://github.com/cake-contrib/Cake.Issues)
 
 </div>

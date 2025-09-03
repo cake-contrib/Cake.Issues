@@ -9,6 +9,6 @@ is implemented in the [Cake.Issues.Terraform addin](https://cakebuild.net/extens
 <div class="grid cards" markdown>
 
 - :material-creation-outline: [Features](features.md)
-- :material-api: [API](https://cakebuild.net/extensions/cake-issues-terraform){target="_blank"}
+- :material-api: [API](https://cakebuild.net/extensions/cake-issues-terraform)
 
 </div>

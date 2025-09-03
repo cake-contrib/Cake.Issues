@@ -16,8 +16,8 @@ For update instructions skip to [Updating from previous versions](#updating-from
 
 People working on this release:
 
-* [admiringworm](https://github.com/admiringworm){target="_blank"}
-* [pascalberger](https://github.com/pascalberger){target="_blank"}
+* [admiringworm](https://github.com/admiringworm)
+* [pascalberger](https://github.com/pascalberger)
 
 ## Support for GitHub Actions
 

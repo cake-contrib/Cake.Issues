@@ -16,7 +16,7 @@ For update instructions skip to [Updating from previous versions](#updating-from
 
 People working on this release:
 
-* [pascalberger](https://github.com/pascalberger){target="_blank"}
+* [pascalberger](https://github.com/pascalberger)
 
 ## Bugfix for issues across multiple lines
 
@@ -28,4 +28,4 @@ and the end column is before the start column.
 Cake.Issues 4.3.1 addins are compatible with any 4.x addins.
 To update to the new version bump the version of the specific addins.
 
-For details see [release notes](https://github.com/cake-contrib/Cake.Issues/releases/tag/4.3.1){target="_blank"}
+For details see [release notes](https://github.com/cake-contrib/Cake.Issues/releases/tag/4.3.1)

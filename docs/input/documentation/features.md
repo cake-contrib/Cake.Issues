@@ -57,7 +57,7 @@ description: Overview about core features.
 
     Support for serializing and deserializing created issues and issues read from tools.
 
-    [:octicons-arrow-right-24: Aliases](https://cakebuild.net/extensions/cake-issues/#Issue-Serialization){target="_blank"}
+    [:octicons-arrow-right-24: Aliases](https://cakebuild.net/extensions/cake-issues/#Issue-Serialization)
 
 -   :material-format-title:{ .lg .middle } __Support for multiple message formats__
 
@@ -144,7 +144,7 @@ description: Overview about core features.
 
     Advanced support to limit number of maximum issues per run, across multiple runs or per issue provider through settings.
 
-    [:octicons-arrow-right-24: Settings](https://cakebuild.net/api/Cake.Issues.PullRequests/IReportIssuesToPullRequestSettings/){target="_blank"}
+    [:octicons-arrow-right-24: Settings](https://cakebuild.net/api/Cake.Issues.PullRequests/IReportIssuesToPullRequestSettings/)
 
 -   :material-comment-check:{ .lg .middle } __Automatic comment resolving__
 

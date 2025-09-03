@@ -10,6 +10,6 @@ Support for reading warnings reported by MsBuild is implemented in the
 
 - :material-creation-outline: [Features](features.md)
 - :material-test-tube: [Examples](examples/index.md)
-- :material-api: [API](https://cakebuild.net/extensions/cake-issues-msbuild){target="_blank"}
+- :material-api: [API](https://cakebuild.net/extensions/cake-issues-msbuild)
 
 </div>

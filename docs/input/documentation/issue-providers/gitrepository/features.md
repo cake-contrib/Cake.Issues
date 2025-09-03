@@ -4,7 +4,7 @@ description: Features of the Cake.Issues.GitRepository addin.
 icon: material/creation-outline
 ---
 
-The [Cake.Issues.GitRepository addin](https://cakebuild.net/extensions/cake-issues-gitrepository/){target="_blank"}
+The [Cake.Issues.GitRepository addin](https://cakebuild.net/extensions/cake-issues-gitrepository/)
 provides the following features.
 
 ## Basic features

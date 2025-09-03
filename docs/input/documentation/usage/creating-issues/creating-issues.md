@@ -7,7 +7,7 @@ The `Cake.Issues` addin can be used to create issues directly in the build scrip
 This issues can for example be used to create reports.
 
 ??? Tip "List of all aliases for creating issues"
-    See all available [Aliases for creating issues](https://cakebuild.net/extensions/cake-issues/#Creating-Issues){target="_blank"}
+    See all available [Aliases for creating issues](https://cakebuild.net/extensions/cake-issues/#Creating-Issues)
 
 To create issues you need to import the following core addin:
 

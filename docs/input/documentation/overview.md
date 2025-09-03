@@ -3,13 +3,13 @@ title: Introduction
 description: Introduction
 ---
 
-The Cake.Issues addins for the [Cake build automation system](https://cakebuild.net){target="_blank"}
+The Cake.Issues addins for the [Cake build automation system](https://cakebuild.net)
 offer an extensive and flexible solution for reading linting issues.
 
 Cake.Issues redefines issue management within the Cake build system by offering a comprehensive, universal, and extensible solution.
 The unique capabilities of the addins empower development teams to enforce coding standards, generate insightful reports,
 seamlessly incorporate various linting tools, and streamlining the integration with pull requests.
-With its [modular architecture] and extensive [set of aliases](https://cakebuild.net/extensions/cake-issues/){target="_blank"},
+With its [modular architecture] and extensive [set of aliases](https://cakebuild.net/extensions/cake-issues/),
 Cake.Issues provides a future-proof infrastructure for issue management in Cake builds,
 fostering a more efficient and adaptable development process.
 

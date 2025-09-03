@@ -15,12 +15,12 @@ The `Cake.Issues` addin provides aliases for creating issues or reading issues u
 Support for different code analyzers and linters is provided through [issue provider] addins
 which cover a wide range of [linters and tools].
 
-The issues are read into [IIssue](https://cakebuild.net/api/Cake.Issues/IIssue/){target="_blank"} objects
+The issues are read into [IIssue](https://cakebuild.net/api/Cake.Issues/IIssue/) objects
 which then can be passed to [Cake.Issues.Reporting addin](#create-issue-reports),
 [Cake.Issues.PullRequests addin](#write-issues-to-pull-requests-and-build-servers) or further processed in the build script.
 
 The use of [issue provider] addins, which contain the parsing logic for individual tool output formats,
-and the use of [IIssue](https://cakebuild.net/api/Cake.Issues/IIssue/){target="_blank"} as common data structure,
+and the use of [IIssue](https://cakebuild.net/api/Cake.Issues/IIssue/) as common data structure,
 allows to abstract the tooling output from other concerns like integration with
 build systems, pull request workflow or the creation of reports.
 

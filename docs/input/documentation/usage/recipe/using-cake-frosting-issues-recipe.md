@@ -8,7 +8,7 @@ The [Cake.Frosting.Issues.Recipe] package can be used to easily add issue manage
 !!! info
     See [Setting Up A New Frosting Project] for instructions how to create a new Cake Frosting project.
 
-[Setting Up A New Frosting Project]: https://cakebuild.net/docs/getting-started/setting-up-a-new-frosting-project{target="_blank"}
+[Setting Up A New Frosting Project]: https://cakebuild.net/docs/getting-started/setting-up-a-new-frosting-project
 
 ## Add Cake.Frosting.Issues.Recipe to your Cake Frosting build
 

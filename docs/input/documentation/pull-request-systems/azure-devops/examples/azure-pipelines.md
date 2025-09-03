@@ -53,7 +53,7 @@ For this example the JetBrains InspectCode issue provider is additionally used f
     </Project>
     ```
 
-The following example shows a task which will call the [AzureDevOpsPullRequests](https://cakebuild.net/api/Cake.Issues.PullRequests.AzureDevOps/AzureDevOpsPullRequestSystemAliases/){target="_blank"}
+The following example shows a task which will call the [AzureDevOpsPullRequests](https://cakebuild.net/api/Cake.Issues.PullRequests.AzureDevOps/AzureDevOpsPullRequestSystemAliases/)
 alias to connect to the pull request using the environment variables provided by Azure Pipelines.:
 
 === "Cake .NET Tool"
@@ -122,7 +122,7 @@ alias to connect to the pull request using the environment variables provided by
 
 !!! info
     Please note that you'll need to setup your Azure Pipelines build to
-    [Allow scripts to access the OAuth token](https://docs.microsoft.com/en-us/azure/devops/pipelines/build/options#allow-scripts-to-access-the-oauth-token){target="_blank"}
+    [Allow scripts to access the OAuth token](https://docs.microsoft.com/en-us/azure/devops/pipelines/build/options#allow-scripts-to-access-the-oauth-token)
     and need to setup proper permissions.
 
     See [OAuth authentication from Azure Pipelines] for details.

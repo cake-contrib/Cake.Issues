@@ -5,9 +5,9 @@ description: Instructions how to build and run website locally
 
 === "Running in GitHub Codespaces"
 
-    Website can be built and run in [GitHub Codespaces]{target="_blank"}.
+    Website can be built and run in [GitHub Codespaces].
 
-    Follow [Creating a codespace for a repository]{target="_blank"} to start codespace.
+    Follow [Creating a codespace for a repository] to start codespace.
 
     To build and serve the website follow these steps:
 
@@ -17,9 +17,9 @@ description: Instructions how to build and run website locally
 
 === "Using Visual Studio Code Dev Container"
 
-    For building and running website locally a [Visual Studio Code Dev Container]{target="_blank"} can be used.
+    For building and running website locally a [Visual Studio Code Dev Container] can be used.
 
-    Follow [installation instructions]{target="_blank"} to setup prerequisites.
+    Follow [installation instructions] to setup prerequisites.
 
     To build and serve the website follow these steps:
 
@@ -36,7 +36,7 @@ description: Instructions how to build and run website locally
     * Latest .NET version installed
     * Python 3 installed
     
-    To build and serve the website [Cake]{target="_blank"} is used:
+    To build and serve the website [Cake] is used:
     
     === ":material-microsoft-windows: Windows"
     
