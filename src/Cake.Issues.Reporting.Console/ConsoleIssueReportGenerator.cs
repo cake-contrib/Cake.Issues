@@ -39,14 +39,14 @@ internal class ConsoleIssueReportGenerator : IssueReportFormat
             // Filter to issues from existing files
             var countBefore = enumeratedIssues.Count;
             var diagnosticIssues =
-            enumeratedIssues
-                .Where(x =>
-                    x.AffectedFileRelativePath != null &&
-                    File.Exists(this.Settings.RepositoryRoot.CombineWithFilePath(x.AffectedFileRelativePath).FullPath))
-                .ToList();
+                enumeratedIssues
+                    .Where(x =>
+                        x.AffectedFileRelativePath != null &&
+                        File.Exists(this.Settings.RepositoryRoot.CombineWithFilePath(x.AffectedFileRelativePath).FullPath))
+                    .ToList();
             this.Log.Verbose(
                 "{0} issue(s) were filtered because they either don't belong to a file or the file does not exist.",
-                countBefore - enumeratedIssues.Count);
+                countBefore - diagnosticIssues.Count);
 
             // Filter to issues with line and column information
             // Errata currently doesn't support file or line level diagnostics.
