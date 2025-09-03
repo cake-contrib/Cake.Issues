@@ -61,6 +61,16 @@ internal class ConsoleIssueReportGenerator : IssueReportFormat
                 "{0} issue(s) were filtered because they don't contain line or column information.",
                 countBefore - diagnosticIssues.Count);
 
+            // Filter to issues with priority
+            countBefore = enumeratedIssues.Count;
+            diagnosticIssues =
+                diagnosticIssues
+                    .Where(x => x.Priority.HasValue)
+                    .ToList();
+            this.Log.Verbose(
+                "{0} issue(s) were filtered because they don't have a priority set.",
+                countBefore - diagnosticIssues.Count);
+
             this.Log.Verbose("{0} issue to write after filtering", diagnosticIssues.Count);
 
             var report = new Report(new FileSystemRepository(this.Settings));
