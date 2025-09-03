@@ -1,6 +1,7 @@
 ﻿namespace Cake.Issues.Reporting.Console.Tests;
 
 using System.Runtime.CompilerServices;
+using Xunit.Abstractions;
 
 public sealed class ConsoleIssueReportGeneratorTests
 {
@@ -105,7 +106,7 @@ public sealed class ConsoleIssueReportGeneratorTests
             // Then
         }
 
-        public sealed class WithShowDiagnosticsEnabled
+        public sealed class WithShowDiagnosticsEnabled(ITestOutputHelper output)
         {
             [Fact]
             public void Should_Filter_Issues_Without_FilePath()
@@ -166,6 +167,7 @@ public sealed class ConsoleIssueReportGeneratorTests
             {
                 // Given
                 var filePath = this.GetCallerFilePath();
+                output.WriteLine($"File path: {filePath}");
                 var directory = Path.GetDirectoryName(filePath)!;
                 var fileName = Path.GetFileName(filePath);
                 var fixture = new ConsoleIssueReportFixture
