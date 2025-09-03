@@ -1,5 +1,7 @@
 ﻿namespace Cake.Issues.Reporting.Console.Tests;
 
+using System.Runtime.CompilerServices;
+
 public sealed class ConsoleIssueReportGeneratorTests
 {
     public sealed class TheCtor
@@ -101,6 +103,95 @@ public sealed class ConsoleIssueReportGeneratorTests
                 @"c:\Source\Cake.Issues.Reporting.Console");
 
             // Then
+        }
+
+        public sealed class WithShowDiagnosticsEnabled
+        {
+            [Fact]
+            public void Should_Filter_Issues_Without_FilePath()
+            {
+                // Given
+                var fixture = new ConsoleIssueReportFixture
+                {
+                    ConsoleIssueReportFormatSettings =
+                    {
+                        ShowDiagnostics = true
+                    }
+                };
+                var issues =
+                    new List<IIssue>
+                    {
+                    IssueBuilder
+                        .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                        .InFile(@"src\Cake.Issues.Reporting.Console.Tests\ConsoleReportGeneratorTests.cs", 10)
+                        .Create(),
+                    };
+
+                // When
+                _ = fixture.CreateReport(issues, @"c:\Source\Cake.Issues.Reporting.Console");
+
+                // Then
+                fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) were filtered because they either don't belong to a file or the file does not exist.");
+            }
+
+            [Fact]
+            public void Should_Filter_Issues_Where_File_Does_Not_Exist()
+            {
+                // Given
+                var fixture = new ConsoleIssueReportFixture
+                {
+                    ConsoleIssueReportFormatSettings =
+                    {
+                        ShowDiagnostics = true
+                    }
+                };
+                var issues =
+                    new List<IIssue>
+                    {
+                    IssueBuilder
+                        .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                        .InFile(@"src\Cake.Issues.Reporting.Generic.Tests\Foo.cs")
+                        .Create(),
+                    };
+
+                // When
+                _ = fixture.CreateReport(issues, @"c:\Source\Cake.Issues.Reporting.Console");
+
+                // Then
+                fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) were filtered because they either don't belong to a file or the file does not exist.");
+            }
+
+            [Fact]
+            public void Should_Not_Filter_Issues_With_Existing_File()
+            {
+                // Given
+                var filePath = this.GetCallerFilePath();
+                var directory = Path.GetDirectoryName(filePath)!;
+                var fileName = Path.GetFileName(filePath);
+                var fixture = new ConsoleIssueReportFixture
+                {
+                    ConsoleIssueReportFormatSettings =
+                    {
+                        ShowDiagnostics = true
+                    }
+                };
+                var issues =
+                    new List<IIssue>
+                    {
+                    IssueBuilder
+                        .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                        .InFile(fileName)
+                        .Create(),
+                    };
+
+                // When
+                _ = fixture.CreateReport(issues, directory);
+
+                // Then
+                fixture.Log.Entries.ShouldContain(x => x.Message == "0 issue(s) were filtered because they either don't belong to a file or the file does not exist.");
+            }
+
+            private string GetCallerFilePath([CallerFilePath] string filePath = "") => filePath;
         }
     }
 }
