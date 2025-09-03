@@ -12,6 +12,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Testfiles\TestFile.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Cake.Issues.Reporting.Console\Cake.Issues.Reporting.Console.csproj" />
   </ItemGroup>
 </Project>

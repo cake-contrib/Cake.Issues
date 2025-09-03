@@ -1,6 +1,5 @@
 ﻿namespace Cake.Issues.Reporting.Console.Tests;
 
-using System.Runtime.CompilerServices;
 using Xunit.Abstractions;
 
 public sealed class ConsoleIssueReportGeneratorTests
@@ -166,7 +165,8 @@ public sealed class ConsoleIssueReportGeneratorTests
             public void Should_Not_Filter_Issues_With_Existing_File()
             {
                 // Given
-                var filePath = this.GetCallerFilePath();
+                using var tempSourceFile = new TemporarySourceFile("Testfiles.TestFile.txt");
+                var filePath = tempSourceFile.FilePath;
                 output.WriteLine($"File path: {filePath}");
                 var directory = Path.GetDirectoryName(filePath)!;
                 var fileName = Path.GetFileName(filePath);
@@ -192,8 +192,6 @@ public sealed class ConsoleIssueReportGeneratorTests
                 // Then
                 fixture.Log.Entries.ShouldContain(x => x.Message == "0 issue(s) were filtered because they either don't belong to a file or the file does not exist.");
             }
-
-            private string GetCallerFilePath([CallerFilePath] string filePath = "") => filePath;
         }
     }
 }
