@@ -53,6 +53,8 @@
     
       <link rel="stylesheet" href="../../../../../css/drawio-darkmode.css">
     
+      <link rel="stylesheet" href="../../../../../css/open_in_new_tab.css">
+    
     <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -6513,11 +6515,11 @@
   <h1>Rule URL Resolving</h1>
 
 <p>For cases where additional logic is required to determine the URL for a rule, the <code>Cake.Issue</code>
-addin provides the <a href="https://cakebuild.net/api/Cake.Issues/BaseRuleDescription/" target="_blank">BaseRuleDescription</a>
-and <a href="https://cakebuild.net/api/Cake.Issues/BaseRuleUrlResolver_1/" target="_blank">BaseRuleUrlResolver</a>
+addin provides the <a href="https://cakebuild.net/api/Cake.Issues/BaseRuleDescription/">BaseRuleDescription</a>
+and <a href="https://cakebuild.net/api/Cake.Issues/BaseRuleUrlResolver_1/">BaseRuleUrlResolver</a>
 classes for simplifying implementation of providing URLs linking to site providing information about issues.</p>
 <h2 id="implementing-ruleurlresolver">Implementing RuleUrlResolver<a class="headerlink" href="#implementing-ruleurlresolver" title="Permanent link">¶</a></h2>
-<p>In the issue provider a concrete class inheriting from <a href="https://cakebuild.net/api/Cake.Issues/BaseRuleDescription/" target="_blank">BaseRuleDescription</a>
+<p>In the issue provider a concrete class inheriting from <a href="https://cakebuild.net/api/Cake.Issues/BaseRuleDescription/">BaseRuleDescription</a>
 should be implemented containing all properties required to determine the URL to a rule.</p>
 <p>The following class adds two properties <code>Category</code> and <code>RuleId</code> to the description, to handle rules following a pattern like <code>ABC123</code>,
 where <code>ABC</code> is the <code>Category</code>, and <code>123</code> is the <code>RuleId</code>:</p>
@@ -6537,10 +6539,10 @@ where <code>ABC</code> is the <code>Category</code>, and <code>123</code> is the
 </span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">RuleId</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 </span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>A class inheriting from <a href="https://cakebuild.net/api/Cake.Issues/BaseRuleUrlResolver_1/" target="_blank">BaseRuleUrlResolver</a>
+<p>A class inheriting from <a href="https://cakebuild.net/api/Cake.Issues/BaseRuleUrlResolver_1/">BaseRuleUrlResolver</a>
 needs to be implemented containing an implementation of
-<a href="https://cakebuild.net/api/Cake.Issues/BaseRuleUrlResolver_1/D9DB5D44" target="_blank">TryGetRuleDescription</a>
-for parsing rule urls to the concrete <a href="https://cakebuild.net/api/Cake.Issues/BaseRuleDescription/" target="_blank">BaseRuleDescription</a>
+<a href="https://cakebuild.net/api/Cake.Issues/BaseRuleUrlResolver_1/D9DB5D44">TryGetRuleDescription</a>
+for parsing rule urls to the concrete <a href="https://cakebuild.net/api/Cake.Issues/BaseRuleDescription/">BaseRuleDescription</a>
 class.
 Additionally different resolvers need to be registered which return the actual URL based on the rule description.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="parsing-rule" name="__tabbed_1" type="radio"><input id="resolver-registration" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="parsing-rule">Parsing rule</label><label for="resolver-registration">Resolver registration</label></div>
@@ -6635,13 +6637,13 @@ Additionally different resolvers need to be registered which return the actual U
 </div>
 </div>
 </div>
-<p>To use the URL resolver the <a href="https://cakebuild.net/api/Cake.Issues/BaseRuleUrlResolver_1/6B23EC74" target="_blank">ResolveRuleUrl</a>
+<p>To use the URL resolver the <a href="https://cakebuild.net/api/Cake.Issues/BaseRuleUrlResolver_1/6B23EC74">ResolveRuleUrl</a>
 method can be called from the issue provider:</p>
 <div class="language-csharp highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kt">var</span><span class="w"> </span><span class="n">resolver</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MyRuleUrlResolver</span><span class="p">();</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kt">var</span><span class="w"> </span><span class="n">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">resolver</span><span class="p">.</span><span class="n">ResolveRuleUrl</span><span class="p">(</span><span class="n">rule</span><span class="p">)</span>
 </span></code></pre></div>
 <h2 id="support-custom-url-resolvers">Support custom URL resolvers<a class="headerlink" href="#support-custom-url-resolvers" title="Permanent link">¶</a></h2>
-<p>The <a href="https://cakebuild.net/api/Cake.Issues/BaseRuleUrlResolver_1/AAA4FB20" target="_blank">AddUrlResolver</a>
+<p>The <a href="https://cakebuild.net/api/Cake.Issues/BaseRuleUrlResolver_1/AAA4FB20">AddUrlResolver</a>
 method can also be called from a Cake alias to allow users of the addin to register custom resolvers.
 For this the URL resolver class needs to be implemented as a singleton:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="singleton" name="__tabbed_2" type="radio"><input id="parsing-rule_1" name="__tabbed_2" type="radio"><input id="resolver-registration_1" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="singleton">Singleton</label><label for="parsing-rule_1">Parsing rule</label><label for="resolver-registration_1">Resolver registration</label></div>
@@ -6896,6 +6898,8 @@ For this the URL resolver class needs to be implemented as a singleton:</p>
         <script src="../../../../../assets/javascripts/drawio-reload.js"></script>
       
         <script src="../../../../../js/drawio-darkmode.js"></script>
+      
+        <script src="../../../../../js/open_in_new_tab.js"></script>
       
     
   

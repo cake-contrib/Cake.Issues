@@ -53,6 +53,8 @@
     
       <link rel="stylesheet" href="../../../../css/drawio-darkmode.css">
     
+      <link rel="stylesheet" href="../../../../css/open_in_new_tab.css">
+    
     <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -6530,30 +6532,30 @@
 
   <h1>Features</h1>
 
-<p>The <a href="https://cakebuild.net/extensions/cake-issues-markdownlint/" target="_blank">Cake.Issues.Markdownlint addin</a>
+<p>The <a href="https://cakebuild.net/extensions/cake-issues-markdownlint/">Cake.Issues.Markdownlint addin</a>
 provides the following features.</p>
 <details class="tip">
 <summary>Tip: Running markdownlint</summary>
-<p><a href="https://github.com/igorshubovych/markdownlint-cli" target="_blank">markdownlint-cli</a>
-can be run with the <a href="https://cakebuild.net/extensions/cake-markdownlint/" target="_blank">Cake.Markdownlint</a>
+<p><a href="https://github.com/igorshubovych/markdownlint-cli">markdownlint-cli</a>
+can be run with the <a href="https://cakebuild.net/extensions/cake-markdownlint/">Cake.Markdownlint</a>
 addin.</p>
 </details>
 <h2 id="basic-features">Basic features<a class="headerlink" href="#basic-features" title="Permanent link">¶</a></h2>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked><span class="task-list-indicator"></span></label> Reads warnings from <a href="https://github.com/DavidAnson/markdownlint" target="_blank">Markdownlint</a> logfiles.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked><span class="task-list-indicator"></span></label> Reads warnings from <a href="https://github.com/DavidAnson/markdownlint">Markdownlint</a> logfiles.</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked><span class="task-list-indicator"></span></label> Provides URLs for all issues.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked><span class="task-list-indicator"></span></label> Support for custom URL resolving using the <a href="https://cakebuild.net/api/Cake.Issues.Markdownlint/MarkdownlintIssuesAliases/2EE35F55" target="_blank">MarkdownlintAddRuleUrlResolver</a>
-  alias (except for <a href="https://cakebuild.net/api/Cake.Issues.Markdownlint/MarkdownlintIssuesAliases/36DE6F5F" target="_blank">MarkdownlintCliJsonLogFileFormat</a>).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked><span class="task-list-indicator"></span></label> Support for custom URL resolving using the <a href="https://cakebuild.net/api/Cake.Issues.Markdownlint/MarkdownlintIssuesAliases/2EE35F55">MarkdownlintAddRuleUrlResolver</a>
+  alias (except for <a href="https://cakebuild.net/api/Cake.Issues.Markdownlint/MarkdownlintIssuesAliases/36DE6F5F">MarkdownlintCliJsonLogFileFormat</a>).</li>
 </ul>
 <h2 id="supported-log-file-formats">Supported log file formats<a class="headerlink" href="#supported-log-file-formats" title="Permanent link">¶</a></h2>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked><span class="task-list-indicator"></span></label> <a href="https://cakebuild.net/api/Cake.Issues.Markdownlint/MarkdownlintIssuesAliases/65609BEB" target="_blank">MarkdownlintV1LogFileFormat</a>
-  alias for reading issues from <a href="https://github.com/DavidAnson/markdownlint" target="_blank">Markdownlint</a>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked><span class="task-list-indicator"></span></label> <a href="https://cakebuild.net/api/Cake.Issues.Markdownlint/MarkdownlintIssuesAliases/65609BEB">MarkdownlintV1LogFileFormat</a>
+  alias for reading issues from <a href="https://github.com/DavidAnson/markdownlint">Markdownlint</a>
   output generated with <code>options.resultVersion</code> set to 1.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked><span class="task-list-indicator"></span></label> <a href="https://cakebuild.net/api/Cake.Issues.Markdownlint/MarkdownlintIssuesAliases/B518F49E" target="_blank">MarkdownlintCliLogFileFormat</a>
-  alias for reading issues from <a href="https://github.com/igorshubovych/markdownlint-cli" target="_blank">markdownlint-cli</a> log files.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked><span class="task-list-indicator"></span></label> <a href="https://cakebuild.net/api/Cake.Issues.Markdownlint/MarkdownlintIssuesAliases/36DE6F5F" target="_blank">MarkdownlintCliJsonLogFileFormat</a>
-  alias for reading issues from <a href="https://github.com/igorshubovych/markdownlint-cli" target="_blank">markdownlint-cli</a>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked><span class="task-list-indicator"></span></label> <a href="https://cakebuild.net/api/Cake.Issues.Markdownlint/MarkdownlintIssuesAliases/B518F49E">MarkdownlintCliLogFileFormat</a>
+  alias for reading issues from <a href="https://github.com/igorshubovych/markdownlint-cli">markdownlint-cli</a> log files.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked><span class="task-list-indicator"></span></label> <a href="https://cakebuild.net/api/Cake.Issues.Markdownlint/MarkdownlintIssuesAliases/36DE6F5F">MarkdownlintCliJsonLogFileFormat</a>
+  alias for reading issues from <a href="https://github.com/igorshubovych/markdownlint-cli">markdownlint-cli</a>
   log files created with the <code>--json</code> parameter.</li>
 </ul>
 <h2 id="supported-iissue-properties">Supported IIssue properties<a class="headerlink" href="#supported-iissue-properties" title="Permanent link">¶</a></h2>
@@ -6587,9 +6589,9 @@ addin.</p>
 <li>Can be set while reading issues</li>
 <li>Set to <code>IIssue.MessageText</code></li>
 <li>Can be set while reading issues</li>
-<li>Always <a href="https://cakebuild.net/api/Cake.Issues/IssuePriority/7A0CE07F" target="_blank">IssuePriority.Warning</a></li>
+<li>Always <a href="https://cakebuild.net/api/Cake.Issues/IssuePriority/7A0CE07F">IssuePriority.Warning</a></li>
 <li>Always <code>Warning</code></li>
-<li>Support for custom rules can be added through a custom <a href="https://cakebuild.net/api/Cake.Issues.Markdownlint/MarkdownlintIssuesAliases/2EE35F55" target="_blank">MarkdownlintAddRuleUrlResolver</a></li>
+<li>Support for custom rules can be added through a custom <a href="https://cakebuild.net/api/Cake.Issues.Markdownlint/MarkdownlintIssuesAliases/2EE35F55">MarkdownlintAddRuleUrlResolver</a></li>
 </ol>
 </div>
 <div class="tabbed-block">
@@ -6620,9 +6622,9 @@ addin.</p>
 <li>Can be set while reading issues</li>
 <li>Set to <code>IIssue.MessageText</code></li>
 <li>Can be set while reading issues</li>
-<li>Always <a href="https://cakebuild.net/api/Cake.Issues/IssuePriority/7A0CE07F" target="_blank">IssuePriority.Warning</a></li>
+<li>Always <a href="https://cakebuild.net/api/Cake.Issues/IssuePriority/7A0CE07F">IssuePriority.Warning</a></li>
 <li>Always <code>Warning</code></li>
-<li>Support for custom rules can be added through a custom <a href="https://cakebuild.net/api/Cake.Issues.Markdownlint/MarkdownlintIssuesAliases/2EE35F55" target="_blank">MarkdownlintAddRuleUrlResolver</a></li>
+<li>Support for custom rules can be added through a custom <a href="https://cakebuild.net/api/Cake.Issues.Markdownlint/MarkdownlintIssuesAliases/2EE35F55">MarkdownlintAddRuleUrlResolver</a></li>
 </ol>
 </div>
 <div class="tabbed-block">
@@ -6653,7 +6655,7 @@ addin.</p>
 <li>Can be set while reading issues</li>
 <li>Set to <code>IIssue.MessageText</code></li>
 <li>Can be set while reading issues</li>
-<li>Always <a href="https://cakebuild.net/api/Cake.Issues/IssuePriority/7A0CE07F" target="_blank">IssuePriority.Warning</a></li>
+<li>Always <a href="https://cakebuild.net/api/Cake.Issues/IssuePriority/7A0CE07F">IssuePriority.Warning</a></li>
 <li>Always <code>Warning</code></li>
 </ol>
 </div>
@@ -6751,6 +6753,8 @@ addin.</p>
         <script src="../../../../assets/javascripts/drawio-reload.js"></script>
       
         <script src="../../../../js/drawio-darkmode.js"></script>
+      
+        <script src="../../../../js/open_in_new_tab.js"></script>
       
     
   

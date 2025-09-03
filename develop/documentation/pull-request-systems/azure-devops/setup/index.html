@@ -53,6 +53,8 @@
     
       <link rel="stylesheet" href="../../../../css/drawio-darkmode.css">
     
+      <link rel="stylesheet" href="../../../../css/open_in_new_tab.css">
+    
     <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -6566,51 +6568,51 @@
 
   <h1>Setup</h1>
 
-<p>This page describes the different ways how the <a href="https://cakebuild.net/extensions/cake-issues-pullrequests-azuredevops/" target="_blank">Cake.Issues.PullRequests.AzureDevOps addin</a> can be setup.</p>
+<p>This page describes the different ways how the <a href="https://cakebuild.net/extensions/cake-issues-pullrequests-azuredevops/">Cake.Issues.PullRequests.AzureDevOps addin</a> can be setup.</p>
 <h2 id="ntlm-authentication">NTLM authentication<a class="headerlink" href="#ntlm-authentication" title="Permanent link">¶</a></h2>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>NTLM authentication is only available for on-premise Azure DevOps Server.</p>
 </div>
-<p>To authenticate with NTLM you can use the <a href="https://cakebuild.net/api/Cake.AzureDevOps/AzureDevOpsAliases/F2A040B7" target="_blank">AzureDevOpsAuthenticationNtlm</a> alias from the <a href="https://cakebuild.net/extensions/cake-azuredevops/" target="_blank">Cake.AzureDevOps addin</a>.</p>
+<p>To authenticate with NTLM you can use the <a href="https://cakebuild.net/api/Cake.AzureDevOps/AzureDevOpsAliases/F2A040B7">AzureDevOpsAuthenticationNtlm</a> alias from the <a href="https://cakebuild.net/extensions/cake-azuredevops/">Cake.AzureDevOps addin</a>.</p>
 <p>The user needs to have <code>Contribute to pull requests</code> permission for the specific repository to
-allow <a href="https://cakebuild.net/extensions/cake-issues-pullrequests-azuredevops/" target="_blank">Cake.Issues.PullRequests.AzureDevOps addin</a> to post issues as comments to pull requests.</p>
+allow <a href="https://cakebuild.net/extensions/cake-issues-pullrequests-azuredevops/">Cake.Issues.PullRequests.AzureDevOps addin</a> to post issues as comments to pull requests.</p>
 <h2 id="basic-authentication">Basic authentication<a class="headerlink" href="#basic-authentication" title="Permanent link">¶</a></h2>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>Basic authentication is only available for on-premise Azure DevOps Server.</p>
 </div>
-<p>To authenticate with basic authentication you can use the <a href="https://cakebuild.net/api/Cake.AzureDevOps/AzureDevOpsAliases/7CD679FF" target="_blank">AzureDevOpsAuthenticationBasic</a> alias from the <a href="https://cakebuild.net/extensions/cake-azuredevops/" target="_blank">Cake.AzureDevOps addin</a> and
-need to <a href="https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/auth/tfs-basic-auth#configure-for-basic-authentication" target="_blank">Configure Azure DevOps Server to use Basic Authentication</a>.</p>
+<p>To authenticate with basic authentication you can use the <a href="https://cakebuild.net/api/Cake.AzureDevOps/AzureDevOpsAliases/7CD679FF">AzureDevOpsAuthenticationBasic</a> alias from the <a href="https://cakebuild.net/extensions/cake-azuredevops/">Cake.AzureDevOps addin</a> and
+need to <a href="https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/auth/tfs-basic-auth#configure-for-basic-authentication">Configure Azure DevOps Server to use Basic Authentication</a>.</p>
 <p>The user needs to have <code>Contribute to pull requests</code> permission for the specific repository to
-allow <a href="https://cakebuild.net/extensions/cake-issues-pullrequests-azuredevops/" target="_blank">Cake.Issues.PullRequests.AzureDevOps addin</a> to post issues as comments to pull requests.</p>
+allow <a href="https://cakebuild.net/extensions/cake-issues-pullrequests-azuredevops/">Cake.Issues.PullRequests.AzureDevOps addin</a> to post issues as comments to pull requests.</p>
 <h2 id="personal-access-token">Personal access token<a class="headerlink" href="#personal-access-token" title="Permanent link">¶</a></h2>
-<p>To authenticate with an personal access token you can use the <a href="https://cakebuild.net/api/Cake.AzureDevOps/AzureDevOpsAliases/F4DCC101" target="_blank">AzureDevOpsAuthenticationPersonalAccessToken</a> alias from the <a href="https://cakebuild.net/extensions/cake-azuredevops/" target="_blank">Cake.AzureDevOps addin</a>.</p>
-<p>If you want to use the <a href="https://cakebuild.net/extensions/cake-issues-pullrequests-azuredevops/" target="_blank">Cake.Issues.PullRequests.AzureDevOps addin</a> with an personal access token see
-<a href="https://learn.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate" target="_blank">Authenticate access with personal access tokens for Azure DevOps</a> for instructions how to create
+<p>To authenticate with an personal access token you can use the <a href="https://cakebuild.net/api/Cake.AzureDevOps/AzureDevOpsAliases/F4DCC101">AzureDevOpsAuthenticationPersonalAccessToken</a> alias from the <a href="https://cakebuild.net/extensions/cake-azuredevops/">Cake.AzureDevOps addin</a>.</p>
+<p>If you want to use the <a href="https://cakebuild.net/extensions/cake-issues-pullrequests-azuredevops/">Cake.Issues.PullRequests.AzureDevOps addin</a> with an personal access token see
+<a href="https://learn.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate">Authenticate access with personal access tokens for Azure DevOps</a> for instructions how to create
 a personal access token.</p>
 <p>The access token needs to have the scope <code>Code (read and write)</code> set and the user needs to have <code>Contribute to pull requests</code>
-permission for the specific repository to allow <a href="https://cakebuild.net/extensions/cake-issues-pullrequests-azuredevops/" target="_blank">Cake.Issues.PullRequests.AzureDevOps addin</a> to post issues as comments to pull requests.</p>
+permission for the specific repository to allow <a href="https://cakebuild.net/extensions/cake-issues-pullrequests-azuredevops/">Cake.Issues.PullRequests.AzureDevOps addin</a> to post issues as comments to pull requests.</p>
 <h2 id="oauth-authentication-from-azure-pipelines">OAuth authentication from Azure Pipelines<a class="headerlink" href="#oauth-authentication-from-azure-pipelines" title="Permanent link">¶</a></h2>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>OAuth authentication is only available for Azure DevOps Service.</p>
 </div>
-<p>If you want to use the <a href="https://cakebuild.net/extensions/cake-issues-pullrequests-azuredevops/" target="_blank">Cake.Issues.PullRequests.AzureDevOps addin</a> from an Azure Pipelines you can authenticate using the
+<p>If you want to use the <a href="https://cakebuild.net/extensions/cake-issues-pullrequests-azuredevops/">Cake.Issues.PullRequests.AzureDevOps addin</a> from an Azure Pipelines you can authenticate using the
 OAuth token provided to the build.
-For this you need to enable the <a href="https://learn.microsoft.com/en-us/azure/devops/pipelines/release/options?view=azure-devops#allow-scripts-to-access-the-oauth-token" target="_blank">Allow scripts to access the OAuth token</a> option on the build definition.</p>
-<p>To authenticate you can use the <a href="https://cakebuild.net/api/Cake.AzureDevOps/AzureDevOpsAliases/988E9C28" target="_blank">AzureDevOpsAuthenticationOAuth</a> alias from the <a href="https://cakebuild.net/extensions/cake-azuredevops/" target="_blank">Cake.AzureDevOps addin</a>.</p>
+For this you need to enable the <a href="https://learn.microsoft.com/en-us/azure/devops/pipelines/release/options?view=azure-devops#allow-scripts-to-access-the-oauth-token">Allow scripts to access the OAuth token</a> option on the build definition.</p>
+<p>To authenticate you can use the <a href="https://cakebuild.net/api/Cake.AzureDevOps/AzureDevOpsAliases/988E9C28">AzureDevOpsAuthenticationOAuth</a> alias from the <a href="https://cakebuild.net/extensions/cake-azuredevops/">Cake.AzureDevOps addin</a>.</p>
 <p>The user under which the build runs, named <code>&lt;projectName&gt; Build Service (&lt;organizationName&gt;)</code> (e.g. <code>Cake.Issues-Demo Build Service (cake-contrib)</code>),
-needs to have <code>Contribute to pull requests</code> permission for the specific repository to allow <a href="https://cakebuild.net/extensions/cake-issues-pullrequests-azuredevops/" target="_blank">Cake.Issues.PullRequests.AzureDevOps addin</a>
+needs to have <code>Contribute to pull requests</code> permission for the specific repository to allow <a href="https://cakebuild.net/extensions/cake-issues-pullrequests-azuredevops/">Cake.Issues.PullRequests.AzureDevOps addin</a>
 to post issues as comments to pull requests.</p>
 <h2 id="entra-authentication">Entra authentication<a class="headerlink" href="#entra-authentication" title="Permanent link">¶</a></h2>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>Entra authentication is only available for Azure DevOps Service.</p>
 </div>
-<p>To authenticate with Entra ID you can use the <a href="https://cakebuild.net/api/Cake.AzureDevOps/AzureDevOpsAliases/0B9F5DF6" target="_blank">AzureDevOpsAuthenticationAzureActiveDirectory</a> alias from the <a href="https://cakebuild.net/extensions/cake-azuredevops/" target="_blank">Cake.AzureDevOps addin</a>.</p>
+<p>To authenticate with Entra ID you can use the <a href="https://cakebuild.net/api/Cake.AzureDevOps/AzureDevOpsAliases/0B9F5DF6">AzureDevOpsAuthenticationAzureActiveDirectory</a> alias from the <a href="https://cakebuild.net/extensions/cake-azuredevops/">Cake.AzureDevOps addin</a>.</p>
 <p>The user needs to have <code>Contribute to pull requests</code> permission for the specific repository to
-allow <a href="https://cakebuild.net/extensions/cake-issues-pullrequests-azuredevops/" target="_blank">Cake.Issues.PullRequests.AzureDevOps addin</a> to post issues as comments to pull requests.</p>
+allow <a href="https://cakebuild.net/extensions/cake-issues-pullrequests-azuredevops/">Cake.Issues.PullRequests.AzureDevOps addin</a> to post issues as comments to pull requests.</p>
 <!-- Glossary for terms and concepts not documented on cakeissues.net -->
 
 
@@ -6703,6 +6705,8 @@ allow <a href="https://cakebuild.net/extensions/cake-issues-pullrequests-azurede
         <script src="../../../../assets/javascripts/drawio-reload.js"></script>
       
         <script src="../../../../js/drawio-darkmode.js"></script>
+      
+        <script src="../../../../js/open_in_new_tab.js"></script>
       
     
   

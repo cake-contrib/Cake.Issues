@@ -53,6 +53,8 @@
     
       <link rel="stylesheet" href="../../../../../css/drawio-darkmode.css">
     
+      <link rel="stylesheet" href="../../../../../css/open_in_new_tab.css">
+    
     <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -6549,12 +6551,12 @@
   <h1>Multiple Log File Formats</h1>
 
 <p>A single issue provider might support reading issues from multiple different log file formats.
-For these cases the <code>Cake.Issue</code> addin provides the <a href="https://cakebuild.net/api/Cake.Issues/BaseMultiFormatIssueProvider_2/" target="_blank">BaseMultiFormatIssueProvider</a>,
-<a href="https://cakebuild.net/api/Cake.Issues/BaseMultiFormatIssueProviderSettings_2/" target="_blank">BaseMultiFormatIssueProviderSettings</a>
-and <a href="https://cakebuild.net/api/Cake.Issues/BaseLogFileFormat_2/" target="_blank">BaseLogFileFormat</a>
+For these cases the <code>Cake.Issue</code> addin provides the <a href="https://cakebuild.net/api/Cake.Issues/BaseMultiFormatIssueProvider_2/">BaseMultiFormatIssueProvider</a>,
+<a href="https://cakebuild.net/api/Cake.Issues/BaseMultiFormatIssueProviderSettings_2/">BaseMultiFormatIssueProviderSettings</a>
+and <a href="https://cakebuild.net/api/Cake.Issues/BaseLogFileFormat_2/">BaseLogFileFormat</a>
 classes for simplifying implementation in the issue provider addin.</p>
 <h2 id="implementing-issue-provider">Implementing issue provider<a class="headerlink" href="#implementing-issue-provider" title="Permanent link">¶</a></h2>
-<p>A concrete class inheriting from <a href="https://cakebuild.net/api/Cake.Issues/BaseMultiFormatIssueProvider_2/" target="_blank">BaseMultiFormatIssueProvider</a>
+<p>A concrete class inheriting from <a href="https://cakebuild.net/api/Cake.Issues/BaseMultiFormatIssueProvider_2/">BaseMultiFormatIssueProvider</a>
 needs to be implemented defining the concrete types.</p>
 <div class="language-csharp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">/// &lt;summary&gt;</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1">/// My issue provider.</span>
@@ -6570,7 +6572,7 @@ needs to be implemented defining the concrete types.</p>
 </span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">ProviderName</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"MyIssuesProvider"</span><span class="p">;</span>
 </span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Also a concrete class inheriting from <a href="https://cakebuild.net/api/Cake.Issues/BaseMultiFormatIssueProviderSettings_2/" target="_blank">BaseMultiFormatIssueProviderSettings</a>
+<p>Also a concrete class inheriting from <a href="https://cakebuild.net/api/Cake.Issues/BaseMultiFormatIssueProviderSettings_2/">BaseMultiFormatIssueProviderSettings</a>
 needs to be implemented defining the concrete types.
 Based on the capabilities of the log file formats the appropriate constructors for reading from the file system
 or memory can be made public:</p>
@@ -6608,7 +6610,7 @@ or memory can be made public:</p>
 </span><span id="__span-1-32"><a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a><span class="p">}</span>
 </span></code></pre></div>
 <h2 id="implementing-log-file-format-infrastructure">Implementing log file format infrastructure<a class="headerlink" href="#implementing-log-file-format-infrastructure" title="Permanent link">¶</a></h2>
-<p>An abstract class inheriting from <a href="https://cakebuild.net/api/Cake.Issues/BaseLogFileFormat_2/" target="_blank">BaseLogFileFormat</a>
+<p>An abstract class inheriting from <a href="https://cakebuild.net/api/Cake.Issues/BaseLogFileFormat_2/">BaseLogFileFormat</a>
 needs to be implemented defining the concrete types for the issue provider:</p>
 <div class="language-csharp highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">/// &lt;summary&gt;</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="c1">/// Base class for all log file formats supported by my issue provider.</span>
@@ -7353,6 +7355,8 @@ Finally an additional property alias for returning the provider type name should
         <script src="../../../../../assets/javascripts/drawio-reload.js"></script>
       
         <script src="../../../../../js/drawio-darkmode.js"></script>
+      
+        <script src="../../../../../js/open_in_new_tab.js"></script>
       
     
   

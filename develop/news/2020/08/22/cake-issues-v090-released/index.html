@@ -51,6 +51,8 @@
     
       <link rel="stylesheet" href="../../../../../css/drawio-darkmode.css">
     
+      <link rel="stylesheet" href="../../../../../css/open_in_new_tab.css">
+    
     <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -6599,26 +6601,26 @@ For update instructions skip to <a href="#updating-from-previous-versions">Updat
 <p>❤ Huge thanks to our community! This release would not have been possible without your support and contributions! ❤</p>
 <p>People working on this release:</p>
 <ul>
-<li><a href="https://github.com/AdmiringWorm" target="_blank">AdmiringWorm</a></li>
-<li><a href="https://github.com/christianbumann" target="_blank">christianbumann</a></li>
-<li><a href="https://github.com/eoehen" target="_blank">eoehen</a></li>
-<li><a href="https://github.com/gep13" target="_blank">gep13</a></li>
-<li><a href="https://github.com/janniksam" target="_blank">janniksam</a></li>
-<li><a href="https://github.com/mholo65" target="_blank">mholo65</a></li>
-<li><a href="https://github.com/pascalberger" target="_blank">pascalberger</a></li>
-<li><a href="https://github.com/Speeedy01" target="_blank">Speeedy01</a></li>
-<li><a href="https://github.com/jokay" target="_blank">jokay</a></li>
+<li><a href="https://github.com/AdmiringWorm">AdmiringWorm</a></li>
+<li><a href="https://github.com/christianbumann">christianbumann</a></li>
+<li><a href="https://github.com/eoehen">eoehen</a></li>
+<li><a href="https://github.com/gep13">gep13</a></li>
+<li><a href="https://github.com/janniksam">janniksam</a></li>
+<li><a href="https://github.com/mholo65">mholo65</a></li>
+<li><a href="https://github.com/pascalberger">pascalberger</a></li>
+<li><a href="https://github.com/Speeedy01">Speeedy01</a></li>
+<li><a href="https://github.com/jokay">jokay</a></li>
 </ul>
 <h2 id="full-cross-platform-support">Full cross-platform support<a class="headerlink" href="#full-cross-platform-support" title="Permanent link">¶</a></h2>
 <p>While in previous versions most parts of Cake Issues was already targeting .NET Standard and with this could be executed on
 .NET Framework, .NET Core and Mono, <code>Cake.Issues.Reporting.Generic</code> could only run on .NET Framework and Mono, but not on
 .NET Core.
 With this release <code>Cake.Issues.Reporting.Generic</code> was ported to also run on .NET Core.</p>
-<p>The migration was done by <a href="https://github.com/gep13" target="_blank">gep13</a> on his
-<a href="https://www.twitch.tv/gep13" target="_blank">Twitch stream</a> and you
-can watch work done in <a href="https://www.youtube.com/watch?v=7roa5Q6KcrQ" target="_blank">Stream 90 - Working on Cake.Issues.Recipe</a>,
-<a href="https://www.youtube.com/watch?v=ocacOz3CxME" target="_blank">Stream 91 - Working on Cake.Issues.Reporting.Generic and Gazorator</a> and
-<a href="https://www.youtube.com/watch?v=P0IpkL9gUAE" target="_blank">Stream 92 - Working on Cake.Issues.Reporting.Generic and Gazorator - Part 2</a>.</p>
+<p>The migration was done by <a href="https://github.com/gep13">gep13</a> on his
+<a href="https://www.twitch.tv/gep13">Twitch stream</a> and you
+can watch work done in <a href="https://www.youtube.com/watch?v=7roa5Q6KcrQ">Stream 90 - Working on Cake.Issues.Recipe</a>,
+<a href="https://www.youtube.com/watch?v=ocacOz3CxME">Stream 91 - Working on Cake.Issues.Reporting.Generic and Gazorator</a> and
+<a href="https://www.youtube.com/watch?v=P0IpkL9gUAE">Stream 92 - Working on Cake.Issues.Reporting.Generic and Gazorator - Part 2</a>.</p>
 <h2 id="enhanced-issue-information">Enhanced issue information<a class="headerlink" href="#enhanced-issue-information" title="Permanent link">¶</a></h2>
 <p>The description for issues has been extended by additional information for column and ranges:</p>
 <ul>
@@ -6712,7 +6714,7 @@ This section documents the most common changes which might be required:</p>
     Older version are still supported for deserialization.</li>
 <li>Cake.Issues.Markdownlint</li>
 <li><code>MarkdownlintLogFileFormat</code> alias has been renamed to <code>MarkdownlintV1LogFileFormat</code>
-    (<a href="https://github.com/cake-contrib/Cake.Issues.Markdownlint/issues/116" target="_blank">#116</a>).</li>
+    (<a href="https://github.com/cake-contrib/Cake.Issues.Markdownlint/issues/116">#116</a>).</li>
 <li>Cake.Issues.PullRequest</li>
 <li><code>ReportIssuesToPullRequest</code> alias which accepts an issue provider, or a list of issue providers, and settings requires now settings of type
     <code>IReportIssuesToPullRequestFromIssueProviderSettings</code> instead of <code>ReportIssuesToPullRequestSettings</code> to
@@ -6728,30 +6730,30 @@ This section documents the most common changes which might be required:</p>
 <li><code>HtmlDxDataGridOption.FileLinkSettings</code> has been removed.
     File link settings can now be defined while reading the issues.
     For details see <a href="#file-linking">File linking</a>.
-    (<a href="https://github.com/cake-contrib/Cake.Issues.Reporting.Generic/issues/265" target="_blank">#265</a>).</li>
+    (<a href="https://github.com/cake-contrib/Cake.Issues.Reporting.Generic/issues/265">#265</a>).</li>
 <li><code>HtmlDxDataGridOption.JSZipLocation</code> has been split into <code>HtmlDxDataGridOption.JsZipLocation</code> and
     <code>HtmlDxDataGridOption.JsZipVersion</code>
-    (<a href="https://github.com/cake-contrib/Cake.Issues.Reporting.Generic/issues/320" target="_blank">#320</a>).</li>
+    (<a href="https://github.com/cake-contrib/Cake.Issues.Reporting.Generic/issues/320">#320</a>).</li>
 <li>Cake.Issues.Recipe</li>
 <li>Cake.Issues.Recipe requires at least Cake 0.38.0</li>
 </ul>
 <p>For details see release notes of the individual <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr>:</p>
 <ul>
-<li><a href="https://github.com/cake-contrib/Cake.Issues/releases/tag/0.9.0" target="_blank">Cake.Issues 0.9.0</a></li>
-<li><a href="https://github.com/cake-contrib/Cake.Issues.MsBuild/releases/tag/0.9.0" target="_blank">Cake.Issues.MsBuild 0.9.0</a></li>
-<li><a href="https://github.com/cake-contrib/Cake.Issues.InspectCode/releases/tag/0.9.0" target="_blank">Cake.Issues.InspectCode 0.9.0</a></li>
-<li><a href="https://github.com/cake-contrib/Cake.Issues.DupFinder/releases/tag/0.9.0" target="_blank">Cake.Issues.DupFinder 0.9.0</a></li>
-<li><a href="https://github.com/cake-contrib/Cake.Issues.GitRepository/releases/tag/0.9.0" target="_blank">Cake.Issues.GitRepository 0.9.0</a></li>
-<li><a href="https://github.com/cake-contrib/Cake.Issues.Markdownlint/releases/tag/0.9.0" target="_blank">Cake.Issues.Markdownlint 0.9.0</a></li>
-<li><a href="https://github.com/cake-contrib/Cake.Issues.EsLint/releases/tag/0.9.0" target="_blank">Cake.Issues.EsLint 0.9.0</a></li>
-<li><a href="https://github.com/cake-contrib/Cake.Issues.DocFx/releases/tag/0.9.0" target="_blank">Cake.Issues.DocFx 0.9.0</a></li>
-<li><a href="https://github.com/cake-contrib/Cake.Issues.PullRequests/releases/tag/0.9.0" target="_blank">Cake.Issues.PullRequests 0.9.0</a></li>
-<li><a href="https://github.com/cake-contrib/Cake.Issues.PullRequests.AzureDevOps/releases/tag/0.9.0" target="_blank">Cake.Issues.PullRequests.AzureDevOps 0.9.0</a></li>
-<li><a href="https://github.com/cake-contrib/Cake.Issues.PullRequests.AppVeyor/releases/tag/0.9.0" target="_blank">Cake.Issues.PullRequests.AppVeyor 0.9.0</a></li>
-<li><a href="https://github.com/cake-contrib/Cake.Issues.Reporting/releases/tag/0.9.0" target="_blank">Cake.Issues.Reporting 0.9.0</a></li>
-<li><a href="https://github.com/cake-contrib/Cake.Issues.Reporting.Generic/releases/tag/0.9.0" target="_blank">Cake.Issues.Reporting.Generic 0.9.0</a></li>
-<li><a href="https://github.com/cake-contrib/Cake.Issues.Reporting.Sarif/releases/tag/0.9.0" target="_blank">Cake.Issues.Reporting.Sarif 0.9.0</a></li>
-<li><a href="https://github.com/cake-contrib/Cake.Issues.Recipe/releases/tag/0.4.0" target="_blank">Cake.Issues.Recipe 0.4.0</a></li>
+<li><a href="https://github.com/cake-contrib/Cake.Issues/releases/tag/0.9.0">Cake.Issues 0.9.0</a></li>
+<li><a href="https://github.com/cake-contrib/Cake.Issues.MsBuild/releases/tag/0.9.0">Cake.Issues.MsBuild 0.9.0</a></li>
+<li><a href="https://github.com/cake-contrib/Cake.Issues.InspectCode/releases/tag/0.9.0">Cake.Issues.InspectCode 0.9.0</a></li>
+<li><a href="https://github.com/cake-contrib/Cake.Issues.DupFinder/releases/tag/0.9.0">Cake.Issues.DupFinder 0.9.0</a></li>
+<li><a href="https://github.com/cake-contrib/Cake.Issues.GitRepository/releases/tag/0.9.0">Cake.Issues.GitRepository 0.9.0</a></li>
+<li><a href="https://github.com/cake-contrib/Cake.Issues.Markdownlint/releases/tag/0.9.0">Cake.Issues.Markdownlint 0.9.0</a></li>
+<li><a href="https://github.com/cake-contrib/Cake.Issues.EsLint/releases/tag/0.9.0">Cake.Issues.EsLint 0.9.0</a></li>
+<li><a href="https://github.com/cake-contrib/Cake.Issues.DocFx/releases/tag/0.9.0">Cake.Issues.DocFx 0.9.0</a></li>
+<li><a href="https://github.com/cake-contrib/Cake.Issues.PullRequests/releases/tag/0.9.0">Cake.Issues.PullRequests 0.9.0</a></li>
+<li><a href="https://github.com/cake-contrib/Cake.Issues.PullRequests.AzureDevOps/releases/tag/0.9.0">Cake.Issues.PullRequests.AzureDevOps 0.9.0</a></li>
+<li><a href="https://github.com/cake-contrib/Cake.Issues.PullRequests.AppVeyor/releases/tag/0.9.0">Cake.Issues.PullRequests.AppVeyor 0.9.0</a></li>
+<li><a href="https://github.com/cake-contrib/Cake.Issues.Reporting/releases/tag/0.9.0">Cake.Issues.Reporting 0.9.0</a></li>
+<li><a href="https://github.com/cake-contrib/Cake.Issues.Reporting.Generic/releases/tag/0.9.0">Cake.Issues.Reporting.Generic 0.9.0</a></li>
+<li><a href="https://github.com/cake-contrib/Cake.Issues.Reporting.Sarif/releases/tag/0.9.0">Cake.Issues.Reporting.Sarif 0.9.0</a></li>
+<li><a href="https://github.com/cake-contrib/Cake.Issues.Recipe/releases/tag/0.4.0">Cake.Issues.Recipe 0.4.0</a></li>
 </ul>
 <!-- Glossary for terms and concepts not documented on cakeissues.net -->
 
@@ -6847,6 +6849,8 @@ This section documents the most common changes which might be required:</p>
         <script src="../../../../../assets/javascripts/drawio-reload.js"></script>
       
         <script src="../../../../../js/drawio-darkmode.js"></script>
+      
+        <script src="../../../../../js/open_in_new_tab.js"></script>
       
     
   

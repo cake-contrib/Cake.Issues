@@ -53,6 +53,8 @@
     
       <link rel="stylesheet" href="../../../../../css/drawio-darkmode.css">
     
+      <link rel="stylesheet" href="../../../../../css/open_in_new_tab.css">
+    
     <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -6593,7 +6595,7 @@
 
   <h1>Cake Issues v1.0.0 Released</h1>
 
-<p>More than 4 years after the <a href="https://github.com/cake-contrib/Cake.Prca/commit/438b3a1a609e5b9cc9e6f8f489a73988f9ed1f4d" target="_blank">first commit for Cake.Prca</a>,
+<p>More than 4 years after the <a href="https://github.com/cake-contrib/Cake.Prca/commit/438b3a1a609e5b9cc9e6f8f489a73988f9ed1f4d">first commit for Cake.Prca</a>,
 the predecessor of Cake Issues, we're happy to announce that Cake Issues version 1.0.0 has been released.
 This is a major release bringing a lot of new features across all <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr>.</p>
 <!-- more -->
@@ -6603,32 +6605,32 @@ For update instructions skip to <a href="#updating-from-previous-versions">Updat
 <p>❤ Huge thanks to our community! This release would not have been possible without your support and contributions! ❤</p>
 <p>People working on this release:</p>
 <ul>
-<li><a href="https://github.com/eoehen" target="_blank">eoehen</a></li>
-<li><a href="https://github.com/janniksam" target="_blank">janniksam</a></li>
-<li><a href="https://github.com/pascalberger" target="_blank">pascalberger</a></li>
-<li><a href="https://github.com/phlorian" target="_blank">phlorian</a></li>
-<li><a href="https://github.com/jokay" target="_blank">jokay</a></li>
+<li><a href="https://github.com/eoehen">eoehen</a></li>
+<li><a href="https://github.com/janniksam">janniksam</a></li>
+<li><a href="https://github.com/pascalberger">pascalberger</a></li>
+<li><a href="https://github.com/phlorian">phlorian</a></li>
+<li><a href="https://github.com/jokay">jokay</a></li>
 </ul>
 <h2 id="support-for-cake-10">Support for Cake 1.0<a class="headerlink" href="#support-for-cake-10" title="Permanent link">¶</a></h2>
 <p>All <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr> have been updated to support Cake 1.x.</p>
 <h2 id="support-for-cake-frosting">Support for Cake Frosting<a class="headerlink" href="#support-for-cake-frosting" title="Permanent link">¶</a></h2>
-<p>All <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr> can be used with <a href="https://cakebuild.net/docs/running-builds/runners/cake-frosting" target="_blank">Cake Frosting</a>.</p>
+<p>All <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr> can be used with <a href="https://cakebuild.net/docs/running-builds/runners/cake-frosting">Cake Frosting</a>.</p>
 <p>Cake Issues <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr> have always been self-contained, shipping with all required dependencies, to provide the best user experience.
 While this approach makes sense for Cake script runners, it makes things more complex than required when running under <a href="https://cakebuild.net/docs/running-builds/runners/cake-frosting">Cake Frosting</a>.
 This is especially true for the <a href="../../../../../documentation/report-formats/generic/">Cake.Issues.Reporting.Generic addin</a>, which uses Razor engine to generate the reports.</p>
 <p>It was therefore decided to release separate versions of the Cake.Issues.Reporting.Generic addin for the different script runners:</p>
 <ul>
-<li><a href="https://cakebuild.net/extensions/cake-issues-reporting-generic/" target="_blank">Cake.Issues.Reporting.Generic</a>: The addin packaged in a self-contained NuGet package for use with Cake script runners</li>
-<li><a href="https://www.nuget.org/packages/Cake.Frosting.Issues.Reporting.Generic/" target="_blank">Cake.Frosting.Issues.Reporting.Generic</a>: The addin packaged in a NuGet package containing dependencies for use with <a href="https://cakebuild.net/docs/running-builds/runners/cake-frosting">Cake Frosting</a></li>
+<li><a href="https://cakebuild.net/extensions/cake-issues-reporting-generic/">Cake.Issues.Reporting.Generic</a>: The addin packaged in a self-contained NuGet package for use with Cake script runners</li>
+<li><a href="https://www.nuget.org/packages/Cake.Frosting.Issues.Reporting.Generic/">Cake.Frosting.Issues.Reporting.Generic</a>: The addin packaged in a NuGet package containing dependencies for use with <a href="https://cakebuild.net/docs/running-builds/runners/cake-frosting">Cake Frosting</a></li>
 </ul>
-<p><a href="https://www.nuget.org/packages/Cake.Frosting.Issues.Reporting.Generic/" target="_blank">Cake.Frosting.Issues.Reporting.Generic</a> has the additional benefit for the user that it gives the user full control
+<p><a href="https://www.nuget.org/packages/Cake.Frosting.Issues.Reporting.Generic/">Cake.Frosting.Issues.Reporting.Generic</a> has the additional benefit for the user that it gives the user full control
 of what exact version of dependencies should be used.
 In the future more Cake Issues <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr> might be released in Frosting specific packages.</p>
 <h2 id="support-for-arbitrary-values-in-an-issue">Support for arbitrary values in an issue<a class="headerlink" href="#support-for-arbitrary-values-in-an-issue" title="Permanent link">¶</a></h2>
 <p>Specific issue providers might have additional information for which no equivalent does exist on <code>IIssue</code>.
 These kind of information can now be stored in the <code>IIssue.AdditionalInformation</code> property.</p>
 <h2 id="new-provider-type-property">New provider type property<a class="headerlink" href="#new-provider-type-property" title="Permanent link">¶</a></h2>
-<p>While there are <abbr title="Aliases are convenience methods that are easily accessible directly from a Cake build">aliases</abbr> to get provider type name (e.g. <a href="https://cakebuild.net/api/Cake.Issues.MsBuild/MsBuildIssuesAliases/0A221402" target="_blank">MsBuildIssuesProviderTypeName</a>), this information was in previous versions
+<p>While there are <abbr title="Aliases are convenience methods that are easily accessible directly from a Cake build">aliases</abbr> to get provider type name (e.g. <a href="https://cakebuild.net/api/Cake.Issues.MsBuild/MsBuildIssuesAliases/0A221402">MsBuildIssuesProviderTypeName</a>), this information was in previous versions
 not available through the <code>IIssueProvider</code> interface.
 There is a new <code>IIssueProvider.ProviderType</code> property which can be used to retrieve the provider type.</p>
 <h2 id="pdf-export">PDF export<a class="headerlink" href="#pdf-export" title="Permanent link">¶</a></h2>
@@ -6636,8 +6638,8 @@ There is a new <code>IIssueProvider.ProviderType</code> property which can be us
 <h2 id="simplified-release-process">Simplified release process<a class="headerlink" href="#simplified-release-process" title="Permanent link">¶</a></h2>
 <p>Starting with Cake Issues 1.0.0 the three core <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr> <code>Cake.Issues</code>, <code>Cake.Issues.PullRequests</code> and
 <code>Cake.Issues.Reporting</code> will be always released together.
-For that source code for the addin has been merged in the <a href="https://github.com/cake-contrib/Cake.Issues" target="_blank">Cake.Issues repository</a>.
-Please open any issues related to any of the core <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr> in the <a href="https://github.com/cake-contrib/Cake.Issues/issues" target="_blank">Cake.Issues issue tracker</a>.</p>
+For that source code for the addin has been merged in the <a href="https://github.com/cake-contrib/Cake.Issues">Cake.Issues repository</a>.
+Please open any issues related to any of the core <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr> in the <a href="https://github.com/cake-contrib/Cake.Issues/issues">Cake.Issues issue tracker</a>.</p>
 <h2 id="updating-from-previous-versions">Updating from previous versions<a class="headerlink" href="#updating-from-previous-versions" title="Permanent link">¶</a></h2>
 <p>Cake.Issues 1.0.0 is a breaking release, which means that it probably requires changes to your build script.
 This section documents the most common changes which might be required:</p>
@@ -6655,21 +6657,21 @@ This section documents the most common changes which might be required:</p>
 </div>
 <p>For details see release notes of the individual <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr>:</p>
 <ul>
-<li><a href="https://github.com/cake-contrib/Cake.Issues/releases/tag/1.0.0" target="_blank">Cake.Issues 1.0.0</a></li>
-<li><a href="https://github.com/cake-contrib/Cake.Issues.MsBuild/releases/tag/1.0.0" target="_blank">Cake.Issues.MsBuild 1.0.0</a></li>
-<li><a href="https://github.com/cake-contrib/Cake.Issues.InspectCode/releases/tag/1.0.0" target="_blank">Cake.Issues.InspectCode 1.0.0</a></li>
-<li><a href="https://github.com/cake-contrib/Cake.Issues.DupFinder/releases/tag/1.0.0" target="_blank">Cake.Issues.DupFinder 1.0.0</a></li>
-<li><a href="https://github.com/cake-contrib/Cake.Issues.GitRepository/releases/tag/1.0.0" target="_blank">Cake.Issues.GitRepository 1.0.0</a></li>
-<li><a href="https://github.com/cake-contrib/Cake.Issues.Markdownlint/releases/tag/1.0.0" target="_blank">Cake.Issues.Markdownlint 1.0.0</a></li>
-<li><a href="https://github.com/cake-contrib/Cake.Issues.EsLint/releases/tag/1.0.0" target="_blank">Cake.Issues.EsLint 1.0.0</a></li>
-<li><a href="https://github.com/cake-contrib/Cake.Issues.DocFx/releases/tag/1.0.0" target="_blank">Cake.Issues.DocFx 1.0.0</a></li>
-<li><a href="https://github.com/cake-contrib/Cake.Issues.Terraform/releases/tag/1.0.0" target="_blank">Cake.Issues.Terraform 1.0.0</a></li>
-<li><a href="https://github.com/cake-contrib/Cake.Issues.PullRequests/releases/tag/1.0.0" target="_blank">Cake.Issues.PullRequests 1.0.0</a></li>
-<li><a href="https://github.com/cake-contrib/Cake.Issues.PullRequests.AzureDevOps/releases/tag/1.0.0" target="_blank">Cake.Issues.PullRequests.AzureDevOps 1.0.0</a></li>
-<li><a href="https://github.com/cake-contrib/Cake.Issues.PullRequests.AppVeyor/releases/tag/1.0.0" target="_blank">Cake.Issues.PullRequests.AppVeyor 1.0.0</a></li>
-<li><a href="https://github.com/cake-contrib/Cake.Issues.Reporting/releases/tag/1.0.0" target="_blank">Cake.Issues.Reporting 1.0.0</a></li>
-<li><a href="https://github.com/cake-contrib/Cake.Issues.Reporting.Generic/releases/tag/1.0.0" target="_blank">Cake.Issues.Reporting.Generic 1.0.0</a></li>
-<li><a href="https://github.com/cake-contrib/Cake.Issues.Reporting.Sarif/releases/tag/1.0.0" target="_blank">Cake.Issues.Reporting.Sarif 1.0.0</a></li>
+<li><a href="https://github.com/cake-contrib/Cake.Issues/releases/tag/1.0.0">Cake.Issues 1.0.0</a></li>
+<li><a href="https://github.com/cake-contrib/Cake.Issues.MsBuild/releases/tag/1.0.0">Cake.Issues.MsBuild 1.0.0</a></li>
+<li><a href="https://github.com/cake-contrib/Cake.Issues.InspectCode/releases/tag/1.0.0">Cake.Issues.InspectCode 1.0.0</a></li>
+<li><a href="https://github.com/cake-contrib/Cake.Issues.DupFinder/releases/tag/1.0.0">Cake.Issues.DupFinder 1.0.0</a></li>
+<li><a href="https://github.com/cake-contrib/Cake.Issues.GitRepository/releases/tag/1.0.0">Cake.Issues.GitRepository 1.0.0</a></li>
+<li><a href="https://github.com/cake-contrib/Cake.Issues.Markdownlint/releases/tag/1.0.0">Cake.Issues.Markdownlint 1.0.0</a></li>
+<li><a href="https://github.com/cake-contrib/Cake.Issues.EsLint/releases/tag/1.0.0">Cake.Issues.EsLint 1.0.0</a></li>
+<li><a href="https://github.com/cake-contrib/Cake.Issues.DocFx/releases/tag/1.0.0">Cake.Issues.DocFx 1.0.0</a></li>
+<li><a href="https://github.com/cake-contrib/Cake.Issues.Terraform/releases/tag/1.0.0">Cake.Issues.Terraform 1.0.0</a></li>
+<li><a href="https://github.com/cake-contrib/Cake.Issues.PullRequests/releases/tag/1.0.0">Cake.Issues.PullRequests 1.0.0</a></li>
+<li><a href="https://github.com/cake-contrib/Cake.Issues.PullRequests.AzureDevOps/releases/tag/1.0.0">Cake.Issues.PullRequests.AzureDevOps 1.0.0</a></li>
+<li><a href="https://github.com/cake-contrib/Cake.Issues.PullRequests.AppVeyor/releases/tag/1.0.0">Cake.Issues.PullRequests.AppVeyor 1.0.0</a></li>
+<li><a href="https://github.com/cake-contrib/Cake.Issues.Reporting/releases/tag/1.0.0">Cake.Issues.Reporting 1.0.0</a></li>
+<li><a href="https://github.com/cake-contrib/Cake.Issues.Reporting.Generic/releases/tag/1.0.0">Cake.Issues.Reporting.Generic 1.0.0</a></li>
+<li><a href="https://github.com/cake-contrib/Cake.Issues.Reporting.Sarif/releases/tag/1.0.0">Cake.Issues.Reporting.Sarif 1.0.0</a></li>
 </ul>
 <!-- Glossary for terms and concepts not documented on cakeissues.net -->
 
@@ -6765,6 +6767,8 @@ This section documents the most common changes which might be required:</p>
         <script src="../../../../../assets/javascripts/drawio-reload.js"></script>
       
         <script src="../../../../../js/drawio-darkmode.js"></script>
+      
+        <script src="../../../../../js/open_in_new_tab.js"></script>
       
     
   

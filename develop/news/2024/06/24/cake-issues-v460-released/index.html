@@ -53,6 +53,8 @@
     
       <link rel="stylesheet" href="../../../../../css/drawio-darkmode.css">
     
+      <link rel="stylesheet" href="../../../../../css/open_in_new_tab.css">
+    
     <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -6556,15 +6558,15 @@ For update instructions skip to <a href="#updating-from-previous-versions">Updat
 <p>❤ Huge thanks to our community! This release would not have been possible without your support and contributions! ❤</p>
 <p>People working on this release:</p>
 <ul>
-<li><a href="https://github.com/christianbumann" target="_blank">christianbumann</a></li>
-<li><a href="https://github.com/eoehen" target="_blank">eoehen</a></li>
-<li><a href="https://github.com/pascalberger" target="_blank">pascalberger</a></li>
-<li><a href="https://github.com/Speeedy01" target="_blank">Speeedy01</a></li>
+<li><a href="https://github.com/christianbumann">christianbumann</a></li>
+<li><a href="https://github.com/eoehen">eoehen</a></li>
+<li><a href="https://github.com/pascalberger">pascalberger</a></li>
+<li><a href="https://github.com/Speeedy01">Speeedy01</a></li>
 </ul>
 <h2 id="improvements-for-sarif-reports">Improvements for SARIF Reports<a class="headerlink" href="#improvements-for-sarif-reports" title="Permanent link">¶</a></h2>
-<p>A new option <a href="https://cakebuild.net/api/Cake.Issues.Reporting.Sarif/SarifIssueReportFormatSettings/B37B3648" target="_blank">SarifIssueReportFormatSettings.ExistingIssues</a> has been introduced which allows to pass in a list of known
-issues not related to current code changes, resulting in the <a href="https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html#_Toc34317662" target="_blank">baselineState property</a> being set in the resulting SARIF report.</p>
-<p>This property is for example be used in the <a href="https://marketplace.visualstudio.com/items?itemName=sariftools.sarif-viewer-build-tab" target="_blank">SARIF viewer extension for Azure Pipelines</a> as filter option.</p>
+<p>A new option <a href="https://cakebuild.net/api/Cake.Issues.Reporting.Sarif/SarifIssueReportFormatSettings/B37B3648">SarifIssueReportFormatSettings.ExistingIssues</a> has been introduced which allows to pass in a list of known
+issues not related to current code changes, resulting in the <a href="https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html#_Toc34317662">baselineState property</a> being set in the resulting SARIF report.</p>
+<p>This property is for example be used in the <a href="https://marketplace.visualstudio.com/items?itemName=sariftools.sarif-viewer-build-tab">SARIF viewer extension for Azure Pipelines</a> as filter option.</p>
 <p>The following new settings options have been added:</p>
 <table>
 <thead>
@@ -6576,18 +6578,18 @@ issues not related to current code changes, resulting in the <a href="https://do
 </thead>
 <tbody>
 <tr>
-<td><a href="https://cakebuild.net/api/Cake.Issues.Reporting.Sarif/SarifIssueReportFormatSettings/F52A2FFC" target="_blank">Guid</a></td>
-<td><a href="https://docs.oasis-open.org/sarif/sarif/v2.0/csprd02/sarif-v2.0-csprd02.html#_Toc10127718" target="_blank">automationDetails.guid</a></td>
+<td><a href="https://cakebuild.net/api/Cake.Issues.Reporting.Sarif/SarifIssueReportFormatSettings/F52A2FFC">Guid</a></td>
+<td><a href="https://docs.oasis-open.org/sarif/sarif/v2.0/csprd02/sarif-v2.0-csprd02.html#_Toc10127718">automationDetails.guid</a></td>
 <td>Unique, stable identifier for the run</td>
 </tr>
 <tr>
-<td><a href="https://cakebuild.net/api/Cake.Issues.Reporting.Sarif/SarifIssueReportFormatSettings/54F97E33" target="_blank">BaselineGuid</a></td>
-<td><a href="https://docs.oasis-open.org/sarif/sarif/v2.0/csprd02/sarif-v2.0-csprd02.html#_Toc10127680" target="_blank">run.baselineGuid</a></td>
+<td><a href="https://cakebuild.net/api/Cake.Issues.Reporting.Sarif/SarifIssueReportFormatSettings/54F97E33">BaselineGuid</a></td>
+<td><a href="https://docs.oasis-open.org/sarif/sarif/v2.0/csprd02/sarif-v2.0-csprd02.html#_Toc10127680">run.baselineGuid</a></td>
 <td>String equal to Guid of a previous run</td>
 </tr>
 <tr>
-<td><a href="https://cakebuild.net/api/Cake.Issues.Reporting.Sarif/SarifIssueReportFormatSettings/51613F52" target="_blank">CorrelationGuid</a></td>
-<td><a href="https://docs.oasis-open.org/sarif/sarif/v2.0/csprd02/sarif-v2.0-csprd02.html#_Toc10127719" target="_blank">automationDetails.correlationGuid</a></td>
+<td><a href="https://cakebuild.net/api/Cake.Issues.Reporting.Sarif/SarifIssueReportFormatSettings/51613F52">CorrelationGuid</a></td>
+<td><a href="https://docs.oasis-open.org/sarif/sarif/v2.0/csprd02/sarif-v2.0-csprd02.html#_Toc10127719">automationDetails.correlationGuid</a></td>
 <td>Guid shared by all runs of the same type</td>
 </tr>
 </tbody>
@@ -6595,7 +6597,7 @@ issues not related to current code changes, resulting in the <a href="https://do
 <h2 id="updating-from-previous-versions">Updating from previous versions<a class="headerlink" href="#updating-from-previous-versions" title="Permanent link">¶</a></h2>
 <p>Cake.Issues 4.6.0 <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr> are compatible with any 4.x <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr>.
 To update to the new version bump the version of the specific <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr>.</p>
-<p>For details see <a href="https://github.com/cake-contrib/Cake.Issues/releases/tag/4.6.0" target="_blank">release notes</a></p>
+<p>For details see <a href="https://github.com/cake-contrib/Cake.Issues/releases/tag/4.6.0">release notes</a></p>
 <!-- Glossary for terms and concepts not documented on cakeissues.net -->
 
 
@@ -6690,6 +6692,8 @@ To update to the new version bump the version of the specific <abbr title="Addin
         <script src="../../../../../assets/javascripts/drawio-reload.js"></script>
       
         <script src="../../../../../js/drawio-darkmode.js"></script>
+      
+        <script src="../../../../../js/open_in_new_tab.js"></script>
       
     
   

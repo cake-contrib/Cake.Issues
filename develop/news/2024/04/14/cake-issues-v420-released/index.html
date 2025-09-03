@@ -53,6 +53,8 @@
     
       <link rel="stylesheet" href="../../../../../css/drawio-darkmode.css">
     
+      <link rel="stylesheet" href="../../../../../css/open_in_new_tab.css">
+    
     <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -6574,24 +6576,24 @@ For update instructions skip to <a href="#updating-from-previous-versions">Updat
 <p>❤ Huge thanks to our community! This release would not have been possible without your support and contributions! ❤</p>
 <p>People working on this release:</p>
 <ul>
-<li><a href="https://github.com/eoehen" target="_blank">eoehen</a></li>
-<li><a href="https://github.com/pascalberger" target="_blank">pascalberger</a></li>
+<li><a href="https://github.com/eoehen">eoehen</a></li>
+<li><a href="https://github.com/pascalberger">pascalberger</a></li>
 </ul>
 <h2 id="new-issue-provider-for-sarif-files">New issue provider for SARIF files<a class="headerlink" href="#new-issue-provider-for-sarif-files" title="Permanent link">¶</a></h2>
-<p>A new <a href="../../../../../documentation/issue-providers/sarif/">Cake.Issues.Sarif addin</a> has been released which adds support for reading issues in <a href="https://sarifweb.azurewebsites.net/" target="_blank">SARIF</a> format.</p>
+<p>A new <a href="../../../../../documentation/issue-providers/sarif/">Cake.Issues.Sarif addin</a> has been released which adds support for reading issues in <a href="https://sarifweb.azurewebsites.net/">SARIF</a> format.</p>
 <p>See <a href="../new-addin-for-reading-sarif-files/">New addin for reading SARIF files</a> for details.</p>
 <h2 id="improvement-for-cake-frosting">Improvement for Cake Frosting<a class="headerlink" href="#improvement-for-cake-frosting" title="Permanent link">¶</a></h2>
 <p>Optimized versions for Cake Frosting have been released for the following <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr>:</p>
 <ul>
-<li><a href="https://www.nuget.org/packages/Cake.Frosting.Issues.DocFx" target="_blank">Cake.Frosting.Issues.DocFx</a></li>
-<li><a href="https://www.nuget.org/packages/Cake.Frosting.Issues.EsLint" target="_blank">Cake.Frosting.Issues.EsLint</a></li>
-<li><a href="https://www.nuget.org/packages/Cake.Frosting.Issues.GitRepository" target="_blank">Cake.Frosting.Issues.GitRepository</a></li>
-<li><a href="https://www.nuget.org/packages/Cake.Frosting.Issues.InspectCode" target="_blank">Cake.Frosting.Issues.InspectCode</a></li>
-<li><a href="https://www.nuget.org/packages/Cake.Frosting.Issues.Markdownlint" target="_blank">Cake.Frosting.Issues.Markdownlint</a></li>
-<li><a href="https://www.nuget.org/packages/Cake.Frosting.Issues.Terraform" target="_blank">Cake.Frosting.Issues.Terraform</a></li>
-<li><a href="https://www.nuget.org/packages/Cake.Frosting.Issues.PullRequests.AppVeyor" target="_blank">Cake.Frosting.Issues.PullRequests.AppVeyor</a></li>
-<li><a href="https://www.nuget.org/packages/Cake.Frosting.Issues.PullRequests.AzureDevOps" target="_blank">Cake.Frosting.Issues.PullRequests.AzureDevOps</a></li>
-<li><a href="https://www.nuget.org/packages/Cake.Frosting.Issues.PullRequests.GitHubActions" target="_blank">Cake.Frosting.Issues.PullRequests.GitHubActions</a></li>
+<li><a href="https://www.nuget.org/packages/Cake.Frosting.Issues.DocFx">Cake.Frosting.Issues.DocFx</a></li>
+<li><a href="https://www.nuget.org/packages/Cake.Frosting.Issues.EsLint">Cake.Frosting.Issues.EsLint</a></li>
+<li><a href="https://www.nuget.org/packages/Cake.Frosting.Issues.GitRepository">Cake.Frosting.Issues.GitRepository</a></li>
+<li><a href="https://www.nuget.org/packages/Cake.Frosting.Issues.InspectCode">Cake.Frosting.Issues.InspectCode</a></li>
+<li><a href="https://www.nuget.org/packages/Cake.Frosting.Issues.Markdownlint">Cake.Frosting.Issues.Markdownlint</a></li>
+<li><a href="https://www.nuget.org/packages/Cake.Frosting.Issues.Terraform">Cake.Frosting.Issues.Terraform</a></li>
+<li><a href="https://www.nuget.org/packages/Cake.Frosting.Issues.PullRequests.AppVeyor">Cake.Frosting.Issues.PullRequests.AppVeyor</a></li>
+<li><a href="https://www.nuget.org/packages/Cake.Frosting.Issues.PullRequests.AzureDevOps">Cake.Frosting.Issues.PullRequests.AzureDevOps</a></li>
+<li><a href="https://www.nuget.org/packages/Cake.Frosting.Issues.PullRequests.GitHubActions">Cake.Frosting.Issues.PullRequests.GitHubActions</a></li>
 </ul>
 <p>These <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr> come with a dependency to the core <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr>, allowing the core <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr> to be consumed as transitive dependencies.</p>
 <h2 id="alignment-of-release-lifecycle">Alignment of release lifecycle<a class="headerlink" href="#alignment-of-release-lifecycle" title="Permanent link">¶</a></h2>
@@ -6611,7 +6613,7 @@ For update instructions skip to <a href="#updating-from-previous-versions">Updat
 <h2 id="updating-from-previous-versions">Updating from previous versions<a class="headerlink" href="#updating-from-previous-versions" title="Permanent link">¶</a></h2>
 <p>Cake.Issues 4.2.0 <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr> are compatible with any 4.x <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr>.
 To update to the new version bump the version of the specific <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr>.</p>
-<p>For details see <a href="https://github.com/cake-contrib/Cake.Issues/releases/tag/4.2.0" target="_blank">release notes</a></p>
+<p>For details see <a href="https://github.com/cake-contrib/Cake.Issues/releases/tag/4.2.0">release notes</a></p>
 <!-- Glossary for terms and concepts not documented on cakeissues.net -->
 
 
@@ -6706,6 +6708,8 @@ To update to the new version bump the version of the specific <abbr title="Addin
         <script src="../../../../../assets/javascripts/drawio-reload.js"></script>
       
         <script src="../../../../../js/drawio-darkmode.js"></script>
+      
+        <script src="../../../../../js/open_in_new_tab.js"></script>
       
     
   

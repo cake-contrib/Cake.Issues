@@ -53,6 +53,8 @@
     
       <link rel="stylesheet" href="../../../../css/drawio-darkmode.css">
     
+      <link rel="stylesheet" href="../../../../css/open_in_new_tab.css">
+    
     <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -6530,11 +6532,11 @@
 
   <h1>Features</h1>
 
-<p>The <a href="https://cakebuild.net/extensions/cake-issues-msbuild/" target="_blank">Cake.Issues.MsBuild addin</a>
+<p>The <a href="https://cakebuild.net/extensions/cake-issues-msbuild/">Cake.Issues.MsBuild addin</a>
 provides the following features.</p>
 <details class="tip">
 <summary>Tip: Running MSBuild</summary>
-<p>MSBuild can be run using the <a href="https://cakebuild.net/dsl/dotnet/#Built-In" target="_blank">DotNet <abbr title="Aliases are convenience methods that are easily accessible directly from a Cake build">aliases</abbr></a> or <a href="https://cakebuild.net/dsl/msbuild/#Built-In" target="_blank">MsBuild <abbr title="Aliases are convenience methods that are easily accessible directly from a Cake build">aliases</abbr></a>.</p>
+<p>MSBuild can be run using the <a href="https://cakebuild.net/dsl/dotnet/#Built-In">DotNet <abbr title="Aliases are convenience methods that are easily accessible directly from a Cake build">aliases</abbr></a> or <a href="https://cakebuild.net/dsl/msbuild/#Built-In">MsBuild <abbr title="Aliases are convenience methods that are easily accessible directly from a Cake build">aliases</abbr></a>.</p>
 </details>
 <h2 id="basic-features">Basic features<a class="headerlink" href="#basic-features" title="Permanent link">¶</a></h2>
 <ul class="task-list">
@@ -6544,8 +6546,8 @@ provides the following features.</p>
 </ul>
 <h2 id="supported-log-file-formats">Supported log file formats<a class="headerlink" href="#supported-log-file-formats" title="Permanent link">¶</a></h2>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked><span class="task-list-indicator"></span></label> <a href="https://cakebuild.net/api/Cake.Issues.MsBuild/MsBuildIssuesAliases/AD50C7E1" target="_blank">MsBuildBinaryLogFileFormat</a> alias for reading issues from binary log files.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked><span class="task-list-indicator"></span></label> <a href="https://cakebuild.net/api/Cake.Issues.MsBuild/MsBuildIssuesAliases/051D7B6E" target="_blank">MsBuildXmlFileLoggerFormat</a> alias for reading issues from log files created by <a href="https://github.com/mikefourie-zz/MSBuildExtensionPack/blob/master/Solutions/Main/Loggers/Framework/XmlFileLogger.cs" target="_blank">MSBuild Extension Pack XmlFileLogger</a>.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked><span class="task-list-indicator"></span></label> <a href="https://cakebuild.net/api/Cake.Issues.MsBuild/MsBuildIssuesAliases/AD50C7E1">MsBuildBinaryLogFileFormat</a> alias for reading issues from binary log files.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked><span class="task-list-indicator"></span></label> <a href="https://cakebuild.net/api/Cake.Issues.MsBuild/MsBuildIssuesAliases/051D7B6E">MsBuildXmlFileLoggerFormat</a> alias for reading issues from log files created by <a href="https://github.com/mikefourie-zz/MSBuildExtensionPack/blob/master/Solutions/Main/Loggers/Framework/XmlFileLogger.cs">MSBuild Extension Pack XmlFileLogger</a>.</li>
 </ul>
 <h2 id="supported-iissue-properties">Supported IIssue properties<a class="headerlink" href="#supported-iissue-properties" title="Permanent link">¶</a></h2>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="msbuildbinarylogfileformat" name="__tabbed_1" type="radio"><input id="msbuildxmlfileloggerformat" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="msbuildbinarylogfileformat">MsBuildBinaryLogFileFormat</label><label for="msbuildxmlfileloggerformat">MsBuildXmlFileLoggerFormat</label></div>
@@ -6578,7 +6580,7 @@ provides the following features.</p>
 <li>Can be set while reading issues</li>
 <li>Set to <code>IIssue.MessageText</code></li>
 <li>Can be set while reading issues</li>
-<li>For .NET SDK analyzers (<code>CA*</code>), StyleCop analyzer rules (<code>SA*</code>), SonarLint rules (<code>S*</code>) and Roslynator rules (<code>RCS*</code>). Support for additional rules can be added through a custom <a href="https://cakebuild.net/api/Cake.Issues.MsBuild/MsBuildIssuesAliases/93C21487" target="_blank">MsBuildAddRuleUrlResolver</a></li>
+<li>For .NET SDK analyzers (<code>CA*</code>), StyleCop analyzer rules (<code>SA*</code>), SonarLint rules (<code>S*</code>) and Roslynator rules (<code>RCS*</code>). Support for additional rules can be added through a custom <a href="https://cakebuild.net/api/Cake.Issues.MsBuild/MsBuildIssuesAliases/93C21487">MsBuildAddRuleUrlResolver</a></li>
 </ol>
 </div>
 <div class="tabbed-block">
@@ -6609,7 +6611,7 @@ provides the following features.</p>
 <li>Can be set while reading issues</li>
 <li>Set to <code>IIssue.MessageText</code></li>
 <li>Can be set while reading issues</li>
-<li>For .NET SDK analyzers code quality rules (<code>CA*</code>), .NET SDK analyzers code style rules (<code>IDE*</code>), StyleCop analyzer rules (<code>SA*</code>), SonarLint rules (<code>S*</code>) and Roslynator rules (<code>RCS*</code>). Support for additional rules can be added through a custom <a href="https://cakebuild.net/api/Cake.Issues.MsBuild/MsBuildIssuesAliases/93C21487" target="_blank">MsBuildAddRuleUrlResolver</a></li>
+<li>For .NET SDK analyzers code quality rules (<code>CA*</code>), .NET SDK analyzers code style rules (<code>IDE*</code>), StyleCop analyzer rules (<code>SA*</code>), SonarLint rules (<code>S*</code>) and Roslynator rules (<code>RCS*</code>). Support for additional rules can be added through a custom <a href="https://cakebuild.net/api/Cake.Issues.MsBuild/MsBuildIssuesAliases/93C21487">MsBuildAddRuleUrlResolver</a></li>
 </ol>
 </div>
 </div>
@@ -6706,6 +6708,8 @@ provides the following features.</p>
         <script src="../../../../assets/javascripts/drawio-reload.js"></script>
       
         <script src="../../../../js/drawio-darkmode.js"></script>
+      
+        <script src="../../../../js/open_in_new_tab.js"></script>
       
     
   

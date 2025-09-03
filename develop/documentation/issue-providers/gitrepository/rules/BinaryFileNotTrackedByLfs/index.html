@@ -53,6 +53,8 @@
     
       <link rel="stylesheet" href="../../../../../css/drawio-darkmode.css">
     
+      <link rel="stylesheet" href="../../../../../css/open_in_new_tab.css">
+    
     <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -6553,18 +6555,18 @@
 </tbody>
 </table>
 <h2 id="cause">Cause<a class="headerlink" href="#cause" title="Permanent link">¶</a></h2>
-<p>A binary file in the repository is not tracked by <a href="https://git-lfs.github.com/" target="_blank">Git Large File Storage</a>.</p>
+<p>A binary file in the repository is not tracked by <a href="https://git-lfs.github.com/">Git Large File Storage</a>.</p>
 <h2 id="rule-description">Rule description<a class="headerlink" href="#rule-description" title="Permanent link">¶</a></h2>
 <p>By its nature Git repositories cannot handle binary files well and will keep a full copy of that file in the repository every time a change to that file is committed.
 Considering that you always clone the full history of a repository, and not only the latest version, using binary files in a repository considerably slow downs the operation.
-<a href="https://git-lfs.github.com/" target="_blank">Git Large File Storage</a> replaces large files with small text pointers inside the Git repository, while storing the file contents on a remote server.</p>
+<a href="https://git-lfs.github.com/">Git Large File Storage</a> replaces large files with small text pointers inside the Git repository, while storing the file contents on a remote server.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>The rule assumes that all files, which are not text files are binary files.
 This also includes for example empty files.</p>
 </div>
 <h2 id="how-to-fix-violations">How to fix violations<a class="headerlink" href="#how-to-fix-violations" title="Permanent link">¶</a></h2>
-<p>Track the file with <a href="https://git-lfs.github.com/" target="_blank">Git Large File Storage</a>.</p>
+<p>Track the file with <a href="https://git-lfs.github.com/">Git Large File Storage</a>.</p>
 <!-- Glossary for terms and concepts not documented on cakeissues.net -->
 
 
@@ -6657,6 +6659,8 @@ This also includes for example empty files.</p>
         <script src="../../../../../assets/javascripts/drawio-reload.js"></script>
       
         <script src="../../../../../js/drawio-darkmode.js"></script>
+      
+        <script src="../../../../../js/open_in_new_tab.js"></script>
       
     
   

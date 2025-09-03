@@ -53,6 +53,8 @@
     
       <link rel="stylesheet" href="../../../css/drawio-darkmode.css">
     
+      <link rel="stylesheet" href="../../../css/open_in_new_tab.css">
+    
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -6755,7 +6757,7 @@
 Using Cake Issues does not require an in-depth understanding of these concepts.
 For some advanced scenarios it can be useful to have an deeper understand how the
 pipeline to report issues to build servers and pull requests work.</p>
-<p>Most of the default behavior can be customized through <a href="https://cakebuild.net/api/Cake.Issues.PullRequests/IReportIssuesToPullRequestSettings" target="_blank">IReportIssuesToPullRequestSettings</a>.</p>
+<p>Most of the default behavior can be customized through <a href="https://cakebuild.net/api/Cake.Issues.PullRequests/IReportIssuesToPullRequestSettings">IReportIssuesToPullRequestSettings</a>.</p>
 </div>
 <p>The pipeline for integration with build servers and pull request systems looks like this:</p>
 <pre class="mermaid"><code>graph LR
@@ -6831,7 +6833,7 @@ Comments which are closed, but where the related issue still exists, will be reo
 </ul>
 </div>
 <ol>
-<li>Defined by the <a href="https://cakebuild.net/api/Cake.Issues.PullRequests/IReportIssuesToPullRequestSettings/71BCD0B8" target="_blank">IReportIssuesToPullRequestSettings.CommentSource property</a></li>
+<li>Defined by the <a href="https://cakebuild.net/api/Cake.Issues.PullRequests/IReportIssuesToPullRequestSettings/71BCD0B8">IReportIssuesToPullRequestSettings.CommentSource property</a></li>
 </ol>
 <p>The <code>Reopen existing comments</code> step will reopen threads if they fulfill the following conditions:</p>
 <div class="annotate">
@@ -6843,11 +6845,11 @@ Comments which are closed, but where the related issue still exists, will be reo
 </ul>
 </div>
 <ol>
-<li>Defined by the <a href="https://cakebuild.net/api/Cake.Issues.PullRequests/IReportIssuesToPullRequestSettings/71BCD0B8" target="_blank">IReportIssuesToPullRequestSettings.CommentSource property</a></li>
+<li>Defined by the <a href="https://cakebuild.net/api/Cake.Issues.PullRequests/IReportIssuesToPullRequestSettings/71BCD0B8">IReportIssuesToPullRequestSettings.CommentSource property</a></li>
 </ol>
 <h2 id="filter-issues">Filter issues<a class="headerlink" href="#filter-issues" title="Permanent link">¶</a></h2>
 <p>Issue filtering allows to reduce the set of issues reported to a build server or pull request system
-through settings on <a href="https://cakebuild.net/api/Cake.Issues.PullRequests/IReportIssuesToPullRequestSettings" target="_blank">IReportIssuesToPullRequestSettings</a>.</p>
+through settings on <a href="https://cakebuild.net/api/Cake.Issues.PullRequests/IReportIssuesToPullRequestSettings">IReportIssuesToPullRequestSettings</a>.</p>
 <p>The overall filtering process looks like this:</p>
 <pre class="mermaid"><code>graph LR
   filterByPath["`Filter issues
@@ -6907,7 +6909,7 @@ through settings on <a href="https://cakebuild.net/api/Cake.Issues.PullRequests/
 <h3 id="filter-issues-by-number">Filter issues by number<a class="headerlink" href="#filter-issues-by-number" title="Permanent link">¶</a></h3>
 <p>For projects containing legacy code with existing issues, it is possible
 to limit the number of issues reported to a pull request through
-<a href="https://cakebuild.net/api/Cake.Issues.PullRequests/IReportIssuesToPullRequestSettings" target="_blank">IReportIssuesToPullRequestSettings</a> properties.</p>
+<a href="https://cakebuild.net/api/Cake.Issues.PullRequests/IReportIssuesToPullRequestSettings">IReportIssuesToPullRequestSettings</a> properties.</p>
 <p>The flow for filtering issues by number looks like this:</p>
 <pre class="mermaid"><code>graph LR
   perIssueProvider["`Apply issue limits
@@ -6958,14 +6960,14 @@ to limit the number of issues reported to a pull request through
    issues related to files are reported preferentially.</li>
 </ol>
 <h4 id="apply-issue-limits-per-issue-provider">Apply issue limits per issue provider<a class="headerlink" href="#apply-issue-limits-per-issue-provider" title="Permanent link">¶</a></h4>
-<p>The <a href="https://cakebuild.net/api/Cake.Issues.PullRequests/IReportIssuesToPullRequestSettings/115BF82C" target="_blank">IReportIssuesToPullRequestSettings.MaxIssuesToPostForEachIssueProvider property</a>
+<p>The <a href="https://cakebuild.net/api/Cake.Issues.PullRequests/IReportIssuesToPullRequestSettings/115BF82C">IReportIssuesToPullRequestSettings.MaxIssuesToPostForEachIssueProvider property</a>
 can be used to limit the number of issues which should be posted at maximum for each issue provider.</p>
 <p>Setting this value will apply to all issue providers.</p>
 <details class="example">
 <summary>Example</summary>
 <p>In the following example <code>228</code> issues from MsBuild issue provider and
 <code>134</code> issues from SARIF issue provider were reported.
-Due to <a href="https://cakebuild.net/api/Cake.Issues.PullRequests/IReportIssuesToPullRequestSettings/115BF82C" target="_blank">IReportIssuesToPullRequestSettings.MaxIssuesToPostForEachIssueProvider property</a>
+Due to <a href="https://cakebuild.net/api/Cake.Issues.PullRequests/IReportIssuesToPullRequestSettings/115BF82C">IReportIssuesToPullRequestSettings.MaxIssuesToPostForEachIssueProvider property</a>
 setting, issues are limited to <code>100</code> for both issues from MsBuild and SARIF issue provider.</p>
 <pre class="mermaid"><code>graph TB
   msBuildBefore@{ shape: docs, label: "MsBuild Issues: 228"}
@@ -6988,15 +6990,15 @@ setting, issues are limited to <code>100</code> for both issues from MsBuild and
   setting --&gt; sarifAfter;</code></pre>
 </details>
 <h4 id="apply-issue-limits-per-provider-for-this-run">Apply issue limits per provider for this run<a class="headerlink" href="#apply-issue-limits-per-provider-for-this-run" title="Permanent link">¶</a></h4>
-<p>The <a href="https://cakebuild.net/api/Cake.Issues.PullRequests/IReportIssuesToPullRequestSettings/F239BC1F" target="_blank">IReportIssuesToPullRequestSettings.ProviderIssueLimits property</a> with the
-<a href="https://cakebuild.net/api/Cake.Issues.PullRequests/IProviderIssueLimits/4100059F" target="_blank">MaxIssuesToPost</a> setting can be used to limit the number of issues which
+<p>The <a href="https://cakebuild.net/api/Cake.Issues.PullRequests/IReportIssuesToPullRequestSettings/F239BC1F">IReportIssuesToPullRequestSettings.ProviderIssueLimits property</a> with the
+<a href="https://cakebuild.net/api/Cake.Issues.PullRequests/IProviderIssueLimits/4100059F">MaxIssuesToPost</a> setting can be used to limit the number of issues which
 should be posted at maximum for individual issue providers.</p>
 <p>This setting allows to define different values for different issue providers.</p>
 <details class="example">
 <summary>Example</summary>
 <p>In the following example <code>100</code> issues from MsBuild issue provider and
 <code>100</code> issues from SARIF issue provider are in the pipeline.
-Due to <a href="https://cakebuild.net/api/Cake.Issues.PullRequests/IProviderIssueLimits/4100059F" target="_blank">MaxIssuesToPost</a> setting, issues from SARIF issue provider are limited to <code>50</code>.</p>
+Due to <a href="https://cakebuild.net/api/Cake.Issues.PullRequests/IProviderIssueLimits/4100059F">MaxIssuesToPost</a> setting, issues from SARIF issue provider are limited to <code>50</code>.</p>
 <pre class="mermaid"><code>graph TB
   msBuildBefore@{ shape: docs, label: "MsBuild Issues: 100"}
   sarifBefore@{ shape: docs, label: "Sarif Issues: 100"}
@@ -7018,14 +7020,14 @@ Due to <a href="https://cakebuild.net/api/Cake.Issues.PullRequests/IProviderIssu
   setting --&gt; sarifAfter;</code></pre>
 </details>
 <h4 id="apply-global-issue-limit">Apply global issue limit<a class="headerlink" href="#apply-global-issue-limit" title="Permanent link">¶</a></h4>
-<p>The <a href="https://cakebuild.net/api/Cake.Issues.PullRequests/IReportIssuesToPullRequestSettings/7ED19AA9" target="_blank">IReportIssuesToPullRequestSettings.MaxIssuesToPost property</a> can be used to
+<p>The <a href="https://cakebuild.net/api/Cake.Issues.PullRequests/IReportIssuesToPullRequestSettings/7ED19AA9">IReportIssuesToPullRequestSettings.MaxIssuesToPost property</a> can be used to
 limit the total number of issues which should be posted.</p>
 <p>This limit is across all issue provider.</p>
 <details class="example">
 <summary>Example</summary>
 <p>In the following example <code>100</code> issues from MsBuild issue provider and
 <code>50</code> issues from SARIF issue provider are in the pipeline.
-Due to <a href="https://cakebuild.net/api/Cake.Issues.PullRequests/IReportIssuesToPullRequestSettings/7ED19AA9" target="_blank">IReportIssuesToPullRequestSettings.MaxIssuesToPost property</a>
+Due to <a href="https://cakebuild.net/api/Cake.Issues.PullRequests/IReportIssuesToPullRequestSettings/7ED19AA9">IReportIssuesToPullRequestSettings.MaxIssuesToPost property</a>
 setting, issues are limited to <code>75</code> in total.
 The numbers in the output are examples.
 The actual numbers depend solely on priority and file path of individual issues.</p>
@@ -7054,8 +7056,8 @@ The actual numbers depend solely on priority and file path of individual issues.
 <p class="admonition-title">Note</p>
 <p>This step will only be executed for implementations supporting the <code>Discussion Threads</code> capability.</p>
 </div>
-<p>The <a href="https://cakebuild.net/api/Cake.Issues.PullRequests/IReportIssuesToPullRequestSettings/F239BC1F" target="_blank">IReportIssuesToPullRequestSettings.ProviderIssueLimits property</a> with the
-<a href="https://cakebuild.net/api/Cake.Issues.PullRequests/IProviderIssueLimits/0A990776" target="_blank">MaxIssuesToPostAcrossRuns</a> setting can be used to limit the number of issues
+<p>The <a href="https://cakebuild.net/api/Cake.Issues.PullRequests/IReportIssuesToPullRequestSettings/F239BC1F">IReportIssuesToPullRequestSettings.ProviderIssueLimits property</a> with the
+<a href="https://cakebuild.net/api/Cake.Issues.PullRequests/IProviderIssueLimits/0A990776">MaxIssuesToPostAcrossRuns</a> setting can be used to limit the number of issues
 which should be posted at maximum for specific issue providers across multiple runs</p>
 <p>This setting allows to define different values for different issue providers.</p>
 <details class="example">
@@ -7064,7 +7066,7 @@ which should be posted at maximum for specific issue providers across multiple r
 <code>50</code> issues from SARIF issue provider were posted.
 Current run at this point would post <code>40</code> issues from MsBuild issue provider and
 <code>35</code> issues from SARIF issue provider.
-But since <a href="https://cakebuild.net/api/Cake.Issues.PullRequests/IProviderIssueLimits/0A990776" target="_blank">MaxIssuesToPostAcrossRuns</a> for MsBuild issue provider is set
+But since <a href="https://cakebuild.net/api/Cake.Issues.PullRequests/IProviderIssueLimits/0A990776">MaxIssuesToPostAcrossRuns</a> for MsBuild issue provider is set
 to <code>30</code>, the list of issues reported from the MsBuild issue provider will be filtered to <code>10</code> issues.
 Since no filtering for issues reported by the SARIF issue provider is defined, the <code>35</code> issues
 from the SARIF issue provider won't be further filtered in this step.</p>
@@ -7114,7 +7116,7 @@ which will be applied previously in the pipeline.</p>
 <p class="admonition-title">Note</p>
 <p>This step will only be executed for implementations supporting the <code>Discussion Threads</code> capability.</p>
 </div>
-<p>The <a href="https://cakebuild.net/api/Cake.Issues.PullRequests/IReportIssuesToPullRequestSettings/F02390D1" target="_blank">MaxIssuesToPostAcrossRuns</a>
+<p>The <a href="https://cakebuild.net/api/Cake.Issues.PullRequests/IReportIssuesToPullRequestSettings/F02390D1">MaxIssuesToPostAcrossRuns</a>
 setting can be used to limit the total number of issues which should be posted across multiple runs</p>
 <p>This limit is across all issue provider.</p>
 <details class="example">
@@ -7123,7 +7125,7 @@ setting can be used to limit the total number of issues which should be posted a
 <code>50</code> issues from SARIF issue provider were posted.
 Current run at this point would post <code>10</code> issues from MsBuild issue provider and
 <code>35</code> issues from SARIF issue provider.
-Due to <a href="https://cakebuild.net/api/Cake.Issues.PullRequests/IReportIssuesToPullRequestSettings/F02390D1" target="_blank">MaxIssuesToPostAcrossRuns</a>
+Due to <a href="https://cakebuild.net/api/Cake.Issues.PullRequests/IReportIssuesToPullRequestSettings/F02390D1">MaxIssuesToPostAcrossRuns</a>
 setting, issues are limited to <code>30</code> in total, resulting in <code>100</code> issues across runs together with the <code>70</code> issues posted to the previous run.
 The numbers in the output are examples.
 The actual numbers depend solely on priority and file path of individual issues.</p>
@@ -7164,7 +7166,7 @@ The actual numbers depend solely on priority and file path of individual issues.
 </details>
 <h3 id="apply-custom-filters">Apply custom filters<a class="headerlink" href="#apply-custom-filters" title="Permanent link">¶</a></h3>
 <p>The step will apply any additional custom filters defined using
-<a href="https://cakebuild.net/api/Cake.Issues.PullRequests/IReportIssuesToPullRequestSettings/48CB35E4" target="_blank">IReportIssuesToPullRequestSettings.IssueFilters property</a>
+<a href="https://cakebuild.net/api/Cake.Issues.PullRequests/IReportIssuesToPullRequestSettings/48CB35E4">IReportIssuesToPullRequestSettings.IssueFilters property</a>
 to further limit the issues which will be reported.</p>
 <details class="example">
 <summary>Example</summary>
@@ -7176,7 +7178,7 @@ to further limit the issues which will be reported.</p>
 <p>This step will only be executed for implementations supporting the <code>Checking commit ID</code> capability.</p>
 </div>
 <p>The step will skip posting of issues if the current commit of the pull request is different to the commit
-ID passed to <a href="https://cakebuild.net/api/Cake.Issues.PullRequests/IReportIssuesToPullRequestSettings/82F21902" target="_blank">IReportIssuesToPullRequestSettings.CommitId</a>.</p>
+ID passed to <a href="https://cakebuild.net/api/Cake.Issues.PullRequests/IReportIssuesToPullRequestSettings/82F21902">IReportIssuesToPullRequestSettings.CommitId</a>.</p>
 <h2 id="post-discussion-threads">Post discussion threads<a class="headerlink" href="#post-discussion-threads" title="Permanent link">¶</a></h2>
 <p>This step will post the issues in the pipeline which have not been filtered out, to the build server or pull request.</p>
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">¶</a></h2>
@@ -7273,6 +7275,8 @@ ID passed to <a href="https://cakebuild.net/api/Cake.Issues.PullRequests/IReport
         <script src="../../../assets/javascripts/drawio-reload.js"></script>
       
         <script src="../../../js/drawio-darkmode.js"></script>
+      
+        <script src="../../../js/open_in_new_tab.js"></script>
       
     
   

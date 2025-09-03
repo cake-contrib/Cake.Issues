@@ -53,6 +53,8 @@
     
       <link rel="stylesheet" href="../../../../css/drawio-darkmode.css">
     
+      <link rel="stylesheet" href="../../../../css/open_in_new_tab.css">
+    
     <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -6492,11 +6494,11 @@
 
   <h1>Overview</h1>
 
-<p>Pull Request Systems need to implement the <a href="https://cakebuild.net/api/Cake.Issues.PullRequests/IPullRequestSystem/" target="_blank">IPullRequestSystem</a>
+<p>Pull Request Systems need to implement the <a href="https://cakebuild.net/api/Cake.Issues.PullRequests/IPullRequestSystem/">IPullRequestSystem</a>
 interface.</p>
 <h2 id="baseclasses">BaseClasses<a class="headerlink" href="#baseclasses" title="Permanent link">¶</a></h2>
 <p>For simplifying implementation there exists base classes from which concrete implementation can be inherited.
-<a href="https://cakebuild.net/api/Cake.Issues.PullRequests/BasePullRequestSystem/" target="_blank">BasePullRequestSystem</a>
+<a href="https://cakebuild.net/api/Cake.Issues.PullRequests/BasePullRequestSystem/">BasePullRequestSystem</a>
 is the main base class with the required functionality for a pull request system implementation.
 Additionally there exists several classes which can be implemented to support additional optional capabilities
 in a pull request system implementation.</p>
@@ -6510,22 +6512,22 @@ in a pull request system implementation.</p>
 </thead>
 <tbody>
 <tr>
-<td><a href="https://cakebuild.net/api/Cake.Issues.PullRequests/BasePullRequestSystem/" target="_blank">BasePullRequestSystem</a></td>
+<td><a href="https://cakebuild.net/api/Cake.Issues.PullRequests/BasePullRequestSystem/">BasePullRequestSystem</a></td>
 <td>Base class for all pull request system implementations.</td>
 <td></td>
 </tr>
 <tr>
-<td><a href="https://cakebuild.net/api/Cake.Issues.PullRequests/BaseCheckingCommitIdCapability_1/" target="_blank">BaseCheckingCommitIdCapability</a></td>
+<td><a href="https://cakebuild.net/api/Cake.Issues.PullRequests/BaseCheckingCommitIdCapability_1/">BaseCheckingCommitIdCapability</a></td>
 <td>Base class for capability to post issues only if pull request is for a specific commit.</td>
 <td></td>
 </tr>
 <tr>
-<td><a href="https://cakebuild.net/api/Cake.Issues.PullRequests/BaseDiscussionThreadsCapability_1/" target="_blank">BaseDiscussionThreadsCapability</a></td>
+<td><a href="https://cakebuild.net/api/Cake.Issues.PullRequests/BaseDiscussionThreadsCapability_1/">BaseDiscussionThreadsCapability</a></td>
 <td>Base class for capability to read, resolve and reopen discussion threads.</td>
 <td></td>
 </tr>
 <tr>
-<td><a href="https://cakebuild.net/api/Cake.Issues.PullRequests/BaseFilteringByModifiedFilesCapability_1/" target="_blank">BaseFilteringByModifiedFilesCapability</a></td>
+<td><a href="https://cakebuild.net/api/Cake.Issues.PullRequests/BaseFilteringByModifiedFilesCapability_1/">BaseFilteringByModifiedFilesCapability</a></td>
 <td>Base class for capability to filter issues to only those affecting files modified in the pull request.</td>
 <td></td>
 </tr>
@@ -6623,6 +6625,8 @@ in a pull request system implementation.</p>
         <script src="../../../../assets/javascripts/drawio-reload.js"></script>
       
         <script src="../../../../js/drawio-darkmode.js"></script>
+      
+        <script src="../../../../js/open_in_new_tab.js"></script>
       
     
   

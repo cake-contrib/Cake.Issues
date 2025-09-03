@@ -53,6 +53,8 @@
     
       <link rel="stylesheet" href="../../../../../css/drawio-darkmode.css">
     
+      <link rel="stylesheet" href="../../../../../css/open_in_new_tab.css">
+    
     <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -6596,17 +6598,17 @@ For update instructions skip to <a href="#updating-from-previous-versions">Updat
 <p>❤ Huge thanks to our community! This release would not have been possible without your support and contributions! ❤</p>
 <p>People working on this release:</p>
 <ul>
-<li><a href="https://github.com/eoehen" target="_blank">eoehen</a></li>
-<li><a href="https://github.com/pascalberger" target="_blank">pascalberger</a></li>
+<li><a href="https://github.com/eoehen">eoehen</a></li>
+<li><a href="https://github.com/pascalberger">pascalberger</a></li>
 </ul>
 <h2 id="support-for-suppressed-issues-in-sarif-files">Support for suppressed issues in SARIF files.<a class="headerlink" href="#support-for-suppressed-issues-in-sarif-files" title="Permanent link">¶</a></h2>
-<p>SARIF supports <a href="https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/os/sarif-v2.1.0-errata01-os-complete.html#_Toc141790911" target="_blank">suppressions</a> for issues which are suppressed, either in the source code or through some external tool.</p>
+<p>SARIF supports <a href="https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/os/sarif-v2.1.0-errata01-os-complete.html#_Toc141790911">suppressions</a> for issues which are suppressed, either in the source code or through some external tool.</p>
 <p>Until now this property was ignored.
 Starting with Cake Issues 5.2.0 issues which are marked as suppressed in a SARIF file will no longer be imported by default.
 There is a new setting <code>IgnoreSuppressedIssues</code> which can be disabled to continue reading suppressed issues.</p>
 <h2 id="additional-alias-for-build-breaking">Additional alias for build breaking<a class="headerlink" href="#additional-alias-for-build-breaking" title="Permanent link">¶</a></h2>
 <p>There is a new alias for fails build if any issues are found with settings to limit to priority and issue provider types to complement
-the already existing <a href="https://cakebuild.net/extensions/cake-issues/#Build-Breaking" target="_blank"><abbr title="Aliases are convenience methods that are easily accessible directly from a Cake build">aliases</abbr> for failing builds</a>.</p>
+the already existing <a href="https://cakebuild.net/extensions/cake-issues/#Build-Breaking"><abbr title="Aliases are convenience methods that are easily accessible directly from a Cake build">aliases</abbr> for failing builds</a>.</p>
 <p>The following example fails build if issues with severity warning or higher from MsBuild are found:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="cake-net-tool" name="__tabbed_1" type="radio"><input id="cake-frosting" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="cake-net-tool">Cake .NET Tool</label><label for="cake-frosting">Cake Frosting</label></div>
 <div class="tabbed-content">
@@ -6668,7 +6670,7 @@ the already existing <a href="https://cakebuild.net/extensions/cake-issues/#Buil
 <h2 id="updating-from-previous-versions">Updating from previous versions<a class="headerlink" href="#updating-from-previous-versions" title="Permanent link">¶</a></h2>
 <p>Cake.Issues 5.2.0 <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr> are compatible with any 5.x <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr>.
 To update to the new version bump the version of the specific <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr>.</p>
-<p>For details see <a href="https://github.com/cake-contrib/Cake.Issues/releases/tag/5.2.0" target="_blank">release notes</a></p>
+<p>For details see <a href="https://github.com/cake-contrib/Cake.Issues/releases/tag/5.2.0">release notes</a></p>
 <!-- Glossary for terms and concepts not documented on cakeissues.net -->
 
 
@@ -6763,6 +6765,8 @@ To update to the new version bump the version of the specific <abbr title="Addin
         <script src="../../../../../assets/javascripts/drawio-reload.js"></script>
       
         <script src="../../../../../js/drawio-darkmode.js"></script>
+      
+        <script src="../../../../../js/open_in_new_tab.js"></script>
       
     
   

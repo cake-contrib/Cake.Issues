@@ -53,6 +53,8 @@
     
       <link rel="stylesheet" href="../../../../../css/drawio-darkmode.css">
     
+      <link rel="stylesheet" href="../../../../../css/open_in_new_tab.css">
+    
     <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -6513,11 +6515,11 @@
   <h1>Provider Settings</h1>
 
 <p>Often issue providers require specific settings.
-For these cases the <code>Cake.Issue</code> addin provides the <a href="https://cakebuild.net/api/Cake.Issues/BaseConfigurableIssueProvider_1/" target="_blank">BaseConfigurableIssueProvider</a>
-and <a href="https://cakebuild.net/api/Cake.Issues/IssueProviderSettings/" target="_blank">IssueProviderSettings</a> classes
+For these cases the <code>Cake.Issue</code> addin provides the <a href="https://cakebuild.net/api/Cake.Issues/BaseConfigurableIssueProvider_1/">BaseConfigurableIssueProvider</a>
+and <a href="https://cakebuild.net/api/Cake.Issues/IssueProviderSettings/">IssueProviderSettings</a> classes
 for simplifying implementation in the issue provider addin.</p>
 <h2 id="implementing-issue-provider">Implementing issue provider<a class="headerlink" href="#implementing-issue-provider" title="Permanent link">¶</a></h2>
-<p>A concrete class inheriting from <a href="https://cakebuild.net/api/Cake.Issues/BaseConfigurableIssueProvider_1/" target="_blank">BaseConfigurableIssueProvider</a>
+<p>A concrete class inheriting from <a href="https://cakebuild.net/api/Cake.Issues/BaseConfigurableIssueProvider_1/">BaseConfigurableIssueProvider</a>
 needs to be implemented defining the concrete settings class to use:</p>
 <div class="language-csharp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">/// &lt;summary&gt;</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1">/// My issue provider.</span>
@@ -6547,7 +6549,7 @@ needs to be implemented defining the concrete settings class to use:</p>
 </span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Also a concrete class inheriting from <a href="https://cakebuild.net/api/Cake.Issues/IssueProviderSettings/" target="_blank">IssueProviderSettings</a>
+<p>Also a concrete class inheriting from <a href="https://cakebuild.net/api/Cake.Issues/IssueProviderSettings/">IssueProviderSettings</a>
 needs to be implemented.
 Based on the capabilities of the issue provider the appropriate constructors for reading from the file system
 or memory can be made public:</p>
@@ -7007,6 +7009,8 @@ Finally an additional property alias for returning the provider type name should
         <script src="../../../../../assets/javascripts/drawio-reload.js"></script>
       
         <script src="../../../../../js/drawio-darkmode.js"></script>
+      
+        <script src="../../../../../js/open_in_new_tab.js"></script>
       
     
   

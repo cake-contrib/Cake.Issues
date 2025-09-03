@@ -16,6 +16,7 @@
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
 <link href="../../assets/stylesheets/extra.css" rel="stylesheet">
 <link href="../../css/drawio-darkmode.css" rel="stylesheet">
+<link href="../../css/open_in_new_tab.css" rel="stylesheet">
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <meta content="website" property="og:type">
 <meta content="How Cake Issues Works - Cake Issues" property="og:title">
@@ -2201,11 +2202,11 @@ enhance it for supporting additional analyzers, <abbr title="Static code analysi
 <p>The <code>Cake.Issues</code> addin provides <abbr title="Aliases are convenience methods that are easily accessible directly from a Cake build">aliases</abbr> for creating issues or reading issues using one or more issue providers.</p>
 <p>Support for different code analyzers and <abbr title="Static code analysis tools used to flag programming errors, bugs, stylistic errors and suspicious constructs">linters</abbr> is provided through <a href="../issue-providers/">issue provider</a> <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr>
 which cover a wide range of <a href="../supported-tools/"><abbr title="Static code analysis tools used to flag programming errors, bugs, stylistic errors and suspicious constructs">linters</abbr> and tools</a>.</p>
-<p>The issues are read into <a href="https://cakebuild.net/api/Cake.Issues/IIssue/" target="_blank">IIssue</a> objects
+<p>The issues are read into <a href="https://cakebuild.net/api/Cake.Issues/IIssue/">IIssue</a> objects
 which then can be passed to <a href="#create-issue-reports">Cake.Issues.Reporting addin</a>,
 <a href="#write-issues-to-pull-requests-and-build-servers">Cake.Issues.PullRequests addin</a> or further processed in the build script.</p>
 <p>The use of <a href="../issue-providers/">issue provider</a> <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr>, which contain the parsing logic for individual tool output formats,
-and the use of <a href="https://cakebuild.net/api/Cake.Issues/IIssue/" target="_blank">IIssue</a> as common data structure,
+and the use of <a href="https://cakebuild.net/api/Cake.Issues/IIssue/">IIssue</a> as common data structure,
 allows to abstract the tooling output from other concerns like integration with
 build systems, pull request workflow or the creation of reports.</p>
 <h2 id="create-issue-reports">Create issue reports<a class="headerlink" href="#create-issue-reports" title="Permanent link">¶</a></h2>
@@ -2266,6 +2267,7 @@ pull request systems works.</p>
 <script src="https://viewer.diagrams.net/js/viewer-static.min.js"></script>
 <script src="../../assets/javascripts/drawio-reload.js"></script>
 <script src="../../js/drawio-darkmode.js"></script>
+<script src="../../js/open_in_new_tab.js"></script>
 <script src="https://viewer.diagrams.net/js/viewer-static.min.js"></script>
 <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
 document$.subscribe(()=>{ lightbox.reload(); });
