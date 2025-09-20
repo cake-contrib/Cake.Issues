@@ -76,6 +76,7 @@ extra_javascript:
 # Additional styling
 extra_css:
   - assets/stylesheets/extra.css
+  - assets/stylesheets/styling.css
 
 # Plugins
 plugins:
