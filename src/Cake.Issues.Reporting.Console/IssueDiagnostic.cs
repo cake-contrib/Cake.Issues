@@ -113,9 +113,17 @@ internal sealed class IssueDiagnostic : Diagnostic
                 if (File.Exists(fullPath))
                 {
                     var fileContent = File.ReadAllText(fullPath);
-                    var lines = fileContent.Split(['\r', '\n'], StringSplitOptions.None);
+                    var lines = new List<string>();
+                    using (var reader = new StringReader(fileContent))
+                    {
+                        string? currentLine;
+                        while ((currentLine = reader.ReadLine()) != null)
+                        {
+                            lines.Add(currentLine);
+                        }
+                    }
 
-                    if (line > 0 && line <= lines.Length)
+                    if (line > 0 && line <= lines.Count)
                     {
                         var lineContent = lines[line - 1]; // Convert to 0-based indexing
                         var lineLength = lineContent.Length;
