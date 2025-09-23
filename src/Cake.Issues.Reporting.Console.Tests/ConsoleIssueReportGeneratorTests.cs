@@ -316,7 +316,7 @@ public sealed partial class ConsoleIssueReportGeneratorTests
                     {
                     IssueBuilder
                         .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
-                        .InFile(fileName, 1, 57)
+                        .InFile(fileName, 1, 57) // Position after the last character on line 1
                         .Create(),
                     };
                 // When
