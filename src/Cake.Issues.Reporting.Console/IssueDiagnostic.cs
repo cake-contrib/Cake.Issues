@@ -142,7 +142,11 @@ internal sealed class IssueDiagnostic : Diagnostic
                     }
                 }
             }
-            catch (Exception ex) when (ex is IOException or OutOfMemoryException)
+            catch (Exception ex) when (
+                ex is IOException
+                or OutOfMemoryException
+                or UnauthorizedAccessException
+                or SecurityException)
             {
                 // If file reading fails, proceed with original column position
                 // This ensures we don't break functionality when files are not accessible
