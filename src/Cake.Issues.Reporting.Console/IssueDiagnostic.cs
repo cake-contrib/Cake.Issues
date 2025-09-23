@@ -2,7 +2,9 @@
 
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using Cake.Core.IO;
 using Errata;
 using Spectre.Console;
 
@@ -12,13 +14,15 @@ using Spectre.Console;
 internal sealed class IssueDiagnostic : Diagnostic
 {
     private readonly IEnumerable<IIssue> issues;
+    private readonly DirectoryPath repositoryRoot;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="IssueDiagnostic"/> class.
     /// </summary>
     /// <param name="issue">Issue which the diagnostic should describe.</param>
-    public IssueDiagnostic(IIssue issue)
-        : this([issue])
+    /// <param name="repositoryRoot">Root directory of the repository.</param>
+    public IssueDiagnostic(IIssue issue, DirectoryPath repositoryRoot = null)
+        : this([issue], repositoryRoot)
     {
     }
 
@@ -26,11 +30,13 @@ internal sealed class IssueDiagnostic : Diagnostic
     /// Initializes a new instance of the <see cref="IssueDiagnostic"/> class.
     /// </summary>
     /// <param name="issues">Issues which the diagnostic should describe.</param>
-    public IssueDiagnostic(IEnumerable<IIssue> issues)
+    /// <param name="repositoryRoot">Root directory of the repository.</param>
+    public IssueDiagnostic(IEnumerable<IIssue> issues, DirectoryPath repositoryRoot = null)
 
         : base(issues.First().RuleId)
     {
         this.issues = issues;
+        this.repositoryRoot = repositoryRoot;
 
         var firstIssue = this.issues.First();
 
@@ -79,7 +85,7 @@ internal sealed class IssueDiagnostic : Diagnostic
     /// </summary>
     /// <param name="issue">Issue for which the location should be returned.</param>
     /// <returns>Location for the diagnostic.</returns>
-    private static (Location Location, int Lenght) GetLocation(IIssue issue)
+    private (Location Location, int Lenght) GetLocation(IIssue issue)
     {
         // Errata currently doesn't support file or line level diagnostics.
         if (!issue.Line.HasValue || !issue.Column.HasValue)
@@ -87,12 +93,52 @@ internal sealed class IssueDiagnostic : Diagnostic
             return default;
         }
 
-        var location = new Location(issue.Line.Value, issue.Column.Value);
+        var line = issue.Line.Value;
+        var column = issue.Column.Value;
+
+        // Try to validate column position against actual file content if possible
+        if (this.repositoryRoot != null && issue.AffectedFileRelativePath != null)
+        {
+            try
+            {
+                var fullPath = this.repositoryRoot.CombineWithFilePath(issue.AffectedFileRelativePath).FullPath;
+                if (File.Exists(fullPath))
+                {
+                    var fileContent = File.ReadAllText(fullPath);
+                    var lines = fileContent.Split(['\r', '\n'], StringSplitOptions.None);
+
+                    if (line > 0 && line <= lines.Length)
+                    {
+                        var lineContent = lines[line - 1]; // Convert to 0-based indexing
+                        var lineLength = lineContent.Length;
+
+                        // If column is beyond the end of the line, adjust it to the last valid position
+                        if (column > lineLength)
+                        {
+                            column = Math.Max(1, lineLength); // Position at end of line content, minimum column 1
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                // If file reading fails, proceed with original column position
+                // This ensures we don't break functionality when files are not accessible
+            }
+        }
+
+        var location = new Location(line, column);
 
         var length = 0;
         if (issue.EndColumn.HasValue)
         {
-            length = issue.EndColumn.Value - issue.Column.Value;
+            length = issue.EndColumn.Value - column;
+
+            // Ensure length is non-negative
+            if (length < 0)
+            {
+                length = 0;
+            }
         }
 
         return (location, length);
@@ -113,7 +159,7 @@ internal sealed class IssueDiagnostic : Diagnostic
 
         foreach (var issue in this.issues)
         {
-            var (location, length) = GetLocation(issue);
+            var (location, length) = this.GetLocation(issue);
             var label =
                 new Label(
                     issue.AffectedFileRelativePath.FullPath,
