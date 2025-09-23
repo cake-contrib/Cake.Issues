@@ -112,20 +112,21 @@ internal sealed class IssueDiagnostic : Diagnostic
                 var fullPath = this.repositoryRoot.CombineWithFilePath(issue.AffectedFileRelativePath).FullPath;
                 if (File.Exists(fullPath))
                 {
-                    var fileContent = File.ReadAllText(fullPath);
-                    var lines = new List<string>();
-                    using (var reader = new StringReader(fileContent))
+                    // Read the required line from the file
+                    string lineContent = null;
+                    var currentLineNumber = 0;
+                    foreach (var fileLine in File.ReadLines(fullPath))
                     {
-                        string? currentLine;
-                        while ((currentLine = reader.ReadLine()) != null)
+                        currentLineNumber++;
+                        if (currentLineNumber == line)
                         {
-                            lines.Add(currentLine);
+                            lineContent = fileLine;
+                            break;
                         }
                     }
 
-                    if (line > 0 && line <= lines.Count)
+                    if (lineContent != null)
                     {
-                        var lineContent = lines[line - 1]; // Convert to 0-based indexing
                         var lineLength = lineContent.Length;
 
                         // If column is beyond the end of the line, adjust it to the last valid position
