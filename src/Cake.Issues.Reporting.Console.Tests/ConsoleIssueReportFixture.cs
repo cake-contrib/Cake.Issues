@@ -4,14 +4,17 @@ using System.IO;
 using Cake.Core.Diagnostics;
 using Cake.Core.IO;
 using Cake.Issues.Serialization;
+using Spectre.Console.Testing;
 
 internal class ConsoleIssueReportFixture
 {
+    public TestConsole Console { get; set; } = new();
+
     public FakeLog Log { get; set; } = new() { Verbosity = Verbosity.Normal };
 
     public ConsoleIssueReportFormatSettings ConsoleIssueReportFormatSettings { get; set; } = new();
 
-    public string CreateReportForTestfile(string fileResourceName, DirectoryPath repositoryRootPath)
+    public void CreateReportForTestfile(string fileResourceName, DirectoryPath repositoryRootPath)
     {
         fileResourceName.NotNullOrWhiteSpace();
 
@@ -28,22 +31,23 @@ internal class ConsoleIssueReportFixture
             }
 
             var issues = reader.ReadToEnd().DeserializeToIssues();
-            return this.CreateReport(issues, repositoryRootPath);
+            this.CreateReport(issues, repositoryRootPath);
         }
     }
 
-    public string CreateReport(IEnumerable<IIssue> issues, DirectoryPath repositoryRootPath)
+    public void CreateReport(IEnumerable<IIssue> issues, DirectoryPath repositoryRootPath)
     {
         var generator =
-            new ConsoleIssueReportGenerator(this.Log, this.ConsoleIssueReportFormatSettings);
+            new ConsoleIssueReportGenerator(
+                this.Console,
+                this.Log,
+                this.ConsoleIssueReportFormatSettings);
 
         var createIssueReportSettings =
             new CreateIssueReportSettings(repositoryRootPath, string.Empty);
         _ = generator.Initialize(createIssueReportSettings);
         _ = generator.CreateReport(issues);
 
-        // TODO Return console output
-        return string.Empty;
     }
 
     public void TestReportCreation(Action<ConsoleIssueReportFormatSettings> settings)
@@ -52,20 +56,17 @@ internal class ConsoleIssueReportFixture
         settings(this.ConsoleIssueReportFormatSettings);
 
         // When
-        var result =
-            this.CreateReport(
-                [
-                    IssueBuilder
-                        .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
-                        .InFile(@"src\Cake.Issues.Reporting.Generic.Tests\Foo.cs", 10)
-                        .OfRule("Rule Foo")
-                        .WithPriority(IssuePriority.Warning)
-                        .Create(),
-                ],
-                @"c:\Source\Cake.Issues.Reporting.Console");
+        this.CreateReport(
+            [
+                IssueBuilder
+                    .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                    .InFile(@"src\Cake.Issues.Reporting.Generic.Tests\Foo.cs", 10)
+                    .OfRule("Rule Foo")
+                    .WithPriority(IssuePriority.Warning)
+                    .Create(),
+            ],
+            @"c:\Source\Cake.Issues.Reporting.Console");
 
         // Then
-        // Currently only checks if generation failed or not without checking actual output.
-        _ = result.ShouldNotBeNull();
     }
 }

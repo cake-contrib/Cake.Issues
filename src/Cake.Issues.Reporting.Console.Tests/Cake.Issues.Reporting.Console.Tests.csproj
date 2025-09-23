@@ -4,6 +4,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+	  <PackageReference Include="Spectre.Console.Testing" />
+	  <PackageReference Include="Verify.Xunit" />
+  </ItemGroup>
+	
+  <ItemGroup>
     <None Remove="Testfiles\**\*" />
   </ItemGroup>
 

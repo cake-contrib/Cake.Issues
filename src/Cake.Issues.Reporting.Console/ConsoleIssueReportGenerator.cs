@@ -13,18 +13,25 @@ using Spectre.Console;
 /// </summary>
 internal class ConsoleIssueReportGenerator : IssueReportFormat
 {
+    private readonly IAnsiConsole console;
     private readonly ConsoleIssueReportFormatSettings consoleIssueReportFormatSettings;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="ConsoleIssueReportGenerator"/> class.
     /// </summary>
+    /// <param name="console">The console where output should be written to.</param>
     /// <param name="log">The Cake log context.</param>
     /// <param name="settings">Settings for reporting the issues.</param>
-    public ConsoleIssueReportGenerator(ICakeLog log, ConsoleIssueReportFormatSettings settings)
+    public ConsoleIssueReportGenerator(
+        IAnsiConsole console,
+        ICakeLog log,
+        ConsoleIssueReportFormatSettings settings)
         : base(log)
     {
+        console.NotNull();
         settings.NotNull();
 
+        this.console = console;
         this.consoleIssueReportFormatSettings = settings;
     }
 
@@ -81,7 +88,7 @@ internal class ConsoleIssueReportGenerator : IssueReportFormat
             }
 
             report.Render(
-                AnsiConsole.Console,
+                this.console,
                 new ReportSettings
                 {
                     Compact = this.consoleIssueReportFormatSettings.Compact,
@@ -104,15 +111,15 @@ internal class ConsoleIssueReportGenerator : IssueReportFormat
     {
         if (!issues.Any())
         {
-            AnsiConsole.WriteLine("No issues");
+            this.console.WriteLine("No issues");
             return;
         }
 
-        AnsiConsole.WriteLine();
-        AnsiConsole.WriteLine();
+        this.console.WriteLine();
+        this.console.WriteLine();
         var rule = new Rule("Summary").Centered();
-        AnsiConsole.Write(rule);
-        AnsiConsole.WriteLine();
+        this.console.Write(rule);
+        this.console.WriteLine();
 
         var providerChart = new BarChart();
 
@@ -162,18 +169,18 @@ internal class ConsoleIssueReportGenerator : IssueReportFormat
 
         if (this.consoleIssueReportFormatSettings.ShowProviderSummary)
         {
-            AnsiConsole.Write(new Markup("[bold]Issues per provider & run[/]").Centered());
-            AnsiConsole.WriteLine();
-            AnsiConsole.WriteLine();
-            AnsiConsole.Write(providerChart);
-            AnsiConsole.WriteLine();
+            this.console.Write(new Markup("[bold]Issues per provider & run[/]").Centered());
+            this.console.WriteLine();
+            this.console.WriteLine();
+            this.console.Write(providerChart);
+            this.console.WriteLine();
         }
 
         if (this.consoleIssueReportFormatSettings.ShowPrioritySummary)
         {
-            AnsiConsole.Write(new Markup("[bold]Issues per priority[/]").Centered());
-            AnsiConsole.WriteLine();
-            AnsiConsole.Write(priorityTable);
+            this.console.Write(new Markup("[bold]Issues per priority[/]").Centered());
+            this.console.WriteLine();
+            this.console.Write(priorityTable);
         }
     }
 }

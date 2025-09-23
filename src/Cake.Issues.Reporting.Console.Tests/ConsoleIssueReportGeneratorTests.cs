@@ -1,19 +1,48 @@
 ﻿namespace Cake.Issues.Reporting.Console.Tests;
 
+using System.Text.RegularExpressions;
+using Cake.Core.Diagnostics;
+using Spectre.Console;
+using Spectre.Console.Testing;
 using Xunit.Abstractions;
 
-public sealed class ConsoleIssueReportGeneratorTests
+public sealed partial class ConsoleIssueReportGeneratorTests
 {
     public sealed class TheCtor
     {
         [Fact]
-        public void Should_Throw_If_Log_Is_Null()
+        public void Should_Throw_If_Console_Is_Null()
         {
-            // Given / When
+            // Given
+            IAnsiConsole console = null;
+            var log = new FakeLog();
+            var settings = new ConsoleIssueReportFormatSettings();
+
+            // When
             var result = Record.Exception(() =>
                 new ConsoleIssueReportGenerator(
-                    null,
-                    new ConsoleIssueReportFormatSettings()));
+                    console,
+                    log,
+                    settings));
+
+            // Then
+            result.IsArgumentNullException("console");
+        }
+
+        [Fact]
+        public void Should_Throw_If_Log_Is_Null()
+        {
+            // Given
+            var console = new TestConsole();
+            ICakeLog log = null;
+            var settings = new ConsoleIssueReportFormatSettings();
+
+            // When
+            var result = Record.Exception(() =>
+                new ConsoleIssueReportGenerator(
+                    console,
+                    log,
+                    settings));
 
             // Then
             result.IsArgumentNullException("log");
@@ -22,18 +51,24 @@ public sealed class ConsoleIssueReportGeneratorTests
         [Fact]
         public void Should_Throw_If_Settings_Are_Null()
         {
-            // Given / When
+            // Given
+            var console = new TestConsole();
+            var log = new FakeLog();
+            ConsoleIssueReportFormatSettings settings = null;
+
+            // When
             var result = Record.Exception(() =>
                 new ConsoleIssueReportGenerator(
-                    new FakeLog(),
-                    null));
+                    console,
+                    log,
+                    settings));
 
             // Then
             result.IsArgumentNullException("settings");
         }
     }
 
-    public sealed class TheInternalCreateReportMethod
+    public sealed partial class TheInternalCreateReportMethod
     {
         public static IEnumerable<object[]> ReportFormatSettingsCombinations =>
             from b1 in boolArray
@@ -68,7 +103,7 @@ public sealed class ConsoleIssueReportGeneratorTests
             };
 
             // When
-            _ = fixture.CreateReportForTestfile(
+            fixture.CreateReportForTestfile(
                 "Testfiles.issues.json",
                 @"c:\Source\Cake.Issues.Reporting.Console");
 
@@ -98,15 +133,21 @@ public sealed class ConsoleIssueReportGeneratorTests
             };
 
             // When
-            _ = fixture.CreateReport(
+            fixture.CreateReport(
                 [],
                 @"c:\Source\Cake.Issues.Reporting.Console");
 
             // Then
         }
 
-        public sealed class WithShowDiagnosticsEnabled(ITestOutputHelper output)
+        public sealed partial class WithShowDiagnosticsEnabled(ITestOutputHelper output)
         {
+            // (?<=┌─\[) — positive lookbehind to assert the match is preceded by ┌─[
+            // [^\]]+    — matches one or more characters that are not a closing bracket ]
+            // (?=\])    — positive lookahead to assert the match is followed by ]
+            [GeneratedRegex(@"(?<=┌─\[)[^\]]+(?=\])")]
+            private static partial Regex DiagnosticRegEx();
+
             [Fact]
             public void Should_Filter_Issues_Without_FilePath()
             {
@@ -128,7 +169,7 @@ public sealed class ConsoleIssueReportGeneratorTests
                     };
 
                 // When
-                _ = fixture.CreateReport(issues, @"c:\Source\Cake.Issues.Reporting.Console");
+                fixture.CreateReport(issues, @"c:\Source\Cake.Issues.Reporting.Console");
 
                 // Then
                 fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) were filtered because they either don't belong to a file or the file does not exist.");
@@ -155,7 +196,7 @@ public sealed class ConsoleIssueReportGeneratorTests
                     };
 
                 // When
-                _ = fixture.CreateReport(issues, @"c:\Source\Cake.Issues.Reporting.Console");
+                fixture.CreateReport(issues, @"c:\Source\Cake.Issues.Reporting.Console");
 
                 // Then
                 fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) were filtered because they either don't belong to a file or the file does not exist.");
@@ -187,7 +228,7 @@ public sealed class ConsoleIssueReportGeneratorTests
                     };
 
                 // When
-                _ = fixture.CreateReport(issues, directory);
+                fixture.CreateReport(issues, directory);
 
                 // Then
                 fixture.Log.Entries.ShouldContain(x => x.Message == "0 issue(s) were filtered because they either don't belong to a file or the file does not exist.");
@@ -218,7 +259,7 @@ public sealed class ConsoleIssueReportGeneratorTests
                         .Create(),
                     };
                 // When
-                _ = fixture.CreateReport(issues, directory);
+                fixture.CreateReport(issues, directory);
 
                 // Then
             }
@@ -249,9 +290,48 @@ public sealed class ConsoleIssueReportGeneratorTests
                         .Create(),
                     };
                 // When
-                _ = fixture.CreateReport(issues, directory);
+                fixture.CreateReport(issues, directory);
 
                 // Then
+            }
+
+            [Fact]
+            public Task Should_Work_With_Issue_On_End_Of_Line()
+            {
+                // Given
+                using var tempSourceFile = new TemporarySourceFile("Testfiles.TestFile.txt");
+                var filePath = tempSourceFile.FilePath;
+                output.WriteLine($"File path: {filePath}");
+                var directory = Path.GetDirectoryName(filePath)!;
+                var fileName = Path.GetFileName(filePath);
+                var fixture = new ConsoleIssueReportFixture
+                {
+                    ConsoleIssueReportFormatSettings =
+                    {
+                        ShowDiagnostics = true
+                    }
+                };
+                var issues =
+                    new List<IIssue>
+                    {
+                    IssueBuilder
+                        .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                        .InFile(fileName, 1, 57)
+                        .Create(),
+                    };
+                // When
+                fixture.CreateReport(issues, directory);
+
+                // Then
+                // Add a scrubber that replaces the dynamic ID in the output
+                var settings = new VerifySettings();
+                settings.AddScrubber(builder =>
+                {
+                    var updated = DiagnosticRegEx().Replace(builder.ToString(), "<DYNAMIC_ID>");
+
+                    _ = builder.Clear().Append(updated);
+                });
+                return Verify(fixture.Console.Output, settings);
             }
         }
     }

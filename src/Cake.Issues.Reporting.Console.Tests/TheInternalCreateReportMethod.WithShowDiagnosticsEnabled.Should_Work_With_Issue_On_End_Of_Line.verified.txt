@@ -1,0 +1,8 @@
+﻿ 
+   ┌─[<DYNAMIC_ID>]
+   │
+ 1 │ namespace Cake.Issues.Reporting.Console.Tests.Testfiles;
+   ·                                                        ┬
+   ·                                                        ╰ Message Foo
+   │
+   └─
