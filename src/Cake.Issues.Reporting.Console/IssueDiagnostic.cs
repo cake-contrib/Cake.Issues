@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Cake.Core.Diagnostics;
 using Cake.Core.IO;
 using Errata;
 using Spectre.Console;
@@ -13,30 +14,37 @@ using Spectre.Console;
 /// </summary>
 internal sealed class IssueDiagnostic : Diagnostic
 {
+    private readonly ICakeLog log;
     private readonly IEnumerable<IIssue> issues;
     private readonly DirectoryPath repositoryRoot;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="IssueDiagnostic"/> class.
     /// </summary>
-    /// <param name="issue">Issue which the diagnostic should describe.</param>
+    /// <param name="log">The Cake log.</param>
     /// <param name="repositoryRoot">Root directory of the repository.</param>
-    public IssueDiagnostic(IIssue issue, DirectoryPath repositoryRoot = null)
-        : this([issue], repositoryRoot)
+    /// <param name="issue">Issue which the diagnostic should describe.</param>
+    public IssueDiagnostic(ICakeLog log, DirectoryPath repositoryRoot, IIssue issue)
+        : this(log, repositoryRoot, [issue])
     {
     }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="IssueDiagnostic"/> class.
     /// </summary>
-    /// <param name="issues">Issues which the diagnostic should describe.</param>
+    /// <param name="log">The Cake log.</param>
     /// <param name="repositoryRoot">Root directory of the repository.</param>
-    public IssueDiagnostic(IEnumerable<IIssue> issues, DirectoryPath repositoryRoot = null)
+    /// <param name="issues">Issues which the diagnostic should describe.</param>
+    public IssueDiagnostic(ICakeLog log, DirectoryPath repositoryRoot, IEnumerable<IIssue> issues)
 
         : base(issues.First().RuleId)
     {
-        this.issues = issues;
+        log.NotNull();
+        repositoryRoot.NotNull();
+
+        this.log = log;
         this.repositoryRoot = repositoryRoot;
+        this.issues = issues;
 
         var firstIssue = this.issues.First();
 
@@ -124,6 +132,9 @@ internal sealed class IssueDiagnostic : Diagnostic
             {
                 // If file reading fails, proceed with original column position
                 // This ensures we don't break functionality when files are not accessible
+                this.log.Verbose(
+                    "Could not read file '{0}' to validate issue location is in a valid range.",
+                    issue.AffectedFileRelativePath);
             }
         }
 

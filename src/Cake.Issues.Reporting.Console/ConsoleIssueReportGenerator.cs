@@ -76,14 +76,22 @@ internal class ConsoleIssueReportGenerator : IssueReportFormat
             {
                 foreach (var issueGroup in diagnosticIssues.GroupBy(x => x.RuleId))
                 {
-                    _ = report.AddDiagnostic(new IssueDiagnostic(issueGroup, this.Settings.RepositoryRoot));
+                    _ = report.AddDiagnostic(
+                        new IssueDiagnostic(
+                            this.Log,
+                            this.Settings.RepositoryRoot,
+                            issueGroup));
                 }
             }
             else
             {
                 foreach (var issue in diagnosticIssues)
                 {
-                    _ = report.AddDiagnostic(new IssueDiagnostic(issue, this.Settings.RepositoryRoot));
+                    _ = report.AddDiagnostic(
+                        new IssueDiagnostic(
+                            this.Log,
+                            this.Settings.RepositoryRoot,
+                            issue));
                 }
             }
 
