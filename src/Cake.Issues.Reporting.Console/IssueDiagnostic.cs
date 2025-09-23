@@ -113,8 +113,22 @@ internal sealed class IssueDiagnostic : Diagnostic
                 var fullPath = this.repositoryRoot.CombineWithFilePath(issue.AffectedFileRelativePath).FullPath;
                 if (File.Exists(fullPath))
                 {
-                    // Read the required line from the file
-                    var lineContent = File.ReadLines(fullPath).Skip(line - 1).FirstOrDefault();
+                    // Read only the required line from the file without loading all preceding lines
+                    string lineContent = null;
+                    using (var reader = new StreamReader(fullPath))
+                    {
+                        // Skip to the line we need
+                        for (var i = 0; i < line - 1 && !reader.EndOfStream; i++)
+                        {
+                            _ = reader.ReadLine();
+                        }
+
+                        // Read the target line
+                        if (!reader.EndOfStream)
+                        {
+                            lineContent = reader.ReadLine();
+                        }
+                    }
 
                     if (lineContent != null)
                     {
@@ -128,7 +142,7 @@ internal sealed class IssueDiagnostic : Diagnostic
                     }
                 }
             }
-            catch (Exception ex) when (ex is IOException or PathTooLongException or SecurityException or UnauthorizedAccessException)
+            catch (Exception ex) when (ex is IOException or OutOfMemoryException)
             {
                 // If file reading fails, proceed with original column position
                 // This ensures we don't break functionality when files are not accessible
