@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security;
 using Cake.Core.Diagnostics;
 using Cake.Core.IO;
 using Errata;
@@ -137,7 +138,7 @@ internal sealed class IssueDiagnostic : Diagnostic
                     }
                 }
             }
-            catch
+            catch (Exception ex) when (ex is IOException or PathTooLongException or SecurityException or UnauthorizedAccessException)
             {
                 // If file reading fails, proceed with original column position
                 // This ensures we don't break functionality when files are not accessible
