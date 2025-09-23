@@ -2,7 +2,11 @@
 
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Security;
+using Cake.Core.Diagnostics;
+using Cake.Core.IO;
 using Errata;
 using Spectre.Console;
 
@@ -11,25 +15,36 @@ using Spectre.Console;
 /// </summary>
 internal sealed class IssueDiagnostic : Diagnostic
 {
+    private readonly ICakeLog log;
     private readonly IEnumerable<IIssue> issues;
+    private readonly DirectoryPath repositoryRoot;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="IssueDiagnostic"/> class.
     /// </summary>
+    /// <param name="log">The Cake log.</param>
+    /// <param name="repositoryRoot">Root directory of the repository.</param>
     /// <param name="issue">Issue which the diagnostic should describe.</param>
-    public IssueDiagnostic(IIssue issue)
-        : this([issue])
+    public IssueDiagnostic(ICakeLog log, DirectoryPath repositoryRoot, IIssue issue)
+        : this(log, repositoryRoot, [issue])
     {
     }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="IssueDiagnostic"/> class.
     /// </summary>
+    /// <param name="log">The Cake log.</param>
+    /// <param name="repositoryRoot">Root directory of the repository.</param>
     /// <param name="issues">Issues which the diagnostic should describe.</param>
-    public IssueDiagnostic(IEnumerable<IIssue> issues)
+    public IssueDiagnostic(ICakeLog log, DirectoryPath repositoryRoot, IEnumerable<IIssue> issues)
 
         : base(issues.First().RuleId)
     {
+        log.NotNull();
+        repositoryRoot.NotNull();
+
+        this.log = log;
+        this.repositoryRoot = repositoryRoot;
         this.issues = issues;
 
         var firstIssue = this.issues.First();
@@ -79,7 +94,7 @@ internal sealed class IssueDiagnostic : Diagnostic
     /// </summary>
     /// <param name="issue">Issue for which the location should be returned.</param>
     /// <returns>Location for the diagnostic.</returns>
-    private static (Location Location, int Lenght) GetLocation(IIssue issue)
+    private (Location Location, int Lenght) GetLocation(IIssue issue)
     {
         // Errata currently doesn't support file or line level diagnostics.
         if (!issue.Line.HasValue || !issue.Column.HasValue)
@@ -87,12 +102,72 @@ internal sealed class IssueDiagnostic : Diagnostic
             return default;
         }
 
-        var location = new Location(issue.Line.Value, issue.Column.Value);
+        var line = issue.Line.Value;
+        var column = issue.Column.Value;
+
+        // Try to validate column position against actual file content if possible
+        if (this.repositoryRoot != null && issue.AffectedFileRelativePath != null)
+        {
+            try
+            {
+                var fullPath = this.repositoryRoot.CombineWithFilePath(issue.AffectedFileRelativePath).FullPath;
+                if (File.Exists(fullPath))
+                {
+                    // Read only the required line from the file without loading all preceding lines
+                    string lineContent = null;
+                    using (var reader = new StreamReader(fullPath))
+                    {
+                        // Skip to the line we need
+                        for (var i = 0; i < line - 1 && !reader.EndOfStream; i++)
+                        {
+                            _ = reader.ReadLine();
+                        }
+
+                        // Read the target line
+                        if (!reader.EndOfStream)
+                        {
+                            lineContent = reader.ReadLine();
+                        }
+                    }
+
+                    if (lineContent != null)
+                    {
+                        var lineLength = lineContent.Length;
+
+                        // If column is beyond the end of the line, adjust it to the last valid position
+                        if (column > lineLength)
+                        {
+                            column = Math.Max(1, lineLength); // Position at end of line content, minimum column 1
+                        }
+                    }
+                }
+            }
+            catch (Exception ex) when (
+                ex is IOException
+                or OutOfMemoryException
+                or UnauthorizedAccessException
+                or SecurityException)
+            {
+                // If file reading fails, proceed with original column position
+                // This ensures we don't break functionality when files are not accessible
+                this.log.Verbose(
+                    "Could not read file '{0}' to validate issue location is in a valid range.",
+                    issue.AffectedFileRelativePath);
+            }
+        }
+
+        var location = new Location(line, column);
 
         var length = 0;
         if (issue.EndColumn.HasValue)
         {
-            length = issue.EndColumn.Value - issue.Column.Value;
+            length = issue.EndColumn.Value - column;
+
+            // Ensure length is non-negative
+            if (length < 0)
+            {
+                length = 0;
+            }
         }
 
         return (location, length);
@@ -113,7 +188,7 @@ internal sealed class IssueDiagnostic : Diagnostic
 
         foreach (var issue in this.issues)
         {
-            var (location, length) = GetLocation(issue);
+            var (location, length) = this.GetLocation(issue);
             var label =
                 new Label(
                     issue.AffectedFileRelativePath.FullPath,
