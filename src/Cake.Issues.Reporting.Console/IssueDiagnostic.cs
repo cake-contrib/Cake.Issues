@@ -42,7 +42,7 @@ internal sealed class IssueDiagnostic : Diagnostic
                 (int)IssuePriority.Warning => Color.Yellow,
                 (int)IssuePriority.Suggestion => Color.Blue,
                 (int)IssuePriority.Hint => Color.LightSkyBlue1,
-                _ => throw new Exception(),
+                _ => this.Color,
             };
 
         var noteComponents = new List<string>();
@@ -108,7 +108,7 @@ internal sealed class IssueDiagnostic : Diagnostic
             (int)IssuePriority.Error => Color.Red,
             (int)IssuePriority.Warning => Color.Yellow,
             (int)IssuePriority.Suggestion or (int)IssuePriority.Hint => Color.Blue,
-            _ => throw new Exception(),
+            _ => Color.White,
         };
 
         foreach (var issue in this.issues)
