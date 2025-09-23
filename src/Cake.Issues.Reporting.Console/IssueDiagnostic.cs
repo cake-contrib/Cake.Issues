@@ -114,17 +114,7 @@ internal sealed class IssueDiagnostic : Diagnostic
                 if (File.Exists(fullPath))
                 {
                     // Read the required line from the file
-                    string lineContent = null;
-                    var currentLineNumber = 0;
-                    foreach (var fileLine in File.ReadLines(fullPath))
-                    {
-                        currentLineNumber++;
-                        if (currentLineNumber == line)
-                        {
-                            lineContent = fileLine;
-                            break;
-                        }
-                    }
+                    var lineContent = File.ReadLines(fullPath).Skip(line - 1).FirstOrDefault();
 
                     if (lineContent != null)
                     {
