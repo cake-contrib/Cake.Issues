@@ -2379,4 +2379,128 @@ public sealed class IssueBuilderTests
             result.IsArgumentNullException("additionalInformation");
         }
     }
+
+    public sealed class TheWithSnippetMethod
+    {
+        [Fact]
+        public void Should_Handle_Snippet_Which_Is_Null()
+        {
+            // Given
+            var fixture = new IssueBuilderFixture();
+            const string snippet = null;
+
+            // When
+            var issue = fixture.IssueBuilder.WithSnippet(snippet).Create();
+
+            // Then
+            issue.Snippet.ShouldBe(snippet);
+        }
+
+        [Fact]
+        public void Should_Handle_Snippet_Which_Is_Empty()
+        {
+            // Given
+            var fixture = new IssueBuilderFixture();
+            var snippet = string.Empty;
+
+            // When
+            var issue = fixture.IssueBuilder.WithSnippet(snippet).Create();
+
+            // Then
+            issue.Snippet.ShouldBe(snippet);
+        }
+
+        [Fact]
+        public void Should_Handle_Snippet_Which_Is_WhiteSpace()
+        {
+            // Given
+            var fixture = new IssueBuilderFixture();
+            var snippet = " ";
+
+            // When
+            var issue = fixture.IssueBuilder.WithSnippet(snippet).Create();
+
+            // Then
+            issue.Snippet.ShouldBe(snippet);
+        }
+
+        [Theory]
+        [InlineData("var x = 1;")]
+        [InlineData("if (condition) {\n  return true;\n}")]
+        [InlineData("public class Test { }")]
+        public void Should_Set_Snippet(string snippet)
+        {
+            // Given
+            var fixture = new IssueBuilderFixture();
+
+            // When
+            var issue = fixture.IssueBuilder.WithSnippet(snippet).Create();
+
+            // Then
+            issue.Snippet.ShouldBe(snippet);
+        }
+    }
+
+    public sealed class TheWithSourceLanguageMethod
+    {
+        [Fact]
+        public void Should_Handle_SourceLanguage_Which_Is_Null()
+        {
+            // Given
+            var fixture = new IssueBuilderFixture();
+            const string sourceLanguage = null;
+
+            // When
+            var issue = fixture.IssueBuilder.WithSourceLanguage(sourceLanguage).Create();
+
+            // Then
+            issue.SourceLanguage.ShouldBe(sourceLanguage);
+        }
+
+        [Fact]
+        public void Should_Handle_SourceLanguage_Which_Is_Empty()
+        {
+            // Given
+            var fixture = new IssueBuilderFixture();
+            var sourceLanguage = string.Empty;
+
+            // When
+            var issue = fixture.IssueBuilder.WithSourceLanguage(sourceLanguage).Create();
+
+            // Then
+            issue.SourceLanguage.ShouldBe(sourceLanguage);
+        }
+
+        [Fact]
+        public void Should_Handle_SourceLanguage_Which_Is_WhiteSpace()
+        {
+            // Given
+            var fixture = new IssueBuilderFixture();
+            var sourceLanguage = " ";
+
+            // When
+            var issue = fixture.IssueBuilder.WithSourceLanguage(sourceLanguage).Create();
+
+            // Then
+            issue.SourceLanguage.ShouldBe(sourceLanguage);
+        }
+
+        [Theory]
+        [InlineData("csharp")]
+        [InlineData("javascript")]
+        [InlineData("python")]
+        [InlineData("C#")]
+        [InlineData("TypeScript")]
+        public void Should_Set_SourceLanguage(string sourceLanguage)
+        {
+            // Given
+            var fixture = new IssueBuilderFixture();
+
+            // When
+            var issue = fixture.IssueBuilder.WithSourceLanguage(sourceLanguage).Create();
+
+            // Then
+            issue.SourceLanguage.ShouldBe(sourceLanguage);
+        }
+    }
 }
