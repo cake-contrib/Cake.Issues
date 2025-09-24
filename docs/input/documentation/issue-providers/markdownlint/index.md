@@ -10,6 +10,6 @@ is implemented in the [Cake.Issues.Markdownlint addin](https://www.nuget.org/pac
 
 - :material-creation-outline: [Features](features.md)
 - :material-test-tube: [Examples](examples.md)
-- :material-api: [API](https://cakebuild.net/extensions/cake-issues-markdownlint){target="_blank"}
+- :material-api: [API](https://cakebuild.net/extensions/cake-issues-markdownlint)
 
 </div>

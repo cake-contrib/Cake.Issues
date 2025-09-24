@@ -19,7 +19,10 @@
 				"terminal.integrated.shell.linux": "/bin/bash",
 			},
 			"extensions": [
-				"davidanson.vscode-markdownlint"
+				"davidanson.vscode-markdownlint",
+				"hediet.vscode-drawio",
+				"streetsidesoftware.code-spell-checker",
+				"mechatroner.rainbow-csv"
 			]
 		}
 	}

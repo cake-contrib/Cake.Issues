@@ -20,7 +20,7 @@ For update instructions skip to [Updating from previous versions](#updating-from
 
 People working on this release:
 
-* [pascalberger](https://github.com/pascalberger){target="_blank"}
+* [pascalberger](https://github.com/pascalberger)
 
 ## Displaying of project when reporting to console
 
@@ -39,4 +39,4 @@ Cake Issues Recipe has receive a bunch of bug fixes:
 Cake.Issues 5.8.0 addins are compatible with any 5.x addins.
 To update to the new version bump the version of the specific addins.
 
-For details see [release notes](https://github.com/cake-contrib/Cake.Issues/releases/tag/5.8.0){target="_blank"}
+For details see [release notes](https://github.com/cake-contrib/Cake.Issues/releases/tag/5.8.0)

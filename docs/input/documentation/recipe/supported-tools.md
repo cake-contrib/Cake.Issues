@@ -13,27 +13,27 @@ Cake.Issues recipes support reading issues from output of the following tools:
 
     | Tool                              | Format                                                  | IssuesParameters.InputFiles Method  |
     |-----------------------------------|---------------------------------------------------------|-------------------------------------|
-    | MsBuild                           | [MSBuild Extension Pack XmlFileLogger]{target="_blank"} | `AddMsBuildXmlFileLoggerLogFile*()` |
+    | MsBuild                           | [MSBuild Extension Pack XmlFileLogger] | `AddMsBuildXmlFileLoggerLogFile*()` |
     | MsBuild                           | Binary Log File                                         | `AddMsBuildBinaryLogFile*()`        |
-    | JetBrains InspectCode (ReSharper) | [xml]{target="_blank"}                                  | `AddInspectCodeLogFile*()`          |
-    | markdownlint                      | [markdownlint-cli]{target="_blank"} default format      | `AddMarkdownlintCliLogFile*()`      |
-    | markdownlint                      | [markdownlint-cli]{target="_blank"} with `--json`       | `AddMarkdownlintCliJsonLogFile*()`  |
-    | markdownlint                      | [markdownlint]{target="_blank"} version 1               | `AddMarkdownlintV1LogFile*()`       |
-    | [ESLint]                          | [json formatter]{target="_blank"}                       | `AddEsLintJsonLogFile*()`           |
-    | Any SARIF compatible tool         | [SARIF]{target="_blank"}                                | `AddSarifLogFile*()`                |
+    | JetBrains InspectCode (ReSharper) | [xml]                                  | `AddInspectCodeLogFile*()`          |
+    | markdownlint                      | [markdownlint-cli] default format      | `AddMarkdownlintCliLogFile*()`      |
+    | markdownlint                      | [markdownlint-cli] with `--json`       | `AddMarkdownlintCliJsonLogFile*()`  |
+    | markdownlint                      | [markdownlint] version 1               | `AddMarkdownlintV1LogFile*()`       |
+    | [ESLint]                          | [json formatter]                       | `AddEsLintJsonLogFile*()`           |
+    | Any SARIF compatible tool         | [SARIF]                                | `AddSarifLogFile*()`                |
 
 === "Cake.Frosting.Issues.Recipe"
 
     | Tool                              | Format                                                  | IssuesContext.Parameters.InputFiles Method |
     |-----------------------------------|---------------------------------------------------------|--------------------------------------------|
-    | MsBuild                           | [MSBuild Extension Pack XmlFileLogger]{target="_blank"} | `AddMsBuildXmlFileLoggerLogFile*()`        |
+    | MsBuild                           | [MSBuild Extension Pack XmlFileLogger] | `AddMsBuildXmlFileLoggerLogFile*()`        |
     | MsBuild                           | Binary Log File                                         | `AddMsBuildBinaryLogFile*()`               |
-    | JetBrains InspectCode (ReSharper) | [xml]{target="_blank"}                                  | `AddInspectCodeLogFile*()`                 |
-    | markdownlint                      | [markdownlint-cli]{target="_blank"} default format      | `AddMarkdownlintCliLogFile*()`             |
-    | markdownlint                      | [markdownlint-cli]{target="_blank"} with `--json`       | `AddMarkdownlintCliJsonLogFile*()`         |
-    | markdownlint                      | [markdownlint]{target="_blank"} version 1               | `AddMarkdownlintV1LogFile*()`              |
-    | [ESLint]                          | [json formatter]{target="_blank"}                       | `AddEsLintJsonLogFile*()`                  |
-    | Any SARIF compatible tool         | [SARIF]{target="_blank"}                                | `AddSarifLogFile*()`                       |
+    | JetBrains InspectCode (ReSharper) | [xml]                                  | `AddInspectCodeLogFile*()`                 |
+    | markdownlint                      | [markdownlint-cli] default format      | `AddMarkdownlintCliLogFile*()`             |
+    | markdownlint                      | [markdownlint-cli] with `--json`       | `AddMarkdownlintCliJsonLogFile*()`         |
+    | markdownlint                      | [markdownlint] version 1               | `AddMarkdownlintV1LogFile*()`              |
+    | [ESLint]                          | [json formatter]                       | `AddEsLintJsonLogFile*()`                  |
+    | Any SARIF compatible tool         | [SARIF]                                | `AddSarifLogFile*()`                       |
 
 !!! tip
 
@@ -80,13 +80,13 @@ Cake.Issues recipes integrates with the following build systems:
     <div class="annotate" markdown>
 
     - [x] Write issues to build server
-    - [ ] Issues summary
+    - [x] Issues summary
     - [x] SARIF report (1)
-    - [ ] Full issues report
+    - [x] Full issues report
 
     </div>
 
-    1.  Uploaded to [GitHub code scanning](https://docs.github.com/en/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning){target="_blank"}
+    1.  Uploaded to [GitHub code scanning](https://docs.github.com/en/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning)
 
 ## Pull request systems
 

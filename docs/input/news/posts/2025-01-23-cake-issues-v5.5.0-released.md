@@ -18,9 +18,9 @@ For update instructions skip to [Updating from previous versions](#updating-from
 
 People working on this release:
 
-* [eoehen](https://github.com/eoehen){target="_blank"}
-* [lulicool](https://github.com/lulicool){target="_blank"}
-* [pascalberger](https://github.com/pascalberger){target="_blank"}
+* [eoehen](https://github.com/eoehen)
+* [lulicool](https://github.com/lulicool)
+* [pascalberger](https://github.com/pascalberger)
 
 ## Improvements for reports
 
@@ -274,7 +274,7 @@ Multiple changes have been made to improve usability:
 Cake.Issues 5.5.0 addins are compatible with any 5.x addins.
 To update to the new version bump the version of the specific addins.
 
-For details see [release notes](https://github.com/cake-contrib/Cake.Issues/releases/tag/5.5.0){target="_blank"}
+For details see [release notes](https://github.com/cake-contrib/Cake.Issues/releases/tag/5.5.0)
 
 [HtmlDxDataGrid template]: ../../documentation/report-formats/generic/templates/htmldxdatagrid.md
 [Using commercial version]:  ../../documentation/report-formats/generic/templates/htmldxdatagrid.md#using-commercial-version

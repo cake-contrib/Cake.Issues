@@ -16,21 +16,21 @@ For update instructions skip to [Updating from previous versions](#updating-from
 
 People working on this release:
 
-* [pascalberger](https://github.com/pascalberger){target="_blank"}
+* [pascalberger](https://github.com/pascalberger)
 
 ## Bugfixes for Cake Frosting
 
 This release fixes dependencies of the following Cake Frosting optimized NuGet packages:
 
-* [Cake.Frosting.Issues.PullRequests]{target="_blank"}
-* [Cake.Frosting.Issues.MsBuild]{target="_blank"}
+* [Cake.Frosting.Issues.PullRequests]
+* [Cake.Frosting.Issues.MsBuild]
 
 ## Updating from previous versions
 
 Cake.Issues 5.1.1 addins are compatible with any 5.x addins.
 To update to the new version bump the version of the specific addins.
 
-For details see [release notes](https://github.com/cake-contrib/Cake.Issues/releases/tag/5.1.1){target="_blank"}
+For details see [release notes](https://github.com/cake-contrib/Cake.Issues/releases/tag/5.1.1)
 
 [Cake.Frosting.Issues.PullRequests]: https://www.nuget.org/packages/Cake.Frosting.Issues.PullRequests/5.1.1#dependencies-body-tab
 [Cake.Frosting.Issues.MsBuild]: https://www.nuget.org/packages/Cake.Frosting.Issues.MsBuild/5.1.1#dependencies-body-tab

@@ -18,12 +18,12 @@ For update instructions skip to [Updating from previous versions](#updating-from
 
 People working on this release:
 
-* [eoehen](https://github.com/eoehen){target="_blank"}
-* [pascalberger](https://github.com/pascalberger){target="_blank"}
+* [eoehen](https://github.com/eoehen)
+* [pascalberger](https://github.com/pascalberger)
 
 ## New issue provider for SARIF files
 
-A new [Cake.Issues.Sarif addin] has been released which adds support for reading issues in [SARIF]{target="_blank"} format.
+A new [Cake.Issues.Sarif addin] has been released which adds support for reading issues in [SARIF] format.
 
 See [New addin for reading SARIF files](2024-04-14-sarif-issue-provider.md) for details.
 
@@ -31,15 +31,15 @@ See [New addin for reading SARIF files](2024-04-14-sarif-issue-provider.md) for 
 
 Optimized versions for Cake Frosting have been released for the following addins:
 
-* [Cake.Frosting.Issues.DocFx]{target="_blank"}
-* [Cake.Frosting.Issues.EsLint]{target="_blank"}
-* [Cake.Frosting.Issues.GitRepository]{target="_blank"}
-* [Cake.Frosting.Issues.InspectCode]{target="_blank"}
-* [Cake.Frosting.Issues.Markdownlint]{target="_blank"}
-* [Cake.Frosting.Issues.Terraform]{target="_blank"}
-* [Cake.Frosting.Issues.PullRequests.AppVeyor]{target="_blank"}
-* [Cake.Frosting.Issues.PullRequests.AzureDevOps]{target="_blank"}
-* [Cake.Frosting.Issues.PullRequests.GitHubActions]{target="_blank"}
+* [Cake.Frosting.Issues.DocFx]
+* [Cake.Frosting.Issues.EsLint]
+* [Cake.Frosting.Issues.GitRepository]
+* [Cake.Frosting.Issues.InspectCode]
+* [Cake.Frosting.Issues.Markdownlint]
+* [Cake.Frosting.Issues.Terraform]
+* [Cake.Frosting.Issues.PullRequests.AppVeyor]
+* [Cake.Frosting.Issues.PullRequests.AzureDevOps]
+* [Cake.Frosting.Issues.PullRequests.GitHubActions]
 
 These addins come with a dependency to the core addins, allowing the core addins to be consumed as transitive dependencies.
 
@@ -64,7 +64,7 @@ Starting with this release the following addins will be released together with t
 Cake.Issues 4.2.0 addins are compatible with any 4.x addins.
 To update to the new version bump the version of the specific addins.
 
-For details see [release notes](https://github.com/cake-contrib/Cake.Issues/releases/tag/4.2.0){target="_blank"}
+For details see [release notes](https://github.com/cake-contrib/Cake.Issues/releases/tag/4.2.0)
 
 [Cake.Issues.Sarif addin]: ../../documentation/issue-providers/sarif/index.md
 [SARIF]: https://sarifweb.azurewebsites.net/

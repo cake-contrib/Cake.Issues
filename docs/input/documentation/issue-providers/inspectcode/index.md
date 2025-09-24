@@ -3,8 +3,8 @@ title: InspectCode issue provider
 description: Issue provider which allows you to read issues logged by JetBrains Inspect Code.
 ---
 
-Support for reading issues reported by [JetBrains InspectCode]{target="_blank"} in XML format
-is implemented in the [Cake.Issues.InspectCode addin]{target="_blank"}.
+Support for reading issues reported by [JetBrains InspectCode] in XML format
+is implemented in the [Cake.Issues.InspectCode addin].
 
 !!! note
     Starting from version 2024.1, the default output format of [JetBrains InspectCode] is Static Analysis Results Interchange Format (SARIF).
@@ -18,7 +18,7 @@ is implemented in the [Cake.Issues.InspectCode addin]{target="_blank"}.
 
 - :material-creation-outline: [Features](features.md)
 - :material-test-tube: [Examples](examples.md)
-- :material-api: [API](https://cakebuild.net/extensions/cake-issues-inspectcode){target="_blank"}
+- :material-api: [API](https://cakebuild.net/extensions/cake-issues-inspectcode)
 
 </div>
 

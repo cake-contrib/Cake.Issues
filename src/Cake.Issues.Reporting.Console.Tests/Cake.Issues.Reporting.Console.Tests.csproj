@@ -4,11 +4,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+	  <PackageReference Include="Spectre.Console.Testing" />
+	  <PackageReference Include="Verify.Xunit" />
+  </ItemGroup>
+	
+  <ItemGroup>
     <None Remove="Testfiles\**\*" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Testfiles\*.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Testfiles\TestFile.txt" />
   </ItemGroup>
 
   <ItemGroup>

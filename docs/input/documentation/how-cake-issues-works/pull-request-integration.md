@@ -11,7 +11,7 @@ This page documents how integration with build server and pull request systems w
     For some advanced scenarios it can be useful to have an deeper understand how the
     pipeline to report issues to build servers and pull requests work.
 
-    Most of the default behavior can be customized through [IReportIssuesToPullRequestSettings]{target="_blank"}.
+    Most of the default behavior can be customized through [IReportIssuesToPullRequestSettings].
 
 The pipeline for integration with build servers and pull request systems looks like this:
 
@@ -95,7 +95,7 @@ The `Resolve existing comments` step will close threads if they fulfill the foll
 
 </div>
 
-1.  Defined by the [IReportIssuesToPullRequestSettings.CommentSource property]{target="_blank"}
+1.  Defined by the [IReportIssuesToPullRequestSettings.CommentSource property]
 
 The `Reopen existing comments` step will reopen threads if they fulfill the following conditions:
 
@@ -108,12 +108,12 @@ The `Reopen existing comments` step will reopen threads if they fulfill the foll
 
 </div>
 
-1.  Defined by the [IReportIssuesToPullRequestSettings.CommentSource property]{target="_blank"}
+1.  Defined by the [IReportIssuesToPullRequestSettings.CommentSource property]
 
 ## Filter issues
 
 Issue filtering allows to reduce the set of issues reported to a build server or pull request system
-through settings on [IReportIssuesToPullRequestSettings]{target="_blank"}.
+through settings on [IReportIssuesToPullRequestSettings].
 
 The overall filtering process looks like this:
 
@@ -183,7 +183,7 @@ Issues will be filtered if a comment exists which fulfills the following criteri
 
 For projects containing legacy code with existing issues, it is possible
 to limit the number of issues reported to a pull request through
-[IReportIssuesToPullRequestSettings]{target="_blank"} properties.
+[IReportIssuesToPullRequestSettings] properties.
 
 The flow for filtering issues by number looks like this:
 
@@ -238,7 +238,7 @@ The issues are filtered according to the following criteria:
 
 #### Apply issue limits per issue provider
 
-The [IReportIssuesToPullRequestSettings.MaxIssuesToPostForEachIssueProvider property]{target="_blank"}
+The [IReportIssuesToPullRequestSettings.MaxIssuesToPostForEachIssueProvider property]
 can be used to limit the number of issues which should be posted at maximum for each issue provider.
 
 Setting this value will apply to all issue providers.
@@ -246,7 +246,7 @@ Setting this value will apply to all issue providers.
 ??? example
     In the following example `228` issues from MsBuild issue provider and
     `134` issues from SARIF issue provider were reported.
-    Due to [IReportIssuesToPullRequestSettings.MaxIssuesToPostForEachIssueProvider property]{target="_blank"}
+    Due to [IReportIssuesToPullRequestSettings.MaxIssuesToPostForEachIssueProvider property]
     setting, issues are limited to `100` for both issues from MsBuild and SARIF issue provider.
 
     ``` mermaid
@@ -273,8 +273,8 @@ Setting this value will apply to all issue providers.
 
 #### Apply issue limits per provider for this run
 
-The [IReportIssuesToPullRequestSettings.ProviderIssueLimits property]{target="_blank"} with the
-[MaxIssuesToPost]{target="_blank"} setting can be used to limit the number of issues which
+The [IReportIssuesToPullRequestSettings.ProviderIssueLimits property] with the
+[MaxIssuesToPost] setting can be used to limit the number of issues which
 should be posted at maximum for individual issue providers.
 
 This setting allows to define different values for different issue providers.
@@ -282,7 +282,7 @@ This setting allows to define different values for different issue providers.
 ??? example
     In the following example `100` issues from MsBuild issue provider and
     `100` issues from SARIF issue provider are in the pipeline.
-    Due to [MaxIssuesToPost]{target="_blank"} setting, issues from SARIF issue provider are limited to `50`.
+    Due to [MaxIssuesToPost] setting, issues from SARIF issue provider are limited to `50`.
 
     ``` mermaid
     graph TB
@@ -308,7 +308,7 @@ This setting allows to define different values for different issue providers.
 
 #### Apply global issue limit
 
-The [IReportIssuesToPullRequestSettings.MaxIssuesToPost property]{target="_blank"} can be used to
+The [IReportIssuesToPullRequestSettings.MaxIssuesToPost property] can be used to
 limit the total number of issues which should be posted.
 
 This limit is across all issue provider.
@@ -316,7 +316,7 @@ This limit is across all issue provider.
 ??? example
     In the following example `100` issues from MsBuild issue provider and
     `50` issues from SARIF issue provider are in the pipeline.
-    Due to [IReportIssuesToPullRequestSettings.MaxIssuesToPost property]{target="_blank"}
+    Due to [IReportIssuesToPullRequestSettings.MaxIssuesToPost property]
     setting, issues are limited to `75` in total.
     The numbers in the output are examples.
     The actual numbers depend solely on priority and file path of individual issues.
@@ -348,8 +348,8 @@ This limit is across all issue provider.
 !!! Note
     This step will only be executed for implementations supporting the `Discussion Threads` capability.
 
-The [IReportIssuesToPullRequestSettings.ProviderIssueLimits property]{target="_blank"} with the
-[MaxIssuesToPostAcrossRuns]{target="_blank"} setting can be used to limit the number of issues
+The [IReportIssuesToPullRequestSettings.ProviderIssueLimits property] with the
+[MaxIssuesToPostAcrossRuns] setting can be used to limit the number of issues
 which should be posted at maximum for specific issue providers across multiple runs
 
 This setting allows to define different values for different issue providers.
@@ -359,7 +359,7 @@ This setting allows to define different values for different issue providers.
     `50` issues from SARIF issue provider were posted.
     Current run at this point would post `40` issues from MsBuild issue provider and
     `35` issues from SARIF issue provider.
-    But since [MaxIssuesToPostAcrossRuns]{target="_blank"} for MsBuild issue provider is set
+    But since [MaxIssuesToPostAcrossRuns] for MsBuild issue provider is set
     to `30`, the list of issues reported from the MsBuild issue provider will be filtered to `10` issues.
     Since no filtering for issues reported by the SARIF issue provider is defined, the `35` issues
     from the SARIF issue provider won't be further filtered in this step.
@@ -411,7 +411,7 @@ This setting allows to define different values for different issue providers.
 !!! Note
     This step will only be executed for implementations supporting the `Discussion Threads` capability.
 
-The [MaxIssuesToPostAcrossRuns](https://cakebuild.net/api/Cake.Issues.PullRequests/IReportIssuesToPullRequestSettings/F02390D1){target="_blank"}
+The [MaxIssuesToPostAcrossRuns](https://cakebuild.net/api/Cake.Issues.PullRequests/IReportIssuesToPullRequestSettings/F02390D1)
 setting can be used to limit the total number of issues which should be posted across multiple runs
 
 This limit is across all issue provider.
@@ -421,7 +421,7 @@ This limit is across all issue provider.
     `50` issues from SARIF issue provider were posted.
     Current run at this point would post `10` issues from MsBuild issue provider and
     `35` issues from SARIF issue provider.
-    Due to [MaxIssuesToPostAcrossRuns](https://cakebuild.net/api/Cake.Issues.PullRequests/IReportIssuesToPullRequestSettings/F02390D1){target="_blank"}
+    Due to [MaxIssuesToPostAcrossRuns](https://cakebuild.net/api/Cake.Issues.PullRequests/IReportIssuesToPullRequestSettings/F02390D1)
     setting, issues are limited to `30` in total, resulting in `100` issues across runs together with the `70` issues posted to the previous run.
     The numbers in the output are examples.
     The actual numbers depend solely on priority and file path of individual issues.
@@ -466,7 +466,7 @@ This limit is across all issue provider.
 ### Apply custom filters
 
 The step will apply any additional custom filters defined using
-[IReportIssuesToPullRequestSettings.IssueFilters property]{target="_blank"}
+[IReportIssuesToPullRequestSettings.IssueFilters property]
 to further limit the issues which will be reported.
 
 ??? example
@@ -478,7 +478,7 @@ to further limit the issues which will be reported.
     This step will only be executed for implementations supporting the `Checking commit ID` capability.
 
 The step will skip posting of issues if the current commit of the pull request is different to the commit
-ID passed to [IReportIssuesToPullRequestSettings.CommitId]{target="_blank"}.
+ID passed to [IReportIssuesToPullRequestSettings.CommitId].
 
 ## Post discussion threads
 

@@ -7,7 +7,7 @@ File link settings can be defined while reading issues and are passed through th
 reporting formats, pull request systems and build server implementations:
 
 ??? Tip "List of all aliases for file linking"
-    See all available [Aliases for file linking](https://cakebuild.net/extensions/cake-issues/#File-Linking){target="_blank"}
+    See all available [Aliases for file linking](https://cakebuild.net/extensions/cake-issues/#File-Linking)
 
 === "Cake .NET Tool"
 

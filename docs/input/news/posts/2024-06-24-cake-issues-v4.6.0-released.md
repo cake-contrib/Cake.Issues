@@ -18,32 +18,32 @@ For update instructions skip to [Updating from previous versions](#updating-from
 
 People working on this release:
 
-* [christianbumann](https://github.com/christianbumann){target="_blank"}
-* [eoehen](https://github.com/eoehen){target="_blank"}
-* [pascalberger](https://github.com/pascalberger){target="_blank"}
-* [Speeedy01](https://github.com/Speeedy01){target="_blank"}
+* [christianbumann](https://github.com/christianbumann)
+* [eoehen](https://github.com/eoehen)
+* [pascalberger](https://github.com/pascalberger)
+* [Speeedy01](https://github.com/Speeedy01)
 
 ## Improvements for SARIF Reports
 
-A new option [SarifIssueReportFormatSettings.ExistingIssues]{target="_blank"} has been introduced which allows to pass in a list of known
-issues not related to current code changes, resulting in the [baselineState property]{target="_blank"} being set in the resulting SARIF report.
+A new option [SarifIssueReportFormatSettings.ExistingIssues] has been introduced which allows to pass in a list of known
+issues not related to current code changes, resulting in the [baselineState property] being set in the resulting SARIF report.
 
-This property is for example be used in the [SARIF viewer extension for Azure Pipelines]{target="_blank"} as filter option.
+This property is for example be used in the [SARIF viewer extension for Azure Pipelines] as filter option.
 
 The following new settings options have been added:
 
 | SarifIssueReportFormatSettings property | Output property                                      | Description                              |
 |-----------------------------------------|------------------------------------------------------|------------------------------------------|
-| [Guid]{target="_blank"}                 | [automationDetails.guid]{target="_blank"}            | Unique, stable identifier for the run    |
-| [BaselineGuid]{target="_blank"}         | [run.baselineGuid]{target="_blank"}                  | String equal to Guid of a previous run   |
-| [CorrelationGuid]{target="_blank"}      | [automationDetails.correlationGuid]{target="_blank"} | Guid shared by all runs of the same type |
+| [Guid]                 | [automationDetails.guid]            | Unique, stable identifier for the run    |
+| [BaselineGuid]         | [run.baselineGuid]                  | String equal to Guid of a previous run   |
+| [CorrelationGuid]      | [automationDetails.correlationGuid] | Guid shared by all runs of the same type |
 
 ## Updating from previous versions
 
 Cake.Issues 4.6.0 addins are compatible with any 4.x addins.
 To update to the new version bump the version of the specific addins.
 
-For details see [release notes](https://github.com/cake-contrib/Cake.Issues/releases/tag/4.6.0){target="_blank"}
+For details see [release notes](https://github.com/cake-contrib/Cake.Issues/releases/tag/4.6.0)
 
 [SarifIssueReportFormatSettings.ExistingIssues]: https://cakebuild.net/api/Cake.Issues.Reporting.Sarif/SarifIssueReportFormatSettings/B37B3648
 [baselineState property]: https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html#_Toc34317662

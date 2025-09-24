@@ -6,7 +6,7 @@ description: Usage instructions how to report issues to pull requests.
 The `Cake.Issues.PullRequests` addin can be used to report issues to build servers and pull request systems.
 
 ??? Tip "List of all aliases for reporting issues"
-    See all available [Aliases for reporting issues](https://cakebuild.net/extensions/cake-issues-pullrequests/#Reporting-Issues-To-Pull-Requests){target="_blank"}
+    See all available [Aliases for reporting issues](https://cakebuild.net/extensions/cake-issues-pullrequests/#Reporting-Issues-To-Pull-Requests)
 
 To use report issues to pull requests you need to import the corresponding pull request system addin.
 In the following example the issue provider for reading warnings from MsBuild log files

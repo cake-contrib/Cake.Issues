@@ -4,21 +4,21 @@ description: Instructions how to implement an issue provider with support for mu
 ---
 
 A single issue provider might support reading issues from multiple different log file formats.
-For these cases the `Cake.Issue` addin provides the [BaseMultiFormatIssueProvider](https://cakebuild.net/api/Cake.Issues/BaseMultiFormatIssueProvider_2/){target="_blank"},
-[BaseMultiFormatIssueProviderSettings](https://cakebuild.net/api/Cake.Issues/BaseMultiFormatIssueProviderSettings_2/){target="_blank"}
-and [BaseLogFileFormat](https://cakebuild.net/api/Cake.Issues/BaseLogFileFormat_2/){target="_blank"}
+For these cases the `Cake.Issue` addin provides the [BaseMultiFormatIssueProvider](https://cakebuild.net/api/Cake.Issues/BaseMultiFormatIssueProvider_2/),
+[BaseMultiFormatIssueProviderSettings](https://cakebuild.net/api/Cake.Issues/BaseMultiFormatIssueProviderSettings_2/)
+and [BaseLogFileFormat](https://cakebuild.net/api/Cake.Issues/BaseLogFileFormat_2/)
 classes for simplifying implementation in the issue provider addin.
 
 ## Implementing issue provider
 
-A concrete class inheriting from [BaseMultiFormatIssueProvider](https://cakebuild.net/api/Cake.Issues/BaseMultiFormatIssueProvider_2/){target="_blank"}
+A concrete class inheriting from [BaseMultiFormatIssueProvider](https://cakebuild.net/api/Cake.Issues/BaseMultiFormatIssueProvider_2/)
 needs to be implemented defining the concrete types.
 
 ```csharp
 --8<-- "snippets/extending/issue-provider/logfile-format/IssuesProvider.cs"
 ```
 
-Also a concrete class inheriting from [BaseMultiFormatIssueProviderSettings](https://cakebuild.net/api/Cake.Issues/BaseMultiFormatIssueProviderSettings_2/){target="_blank"}
+Also a concrete class inheriting from [BaseMultiFormatIssueProviderSettings](https://cakebuild.net/api/Cake.Issues/BaseMultiFormatIssueProviderSettings_2/)
 needs to be implemented defining the concrete types.
 Based on the capabilities of the log file formats the appropriate constructors for reading from the file system
 or memory can be made public:
@@ -29,7 +29,7 @@ or memory can be made public:
 
 ## Implementing log file format infrastructure
 
-An abstract class inheriting from [BaseLogFileFormat](https://cakebuild.net/api/Cake.Issues/BaseLogFileFormat_2/){target="_blank"}
+An abstract class inheriting from [BaseLogFileFormat](https://cakebuild.net/api/Cake.Issues/BaseLogFileFormat_2/)
 needs to be implemented defining the concrete types for the issue provider:
 
 ```csharp

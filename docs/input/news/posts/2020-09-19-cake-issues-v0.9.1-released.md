@@ -20,10 +20,10 @@ For update instructions skip to [Updating from previous versions](#updating-from
 
 People working on this release:
 
-* [christianbumann](https://github.com/christianbumann){target="_blank"}
-* [janniksam](https://github.com/janniksam){target="_blank"}
-* [pascalberger](https://github.com/pascalberger){target="_blank"}
-* [jokay](https://github.com/jokay){target="_blank"}
+* [christianbumann](https://github.com/christianbumann)
+* [janniksam](https://github.com/janniksam)
+* [pascalberger](https://github.com/pascalberger)
+* [jokay](https://github.com/jokay)
 
 ## Easier file linking for manually created issues
 

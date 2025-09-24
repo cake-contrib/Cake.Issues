@@ -52,7 +52,7 @@ For this example the JetBrains InspectCode issue provider is additionally used f
     ```
 
 This example shows how to report issues as messages to an AppVeyor build using the
-[AppVeyorBuilds](https://cakebuild.net/api/Cake.Issues.PullRequests.AppVeyor/AppVeyorBuildsAliases/){target="_blank"} alias:
+[AppVeyorBuilds](https://cakebuild.net/api/Cake.Issues.PullRequests.AppVeyor/AppVeyorBuildsAliases/) alias:
 
 === "Cake .NET Tool"
 

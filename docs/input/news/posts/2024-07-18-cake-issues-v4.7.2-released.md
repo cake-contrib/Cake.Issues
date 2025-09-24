@@ -18,7 +18,7 @@ For update instructions skip to [Updating from previous versions](#updating-from
 
 People working on this release:
 
-* [pascalberger](https://github.com/pascalberger){target="_blank"}
+* [pascalberger](https://github.com/pascalberger)
 
 ## Fix for generic reporting addin
 
@@ -30,6 +30,6 @@ version of JsPdf version used in [HTML DevExtreme Data Grid template].
 Cake.Issues 4.7.2 addins are compatible with any 4.x addins.
 To update to the new version bump the version of the specific addins.
 
-For details see [release notes](https://github.com/cake-contrib/Cake.Issues/releases/tag/4.7.2){target="_blank"}
+For details see [release notes](https://github.com/cake-contrib/Cake.Issues/releases/tag/4.7.2)
 
 [HTML DevExtreme Data Grid template]: ../../documentation/report-formats/generic/templates/htmldxdatagrid.md

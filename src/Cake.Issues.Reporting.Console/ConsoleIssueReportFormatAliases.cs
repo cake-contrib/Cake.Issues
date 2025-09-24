@@ -3,6 +3,7 @@
 using Cake.Core;
 using Cake.Core.Annotations;
 using Cake.Issues.Reporting;
+using Spectre.Console;
 
 /// <summary>
 /// Contains functionality to report issues to the console.
@@ -70,6 +71,6 @@ public static class ConsoleIssueReportFormatAliases
         context.NotNull();
         settings.NotNull();
 
-        return new ConsoleIssueReportGenerator(context.Log, settings);
+        return new ConsoleIssueReportGenerator(AnsiConsole.Console, context.Log, settings);
     }
 }

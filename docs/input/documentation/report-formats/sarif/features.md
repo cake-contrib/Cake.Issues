@@ -4,7 +4,7 @@ description: Features of the Cake.Issues.Reporting.Sarif addin.
 icon: material/creation-outline
 ---
 
-The [Cake.Issues.Reporting.Sarif addin]{target="_blank"} provides the following features:
+The [Cake.Issues.Reporting.Sarif addin] provides the following features:
 
 - [x] Creates SARIF compatible files.
 

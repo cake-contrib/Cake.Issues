@@ -18,7 +18,7 @@ Common helpers for testing add-ins based on Cake.Issues
     <copyright>Copyright © Cake Issues contributors</copyright>
     <tags>Cake Script Cake-Issues Issues Testing</tags>
     <readme>docs\README.md</readme>
-    <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/5.8.0</releaseNotes>
+    <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/5.9.0</releaseNotes>
     <dependencies>
       <group targetFramework="net8.0">
       </group>

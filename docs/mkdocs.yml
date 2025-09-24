@@ -67,23 +67,30 @@ theme:
     - search.highlight
     - search.suggest
 
+# Additional JavaScript
+extra_javascript:
+  - https://viewer.diagrams.net/js/viewer-static.min.js
+  # Required for mkdocs-drawio to support instant-loading of Material theme (navigation.instant). See https://github.com/tuunit/mkdocs-drawio?tab=readme-ov-file#material-integration
+  - assets/javascripts/drawio-reload.js
+
 # Additional styling
 extra_css:
-  - stylesheets/extra.css
+  - assets/stylesheets/extra.css
+  - assets/stylesheets/styling.css
 
 # Plugins
 plugins:
   - blog:
       blog_dir: news
       post_readtime: true
+  - drawio:
+      edit: false
+      darkmode: true
   - glightbox
   - macros
   - meta
-  - minify:
-      minify_html: true
-      htmlmin_opts:
-        remove_comments: true
-        reduce_boolean_attributes: true
+  - open-in-new-tab:
+      add_icon: true
   - search
   - social:
       enabled: !ENV [GITHUB_ACTIONS, false]
@@ -138,13 +145,13 @@ extra:
   # renovate: datasource=nuget depName=Cake.DocFx versioning=loose
   cake_docfx_version: 1.0.0
   # renovate: datasource=nuget depName=Cake.Issues versioning=loose
-  cake_issues_version: 5.8.0
+  cake_issues_version: 5.9.0
   # renovate: datasource=nuget depName=Cake.Markdownlint versioning=loose
   cake_markdownlint_version: 4.0.0
   # renovate: datasource=nuget depName=Cake.Git versioning=loose
   cake_git_version: 5.0.1
   # renovate: datasource=nuget depName=JetBrains.ReSharper.CommandLineTools versioning=loose
-  resharper_commandlinetool_version: 2025.2.0.1
+  resharper_commandlinetool_version: 2025.2.2
   example_tfm: net9.0
   version:
     provider: mike
@@ -272,14 +279,6 @@ nav:
           - API: https://cakebuild.net/extensions/cake-issues-reporting-sarif" target="_blank
       - Pull Request Systems:
         - documentation/pull-request-systems/index.md
-        - AppVeyor:
-          - documentation/pull-request-systems/appveyor/index.md
-          - Features: documentation/pull-request-systems/appveyor/features.md
-          - Examples: 
-            - documentation/pull-request-systems/appveyor/examples/index.md
-            - Writing Messages To AppVeyor: documentation/pull-request-systems/appveyor/examples/write-messages.md
-            - GitHub Pull Request Integration: documentation/pull-request-systems/appveyor/examples/github-pullrequest-integration.md
-          - API: https://cakebuild.net/extensions/cake-issues-pullrequests-appveyor" target="_blank
         - Azure DevOps:
           - documentation/pull-request-systems/azure-devops/index.md
           - Features: documentation/pull-request-systems/azure-devops/features.md
@@ -290,12 +289,22 @@ nav:
             - Using With Repository Remote URL And Source Branch Name: documentation/pull-request-systems/azure-devops/examples/repository-information.md
             - Using With Azure Pipelines: documentation/pull-request-systems/azure-devops/examples/azure-pipelines.md
           - API: https://cakebuild.net/extensions/cake-issues-pullrequests-azuredevops" target="_blank
+      - Build Servers:
+        - documentation/build-servers/index.md
+        - AppVeyor:
+          - documentation/build-servers/appveyor/index.md
+          - Features: documentation/build-servers/appveyor/features.md
+          - Examples: 
+            - documentation/build-servers/appveyor/examples/index.md
+            - Writing Messages To AppVeyor: documentation/build-servers/appveyor/examples/write-messages.md
+            - GitHub Pull Request Integration: documentation/build-servers/appveyor/examples/github-pullrequest-integration.md
+          - API: https://cakebuild.net/extensions/cake-issues-pullrequests-appveyor" target="_blank
         - GitHub Actions:
-          - documentation/pull-request-systems/github-actions/index.md
-          - Features: documentation/pull-request-systems/github-actions/features.md
+          - documentation/build-servers/github-actions/index.md
+          - Features: documentation/build-servers/github-actions/features.md
           - Examples:
-            - documentation/pull-request-systems/github-actions/examples/index.md
-            - Create annotations in GitHub Actions: documentation/pull-request-systems/github-actions/examples/write-annotations.md
+            - documentation/build-servers/github-actions/examples/index.md
+            - Create annotations in GitHub Actions: documentation/build-servers/github-actions/examples/write-annotations.md
           - API: https://cakebuild.net/extensions/cake-issues-pullrequests-githubactions" target="_blank
     - Developer Guide:
       - Extending:
@@ -316,11 +325,15 @@ nav:
         - Pull Request System: 
           - Overview: documentation/extending/pull-request-system/overview.md
           - Alias Categories: documentation/extending/pull-request-system/categories.md
+        - Build Server: 
+          - Overview: documentation/extending/build-servers/overview.md
+          - Alias Categories: documentation/extending/build-servers/categories.md
         - Testing: documentation/extending/testing.md
       - Contributing:
         - How To Contribute: documentation/contributing/how-to-contribute.md
         - Open issues: https://github.com/cake-contrib/Cake.Issues/issues" target="_blank
-        - Building Source Code: documentation/contributing/how-to-build.md
+        - Building addins: documentation/contributing/how-to-build-addins.md
+        - Running website: documentation/contributing/how-to-run-website.md
       - Maintainer Guide:
         - Performing Release: documentation/contributing/how-to-release.md
     - Resources:

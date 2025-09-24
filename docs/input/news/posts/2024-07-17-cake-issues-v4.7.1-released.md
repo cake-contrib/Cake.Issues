@@ -18,9 +18,9 @@ For update instructions skip to [Updating from previous versions](#updating-from
 
 People working on this release:
 
-* [christianbumann](https://github.com/christianbumann){target="_blank"}
-* [eoehen](https://github.com/eoehen){target="_blank"}
-* [pascalberger](https://github.com/pascalberger){target="_blank"}
+* [christianbumann](https://github.com/christianbumann)
+* [eoehen](https://github.com/eoehen)
+* [pascalberger](https://github.com/pascalberger)
 
 ## Bugfixes for SARIF reports
 
@@ -35,6 +35,6 @@ This release fixes two bugs in `Cake.Issues.Reporting.Sarif`:
 Cake.Issues 4.7.1 addins are compatible with any 4.x addins.
 To update to the new version bump the version of the specific addins.
 
-For details see [release notes](https://github.com/cake-contrib/Cake.Issues/releases/tag/4.7.1){target="_blank"}
+For details see [release notes](https://github.com/cake-contrib/Cake.Issues/releases/tag/4.7.1)
 
 [SARIF Specification 2.1.0 §3.14.14]: https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html#_Toc34317431

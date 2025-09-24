@@ -1,16 +1,64 @@
 namespace Cake.Issues.Reporting.Console.Tests;
 
 using System;
+using Cake.Core.Diagnostics;
+using Cake.Core.IO;
 using Xunit;
 
 public sealed class IssueDiagnosticTests
 {
-    public sealed class TheConstructor
+    public sealed class TheCtor
     {
+        [Fact]
+        public void Should_Throw_If_Log_Is_Null()
+        {
+            // Given
+            ICakeLog log = null;
+            var repositoryRoot = @"/repo";
+            var issue = IssueBuilder
+                .NewIssue("Test message", "TestProvider", "TestProviderName")
+                .InFile("test.cs", 10, 5)
+                .InProject("TestProject.csproj", "TestProject")
+                .OfRule("TestRule")
+                .WithPriority(IssuePriority.Warning)
+                .Create();
+
+
+            // When
+            var result = Record.Exception(() => new IssueDiagnostic(log, repositoryRoot, issue));
+
+            // Then
+            result.IsArgumentNullException("log");
+        }
+
+        [Fact]
+        public void Should_Throw_If_RepositoryRoot_Is_Null()
+        {
+            // Given
+            var log = new FakeLog();
+            DirectoryPath repositoryRoot = null;
+            var issue = IssueBuilder
+                .NewIssue("Test message", "TestProvider", "TestProviderName")
+                .InFile("test.cs", 10, 5)
+                .InProject("TestProject.csproj", "TestProject")
+                .OfRule("TestRule")
+                .WithPriority(IssuePriority.Warning)
+                .Create();
+
+
+            // When
+            var result = Record.Exception(() => new IssueDiagnostic(log, repositoryRoot, issue));
+
+            // Then
+            result.IsArgumentNullException("repositoryRoot");
+        }
+
         [Fact]
         public void Should_Include_Project_Information_In_Note_When_Available()
         {
             // Given
+            var log = new FakeLog();
+            var repositoryRoot = @"/repo";
             var issue = IssueBuilder
                 .NewIssue("Test message", "TestProvider", "TestProviderName")
                 .InFile("test.cs", 10, 5)
@@ -20,7 +68,7 @@ public sealed class IssueDiagnosticTests
                 .Create();
 
             // When
-            var diagnostic = new IssueDiagnostic(issue);
+            var diagnostic = new IssueDiagnostic(log, repositoryRoot, issue);
 
             // Then
             diagnostic.Note.ShouldContain("Project: TestProject.csproj");
@@ -30,6 +78,8 @@ public sealed class IssueDiagnosticTests
         public void Should_Include_Project_Name_When_No_Project_File_Path()
         {
             // Given
+            var log = new FakeLog();
+            var repositoryRoot = @"/repo";
             var issue = IssueBuilder
                 .NewIssue("Test message", "TestProvider", "TestProviderName")
                 .InFile("test.cs", 10, 5)
@@ -39,7 +89,7 @@ public sealed class IssueDiagnosticTests
                 .Create();
 
             // When
-            var diagnostic = new IssueDiagnostic(issue);
+            var diagnostic = new IssueDiagnostic(log, repositoryRoot, issue);
 
             // Then
             diagnostic.Note.ShouldContain("Project: TestProject");
@@ -49,6 +99,8 @@ public sealed class IssueDiagnosticTests
         public void Should_Include_Both_Project_And_Rule_Info_When_Available()
         {
             // Given
+            var log = new FakeLog();
+            var repositoryRoot = @"/repo";
             var issue = IssueBuilder
                 .NewIssue("Test message", "TestProvider", "TestProviderName")
                 .InFile("test.cs", 10, 5)
@@ -58,7 +110,7 @@ public sealed class IssueDiagnosticTests
                 .Create();
 
             // When
-            var diagnostic = new IssueDiagnostic(issue);
+            var diagnostic = new IssueDiagnostic(log, repositoryRoot, issue);
 
             // Then
             diagnostic.Note.ShouldContain("Project: TestProject.csproj");
@@ -69,6 +121,8 @@ public sealed class IssueDiagnosticTests
         public void Should_Not_Include_Project_When_Not_Available()
         {
             // Given
+            var log = new FakeLog();
+            var repositoryRoot = @"/repo";
             var issue = IssueBuilder
                 .NewIssue("Test message", "TestProvider", "TestProviderName")
                 .InFile("test.cs", 10, 5)
@@ -77,7 +131,7 @@ public sealed class IssueDiagnosticTests
                 .Create();
 
             // When
-            var diagnostic = new IssueDiagnostic(issue);
+            var diagnostic = new IssueDiagnostic(log, repositoryRoot, issue);
 
             // Then
             if (diagnostic.Note != null)
