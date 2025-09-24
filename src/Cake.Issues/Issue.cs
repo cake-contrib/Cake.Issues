@@ -245,7 +245,7 @@ public class Issue : IIssue
 
     /// <inheritdoc/>
     public string SourceLanguage { get; }
-    
+
     /// <summary>
     /// Creates a new instance of this issue with updated Run and FileLink values.
     /// This method enables immutability by creating a copy of the issue with new values
@@ -276,5 +276,7 @@ public class Issue : IIssue
             run,
             this.ProviderType,
             this.ProviderName,
-            this.AdditionalInformation);
+            this.AdditionalInformation,
+            this.Snippet,
+            this.SourceLanguage);
 }

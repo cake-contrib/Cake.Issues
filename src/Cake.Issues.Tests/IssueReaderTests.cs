@@ -175,7 +175,7 @@ public sealed class IssueReaderTests
 
             // Then
             issues.Count.ShouldBe(2);
-            
+
             // Since IIssue is now immutable, we verify the returned issues
             // have the same identifiers as the original issues
             issues.Select(x => x.Identifier).ShouldContain(issue1.Identifier);
@@ -210,7 +210,7 @@ public sealed class IssueReaderTests
 
             // Then
             issues.Count.ShouldBe(2);
-            
+
             // Since IIssue is now immutable, we verify the returned issues
             // have the same identifiers as the original issues
             issues.Select(x => x.Identifier).ShouldContain(issue1.Identifier);
@@ -265,7 +265,7 @@ public sealed class IssueReaderTests
 
             // Then
             issues.Count.ShouldBe(4);
-            
+
             // Since IIssue is now immutable, we verify the returned issues
             // have the same identifiers as the original issues
             issues.Select(x => x.Identifier).ShouldContain(issue1.Identifier);
@@ -306,12 +306,12 @@ public sealed class IssueReaderTests
 
             // Then
             issues.Count.ShouldBe(2);
-            
+
             // Since IIssue is now immutable, the returned issues are new objects
             // We check that the returned issues have the same content as originals
             var returnedIssue1 = issues.First(x => x.Identifier == issue1.Identifier);
             var returnedIssue2 = issues.First(x => x.Identifier == issue2.Identifier);
-            
+
             // Verify the Run property is set on the returned issues
             returnedIssue1.Run.ShouldBe(run);
             returnedIssue2.Run.ShouldBe(run);
@@ -356,12 +356,12 @@ public sealed class IssueReaderTests
 
             // Then
             issues.Count.ShouldBe(2);
-            
+
             // Since IIssue is now immutable, the returned issues are new objects  
             // We check that the returned issues have the same content as originals
             var returnedIssue1 = issues.First(x => x.Identifier == issue1.Identifier);
             var returnedIssue2 = issues.First(x => x.Identifier == issue2.Identifier);
-            
+
             // Verify the FileLink property is set on the returned issues
             returnedIssue1.FileLink.ToString()
                 .ShouldBe($"{repoUrl}/blob/{branch}/{filePath1.Replace(@"\", "/")}#L{line1}-L{endLine1}");
