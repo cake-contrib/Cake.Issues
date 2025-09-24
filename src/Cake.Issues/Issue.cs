@@ -49,6 +49,10 @@ public class Issue : IIssue
     /// <param name="providerType">The type of the issue provider.</param>
     /// <param name="providerName">The human friendly name of the issue provider.</param>
     /// <param name="additionalInformation">Custom information regarding the issue.</param>
+    /// <param name="snippet">The source code snippet where the issue occurred.
+    /// <c>null</c> or <see cref="string.Empty"/> if no snippet is available.</param>
+    /// <param name="sourceLanguage">The source language of the file where the issue occurred.
+    /// <c>null</c> or <see cref="string.Empty"/> if the source language is not known.</param>
     public Issue(
         string identifier,
         string projectFileRelativePath,
@@ -70,7 +74,9 @@ public class Issue : IIssue
         string run,
         string providerType,
         string providerName,
-        IReadOnlyDictionary<string, string> additionalInformation)
+        IReadOnlyDictionary<string, string> additionalInformation,
+        string snippet,
+        string sourceLanguage)
     {
         identifier.NotNullOrWhiteSpace();
         line?.NotNegativeOrZero();
@@ -167,6 +173,97 @@ public class Issue : IIssue
         this.ProviderType = providerType;
         this.ProviderName = providerName;
         this.AdditionalInformation = additionalInformation ?? new Dictionary<string, string>();
+        this.Snippet = snippet;
+        this.SourceLanguage = sourceLanguage;
+    }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="Issue"/> class.
+    /// </summary>
+    /// <param name="identifier">The identifier of the issue.
+    /// The identifier needs to be identical across multiple runs of an issue provider for the same issue.</param>
+    /// <param name="projectFileRelativePath">The path to the project to which the file affected by the issue belongs.
+    /// The path needs to be relative to the repository root.
+    /// Can be <c>null</c> or <see cref="string.Empty"/> if issue is not related to a project.</param>
+    /// <param name="projectName">The name of the project to which the file affected by the issue belongs.
+    /// Can be <c>null</c> or <see cref="string.Empty"/> if issue is not related to a project.</param>
+    /// <param name="affectedFileRelativePath">The path to the file affected by the issue.
+    /// The path needs to be relative to the repository root.
+    /// <c>null</c> or <see cref="string.Empty"/> if issue is not related to a change in a file.</param>
+    /// <param name="line">The line in the file where the issues have occurred.
+    /// <c>null</c> if the issue affects the whole file or an assembly.</param>
+    /// <param name="endLine">The end of the line range in the file where the issues have occurred.
+    /// <c>null</c> if the issue affects the whole file, an assembly or only a single line.</param>
+    /// <param name="column">The column in the file where the issues have occurred.
+    /// <c>null</c> if the issue affects the whole file or an assembly.</param>
+    /// <param name="endColumn">The end of the column range in the file where the issues have occurred.
+    /// <c>null</c> if the issue affects the whole file, an assembly or only a single column.</param>
+    /// <param name="fileLink">Link to the position in the file where the issue occurred.
+    /// <c>null</c> if no link is available.</param>
+    /// <param name="messageText">The message of the issue in plain text format.</param>
+    /// <param name="messageHtml">The message of the issue in Html format.</param>
+    /// <param name="messageMarkdown">The message of the issue in Markdown format.</param>
+    /// <param name="priority">The priority of the message.
+    /// <c>null</c> if no priority was assigned.</param>
+    /// <param name="priorityName">The human friendly name of the priority.
+    /// <c>null</c> or <see cref="string.Empty"/> if no priority was assigned.</param>
+    /// <param name="ruleId">The ID of the rule of the issue.
+    /// <c>null</c> or <see cref="string.Empty"/> if issue has no specific rule.</param>
+    /// <param name="ruleName">The name of the rule of the issue.
+    /// <c>null</c> or <see cref="string.Empty"/> if issue has no specific rule.</param>
+    /// <param name="ruleUrl">The URL containing information about the failing rule.
+    /// <c>null</c> if no URL is available.</param>
+    /// <param name="run">Gets the description of the run.</param>
+    /// <param name="providerType">The type of the issue provider.</param>
+    /// <param name="providerName">The human friendly name of the issue provider.</param>
+    /// <param name="additionalInformation">Custom information regarding the issue.</param>
+    public Issue(
+        string identifier,
+        string projectFileRelativePath,
+        string projectName,
+        string affectedFileRelativePath,
+        int? line,
+        int? endLine,
+        int? column,
+        int? endColumn,
+        Uri fileLink,
+        string messageText,
+        string messageHtml,
+        string messageMarkdown,
+        int? priority,
+        string priorityName,
+        string ruleId,
+        string ruleName,
+        Uri ruleUrl,
+        string run,
+        string providerType,
+        string providerName,
+        IReadOnlyDictionary<string, string> additionalInformation)
+        : this(
+            identifier,
+            projectFileRelativePath,
+            projectName,
+            affectedFileRelativePath,
+            line,
+            endLine,
+            column,
+            endColumn,
+            fileLink,
+            messageText,
+            messageHtml,
+            messageMarkdown,
+            priority,
+            priorityName,
+            ruleId,
+            ruleName,
+            ruleUrl,
+            run,
+            providerType,
+            providerName,
+            additionalInformation,
+            null,
+            null)
+    {
     }
 
     /// <inheritdoc/>
@@ -231,4 +328,10 @@ public class Issue : IIssue
 
     /// <inheritdoc/>
     public IReadOnlyDictionary<string, string> AdditionalInformation { get; }
+
+    /// <inheritdoc/>
+    public string Snippet { get; }
+
+    /// <inheritdoc/>
+    public string SourceLanguage { get; }
 }
