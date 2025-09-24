@@ -3,34 +3,32 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Examples for using the Cake.Issues.InspectCode addin.">
+        <meta name="description" content="Issue Management for the Cake Build System">
       
       
         <meta name="author" content="Cake Issues Contributors">
       
       
-        <link rel="canonical" href="https://cakeissues.net/develop/documentation/issue-providers/inspectcode/examples/">
+        <link rel="canonical" href="https://cakeissues.net/develop/news/2025/09/24/cake-issues-v590-released/">
       
       
-        <link rel="prev" href="../features/">
+        <link rel="prev" href="../../../08/22/cake-issues-v580-released/">
       
       
-        <link rel="next" href="../../markdownlint/">
       
-      
-      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
     
     
       
-        <title>Examples - Cake Issues</title>
+        <title>Cake Issues v5.9.0 Released - Cake Issues</title>
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.e53b48f4.min.css">
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.e53b48f4.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -49,15 +47,15 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/extra.css">
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/styling.css">
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/styling.css">
     
-      <link rel="stylesheet" href="../../../../css/drawio-darkmode.css">
+      <link rel="stylesheet" href="../../../../../css/drawio-darkmode.css">
     
-      <link rel="stylesheet" href="../../../../css/open_in_new_tab.css">
+      <link rel="stylesheet" href="../../../../../css/open_in_new_tab.css">
     
-    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -66,11 +64,11 @@
       
         <meta property="og:type" content="website">
       
-        <meta property="og:title" content="Examples - Cake Issues">
+        <meta property="og:title" content="Cake Issues v5.9.0 Released - Cake Issues">
       
-        <meta property="og:description" content="Examples for using the Cake.Issues.InspectCode addin.">
+        <meta property="og:description" content="Issue Management for the Cake Build System">
       
-        <meta property="og:image" content="https://cakeissues.net/develop/assets/images/social/documentation/issue-providers/inspectcode/examples.png">
+        <meta property="og:image" content="https://cakeissues.net/develop/assets/images/social/news/posts/2025-09-24-cake-issues-v5.9.0-released.png">
       
         <meta property="og:image:type" content="image/png">
       
@@ -78,19 +76,19 @@
       
         <meta property="og:image:height" content="630">
       
-        <meta property="og:url" content="https://cakeissues.net/develop/documentation/issue-providers/inspectcode/examples/">
+        <meta property="og:url" content="https://cakeissues.net/develop/news/2025/09/24/cake-issues-v590-released/">
       
         <meta name="twitter:card" content="summary_large_image">
       
-        <meta name="twitter:title" content="Examples - Cake Issues">
+        <meta name="twitter:title" content="Cake Issues v5.9.0 Released - Cake Issues">
       
-        <meta name="twitter:description" content="Examples for using the Cake.Issues.InspectCode addin.">
+        <meta name="twitter:description" content="Issue Management for the Cake Build System">
       
-        <meta name="twitter:image" content="https://cakeissues.net/develop/assets/images/social/documentation/issue-providers/inspectcode/examples.png">
+        <meta name="twitter:image" content="https://cakeissues.net/develop/assets/images/social/news/posts/2025-09-24-cake-issues-v5.9.0-released.png">
       
     
     
-  <link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+  <link href="../../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
@@ -118,6 +116,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#improved-github-actions-support-in-cake-issues-recipe" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -129,12 +132,12 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="../../../../..">
+  <a href="../../../../../..">
     <strong>Click here to go to latest.</strong>
   </a>
 
             </div>
-            <script>var el=document.querySelector("[data-md-component=outdated]"),base=new URL("../../../.."),outdated=__md_get("__outdated",sessionStorage,base);!0===outdated&&el&&(el.hidden=!1)</script>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),base=new URL("../../../../.."),outdated=__md_get("__outdated",sessionStorage,base);!0===outdated&&el&&(el.hidden=!1)</script>
           </aside>
         
       </div>
@@ -146,7 +149,7 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../.." title="Cake Issues" class="md-header__button md-logo" aria-label="Cake Issues" data-md-component="logo">
+    <a href="../../../../.." title="Cake Issues" class="md-header__button md-logo" aria-label="Cake Issues" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
@@ -166,7 +169,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Examples
+              Cake Issues v5.9.0 Released
             
           </span>
         </div>
@@ -283,7 +286,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../.." class="md-tabs__link">
+      <a href="../../../../.." class="md-tabs__link">
         
   
   
@@ -300,11 +303,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../../../news/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../../" class="md-tabs__link">
           
   
   
@@ -322,8 +327,6 @@
   
   
   
-    
-  
   
     
     
@@ -331,13 +334,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../../overview/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../../../../documentation/overview/" class="md-tabs__link">
           
   
   
@@ -360,7 +361,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../api/" class="md-tabs__link">
+      <a href="../../../../../api/" class="md-tabs__link">
         
   
   
@@ -409,7 +410,9 @@
           
             
               
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -420,7 +423,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="Cake Issues" class="md-nav__button md-logo" aria-label="Cake Issues" data-md-component="logo">
+    <a href="../../../../.." title="Cake Issues" class="md-nav__button md-logo" aria-label="Cake Issues" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
@@ -450,7 +453,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../.." class="md-nav__link">
+      <a href="../../../../.." class="md-nav__link">
         
   
   
@@ -469,6 +472,8 @@
       
   
   
+    
+  
   
   
     
@@ -486,20 +491,23 @@
     
     
       
+        
+        
+      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../news/" class="md-nav__link ">
+            <a href="../../../../" class="md-nav__link ">
               
   
   
@@ -512,13 +520,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             News
@@ -554,17 +562,20 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2">
         
           
-          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="">
             
   
   
@@ -593,7 +604,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../news/archive/2025/" class="md-nav__link">
+      <a href="../../../../archive/2025/" class="md-nav__link">
         
   
   
@@ -618,7 +629,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../news/archive/2024/" class="md-nav__link">
+      <a href="../../../../archive/2024/" class="md-nav__link">
         
   
   
@@ -643,7 +654,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../news/archive/2023/" class="md-nav__link">
+      <a href="../../../../archive/2023/" class="md-nav__link">
         
   
   
@@ -668,7 +679,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../news/archive/2022/" class="md-nav__link">
+      <a href="../../../../archive/2022/" class="md-nav__link">
         
   
   
@@ -693,7 +704,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../news/archive/2021/" class="md-nav__link">
+      <a href="../../../../archive/2021/" class="md-nav__link">
         
   
   
@@ -718,7 +729,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../news/archive/2020/" class="md-nav__link">
+      <a href="../../../../archive/2020/" class="md-nav__link">
         
   
   
@@ -763,17 +774,20 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3">
         
           
-          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="">
             
   
   
@@ -802,7 +816,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../news/category/announcements/" class="md-nav__link">
+      <a href="../../../../category/announcements/" class="md-nav__link">
         
   
   
@@ -827,7 +841,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../news/category/new-addin/" class="md-nav__link">
+      <a href="../../../../category/new-addin/" class="md-nav__link">
         
   
   
@@ -852,7 +866,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../news/category/release-notes/" class="md-nav__link">
+      <a href="../../../../category/release-notes/" class="md-nav__link">
         
   
   
@@ -887,10 +901,8 @@
       
   
   
-    
   
   
-  
     
     
       
@@ -906,22 +918,19 @@
     
     
       
-        
-        
-      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
   
@@ -934,7 +943,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Documentation
@@ -962,20 +971,17 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1">
         
           
-          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
             
   
   
@@ -1002,7 +1008,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../overview/" class="md-nav__link">
+      <a href="../../../../../documentation/overview/" class="md-nav__link">
         
   
   
@@ -1050,7 +1056,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../how-cake-issues-works/" class="md-nav__link ">
+            <a href="../../../../../documentation/how-cake-issues-works/" class="md-nav__link ">
               
   
   
@@ -1085,7 +1091,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../how-cake-issues-works/pull-request-integration/" class="md-nav__link">
+      <a href="../../../../../documentation/how-cake-issues-works/pull-request-integration/" class="md-nav__link">
         
   
   
@@ -1116,7 +1122,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../features/" class="md-nav__link">
+      <a href="../../../../../documentation/features/" class="md-nav__link">
         
   
   
@@ -1144,10 +1150,8 @@
                 
   
   
-    
   
   
-  
     
     
       
@@ -1170,21 +1174,18 @@
     
       
       
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2">
         
           
-          
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
-        
-          
-          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
             
   
   
@@ -1197,7 +1198,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_2">
             <span class="md-nav__icon md-icon"></span>
             User Guide
@@ -1246,7 +1247,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../usage/" class="md-nav__link ">
+            <a href="../../../../../documentation/usage/" class="md-nav__link ">
               
   
   
@@ -1308,7 +1309,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../usage/recipe/" class="md-nav__link ">
+            <a href="../../../../../documentation/usage/recipe/" class="md-nav__link ">
               
   
   
@@ -1343,7 +1344,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../usage/recipe/using-cake-issues-recipe/" class="md-nav__link">
+      <a href="../../../../../documentation/usage/recipe/using-cake-issues-recipe/" class="md-nav__link">
         
   
   
@@ -1366,7 +1367,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../usage/recipe/using-cake-frosting-issues-recipe/" class="md-nav__link">
+      <a href="../../../../../documentation/usage/recipe/using-cake-frosting-issues-recipe/" class="md-nav__link">
         
   
   
@@ -1397,7 +1398,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../usage/creating-issues/creating-issues/" class="md-nav__link">
+      <a href="../../../../../documentation/usage/creating-issues/creating-issues/" class="md-nav__link">
         
   
   
@@ -1449,7 +1450,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../usage/reading-issues/" class="md-nav__link ">
+            <a href="../../../../../documentation/usage/reading-issues/" class="md-nav__link ">
               
   
   
@@ -1484,7 +1485,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../usage/reading-issues/reading-issues/" class="md-nav__link">
+      <a href="../../../../../documentation/usage/reading-issues/reading-issues/" class="md-nav__link">
         
   
   
@@ -1507,7 +1508,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../usage/reading-issues/run-information/" class="md-nav__link">
+      <a href="../../../../../documentation/usage/reading-issues/run-information/" class="md-nav__link">
         
   
   
@@ -1530,7 +1531,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../usage/reading-issues/file-linking/" class="md-nav__link">
+      <a href="../../../../../documentation/usage/reading-issues/file-linking/" class="md-nav__link">
         
   
   
@@ -1586,7 +1587,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../usage/creating-reports/" class="md-nav__link ">
+            <a href="../../../../../documentation/usage/creating-reports/" class="md-nav__link ">
               
   
   
@@ -1621,7 +1622,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../usage/creating-reports/creating-reports/" class="md-nav__link">
+      <a href="../../../../../documentation/usage/creating-reports/creating-reports/" class="md-nav__link">
         
   
   
@@ -1679,7 +1680,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../usage/reporting-issues-to-pull-requests/" class="md-nav__link ">
+            <a href="../../../../../documentation/usage/reporting-issues-to-pull-requests/" class="md-nav__link ">
               
   
   
@@ -1714,7 +1715,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../usage/reporting-issues-to-pull-requests/report-issues-to-pull-requests/" class="md-nav__link">
+      <a href="../../../../../documentation/usage/reporting-issues-to-pull-requests/report-issues-to-pull-requests/" class="md-nav__link">
         
   
   
@@ -1737,7 +1738,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../usage/reporting-issues-to-pull-requests/custom-issue-filter/" class="md-nav__link">
+      <a href="../../../../../documentation/usage/reporting-issues-to-pull-requests/custom-issue-filter/" class="md-nav__link">
         
   
   
@@ -1768,7 +1769,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../usage/breaking-builds/breaking-builds/" class="md-nav__link">
+      <a href="../../../../../documentation/usage/breaking-builds/breaking-builds/" class="md-nav__link">
         
   
   
@@ -1799,7 +1800,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../supported-tools/" class="md-nav__link">
+      <a href="../../../../../documentation/supported-tools/" class="md-nav__link">
         
   
   
@@ -1853,7 +1854,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../recipe/" class="md-nav__link ">
+            <a href="../../../../../documentation/recipe/" class="md-nav__link ">
               
   
   
@@ -1888,7 +1889,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../recipe/supported-tools/" class="md-nav__link">
+      <a href="../../../../../documentation/recipe/supported-tools/" class="md-nav__link">
         
   
   
@@ -1911,7 +1912,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../recipe/configuration/" class="md-nav__link">
+      <a href="../../../../../documentation/recipe/configuration/" class="md-nav__link">
         
   
   
@@ -1934,7 +1935,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../recipe/tasks/" class="md-nav__link">
+      <a href="../../../../../documentation/recipe/tasks/" class="md-nav__link">
         
   
   
@@ -1957,7 +1958,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../recipe/demos/" class="md-nav__link">
+      <a href="../../../../../documentation/recipe/demos/" class="md-nav__link">
         
   
   
@@ -1985,8 +1986,6 @@
                 
   
   
-    
-  
   
   
     
@@ -2023,15 +2022,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_4">
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../" class="md-nav__link ">
+            <a href="../../../../../documentation/issue-providers/" class="md-nav__link ">
               
   
   
@@ -2050,7 +2049,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_2_4">
             <span class="md-nav__icon md-icon"></span>
             Issue Providers
@@ -2095,7 +2094,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../docfx/" class="md-nav__link ">
+            <a href="../../../../../documentation/issue-providers/docfx/" class="md-nav__link ">
               
   
   
@@ -2130,7 +2129,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docfx/features/" class="md-nav__link">
+      <a href="../../../../../documentation/issue-providers/docfx/features/" class="md-nav__link">
         
   
   
@@ -2155,7 +2154,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docfx/examples/" class="md-nav__link">
+      <a href="../../../../../documentation/issue-providers/docfx/examples/" class="md-nav__link">
         
   
   
@@ -2238,7 +2237,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../eslint/" class="md-nav__link ">
+            <a href="../../../../../documentation/issue-providers/eslint/" class="md-nav__link ">
               
   
   
@@ -2273,7 +2272,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../eslint/features/" class="md-nav__link">
+      <a href="../../../../../documentation/issue-providers/eslint/features/" class="md-nav__link">
         
   
   
@@ -2360,7 +2359,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../gitrepository/" class="md-nav__link ">
+            <a href="../../../../../documentation/issue-providers/gitrepository/" class="md-nav__link ">
               
   
   
@@ -2395,7 +2394,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../gitrepository/features/" class="md-nav__link">
+      <a href="../../../../../documentation/issue-providers/gitrepository/features/" class="md-nav__link">
         
   
   
@@ -2447,7 +2446,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../gitrepository/examples/" class="md-nav__link ">
+            <a href="../../../../../documentation/issue-providers/gitrepository/examples/" class="md-nav__link ">
               
   
   
@@ -2484,7 +2483,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../gitrepository/examples/basic-usage/" class="md-nav__link">
+      <a href="../../../../../documentation/issue-providers/gitrepository/examples/basic-usage/" class="md-nav__link">
         
   
   
@@ -2509,7 +2508,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../gitrepository/examples/excluding-files/" class="md-nav__link">
+      <a href="../../../../../documentation/issue-providers/gitrepository/examples/excluding-files/" class="md-nav__link">
         
   
   
@@ -2569,7 +2568,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../gitrepository/rules/" class="md-nav__link ">
+            <a href="../../../../../documentation/issue-providers/gitrepository/rules/" class="md-nav__link ">
               
   
   
@@ -2606,7 +2605,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../gitrepository/rules/BinaryFileNotTrackedByLfs/" class="md-nav__link">
+      <a href="../../../../../documentation/issue-providers/gitrepository/rules/BinaryFileNotTrackedByLfs/" class="md-nav__link">
         
   
   
@@ -2629,7 +2628,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../gitrepository/rules/FilePathTooLong/" class="md-nav__link">
+      <a href="../../../../../documentation/issue-providers/gitrepository/rules/FilePathTooLong/" class="md-nav__link">
         
   
   
@@ -2688,8 +2687,6 @@
                 
   
   
-    
-  
   
   
     
@@ -2714,15 +2711,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_4_5" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_4_5">
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../../../../../documentation/issue-providers/inspectcode/" class="md-nav__link ">
               
   
   
@@ -2741,7 +2738,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_2_4_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_2_4_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_2_4_5">
             <span class="md-nav__icon md-icon"></span>
             InspectCode
@@ -2757,7 +2754,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../features/" class="md-nav__link">
+      <a href="../../../../../documentation/issue-providers/inspectcode/features/" class="md-nav__link">
         
   
   
@@ -2779,17 +2776,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../../../documentation/issue-providers/inspectcode/examples/" class="md-nav__link">
         
   
   
@@ -2802,7 +2792,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -2875,7 +2864,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../markdownlint/" class="md-nav__link ">
+            <a href="../../../../../documentation/issue-providers/markdownlint/" class="md-nav__link ">
               
   
   
@@ -2910,7 +2899,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../markdownlint/features/" class="md-nav__link">
+      <a href="../../../../../documentation/issue-providers/markdownlint/features/" class="md-nav__link">
         
   
   
@@ -2935,7 +2924,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../markdownlint/examples/" class="md-nav__link">
+      <a href="../../../../../documentation/issue-providers/markdownlint/examples/" class="md-nav__link">
         
   
   
@@ -3020,7 +3009,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../msbuild/" class="md-nav__link ">
+            <a href="../../../../../documentation/issue-providers/msbuild/" class="md-nav__link ">
               
   
   
@@ -3055,7 +3044,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../msbuild/features/" class="md-nav__link">
+      <a href="../../../../../documentation/issue-providers/msbuild/features/" class="md-nav__link">
         
   
   
@@ -3107,7 +3096,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../msbuild/examples/" class="md-nav__link ">
+            <a href="../../../../../documentation/issue-providers/msbuild/examples/" class="md-nav__link ">
               
   
   
@@ -3144,7 +3133,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../msbuild/examples/read-binary-log/" class="md-nav__link">
+      <a href="../../../../../documentation/issue-providers/msbuild/examples/read-binary-log/" class="md-nav__link">
         
   
   
@@ -3169,7 +3158,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../msbuild/examples/use-custom-url-resolver/" class="md-nav__link">
+      <a href="../../../../../documentation/issue-providers/msbuild/examples/use-custom-url-resolver/" class="md-nav__link">
         
   
   
@@ -3260,7 +3249,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../sarif/" class="md-nav__link ">
+            <a href="../../../../../documentation/issue-providers/sarif/" class="md-nav__link ">
               
   
   
@@ -3295,7 +3284,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sarif/features/" class="md-nav__link">
+      <a href="../../../../../documentation/issue-providers/sarif/features/" class="md-nav__link">
         
   
   
@@ -3378,7 +3367,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../tap/" class="md-nav__link ">
+            <a href="../../../../../documentation/issue-providers/tap/" class="md-nav__link ">
               
   
   
@@ -3420,7 +3409,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tap/features/" class="md-nav__link">
+      <a href="../../../../../documentation/issue-providers/tap/features/" class="md-nav__link">
         
   
   
@@ -3503,7 +3492,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../terraform/" class="md-nav__link ">
+            <a href="../../../../../documentation/issue-providers/terraform/" class="md-nav__link ">
               
   
   
@@ -3538,7 +3527,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../terraform/features/" class="md-nav__link">
+      <a href="../../../../../documentation/issue-providers/terraform/features/" class="md-nav__link">
         
   
   
@@ -3631,7 +3620,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../report-formats/" class="md-nav__link ">
+            <a href="../../../../../documentation/report-formats/" class="md-nav__link ">
               
   
   
@@ -3695,7 +3684,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../report-formats/console/" class="md-nav__link ">
+            <a href="../../../../../documentation/report-formats/console/" class="md-nav__link ">
               
   
   
@@ -3730,7 +3719,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../report-formats/console/features/" class="md-nav__link">
+      <a href="../../../../../documentation/report-formats/console/features/" class="md-nav__link">
         
   
   
@@ -3755,7 +3744,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../report-formats/console/examples/" class="md-nav__link">
+      <a href="../../../../../documentation/report-formats/console/examples/" class="md-nav__link">
         
   
   
@@ -3842,7 +3831,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../report-formats/generic/" class="md-nav__link ">
+            <a href="../../../../../documentation/report-formats/generic/" class="md-nav__link ">
               
   
   
@@ -3877,7 +3866,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../report-formats/generic/features/" class="md-nav__link">
+      <a href="../../../../../documentation/report-formats/generic/features/" class="md-nav__link">
         
   
   
@@ -3929,7 +3918,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../report-formats/generic/examples/" class="md-nav__link ">
+            <a href="../../../../../documentation/report-formats/generic/examples/" class="md-nav__link ">
               
   
   
@@ -3966,7 +3955,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../report-formats/generic/examples/default-template/" class="md-nav__link">
+      <a href="../../../../../documentation/report-formats/generic/examples/default-template/" class="md-nav__link">
         
   
   
@@ -3989,7 +3978,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../report-formats/generic/examples/custom-template/" class="md-nav__link">
+      <a href="../../../../../documentation/report-formats/generic/examples/custom-template/" class="md-nav__link">
         
   
   
@@ -4049,7 +4038,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../report-formats/generic/templates/" class="md-nav__link ">
+            <a href="../../../../../documentation/report-formats/generic/templates/" class="md-nav__link ">
               
   
   
@@ -4086,7 +4075,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../report-formats/generic/templates/htmldxdatagrid/" class="md-nav__link">
+      <a href="../../../../../documentation/report-formats/generic/templates/htmldxdatagrid/" class="md-nav__link">
         
   
   
@@ -4109,7 +4098,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../report-formats/generic/templates/htmldatatable/" class="md-nav__link">
+      <a href="../../../../../documentation/report-formats/generic/templates/htmldatatable/" class="md-nav__link">
         
   
   
@@ -4132,7 +4121,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../report-formats/generic/templates/htmldiagnostic/" class="md-nav__link">
+      <a href="../../../../../documentation/report-formats/generic/templates/htmldiagnostic/" class="md-nav__link">
         
   
   
@@ -4223,7 +4212,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../report-formats/sarif/" class="md-nav__link ">
+            <a href="../../../../../documentation/report-formats/sarif/" class="md-nav__link ">
               
   
   
@@ -4258,7 +4247,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../report-formats/sarif/features/" class="md-nav__link">
+      <a href="../../../../../documentation/report-formats/sarif/features/" class="md-nav__link">
         
   
   
@@ -4283,7 +4272,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../report-formats/sarif/examples/" class="md-nav__link">
+      <a href="../../../../../documentation/report-formats/sarif/examples/" class="md-nav__link">
         
   
   
@@ -4372,7 +4361,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../pull-request-systems/" class="md-nav__link ">
+            <a href="../../../../../documentation/pull-request-systems/" class="md-nav__link ">
               
   
   
@@ -4438,7 +4427,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../pull-request-systems/azure-devops/" class="md-nav__link ">
+            <a href="../../../../../documentation/pull-request-systems/azure-devops/" class="md-nav__link ">
               
   
   
@@ -4473,7 +4462,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pull-request-systems/azure-devops/features/" class="md-nav__link">
+      <a href="../../../../../documentation/pull-request-systems/azure-devops/features/" class="md-nav__link">
         
   
   
@@ -4498,7 +4487,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pull-request-systems/azure-devops/setup/" class="md-nav__link">
+      <a href="../../../../../documentation/pull-request-systems/azure-devops/setup/" class="md-nav__link">
         
   
   
@@ -4552,7 +4541,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../pull-request-systems/azure-devops/examples/" class="md-nav__link ">
+            <a href="../../../../../documentation/pull-request-systems/azure-devops/examples/" class="md-nav__link ">
               
   
   
@@ -4589,7 +4578,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pull-request-systems/azure-devops/examples/pullrequest-id/" class="md-nav__link">
+      <a href="../../../../../documentation/pull-request-systems/azure-devops/examples/pullrequest-id/" class="md-nav__link">
         
   
   
@@ -4612,7 +4601,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pull-request-systems/azure-devops/examples/repository-information/" class="md-nav__link">
+      <a href="../../../../../documentation/pull-request-systems/azure-devops/examples/repository-information/" class="md-nav__link">
         
   
   
@@ -4635,7 +4624,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pull-request-systems/azure-devops/examples/azure-pipelines/" class="md-nav__link">
+      <a href="../../../../../documentation/pull-request-systems/azure-devops/examples/azure-pipelines/" class="md-nav__link">
         
   
   
@@ -4732,7 +4721,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../build-servers/" class="md-nav__link ">
+            <a href="../../../../../documentation/build-servers/" class="md-nav__link ">
               
   
   
@@ -4796,7 +4785,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../build-servers/appveyor/" class="md-nav__link ">
+            <a href="../../../../../documentation/build-servers/appveyor/" class="md-nav__link ">
               
   
   
@@ -4831,7 +4820,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../build-servers/appveyor/features/" class="md-nav__link">
+      <a href="../../../../../documentation/build-servers/appveyor/features/" class="md-nav__link">
         
   
   
@@ -4883,7 +4872,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../build-servers/appveyor/examples/" class="md-nav__link ">
+            <a href="../../../../../documentation/build-servers/appveyor/examples/" class="md-nav__link ">
               
   
   
@@ -4920,7 +4909,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../build-servers/appveyor/examples/write-messages/" class="md-nav__link">
+      <a href="../../../../../documentation/build-servers/appveyor/examples/write-messages/" class="md-nav__link">
         
   
   
@@ -4943,7 +4932,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../build-servers/appveyor/examples/github-pullrequest-integration/" class="md-nav__link">
+      <a href="../../../../../documentation/build-servers/appveyor/examples/github-pullrequest-integration/" class="md-nav__link">
         
   
   
@@ -5034,7 +5023,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../build-servers/github-actions/" class="md-nav__link ">
+            <a href="../../../../../documentation/build-servers/github-actions/" class="md-nav__link ">
               
   
   
@@ -5069,7 +5058,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../build-servers/github-actions/features/" class="md-nav__link">
+      <a href="../../../../../documentation/build-servers/github-actions/features/" class="md-nav__link">
         
   
   
@@ -5119,7 +5108,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../build-servers/github-actions/examples/" class="md-nav__link ">
+            <a href="../../../../../documentation/build-servers/github-actions/examples/" class="md-nav__link ">
               
   
   
@@ -5156,7 +5145,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../build-servers/github-actions/examples/write-annotations/" class="md-nav__link">
+      <a href="../../../../../documentation/build-servers/github-actions/examples/write-annotations/" class="md-nav__link">
         
   
   
@@ -5248,20 +5237,17 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3">
         
           
-          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
             
   
   
@@ -5321,7 +5307,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../extending/" class="md-nav__link ">
+            <a href="../../../../../documentation/extending/" class="md-nav__link ">
               
   
   
@@ -5409,7 +5395,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extending/issue-provider/overview/" class="md-nav__link">
+      <a href="../../../../../documentation/extending/issue-provider/overview/" class="md-nav__link">
         
   
   
@@ -5432,7 +5418,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extending/issue-provider/categories/" class="md-nav__link">
+      <a href="../../../../../documentation/extending/issue-provider/categories/" class="md-nav__link">
         
   
   
@@ -5510,7 +5496,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extending/issue-provider/tutorials/simple/" class="md-nav__link">
+      <a href="../../../../../documentation/extending/issue-provider/tutorials/simple/" class="md-nav__link">
         
   
   
@@ -5533,7 +5519,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extending/issue-provider/tutorials/settings/" class="md-nav__link">
+      <a href="../../../../../documentation/extending/issue-provider/tutorials/settings/" class="md-nav__link">
         
   
   
@@ -5556,7 +5542,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extending/issue-provider/tutorials/logfile-format/" class="md-nav__link">
+      <a href="../../../../../documentation/extending/issue-provider/tutorials/logfile-format/" class="md-nav__link">
         
   
   
@@ -5579,7 +5565,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extending/issue-provider/tutorials/rule-url-resolving/" class="md-nav__link">
+      <a href="../../../../../documentation/extending/issue-provider/tutorials/rule-url-resolving/" class="md-nav__link">
         
   
   
@@ -5602,7 +5588,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extending/issue-provider/tutorials/file-linking/" class="md-nav__link">
+      <a href="../../../../../documentation/extending/issue-provider/tutorials/file-linking/" class="md-nav__link">
         
   
   
@@ -5633,7 +5619,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extending/issue-provider/helper/" class="md-nav__link">
+      <a href="../../../../../documentation/extending/issue-provider/helper/" class="md-nav__link">
         
   
   
@@ -5713,7 +5699,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extending/report-format/overview/" class="md-nav__link">
+      <a href="../../../../../documentation/extending/report-format/overview/" class="md-nav__link">
         
   
   
@@ -5736,7 +5722,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extending/report-format/categories/" class="md-nav__link">
+      <a href="../../../../../documentation/extending/report-format/categories/" class="md-nav__link">
         
   
   
@@ -5816,7 +5802,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extending/pull-request-system/overview/" class="md-nav__link">
+      <a href="../../../../../documentation/extending/pull-request-system/overview/" class="md-nav__link">
         
   
   
@@ -5839,7 +5825,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extending/pull-request-system/categories/" class="md-nav__link">
+      <a href="../../../../../documentation/extending/pull-request-system/categories/" class="md-nav__link">
         
   
   
@@ -5919,7 +5905,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extending/build-servers/overview/" class="md-nav__link">
+      <a href="../../../../../documentation/extending/build-servers/overview/" class="md-nav__link">
         
   
   
@@ -5942,7 +5928,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extending/build-servers/categories/" class="md-nav__link">
+      <a href="../../../../../documentation/extending/build-servers/categories/" class="md-nav__link">
         
   
   
@@ -5973,7 +5959,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extending/testing/" class="md-nav__link">
+      <a href="../../../../../documentation/extending/testing/" class="md-nav__link">
         
   
   
@@ -6057,7 +6043,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/how-to-contribute/" class="md-nav__link">
+      <a href="../../../../../documentation/contributing/how-to-contribute/" class="md-nav__link">
         
   
   
@@ -6103,7 +6089,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/how-to-build-addins/" class="md-nav__link">
+      <a href="../../../../../documentation/contributing/how-to-build-addins/" class="md-nav__link">
         
   
   
@@ -6126,7 +6112,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/how-to-run-website/" class="md-nav__link">
+      <a href="../../../../../documentation/contributing/how-to-run-website/" class="md-nav__link">
         
   
   
@@ -6204,7 +6190,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/how-to-release/" class="md-nav__link">
+      <a href="../../../../../documentation/contributing/how-to-release/" class="md-nav__link">
         
   
   
@@ -6255,20 +6241,17 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4">
         
           
-          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
             
   
   
@@ -6295,7 +6278,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../resources/blog-posts/" class="md-nav__link">
+      <a href="../../../../../documentation/resources/blog-posts/" class="md-nav__link">
         
   
   
@@ -6318,7 +6301,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../resources/presentations/" class="md-nav__link">
+      <a href="../../../../../documentation/resources/presentations/" class="md-nav__link">
         
   
   
@@ -6356,7 +6339,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../api/" class="md-nav__link">
+      <a href="../../../../../api/" class="md-nav__link">
         
   
   
@@ -6401,6 +6384,8 @@
             
             
               
+                
+              
               <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
@@ -6411,6 +6396,41 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#improved-github-actions-support-in-cake-issues-recipe" class="md-nav__link">
+    <span class="md-ellipsis">
+      Improved GitHub Actions support in Cake Issues Recipe
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bug-fixes-in-console-reporting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bug fixes in console reporting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updating-from-previous-versions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Updating from previous versions
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -6418,14 +6438,162 @@
             
           
           
-            <div class="md-content" data-md-component="content">
-              <article class="md-content__inner md-typeset">
-                
-                  
+  <div class="md-content md-content--post" data-md-component="content">
+    <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner md-post">
+          <nav class="md-nav md-nav--primary">
+            <div class="md-post__back">
+              <div class="md-nav__title md-nav__container">
+                <a href="../../../../" class="md-nav__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+                  <span class="md-ellipsis">
+                    Back to index
+                  </span>
+                </a>
+              </div>
+            </div>
+            
+            <ul class="md-post__meta md-nav__list">
+              <li class="md-nav__item md-nav__item--section">
+                <div class="md-post__title">
+                  <span class="md-ellipsis">
+                    Metadata
+                  </span>
+                </div>
+                <nav class="md-nav">
+                  <ul class="md-nav__list">
+                    <li class="md-nav__item">
+                      <div class="md-nav__link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"></path></svg>
+                        <time datetime="2025-09-24 00:00:00+00:00" class="md-ellipsis">September 24, 2025</time>
+                      </div>
+                    </li>
+                    
+                    
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 3v15h3V3zm3 2 4 13 3-1-4-13zM5 5v13h3V5zM3 19v2h18v-2z"></path></svg>
+                          <span class="md-ellipsis">
+                            in
+                            
+                              <a href="../../../../category/release-notes/">Release Notes</a></span>
+                        </div>
+                      </li>
+                    
+                    
+                      
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"></path></svg>
+                          <span class="md-ellipsis">
+                            
+                              1 min read
+                            
+                          </span>
+                        </div>
+                      </li>
+                    
+                  </ul>
+                </nav>
+              </li>
+            </ul>
+            
+              <ul class="md-post__meta md-nav__list">
+                <li class="md-nav__item md-nav__item--section">
+                  <div class="md-post__title">
+                    <span class="md-ellipsis">
+                      Related links
+                    </span>
+                  </div>
+                  <nav class="md-nav">
+                    <ul class="md-nav__list">
+                      
+                        
+                        
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../documentation/recipe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+                      
+                        
+                        
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../documentation/report-formats/console/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Console reporter
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+                      
+                        
+                        
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../documentation/issue-providers/msbuild/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MsBuild issue provider
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+                      
+                    </ul>
+                  </nav>
+                </li>
+              </ul>
+            
+          </nav>
+          
+        </div>
+      </div>
+    </div>
+    <article class="md-content__inner md-typeset">
+      
+        
+  
+
 
 
   
-    <a href="https://github.com/cake-contrib/Cake.Issues/edit/develop/docs/input/documentation/issue-providers/inspectcode/examples.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/cake-contrib/Cake.Issues/edit/develop/docs/input/news/posts/2025-09-24-cake-issues-v5.9.0-released.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
     </a>
@@ -6433,179 +6601,34 @@
   
 
 
-  <h1>Examples</h1>
+  <h1>Cake Issues v5.9.0 Released</h1>
 
-<p>To read issues from InspectCode log files the InspectCode issue provider needs to be imported:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="cake-net-tool" name="__tabbed_1" type="radio"><input id="cake-sdk" name="__tabbed_1" type="radio"><input id="cake-frosting" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="cake-net-tool">Cake .NET Tool</label><label for="cake-sdk">Cake SDK</label><label for="cake-frosting">Cake Frosting</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="language-csharp highlight"><span class="filename">build.cake</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="err">#</span><span class="n">addin</span><span class="w"> </span><span class="n">nuget</span><span class="p">:</span><span class="o">?</span><span class="n">package</span><span class="o">=</span><span class="n">Cake</span><span class="p">.</span><span class="n">Issues</span><span class="o">&amp;</span><span class="n">version</span><span class="o">=</span><span class="mf">5.9.0</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="err">#</span><span class="n">addin</span><span class="w"> </span><span class="n">nuget</span><span class="p">:</span><span class="o">?</span><span class="n">package</span><span class="o">=</span><span class="n">Cake</span><span class="p">.</span><span class="n">Issues</span><span class="p">.</span><span class="n">InspectCode</span><span class="o">&amp;</span><span class="n">version</span><span class="o">=</span><span class="mf">5.9.0</span>
-</span></code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>In addition to the InspectCode issue provider the <code>Cake.Issues</code> core addin needs to be added.</p>
-</div>
-</div>
-<div class="tabbed-block">
-<div class="language-csharp highlight"><span class="filename">Build.csproj</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="o">&lt;</span><span class="n">Project</span><span class="w"> </span><span class="n">Sdk</span><span class="o">=</span><span class="s">"Cake.Sdk"</span><span class="o">&gt;</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="o">&lt;</span><span class="n">PropertyGroup</span><span class="o">&gt;</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="o">&lt;</span><span class="n">TargetFramework</span><span class="o">&gt;</span><span class="n">net9</span><span class="mf">.0</span><span class="o">&lt;/</span><span class="n">TargetFramework</span><span class="o">&gt;</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="o">&lt;</span><span class="n">RunWorkingDirectory</span><span class="o">&gt;</span><span class="err">$</span><span class="p">(</span><span class="n">MSBuildProjectDirectory</span><span class="p">)</span><span class="o">&lt;/</span><span class="n">RunWorkingDirectory</span><span class="o">&gt;</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="o">&lt;/</span><span class="n">PropertyGroup</span><span class="o">&gt;</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="o">&lt;</span><span class="n">ItemGroup</span><span class="o">&gt;</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="o">&lt;</span><span class="n">PackageReference</span><span class="w"> </span><span class="n">Include</span><span class="o">=</span><span class="s">"Cake.Frosting.Issues.InspectCode"</span><span class="w"> </span><span class="n">Version</span><span class="o">=</span><span class="s">"5.9.0"</span><span class="w"> </span><span class="o">/&gt;</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">  </span><span class="o">&lt;/</span><span class="n">ItemGroup</span><span class="o">&gt;</span>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="o">&lt;/</span><span class="n">Project</span><span class="o">&gt;</span>
-</span></code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="language-csharp highlight"><span class="filename">Build.csproj</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="o">&lt;</span><span class="n">Project</span><span class="w"> </span><span class="n">Sdk</span><span class="o">=</span><span class="s">"Microsoft.NET.Sdk"</span><span class="o">&gt;</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="o">&lt;</span><span class="n">PropertyGroup</span><span class="o">&gt;</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="o">&lt;</span><span class="n">OutputType</span><span class="o">&gt;</span><span class="n">Exe</span><span class="o">&lt;/</span><span class="n">OutputType</span><span class="o">&gt;</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="o">&lt;</span><span class="n">TargetFramework</span><span class="o">&gt;</span><span class="n">net9</span><span class="mf">.0</span><span class="o">&lt;/</span><span class="n">TargetFramework</span><span class="o">&gt;</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="o">&lt;</span><span class="n">RunWorkingDirectory</span><span class="o">&gt;</span><span class="err">$</span><span class="p">(</span><span class="n">MSBuildProjectDirectory</span><span class="p">)</span><span class="o">&lt;/</span><span class="n">RunWorkingDirectory</span><span class="o">&gt;</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="o">&lt;</span><span class="n">ImplicitUsings</span><span class="o">&gt;</span><span class="n">enable</span><span class="o">&lt;/</span><span class="n">ImplicitUsings</span><span class="o">&gt;</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">  </span><span class="o">&lt;/</span><span class="n">PropertyGroup</span><span class="o">&gt;</span>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">  </span><span class="o">&lt;</span><span class="n">ItemGroup</span><span class="o">&gt;</span>
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="o">&lt;</span><span class="n">PackageReference</span><span class="w"> </span><span class="n">Include</span><span class="o">=</span><span class="s">"Cake.Frosting"</span><span class="w"> </span><span class="n">Version</span><span class="o">=</span><span class="s">"5.0.0"</span><span class="w"> </span><span class="o">/&gt;</span>
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="o">&lt;</span><span class="n">PackageReference</span><span class="w"> </span><span class="n">Include</span><span class="o">=</span><span class="s">"Cake.Frosting.Issues.InspectCode"</span><span class="w"> </span><span class="n">Version</span><span class="o">=</span><span class="s">"5.9.0"</span><span class="w"> </span><span class="o">/&gt;</span>
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">  </span><span class="o">&lt;/</span><span class="n">ItemGroup</span><span class="o">&gt;</span>
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="o">&lt;/</span><span class="n">Project</span><span class="o">&gt;</span>
-</span></code></pre></div>
-</div>
-</div>
-</div>
-<p>The following example contains a task which will run <a href="https://www.jetbrains.com/help/resharper/InspectCode.html">JetBrains InspectCode</a>
-and write a log file and a task to read issues from the log file and write the number of warnings to the console.
-<a href="https://www.jetbrains.com/help/resharper/InspectCode.html">JetBrains InspectCode</a> is installed using <code>JetBrains.ReSharper.CommandLineTools</code>:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="cake-net-tool_1" name="__tabbed_2" type="radio"><input id="cake-sdk_1" name="__tabbed_2" type="radio"><input id="cake-frosting_1" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="cake-net-tool_1">Cake .NET Tool</label><label for="cake-sdk_1">Cake SDK</label><label for="cake-frosting_1">Cake Frosting</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="language-csharp highlight"><span class="filename">build.cake</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="err">#</span><span class="n">tool</span><span class="w"> </span><span class="s">"nuget:?package=JetBrains.ReSharper.CommandLineTools&amp;version=2025.2.2"</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kt">var</span><span class="w"> </span><span class="n">logPath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">@"c:\build\inspectcode.xml"</span><span class="p">;</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="kt">var</span><span class="w"> </span><span class="n">repoRootFolder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MakeAbsolute</span><span class="p">(</span><span class="n">Directory</span><span class="p">(</span><span class="s">"./"</span><span class="p">));</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="n">Task</span><span class="p">(</span><span class="s">"Analyze-Project"</span><span class="p">).</span><span class="n">Does</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="p">{</span>
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="c1">// Run InspectCode and enforce XML output.</span>
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">settings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">InspectCodeSettings</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">        </span><span class="n">OutputFile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">logPath</span><span class="p">,</span>
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">        </span><span class="n">ArgumentCustomization</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">Append</span><span class="p">(</span><span class="s">"-f=xml"</span><span class="p">)</span>
-</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">    </span><span class="p">};</span>
-</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>
-</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">    </span><span class="n">InspectCode</span><span class="p">(</span><span class="n">repoRootPath</span><span class="p">.</span><span class="n">CombineWithFilePath</span><span class="p">(</span><span class="s">"MySolution.sln"</span><span class="p">),</span><span class="w"> </span><span class="n">settings</span><span class="p">);</span>
-</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="p">});</span>
-</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>
-</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="n">Task</span><span class="p">(</span><span class="s">"Read-Issues"</span><span class="p">)</span>
-</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">    </span><span class="p">.</span><span class="n">IsDependentOn</span><span class="p">(</span><span class="s">"Analyze-Project"</span><span class="p">)</span>
-</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">    </span><span class="p">.</span><span class="n">Does</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span>
-</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w">    </span><span class="p">{</span>
-</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w">        </span><span class="c1">// Read issues.</span>
-</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">issues</span><span class="w"> </span><span class="o">=</span>
-</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="w">            </span><span class="n">ReadIssues</span><span class="p">(</span>
-</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="w">                </span><span class="n">InspectCodeIssuesFromFilePath</span><span class="p">(</span><span class="n">logPath</span><span class="p">),</span>
-</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="w">                </span><span class="n">repoRootPath</span><span class="p">);</span>
-</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>
-</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a><span class="w">        </span><span class="n">Information</span><span class="p">(</span><span class="s">"{0} issues are found."</span><span class="p">,</span><span class="w"> </span><span class="n">issues</span><span class="p">.</span><span class="n">Count</span><span class="p">());</span>
-</span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a><span class="p">});</span>
-</span></code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="language-csharp highlight"><span class="filename">build.cs</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="err">#</span><span class="n">tool</span><span class="w"> </span><span class="s">"nuget:?package=JetBrains.ReSharper.CommandLineTools&amp;version=2025.2.2"</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="kt">var</span><span class="w"> </span><span class="n">logPath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">@"c:\build\inspectcode.xml"</span><span class="p">;</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="kt">var</span><span class="w"> </span><span class="n">repoRootFolder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MakeAbsolute</span><span class="p">(</span><span class="n">Directory</span><span class="p">(</span><span class="s">"./"</span><span class="p">));</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="n">Task</span><span class="p">(</span><span class="s">"Analyze-Project"</span><span class="p">).</span><span class="n">Does</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="p">{</span>
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">    </span><span class="c1">// Run InspectCode and enforce XML output.</span>
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">settings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">InspectCodeSettings</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">        </span><span class="n">OutputFile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">logPath</span><span class="p">,</span>
-</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">        </span><span class="n">ArgumentCustomization</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">Append</span><span class="p">(</span><span class="s">"-f=xml"</span><span class="p">)</span>
-</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">    </span><span class="p">};</span>
-</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>
-</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">    </span><span class="n">InspectCode</span><span class="p">(</span><span class="n">repoRootPath</span><span class="p">.</span><span class="n">CombineWithFilePath</span><span class="p">(</span><span class="s">"MySolution.sln"</span><span class="p">),</span><span class="w"> </span><span class="n">settings</span><span class="p">);</span>
-</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="p">});</span>
-</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>
-</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="n">Task</span><span class="p">(</span><span class="s">"Read-Issues"</span><span class="p">)</span>
-</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">    </span><span class="p">.</span><span class="n">IsDependentOn</span><span class="p">(</span><span class="s">"Analyze-Project"</span><span class="p">)</span>
-</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="w">    </span><span class="p">.</span><span class="n">Does</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span>
-</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="w">    </span><span class="p">{</span>
-</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="w">        </span><span class="c1">// Read issues.</span>
-</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">issues</span><span class="w"> </span><span class="o">=</span>
-</span><span id="__span-4-23"><a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="w">            </span><span class="n">ReadIssues</span><span class="p">(</span>
-</span><span id="__span-4-24"><a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a><span class="w">                </span><span class="n">InspectCodeIssuesFromFilePath</span><span class="p">(</span><span class="n">logPath</span><span class="p">),</span>
-</span><span id="__span-4-25"><a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a><span class="w">                </span><span class="n">repoRootPath</span><span class="p">);</span>
-</span><span id="__span-4-26"><a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a>
-</span><span id="__span-4-27"><a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a><span class="w">        </span><span class="n">Information</span><span class="p">(</span><span class="s">"{0} issues are found."</span><span class="p">,</span><span class="w"> </span><span class="n">issues</span><span class="p">.</span><span class="n">Count</span><span class="p">());</span>
-</span><span id="__span-4-28"><a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a><span class="p">});</span>
-</span></code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="language-csharp highlight"><span class="filename">Program.cs</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">using</span><span class="w"> </span><span class="nn">Cake.Common.Diagnostics</span><span class="p">;</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">using</span><span class="w"> </span><span class="nn">Cake.Core.IO</span><span class="p">;</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="k">using</span><span class="w"> </span><span class="nn">Cake.Core</span><span class="p">;</span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="k">using</span><span class="w"> </span><span class="nn">Cake.Frosting</span><span class="p">;</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="k">using</span><span class="w"> </span><span class="nn">Cake.Common.Tools.InspectCode</span><span class="p">;</span>
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Program</span>
-</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="p">{</span>
-</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span>
-</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">    </span><span class="p">{</span>
-</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">CakeHost</span><span class="p">()</span>
-</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">            </span><span class="p">.</span><span class="n">UseContext</span><span class="o">&lt;</span><span class="n">BuildContext</span><span class="o">&gt;</span><span class="p">()</span>
-</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">            </span><span class="p">.</span><span class="n">InstallTool</span><span class="p">(</span>
-</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">            </span><span class="k">new</span><span class="w"> </span><span class="nf">Uri</span><span class="p">(</span>
-</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">                </span><span class="s">"nuget:?package=JetBrains.ReSharper.CommandLineTools&amp;version=2025.2.2"</span><span class="p">))</span>
-</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">            </span><span class="p">.</span><span class="n">Run</span><span class="p">(</span><span class="n">args</span><span class="p">);</span>
-</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="p">}</span>
-</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>
-</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nf">BuildContext</span><span class="p">(</span><span class="n">ICakeContext</span><span class="w"> </span><span class="n">context</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">FrostingContext</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
-</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="p">{</span>
-</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">FilePath</span><span class="w"> </span><span class="n">LogPath</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">@"c:\build\inspectcode.xml"</span><span class="p">;</span>
-</span><span id="__span-5-23"><a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">DirectoryPath</span><span class="w"> </span><span class="n">RepoRootPath</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span>
-</span><span id="__span-5-24"><a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="w">        </span><span class="n">context</span><span class="p">.</span><span class="n">MakeAbsolute</span><span class="p">(</span><span class="n">context</span><span class="p">.</span><span class="n">Directory</span><span class="p">(</span><span class="s">"./"</span><span class="p">));</span>
-</span><span id="__span-5-25"><a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a><span class="p">}</span>
-</span><span id="__span-5-26"><a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a>
-</span><span id="__span-5-27"><a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a><span class="na">[TaskName("Analyze-Project")]</span>
-</span><span id="__span-5-28"><a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a><span class="k">public</span><span class="w"> </span><span class="k">sealed</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">AnalyzeProjectTask</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">FrostingTask</span><span class="o">&lt;</span><span class="n">BuildContext</span><span class="o">&gt;</span>
-</span><span id="__span-5-29"><a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a><span class="p">{</span>
-</span><span id="__span-5-30"><a id="__codelineno-5-30" name="__codelineno-5-30" href="#__codelineno-5-30"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Run</span><span class="p">(</span><span class="n">BuildContext</span><span class="w"> </span><span class="n">context</span><span class="p">)</span>
-</span><span id="__span-5-31"><a id="__codelineno-5-31" name="__codelineno-5-31" href="#__codelineno-5-31"></a><span class="w">    </span><span class="p">{</span>
-</span><span id="__span-5-32"><a id="__codelineno-5-32" name="__codelineno-5-32" href="#__codelineno-5-32"></a><span class="w">        </span><span class="c1">// Run InspectCode and enforce XML output.</span>
-</span><span id="__span-5-33"><a id="__codelineno-5-33" name="__codelineno-5-33" href="#__codelineno-5-33"></a><span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">settings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">InspectCodeSettings</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-5-34"><a id="__codelineno-5-34" name="__codelineno-5-34" href="#__codelineno-5-34"></a><span class="w">            </span><span class="n">OutputFile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">context</span><span class="p">.</span><span class="n">LogPath</span><span class="p">,</span>
-</span><span id="__span-5-35"><a id="__codelineno-5-35" name="__codelineno-5-35" href="#__codelineno-5-35"></a><span class="w">            </span><span class="n">ArgumentCustomization</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">Append</span><span class="p">(</span><span class="s">"-f=xml"</span><span class="p">)</span>
-</span><span id="__span-5-36"><a id="__codelineno-5-36" name="__codelineno-5-36" href="#__codelineno-5-36"></a><span class="w">        </span><span class="p">};</span>
-</span><span id="__span-5-37"><a id="__codelineno-5-37" name="__codelineno-5-37" href="#__codelineno-5-37"></a>
-</span><span id="__span-5-38"><a id="__codelineno-5-38" name="__codelineno-5-38" href="#__codelineno-5-38"></a><span class="w">        </span><span class="n">context</span><span class="p">.</span><span class="n">InspectCode</span><span class="p">(</span>
-</span><span id="__span-5-39"><a id="__codelineno-5-39" name="__codelineno-5-39" href="#__codelineno-5-39"></a><span class="w">            </span><span class="n">context</span><span class="p">.</span><span class="n">RepoRootPath</span><span class="p">.</span><span class="n">CombineWithFilePath</span><span class="p">(</span><span class="s">"MySolution.sln"</span><span class="p">),</span>
-</span><span id="__span-5-40"><a id="__codelineno-5-40" name="__codelineno-5-40" href="#__codelineno-5-40"></a><span class="w">            </span><span class="n">settings</span><span class="p">);</span>
-</span><span id="__span-5-41"><a id="__codelineno-5-41" name="__codelineno-5-41" href="#__codelineno-5-41"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-5-42"><a id="__codelineno-5-42" name="__codelineno-5-42" href="#__codelineno-5-42"></a><span class="p">}</span>
-</span><span id="__span-5-43"><a id="__codelineno-5-43" name="__codelineno-5-43" href="#__codelineno-5-43"></a>
-</span><span id="__span-5-44"><a id="__codelineno-5-44" name="__codelineno-5-44" href="#__codelineno-5-44"></a><span class="na">[TaskName("Read-Issues")]</span>
-</span><span id="__span-5-45"><a id="__codelineno-5-45" name="__codelineno-5-45" href="#__codelineno-5-45"></a><span class="na">[IsDependentOn(typeof(AnalyzeProjectTask))]</span>
-</span><span id="__span-5-46"><a id="__codelineno-5-46" name="__codelineno-5-46" href="#__codelineno-5-46"></a><span class="k">public</span><span class="w"> </span><span class="k">sealed</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ReadIssuesTask</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">FrostingTask</span><span class="o">&lt;</span><span class="n">BuildContext</span><span class="o">&gt;</span>
-</span><span id="__span-5-47"><a id="__codelineno-5-47" name="__codelineno-5-47" href="#__codelineno-5-47"></a><span class="p">{</span>
-</span><span id="__span-5-48"><a id="__codelineno-5-48" name="__codelineno-5-48" href="#__codelineno-5-48"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Run</span><span class="p">(</span><span class="n">BuildContext</span><span class="w"> </span><span class="n">context</span><span class="p">)</span>
-</span><span id="__span-5-49"><a id="__codelineno-5-49" name="__codelineno-5-49" href="#__codelineno-5-49"></a><span class="w">    </span><span class="p">{</span>
-</span><span id="__span-5-50"><a id="__codelineno-5-50" name="__codelineno-5-50" href="#__codelineno-5-50"></a><span class="w">        </span><span class="c1">// Read issues.</span>
-</span><span id="__span-5-51"><a id="__codelineno-5-51" name="__codelineno-5-51" href="#__codelineno-5-51"></a><span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">issues</span><span class="w"> </span><span class="o">=</span>
-</span><span id="__span-5-52"><a id="__codelineno-5-52" name="__codelineno-5-52" href="#__codelineno-5-52"></a><span class="w">            </span><span class="n">context</span><span class="p">.</span><span class="n">ReadIssues</span><span class="p">(</span>
-</span><span id="__span-5-53"><a id="__codelineno-5-53" name="__codelineno-5-53" href="#__codelineno-5-53"></a><span class="w">                </span><span class="n">context</span><span class="p">.</span><span class="n">InspectCodeIssuesFromFilePath</span><span class="p">(</span><span class="n">context</span><span class="p">.</span><span class="n">LogPath</span><span class="p">),</span>
-</span><span id="__span-5-54"><a id="__codelineno-5-54" name="__codelineno-5-54" href="#__codelineno-5-54"></a><span class="w">                </span><span class="n">context</span><span class="p">.</span><span class="n">RepoRootPath</span><span class="p">);</span>
-</span><span id="__span-5-55"><a id="__codelineno-5-55" name="__codelineno-5-55" href="#__codelineno-5-55"></a>
-</span><span id="__span-5-56"><a id="__codelineno-5-56" name="__codelineno-5-56" href="#__codelineno-5-56"></a><span class="w">        </span><span class="n">context</span><span class="p">.</span><span class="n">Information</span><span class="p">(</span><span class="s">"{0} issues are found."</span><span class="p">,</span><span class="w"> </span><span class="n">issues</span><span class="p">.</span><span class="n">Count</span><span class="p">());</span>
-</span><span id="__span-5-57"><a id="__codelineno-5-57" name="__codelineno-5-57" href="#__codelineno-5-57"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-5-58"><a id="__codelineno-5-58" name="__codelineno-5-58" href="#__codelineno-5-58"></a><span class="p">}</span>
-</span></code></pre></div>
-</div>
-</div>
-</div>
+<p>Cake Issues version 5.9.0 has been released with enhanced GitHub Actions support in Cake Issues Recipe
+and bug fixes to console reporting.</p>
+<!-- more -->
+
+<p>This post shows the highlights included in this release.
+For update instructions skip to <a href="#updating-from-previous-versions">Updating from previous versions</a>.</p>
+<p>❤ Huge thanks to our community! This release would not have been possible without your support and contributions! ❤</p>
+<p>People working on this release:</p>
+<ul>
+<li><a href="https://github.com/pascalberger">pascalberger</a></li>
+</ul>
+<h2 id="improved-github-actions-support-in-cake-issues-recipe">Improved GitHub Actions support in Cake Issues Recipe<a class="headerlink" href="#improved-github-actions-support-in-cake-issues-recipe" title="Permanent link">¶</a></h2>
+<p>Cake Issues Recipe will now upload the full issue report as build artifact when running in a GitHub action.
+Additionally a <a href="https://github.blog/news-insights/product-news/supercharging-github-actions-with-job-summaries/">job summary</a> will be posted.</p>
+<p>Both functions can be controlled through <a href="../../../../../documentation/recipe/configuration/">parameters</a>.</p>
+<h2 id="bug-fixes-in-console-reporting">Bug fixes in console reporting<a class="headerlink" href="#bug-fixes-in-console-reporting" title="Permanent link">¶</a></h2>
+<p>Cake.Issues.Reporting.Console has received a bunch of bug fixes:</p>
+<ul>
+<li>Can handle reporting of issues without a priority</li>
+<li>Issues where the column is reported after the last character will be displayed as issues at the last character</li>
+<li>Logging fixes and improvements</li>
+</ul>
+<h2 id="updating-from-previous-versions">Updating from previous versions<a class="headerlink" href="#updating-from-previous-versions" title="Permanent link">¶</a></h2>
+<p>Cake.Issues 5.9.0 <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr> are compatible with any 5.x <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr>.
+To update to the new version bump the version of the specific <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr>.</p>
+<p>For details see <a href="https://github.com/cake-contrib/Cake.Issues/releases/tag/5.9.0">release notes</a></p>
 <!-- Glossary for terms and concepts not documented on cakeissues.net -->
 
 
@@ -6620,12 +6643,14 @@ and write a log file and a task to read issues from the log file and write the n
 
 
 
+  
 
 
-                
-              </article>
-            </div>
-          
+
+      
+    </article>
+  </div>
+
           
   <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
 
@@ -6688,18 +6713,18 @@ and write a log file and a task to read issues from the log file and write the n
     
     
       
-      <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.indexes", "navigation.instant", "navigation.instant.progress", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "search.highlight", "search.suggest"], "search": "../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"base": "../../../../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.indexes", "navigation.instant", "navigation.instant.progress", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "search.highlight", "search.suggest"], "search": "../../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      <script src="../../../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
       
         <script src="https://viewer.diagrams.net/js/viewer-static.min.js"></script>
       
-        <script src="../../../../assets/javascripts/drawio-reload.js"></script>
+        <script src="../../../../../assets/javascripts/drawio-reload.js"></script>
       
-        <script src="../../../../js/drawio-darkmode.js"></script>
+        <script src="../../../../../js/drawio-darkmode.js"></script>
       
-        <script src="../../../../js/open_in_new_tab.js"></script>
+        <script src="../../../../../js/open_in_new_tab.js"></script>
       
     
   
