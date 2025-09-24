@@ -206,7 +206,7 @@ public sealed class BaseIssueProviderTests
         public override string ProviderName => "Fake Provider";
 
         public static (bool Valid, string FilePath) CallValidateFilePath(string filePath, IRepositorySettings repositorySettings) =>
-            ValidateFilePath(filePath, repositorySettings);
+            BaseIssueProvider.ValidateFilePath(filePath, repositorySettings);
 
         protected override IEnumerable<IIssue> InternalReadIssues() => [];
     }

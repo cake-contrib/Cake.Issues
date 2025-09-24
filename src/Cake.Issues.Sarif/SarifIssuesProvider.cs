@@ -196,7 +196,6 @@ internal class SarifIssuesProvider(ICakeLog log, SarifIssuesSettings issueProvid
             // - Absolute path on Linux RFC 3986 conform: file://path/to/file
             // - Relative path on Windows: path/to/file
             string filePath;
-            bool isAbsolutePath;
             try
             {
                 if (location.PhysicalLocation.ArtifactLocation.Uri.IsFile)
@@ -218,18 +217,15 @@ internal class SarifIssuesProvider(ICakeLog log, SarifIssuesSettings issueProvid
                     // Handle URIs without file scheme.
                     filePath = location.PhysicalLocation.ArtifactLocation.Uri.AbsolutePath;
                 }
-
-                isAbsolutePath = location.PhysicalLocation.ArtifactLocation.Uri.IsAbsoluteUri;
             }
             catch (InvalidOperationException)
             {
                 // Handle relative paths.
                 filePath = location.PhysicalLocation.ArtifactLocation.Uri.ToString();
-                isAbsolutePath = !new FilePath(filePath).IsRelative;
             }
 
             // Validate file path and make relative to repository root if it is an absolute path.
-            (var pathValidationResult, filePath) = ValidateFilePath(filePath, isAbsolutePath, repositorySettings);
+            (var pathValidationResult, filePath) = ValidateFilePath(filePath, repositorySettings);
 
             if (!pathValidationResult)
             {
@@ -258,29 +254,10 @@ internal class SarifIssuesProvider(ICakeLog log, SarifIssuesSettings issueProvid
     /// Validates a file path.
     /// </summary>
     /// <param name="filePath">Full file path.</param>
-    /// <param name="isAbsolutePath">Indicates if the file path is an absolute path.</param>
     /// <param name="repositorySettings">Repository settings.</param>
     /// <returns>Tuple containing a value if validation was successful, and file path relative to repository root.</returns>
     private static (bool Valid, string FilePath) ValidateFilePath(
         string filePath,
-        bool isAbsolutePath,
-        IRepositorySettings repositorySettings)
-    {
-        filePath.NotNullOrWhiteSpace();
-        repositorySettings.NotNull();
-
-        if (isAbsolutePath)
-        {
-            // Ignore files from outside the repository.
-            if (!filePath.IsInRepository(repositorySettings))
-            {
-                return (false, string.Empty);
-            }
-
-            // Make path relative to repository root.
-            filePath = filePath.NormalizePath().MakeFilePathRelativeToRepositoryRoot(repositorySettings);
-        }
-
-        return (true, filePath);
-    }
+        IRepositorySettings repositorySettings) =>
+        BaseIssueProvider.ValidateFilePath(filePath, repositorySettings);
 }
