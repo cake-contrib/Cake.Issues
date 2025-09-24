@@ -1,5 +1,6 @@
 ﻿namespace Cake.Issues;
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Cake.Core.Diagnostics;
@@ -57,17 +58,31 @@ public class IssuesReader
                     currentIssues.Count,
                     providerName);
 
-                currentIssues.ForEach(x =>
+                // Create enhanced issues with the Run and FileLink properties set
+                // This maintains immutability by creating copies instead of mutating originals
+                var enhancedIssues = new List<IIssue>();
+                foreach (var issue in currentIssues)
                 {
-                    x.Run = this.settings.Run;
+                    var run = this.settings.Run;
+                    var fileLink = this.settings.FileLinkSettings?.GetFileLink(issue);
 
-                    if (this.settings.FileLinkSettings != null)
+                    // Always create a new issue instance to ensure immutability
+                    if (issue is Issue originalIssue)
                     {
-                        x.FileLink = this.settings.FileLinkSettings.GetFileLink(x);
+                        var enhancedIssue = originalIssue.WithRunAndFileLink(run, fileLink);
+                        enhancedIssues.Add(enhancedIssue);
                     }
-                });
+                    else
+                    {
+                        // If it's a custom IIssue implementation, we can't enhance it while maintaining immutability
+                        // This is a limitation - custom implementations would need to handle this themselves
+                        throw new NotSupportedException(
+                            $"Issue type {issue.GetType().Name} does not support immutable enhancement. " +
+                            "Custom IIssue implementations should handle Run and FileLink setting during construction.");
+                    }
+                }
 
-                issues.AddRange(currentIssues);
+                issues.AddRange(enhancedIssues);
             }
             else
             {

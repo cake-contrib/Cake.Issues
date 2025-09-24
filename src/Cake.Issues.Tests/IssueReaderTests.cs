@@ -175,8 +175,11 @@ public sealed class IssueReaderTests
 
             // Then
             issues.Count.ShouldBe(2);
-            issues.ShouldContain(issue1);
-            issues.ShouldContain(issue2);
+            
+            // Since IIssue is now immutable, we verify the returned issues
+            // have the same identifiers as the original issues
+            issues.Select(x => x.Identifier).ShouldContain(issue1.Identifier);
+            issues.Select(x => x.Identifier).ShouldContain(issue2.Identifier);
         }
 
         [Fact]
@@ -207,8 +210,11 @@ public sealed class IssueReaderTests
 
             // Then
             issues.Count.ShouldBe(2);
-            issues.ShouldContain(issue1);
-            issues.ShouldContain(issue2);
+            
+            // Since IIssue is now immutable, we verify the returned issues
+            // have the same identifiers as the original issues
+            issues.Select(x => x.Identifier).ShouldContain(issue1.Identifier);
+            issues.Select(x => x.Identifier).ShouldContain(issue2.Identifier);
         }
 
         [Fact]
@@ -259,10 +265,13 @@ public sealed class IssueReaderTests
 
             // Then
             issues.Count.ShouldBe(4);
-            issues.ShouldContain(issue1);
-            issues.ShouldContain(issue2);
-            issues.ShouldContain(issue3);
-            issues.ShouldContain(issue4);
+            
+            // Since IIssue is now immutable, we verify the returned issues
+            // have the same identifiers as the original issues
+            issues.Select(x => x.Identifier).ShouldContain(issue1.Identifier);
+            issues.Select(x => x.Identifier).ShouldContain(issue2.Identifier);
+            issues.Select(x => x.Identifier).ShouldContain(issue3.Identifier);
+            issues.Select(x => x.Identifier).ShouldContain(issue4.Identifier);
         }
 
         [Fact]
@@ -297,10 +306,15 @@ public sealed class IssueReaderTests
 
             // Then
             issues.Count.ShouldBe(2);
-            issues.ShouldContain(issue1);
-            issue1.Run.ShouldBe(run);
-            issues.ShouldContain(issue2);
-            issue2.Run.ShouldBe(run);
+            
+            // Since IIssue is now immutable, the returned issues are new objects
+            // We check that the returned issues have the same content as originals
+            var returnedIssue1 = issues.First(x => x.Identifier == issue1.Identifier);
+            var returnedIssue2 = issues.First(x => x.Identifier == issue2.Identifier);
+            
+            // Verify the Run property is set on the returned issues
+            returnedIssue1.Run.ShouldBe(run);
+            returnedIssue2.Run.ShouldBe(run);
         }
 
         [Fact]
@@ -342,11 +356,16 @@ public sealed class IssueReaderTests
 
             // Then
             issues.Count.ShouldBe(2);
-            issues.ShouldContain(issue1);
-            issue1.FileLink.ToString()
+            
+            // Since IIssue is now immutable, the returned issues are new objects  
+            // We check that the returned issues have the same content as originals
+            var returnedIssue1 = issues.First(x => x.Identifier == issue1.Identifier);
+            var returnedIssue2 = issues.First(x => x.Identifier == issue2.Identifier);
+            
+            // Verify the FileLink property is set on the returned issues
+            returnedIssue1.FileLink.ToString()
                 .ShouldBe($"{repoUrl}/blob/{branch}/{filePath1.Replace(@"\", "/")}#L{line1}-L{endLine1}");
-            issues.ShouldContain(issue2);
-            issue2.FileLink.ToString()
+            returnedIssue2.FileLink.ToString()
                 .ShouldBe($"{repoUrl}/blob/{branch}/{filePath2.Replace(@"\", "/")}#L{line2}");
         }
     }
