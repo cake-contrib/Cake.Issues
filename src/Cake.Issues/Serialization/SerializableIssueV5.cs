@@ -98,4 +98,12 @@ internal class SerializableIssueV5
     /// <inheritdoc cref="IIssue.AdditionalInformation" />
     [DataMember]
     public Dictionary<string, string> AdditionalInformation { get; set; }
+
+    /// <inheritdoc cref="IIssue.Snippet" />
+    [DataMember]
+    public string Snippet { get; set; }
+
+    /// <inheritdoc cref="IIssue.SourceLanguage" />
+    [DataMember]
+    public string SourceLanguage { get; set; }
 }

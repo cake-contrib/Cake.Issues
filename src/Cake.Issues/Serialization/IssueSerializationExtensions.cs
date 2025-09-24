@@ -99,6 +99,8 @@ public static class IssueSerializationExtensions
             ProviderType = issue.ProviderType,
             ProviderName = issue.ProviderName,
             AdditionalInformation = issue.AdditionalInformation.ToDictionary(p => p.Key, p => p.Value),
+            Snippet = issue.Snippet,
+            SourceLanguage = issue.SourceLanguage,
         };
     }
 }
