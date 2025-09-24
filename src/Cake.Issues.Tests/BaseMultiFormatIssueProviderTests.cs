@@ -110,8 +110,8 @@ public sealed class BaseMultiFormatIssueProviderTests
 
             // Then
             result.Count.ShouldBe(2);
-            result.ShouldContain(issue1);
-            result.ShouldContain(issue2);
+            result.ShouldContainIssueWithSameIdentifier(issue1);
+            result.ShouldContainIssueWithSameIdentifier(issue2);
         }
     }
 }

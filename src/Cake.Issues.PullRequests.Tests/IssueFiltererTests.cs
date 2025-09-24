@@ -118,7 +118,7 @@ public sealed class IssueFiltererTests
 
             // Then
             issues.Count.ShouldBe(1);
-            issues.ShouldContain(issue1);
+            issues.ShouldContainIssueWithSameIdentifier(issue1);
         }
 
         public sealed class TheFilterIssuesByPathMethod
@@ -198,7 +198,7 @@ public sealed class IssueFiltererTests
 
                 // Then
                 issues.Count.ShouldBe(1);
-                issues.ShouldContain(issue1);
+                issues.ShouldContainIssueWithSameIdentifier(issue1);
                 fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) were filtered because they do not belong to files that were changed in this pull request");
             }
         }
@@ -254,7 +254,7 @@ public sealed class IssueFiltererTests
 
                 // Then
                 issues.Count.ShouldBe(1);
-                issues.ShouldContain(issue2);
+                issues.ShouldContainIssueWithSameIdentifier(issue2);
             }
 
             [Fact]
@@ -303,7 +303,7 @@ public sealed class IssueFiltererTests
 
                 // Then
                 issues.Count.ShouldBe(1);
-                issues.ShouldContain(issue2);
+                issues.ShouldContainIssueWithSameIdentifier(issue2);
             }
 
             [Fact]
@@ -352,7 +352,7 @@ public sealed class IssueFiltererTests
 
                 // Then
                 issues.Count.ShouldBe(1);
-                issues.ShouldContain(issue2);
+                issues.ShouldContainIssueWithSameIdentifier(issue2);
             }
         }
 
@@ -398,7 +398,7 @@ public sealed class IssueFiltererTests
 
                     // Then
                     issues.Count.ShouldBe(1);
-                    issues.ShouldContain(issue1);
+                    issues.ShouldContainIssueWithSameIdentifier(issue1);
                     fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) were filtered to match the global issue limit of 1");
                 }
 
@@ -440,7 +440,7 @@ public sealed class IssueFiltererTests
 
                     // Then
                     issues.Count.ShouldBe(1);
-                    issues.ShouldContain(issue2);
+                    issues.ShouldContainIssueWithSameIdentifier(issue2);
                     fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) were filtered to match the global issue limit of 1");
                 }
 
@@ -481,7 +481,7 @@ public sealed class IssueFiltererTests
 
                     // Then
                     issues.Count.ShouldBe(1);
-                    issues.ShouldContain(issue2);
+                    issues.ShouldContainIssueWithSameIdentifier(issue2);
                     fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) were filtered to match the global issue limit of 1");
                 }
             }
@@ -753,8 +753,8 @@ public sealed class IssueFiltererTests
 
                     // Then
                     issues.Count.ShouldBe(2);
-                    issues.ShouldContain(issue2);
-                    issues.ShouldContain(issue3);
+                    issues.ShouldContainIssueWithSameIdentifier(issue2);
+                    issues.ShouldContainIssueWithSameIdentifier(issue3);
                     fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) were filtered to match the global issue limit of 2 across all runs for provider 'ProviderType Foo' (1 issues already posted in previous runs)");
                 }
 
@@ -824,8 +824,8 @@ public sealed class IssueFiltererTests
 
                     // Then
                     issues.Count.ShouldBe(2);
-                    issues.ShouldContain(issue2);
-                    issues.ShouldContain(issue4);
+                    issues.ShouldContainIssueWithSameIdentifier(issue2);
+                    issues.ShouldContainIssueWithSameIdentifier(issue4);
                     fixture.Log.Entries.ShouldContain(x => x.Message == "2 issue(s) were filtered to match the global issue limit of 2 across all runs for provider 'ProviderType Foo' (1 issues already posted in previous runs)");
                 }
             }
@@ -883,8 +883,8 @@ public sealed class IssueFiltererTests
 
                     // Then
                     issues.Count.ShouldBe(2);
-                    issues.ShouldContain(issue1);
-                    issues.ShouldContain(issue3);
+                    issues.ShouldContainIssueWithSameIdentifier(issue1);
+                    issues.ShouldContainIssueWithSameIdentifier(issue3);
 
                     fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) were filtered to match the global limit of 1 issues which should be reported for issue provider 'ProviderTypeA'");
                     fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) were filtered to match the global limit of 1 issues which should be reported for issue provider 'ProviderTypeB'");
@@ -997,10 +997,10 @@ public sealed class IssueFiltererTests
 
                     // Then
                     issues.Count.ShouldBe(4);
-                    issues.ShouldContain(issue1);
-                    issues.ShouldContain(issue2);
-                    issues.ShouldContain(issue3);
-                    issues.ShouldContain(issue4);
+                    issues.ShouldContainIssueWithSameIdentifier(issue1);
+                    issues.ShouldContainIssueWithSameIdentifier(issue2);
+                    issues.ShouldContainIssueWithSameIdentifier(issue3);
+                    issues.ShouldContainIssueWithSameIdentifier(issue4);
                 }
 
                 [Fact]
@@ -1054,8 +1054,8 @@ public sealed class IssueFiltererTests
 
                     // Then
                     issues.Count.ShouldBe(2);
-                    issues.ShouldContain(issue2);
-                    issues.ShouldContain(issue3);
+                    issues.ShouldContainIssueWithSameIdentifier(issue2);
+                    issues.ShouldContainIssueWithSameIdentifier(issue3);
                     fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) were filtered to match the global limit of 1 issues which should be reported for issue provider 'ProviderTypeA'");
                     fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) were filtered to match the global limit of 1 issues which should be reported for issue provider 'ProviderTypeB'");
                 }
@@ -1109,8 +1109,8 @@ public sealed class IssueFiltererTests
 
                     // Then
                     issues.Count.ShouldBe(2);
-                    issues.ShouldContain(issue2);
-                    issues.ShouldContain(issue3);
+                    issues.ShouldContainIssueWithSameIdentifier(issue2);
+                    issues.ShouldContainIssueWithSameIdentifier(issue3);
                     fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) were filtered to match the global limit of 1 issues which should be reported for issue provider 'ProviderTypeA'");
                     fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) were filtered to match the global limit of 1 issues which should be reported for issue provider 'ProviderTypeB'");
                 }
@@ -1260,7 +1260,7 @@ public sealed class IssueFiltererTests
 
                     // Then
                     issues.Count.ShouldBe(1);
-                    issues.ShouldContain(issue1);
+                    issues.ShouldContainIssueWithSameIdentifier(issue1);
                     fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) were filtered to match the global issue limit of 2 across all runs (1 issues already posted in previous runs)");
                 }
 
@@ -1315,7 +1315,7 @@ public sealed class IssueFiltererTests
 
                     // Then
                     issues.Count.ShouldBe(1);
-                    issues.ShouldContain(issue2);
+                    issues.ShouldContainIssueWithSameIdentifier(issue2);
                     fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) were filtered to match the global issue limit of 2 across all runs (1 issues already posted in previous runs)");
                 }
 
@@ -1369,7 +1369,7 @@ public sealed class IssueFiltererTests
 
                     // Then
                     issues.Count.ShouldBe(1);
-                    issues.ShouldContain(issue2);
+                    issues.ShouldContainIssueWithSameIdentifier(issue2);
                     fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) were filtered to match the global issue limit of 2 across all runs (1 issues already posted in previous runs)");
                 }
             }
@@ -1428,8 +1428,8 @@ public sealed class IssueFiltererTests
 
                     // Then
                     issues.Count.ShouldBe(2);
-                    issues.ShouldContain(issue1);
-                    issues.ShouldContain(issue3);
+                    issues.ShouldContainIssueWithSameIdentifier(issue1);
+                    issues.ShouldContainIssueWithSameIdentifier(issue3);
                     fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) of type ProviderTypeA were filtered to match the maximum of 1 issues which should be reported for each issue provider");
                     fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) of type ProviderTypeB were filtered to match the maximum of 1 issues which should be reported for each issue provider");
                 }
@@ -1486,8 +1486,8 @@ public sealed class IssueFiltererTests
 
                     // Then
                     issues.Count.ShouldBe(2);
-                    issues.ShouldContain(issue2);
-                    issues.ShouldContain(issue3);
+                    issues.ShouldContainIssueWithSameIdentifier(issue2);
+                    issues.ShouldContainIssueWithSameIdentifier(issue3);
                     fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) of type ProviderTypeA were filtered to match the maximum of 1 issues which should be reported for each issue provider");
                     fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) of type ProviderTypeB were filtered to match the maximum of 1 issues which should be reported for each issue provider");
                 }
@@ -1542,8 +1542,8 @@ public sealed class IssueFiltererTests
 
                     // Then
                     issues.Count.ShouldBe(2);
-                    issues.ShouldContain(issue2);
-                    issues.ShouldContain(issue3);
+                    issues.ShouldContainIssueWithSameIdentifier(issue2);
+                    issues.ShouldContainIssueWithSameIdentifier(issue3);
                     fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) of type ProviderTypeA were filtered to match the maximum of 1 issues which should be reported for each issue provider");
                     fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) of type ProviderTypeB were filtered to match the maximum of 1 issues which should be reported for each issue provider");
                 }
