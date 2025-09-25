@@ -145,7 +145,7 @@ extra:
   # renovate: datasource=nuget depName=Cake.DocFx versioning=loose
   cake_docfx_version: 1.0.0
   # renovate: datasource=nuget depName=Cake.Issues versioning=loose
-  cake_issues_version: 5.9.0
+  cake_issues_version: 5.9.1
   # renovate: datasource=nuget depName=Cake.Markdownlint versioning=loose
   cake_markdownlint_version: 4.0.0
   # renovate: datasource=nuget depName=Cake.Git versioning=loose
