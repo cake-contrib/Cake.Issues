@@ -46,12 +46,12 @@
       },
       "Spectre.Console.Testing": {
         "type": "Direct",
-        "requested": "[0.50.0, )",
-        "resolved": "0.50.0",
-        "contentHash": "/RjFt98nw8D580F5jXSF6sF8jyuFxaaHfaarr5ix6tqci7U/lTvd4TIAsud4yy69UuIh2KiO2AsHiEpc8nvJ+A==",
+        "requested": "[0.51.1, )",
+        "resolved": "0.51.1",
+        "contentHash": "EKJjiFxVP4pkfZ0cSfDVr3iqY/kMyj2bx+n11JfsFw9HI5+RlP1WLQFQ01HZjwsfqkxu4a37bF4sA7gD0yaXmQ==",
         "dependencies": {
-          "Spectre.Console": "0.50.0",
-          "Spectre.Console.Cli": "0.50.0"
+          "Spectre.Console": "0.51.1",
+          "Spectre.Console.Cli": "0.51.1"
         }
       },
       "Verify.Xunit": {
@@ -167,10 +167,10 @@
       },
       "Spectre.Console.Cli": {
         "type": "Transitive",
-        "resolved": "0.50.0",
-        "contentHash": "PrctsupqHEbyoP/iRL30awUWB0Z91i21myKl70qcPwoH6marEPkPyaPgzc37xFm9QSx+/jVBQGUH7tsn0mWGNQ==",
+        "resolved": "0.51.1",
+        "contentHash": "LqJjjug5f8ipFFzhwBaQHMXt8+uuJAxu3dsyAxF+Jyva9yHW0P3iP6s1NpwVqt0Yk11n6/f9qipyiEn0zBKBiQ==",
         "dependencies": {
-          "Spectre.Console": "0.50.0"
+          "Spectre.Console": "0.51.1"
         }
       },
       "System.CodeDom": {
@@ -190,11 +190,6 @@
         "dependencies": {
           "System.CodeDom": "8.0.0"
         }
-      },
-      "System.Memory": {
-        "type": "Transitive",
-        "resolved": "4.6.3",
-        "contentHash": "qdcDOgnFZY40+Q9876JUHnlHu7bosOHX8XISRoH94fwk6hgaeQGSgfZd8srWRZNt5bV9ZW2TljcegDNxsf+96A=="
       },
       "System.Reflection.Metadata": {
         "type": "Transitive",
@@ -345,12 +340,9 @@
       },
       "Spectre.Console": {
         "type": "CentralTransitive",
-        "requested": "[0.50.0, )",
-        "resolved": "0.50.0",
-        "contentHash": "gkwYncFqMjlPF6Yz8KeVsKWpdfv15sr6uKm+vXVa/8Q4tvx52LPzMQOO5m+bXwI3AGGFeY3cok3ZJbguYizswg==",
-        "dependencies": {
-          "System.Memory": "4.6.3"
-        }
+        "requested": "[0.51.1, )",
+        "resolved": "0.51.1",
+        "contentHash": "84xNywgnaG8XgOypnZAL+EZUbhCGE0umj7fuMrSI6esdE74HYHRoeBioeMUJXPiCt7iBDKHLwiBcg0IliYIIxA=="
       }
     },
     "net9.0": {
@@ -398,12 +390,12 @@
       },
       "Spectre.Console.Testing": {
         "type": "Direct",
-        "requested": "[0.50.0, )",
-        "resolved": "0.50.0",
-        "contentHash": "/RjFt98nw8D580F5jXSF6sF8jyuFxaaHfaarr5ix6tqci7U/lTvd4TIAsud4yy69UuIh2KiO2AsHiEpc8nvJ+A==",
+        "requested": "[0.51.1, )",
+        "resolved": "0.51.1",
+        "contentHash": "EKJjiFxVP4pkfZ0cSfDVr3iqY/kMyj2bx+n11JfsFw9HI5+RlP1WLQFQ01HZjwsfqkxu4a37bF4sA7gD0yaXmQ==",
         "dependencies": {
-          "Spectre.Console": "0.50.0",
-          "Spectre.Console.Cli": "0.50.0"
+          "Spectre.Console": "0.51.1",
+          "Spectre.Console.Cli": "0.51.1"
         }
       },
       "Verify.Xunit": {
@@ -519,10 +511,10 @@
       },
       "Spectre.Console.Cli": {
         "type": "Transitive",
-        "resolved": "0.50.0",
-        "contentHash": "PrctsupqHEbyoP/iRL30awUWB0Z91i21myKl70qcPwoH6marEPkPyaPgzc37xFm9QSx+/jVBQGUH7tsn0mWGNQ==",
+        "resolved": "0.51.1",
+        "contentHash": "LqJjjug5f8ipFFzhwBaQHMXt8+uuJAxu3dsyAxF+Jyva9yHW0P3iP6s1NpwVqt0Yk11n6/f9qipyiEn0zBKBiQ==",
         "dependencies": {
-          "Spectre.Console": "0.50.0"
+          "Spectre.Console": "0.51.1"
         }
       },
       "System.CodeDom": {
@@ -542,11 +534,6 @@
         "dependencies": {
           "System.CodeDom": "8.0.0"
         }
-      },
-      "System.Memory": {
-        "type": "Transitive",
-        "resolved": "4.6.3",
-        "contentHash": "qdcDOgnFZY40+Q9876JUHnlHu7bosOHX8XISRoH94fwk6hgaeQGSgfZd8srWRZNt5bV9ZW2TljcegDNxsf+96A=="
       },
       "System.Reflection.Metadata": {
         "type": "Transitive",
@@ -697,12 +684,9 @@
       },
       "Spectre.Console": {
         "type": "CentralTransitive",
-        "requested": "[0.50.0, )",
-        "resolved": "0.50.0",
-        "contentHash": "gkwYncFqMjlPF6Yz8KeVsKWpdfv15sr6uKm+vXVa/8Q4tvx52LPzMQOO5m+bXwI3AGGFeY3cok3ZJbguYizswg==",
-        "dependencies": {
-          "System.Memory": "4.6.3"
-        }
+        "requested": "[0.51.1, )",
+        "resolved": "0.51.1",
+        "contentHash": "84xNywgnaG8XgOypnZAL+EZUbhCGE0umj7fuMrSI6esdE74HYHRoeBioeMUJXPiCt7iBDKHLwiBcg0IliYIIxA=="
       }
     }
   }
