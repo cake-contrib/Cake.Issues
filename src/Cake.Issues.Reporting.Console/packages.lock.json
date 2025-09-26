@@ -95,7 +95,7 @@
       },
       "Spectre.Console": {
         "type": "CentralTransitive",
-        "requested": "[0.50.0, )",
+        "requested": "[0.51.1, )",
         "resolved": "0.50.0",
         "contentHash": "gkwYncFqMjlPF6Yz8KeVsKWpdfv15sr6uKm+vXVa/8Q4tvx52LPzMQOO5m+bXwI3AGGFeY3cok3ZJbguYizswg==",
         "dependencies": {
@@ -197,7 +197,7 @@
       },
       "Spectre.Console": {
         "type": "CentralTransitive",
-        "requested": "[0.50.0, )",
+        "requested": "[0.51.1, )",
         "resolved": "0.50.0",
         "contentHash": "gkwYncFqMjlPF6Yz8KeVsKWpdfv15sr6uKm+vXVa/8Q4tvx52LPzMQOO5m+bXwI3AGGFeY3cok3ZJbguYizswg==",
         "dependencies": {
