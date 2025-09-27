@@ -7,6 +7,7 @@ Issue provider addins are responsible for providing the output of an analyzer or
 
 <div class="grid cards" markdown>
 
+- :material-layers-plus: __[CodeClimate]__ – Issue provider for reading CodeClimate compatible reports
 - :material-layers-plus: __[DocFx]__ – Issue provider for reading DocFx warnings
 - :material-layers-plus: __[ESLint]__ – Issue provider for reading ESLint issues
 - :material-layers-plus: __[Git Repository]__ – Issue provider for analyzing Git repositories
@@ -19,6 +20,7 @@ Issue provider addins are responsible for providing the output of an analyzer or
 
 </div>
 
+[CodeClimate]: codeclimate/index.md
 [DocFx]: docfx/index.md
 [ESLint]: eslint/index.md
 [Git Repository]: gitrepository/index.md
