@@ -7,7 +7,7 @@ public class IssuesFixture
     public IssuesFixture()
     {
         this.Log = new FakeLog { Verbosity = Verbosity.Normal };
-        this.IssueProviders = [new(this.Log)];
+        this.IssueProviders = [new FakeIssueProvider(this.Log)];
         this.Settings =
             new ReadIssuesSettings(
                 new Core.IO.DirectoryPath(@"c:\Source\Cake.Issues"));
@@ -15,7 +15,7 @@ public class IssuesFixture
 
     public FakeLog Log { get; init; }
 
-    public IList<FakeIssueProvider> IssueProviders { get; init; }
+    public IList<IIssueProvider> IssueProviders { get; init; }
 
     public ReadIssuesSettings Settings { get; init; }
 
