@@ -2442,5 +2442,75 @@ public sealed class IssueSerializationExtensionsTests
             // Then
             result.IsArgumentNullException("issue");
         }
+
+        [Fact]
+        public void Should_Give_Correct_Result_For_Snippet_After_Roundtrip()
+        {
+            // Given
+            const string snippet = "var x = 1;\nreturn x;";
+            var issue =
+                IssueBuilder
+                    .NewIssue("message", "providerType", "providerName")
+                    .WithSnippet(snippet)
+                    .Create();
+
+            // When
+            var result = issue.SerializeToJsonString().DeserializeToIssue();
+
+            // Then
+            result.Snippet.ShouldBe(snippet);
+        }
+
+        [Fact]
+        public void Should_Give_Correct_Result_For_SourceLanguage_After_Roundtrip()
+        {
+            // Given
+            const string sourceLanguage = "csharp";
+            var issue =
+                IssueBuilder
+                    .NewIssue("message", "providerType", "providerName")
+                    .WithSourceLanguage(sourceLanguage)
+                    .Create();
+
+            // When
+            var result = issue.SerializeToJsonString().DeserializeToIssue();
+
+            // Then
+            result.SourceLanguage.ShouldBe(sourceLanguage);
+        }
+
+        [Fact]
+        public void Should_Handle_Null_Snippet_After_Roundtrip()
+        {
+            // Given
+            var issue =
+                IssueBuilder
+                    .NewIssue("message", "providerType", "providerName")
+                    .WithSnippet(null)
+                    .Create();
+
+            // When
+            var result = issue.SerializeToJsonString().DeserializeToIssue();
+
+            // Then
+            result.Snippet.ShouldBeNull();
+        }
+
+        [Fact]
+        public void Should_Handle_Null_SourceLanguage_After_Roundtrip()
+        {
+            // Given
+            var issue =
+                IssueBuilder
+                    .NewIssue("message", "providerType", "providerName")
+                    .WithSourceLanguage(null)
+                    .Create();
+
+            // When
+            var result = issue.SerializeToJsonString().DeserializeToIssue();
+
+            // Then
+            result.SourceLanguage.ShouldBeNull();
+        }
     }
 }

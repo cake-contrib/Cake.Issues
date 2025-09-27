@@ -130,4 +130,16 @@ public interface IIssue
     /// Gets a dictionary with additional information regarding the issue.
     /// </summary>
     IReadOnlyDictionary<string, string> AdditionalInformation { get; }
+
+    /// <summary>
+    /// Gets the source code snippet where the issue occurred.
+    /// <c>null</c> or <see cref="string.Empty"/> if no snippet is available.
+    /// </summary>
+    string Snippet { get; }
+
+    /// <summary>
+    /// Gets the source language of the file where the issue occurred.
+    /// <c>null</c> or <see cref="string.Empty"/> if the source language is not known.
+    /// </summary>
+    string SourceLanguage { get; }
 }
