@@ -227,6 +227,10 @@ nav:
           - Features: documentation/issue-providers/inspectcode/features.md
           - Examples: documentation/issue-providers/inspectcode/examples.md
           - API: https://cakebuild.net/extensions/cake-issues-inspectcode" target="_blank
+        - JUnit:
+          - documentation/issue-providers/junit/index.md
+          - Features: documentation/issue-providers/junit/features.md
+          - API: https://cakebuild.net/extensions/cake-issues-junit" target="_blank
         - markdownlint:
           - documentation/issue-providers/markdownlint/index.md
           - Features: documentation/issue-providers/markdownlint/features.md

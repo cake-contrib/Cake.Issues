@@ -1,0 +1,12 @@
+BuildArtifacts/
+tools/
+.vs/
+.vscode/
+
+# Cake - Uncomment if you are using it
+# tools/**
+# !tools/packages.config
+
+# Cake
+tools
+!tools/packages.config

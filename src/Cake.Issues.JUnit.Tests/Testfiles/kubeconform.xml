@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="kubeconform" tests="4" failures="1" errors="1" time="0.456">
+  <testsuite name="config validation" tests="4" failures="1" errors="1" time="0.456">
+    <testcase classname="deployment.yaml" name="validate" time="0.100">
+      <error message="Invalid resource definition" type="ValidationError">
+deployment.yaml:10:15: error validating data: ValidationError(Deployment.spec.template.spec.containers[0].image): invalid value: "", expected non-empty string
+      </error>
+    </testcase>
+    <testcase classname="service.yaml" name="validate" time="0.100">
+      <failure message="Port configuration invalid" type="ConfigError">
+service.yaml:8:5: Port 8080 is already in use by another service
+      </failure>
+    </testcase>
+    <testcase classname="ingress.yaml" name="validate" time="0.100"/>
+    <testcase classname="configmap.yaml" name="validate" time="0.156"/>
+  </testsuite>
+</testsuites>
