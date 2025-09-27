@@ -60,6 +60,18 @@ public interface IIssue
     int? EndColumn { get; }
 
     /// <summary>
+    /// Gets the character offset in the file where the issue has occurred.
+    /// <c>null</c> if the issue affects the whole file or an assembly.
+    /// </summary>
+    int? Offset { get; }
+
+    /// <summary>
+    /// Gets the end of the character offset range in the file where the issue has occurred.
+    /// <c>null</c> if the issue affects the whole file, an assembly or only a single character.
+    /// </summary>
+    int? EndOffset { get; }
+
+    /// <summary>
     /// Gets or sets a link to the position in the file where the issue occurred.
     /// <c>null</c> if <see cref="IReadIssuesSettings.FileLinkSettings"/> was not set while reading issue.
     /// </summary>
