@@ -194,7 +194,7 @@ public class Issue : IIssue
     public int? EndColumn { get; }
 
     /// <inheritdoc/>
-    public Uri FileLink { get; set; }
+    public Uri FileLink { get; }
 
     /// <inheritdoc/>
     public string MessageText { get; }
@@ -221,7 +221,7 @@ public class Issue : IIssue
     public Uri RuleUrl { get; }
 
     /// <inheritdoc/>
-    public string Run { get; set; }
+    public string Run { get; }
 
     /// <inheritdoc/>
     public string ProviderType { get; }
@@ -231,4 +231,36 @@ public class Issue : IIssue
 
     /// <inheritdoc/>
     public IReadOnlyDictionary<string, string> AdditionalInformation { get; }
+
+    /// <summary>
+    /// Creates a new instance of this issue with updated Run and FileLink values.
+    /// This method enables immutability by creating a copy of the issue with new values
+    /// instead of modifying the existing instance.
+    /// </summary>
+    /// <param name="run">The new run value.</param>
+    /// <param name="fileLink">The new file link value.</param>
+    /// <returns>A new Issue instance with the updated values.</returns>
+    public Issue WithRunAndFileLink(string run, Uri fileLink) =>
+        new(
+            this.Identifier,
+            this.ProjectFileRelativePath?.ToString(),
+            this.ProjectName,
+            this.AffectedFileRelativePath?.ToString(),
+            this.Line,
+            this.EndLine,
+            this.Column,
+            this.EndColumn,
+            fileLink,
+            this.MessageText,
+            this.MessageHtml,
+            this.MessageMarkdown,
+            this.Priority,
+            this.PriorityName,
+            this.RuleId,
+            this.RuleName,
+            this.RuleUrl,
+            run,
+            this.ProviderType,
+            this.ProviderName,
+            this.AdditionalInformation);
 }
