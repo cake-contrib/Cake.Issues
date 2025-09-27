@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Linq;
 using Cake.Core.Diagnostics;
 using Cake.Core.IO;
+using Cake.Issues.Shared;
 
 /// <summary>
 /// Class for filtering issues.

@@ -3,6 +3,17 @@
     <File Path="../recipe.cake" />
   </Folder>
   <Folder Name="/Core/" />
+  <Folder Name="/Core/Cake.Issues.Build/">
+    <Project Path="Cake.Issues.Build.Tests/Cake.Issues.Build.Tests.csproj" />
+    <Project Path="Cake.Issues.Build/Cake.Issues.Build.csproj" />
+  </Folder>
+  <Folder Name="/Core/Cake.Issues.Build/NuGet/">
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.Build.md" />
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.Build.nuspec" />
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.Build.targets" />
+    <File Path="../nuspec/nuget/Cake.Issues.Build.md" />
+    <File Path="../nuspec/nuget/Cake.Issues.Build.nuspec" />
+  </Folder>
   <Folder Name="/Core/Cake.Issues.PullRequests/">
     <Project Path="Cake.Issues.PullRequests.Tests/Cake.Issues.PullRequests.Tests.csproj" />
     <Project Path="Cake.Issues.PullRequests/Cake.Issues.PullRequests.csproj" />
@@ -40,6 +51,9 @@
     <File Path="../nuspec/nuget/Cake.Issues.md" />
     <File Path="../nuspec/nuget/Cake.Issues.nuspec" />
     <File Path="../nuspec/nuget/Cake.Issues.targets" />
+  </Folder>
+  <Folder Name="/Core/Shared/">
+    <Project Path="IssueFiltering/IssueFiltering.shproj" Id="8dbb6a22-fdec-41fa-8904-35ce1dbf463f" />
   </Folder>
   <Folder Name="/Issue Provider/" />
   <Folder Name="/Issue Provider/DocFx/">

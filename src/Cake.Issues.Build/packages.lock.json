@@ -79,7 +79,7 @@
       "cake.issues.shared": {
         "type": "Project",
         "dependencies": {
-          "Cake.Issues": "[5.9.0-copilot-fix-123-0001, )"
+          "Cake.Issues": "[1.0.0, )"
         }
       },
       "Cake.Core": {
@@ -178,7 +178,7 @@
       "cake.issues.shared": {
         "type": "Project",
         "dependencies": {
-          "Cake.Issues": "[5.9.0-copilot-fix-123-0001, )"
+          "Cake.Issues": "[1.0.0, )"
         }
       },
       "Cake.Core": {

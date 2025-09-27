@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Contains shared functionality for Cake.Issues addins.</Description>
+    <PackageTags>Cake Script Issues Shared</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../Cake.Issues/Cake.Issues.csproj" />
+  </ItemGroup>
+
+</Project>
