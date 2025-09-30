@@ -6,6 +6,7 @@ using System.Linq;
 /// <summary>
 /// Comparer to compare if two issues are identical.
 /// </summary>
+/// <param name="ignoredProperties">Properties to ignore while comparing issues.</param>
 public class IIssueComparer(IIssueProperty ignoredProperties) : IEqualityComparer<IIssue>
 {
     /// <summary>
