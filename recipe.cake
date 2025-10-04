@@ -1,4 +1,4 @@
-#load nuget:?package=Cake.Recipe&version=4.0.0
+#load nuget:https://pkgs.dev.azure.com/cake-contrib/Home/_packaging/addins/nuget/v3/index.json?package=Cake.Recipe&version=4.1.0-alpha0042
 
 //*************************************************************************************************
 // Settings
@@ -39,7 +39,7 @@ Setup(context =>
     // Addins are backwards compatible to latest major version.
     // Since we are using project references, we need to fix assembly version to the latest
     // major version to avoid requiring exact minor versions at runtime.
-    var settings = context.Data.Get<DotNetCoreMSBuildSettings>();
+    var settings = context.Data.Get<DotNetMSBuildSettings>();
     var version = new Version(settings.Properties["AssemblyVersion"].First());
     settings.Properties["AssemblyVersion"] = new List<string> { $"{version.Major}.0.0.0" };
 
@@ -52,8 +52,8 @@ Setup(context =>
 
 // Since Cake.Recipe does not detect the correct settings when using Directory.Build.props we need
 // to override the test task
-((CakeTask)BuildParameters.Tasks.DotNetCoreTestTask.Task).Actions.Clear();
-BuildParameters.Tasks.DotNetCoreTestTask.Does<DotNetCoreMSBuildSettings>((context, msBuildSettings) => {
+((CakeTask)BuildParameters.Tasks.DotNetTestTask.Task).Actions.Clear();
+BuildParameters.Tasks.DotNetTestTask.Does<DotNetMSBuildSettings>((context, msBuildSettings) => {
     var projects = GetFiles(BuildParameters.TestDirectoryPath + (BuildParameters.TestFilePattern ?? "/**/*Tests.csproj"));
     // We create the coverlet settings here so we don't have to create the filters several times
     var coverletSettings = new CoverletSettings
@@ -77,7 +77,7 @@ BuildParameters.Tasks.DotNetCoreTestTask.Does<DotNetCoreMSBuildSettings>((contex
             coverletSettings.WithFilter(filter.TrimStart('-'));
         }
     }
-    var settings = new DotNetCoreTestSettings
+    var settings = new DotNetTestSettings
     {
         Configuration = BuildParameters.Configuration,
         NoBuild = true
@@ -94,7 +94,7 @@ BuildParameters.Tasks.DotNetCoreTestTask.Does<DotNetCoreMSBuildSettings>((contex
         };
 
         coverletSettings.CoverletOutputName = parsedProject.RootNameSpace.Replace('.', '-');
-        DotNetCoreTest(project.FullPath, settings, coverletSettings);
+        DotNetTest(project.FullPath, settings, coverletSettings);
     }
 });
 
@@ -104,7 +104,7 @@ BuildParameters.Tasks.UploadCodecovReportTask
     .WithCriteria(() => BuildParameters.IsMainRepository, "Skipping because not running from the main repository")
     .WithCriteria(() => BuildParameters.ShouldRunCodecov, "Skipping because uploading to codecov is disabled")
     .WithCriteria(() => BuildParameters.CanPublishToCodecov, "Skipping because repo token is missing, or not running on GitHub CI")
-    .Does<BuildVersion>((context, buildVersion) => RequireTool(BuildParameters.IsDotNetCoreBuild ? ToolSettings.CodecovGlobalTool : ToolSettings.CodecovTool, () => {
+    .Does<BuildVersion>((context, buildVersion) => RequireTool(ToolSettings.CodecovGlobalTool, () => {
         var coverageFiles = GetFiles(BuildParameters.Paths.Directories.TestCoverage + "/coverlet/*.net9.0.opencover.xml");
         if (FileExists(BuildParameters.Paths.Files.TestCoverageOutputFilePath))
         {
@@ -181,4 +181,4 @@ IssuesBuildTasks.IssuesTask
 // Execution
 //*************************************************************************************************
 
-Build.RunDotNetCore();
+Build.RunDotNet();
