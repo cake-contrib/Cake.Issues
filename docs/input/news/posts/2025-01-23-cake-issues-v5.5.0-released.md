@@ -14,7 +14,8 @@ Cake Issues version 5.5.0 has been released bringing improvements to HTML report
 This post shows the highlights included in this release.
 For update instructions skip to [Updating from previous versions](#updating-from-previous-versions).
 
-❤ Huge thanks to our community! This release would not have been possible without your support and contributions! ❤
+❤ Huge thanks to our community! This release would not have been possible without your support and
+contributions! ❤
 
 People working on this release:
 
@@ -35,6 +36,7 @@ By default the report comes with a column chooser which allows to hide specific 
 
 Column chooser can be disabled through the `ShowColumnChooser` option:
 
+<!-- markdownlint-disable MD046 -->
 === "Cake .NET Tool"
 
     ```csharp
@@ -81,6 +83,7 @@ Column chooser can be disabled through the `ShowColumnChooser` option:
         }
     }
     ```
+<!-- markdownlint-restore -->
 
 ### Infinite scrolling
 
@@ -91,6 +94,7 @@ There is a new option which will result in a grid with infinite scrolling instea
 By default pager is used.
 To enable infinite scrolling the `DisplayMode` option needs to be set to `HtmlDxDataGridDisplayMode.InfiniteScroll`:
 
+<!-- markdownlint-disable MD046 -->
 === "Cake .NET Tool"
 
     ```csharp
@@ -137,6 +141,7 @@ To enable infinite scrolling the `DisplayMode` option needs to be set to `HtmlDx
         }
     }
     ```
+<!-- markdownlint-restore -->
 
 ### Fluent themes
 
@@ -149,11 +154,14 @@ It is now possible to create reports using Fluent themes.
 
 ### State persistence
 
-Starting with this version, customizations made by the user are by default persisted and re-applied next time the report is shown.
+Starting with this version, customizations made by the user are by default persisted and re-applied
+next time the report is shown.
 
-If multiple reports are created, or Cake Issues is used in multiple repositories, all reports share by default the same storage.
+If multiple reports are created, or Cake Issues is used in multiple repositories, all reports share
+by default the same storage.
 This can be changed per generated report using the `HtmlDxDataGridOption.StorageKey` option:
 
+<!-- markdownlint-disable MD046 -->
 === "Cake .NET Tool"
 
     ```csharp
@@ -200,9 +208,11 @@ This can be changed per generated report using the `HtmlDxDataGridOption.Storage
         }
     }
     ```
+<!-- markdownlint-restore -->
 
 Persistance can be disabled using the `HtmlDxDataGridOption.PersistState` option:
 
+<!-- markdownlint-disable MD046 -->
 === "Cake .NET Tool"
 
     ```csharp
@@ -249,6 +259,7 @@ Persistance can be disabled using the `HtmlDxDataGridOption.PersistState` option
         }
     }
     ```
+<!-- markdownlint-restore -->
 
 ### Usability improvements
 
@@ -259,7 +270,8 @@ Multiple changes have been made to improve usability:
   which meant that the user had to scroll down to see the pager to navigate through the grid.
 * It is now possible to define the number of records shown on a single page.
 * The width of the column adapts to the content.
-  Columns which contained whitespace before are now smaller, resulting in more space for columns containing more text.
+  Columns which contained whitespace before are now smaller, resulting in more space for columns
+  containing more text.
 * Word wrap has been enabled.
   If content of a cell was more than what fit into the cell, previously the text was truncated.
   Starting with this version, the whole text will be shown across multiple lines.

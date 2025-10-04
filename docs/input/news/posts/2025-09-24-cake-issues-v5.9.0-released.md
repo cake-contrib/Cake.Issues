@@ -17,7 +17,8 @@ and bug fixes to console reporting.
 This post shows the highlights included in this release.
 For update instructions skip to [Updating from previous versions](#updating-from-previous-versions).
 
-❤ Huge thanks to our community! This release would not have been possible without your support and contributions! ❤
+❤ Huge thanks to our community! This release would not have been possible without your support and
+contributions! ❤
 
 People working on this release:
 
@@ -35,7 +36,8 @@ Both functions can be controlled through [parameters].
 Cake.Issues.Reporting.Console has received a bunch of bug fixes:
 
 * Can handle reporting of issues without a priority
-* Issues where the column is reported after the last character will be displayed as issues at the last character
+* Issues where the column is reported after the last character will be displayed as issues at the
+  last character
 * Logging fixes and improvements
 
 ## Updating from previous versions

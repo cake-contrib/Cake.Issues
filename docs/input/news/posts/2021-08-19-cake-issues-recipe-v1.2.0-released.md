@@ -5,7 +5,8 @@ categories:
   - Release Notes
 ---
 
-Version 1.2.0 of Cake Issues recipes have been released adding support to customize issue reporting to pull requests.
+Version 1.2.0 of Cake Issues recipes have been released adding support to customize issue reporting
+to pull requests.
 
 <!-- more -->
 
@@ -13,7 +14,8 @@ This post shows the highlights included in this release.
 For details see [full release notes].
 For update instructions skip to [Updating from previous versions](#updating-from-previous-versions).
 
-❤ Huge thanks to our community! This release would not have been possible without your support and contributions! ❤
+❤ Huge thanks to our community! This release would not have been possible without your support and
+contributions! ❤
 
 People working on this release:
 

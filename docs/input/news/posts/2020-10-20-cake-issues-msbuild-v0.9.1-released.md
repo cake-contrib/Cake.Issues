@@ -15,7 +15,8 @@ This is a minor release containing improvements.
 This post shows the highlights included in this release.
 For update instructions skip to [Updating from previous versions](#updating-from-previous-versions).
 
-❤ Huge thanks to our community! This release would not have been possible without your support and contributions! ❤
+❤ Huge thanks to our community! This release would not have been possible without your support and
+contributions! ❤
 
 People working on this release:
 
@@ -32,7 +33,8 @@ Reading of errors has been implemented for `MsBuildBinaryLogFileFormat` and `MsB
 For errors `IIssue.Priority` will be set to `IssuePriority.Error`.
 
 !!! info
-    To keep previous behavior result after reading the issues can be filtered for `IIssue.Priority == IIssuePriority.Warning`.
+    To keep previous behavior result after reading the issues can be filtered for
+    `IIssue.Priority == IIssuePriority.Warning`.
 
 ## Updating from previous versions
 

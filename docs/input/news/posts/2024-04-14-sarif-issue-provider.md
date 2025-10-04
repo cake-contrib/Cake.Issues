@@ -7,7 +7,8 @@ links:
   - documentation/issue-providers/sarif/index.md
 ---
 
-In [version 4.2.0] a new [Cake.Issues.Sarif addin] has been released which adds support for reading issues in [SARIF] format.
+In [version 4.2.0] a new [Cake.Issues.Sarif addin] has been released which adds support for reading
+issues in [SARIF] format.
 
 <!-- more -->
 

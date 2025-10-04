@@ -5,7 +5,8 @@ categories:
   - Release Notes
 ---
 
-Version 3.1.0 of Cake Issues recipes have been released adding support for creating of reports in SARIF format.
+Version 3.1.0 of Cake Issues recipes have been released adding support for creating of reports in
+SARIF format.
 
 <!-- more -->
 
@@ -13,7 +14,8 @@ This post shows the highlights included in this release.
 For details see [full release notes].
 For update instructions skip to [Updating from previous versions](#updating-from-previous-versions).
 
-❤ Huge thanks to our community! This release would not have been possible without your support and contributions! ❤
+❤ Huge thanks to our community! This release would not have been possible without your support and
+contributions! ❤
 
 People working on this release:
 
@@ -21,8 +23,8 @@ People working on this release:
 
 ## Reports in SARIF format
 
-This version of Cake Issues recipes adds a new configuration parameter which allows to create reports in
-[SARIF format] allowing further processing in a lot of different tools also supporting the SARIF standard.
+This version of Cake Issues recipes adds a new configuration parameter which allows to create reports
+in [SARIF format] allowing further processing in a lot of different tools also supporting the SARIF standard.
 See [Report parameters] for details.
 
 If running on Azure Pipelines the generated SARIF file is uploaded so that it will be

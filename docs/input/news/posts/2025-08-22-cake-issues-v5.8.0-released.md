@@ -9,14 +9,16 @@ links:
   - documentation/recipe/index.md
 ---
 
-Cake Issues version 5.8.0 has been released with enhancements to console reporting and bug fixes for Cake Issues Recipe.
+Cake Issues version 5.8.0 has been released with enhancements to console reporting and bug fixes for
+Cake Issues Recipe.
 
 <!-- more -->
 
 This post shows the highlights included in this release.
 For update instructions skip to [Updating from previous versions](#updating-from-previous-versions).
 
-❤ Huge thanks to our community! This release would not have been possible without your support and contributions! ❤
+❤ Huge thanks to our community! This release would not have been possible without your support and
+contributions! ❤
 
 People working on this release:
 

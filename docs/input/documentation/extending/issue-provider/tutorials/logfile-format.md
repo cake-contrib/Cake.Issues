@@ -20,8 +20,8 @@ needs to be implemented defining the concrete types.
 
 Also a concrete class inheriting from [BaseMultiFormatIssueProviderSettings](https://cakebuild.net/api/Cake.Issues/BaseMultiFormatIssueProviderSettings_2/)
 needs to be implemented defining the concrete types.
-Based on the capabilities of the log file formats the appropriate constructors for reading from the file system
-or memory can be made public:
+Based on the capabilities of the log file formats the appropriate constructors for reading from the
+file system or memory can be made public:
 
 ```csharp
 --8<-- "snippets/extending/issue-provider/logfile-format/Settings.cs"
@@ -38,7 +38,8 @@ needs to be implemented defining the concrete types for the issue provider:
 
 ## Implementing log file format
 
-The different log file formats of an issue provider need to be inherited from the abstract log file format class:
+The different log file formats of an issue provider need to be inherited from the abstract log file
+format class:
 
 ```csharp
 --8<-- "snippets/extending/issue-provider/logfile-format/ConcreteLogFileFormat.cs"
@@ -48,10 +49,11 @@ The different log file formats of an issue provider need to be inherited from th
 
 For each concrete log file format a Cake property alias should be provided.
 Additionally an alias for reading issues with a specific format should be provided.
-For convenience of the user and based on the capabilities of the issue provider additional aliases for reading
-from the file system or from memory can be added.
+For convenience of the user and based on the capabilities of the issue provider additional aliases
+for reading from the file system or from memory can be added.
 Finally an additional property alias for returning the provider type name should be defined.
 
+<!-- markdownlint-disable MD046 -->
 === "Alias for log file format"
 
     ```csharp hl_lines="7-20"
@@ -75,3 +77,4 @@ Finally an additional property alias for returning the provider type name should
     ```csharp hl_lines="131-146"
     --8<-- "snippets/extending/issue-provider/logfile-format/Aliases.cs"
     ```
+<!-- markdownlint-restore -->

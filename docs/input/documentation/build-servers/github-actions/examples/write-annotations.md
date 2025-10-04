@@ -6,6 +6,7 @@ description: Example how to write issues as annotations to a GitHub Actions buil
 To report issues as annotations to a GitHub Actions build, the GitHub Actions addin needs to be imported.
 For this example the JetBrains InspectCode issue provider is additionally used for reading issues:
 
+<!-- markdownlint-disable MD046 -->
 === "Cake .NET Tool"
 
     ```csharp title="build.cake"
@@ -50,10 +51,13 @@ For this example the JetBrains InspectCode issue provider is additionally used f
       </ItemGroup>
     </Project>
     ```
+<!-- markdownlint-restore -->
 
 This example shows how to report issues as annotations to GitHubActions build using the
-[GitHubActionsBuilds](https://cakebuild.net/api/Cake.Issues.PullRequests.GitHubActions/GitHubActionsBuildsAliases/) alias:
+[GitHubActionsBuilds](https://cakebuild.net/api/Cake.Issues.PullRequests.GitHubActions/GitHubActionsBuildsAliases/)
+alias:
 
+<!-- markdownlint-disable MD046 -->
 === "Cake .NET Tool"
 
     ```csharp title="build.cake"
@@ -114,6 +118,7 @@ This example shows how to report issues as annotations to GitHubActions build us
         }
     }
     ```
+<!-- markdownlint-restore -->
 
 The output will show up in the build log grouped by issue provider / run:
 
@@ -123,6 +128,7 @@ Additionally the issues show up as annotations:
 
 ![Annotations](../githubactions-annotations.png "Annotations")
 
-Having issues available as annotations also means that they will be shown in pull requests on the related file / position:
+Having issues available as annotations also means that they will be shown in pull requests on the
+related file / position:
 
 ![Pull request integration](../githubactions-pullrequest-integration.png "Pull request integration")

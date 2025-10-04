@@ -3,12 +3,13 @@ title: File linking
 description: Example how to define file link settings.
 ---
 
-File link settings can be defined while reading issues and are passed through the `IIssue.FileLink` property to
-reporting formats, pull request systems and build server implementations:
+File link settings can be defined while reading issues and are passed through the `IIssue.FileLink`
+property to reporting formats, pull request systems and build server implementations:
 
 ??? Tip "List of all aliases for file linking"
     See all available [Aliases for file linking](https://cakebuild.net/extensions/cake-issues/#File-Linking)
 
+<!-- markdownlint-disable MD046 -->
 === "Cake .NET Tool"
 
     ```csharp
@@ -65,6 +66,8 @@ reporting formats, pull request systems and build server implementations:
                     @"C:\build\inspectcode.log"),
                 settings));
     ```
+<!-- markdownlint-restore -->
 
 Cake.Issues comes with out-of-the-box support for linking to files hosted on GitHub and Azure Repos,
-either for a specific branch or commit. Additionally there are aliases which can be used to define any custom pattern.
+either for a specific branch or commit. Additionally there are aliases which can be used to define
+any custom pattern.

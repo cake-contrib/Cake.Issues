@@ -11,7 +11,8 @@ This page describes the different ways how the [Cake.Issues.PullRequests.AzureDe
 !!! info
     NTLM authentication is only available for on-premise Azure DevOps Server.
 
-To authenticate with NTLM you can use the [AzureDevOpsAuthenticationNtlm] alias from the [Cake.AzureDevOps addin].
+To authenticate with NTLM you can use the [AzureDevOpsAuthenticationNtlm] alias from the
+[Cake.AzureDevOps addin].
 
 The user needs to have `Contribute to pull requests` permission for the specific repository to
 allow [Cake.Issues.PullRequests.AzureDevOps addin] to post issues as comments to pull requests.
@@ -21,36 +22,39 @@ allow [Cake.Issues.PullRequests.AzureDevOps addin] to post issues as comments to
 !!! info
     Basic authentication is only available for on-premise Azure DevOps Server.
 
-To authenticate with basic authentication you can use the [AzureDevOpsAuthenticationBasic] alias from the [Cake.AzureDevOps addin] and
-need to [Configure Azure DevOps Server to use Basic Authentication].
+To authenticate with basic authentication you can use the [AzureDevOpsAuthenticationBasic] alias
+from the [Cake.AzureDevOps addin] and need to [Configure Azure DevOps Server to use Basic Authentication].
 
 The user needs to have `Contribute to pull requests` permission for the specific repository to
 allow [Cake.Issues.PullRequests.AzureDevOps addin] to post issues as comments to pull requests.
 
 ## Personal access token
 
-To authenticate with an personal access token you can use the [AzureDevOpsAuthenticationPersonalAccessToken] alias from the [Cake.AzureDevOps addin].
+To authenticate with an personal access token you can use the [AzureDevOpsAuthenticationPersonalAccessToken]
+alias from the [Cake.AzureDevOps addin].
 
 If you want to use the [Cake.Issues.PullRequests.AzureDevOps addin] with an personal access token see
 [Authenticate access with personal access tokens for Azure DevOps] for instructions how to create
 a personal access token.
 
-The access token needs to have the scope `Code (read and write)` set and the user needs to have `Contribute to pull requests`
-permission for the specific repository to allow [Cake.Issues.PullRequests.AzureDevOps addin] to post issues as comments to pull requests.
+The access token needs to have the scope `Code (read and write)` set and the user needs to have
+`Contribute to pull requests` permission for the specific repository to allow
+[Cake.Issues.PullRequests.AzureDevOps addin] to post issues as comments to pull requests.
 
 ## OAuth authentication from Azure Pipelines
 
 !!! info
     OAuth authentication is only available for Azure DevOps Service.
 
-If you want to use the [Cake.Issues.PullRequests.AzureDevOps addin] from an Azure Pipelines you can authenticate using the
-OAuth token provided to the build.
+If you want to use the [Cake.Issues.PullRequests.AzureDevOps addin] from an Azure Pipelines you can
+authenticate using the OAuth token provided to the build.
 For this you need to enable the [Allow scripts to access the OAuth token] option on the build definition.
 
 To authenticate you can use the [AzureDevOpsAuthenticationOAuth] alias from the [Cake.AzureDevOps addin].
 
-The user under which the build runs, named `<projectName> Build Service (<organizationName>)` (e.g. `Cake.Issues-Demo Build Service (cake-contrib)`),
-needs to have `Contribute to pull requests` permission for the specific repository to allow [Cake.Issues.PullRequests.AzureDevOps addin]
+The user under which the build runs, named `<projectName> Build Service (<organizationName>)`
+(e.g. `Cake.Issues-Demo Build Service (cake-contrib)`), needs to have `Contribute to pull requests`
+permission for the specific repository to allow [Cake.Issues.PullRequests.AzureDevOps addin]
 to post issues as comments to pull requests.
 
 ## Entra authentication
@@ -58,7 +62,8 @@ to post issues as comments to pull requests.
 !!! info
     Entra authentication is only available for Azure DevOps Service.
 
-To authenticate with Entra ID you can use the [AzureDevOpsAuthenticationAzureActiveDirectory] alias from the [Cake.AzureDevOps addin].
+To authenticate with Entra ID you can use the [AzureDevOpsAuthenticationAzureActiveDirectory] alias
+from the [Cake.AzureDevOps addin].
 
 The user needs to have `Contribute to pull requests` permission for the specific repository to
 allow [Cake.Issues.PullRequests.AzureDevOps addin] to post issues as comments to pull requests.

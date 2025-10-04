@@ -9,14 +9,16 @@ links:
 ---
 
 After several months with beta releases Cake Issues version 2.0.0 has been released.
-This is a major release, containing breaking changes beside bringing new features and bug fixes across all addins.
+This is a major release, containing breaking changes beside bringing new features and bug fixes
+across all addins.
 
 <!-- more -->
 
 This post shows the highlights included in this release.
 For update instructions skip to [Updating from previous versions](#updating-from-previous-versions).
 
-❤ Huge thanks to our community! This release would not have been possible without your support and contributions! ❤
+❤ Huge thanks to our community! This release would not have been possible without your support and
+contributions! ❤
 
 People working on this release:
 
@@ -39,17 +41,18 @@ Support for binary logs in version 9 has been added to `Cake.Issues.MsBuild`.
 
 ## Updating from previous versions
 
-Cake.Issues 2.0.0 is a breaking release, which means that it probably requires changes to your build script.
+Cake.Issues 2.0.0 is a breaking release, which means that it probably requires changes to your build
+script.
 This section documents the most common changes which might be required:
 
 * Cake.Issues
-  * Serialization format has been updated to version `5`.
-    Older version are still supported for deserialization.
-  * `ProviderIssueIssueLimits` has been renamed to `ProviderIssueLimits`
-  * `IIssue.Rule` has been renamed to `IIssue.RuleId`
-  * `IIssue` was extended with an additional `RuleName` property.
+    * Serialization format has been updated to version `5`.
+      Older version are still supported for deserialization.
+    * `ProviderIssueIssueLimits` has been renamed to `ProviderIssueLimits`
+    * `IIssue.Rule` has been renamed to `IIssue.RuleId`
+    * `IIssue` was extended with an additional `RuleName` property.
 * Cake.Issues.MsBuild
-  * MsBuild 15 or newer required for binary logs
+    * MsBuild 15 or newer required for binary logs
 
 For details see release notes of the individual addins:
 

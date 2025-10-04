@@ -13,14 +13,17 @@ Today a new version of the Cake Issues website has been published.
 
 The Cake Issues website was introduced 2017 as a static website built using [Wyam](https://github.com/Wyamio/Wyam),
 like the [Cake website](https://cakebuild.net/).
-Using [Wyam](https://github.com/Wyamio/Wyam) allowed to add full API documentation and other features like list of addins or overview of open issues across all addins.
+Using [Wyam](https://github.com/Wyamio/Wyam) allowed to add full API documentation and other features
+like list of addins or overview of open issues across all addins.
 
-[Wyam](https://github.com/Wyamio/Wyam) is no longer maintained,
-with [Statiq](https://www.statiq.dev/) as its successor.
-Unfortunately also the deployment pipeline for the Cake Issues website stopped working in 2023, resulting in the website no longer receiving updates.
+[Wyam](https://github.com/Wyamio/Wyam) is no longer maintained, with [Statiq](https://www.statiq.dev/)
+as its successor.
+Unfortunately also the deployment pipeline for the Cake Issues website stopped working in 2023,
+resulting in the website no longer receiving updates.
 
-Since the introduction of the Cake Issues website seven years ago, the [Cake website](https://cakebuild.net/) also has been improved,
-among other things, with a dedicated page for each addin listing the aliases the addin provides.
+Since the introduction of the Cake Issues website seven years ago, the [Cake website](https://cakebuild.net/)
+also has been improved, among other things, with a dedicated page for each addin listing the aliases
+the addin provides.
 These improvements made a full API documentation on Cake Issues website somehow redundant.
 
 With .NET API documentation no longer being a requirement there are much more tooling options available.

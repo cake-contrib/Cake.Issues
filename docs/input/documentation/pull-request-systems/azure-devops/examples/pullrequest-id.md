@@ -4,9 +4,11 @@ description: Example how to use the Cake.Issues.PullRequests.AzureDevOps addin w
 ---
 
 To write issues as comments to Azure DevOps pull requests, the Azure DevOps addin needs to be imported.
-To determine the remote repository URL the [Cake.Git](https://cakebuild.net/extensions/cake-git/) addin can be used.
+To determine the remote repository URL the [Cake.Git](https://cakebuild.net/extensions/cake-git/)
+addin can be used.
 For this example the JetBrains InspectCode issue provider is additionally used for reading issues:
 
+<!-- markdownlint-disable MD046 -->
 === "Cake .NET Tool"
 
     ```csharp title="build.cake"
@@ -56,11 +58,13 @@ For this example the JetBrains InspectCode issue provider is additionally used f
       </ItemGroup>
     </Project>
     ```
+<!-- markdownlint-restore -->
 
 The following example shows a task which will first determine the remote repository URL and
 with this information call the [AzureDevOpsPullRequests](https://cakebuild.net/api/Cake.Issues.PullRequests.AzureDevOps/AzureDevOpsPullRequestSystemAliases/)
 alias, which will authenticate through NTLM to an on-premise Azure DevOps Server instance:
 
+<!-- markdownlint-disable MD046 -->
 === "Cake .NET Tool"
 
     ```csharp title="build.cake"
@@ -149,3 +153,4 @@ alias, which will authenticate through NTLM to an on-premise Azure DevOps Server
         }
     }
     ```
+<!-- markdownlint-restore -->

@@ -10,6 +10,7 @@ description: Example how to create a report using a custom template
 To create custom HTML reports the Generic report format needs to be imported.
 For this example the MsBuild issue provider is additionally used for reading issues:
 
+<!-- markdownlint-disable MD046 -->
 === "Cake .NET Tool"
 
     ```csharp title="build.cake"
@@ -54,9 +55,12 @@ For this example the MsBuild issue provider is additionally used for reading iss
       </ItemGroup>
     </Project>
     ```
+<!-- markdownlint-restore -->
 
-The following example will create a HTML report for issues logged as warnings by MsBuild using a custom template.
+The following example will create a HTML report for issues logged as warnings by MsBuild using a
+custom template.
 
+<!-- markdownlint-disable MD046 -->
 === "Cake .NET Tool"
 
     ```csharp title="build.cake"
@@ -175,6 +179,7 @@ The following example will create a HTML report for issues logged as warnings by
         }
     }
     ```
+<!-- markdownlint-restore -->
 
 The template looks like this:
 
@@ -222,6 +227,7 @@ The template looks like this:
 
 The template retrieves an `IEnumerable<Cake.Issues.IIssue>` as model.
 
+<!-- markdownlint-disable MD046 -->
 !!! info
     In custom templates functionality from the following assemblies are available:
 
@@ -231,5 +237,6 @@ The template retrieves an `IEnumerable<Cake.Issues.IIssue>` as model.
     * Cake.Core.dll
     * Cake.Issues.dll
     * Cake.Issues.Reporting.Generic.dll
+<!-- markdownlint-restore -->
 
 [create a pull request]: ../../../contributing/how-to-contribute.md

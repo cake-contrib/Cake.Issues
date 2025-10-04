@@ -3,6 +3,7 @@ title: How to build and run website
 description: Instructions how to build and run website locally
 ---
 
+<!-- markdownlint-disable MD046 -->
 === "Running in GitHub Codespaces"
 
     Website can be built and run in [GitHub Codespaces].
@@ -57,6 +58,7 @@ description: Instructions how to build and run website locally
         ```
     
     Website is available on `http://127.0.0.1:8000/`
+<!-- markdownlint-restore -->
 
 [Cake]: https://cakebuild.net/
 [Visual Studio Code Dev Container]: https://code.visualstudio.com/docs/devcontainers/containers

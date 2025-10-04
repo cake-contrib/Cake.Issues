@@ -10,6 +10,7 @@ The `Cake.Issues` addin can be used to break builds if specific issues were repo
 
 To break builds you need to import the following core addin:
 
+<!-- markdownlint-disable MD046 -->
 === "Cake .NET Tool"
 
     ```csharp title="build.cake"
@@ -46,9 +47,11 @@ To break builds you need to import the following core addin:
       </ItemGroup>
     </Project>
     ```
+<!-- markdownlint-restore -->
 
 The following task will fail the build if any issues were added to the `issues` global variable:
 
+<!-- markdownlint-disable MD046 -->
 === "Cake .NET Tool"
 
     ```csharp title="build.cake"
@@ -114,3 +117,4 @@ The following task will fail the build if any issues were added to the `issues` 
         }
     }
     ```
+<!-- markdownlint-restore -->

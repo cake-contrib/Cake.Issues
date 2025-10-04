@@ -7,9 +7,10 @@ status: new
 Support for reading issues in [Test Anything Protocol (TAP)](https://testanything.org/) format
 is implemented in the [Cake.Issues.Tap addin](https://cakebuild.net/extensions/cake-issues-tap/).
 
+<!-- markdownlint-disable-next-line MD033 -->
 <div class="grid cards" markdown>
 
-- :material-creation-outline: [Features](features.md)
-- :material-api: [API](https://cakebuild.net/extensions/cake-issues-tap)
+* :material-creation-outline: [Features](features.md)
+* :material-api: [API](https://cakebuild.net/extensions/cake-issues-tap)
 
 </div>

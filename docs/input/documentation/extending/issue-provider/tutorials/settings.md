@@ -19,8 +19,8 @@ needs to be implemented defining the concrete settings class to use:
 
 Also a concrete class inheriting from [IssueProviderSettings](https://cakebuild.net/api/Cake.Issues/IssueProviderSettings/)
 needs to be implemented.
-Based on the capabilities of the issue provider the appropriate constructors for reading from the file system
-or memory can be made public:
+Based on the capabilities of the issue provider the appropriate constructors for reading from the
+file system or memory can be made public:
 
 ```csharp
 --8<-- "snippets/extending/issue-provider/settings/Settings.cs"
@@ -33,6 +33,7 @@ For convenience of the user and based on the capabilities of the issue provider,
 additional aliases for reading from the file system or from memory can be added.
 Finally an additional property alias for returning the provider type name should be defined:
 
+<!-- markdownlint-disable MD046 -->
 === "Alias for reading issues"
 
     ```csharp hl_lines="7-32"
@@ -50,3 +51,4 @@ Finally an additional property alias for returning the provider type name should
     ```csharp hl_lines="90-105"
     --8<-- "snippets/extending/issue-provider/settings/Aliases.cs"
     ```
+<!-- markdownlint-restore -->

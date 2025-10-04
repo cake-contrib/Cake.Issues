@@ -1,0 +1,32 @@
+
+{
+  "default": true,
+  "MD003": { 
+    "style": "atx"
+  },
+  "MD004": { 
+    "style": "asterisk"
+  },
+  "MD007": { 
+    "indent": 4 
+  },
+  "MD013": { 
+    "line_length": 100,
+    "code_blocks": false,
+    "headings": false,
+    "tables": false 
+  },
+  "MD045": false,
+  "MD046": {
+    "style": "fenced"
+  },
+  "MD048": {
+    "style": "backtick"
+  },
+  "MD049": {
+    "style": "underscore"
+  },
+  "MD050": {
+    "style": "asterisk"
+  }
+}

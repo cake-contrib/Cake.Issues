@@ -3,10 +3,11 @@ title: File links in message
 description: Instructions how to implement add file links to issue messages.
 ---
 
-Cake Issues provides infrastructure to [get links to files] on source code hosts like GitHub or Azure Repos.
+Cake Issues provides infrastructure to [get links to files] on source code hosts like GitHub or
+Azure Repos.
 
-This infrastructure can also be used inside an issue providers `InternalReadIssues` method to generate file links
-which can be used inside the issue messages:
+This infrastructure can also be used inside an issue providers `InternalReadIssues` method to
+generate file links which can be used inside the issue messages:
 
 ```csharp
 protected override IEnumerable<IIssue> InternalReadIssues()

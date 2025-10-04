@@ -5,6 +5,7 @@ description: Overview about integration with build server and pull request syste
 
 This page documents how integration with build server and pull request systems work.
 
+<!-- markdownlint-disable MD046 -->
 !!! note
     In most cases the integration will just work as expected.
     Using Cake Issues does not require an in-depth understanding of these concepts.
@@ -12,6 +13,7 @@ This page documents how integration with build server and pull request systems w
     pipeline to report issues to build servers and pull requests work.
 
     Most of the default behavior can be customized through [IReportIssuesToPullRequestSettings].
+<!-- markdownlint-restore -->
 
 The pipeline for integration with build servers and pull request systems looks like this:
 
@@ -43,13 +45,13 @@ graph LR
 
 * [Check commit id](#check-commit-id)
 
-    Check commit id will skip posting of issues if the current commit of the pull request is different to the commit
-    for which the issues are reported.
+    Check commit id will skip posting of issues if the current commit of the pull request is
+    different to the commit for which the issues are reported.
 
 * [Post discussion threads](#post-discussion-threads)
 
-    Post discussion threads will post the issues in the pipeline, which have not been filtered out, to the
-    build server or pull request.
+    Post discussion threads will post the issues in the pipeline, which have not been filtered out,
+    to the build server or pull request.
 
 ## Handle existing discussion threads
 
@@ -86,6 +88,7 @@ graph LR
 
 The `Resolve existing comments` step will close threads if they fulfill the following conditions:
 
+<!-- markdownlint-disable-next-line MD033 -->
 <div class="annotate" markdown>
 
 * The thread was created by the same logic (1)
@@ -95,10 +98,11 @@ The `Resolve existing comments` step will close threads if they fulfill the foll
 
 </div>
 
-1.  Defined by the [IReportIssuesToPullRequestSettings.CommentSource property]
+1. Defined by the [IReportIssuesToPullRequestSettings.CommentSource property]
 
 The `Reopen existing comments` step will reopen threads if they fulfill the following conditions:
 
+<!-- markdownlint-disable-next-line MD033 -->
 <div class="annotate" markdown>
 
 * The thread was created by the same logic (1)
@@ -108,7 +112,7 @@ The `Reopen existing comments` step will reopen threads if they fulfill the foll
 
 </div>
 
-1.  Defined by the [IReportIssuesToPullRequestSettings.CommentSource property]
+1. Defined by the [IReportIssuesToPullRequestSettings.CommentSource property]
 
 ## Filter issues
 
@@ -151,7 +155,8 @@ graph LR
 ### Filter issues by path
 
 !!! Note
-    This step will only be executed for implementations supporting the `Filtering by modified files` capability.
+    This step will only be executed for implementations supporting the `Filtering by modified files`
+    capability.
 
 The step will filter out issues not affecting files changed in the pull request.
 
@@ -172,7 +177,8 @@ graph LR
 !!! Note
     This step will only be executed for implementations supporting the `Discussion Threads` capability.
 
-The step will filter issues, which were already reported in a previous run, so they won't be reported again.
+The step will filter issues, which were already reported in a previous run, so they won't be
+reported again.
 
 Issues will be filtered if a comment exists which fulfills the following criteria:
 
@@ -223,7 +229,8 @@ graph LR
 
 * [Apply issue limits per provider across multiple runs](#apply-issue-limits-per-provider-across-multiple-runs)
 
-    Allows to limit the number of issues which should be posted at maximum for specific issue providers across multiple runs.
+    Allows to limit the number of issues which should be posted at maximum for specific issue
+    providers across multiple runs.
 
 * [Apply global issue limit across multiple runs](#apply-global-issue-limit-across-multiple-runs)
 
@@ -243,6 +250,7 @@ can be used to limit the number of issues which should be posted at maximum for 
 
 Setting this value will apply to all issue providers.
 
+<!-- markdownlint-disable MD046 -->
 ??? example
     In the following example `228` issues from MsBuild issue provider and
     `134` issues from SARIF issue provider were reported.
@@ -270,6 +278,7 @@ Setting this value will apply to all issue providers.
       setting --> msBuildAfter;
       setting --> sarifAfter;
     ```
+<!-- markdownlint-restore -->
 
 #### Apply issue limits per provider for this run
 
@@ -279,6 +288,7 @@ should be posted at maximum for individual issue providers.
 
 This setting allows to define different values for different issue providers.
 
+<!-- markdownlint-disable MD046 -->
 ??? example
     In the following example `100` issues from MsBuild issue provider and
     `100` issues from SARIF issue provider are in the pipeline.
@@ -305,6 +315,7 @@ This setting allows to define different values for different issue providers.
       setting --> msBuildAfter;
       setting --> sarifAfter;
     ```
+<!-- markdownlint-restore -->
 
 #### Apply global issue limit
 
@@ -313,6 +324,7 @@ limit the total number of issues which should be posted.
 
 This limit is across all issue provider.
 
+<!-- markdownlint-disable MD046 -->
 ??? example
     In the following example `100` issues from MsBuild issue provider and
     `50` issues from SARIF issue provider are in the pipeline.
@@ -342,6 +354,7 @@ This limit is across all issue provider.
       setting --> msBuildAfter;
       setting --> sarifAfter;
     ```
+<!-- markdownlint-restore -->
 
 #### Apply issue limits per provider across multiple runs
 
@@ -354,6 +367,7 @@ which should be posted at maximum for specific issue providers across multiple r
 
 This setting allows to define different values for different issue providers.
 
+<!-- markdownlint-disable MD046 -->
 ??? example
     In the following example in a previous run `20` issues from MsBuild issue provider and
     `50` issues from SARIF issue provider were posted.
@@ -405,6 +419,7 @@ This setting allows to define different values for different issue providers.
         The above example does not consider if an issue has already be posted or not.
         This will already been taken care of by the [Filter for already existing comments]
         which will be applied previously in the pipeline.
+<!-- markdownlint-restore -->
 
 #### Apply global issue limit across multiple runs
 
@@ -416,13 +431,15 @@ setting can be used to limit the total number of issues which should be posted a
 
 This limit is across all issue provider.
 
+<!-- markdownlint-disable MD046 -->
 ??? example
     In the following example in a previous run `20` issues from MsBuild issue provider and
     `50` issues from SARIF issue provider were posted.
     Current run at this point would post `10` issues from MsBuild issue provider and
     `35` issues from SARIF issue provider.
     Due to [MaxIssuesToPostAcrossRuns](https://cakebuild.net/api/Cake.Issues.PullRequests/IReportIssuesToPullRequestSettings/F02390D1)
-    setting, issues are limited to `30` in total, resulting in `100` issues across runs together with the `70` issues posted to the previous run.
+    setting, issues are limited to `30` in total, resulting in `100` issues across runs together with
+    the `70` issues posted to the previous run.
     The numbers in the output are examples.
     The actual numbers depend solely on priority and file path of individual issues.
 
@@ -462,6 +479,7 @@ This limit is across all issue provider.
         class msBuildAfterPrev,sarifAfterPrev output;
       end
     ```
+<!-- markdownlint-restore -->
 
 ### Apply custom filters
 
@@ -482,11 +500,13 @@ ID passed to [IReportIssuesToPullRequestSettings.CommitId].
 
 ## Post discussion threads
 
-This step will post the issues in the pipeline which have not been filtered out, to the build server or pull request.
+This step will post the issues in the pipeline which have not been filtered out, to the build server
+or pull request.
 
 ## Troubleshooting
 
-The build server and pull request system integration writes extensive log entries when running with `Diagnostic` verbosity.
+The build server and pull request system integration writes extensive log entries when running with
+`Diagnostic` verbosity.
 
 [IReportIssuesToPullRequestSettings]: https://cakebuild.net/api/Cake.Issues.PullRequests/IReportIssuesToPullRequestSettings
 [IReportIssuesToPullRequestSettings.CommentSource property]: https://cakebuild.net/api/Cake.Issues.PullRequests/IReportIssuesToPullRequestSettings/71BCD0B8

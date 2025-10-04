@@ -15,7 +15,8 @@ Cake Issues version 5.6.0 has been released bringing updates to dependencies.
 This post shows the highlights included in this release.
 For update instructions skip to [Updating from previous versions](#updating-from-previous-versions).
 
-❤ Huge thanks to our community! This release would not have been possible without your support and contributions! ❤
+❤ Huge thanks to our community! This release would not have been possible without your support and
+contributions! ❤
 
 People working on this release:
 
@@ -28,7 +29,8 @@ People working on this release:
 
 ## Improvements for HTML reports
 
-The PDF export functionallity in the [HtmlDxDataGrid template] has been updated to use [jsPDF 3.0.0]{target='_blank'} and [jsPDF-AutoTable 5.0.0]{target='_blank'} by default.
+The PDF export functionallity in the [HtmlDxDataGrid template] has been updated to use [jsPDF 3.0.0]
+and [jsPDF-AutoTable 5.0.0] by default.
 
 ## Updating from previous versions
 

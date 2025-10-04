@@ -4,8 +4,9 @@ description: Examples for using the Cake.Issues.PullRequests.GitHubActions addin
 icon: material/test-tube
 ---
 
+<!-- markdownlint-disable-next-line MD033 -->
 <div class="grid cards" markdown>
 
-- [Create Annotations In GitHub Actions](write-annotations.md)
+* [Create Annotations In GitHub Actions](write-annotations.md)
 
 </div>

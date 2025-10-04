@@ -6,10 +6,11 @@ description: Documentation of the different build server implementations.
 Build server addins implement integration with specific CI servers and allow the
 Cake Issues addin to write found issues and issues to the build run.
 
+<!-- markdownlint-disable-next-line MD033 -->
 <div class="grid cards" markdown>
 
-- :material-source-pull: __[AppVeyor]__ – Integration with AppVeyor builds
-- :material-source-pull: __[GitHub Actions]__ – Integration with GitHub Actions
+* :material-source-pull: **[AppVeyor]** – Integration with AppVeyor builds
+* :material-source-pull: **[GitHub Actions]** – Integration with GitHub Actions
 
 </div>
 

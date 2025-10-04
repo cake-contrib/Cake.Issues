@@ -4,10 +4,11 @@ description: Examples for using the Cake.Issues.PullRequests.AppVeyor addin.
 icon: material/test-tube
 ---
 
+<!-- markdownlint-disable-next-line MD033 -->
 <div class="grid cards" markdown>
 
-- [Writting Messages To AppVeyor](write-messages.md)
-- [GitHub PullRequest Integration](github-pullrequest-integration.md)
+* [Writting Messages To AppVeyor](write-messages.md)
+* [GitHub PullRequest Integration](github-pullrequest-integration.md)
 
 </div>
 

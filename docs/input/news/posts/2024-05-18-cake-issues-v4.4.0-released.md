@@ -14,7 +14,8 @@ Cake Issues version 4.4.0 has been released with improvements for Cake Frosting.
 This post shows the highlights included in this release.
 For update instructions skip to [Updating from previous versions](#updating-from-previous-versions).
 
-❤ Huge thanks to our community! This release would not have been possible without your support and contributions! ❤
+❤ Huge thanks to our community! This release would not have been possible without your support and
+contributions! ❤
 
 People working on this release:
 
@@ -25,9 +26,9 @@ People working on this release:
 
 Support for implicit usings has been added to the Cake Frosting addins.
 
-If `<ImplicitUsings>enable</ImplicitUsings>` is set in a Cake Frosting build, namespaces for Cake Issues addins are
-implicitly added, resulting in a similar experience as when using Cake .NET Tool, where aliases can be used directly
-without the requirements to first add `using` statements.
+If `<ImplicitUsings>enable</ImplicitUsings>` is set in a Cake Frosting build, namespaces for Cake Issues
+addins are implicitly added, resulting in a similar experience as when using Cake .NET Tool, where
+aliases can be used directly without the requirements to first add `using` statements.
 
 ## Filtering improvements in HTML DevExtreme Data Grid template
 

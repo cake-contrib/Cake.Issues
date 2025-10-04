@@ -8,24 +8,27 @@ The [Cake.Issues.PullRequests.AzureDevOps addin](https://cakebuild.net/extension
 provides the following features.
 
 !!! info
-    There's a [demo repository] available which you can fork and to which you can create pull requests to test the integration functionality.
+    There's a [demo repository] available which you can fork and to which you can create pull requests
+    to test the integration functionality.
 
 ## Basic features
 
-- [x] Writes issues as comments to [Azure DevOps](https://azure.microsoft.com/en-us/services/devops/) pull requests.
-- [x] Identification of pull requests through source branch or pull request ID.
-- [x] Comments written by the addin will be rendered with a specific icon corresponding to the state of the issue.
-- [x] Adds rule number and, if provided by the issue provider, link to the rule description to the comment.
-- [x] Support for issues messages formatted in Markdown format.
+* [x] Writes issues as comments to [Azure DevOps](https://azure.microsoft.com/en-us/services/devops/)
+      pull requests.
+* [x] Identification of pull requests through source branch or pull request ID.
+* [x] Comments written by the addin will be rendered with a specific icon corresponding to the state
+      of the issue.
+* [x] Adds rule number and, if provided by the issue provider, link to the rule description to the comment.
+* [x] Support for issues messages formatted in Markdown format.
 
 ## Supported capabilities
 
 The [Cake.Issues.PullRequests.AzureDevOps addin](https://cakebuild.net/extensions/cake-issues-pullrequests-azuredevops/)
 supports the following capabilities.
 
-- [x] [Checking commit ID](../../how-cake-issues-works/pull-request-integration.md#check-commit-id)
-- [x] [Discussion threads](../../how-cake-issues-works/pull-request-integration.md#handle-existing-discussion-threads)
-- [x] [Filtering by modified files](../../how-cake-issues-works/pull-request-integration.md#filter-issues-by-path)
+* [x] [Checking commit ID](../../how-cake-issues-works/pull-request-integration.md#check-commit-id)
+* [x] [Discussion threads](../../how-cake-issues-works/pull-request-integration.md#handle-existing-discussion-threads)
+* [x] [Filtering by modified files](../../how-cake-issues-works/pull-request-integration.md#filter-issues-by-path)
 
 ## Supported authentication methods
 

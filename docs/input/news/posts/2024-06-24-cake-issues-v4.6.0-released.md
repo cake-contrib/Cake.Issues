@@ -14,7 +14,8 @@ Cake Issues version 4.6.0 has been released with improvements for SARIF reports.
 This post shows the highlights included in this release.
 For update instructions skip to [Updating from previous versions](#updating-from-previous-versions).
 
-❤ Huge thanks to our community! This release would not have been possible without your support and contributions! ❤
+❤ Huge thanks to our community! This release would not have been possible without your support and
+contributions! ❤
 
 People working on this release:
 
@@ -25,8 +26,9 @@ People working on this release:
 
 ## Improvements for SARIF Reports
 
-A new option [SarifIssueReportFormatSettings.ExistingIssues] has been introduced which allows to pass in a list of known
-issues not related to current code changes, resulting in the [baselineState property] being set in the resulting SARIF report.
+A new option [SarifIssueReportFormatSettings.ExistingIssues] has been introduced which allows to pass
+in a list of known issues not related to current code changes, resulting in the [baselineState property]
+being set in the resulting SARIF report.
 
 This property is for example be used in the [SARIF viewer extension for Azure Pipelines] as filter option.
 
