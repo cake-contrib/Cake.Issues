@@ -1,0 +1,22 @@
+[
+  {
+    "type": "issue",
+    "check_name": "style",
+    "description": "Missing semicolon",
+    "categories": ["Style"],
+    "location": {
+      "path": "src/bar.js",
+      "positions": {
+        "begin": {
+          "line": 5,
+          "column": 10
+        },
+        "end": {
+          "line": 5,
+          "column": 15
+        }
+      }
+    },
+    "severity": "minor"
+  }
+]

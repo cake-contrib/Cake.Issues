@@ -1,0 +1,16 @@
+[
+  {
+    "type": "issue",
+    "check_name": "complexity",
+    "description": "Method has too many statements",
+    "categories": ["Complexity"],
+    "location": {
+      "path": "src/foo.js",
+      "lines": {
+        "begin": 10,
+        "end": 12
+      }
+    },
+    "severity": "major"
+  }
+]
