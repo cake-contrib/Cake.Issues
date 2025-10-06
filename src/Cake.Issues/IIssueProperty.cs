@@ -54,67 +54,77 @@ public enum IIssueProperty
     EndColumn = 128,
 
     /// <summary>
+    /// <see cref="IIssue.Offset"/> property.
+    /// </summary>
+    Offset = 256,
+
+    /// <summary>
+    /// <see cref="IIssue.EndOffset"/> property.
+    /// </summary>
+    EndOffset = 512,
+
+    /// <summary>
     /// <see cref="IIssue.FileLink"/> property.
     /// </summary>
-    FileLink = 256,
+    FileLink = 1024,
 
     /// <summary>
     /// <see cref="IIssue.MessageText"/> property.
     /// </summary>
-    MessageText = 512,
+    MessageText = 2048,
 
     /// <summary>
     /// <see cref="IIssue.MessageHtml"/> property.
     /// </summary>
-    MessageHtml = 1024,
+    MessageHtml = 4096,
 
     /// <summary>
     /// <see cref="IIssue.MessageMarkdown"/> property.
     /// </summary>
-    MessageMarkdown = 2048,
+    MessageMarkdown = 8192,
 
     /// <summary>
     /// <see cref="IIssue.Priority"/> property.
     /// </summary>
-    Priority = 4096,
+    Priority = 16384,
 
     /// <summary>
     /// <see cref="IIssue.PriorityName"/> property.
     /// </summary>
-    PriorityName = 8192,
+    PriorityName = 32768,
 
     /// <summary>
     /// <see cref="IIssue.RuleId"/> property.
     /// </summary>
-    RuleId = 16384,
+    RuleId = 65536,
 
     /// <summary>
     /// <see cref="IIssue.RuleName"/> property.
     /// </summary>
-    RuleName = 32768,
+    RuleName = 131072,
 
     /// <summary>
     /// <see cref="IIssue.RuleUrl"/> property.
     /// </summary>
-    RuleUrl = 65536,
+    RuleUrl = 262144,
 
     /// <summary>
     /// <see cref="IIssue.Run"/> property.
     /// </summary>
-    Run = 131072,
+    Run = 524288,
 
     /// <summary>
     /// <see cref="IIssue.ProviderType"/> property.
     /// </summary>
-    ProviderType = 262144,
+    ProviderType = 1048576,
 
     /// <summary>
     /// <see cref="IIssue.ProviderName"/> property.
     /// </summary>
-    ProviderName = 524288,
+    ProviderName = 2097152,
 
     /// <summary>
     /// <see cref="IIssue.AdditionalInformation"/> property.
     /// </summary>
-    AdditionalInformation = 1048576,
+    AdditionalInformation = 4194304,
 }

@@ -2379,4 +2379,106 @@ public sealed class IssueBuilderTests
             result.IsArgumentNullException("additionalInformation");
         }
     }
+
+    public sealed class TheInFileAtOffsetMethod
+    {
+        [Fact]
+        public void Should_Set_Offset()
+        {
+            // Given
+            var fixture = new IssueBuilderFixture();
+
+            // When
+            var issue = fixture.IssueBuilder.InFileAtOffset("foo", 42).Create();
+
+            // Then
+            issue.AffectedFileRelativePath.ToString().ShouldBe("foo");
+            issue.Offset.ShouldBe(42);
+        }
+
+        [Fact]
+        public void Should_Set_Offset_Range()
+        {
+            // Given
+            var fixture = new IssueBuilderFixture();
+
+            // When
+            var issue = fixture.IssueBuilder.InFileAtOffset("foo", 10, 20).Create();
+
+            // Then
+            issue.AffectedFileRelativePath.ToString().ShouldBe("foo");
+            issue.Offset.ShouldBe(10);
+            issue.EndOffset.ShouldBe(20);
+        }
+
+        [Fact]
+        public void Should_Handle_Null_Offset()
+        {
+            // Given
+            var fixture = new IssueBuilderFixture();
+
+            // When
+            var issue = fixture.IssueBuilder.InFileAtOffset("foo", null).Create();
+
+            // Then
+            issue.AffectedFileRelativePath.ToString().ShouldBe("foo");
+            issue.Offset.ShouldBeNull();
+        }
+
+        [Fact]
+        public void Should_Throw_If_Offset_Is_Zero()
+        {
+            // Given
+            var fixture = new IssueBuilderFixture();
+
+            // When
+            var result = Record.Exception(() =>
+                fixture.IssueBuilder.InFileAtOffset("foo", 0));
+
+            // Then
+            result.IsArgumentOutOfRangeException("offset");
+        }
+
+        [Fact]
+        public void Should_Throw_If_Offset_Is_Negative()
+        {
+            // Given
+            var fixture = new IssueBuilderFixture();
+
+            // When
+            var result = Record.Exception(() =>
+                fixture.IssueBuilder.InFileAtOffset("foo", -1));
+
+            // Then
+            result.IsArgumentOutOfRangeException("offset");
+        }
+
+        [Fact]
+        public void Should_Throw_If_EndOffset_Is_Zero()
+        {
+            // Given
+            var fixture = new IssueBuilderFixture();
+
+            // When
+            var result = Record.Exception(() =>
+                fixture.IssueBuilder.InFileAtOffset("foo", 1, 0));
+
+            // Then
+            result.IsArgumentOutOfRangeException("endOffset");
+        }
+
+        [Fact]
+        public void Should_Throw_If_EndOffset_Is_Negative()
+        {
+            // Given
+            var fixture = new IssueBuilderFixture();
+
+            // When
+            var result = Record.Exception(() =>
+                fixture.IssueBuilder.InFileAtOffset("foo", 1, -1));
+
+            // Then
+            result.IsArgumentOutOfRangeException("endOffset");
+        }
+    }
 }

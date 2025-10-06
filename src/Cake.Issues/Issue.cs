@@ -30,6 +30,10 @@ public class Issue : IIssue
     /// <c>null</c> if the issue affects the whole file or an assembly.</param>
     /// <param name="endColumn">The end of the column range in the file where the issues have occurred.
     /// <c>null</c> if the issue affects the whole file, an assembly or only a single column.</param>
+    /// <param name="offset">The character offset in the file where the issue has occurred.
+    /// <c>null</c> if the issue affects the whole file or an assembly.</param>
+    /// <param name="endOffset">The end of the character offset range in the file where the issue has occurred.
+    /// <c>null</c> if the issue affects the whole file, an assembly or only a single character.</param>
     /// <param name="fileLink">Link to the position in the file where the issue occurred.
     /// <c>null</c> if no link is available.</param>
     /// <param name="messageText">The message of the issue in plain text format.</param>
@@ -58,6 +62,8 @@ public class Issue : IIssue
         int? endLine,
         int? column,
         int? endColumn,
+        int? offset,
+        int? endOffset,
         Uri fileLink,
         string messageText,
         string messageHtml,
@@ -77,6 +83,8 @@ public class Issue : IIssue
         endLine?.NotNegativeOrZero();
         column?.NotNegativeOrZero();
         endColumn?.NotNegativeOrZero();
+        offset?.NotNegativeOrZero();
+        endOffset?.NotNegativeOrZero();
         messageText.NotNullOrWhiteSpace();
         providerType.NotNullOrWhiteSpace();
         providerName.NotNullOrWhiteSpace();
@@ -148,12 +156,30 @@ public class Issue : IIssue
             throw new ArgumentOutOfRangeException(nameof(endColumn), "Column range needs to end after start of range.");
         }
 
+        // Offset validation
+        if (this.AffectedFileRelativePath == null && offset.HasValue)
+        {
+            throw new ArgumentOutOfRangeException(nameof(offset), "Cannot specify an offset while not specifying a file.");
+        }
+
+        if (!offset.HasValue && endOffset.HasValue)
+        {
+            throw new ArgumentOutOfRangeException(nameof(endOffset), "Cannot specify the end of offset range while not specifying start of offset range.");
+        }
+
+        if (offset.HasValue && endOffset.HasValue && offset.Value > endOffset.Value)
+        {
+            throw new ArgumentOutOfRangeException(nameof(endOffset), "Offset range needs to end after start of range.");
+        }
+
         this.Identifier = identifier;
         this.ProjectName = projectName;
         this.Line = line;
         this.EndLine = endLine;
         this.Column = column;
         this.EndColumn = endColumn;
+        this.Offset = offset;
+        this.EndOffset = endOffset;
         this.FileLink = fileLink;
         this.MessageText = messageText;
         this.MessageHtml = messageHtml;
@@ -192,6 +218,12 @@ public class Issue : IIssue
 
     /// <inheritdoc/>
     public int? EndColumn { get; }
+
+    /// <inheritdoc/>
+    public int? Offset { get; }
+
+    /// <inheritdoc/>
+    public int? EndOffset { get; }
 
     /// <inheritdoc/>
     public Uri FileLink { get; set; }

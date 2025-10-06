@@ -21,6 +21,8 @@ public class IssueBuilder
     private int? endLine;
     private int? column;
     private int? endColumn;
+    private int? offset;
+    private int? endOffset;
     private Uri fileLink;
     private int? priority;
     private string priorityName;
@@ -294,6 +296,48 @@ public class IssueBuilder
     }
 
     /// <summary>
+    /// Sets the path to the file affected by the issue and the character offset where the issue has occurred.
+    /// </summary>
+    /// <param name="filePath">The path to the file affected by the issue.
+    /// The path needs to be relative to the repository root.
+    /// <c>null</c> or <see cref="string.Empty"/> if issue is not related to a change in a file.</param>
+    /// <param name="offset">The character offset in the file where the issue has occurred.
+    /// <c>null</c> if the issue affects the whole file or an assembly.</param>
+    /// <returns>Issue Builder instance.</returns>
+    public IssueBuilder InFileAtOffset(string filePath, int? offset)
+    {
+        offset?.NotNegativeOrZero();
+
+        this.filePath = filePath;
+        this.offset = offset;
+
+        return this;
+    }
+
+    /// <summary>
+    /// Sets the path to the file affected by the issue and the character offset range where the issue has occurred.
+    /// </summary>
+    /// <param name="filePath">The path to the file affected by the issue.
+    /// The path needs to be relative to the repository root.
+    /// <c>null</c> or <see cref="string.Empty"/> if issue is not related to a change in a file.</param>
+    /// <param name="startOffset">The character offset in the file where the issue has occurred.
+    /// <c>null</c> if the issue affects the whole file or an assembly.</param>
+    /// <param name="endOffset">The end of the character offset range in the file where the issue has occurred.
+    /// <c>null</c> if the issue affects the whole file, an assembly or only a single character.</param>
+    /// <returns>Issue Builder instance.</returns>
+    public IssueBuilder InFileAtOffset(string filePath, int? startOffset, int? endOffset)
+    {
+        startOffset?.NotNegativeOrZero();
+        endOffset?.NotNegativeOrZero();
+
+        this.filePath = filePath;
+        this.offset = startOffset;
+        this.endOffset = endOffset;
+
+        return this;
+    }
+
+    /// <summary>
     /// Sets additional information regarding the issue.
     /// </summary>
     /// <param name="key">Key for the additional information to be assigned to.</param>
@@ -478,6 +522,8 @@ public class IssueBuilder
             this.endLine,
             this.column,
             this.endColumn,
+            this.offset,
+            this.endOffset,
             fileLink,
             this.messageText,
             this.messageHtml,

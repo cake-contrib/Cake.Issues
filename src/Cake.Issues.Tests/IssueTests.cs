@@ -45,6 +45,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -100,6 +102,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -155,6 +159,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -210,6 +216,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -268,6 +276,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -324,6 +334,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -382,6 +394,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -437,6 +451,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -492,6 +508,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -547,6 +565,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -602,6 +622,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -660,6 +682,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -715,6 +739,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -770,6 +796,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -825,6 +853,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -883,6 +913,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -939,6 +971,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -997,6 +1031,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -1052,6 +1088,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -1107,6 +1145,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -1162,6 +1202,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -1225,6 +1267,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -1284,6 +1328,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -1339,6 +1385,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -1394,6 +1442,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -1449,6 +1499,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -1505,6 +1557,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -1563,6 +1617,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -1618,6 +1674,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -1673,6 +1731,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -1728,6 +1788,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -1783,6 +1845,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -1838,6 +1902,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -1894,6 +1960,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -1952,6 +2020,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -2007,6 +2077,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -2062,6 +2134,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -2117,6 +2191,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -2174,6 +2250,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -2232,6 +2310,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -2287,6 +2367,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -2342,6 +2424,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -2397,6 +2481,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -2452,6 +2538,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -2507,6 +2595,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -2562,6 +2652,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -2619,6 +2711,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -2677,6 +2771,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -2732,6 +2828,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -2790,6 +2888,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -2845,6 +2945,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -2900,6 +3002,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -2955,6 +3059,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -3016,6 +3122,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -3077,6 +3185,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -3140,6 +3250,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -3198,6 +3310,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -3253,6 +3367,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -3308,6 +3424,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -3363,6 +3481,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -3423,6 +3543,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -3483,6 +3605,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -3541,6 +3665,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -3596,6 +3722,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -3656,6 +3784,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -3714,6 +3844,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -3769,6 +3901,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -3824,6 +3958,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -3879,6 +4015,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -3937,6 +4075,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -3992,6 +4132,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -4047,6 +4189,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -4102,6 +4246,8 @@ public sealed class IssueTests
                         endLine,
                         column,
                         endColumn,
+                        null, // offset
+                        null, // endOffset
                         fileLink,
                         messageText,
                         messageHtml,
@@ -4170,6 +4316,8 @@ public sealed class IssueTests
                     endLine,
                     column,
                     endColumn,
+                    null, // offset
+                    null, // endOffset
                     fileLink,
                     messageText,
                     messageHtml,
@@ -4225,6 +4373,8 @@ public sealed class IssueTests
                     endLine,
                     column,
                     endColumn,
+                    null, // offset
+                    null, // endOffset
                     fileLink,
                     messageText,
                     messageHtml,

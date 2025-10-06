@@ -32,6 +32,8 @@ internal static class SerializableIssueExtensions
             null,
             null,
             null,
+            null, // offset
+            null, // endOffset
             null,
             serializableIssue.Message,
             null,

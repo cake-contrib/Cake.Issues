@@ -37,6 +37,8 @@ internal static class SerializableIssueV5Extensions
             serializableIssue.EndLine,
             serializableIssue.Column,
             serializableIssue.EndColumn,
+            null, // offset
+            null, // endOffset
             fileLink,
             serializableIssue.MessageText,
             serializableIssue.MessageHtml,

@@ -18,6 +18,7 @@ public class IssueProviderSettings
         logFilePath.NotNull();
 
         this.LogFileContent = File.ReadAllBytes(logFilePath.FullPath);
+        this.PreferredLocationCoordinates = LocationCoordinates.LineColumn;
     }
 
     /// <summary>
@@ -30,10 +31,16 @@ public class IssueProviderSettings
         logFileContent.NotNull();
 
         this.LogFileContent = logFileContent;
+        this.PreferredLocationCoordinates = LocationCoordinates.LineColumn;
     }
 
     /// <summary>
     /// Gets the content of the log file.
     /// </summary>
     public byte[] LogFileContent { get; }
+
+    /// <summary>
+    /// Gets or sets the preferred coordinate format for issue locations.
+    /// </summary>
+    public LocationCoordinates PreferredLocationCoordinates { get; set; }
 }
