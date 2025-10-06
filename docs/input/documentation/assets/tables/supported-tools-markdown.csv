@@ -6,3 +6,4 @@
 "[markdownlint-cli](https://github.com/igorshubovych/markdownlint-cli){target='_blank'}",>= 0.19.0,"Default","[Cake.Issues.Markdownlint](issue-providers/markdownlint/index.md)",0.8.1
 "[markdownlint-cli](https://github.com/igorshubovych/markdownlint-cli){target='_blank'}",>= 0.22.0,"Default","[Cake.Issues.Markdownlint](issue-providers/markdownlint/index.md)",0.8.2
 "[markdownlint-cli](https://github.com/igorshubovych/markdownlint-cli){target='_blank'}",,"[json](https://github.com/igorshubovych/markdownlint-cli?tab=readme-ov-file#usage){target='_blank'}","[Cake.Issues.Markdownlint](issue-providers/markdownlint/index.md)",1.1.0
+"[markdownlint-cli2](https://github.com/DavidAnson/markdownlint-cli2){target='_blank'} :material-alert-decagram:",,"[JUnit](https://github.com/DavidAnson/markdownlint-cli2#markdownlint-cli2-formatter-junit){target='_blank'}","[Cake.Issues.JUnit](issue-providers/junit/index.md)",5.8.0

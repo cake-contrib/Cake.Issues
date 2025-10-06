@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="cpplint" tests="3" failures="2" errors="0" time="0.123">
+  <testcase classname="src/example.cpp" name="line_length" time="0.001">
+    <failure message="Lines should be &lt;= 80 characters long" type="warning">
+src/example.cpp:15:  Lines should be &lt;= 80 characters long  [whitespace/line_length] [2]
+    </failure>
+  </testcase>
+  <testcase classname="src/example.cpp" name="include_order" time="0.001">
+    <failure message="Include order issue" type="warning">
+src/example.cpp:5:  #includes are not properly sorted  [build/include_order] [4]
+    </failure>
+  </testcase>
+  <testcase classname="src/another.cpp" name="syntax_check" time="0.001"/>
+</testsuite>

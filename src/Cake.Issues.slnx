@@ -86,6 +86,17 @@
     <File Path="../nuspec/nuget/Cake.Issues.InspectCode.md" />
     <File Path="../nuspec/nuget/Cake.Issues.InspectCode.nuspec" />
   </Folder>
+  <Folder Name="/Issue Provider/JUnit/">
+    <Project Path="Cake.Issues.JUnit.Tests/Cake.Issues.JUnit.Tests.csproj" />
+    <Project Path="Cake.Issues.JUnit/Cake.Issues.JUnit.csproj" />
+  </Folder>
+  <Folder Name="/Issue Provider/JUnit/NuGet/">
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.JUnit.md" />
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.JUnit.nuspec" />
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.JUnit.targets" />
+    <File Path="../nuspec/nuget/Cake.Issues.JUnit.md" />
+    <File Path="../nuspec/nuget/Cake.Issues.JUnit.nuspec" />
+  </Folder>
   <Folder Name="/Issue Provider/Markdownlint/">
     <Project Path="Cake.Issues.Markdownlint.Tests/Cake.Issues.Markdownlint.Tests.csproj" />
     <Project Path="Cake.Issues.Markdownlint/Cake.Issues.Markdownlint.csproj" />

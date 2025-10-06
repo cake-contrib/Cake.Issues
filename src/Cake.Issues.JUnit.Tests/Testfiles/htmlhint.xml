@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="HTMLHint Tests" time="0.006" tests="1" failures="1">
+    <testcase name="C:\temp\htmlhint\test.html" time="0.003">
+        <failure message="Found 6 errors"><![CDATA[L2 |<html>
+     ^ An lang attribute must be present on <html> elements. (html-lang-require)
+L16 |  <img src="image.jpg">
+           ^ An alt attribute must be present on <img> elements. (alt-require)
+L14 |
+     ^ <main> must be present in <body> tag. (main-require)
+L3 |
+    ^ <meta charset=""> must be present in <head> tag. (meta-charset-require)
+L3 |
+    ^ <meta name="description"> must be present in <head> tag. (meta-description-require)
+L3 |
+    ^ <meta name="viewport"> must be present in <head> tag. (meta-viewport-require)]]></failure>
+    </testcase>
+</testsuite>

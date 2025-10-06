@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite errors="1" failures="1" name="cpplint" tests="2">
+  <testcase name="errors">
+    <error>&amp;&lt;/error&gt;</error>
+  </testcase>
+  <testcase name="File1">
+    <failure>5: &amp;&lt;/failure&gt; [category/subcategory] [3]</failure>
+  </testcase>
+</testsuite>
