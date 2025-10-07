@@ -21,9 +21,9 @@ jobs:
       matrix:
         os: [
           windows-2022, windows-2025, 
-          ubuntu-22.04, ubuntu-24.04,
-          # Cake.Recipe currently does not support macOS 14 (M1)
-          macos-13]
+          ubuntu-22.04, ubuntu-24.04
+          # Cake.Recipe currently does not support macOS 14 or 15 (M1)
+          ]
     runs-on: ${{ matrix.os }}
     steps:
       - name: Get the sources
