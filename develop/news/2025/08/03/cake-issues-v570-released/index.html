@@ -6625,13 +6625,14 @@
 
   <h1>Cake Issues v5.7.0 Released</h1>
 
-<p>Cake Issues version 5.7.0 has been released bringing enhanced integration with GitHub for Cake Issues Recipe
-and support for ignoring files in Git Repository issue provider.</p>
+<p>Cake Issues version 5.7.0 has been released bringing enhanced integration with GitHub for Cake Issues
+Recipe and support for ignoring files in Git Repository issue provider.</p>
 <!-- more -->
 
 <p>This post shows the highlights included in this release.
 For update instructions skip to <a href="#updating-from-previous-versions">Updating from previous versions</a>.</p>
-<p>❤ Huge thanks to our community! This release would not have been possible without your support and contributions! ❤</p>
+<p>❤ Huge thanks to our community! This release would not have been possible without your support and
+contributions! ❤</p>
 <p>People working on this release:</p>
 <ul>
 <li><a href="https://github.com/christianbumann">christianbumann</a></li>
@@ -6641,6 +6642,7 @@ For update instructions skip to <a href="#updating-from-previous-versions">Updat
 <h2 id="possibility-to-ignore-files-in-git-repository-issue-provider">Possibility to ignore files in Git Repository issue provider<a class="headerlink" href="#possibility-to-ignore-files-in-git-repository-issue-provider" title="Permanent link">¶</a></h2>
 <p>The Git Repository issue provider comes with new settings which allow to ignore specific files.</p>
 <p>Files can be ignored for all or individual rules:</p>
+<!-- markdownlint-disable MD046 -->
 <div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="cake-net-tool" name="__tabbed_1" type="radio"><input id="cake-sdk" name="__tabbed_1" type="radio"><input id="cake-frosting" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="cake-net-tool">Cake .NET Tool</label><label for="cake-sdk">Cake SDK</label><label for="cake-frosting">Cake Frosting</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -6768,9 +6770,12 @@ For update instructions skip to <a href="#updating-from-previous-versions">Updat
 </div>
 </div>
 </div>
+<!-- markdownlint-restore -->
+
 <p>See <a href="../../../../../documentation/issue-providers/gitrepository/examples/excluding-files/">Excluding files with patterns</a> for details.</p>
 <h2 id="fixes-for-msbuild-binary-logs">Fixes for MsBuild binary logs<a class="headerlink" href="#fixes-for-msbuild-binary-logs" title="Permanent link">¶</a></h2>
-<p>Fixed an issue where an exception was thrown when a binary log contained a warning not related to any project.</p>
+<p>Fixed an issue where an exception was thrown when a binary log contained a warning not related to
+any project.</p>
 <h2 id="github-status-checks-in-cake-issues-recipe">GitHub status checks in Cake Issues Recipe<a class="headerlink" href="#github-status-checks-in-cake-issues-recipe" title="Permanent link">¶</a></h2>
 <p>Starting with version 5.7.0 Cake Issues Recipe will set GitHub status checks for all issue providers
 if <code>ShouldSetPullRequestStatus</code> is set to <code>true</code>.</p>

@@ -6661,12 +6661,14 @@
 
   <h1>Cake Issues v5.4.0 Released</h1>
 
-<p>Cake Issues version 5.4.0 has been released bringing improvements for build breaking and multiple issue providers.</p>
+<p>Cake Issues version 5.4.0 has been released bringing improvements for build breaking and multiple
+issue providers.</p>
 <!-- more -->
 
 <p>This post shows the highlights included in this release.
 For update instructions skip to <a href="#updating-from-previous-versions">Updating from previous versions</a>.</p>
-<p>❤ Huge thanks to our community! This release would not have been possible without your support and contributions! ❤</p>
+<p>❤ Huge thanks to our community! This release would not have been possible without your support and
+contributions! ❤</p>
 <p>People working on this release:</p>
 <ul>
 <li><a href="https://github.com/pascalberger">pascalberger</a></li>
@@ -6674,8 +6676,10 @@ For update instructions skip to <a href="#updating-from-previous-versions">Updat
 <h2 id="improvements-for-build-breaking">Improvements for build breaking<a class="headerlink" href="#improvements-for-build-breaking" title="Permanent link">¶</a></h2>
 <p>This version adds additional overloads to the <a href="https://cakebuild.net/extensions/cake-issues/#Build-Breaking">build breaking <abbr title="Aliases are convenience methods that are easily accessible directly from a Cake build">aliases</abbr></a> to support passing
 in an action which is called before the build is failed.</p>
-<p>The following example fails the build if issues with severity warning or higher are found, ignoring MsBuild issues.
+<p>The following example fails the build if issues with severity warning or higher are found, ignoring
+MsBuild issues.
 In case of the build failing the number of issues is printed:</p>
+<!-- markdownlint-disable MD046 -->
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="cake-net-tool" name="__tabbed_1" type="radio"><input id="cake-frosting" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="cake-net-tool">Cake .NET Tool</label><label for="cake-frosting">Cake Frosting</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -6706,11 +6710,14 @@ In case of the build failing the number of issues is printed:</p>
 </div>
 </div>
 </div>
+<!-- markdownlint-restore -->
+
 <h2 id="improvements-for-msbuild-issue-provider">Improvements for MsBuild issue provider<a class="headerlink" href="#improvements-for-msbuild-issue-provider" title="Permanent link">¶</a></h2>
 <p>Improvements have been made for providing rule URLs for issues reported by the MsBuild issue provider:</p>
 <ul>
 <li>For NET SDK analyzers code style rules (<code>IDE*</code>) URLs will be provided.</li>
-<li>.NET SDK analyzers code quality rules (<code>CA*</code>) will link directly to the rule page instead of starting a Google search</li>
+<li>.NET SDK analyzers code quality rules (<code>CA*</code>) will link directly to the rule page instead of
+  starting a Google search</li>
 </ul>
 <p>There is also a new <a href="../../../../../documentation/issue-providers/msbuild/examples/use-custom-url-resolver/">example for using custom URL resolver</a>.</p>
 <h2 id="improvements-for-sarif-issue-provider">Improvements for SARIF issue provider<a class="headerlink" href="#improvements-for-sarif-issue-provider" title="Permanent link">¶</a></h2>
@@ -6721,7 +6728,8 @@ In case of the build failing the number of issues is printed:</p>
 <li><code>StylelintLogFileFormat</code> for <a href="https://stylelint.io/user-guide/rules">rules shipped with stylelint</a></li>
 <li><code>TextlintLogFileFormat</code> for <a href="https://github.com/textlint/textlint/wiki/Collection-of-textlint-rule#rule-list">rules shipped with Textlint</a></li>
 </ul>
-<p>Starting with this version there also new <abbr title="Aliases are convenience methods that are easily accessible directly from a Cake build">aliases</abbr> for providing custom URL resolvers to support plugins or custom rules.</p>
+<p>Starting with this version there also new <abbr title="Aliases are convenience methods that are easily accessible directly from a Cake build">aliases</abbr> for providing custom URL resolvers to support
+plugins or custom rules.</p>
 <h2 id="documentation-updates">Documentation updates<a class="headerlink" href="#documentation-updates" title="Permanent link">¶</a></h2>
 <p>There is a new page describing the <a href="../../../../../documentation/how-cake-issues-works/pull-request-integration/">process to report issues to build servers and pull requests</a>,
 including the available customization options.</p>

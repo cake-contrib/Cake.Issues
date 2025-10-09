@@ -6549,33 +6549,39 @@ we're happy to announce release 1.0 of the recipe script for Cake.Issues.</p>
 
 <p>This post shows the highlights included in this release.
 For update instructions skip to <a href="#updating-from-previous-versions">Updating from previous versions</a>.</p>
-<p>❤ Huge thanks to our community! This release would not have been possible without your support and contributions! ❤</p>
+<p>❤ Huge thanks to our community! This release would not have been possible without your support and
+contributions! ❤</p>
 <p>People working on this release:</p>
 <ul>
 <li><a href="https://github.com/pascalberger">pascalberger</a></li>
 </ul>
 <h2 id="support-for-cake-10">Support for Cake 1.0<a class="headerlink" href="#support-for-cake-10" title="Permanent link">¶</a></h2>
-<p>Cake Issues recipe has been updated to use latest 1.x versions of the Cake.Issues <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr> which support Cake 1.x.</p>
+<p>Cake Issues recipe has been updated to use latest 1.x versions of the Cake.Issues <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr> which support
+Cake 1.x.</p>
 <p>See <a href="../../../07/28/cake-issues-v100-released/">announcement for release 1.0 of Cake.Issues <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr></a> for features added in the individual <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr>.</p>
 <h2 id="support-for-cake-frosting">Support for Cake Frosting<a class="headerlink" href="#support-for-cake-frosting" title="Permanent link">¶</a></h2>
-<p>Additionally to the existing <a href="https://www.nuget.org/packages/Cake.Issues.Recipe/">Cake.Issues.Recipe</a> package, which works fine for Cake script runners, there's a new
-<a href="https://www.nuget.org/packages/Cake.Frosting.Issues.Recipe/">Cake.Frosting.Issues.Recipe</a> package suitable for builds using <a href="https://cakebuild.net/docs/running-builds/runners/cake-frosting">Cake Frosting</a>.</p>
+<p>Additionally to the existing <a href="https://www.nuget.org/packages/Cake.Issues.Recipe/">Cake.Issues.Recipe</a> package, which works fine for Cake script runners,
+there's a new <a href="https://www.nuget.org/packages/Cake.Frosting.Issues.Recipe/">Cake.Frosting.Issues.Recipe</a> package suitable for builds using <a href="https://cakebuild.net/docs/running-builds/runners/cake-frosting">Cake Frosting</a>.</p>
 <p>See <a href="../../../../../documentation/usage/recipe/using-cake-frosting-issues-recipe/">Using Cake.Frosting.Issues.Recipe</a> for an example.</p>
 <h2 id="support-for-environments-not-compatible-with-cakegit-addin">Support for environments not compatible with Cake.Git addin<a class="headerlink" href="#support-for-environments-not-compatible-with-cakegit-addin" title="Permanent link">¶</a></h2>
 <p>In previous versions Cake.Issues recipes had used <a href="https://cakebuild.net/extensions/cake-git/">Cake.Git addin</a> to determine state of the Git repository.
-While this works in most cases, there are some environments where <a href="https://cakebuild.net/extensions/cake-git/">Cake.Git addin</a> currently does not work.</p>
+While this works in most cases, there are some environments where <a href="https://cakebuild.net/extensions/cake-git/">Cake.Git addin</a> currently does
+not work.</p>
 <p>Starting with this version it is now possible to define if <a href="https://cakebuild.net/extensions/cake-git/">Cake.Git addin</a> or Git CLI should be used.</p>
-<p>See <a href="../../../../../documentation/recipe/configuration/#git-repository-information">Git repository information configuration</a> for details.</p>
+<p>See <a href="../../../../../documentation/recipe/configuration/#git-repository-information">Git repository information configuration</a>
+for details.</p>
 <h2 id="define-settings-for-issue-providers">Define settings for issue providers<a class="headerlink" href="#define-settings-for-issue-providers" title="Permanent link">¶</a></h2>
-<p>Previous versions of Cake.Issues recipes used default settings for reading issues from the passed log files.
+<p>Previous versions of Cake.Issues recipes used default settings for reading issues from the passed
+log files.
 This made it impossible to parse log files which for example are created by tools running in containers,
 as they have a root path different to the repository root.</p>
-<p>This version introduced methods to pass log files to the recipe scripts, which additionally to the log file path
-accept a settings object.</p>
-<p>The new implementation also supports other use-cases like reading multiple files with the same issues provider,
-but different settings (e.g. run information).</p>
+<p>This version introduced methods to pass log files to the recipe scripts, which additionally to the
+log file path accept a settings object.</p>
+<p>The new implementation also supports other use-cases like reading multiple files with the same
+issues provider, but different settings (e.g. run information).</p>
 <h2 id="updating-from-previous-versions">Updating from previous versions<a class="headerlink" href="#updating-from-previous-versions" title="Permanent link">¶</a></h2>
-<p>Cake.Issues Recipes 1.0.0 is a breaking release, which means that it probably requires changes to your build script.
+<p>Cake.Issues Recipes 1.0.0 is a breaking release, which means that it probably requires changes to
+your build script.
 This section documents the most common changes which might be required:</p>
 <ul>
 <li>Properties for passing input files to the recipe scripts have been replaced by methods.
@@ -6584,7 +6590,8 @@ This section documents the most common changes which might be required:</p>
 </ul>
 <div class="language-csharp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">IssuesParameters</span><span class="p">.</span><span class="n">InputFiles</span><span class="p">.</span><span class="n">MsBuildXmlFileLoggerLogFilePath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">@"c:\build\msbuild.log"</span><span class="p">;</span>
 </span></code></pre></div>
-<p>With 1.0 the <code>IssuesParameters.InputFiles.AddMsBuildXmlFileLoggerLogFile()</code> method needs to be called instead:</p>
+<p>With 1.0 the <code>IssuesParameters.InputFiles.AddMsBuildXmlFileLoggerLogFile()</code> method needs to be
+  called instead:</p>
 <div class="language-csharp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">IssuesParameters</span><span class="p">.</span><span class="n">InputFiles</span><span class="p">.</span><span class="n">AddMsBuildXmlFileLoggerLogFile</span><span class="p">(</span><span class="s">@"c:\build\msbuild.log"</span><span class="p">);</span>
 </span></code></pre></div>
 <p>For details see <a href="https://github.com/cake-contrib/Cake.Issues.Recipe/releases/tag/1.0.0">full release notes</a></p>

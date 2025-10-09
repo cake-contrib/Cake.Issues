@@ -6584,12 +6584,14 @@
   <h1>Cake Issues v2.0.0 Released</h1>
 
 <p>After several months with beta releases Cake Issues version 2.0.0 has been released.
-This is a major release, containing breaking changes beside bringing new features and bug fixes across all <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr>.</p>
+This is a major release, containing breaking changes beside bringing new features and bug fixes
+across all <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr>.</p>
 <!-- more -->
 
 <p>This post shows the highlights included in this release.
 For update instructions skip to <a href="#updating-from-previous-versions">Updating from previous versions</a>.</p>
-<p>❤ Huge thanks to our community! This release would not have been possible without your support and contributions! ❤</p>
+<p>❤ Huge thanks to our community! This release would not have been possible without your support and
+contributions! ❤</p>
 <p>People working on this release:</p>
 <ul>
 <li><a href="https://github.com/eoehen">eoehen</a></li>
@@ -6605,17 +6607,22 @@ See <a href="https://cakebuild.net/blog/2021/10/sunsetting-runners">Sunsetting o
 <h2 id="support-for-msbuild-binary-logs-version-9">Support for MsBuild binary logs version 9<a class="headerlink" href="#support-for-msbuild-binary-logs-version-9" title="Permanent link">¶</a></h2>
 <p>Support for binary logs in version 9 has been added to <code>Cake.Issues.MsBuild</code>.</p>
 <h2 id="updating-from-previous-versions">Updating from previous versions<a class="headerlink" href="#updating-from-previous-versions" title="Permanent link">¶</a></h2>
-<p>Cake.Issues 2.0.0 is a breaking release, which means that it probably requires changes to your build script.
+<p>Cake.Issues 2.0.0 is a breaking release, which means that it probably requires changes to your build
+script.
 This section documents the most common changes which might be required:</p>
 <ul>
-<li>Cake.Issues</li>
+<li>Cake.Issues<ul>
 <li>Serialization format has been updated to version <code>5</code>.
-    Older version are still supported for deserialization.</li>
+  Older version are still supported for deserialization.</li>
 <li><code>ProviderIssueIssueLimits</code> has been renamed to <code>ProviderIssueLimits</code></li>
 <li><code>IIssue.Rule</code> has been renamed to <code>IIssue.RuleId</code></li>
 <li><code>IIssue</code> was extended with an additional <code>RuleName</code> property.</li>
-<li>Cake.Issues.MsBuild</li>
+</ul>
+</li>
+<li>Cake.Issues.MsBuild<ul>
 <li>MsBuild 15 or newer required for binary logs</li>
+</ul>
+</li>
 </ul>
 <p>For details see release notes of the individual <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr>:</p>
 <ul>

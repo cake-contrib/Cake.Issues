@@ -6617,7 +6617,8 @@
 
 <p>This post shows the highlights included in this release.
 For update instructions skip to <a href="#updating-from-previous-versions">Updating from previous versions</a>.</p>
-<p>❤ Huge thanks to our community! This release would not have been possible without your support and contributions! ❤</p>
+<p>❤ Huge thanks to our community! This release would not have been possible without your support and
+contributions! ❤</p>
 <p>People working on this release:</p>
 <ul>
 <li><a href="https://github.com/eoehen">eoehen</a></li>
@@ -6631,6 +6632,7 @@ Cake.Issues.Reporting.Generic addin.</p>
 <p>By default the report comes with a column chooser which allows to hide specific columns by users.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../2025-01-23-column-chooser.gif" data-desc-position="bottom"><img alt="Column chooser" src="../../../../2025-01-23-column-chooser.gif" title="Column chooser"></a></p>
 <p>Column chooser can be disabled through the <code>ShowColumnChooser</code> option:</p>
+<!-- markdownlint-disable MD046 -->
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="cake-net-tool" name="__tabbed_1" type="radio"><input id="cake-frosting" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="cake-net-tool">Cake .NET Tool</label><label for="cake-frosting">Cake Frosting</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -6678,11 +6680,14 @@ Cake.Issues.Reporting.Generic addin.</p>
 </div>
 </div>
 </div>
+<!-- markdownlint-restore -->
+
 <h3 id="infinite-scrolling">Infinite scrolling<a class="headerlink" href="#infinite-scrolling" title="Permanent link">¶</a></h3>
 <p>There is a new option which will result in a grid with infinite scrolling instead of multiple pages:</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../2025-01-23-infinite-scrolling.gif" data-desc-position="bottom"><img alt="Infinite scrolling" src="../../../../2025-01-23-infinite-scrolling.gif" title="Infinite scrolling"></a></p>
 <p>By default pager is used.
 To enable infinite scrolling the <code>DisplayMode</code> option needs to be set to <code>HtmlDxDataGridDisplayMode.InfiniteScroll</code>:</p>
+<!-- markdownlint-disable MD046 -->
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="cake-net-tool_1" name="__tabbed_2" type="radio"><input id="cake-frosting_1" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="cake-net-tool_1">Cake .NET Tool</label><label for="cake-frosting_1">Cake Frosting</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -6730,6 +6735,8 @@ To enable infinite scrolling the <code>DisplayMode</code> option needs to be set
 </div>
 </div>
 </div>
+<!-- markdownlint-restore -->
+
 <h3 id="fluent-themes">Fluent themes<a class="headerlink" href="#fluent-themes" title="Permanent link">¶</a></h3>
 <p>It is now possible to create reports using Fluent themes.</p>
 <div class="admonition note">
@@ -6739,9 +6746,12 @@ which require a commercial license.
 See <a href="../../../../../documentation/report-formats/generic/templates/htmldxdatagrid/#using-commercial-version">Using commercial version</a> for details.</p>
 </div>
 <h3 id="state-persistence">State persistence<a class="headerlink" href="#state-persistence" title="Permanent link">¶</a></h3>
-<p>Starting with this version, customizations made by the user are by default persisted and re-applied next time the report is shown.</p>
-<p>If multiple reports are created, or Cake Issues is used in multiple repositories, all reports share by default the same storage.
+<p>Starting with this version, customizations made by the user are by default persisted and re-applied
+next time the report is shown.</p>
+<p>If multiple reports are created, or Cake Issues is used in multiple repositories, all reports share
+by default the same storage.
 This can be changed per generated report using the <code>HtmlDxDataGridOption.StorageKey</code> option:</p>
+<!-- markdownlint-disable MD046 -->
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="cake-net-tool_2" name="__tabbed_3" type="radio"><input id="cake-frosting_2" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="cake-net-tool_2">Cake .NET Tool</label><label for="cake-frosting_2">Cake Frosting</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -6789,7 +6799,10 @@ This can be changed per generated report using the <code>HtmlDxDataGridOption.St
 </div>
 </div>
 </div>
+<!-- markdownlint-restore -->
+
 <p>Persistance can be disabled using the <code>HtmlDxDataGridOption.PersistState</code> option:</p>
+<!-- markdownlint-disable MD046 -->
 <div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="cake-net-tool_3" name="__tabbed_4" type="radio"><input id="cake-frosting_3" name="__tabbed_4" type="radio"><div class="tabbed-labels"><label for="cake-net-tool_3">Cake .NET Tool</label><label for="cake-frosting_3">Cake Frosting</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -6837,6 +6850,8 @@ This can be changed per generated report using the <code>HtmlDxDataGridOption.St
 </div>
 </div>
 </div>
+<!-- markdownlint-restore -->
+
 <h3 id="usability-improvements">Usability improvements<a class="headerlink" href="#usability-improvements" title="Permanent link">¶</a></h3>
 <p>Multiple changes have been made to improve usability:</p>
 <ul>
@@ -6845,7 +6860,8 @@ This can be changed per generated report using the <code>HtmlDxDataGridOption.St
   which meant that the user had to scroll down to see the pager to navigate through the grid.</li>
 <li>It is now possible to define the number of records shown on a single page.</li>
 <li>The width of the column adapts to the content.
-  Columns which contained whitespace before are now smaller, resulting in more space for columns containing more text.</li>
+  Columns which contained whitespace before are now smaller, resulting in more space for columns
+  containing more text.</li>
 <li>Word wrap has been enabled.
   If content of a cell was more than what fit into the cell, previously the text was truncated.
   Starting with this version, the whole text will be shown across multiple lines.</li>

@@ -6589,7 +6589,8 @@ These are minor releases containing improvements and bug fixes.</p>
 
 <p>This post shows the highlights included in this release.
 For update instructions skip to <a href="#updating-from-previous-versions">Updating from previous versions</a>.</p>
-<p>❤ Huge thanks to our community! This release would not have been possible without your support and contributions! ❤</p>
+<p>❤ Huge thanks to our community! This release would not have been possible without your support and
+contributions! ❤</p>
 <p>People working on this release:</p>
 <ul>
 <li><a href="https://github.com/christianbumann">christianbumann</a></li>
@@ -6598,18 +6599,25 @@ For update instructions skip to <a href="#updating-from-previous-versions">Updat
 <li><a href="https://github.com/jokay">jokay</a></li>
 </ul>
 <h2 id="easier-file-linking-for-manually-created-issues">Easier file linking for manually created issues<a class="headerlink" href="#easier-file-linking-for-manually-created-issues" title="Permanent link">¶</a></h2>
-<p>With 0.8.0 file links was implemented in Cake.Issues.Reporting.Generic and worked for any issues passed to the report.
+<p>With 0.8.0 file links was implemented in Cake.Issues.Reporting.Generic and worked for any issues
+passed to the report.
 With 0.9.0 <a href="../../../08/22/cake-issues-v090-released/#file-linking">file link infrastructure was moved to Cake.Issues</a>.
-File link settings can now be set while reading issues, and are passed through the <code>IIssue.FileLink</code> property to reports and pull request systems.</p>
-<p>While this solution works for issues read by an issue provider, where file link settings can be passed to the <code>ReadIssues</code> alias,
-it become much more complicated for issues created using the <code>NewIssue</code> alias, where an URL can be set, which needs to be resolved manually before.</p>
-<p>Cake.Issues 0.9.1 adds an <code>WithFileLinkSettings</code> method to <code>IIssueBuilder</code> where a file link setting object can be passed which does resolve the URL.</p>
+File link settings can now be set while reading issues, and are passed through the <code>IIssue.FileLink</code>
+property to reports and pull request systems.</p>
+<p>While this solution works for issues read by an issue provider, where file link settings can be
+passed to the <code>ReadIssues</code> alias, it become much more complicated for issues created using the
+<code>NewIssue</code> alias, where an URL can be set, which needs to be resolved manually before.</p>
+<p>Cake.Issues 0.9.1 adds an <code>WithFileLinkSettings</code> method to <code>IIssueBuilder</code> where a file link setting
+object can be passed which does resolve the URL.</p>
 <h2 id="line-range-and-column-support-in-azure-devops-pull-request-integration">Line range and column support in Azure DevOps pull request integration<a class="headerlink" href="#line-range-and-column-support-in-azure-devops-pull-request-integration" title="Permanent link">¶</a></h2>
 <p>Cake Issues 0.9.0 added support for line ranges and column information.
-With 0.9.0 the Azure DevOps pull request integration didn't use this information while posting comments to pull requests.
-Cake.Issues.PullRequests.AzureDevOps 0.9.1 fixes this and will post comments for line and column ranges if they are available on an issue.</p>
+With 0.9.0 the Azure DevOps pull request integration didn't use this information while posting
+comments to pull requests.
+Cake.Issues.PullRequests.AzureDevOps 0.9.1 fixes this and will post comments for line and column
+ranges if they are available on an issue.</p>
 <h2 id="updating-from-previous-versions">Updating from previous versions<a class="headerlink" href="#updating-from-previous-versions" title="Permanent link">¶</a></h2>
-<p>Cake.Issues and Cake.Issues.PullRequests.AzureDevOps 0.9.1 are compatible with version 0.9.0 without any breaking changes.
+<p>Cake.Issues and Cake.Issues.PullRequests.AzureDevOps 0.9.1 are compatible with version 0.9.0 without
+any breaking changes.
 To update to the new version bump the version of the specific <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr>.</p>
 <!-- Glossary for terms and concepts not documented on cakeissues.net -->
 

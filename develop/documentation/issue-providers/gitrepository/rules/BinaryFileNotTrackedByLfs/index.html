@@ -6559,9 +6559,12 @@
 <h2 id="cause">Cause<a class="headerlink" href="#cause" title="Permanent link">¶</a></h2>
 <p>A binary file in the repository is not tracked by <a href="https://git-lfs.github.com/">Git Large File Storage</a>.</p>
 <h2 id="rule-description">Rule description<a class="headerlink" href="#rule-description" title="Permanent link">¶</a></h2>
-<p>By its nature Git repositories cannot handle binary files well and will keep a full copy of that file in the repository every time a change to that file is committed.
-Considering that you always clone the full history of a repository, and not only the latest version, using binary files in a repository considerably slow downs the operation.
-<a href="https://git-lfs.github.com/">Git Large File Storage</a> replaces large files with small text pointers inside the Git repository, while storing the file contents on a remote server.</p>
+<p>By its nature Git repositories cannot handle binary files well and will keep a full copy of that file
+in the repository every time a change to that file is committed.
+Considering that you always clone the full history of a repository, and not only the latest version,
+using binary files in a repository considerably slow downs the operation.
+<a href="https://git-lfs.github.com/">Git Large File Storage</a> replaces large files with small text pointers
+inside the Git repository, while storing the file contents on a remote server.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>The rule assumes that all files, which are not text files are binary files.

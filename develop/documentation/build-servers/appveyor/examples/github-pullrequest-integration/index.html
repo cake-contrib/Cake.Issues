@@ -6438,10 +6438,10 @@
   <h1>GitHub Pull Request Integration</h1>
 
 <p>This example shows how to write AppVeyor messages created by Cake.Issues to GitHub pull requests.</p>
-<p>Issues reported as messages to AppVeyor builds can be written to a GitHub pull request using <a href="https://www.appveyor.com/docs/notifications/#github-pull-request">GitHub Pull Request Notification</a>
-in your <code>appveyor.yml</code> file.</p>
-<p>The following example will write a comment to the GitHub pull request containing all issues which were posted as message to the
-AppVeyor build:</p>
+<p>Issues reported as messages to AppVeyor builds can be written to a GitHub pull request using
+<a href="https://www.appveyor.com/docs/notifications/#github-pull-request">GitHub Pull Request Notification</a> in your <code>appveyor.yml</code> file.</p>
+<p>The following example will write a comment to the GitHub pull request containing all issues which
+were posted as message to the AppVeyor build:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>notifications:
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>- provider: GitHubPullRequest
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  template: "{{#passed}}:white_check_mark:{{/passed}}{{#failed}}:x:{{/failed}} [Build {{&amp;projectName}} {{buildVersion}} {{status}}]({{buildUrl}}) (commit {{commitUrl}} by @{{&amp;commitAuthorUsername}})&lt;p&gt;Build messages:&lt;/p&gt;&lt;ul&gt;{{#jobs}}{{#messages}}&lt;li&gt;{{message}}&lt;br/&gt;{{details}}&lt;/li&gt;{{/messages}}{{/jobs}}&lt;/ul&gt;"

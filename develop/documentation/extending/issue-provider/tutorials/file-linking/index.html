@@ -6437,9 +6437,10 @@
 
   <h1>File Links In Messages</h1>
 
-<p>Cake Issues provides infrastructure to <a href="../../../../usage/reading-issues/file-linking/">get links to files</a> on source code hosts like GitHub or Azure Repos.</p>
-<p>This infrastructure can also be used inside an issue providers <code>InternalReadIssues</code> method to generate file links
-which can be used inside the issue messages:</p>
+<p>Cake Issues provides infrastructure to <a href="../../../../usage/reading-issues/file-linking/">get links to files</a> on source code hosts like GitHub or
+Azure Repos.</p>
+<p>This infrastructure can also be used inside an issue providers <code>InternalReadIssues</code> method to
+generate file links which can be used inside the issue messages:</p>
 <div class="language-csharp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">protected</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="n">IEnumerable</span><span class="o">&lt;</span><span class="n">IIssue</span><span class="o">&gt;</span><span class="w"> </span><span class="n">InternalReadIssues</span><span class="p">()</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">{</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">IIssue</span><span class="o">&gt;</span><span class="p">();</span>

@@ -6519,12 +6519,13 @@
 <p>For cases where additional logic is required to determine the URL for a rule, the <code>Cake.Issue</code>
 addin provides the <a href="https://cakebuild.net/api/Cake.Issues/BaseRuleDescription/">BaseRuleDescription</a>
 and <a href="https://cakebuild.net/api/Cake.Issues/BaseRuleUrlResolver_1/">BaseRuleUrlResolver</a>
-classes for simplifying implementation of providing URLs linking to site providing information about issues.</p>
+classes for simplifying implementation of providing URLs linking to site providing information about
+issues.</p>
 <h2 id="implementing-ruleurlresolver">Implementing RuleUrlResolver<a class="headerlink" href="#implementing-ruleurlresolver" title="Permanent link">¶</a></h2>
 <p>In the issue provider a concrete class inheriting from <a href="https://cakebuild.net/api/Cake.Issues/BaseRuleDescription/">BaseRuleDescription</a>
 should be implemented containing all properties required to determine the URL to a rule.</p>
-<p>The following class adds two properties <code>Category</code> and <code>RuleId</code> to the description, to handle rules following a pattern like <code>ABC123</code>,
-where <code>ABC</code> is the <code>Category</code>, and <code>123</code> is the <code>RuleId</code>:</p>
+<p>The following class adds two properties <code>Category</code> and <code>RuleId</code> to the description, to handle rules
+following a pattern like <code>ABC123</code>, where <code>ABC</code> is the <code>Category</code>, and <code>123</code> is the <code>RuleId</code>:</p>
 <div class="language-csharp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">/// &lt;summary&gt;</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1">/// Class describing rules for my issue provider.</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1">/// &lt;/summary&gt;</span>
@@ -6546,7 +6547,9 @@ needs to be implemented containing an implementation of
 <a href="https://cakebuild.net/api/Cake.Issues/BaseRuleUrlResolver_1/D9DB5D44">TryGetRuleDescription</a>
 for parsing rule urls to the concrete <a href="https://cakebuild.net/api/Cake.Issues/BaseRuleDescription/">BaseRuleDescription</a>
 class.
-Additionally different resolvers need to be registered which return the actual URL based on the rule description.</p>
+Additionally different resolvers need to be registered which return the actual URL based on the rule
+description.</p>
+<!-- markdownlint-disable MD046 -->
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="parsing-rule" name="__tabbed_1" type="radio"><input id="resolver-registration" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="parsing-rule">Parsing rule</label><label for="resolver-registration">Resolver registration</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -6639,6 +6642,8 @@ Additionally different resolvers need to be registered which return the actual U
 </div>
 </div>
 </div>
+<!-- markdownlint-restore -->
+
 <p>To use the URL resolver the <a href="https://cakebuild.net/api/Cake.Issues/BaseRuleUrlResolver_1/6B23EC74">ResolveRuleUrl</a>
 method can be called from the issue provider:</p>
 <div class="language-csharp highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kt">var</span><span class="w"> </span><span class="n">resolver</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MyRuleUrlResolver</span><span class="p">();</span>
@@ -6648,6 +6653,7 @@ method can be called from the issue provider:</p>
 <p>The <a href="https://cakebuild.net/api/Cake.Issues/BaseRuleUrlResolver_1/AAA4FB20">AddUrlResolver</a>
 method can also be called from a Cake alias to allow users of the addin to register custom resolvers.
 For this the URL resolver class needs to be implemented as a singleton:</p>
+<!-- markdownlint-disable MD046 -->
 <div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="singleton" name="__tabbed_2" type="radio"><input id="parsing-rule_1" name="__tabbed_2" type="radio"><input id="resolver-registration_1" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="singleton">Singleton</label><label for="parsing-rule_1">Parsing rule</label><label for="resolver-registration_1">Resolver registration</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -6808,6 +6814,8 @@ For this the URL resolver class needs to be implemented as a singleton:</p>
 </div>
 </div>
 </div>
+<!-- markdownlint-restore -->
+
 <!-- Glossary for terms and concepts not documented on cakeissues.net -->
 
 

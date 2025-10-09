@@ -6543,19 +6543,24 @@ provides the following features.</p>
 <h2 id="basic-features">Basic features<a class="headerlink" href="#basic-features" title="Permanent link">¶</a></h2>
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked><span class="task-list-indicator"></span></label> Reads errors and warnings from MSBuild log files.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked><span class="task-list-indicator"></span></label> Provides URLs .NET SDK analyzers code quality rules (<code>CA*</code>), .NET SDK analyzers code style rules (<code>IDE*</code>), StyleCop analyzer rules (<code>SA*</code>), SonarLint rules (<code>S*</code>) and Roslynator rules (<code>RCS*</code>).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked><span class="task-list-indicator"></span></label> Provides URLs .NET SDK analyzers code quality rules (<code>CA*</code>), .NET SDK analyzers code style rules
+      (<code>IDE*</code>), StyleCop analyzer rules (<code>SA*</code>), SonarLint rules (<code>S*</code>) and Roslynator rules (<code>RCS*</code>).</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked><span class="task-list-indicator"></span></label> Support for <a href="../examples/use-custom-url-resolver/">custom URL resolving</a> using the <code>MsBuildAddRuleUrlResolver</code> alias.</li>
 </ul>
 <h2 id="supported-log-file-formats">Supported log file formats<a class="headerlink" href="#supported-log-file-formats" title="Permanent link">¶</a></h2>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked><span class="task-list-indicator"></span></label> <a href="https://cakebuild.net/api/Cake.Issues.MsBuild/MsBuildIssuesAliases/AD50C7E1">MsBuildBinaryLogFileFormat</a> alias for reading issues from binary log files.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked><span class="task-list-indicator"></span></label> <a href="https://cakebuild.net/api/Cake.Issues.MsBuild/MsBuildIssuesAliases/051D7B6E">MsBuildXmlFileLoggerFormat</a> alias for reading issues from log files created by <a href="https://github.com/mikefourie-zz/MSBuildExtensionPack/blob/master/Solutions/Main/Loggers/Framework/XmlFileLogger.cs">MSBuild Extension Pack XmlFileLogger</a>.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked><span class="task-list-indicator"></span></label> <a href="https://cakebuild.net/api/Cake.Issues.MsBuild/MsBuildIssuesAliases/AD50C7E1">MsBuildBinaryLogFileFormat</a>
+      alias for reading issues from binary log files.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked><span class="task-list-indicator"></span></label> <a href="https://cakebuild.net/api/Cake.Issues.MsBuild/MsBuildIssuesAliases/051D7B6E">MsBuildXmlFileLoggerFormat</a>
+      alias for reading issues from log files created by <a href="https://github.com/mikefourie-zz/MSBuildExtensionPack/blob/master/Solutions/Main/Loggers/Framework/XmlFileLogger.cs">MSBuild Extension Pack XmlFileLogger</a>.</li>
 </ul>
 <h2 id="supported-iissue-properties">Supported IIssue properties<a class="headerlink" href="#supported-iissue-properties" title="Permanent link">¶</a></h2>
+<!-- markdownlint-disable MD046 -->
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="msbuildbinarylogfileformat" name="__tabbed_1" type="radio"><input id="msbuildxmlfileloggerformat" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="msbuildbinarylogfileformat">MsBuildBinaryLogFileFormat</label><label for="msbuildxmlfileloggerformat">MsBuildXmlFileLoggerFormat</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="annotate" markdown>
+<p><!-- markdownlint-disable-next-line MD033 -->
+</p><div class="annotate" markdown><p></p>
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked><span class="task-list-indicator"></span></label> <code>IIssue.ProviderType</code></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked><span class="task-list-indicator"></span></label> <code>IIssue.ProviderName</code></li>
@@ -6582,11 +6587,14 @@ provides the following features.</p>
 <li>Can be set while reading issues</li>
 <li>Set to <code>IIssue.MessageText</code></li>
 <li>Can be set while reading issues</li>
-<li>For .NET SDK analyzers (<code>CA*</code>), StyleCop analyzer rules (<code>SA*</code>), SonarLint rules (<code>S*</code>) and Roslynator rules (<code>RCS*</code>). Support for additional rules can be added through a custom <a href="https://cakebuild.net/api/Cake.Issues.MsBuild/MsBuildIssuesAliases/93C21487">MsBuildAddRuleUrlResolver</a></li>
+<li>For .NET SDK analyzers code quality rules (<code>CA*</code>), .NET SDK analyzers code style rules (<code>IDE*</code>),
+   StyleCop analyzer rules (<code>SA*</code>), SonarLint rules (<code>S*</code>) and Roslynator rules (<code>RCS*</code>).
+   Support for additional rules can be added through a custom <a href="https://cakebuild.net/api/Cake.Issues.MsBuild/MsBuildIssuesAliases/93C21487">MsBuildAddRuleUrlResolver</a></li>
 </ol>
 </div>
 <div class="tabbed-block">
-<div class="annotate" markdown>
+<p><!-- markdownlint-disable-next-line MD033 -->
+</p><div class="annotate" markdown><p></p>
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked><span class="task-list-indicator"></span></label> <code>IIssue.ProviderType</code></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked><span class="task-list-indicator"></span></label> <code>IIssue.ProviderName</code></li>
@@ -6613,11 +6621,15 @@ provides the following features.</p>
 <li>Can be set while reading issues</li>
 <li>Set to <code>IIssue.MessageText</code></li>
 <li>Can be set while reading issues</li>
-<li>For .NET SDK analyzers code quality rules (<code>CA*</code>), .NET SDK analyzers code style rules (<code>IDE*</code>), StyleCop analyzer rules (<code>SA*</code>), SonarLint rules (<code>S*</code>) and Roslynator rules (<code>RCS*</code>). Support for additional rules can be added through a custom <a href="https://cakebuild.net/api/Cake.Issues.MsBuild/MsBuildIssuesAliases/93C21487">MsBuildAddRuleUrlResolver</a></li>
+<li>For .NET SDK analyzers code quality rules (<code>CA*</code>), .NET SDK analyzers code style rules (<code>IDE*</code>),
+   StyleCop analyzer rules (<code>SA*</code>), SonarLint rules (<code>S*</code>) and Roslynator rules (<code>RCS*</code>).
+   Support for additional rules can be added through a custom <a href="https://cakebuild.net/api/Cake.Issues.MsBuild/MsBuildIssuesAliases/93C21487">MsBuildAddRuleUrlResolver</a></li>
 </ol>
 </div>
 </div>
 </div>
+<!-- markdownlint-restore -->
+
 <!-- Glossary for terms and concepts not documented on cakeissues.net -->
 
 

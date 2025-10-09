@@ -6593,12 +6593,14 @@
   <h1>Cake Issues v3.0.0 Released</h1>
 
 <p>Cake Issues version 3.0.0 has been released.
-This is a major release, containing breaking changes beside bringing new features and bug fixes across all <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr>.</p>
+This is a major release, containing breaking changes beside bringing new features and bug fixes
+across all <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr>.</p>
 <!-- more -->
 
 <p>This post shows the highlights included in this release.
 For update instructions skip to <a href="#updating-from-previous-versions">Updating from previous versions</a>.</p>
-<p>❤ Huge thanks to our community! This release would not have been possible without your support and contributions! ❤</p>
+<p>❤ Huge thanks to our community! This release would not have been possible without your support and
+contributions! ❤</p>
 <p>People working on this release:</p>
 <ul>
 <li><a href="https://github.com/DiDoHH">DiDoHH</a></li>
@@ -6614,16 +6616,22 @@ For update instructions skip to <a href="#updating-from-previous-versions">Updat
 <p><code>Cake.Issues.MsBuild</code> now will automatically provide links for <a href="https://josefpihrt.github.io/docs/roslynator/">Roslynator</a> and <a href="https://www.sonarsource.com/products/sonarlint/">SonarLint</a> rules.
 Links for <code>CA</code> rules have updated to link to <code>learn.microsoft.com</code>.</p>
 <h2 id="updating-from-previous-versions">Updating from previous versions<a class="headerlink" href="#updating-from-previous-versions" title="Permanent link">¶</a></h2>
-<p>Cake.Issues 3.0.0 is a breaking release, which means that it probably requires changes to your build script.
+<p>Cake.Issues 3.0.0 is a breaking release, which means that it probably requires changes to your build
+script.
 This section documents the most common changes which might be required:</p>
 <ul>
-<li>Cake.Issues</li>
+<li>Cake.Issues<ul>
 <li><code>StringPathExtensions.IsValideRepositoryFilePath</code> has been renamed to <code>StringPathExtensions.IsValidRepositoryFilePath</code></li>
 <li><code>BaseRuleDescription.Rule</code> has been made immutable after initialization</li>
-<li>Cake.Issues.Recipe</li>
-<li>Since <a href="https://blog.jetbrains.com/dotnet/2021/08/12/sunsetting-dupfinder-command-line-tool/">Dupfinder has been sunsetted</a> end of 2021, out of the box support for it has been removed from Cake Issues Recipe
-    and <code>DupFinderLogFilePaths</code> is no longer available.
-    To keep using DupFinder you need to manually add <code>Cake.Issues.DupFinder</code> and add issues using the <code>AddIssues</code> method.</li>
+</ul>
+</li>
+<li>Cake.Issues.Recipe<ul>
+<li>Since <a href="https://blog.jetbrains.com/dotnet/2021/08/12/sunsetting-dupfinder-command-line-tool/">Dupfinder has been sunsetted</a> end of 2021, out of the box support for it has been
+  removed from Cake Issues Recipe and <code>DupFinderLogFilePaths</code> is no longer available.
+  To keep using DupFinder you need to manually add <code>Cake.Issues.DupFinder</code> and add issues using
+  the <code>AddIssues</code> method.</li>
+</ul>
+</li>
 </ul>
 <p>For details see release notes of the individual <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr>:</p>
 <ul>

@@ -6568,13 +6568,15 @@
 
   <h1>Cake.Frosting.Issues.Recipe</h1>
 
-<p>The <a href="../../../recipe/">Cake.Frosting.Issues.Recipe</a> package can be used to easily add issue management functionality to your Cake Frosting build.</p>
+<p>The <a href="../../../recipe/">Cake.Frosting.Issues.Recipe</a> package can be used to easily add issue management functionality
+to your Cake Frosting build.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>See <a href="https://cakebuild.net/docs/getting-started/setting-up-a-new-frosting-project">Setting Up A New Frosting Project</a> for instructions how to create a new Cake Frosting project.</p>
 </div>
 <h2 id="add-cakefrostingissuesrecipe-to-your-cake-frosting-build">Add Cake.Frosting.Issues.Recipe to your Cake Frosting build<a class="headerlink" href="#add-cakefrostingissuesrecipe-to-your-cake-frosting-build" title="Permanent link">¶</a></h2>
-<p>To use <a href="../../../recipe/">Cake.Frosting.Issues.Recipe</a> in your Cake Frosting build you need to first add the NuGet package in your <code>.csproj</code> file:</p>
+<p>To use <a href="../../../recipe/">Cake.Frosting.Issues.Recipe</a> in your Cake Frosting build you need to first add the NuGet
+package in your <code>.csproj</code> file:</p>
 <div class="language-csharp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="o">&lt;</span><span class="n">PackageReference</span><span class="w"> </span><span class="n">Include</span><span class="o">=</span><span class="s">"Cake.Frosting.Issues.Recipe"</span><span class="w"> </span><span class="n">Version</span><span class="o">=</span><span class="s">"5.9.1"</span><span class="w"> </span><span class="o">/&gt;</span>
 </span></code></pre></div>
 <h2 id="register-cakeissues-tasks">Register Cake.Issues tasks<a class="headerlink" href="#register-cakeissues-tasks" title="Permanent link">¶</a></h2>
@@ -6603,11 +6605,12 @@
 </span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="p">}</span>
 </span></code></pre></div>
 <h2 id="create-build-context">Create build context<a class="headerlink" href="#create-build-context" title="Permanent link">¶</a></h2>
-<p><a href="../../../recipe/">Cake.Frosting.Issues.Recipe</a> provides a build context from which you need to inherit your custom build context.
+<p><a href="../../../recipe/">Cake.Frosting.Issues.Recipe</a> provides a build context from which you need to inherit your custom
+build context.
 The build context contains configuration parameters, but also the state of the current running build,
 like for example all collected issues.</p>
-<p>The following example creates a build context and defines that Cake Issues should use Cake.Git addin to determine
-state of the Git repository:</p>
+<p>The following example creates a build context and defines that Cake Issues should use Cake.Git addin
+to determine state of the Git repository:</p>
 <div class="language-csharp highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">using</span><span class="w"> </span><span class="nn">Cake.Core</span><span class="p">;</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nf">BuildContext</span><span class="p">(</span><span class="n">ICakeContext</span><span class="w"> </span><span class="n">context</span><span class="p">)</span>
@@ -6616,9 +6619,11 @@ state of the Git repository:</p>
 </span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="p">}</span>
 </span></code></pre></div>
 <h2 id="passing-issues-to-cakefrostingissuesrecipe">Passing issues to Cake.Frosting.Issues.Recipe<a class="headerlink" href="#passing-issues-to-cakefrostingissuesrecipe" title="Permanent link">¶</a></h2>
-<p>To make issues available to <a href="../../../recipe/">Cake.Frosting.Issues.Recipe</a> you need pass the log files through the corresponding methods.
+<p>To make issues available to <a href="../../../recipe/">Cake.Frosting.Issues.Recipe</a> you need pass the log files through the
+corresponding methods.
 The tasks need to also be a dependency of <code>ReadIssuesTask</code> provided by <a href="../../../recipe/">Cake.Frosting.Issues.Recipe</a>.</p>
-<p>In the following example a new task is introduced which runs JetBrains InspectCode and passes the log file to <a href="../../../recipe/">Cake.Frosting.Issues.Recipe</a>:</p>
+<p>In the following example a new task is introduced which runs JetBrains InspectCode and passes the
+log file to <a href="../../../recipe/">Cake.Frosting.Issues.Recipe</a>:</p>
 <div class="language-csharp highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">using</span><span class="w"> </span><span class="nn">Cake.Common.IO</span><span class="p">;</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">using</span><span class="w"> </span><span class="nn">Cake.Common.Tools.InspectCode</span><span class="p">;</span>
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="k">using</span><span class="w"> </span><span class="nn">Cake.Frosting</span><span class="p">;</span>

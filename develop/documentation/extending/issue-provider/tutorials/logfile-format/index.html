@@ -6576,8 +6576,8 @@ needs to be implemented defining the concrete types.</p>
 </span></code></pre></div>
 <p>Also a concrete class inheriting from <a href="https://cakebuild.net/api/Cake.Issues/BaseMultiFormatIssueProviderSettings_2/">BaseMultiFormatIssueProviderSettings</a>
 needs to be implemented defining the concrete types.
-Based on the capabilities of the log file formats the appropriate constructors for reading from the file system
-or memory can be made public:</p>
+Based on the capabilities of the log file formats the appropriate constructors for reading from the
+file system or memory can be made public:</p>
 <div class="language-csharp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">/// &lt;summary&gt;</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1">/// Settings for my issue provider.</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1">/// &lt;/summary&gt;</span>
@@ -6624,7 +6624,8 @@ needs to be implemented defining the concrete types for the issue provider:</p>
 </span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="p">}</span>
 </span></code></pre></div>
 <h2 id="implementing-log-file-format">Implementing log file format<a class="headerlink" href="#implementing-log-file-format" title="Permanent link">¶</a></h2>
-<p>The different log file formats of an issue provider need to be inherited from the abstract log file format class:</p>
+<p>The different log file formats of an issue provider need to be inherited from the abstract log file
+format class:</p>
 <div class="language-csharp highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">/// &lt;summary&gt;</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="c1">/// Concrete log format.</span>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="c1">/// &lt;/summary&gt;</span>
@@ -6658,9 +6659,10 @@ needs to be implemented defining the concrete types for the issue provider:</p>
 <h2 id="aliases">Aliases<a class="headerlink" href="#aliases" title="Permanent link">¶</a></h2>
 <p>For each concrete log file format a Cake property alias should be provided.
 Additionally an alias for reading issues with a specific format should be provided.
-For convenience of the user and based on the capabilities of the issue provider additional <abbr title="Aliases are convenience methods that are easily accessible directly from a Cake build">aliases</abbr> for reading
-from the file system or from memory can be added.
+For convenience of the user and based on the capabilities of the issue provider additional <abbr title="Aliases are convenience methods that are easily accessible directly from a Cake build">aliases</abbr>
+for reading from the file system or from memory can be added.
 Finally an additional property alias for returning the provider type name should be defined.</p>
+<!-- markdownlint-disable MD046 -->
 <div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="alias-for-log-file-format" name="__tabbed_1" type="radio"><input id="alias-for-reading-issues" name="__tabbed_1" type="radio"><input id="additional-convenience-aliases" name="__tabbed_1" type="radio"><input id="alias-for-property-type-name" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="alias-for-log-file-format">Alias for log file format</label><label for="alias-for-reading-issues">Alias for reading issues</label><label for="additional-convenience-aliases">Additional convenience <abbr title="Aliases are convenience methods that are easily accessible directly from a Cake build">aliases</abbr></label><label for="alias-for-property-type-name">Alias for property type name</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -7265,6 +7267,8 @@ Finally an additional property alias for returning the provider type name should
 </div>
 </div>
 </div>
+<!-- markdownlint-restore -->
+
 <!-- Glossary for terms and concepts not documented on cakeissues.net -->
 
 
