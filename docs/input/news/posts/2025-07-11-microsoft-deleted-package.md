@@ -25,7 +25,7 @@ it not even mentions any CVE or related fixes.
 In contrast to what was written in the email it was also not fixed in [Microsoft.Identity.Client 4.72.1](https://www.nuget.org/packages/Microsoft.Identity.Client/4.72.1)
 based on the warning on nuget.org[^1].
 
-Beside that, it is not someting which can be directly fixed in `Cake.Frosting.Issues.PullRequests.AzureDevOps`,
+Beside that, it is not something which can be directly fixed in `Cake.Frosting.Issues.PullRequests.AzureDevOps`,
 since it is a transitive dependency through `Cake.AzureDevOps`.
 It is also not a real security issue, since no user of a build script will likely check XML comments
 from a transitive dependency and type them in a browser.
@@ -43,6 +43,6 @@ But for now `Cake.Frosting.Issues.PullRequests.AzureDevOps` 5.6.0 can't be used 
 Please stick with 5.5.0 in these cases.
 
 There is also an excellent [blog post by Aaron Stannard](https://aaronstannard.com/microsoft-delete-nuget-packages)
-about this incident and a [GithHub issue](https://github.com/NuGet/Home/discussions/14413).
+about this incident and a [GitHub issue](https://github.com/NuGet/Home/discussions/14413).
 
 [^1]: Seems like the deprecation of Microsoft.Identity.Client 4.72.1 was [another mistake](https://github.com/NuGet/Home/discussions/14413#discussioncomment-13737685), which has been reverted in the meantime.
