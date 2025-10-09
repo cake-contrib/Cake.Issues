@@ -56,14 +56,14 @@
       },
       "Verify.Xunit": {
         "type": "Direct",
-        "requested": "[30.20.1, )",
-        "resolved": "30.20.1",
-        "contentHash": "dW9MllW9e8+ddYgUgZL8S3CPz4EmDJ6xENDW7XpaYddKDto3o9W9h6xmH5cXRk7V9x6TC/ROo2/cNFpf95pJnA==",
+        "requested": "[31.0.0, )",
+        "resolved": "31.0.0",
+        "contentHash": "5jCNWFwX0tPKPdAkEv2TTXl5AyV9f47FPkXJMCH8d3yX2oWFCZ9mizN4G1DOJlqcfIBAQzkG7ucIAP+Ilfa5Hw==",
         "dependencies": {
           "Argon": "0.32.0",
           "DiffEngine": "16.7.1",
           "SimpleInfoName": "3.1.2",
-          "Verify": "30.20.1",
+          "Verify": "31.0.0",
           "xunit.abstractions": "2.0.3",
           "xunit.extensibility.execution": "2.9.3"
         }
@@ -225,8 +225,8 @@
       },
       "Verify": {
         "type": "Transitive",
-        "resolved": "30.20.1",
-        "contentHash": "AAaw1I09Za1y9dgb0HLpQbz6KSTv8rsfju1HV1+t6Y+mbtTYy//q5jV1ugR3vCkpIao4ggTDP9ADDA5jx+jm/w==",
+        "resolved": "31.0.0",
+        "contentHash": "DUHNqhjI0h/hA3UI5uVYIBJsOBjT6lxDAhjttA2u/dpOzA+NEXjBY2mcdhKPWfqy72zz1HdYVH0sVAVqDyZM6g==",
         "dependencies": {
           "Argon": "0.32.0",
           "DiffEngine": "16.7.1",
@@ -408,14 +408,14 @@
       },
       "Verify.Xunit": {
         "type": "Direct",
-        "requested": "[30.20.1, )",
-        "resolved": "30.20.1",
-        "contentHash": "dW9MllW9e8+ddYgUgZL8S3CPz4EmDJ6xENDW7XpaYddKDto3o9W9h6xmH5cXRk7V9x6TC/ROo2/cNFpf95pJnA==",
+        "requested": "[31.0.0, )",
+        "resolved": "31.0.0",
+        "contentHash": "5jCNWFwX0tPKPdAkEv2TTXl5AyV9f47FPkXJMCH8d3yX2oWFCZ9mizN4G1DOJlqcfIBAQzkG7ucIAP+Ilfa5Hw==",
         "dependencies": {
           "Argon": "0.32.0",
           "DiffEngine": "16.7.1",
           "SimpleInfoName": "3.1.2",
-          "Verify": "30.20.1",
+          "Verify": "31.0.0",
           "xunit.abstractions": "2.0.3",
           "xunit.extensibility.execution": "2.9.3"
         }
@@ -577,8 +577,8 @@
       },
       "Verify": {
         "type": "Transitive",
-        "resolved": "30.20.1",
-        "contentHash": "AAaw1I09Za1y9dgb0HLpQbz6KSTv8rsfju1HV1+t6Y+mbtTYy//q5jV1ugR3vCkpIao4ggTDP9ADDA5jx+jm/w==",
+        "resolved": "31.0.0",
+        "contentHash": "DUHNqhjI0h/hA3UI5uVYIBJsOBjT6lxDAhjttA2u/dpOzA+NEXjBY2mcdhKPWfqy72zz1HdYVH0sVAVqDyZM6g==",
         "dependencies": {
           "Argon": "0.32.0",
           "DiffEngine": "16.7.1",
