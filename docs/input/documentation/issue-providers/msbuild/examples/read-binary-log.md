@@ -6,6 +6,7 @@ icon: material/test-tube
 
 To read issues from MsBuild log files the MsBuild issue provider needs to be imported:
 
+<!-- markdownlint-disable MD046 -->
 === "Cake .NET Tool"
 
     ```csharp title="build.cake"
@@ -46,10 +47,13 @@ To read issues from MsBuild log files the MsBuild issue provider needs to be imp
       </ItemGroup>
     </Project>
     ```
+<!-- markdownlint-restore -->
 
-The following example contains a task which will call MsBuild to build the solution and write a binary log file
-and a task to read issues from the binary log file and write the number of warnings to the console:
+The following example contains a task which will call MsBuild to build the solution and write a
+binary log file and a task to read issues from the binary log file and write the number of warnings
+to the console:
 
+<!-- markdownlint-disable MD046 -->
 === "Cake .NET Tool"
 
     ```csharp title="build.cake"
@@ -183,11 +187,14 @@ and a task to read issues from the binary log file and write the number of warni
         }
     }
     ```
+<!-- markdownlint-restore -->
 
+<!-- markdownlint-disable MD046 -->
 !!! Tip
-    When using `MSBuildSettings.BinaryLogger` property to write a binary log, the version of the binary log format written
-    depends on the version of the .NET SDK.
+    When using `MSBuildSettings.BinaryLogger` property to write a binary log, the version of the
+    binary log format written depends on the version of the .NET SDK.
 
-    To avoid the risk of breaking builds when the .NET SDK is updated and introduces a new binary log format, which is not supported
-    in the used version of Cake.Issues.MsBuild, the binary logger instance shipped as part of Cake.Issues.MsBuild is
-    used in the above example.
+    To avoid the risk of breaking builds when the .NET SDK is updated and introduces a new binary log format,
+    which is not supported in the used version of Cake.Issues.MsBuild, the binary logger instance shipped
+    as part of Cake.Issues.MsBuild is used in the above example.
+<!-- markdownlint-restore -->

@@ -8,6 +8,7 @@ To call [DocFx](https://dotnet.github.io/docfx/) from a Cake script
 the [Cake.DocFx](https://cakebuild.net/extensions/cake-docfx/) addin can be used.
 To read issues from DocFx log files the DocFx issue provider needs to be imported:
 
+<!-- markdownlint-disable MD046 -->
 === "Cake .NET Tool"
 
     ```csharp title="build.cake"
@@ -51,10 +52,12 @@ To read issues from DocFx log files the DocFx issue provider needs to be importe
       </ItemGroup>
     </Project>
     ```
+<!-- markdownlint-restore -->
 
 The following example contains a task which will build the [DocFx](https://dotnet.github.io/docfx/)
 project and write a log file and a task to read issues from the log file and write the number of warnings to the console:
 
+<!-- markdownlint-disable MD046 -->
 === "Cake .NET Tool"
 
     ```csharp title="build.cake"
@@ -174,3 +177,4 @@ project and write a log file and a task to read issues from the log file and wri
         }
     }
     ```
+<!-- markdownlint-restore -->

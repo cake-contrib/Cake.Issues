@@ -13,6 +13,7 @@ which can be used inside your projects Cake build to add issue management.
 
 The addins can be added individually to any Cake build and allow advanced customizations:
 
+<!-- markdownlint-disable-next-line MD033 -->
 <div class="grid cards" markdown>
 
 * :material-creation-outline: [Creating Issues](creating-issues/creating-issues.md)

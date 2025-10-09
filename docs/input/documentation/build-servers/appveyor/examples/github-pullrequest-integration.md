@@ -6,11 +6,11 @@ render_macros: false
 
 This example shows how to write AppVeyor messages created by Cake.Issues to GitHub pull requests.
 
-Issues reported as messages to AppVeyor builds can be written to a GitHub pull request using [GitHub Pull Request Notification]
-in your `appveyor.yml` file.
+Issues reported as messages to AppVeyor builds can be written to a GitHub pull request using
+[GitHub Pull Request Notification] in your `appveyor.yml` file.
 
-The following example will write a comment to the GitHub pull request containing all issues which were posted as message to the
-AppVeyor build:
+The following example will write a comment to the GitHub pull request containing all issues which
+were posted as message to the AppVeyor build:
 
 ```yml
 notifications:

@@ -8,14 +8,16 @@ links:
 ---
 
 Cake Issues version 5.0.0 has been released.
-This is a major release, containing breaking changes beside bringing new features and bug fixes across all addins.
+This is a major release, containing breaking changes beside bringing new features and bug fixes
+across all addins.
 
 <!-- more -->
 
 This post shows the highlights included in this release.
 For update instructions skip to [Updating from previous versions](#updating-from-previous-versions).
 
-❤ Huge thanks to our community! This release would not have been possible without your support and contributions! ❤
+❤ Huge thanks to our community! This release would not have been possible without your support and
+contributions! ❤
 
 People working on this release:
 

@@ -14,7 +14,8 @@ Cake Issues version 4.2.0 has been released introducing a new issue provider for
 This post shows the highlights included in this release.
 For update instructions skip to [Updating from previous versions](#updating-from-previous-versions).
 
-❤ Huge thanks to our community! This release would not have been possible without your support and contributions! ❤
+❤ Huge thanks to our community! This release would not have been possible without your support and
+contributions! ❤
 
 People working on this release:
 
@@ -41,12 +42,13 @@ Optimized versions for Cake Frosting have been released for the following addins
 * [Cake.Frosting.Issues.PullRequests.AzureDevOps]
 * [Cake.Frosting.Issues.PullRequests.GitHubActions]
 
-These addins come with a dependency to the core addins, allowing the core addins to be consumed as transitive dependencies.
+These addins come with a dependency to the core addins, allowing the core addins to be consumed as
+transitive dependencies.
 
 ## Alignment of release lifecycle
 
-As announced in [Alignment of addin lifecycles](2024-01-14-align-addin-lifecycle.md) work as started to move
-addins into the main Cake Issues repository.
+As announced in [Alignment of addin lifecycles](2024-01-14-align-addin-lifecycle.md) work as started
+to move addins into the main Cake Issues repository.
 
 Starting with this release the following addins will be released together with the core addins:
 

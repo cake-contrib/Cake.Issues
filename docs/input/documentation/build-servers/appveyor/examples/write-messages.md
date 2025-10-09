@@ -6,6 +6,7 @@ description: Example how to write issues as messages to an AppVeyor build.
 To report issues as messages to an AppVeyor build, the AppVeyor addin needs to be imported.
 For this example the JetBrains InspectCode issue provider is additionally used for reading issues:
 
+<!-- markdownlint-disable MD046 -->
 === "Cake .NET Tool"
 
     ```csharp title="build.cake"
@@ -50,10 +51,13 @@ For this example the JetBrains InspectCode issue provider is additionally used f
       </ItemGroup>
     </Project>
     ```
+<!-- markdownlint-restore -->
 
 This example shows how to report issues as messages to an AppVeyor build using the
-[AppVeyorBuilds](https://cakebuild.net/api/Cake.Issues.PullRequests.AppVeyor/AppVeyorBuildsAliases/) alias:
+[AppVeyorBuilds](https://cakebuild.net/api/Cake.Issues.PullRequests.AppVeyor/AppVeyorBuildsAliases/)
+alias:
 
+<!-- markdownlint-disable MD046 -->
 === "Cake .NET Tool"
 
     ```csharp title="build.cake"
@@ -114,6 +118,7 @@ This example shows how to report issues as messages to an AppVeyor build using t
         }
     }
     ```
+<!-- markdownlint-restore -->
 
 The output will look similar to this:
 

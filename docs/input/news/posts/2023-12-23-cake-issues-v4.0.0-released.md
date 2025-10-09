@@ -8,14 +8,16 @@ links:
 ---
 
 Cake Issues version 4.0.0 has been released.
-This is a major release, containing breaking changes beside bringing new features and bug fixes across all addins.
+This is a major release, containing breaking changes beside bringing new features and bug fixes across
+all addins.
 
 <!-- more -->
 
 This post shows the highlights included in this release.
 For update instructions skip to [Updating from previous versions](#updating-from-previous-versions).
 
-❤ Huge thanks to our community! This release would not have been possible without your support and contributions! ❤
+❤ Huge thanks to our community! This release would not have been possible without your support and
+contributions! ❤
 
 People working on this release:
 
@@ -36,7 +38,7 @@ The change should not have any impact for users.
 
 ## Updating from previous versions
 
-While Cake.Issues 4.0.0 is a breaking release, there are no breaking changes beside the update to Cake 4.x and
-the changes to target framework version.
+While Cake.Issues 4.0.0 is a breaking release, there are no breaking changes beside the update to
+Cake 4.x and the changes to target framework version.
 
 For details see [release notes](https://github.com/cake-contrib/Cake.Issues/releases/tag/4.0.0)

@@ -6,6 +6,7 @@ icon: material/test-tube
 
 To analyze Git repositories you need to import the Git repository issue provider:
 
+<!-- markdownlint-disable MD046 -->
 === "Cake .NET Tool"
 
     ```csharp title="build.cake"
@@ -46,6 +47,7 @@ To analyze Git repositories you need to import the Git repository issue provider
       </ItemGroup>
     </Project>
     ```
+<!-- markdownlint-restore -->
 
 The following example prints the number of binary files which are not tracked by
 [Git Large File Storage](https://git-lfs.github.com/) in a repository.
@@ -54,6 +56,7 @@ The following example prints the number of binary files which are not tracked by
     Checking binary files requires Git and [Git Large File Storage](https://git-lfs.github.com/)
     available on the local machine.
 
+<!-- markdownlint-disable MD046 -->
 === "Cake .NET Tool"
 
     ```csharp title="build.cake"
@@ -137,3 +140,4 @@ The following example prints the number of binary files which are not tracked by
         }
     }
     ```
+<!-- markdownlint-restore -->

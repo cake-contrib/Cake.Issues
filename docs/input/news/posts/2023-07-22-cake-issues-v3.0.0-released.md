@@ -9,14 +9,16 @@ links:
 ---
 
 Cake Issues version 3.0.0 has been released.
-This is a major release, containing breaking changes beside bringing new features and bug fixes across all addins.
+This is a major release, containing breaking changes beside bringing new features and bug fixes
+across all addins.
 
 <!-- more -->
 
 This post shows the highlights included in this release.
 For update instructions skip to [Updating from previous versions](#updating-from-previous-versions).
 
-❤ Huge thanks to our community! This release would not have been possible without your support and contributions! ❤
+❤ Huge thanks to our community! This release would not have been possible without your support and
+contributions! ❤
 
 People working on this release:
 
@@ -41,16 +43,18 @@ Links for `CA` rules have updated to link to `learn.microsoft.com`.
 
 ## Updating from previous versions
 
-Cake.Issues 3.0.0 is a breaking release, which means that it probably requires changes to your build script.
+Cake.Issues 3.0.0 is a breaking release, which means that it probably requires changes to your build
+script.
 This section documents the most common changes which might be required:
 
 * Cake.Issues
-  * `StringPathExtensions.IsValideRepositoryFilePath` has been renamed to `StringPathExtensions.IsValidRepositoryFilePath`
-  * `BaseRuleDescription.Rule` has been made immutable after initialization
+    * `StringPathExtensions.IsValideRepositoryFilePath` has been renamed to `StringPathExtensions.IsValidRepositoryFilePath`
+    * `BaseRuleDescription.Rule` has been made immutable after initialization
 * Cake.Issues.Recipe
-  * Since [Dupfinder has been sunsetted] end of 2021, out of the box support for it has been removed from Cake Issues Recipe
-    and `DupFinderLogFilePaths` is no longer available.
-    To keep using DupFinder you need to manually add `Cake.Issues.DupFinder` and add issues using the `AddIssues` method.
+    * Since [Dupfinder has been sunsetted] end of 2021, out of the box support for it has been
+      removed from Cake Issues Recipe and `DupFinderLogFilePaths` is no longer available.
+      To keep using DupFinder you need to manually add `Cake.Issues.DupFinder` and add issues using
+      the `AddIssues` method.
 
 For details see release notes of the individual addins:
 

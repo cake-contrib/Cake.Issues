@@ -16,7 +16,8 @@ This is a major release bringing a lot of new features across all addins.
 This post shows the highlights included in this release.
 For update instructions skip to [Updating from previous versions](#updating-from-previous-versions).
 
-❤ Huge thanks to our community! This release would not have been possible without your support and contributions! ❤
+❤ Huge thanks to our community! This release would not have been possible without your support and
+contributions! ❤
 
 People working on this release:
 
@@ -34,17 +35,23 @@ All addins have been updated to support Cake 1.x.
 
 All addins can be used with [Cake Frosting].
 
-Cake Issues addins have always been self-contained, shipping with all required dependencies, to provide the best user experience.
-While this approach makes sense for Cake script runners, it makes things more complex than required when running under [Cake Frosting].
-This is especially true for the [Cake.Issues.Reporting.Generic addin], which uses Razor engine to generate the reports.
+Cake Issues addins have always been self-contained, shipping with all required dependencies,
+to provide the best user experience.
+While this approach makes sense for Cake script runners, it makes things more complex than required
+when running under [Cake Frosting].
+This is especially true for the [Cake.Issues.Reporting.Generic addin], which uses Razor engine to
+generate the reports.
 
-It was therefore decided to release separate versions of the Cake.Issues.Reporting.Generic addin for the different script runners:
+It was therefore decided to release separate versions of the Cake.Issues.Reporting.Generic addin for
+the different script runners:
 
-* [Cake.Issues.Reporting.Generic]: The addin packaged in a self-contained NuGet package for use with Cake script runners
-* [Cake.Frosting.Issues.Reporting.Generic]: The addin packaged in a NuGet package containing dependencies for use with [Cake Frosting]
+* [Cake.Issues.Reporting.Generic]: The addin packaged in a self-contained NuGet package for use with
+  Cake script runners
+* [Cake.Frosting.Issues.Reporting.Generic]: The addin packaged in a NuGet package containing
+  dependencies for use with [Cake Frosting]
 
-[Cake.Frosting.Issues.Reporting.Generic] has the additional benefit for the user that it gives the user full control
-of what exact version of dependencies should be used.
+[Cake.Frosting.Issues.Reporting.Generic] has the additional benefit for the user that it gives the
+user full control of what exact version of dependencies should be used.
 In the future more Cake Issues addins might be released in Frosting specific packages.
 
 [Cake Frosting]: https://cakebuild.net/docs/running-builds/runners/cake-frosting
@@ -59,15 +66,16 @@ These kind of information can now be stored in the `IIssue.AdditionalInformation
 
 ## New provider type property
 
-While there are aliases to get provider type name (e.g. [MsBuildIssuesProviderTypeName]), this information was in previous versions
-not available through the `IIssueProvider` interface.
+While there are aliases to get provider type name (e.g. [MsBuildIssuesProviderTypeName]), this
+information was in previous versions not available through the `IIssueProvider` interface.
 There is a new `IIssueProvider.ProviderType` property which can be used to retrieve the provider type.
 
 [MsBuildIssuesProviderTypeName]: https://cakebuild.net/api/Cake.Issues.MsBuild/MsBuildIssuesAliases/0A221402
 
 ## PDF export
 
-A new PDF export has been added to the `HtmlDxDataGrid` template of the `Cake.Issues.Reporting.Generic` addin.
+A new PDF export has been added to the `HtmlDxDataGrid` template of the `Cake.Issues.Reporting.Generic`
+addin.
 
 ## Simplified release process
 
@@ -81,15 +89,16 @@ Please open any issues related to any of the core addins in the [Cake.Issues iss
 
 ## Updating from previous versions
 
-Cake.Issues 1.0.0 is a breaking release, which means that it probably requires changes to your build script.
+Cake.Issues 1.0.0 is a breaking release, which means that it probably requires changes to your build
+script.
 This section documents the most common changes which might be required:
 
 * Cake.Issues
-  * Serialization format has been updated to version 4.
-    Older version are still supported for deserialization.
-  * `IIssueProvider` was extended with an additional `ProviderType` property.
-    For issue providers inheriting from `BaseIssueProvider` no action is required to keep the same behavior
-    as with previous versions, with the type name used as provider type.
+    * Serialization format has been updated to version 4.
+      Older version are still supported for deserialization.
+    * `IIssueProvider` was extended with an additional `ProviderType` property.
+      For issue providers inheriting from `BaseIssueProvider` no action is required to keep the same
+      behavior as with previous versions, with the type name used as provider type.
 
 !!! info
     Cake.Recipe has not been updated to 1.0 yet.

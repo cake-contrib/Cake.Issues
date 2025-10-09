@@ -6,15 +6,20 @@ description: Usage instructions how to apply custom filters to issues.
 The [IssueFilters setting property] allows to define custom filters which are applied to issues
 before they are posted as comments to pull requests.
 
+<!-- markdownlint-disable MD046 -->
 ??? tip "Tip: Filter to issues introduced with pull request"
-    You can use a custom filter to only have issues introduced with the current code posted to the pull request.
+    You can use a custom filter to only have issues introduced with the current code posted to the
+    pull request.
 
     For this you need to store your log files as artifacts on your build system, then you can define a custom filter
     which retrieves the logs from the previous build, parses them using the appropriate issue provider and filters
     out any issues which were already existing in the previous build.
+<!-- markdownlint-restore -->
 
-The following example will filter out all issues from the rule `CA1000` from being posted to the pull request.
+The following example will filter out all issues from the rule `CA1000` from being posted to the
+pull request.
 
+<!-- markdownlint-disable MD046 -->
 === "Cake .NET Tool"
 
     ```csharp title="build.cake"
@@ -142,5 +147,6 @@ The following example will filter out all issues from the rule `CA1000` from bei
         }
     }
     ```
+<!-- markdownlint-restore -->
 
 [IssueFilters Setting Property]: https://cakebuild.net/api/Cake.Issues.PullRequests/IReportIssuesToPullRequestSettings/48CB35E4

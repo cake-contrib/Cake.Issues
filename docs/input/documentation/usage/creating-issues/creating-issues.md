@@ -11,6 +11,7 @@ This issues can for example be used to create reports.
 
 To create issues you need to import the following core addin:
 
+<!-- markdownlint-disable MD046 -->
 === "Cake .NET Tool"
 
     ```csharp title="build.cake"
@@ -47,9 +48,11 @@ To create issues you need to import the following core addin:
       </ItemGroup>
     </Project>
     ```
+<!-- markdownlint-restore -->
 
 In the following task a new warning for the myfile.txt file on line 42 is created:
 
+<!-- markdownlint-disable MD046 -->
 === "Cake .NET Tool"
 
     ```csharp title="build.cake"
@@ -131,3 +134,4 @@ In the following task a new warning for the myfile.txt file on line 42 is create
         }
     }
     ```
+<!-- markdownlint-restore -->

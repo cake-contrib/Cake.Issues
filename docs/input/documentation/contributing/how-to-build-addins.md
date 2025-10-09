@@ -9,6 +9,7 @@ Ensure the following prerequisites are fulfilled:
 
 To build the addins and run unit tests [Cake] is used:
 
+<!-- markdownlint-disable MD046 -->
 === ":material-microsoft-windows: Windows"
 
     ```powershell
@@ -26,6 +27,7 @@ To build the addins and run unit tests [Cake] is used:
     ```bash
     ./build.sh
     ```
+<!-- markdownlint-restore -->
 
 To run only part of the build a task can be passed using the `--target=<TASK>` syntax:
 

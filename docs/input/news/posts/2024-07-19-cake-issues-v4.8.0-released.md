@@ -14,7 +14,8 @@ Cake Issues version 4.8.0 has been released with improvements for SARIF issue pr
 This post shows the highlights included in this release.
 For update instructions skip to [Updating from previous versions](#updating-from-previous-versions).
 
-❤ Huge thanks to our community! This release would not have been possible without your support and contributions! ❤
+❤ Huge thanks to our community! This release would not have been possible without your support and
+contributions! ❤
 
 People working on this release:
 
@@ -22,15 +23,17 @@ People working on this release:
 
 ## Improvements for SARIF issue provider
 
-In previous releases the SARIF issue provider used the tool name defined in the SARIF file for a specific run as issue provider.
+In previous releases the SARIF issue provider used the tool name defined in the SARIF file for a
+specific run as issue provider.
 This has the advantage that if multiple SARIF files from different sources are read,
 every issue has a different issue provider name, which reflects the original tool.
 
-But it can also have side-effect, for example that different states are reported to pull request depending if run is successful or not
-(see [cake-contrib/Cake.Issues.Recipe#477]), because the actual issue provider name is only known once there are issues reported.
+But it can also have side-effect, for example that different states are reported to pull request
+depending if run is successful or not (see [cake-contrib/Cake.Issues.Recipe#477]), because the actual
+issue provider name is only known once there are issues reported.
 
-This release introduces a new option [SarifIssuesSettings.UseToolNameAsIssueProviderName] to define whether the tool name reported
-in the SARIF log or a fixed value should be used as issue provider name.
+This release introduces a new option [SarifIssuesSettings.UseToolNameAsIssueProviderName] to define
+whether the tool name reported in the SARIF log or a fixed value should be used as issue provider name.
 
 ## Updating from previous versions
 

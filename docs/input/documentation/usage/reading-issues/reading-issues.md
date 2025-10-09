@@ -16,6 +16,7 @@ and from JetBrains InspectCode are imported:
 ??? tip "Example for other tools"
     For examples for issue providers for reading issues form other tools see [Issue Provider Examples](../../issue-providers/index.md).
 
+<!-- markdownlint-disable MD046 -->
 === "Cake .NET Tool"
 
     ```csharp title="build.cake"
@@ -59,11 +60,13 @@ and from JetBrains InspectCode are imported:
       </ItemGroup>
     </Project>
     ```
+<!-- markdownlint-restore -->
 
 Afterwards you can define a task where you call the core addin with the desired issue providers.
 The following example reads warnings and errors reported by MsBuild from a binary log
 and issues reported by JetBrains InspectCode:
 
+<!-- markdownlint-disable MD046 -->
 === "Cake .NET Tool"
 
     ```csharp title="build.cake"
@@ -143,3 +146,4 @@ and issues reported by JetBrains InspectCode:
         }
     }
     ```
+<!-- markdownlint-restore -->

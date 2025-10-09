@@ -6,6 +6,7 @@ icon: material/test-tube
 
 To read issues from InspectCode log files the InspectCode issue provider needs to be imported:
 
+<!-- markdownlint-disable MD046 -->
 === "Cake .NET Tool"
 
     ```csharp title="build.cake"
@@ -46,11 +47,13 @@ To read issues from InspectCode log files the InspectCode issue provider needs t
       </ItemGroup>
     </Project>
     ```
+<!-- markdownlint-restore -->
 
 The following example contains a task which will run [JetBrains InspectCode]
-and write a log file and a task to read issues from the log file and write the number of warnings to the console.
-[JetBrains InspectCode] is installed using `JetBrains.ReSharper.CommandLineTools`:
+and write a log file and a task to read issues from the log file and write the number of warnings
+to the console. [JetBrains InspectCode] is installed using `JetBrains.ReSharper.CommandLineTools`:
 
+<!-- markdownlint-disable MD046 -->
 === "Cake .NET Tool"
 
     ```csharp title="build.cake"
@@ -179,5 +182,6 @@ and write a log file and a task to read issues from the log file and write the n
         }
     }
     ```
+<!-- markdownlint-restore -->
 
 [JetBrains InspectCode]: https://www.jetbrains.com/help/resharper/InspectCode.html

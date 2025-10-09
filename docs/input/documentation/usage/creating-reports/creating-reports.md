@@ -15,6 +15,7 @@ and generic report format is imported:
 ??? tip "Example for other report formats"
     For examples for other formats see [Report Format Examples](../../report-formats/index.md).
 
+<!-- markdownlint-disable MD046 -->
 === "Cake .NET Tool"
 
     ```csharp title="build.cake"
@@ -59,8 +60,12 @@ and generic report format is imported:
       </ItemGroup>
     </Project>
     ```
-Afterwards you can define a task where you call the reporting addin with the desired issue provider and report format:
+<!-- markdownlint-restore -->
 
+Afterwards you can define a task where you call the reporting addin with the desired issue provider
+and report format:
+
+<!-- markdownlint-disable MD046 -->
 === "Cake .NET Tool"
 
     ```csharp title="build.cake"
@@ -127,3 +132,4 @@ Afterwards you can define a task where you call the reporting addin with the des
         }
     }
     ```
+<!-- markdownlint-restore -->

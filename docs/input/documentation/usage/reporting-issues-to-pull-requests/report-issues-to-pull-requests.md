@@ -15,6 +15,7 @@ and support for Azure DevOps pull requests is imported:
 ??? tip "Example for other build server and pull request systems"
     For examples for other build server and pull request systems see [Pull Request System Examples](../../pull-request-systems/index.md).
 
+<!-- markdownlint-disable MD046 -->
 === "Cake .NET Tool"
 
     ```csharp title="build.cake"
@@ -59,9 +60,12 @@ and support for Azure DevOps pull requests is imported:
       </ItemGroup>
     </Project>
     ```
+<!-- markdownlint-restore -->
 
-Afterwards you can define a task where you call the core addin with the desired issue provider and pull request system:
+Afterwards you can define a task where you call the core addin with the desired issue provider and
+pull request system:
 
+<!-- markdownlint-disable MD046 -->
 === "Cake .NET Tool"
 
     ```csharp title="build.cake"
@@ -122,4 +126,4 @@ Afterwards you can define a task where you call the core addin with the desired 
         }
     }
     ```
-
+<!-- markdownlint-restore -->

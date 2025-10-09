@@ -13,6 +13,7 @@ individual issues could not be assigned to any of the calls, since issue provide
 Starting with [Cake.Issues 0.9.0] it is possible to pass additional run information while reading issues,
 which then will be stored with each issues in the `IIssue.Run` property:
 
+<!-- markdownlint-disable MD046 -->
 === "Cake .NET Tool"
 
     ```csharp
@@ -108,6 +109,7 @@ which then will be stored with each issues in the `IIssue.Run` property:
         )
     );
     ```
+<!-- markdownlint-restore -->
 
 [SARIF]: ../../issue-providers/sarif/index.md
 [Test Anything Protocol]: ../../issue-providers/tap/index.md
