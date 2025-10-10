@@ -29,7 +29,7 @@ People working on this release:
 
 ## Improvements for HTML reports
 
-The PDF export functionallity in the [HtmlDxDataGrid template] has been updated to use [jsPDF 3.0.0]
+The PDF export functionality in the [HtmlDxDataGrid template] has been updated to use [jsPDF 3.0.0]
 and [jsPDF-AutoTable 5.0.0] by default.
 
 ## Updating from previous versions
