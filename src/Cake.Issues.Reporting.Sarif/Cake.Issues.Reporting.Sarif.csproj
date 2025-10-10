@@ -9,8 +9,6 @@
 
   <ItemGroup>
     <PackageReference Include="Sarif.Sdk" />
-    <!--Transitive dependencies specified explicitly to fix security vulnerabilities-->
-    <PackageReference Include="Newtonsoft.Json" />
   </ItemGroup>
 
   <ItemGroup>
