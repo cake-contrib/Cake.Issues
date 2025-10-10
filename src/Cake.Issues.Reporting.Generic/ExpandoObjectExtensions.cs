@@ -3,7 +3,7 @@
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Linq;
-using LitJson;
+using System.Text.Json;
 
 /// <summary>
 /// Extension for <see cref="ExpandoObject"/>.
@@ -20,8 +20,8 @@ public static class ExpandoObjectExtensions
         expandoObject.NotNull();
 
         return
-            JsonMapper
-                .ToJson(new Dictionary<string, object>(expandoObject));
+            JsonSerializer
+                .Serialize(new Dictionary<string, object>(expandoObject));
     }
 
     /// <summary>
@@ -34,8 +34,8 @@ public static class ExpandoObjectExtensions
         expandoObjects.NotNull();
 
         return
-            JsonMapper
-                .ToJson(
+            JsonSerializer
+                .Serialize(
                     expandoObjects
                         .Select(x => new Dictionary<string, object>(x))
                         .ToArray());
