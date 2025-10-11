@@ -117,4 +117,14 @@ public enum IIssueProperty
     /// <see cref="IIssue.AdditionalInformation"/> property.
     /// </summary>
     AdditionalInformation = 1048576,
+
+    /// <summary>
+    /// <see cref="IIssue.Snippet"/> property.
+    /// </summary>
+    Snippet = 2097152,
+
+    /// <summary>
+    /// <see cref="IIssue.SourceLanguage"/> property.
+    /// </summary>
+    SourceLanguage = 4194304,
 }

@@ -133,6 +133,7 @@ public static class IssueDeserializationExtensions
                 3 => JsonSerializer.Deserialize<SerializableIssueV3>(data.ToJsonString()).ToIssue(),
                 4 => JsonSerializer.Deserialize<SerializableIssueV4>(data.ToJsonString()).ToIssue(),
                 5 => JsonSerializer.Deserialize<SerializableIssueV5>(data.ToJsonString()).ToIssue(),
+                6 => JsonSerializer.Deserialize<SerializableIssueV6>(data.ToJsonString()).ToIssue(),
                 _ => throw new Exception($"Not supported issue serialization format {version}"),
             };
         }

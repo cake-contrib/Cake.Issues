@@ -31,6 +31,8 @@ internal class IssueCheckerFixture : IssueBuilderFixture
         this.RuleName = "RuleName";
         this.RuleUrl = new Uri("https://google.com");
         this.AdditionalInformation = [];
+        this.Snippet = "var x = 1;";
+        this.SourceLanguage = "csharp";
 
         _ = this.IssueBuilder
             .ForRun(this.Run)
@@ -41,7 +43,8 @@ internal class IssueCheckerFixture : IssueBuilderFixture
             .WithFileLink(this.FileLink)
             .OfRule(this.Rule, this.RuleName, this.RuleUrl)
             .WithPriority(this.Priority, this.PriorityName)
-            .WithAdditionalInformation(this.AdditionalInformation);
+            .WithAdditionalInformation(this.AdditionalInformation)
+            .WithSnippet(this.Snippet, this.SourceLanguage);
 
         this.Issue =
             this.IssueBuilder.Create();
@@ -90,4 +93,8 @@ internal class IssueCheckerFixture : IssueBuilderFixture
     public Uri RuleUrl { get; }
 
     public Dictionary<string, string> AdditionalInformation { get; }
+
+    public string Snippet { get; }
+
+    public string SourceLanguage { get; }
 }

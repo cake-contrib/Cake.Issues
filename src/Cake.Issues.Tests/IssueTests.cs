@@ -33,6 +33,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var result = Record.Exception(() =>
@@ -57,7 +59,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation));
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage));
 
                 // Then
                 result.IsArgumentNullException("identifier");
@@ -88,6 +92,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var result = Record.Exception(() =>
@@ -112,7 +118,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation));
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage));
 
                 // Then
                 result.IsArgumentOutOfRangeException("identifier");
@@ -143,6 +151,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var result = Record.Exception(() =>
@@ -167,7 +177,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation));
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage));
 
                 // Then
                 result.IsArgumentOutOfRangeException("identifier");
@@ -198,6 +210,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var issue =
@@ -222,7 +236,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation);
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage);
 
                 // Then
                 issue.Identifier.ShouldBe(identifier);
@@ -256,6 +272,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var result = Record.Exception(() =>
@@ -280,7 +298,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation));
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage));
 
                 // Then
                 result.IsArgumentException("projectFileRelativePath");
@@ -312,6 +332,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var result = Record.Exception(() =>
@@ -336,7 +358,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation));
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage));
 
                 // Then
                 result.IsArgumentOutOfRangeException("projectFileRelativePath");
@@ -370,6 +394,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var result = Record.Exception(() =>
@@ -394,7 +420,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation));
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage));
 
                 // Then
                 result.IsArgumentOutOfRangeException("projectFileRelativePath");
@@ -425,6 +453,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var issue =
@@ -449,7 +479,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation);
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage);
 
                 // Then
                 issue.ProjectFileRelativePath.ShouldBe(null);
@@ -480,6 +512,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var issue =
@@ -504,7 +538,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation);
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage);
 
                 // Then
                 issue.ProjectFileRelativePath.ShouldBe(null);
@@ -535,6 +571,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var issue =
@@ -559,7 +597,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation);
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage);
 
                 // Then
                 issue.ProjectFileRelativePath.ShouldBe(null);
@@ -590,6 +630,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var issue =
@@ -614,7 +656,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation);
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage);
 
                 // Then
                 issue.ProjectFileRelativePath.ToString().ShouldBe(projectPath);
@@ -648,6 +692,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var issue =
@@ -672,7 +718,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation);
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage);
 
                 // Then
                 issue.ProjectName.ShouldBe(projectName);
@@ -703,6 +751,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var issue =
@@ -727,7 +777,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation);
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage);
 
                 // Then
                 issue.ProjectName.ShouldBe(projectName);
@@ -758,6 +810,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var issue =
@@ -782,7 +836,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation);
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage);
 
                 // Then
                 issue.ProjectName.ShouldBe(projectName);
@@ -813,6 +869,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var issue =
@@ -837,7 +895,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation);
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage);
 
                 // Then
                 issue.ProjectName.ShouldBe(projectName);
@@ -871,6 +931,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var result = Record.Exception(() =>
@@ -895,7 +957,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation));
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage));
 
                 // Then
                 result.IsArgumentException("affectedFileRelativePath");
@@ -927,6 +991,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var result = Record.Exception(() =>
@@ -951,7 +1017,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation));
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage));
 
                 // Then
                 result.IsArgumentOutOfRangeException("affectedFileRelativePath");
@@ -985,6 +1053,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var result = Record.Exception(() =>
@@ -1009,7 +1079,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation));
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage));
 
                 // Then
                 result.IsArgumentOutOfRangeException("affectedFileRelativePath");
@@ -1040,6 +1112,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var issue =
@@ -1064,7 +1138,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation);
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage);
 
                 // Then
                 issue.AffectedFileRelativePath.ShouldBe(null);
@@ -1095,6 +1171,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var issue =
@@ -1119,7 +1197,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation);
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage);
 
                 // Then
                 issue.AffectedFileRelativePath.ShouldBe(null);
@@ -1150,6 +1230,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var issue =
@@ -1174,7 +1256,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation);
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage);
 
                 // Then
                 issue.AffectedFileRelativePath.ShouldBe(null);
@@ -1213,6 +1297,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var issue =
@@ -1237,7 +1323,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation);
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage);
 
                 // Then
                 issue.AffectedFileRelativePath.ToString().ShouldBe(expectedFilePath);
@@ -1272,6 +1360,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var result = Record.Exception(() =>
@@ -1296,7 +1386,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation));
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage));
 
                 // Then
                 result.IsArgumentOutOfRangeException("line");
@@ -1327,6 +1419,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var result = Record.Exception(() =>
@@ -1351,7 +1445,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation));
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage));
 
                 // Then
                 result.IsArgumentOutOfRangeException("line");
@@ -1382,6 +1478,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var result = Record.Exception(() =>
@@ -1406,7 +1504,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation));
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage));
 
                 // Then
                 result.IsArgumentOutOfRangeException("line");
@@ -1437,6 +1537,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var issue =
@@ -1461,7 +1563,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation);
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage);
 
                 // Then
                 issue.Line.ShouldBe(line);
@@ -1493,6 +1597,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var issue =
@@ -1517,7 +1623,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation);
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage);
 
                 // Then
                 issue.Line.ShouldBe(line);
@@ -1551,6 +1659,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var result = Record.Exception(() =>
@@ -1575,7 +1685,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation));
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage));
 
                 // Then
                 result.IsArgumentOutOfRangeException("endLine");
@@ -1606,6 +1718,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var result = Record.Exception(() =>
@@ -1630,7 +1744,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation));
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage));
 
                 // Then
                 result.IsArgumentOutOfRangeException("endLine");
@@ -1661,6 +1777,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var result = Record.Exception(() =>
@@ -1685,7 +1803,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation));
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage));
 
                 // Then
                 result.IsArgumentOutOfRangeException("endLine");
@@ -1716,6 +1836,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var result = Record.Exception(() =>
@@ -1740,7 +1862,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation));
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage));
 
                 // Then
                 result.IsArgumentOutOfRangeException("endLine");
@@ -1771,6 +1895,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var issue =
@@ -1795,7 +1921,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation);
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage);
 
                 // Then
                 issue.EndLine.ShouldBe(endLine);
@@ -1826,6 +1954,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var issue =
@@ -1850,7 +1980,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation);
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage);
 
                 // Then
                 issue.EndLine.ShouldBe(endLine);
@@ -1882,6 +2014,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var issue =
@@ -1906,7 +2040,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation);
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage);
 
                 // Then
                 issue.EndLine.ShouldBe(endLine);
@@ -1940,6 +2076,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var result = Record.Exception(() =>
@@ -1964,7 +2102,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation));
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage));
 
                 // Then
                 result.IsArgumentOutOfRangeException("column");
@@ -1995,6 +2135,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var result = Record.Exception(() =>
@@ -2019,7 +2161,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation));
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage));
 
                 // Then
                 result.IsArgumentOutOfRangeException("column");
@@ -2050,6 +2194,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var result = Record.Exception(() =>
@@ -2074,7 +2220,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation));
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage));
 
                 // Then
                 result.IsArgumentOutOfRangeException("column");
@@ -2105,6 +2253,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var issue =
@@ -2129,7 +2279,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation);
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage);
 
                 // Then
                 issue.Column.ShouldBe(column);
@@ -2162,6 +2314,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var issue =
@@ -2186,7 +2340,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation);
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage);
 
                 // Then
                 issue.Column.ShouldBe(column);
@@ -2220,6 +2376,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var result = Record.Exception(() =>
@@ -2244,7 +2402,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation));
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage));
 
                 // Then
                 result.IsArgumentOutOfRangeException("endColumn");
@@ -2275,6 +2435,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var result = Record.Exception(() =>
@@ -2299,7 +2461,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation));
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage));
 
                 // Then
                 result.IsArgumentOutOfRangeException("endColumn");
@@ -2330,6 +2494,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var result = Record.Exception(() =>
@@ -2354,7 +2520,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation));
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage));
 
                 // Then
                 result.IsArgumentOutOfRangeException("endColumn");
@@ -2385,6 +2553,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var result = Record.Exception(() =>
@@ -2409,7 +2579,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation));
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage));
 
                 // Then
                 result.IsArgumentOutOfRangeException("endColumn");
@@ -2440,6 +2612,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var issue =
@@ -2464,7 +2638,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation);
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage);
 
                 // Then
                 issue.EndColumn.ShouldBe(endColumn);
@@ -2495,6 +2671,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var issue =
@@ -2519,7 +2697,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation);
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage);
 
                 // Then
                 issue.EndColumn.ShouldBe(endColumn);
@@ -2550,6 +2730,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var issue =
@@ -2574,7 +2756,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation);
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage);
 
                 // Then
                 issue.EndColumn.ShouldBe(endColumn);
@@ -2607,6 +2791,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var issue =
@@ -2631,7 +2817,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation);
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage);
 
                 // Then
                 issue.EndColumn.ShouldBe(endColumn);
@@ -2665,6 +2853,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var issue =
@@ -2689,7 +2879,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation);
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage);
 
                 // Then
                 issue.FileLink.ShouldBe(fileLink);
@@ -2720,6 +2912,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var issue =
@@ -2744,7 +2938,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation);
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage);
 
                 // Then
                 issue.FileLink.ShouldBe(fileLink);
@@ -2778,6 +2974,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var result = Record.Exception(() =>
@@ -2802,7 +3000,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation));
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage));
 
                 // Then
                 result.IsArgumentNullException("messageText");
@@ -2833,6 +3033,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var result = Record.Exception(() =>
@@ -2857,7 +3059,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation));
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage));
 
                 // Then
                 result.IsArgumentOutOfRangeException("messageText");
@@ -2888,6 +3092,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var result = Record.Exception(() =>
@@ -2912,7 +3118,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation));
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage));
 
                 // Then
                 result.IsArgumentOutOfRangeException("messageText");
@@ -2943,6 +3151,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var issue =
@@ -2967,7 +3177,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation);
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage);
 
                 // Then
                 issue.MessageText.ShouldBe(messageText);
@@ -3004,6 +3216,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var issue =
@@ -3028,7 +3242,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation);
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage);
 
                 // Then
                 issue.MessageHtml.ShouldBe(messageHtml);
@@ -3065,6 +3281,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var issue =
@@ -3089,7 +3307,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation);
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage);
 
                 // Then
                 issue.MessageMarkdown.ShouldBe(messageMarkdown);
@@ -3128,6 +3348,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var issue =
@@ -3152,7 +3374,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation);
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage);
 
                 // Then
                 issue.Priority.ShouldBe(priority);
@@ -3186,6 +3410,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var issue =
@@ -3210,7 +3436,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation);
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage);
 
                 // Then
                 issue.PriorityName.ShouldBe(null);
@@ -3241,6 +3469,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var issue =
@@ -3265,7 +3495,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation);
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage);
 
                 // Then
                 issue.PriorityName.ShouldBe(string.Empty);
@@ -3296,6 +3528,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var issue =
@@ -3320,7 +3554,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation);
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage);
 
                 // Then
                 issue.PriorityName.ShouldBe(" ");
@@ -3351,6 +3587,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var issue =
@@ -3375,7 +3613,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation);
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage);
 
                 // Then
                 issue.PriorityName.ShouldBe(priorityName);
@@ -3411,6 +3651,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var issue =
@@ -3435,7 +3677,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation);
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage);
 
                 // Then
                 issue.RuleId.ShouldBe(ruleId);
@@ -3471,6 +3715,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var issue =
@@ -3495,7 +3741,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation);
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage);
 
                 // Then
                 issue.RuleName.ShouldBe(ruleName);
@@ -3529,6 +3777,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var issue =
@@ -3553,7 +3803,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation);
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage);
 
                 // Then
                 issue.RuleUrl.ShouldBe(ruleUri);
@@ -3584,6 +3836,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var issue =
@@ -3608,7 +3862,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation);
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage);
 
                 // Then
                 issue.RuleUrl.ShouldBe(ruleUri);
@@ -3644,6 +3900,8 @@ public sealed class IssueTests
                 const string providerType = "ProviderType";
                 const string providerName = "ProviderName";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var issue =
@@ -3668,7 +3926,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation);
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage);
 
                 // Then
                 issue.Run.ShouldBe(run);
@@ -3702,6 +3962,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var result = Record.Exception(() =>
@@ -3726,7 +3988,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation));
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage));
 
                 // Then
                 result.IsArgumentNullException("providerType");
@@ -3757,6 +4021,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var result = Record.Exception(() =>
@@ -3781,7 +4047,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation));
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage));
 
                 // Then
                 result.IsArgumentOutOfRangeException("providerType");
@@ -3812,6 +4080,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var result = Record.Exception(() =>
@@ -3836,7 +4106,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation));
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage));
 
                 // Then
                 result.IsArgumentOutOfRangeException("providerType");
@@ -3867,6 +4139,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var issue =
@@ -3891,7 +4165,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation);
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage);
 
                 // Then
                 issue.ProviderType.ShouldBe(providerType);
@@ -3925,6 +4201,8 @@ public sealed class IssueTests
                 const string providerName = null;
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var result = Record.Exception(() =>
@@ -3949,7 +4227,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation));
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage));
 
                 // Then
                 result.IsArgumentNullException("providerName");
@@ -3980,6 +4260,8 @@ public sealed class IssueTests
                 var providerName = string.Empty;
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var result = Record.Exception(() =>
@@ -4004,7 +4286,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation));
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage));
 
                 // Then
                 result.IsArgumentOutOfRangeException("providerName");
@@ -4035,6 +4319,8 @@ public sealed class IssueTests
                 const string providerName = " ";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var result = Record.Exception(() =>
@@ -4059,7 +4345,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation));
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage));
 
                 // Then
                 result.IsArgumentOutOfRangeException("providerName");
@@ -4090,6 +4378,8 @@ public sealed class IssueTests
                 const string providerType = "ProviderType";
                 const string run = "Run";
                 var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var issue =
@@ -4114,7 +4404,9 @@ public sealed class IssueTests
                         run,
                         providerType,
                         providerName,
-                        additionalInformation);
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage);
 
                 // Then
                 issue.ProviderName.ShouldBe(providerName);
@@ -4159,6 +4451,8 @@ public sealed class IssueTests
                             "Fischer"
                         },
                     };
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var issue = new Issue(
@@ -4182,7 +4476,9 @@ public sealed class IssueTests
                     run,
                     providerType,
                     providerName,
-                    additionalInformation);
+                    additionalInformation,
+                    snippet,
+                    sourceLanguage);
 
                 // Then
                 issue.AdditionalInformation.ShouldContain(new KeyValuePair<string, string>("FirstName", "Larry"));
@@ -4214,6 +4510,8 @@ public sealed class IssueTests
                 const string providerName = "ProviderName";
                 const string run = "Run";
                 const IReadOnlyDictionary<string, string> additionalInformation = null;
+                const string snippet = "var x = 1;";
+                const string sourceLanguage = "csharp";
 
                 // When
                 var issue = new Issue(
@@ -4237,11 +4535,147 @@ public sealed class IssueTests
                     run,
                     providerType,
                     providerName,
-                    additionalInformation);
+                    additionalInformation,
+                    snippet,
+                    sourceLanguage);
 
                 // Then
                 var value = issue.AdditionalInformation.ShouldNotBeNull();
                 value.ShouldBeEmpty();
+            }
+        }
+
+        public sealed class TheSnippetArgument
+        {
+            [Theory]
+            [InlineData(null)]
+            [InlineData("")]
+            [InlineData("var x = 1;")]
+            [InlineData("if (condition) {\n  return true;\n}")]
+            [InlineData("public class Test { }")]
+            public void Should_Set_Snippet(string snippet)
+            {
+                // Given
+                const string identifier = "identifier";
+                const string projectPath = @"src\foo.csproj";
+                const string projectName = "foo";
+                const string filePath = @"src\foo.cs";
+                const int line = 10;
+                const int endLine = 12;
+                const int column = 50;
+                const int endColumn = 55;
+                var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
+                const string messageText = "MessageText";
+                const string messageHtml = "MessageHtml";
+                const string messageMarkdown = "MessageMarkdown";
+                const int priority = 1;
+                const string priorityName = "Warning";
+                const string rule = "Rule";
+                const string ruleName = "Rule Name";
+                var ruleUri = new Uri("https://google.com");
+                const string providerType = "ProviderType";
+                const string providerName = "ProviderName";
+                const string run = "Run";
+                var additionalInformation = new Dictionary<string, string>();
+                const string sourceLanguage = "csharp";
+
+                // When
+                var issue =
+                    new Issue(
+                        identifier,
+                        projectPath,
+                        projectName,
+                        filePath,
+                        line,
+                        endLine,
+                        column,
+                        endColumn,
+                        fileLink,
+                        messageText,
+                        messageHtml,
+                        messageMarkdown,
+                        priority,
+                        priorityName,
+                        rule,
+                        ruleName,
+                        ruleUri,
+                        run,
+                        providerType,
+                        providerName,
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage);
+
+                // Then
+                issue.Snippet.ShouldBe(snippet);
+            }
+        }
+
+        public sealed class TheSourceLanguageArgument
+        {
+            [Theory]
+            [InlineData(null)]
+            [InlineData("")]
+            [InlineData("csharp")]
+            [InlineData("javascript")]
+            [InlineData("python")]
+            [InlineData("C#")]
+            [InlineData("TypeScript")]
+            public void Should_Set_SourceLanguage(string sourceLanguage)
+            {
+                // Given
+                const string identifier = "identifier";
+                const string projectPath = @"src\foo.csproj";
+                const string projectName = "foo";
+                const string filePath = @"src\foo.cs";
+                const int line = 10;
+                const int endLine = 12;
+                const int column = 50;
+                const int endColumn = 55;
+                var fileLink = new Uri("https://github.com/myorg/myrepo/blob/develop/src/foo.cs#L10-L12");
+                const string messageText = "MessageText";
+                const string messageHtml = "MessageHtml";
+                const string messageMarkdown = "MessageMarkdown";
+                const int priority = 1;
+                const string priorityName = "Warning";
+                const string rule = "Rule";
+                const string ruleName = "Rule Name";
+                var ruleUri = new Uri("https://google.com");
+                const string providerType = "ProviderType";
+                const string providerName = "ProviderName";
+                const string run = "Run";
+                var additionalInformation = new Dictionary<string, string>();
+                const string snippet = "var x = 1;";
+
+                // When
+                var issue =
+                    new Issue(
+                        identifier,
+                        projectPath,
+                        projectName,
+                        filePath,
+                        line,
+                        endLine,
+                        column,
+                        endColumn,
+                        fileLink,
+                        messageText,
+                        messageHtml,
+                        messageMarkdown,
+                        priority,
+                        priorityName,
+                        rule,
+                        ruleName,
+                        ruleUri,
+                        run,
+                        providerType,
+                        providerName,
+                        additionalInformation,
+                        snippet,
+                        sourceLanguage);
+
+                // Then
+                issue.SourceLanguage.ShouldBe(sourceLanguage);
             }
         }
     }

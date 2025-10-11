@@ -150,6 +150,35 @@ public sealed class IssueDeserializationExtensionsTests
                     .OfRule("Rule", new Uri("https://google.com"))
                     .WithPriority(IssuePriority.Warning));
         }
+
+        [Fact]
+        public void Should_Return_IssueV6()
+        {
+            // Given
+            var filePath = new FilePath("Testfiles/issueV6.json");
+
+            // When
+            var result = filePath.DeserializeToIssue();
+
+            // Then
+            IssueChecker.Check(
+                result,
+                IssueBuilder.NewIssue(
+                    "Identifier",
+                    "Something went wrong.",
+                    "TestProvider",
+                    "Test Provider")
+                    .ForRun("TestRun")
+                    .WithMessageInHtmlFormat("Something went <b>wrong</b>.")
+                    .WithMessageInMarkdownFormat("Something went **wrong**.")
+                    .InProject(@"src\Foo\Bar.csproj", "Bar")
+                    .InFile(@"src\Foo\Bar.cs", 42, 420, 23, 230)
+                    .WithFileLink(new Uri("https://github.com/myorg/myrepo/src/Foo/Bar.cs"))
+                    .OfRule("Rule", "Rule Name", new Uri("https://google.com"))
+                    .WithPriority(IssuePriority.Warning)
+                    .WithAdditionalInformation(new Dictionary<string, string> { { "foo", "bar" } })
+                    .WithSnippet("var x = 1;", "csharp"));
+        }
     }
 
     public sealed class TheDeserializeToIssuesExtensionForAJsonFile
@@ -272,6 +301,48 @@ public sealed class IssueDeserializationExtensionsTests
                     .InFile(@"src\Foo\Bar.cs", 42, 420, 23, 230)
                     .OfRule("Rule", new Uri("https://google.com"))
                     .WithPriority(IssuePriority.Warning));
+            IssueChecker.Check(
+                result[1],
+                IssueBuilder.NewIssue(
+                    "Identifier2",
+                    "Something went wrong again.",
+                    "TestProvider",
+                    "Test Provider")
+                    .WithMessageInHtmlFormat("Something went <b>wrong</b> again.")
+                    .WithMessageInMarkdownFormat("Something went **wrong** again.")
+                    .InProject(@"src\Foo\Bar.csproj", "Bar")
+                    .InFile(@"src\Foo\Bar2.cs")
+                    .WithPriority(IssuePriority.Warning));
+        }
+
+        [Fact]
+        public void Should_Return_List_Of_IssuesV6()
+        {
+            // Given
+            var filePath = new FilePath("Testfiles/issuesV6.json");
+
+            // When
+            var result = filePath.DeserializeToIssues().ToList();
+
+            // Then
+            result.Count.ShouldBe(2);
+            IssueChecker.Check(
+                result[0],
+                IssueBuilder.NewIssue(
+                    "Identifier1",
+                    "Something went wrong.",
+                    "TestProvider",
+                    "Test Provider")
+                    .ForRun("TestRun")
+                    .WithMessageInHtmlFormat("Something went <b>wrong</b>.")
+                    .WithMessageInMarkdownFormat("Something went **wrong**.")
+                    .InProject(@"src\Foo\Bar.csproj", "Bar")
+                    .InFile(@"src\Foo\Bar.cs", 42, 420, 23, 230)
+                    .WithFileLink(new Uri("https://github.com/myorg/myrepo/src/Foo/Bar.cs"))
+                    .OfRule("Rule", "Rule Name", new Uri("https://google.com"))
+                    .WithPriority(IssuePriority.Warning)
+                    .WithAdditionalInformation(new Dictionary<string, string> { { "foo", "bar" } })
+                    .WithSnippet("var x = 1;", "csharp"));
             IssueChecker.Check(
                 result[1],
                 IssueBuilder.NewIssue(

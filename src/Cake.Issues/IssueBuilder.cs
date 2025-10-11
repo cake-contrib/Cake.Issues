@@ -30,6 +30,8 @@ public class IssueBuilder
     private string run;
     private FileLinkSettings fileLinkSettings;
     private Dictionary<string, string> additionalInformation = [];
+    private string snippet;
+    private string sourceLanguage;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="IssueBuilder"/> class.
@@ -452,6 +454,37 @@ public class IssueBuilder
     }
 
     /// <summary>
+    /// Sets the source code snippet where the issue occurred.
+    /// </summary>
+    /// <param name="snippet">The source code snippet where the issue occurred.</param>
+    /// <returns>Issue Builder instance.</returns>
+    public IssueBuilder WithSnippet(string snippet)
+    {
+        snippet.NotNullOrWhiteSpace();
+
+        this.snippet = snippet;
+
+        return this;
+    }
+
+    /// <summary>
+    /// Sets the source code snippet where the issue occurred.
+    /// </summary>
+    /// <param name="snippet">The source code snippet where the issue occurred.</param>
+    /// <param name="sourceLanguage">The language in which the source code is written.</param>
+    /// <returns>Issue Builder instance.</returns>
+    public IssueBuilder WithSnippet(string snippet, string sourceLanguage)
+    {
+        snippet.NotNullOrWhiteSpace();
+        sourceLanguage.NotNullOrWhiteSpace();
+
+        this.snippet = snippet;
+        this.sourceLanguage = sourceLanguage;
+
+        return this;
+    }
+
+    /// <summary>
     /// Creates a new <see cref="IIssue"/>.
     /// </summary>
     /// <returns>New issue object.</returns>
@@ -490,5 +523,7 @@ public class IssueBuilder
             this.run,
             this.providerType,
             this.providerName,
-            this.additionalInformation);
+            this.additionalInformation,
+            this.snippet,
+            this.sourceLanguage);
 }

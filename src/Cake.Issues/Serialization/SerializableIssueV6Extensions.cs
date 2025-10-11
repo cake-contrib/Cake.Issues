@@ -1,19 +1,18 @@
 ﻿namespace Cake.Issues.Serialization;
 
 using System;
-using System.Collections.Generic;
 
 /// <summary>
-/// Extensions for <see cref="SerializableIssueV2"/>.
+/// Extensions for <see cref="SerializableIssueV6"/>.
 /// </summary>
-internal static class SerializableIssueV2Extensions
+internal static class SerializableIssueV6Extensions
 {
     /// <summary>
-    /// Converts a <see cref="SerializableIssueV2"/> to an <see cref="Issue"/>.
+    /// Converts a <see cref="SerializableIssueV6"/> to an <see cref="Issue"/>.
     /// </summary>
     /// <param name="serializableIssue">Issue which should be converted.</param>
     /// <returns>Converted issue.</returns>
-    internal static Issue ToIssue(this SerializableIssueV2 serializableIssue)
+    internal static Issue ToIssue(this SerializableIssueV6 serializableIssue)
     {
         serializableIssue.NotNull();
 
@@ -23,29 +22,35 @@ internal static class SerializableIssueV2Extensions
             ruleUrl = new Uri(serializableIssue.RuleUrl);
         }
 
+        Uri fileLink = null;
+        if (!string.IsNullOrWhiteSpace(serializableIssue.FileLink))
+        {
+            fileLink = new Uri(serializableIssue.FileLink);
+        }
+
         return new Issue(
-            serializableIssue.MessageText,
+            serializableIssue.Identifier,
             serializableIssue.ProjectFileRelativePath,
             serializableIssue.ProjectName,
             serializableIssue.AffectedFileRelativePath,
             serializableIssue.Line,
-            null,
-            null,
-            null,
-            null,
+            serializableIssue.EndLine,
+            serializableIssue.Column,
+            serializableIssue.EndColumn,
+            fileLink,
             serializableIssue.MessageText,
             serializableIssue.MessageHtml,
             serializableIssue.MessageMarkdown,
             serializableIssue.Priority,
             serializableIssue.PriorityName,
-            serializableIssue.Rule,
-            null,
+            serializableIssue.RuleId,
+            serializableIssue.RuleName,
             ruleUrl,
-            null,
+            serializableIssue.Run,
             serializableIssue.ProviderType,
             serializableIssue.ProviderName,
-            new Dictionary<string, string>(),
-            null,
-            null);
+            serializableIssue.AdditionalInformation,
+            serializableIssue.Snippet,
+            serializableIssue.SourceLanguage);
     }
 }

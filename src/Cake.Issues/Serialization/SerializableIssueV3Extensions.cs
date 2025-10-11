@@ -50,6 +50,8 @@ internal static class SerializableIssueV3Extensions
             serializableIssue.Run,
             serializableIssue.ProviderType,
             serializableIssue.ProviderName,
-            new Dictionary<string, string>());
+            new Dictionary<string, string>(),
+            null,
+            null);
     }
 }

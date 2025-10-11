@@ -49,6 +49,10 @@ public class Issue : IIssue
     /// <param name="providerType">The type of the issue provider.</param>
     /// <param name="providerName">The human friendly name of the issue provider.</param>
     /// <param name="additionalInformation">Custom information regarding the issue.</param>
+    /// <param name="snippet">The source code snippet where the issue occurred.
+    /// <c>null</c> or <see cref="string.Empty"/> if no snippet is available.</param>
+    /// <param name="sourceLanguage">The source language of the file where the issue occurred.
+    /// <c>null</c> or <see cref="string.Empty"/> if the source language is not known.</param>
     public Issue(
         string identifier,
         string projectFileRelativePath,
@@ -70,7 +74,9 @@ public class Issue : IIssue
         string run,
         string providerType,
         string providerName,
-        IReadOnlyDictionary<string, string> additionalInformation)
+        IReadOnlyDictionary<string, string> additionalInformation,
+        string snippet,
+        string sourceLanguage)
     {
         identifier.NotNullOrWhiteSpace();
         line?.NotNegativeOrZero();
@@ -167,6 +173,8 @@ public class Issue : IIssue
         this.ProviderType = providerType;
         this.ProviderName = providerName;
         this.AdditionalInformation = additionalInformation ?? new Dictionary<string, string>();
+        this.Snippet = snippet;
+        this.SourceLanguage = sourceLanguage;
     }
 
     /// <inheritdoc/>
@@ -231,4 +239,10 @@ public class Issue : IIssue
 
     /// <inheritdoc/>
     public IReadOnlyDictionary<string, string> AdditionalInformation { get; }
+
+    /// <inheritdoc/>
+    public string Snippet { get; }
+
+    /// <inheritdoc/>
+    public string SourceLanguage { get; }
 }
