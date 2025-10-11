@@ -456,24 +456,29 @@ public class IssueBuilder
     /// <summary>
     /// Sets the source code snippet where the issue occurred.
     /// </summary>
-    /// <param name="snippet">The source code snippet where the issue occurred.
-    /// <c>null</c> or <see cref="string.Empty"/> if no snippet is available.</param>
+    /// <param name="snippet">The source code snippet where the issue occurred.</param>
     /// <returns>Issue Builder instance.</returns>
     public IssueBuilder WithSnippet(string snippet)
     {
+        snippet.NotNullOrWhiteSpace();
+
         this.snippet = snippet;
 
         return this;
     }
 
     /// <summary>
-    /// Sets the source language of the file where the issue occurred.
+    /// Sets the source code snippet where the issue occurred.
     /// </summary>
-    /// <param name="sourceLanguage">The source language of the file where the issue occurred.
-    /// <c>null</c> or <see cref="string.Empty"/> if the source language is not known.</param>
+    /// <param name="snippet">The source code snippet where the issue occurred.</param>
+    /// <param name="sourceLanguage">The language in which the source code is written.</param>
     /// <returns>Issue Builder instance.</returns>
-    public IssueBuilder WithSourceLanguage(string sourceLanguage)
+    public IssueBuilder WithSnippet(string snippet, string sourceLanguage)
     {
+        snippet.NotNullOrWhiteSpace();
+        sourceLanguage.NotNullOrWhiteSpace();
+
+        this.snippet = snippet;
         this.sourceLanguage = sourceLanguage;
 
         return this;

@@ -2383,45 +2383,45 @@ public sealed class IssueBuilderTests
     public sealed class TheWithSnippetMethod
     {
         [Fact]
-        public void Should_Handle_Snippet_Which_Is_Null()
+        public void Should_Throw_If_Snippet_Is_Null()
         {
             // Given
             var fixture = new IssueBuilderFixture();
             const string snippet = null;
 
             // When
-            var issue = fixture.IssueBuilder.WithSnippet(snippet).Create();
+            var result = Record.Exception(() => fixture.IssueBuilder.WithSnippet(snippet));
 
             // Then
-            issue.Snippet.ShouldBe(snippet);
+            result.IsArgumentNullException("snippet");
         }
 
         [Fact]
-        public void Should_Handle_Snippet_Which_Is_Empty()
+        public void Should_Throw_If_Snippet_Is_Empty()
         {
             // Given
             var fixture = new IssueBuilderFixture();
             var snippet = string.Empty;
 
             // When
-            var issue = fixture.IssueBuilder.WithSnippet(snippet).Create();
+            var result = Record.Exception(() => fixture.IssueBuilder.WithSnippet(snippet));
 
             // Then
-            issue.Snippet.ShouldBe(snippet);
+            result.IsArgumentException("snippet");
         }
 
         [Fact]
-        public void Should_Handle_Snippet_Which_Is_WhiteSpace()
+        public void Should_Throw_If_Snippet_Is_WhiteSpace()
         {
             // Given
             var fixture = new IssueBuilderFixture();
-            var snippet = " ";
+            const string snippet = " ";
 
             // When
-            var issue = fixture.IssueBuilder.WithSnippet(snippet).Create();
+            var result = Record.Exception(() => fixture.IssueBuilder.WithSnippet(snippet));
 
             // Then
-            issue.Snippet.ShouldBe(snippet);
+            result.IsArgumentException("snippet");
         }
 
         [Theory]
@@ -2441,48 +2441,119 @@ public sealed class IssueBuilderTests
         }
     }
 
-    public sealed class TheWithSourceLanguageMethod
+    public sealed class TheWithSnippetMethodWithSourceLanguage
     {
         [Fact]
-        public void Should_Handle_SourceLanguage_Which_Is_Null()
+        public void Should_Throw_If_Snippet_Is_Null()
         {
             // Given
             var fixture = new IssueBuilderFixture();
+            const string snippet = null;
+            const string sourceLanguage = "csharp";
+
+            // When
+            var result = Record.Exception(() =>
+                fixture.IssueBuilder.WithSnippet(snippet, sourceLanguage));
+
+            // Then
+            result.IsArgumentNullException("snippet");
+        }
+
+        [Fact]
+        public void Should_Throw_If_Snippet_Is_Empty()
+        {
+            // Given
+            var fixture = new IssueBuilderFixture();
+            var snippet = string.Empty;
+            const string sourceLanguage = "csharp";
+
+            // When
+            var result = Record.Exception(() =>
+                fixture.IssueBuilder.WithSnippet(snippet, sourceLanguage));
+
+            // Then
+            result.IsArgumentException("snippet");
+        }
+
+        [Fact]
+        public void Should_Throw_If_Snippet_Is_WhiteSpace()
+        {
+            // Given
+            var fixture = new IssueBuilderFixture();
+            const string snippet = " ";
+            const string sourceLanguage = "csharp";
+
+            // When
+            var result = Record.Exception(() =>
+                fixture.IssueBuilder.WithSnippet(snippet, sourceLanguage));
+
+            // Then
+            result.IsArgumentException("snippet");
+        }
+
+        [Fact]
+        public void Should_Throw_If_SourceLanguage_Is_Null()
+        {
+            // Given
+            var fixture = new IssueBuilderFixture();
+            const string snippet = "var x = 1;";
             const string sourceLanguage = null;
 
             // When
-            var issue = fixture.IssueBuilder.WithSourceLanguage(sourceLanguage).Create();
+            var result = Record.Exception(() =>
+                fixture.IssueBuilder.WithSnippet(snippet, sourceLanguage));
 
             // Then
-            issue.SourceLanguage.ShouldBe(sourceLanguage);
+            result.IsArgumentNullException("sourceLanguage");
         }
 
         [Fact]
-        public void Should_Handle_SourceLanguage_Which_Is_Empty()
+        public void Should_Throw_If_SourceLanguage_Is_Empty()
         {
             // Given
             var fixture = new IssueBuilderFixture();
+            const string snippet = "var x = 1;";
             var sourceLanguage = string.Empty;
 
             // When
-            var issue = fixture.IssueBuilder.WithSourceLanguage(sourceLanguage).Create();
+            var result = Record.Exception(() =>
+                fixture.IssueBuilder.WithSnippet(snippet, sourceLanguage));
 
             // Then
-            issue.SourceLanguage.ShouldBe(sourceLanguage);
+            result.IsArgumentException("sourceLanguage");
         }
 
         [Fact]
-        public void Should_Handle_SourceLanguage_Which_Is_WhiteSpace()
+        public void Should_Throw_If_SourceLanguage_Is_WhiteSpace()
         {
             // Given
             var fixture = new IssueBuilderFixture();
-            var sourceLanguage = " ";
+            const string snippet = "var x = 1;";
+            const string sourceLanguage = " ";
 
             // When
-            var issue = fixture.IssueBuilder.WithSourceLanguage(sourceLanguage).Create();
+            var result = Record.Exception(() =>
+                fixture.IssueBuilder.WithSnippet(snippet, sourceLanguage));
 
             // Then
-            issue.SourceLanguage.ShouldBe(sourceLanguage);
+            result.IsArgumentException("sourceLanguage");
+        }
+
+        [Theory]
+        [InlineData("var x = 1;")]
+        [InlineData("if (condition) {\n  return true;\n}")]
+        [InlineData("public class Test { }")]
+        public void Should_Set_Snippet(string snippet)
+        {
+            // Given
+            var fixture = new IssueBuilderFixture();
+            const string sourceLanguage = "csharp";
+
+            // When
+            var issue = fixture.IssueBuilder.WithSnippet(snippet, sourceLanguage).Create();
+
+            // Then
+            issue.Snippet.ShouldBe(snippet);
         }
 
         [Theory]
@@ -2495,9 +2566,10 @@ public sealed class IssueBuilderTests
         {
             // Given
             var fixture = new IssueBuilderFixture();
+            const string snippet = "var x = 1;";
 
             // When
-            var issue = fixture.IssueBuilder.WithSourceLanguage(sourceLanguage).Create();
+            var issue = fixture.IssueBuilder.WithSnippet(snippet, sourceLanguage).Create();
 
             // Then
             issue.SourceLanguage.ShouldBe(sourceLanguage);

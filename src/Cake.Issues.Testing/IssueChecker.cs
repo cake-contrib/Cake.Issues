@@ -63,7 +63,9 @@ public static class IssueChecker
             expectedIssue.RuleId,
             expectedIssue.RuleName,
             expectedIssue.RuleUrl,
-            expectedIssue.AdditionalInformation);
+            expectedIssue.AdditionalInformation,
+            expectedIssue.Snippet,
+            expectedIssue.SourceLanguage);
     }
 
     /// <summary>
@@ -104,6 +106,10 @@ public static class IssueChecker
     /// <param name="ruleUrl">Expected URL containing information about the failing rule.
     /// <c>null</c> if no rule Url is expected.</param>
     /// <param name="additionalInformation">Custom information regarding the issue.</param>
+    /// <param name="snippet">Expected source code snippet where the issue occurred.
+    /// <c>null</c> or <see cref="string.Empty"/> if no snippet is available.</param>
+    /// <param name="sourceLanguage">Expected source language of the file where the issue occurred.
+    /// <c>null</c> or <see cref="string.Empty"/> if the source language is not known.</param>
     [AssertionMethod]
     public static void Check(
         IIssue issue,
@@ -127,7 +133,9 @@ public static class IssueChecker
         string ruleId,
         string ruleName,
         Uri ruleUrl,
-        IReadOnlyDictionary<string, string> additionalInformation)
+        IReadOnlyDictionary<string, string> additionalInformation,
+        string snippet,
+        string sourceLanguage)
     {
         issue.NotNull();
 
@@ -286,6 +294,18 @@ public static class IssueChecker
         }
 
         CheckAdditionalInformation(additionalInformation, issue.AdditionalInformation);
+
+        if (issue.Snippet != snippet)
+        {
+            throw new Exception(
+                $"Expected issue.Snippet to be '{snippet}' but was '{issue.Snippet}'.");
+        }
+
+        if (issue.SourceLanguage != sourceLanguage)
+        {
+            throw new Exception(
+                $"Expected issue.SourceLanguage to be '{sourceLanguage}' but was '{issue.SourceLanguage}'.");
+        }
     }
 
     /// <summary>

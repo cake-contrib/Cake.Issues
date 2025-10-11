@@ -7,13 +7,13 @@ using System.Runtime.Serialization;
 /// Class for serializing and deserializing an <see cref="IIssue"/> instance.
 /// </summary>
 [DataContract]
-internal class SerializableIssueV5
+internal class SerializableIssueV6
 {
     /// <summary>
     /// Gets the version of the serialization format.
     /// </summary>
     [DataMember]
-    public int Version => 5;
+    public int Version => 6;
 
     /// <inheritdoc cref="IIssue.Identifier" />
     [DataMember]
@@ -98,4 +98,12 @@ internal class SerializableIssueV5
     /// <inheritdoc cref="IIssue.AdditionalInformation" />
     [DataMember]
     public Dictionary<string, string> AdditionalInformation { get; set; }
+
+    /// <inheritdoc cref="IIssue.Snippet" />
+    [DataMember]
+    public string Snippet { get; set; }
+
+    /// <inheritdoc cref="IIssue.SourceLanguage" />
+    [DataMember]
+    public string SourceLanguage { get; set; }
 }

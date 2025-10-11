@@ -375,6 +375,43 @@ public sealed class IssueSerializationExtensionsTests
             // Then
             result.RuleUrl.ToString().ShouldBe(ruleUrl.ToString());
         }
+
+        [Fact]
+        public void Should_Give_Correct_Result_For_Snippet_After_Roundtrip()
+        {
+            // Given
+            const string snippet = "var x = 1;";
+            var issue =
+                IssueBuilder
+                    .NewIssue("message", "providerType", "providerName")
+                    .WithSnippet(snippet)
+                    .Create();
+
+            // When
+            var result = issue.SerializeToJsonString().DeserializeToIssue();
+
+            // Then
+            result.Snippet.ShouldBe(snippet);
+        }
+
+        [Fact]
+        public void Should_Give_Correct_Result_For_SourceLanguage_After_Roundtrip()
+        {
+            // Given
+            const string snippet = "var x = 1;";
+            const string sourceLanguage = "csharp";
+            var issue =
+                IssueBuilder
+                    .NewIssue("message", "providerType", "providerName")
+                    .WithSnippet(snippet, sourceLanguage)
+                    .Create();
+
+            // When
+            var result = issue.SerializeToJsonString().DeserializeToIssue();
+
+            // Then
+            result.SourceLanguage.ShouldBe(sourceLanguage);
+        }
     }
 
     public sealed class TheSerializeToJsonStringExtensionForAnEnumerableOfIssues
@@ -942,6 +979,64 @@ public sealed class IssueSerializationExtensionsTests
             result.Count.ShouldBe(2);
             result.First().RuleUrl.ToString().ShouldBe(ruleUrl1.ToString());
             result.Last().RuleUrl.ToString().ShouldBe(ruleUrl2.ToString());
+        }
+
+        [Fact]
+        public void Should_Give_Correct_Result_For_Snippet_After_Roundtrip()
+        {
+            // Given
+            const string snippet1 = "var x = 1;";
+            const string snippet2 = "public class Test { }";
+            var issues =
+                new List<IIssue>
+                {
+                    IssueBuilder
+                      .NewIssue("message1", "providerType1", "providerName1")
+                        .WithSnippet(snippet1)
+                        .Create(),
+                    IssueBuilder
+                        .NewIssue("message2", "providerType2", "providerName2")
+                        .WithSnippet(snippet2)
+                        .Create(),
+                };
+
+            // When
+            var result = issues.SerializeToJsonString().DeserializeToIssues().ToList();
+
+            // Then
+            result.Count.ShouldBe(2);
+            result.First().Snippet.ShouldBe(snippet1);
+            result.Last().Snippet.ShouldBe(snippet2);
+        }
+
+        [Fact]
+        public void Should_Give_Correct_Result_For_SourceLanguage_After_Roundtrip()
+        {
+            // Given
+            const string snippet1 = "var x = 1;";
+            const string sourceLanguage1 = "javascript";
+            const string snippet2 = "public class Test { }";
+            const string sourceLanguage2 = "csharp";
+            var issues =
+                new List<IIssue>
+                {
+                    IssueBuilder
+                      .NewIssue("message1", "providerType1", "providerName1")
+                        .WithSnippet(snippet1, sourceLanguage1)
+                        .Create(),
+                    IssueBuilder
+                        .NewIssue("message2", "providerType2", "providerName2")
+                        .WithSnippet(snippet2, sourceLanguage2)
+                        .Create(),
+                };
+
+            // When
+            var result = issues.SerializeToJsonString().DeserializeToIssues().ToList();
+
+            // Then
+            result.Count.ShouldBe(2);
+            result.First().SourceLanguage.ShouldBe(sourceLanguage1);
+            result.Last().SourceLanguage.ShouldBe(sourceLanguage2);
         }
     }
 
@@ -1594,6 +1689,67 @@ public sealed class IssueSerializationExtensionsTests
 
                 // Then
                 result.RuleUrl.ToString().ShouldBe(ruleUrl.ToString());
+            }
+            finally
+            {
+                if (File.Exists(filePath.FullPath))
+                {
+                    File.Delete(filePath.FullPath);
+                }
+            }
+        }
+
+        [Fact]
+        public void Should_Give_Correct_Result_For_Snippet_After_Roundtrip()
+        {
+            // Given
+            const string snippet = "var x = 1;";
+            var issue =
+                IssueBuilder
+                    .NewIssue("message", "providerType", "providerName")
+                    .WithSnippet(snippet)
+                    .Create();
+            var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid() + ".json");
+
+            try
+            {
+                // When
+                issue.SerializeToJsonFile(filePath);
+                var result = filePath.DeserializeToIssue();
+
+                // Then
+                result.Snippet.ShouldBe(snippet);
+            }
+            finally
+            {
+                if (File.Exists(filePath.FullPath))
+                {
+                    File.Delete(filePath.FullPath);
+                }
+            }
+        }
+
+        [Fact]
+        public void Should_Give_Correct_Result_For_SourceLanguage_After_Roundtrip()
+        {
+            // Given
+            const string snippet = "var x = 1;";
+            const string sourceLanguage = "csharp";
+            var issue =
+                IssueBuilder
+                    .NewIssue("message", "providerType", "providerName")
+                    .WithSnippet(snippet, sourceLanguage)
+                    .Create();
+            var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid() + ".json");
+
+            try
+            {
+                // When
+                issue.SerializeToJsonFile(filePath);
+                var result = filePath.DeserializeToIssue();
+
+                // Then
+                result.SourceLanguage.ShouldBe(sourceLanguage);
             }
             finally
             {
@@ -2426,6 +2582,89 @@ public sealed class IssueSerializationExtensionsTests
                 }
             }
         }
+
+        [Fact]
+        public void Should_Give_Correct_Result_For_Snippet_After_Roundtrip()
+        {
+            // Given
+            const string snippet1 = "var x = 1;";
+            const string snippet2 = "public class Test { }";
+            var issues =
+                new List<IIssue>
+                {
+                    IssueBuilder
+                      .NewIssue("message1", "providerType1", "providerName1")
+                        .WithSnippet(snippet1)
+                        .Create(),
+                    IssueBuilder
+                        .NewIssue("message2", "providerType2", "providerName2")
+                        .WithSnippet(snippet2)
+                        .Create(),
+                };
+            var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid() + ".json");
+
+            try
+            {
+                // When
+                issues.SerializeToJsonFile(filePath);
+                var result = filePath.DeserializeToIssues().ToList();
+
+                // Then
+                result.Count.ShouldBe(2);
+                result.First().Snippet.ShouldBe(snippet1);
+                result.Last().Snippet.ShouldBe(snippet2);
+            }
+            finally
+            {
+                if (File.Exists(filePath.FullPath))
+                {
+                    File.Delete(filePath.FullPath);
+                }
+            }
+        }
+
+        [Fact]
+        public void Should_Give_Correct_Result_For_SourceLanguage_After_Roundtrip()
+        {
+            // Given
+            const string snippet1 = "var x = 1;";
+            const string sourceLanguage1 = "javascript";
+            const string snippet2 = "public class Test { }";
+            const string sourceLanguage2 = "csharp";
+            var issues =
+                new List<IIssue>
+                {
+                    IssueBuilder
+                      .NewIssue("message1", "providerType1", "providerName1")
+                        .WithSnippet(snippet1, sourceLanguage1)
+                        .Create(),
+                    IssueBuilder
+                        .NewIssue("message2", "providerType2", "providerName2")
+                        .WithSnippet(snippet2, sourceLanguage2)
+                        .Create(),
+                };
+            var filePath = new FilePath(System.IO.Path.GetTempPath() + Guid.NewGuid() + ".json");
+
+            try
+            {
+                // When
+                issues.SerializeToJsonFile(filePath);
+                var result = filePath.DeserializeToIssues().ToList();
+
+                // Then
+                result.Count.ShouldBe(2);
+                result.First().SourceLanguage.ShouldBe(sourceLanguage1);
+                result.Last().SourceLanguage.ShouldBe(sourceLanguage2);
+            }
+            finally
+            {
+                if (File.Exists(filePath.FullPath))
+                {
+                    File.Delete(filePath.FullPath);
+                }
+            }
+        }
+
     }
 
     public sealed class TheToSerializableIssueExtension
@@ -2441,76 +2680,6 @@ public sealed class IssueSerializationExtensionsTests
 
             // Then
             result.IsArgumentNullException("issue");
-        }
-
-        [Fact]
-        public void Should_Give_Correct_Result_For_Snippet_After_Roundtrip()
-        {
-            // Given
-            const string snippet = "var x = 1;\nreturn x;";
-            var issue =
-                IssueBuilder
-                    .NewIssue("message", "providerType", "providerName")
-                    .WithSnippet(snippet)
-                    .Create();
-
-            // When
-            var result = issue.SerializeToJsonString().DeserializeToIssue();
-
-            // Then
-            result.Snippet.ShouldBe(snippet);
-        }
-
-        [Fact]
-        public void Should_Give_Correct_Result_For_SourceLanguage_After_Roundtrip()
-        {
-            // Given
-            const string sourceLanguage = "csharp";
-            var issue =
-                IssueBuilder
-                    .NewIssue("message", "providerType", "providerName")
-                    .WithSourceLanguage(sourceLanguage)
-                    .Create();
-
-            // When
-            var result = issue.SerializeToJsonString().DeserializeToIssue();
-
-            // Then
-            result.SourceLanguage.ShouldBe(sourceLanguage);
-        }
-
-        [Fact]
-        public void Should_Handle_Null_Snippet_After_Roundtrip()
-        {
-            // Given
-            var issue =
-                IssueBuilder
-                    .NewIssue("message", "providerType", "providerName")
-                    .WithSnippet(null)
-                    .Create();
-
-            // When
-            var result = issue.SerializeToJsonString().DeserializeToIssue();
-
-            // Then
-            result.Snippet.ShouldBeNull();
-        }
-
-        [Fact]
-        public void Should_Handle_Null_SourceLanguage_After_Roundtrip()
-        {
-            // Given
-            var issue =
-                IssueBuilder
-                    .NewIssue("message", "providerType", "providerName")
-                    .WithSourceLanguage(null)
-                    .Create();
-
-            // When
-            var result = issue.SerializeToJsonString().DeserializeToIssue();
-
-            // Then
-            result.SourceLanguage.ShouldBeNull();
         }
     }
 }

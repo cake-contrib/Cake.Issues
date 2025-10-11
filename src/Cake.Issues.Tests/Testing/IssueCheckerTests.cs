@@ -133,7 +133,9 @@ public sealed class IssueCheckerTests
                     fixture.Rule,
                     fixture.RuleName,
                     fixture.RuleUrl,
-                    fixture.AdditionalInformation));
+                    fixture.AdditionalInformation,
+                    fixture.Snippet,
+                    fixture.SourceLanguage));
 
             // Then
             result.IsArgumentNullException("issue");
@@ -168,7 +170,9 @@ public sealed class IssueCheckerTests
                 fixture.Rule,
                 fixture.RuleName,
                 fixture.RuleUrl,
-                fixture.AdditionalInformation);
+                fixture.AdditionalInformation,
+                fixture.Snippet,
+                fixture.SourceLanguage);
 
             // Then
         }
@@ -207,7 +211,9 @@ public sealed class IssueCheckerTests
                     fixture.Rule,
                     fixture.RuleName,
                     fixture.RuleUrl,
-                    fixture.AdditionalInformation));
+                    fixture.AdditionalInformation,
+                    fixture.Snippet,
+                    fixture.SourceLanguage));
 
             // Then
             var ex = result.ShouldBeOfType<Exception>();
@@ -248,7 +254,9 @@ public sealed class IssueCheckerTests
                     fixture.Rule,
                     fixture.RuleName,
                     fixture.RuleUrl,
-                    fixture.AdditionalInformation));
+                    fixture.AdditionalInformation,
+                    fixture.Snippet,
+                    fixture.SourceLanguage));
 
             // Then
             var ex = result.ShouldBeOfType<Exception>();
@@ -293,7 +301,9 @@ public sealed class IssueCheckerTests
                     fixture.Rule,
                     fixture.RuleName,
                     fixture.RuleUrl,
-                    fixture.AdditionalInformation));
+                    fixture.AdditionalInformation,
+                    fixture.Snippet,
+                    fixture.SourceLanguage));
 
             // Then
             var ex = result.ShouldBeOfType<Exception>();
@@ -334,7 +344,9 @@ public sealed class IssueCheckerTests
                     fixture.Rule,
                     fixture.RuleName,
                     fixture.RuleUrl,
-                    fixture.AdditionalInformation));
+                    fixture.AdditionalInformation,
+                    fixture.Snippet,
+                    fixture.SourceLanguage));
 
             // Then
             var ex = result.ShouldBeOfType<Exception>();
@@ -376,7 +388,9 @@ public sealed class IssueCheckerTests
                     fixture.Rule,
                     fixture.RuleName,
                     fixture.RuleUrl,
-                    fixture.AdditionalInformation));
+                    fixture.AdditionalInformation,
+                    fixture.Snippet,
+                    fixture.SourceLanguage));
 
             // Then
             var ex = result.ShouldBeOfType<Exception>();
@@ -421,7 +435,9 @@ public sealed class IssueCheckerTests
                     fixture.Rule,
                     fixture.RuleName,
                     fixture.RuleUrl,
-                    fixture.AdditionalInformation));
+                    fixture.AdditionalInformation,
+                    fixture.Snippet,
+                    fixture.SourceLanguage));
 
             // Then
             var ex = result.ShouldBeOfType<Exception>();
@@ -463,7 +479,9 @@ public sealed class IssueCheckerTests
                     fixture.Rule,
                     fixture.RuleName,
                     fixture.RuleUrl,
-                    fixture.AdditionalInformation));
+                    fixture.AdditionalInformation,
+                    fixture.Snippet,
+                    fixture.SourceLanguage));
 
             // Then
             var ex = result.ShouldBeOfType<Exception>();
@@ -507,7 +525,9 @@ public sealed class IssueCheckerTests
                     fixture.Rule,
                     fixture.RuleName,
                     fixture.RuleUrl,
-                    fixture.AdditionalInformation));
+                    fixture.AdditionalInformation,
+                    fixture.Snippet,
+                    fixture.SourceLanguage));
 
             // Then
             var ex = result.ShouldBeOfType<Exception>();
@@ -551,7 +571,9 @@ public sealed class IssueCheckerTests
                     fixture.Rule,
                     fixture.RuleName,
                     fixture.RuleUrl,
-                    fixture.AdditionalInformation));
+                    fixture.AdditionalInformation,
+                    fixture.Snippet,
+                    fixture.SourceLanguage));
 
             // Then
             var ex = result.ShouldBeOfType<Exception>();
@@ -595,7 +617,9 @@ public sealed class IssueCheckerTests
                     fixture.Rule,
                     fixture.RuleName,
                     fixture.RuleUrl,
-                    fixture.AdditionalInformation));
+                    fixture.AdditionalInformation,
+                    fixture.Snippet,
+                    fixture.SourceLanguage));
 
             // Then
             var ex = result.ShouldBeOfType<Exception>();
@@ -639,7 +663,9 @@ public sealed class IssueCheckerTests
                     fixture.Rule,
                     fixture.RuleName,
                     fixture.RuleUrl,
-                    fixture.AdditionalInformation));
+                    fixture.AdditionalInformation,
+                    fixture.Snippet,
+                    fixture.SourceLanguage));
 
             // Then
             var ex = result.ShouldBeOfType<Exception>();
@@ -682,7 +708,9 @@ public sealed class IssueCheckerTests
                     fixture.Rule,
                     fixture.RuleName,
                     fixture.RuleUrl,
-                    fixture.AdditionalInformation));
+                    fixture.AdditionalInformation,
+                    fixture.Snippet,
+                    fixture.SourceLanguage));
 
             // Then
             var ex = result.ShouldBeOfType<Exception>();
@@ -723,7 +751,9 @@ public sealed class IssueCheckerTests
                     fixture.Rule,
                     fixture.RuleName,
                     fixture.RuleUrl,
-                    fixture.AdditionalInformation));
+                    fixture.AdditionalInformation,
+                    fixture.Snippet,
+                    fixture.SourceLanguage));
 
             // Then
             var ex = result.ShouldBeOfType<Exception>();
@@ -768,7 +798,9 @@ public sealed class IssueCheckerTests
                     fixture.Rule,
                     fixture.RuleName,
                     fixture.RuleUrl,
-                    fixture.AdditionalInformation));
+                    fixture.AdditionalInformation,
+                    fixture.Snippet,
+                    fixture.SourceLanguage));
 
             // Then
             var ex = result.ShouldBeOfType<Exception>();
@@ -813,7 +845,9 @@ public sealed class IssueCheckerTests
                     fixture.Rule,
                     fixture.RuleName,
                     fixture.RuleUrl,
-                    fixture.AdditionalInformation));
+                    fixture.AdditionalInformation,
+                    fixture.Snippet,
+                    fixture.SourceLanguage));
 
             // Then
             var ex = result.ShouldBeOfType<Exception>();
@@ -855,7 +889,9 @@ public sealed class IssueCheckerTests
                     fixture.Rule,
                     fixture.RuleName,
                     fixture.RuleUrl,
-                    fixture.AdditionalInformation));
+                    fixture.AdditionalInformation,
+                    fixture.Snippet,
+                    fixture.SourceLanguage));
 
             // Then
             var ex = result.ShouldBeOfType<Exception>();
@@ -900,7 +936,9 @@ public sealed class IssueCheckerTests
                     fixture.Rule,
                     fixture.RuleName,
                     fixture.RuleUrl,
-                    fixture.AdditionalInformation));
+                    fixture.AdditionalInformation,
+                    fixture.Snippet,
+                    fixture.SourceLanguage));
 
             // Then
             var ex = result.ShouldBeOfType<Exception>();
@@ -945,7 +983,9 @@ public sealed class IssueCheckerTests
                     expectedValue,
                     fixture.RuleName,
                     fixture.RuleUrl,
-                    fixture.AdditionalInformation));
+                    fixture.AdditionalInformation,
+                    fixture.Snippet,
+                    fixture.SourceLanguage));
 
             // Then
             var ex = result.ShouldBeOfType<Exception>();
@@ -990,7 +1030,9 @@ public sealed class IssueCheckerTests
                     fixture.Rule,
                     expectedValue,
                     fixture.RuleUrl,
-                    fixture.AdditionalInformation));
+                    fixture.AdditionalInformation,
+                    fixture.Snippet,
+                    fixture.SourceLanguage));
 
             // Then
             var ex = result.ShouldBeOfType<Exception>();
@@ -1032,7 +1074,9 @@ public sealed class IssueCheckerTests
                     fixture.Rule,
                     fixture.RuleName,
                     new Uri(expectedValue),
-                    fixture.AdditionalInformation));
+                    fixture.AdditionalInformation,
+                    fixture.Snippet,
+                    fixture.SourceLanguage));
 
             // Then
             var ex = result.ShouldBeOfType<Exception>();
@@ -1077,7 +1121,9 @@ public sealed class IssueCheckerTests
                     new Dictionary<string, string>
                     {
                         { expectedKey, expectedValue },
-                    }));
+                    },
+                    fixture.Snippet,
+                    fixture.SourceLanguage));
 
             // Then
             var ex = result.ShouldBeOfType<Exception>();
@@ -1138,7 +1184,9 @@ public sealed class IssueCheckerTests
                     fixture.Rule,
                     fixture.RuleName,
                     fixture.RuleUrl,
-                    expected));
+                    expected,
+                    fixture.Snippet,
+                    fixture.SourceLanguage));
 
             // Then
             var ex = result.ShouldBeOfType<Exception>();
@@ -1199,11 +1247,101 @@ public sealed class IssueCheckerTests
                     fixture.Rule,
                     fixture.RuleName,
                     fixture.RuleUrl,
-                    expected));
+                    expected,
+                    fixture.Snippet,
+                    fixture.SourceLanguage));
 
             // Then
             var ex = result.ShouldBeOfType<Exception>();
             ex.Message.ShouldStartWith("Expected issue.AdditionalInformation to have an item with the key");
+        }
+
+        [Theory]
+        [InlineData("var x = 1;", "var x = 1")]
+        public void Should_Throw_If_Snippet_Is_Different(string expectedValue, string actualValue)
+        {
+            // Given
+            var fixture = new IssueCheckerFixture();
+            var issue =
+                fixture.IssueBuilder
+                    .WithSnippet(actualValue)
+                    .Create();
+
+            // When
+            var result = Record.Exception(() =>
+                IssueChecker.Check(
+                    issue,
+                    fixture.ProviderType,
+                    fixture.ProviderName,
+                    fixture.Run,
+                    fixture.Identifier,
+                    fixture.ProjectFileRelativePath,
+                    fixture.ProjectName,
+                    fixture.AffectedFileRelativePath,
+                    fixture.Line,
+                    fixture.EndLine,
+                    fixture.Column,
+                    fixture.EndColumn,
+                    fixture.FileLink,
+                    fixture.MessageText,
+                    fixture.MessageHtml,
+                    fixture.MessageMarkdown,
+                    fixture.Priority,
+                    fixture.PriorityName,
+                    fixture.Rule,
+                    fixture.RuleName,
+                    fixture.RuleUrl,
+                    fixture.AdditionalInformation,
+                    expectedValue,
+                    fixture.SourceLanguage));
+
+            // Then
+            var ex = result.ShouldBeOfType<Exception>();
+            ex.Message.ShouldStartWith("Expected issue.Snippet");
+        }
+
+        [Theory]
+        [InlineData("csharp", "javascript")]
+        public void Should_Throw_If_SourceLanguage_Is_Different(string expectedValue, string actualValue)
+        {
+            // Given
+            var fixture = new IssueCheckerFixture();
+            var issue =
+                fixture.IssueBuilder
+                    .WithSnippet(fixture.Snippet, actualValue)
+                    .Create();
+
+            // When
+            var result = Record.Exception(() =>
+                IssueChecker.Check(
+                    issue,
+                    fixture.ProviderType,
+                    fixture.ProviderName,
+                    fixture.Run,
+                    fixture.Identifier,
+                    fixture.ProjectFileRelativePath,
+                    fixture.ProjectName,
+                    fixture.AffectedFileRelativePath,
+                    fixture.Line,
+                    fixture.EndLine,
+                    fixture.Column,
+                    fixture.EndColumn,
+                    fixture.FileLink,
+                    fixture.MessageText,
+                    fixture.MessageHtml,
+                    fixture.MessageMarkdown,
+                    fixture.Priority,
+                    fixture.PriorityName,
+                    fixture.Rule,
+                    fixture.RuleName,
+                    fixture.RuleUrl,
+                    fixture.AdditionalInformation,
+                    fixture.Snippet,
+                    expectedValue));
+
+            // Then
+            var ex = result.ShouldBeOfType<Exception>();
+            ex.Message.ShouldStartWith("Expected issue.SourceLanguage");
         }
     }
 }

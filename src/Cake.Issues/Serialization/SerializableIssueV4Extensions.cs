@@ -49,6 +49,8 @@ internal static class SerializableIssueV4Extensions
             serializableIssue.Run,
             serializableIssue.ProviderType,
             serializableIssue.ProviderName,
-            serializableIssue.AdditionalInformation);
+            serializableIssue.AdditionalInformation,
+            null,
+            null);
     }
 }

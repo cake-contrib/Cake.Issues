@@ -44,6 +44,8 @@ internal static class SerializableIssueExtensions
             null,
             serializableIssue.ProviderType,
             serializableIssue.ProviderName,
-            new Dictionary<string, string>());
+            new Dictionary<string, string>(),
+            null,
+            null);
     }
 }

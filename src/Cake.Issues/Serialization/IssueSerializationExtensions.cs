@@ -68,15 +68,15 @@ public static class IssueSerializationExtensions
     }
 
     /// <summary>
-    /// Converts an <see cref="IIssue"/> to a <see cref="SerializableIssueV4"/>.
+    /// Converts an <see cref="IIssue"/> to a <see cref="SerializableIssueV6"/>.
     /// </summary>
     /// <param name="issue">Issue which should be converted.</param>
     /// <returns>Converted issue.</returns>
-    internal static SerializableIssueV5 ToSerializableIssue(this IIssue issue)
+    internal static SerializableIssueV6 ToSerializableIssue(this IIssue issue)
     {
         issue.NotNull();
 
-        return new SerializableIssueV5
+        return new SerializableIssueV6
         {
             Identifier = issue.Identifier,
             ProjectFileRelativePath = issue.ProjectFileRelativePath?.FullPath,
