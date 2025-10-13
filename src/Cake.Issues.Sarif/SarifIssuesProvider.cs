@@ -179,9 +179,16 @@ internal class SarifIssuesProvider(ICakeLog log, SarifIssuesSettings issueProvid
     /// </summary>
     /// <param name="result">Result to read the location from.</param>
     /// <param name="repositorySettings">Repository settings.</param>
-    /// <returns>File and line of the result.</returns>
-    private static (string FilePath, int? StartLine, int? EndLine, int? StartColumn, int? EndColumn) GetLocation(
-        Result result, IRepositorySettings repositorySettings)
+    /// <returns>Location information for the result.</returns>
+    private static (
+        string FilePath,
+        int? StartLine,
+        int? EndLine,
+        int? StartColumn,
+        int? EndColumn,
+        string snippet,
+        string sourceLanguage)
+        GetLocation(Result result, IRepositorySettings repositorySettings)
     {
         result.NotNull();
 
@@ -233,13 +240,15 @@ internal class SarifIssuesProvider(ICakeLog log, SarifIssuesSettings issueProvid
 
             if (!pathValidationResult)
             {
-                return (null, null, null, null, null);
+                return (null, null, null, null, null, null, null);
             }
 
             int? startLine = null;
             int? endLine = null;
             int? startColumn = null;
             int? endColumn = null;
+            string snippet = null;
+            string sourceLanguage = null;
             if (location.PhysicalLocation.Region != null)
             {
                 startLine = location.PhysicalLocation.Region.StartLine > 0 ? location.PhysicalLocation.Region.StartLine : null;
@@ -248,7 +257,7 @@ internal class SarifIssuesProvider(ICakeLog log, SarifIssuesSettings issueProvid
                 endColumn = location.PhysicalLocation.Region.EndColumn > 0 ? location.PhysicalLocation.Region.EndColumn : null;
             }
 
-            return (filePath, startLine, endLine, startColumn, endColumn);
+            return (filePath, startLine, endLine, startColumn, endColumn, snippet, sourceLanguage);
         }
 
         return (null, null, null, null, null);
