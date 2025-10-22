@@ -139,7 +139,7 @@ internal class XmlFileLoggerLogFileFormat(ICakeLog log) : BaseMsBuildLogFileForm
         }
 
         // Validate project path and make relative to repository root.
-        (var result, project) = this.ValidateFilePath(project, repositorySettings);
+        (var result, project) = project.Validate(repositorySettings);
         return result;
     }
 
@@ -187,7 +187,7 @@ internal class XmlFileLoggerLogFileFormat(ICakeLog log) : BaseMsBuildLogFileForm
         }
 
         // Validate file path and make relative to repository root.
-        (var result, fileName) = this.ValidateFilePath(fileName, repositorySettings);
+        (var result, fileName) = fileName.Validate(repositorySettings);
         return result;
     }
 

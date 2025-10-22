@@ -9,26 +9,4 @@ using Cake.Core.Diagnostics;
 public abstract class BaseMsBuildLogFileFormat(ICakeLog log)
     : BaseLogFileFormat<MsBuildIssuesProvider, MsBuildIssuesSettings>(log)
 {
-    /// <summary>
-    /// Validates a file path.
-    /// </summary>
-    /// <param name="filePath">Full file path.</param>
-    /// <param name="repositorySettings">Repository settings.</param>
-    /// <returns>Tuple containing a value if validation was successful, and file path relative to repository root.</returns>
-    protected (bool Valid, string FilePath) ValidateFilePath(string filePath, IRepositorySettings repositorySettings)
-    {
-        filePath.NotNullOrWhiteSpace();
-        repositorySettings.NotNull();
-
-        // Ignore files from outside the repository.
-        if (!filePath.IsInRepository(repositorySettings))
-        {
-            return (false, string.Empty);
-        }
-
-        // Make path relative to repository root.
-        filePath = filePath.MakeFilePathRelativeToRepositoryRoot(repositorySettings);
-
-        return (true, filePath);
-    }
 }

@@ -4,6 +4,139 @@ using System.Runtime.InteropServices;
 
 public sealed class StringPathExtensionsTests
 {
+    public sealed class TheValidateMethod
+    {
+        [Fact]
+        public void Should_Throw_If_Path_Is_Null()
+        {
+            // Given
+            const string path = null;
+            var repositorySettings = new RepositorySettings(@"c:\repo");
+
+            // When
+            var result = Record.Exception(() => path.Validate(repositorySettings));
+
+            // Then
+            result.IsArgumentNullException("path");
+        }
+
+        [Fact]
+        public void Should_Throw_If_Path_Is_Empty()
+        {
+            // Given
+            var path = string.Empty;
+            var repositorySettings = new RepositorySettings(@"c:\repo");
+
+            // When
+            var result = Record.Exception(() => path.Validate(repositorySettings));
+
+            // Then
+            result.IsArgumentOutOfRangeException("path");
+        }
+
+        [Fact]
+        public void Should_Throw_If_Path_Is_WhiteSpace()
+        {
+            // Given
+            const string path = " ";
+            var repositorySettings = new RepositorySettings(@"c:\repo");
+
+            // When
+            var result = Record.Exception(() => path.Validate(repositorySettings));
+
+            // Then
+            result.IsArgumentOutOfRangeException("path");
+        }
+
+        [Fact]
+        public void Should_Throw_If_RepositorySettings_Are_Null()
+        {
+            // Given
+            const string path = @"c:\repo\foo.cs";
+            const IRepositorySettings repositorySettings = null;
+
+            // When
+            var result = Record.Exception(() => path.Validate(repositorySettings));
+
+            // Then
+            result.IsArgumentNullException("repositorySettings");
+        }
+
+        [Theory]
+        [InlineData(@"c:\foo\bar.cs", @"c:\foo\", true)]
+        [InlineData(@"c:\foo\bar.cs", @"c:\foo", true)]
+        [InlineData(@"c:\foo\bar.cs", @"c:\bar", false)]
+        public void Should_Return_Correct_Value_For_Valid_Absolute_Path(
+            string path,
+            string repoRoot,
+            bool expectedValue)
+        {
+            // Given
+            var repositorySettings = new RepositorySettings(repoRoot);
+
+            // When
+            var (valid, _) = path.Validate(repositorySettings);
+
+            // Then
+            valid.ShouldBe(expectedValue);
+        }
+
+        [Theory]
+        [InlineData(@"c:\foo\bar.cs", @"c:\foo\", "bar.cs")]
+        [InlineData(@"c:\foo\bar.cs", @"c:\foo", "bar.cs")]
+        [InlineData(@"c:\foo\bar.cs", @"c:\bar", "")]
+        public void Should_Return_Correct_FilePath_For_Absolute_Path(
+            string path,
+            string repoRoot,
+            string expectedValue)
+        {
+            // Given
+            var repositorySettings = new RepositorySettings(repoRoot);
+
+            // When
+            var (_, resultFilePath) = path.Validate(repositorySettings);
+
+            // Then
+            resultFilePath.ShouldBe(expectedValue);
+        }
+
+        [Theory]
+        [InlineData("foo.cs", true)]
+        [InlineData(@"foo\bar.cs", true)]
+        [InlineData("bar.cs", true)]
+        public void Should_Return_True_For_Relative_Path(
+            string path,
+            bool expectedValue)
+        {
+            // Given
+            var repositorySettings = new RepositorySettings(@"c:\repo");
+
+            // When
+            var (valid, _) = path.Validate(repositorySettings);
+
+            // Then
+            valid.ShouldBe(expectedValue);
+        }
+
+        [Theory]
+        [InlineData("foo.cs", "foo.cs")]
+        [InlineData(@"foo\bar.cs", @"foo\bar.cs")]
+        [InlineData("bar.cs", "bar.cs")]
+        public void Should_Return_Unchanged_FilePath_For_Relative_Path(
+            string path,
+            string expectedValue)
+        {
+            // Given
+            var repositorySettings = new RepositorySettings(@"c:\repo");
+
+            // When
+            var (_, resultFilePath) = path.Validate(repositorySettings);
+
+            // Then
+            resultFilePath.ShouldBe(expectedValue);
+        }
+    }
+
     public sealed class TheIsValidPathExtension
     {
         [Fact]

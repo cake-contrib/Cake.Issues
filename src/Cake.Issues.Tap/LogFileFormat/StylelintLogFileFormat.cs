@@ -88,7 +88,7 @@ internal class StylelintLogFileFormat(ICakeLog log)
         fileName = tapResult.Description.ToString();
 
         // Validate file path and make relative to repository root.
-        (var result, fileName) = ValidateFilePath(fileName, repositorySettings);
+        (var result, fileName) = fileName.Validate(repositorySettings);
         return result;
     }
 }
