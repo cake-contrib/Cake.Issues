@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using Cake.Core.Diagnostics;
-using Cake.Core.IO;
 using Cake.Issues;
 using Microsoft.CodeAnalysis.Sarif;
 using Newtonsoft.Json;
@@ -225,7 +224,7 @@ internal class SarifIssuesProvider(ICakeLog log, SarifIssuesSettings issueProvid
             }
 
             // Validate file path and make relative to repository root if it is an absolute path.
-            (var pathValidationResult, filePath) = ValidateFilePath(filePath, repositorySettings);
+            (var pathValidationResult, filePath) = filePath.Validate(repositorySettings);
 
             if (!pathValidationResult)
             {
@@ -249,15 +248,4 @@ internal class SarifIssuesProvider(ICakeLog log, SarifIssuesSettings issueProvid
 
         return (null, null, null, null, null);
     }
-
-    /// <summary>
-    /// Validates a file path.
-    /// </summary>
-    /// <param name="filePath">Full file path.</param>
-    /// <param name="repositorySettings">Repository settings.</param>
-    /// <returns>Tuple containing a value if validation was successful, and file path relative to repository root.</returns>
-    private static (bool Valid, string FilePath) ValidateFilePath(
-        string filePath,
-        IRepositorySettings repositorySettings) =>
-        BaseIssueProvider.ValidateFilePath(filePath, repositorySettings);
 }

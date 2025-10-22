@@ -213,7 +213,7 @@ internal class BinaryLogFileFormat(ICakeLog log) : BaseMsBuildLogFileFormat(log)
         IRepositorySettings repositorySettings) =>
 
         // Validate project path and make relative to repository root.
-        this.ValidateFilePath(project, repositorySettings).FilePath;
+        project.Validate(repositorySettings).FilePath;
 
     /// <summary>
     /// Reads the affected file path from a value in a MsBuild log.
@@ -240,6 +240,6 @@ internal class BinaryLogFileFormat(ICakeLog log) : BaseMsBuildLogFileFormat(log)
         }
 
         // Validate file path and make relative to repository root.
-        return this.ValidateFilePath(fileName, repositorySettings);
+        return fileName.Validate(repositorySettings);
     }
 }

@@ -9,6 +9,32 @@ using System.IO;
 public static class StringPathExtensions
 {
     /// <summary>
+    /// Validates a file path for processing in an issue provider.
+    /// </summary>
+    /// <param name="path">Full file path.</param>
+    /// <param name="repositorySettings">Repository settings.</param>
+    /// <returns>Tuple containing a value if validation was successful, and file path relative to repository root.</returns>
+    public static (bool Valid, string FilePath) Validate(this string path, IRepositorySettings repositorySettings)
+    {
+        path.NotNullOrWhiteSpace();
+        repositorySettings.NotNull();
+
+        if (!new Core.IO.FilePath(path).IsRelative)
+        {
+            // Ignore files from outside the repository.
+            if (!path.IsInRepository(repositorySettings))
+            {
+                return (false, string.Empty);
+            }
+
+            // Make path relative to repository root.
+            path = path.NormalizePath().MakeFilePathRelativeToRepositoryRoot(repositorySettings);
+        }
+
+        return (true, path);
+    }
+
+    /// <summary>
     /// Checks if a string containing a path is a valid path string.
     /// </summary>
     /// <param name="path">Path to check.</param>
