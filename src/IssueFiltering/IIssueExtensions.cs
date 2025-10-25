@@ -1,4 +1,4 @@
-﻿namespace Cake.Issues.PullRequests;
+namespace Cake.Issues.Shared;
 
 using System.Collections.Generic;
 using System.Linq;

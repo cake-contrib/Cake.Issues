@@ -1,5 +1,7 @@
 ﻿namespace Cake.Issues.PullRequests.Tests;
 
+using Cake.Issues.Shared;
+
 public sealed class IIssueExtensionsTests
 {
     public sealed class TheSortWithDefaultPrioritizationMethod
