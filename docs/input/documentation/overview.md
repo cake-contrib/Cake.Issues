@@ -9,8 +9,8 @@ offer an extensive and flexible solution for reading linting issues.
 Cake.Issues redefines issue management within the Cake build system by offering a comprehensive,
 universal, and extensible solution.
 The unique capabilities of the addins empower development teams to enforce coding standards,
-generate insightful reports,
-seamlessly incorporate various linting tools, and streamlining the integration with pull requests.
+generate insightful reports, seamlessly incorporate various linting tools, and streamline the
+integration with build servers and pull requests.
 With its [modular architecture] and extensive [set of aliases](https://cakebuild.net/extensions/cake-issues/),
 Cake.Issues provides a future-proof infrastructure for issue management in Cake builds,
 fostering a more efficient and adaptable development process.
