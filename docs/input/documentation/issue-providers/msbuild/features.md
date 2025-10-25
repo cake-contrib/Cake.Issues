@@ -51,6 +51,8 @@ provides the following features.
     * [x] `IIssue.PriorityName`
     * [x] `IIssue.RuleId`
     * [x] `IIssue.RuleUrl` (4)
+    * [ ] `IIssue.Snippet`
+    * [ ] `IIssue.SourceLanguage`
     
     </div>
     
@@ -85,6 +87,8 @@ provides the following features.
     - [x] `IIssue.PriorityName`
     - [x] `IIssue.RuleId`
     - [x] `IIssue.RuleUrl` (4)
+    - [ ] `IIssue.Snippet`
+    - [ ] `IIssue.SourceLanguage`
     
     </div>
     
