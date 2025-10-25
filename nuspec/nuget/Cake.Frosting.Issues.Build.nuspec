@@ -39,6 +39,5 @@ See the Project Site for an overview of the whole ecosystem of addins for workin
     <file src="icon.png" target="" />
     <file src="Cake.Frosting.Issues.Build.md" target="docs\README.md" />
     <file src="..\..\src\Cake.Issues.Build\bin\Release\**\Cake.Issues.Build.*" target="lib" exclude="**\*.deps.json" />
-    <file src="..\..\src\Cake.Issues.Shared\bin\Release\**\Cake.Issues.Shared.*" target="lib" exclude="**\*.deps.json" />
   </files>
 </package>

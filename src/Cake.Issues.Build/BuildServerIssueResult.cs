@@ -13,7 +13,7 @@ public class BuildServerIssueResult(
     IEnumerable<IIssue> postedIssues)
 {
     /// <summary>
-    /// Gets all issues which were part of the report.
+    /// Gets all issues which were passed to be reported to the build server.
     /// This can be more than the issues posted to the build server,
     /// since there can be filtering in place which removes some issues before posting to the build server.
     /// </summary>
