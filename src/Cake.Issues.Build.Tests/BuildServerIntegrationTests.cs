@@ -25,30 +25,24 @@ public sealed class BuildServerIntegrationTests
             };
 
             // When
-            buildServer.Initialize(settings);
+            buildServer.Initialize(settings).ShouldBeTrue();
             buildServer.PostIssues(issues);
 
             // Then
-            buildServer.PostedIssues.ShouldHaveSingleItem();
-            buildServer.PostedIssues[0].MessageText.ShouldBe("Test issue");
+            buildServer.PostedIssues
+                .ShouldHaveSingleItem()
+                .MessageText.ShouldBe("Test issue");
         }
     }
 
     /// <summary>
     /// Simple test implementation of a build server system.
     /// </summary>
-    private class TestBuildServerSystem : BaseBuildServerSystem
+    private class TestBuildServerSystem(ICakeLog log) : BaseBuildServerSystem(log)
     {
-        public TestBuildServerSystem(ICakeLog log) : base(log)
-        {
-            this.PostedIssues = new List<IIssue>();
-        }
+        public List<IIssue> PostedIssues { get; } = [];
 
-        public List<IIssue> PostedIssues { get; }
-
-        protected override void InternalPostIssues(IEnumerable<IIssue> issues)
-        {
+        protected override void InternalPostIssues(IEnumerable<IIssue> issues) =>
             this.PostedIssues.AddRange(issues);
-        }
     }
 }
