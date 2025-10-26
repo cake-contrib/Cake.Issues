@@ -58,7 +58,9 @@ provides the following features.
     * [x] `IIssue.PriorityName` (5)
     * [x] `IIssue.RuleId`
     * [x] `IIssue.RuleUrl` (6)
-    
+    * [ ] `IIssue.Snippet`
+    * [ ] `IIssue.SourceLanguage`
+  
     </div>
     
     1. Can be set while reading issues
@@ -92,6 +94,8 @@ provides the following features.
     * [x] `IIssue.PriorityName` (5)
     * [x] `IIssue.RuleId`
     * [x] `IIssue.RuleUrl` (6)
+    * [ ] `IIssue.Snippet`
+    * [ ] `IIssue.SourceLanguage`
     
     </div>
     
@@ -126,6 +130,8 @@ provides the following features.
     * [x] `IIssue.PriorityName` (5)
     * [x] `IIssue.RuleId`
     * [x] `IIssue.RuleUrl`
+    * [ ] `IIssue.Snippet`
+    * [ ] `IIssue.SourceLanguage`
     
     </div>
     

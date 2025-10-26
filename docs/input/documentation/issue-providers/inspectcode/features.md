@@ -49,6 +49,8 @@ The [Cake.Issues.InspectCode addin] provides the following features.
 * [x] `IIssue.PriorityName`
 * [x] `IIssue.RuleId`
 * [x] `IIssue.RuleUrl`
+* [ ] `IIssue.Snippet`
+* [ ] `IIssue.SourceLanguage`
 
 </div>
 

@@ -56,6 +56,8 @@ features.
     - [ ] `IIssue.PriorityName`
     - [ ] `IIssue.RuleId`
     - [ ] `IIssue.RuleUrl`
+    - [ ] `IIssue.Snippet`
+    - [ ] `IIssue.SourceLanguage`
     
     </div>
     
@@ -87,6 +89,8 @@ features.
     - [x] `IIssue.PriorityName`
     - [x] `IIssue.RuleId`
     - [x] `IIssue.RuleUrl` (4)
+    - [ ] `IIssue.Snippet`
+    - [ ] `IIssue.SourceLanguage`
     
     </div>
     
@@ -119,6 +123,8 @@ features.
     - [x] `IIssue.PriorityName`
     - [x] `IIssue.RuleId`
     - [x] `IIssue.RuleUrl` (4)
+    - [ ] `IIssue.Snippet`
+    - [ ] `IIssue.SourceLanguage`
     
     </div>
     
