@@ -56,15 +56,15 @@
       },
       "Verify.Xunit": {
         "type": "Direct",
-        "requested": "[31.4.3, )",
-        "resolved": "31.4.3",
-        "contentHash": "N3dCE1oaf09ovvx5LD+FzZIFLbIJoW4zshOddMe6Qduey0fl8YDNq3xX0ZvEh9sUjnJTEQpelYLZiAhJwN6Tyw==",
+        "requested": "[31.5.1, )",
+        "resolved": "31.5.1",
+        "contentHash": "fPiONhuMZO7Aj2ytHYRmiqanGVb0XiJFwJPrlvasOwqlVBcPmU/IEdyoO/lqz9Lcvv7GeDUX6Emjxpc3pAepAw==",
         "dependencies": {
           "Argon": "0.32.0",
           "DiffEngine": "16.8.0",
           "SimpleInfoName": "3.1.2",
           "System.ValueTuple": "4.6.1",
-          "Verify": "31.4.3",
+          "Verify": "31.5.1",
           "xunit.abstractions": "2.0.3",
           "xunit.extensibility.execution": "2.9.3"
         }
@@ -236,8 +236,8 @@
       },
       "Verify": {
         "type": "Transitive",
-        "resolved": "31.4.3",
-        "contentHash": "peuArMXX3WC0dze8okNCks4in7dBaazmltPNZtGa5Ub7ikKALcO1vc+5T27FzpfTpKObTQSGP5HW3czSqCbOGQ==",
+        "resolved": "31.5.1",
+        "contentHash": "lYobUgJru3iCqXFoU3fMhDAzMu1rzrSK8z9ms+YQZOuvdZE3NVsIUKWyaHiQ+LhKnSTfOW5+38TduuKh/uIQkg==",
         "dependencies": {
           "Argon": "0.32.0",
           "DiffEngine": "16.8.0",
@@ -414,15 +414,15 @@
       },
       "Verify.Xunit": {
         "type": "Direct",
-        "requested": "[31.4.3, )",
-        "resolved": "31.4.3",
-        "contentHash": "N3dCE1oaf09ovvx5LD+FzZIFLbIJoW4zshOddMe6Qduey0fl8YDNq3xX0ZvEh9sUjnJTEQpelYLZiAhJwN6Tyw==",
+        "requested": "[31.5.1, )",
+        "resolved": "31.5.1",
+        "contentHash": "fPiONhuMZO7Aj2ytHYRmiqanGVb0XiJFwJPrlvasOwqlVBcPmU/IEdyoO/lqz9Lcvv7GeDUX6Emjxpc3pAepAw==",
         "dependencies": {
           "Argon": "0.32.0",
           "DiffEngine": "16.8.0",
           "SimpleInfoName": "3.1.2",
           "System.ValueTuple": "4.6.1",
-          "Verify": "31.4.3",
+          "Verify": "31.5.1",
           "xunit.abstractions": "2.0.3",
           "xunit.extensibility.execution": "2.9.3"
         }
@@ -594,8 +594,8 @@
       },
       "Verify": {
         "type": "Transitive",
-        "resolved": "31.4.3",
-        "contentHash": "peuArMXX3WC0dze8okNCks4in7dBaazmltPNZtGa5Ub7ikKALcO1vc+5T27FzpfTpKObTQSGP5HW3czSqCbOGQ==",
+        "resolved": "31.5.1",
+        "contentHash": "lYobUgJru3iCqXFoU3fMhDAzMu1rzrSK8z9ms+YQZOuvdZE3NVsIUKWyaHiQ+LhKnSTfOW5+38TduuKh/uIQkg==",
         "dependencies": {
           "Argon": "0.32.0",
           "DiffEngine": "16.8.0",
