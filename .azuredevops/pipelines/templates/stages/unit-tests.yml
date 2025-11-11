@@ -14,7 +14,7 @@ stages:
           Ubuntu:
             imageName: 'ubuntu-24.04'
           macOS:
-            imageName: 'macOS-13'
+            imageName: 'macOS-14'
       pool:
         vmImage: $(imageName)
       steps:
