@@ -61,6 +61,7 @@ theme:
     - navigation.instant
     - navigation.instant.prefetch
     - navigation.instant.progress
+    - navigation.path
     - navigation.sections
     - navigation.tabs
     - navigation.tabs.sticky
