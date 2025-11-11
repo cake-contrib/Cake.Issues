@@ -59,6 +59,7 @@ theme:
     - content.tooltips
     - navigation.indexes 
     - navigation.instant
+    - navigation.instant.prefetch
     - navigation.instant.progress
     - navigation.sections
     - navigation.tabs
