@@ -154,11 +154,6 @@
           "System.CodeDom": "6.0.0"
         }
       },
-      "System.Memory": {
-        "type": "Transitive",
-        "resolved": "4.6.3",
-        "contentHash": "qdcDOgnFZY40+Q9876JUHnlHu7bosOHX8XISRoH94fwk6hgaeQGSgfZd8srWRZNt5bV9ZW2TljcegDNxsf+96A=="
-      },
       "System.Reflection.Metadata": {
         "type": "Transitive",
         "resolved": "8.0.0",
@@ -236,7 +231,7 @@
         "type": "Project",
         "dependencies": {
           "Cake.Issues": "[1.0.0, )",
-          "Spectre.Console": "[0.50.0, )"
+          "Spectre.Console": "[0.53.0, )"
         }
       },
       "cake.issues.pullrequests.githubactions": {
@@ -283,12 +278,9 @@
       },
       "Spectre.Console": {
         "type": "CentralTransitive",
-        "requested": "[0.50.0, )",
-        "resolved": "0.50.0",
-        "contentHash": "gkwYncFqMjlPF6Yz8KeVsKWpdfv15sr6uKm+vXVa/8Q4tvx52LPzMQOO5m+bXwI3AGGFeY3cok3ZJbguYizswg==",
-        "dependencies": {
-          "System.Memory": "4.6.3"
-        }
+        "requested": "[0.53.0, )",
+        "resolved": "0.53.0",
+        "contentHash": "m2iv8Egfywp7FaNLKCmCFHbSf36D4ctzZKvlAK9NXMyGLh6L+CnrZWK8o+LOYsoAS1jtoHn0W1BT0W8vuq/FUw=="
       }
     },
     "net9.0": {
@@ -444,11 +436,6 @@
           "System.CodeDom": "6.0.0"
         }
       },
-      "System.Memory": {
-        "type": "Transitive",
-        "resolved": "4.6.3",
-        "contentHash": "qdcDOgnFZY40+Q9876JUHnlHu7bosOHX8XISRoH94fwk6hgaeQGSgfZd8srWRZNt5bV9ZW2TljcegDNxsf+96A=="
-      },
       "System.Reflection.Metadata": {
         "type": "Transitive",
         "resolved": "8.0.0",
@@ -526,7 +513,7 @@
         "type": "Project",
         "dependencies": {
           "Cake.Issues": "[1.0.0, )",
-          "Spectre.Console": "[0.50.0, )"
+          "Spectre.Console": "[0.53.0, )"
         }
       },
       "cake.issues.pullrequests.githubactions": {
@@ -573,12 +560,9 @@
       },
       "Spectre.Console": {
         "type": "CentralTransitive",
-        "requested": "[0.50.0, )",
-        "resolved": "0.50.0",
-        "contentHash": "gkwYncFqMjlPF6Yz8KeVsKWpdfv15sr6uKm+vXVa/8Q4tvx52LPzMQOO5m+bXwI3AGGFeY3cok3ZJbguYizswg==",
-        "dependencies": {
-          "System.Memory": "4.6.3"
-        }
+        "requested": "[0.53.0, )",
+        "resolved": "0.53.0",
+        "contentHash": "m2iv8Egfywp7FaNLKCmCFHbSf36D4ctzZKvlAK9NXMyGLh6L+CnrZWK8o+LOYsoAS1jtoHn0W1BT0W8vuq/FUw=="
       }
     }
   }
