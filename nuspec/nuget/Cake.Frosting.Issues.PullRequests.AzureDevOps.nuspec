@@ -38,6 +38,10 @@ For addin compatible with Cake Script Runners see Cake.Issues.PullRequests.Azure
         <dependency id="Cake.Frosting.Issues.PullRequests" version="[5.0.0-beta0001,6.0)" exclude="Build,Analyzers" />
         <dependency id="Cake.Frosting.AzureDevOps" version="5.0.2" exclude="Build,Analyzers" />
       </group>
+      <group targetFramework="net10.0">
+        <dependency id="Cake.Frosting.Issues.PullRequests" version="[5.0.0-beta0001,6.0)" exclude="Build,Analyzers" />
+        <dependency id="Cake.Frosting.AzureDevOps" version="5.0.2" exclude="Build,Analyzers" />
+      </group>
     </dependencies>
   </metadata>
   <files>
