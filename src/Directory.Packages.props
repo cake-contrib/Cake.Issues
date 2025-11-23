@@ -38,7 +38,7 @@
 
   <!-- Analyzers addin projects -->
   <ItemGroup Condition="!$(MSBuildProjectName.EndsWith('.Tests'))">
-    <GlobalPackageReference Include="NewStyleCop.Analyzers" Version="1.1.0" />
+    <GlobalPackageReference Include="NewStyleCop.Analyzers" Version="1.2.0" />
   </ItemGroup>
 
   <!-- Runners for test projects -->

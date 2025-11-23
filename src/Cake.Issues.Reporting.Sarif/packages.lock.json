@@ -10,9 +10,9 @@
       },
       "NewStyleCop.Analyzers": {
         "type": "Direct",
-        "requested": "[1.1.0, )",
-        "resolved": "1.1.0",
-        "contentHash": "kc/xCU75PktCWXsUK//e3kMempmFBDsdh24vk/u+XFpNxq+GQyDjp3uxK2niBDtPydzm6z3wxmWV1rUBWWYSRA=="
+        "requested": "[1.2.0, )",
+        "resolved": "1.2.0",
+        "contentHash": "zLM0XCv+fdibf0QivRJaFyLAt3SmmxDGrGlLhgqlMq1IPbgnfVFH4KzFLjh1/27pRnWuhwDjELe/mZDwbes0nA=="
       },
       "Sarif.Sdk": {
         "type": "Direct",
@@ -315,9 +315,9 @@
       },
       "NewStyleCop.Analyzers": {
         "type": "Direct",
-        "requested": "[1.1.0, )",
-        "resolved": "1.1.0",
-        "contentHash": "kc/xCU75PktCWXsUK//e3kMempmFBDsdh24vk/u+XFpNxq+GQyDjp3uxK2niBDtPydzm6z3wxmWV1rUBWWYSRA=="
+        "requested": "[1.2.0, )",
+        "resolved": "1.2.0",
+        "contentHash": "zLM0XCv+fdibf0QivRJaFyLAt3SmmxDGrGlLhgqlMq1IPbgnfVFH4KzFLjh1/27pRnWuhwDjELe/mZDwbes0nA=="
       },
       "Sarif.Sdk": {
         "type": "Direct",
