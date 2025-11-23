@@ -154,6 +154,12 @@ public static class StringPathExtensions
         filePath.NotNullOrWhiteSpace();
         repositorySettings.NotNull();
 
+        // If path is already relative, return it as is.
+        if (new Core.IO.FilePath(filePath).IsRelative)
+        {
+            return (true, filePath);
+        }
+
         // Ignore files from outside the repository.
         if (!filePath.IsInRepository(repositorySettings))
         {
