@@ -5,9 +5,6 @@
 /// </summary>
 public class AppVeyorBuildSettings
 {
-    private string messagePattern = "Project: {ProjectName}, File: {FilePath}, Line: {Line}";
-    private string detailsPattern = "{Rule}: {MessageText}";
-
     /// <summary>
     /// Initializes a new instance of the <see cref="AppVeyorBuildSettings"/> class.
     /// </summary>
@@ -22,13 +19,13 @@ public class AppVeyorBuildSettings
     /// </summary>
     public string MessagePattern
     {
-        get => this.messagePattern;
+        get;
         set
         {
             value.NotNull();
-            this.messagePattern = value;
+            field = value;
         }
-    }
+    } = "Project: {ProjectName}, File: {FilePath}, Line: {Line}";
 
     /// <summary>
     /// Gets or sets the pattern of the message details to display.
@@ -37,11 +34,11 @@ public class AppVeyorBuildSettings
     /// </summary>
     public string DetailsPattern
     {
-        get => this.detailsPattern;
+        get;
         set
         {
             value.NotNull();
-            this.detailsPattern = value;
+            field = value;
         }
-    }
+    } = "{Rule}: {MessageText}";
 }

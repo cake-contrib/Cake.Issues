@@ -15,9 +15,6 @@
 
   <ItemGroup>
     <PackageReference Include="Gazorator" />
-    <PackageReference Include="Microsoft.CSharp" />
-    <!--Transitive dependencies specified explicitly to fix security vulnerabilities-->
-    <PackageReference Include="System.Text.Encodings.Web" />
   </ItemGroup>
 
   <ItemGroup>

@@ -33,6 +33,8 @@ For addin compatible with Cake Frosting see Cake.Frosting.Issues.Reporting.Gener
       </group>
       <group targetFramework="net9.0">
       </group>
+      <group targetFramework="net10.0">
+      </group>
     </dependencies>
   </metadata>
   <files>

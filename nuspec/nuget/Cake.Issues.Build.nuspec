@@ -29,6 +29,8 @@ See the Project Site for an overview of the whole ecosystem of addins for workin
       </group>
       <group targetFramework="net9.0">
       </group>
+      <group targetFramework="net10.0">
+      </group>
     </dependencies>
   </metadata>
   <files>
