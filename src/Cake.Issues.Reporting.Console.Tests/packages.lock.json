@@ -318,7 +318,7 @@
         "type": "Project",
         "dependencies": {
           "Cake.Issues.Reporting": "[1.0.0, )",
-          "Errata": "[0.14.0, )"
+          "Errata": "[0.15.0, )"
         }
       },
       "cake.issues.testing": {
@@ -353,11 +353,11 @@
       },
       "Errata": {
         "type": "CentralTransitive",
-        "requested": "[0.14.0, )",
-        "resolved": "0.14.0",
-        "contentHash": "/UEPufQeiwHgQSw1Eu6mVFP+GsdvsGk7n1SImoZRHjxIV9L5XWboRKjpVbmpinDd0lmzn2XIvLt0cs1cKzPv2Q==",
+        "requested": "[0.15.0, )",
+        "resolved": "0.15.0",
+        "contentHash": "2oETDVwqVx8UDTCkD7TQvO4nzAt8kcs2aL7XNJ85uCbsxo4822RdTh6wbLW6bkRZbSgHLGBIUBF2IbrOhtrDxg==",
         "dependencies": {
-          "Spectre.Console": "0.50.0"
+          "Spectre.Console": "0.54.0"
         }
       },
       "Microsoft.CSharp": {
@@ -369,8 +369,8 @@
       "Spectre.Console": {
         "type": "CentralTransitive",
         "requested": "[0.53.0, )",
-        "resolved": "0.53.0",
-        "contentHash": "m2iv8Egfywp7FaNLKCmCFHbSf36D4ctzZKvlAK9NXMyGLh6L+CnrZWK8o+LOYsoAS1jtoHn0W1BT0W8vuq/FUw=="
+        "resolved": "0.54.0",
+        "contentHash": "StDXCFayfy0yB1xzUHT2tgEpV1/HFTiS4JgsAQS49EYTfMixSwwucaQs/bIOCwXjWwIQTMuxjUIxcB5XsJkFJA=="
       }
     },
     "net9.0": {
@@ -690,7 +690,7 @@
         "type": "Project",
         "dependencies": {
           "Cake.Issues.Reporting": "[1.0.0, )",
-          "Errata": "[0.14.0, )"
+          "Errata": "[0.15.0, )"
         }
       },
       "cake.issues.testing": {
@@ -725,11 +725,11 @@
       },
       "Errata": {
         "type": "CentralTransitive",
-        "requested": "[0.14.0, )",
-        "resolved": "0.14.0",
-        "contentHash": "/UEPufQeiwHgQSw1Eu6mVFP+GsdvsGk7n1SImoZRHjxIV9L5XWboRKjpVbmpinDd0lmzn2XIvLt0cs1cKzPv2Q==",
+        "requested": "[0.15.0, )",
+        "resolved": "0.15.0",
+        "contentHash": "2oETDVwqVx8UDTCkD7TQvO4nzAt8kcs2aL7XNJ85uCbsxo4822RdTh6wbLW6bkRZbSgHLGBIUBF2IbrOhtrDxg==",
         "dependencies": {
-          "Spectre.Console": "0.50.0"
+          "Spectre.Console": "0.54.0"
         }
       },
       "Microsoft.CSharp": {
@@ -741,8 +741,8 @@
       "Spectre.Console": {
         "type": "CentralTransitive",
         "requested": "[0.53.0, )",
-        "resolved": "0.53.0",
-        "contentHash": "m2iv8Egfywp7FaNLKCmCFHbSf36D4ctzZKvlAK9NXMyGLh6L+CnrZWK8o+LOYsoAS1jtoHn0W1BT0W8vuq/FUw=="
+        "resolved": "0.54.0",
+        "contentHash": "StDXCFayfy0yB1xzUHT2tgEpV1/HFTiS4JgsAQS49EYTfMixSwwucaQs/bIOCwXjWwIQTMuxjUIxcB5XsJkFJA=="
       }
     }
   }
