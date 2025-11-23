@@ -124,11 +124,6 @@
         "resolved": "18.0.1",
         "contentHash": "O+utSr97NAJowIQT/OVp3Lh9QgW/wALVTP4RG1m2AfFP4IyJmJz0ZBmFJUsRQiAPgq6IRC0t8AAzsiPIsaUDEA=="
       },
-      "Microsoft.NETCore.Platforms": {
-        "type": "Transitive",
-        "resolved": "7.0.4",
-        "contentHash": "yLEHlNN7O5WiND89r42sepgVwy5W/ZoTiFEdJDV7MHR1lW02LL7Nipz2TD5qM/Kx9W3/k3NP+PAP2qUdOm+leg=="
-      },
       "Microsoft.SourceLink.Common": {
         "type": "Transitive",
         "resolved": "8.0.0",
@@ -266,7 +261,7 @@
       "cake.issues": {
         "type": "Project",
         "dependencies": {
-          "Cake.Core": "[5.0.0, )"
+          "Cake.Core": "[6.0.0, )"
         }
       },
       "cake.issues.reporting": {
@@ -286,26 +281,22 @@
         "type": "Project",
         "dependencies": {
           "Cake.Issues": "[1.0.0, )",
-          "Cake.Testing": "[5.0.0, )"
+          "Cake.Testing": "[6.0.0, )"
         }
       },
       "Cake.Core": {
         "type": "CentralTransitive",
-        "requested": "[5.0.0, )",
-        "resolved": "5.0.0",
-        "contentHash": "hq0HlI6bdRoMjUQTKioVjJZxQRxT7SuIjLjfTXO7fWe/alEU4OJumxq6LhTqz06pTRC7e5OrQqXyGKJnq5I+rw==",
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "7.0.4"
-        }
+        "requested": "[6.0.0, )",
+        "resolved": "6.0.0",
+        "contentHash": "SiAIpsPYMgSivBVReFz/wCYvimWVsZsoGVdZ/qogYbxLQA/QdXkMyHiGqqRhkfUuTf/0/N9HCYYAQe0sZfsekA=="
       },
       "Cake.Testing": {
         "type": "CentralTransitive",
-        "requested": "[5.0.0, )",
-        "resolved": "5.0.0",
-        "contentHash": "oEERVvRww03yd54aFtbSFYc7w4xou9X1An8za8JVOM8JvOhp8mNqh53a4+ogJ9qVOgTSFzK/MvbVfZQNeJECjg==",
+        "requested": "[6.0.0, )",
+        "resolved": "6.0.0",
+        "contentHash": "zaArQbfm7oqhx1spghfjxCpqBCy8ynYAOz8wbzEeoMYsv8AkS2AShnbwZOmwQSG1eYvx3Ff2/SCtAxfeqDCMNQ==",
         "dependencies": {
-          "Cake.Core": "5.0.0",
-          "Microsoft.NETCore.Platforms": "7.0.4"
+          "Cake.Core": "6.0.0"
         }
       },
       "Errata": {
@@ -447,11 +438,6 @@
         "resolved": "18.0.1",
         "contentHash": "O+utSr97NAJowIQT/OVp3Lh9QgW/wALVTP4RG1m2AfFP4IyJmJz0ZBmFJUsRQiAPgq6IRC0t8AAzsiPIsaUDEA=="
       },
-      "Microsoft.NETCore.Platforms": {
-        "type": "Transitive",
-        "resolved": "7.0.4",
-        "contentHash": "yLEHlNN7O5WiND89r42sepgVwy5W/ZoTiFEdJDV7MHR1lW02LL7Nipz2TD5qM/Kx9W3/k3NP+PAP2qUdOm+leg=="
-      },
       "Microsoft.SourceLink.Common": {
         "type": "Transitive",
         "resolved": "8.0.0",
@@ -589,7 +575,7 @@
       "cake.issues": {
         "type": "Project",
         "dependencies": {
-          "Cake.Core": "[5.0.0, )"
+          "Cake.Core": "[6.0.0, )"
         }
       },
       "cake.issues.reporting": {
@@ -609,26 +595,22 @@
         "type": "Project",
         "dependencies": {
           "Cake.Issues": "[1.0.0, )",
-          "Cake.Testing": "[5.0.0, )"
+          "Cake.Testing": "[6.0.0, )"
         }
       },
       "Cake.Core": {
         "type": "CentralTransitive",
-        "requested": "[5.0.0, )",
-        "resolved": "5.0.0",
-        "contentHash": "hq0HlI6bdRoMjUQTKioVjJZxQRxT7SuIjLjfTXO7fWe/alEU4OJumxq6LhTqz06pTRC7e5OrQqXyGKJnq5I+rw==",
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "7.0.4"
-        }
+        "requested": "[6.0.0, )",
+        "resolved": "6.0.0",
+        "contentHash": "SiAIpsPYMgSivBVReFz/wCYvimWVsZsoGVdZ/qogYbxLQA/QdXkMyHiGqqRhkfUuTf/0/N9HCYYAQe0sZfsekA=="
       },
       "Cake.Testing": {
         "type": "CentralTransitive",
-        "requested": "[5.0.0, )",
-        "resolved": "5.0.0",
-        "contentHash": "oEERVvRww03yd54aFtbSFYc7w4xou9X1An8za8JVOM8JvOhp8mNqh53a4+ogJ9qVOgTSFzK/MvbVfZQNeJECjg==",
+        "requested": "[6.0.0, )",
+        "resolved": "6.0.0",
+        "contentHash": "zaArQbfm7oqhx1spghfjxCpqBCy8ynYAOz8wbzEeoMYsv8AkS2AShnbwZOmwQSG1eYvx3Ff2/SCtAxfeqDCMNQ==",
         "dependencies": {
-          "Cake.Core": "5.0.0",
-          "Microsoft.NETCore.Platforms": "7.0.4"
+          "Cake.Core": "6.0.0"
         }
       },
       "Errata": {
@@ -770,11 +752,6 @@
         "resolved": "18.0.1",
         "contentHash": "O+utSr97NAJowIQT/OVp3Lh9QgW/wALVTP4RG1m2AfFP4IyJmJz0ZBmFJUsRQiAPgq6IRC0t8AAzsiPIsaUDEA=="
       },
-      "Microsoft.NETCore.Platforms": {
-        "type": "Transitive",
-        "resolved": "7.0.4",
-        "contentHash": "yLEHlNN7O5WiND89r42sepgVwy5W/ZoTiFEdJDV7MHR1lW02LL7Nipz2TD5qM/Kx9W3/k3NP+PAP2qUdOm+leg=="
-      },
       "Microsoft.SourceLink.Common": {
         "type": "Transitive",
         "resolved": "8.0.0",
@@ -912,7 +889,7 @@
       "cake.issues": {
         "type": "Project",
         "dependencies": {
-          "Cake.Core": "[5.0.0, )"
+          "Cake.Core": "[6.0.0, )"
         }
       },
       "cake.issues.reporting": {
@@ -932,26 +909,22 @@
         "type": "Project",
         "dependencies": {
           "Cake.Issues": "[1.0.0, )",
-          "Cake.Testing": "[5.0.0, )"
+          "Cake.Testing": "[6.0.0, )"
         }
       },
       "Cake.Core": {
         "type": "CentralTransitive",
-        "requested": "[5.0.0, )",
-        "resolved": "5.0.0",
-        "contentHash": "hq0HlI6bdRoMjUQTKioVjJZxQRxT7SuIjLjfTXO7fWe/alEU4OJumxq6LhTqz06pTRC7e5OrQqXyGKJnq5I+rw==",
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "7.0.4"
-        }
+        "requested": "[6.0.0, )",
+        "resolved": "6.0.0",
+        "contentHash": "SiAIpsPYMgSivBVReFz/wCYvimWVsZsoGVdZ/qogYbxLQA/QdXkMyHiGqqRhkfUuTf/0/N9HCYYAQe0sZfsekA=="
       },
       "Cake.Testing": {
         "type": "CentralTransitive",
-        "requested": "[5.0.0, )",
-        "resolved": "5.0.0",
-        "contentHash": "oEERVvRww03yd54aFtbSFYc7w4xou9X1An8za8JVOM8JvOhp8mNqh53a4+ogJ9qVOgTSFzK/MvbVfZQNeJECjg==",
+        "requested": "[6.0.0, )",
+        "resolved": "6.0.0",
+        "contentHash": "zaArQbfm7oqhx1spghfjxCpqBCy8ynYAOz8wbzEeoMYsv8AkS2AShnbwZOmwQSG1eYvx3Ff2/SCtAxfeqDCMNQ==",
         "dependencies": {
-          "Cake.Core": "5.0.0",
-          "Microsoft.NETCore.Platforms": "7.0.4"
+          "Cake.Core": "6.0.0"
         }
       },
       "Errata": {
