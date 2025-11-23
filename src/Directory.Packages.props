@@ -11,7 +11,6 @@
     <PackageVersion Include="Errata" Version="0.15.0" />
     <PackageVersion Include="Gazorator" Version="0.5.2" />
     <PackageVersion Include="HtmlAgilityPack" Version="1.12.4" />
-    <PackageVersion Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.0.1" />
     <PackageVersion Include="MSBuild.StructuredLogger" Version="2.3.71" />
     <PackageVersion Include="NSubstitute" Version="5.3.0" />
@@ -24,11 +23,6 @@
     <PackageVersion Include="xunit" Version="2.9.3" />
     <PackageVersion Include="Xunit.SkippableFact" Version="1.5.23" />
     <PackageVersion Include="YamlDotNet" Version="16.3.0" />
-  </ItemGroup>
-
-  <!--Transitive dependencies specified explicitly to fix security vulnerabilities-->
-  <ItemGroup>
-    <PackageVersion Include="System.Text.Encodings.Web" Version="4.7.2" />
   </ItemGroup>
 
   <!-- Analyzers for all projects -->
