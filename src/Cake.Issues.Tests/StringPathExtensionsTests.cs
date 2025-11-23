@@ -652,6 +652,25 @@ public sealed class StringPathExtensionsTests
             // Then
             filePathResult.ShouldBe(expectedResult);
         }
+
+        [Theory]
+        [InlineData(@"C:\repo", @"foo", "foo")]
+        [InlineData(@"C:\repo", @"foo\", @"foo\")]
+        [InlineData(@"C:\repo", @"foo\bar", @"foo\bar")]
+        [InlineData("/repo", "foo", "foo")]
+        [InlineData("/repo", "foo/", "foo/")]
+        [InlineData("/repo", "foo/bar", "foo/bar")]
+        public void Should_Handle_AbsolutePaths(string repoRoot, string filePath, string expectedResult)
+        {
+            // Given
+            var repositorySettings = new RepositorySettings(repoRoot);
+
+            // When
+            var (_, filePathResult) = filePath.IsValidRepositoryFilePath(repositorySettings);
+
+            // Then
+            filePathResult.ShouldBe(expectedResult);
+        }
     }
 
     public sealed class TheIsInRepositoryExtension
