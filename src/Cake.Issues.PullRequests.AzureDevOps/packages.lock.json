@@ -1197,7 +1197,7 @@
         "type": "Project",
         "dependencies": {
           "Cake.Issues": "[1.0.0, )",
-          "Spectre.Console": "[0.53.0, )"
+          "Spectre.Console": "[0.54.0, )"
         }
       },
       "Cake.Core": {
@@ -1219,9 +1219,9 @@
       },
       "Spectre.Console": {
         "type": "CentralTransitive",
-        "requested": "[0.53.0, )",
-        "resolved": "0.53.0",
-        "contentHash": "m2iv8Egfywp7FaNLKCmCFHbSf36D4ctzZKvlAK9NXMyGLh6L+CnrZWK8o+LOYsoAS1jtoHn0W1BT0W8vuq/FUw=="
+        "requested": "[0.54.0, )",
+        "resolved": "0.54.0",
+        "contentHash": "StDXCFayfy0yB1xzUHT2tgEpV1/HFTiS4JgsAQS49EYTfMixSwwucaQs/bIOCwXjWwIQTMuxjUIxcB5XsJkFJA=="
       }
     },
     "net9.0": {
@@ -2420,7 +2420,7 @@
         "type": "Project",
         "dependencies": {
           "Cake.Issues": "[1.0.0, )",
-          "Spectre.Console": "[0.53.0, )"
+          "Spectre.Console": "[0.54.0, )"
         }
       },
       "Cake.Core": {
@@ -2442,9 +2442,9 @@
       },
       "Spectre.Console": {
         "type": "CentralTransitive",
-        "requested": "[0.53.0, )",
-        "resolved": "0.53.0",
-        "contentHash": "m2iv8Egfywp7FaNLKCmCFHbSf36D4ctzZKvlAK9NXMyGLh6L+CnrZWK8o+LOYsoAS1jtoHn0W1BT0W8vuq/FUw=="
+        "requested": "[0.54.0, )",
+        "resolved": "0.54.0",
+        "contentHash": "StDXCFayfy0yB1xzUHT2tgEpV1/HFTiS4JgsAQS49EYTfMixSwwucaQs/bIOCwXjWwIQTMuxjUIxcB5XsJkFJA=="
       }
     }
   }

@@ -28,12 +28,12 @@ See the Project Site for an overview of the whole ecosystem of addins for workin
       <group targetFramework="net8.0">
         <dependency id="Cake.Core" version="5.0" exclude="Build,Analyzers" />
         <dependency id="Cake.Issues" version="[5.0.0-beta0001,6.0)" exclude="Build,Analyzers" />
-        <dependency id="Spectre.Console" version="0.53.0" exclude="Build,Analyzers" />
+        <dependency id="Spectre.Console" version="0.54.0" exclude="Build,Analyzers" />
       </group>
       <group targetFramework="net9.0">
         <dependency id="Cake.Core" version="5.0" exclude="Build,Analyzers" />
         <dependency id="Cake.Issues" version="[5.0.0-beta0001,6.0)" exclude="Build,Analyzers" />
-        <dependency id="Spectre.Console" version="0.53.0" exclude="Build,Analyzers" />
+        <dependency id="Spectre.Console" version="0.54.0" exclude="Build,Analyzers" />
       </group>
     </dependencies>
   </metadata>
