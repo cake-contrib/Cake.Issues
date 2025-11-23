@@ -28,12 +28,12 @@
 
   <!--Transitive dependencies specified explicitly to fix security vulnerabilities-->
   <ItemGroup>
-    <PackageVersion Include="System.Text.Encodings.Web" Version="4.7.2" />
+    <PackageVersion Include="System.Text.Encodings.Web" Version="10.0.0" />
   </ItemGroup>
 
   <!-- Analyzers for all projects -->
   <ItemGroup>
-    <GlobalPackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="9.0.0" />
+    <GlobalPackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="10.0.100" />
   </ItemGroup>
 
   <!-- Analyzers addin projects -->

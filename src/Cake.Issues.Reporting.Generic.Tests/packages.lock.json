@@ -16,9 +16,9 @@
       },
       "Microsoft.CodeAnalysis.NetAnalyzers": {
         "type": "Direct",
-        "requested": "[9.0.0, )",
-        "resolved": "9.0.0",
-        "contentHash": "JajbvkrBgtdRghavIjcJuNHMOja4lqBmEezbhZyqWPYh2cpLhT5mPpfC7NQVDO4IehWQum9t/nwF4v+qQGtYWg=="
+        "requested": "[10.0.100, )",
+        "resolved": "10.0.100",
+        "contentHash": "uj9VuyvqylnNueJfU7u2PkI/hEMpZl8Wg9BXyI0eatNEldU5jDYPdwsM8aDL18+1oLovju25MiqOPaGRBnG72A=="
       },
       "Microsoft.NET.Test.Sdk": {
         "type": "Direct",
@@ -52,9 +52,9 @@
       },
       "System.Text.Encodings.Web": {
         "type": "Direct",
-        "requested": "[4.7.2, )",
-        "resolved": "4.7.2",
-        "contentHash": "iTUgB/WtrZ1sWZs84F2hwyQhiRH6QNjQv2DkwrH+WP6RoFga2Q1m3f9/Q7FG8cck8AdHitQkmkXSY8qylcDmuA=="
+        "requested": "[10.0.0, )",
+        "resolved": "10.0.0",
+        "contentHash": "257hh1ep1Gqm1Lm0ulxf7vVBVMJuGN6EL4xSWjpi46DffXzm1058IiWsfSC06zSm7SniN+Tb5160UnXsSa8rRg=="
       },
       "xunit": {
         "type": "Direct",
@@ -326,7 +326,7 @@
           "Cake.Issues.Reporting": "[1.0.0, )",
           "Gazorator": "[0.5.2, )",
           "Microsoft.CSharp": "[4.7.0, )",
-          "System.Text.Encodings.Web": "[4.7.2, )"
+          "System.Text.Encodings.Web": "[10.0.0, )"
         }
       },
       "cake.issues.testing": {
@@ -393,9 +393,9 @@
       },
       "Microsoft.CodeAnalysis.NetAnalyzers": {
         "type": "Direct",
-        "requested": "[9.0.0, )",
-        "resolved": "9.0.0",
-        "contentHash": "JajbvkrBgtdRghavIjcJuNHMOja4lqBmEezbhZyqWPYh2cpLhT5mPpfC7NQVDO4IehWQum9t/nwF4v+qQGtYWg=="
+        "requested": "[10.0.100, )",
+        "resolved": "10.0.100",
+        "contentHash": "uj9VuyvqylnNueJfU7u2PkI/hEMpZl8Wg9BXyI0eatNEldU5jDYPdwsM8aDL18+1oLovju25MiqOPaGRBnG72A=="
       },
       "Microsoft.NET.Test.Sdk": {
         "type": "Direct",
@@ -429,9 +429,9 @@
       },
       "System.Text.Encodings.Web": {
         "type": "Direct",
-        "requested": "[4.7.2, )",
-        "resolved": "4.7.2",
-        "contentHash": "iTUgB/WtrZ1sWZs84F2hwyQhiRH6QNjQv2DkwrH+WP6RoFga2Q1m3f9/Q7FG8cck8AdHitQkmkXSY8qylcDmuA=="
+        "requested": "[10.0.0, )",
+        "resolved": "10.0.0",
+        "contentHash": "257hh1ep1Gqm1Lm0ulxf7vVBVMJuGN6EL4xSWjpi46DffXzm1058IiWsfSC06zSm7SniN+Tb5160UnXsSa8rRg=="
       },
       "xunit": {
         "type": "Direct",
@@ -703,7 +703,7 @@
           "Cake.Issues.Reporting": "[1.0.0, )",
           "Gazorator": "[0.5.2, )",
           "Microsoft.CSharp": "[4.7.0, )",
-          "System.Text.Encodings.Web": "[4.7.2, )"
+          "System.Text.Encodings.Web": "[10.0.0, )"
         }
       },
       "cake.issues.testing": {
