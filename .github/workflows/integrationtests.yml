@@ -31,6 +31,7 @@ jobs:
             5.x
             8.x
             9.x
+            10.x
       - name: Build
         run: ./build.sh --target=Create-NuGet-Packages
         shell: bash
