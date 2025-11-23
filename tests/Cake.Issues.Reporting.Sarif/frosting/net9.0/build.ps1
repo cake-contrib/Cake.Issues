@@ -1,4 +1,4 @@
-$ADDIN_PACKAGE_PATH = "packages/cake.isses.reprting.sarif"
+$ADDIN_PACKAGE_PATH = "packages/cake.issues.reporting.sarif"
 if (Test-Path $ADDIN_PACKAGE_PATH)
 {
     Write-Host "Cleaning up cached version of $ADDIN_PACKAGE_PATH..."

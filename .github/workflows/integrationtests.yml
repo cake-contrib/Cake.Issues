@@ -52,7 +52,7 @@ jobs:
           windows-2022, windows-2025, 
           ubuntu-22.04, ubuntu-24.04,
           macos-14, macos-15]
-        dotnet: [8.x]
+        dotnet: [8.x, 10.x]
     runs-on: ${{ matrix.os }}
     steps:
       - name: Get the sources
@@ -79,7 +79,7 @@ jobs:
           windows-2022, windows-2025, 
           ubuntu-22.04, ubuntu-24.04,
           macos-14, macos-15]
-        dotnet: [8.x]
+        dotnet: [8.x, 10.x]
     runs-on: ${{ matrix.os }}
     steps:
       - name: Get the sources
@@ -106,7 +106,7 @@ jobs:
           windows-2022, windows-2025, 
           ubuntu-22.04, ubuntu-24.04,
           macos-14, macos-15]
-        dotnet: [8.x, 9.x]
+        dotnet: [8.x, 9.x, 10.x]
     runs-on: ${{ matrix.os }}
     steps:
       - name: Get the sources
@@ -131,7 +131,7 @@ jobs:
           windows-2022, windows-2025,
           ubuntu-22.04, ubuntu-24.04,
           macos-14, macos-15]
-        dotnet: [8.x, 9.x]
+        dotnet: [8.x, 9.x, 10.x]
     runs-on: ${{ matrix.os }}
     steps:
       - name: Get the sources
@@ -156,7 +156,7 @@ jobs:
           windows-2022, windows-2025,
           ubuntu-22.04, ubuntu-24.04,
           macos-14, macos-15]
-        dotnet: [8.x]
+        dotnet: [8.x, 10.x]
     runs-on: ${{ matrix.os }}
     steps:
       - name: Get the sources
@@ -181,7 +181,7 @@ jobs:
           windows-2022, windows-2025,
           ubuntu-22.04, ubuntu-24.04,
           macos-14, macos-15]
-        dotnet: [8.x]
+        dotnet: [8.x, 10.x]
     runs-on: ${{ matrix.os }}
     steps:
       - name: Get the sources
@@ -206,7 +206,7 @@ jobs:
           windows-2022, windows-2025,
           ubuntu-22.04, ubuntu-24.04,
           macos-14, macos-15]
-        dotnet: [8.x]
+        dotnet: [8.x, 10.x]
     runs-on: ${{ matrix.os }}
     steps:
       - name: Get the sources
@@ -231,7 +231,7 @@ jobs:
           windows-2022, windows-2025,
           ubuntu-22.04, ubuntu-24.04,
           macos-14, macos-15]
-        dotnet: [8.x]
+        dotnet: [8.x, 10.x]
     runs-on: ${{ matrix.os }}
     steps:
       - name: Get the sources
@@ -256,7 +256,7 @@ jobs:
           windows-2022, windows-2025,
           ubuntu-22.04, ubuntu-24.04,
           macos-14, macos-15]
-        dotnet: [8.x]
+        dotnet: [8.x, 10.x]
     runs-on: ${{ matrix.os }}
     steps:
       - name: Get the sources
@@ -281,7 +281,7 @@ jobs:
           windows-2022, windows-2025,
           ubuntu-22.04, ubuntu-24.04,
           macos-14, macos-15]
-        dotnet: [8.x, 9.x]
+        dotnet: [8.x, 9.x, 10.x]
     runs-on: ${{ matrix.os }}
     steps:
       - name: Get the sources

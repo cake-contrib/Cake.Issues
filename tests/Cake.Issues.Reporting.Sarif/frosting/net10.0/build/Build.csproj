@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <RunWorkingDirectory>$(MSBuildProjectDirectory)</RunWorkingDirectory>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Cake.Frosting" Version="6.0.0" />
+    <PackageReference Include="Cake.Issues" Version="*-*" />
+    <PackageReference Include="Cake.Frosting.Issues.Reporting" Version="*-*" />
+    <PackageReference Include="Cake.Frosting.Issues.Reporting.Sarif" Version="*-*" />
+    <!-- Requires since Spectre.Console.Cli 0.53.0, which is referenced by Cake.Frosting 6.0.0, contains a dependency to OpenCli.Sources which leads to errors -->
+    <PackageReference Include="Spectre.Console.Cli" Version="0.53.1" />
+  </ItemGroup>
+</Project>
