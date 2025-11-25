@@ -42,6 +42,6 @@ For addin compatible with Cake Frosting see Cake.Frosting.Issues.Markdownlint.
   <files>
     <file src="icon.png" target="" />
     <file src="Cake.Issues.Markdownlint.md" target="docs\README.md" />
-    <file src="..\..\src\Cake.Issues.Markdownlint\bin\Release\**\Cake.Issues.Markdownlint.*" target="lib" exclude="**\*.deps.json" />
+    <file src="..\..\src\IssueProviders\Markdownlint\Cake.Issues.Markdownlint\bin\Release\**\Cake.Issues.Markdownlint.*" target="lib" exclude="**\*.deps.json" />
   </files>
 </package>

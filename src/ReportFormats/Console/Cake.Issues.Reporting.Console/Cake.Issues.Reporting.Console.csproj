@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Description>Support for reporting issues to the console for the Cake.Issues addin for Cake Build Automation System</Description>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Errata" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Core\Cake.Issues.Reporting\Cake.Issues.Reporting\Cake.Issues.Reporting.csproj" />
+  </ItemGroup>
+</Project>

@@ -42,7 +42,7 @@ For addin compatible with Cake Frosting see Cake.Frosting.Issues.Sarif.
   <files>
     <file src="icon.png" target="" />
     <file src="Cake.Issues.Sarif.md" target="docs\README.md" />
-    <file src="..\..\src\Cake.Issues.Sarif\bin\Release\**\Cake.Issues.Sarif.*" target="lib" exclude="**\*.deps.json" />
-    <file src="..\..\src\Cake.Issues.Sarif\bin\Release\**\Sarif.dll" target="lib" />
+    <file src="..\..\src\IssueProviders\Sarif\Cake.Issues.Sarif\bin\Release\**\Cake.Issues.Sarif.*" target="lib" exclude="**\*.deps.json" />
+    <file src="..\..\src\IssueProviders\Sarif\Cake.Issues.Sarif\bin\Release\**\Sarif.dll" target="lib" />
   </files>
 </package>

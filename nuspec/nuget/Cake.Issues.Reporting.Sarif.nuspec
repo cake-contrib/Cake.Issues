@@ -40,7 +40,7 @@ For addin compatible with Cake Frosting see Cake.Frosting.Issues.Reporting.Sarif
   <files>
     <file src="icon.png" target="" />
     <file src="Cake.Issues.Reporting.Sarif.md" target="docs\README.md" />
-    <file src="..\..\src\Cake.Issues.Reporting.Sarif\bin\Release\**\Cake.Issues.Reporting.Sarif.*" target="lib" exclude="**\*.deps.json" />
-    <file src="..\..\src\Cake.Issues.Reporting.Sarif\bin\Release\**\Sarif.dll" target="lib" />
+    <file src="..\..\src\ReportFormats\Sarif\Cake.Issues.Reporting.Sarif\bin\Release\**\Cake.Issues.Reporting.Sarif.*" target="lib" exclude="**\*.deps.json" />
+    <file src="..\..\src\ReportFormats\Sarif\Cake.Issues.Reporting.Sarif\bin\Release\**\Sarif.dll" target="lib" />
   </files>
 </package>

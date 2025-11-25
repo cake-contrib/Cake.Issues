@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Description>DocFx support for the Cake.Issues Addin for Cake Build Automation System</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Core\Cake.Issues\Cake.Issues\Cake.Issues.csproj" />
+  </ItemGroup>
+</Project>

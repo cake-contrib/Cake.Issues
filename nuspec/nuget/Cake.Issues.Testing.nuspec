@@ -31,6 +31,6 @@ Common helpers for testing add-ins based on Cake.Issues
   <files>
     <file src="icon.png" target="" />
     <file src="Cake.Issues.Testing.md" target="docs\README.md" />
-    <file src="..\..\src\Cake.Issues.Testing\bin\Release\**\Cake.Issues.Testing.*" target="lib" exclude="**\*.deps.json" />
+    <file src="..\..\src\Core\Cake.Issues.Testing\bin\Release\**\Cake.Issues.Testing.*" target="lib" exclude="**\*.deps.json" />
   </files>
 </package>

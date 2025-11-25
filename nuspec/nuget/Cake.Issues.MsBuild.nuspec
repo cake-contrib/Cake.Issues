@@ -42,10 +42,10 @@ For addin compatible with Cake Frosting see Cake.Frosting.Issues.MsBuild.
   <files>
     <file src="icon.png" target="" />
     <file src="Cake.Issues.MsBuild.md" target="docs\README.md" />
-    <file src="..\..\src\Cake.Issues.MsBuild\bin\Release\**\Cake.Issues.MsBuild.*" target="lib" exclude="**\*.deps.json" />
-    <file src="..\..\src\Cake.Issues.MsBuild\bin\Release\**\StructuredLogger.dll" target="lib" />
-    <file src="..\..\src\Cake.Issues.MsBuild\bin\Release\**\Microsoft.Build.Framework.dll" target="lib" />
-    <file src="..\..\src\Cake.Issues.MsBuild\bin\Release\**\Microsoft.Build.Utilities.Core.dll" target="lib" />
-    <file src="..\..\src\Cake.Issues.MsBuild\bin\Release\**\System.Configuration.ConfigurationManager.dll" target="lib" />
+    <file src="..\..\src\IssueProviders\MsBuild\Cake.Issues.MsBuild\bin\Release\**\Cake.Issues.MsBuild.*" target="lib" exclude="**\*.deps.json" />
+    <file src="..\..\src\IssueProviders\MsBuild\Cake.Issues.MsBuild\bin\Release\**\StructuredLogger.dll" target="lib" />
+    <file src="..\..\src\IssueProviders\MsBuild\Cake.Issues.MsBuild\bin\Release\**\Microsoft.Build.Framework.dll" target="lib" />
+    <file src="..\..\src\IssueProviders\MsBuild\Cake.Issues.MsBuild\bin\Release\**\Microsoft.Build.Utilities.Core.dll" target="lib" />
+    <file src="..\..\src\IssueProviders\MsBuild\Cake.Issues.MsBuild\bin\Release\**\System.Configuration.ConfigurationManager.dll" target="lib" />
   </files>
 </package>

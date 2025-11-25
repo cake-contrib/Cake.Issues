@@ -42,7 +42,7 @@ The addin requires Cake 1.2.0 or higher.
   <files>
     <file src="icon.png" target="" />
     <file src="Cake.Issues.Reporting.Console.md" target="docs\README.md" />
-    <file src="..\..\src\Cake.Issues.Reporting.Console\bin\Release\**\Cake.Issues.Reporting.Console*" target="lib" exclude="**\*.deps.json" />
-    <file src="..\..\src\Cake.Issues.Reporting.Console\bin\Release\**\Errata.dll" target="lib" />
+    <file src="..\..\src\ReportFormats\Console\Cake.Issues.Reporting.Console\bin\Release\**\Cake.Issues.Reporting.Console*" target="lib" exclude="**\*.deps.json" />
+    <file src="..\..\src\ReportFormats\Console\Cake.Issues.Reporting.Console\bin\Release\**\Errata.dll" target="lib" />
   </files>
 </package>

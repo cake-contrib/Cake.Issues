@@ -45,6 +45,6 @@ For addin compatible with Cake Script Runners see Cake.Issues.PullRequests.GitHu
     <file src="Cake.Frosting.Issues.PullRequests.GitHubActions.targets" target="build" />
     <file src="Cake.Frosting.Issues.PullRequests.GitHubActions.targets" target="buildTransitive" />
     <file src="Cake.Frosting.Issues.PullRequests.GitHubActions.md" target="docs\README.md" />
-    <file src="..\..\src\Cake.Issues.PullRequests.GitHubActions\bin\Release\**\Cake.Issues.PullRequests.GitHubActions.*" target="lib" exclude="**\*.deps.json" />
+    <file src="..\..\src\PullRequestSystems\GitHubActions\Cake.Issues.PullRequests.GitHubActions\bin\Release\**\Cake.Issues.PullRequests.GitHubActions.*" target="lib" exclude="**\*.deps.json" />
   </files>
 </package>

@@ -40,6 +40,6 @@ For addin compatible with Cake Frosting see Cake.Frosting.Issues.Reporting.
   <files>
     <file src="icon.png" target="" />
     <file src="Cake.Issues.Reporting.md" target="docs\README.md" />
-    <file src="..\..\src\Cake.Issues.Reporting\bin\Release\**\Cake.Issues.Reporting.*" target="lib" exclude="**\*.deps.json" />
+    <file src="..\..\src\Core\Cake.Issues.Reporting\Cake.Issues.Reporting\bin\Release\**\Cake.Issues.Reporting.*" target="lib" exclude="**\*.deps.json" />
   </files>
 </package>

@@ -47,6 +47,6 @@ See the Project Site for an overview of the whole ecosystem of addins for workin
     <file src="Cake.Frosting.Issues.BuildServer.targets" target="build" />
     <file src="Cake.Frosting.Issues.BuildServer.targets" target="buildTransitive" />
     <file src="Cake.Frosting.Issues.BuildServer.md" target="docs\README.md" />
-    <file src="..\..\src\Cake.Issues.BuildServer\bin\Release\**\Cake.Issues.BuildServer.*" target="lib" exclude="**\*.deps.json" />
+    <file src="..\..\src\Core\Cake.Issues.BuildServer\Cake.Issues.BuildServer\bin\Release\**\Cake.Issues.BuildServer.*" target="lib" exclude="**\*.deps.json" />
   </files>
 </package>
