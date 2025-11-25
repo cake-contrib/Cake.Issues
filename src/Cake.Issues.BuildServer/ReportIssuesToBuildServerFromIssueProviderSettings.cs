@@ -1,4 +1,4 @@
-namespace Cake.Issues.Build;
+namespace Cake.Issues.BuildServer;
 
 using Cake.Core.IO;
 

@@ -1,4 +1,4 @@
-namespace Cake.Issues.Build.Tests;
+namespace Cake.Issues.BuildServer.Tests;
 
 using System.Collections.Generic;
 using Cake.Core.Diagnostics;
