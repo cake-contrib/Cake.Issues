@@ -14,15 +14,10 @@
         "resolved": "1.2.0",
         "contentHash": "zLM0XCv+fdibf0QivRJaFyLAt3SmmxDGrGlLhgqlMq1IPbgnfVFH4KzFLjh1/27pRnWuhwDjELe/mZDwbes0nA=="
       },
-      "Microsoft.NETCore.Platforms": {
-        "type": "Transitive",
-        "resolved": "7.0.4",
-        "contentHash": "yLEHlNN7O5WiND89r42sepgVwy5W/ZoTiFEdJDV7MHR1lW02LL7Nipz2TD5qM/Kx9W3/k3NP+PAP2qUdOm+leg=="
-      },
       "cake.issues": {
         "type": "Project",
         "dependencies": {
-          "Cake.Core": "[5.0.0, )"
+          "Cake.Core": "[6.0.0, )"
         }
       },
       "cake.issues.pullrequests": {
@@ -34,12 +29,9 @@
       },
       "Cake.Core": {
         "type": "CentralTransitive",
-        "requested": "[5.0.0, )",
-        "resolved": "5.0.0",
-        "contentHash": "hq0HlI6bdRoMjUQTKioVjJZxQRxT7SuIjLjfTXO7fWe/alEU4OJumxq6LhTqz06pTRC7e5OrQqXyGKJnq5I+rw==",
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "7.0.4"
-        }
+        "requested": "[6.0.0, )",
+        "resolved": "6.0.0",
+        "contentHash": "SiAIpsPYMgSivBVReFz/wCYvimWVsZsoGVdZ/qogYbxLQA/QdXkMyHiGqqRhkfUuTf/0/N9HCYYAQe0sZfsekA=="
       },
       "Spectre.Console": {
         "type": "CentralTransitive",
@@ -61,15 +53,10 @@
         "resolved": "1.2.0",
         "contentHash": "zLM0XCv+fdibf0QivRJaFyLAt3SmmxDGrGlLhgqlMq1IPbgnfVFH4KzFLjh1/27pRnWuhwDjELe/mZDwbes0nA=="
       },
-      "Microsoft.NETCore.Platforms": {
-        "type": "Transitive",
-        "resolved": "7.0.4",
-        "contentHash": "yLEHlNN7O5WiND89r42sepgVwy5W/ZoTiFEdJDV7MHR1lW02LL7Nipz2TD5qM/Kx9W3/k3NP+PAP2qUdOm+leg=="
-      },
       "cake.issues": {
         "type": "Project",
         "dependencies": {
-          "Cake.Core": "[5.0.0, )"
+          "Cake.Core": "[6.0.0, )"
         }
       },
       "cake.issues.pullrequests": {
@@ -81,12 +68,9 @@
       },
       "Cake.Core": {
         "type": "CentralTransitive",
-        "requested": "[5.0.0, )",
-        "resolved": "5.0.0",
-        "contentHash": "hq0HlI6bdRoMjUQTKioVjJZxQRxT7SuIjLjfTXO7fWe/alEU4OJumxq6LhTqz06pTRC7e5OrQqXyGKJnq5I+rw==",
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "7.0.4"
-        }
+        "requested": "[6.0.0, )",
+        "resolved": "6.0.0",
+        "contentHash": "SiAIpsPYMgSivBVReFz/wCYvimWVsZsoGVdZ/qogYbxLQA/QdXkMyHiGqqRhkfUuTf/0/N9HCYYAQe0sZfsekA=="
       },
       "Spectre.Console": {
         "type": "CentralTransitive",
@@ -108,15 +92,10 @@
         "resolved": "1.2.0",
         "contentHash": "zLM0XCv+fdibf0QivRJaFyLAt3SmmxDGrGlLhgqlMq1IPbgnfVFH4KzFLjh1/27pRnWuhwDjELe/mZDwbes0nA=="
       },
-      "Microsoft.NETCore.Platforms": {
-        "type": "Transitive",
-        "resolved": "7.0.4",
-        "contentHash": "yLEHlNN7O5WiND89r42sepgVwy5W/ZoTiFEdJDV7MHR1lW02LL7Nipz2TD5qM/Kx9W3/k3NP+PAP2qUdOm+leg=="
-      },
       "cake.issues": {
         "type": "Project",
         "dependencies": {
-          "Cake.Core": "[5.0.0, )"
+          "Cake.Core": "[6.0.0, )"
         }
       },
       "cake.issues.pullrequests": {
@@ -128,12 +107,9 @@
       },
       "Cake.Core": {
         "type": "CentralTransitive",
-        "requested": "[5.0.0, )",
-        "resolved": "5.0.0",
-        "contentHash": "hq0HlI6bdRoMjUQTKioVjJZxQRxT7SuIjLjfTXO7fWe/alEU4OJumxq6LhTqz06pTRC7e5OrQqXyGKJnq5I+rw==",
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "7.0.4"
-        }
+        "requested": "[6.0.0, )",
+        "resolved": "6.0.0",
+        "contentHash": "SiAIpsPYMgSivBVReFz/wCYvimWVsZsoGVdZ/qogYbxLQA/QdXkMyHiGqqRhkfUuTf/0/N9HCYYAQe0sZfsekA=="
       },
       "Spectre.Console": {
         "type": "CentralTransitive",
