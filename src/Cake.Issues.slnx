@@ -3,16 +3,16 @@
     <File Path="../recipe.cake" />
   </Folder>
   <Folder Name="/Core/" />
-  <Folder Name="/Core/Cake.Issues.Build/">
-    <Project Path="Cake.Issues.Build.Tests/Cake.Issues.Build.Tests.csproj" />
-    <Project Path="Cake.Issues.Build/Cake.Issues.Build.csproj" />
+  <Folder Name="/Core/Cake.Issues.BuildServer/">
+    <Project Path="Cake.Issues.BuildServer.Tests/Cake.Issues.BuildServer.Tests.csproj" />
+    <Project Path="Cake.Issues.BuildServer/Cake.Issues.BuildServer.csproj" />
   </Folder>
-  <Folder Name="/Core/Cake.Issues.Build/NuGet/">
-    <File Path="../nuspec/nuget/Cake.Frosting.Issues.Build.md" />
-    <File Path="../nuspec/nuget/Cake.Frosting.Issues.Build.nuspec" />
-    <File Path="../nuspec/nuget/Cake.Frosting.Issues.Build.targets" />
-    <File Path="../nuspec/nuget/Cake.Issues.Build.md" />
-    <File Path="../nuspec/nuget/Cake.Issues.Build.nuspec" />
+  <Folder Name="/Core/Cake.Issues.BuildServer/NuGet/">
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.BuildServer.md" />
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.BuildServer.nuspec" />
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.BuildServer.targets" />
+    <File Path="../nuspec/nuget/Cake.Issues.BuildServer.md" />
+    <File Path="../nuspec/nuget/Cake.Issues.BuildServer.nuspec" />
   </Folder>
   <Folder Name="/Core/Cake.Issues.PullRequests/">
     <Project Path="Cake.Issues.PullRequests.Tests/Cake.Issues.PullRequests.Tests.csproj" />

@@ -1,4 +1,4 @@
-namespace Cake.Issues.Build;
+namespace Cake.Issues.BuildServer;
 
 using System;
 using System.Collections.Generic;

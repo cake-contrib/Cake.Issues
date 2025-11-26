@@ -1,4 +1,4 @@
-namespace Cake.Issues.Build;
+namespace Cake.Issues.BuildServer;
 
 /// <summary>
 /// Interface for settings affecting how issues are reported to build servers from issue providers.

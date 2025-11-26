@@ -1,4 +1,4 @@
-namespace Cake.Issues.Build.Tests;
+namespace Cake.Issues.BuildServer.Tests;
 
 using Cake.Core.IO;
 using Shouldly;

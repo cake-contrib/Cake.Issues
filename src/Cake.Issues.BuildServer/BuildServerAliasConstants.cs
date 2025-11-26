@@ -1,4 +1,4 @@
-namespace Cake.Issues.Build;
+namespace Cake.Issues.BuildServer;
 
 /// <summary>
 /// Class for constants used for Cake aliases.

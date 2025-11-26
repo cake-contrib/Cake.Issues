@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Description>Tests for the Cake.Issues.Build addin</Description>
+    <Description>Tests for the Cake.Issues.BuildServer addin</Description>
   </PropertyGroup>
 
   <ItemGroup>
@@ -8,7 +8,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Cake.Issues.Build\Cake.Issues.Build.csproj" />
+    <ProjectReference Include="..\Cake.Issues.BuildServer\Cake.Issues.BuildServer.csproj" />
     <ProjectReference Include="..\Cake.Issues.Testing\Cake.Issues.Testing.csproj" />
   </ItemGroup>
 </Project>

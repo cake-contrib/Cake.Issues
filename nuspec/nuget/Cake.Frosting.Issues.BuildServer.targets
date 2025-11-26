@@ -3,6 +3,6 @@
     <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
   </PropertyGroup>
   <ItemGroup>
-    <GlobalUsing Include="Cake.Issues.Build" />
+    <GlobalUsing Include="Cake.Issues.BuildServer" />
   </ItemGroup>
 </Project>
