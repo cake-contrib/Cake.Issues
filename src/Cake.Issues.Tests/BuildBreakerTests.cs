@@ -62,7 +62,7 @@ public class BuildBreakerTests
             var result = Record.Exception(() => BuildBreaker.BreakBuildOnIssues(issues, handler));
 
             // Then
-            issuesPassedToHandler.ShouldNotBeNull().ShouldContain(issues.Single());
+            issuesPassedToHandler.ShouldNotBeNull().ShouldContainIssueWithSameIdentifier(issues.Single());
             result.IsIssuesFoundException("Found 1 issue.");
         }
 
@@ -150,7 +150,7 @@ public class BuildBreakerTests
             var result = Record.Exception(() => BuildBreaker.BreakBuildOnIssues(issues, priority, handler));
 
             // Then
-            issuesPassedToHandler.ShouldNotBeNull().ShouldContain(issues.Single());
+            issuesPassedToHandler.ShouldNotBeNull().ShouldContainIssueWithSameIdentifier(issues.Single());
             result.IsIssuesFoundException("Found 1 issue.");
         }
 
@@ -292,7 +292,7 @@ public class BuildBreakerTests
             var result = Record.Exception(() => BuildBreaker.BreakBuildOnIssues(issues, providerType, handler));
 
             // Then
-            issuesPassedToHandler.ShouldNotBeNull().ShouldContain(issues.Single());
+            issuesPassedToHandler.ShouldNotBeNull().ShouldContainIssueWithSameIdentifier(issues.Single());
             result.IsIssuesFoundException("Found 1 issue.");
         }
 
@@ -639,7 +639,7 @@ public class BuildBreakerTests
                 handler));
 
             // Then
-            issuesPassedToHandler.ShouldNotBeNull().ShouldContain(issues.Single());
+            issuesPassedToHandler.ShouldNotBeNull().ShouldContainIssueWithSameIdentifier(issues.Single());
             result.IsIssuesFoundException("Found 1 issue.");
         }
 
@@ -746,7 +746,7 @@ public class BuildBreakerTests
             var result = Record.Exception(() => BuildBreaker.BreakBuildOnIssues(issues, predicate, handler));
 
             // Then
-            issuesPassedToHandler.ShouldNotBeNull().ShouldContain(issues.Single());
+            issuesPassedToHandler.ShouldNotBeNull().ShouldContainIssueWithSameIdentifier(issues.Single());
             result.IsIssuesFoundException("Found 1 issue.");
         }
 

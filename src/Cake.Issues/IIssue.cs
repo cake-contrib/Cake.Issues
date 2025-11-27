@@ -60,10 +60,10 @@ public interface IIssue
     int? EndColumn { get; }
 
     /// <summary>
-    /// Gets or sets a link to the position in the file where the issue occurred.
+    /// Gets a link to the position in the file where the issue occurred.
     /// <c>null</c> if <see cref="IReadIssuesSettings.FileLinkSettings"/> was not set while reading issue.
     /// </summary>
-    Uri FileLink { get; set; }
+    Uri FileLink { get; }
 
     /// <summary>
     /// Gets the message of the issue in text format.
@@ -111,10 +111,10 @@ public interface IIssue
     Uri RuleUrl { get; }
 
     /// <summary>
-    /// Gets or sets the description of the run.
+    /// Gets the description of the run.
     /// Can be <c>null</c> or <see cref="string.Empty"/> if no run information is provided.
     /// </summary>
-    string Run { get; set; }
+    string Run { get; }
 
     /// <summary>
     /// Gets the type of the issue provider.

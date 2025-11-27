@@ -78,7 +78,7 @@ public sealed class BaseIssueProviderFixtureTests
 
             // Then
             result.Count.ShouldBe(1);
-            result.ShouldContain(issue);
+            result.ShouldContainIssueWithSameIdentifier(issue);
         }
     }
 }

@@ -909,7 +909,7 @@ public sealed class IIssueComparerTests
 
             // Then
             result.Count.ShouldBe(1);
-            result.ShouldContain(issue2);
+            result.ShouldContainIssueWithSameIdentifier(issue2);
         }
 
         private static void CompareIssues(IIssue issue1, IIssue issue2, bool expectedToBeEqual)
@@ -1783,7 +1783,7 @@ public sealed class IIssueComparerTests
 
             // Then
             result.Count.ShouldBe(1);
-            result.ShouldContain(issue2);
+            result.ShouldContainIssueWithSameIdentifier(issue2);
         }
 
         private static void CompareIssues(IIssue issue1, IIssue issue2, bool expectedToBeEqual)
@@ -3508,7 +3508,7 @@ public sealed class IIssueComparerTests
 
             // Then
             result.Count.ShouldBe(1);
-            result.ShouldContain(issue2);
+            result.ShouldContainIssueWithSameIdentifier(issue2);
         }
 
         private static void CompareIssues(IIssueProperty ignoredProperties, IIssue issue1, IIssue issue2, bool expectedToBeEqual)

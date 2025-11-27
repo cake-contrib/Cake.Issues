@@ -120,7 +120,7 @@ public sealed class Aliases
             var result = Record.Exception(() => context.BreakBuildOnIssues(issues, handler));
 
             // Then
-            issuesPassedToHandler.ShouldNotBeNull().ShouldContain(issues.Single());
+            issuesPassedToHandler.ShouldNotBeNull().ShouldContainIssueWithSameIdentifier(issues.Single());
             result.IsIssuesFoundException("Found 1 issue.");
         }
     }
@@ -249,7 +249,7 @@ public sealed class Aliases
             var result = Record.Exception(() => context.BreakBuildOnIssues(issues, priority, handler));
 
             // Then
-            issuesPassedToHandler.ShouldNotBeNull().ShouldContain(issues.Single());
+            issuesPassedToHandler.ShouldNotBeNull().ShouldContainIssueWithSameIdentifier(issues.Single());
             result.IsIssuesFoundException("Found 1 issue.");
         }
     }
@@ -475,7 +475,7 @@ public sealed class Aliases
             var result = Record.Exception(() => context.BreakBuildOnIssues(issues, providerType, handler));
 
             // Then
-            issuesPassedToHandler.ShouldNotBeNull().ShouldContain(issues.Single());
+            issuesPassedToHandler.ShouldNotBeNull().ShouldContainIssueWithSameIdentifier(issues.Single());
             result.IsIssuesFoundException("Found 1 issue.");
         }
     }
@@ -690,7 +690,7 @@ public sealed class Aliases
             var result = Record.Exception(() => context.BreakBuildOnIssues(issues, settings, handler));
 
             // Then
-            issuesPassedToHandler.ShouldNotBeNull().ShouldContain(issues.Single());
+            issuesPassedToHandler.ShouldNotBeNull().ShouldContainIssueWithSameIdentifier(issues.Single());
             result.IsIssuesFoundException("Found 1 issue.");
         }
     }
@@ -850,7 +850,7 @@ public sealed class Aliases
             var result = Record.Exception(() => context.BreakBuildOnIssues(issues, predicate, handler));
 
             // Then
-            issuesPassedToHandler.ShouldNotBeNull().ShouldContain(issues.Single());
+            issuesPassedToHandler.ShouldNotBeNull().ShouldContainIssueWithSameIdentifier(issues.Single());
             result.IsIssuesFoundException("Found 1 issue.");
         }
     }

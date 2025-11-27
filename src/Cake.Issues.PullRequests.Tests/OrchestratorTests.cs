@@ -265,7 +265,7 @@ public sealed class OrchestratorTests
             _ = fixture.RunOrchestrator();
 
             // Then
-            fixture.PullRequestSystem.PostedIssues.ShouldContain(issueToPost);
+            fixture.PullRequestSystem.PostedIssues.ShouldContainIssueWithSameIdentifier(issueToPost);
             fixture.Log.Entries.ShouldContain(x => x.Message.StartsWith("Posting 1 issue(s):"));
             return Verify(fixture.Console.Output);
         }
@@ -293,7 +293,7 @@ public sealed class OrchestratorTests
             _ = fixture.RunOrchestrator();
 
             // Then
-            fixture.PullRequestSystem.PostedIssues.ShouldContain(issueToPost);
+            fixture.PullRequestSystem.PostedIssues.ShouldContainIssueWithSameIdentifier(issueToPost);
             fixture.Log.Entries.ShouldContain(x => x.Message.StartsWith("Posting 1 issue(s):"));
             return Verify(fixture.Console.Output);
         }
@@ -332,10 +332,10 @@ public sealed class OrchestratorTests
 
             // Then
             result.ReportedIssues.Count().ShouldBe(2);
-            result.ReportedIssues.ShouldContain(reportedIssue);
-            result.ReportedIssues.ShouldContain(postedIssue);
+            result.ReportedIssues.ShouldContainIssueWithSameIdentifier(reportedIssue);
+            result.ReportedIssues.ShouldContainIssueWithSameIdentifier(postedIssue);
             result.PostedIssues.Count().ShouldBe(1);
-            result.PostedIssues.ShouldContain(postedIssue);
+            result.PostedIssues.ShouldContainIssueWithSameIdentifier(postedIssue);
         }
 
         [Fact]
@@ -379,8 +379,8 @@ public sealed class OrchestratorTests
 
             // Then
             result.ReportedIssues.Count().ShouldBe(2);
-            result.ReportedIssues.ShouldContain(firstIssue);
-            result.ReportedIssues.ShouldContain(secondIssue);
+            result.ReportedIssues.ShouldContainIssueWithSameIdentifier(firstIssue);
+            result.ReportedIssues.ShouldContainIssueWithSameIdentifier(secondIssue);
             result.PostedIssues.ShouldBeEmpty();
         }
 
@@ -419,7 +419,7 @@ public sealed class OrchestratorTests
             // Then
             result.ReportedIssues.Count().ShouldBe(2);
             result.PostedIssues.Count().ShouldBe(1);
-            result.PostedIssues.ShouldContain(issue1);
+            result.PostedIssues.ShouldContainIssueWithSameIdentifier(issue1);
             fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) were filtered to match the global issue limit of 1");
             fixture.Log.Entries.ShouldContain(x => x.Message.StartsWith("Posting 1 issue(s):"));
         }
@@ -459,7 +459,7 @@ public sealed class OrchestratorTests
             // Then
             result.ReportedIssues.Count().ShouldBe(2);
             result.PostedIssues.Count().ShouldBe(1);
-            result.PostedIssues.ShouldContain(issue2);
+            result.PostedIssues.ShouldContainIssueWithSameIdentifier(issue2);
             fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) were filtered to match the global issue limit of 1");
             fixture.Log.Entries.ShouldContain(x => x.Message.StartsWith("Posting 1 issue(s):"));
         }
@@ -498,7 +498,7 @@ public sealed class OrchestratorTests
             // Then
             result.ReportedIssues.Count().ShouldBe(2);
             result.PostedIssues.Count().ShouldBe(1);
-            result.PostedIssues.ShouldContain(issue2);
+            result.PostedIssues.ShouldContainIssueWithSameIdentifier(issue2);
             fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) were filtered to match the global issue limit of 1");
             fixture.Log.Entries.ShouldContain(x => x.Message.StartsWith("Posting 1 issue(s):"));
         }
@@ -552,8 +552,8 @@ public sealed class OrchestratorTests
             // Then
             result.ReportedIssues.Count().ShouldBe(4);
             result.PostedIssues.Count().ShouldBe(2);
-            result.PostedIssues.ShouldContain(issue1);
-            result.PostedIssues.ShouldContain(issue3);
+            result.PostedIssues.ShouldContainIssueWithSameIdentifier(issue1);
+            result.PostedIssues.ShouldContainIssueWithSameIdentifier(issue3);
             fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) of type ProviderTypeA were filtered to match the maximum of 1 issues which should be reported for each issue provider");
             fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) of type ProviderTypeB were filtered to match the maximum of 1 issues which should be reported for each issue provider");
             fixture.Log.Entries.ShouldContain(x => x.Message.StartsWith("Posting 2 issue(s):"));
@@ -608,8 +608,8 @@ public sealed class OrchestratorTests
             // Then
             result.ReportedIssues.Count().ShouldBe(4);
             result.PostedIssues.Count().ShouldBe(2);
-            result.PostedIssues.ShouldContain(issue2);
-            result.PostedIssues.ShouldContain(issue3);
+            result.PostedIssues.ShouldContainIssueWithSameIdentifier(issue2);
+            result.PostedIssues.ShouldContainIssueWithSameIdentifier(issue3);
             fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) of type ProviderTypeA were filtered to match the maximum of 1 issues which should be reported for each issue provider");
             fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) of type ProviderTypeB were filtered to match the maximum of 1 issues which should be reported for each issue provider");
             fixture.Log.Entries.ShouldContain(x => x.Message.StartsWith("Posting 2 issue(s):"));
@@ -662,8 +662,8 @@ public sealed class OrchestratorTests
             // Then
             result.ReportedIssues.Count().ShouldBe(4);
             result.PostedIssues.Count().ShouldBe(2);
-            result.PostedIssues.ShouldContain(issue2);
-            result.PostedIssues.ShouldContain(issue3);
+            result.PostedIssues.ShouldContainIssueWithSameIdentifier(issue2);
+            result.PostedIssues.ShouldContainIssueWithSameIdentifier(issue3);
             fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) of type ProviderTypeA were filtered to match the maximum of 1 issues which should be reported for each issue provider");
             fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) of type ProviderTypeB were filtered to match the maximum of 1 issues which should be reported for each issue provider");
             fixture.Log.Entries.ShouldContain(x => x.Message.StartsWith("Posting 2 issue(s):"));
@@ -723,8 +723,8 @@ public sealed class OrchestratorTests
             // Then
             result.ReportedIssues.Count().ShouldBe(4);
             result.PostedIssues.Count().ShouldBe(2);
-            result.PostedIssues.ShouldContain(issue1);
-            result.PostedIssues.ShouldContain(issue3);
+            result.PostedIssues.ShouldContainIssueWithSameIdentifier(issue1);
+            result.PostedIssues.ShouldContainIssueWithSameIdentifier(issue3);
             fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) were filtered to match the global limit of 1 issues which should be reported for issue provider 'ProviderTypeA'");
             fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) were filtered to match the global limit of 1 issues which should be reported for issue provider 'ProviderTypeB'");
             fixture.Log.Entries.ShouldContain(x => x.Message.StartsWith("Posting 2 issue(s):"));
@@ -784,8 +784,8 @@ public sealed class OrchestratorTests
             // Then
             result.ReportedIssues.Count().ShouldBe(4);
             result.PostedIssues.Count().ShouldBe(2);
-            result.PostedIssues.ShouldContain(issue2);
-            result.PostedIssues.ShouldContain(issue3);
+            result.PostedIssues.ShouldContainIssueWithSameIdentifier(issue2);
+            result.PostedIssues.ShouldContainIssueWithSameIdentifier(issue3);
             fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) were filtered to match the global limit of 1 issues which should be reported for issue provider 'ProviderTypeA'");
             fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) were filtered to match the global limit of 1 issues which should be reported for issue provider 'ProviderTypeB'");
             fixture.Log.Entries.ShouldContain(x => x.Message.StartsWith("Posting 2 issue(s):"));
@@ -843,8 +843,8 @@ public sealed class OrchestratorTests
             // Then
             result.ReportedIssues.Count().ShouldBe(4);
             result.PostedIssues.Count().ShouldBe(2);
-            result.PostedIssues.ShouldContain(issue2);
-            result.PostedIssues.ShouldContain(issue3);
+            result.PostedIssues.ShouldContainIssueWithSameIdentifier(issue2);
+            result.PostedIssues.ShouldContainIssueWithSameIdentifier(issue3);
             fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) were filtered to match the global limit of 1 issues which should be reported for issue provider 'ProviderTypeA'");
             fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) were filtered to match the global limit of 1 issues which should be reported for issue provider 'ProviderTypeB'");
             fixture.Log.Entries.ShouldContain(x => x.Message.StartsWith("Posting 2 issue(s):"));
@@ -1068,7 +1068,7 @@ public sealed class OrchestratorTests
             // Then
             result.ReportedIssues.Count().ShouldBe(2);
             result.PostedIssues.Count().ShouldBe(1);
-            result.PostedIssues.ShouldContain(issue2);
+            result.PostedIssues.ShouldContainIssueWithSameIdentifier(issue2);
             fixture.Log.Entries.ShouldContain(x => x.Message == "0 issue(s) were filtered because they were already present");
             fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) were filtered to match the global issue limit of 1 across all runs (0 issues already posted in previous runs)");
             fixture.Log.Entries.ShouldContain(x => x.Message.StartsWith("Posting 1 issue(s):"));
@@ -1111,7 +1111,7 @@ public sealed class OrchestratorTests
             // Then
             result.ReportedIssues.Count().ShouldBe(2);
             result.PostedIssues.Count().ShouldBe(1);
-            result.PostedIssues.ShouldContain(issue2);
+            result.PostedIssues.ShouldContainIssueWithSameIdentifier(issue2);
             fixture.Log.Entries.ShouldContain(x => x.Message == "0 issue(s) were filtered because they were already present");
             fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) were filtered to match the global issue limit of 1 across all runs (0 issues already posted in previous runs)");
             fixture.Log.Entries.ShouldContain(x => x.Message.StartsWith("Posting 1 issue(s):"));
@@ -1253,7 +1253,7 @@ public sealed class OrchestratorTests
             // Then
             result.ReportedIssues.Count().ShouldBe(2);
             result.PostedIssues.Count().ShouldBe(1);
-            result.PostedIssues.ShouldContain(issue1);
+            result.PostedIssues.ShouldContainIssueWithSameIdentifier(issue1);
             fixture.Log.Entries.ShouldContain(x => x.Message == "0 issue(s) were filtered because they were already present");
             fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) were filtered to match the global issue limit of 2 across all runs (1 issues already posted in previous runs)");
             fixture.Log.Entries.ShouldContain(x => x.Message.StartsWith("Posting 1 issue(s):"));
@@ -1310,7 +1310,7 @@ public sealed class OrchestratorTests
             // Then
             result.ReportedIssues.Count().ShouldBe(2);
             result.PostedIssues.Count().ShouldBe(1);
-            result.PostedIssues.ShouldContain(issue1);
+            result.PostedIssues.ShouldContainIssueWithSameIdentifier(issue1);
             fixture.Log.Entries.ShouldContain(x => x.Message == "0 issue(s) were filtered because they were already present");
             fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) were filtered to match the global issue limit of 2 across all runs (1 issues already posted in previous runs)");
             fixture.Log.Entries.ShouldContain(x => x.Message.StartsWith("Posting 1 issue(s):"));
@@ -1410,7 +1410,7 @@ public sealed class OrchestratorTests
             // Then
             result.ReportedIssues.Count().ShouldBe(2);
             result.PostedIssues.Count().ShouldBe(1);
-            result.PostedIssues.ShouldContain(issue2);
+            result.PostedIssues.ShouldContainIssueWithSameIdentifier(issue2);
             fixture.Log.Entries.ShouldContain(x => x.Message == "0 issue(s) were filtered because they were already present");
             fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) were filtered to match the global issue limit of 1 across all runs for provider 'ProviderType Foo' (0 issues already posted in previous runs)");
             fixture.Log.Entries.ShouldContain(x => x.Message.StartsWith("Posting 1 issue(s):"));
@@ -1463,7 +1463,7 @@ public sealed class OrchestratorTests
             // Then
             result.ReportedIssues.Count().ShouldBe(3);
             result.PostedIssues.Count().ShouldBe(1);
-            result.PostedIssues.ShouldContain(issue2);
+            result.PostedIssues.ShouldContainIssueWithSameIdentifier(issue2);
             fixture.Log.Entries.ShouldContain(x => x.Message == "0 issue(s) were filtered because they were already present");
             fixture.Log.Entries.ShouldContain(x => x.Message == "2 issue(s) were filtered to match the global issue limit of 1 across all runs for provider 'ProviderType Foo' (0 issues already posted in previous runs)");
             fixture.Log.Entries.ShouldContain(x => x.Message.StartsWith("Posting 1 issue(s):"));
@@ -1614,7 +1614,7 @@ public sealed class OrchestratorTests
             // Then
             result.ReportedIssues.Count().ShouldBe(2);
             result.PostedIssues.Count().ShouldBe(1);
-            result.PostedIssues.ShouldContain(issue1);
+            result.PostedIssues.ShouldContainIssueWithSameIdentifier(issue1);
             fixture.Log.Entries.ShouldContain(x => x.Message == "0 issue(s) were filtered because they were already present");
             fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) were filtered to match the global issue limit of 2 across all runs for provider 'ProviderType Foo' (1 issues already posted in previous runs)");
             fixture.Log.Entries.ShouldContain(x => x.Message.StartsWith("Posting 1 issue(s):"));
@@ -1676,7 +1676,7 @@ public sealed class OrchestratorTests
             // Then
             result.ReportedIssues.Count().ShouldBe(2);
             result.PostedIssues.Count().ShouldBe(1);
-            result.PostedIssues.ShouldContain(issue1);
+            result.PostedIssues.ShouldContainIssueWithSameIdentifier(issue1);
             fixture.Log.Entries.ShouldContain(x => x.Message == "0 issue(s) were filtered because they were already present");
             fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) were filtered to match the global issue limit of 2 across all runs for provider 'ProviderType Foo' (1 issues already posted in previous runs)");
             fixture.Log.Entries.ShouldContain(x => x.Message.StartsWith("Posting 1 issue(s):"));
@@ -1734,13 +1734,13 @@ public sealed class OrchestratorTests
 
             // Then
             result.ReportedIssues.Count().ShouldBe(2);
-            result.ReportedIssues.ShouldContain(issue1);
-            result.ReportedIssues.ShouldContain(issue2);
+            result.ReportedIssues.ShouldContainIssueWithSameIdentifier(issue1);
+            result.ReportedIssues.ShouldContainIssueWithSameIdentifier(issue2);
             result.PostedIssues.Count().ShouldBe(1);
-            result.PostedIssues.ShouldContain(issue2);
+            result.PostedIssues.ShouldContainIssueWithSameIdentifier(issue2);
 
             fixture.PullRequestSystem.PostedIssues.Count().ShouldBe(1);
-            fixture.PullRequestSystem.PostedIssues.ShouldContain(issue2);
+            fixture.PullRequestSystem.PostedIssues.ShouldContainIssueWithSameIdentifier(issue2);
             fixture.PullRequestSystem.DiscussionThreadsCapability.ResolvedThreads.ShouldBeEmpty();
             fixture.PullRequestSystem.DiscussionThreadsCapability.ReopenedThreads.ShouldBeEmpty();
 
@@ -1801,13 +1801,13 @@ public sealed class OrchestratorTests
 
             // Then
             result.ReportedIssues.Count().ShouldBe(2);
-            result.ReportedIssues.ShouldContain(issue1);
-            result.ReportedIssues.ShouldContain(issue2);
+            result.ReportedIssues.ShouldContainIssueWithSameIdentifier(issue1);
+            result.ReportedIssues.ShouldContainIssueWithSameIdentifier(issue2);
             result.PostedIssues.Count().ShouldBe(1);
-            result.PostedIssues.ShouldContain(issue2);
+            result.PostedIssues.ShouldContainIssueWithSameIdentifier(issue2);
 
             fixture.PullRequestSystem.PostedIssues.Count().ShouldBe(1);
-            fixture.PullRequestSystem.PostedIssues.ShouldContain(issue2);
+            fixture.PullRequestSystem.PostedIssues.ShouldContainIssueWithSameIdentifier(issue2);
             fixture.PullRequestSystem.DiscussionThreadsCapability.ResolvedThreads.ShouldBeEmpty();
             fixture.PullRequestSystem.DiscussionThreadsCapability.ReopenedThreads.ShouldBeEmpty();
 
@@ -1865,13 +1865,13 @@ public sealed class OrchestratorTests
 
             // Then
             result.ReportedIssues.Count().ShouldBe(2);
-            result.ReportedIssues.ShouldContain(issue1);
-            result.ReportedIssues.ShouldContain(issue2);
+            result.ReportedIssues.ShouldContainIssueWithSameIdentifier(issue1);
+            result.ReportedIssues.ShouldContainIssueWithSameIdentifier(issue2);
             result.PostedIssues.Count().ShouldBe(1);
-            result.PostedIssues.ShouldContain(issue2);
+            result.PostedIssues.ShouldContainIssueWithSameIdentifier(issue2);
 
             fixture.PullRequestSystem.PostedIssues.Count().ShouldBe(1);
-            fixture.PullRequestSystem.PostedIssues.ShouldContain(issue2);
+            fixture.PullRequestSystem.PostedIssues.ShouldContainIssueWithSameIdentifier(issue2);
             fixture.PullRequestSystem.DiscussionThreadsCapability.ResolvedThreads.ShouldBeEmpty();
             fixture.PullRequestSystem.DiscussionThreadsCapability.ReopenedThreads.ShouldBeEmpty();
 
@@ -1924,12 +1924,12 @@ public sealed class OrchestratorTests
 
             // Then
             result.ReportedIssues.Count().ShouldBe(1);
-            result.ReportedIssues.ShouldContain(issue);
+            result.ReportedIssues.ShouldContainIssueWithSameIdentifier(issue);
             result.PostedIssues.Count().ShouldBe(1);
-            result.PostedIssues.ShouldContain(issue);
+            result.PostedIssues.ShouldContainIssueWithSameIdentifier(issue);
 
             fixture.PullRequestSystem.PostedIssues.Count().ShouldBe(1);
-            fixture.PullRequestSystem.PostedIssues.ShouldContain(issue);
+            fixture.PullRequestSystem.PostedIssues.ShouldContainIssueWithSameIdentifier(issue);
             fixture.PullRequestSystem.DiscussionThreadsCapability.ResolvedThreads.ShouldBeEmpty();
             fixture.PullRequestSystem.DiscussionThreadsCapability.ReopenedThreads.ShouldBeEmpty();
 
@@ -2248,13 +2248,13 @@ public sealed class OrchestratorTests
 
             // Then
             result.ReportedIssues.Count().ShouldBe(2);
-            result.ReportedIssues.ShouldContain(issue1);
-            result.ReportedIssues.ShouldContain(issue2);
+            result.ReportedIssues.ShouldContainIssueWithSameIdentifier(issue1);
+            result.ReportedIssues.ShouldContainIssueWithSameIdentifier(issue2);
             result.PostedIssues.Count().ShouldBe(1);
-            result.PostedIssues.ShouldContain(issue1);
+            result.PostedIssues.ShouldContainIssueWithSameIdentifier(issue1);
 
             fixture.PullRequestSystem.PostedIssues.Count().ShouldBe(1);
-            fixture.PullRequestSystem.PostedIssues.ShouldContain(issue1);
+            fixture.PullRequestSystem.PostedIssues.ShouldContainIssueWithSameIdentifier(issue1);
 
             fixture.Log.Entries.ShouldContain(x => x.Message == "1 issue(s) were filtered because they do not belong to files that were changed in this pull request");
             fixture.Log.Entries.ShouldContain(x => x.Message.StartsWith("Posting 1 issue(s):"));
