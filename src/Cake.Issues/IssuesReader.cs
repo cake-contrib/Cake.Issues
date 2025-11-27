@@ -1,7 +1,9 @@
 ﻿namespace Cake.Issues;
 
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Threading.Tasks;
 using Cake.Core.Diagnostics;
 
 /// <summary>
@@ -41,40 +43,59 @@ public class IssuesReader
     /// <returns>List of issues.</returns>
     public IEnumerable<IIssue> ReadIssues()
     {
-        // Initialize issue providers and read issues.
-        var issues = new List<IIssue>();
-        foreach (var issueProvider in this.issueProviders)
+        var stopwatch = Stopwatch.StartNew();
+
+        var results = new List<IIssue>[this.issueProviders.Count];
+
+        // Process providers in parallel
+        _ = Parallel.For(0, this.issueProviders.Count, i =>
         {
-            var providerName = issueProvider.GetType().Name;
-            this.log.Verbose("Initialize issue provider {0}...", providerName);
-            if (issueProvider.Initialize(this.settings))
+            results[i] = this.ReadIssuesFromProvider(this.issueProviders[i]);
+        });
+
+        stopwatch.Stop();
+
+        var issuesList = results.SelectMany(r => r).ToList();
+        this.log.Verbose(
+            "Reading {0} issues from {1} providers took {2} ms",
+            issuesList.Count,
+            this.issueProviders.Count,
+            stopwatch.ElapsedMilliseconds);
+
+        return issuesList;
+    }
+
+    private List<IIssue> ReadIssuesFromProvider(IIssueProvider issueProvider)
+    {
+        var providerName = issueProvider.GetType().Name;
+        this.log.Verbose("Initialize issue provider {0}...", providerName);
+
+        if (issueProvider.Initialize(this.settings))
+        {
+            this.log.Verbose("Reading issues from {0}...", providerName);
+            var currentIssues = issueProvider.ReadIssues().ToList();
+
+            this.log.Verbose(
+                "Found {0} issues using issue provider {1}...",
+                currentIssues.Count,
+                providerName);
+
+            // Post-process issues - this is thread-safe as each provider gets its own issues
+            currentIssues.ForEach(x =>
             {
-                this.log.Verbose("Reading issues from {0}...", providerName);
-                var currentIssues = issueProvider.ReadIssues().ToList();
+                x.Run = this.settings.Run;
 
-                this.log.Verbose(
-                    "Found {0} issues using issue provider {1}...",
-                    currentIssues.Count,
-                    providerName);
-
-                currentIssues.ForEach(x =>
+                if (this.settings.FileLinkSettings != null)
                 {
-                    x.Run = this.settings.Run;
-
-                    if (this.settings.FileLinkSettings != null)
-                    {
-                        x.FileLink = this.settings.FileLinkSettings.GetFileLink(x);
-                    }
-                });
-
-                issues.AddRange(currentIssues);
-            }
-            else
-            {
-                this.log.Warning("Error initializing issue provider {0}.", providerName);
-            }
+                    x.FileLink = this.settings.FileLinkSettings.GetFileLink(x);
+                }
+            });
+            return currentIssues;
         }
-
-        return issues;
+        else
+        {
+            this.log.Warning("Error initializing issue provider {0}.", providerName);
+            return [];
+        }
     }
 }
