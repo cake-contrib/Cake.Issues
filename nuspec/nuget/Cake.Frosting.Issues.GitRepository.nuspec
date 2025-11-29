@@ -50,6 +50,6 @@ For addin compatible with Cake Script Runners see Cake.Issues.GitRepository.
     <file src="Cake.Frosting.Issues.GitRepository.targets" target="build" />
     <file src="Cake.Frosting.Issues.GitRepository.targets" target="buildTransitive" />
     <file src="Cake.Frosting.Issues.GitRepository.md" target="docs\README.md" />
-    <file src="..\..\src\Cake.Issues.GitRepository\bin\Release\**\Cake.Issues.GitRepository.*" target="lib" exclude="**\*.deps.json" />
+    <file src="..\..\src\IssueProviders\GitRepository\Cake.Issues.GitRepository\bin\Release\**\Cake.Issues.GitRepository.*" target="lib" exclude="**\*.deps.json" />
   </files>
 </package>

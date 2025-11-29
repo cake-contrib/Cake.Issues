@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Description>Azure DevOps support for the Cake.Issues addin for Cake Build Automation System</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Remove the default CLSCompliant attribute -->
+    <AssemblyAttribute Remove="System.CLSCompliantAttribute" />
+    <!-- Not all types are CLS compliant in this addin -->
+    <AssemblyAttribute Include="System.CLSCompliantAttribute">
+      <_Parameter1>false</_Parameter1>
+    </AssemblyAttribute>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Cake.Frosting.AzureDevOps" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Core\Cake.Issues.PullRequests\Cake.Issues.PullRequests\Cake.Issues.PullRequests.csproj" />
+  </ItemGroup>
+</Project>

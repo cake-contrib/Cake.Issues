@@ -51,6 +51,6 @@ For addin compatible with Cake Script Runners see Cake.Issues.PullRequests.
 	  <file src="Cake.Frosting.Issues.PullRequests.targets" target="build" />
 	  <file src="Cake.Frosting.Issues.PullRequests.targets" target="buildTransitive" />
 	  <file src="Cake.Frosting.Issues.PullRequests.md" target="docs\README.md" />
-    <file src="..\..\src\Cake.Issues.PullRequests\bin\Release\**\Cake.Issues.PullRequests.*" target="lib" exclude="**\*.deps.json" />
+    <file src="..\..\src\Core\Cake.Issues.PullRequests\Cake.Issues.PullRequests\bin\Release\**\Cake.Issues.PullRequests.*" target="lib" exclude="**\*.deps.json" />
   </files>
 </package>

@@ -48,6 +48,6 @@ For addin compatible with Cake Script Runners see Cake.Issues.PullRequests.AppVe
     <file src="Cake.Frosting.Issues.PullRequests.AppVeyor.targets" target="build" />
     <file src="Cake.Frosting.Issues.PullRequests.AppVeyor.targets" target="buildTransitive" />
     <file src="Cake.Frosting.Issues.PullRequests.AppVeyor.md" target="docs\README.md" />
-    <file src="..\..\src\Cake.Issues.PullRequests.AppVeyor\bin\Release\**\Cake.Issues.PullRequests.AppVeyor.*" target="lib" exclude="**\*.deps.json" />
+    <file src="..\..\src\PullRequestSystems\AppVeyor\Cake.Issues.PullRequests.AppVeyor\bin\Release\**\Cake.Issues.PullRequests.AppVeyor.*" target="lib" exclude="**\*.deps.json" />
   </files>
 </package>

@@ -42,6 +42,6 @@ For addin compatible with Cake Frosting see Cake.Frosting.Issues.InspectCode.
   <files>
     <file src="icon.png" target="" />
     <file src="Cake.Issues.InspectCode.md" target="docs\README.md" />
-    <file src="..\..\src\Cake.Issues.InspectCode\bin\Release\**\Cake.Issues.InspectCode.*" target="lib" exclude="**\*.deps.json" />
+    <file src="..\..\src\IssueProviders\InspectCode\Cake.Issues.InspectCode\bin\Release\**\Cake.Issues.InspectCode.*" target="lib" exclude="**\*.deps.json" />
   </files>
 </package>

@@ -53,6 +53,6 @@ For addin compatible with Cake Script Runners see Cake.Issues.Tap.
     <file src="Cake.Frosting.Issues.Tap.targets" target="build" />
     <file src="Cake.Frosting.Issues.Tap.targets" target="buildTransitive" />
     <file src="Cake.Frosting.Issues.Tap.md" target="docs\README.md" />
-    <file src="..\..\src\Cake.Issues.Tap\bin\Release\**\Cake.Issues.Tap.*" target="lib" exclude="**\*.deps.json" />
+    <file src="..\..\src\IssueProviders\Tap\Cake.Issues.Tap\bin\Release\**\Cake.Issues.Tap.*" target="lib" exclude="**\*.deps.json" />
   </files>
 </package>

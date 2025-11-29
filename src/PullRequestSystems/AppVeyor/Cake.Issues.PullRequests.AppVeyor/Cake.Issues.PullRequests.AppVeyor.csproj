@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Description>Addin for writing code analyzer or linter issues to AppVeyor</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Cake.Common" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Core\Cake.Issues.PullRequests\Cake.Issues.PullRequests\Cake.Issues.PullRequests.csproj" />
+  </ItemGroup>
+</Project>

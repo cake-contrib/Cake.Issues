@@ -51,7 +51,7 @@
       </ItemGroup>
 
       <ItemGroup>
-        <ProjectReference Include="..\Cake.Issues.Testing\Cake.Issues.Testing.csproj" />
+        <ProjectReference Include="..\..\..\Core\Cake.Issues.Testing\Cake.Issues.Testing.csproj" />
       </ItemGroup>
 
       <ItemGroup>

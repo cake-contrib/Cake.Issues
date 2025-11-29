@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Description>Common helpers for testing addins based on Cake.Issues</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Cake.Testing" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Cake.Issues\Cake.Issues\Cake.Issues.csproj" />
+  </ItemGroup>
+</Project>

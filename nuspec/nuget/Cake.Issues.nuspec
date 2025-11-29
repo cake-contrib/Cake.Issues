@@ -40,6 +40,6 @@ See the Project Site for an overview of the whole ecosystem of addins for workin
     <file src="Cake.Issues.targets" target="buildTransitive" />
     <file src="icon.png" target="" />
     <file src="Cake.Issues.md" target="docs\README.md" />
-    <file src="..\..\src\Cake.Issues\bin\Release\**\Cake.Issues.*" target="lib" exclude="**\*.deps.json" />
+    <file src="..\..\src\Core\Cake.Issues\Cake.Issues\bin\Release\**\Cake.Issues.*" target="lib" exclude="**\*.deps.json" />
   </files>
 </package>

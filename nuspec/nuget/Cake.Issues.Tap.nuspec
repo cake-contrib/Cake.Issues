@@ -42,7 +42,7 @@ For addin compatible with Cake Frosting see Cake.Frosting.Issues.Tap.
   <files>
     <file src="icon.png" target="" />
     <file src="Cake.Issues.Tap.md" target="docs\README.md" />
-    <file src="..\..\src\Cake.Issues.Tap\bin\Release\**\Cake.Issues.Tap.*" target="lib" exclude="**\*.deps.json" />
-    <file src="..\..\src\Cake.Issues.Tap\bin\Release\**\YamlDotNet.dll" target="lib" />
+    <file src="..\..\src\IssueProviders\Tap\Cake.Issues.Tap\bin\Release\**\Cake.Issues.Tap.*" target="lib" exclude="**\*.deps.json" />
+    <file src="..\..\src\IssueProviders\Tap\Cake.Issues.Tap\bin\Release\**\YamlDotNet.dll" target="lib" />
   </files>
 </package>

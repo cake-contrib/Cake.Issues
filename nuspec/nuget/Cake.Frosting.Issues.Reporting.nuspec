@@ -48,6 +48,6 @@ For addin compatible with Cake Script Runners see Cake.Issues.Reporting.
     <file src="Cake.Frosting.Issues.Reporting.targets" target="build" />
     <file src="Cake.Frosting.Issues.Reporting.targets" target="buildTransitive" />
     <file src="Cake.Frosting.Issues.Reporting.md" target="docs\README.md" />
-    <file src="..\..\src\Cake.Issues.Reporting\bin\Release\**\Cake.Issues.Reporting.*" target="lib" exclude="**\*.deps.json" />
+    <file src="..\..\src\Core\Cake.Issues.Reporting\Cake.Issues.Reporting\bin\Release\**\Cake.Issues.Reporting.*" target="lib" exclude="**\*.deps.json" />
   </files>
 </package>

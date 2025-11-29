@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Contains functionality for reporting issues to build servers.</Description>
+    <PackageTags>Cake Script Build Server CI Issues</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Spectre.Console" />
+    <PackageReference Include="Spectre.Console.Analyzer">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../../Cake.Issues/Cake.Issues/Cake.Issues.csproj" />
+  </ItemGroup>
+
+  <Import Project="..\..\Shared\IssueFiltering\IssueFiltering.projitems" Label="Shared" />
+
+</Project>

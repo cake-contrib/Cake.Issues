@@ -40,6 +40,6 @@ For addin compatible with Cake Frosting see Cake.Frosting.Issues.PullRequests.Ap
   <files>
     <file src="icon.png" target="" />
     <file src="Cake.Issues.PullRequests.AppVeyor.md" target="docs\README.md" />
-    <file src="..\..\src\Cake.Issues.PullRequests.AppVeyor\bin\Release\**\Cake.Issues.PullRequests.AppVeyor.*" target="lib" exclude="**\*.deps.json" />
+    <file src="..\..\src\PullRequestSystems\AppVeyor\Cake.Issues.PullRequests.AppVeyor\bin\Release\**\Cake.Issues.PullRequests.AppVeyor.*" target="lib" exclude="**\*.deps.json" />
   </files>
 </package>

@@ -50,6 +50,6 @@ The addin requires Cake Frosting 1.2.0 or higher.
     <file src="Cake.Frosting.Issues.Reporting.Console.targets" target="build" />
     <file src="Cake.Frosting.Issues.Reporting.Console.targets" target="buildTransitive" />
     <file src="Cake.Frosting.Issues.Reporting.Console.md" target="docs\README.md" />
-    <file src="..\..\src\Cake.Issues.Reporting.Console\bin\Release\**\Cake.Issues.Reporting.Console*" target="lib" exclude="**\*.deps.json" />
+    <file src="..\..\src\ReportFormats\Console\Cake.Issues.Reporting.Console\bin\Release\**\Cake.Issues.Reporting.Console*" target="lib" exclude="**\*.deps.json" />
   </files>
 </package>

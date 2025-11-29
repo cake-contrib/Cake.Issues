@@ -42,6 +42,6 @@ For addin compatible with Cake Frosting see Cake.Frosting.Issues.Terraform.
   <files>
     <file src="icon.png" target="" />
     <file src="Cake.Issues.Terraform.md" target="docs\README.md" />
-    <file src="..\..\src\Cake.Issues.Terraform\bin\Release\**\Cake.Issues.Terraform.*" target="lib" exclude="**\*.deps.json" />
+    <file src="..\..\src\IssueProviders\Terraform\Cake.Issues.Terraform\bin\Release\**\Cake.Issues.Terraform.*" target="lib" exclude="**\*.deps.json" />
   </files>
 </package>
