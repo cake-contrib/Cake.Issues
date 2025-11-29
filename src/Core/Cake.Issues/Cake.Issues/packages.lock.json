@@ -16,9 +16,9 @@
       },
       "NewStyleCop.Analyzers": {
         "type": "Direct",
-        "requested": "[1.2.0, )",
-        "resolved": "1.2.0",
-        "contentHash": "zLM0XCv+fdibf0QivRJaFyLAt3SmmxDGrGlLhgqlMq1IPbgnfVFH4KzFLjh1/27pRnWuhwDjELe/mZDwbes0nA=="
+        "requested": "[1.2.1, )",
+        "resolved": "1.2.1",
+        "contentHash": "20cG97DtMBpl6bPZ8Ito8JBidTusgP71x3SUcEMSQ08XIdX1ArVixtY2UK7aUi/GN3qCP2Ryp0U9AbtrYqBCzQ=="
       }
     },
     "net8.0": {
@@ -36,9 +36,9 @@
       },
       "NewStyleCop.Analyzers": {
         "type": "Direct",
-        "requested": "[1.2.0, )",
-        "resolved": "1.2.0",
-        "contentHash": "zLM0XCv+fdibf0QivRJaFyLAt3SmmxDGrGlLhgqlMq1IPbgnfVFH4KzFLjh1/27pRnWuhwDjELe/mZDwbes0nA=="
+        "requested": "[1.2.1, )",
+        "resolved": "1.2.1",
+        "contentHash": "20cG97DtMBpl6bPZ8Ito8JBidTusgP71x3SUcEMSQ08XIdX1ArVixtY2UK7aUi/GN3qCP2Ryp0U9AbtrYqBCzQ=="
       }
     },
     "net9.0": {
@@ -56,9 +56,9 @@
       },
       "NewStyleCop.Analyzers": {
         "type": "Direct",
-        "requested": "[1.2.0, )",
-        "resolved": "1.2.0",
-        "contentHash": "zLM0XCv+fdibf0QivRJaFyLAt3SmmxDGrGlLhgqlMq1IPbgnfVFH4KzFLjh1/27pRnWuhwDjELe/mZDwbes0nA=="
+        "requested": "[1.2.1, )",
+        "resolved": "1.2.1",
+        "contentHash": "20cG97DtMBpl6bPZ8Ito8JBidTusgP71x3SUcEMSQ08XIdX1ArVixtY2UK7aUi/GN3qCP2Ryp0U9AbtrYqBCzQ=="
       }
     }
   }
