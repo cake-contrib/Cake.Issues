@@ -12,12 +12,12 @@ For this example the JetBrains InspectCode issue provider is additionally used f
     ```csharp title="build.cake"
     #addin nuget:?package=Cake.Issues&version={{ cake_issues_version }}
     #addin nuget:?package=Cake.Issues.InspectCode&version={{ cake_issues_version }}
-    #addin nuget:?package=Cake.Issues.PullRequests&version={{ cake_issues_version }}
-    #addin nuget:?package=Cake.Issues.PullRequests.AppVeyor&version={{ cake_issues_version }}
+    #addin nuget:?package=Cake.Issues.BuildServer&version={{ cake_issues_version }}
+    #addin nuget:?package=Cake.Issues.BuildServer.AppVeyor&version={{ cake_issues_version }}
     ```
 
     !!! note
-        In addition to the AppVeyor pull request system the `Cake.Issues` and `Cake.Issues.PullRequests` core addins need to be added.
+        In addition to the AppVeyor pull request system the `Cake.Issues` and `Cake.Issues.BuildServer` core addins need to be added.
 
 === "Cake SDK"
 
@@ -29,7 +29,7 @@ For this example the JetBrains InspectCode issue provider is additionally used f
       </PropertyGroup>
       <ItemGroup>
         <PackageReference Include="Cake.Frosting.Issues.InspectCode" Version="{{ cake_issues_version }}" />
-        <PackageReference Include="Cake.Frosting.Issues.PullRequests.AppVeyor" Version="{{ cake_issues_version }}" />
+        <PackageReference Include="Cake.Frosting.Issues.BuildServer.AppVeyor" Version="{{ cake_issues_version }}" />
       </ItemGroup>
     </Project>
     ```
@@ -47,14 +47,14 @@ For this example the JetBrains InspectCode issue provider is additionally used f
       <ItemGroup>
         <PackageReference Include="Cake.Frosting" Version="{{ cake_version }}" />
         <PackageReference Include="Cake.Frosting.Issues.InspectCode" Version="{{ cake_issues_version }}" />
-        <PackageReference Include="Cake.Frosting.Issues.PullRequests.AppVeyor" Version="{{ cake_issues_version }}" />
+        <PackageReference Include="Cake.Frosting.Issues.BuildServer.AppVeyor" Version="{{ cake_issues_version }}" />
       </ItemGroup>
     </Project>
     ```
 <!-- markdownlint-restore -->
 
 This example shows how to report issues as messages to an AppVeyor build using the
-[AppVeyorBuilds](https://cakebuild.net/api/Cake.Issues.PullRequests.AppVeyor/AppVeyorBuildsAliases/)
+[AppVeyorBuilds](https://cakebuild.net/api/Cake.Issues.BuildServer.AppVeyor/AppVeyorBuildsAliases/)
 alias:
 
 <!-- markdownlint-disable MD046 -->
@@ -65,7 +65,7 @@ alias:
     {
         var repoRootPath = MakeAbsolute(Directory("./"));
     
-        ReportIssuesToPullRequest(
+        ReportIssuesToBuildServer(
             InspectCodeIssuesFromFilePath(
                 @"C:\build\inspectcode.log"),
             AppVeyorBuilds(),
@@ -80,7 +80,7 @@ alias:
     {
         var repoRootPath = MakeAbsolute(Directory("./"));
     
-        ReportIssuesToPullRequest(
+        ReportIssuesToBuildServer(
             InspectCodeIssuesFromFilePath(
                 @"C:\build\inspectcode.log"),
             AppVeyorBuilds(),
@@ -110,7 +110,7 @@ alias:
         {
             var repoRootPath = context.MakeAbsolute(context.Directory("./"));
 
-            context.ReportIssuesToPullRequest(
+            context.ReportIssuesToBuildServer(
                 context.InspectCodeIssuesFromFilePath(
                     @"C:\build\inspectcode.log"),
                 context.AppVeyorBuilds(),

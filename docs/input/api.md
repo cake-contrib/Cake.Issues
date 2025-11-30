@@ -45,12 +45,20 @@ hide:
 
 </div>
 
+## Build Server
+
+<!-- markdownlint-disable-next-line MD033 -->
+<div class="grid cards" markdown>
+
+* [Cake.Issues.BuildServer.AppVeyor](https://cakebuild.net/extensions/cake-issues-buildserver-appveyor)
+
+</div>
+
 ## Pull Request Systems
 
 <!-- markdownlint-disable-next-line MD033 -->
 <div class="grid cards" markdown>
 
-* [Cake.Issues.PullRequests.AppVeyor](https://cakebuild.net/extensions/cake-issues-pullrequests-appveyor)
 * [Cake.Issues.PullRequests.AzureDevOps](https://cakebuild.net/extensions/cake-issues-pullrequests-azuredevops)
 * [Cake.Issues.PullRequests.GitHubActions](https://cakebuild.net/extensions/cake-issues-pullrequests-githubactions)
 

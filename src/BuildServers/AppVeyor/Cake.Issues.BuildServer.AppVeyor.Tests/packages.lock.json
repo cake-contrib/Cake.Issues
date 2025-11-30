@@ -248,18 +248,18 @@
           "Cake.Core": "[6.0.0, )"
         }
       },
-      "cake.issues.pullrequests": {
+      "cake.issues.buildserver": {
         "type": "Project",
         "dependencies": {
           "Cake.Issues": "[1.0.0, )",
           "Spectre.Console": "[0.53.0, )"
         }
       },
-      "cake.issues.pullrequests.appveyor": {
+      "cake.issues.buildserver.appveyor": {
         "type": "Project",
         "dependencies": {
           "Cake.Common": "[6.0.0, )",
-          "Cake.Issues.PullRequests": "[1.0.0, )"
+          "Cake.Issues.BuildServer": "[1.0.0, )"
         }
       },
       "cake.issues.testing": {
@@ -548,18 +548,18 @@
           "Cake.Core": "[6.0.0, )"
         }
       },
-      "cake.issues.pullrequests": {
+      "cake.issues.buildserver": {
         "type": "Project",
         "dependencies": {
           "Cake.Issues": "[1.0.0, )",
           "Spectre.Console": "[0.53.0, )"
         }
       },
-      "cake.issues.pullrequests.appveyor": {
+      "cake.issues.buildserver.appveyor": {
         "type": "Project",
         "dependencies": {
           "Cake.Common": "[6.0.0, )",
-          "Cake.Issues.PullRequests": "[1.0.0, )"
+          "Cake.Issues.BuildServer": "[1.0.0, )"
         }
       },
       "cake.issues.testing": {
@@ -848,18 +848,18 @@
           "Cake.Core": "[6.0.0, )"
         }
       },
-      "cake.issues.pullrequests": {
+      "cake.issues.buildserver": {
         "type": "Project",
         "dependencies": {
           "Cake.Issues": "[1.0.0, )",
           "Spectre.Console": "[0.53.0, )"
         }
       },
-      "cake.issues.pullrequests.appveyor": {
+      "cake.issues.buildserver.appveyor": {
         "type": "Project",
         "dependencies": {
           "Cake.Common": "[6.0.0, )",
-          "Cake.Issues.PullRequests": "[1.0.0, )"
+          "Cake.Issues.BuildServer": "[1.0.0, )"
         }
       },
       "cake.issues.testing": {

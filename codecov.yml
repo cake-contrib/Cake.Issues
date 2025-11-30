@@ -39,10 +39,10 @@ component_management:
       name: Cake.Issues.PullRequests
       paths:
         - src/Cake.Issues.PullRequests/**
-    - component_id: cake_issues_pullrequests_appveyor
-      name: Cake.Issues.PullRequests.AppVeyor
+    - component_id: cake_issues_buildserver_appveyor
+      name: Cake.Issues.BuildServer.AppVeyor
       paths:
-        - src/Cake.Issues.PullRequests.AppVeyor/**
+        - src/Cake.Issues.BuildServer.AppVeyor/**
     - component_id: cake_issues_pullrequests_azuredevops
       name: Cake.Issues.PullRequests.AzureDevOps
       paths:

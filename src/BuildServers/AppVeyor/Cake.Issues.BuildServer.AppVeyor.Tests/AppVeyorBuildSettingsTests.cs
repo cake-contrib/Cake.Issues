@@ -1,4 +1,4 @@
-﻿namespace Cake.Issues.PullRequests.AppVeyor.Tests;
+﻿namespace Cake.Issues.BuildServer.AppVeyor.Tests;
 
 using System.Diagnostics.CodeAnalysis;
 

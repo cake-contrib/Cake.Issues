@@ -1,6 +1,6 @@
 ---
 title: Examples
-description: Examples for using the Cake.Issues.PullRequests.AppVeyor addin.
+description: Examples for using the Cake.Issues.BuildServer.AppVeyor addin.
 icon: material/test-tube
 ---
 
