@@ -5,7 +5,7 @@ icon: material/creation-outline
 ---
 
 The [Cake.Issues.BuildServer.GitHubActions addin] creates annotations from issues when running on
-GitHub actions.
+GitHub Actions.
 
 ![Pull request integration](githubactions-pullrequest-integration.png "Pull request integration")
 
