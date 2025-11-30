@@ -2,9 +2,10 @@ name: Build
 
 # Workflow Trigger
 on:
-  # Trigger the workflow on pushes to the master branch, ignoring changes to /docs
+  # Trigger the workflow on pushes to the master or develop branch, ignoring changes to /docs
   push:
     branches: 
+      - develop
       - master
     paths-ignore:
       - 'docs/**'
