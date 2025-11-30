@@ -19,9 +19,9 @@ BuildParameters.SetParameters(
     shouldGenerateDocumentation: false, // Documentation is generated through GitHub Actions workflow
     shouldRunInspectCode: false,
     shouldRunCoveralls: false,  // Disabled because it's currently failing
-    nuGetSources: new [] { "https://api.nuget.org/v3/index.json" },
+    nuGetSources: new [] { "https://api.nuget.org/v3/index.json" },  // Don't use additional MyGet feed, since CPM only supports one feed 
     preferredBuildProviderType: BuildProviderType.GitHubActions,
-    preferredBuildAgentOperatingSystem: PlatformFamily.Linux); // Don't use additional MyGet feed, since CPM only supports one feed 
+    preferredBuildAgentOperatingSystem: PlatformFamily.Windows);
 
 BuildParameters.PrintParameters(Context);
 
