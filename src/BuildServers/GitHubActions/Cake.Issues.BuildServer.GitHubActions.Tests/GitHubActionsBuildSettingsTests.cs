@@ -1,4 +1,4 @@
-﻿namespace Cake.Issues.PullRequests.GitHubActions.Tests;
+﻿namespace Cake.Issues.BuildServer.GitHubActions.Tests;
 
 public sealed class GitHubActionsBuildSettingsTests
 {

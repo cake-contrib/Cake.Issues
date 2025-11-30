@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="x48AzpzQPAeCnHlTUGKE" name="Page-1">
-        <mxGraphModel dx="1594" dy="607" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="1557" dy="577" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -79,19 +79,19 @@
                 <mxCell id="40" value="Support for" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=270;" parent="1" vertex="1">
                     <mxGeometry x="-220" y="190" width="80" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="49" value="Write issues to build systems" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;verticalAlign=bottom;fontSize=14;fontStyle=1" vertex="1" parent="1">
+                <mxCell id="49" value="Write issues to build systems" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;verticalAlign=bottom;fontSize=14;fontStyle=1" parent="1" vertex="1">
                     <mxGeometry x="340" y="340" width="440" height="220" as="geometry"/>
                 </mxCell>
-                <mxCell id="50" value="Cake.Issues.BuildServer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+                <mxCell id="50" value="Cake.Issues.BuildServer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
                     <mxGeometry x="350" y="360" width="150" height="160" as="geometry"/>
                 </mxCell>
-                <mxCell id="52" value="Cake.Issues.PullRequests.GitHubActions" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+                <mxCell id="52" value="Cake.Issues.BuildServer.GitHubActions" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
                     <mxGeometry x="530" y="420" width="240" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="53" value="Custom Build Server support" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;glass=0;shadow=0;opacity=50;dashed=1;" vertex="1" parent="1">
+                <mxCell id="53" value="Custom Build Server support" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;glass=0;shadow=0;opacity=50;dashed=1;" parent="1" vertex="1">
                     <mxGeometry x="530" y="480" width="240" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="54" value="Cake.Issues.BuildServer.AppVeyor" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+                <mxCell id="54" value="Cake.Issues.BuildServer.AppVeyor" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
                     <mxGeometry x="530" y="360" width="240" height="40" as="geometry"/>
                 </mxCell>
             </root>

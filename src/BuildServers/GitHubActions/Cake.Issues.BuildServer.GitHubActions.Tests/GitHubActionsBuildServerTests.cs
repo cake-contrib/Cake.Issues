@@ -1,8 +1,8 @@
-﻿namespace Cake.Issues.PullRequests.GitHubActions.Tests;
+﻿namespace Cake.Issues.BuildServer.GitHubActions.Tests;
 
 using Cake.Core.Diagnostics;
 
-public sealed class GitHubActionsPullRequestSystemTests
+public sealed class GitHubActionsBuildServerTests
 {
     public sealed class TheCtor
     {
@@ -15,7 +15,7 @@ public sealed class GitHubActionsPullRequestSystemTests
                 new GitHubActionsBuildSettings();
 
             // When
-            var result = Record.Exception(() => new GitHubActionsPullRequestSystem(log, settings));
+            var result = Record.Exception(() => new GitHubActionsBuildServer(log, settings));
 
             // Then
             result.IsArgumentNullException("log");
@@ -29,7 +29,7 @@ public sealed class GitHubActionsPullRequestSystemTests
             const GitHubActionsBuildSettings settings = null;
 
             // When
-            var result = Record.Exception(() => new GitHubActionsPullRequestSystem(log, settings));
+            var result = Record.Exception(() => new GitHubActionsBuildServer(log, settings));
 
             // Then
             result.IsArgumentNullException("settings");

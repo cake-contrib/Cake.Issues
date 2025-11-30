@@ -1,0 +1,9 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Description>Tests for the Cake.Issues.BuildServer.GitHubActions addin</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Cake.Issues.BuildServer.GitHubActions\Cake.Issues.BuildServer.GitHubActions.csproj" />
+  </ItemGroup>
+</Project>

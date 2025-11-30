@@ -1,6 +1,6 @@
 ---
 title: Examples
-description: Examples for using the Cake.Issues.PullRequests.GitHubActions addin.
+description: Examples for using the Cake.Issues.BuildServer.GitHubActions addin.
 icon: material/test-tube
 ---
 

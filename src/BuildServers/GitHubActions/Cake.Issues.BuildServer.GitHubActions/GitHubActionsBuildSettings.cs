@@ -1,4 +1,4 @@
-﻿namespace Cake.Issues.PullRequests.GitHubActions;
+﻿namespace Cake.Issues.BuildServer.GitHubActions;
 
 /// <summary>
 /// Settings for <see cref="GitHubActionsBuildsAliases"/>.

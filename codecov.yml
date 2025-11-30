@@ -35,22 +35,22 @@ component_management:
       name: Cake.Issues.MsBuild
       paths:
         - src/Cake.Issues.MsBuild/**
-    - component_id: cake_issues_pullrequests
-      name: Cake.Issues.PullRequests
-      paths:
-        - src/Cake.Issues.PullRequests/**
     - component_id: cake_issues_buildserver_appveyor
       name: Cake.Issues.BuildServer.AppVeyor
       paths:
         - src/Cake.Issues.BuildServer.AppVeyor/**
+    - component_id: cake_issues_buildserver_githubactions
+      name: Cake.Issues.BuildServer.GitHubActions
+      paths:
+        - src/Cake.Issues.BuildServer.GitHubActions/**
+    - component_id: cake_issues_pullrequests
+      name: Cake.Issues.PullRequests
+      paths:
+        - src/Cake.Issues.PullRequests/**
     - component_id: cake_issues_pullrequests_azuredevops
       name: Cake.Issues.PullRequests.AzureDevOps
       paths:
         - src/Cake.Issues.PullRequests.AzureDevOps/**
-    - component_id: cake_issues_pullrequests_githubactions
-      name: Cake.Issues.PullRequests.GitHubActions
-      paths:
-        - src/Cake.Issues.PullRequests.GitHubActions/**
     - component_id: cake_issues_reporting
       name: Cake.Issues.Reporting
       paths:

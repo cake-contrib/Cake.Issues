@@ -11,6 +11,17 @@
     <File Path="../nuspec/nuget/Cake.Issues.BuildServer.AppVeyor.md" />
     <File Path="../nuspec/nuget/Cake.Issues.BuildServer.AppVeyor.nuspec" />
   </Folder>
+  <Folder Name="/Build Server/GitHubActions/">
+    <Project Path="BuildServers/GitHubActions/Cake.Issues.BuildServer.GitHubActions.Tests/Cake.Issues.BuildServer.GitHubActions.Tests.csproj" />
+    <Project Path="BuildServers/GitHubActions/Cake.Issues.BuildServer.GitHubActions/Cake.Issues.BuildServer.GitHubActions.csproj" />
+  </Folder>
+  <Folder Name="/Build Server/GitHubActions/NuGet/">
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.BuildServer.GitHubActions.md" />
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.BuildServer.GitHubActions.nuspec" />
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.BuildServer.GitHubActions.targets" />
+    <File Path="../nuspec/nuget/Cake.Issues.BuildServer.GitHubActions.md" />
+    <File Path="../nuspec/nuget/Cake.Issues.BuildServer.GitHubActions.nuspec" />
+  </Folder>
   <Folder Name="/Build/">
     <File Path="../recipe.cake" />
   </Folder>
@@ -178,17 +189,6 @@
     <File Path="../nuspec/nuget/Cake.Frosting.Issues.PullRequests.AzureDevOps.targets" />
     <File Path="../nuspec/nuget/Cake.Issues.PullRequests.AzureDevOps.md" />
     <File Path="../nuspec/nuget/Cake.Issues.PullRequests.AzureDevOps.nuspec" />
-  </Folder>
-  <Folder Name="/Pull Request Systems/GitHubActions/">
-    <Project Path="PullRequestSystems/GitHubActions/Cake.Issues.PullRequests.GitHubActions.Tests/Cake.Issues.PullRequests.GitHubActions.Tests.csproj" />
-    <Project Path="PullRequestSystems/GitHubActions/Cake.Issues.PullRequests.GitHubActions/Cake.Issues.PullRequests.GitHubActions.csproj" />
-  </Folder>
-  <Folder Name="/Pull Request Systems/GitHubActions/NuGet/">
-    <File Path="../nuspec/nuget/Cake.Frosting.Issues.PullRequests.GitHubActions.md" />
-    <File Path="../nuspec/nuget/Cake.Frosting.Issues.PullRequests.GitHubActions.nuspec" />
-    <File Path="../nuspec/nuget/Cake.Frosting.Issues.PullRequests.GitHubActions.targets" />
-    <File Path="../nuspec/nuget/Cake.Issues.PullRequests.GitHubActions.md" />
-    <File Path="../nuspec/nuget/Cake.Issues.PullRequests.GitHubActions.nuspec" />
   </Folder>
   <Folder Name="/Report Formats/" />
   <Folder Name="/Report Formats/Console/">

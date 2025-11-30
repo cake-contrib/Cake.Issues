@@ -1,4 +1,4 @@
-﻿namespace Cake.Issues.PullRequests.GitHubActions;
+﻿namespace Cake.Issues.BuildServer.GitHubActions;
 
 using Cake.Core;
 using Cake.Core.Annotations;
@@ -18,7 +18,7 @@ public static class GitHubActionsBuildsAliases
     /// <para>Report code analysis issues reported as MsBuild warnings to GitHub Actions:</para>
     /// <code>
     /// <![CDATA[
-    ///     ReportCodeAnalysisIssuesToPullRequest(
+    ///     ReportIssuesToBuildServer(
     ///         MsBuildCodeAnalysis(
     ///             @"c:\build\msbuild.log",
     ///             MsBuildXmlFileLoggerFormat),
@@ -28,13 +28,13 @@ public static class GitHubActionsBuildsAliases
     /// </code>
     /// </example>
     [CakeMethodAlias]
-    [CakeAliasCategory(PullRequestsAliasConstants.PullRequestSystemCakeAliasCategory)]
-    public static IPullRequestSystem GitHubActionsBuilds(
+    [CakeAliasCategory(BuildServerAliasConstants.BuildServerCakeAliasCategory)]
+    public static IBuildServerSystem GitHubActionsBuilds(
         this ICakeContext context)
     {
         context.NotNull();
 
-        return new GitHubActionsPullRequestSystem(context.Log, new GitHubActionsBuildSettings());
+        return new GitHubActionsBuildServer(context.Log, new GitHubActionsBuildSettings());
     }
 
     /// <summary>
@@ -52,7 +52,7 @@ public static class GitHubActionsBuildsAliases
     ///         {
     ///         };
     ///
-    ///     ReportCodeAnalysisIssuesToPullRequest(
+    ///     ReportIssuesToBuildServer(
     ///         MsBuildCodeAnalysis(
     ///             @"c:\build\msbuild.log",
     ///             MsBuildXmlFileLoggerFormat),
@@ -62,14 +62,14 @@ public static class GitHubActionsBuildsAliases
     /// </code>
     /// </example>
     [CakeMethodAlias]
-    [CakeAliasCategory(PullRequestsAliasConstants.PullRequestSystemCakeAliasCategory)]
-    public static IPullRequestSystem GitHubActionsBuilds(
+    [CakeAliasCategory(BuildServerAliasConstants.BuildServerCakeAliasCategory)]
+    public static IBuildServerSystem GitHubActionsBuilds(
         this ICakeContext context,
         GitHubActionsBuildSettings settings)
     {
         context.NotNull();
         settings.NotNull();
 
-        return new GitHubActionsPullRequestSystem(context.Log, settings);
+        return new GitHubActionsBuildServer(context.Log, settings);
     }
 }

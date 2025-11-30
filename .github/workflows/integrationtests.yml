@@ -120,9 +120,9 @@ jobs:
         working-directory: ./tests/Cake.Issues.MsBuild/script-runner/${{ env.TFM }}
         shell: bash
 
-  # Integration Tests Cake.Issues.PullRequests.GitHubActions Cake Scripting
-  IntegrationTestsPullRequestsGitHubActionsCakeScripting:
-    name: Integration Tests Cake.Issues.PullRequests.GitHubActions Cake Scripting
+  # Integration Tests Cake.Issues.BuildServer.GitHubActions Cake Scripting
+  IntegrationTestsBuildServerGitHubActionsCakeScripting:
+    name: Integration Tests Cake.Issues.BuildServer.GitHubActions Cake Scripting
     needs: Build
     strategy:
       fail-fast: false
@@ -142,7 +142,7 @@ jobs:
           dotnet-version: ${{ matrix.dotnet }}
       - name: Run integration tests
         run: ./build.sh --verbosity=diagnostic
-        working-directory: ./tests/Cake.Issues.PullRequests.GitHubActions/script-runner/${{ env.TFM }}
+        working-directory: ./tests/Cake.Issues.BuildServer.GitHubActions/script-runner/${{ env.TFM }}
         shell: bash
 
   # Integration Tests Cake.Issues.Reporting.Console Cake Scripting

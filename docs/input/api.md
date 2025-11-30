@@ -51,6 +51,7 @@ hide:
 <div class="grid cards" markdown>
 
 * [Cake.Issues.BuildServer.AppVeyor](https://cakebuild.net/extensions/cake-issues-buildserver-appveyor)
+* [Cake.Issues.BuildServer.GitHubActions](https://cakebuild.net/extensions/cake-issues-buildserver-githubactions)
 
 </div>
 
@@ -60,6 +61,5 @@ hide:
 <div class="grid cards" markdown>
 
 * [Cake.Issues.PullRequests.AzureDevOps](https://cakebuild.net/extensions/cake-issues-pullrequests-azuredevops)
-* [Cake.Issues.PullRequests.GitHubActions](https://cakebuild.net/extensions/cake-issues-pullrequests-githubactions)
 
 </div>

@@ -3,8 +3,8 @@
 #addin "Cake.Markdownlint"
 #addin "Cake.Issues&prerelease"
 #addin "Cake.Issues.MsBuild&prerelease"
-#addin "Cake.Issues.PullRequests&prerelease"
-#addin "Cake.Issues.PullRequests.GitHubActions&prerelease"
+#addin "Cake.Issues.BuildServer&prerelease"
+#addin "Cake.Issues.BuildServer.GitHubActions&prerelease"
 
 //////////////////////////////////////////////////
 // ARGUMENTS
@@ -67,7 +67,7 @@ Task("Build")
 Task("Report-IssuesToBuildServer")
     .Does<BuildData>((data) =>
 {
-    ReportIssuesToPullRequest(
+    ReportIssuesToBuildServer(
         data.Issues,
         GitHubActionsBuilds(),
         repoRootFolder);
