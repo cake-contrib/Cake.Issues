@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Description>Tests for the Cake.Issues.BuildServer.AppVeyor addin</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NSubstitute" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Cake.Issues.BuildServer.AppVeyor\Cake.Issues.BuildServer.AppVeyor.csproj" />
+  </ItemGroup>
+</Project>

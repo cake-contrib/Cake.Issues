@@ -1,8 +1,8 @@
-﻿namespace Cake.Issues.PullRequests.AppVeyor.Tests;
+﻿namespace Cake.Issues.BuildServer.AppVeyor.Tests;
 
 using Cake.Core;
 
-public sealed class AppVeyorPullRequestSystemTests
+public sealed class AppVeyorBuildServerTests
 {
     public sealed class TheCtor
     {
@@ -14,7 +14,7 @@ public sealed class AppVeyorPullRequestSystemTests
             var settings = new AppVeyorBuildSettings();
 
             // When
-            var result = Record.Exception(() => new AppVeyorPullRequestSystem(context, settings));
+            var result = Record.Exception(() => new AppVeyorBuildServer(context, settings));
 
             // Then
             result.IsArgumentNullException("context");
@@ -29,7 +29,7 @@ public sealed class AppVeyorPullRequestSystemTests
             const AppVeyorBuildSettings settings = null;
 
             // When
-            var result = Record.Exception(() => new AppVeyorPullRequestSystem(context, settings));
+            var result = Record.Exception(() => new AppVeyorBuildServer(context, settings));
 
             // Then
             result.IsArgumentNullException("settings");

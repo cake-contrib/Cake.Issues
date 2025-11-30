@@ -1,4 +1,4 @@
-﻿namespace Cake.Issues.PullRequests.AppVeyor;
+﻿namespace Cake.Issues.BuildServer.AppVeyor;
 
 using System;
 using System.Collections.Generic;
@@ -8,17 +8,17 @@ using Cake.Core;
 /// <summary>
 /// Class for posting issues to AppVeyor.
 /// </summary>
-public class AppVeyorPullRequestSystem : BasePullRequestSystem
+public class AppVeyorBuildServer : BaseBuildServerSystem
 {
     private readonly ICakeContext context;
     private readonly AppVeyorBuildSettings settings;
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="AppVeyorPullRequestSystem"/> class.
+    /// Initializes a new instance of the <see cref="AppVeyorBuildServer"/> class.
     /// </summary>
     /// <param name="context">The Cake context.</param>
     /// <param name="settings">Settings for writing issues to AppVeyor.</param>
-    public AppVeyorPullRequestSystem(ICakeContext context, AppVeyorBuildSettings settings)
+    public AppVeyorBuildServer(ICakeContext context, AppVeyorBuildSettings settings)
         : base(context?.Log ?? throw new ArgumentNullException(nameof(context)))
     {
         settings.NotNull();
@@ -28,7 +28,7 @@ public class AppVeyorPullRequestSystem : BasePullRequestSystem
     }
 
     /// <inheritdoc />
-    protected override void InternalPostDiscussionThreads(IEnumerable<IIssue> issues, string commentSource)
+    protected override void InternalPostIssues(IEnumerable<IIssue> issues)
     {
         foreach (var issue in issues)
         {

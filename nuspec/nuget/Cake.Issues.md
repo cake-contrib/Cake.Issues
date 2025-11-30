@@ -80,18 +80,27 @@ together with the [Cake.Issues.Reporting](https://www.nuget.org/packages/Cake.Is
 | [Cake.Issues.Reporting.Generic](https://www.nuget.org/packages/Cake.Issues.Reporting.Generic) | [Cake.Frosting.Issues.Reporting.Generic](https://www.nuget.org/packages/Cake.Frosting.Issues.Reporting.Generic) | Support for creating reports in any text based format (HTML, Markdown, ...). |
 | [Cake.Issues.Reporting.Sarif](https://www.nuget.org/packages/Cake.Issues.Reporting.Sarif) | [Cake.Frosting.Issues.Reporting.Sarif](https://www.nuget.org/packages/Cake.Frosting.Issues.Reporting.Sarif) | Support for creating reports in SARIF format. |
 
-### Reporting issues to pull requests and build systems
+### Reporting issues to build server
 
-Issues can be written as comments to pull requests or reported to build systems using any of the
+Issues can be written to build server using any of the available [Build Server] addin together with the
+[Cake.Issues.BuildServer](https://www.nuget.org/packages/Cake.Issues.BuildServer) addin for Cake .NET Tool or
+[Cake.Frosting.Issues.BuildServer](https://www.nuget.org/packages/Cake.Frosting.Issues.BuildServer) addin for Cake Frosting.
+
+| Cake .NET Tool Addin | Cake Frosting Addin | Description |
+|:--:|-|-|
+| [Cake.Issues.BuildServer.AppVeyor](https://www.nuget.org/packages/Cake.Issues.BuildServer.AppVeyor) | [Cake.Frosting.Issues.BuildServer.AppVeyor](https://www.nuget.org/packages/Cake.Frosting.Issues.BuildServer.AppVeyor) | Integration with AppVeyor builds. |
+| [Cake.Issues.PullRequests.GitHubActions](https://www.nuget.org/packages/Cake.Issues.PullRequests.GitHubActions) | [Cake.Frosting.Issues.PullRequests.GitHubActions](https://www.nuget.org/packages/Cake.Frosting.Issues.PullRequests.GitHubActions) | Integration with GitHub Actions. |
+
+### Reporting issues to pull requests systems
+
+Issues can be written as comments to pull request systems using any of the
 available [Pull Request System] addin together with the
 [Cake.Issues.PullRequests](https://www.nuget.org/packages/Cake.Issues.PullRequests) addin for Cake .NET Tool or
 [Cake.Frosting.Issues.PullRequests](https://www.nuget.org/packages/Cake.Frosting.Issues.PullRequests) addin for Cake Frosting.
 
 | Cake .NET Tool Addin | Cake Frosting Addin | Description |
 |:--:|-|-|
-| [Cake.Issues.PullRequests.AppVeyor](https://www.nuget.org/packages/Cake.Issues.PullRequests.AppVeyor) | [Cake.Frosting.Issues.PullRequests.AppVeyor](https://www.nuget.org/packages/Cake.Frosting.Issues.PullRequests.AppVeyor) | Integration with AppVeyor builds. |
 | [Cake.Issues.PullRequests.AzureDevOps](https://www.nuget.org/packages/Cake.Issues.PullRequests.AzureDevOps) | [Cake.Frosting.Issues.PullRequests.AzureDevOps](https://www.nuget.org/packages/Cake.Frosting.Issues.PullRequests.AzureDevOps) | Integration with Azure DevOps pull requests. |
-| [Cake.Issues.PullRequests.GitHubActions](https://www.nuget.org/packages/Cake.Issues.PullRequests.GitHubActions) | [Cake.Frosting.Issues.PullRequests.GitHubActions](https://www.nuget.org/packages/Cake.Frosting.Issues.PullRequests.GitHubActions) | Integration with GitHub Actions. |
 
 ## Support & Discussion
 
@@ -112,4 +121,5 @@ See [LICENSE](https://github.com/cake-contrib/Cake.Issues/blob/develop/LICENSE) 
 [set of aliases]: https://cakeissues.net/latest/api/
 [Issue Providers]: https://cakeissues.net/latest/documentation/issue-providers/
 [Report Format]: https://cakeissues.net/latest/documentation/report-formats/
+[Build Server]: https://cakeissues.net/latest/documentation/build-servers/
 [Pull Request System]: https://cakeissues.net/latest/documentation/pull-request-systems/

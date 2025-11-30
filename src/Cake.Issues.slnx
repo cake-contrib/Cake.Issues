@@ -1,4 +1,16 @@
 <Solution>
+  <Folder Name="/Build Server/" />
+  <Folder Name="/Build Server/AppVeyor/">
+    <Project Path="BuildServers/AppVeyor/Cake.Issues.BuildServer.AppVeyor.Tests/Cake.Issues.BuildServer.AppVeyor.Tests.csproj" />
+    <Project Path="BuildServers/AppVeyor/Cake.Issues.BuildServer.AppVeyor/Cake.Issues.BuildServer.AppVeyor.csproj" />
+  </Folder>
+  <Folder Name="/Build Server/AppVeyor/NuGet/">
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.BuildServer.AppVeyor.md" />
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.BuildServer.AppVeyor.nuspec" />
+    <File Path="../nuspec/nuget/Cake.Frosting.Issues.BuildServer.AppVeyor.targets" />
+    <File Path="../nuspec/nuget/Cake.Issues.BuildServer.AppVeyor.md" />
+    <File Path="../nuspec/nuget/Cake.Issues.BuildServer.AppVeyor.nuspec" />
+  </Folder>
   <Folder Name="/Build/">
     <File Path="../recipe.cake" />
   </Folder>
@@ -156,17 +168,6 @@
     <File Path="../nuspec/nuget/Cake.Issues.Terraform.nuspec" />
   </Folder>
   <Folder Name="/Pull Request Systems/" />
-  <Folder Name="/Pull Request Systems/AppVeyor/">
-    <Project Path="PullRequestSystems/AppVeyor/Cake.Issues.PullRequests.AppVeyor.Tests/Cake.Issues.PullRequests.AppVeyor.Tests.csproj" />
-    <Project Path="PullRequestSystems/AppVeyor/Cake.Issues.PullRequests.AppVeyor/Cake.Issues.PullRequests.AppVeyor.csproj" />
-  </Folder>
-  <Folder Name="/Pull Request Systems/AppVeyor/NuGet/">
-    <File Path="../nuspec/nuget/Cake.Frosting.Issues.PullRequests.AppVeyor.md" />
-    <File Path="../nuspec/nuget/Cake.Frosting.Issues.PullRequests.AppVeyor.nuspec" />
-    <File Path="../nuspec/nuget/Cake.Frosting.Issues.PullRequests.AppVeyor.targets" />
-    <File Path="../nuspec/nuget/Cake.Issues.PullRequests.AppVeyor.md" />
-    <File Path="../nuspec/nuget/Cake.Issues.PullRequests.AppVeyor.nuspec" />
-  </Folder>
   <Folder Name="/Pull Request Systems/AzureDevOps/">
     <Project Path="PullRequestSystems/AzureDevOps/Cake.Issues.PullRequests.AzureDevOps.Tests/Cake.Issues.PullRequests.AzureDevOps.Tests.csproj" />
     <Project Path="PullRequestSystems/AzureDevOps/Cake.Issues.PullRequests.AzureDevOps/Cake.Issues.PullRequests.AzureDevOps.csproj" />

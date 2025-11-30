@@ -1,4 +1,4 @@
-﻿namespace Cake.Issues.PullRequests.AppVeyor;
+﻿namespace Cake.Issues.BuildServer.AppVeyor;
 
 using Cake.Core;
 using Cake.Core.Annotations;
@@ -18,7 +18,7 @@ public static class AppVeyorBuildsAliases
     /// <para>Report code analysis issues reported as MsBuild warnings to an AppVeyor build:</para>
     /// <code>
     /// <![CDATA[
-    ///     ReportCodeAnalysisIssuesToPullRequest(
+    ///     ReportIssuesToBuildServer(
     ///         MsBuildCodeAnalysis(
     ///             @"c:\build\msbuild.log",
     ///             MsBuildXmlFileLoggerFormat),
@@ -28,13 +28,13 @@ public static class AppVeyorBuildsAliases
     /// </code>
     /// </example>
     [CakeMethodAlias]
-    [CakeAliasCategory(PullRequestsAliasConstants.PullRequestSystemCakeAliasCategory)]
-    public static IPullRequestSystem AppVeyorBuilds(
+    [CakeAliasCategory(BuildServerAliasConstants.BuildServerCakeAliasCategory)]
+    public static IBuildServerSystem AppVeyorBuilds(
         this ICakeContext context)
     {
         context.NotNull();
 
-        return new AppVeyorPullRequestSystem(context, new AppVeyorBuildSettings());
+        return new AppVeyorBuildServer(context, new AppVeyorBuildSettings());
     }
 
     /// <summary>
@@ -53,7 +53,7 @@ public static class AppVeyorBuildsAliases
     ///             MessagePattern = "Project: {ProjectName}, File: {FilePath}, Line: {Line}"
     ///         };
     ///
-    ///     ReportCodeAnalysisIssuesToPullRequest(
+    ///     ReportIssuesToBuildServer(
     ///         MsBuildCodeAnalysis(
     ///             @"c:\build\msbuild.log",
     ///             MsBuildXmlFileLoggerFormat),
@@ -63,14 +63,14 @@ public static class AppVeyorBuildsAliases
     /// </code>
     /// </example>
     [CakeMethodAlias]
-    [CakeAliasCategory(PullRequestsAliasConstants.PullRequestSystemCakeAliasCategory)]
-    public static IPullRequestSystem AppVeyorBuilds(
+    [CakeAliasCategory(BuildServerAliasConstants.BuildServerCakeAliasCategory)]
+    public static IBuildServerSystem AppVeyorBuilds(
         this ICakeContext context,
         AppVeyorBuildSettings settings)
     {
         context.NotNull();
         settings.NotNull();
 
-        return new AppVeyorPullRequestSystem(context, settings);
+        return new AppVeyorBuildServer(context, settings);
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace Cake.Issues.PullRequests.AppVeyor;
+﻿namespace Cake.Issues.BuildServer.AppVeyor;
 
 using Cake.Common.Build.AppVeyor;
 

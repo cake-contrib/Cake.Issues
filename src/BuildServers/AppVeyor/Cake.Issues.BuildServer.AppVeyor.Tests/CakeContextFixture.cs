@@ -1,4 +1,4 @@
-﻿namespace Cake.Issues.PullRequests.AppVeyor.Tests;
+﻿namespace Cake.Issues.BuildServer.AppVeyor.Tests;
 
 using Cake.Core;
 using Cake.Core.Configuration;

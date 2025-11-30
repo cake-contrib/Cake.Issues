@@ -55,8 +55,9 @@ Cake.Issues recipes will add the following addins to your build:
     | [Cake.Issues.Reporting]                  | {{ cake_issues_version }} | |
     | [Cake.Issues.Reporting.Generic]          | {{ cake_issues_version }} | |
     | [Cake.Issues.Reporting.Sarif]            | {{ cake_issues_version }} | |
+    | [Cake.Issues.BuildServer]                | {{ cake_issues_version }} | |
+    | [Cake.Issues.BuildServer.AppVeyor]       | {{ cake_issues_version }} | |
     | [Cake.Issues.PullRequests]               | {{ cake_issues_version }} | |
-    | [Cake.Issues.PullRequests.AppVeyor]      | {{ cake_issues_version }} | |
     | [Cake.Issues.PullRequests.AzureDevOps]   | {{ cake_issues_version }} | |
     | [Cake.Issues.PullRequests.GitHubActions] | {{ cake_issues_version }} | |
     | [Cake.AzureDevOps]                       | 5.0.1                     | |
@@ -75,8 +76,9 @@ Cake.Issues recipes will add the following addins to your build:
     | [Cake.Frosting.Issues.Reporting]                  | {{ cake_issues_version }} | |
     | [Cake.Frosting.Issues.Reporting.Generic]          | {{ cake_issues_version }} | |
     | [Cake.Frosting.Issues.Reporting.Sarif]            | {{ cake_issues_version }} | |
+    | [Cake.Frosting.Issues.BuildServer]                | {{ cake_issues_version }} | |
+    | [Cake.Frosting.Issues.BuildServer.AppVeyor]       | {{ cake_issues_version }} | |
     | [Cake.Frosting.Issues.PullRequests]               | {{ cake_issues_version }} | |
-    | [Cake.Frosting.Issues.PullRequests.AppVeyor]      | {{ cake_issues_version }} | |
     | [Cake.Frosting.Issues.PullRequests.AzureDevOps]   | {{ cake_issues_version }} | |
     | [Cake.Frosting.Issues.PullRequests.GitHubActions] | {{ cake_issues_version }} | |
     | [Cake.Frosting.AzureDevOps]                       | 5.0.1                     | |
@@ -107,10 +109,12 @@ Cake.Issues recipes will add the following addins to your build:
 [Cake.Frosting.Issues.Reporting.Generic]: https://cakebuild.net/extensions/cake-issues-reporting-generic/
 [Cake.Issues.Reporting.Sarif]: https://cakebuild.net/extensions/cake-issues-reporting-sarif/
 [Cake.Frosting.Issues.Reporting.Sarif]: https://cakebuild.net/extensions/cake-issues-reporting-sarif/
+[Cake.Issues.BuildServer]: https://cakebuild.net/extensions/cake-issues-buildserver/
+[Cake.Frosting.Issues.BuildServer]: https://cakebuild.net/extensions/cake-issues-buildserver/
+[Cake.Issues.BuildServer.AppVeyor]: https://cakebuild.net/extensions/cake-issues-buildserver-appveyor/
+[Cake.Frosting.Issues.BuildServer.AppVeyor]: https://cakebuild.net/extensions/cake-issues-buildserver-appveyor/
 [Cake.Issues.PullRequests]: https://cakebuild.net/extensions/cake-issues-pullrequests/
 [Cake.Frosting.Issues.PullRequests]: https://cakebuild.net/extensions/cake-issues-pullrequests/
-[Cake.Issues.PullRequests.AppVeyor]: https://cakebuild.net/extensions/cake-issues-pullrequests-appveyor/
-[Cake.Frosting.Issues.PullRequests.AppVeyor]: https://cakebuild.net/extensions/cake-issues-pullrequests-appveyor/
 [Cake.Issues.PullRequests.AzureDevOps]: https://cakebuild.net/extensions/cake-issues-pullrequests-azuredevops/
 [Cake.Frosting.Issues.PullRequests.AzureDevOps]: https://cakebuild.net/extensions/cake-issues-pullrequests-azuredevops/
 [Cake.Issues.PullRequests.GitHubActions]: https://cakebuild.net/extensions/cake-issues-pullrequests-githubactions/

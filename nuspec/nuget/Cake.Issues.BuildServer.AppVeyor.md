@@ -1,8 +1,8 @@
-# AppVeyor support for the Cake.Issues addin for Cake Frosting
+# AppVeyor support for the Cake.Issues addin for Cake Build Automation System
 
 > **NOTE**:
-> This is the version of the addin compatible with [Cake Frosting].
-> For addin compatible with [Cake .NET Tool] see [Cake.Issues.PullRequests.AppVeyor](https://www.nuget.org/packages/Cake.Issues.PullRequests.AppVeyor).
+> This is the version of the addin compatible with [Cake .NET Tool].
+> For addin compatible with [Cake Frosting] see [Cake.Frosting.Issues.BuildServer.AppVeyor](https://www.nuget.org/packages/Cake.Frosting.Issues.BuildServer.AppVeyor).
 
 AppVeyor support for the Cake.Issues addin for Cake allows you to write found issues as message to AppVeyor builds.
 
