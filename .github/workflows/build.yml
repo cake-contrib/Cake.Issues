@@ -35,6 +35,7 @@ jobs:
           AZURE_PASSWORD: ${{ secrets.AZURE_PASSWORD }}
           AZURE_SOURCE: ${{ secrets.AZURE_SOURCE }}
           AZURE_USER: ${{ secrets.AZURE_USER }}
+          CODECOV_REPO_TOKEN: ${{ secrets.CODECOV_REPO_TOKEN }}
           GITHUB_PAT: ${{ secrets.GH_TOKEN }}
           GPR_PASSWORD: ${{ secrets.GPR_PASSWORD }}
           GPR_SOURCE: ${{ secrets.GPR_SOURCE }}
