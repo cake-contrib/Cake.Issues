@@ -16,10 +16,12 @@ BuildParameters.SetParameters(
     repositoryName: "Cake.Issues",
     appVeyorAccountName: "cakecontrib",
     shouldUseDeterministicBuilds: true,
-    shouldGenerateDocumentation: false, // Documentation is generated from Cake.Issues.Website
+    shouldGenerateDocumentation: false, // Documentation is generated through GitHub Actions workflow
     shouldRunInspectCode: false,
     shouldRunCoveralls: false,  // Disabled because it's currently failing
-    nuGetSources: new [] { "https://api.nuget.org/v3/index.json" }); // Don't use additional MyGet feed, since CPM only supports one feed 
+    nuGetSources: new [] { "https://api.nuget.org/v3/index.json" },
+    preferredBuildProviderType: BuildProviderType.GitHubActions,
+    preferredBuildAgentOperatingSystem: PlatformFamily.Linux); // Don't use additional MyGet feed, since CPM only supports one feed 
 
 BuildParameters.PrintParameters(Context);
 

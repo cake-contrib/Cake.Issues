@@ -1,0 +1,56 @@
+name: Build
+
+# Workflow Trigger
+on:
+  # Trigger the workflow on pushes to the master branch, ignoring changes to /docs
+  push:
+    branches: 
+      - master
+    paths-ignore:
+      - 'docs/**'
+
+jobs:
+  Test:
+    name: Build
+    runs-on: windows-2025
+    steps:
+      - name: Get the sources
+        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
+      - name: Fetch all tags and branches
+        run: git fetch --prune --unshallow
+      - name: Install .NET
+        uses: actions/setup-dotnet@2016bd2012dba4e32de620c46fe006a3ac9f0602 # v5.0.1
+        with:
+          # .NET 5 required for GitVersion
+          dotnet-version: | 
+            5.x
+            8.x
+            9.x
+            10.x
+      - name: Build
+        run: ./build.sh --target=CI
+        shell: bash
+        env:
+          AZURE_PASSWORD: ${{ secrets.AZURE_PASSWORD }}
+          AZURE_SOURCE: ${{ secrets.AZURE_SOURCE }}
+          AZURE_USER: ${{ secrets.AZURE_USER }}
+          GITHUB_PAT: ${{ secrets.GH_TOKEN }}
+          GPR_PASSWORD: ${{ secrets.GPR_PASSWORD }}
+          GPR_SOURCE: ${{ secrets.GPR_SOURCE }}
+          GPR_USER: ${{ secrets.GPR_USER }}
+          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+          NUGET_SOURCE: "https://api.nuget.org/v3/index.json"
+      - name: Upload Issues
+        uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 # v5.0.0
+        with:
+          if-no-files-found: warn
+          name: Issues
+          path: |
+            BuildArtifacts/report.html
+            BuildArtifacts/**/coverlet/*.xml
+      - name: Upload Packages
+        uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 # v5.0.0
+        with:
+          if-no-files-found: warn
+          name: package
+          path: BuildArtifacts/Packages/**/*
