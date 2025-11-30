@@ -1,4 +1,4 @@
-﻿namespace Cake.Issues.PullRequests.GitHubActions;
+﻿namespace Cake.Issues.BuildServer.GitHubActions;
 
 using System;
 using System.Collections.Generic;
@@ -9,17 +9,17 @@ using Cake.Core.IO;
 /// <summary>
 /// Class for posting issues to GitHub Actions.
 /// </summary>
-public class GitHubActionsPullRequestSystem : BasePullRequestSystem
+public class GitHubActionsBuildServer : BaseBuildServerSystem
 {
     private static readonly char[] Separator = ['\n'];
     private readonly GitHubActionsBuildSettings settings;
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="GitHubActionsPullRequestSystem"/> class.
+    /// Initializes a new instance of the <see cref="GitHubActionsBuildServer"/> class.
     /// </summary>
     /// <param name="log">The Cake log.</param>
     /// <param name="settings">Settings for writing the issues to GitHub Actions.</param>
-    public GitHubActionsPullRequestSystem(ICakeLog log, GitHubActionsBuildSettings settings)
+    public GitHubActionsBuildServer(ICakeLog log, GitHubActionsBuildSettings settings)
         : base(log)
     {
         settings.NotNull();
@@ -28,7 +28,7 @@ public class GitHubActionsPullRequestSystem : BasePullRequestSystem
     }
 
     /// <inheritdoc />
-    protected override void InternalPostDiscussionThreads(IEnumerable<IIssue> issues, string commentSource)
+    protected override void InternalPostIssues(IEnumerable<IIssue> issues)
     {
         issues.NotNull();
 

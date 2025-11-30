@@ -30,7 +30,7 @@ It needs an additional NuGet package to provide the specific build server implem
 | Cake .NET Tool Addin | Cake Frosting Addin | Description |
 |:--:|-|-|
 | [Cake.Issues.BuildServer.AppVeyor](https://www.nuget.org/packages/Cake.Issues.BuildServer.AppVeyor) | [Cake.Frosting.Issues.BuildServer.AppVeyor](https://www.nuget.org/packages/Cake.Frosting.Issues.BuildServer.AppVeyor) | Integration with AppVeyor builds. |
-| [Cake.Issues.PullRequests.GitHubActions](https://www.nuget.org/packages/Cake.Issues.PullRequests.GitHubActions) | [Cake.Frosting.Issues.PullRequests.GitHubActions](https://www.nuget.org/packages/Cake.Frosting.Issues.PullRequests.GitHubActions) | Integration with GitHub Actions. |
+| [Cake.Issues.BuildServer.GitHubActions](https://www.nuget.org/packages/Cake.Issues.BuildServer.GitHubActions) | [Cake.Frosting.Issues.BuildServer.GitHubActions](https://www.nuget.org/packages/Cake.Frosting.Issues.BuildServer.GitHubActions) | Integration with GitHub Actions. |
 
 See [Build Servers] for a list of available build server addins and detailed documentation.
 

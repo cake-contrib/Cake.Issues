@@ -4,6 +4,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Core\Cake.Issues.PullRequests\Cake.Issues.PullRequests\Cake.Issues.PullRequests.csproj" />
+    <ProjectReference Include="..\..\..\Core\Cake.Issues.BuildServer\Cake.Issues.BuildServer\Cake.Issues.BuildServer.csproj" />
   </ItemGroup>
 </Project>

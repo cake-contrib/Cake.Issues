@@ -1,8 +1,8 @@
-# GitHub Actions support for the Cake.Issues addin for Cake Build Automation System
+# GitHub Actions support for the Cake.Issues addin for Cake Frosting
 
 > **NOTE**:
-> This is the version of the addin compatible with [Cake .NET Tool].
-> For addin compatible with [Cake Frosting] see [Cake.Frosting.Issues.PullRequests.GitHubActions](https://www.nuget.org/packages/Cake.Frosting.Issues.PullRequests.GitHubActions).
+> This is the version of the addin compatible with [Cake Frosting].
+> For addin compatible with [Cake .NET Tool] see [Cake.Issues.BuildServer.GitHubActions](https://www.nuget.org/packages/Cake.Issues.BuildServer.GitHubActions).
 
 GitHub Actions support for the Cake.Issues addin for Cake allows you to report to GitHub Actions builds.
 
