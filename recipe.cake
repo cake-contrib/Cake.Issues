@@ -21,7 +21,7 @@ BuildParameters.SetParameters(
     shouldRunCoveralls: false,  // Disabled because it's currently failing
     nuGetSources: new [] { "https://api.nuget.org/v3/index.json" }, // Don't use additional MyGet feed, since CPM only supports one feed 
     preferredBuildProviderType: BuildProviderType.GitHubActions,
-    preferredBuildAgentOperatingSystem: PlatformFamily.Windows);
+    preferredBuildAgentOperatingSystem: PlatformFamily.Linux);
 
 BuildParameters.PrintParameters(Context);
 
