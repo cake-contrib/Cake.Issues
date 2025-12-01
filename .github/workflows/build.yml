@@ -28,7 +28,7 @@ jobs:
             8.x
             9.x
             10.x
-      # Ubuntu 24.04 does not have Mono installed, which is Required for Cake.Recipe
+      # Ubuntu 24.04 does not have Mono installed, which is required for Cake.Recipe
       - name: Install Mono
         run: |
           sudo apt-get update
