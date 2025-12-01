@@ -34,7 +34,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y mono-complete
       - name: Build
-        run: ./build.sh --target=CI
+        run: ./build.sh --target=CI --verbosity=diagnostic
         shell: bash
         env:
           AZURE_PASSWORD: ${{ secrets.AZURE_PASSWORD }}
