@@ -62,14 +62,14 @@
       },
       "Verify.Xunit": {
         "type": "Direct",
-        "requested": "[31.7.3, )",
-        "resolved": "31.7.3",
-        "contentHash": "VUwJMHEtSjjWd6pBTbvJ1h9a76/+3sv8ZazT9MChdMVSXTk5uwxarE66We/WEs/Clj2/caGseN33rJl5hGBYLQ==",
+        "requested": "[31.8.0, )",
+        "resolved": "31.8.0",
+        "contentHash": "f+oaf/znLk/aeX6nAK9z8gjAuAnpZPSr9vixHAMveS6G3FP9dBCDCvu7UsZUKBQLgVT17Ie38LkXvmFgLx7Aqw==",
         "dependencies": {
           "Argon": "0.33.0",
           "DiffEngine": "17.0.1",
           "SimpleInfoName": "3.1.2",
-          "Verify": "31.7.3",
+          "Verify": "31.8.0",
           "xunit.abstractions": "2.0.3",
           "xunit.extensibility.execution": "2.9.3"
         }
@@ -216,8 +216,8 @@
       },
       "Verify": {
         "type": "Transitive",
-        "resolved": "31.7.3",
-        "contentHash": "bNjAX8UhxqPHZn98cWWoY01c058uknsNG/iutOFhpQsP56ppShnvbV47FquwVI23Iu5mTYaFvsO/knF0LtIQUQ==",
+        "resolved": "31.8.0",
+        "contentHash": "xZFQX/xVM8rCG1LkXVSBi7cp+eujrE++RDTMMztw6Vt1KjoETFsr8hd0uwYHmIDpvHu/vK877WVn8XVMxDHFfA==",
         "dependencies": {
           "Argon": "0.33.0",
           "DiffEngine": "17.0.1",
@@ -361,14 +361,14 @@
       },
       "Verify.Xunit": {
         "type": "Direct",
-        "requested": "[31.7.3, )",
-        "resolved": "31.7.3",
-        "contentHash": "VUwJMHEtSjjWd6pBTbvJ1h9a76/+3sv8ZazT9MChdMVSXTk5uwxarE66We/WEs/Clj2/caGseN33rJl5hGBYLQ==",
+        "requested": "[31.8.0, )",
+        "resolved": "31.8.0",
+        "contentHash": "f+oaf/znLk/aeX6nAK9z8gjAuAnpZPSr9vixHAMveS6G3FP9dBCDCvu7UsZUKBQLgVT17Ie38LkXvmFgLx7Aqw==",
         "dependencies": {
           "Argon": "0.33.0",
           "DiffEngine": "17.0.1",
           "SimpleInfoName": "3.1.2",
-          "Verify": "31.7.3",
+          "Verify": "31.8.0",
           "xunit.abstractions": "2.0.3",
           "xunit.extensibility.execution": "2.9.3"
         }
@@ -515,8 +515,8 @@
       },
       "Verify": {
         "type": "Transitive",
-        "resolved": "31.7.3",
-        "contentHash": "bNjAX8UhxqPHZn98cWWoY01c058uknsNG/iutOFhpQsP56ppShnvbV47FquwVI23Iu5mTYaFvsO/knF0LtIQUQ==",
+        "resolved": "31.8.0",
+        "contentHash": "xZFQX/xVM8rCG1LkXVSBi7cp+eujrE++RDTMMztw6Vt1KjoETFsr8hd0uwYHmIDpvHu/vK877WVn8XVMxDHFfA==",
         "dependencies": {
           "Argon": "0.33.0",
           "DiffEngine": "17.0.1",
@@ -660,14 +660,14 @@
       },
       "Verify.Xunit": {
         "type": "Direct",
-        "requested": "[31.7.3, )",
-        "resolved": "31.7.3",
-        "contentHash": "VUwJMHEtSjjWd6pBTbvJ1h9a76/+3sv8ZazT9MChdMVSXTk5uwxarE66We/WEs/Clj2/caGseN33rJl5hGBYLQ==",
+        "requested": "[31.8.0, )",
+        "resolved": "31.8.0",
+        "contentHash": "f+oaf/znLk/aeX6nAK9z8gjAuAnpZPSr9vixHAMveS6G3FP9dBCDCvu7UsZUKBQLgVT17Ie38LkXvmFgLx7Aqw==",
         "dependencies": {
           "Argon": "0.33.0",
           "DiffEngine": "17.0.1",
           "SimpleInfoName": "3.1.2",
-          "Verify": "31.7.3",
+          "Verify": "31.8.0",
           "xunit.abstractions": "2.0.3",
           "xunit.extensibility.execution": "2.9.3"
         }
@@ -814,8 +814,8 @@
       },
       "Verify": {
         "type": "Transitive",
-        "resolved": "31.7.3",
-        "contentHash": "bNjAX8UhxqPHZn98cWWoY01c058uknsNG/iutOFhpQsP56ppShnvbV47FquwVI23Iu5mTYaFvsO/knF0LtIQUQ==",
+        "resolved": "31.8.0",
+        "contentHash": "xZFQX/xVM8rCG1LkXVSBi7cp+eujrE++RDTMMztw6Vt1KjoETFsr8hd0uwYHmIDpvHu/vK877WVn8XVMxDHFfA==",
         "dependencies": {
           "Argon": "0.33.0",
           "DiffEngine": "17.0.1",
