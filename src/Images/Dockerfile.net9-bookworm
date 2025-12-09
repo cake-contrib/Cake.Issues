@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/sdk:9.0.308-bookworm-slim@sha256:4dceb990b7f76ae0b2f4e4fb1ac3485c3a354fb9fdaed767edb7590273508602
+FROM mcr.microsoft.com/dotnet/sdk:9.0.308-bookworm-slim@sha256:5a74a9dc320797bb3260db7a3a8bbd7c7a200b29054079c7309e307538b11341
 
 RUN wget https://aka.ms/getvsdbgsh && \
     sh getvsdbgsh -v latest  -l /vsdbg
