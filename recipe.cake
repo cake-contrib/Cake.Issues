@@ -1,5 +1,10 @@
 #load nuget:https://pkgs.dev.azure.com/cake-contrib/Home/_packaging/addins/nuget/v3/index.json?package=Cake.Recipe&version=4.1.0-alpha0042
 
+// Pin to old version until 3.0.1 with the following fixes has been released:
+// - https://github.com/cake-contrib/Cake.Codecov/issues/333
+// - https://github.com/cake-contrib/Cake.Codecov/issues/332
+#addin nuget:?package=Cake.Codecov&version=2.0.1
+
 //*************************************************************************************************
 // Settings
 //*************************************************************************************************
