@@ -3,7 +3,7 @@
 // Pin to old version until 3.0.1 with the following fixes has been released:
 // - https://github.com/cake-contrib/Cake.Codecov/issues/333
 // - https://github.com/cake-contrib/Cake.Codecov/issues/332
-#addin nuget:?package=Cake.Codecov&version=2.0.1
+#addin nuget:?package=Cake.Codecov&version=3.0.0
 
 //*************************************************************************************************
 // Settings
