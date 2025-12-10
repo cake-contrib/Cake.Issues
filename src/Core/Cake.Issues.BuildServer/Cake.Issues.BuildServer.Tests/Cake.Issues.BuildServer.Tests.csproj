@@ -5,6 +5,9 @@
 
   <ItemGroup>
     <PackageReference Include="NSubstitute" />
+    <PackageReference Include="Spectre.Console" />
+    <PackageReference Include="Spectre.Console.Testing" />
+    <PackageReference Include="Verify.Xunit" />
   </ItemGroup>
 
   <ItemGroup>
