@@ -45,7 +45,7 @@ jobs:
           CODECOV_REPO_TOKEN: ${{ secrets.CODECOV_REPO_TOKEN }}
           GITHUB_PAT: ${{ secrets.GH_TOKEN }}
           GPR_SOURCE: ${{ secrets.GPR_SOURCE }}
-          GPR_API_KEY: ${{ secrets.GH_TOKEN }}
+          GPR_API_KEY: ${{ secrets.GPR_API_KEY }}
           NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
           NUGET_SOURCE: "https://api.nuget.org/v3/index.json"
       - name: Upload Issues
