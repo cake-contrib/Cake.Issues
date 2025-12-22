@@ -17,7 +17,7 @@ public static class Aliases
     /// </summary>
     /// <param name="context">The context.</param>
     /// <param name="issues">Issues which should be reported.</param>
-    /// <param name="buildServerSystem">The build server system.</param>
+    /// <param name="buildServer">The build server implementation.</param>
     /// <param name="repositoryRoot">Root path of the repository.</param>
     /// <returns>Information about the reported and written issues.</returns>
     /// <example>
@@ -36,11 +36,11 @@ public static class Aliases
     public static BuildServerIssueResult ReportIssuesToBuildServer(
         this ICakeContext context,
         IEnumerable<IIssue> issues,
-        IBuildServerSystem buildServerSystem,
+        IBuildServer buildServer,
         DirectoryPath repositoryRoot)
     {
         context.NotNull();
-        buildServerSystem.NotNull();
+        buildServer.NotNull();
         repositoryRoot.NotNull();
 
         issues.NotNullOrEmptyElement();
@@ -48,7 +48,7 @@ public static class Aliases
         return
             context.ReportIssuesToBuildServer(
                 issues,
-                buildServerSystem,
+                buildServer,
                 new ReportIssuesToBuildServerSettings(repositoryRoot));
     }
 
@@ -57,7 +57,7 @@ public static class Aliases
     /// </summary>
     /// <param name="context">The context.</param>
     /// <param name="issues">Issues which should be reported.</param>
-    /// <param name="buildServerSystem">The build server system.</param>
+    /// <param name="buildServer">The build server implementation.</param>
     /// <param name="settings">The settings.</param>
     /// <returns>Information about the reported and written issues.</returns>
     /// <example>
@@ -82,11 +82,11 @@ public static class Aliases
     public static BuildServerIssueResult ReportIssuesToBuildServer(
         this ICakeContext context,
         IEnumerable<IIssue> issues,
-        IBuildServerSystem buildServerSystem,
+        IBuildServer buildServer,
         IReportIssuesToBuildServerSettings settings)
     {
         context.NotNull();
-        buildServerSystem.NotNull();
+        buildServer.NotNull();
         settings.NotNull();
 
         issues.NotNullOrEmptyElement();
@@ -95,7 +95,7 @@ public static class Aliases
             new BuildServerOrchestrator(
                 context.Log,
                 AnsiConsole.Console,
-                buildServerSystem);
+                buildServer);
 
         return orchestrator.Run(issues, settings);
     }
@@ -105,7 +105,7 @@ public static class Aliases
     /// </summary>
     /// <param name="context">The context.</param>
     /// <param name="issueProvider">The provider for issues.</param>
-    /// <param name="buildServerSystem">The build server system.</param>
+    /// <param name="buildServer">The build server implementation.</param>
     /// <param name="repositoryRoot">Root path of the repository.</param>
     /// <returns>Information about the reported and written issues.</returns>
     /// <example>
@@ -126,18 +126,18 @@ public static class Aliases
     public static BuildServerIssueResult ReportIssuesToBuildServer(
         this ICakeContext context,
         IIssueProvider issueProvider,
-        IBuildServerSystem buildServerSystem,
+        IBuildServer buildServer,
         DirectoryPath repositoryRoot)
     {
         context.NotNull();
         issueProvider.NotNull();
-        buildServerSystem.NotNull();
+        buildServer.NotNull();
         repositoryRoot.NotNull();
 
         return
             context.ReportIssuesToBuildServer(
                 issueProvider,
-                buildServerSystem,
+                buildServer,
                 new ReportIssuesToBuildServerFromIssueProviderSettings(repositoryRoot));
     }
 
@@ -146,7 +146,7 @@ public static class Aliases
     /// </summary>
     /// <param name="context">The context.</param>
     /// <param name="issueProviders">The list of provider for issues.</param>
-    /// <param name="buildServerSystem">The build server system.</param>
+    /// <param name="buildServer">The build server implementation.</param>
     /// <param name="repositoryRoot">Root path of the repository.</param>
     /// <returns>Information about the reported and written issues.</returns>
     /// <example>
@@ -172,11 +172,11 @@ public static class Aliases
     public static BuildServerIssueResult ReportIssuesToBuildServer(
         this ICakeContext context,
         IEnumerable<IIssueProvider> issueProviders,
-        IBuildServerSystem buildServerSystem,
+        IBuildServer buildServer,
         DirectoryPath repositoryRoot)
     {
         context.NotNull();
-        buildServerSystem.NotNull();
+        buildServer.NotNull();
         repositoryRoot.NotNull();
 
         issueProviders.NotNullOrEmptyOrEmptyElement();
@@ -184,7 +184,7 @@ public static class Aliases
         return
             context.ReportIssuesToBuildServer(
                 issueProviders,
-                buildServerSystem,
+                buildServer,
                 new ReportIssuesToBuildServerFromIssueProviderSettings(repositoryRoot));
     }
 
@@ -193,7 +193,7 @@ public static class Aliases
     /// </summary>
     /// <param name="context">The context.</param>
     /// <param name="issueProvider">The provider for issues.</param>
-    /// <param name="buildServerSystem">The build server system.</param>
+    /// <param name="buildServer">The build server implementation.</param>
     /// <param name="settings">The settings.</param>
     /// <returns>Information about the reported and written issues.</returns>
     /// <example>
@@ -220,18 +220,18 @@ public static class Aliases
     public static BuildServerIssueResult ReportIssuesToBuildServer(
         this ICakeContext context,
         IIssueProvider issueProvider,
-        IBuildServerSystem buildServerSystem,
+        IBuildServer buildServer,
         IReportIssuesToBuildServerFromIssueProviderSettings settings)
     {
         context.NotNull();
         issueProvider.NotNull();
-        buildServerSystem.NotNull();
+        buildServer.NotNull();
         settings.NotNull();
 
         return
             context.ReportIssuesToBuildServer(
                 [issueProvider],
-                buildServerSystem,
+                buildServer,
                 settings);
     }
 
@@ -240,7 +240,7 @@ public static class Aliases
     /// </summary>
     /// <param name="context">The context.</param>
     /// <param name="issueProviders">The list of provider for issues.</param>
-    /// <param name="buildServerSystem">The build server system.</param>
+    /// <param name="buildServer">The build server implementation.</param>
     /// <param name="settings">The settings.</param>
     /// <returns>Information about the reported and written issues.</returns>
     /// <example>
@@ -272,11 +272,11 @@ public static class Aliases
     public static BuildServerIssueResult ReportIssuesToBuildServer(
         this ICakeContext context,
         IEnumerable<IIssueProvider> issueProviders,
-        IBuildServerSystem buildServerSystem,
+        IBuildServer buildServer,
         IReportIssuesToBuildServerFromIssueProviderSettings settings)
     {
         context.NotNull();
-        buildServerSystem.NotNull();
+        buildServer.NotNull();
         settings.NotNull();
 
         issueProviders.NotNullOrEmptyOrEmptyElement();
@@ -285,7 +285,7 @@ public static class Aliases
             new BuildServerOrchestrator(
                 context.Log,
                 AnsiConsole.Console,
-                buildServerSystem);
+                buildServer);
 
         return orchestrator.Run(issueProviders, settings);
     }

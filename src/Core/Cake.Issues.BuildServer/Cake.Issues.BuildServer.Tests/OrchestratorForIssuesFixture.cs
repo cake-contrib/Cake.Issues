@@ -11,7 +11,7 @@ internal class OrchestratorForIssuesFixture
     }
 
     public OrchestratorForIssuesFixture(
-        Func<FakeBuildServerSystemBuilder, IReportIssuesToBuildServerSettings, FakeBuildServerSystemBuilder> buildServerSettings)
+        Func<FakeBuildServerBuilder, IReportIssuesToBuildServerSettings, FakeBuildServerBuilder> buildServerSettings)
     {
         buildServerSettings.NotNull();
 
@@ -23,17 +23,17 @@ internal class OrchestratorForIssuesFixture
             new ReportIssuesToBuildServerSettings(
                 @"c:\Source\Cake.Issues");
 
-        var buildServerSystemBuilder = FakeBuildServerSystemBuilder.NewBuildServerSystem(this.Log);
-        buildServerSystemBuilder =
-            buildServerSettings(buildServerSystemBuilder, this.Settings);
-        this.BuildServerSystem = buildServerSystemBuilder.Create();
+        var buildServerBuilder = FakeBuildServerBuilder.NewBuildServer(this.Log);
+        buildServerBuilder =
+            buildServerSettings(buildServerBuilder, this.Settings);
+        this.BuildServer = buildServerBuilder.Create();
     }
 
     public FakeLog Log { get; set; }
 
     public TestConsole Console { get; set; }
 
-    public FakeBuildServerSystem BuildServerSystem { get; set; }
+    public FakeBuildServer BuildServer { get; set; }
 
     public IReportIssuesToBuildServerSettings Settings { get; set; }
 
@@ -43,7 +43,7 @@ internal class OrchestratorForIssuesFixture
             new BuildServerOrchestrator(
                 this.Log,
                 this.Console,
-                this.BuildServerSystem);
+                this.BuildServer);
         return orchestrator.Run(
             issues,
             this.Settings);

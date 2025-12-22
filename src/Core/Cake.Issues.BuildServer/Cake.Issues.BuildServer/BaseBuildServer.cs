@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using Cake.Core.Diagnostics;
 
 /// <summary>
-/// Base class for all build server system implementations.
+/// Base class for all build server implementations.
 /// </summary>
 /// <param name="log">The Cake log context.</param>
-public abstract class BaseBuildServerSystem(ICakeLog log)
-    : BaseIssueComponent<IReportIssuesToBuildServerSettings>(log), IBuildServerSystem
+public abstract class BaseBuildServer(ICakeLog log)
+    : BaseIssueComponent<IReportIssuesToBuildServerSettings>(log), IBuildServer
 {
     /// <inheritdoc/>
     public void PostIssues(IEnumerable<IIssue> issues)

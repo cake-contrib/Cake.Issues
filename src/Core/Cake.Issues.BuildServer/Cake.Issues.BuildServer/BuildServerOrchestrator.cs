@@ -14,26 +14,26 @@ internal class BuildServerOrchestrator
 {
     private readonly ICakeLog log;
     private readonly IAnsiConsole console;
-    private readonly IBuildServerSystem buildServerSystem;
+    private readonly IBuildServer buildServer;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="BuildServerOrchestrator"/> class.
     /// </summary>
     /// <param name="log">Cake log instance.</param>
     /// <param name="console">Console instance.</param>
-    /// <param name="buildServerSystem">Object for accessing build server system.</param>
+    /// <param name="buildServer">Object for accessing build server.</param>
     public BuildServerOrchestrator(
         ICakeLog log,
         IAnsiConsole console,
-        IBuildServerSystem buildServerSystem)
+        IBuildServer buildServer)
     {
         log.NotNull();
         console.NotNull();
-        buildServerSystem.NotNull();
+        buildServer.NotNull();
 
         this.log = log;
         this.console = console;
-        this.buildServerSystem = buildServerSystem;
+        this.buildServer = buildServer;
     }
 
     /// <summary>
@@ -95,8 +95,8 @@ internal class BuildServerOrchestrator
             this.console.Write(table);
         }
 
-        // Don't process issues if build server system could not be initialized.
-        if (!this.InitializeBuildServerSystem(settings))
+        // Don't process issues if build server could not be initialized.
+        if (!this.InitializeBuildServer(settings))
         {
             return new BuildServerIssueResult(issues, []);
         }
@@ -109,18 +109,18 @@ internal class BuildServerOrchestrator
     }
 
     /// <summary>
-    /// Initializes the build server system.
+    /// Initializes the build server.
     /// </summary>
     /// <param name="settings">Settings for posting issues.</param>
-    /// <returns><c>True</c> if build server system could be initialized.</returns>
-    private bool InitializeBuildServerSystem(IReportIssuesToBuildServerSettings settings)
+    /// <returns><c>True</c> if build server could be initialized.</returns>
+    private bool InitializeBuildServer(IReportIssuesToBuildServerSettings settings)
     {
-        // Initialize build server system.
-        this.log.Verbose("Initialize build server system...");
-        var result = this.buildServerSystem.Initialize(settings);
+        // Initialize build server.
+        this.log.Verbose("Initialize build server...");
+        var result = this.buildServer.Initialize(settings);
         if (!result)
         {
-            this.log.Warning("Error initializing the build server system.");
+            this.log.Warning("Error initializing the build server.");
         }
 
         return result;
@@ -156,7 +156,7 @@ internal class BuildServerOrchestrator
             "Posting {0} issue(s):",
             issuesToPost.Count);
 
-        this.buildServerSystem.PostIssues(issuesToPost);
+        this.buildServer.PostIssues(issuesToPost);
 
         this.log.Verbose(
             "Posting {0} issues took {1} ms",
