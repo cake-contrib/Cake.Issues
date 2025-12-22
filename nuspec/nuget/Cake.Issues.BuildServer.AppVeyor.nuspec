@@ -27,7 +27,7 @@ For addin compatible with Cake Frosting see Cake.Frosting.Issues.BuildServer.App
     <copyright>Copyright © Cake Issues contributors</copyright>
     <tags>cake cake-addin cake-issues cake-issues-buildserver issues buildserver appveyor</tags>
     <readme>docs\README.md</readme>
-    <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/5.9.1</releaseNotes>
+    <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/6.0.0-beta.1</releaseNotes>
     <dependencies>
       <group targetFramework="net8.0">
       </group>
