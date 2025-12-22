@@ -50,12 +50,12 @@ public sealed class BuildServerOrchestratorTests
         }
 
         [Fact]
-        public void Should_Throw_If_Build_Server_System_Is_Null()
+        public void Should_Throw_If_Build_Server_Is_Null()
         {
             // Given
             var fixture = new OrchestratorForIssuesFixture
             {
-                BuildServerSystem = null,
+                BuildServer = null,
             };
             var issues = new List<IIssue>();
 
@@ -63,7 +63,7 @@ public sealed class BuildServerOrchestratorTests
             var result = Record.Exception(() => fixture.RunOrchestrator(issues));
 
             // Then
-            result.IsArgumentNullException("buildServerSystem");
+            result.IsArgumentNullException("buildServer");
         }
 
         [Fact]
@@ -84,7 +84,7 @@ public sealed class BuildServerOrchestratorTests
         }
 
         [Fact]
-        public void Should_Initialize_Build_Server_System()
+        public void Should_Initialize_Build_Server()
         {
             // Given
             var fixture = new OrchestratorForIssuesFixture();
@@ -94,7 +94,7 @@ public sealed class BuildServerOrchestratorTests
             _ = fixture.RunOrchestrator(issues);
 
             // Then
-            fixture.BuildServerSystem.Settings.ShouldBe(fixture.Settings);
+            fixture.BuildServer.Settings.ShouldBe(fixture.Settings);
         }
 
         [Fact]
@@ -177,19 +177,19 @@ public sealed class BuildServerOrchestratorTests
         }
 
         [Fact]
-        public void Should_Throw_If_Build_Server_System_Is_Null()
+        public void Should_Throw_If_Build_Server_Is_Null()
         {
             // Given
             var fixture = new OrchestratorForIssueProvidersFixture
             {
-                BuildServerSystem = null,
+                BuildServer = null,
             };
 
             // When
             var result = Record.Exception(fixture.RunOrchestrator);
 
             // Then
-            result.IsArgumentNullException("buildServerSystem");
+            result.IsArgumentNullException("buildServer");
         }
 
         [Fact]
@@ -209,7 +209,7 @@ public sealed class BuildServerOrchestratorTests
         }
 
         [Fact]
-        public void Should_Initialize_Build_Server_System()
+        public void Should_Initialize_Build_Server()
         {
             // Given
             var fixture = new OrchestratorForIssueProvidersFixture();
@@ -218,7 +218,7 @@ public sealed class BuildServerOrchestratorTests
             _ = fixture.RunOrchestrator();
 
             // Then
-            fixture.BuildServerSystem.Settings.ShouldBe(fixture.Settings);
+            fixture.BuildServer.Settings.ShouldBe(fixture.Settings);
         }
     }
 
@@ -262,7 +262,7 @@ public sealed class BuildServerOrchestratorTests
             _ = fixture.RunOrchestrator();
 
             // Then
-            fixture.BuildServerSystem.PostedIssues.ShouldContain(issueToPost);
+            fixture.BuildServer.PostedIssues.ShouldContain(issueToPost);
             fixture.Log.Entries.ShouldContain(x => x.Message.StartsWith("Posting 1 issue(s):"));
             return Verify(fixture.Console.Output);
         }
@@ -290,7 +290,7 @@ public sealed class BuildServerOrchestratorTests
             _ = fixture.RunOrchestrator();
 
             // Then
-            fixture.BuildServerSystem.PostedIssues.ShouldContain(issueToPost);
+            fixture.BuildServer.PostedIssues.ShouldContain(issueToPost);
             fixture.Log.Entries.ShouldContain(x => x.Message.StartsWith("Posting 1 issue(s):"));
             return Verify(fixture.Console.Output);
         }
@@ -336,7 +336,7 @@ public sealed class BuildServerOrchestratorTests
         }
 
         [Fact]
-        public void Should_Return_Reported_Issues_If_BuildServerSystem_Could_Not_Be_Initialized()
+        public void Should_Return_Reported_Issues_If_BuildServer_Could_Not_Be_Initialized()
         {
             // Given
             var firstIssue =
@@ -357,7 +357,7 @@ public sealed class BuildServerOrchestratorTests
             var fixture =
                 new OrchestratorForIssueProvidersFixture
                 {
-                    BuildServerSystem =
+                    BuildServer =
                     {
                         ShouldFailOnInitialization = true,
                     },

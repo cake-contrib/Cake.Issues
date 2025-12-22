@@ -3,9 +3,9 @@ namespace Cake.Issues.BuildServer;
 using System.Collections.Generic;
 
 /// <summary>
-/// Interface describing a build server system.
+/// Interface describing a build server.
 /// </summary>
-public interface IBuildServerSystem : IBaseIssueComponent<IReportIssuesToBuildServerSettings>
+public interface IBuildServer : IBaseIssueComponent<IReportIssuesToBuildServerSettings>
 {
     /// <summary>
     /// Posts issues to the build server.

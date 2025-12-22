@@ -29,7 +29,7 @@ public static class AppVeyorBuildsAliases
     /// </example>
     [CakeMethodAlias]
     [CakeAliasCategory(BuildServerAliasConstants.BuildServerCakeAliasCategory)]
-    public static IBuildServerSystem AppVeyorBuilds(
+    public static IBuildServer AppVeyorBuilds(
         this ICakeContext context)
     {
         context.NotNull();
@@ -64,7 +64,7 @@ public static class AppVeyorBuildsAliases
     /// </example>
     [CakeMethodAlias]
     [CakeAliasCategory(BuildServerAliasConstants.BuildServerCakeAliasCategory)]
-    public static IBuildServerSystem AppVeyorBuilds(
+    public static IBuildServer AppVeyorBuilds(
         this ICakeContext context,
         AppVeyorBuildSettings settings)
     {

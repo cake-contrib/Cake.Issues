@@ -29,7 +29,7 @@ public static class GitHubActionsBuildsAliases
     /// </example>
     [CakeMethodAlias]
     [CakeAliasCategory(BuildServerAliasConstants.BuildServerCakeAliasCategory)]
-    public static IBuildServerSystem GitHubActionsBuilds(
+    public static IBuildServer GitHubActionsBuilds(
         this ICakeContext context)
     {
         context.NotNull();
@@ -63,7 +63,7 @@ public static class GitHubActionsBuildsAliases
     /// </example>
     [CakeMethodAlias]
     [CakeAliasCategory(BuildServerAliasConstants.BuildServerCakeAliasCategory)]
-    public static IBuildServerSystem GitHubActionsBuilds(
+    public static IBuildServer GitHubActionsBuilds(
         this ICakeContext context,
         GitHubActionsBuildSettings settings)
     {

@@ -9,7 +9,7 @@ using Cake.Core.IO;
 /// <summary>
 /// Class for posting issues to GitHub Actions.
 /// </summary>
-public class GitHubActionsBuildServer : BaseBuildServerSystem
+public class GitHubActionsBuildServer : BaseBuildServer
 {
     private static readonly char[] Separator = ['\n'];
     private readonly GitHubActionsBuildSettings settings;

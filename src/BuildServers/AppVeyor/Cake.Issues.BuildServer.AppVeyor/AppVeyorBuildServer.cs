@@ -8,7 +8,7 @@ using Cake.Core;
 /// <summary>
 /// Class for posting issues to AppVeyor.
 /// </summary>
-public class AppVeyorBuildServer : BaseBuildServerSystem
+public class AppVeyorBuildServer : BaseBuildServer
 {
     private readonly ICakeContext context;
     private readonly AppVeyorBuildSettings settings;

@@ -15,7 +15,7 @@ public sealed class BuildServerIntegrationTests
         {
             // Given
             var log = Substitute.For<ICakeLog>();
-            var buildServer = new TestBuildServerSystem(log);
+            var buildServer = new TestBuildServer(log);
             var settings = new ReportIssuesToBuildServerSettings(@"C:\repo");
 
             var issues = new List<IIssue>
@@ -36,9 +36,9 @@ public sealed class BuildServerIntegrationTests
     }
 
     /// <summary>
-    /// Simple test implementation of a build server system.
+    /// Simple test implementation of a build server.
     /// </summary>
-    private class TestBuildServerSystem(ICakeLog log) : BaseBuildServerSystem(log)
+    private class TestBuildServer(ICakeLog log) : BaseBuildServer(log)
     {
         public List<IIssue> PostedIssues { get; } = [];
 

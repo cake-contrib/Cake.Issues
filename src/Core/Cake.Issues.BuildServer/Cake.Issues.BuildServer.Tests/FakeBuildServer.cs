@@ -3,10 +3,10 @@
 using Cake.Core.Diagnostics;
 
 /// <summary>
-/// Implementation of a <see cref="BaseBuildServerSystem"/> for use in test cases.
+/// Implementation of a <see cref="BaseBuildServer"/> for use in test cases.
 /// </summary>
 /// <param name="log">The Cake log instance.</param>
-public class FakeBuildServerSystem(ICakeLog log) : BaseBuildServerSystem(log)
+public class FakeBuildServer(ICakeLog log) : BaseBuildServer(log)
 {
     private readonly List<IIssue> postedIssues = [];
 
