@@ -37,6 +37,12 @@ ToolSettings.SetToolSettings(
     testCoverageExcludeByAttribute: "*.ExcludeFromCodeCoverage*",
     testCoverageExcludeByFile: "*/*Designer.cs;*/*.g.cs;*/*.g.i.cs");
 
+// Downgrade GitVersion due to issues with building tags on GitHub Actions
+// https://github.com/GitTools/GitVersion/issues/2838
+ToolSettings.SetToolPreprocessorDirectives(
+    gitVersionGlobalTool : "#tool dotnet:?package=GitVersion.Tool&version=5.10.0"
+);
+
 //*************************************************************************************************
 // Setup
 //*************************************************************************************************
