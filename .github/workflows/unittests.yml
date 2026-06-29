@@ -31,6 +31,9 @@ jobs:
         with:
           fetch-depth: 0
           fetch-tags: true
+      - name: Create local branch for GitVersion
+        if: github.event_name == 'pull_request'
+        run: git checkout -b ${{ github.head_ref }}
       - name: Install .NET
         uses: actions/setup-dotnet@c2fa09f4bde5ebb9d1777cf28262a3eb3db3ced7 # v5.2.0
         with:
