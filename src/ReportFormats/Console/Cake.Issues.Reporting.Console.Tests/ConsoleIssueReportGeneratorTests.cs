@@ -209,7 +209,7 @@ public sealed partial class ConsoleIssueReportGeneratorTests
                 using var tempSourceFile = new TemporarySourceFile("Testfiles.TestFile.txt");
                 var filePath = tempSourceFile.FilePath;
                 output.WriteLine($"File path: {filePath}");
-                var directory = Path.GetDirectoryName(filePath)!;
+                var directory = Path.GetDirectoryName(filePath);
                 var fileName = Path.GetFileName(filePath);
                 var fixture = new ConsoleIssueReportFixture
                 {
@@ -241,7 +241,7 @@ public sealed partial class ConsoleIssueReportGeneratorTests
                 using var tempSourceFile = new TemporarySourceFile("Testfiles.TestFile.txt");
                 var filePath = tempSourceFile.FilePath;
                 output.WriteLine($"File path: {filePath}");
-                var directory = Path.GetDirectoryName(filePath)!;
+                var directory = Path.GetDirectoryName(filePath);
                 var fileName = Path.GetFileName(filePath);
                 var fixture = new ConsoleIssueReportFixture
                 {
@@ -271,7 +271,7 @@ public sealed partial class ConsoleIssueReportGeneratorTests
                 using var tempSourceFile = new TemporarySourceFile("Testfiles.TestFile.txt");
                 var filePath = tempSourceFile.FilePath;
                 output.WriteLine($"File path: {filePath}");
-                var directory = Path.GetDirectoryName(filePath)!;
+                var directory = Path.GetDirectoryName(filePath);
                 var fileName = Path.GetFileName(filePath);
                 var fixture = new ConsoleIssueReportFixture
                 {
@@ -302,7 +302,7 @@ public sealed partial class ConsoleIssueReportGeneratorTests
                 using var tempSourceFile = new TemporarySourceFile("Testfiles.TestFile.txt");
                 var filePath = tempSourceFile.FilePath;
                 output.WriteLine($"File path: {filePath}");
-                var directory = Path.GetDirectoryName(filePath)!;
+                var directory = Path.GetDirectoryName(filePath);
                 var fileName = Path.GetFileName(filePath);
                 var fixture = new ConsoleIssueReportFixture
                 {
