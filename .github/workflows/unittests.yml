@@ -30,6 +30,9 @@ jobs:
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
       - name: Fetch all tags and branches
         run: git fetch --prune --tags origin "+refs/heads/*:refs/remotes/origin/*"
+      - name: Create local branch for GitVersion
+        if: github.event_name == 'pull_request'
+        run: git checkout -b ${{ github.head_ref }}
       - name: Install .NET
         uses: actions/setup-dotnet@c2fa09f4bde5ebb9d1777cf28262a3eb3db3ced7 # v5.2.0
         with:
