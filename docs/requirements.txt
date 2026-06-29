@@ -3,7 +3,7 @@ mkdocs==1.6.1
 mkdocs-drawio==1.15.0
 mkdocs-glightbox==0.5.2
 mkdocs-macros-plugin==1.5.0
-mkdocs-material==9.7.1
-mkdocs-material[imaging]==9.7.1
+mkdocs-material==9.7.6
+mkdocs-material[imaging]==9.7.6
 mkdocs-open-in-new-tab==1.0.8
 mkdocs-table-reader-plugin==3.1.0
