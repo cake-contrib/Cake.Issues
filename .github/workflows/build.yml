@@ -7,6 +7,9 @@ on:
     branches: 
       - develop
       - master
+      - release/**
+    tags:
+      - "*"
     paths-ignore:
       - 'docs/**'
 
@@ -17,6 +20,8 @@ jobs:
     steps:
       - name: Get the sources
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          lfs: true
       - name: Fetch all tags and branches
         run: git fetch --prune --unshallow
       - name: Install .NET

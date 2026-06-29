@@ -27,18 +27,18 @@ For addin compatible with Cake Script Runners see Cake.Issues.Reporting.Sarif.
     <copyright>Copyright © Cake Issues contributors</copyright>
     <tags>cake cake-addin cake-issues cake-reportformat issues reporting sarif</tags>
     <readme>docs\README.md</readme>
-    <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/5.9.1</releaseNotes>
+    <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/6.0.0-beta.1</releaseNotes>
     <dependencies>
       <group targetFramework="net8.0">
-        <dependency id="Cake.Frosting.Issues.Reporting" version="[5.0.0-beta0001,6.0)" exclude="Build,Analyzers" />
+        <dependency id="Cake.Frosting.Issues.Reporting" version="[6.0.0-beta0001,7.0)" exclude="Build,Analyzers" />
         <dependency id="Sarif.Sdk" version="4.6.0" exclude="Build,Analyzers" />
       </group>
       <group targetFramework="net9.0">
-        <dependency id="Cake.Frosting.Issues.Reporting" version="[5.0.0-beta0001,6.0)" exclude="Build,Analyzers" />
+        <dependency id="Cake.Frosting.Issues.Reporting" version="[6.0.0-beta0001,7.0)" exclude="Build,Analyzers" />
         <dependency id="Sarif.Sdk" version="4.6.0" exclude="Build,Analyzers" />
       </group>
       <group targetFramework="net10.0">
-        <dependency id="Cake.Frosting.Issues.Reporting" version="[5.0.0-beta0001,6.0)" exclude="Build,Analyzers" />
+        <dependency id="Cake.Frosting.Issues.Reporting" version="[6.0.0-beta0001,7.0)" exclude="Build,Analyzers" />
         <dependency id="Sarif.Sdk" version="4.6.0" exclude="Build,Analyzers" />
       </group>
     </dependencies>
