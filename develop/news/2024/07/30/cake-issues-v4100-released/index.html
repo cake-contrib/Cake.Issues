@@ -79,6 +79,8 @@
 <meta property="twitter:title" content="Cake Issues v4.10.0 Released - Cake Issues">
 <meta property="twitter:description" content="Issue Management for the Cake Build System">
 <meta property="twitter:image" content="https://cakeissues.net/develop/assets/images/social/news/2024/07/30/cake-issues-v4100-released.png">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/biel-search@latest/dist/biel-search/biel-search.css">
+<script type="module" src="https://cdn.jsdelivr.net/npm/biel-search@latest/dist/biel-search/biel-search.esm.js"></script>
 <link href="../../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
@@ -7544,7 +7546,20 @@ contributions! ❤</p>
 <p>Cake.Issues 4.10.0 <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr> are compatible with any 4.x <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr>.
 To update to the new version bump the version of the specific <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr>.</p>
 <p>For details see <a href="https://github.com/cake-contrib/Cake.Issues/releases/tag/4.10.0">release notes</a></p>
-<!-- Glossary for terms and concepts not documented on cakeissues.net -->
+<!-- Glossary for terms and concepts not documented on cakeissues.net --><biel-button project="2e6rm5xi5a" button-position="bottom-right" button-style="dark" modal-position="bottom-right" header-title="Cake Issues">Ask AI</biel-button>
+<script>
+document.addEventListener('keydown', function (e) {
+  var path = e.composedPath ? e.composedPath() : [];
+  for (var i = 0; i < path.length; i++) {
+    var tag = path[i].tagName;
+    if (tag && tag.toLowerCase().indexOf('biel-') === 0) {
+      e.stopPropagation();
+      return;
+    }
+  }
+});
+</script>
+
 
 
 

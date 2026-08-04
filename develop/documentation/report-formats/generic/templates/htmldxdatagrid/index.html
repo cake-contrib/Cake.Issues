@@ -79,6 +79,8 @@
 <meta property="twitter:title" content="HTML DevExtreme Data Grid - Cake Issues">
 <meta property="twitter:description" content="Template for a HTML report containing a rich data grid with sorting, filtering, grouping and search capabilities.">
 <meta property="twitter:image" content="https://cakeissues.net/develop/assets/images/social/documentation/report-formats/generic/templates/htmldxdatagrid.png">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/biel-search@latest/dist/biel-search/biel-search.css">
+<script type="module" src="https://cdn.jsdelivr.net/npm/biel-search@latest/dist/biel-search/biel-search.esm.js"></script>
 <link href="../../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
@@ -8463,7 +8465,20 @@ Persistance can be disabled using the <code>HtmlDxDataGridOption.PersistState</c
 <p>You can use the source code as a template for your <a href="../../examples/custom-template/">custom template</a>.</p>
 </div>
 <p>Source code is available on <a href="https://github.com/cake-contrib/Cake.Issues/blob/develop/src/Cake.Issues.Reporting.Generic/Templates/DxDataGrid.cshtml">GitHub</a>.</p>
-<!-- Glossary for terms and concepts not documented on cakeissues.net -->
+<!-- Glossary for terms and concepts not documented on cakeissues.net --><biel-button project="2e6rm5xi5a" button-position="bottom-right" button-style="dark" modal-position="bottom-right" header-title="Cake Issues">Ask AI</biel-button>
+<script>
+document.addEventListener('keydown', function (e) {
+  var path = e.composedPath ? e.composedPath() : [];
+  for (var i = 0; i < path.length; i++) {
+    var tag = path[i].tagName;
+    if (tag && tag.toLowerCase().indexOf('biel-') === 0) {
+      e.stopPropagation();
+      return;
+    }
+  }
+});
+</script>
+
 
 
 

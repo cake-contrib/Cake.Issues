@@ -79,6 +79,8 @@
 <meta property="twitter:title" content="MsBuild issue provider - Cake Issues">
 <meta property="twitter:description" content="Issue provider which allows you to read warnings logged by MsBuild.">
 <meta property="twitter:image" content="https://cakeissues.net/develop/assets/images/social/documentation/issue-providers/msbuild/index.png">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/biel-search@latest/dist/biel-search/biel-search.css">
+<script type="module" src="https://cdn.jsdelivr.net/npm/biel-search@latest/dist/biel-search/biel-search.esm.js"></script>
 <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
@@ -7520,7 +7522,20 @@
 <li><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 7H5a2 2 0 0 0-2 2v8h2v-4h2v4h2V9a2 2 0 0 0-2-2m0 4H5V9h2m7-2h-4v10h2v-4h2a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2m0 4h-2V9h2m6 0v6h1v2h-4v-2h1V9h-1V7h4v2Z"></path></svg></span> <a href="https://cakebuild.net/extensions/cake-issues-msbuild">API</a></li>
 </ul>
 </div>
-<!-- Glossary for terms and concepts not documented on cakeissues.net -->
+<!-- Glossary for terms and concepts not documented on cakeissues.net --><biel-button project="2e6rm5xi5a" button-position="bottom-right" button-style="dark" modal-position="bottom-right" header-title="Cake Issues">Ask AI</biel-button>
+<script>
+document.addEventListener('keydown', function (e) {
+  var path = e.composedPath ? e.composedPath() : [];
+  for (var i = 0; i < path.length; i++) {
+    var tag = path[i].tagName;
+    if (tag && tag.toLowerCase().indexOf('biel-') === 0) {
+      e.stopPropagation();
+      return;
+    }
+  }
+});
+</script>
+
 
 
 

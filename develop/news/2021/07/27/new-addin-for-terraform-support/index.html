@@ -79,6 +79,8 @@
 <meta property="twitter:title" content="New addin for Terraform support - Cake Issues">
 <meta property="twitter:description" content="Issue Management for the Cake Build System">
 <meta property="twitter:image" content="https://cakeissues.net/develop/assets/images/social/news/2021/07/27/new-addin-for-terraform-support.png">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/biel-search@latest/dist/biel-search/biel-search.css">
+<script type="module" src="https://cdn.jsdelivr.net/npm/biel-search@latest/dist/biel-search/biel-search.esm.js"></script>
 <link href="../../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
@@ -7501,7 +7503,20 @@ pipelines which ensure quality standards by validating Terraform files before me
 the changes.
 When using a pull requests workflow it is also possible to have the issues reported by Terraform
 validate automatically reported as comments to pull request.</p>
-<!-- Glossary for terms and concepts not documented on cakeissues.net -->
+<!-- Glossary for terms and concepts not documented on cakeissues.net --><biel-button project="2e6rm5xi5a" button-position="bottom-right" button-style="dark" modal-position="bottom-right" header-title="Cake Issues">Ask AI</biel-button>
+<script>
+document.addEventListener('keydown', function (e) {
+  var path = e.composedPath ? e.composedPath() : [];
+  for (var i = 0; i < path.length; i++) {
+    var tag = path[i].tagName;
+    if (tag && tag.toLowerCase().indexOf('biel-') === 0) {
+      e.stopPropagation();
+      return;
+    }
+  }
+});
+</script>
+
 
 
 

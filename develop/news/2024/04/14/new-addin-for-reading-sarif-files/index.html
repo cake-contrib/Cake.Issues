@@ -79,6 +79,8 @@
 <meta property="twitter:title" content="New addin for reading SARIF files - Cake Issues">
 <meta property="twitter:description" content="Issue Management for the Cake Build System">
 <meta property="twitter:image" content="https://cakeissues.net/develop/assets/images/social/news/2024/04/14/new-addin-for-reading-sarif-files.png">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/biel-search@latest/dist/biel-search/biel-search.css">
+<script type="module" src="https://cdn.jsdelivr.net/npm/biel-search@latest/dist/biel-search/biel-search.esm.js"></script>
 <link href="../../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
@@ -7500,7 +7502,20 @@ any tool which can output results in <a href="https://sarifweb.azurewebsites.net
 <p>See <a href="../../../../../documentation/supported-tools/">Supported Tools</a> for an updated list of supported tools.</p>
 <p>The <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr> is available in a version for Cake .NET Tool (<a href="https://www.nuget.org/packages/Cake.Issues.Sarif">Cake.Issues.Sarif</a>)
 and Cake Frosting (<a href="https://www.nuget.org/packages/Cake.Frosting.Issues.Sarif">Cake.Frosting.Issues.Sarif</a>).</p>
-<!-- Glossary for terms and concepts not documented on cakeissues.net -->
+<!-- Glossary for terms and concepts not documented on cakeissues.net --><biel-button project="2e6rm5xi5a" button-position="bottom-right" button-style="dark" modal-position="bottom-right" header-title="Cake Issues">Ask AI</biel-button>
+<script>
+document.addEventListener('keydown', function (e) {
+  var path = e.composedPath ? e.composedPath() : [];
+  for (var i = 0; i < path.length; i++) {
+    var tag = path[i].tagName;
+    if (tag && tag.toLowerCase().indexOf('biel-') === 0) {
+      e.stopPropagation();
+      return;
+    }
+  }
+});
+</script>
+
 
 
 
