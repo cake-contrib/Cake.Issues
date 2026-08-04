@@ -82,6 +82,9 @@ extra_css:
 
 # Plugins
 plugins:
+  - biel:
+      project: 2e6rm5xi5a
+      header_title: Cake Issues
   - blog:
       blog_dir: news
       post_readtime: true
