@@ -22,7 +22,7 @@
       ],
       "matchStringsStrategy": "any",
       "matchStrings": [
-        "<dependency\\s+[^>]*?id=\\\"(?<depName>.*?)\\\"\\s+[^>]*?version=\\\"(?<currentValue>.*?)\\\"[^>]*\\/?>"
+        "<dependency\\b(?=[^>]*\\bid=\\\"(?<depName>[^\\\"]+)\\\")(?=[^>]*\\bversion=\\\"(?<currentValue>[^\\[\\(][^\\\"]*)\\\")[^>]*\\/?>"
       ],
       "datasourceTemplate": "nuget",
       "versioningTemplate": "nuget"
