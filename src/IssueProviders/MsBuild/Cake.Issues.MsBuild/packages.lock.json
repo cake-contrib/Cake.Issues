@@ -10,9 +10,9 @@
       },
       "MSBuild.StructuredLogger": {
         "type": "Direct",
-        "requested": "[2.3.113, )",
-        "resolved": "2.3.113",
-        "contentHash": "pk0ITa0QfLwtj3mL5ItePF7WrupsCUfp6PHwMwVT9MmrPlUYTNUEvTkqrMyS15SuUG8Xw+PqgZ0DUKrYXR4Jhg==",
+        "requested": "[2.3.213, )",
+        "resolved": "2.3.213",
+        "contentHash": "YGzaGta+8rgy2vnC14ZCdXIhXCbYNMYHoYldguY4+siZpJPgRJbGwtsg4+RjxVdEe7u28KA8Urv/ObNaYLWP0Q==",
         "dependencies": {
           "Microsoft.Build.Framework": "17.5.0",
           "Microsoft.Build.Utilities.Core": "17.5.0"
@@ -112,9 +112,9 @@
       },
       "MSBuild.StructuredLogger": {
         "type": "Direct",
-        "requested": "[2.3.113, )",
-        "resolved": "2.3.113",
-        "contentHash": "pk0ITa0QfLwtj3mL5ItePF7WrupsCUfp6PHwMwVT9MmrPlUYTNUEvTkqrMyS15SuUG8Xw+PqgZ0DUKrYXR4Jhg==",
+        "requested": "[2.3.213, )",
+        "resolved": "2.3.213",
+        "contentHash": "YGzaGta+8rgy2vnC14ZCdXIhXCbYNMYHoYldguY4+siZpJPgRJbGwtsg4+RjxVdEe7u28KA8Urv/ObNaYLWP0Q==",
         "dependencies": {
           "Microsoft.Build.Framework": "17.5.0",
           "Microsoft.Build.Utilities.Core": "17.5.0"
@@ -214,9 +214,9 @@
       },
       "MSBuild.StructuredLogger": {
         "type": "Direct",
-        "requested": "[2.3.113, )",
-        "resolved": "2.3.113",
-        "contentHash": "pk0ITa0QfLwtj3mL5ItePF7WrupsCUfp6PHwMwVT9MmrPlUYTNUEvTkqrMyS15SuUG8Xw+PqgZ0DUKrYXR4Jhg==",
+        "requested": "[2.3.213, )",
+        "resolved": "2.3.213",
+        "contentHash": "YGzaGta+8rgy2vnC14ZCdXIhXCbYNMYHoYldguY4+siZpJPgRJbGwtsg4+RjxVdEe7u28KA8Urv/ObNaYLWP0Q==",
         "dependencies": {
           "Microsoft.Build.Framework": "17.5.0",
           "Microsoft.Build.Utilities.Core": "17.5.0"
