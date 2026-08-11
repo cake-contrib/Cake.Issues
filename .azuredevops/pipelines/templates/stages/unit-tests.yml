@@ -20,6 +20,9 @@ stages:
       steps:
       - checkout: self
         fetchDepth: 0
+      - bash: |
+          git fetch --tags origin +refs/heads/*:refs/remotes/origin/*
+        displayName: 'Fetch full git refs for GitVersion'
       - template: ../steps/install-required-dotnet-versions-for-building.yml 
       # Ubuntu 24.04 does not have Mono installed, which is Required for Cake.Recipe
       - bash: sudo apt-get install mono-complete
