@@ -33,7 +33,10 @@ internal class LogEntryDataContract
 
     public string Severity => this.severity ?? this.message_severity;
 
-    public string Rule => this.code ?? this.source;
+    public string Rule =>
+        this.severity != null
+            ? this.code ?? this.source
+            : this.source ?? this.code;
 }
 
 #pragma warning restore SA1310 // Field names must not contain underscore
