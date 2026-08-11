@@ -144,15 +144,10 @@ public sealed class DocFxProviderTests
         public void Should_Read_New_Log_Format_Correct()
         {
             // Given
-            var provider = new DocFxIssuesProvider(
-                new FakeLog(),
-                new DocFxIssuesSettings(
-                    """{"severity":"warning","message":"1 invalid cross reference(s) \"build-scripts\".","file":"using.md","line":21,"date_time":"2026-08-11T05:56:28.9222106Z","code":"UidNotFound"}""".ToByteArray(),
-                    "./"));
-            _ = provider.Initialize(new ReadIssuesSettings("/repo"));
+            var fixture = new DocFxProviderFixture("2.78.5.json", "./");
 
             // When
-            var issues = provider.ReadIssues().ToList();
+            var issues = fixture.ReadIssues().ToList();
 
             // Then
             issues.Count.ShouldBe(1);
@@ -162,7 +157,7 @@ public sealed class DocFxProviderTests
                     "1 invalid cross reference(s) \"build-scripts\".",
                     "Cake.Issues.DocFx.DocFxIssuesProvider",
                     "DocFX")
-                    .InFile("using.md", 21)
+                    .InFile("using.md")
                     .OfRule("UidNotFound")
                     .WithPriority(IssuePriority.Warning));
         }
