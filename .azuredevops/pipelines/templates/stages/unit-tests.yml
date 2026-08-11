@@ -18,6 +18,8 @@ stages:
       pool:
         vmImage: $(imageName)
       steps:
+      - checkout: self
+        fetchDepth: 0
       - template: ../steps/install-required-dotnet-versions-for-building.yml 
       # Ubuntu 24.04 does not have Mono installed, which is Required for Cake.Recipe
       - bash: sudo apt-get install mono-complete
