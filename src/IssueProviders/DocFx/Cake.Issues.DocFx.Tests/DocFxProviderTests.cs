@@ -139,5 +139,32 @@ public sealed class DocFxProviderTests
                     .OfRule("Build Document.LinkPhaseHandler.ConceptualDocumentProcessor.Save")
                     .WithPriority(IssuePriority.Suggestion));
         }
+
+        [Fact]
+        public void Should_Read_New_Log_Format_Correct()
+        {
+            // Given
+            var provider = new DocFxIssuesProvider(
+                new FakeLog(),
+                new DocFxIssuesSettings(
+                    """{"severity":"warning","message":"1 invalid cross reference(s) \"build-scripts\".","file":"using.md","line":21,"date_time":"2026-08-11T05:56:28.9222106Z","code":"UidNotFound"}""".ToByteArray(),
+                    "./"));
+            _ = provider.Initialize(new ReadIssuesSettings("/repo"));
+
+            // When
+            var issues = provider.ReadIssues().ToList();
+
+            // Then
+            issues.Count.ShouldBe(1);
+            IssueChecker.Check(
+                issues[0],
+                IssueBuilder.NewIssue(
+                    "1 invalid cross reference(s) \"build-scripts\".",
+                    "Cake.Issues.DocFx.DocFxIssuesProvider",
+                    "DocFX")
+                    .InFile("using.md", 21)
+                    .OfRule("UidNotFound")
+                    .WithPriority(IssuePriority.Warning));
+        }
     }
 }

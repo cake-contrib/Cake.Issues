@@ -57,16 +57,25 @@ internal class DocFxIssuesProvider(ICakeLog log, DocFxIssuesSettings issueProvid
             let file = this.TryGetFile(logEntry.file, docRootPath)
             let line = TryGetLine(logEntry.line)
             where
-                (logEntry.message_severity == "warning" || logEntry.message_severity == "suggestion") &&
+                IsRelevantSeverity(logEntry.Severity) &&
                 !string.IsNullOrWhiteSpace(logEntry.message)
             select
                 IssueBuilder
                     .NewIssue(logEntry.message, this)
                     .InFile(file, line)
-                    .OfRule(logEntry.source)
-                    .WithPriority(GetPriority(logEntry.message_severity))
+                    .OfRule(logEntry.Rule)
+                    .WithPriority(GetPriority(logEntry.Severity))
                     .Create();
     }
+
+    /// <summary>
+    /// Determines whether an issue severity should be reported.
+    /// </summary>
+    /// <param name="severity">Severity as reported by DocFX.</param>
+    /// <returns><c>true</c> if the severity should be reported; otherwise <c>false</c>.</returns>
+    private static bool IsRelevantSeverity(string severity) =>
+        string.Equals(severity, "warning", System.StringComparison.OrdinalIgnoreCase) ||
+        string.Equals(severity, "suggestion", System.StringComparison.OrdinalIgnoreCase);
 
     /// <summary>
     /// Converts the severity to a priority.
@@ -74,7 +83,7 @@ internal class DocFxIssuesProvider(ICakeLog log, DocFxIssuesSettings issueProvid
     /// <param name="severity">Severity as reported by DocFX.</param>
     /// <returns>Priority.</returns>
     private static IssuePriority GetPriority(string severity) =>
-        severity.ToLowerInvariant() switch
+        severity?.ToLowerInvariant() switch
         {
             "warning" => IssuePriority.Warning,
             "suggestion" => IssuePriority.Suggestion,
