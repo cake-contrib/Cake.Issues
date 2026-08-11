@@ -139,5 +139,27 @@ public sealed class DocFxProviderTests
                     .OfRule("Build Document.LinkPhaseHandler.ConceptualDocumentProcessor.Save")
                     .WithPriority(IssuePriority.Suggestion));
         }
+
+        [Fact]
+        public void Should_Read_New_Log_Format_Correct()
+        {
+            // Given
+            var fixture = new DocFxProviderFixture("2.78.5.json", "./");
+
+            // When
+            var issues = fixture.ReadIssues().ToList();
+
+            // Then
+            issues.Count.ShouldBe(1);
+            IssueChecker.Check(
+                issues[0],
+                IssueBuilder.NewIssue(
+                    "1 invalid cross reference(s) \"build-scripts\".",
+                    "Cake.Issues.DocFx.DocFxIssuesProvider",
+                    "DocFX")
+                    .InFile("using.md")
+                    .OfRule("UidNotFound")
+                    .WithPriority(IssuePriority.Warning));
+        }
     }
 }

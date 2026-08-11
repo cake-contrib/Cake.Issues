@@ -1,0 +1,10 @@
+{"severity":"info","message":"Searching built-in plugins in directory C:\\docfx\\2.78.5\\docfx\\2.78.5\\tools\\net9.0\\any\\...","date_time":"2026-08-11T05:56:26.0682451Z"}
+{"severity":"info","message":"Post processor ExtractSearchIndex loaded.","date_time":"2026-08-11T05:56:26.2799623Z"}
+{"severity":"info","message":"7 plug-in(s) loaded.","date_time":"2026-08-11T05:56:26.3895143Z"}
+{"severity":"info","message":"ExtractSearchIndex: UseMetadata = False, UseMetadataTitle = True","date_time":"2026-08-11T05:56:26.4070828Z"}
+{"severity":"info","message":"Building 10 file(s) in ConceptualDocumentProcessor(BuildConceptualDocument=>ValidateConceptualDocumentMetadata)...","date_time":"2026-08-11T05:56:27.9097095Z"}
+{"severity":"info","message":"Building 5 file(s) in ResourceDocumentProcessor(ValidateResourceMetadata)...","date_time":"2026-08-11T05:56:27.9102668Z"}
+{"severity":"info","message":"Building 3 file(s) in TocDocumentProcessor(BuildTocDocument)...","date_time":"2026-08-11T05:56:27.9106865Z"}
+{"severity":"info","message":"25 external references found in xref maps.","date_time":"2026-08-11T05:56:28.5919296Z"}
+{"severity":"info","message":"Applying templates to 18 model(s)...","date_time":"2026-08-11T05:56:28.7566334Z"}
+{"severity":"warning","message":"1 invalid cross reference(s) \"build-scripts\".","file":"using.md","date_time":"2026-08-11T05:56:28.9222106Z","code":"UidNotFound"}
