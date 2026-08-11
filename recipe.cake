@@ -11,10 +11,36 @@
 
 Environment.SetVariableNames();
 
+// Read target early so Azure Pipelines Linux unit-test runs can bypass GitVersion.
 var target = Argument("target", "Default");
 var shouldCalculateVersion = !(BuildSystem.IsRunningOnAzurePipelines &&
     Context.Environment.Platform.Family == PlatformFamily.Linux &&
     string.Equals(target, "Test", StringComparison.OrdinalIgnoreCase));
+var fallbackSolutionInfoFilePath = Context.MakeAbsolute((FilePath)"./src/SolutionInfo.cs").FullPath;
+var createdFallbackSolutionInfoFile = false;
+
+if (!shouldCalculateVersion)
+{
+    if (!System.IO.File.Exists(fallbackSolutionInfoFilePath))
+    {
+        var directoryPath = System.IO.Path.GetDirectoryName(fallbackSolutionInfoFilePath);
+        if (!string.IsNullOrWhiteSpace(directoryPath))
+        {
+            System.IO.Directory.CreateDirectory(directoryPath);
+        }
+
+        System.IO.File.WriteAllText(
+            fallbackSolutionInfoFilePath,
+@"using System.Reflection;
+
+[assembly: AssemblyVersion(""0.0.0.0"")]
+[assembly: AssemblyFileVersion(""0.0.0.0"")]
+[assembly: AssemblyInformationalVersion(""0.0.0"")]
+");
+
+        createdFallbackSolutionInfoFile = true;
+    }
+}
 
 BuildParameters.SetParameters(
     context: Context,
@@ -52,6 +78,14 @@ ToolSettings.SetToolPreprocessorDirectives(
 //*************************************************************************************************
 // Setup
 //*************************************************************************************************
+
+Teardown(context =>
+{
+    if (createdFallbackSolutionInfoFile && System.IO.File.Exists(fallbackSolutionInfoFilePath))
+    {
+        System.IO.File.Delete(fallbackSolutionInfoFilePath);
+    }
+});
 
 Setup(context =>
 {
