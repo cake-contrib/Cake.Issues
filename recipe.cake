@@ -11,6 +11,11 @@
 
 Environment.SetVariableNames();
 
+var target = Argument("target", "Default");
+var shouldCalculateVersion = !(BuildSystem.IsRunningOnAzurePipelines &&
+    Context.Environment.Platform.Family == PlatformFamily.Linux &&
+    string.Equals(target, "Test", StringComparison.OrdinalIgnoreCase));
+
 BuildParameters.SetParameters(
     context: Context,
     buildSystem: BuildSystem,
@@ -24,6 +29,7 @@ BuildParameters.SetParameters(
     shouldGenerateDocumentation: false, // Documentation is generated through GitHub Actions workflow
     shouldRunInspectCode: false,
     shouldRunCoveralls: false,  // Disabled because it's currently failing
+    shouldCalculateVersion: shouldCalculateVersion,
     nuGetSources: new [] { "https://api.nuget.org/v3/index.json" }, // Don't use additional MyGet feed, since CPM only supports one feed 
     preferredBuildProviderType: BuildProviderType.GitHubActions,
     preferredBuildAgentOperatingSystem: PlatformFamily.Linux);
