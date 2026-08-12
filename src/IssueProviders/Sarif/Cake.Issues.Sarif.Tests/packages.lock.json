@@ -196,7 +196,7 @@
         "type": "Project",
         "dependencies": {
           "Cake.Issues": "[1.0.0, )",
-          "Sarif.Sdk": "[4.6.0, )"
+          "Sarif.Sdk": "[4.6.5, )"
         }
       },
       "cake.issues.testing": {
@@ -223,9 +223,9 @@
       },
       "Sarif.Sdk": {
         "type": "CentralTransitive",
-        "requested": "[4.6.0, )",
-        "resolved": "4.6.0",
-        "contentHash": "Zan9vtI/ktnOQ03XdhA2bO3aCjaFGj6f6TVzHlRUQuZAsH4PGvQ2We0VchU+c41/uHcSgtWHmOBxPCr+JapxrQ==",
+        "requested": "[4.6.5, )",
+        "resolved": "4.6.5",
+        "contentHash": "4hb1mS6sY4JecYJD0fhxv/LDgdvLPEW5mmS9ACMsBFODHgqpd7AWhM0LVd6rsCyc5RAvjobLxUTKZ77uS/LfrA==",
         "dependencies": {
           "Microsoft.Diagnostics.Tracing.EventRegister": "1.1.28",
           "Microsoft.Diagnostics.Tracing.TraceEvent": "3.1.3",
@@ -428,7 +428,7 @@
         "type": "Project",
         "dependencies": {
           "Cake.Issues": "[1.0.0, )",
-          "Sarif.Sdk": "[4.6.0, )"
+          "Sarif.Sdk": "[4.6.5, )"
         }
       },
       "cake.issues.testing": {
@@ -455,9 +455,9 @@
       },
       "Sarif.Sdk": {
         "type": "CentralTransitive",
-        "requested": "[4.6.0, )",
-        "resolved": "4.6.0",
-        "contentHash": "Zan9vtI/ktnOQ03XdhA2bO3aCjaFGj6f6TVzHlRUQuZAsH4PGvQ2We0VchU+c41/uHcSgtWHmOBxPCr+JapxrQ==",
+        "requested": "[4.6.5, )",
+        "resolved": "4.6.5",
+        "contentHash": "4hb1mS6sY4JecYJD0fhxv/LDgdvLPEW5mmS9ACMsBFODHgqpd7AWhM0LVd6rsCyc5RAvjobLxUTKZ77uS/LfrA==",
         "dependencies": {
           "Microsoft.Diagnostics.Tracing.EventRegister": "1.1.28",
           "Microsoft.Diagnostics.Tracing.TraceEvent": "3.1.3",
@@ -660,7 +660,7 @@
         "type": "Project",
         "dependencies": {
           "Cake.Issues": "[1.0.0, )",
-          "Sarif.Sdk": "[4.6.0, )"
+          "Sarif.Sdk": "[4.6.5, )"
         }
       },
       "cake.issues.testing": {
@@ -687,9 +687,9 @@
       },
       "Sarif.Sdk": {
         "type": "CentralTransitive",
-        "requested": "[4.6.0, )",
-        "resolved": "4.6.0",
-        "contentHash": "Zan9vtI/ktnOQ03XdhA2bO3aCjaFGj6f6TVzHlRUQuZAsH4PGvQ2We0VchU+c41/uHcSgtWHmOBxPCr+JapxrQ==",
+        "requested": "[4.6.5, )",
+        "resolved": "4.6.5",
+        "contentHash": "4hb1mS6sY4JecYJD0fhxv/LDgdvLPEW5mmS9ACMsBFODHgqpd7AWhM0LVd6rsCyc5RAvjobLxUTKZ77uS/LfrA==",
         "dependencies": {
           "Microsoft.Diagnostics.Tracing.EventRegister": "1.1.28",
           "Microsoft.Diagnostics.Tracing.TraceEvent": "3.1.3",
