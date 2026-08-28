@@ -13,3 +13,74 @@
 .mdx-badge a, .mdx-badge a:hover {
     color: var(--md-code-hl-string-color);
 }
+
+.md-main__inner {
+    margin-top: 0;
+}
+
+.md-content__inner:has(.hero-actions) {
+    margin-top: 0;
+}
+
+.md-typeset h1 {
+    margin-bottom: 0.8rem;
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    line-height: 1.1;
+}
+
+.md-typeset > p:first-of-type {
+    max-width: 48rem;
+    font-size: 1.1rem;
+    color: var(--md-default-fg-color--light);
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin: 1.5rem 0 2.5rem;
+}
+
+.hero-actions .md-button {
+    margin: 0;
+}
+
+.home-highlights,
+.home-journeys {
+    margin-top: 1.5rem;
+}
+
+.home-highlights ul,
+.home-journeys ul {
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+}
+
+.md-typeset .grid.cards.home-highlights > ul > li,
+.md-typeset .grid.cards.home-journeys > ul > li,
+.md-typeset .grid.cards > ul > li {
+    border: 1px solid color-mix(in srgb, var(--md-default-fg-color--lightest) 55%, transparent);
+    background: linear-gradient(180deg, color-mix(in srgb, var(--md-default-bg-color) 94%, var(--md-primary-fg-color) 6%), var(--md-default-bg-color));
+    padding: 1.1rem;
+}
+
+.md-typeset .grid.cards.home-highlights > ul > li {
+    background: linear-gradient(180deg, color-mix(in srgb, var(--md-primary-fg-color--light) 18%, var(--md-default-bg-color)), var(--md-default-bg-color));
+}
+
+.md-typeset .grid.cards > ul > li:hover {
+    border-color: color-mix(in srgb, var(--md-accent-fg-color) 35%, transparent);
+    transform: translateY(-2px);
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+@media screen and (max-width: 44.9844em) {
+    .hero-actions {
+        flex-direction: column;
+    }
+
+    .hero-actions .md-button {
+        width: 100%;
+        text-align: center;
+    }
+}
+
