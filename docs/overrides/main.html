@@ -1,5 +1,11 @@
 {% extends "base.html" %}
 
+{% block announce %}
+<p>
+  Cake Issues <code>{{ cake_issues_version }}</code> has been released.
+</p>
+{% endblock %}
+
 {% block outdated %}
   You're not viewing the latest version.
   <a href="{{ '../' ~ base_url }}">
