@@ -11,6 +11,37 @@
 
 Environment.SetVariableNames();
 
+// Read target early so Azure Pipelines Linux unit-test runs can bypass GitVersion.
+var target = Argument("target", "Default");
+var shouldCalculateVersion = !(BuildSystem.IsRunningOnAzurePipelines &&
+    Context.Environment.Platform.Family == PlatformFamily.Linux &&
+    string.Equals(target, "Test", StringComparison.OrdinalIgnoreCase));
+var fallbackSolutionInfoFilePath = Context.MakeAbsolute((FilePath)"./src/SolutionInfo.cs").FullPath;
+var createdFallbackSolutionInfoFile = false;
+
+if (!shouldCalculateVersion)
+{
+    if (!System.IO.File.Exists(fallbackSolutionInfoFilePath))
+    {
+        var directoryPath = System.IO.Path.GetDirectoryName(fallbackSolutionInfoFilePath);
+        if (!string.IsNullOrWhiteSpace(directoryPath))
+        {
+            System.IO.Directory.CreateDirectory(directoryPath);
+        }
+
+        System.IO.File.WriteAllText(
+            fallbackSolutionInfoFilePath,
+@"using System.Reflection;
+
+[assembly: AssemblyVersion(""0.0.0.0"")]
+[assembly: AssemblyFileVersion(""0.0.0.0"")]
+[assembly: AssemblyInformationalVersion(""0.0.0"")]
+");
+
+        createdFallbackSolutionInfoFile = true;
+    }
+}
+
 BuildParameters.SetParameters(
     context: Context,
     buildSystem: BuildSystem,
@@ -24,6 +55,7 @@ BuildParameters.SetParameters(
     shouldGenerateDocumentation: false, // Documentation is generated through GitHub Actions workflow
     shouldRunInspectCode: false,
     shouldRunCoveralls: false,  // Disabled because it's currently failing
+    shouldCalculateVersion: shouldCalculateVersion,
     nuGetSources: new [] { "https://api.nuget.org/v3/index.json" }, // Don't use additional MyGet feed, since CPM only supports one feed 
     preferredBuildProviderType: BuildProviderType.GitHubActions,
     preferredBuildAgentOperatingSystem: PlatformFamily.Linux);
@@ -46,6 +78,14 @@ ToolSettings.SetToolPreprocessorDirectives(
 //*************************************************************************************************
 // Setup
 //*************************************************************************************************
+
+Teardown(context =>
+{
+    if (createdFallbackSolutionInfoFile && System.IO.File.Exists(fallbackSolutionInfoFilePath))
+    {
+        System.IO.File.Delete(fallbackSolutionInfoFilePath);
+    }
+});
 
 Setup(context =>
 {
