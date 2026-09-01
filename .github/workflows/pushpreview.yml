@@ -32,6 +32,8 @@ jobs:
           mkdocs build
       - name: Generate preview
         uses: PushLabsHQ/pushpreview-action@cf958f7be2bf55d3f56d351bb9abf56b4c6b9a50 # 1.0.6
+        env:
+          ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: "true"
         with:
           source-directory: ./docs/site
           github-token: ${{ secrets.GITHUB_TOKEN }}
