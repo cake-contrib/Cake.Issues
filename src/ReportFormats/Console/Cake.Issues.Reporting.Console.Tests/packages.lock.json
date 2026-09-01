@@ -179,6 +179,11 @@
         "resolved": "3.2.0",
         "contentHash": "K8ivHRbPWfncijk62Dan/r/z55gwq3aFzqB6yFlD9X0bbpIaacHyHH2cpcIdz0FECUpERUZTwxts0z4gRWpQpA=="
       },
+      "Spectre.Console.Ansi": {
+        "type": "Transitive",
+        "resolved": "0.55.0",
+        "contentHash": "GIfgOvuF8MpU52bprhwtDEtx0gmVIGOepM8bw0lH/TSMD0rg1Xp+5Y53kPG8rFVdcpbNANlhDQ5mEVVPO3/2Tg=="
+      },
       "Spectre.Console.Cli": {
         "type": "Transitive",
         "resolved": "0.53.0",
@@ -259,7 +264,7 @@
         "type": "Project",
         "dependencies": {
           "Cake.Issues.Reporting": "[1.0.0, )",
-          "Errata": "[0.15.0, )"
+          "Errata": "[0.16.0, )"
         }
       },
       "cake.issues.testing": {
@@ -286,18 +291,21 @@
       },
       "Errata": {
         "type": "CentralTransitive",
-        "requested": "[0.15.0, )",
-        "resolved": "0.15.0",
-        "contentHash": "2oETDVwqVx8UDTCkD7TQvO4nzAt8kcs2aL7XNJ85uCbsxo4822RdTh6wbLW6bkRZbSgHLGBIUBF2IbrOhtrDxg==",
+        "requested": "[0.16.0, )",
+        "resolved": "0.16.0",
+        "contentHash": "dh9lkqufnkWdoulu8/fgJ4azCECFuyixtnPNdktBCCk63ggQio2b+fFPrp/XMkfOdPCFvnqiBeEXw4epk3q1bQ==",
         "dependencies": {
-          "Spectre.Console": "0.54.0"
+          "Spectre.Console": "0.55.0"
         }
       },
       "Spectre.Console": {
         "type": "CentralTransitive",
         "requested": "[0.53.0, )",
-        "resolved": "0.54.0",
-        "contentHash": "StDXCFayfy0yB1xzUHT2tgEpV1/HFTiS4JgsAQS49EYTfMixSwwucaQs/bIOCwXjWwIQTMuxjUIxcB5XsJkFJA=="
+        "resolved": "0.55.0",
+        "contentHash": "2TVhUHFsDux0Z+y2Hv4bFsOMuON4SuotEEKkMparFkp5Rm259naaaEQrN4Sv6C1cbsiGKPjfkJDGgUp+hZPjTw==",
+        "dependencies": {
+          "Spectre.Console.Ansi": "0.55.0"
+        }
       }
     },
     "net8.0": {
@@ -478,6 +486,11 @@
         "resolved": "3.2.0",
         "contentHash": "K8ivHRbPWfncijk62Dan/r/z55gwq3aFzqB6yFlD9X0bbpIaacHyHH2cpcIdz0FECUpERUZTwxts0z4gRWpQpA=="
       },
+      "Spectre.Console.Ansi": {
+        "type": "Transitive",
+        "resolved": "0.55.0",
+        "contentHash": "GIfgOvuF8MpU52bprhwtDEtx0gmVIGOepM8bw0lH/TSMD0rg1Xp+5Y53kPG8rFVdcpbNANlhDQ5mEVVPO3/2Tg=="
+      },
       "Spectre.Console.Cli": {
         "type": "Transitive",
         "resolved": "0.53.0",
@@ -558,7 +571,7 @@
         "type": "Project",
         "dependencies": {
           "Cake.Issues.Reporting": "[1.0.0, )",
-          "Errata": "[0.15.0, )"
+          "Errata": "[0.16.0, )"
         }
       },
       "cake.issues.testing": {
@@ -585,18 +598,21 @@
       },
       "Errata": {
         "type": "CentralTransitive",
-        "requested": "[0.15.0, )",
-        "resolved": "0.15.0",
-        "contentHash": "2oETDVwqVx8UDTCkD7TQvO4nzAt8kcs2aL7XNJ85uCbsxo4822RdTh6wbLW6bkRZbSgHLGBIUBF2IbrOhtrDxg==",
+        "requested": "[0.16.0, )",
+        "resolved": "0.16.0",
+        "contentHash": "dh9lkqufnkWdoulu8/fgJ4azCECFuyixtnPNdktBCCk63ggQio2b+fFPrp/XMkfOdPCFvnqiBeEXw4epk3q1bQ==",
         "dependencies": {
-          "Spectre.Console": "0.54.0"
+          "Spectre.Console": "0.55.0"
         }
       },
       "Spectre.Console": {
         "type": "CentralTransitive",
         "requested": "[0.53.0, )",
-        "resolved": "0.54.0",
-        "contentHash": "StDXCFayfy0yB1xzUHT2tgEpV1/HFTiS4JgsAQS49EYTfMixSwwucaQs/bIOCwXjWwIQTMuxjUIxcB5XsJkFJA=="
+        "resolved": "0.55.0",
+        "contentHash": "2TVhUHFsDux0Z+y2Hv4bFsOMuON4SuotEEKkMparFkp5Rm259naaaEQrN4Sv6C1cbsiGKPjfkJDGgUp+hZPjTw==",
+        "dependencies": {
+          "Spectre.Console.Ansi": "0.55.0"
+        }
       }
     },
     "net9.0": {
@@ -777,6 +793,11 @@
         "resolved": "3.2.0",
         "contentHash": "K8ivHRbPWfncijk62Dan/r/z55gwq3aFzqB6yFlD9X0bbpIaacHyHH2cpcIdz0FECUpERUZTwxts0z4gRWpQpA=="
       },
+      "Spectre.Console.Ansi": {
+        "type": "Transitive",
+        "resolved": "0.55.0",
+        "contentHash": "GIfgOvuF8MpU52bprhwtDEtx0gmVIGOepM8bw0lH/TSMD0rg1Xp+5Y53kPG8rFVdcpbNANlhDQ5mEVVPO3/2Tg=="
+      },
       "Spectre.Console.Cli": {
         "type": "Transitive",
         "resolved": "0.53.0",
@@ -857,7 +878,7 @@
         "type": "Project",
         "dependencies": {
           "Cake.Issues.Reporting": "[1.0.0, )",
-          "Errata": "[0.15.0, )"
+          "Errata": "[0.16.0, )"
         }
       },
       "cake.issues.testing": {
@@ -884,18 +905,21 @@
       },
       "Errata": {
         "type": "CentralTransitive",
-        "requested": "[0.15.0, )",
-        "resolved": "0.15.0",
-        "contentHash": "2oETDVwqVx8UDTCkD7TQvO4nzAt8kcs2aL7XNJ85uCbsxo4822RdTh6wbLW6bkRZbSgHLGBIUBF2IbrOhtrDxg==",
+        "requested": "[0.16.0, )",
+        "resolved": "0.16.0",
+        "contentHash": "dh9lkqufnkWdoulu8/fgJ4azCECFuyixtnPNdktBCCk63ggQio2b+fFPrp/XMkfOdPCFvnqiBeEXw4epk3q1bQ==",
         "dependencies": {
-          "Spectre.Console": "0.54.0"
+          "Spectre.Console": "0.55.0"
         }
       },
       "Spectre.Console": {
         "type": "CentralTransitive",
         "requested": "[0.53.0, )",
-        "resolved": "0.54.0",
-        "contentHash": "StDXCFayfy0yB1xzUHT2tgEpV1/HFTiS4JgsAQS49EYTfMixSwwucaQs/bIOCwXjWwIQTMuxjUIxcB5XsJkFJA=="
+        "resolved": "0.55.0",
+        "contentHash": "2TVhUHFsDux0Z+y2Hv4bFsOMuON4SuotEEKkMparFkp5Rm259naaaEQrN4Sv6C1cbsiGKPjfkJDGgUp+hZPjTw==",
+        "dependencies": {
+          "Spectre.Console.Ansi": "0.55.0"
+        }
       }
     }
   }
