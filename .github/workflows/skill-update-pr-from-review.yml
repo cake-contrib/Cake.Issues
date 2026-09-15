@@ -67,11 +67,12 @@ jobs:
               raise SystemExit(0)
 
           skill_name = command_match.group(1).strip()
+          skill_slug = re.sub(r"[^A-Za-z0-9._-]+", "-", skill_name).strip("-.")
           guidance = command_match.group(2).strip()
           skill_root = Path(".github/skills").resolve()
           skill_path = (skill_root / skill_name / "SKILL.md").resolve()
 
-          if not skill_path.is_relative_to(skill_root) or not skill_path.exists() or not guidance:
+          if not skill_slug or not skill_path.is_relative_to(skill_root) or not skill_path.exists() or not guidance:
               write_output("changed", "false")
               write_output("reason", "invalid-skill-or-guidance")
               raise SystemExit(0)
@@ -109,13 +110,14 @@ jobs:
 
           write_output("changed", "true")
           write_output("skill_name", skill_name)
+          write_output("skill_slug", skill_slug)
           PY
 
       - name: Create pull request
         if: steps.skill_update.outputs.changed == 'true'
         uses: peter-evans/create-pull-request@22a9089034f40e5a961c8808d113e2c98fb63676 # v7
         with:
-          branch: automation/skill-update-${{ steps.skill_update.outputs.skill_name }}-${{ github.event.comment.id }}
+          branch: automation/skill-update-${{ steps.skill_update.outputs.skill_slug }}-${{ github.event.comment.id }}
           delete-branch: true
           title: Update ${{ steps.skill_update.outputs.skill_name }} skill from review feedback
           commit-message: Update ${{ steps.skill_update.outputs.skill_name }} skill from review feedback
