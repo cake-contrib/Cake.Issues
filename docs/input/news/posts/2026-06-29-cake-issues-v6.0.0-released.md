@@ -6,7 +6,6 @@ categories:
 links:
   - documentation/build-servers/index.md
   - documentation/issue-providers/markdownlint/index.md
-  - documentation/extending/issue-provider/overview.md
 ---
 
 Cake Issues version 6.0.0 has been released.
