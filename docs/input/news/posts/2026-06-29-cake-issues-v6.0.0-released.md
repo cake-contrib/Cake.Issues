@@ -47,7 +47,7 @@ This enables issue providers and report formats to surface richer contextual inf
 
 ## Markdownlint 0.46.0 support
 
-Support was added for Markdownlint 0.46.0 format.
+`Cake.Issues.Markdownlint` now supports Markdownlint 0.46.0 format.
 
 ## Additional improvements
 
