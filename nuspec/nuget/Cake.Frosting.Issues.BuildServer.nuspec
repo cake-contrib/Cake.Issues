@@ -23,7 +23,7 @@ See the Project Site for an overview of the whole ecosystem of addins for workin
     <copyright>Copyright © Cake Issues contributors</copyright>
     <tags>cake cake-frosting cake-issues build-server ci issues</tags>
     <readme>docs\README.md</readme>
-    <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/5.8.0</releaseNotes>
+    <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/6.1.0</releaseNotes>
     <dependencies>
       <group targetFramework="net8.0">
         <dependency id="Cake.Core" version="6.2" exclude="Build,Analyzers" />
