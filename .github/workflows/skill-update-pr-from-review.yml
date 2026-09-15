@@ -49,7 +49,7 @@ jobs:
               raise SystemExit(0)
 
           command_match = re.match(
-              r"(?is)^/skill-update\s+([a-z0-9._/-]+)\s*:\s*(.+)$",
+              r"(?s)^/skill-update\s+([A-Za-z0-9._/-]+)\s*:\s*(.+)$",
               body,
           )
           if not command_match:
@@ -75,27 +75,29 @@ jobs:
               r"(?ms)^## Review-derived guidance\s*(.*?)(?=^##\s|\Z)",
               content,
           )
+          section_entries = []
           if section_match:
-              existing_entries = {
+              section_entries = [
                   line.strip()
                   for line in section_match.group(1).splitlines()
                   if line.strip().startswith("- ")
-              }
-              if entry in existing_entries:
+              ]
+              if entry in set(section_entries):
                   write_output("changed", "false")
                   write_output("reason", "duplicate")
                   raise SystemExit(0)
+          section_entries.append(entry)
+          rendered_section = f"{section_heading}\n\n" + "\n".join(section_entries) + "\n"
 
-          if not section_match:
-              content = f"{content}\n\n{section_heading}\n\n{entry}\n"
-          else:
-              insert_at = section_match.end(1)
-              before = content[:insert_at].rstrip()
-              after = content[insert_at:].lstrip("\n")
-              if after:
-                  content = f"{before}\n{entry}\n\n{after}"
+          if section_match:
+              prefix = content[:section_match.start()].rstrip()
+              suffix = content[section_match.end():].lstrip("\n")
+              if suffix:
+                  content = f"{prefix}\n\n{rendered_section}\n{suffix}"
               else:
-                  content = f"{before}\n{entry}\n"
+                  content = f"{prefix}\n\n{rendered_section}"
+          else:
+              content = f"{content}\n\n{section_heading}\n\n{entry}\n"
 
           skill_path.write_text(content, encoding="utf-8")
 
