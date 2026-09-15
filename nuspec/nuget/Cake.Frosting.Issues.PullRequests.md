@@ -1,7 +1,7 @@
 # Addin for the Cake build automation system for writing code analyzer or linter issues as comments to pull requests
 
 > **NOTE**:
-> This is the version of the addin compatible with [Cake Frosting].
+> This is the version of the addin compatible with [Cake Frosting] and [Cake SDK].
 > For addin compatible with [Cake .NET Tool] see [Cake.Issues.PullRequests](https://www.nuget.org/packages/Cake.Issues.PullRequests).
 
 The pull requests issues addin for Cake allows you to write issue from any code analyzer or linter as comments to pull requests.
@@ -33,4 +33,5 @@ See [LICENSE](https://github.com/cake-contrib/Cake.Issues/blob/develop/LICENSE) 
 [modular architecture]: https://cakeissues.net/latest/documentation/how-cake-issues-works/
 [set of aliases]: https://cakeissues.net/latest/api/
 [Cake Frosting]: https://cakebuild.net/docs/running-builds/runners/cake-frosting
+[Cake SDK]: https://cakebuild.net/docs/running-builds/runners/cake-sdk
 [Cake .NET Tool]: https://cakebuild.net/docs/running-builds/runners/dotnet-tool

@@ -1,7 +1,7 @@
 # Addin for the Cake build automation system for creating reports for issues from any code analyzer or linter
 
 > **NOTE**:
-> This is the version of the addin compatible with [Cake Frosting].
+> This is the version of the addin compatible with [Cake Frosting] and [Cake SDK].
 > For addin compatible with [Cake .NET Tool] see [Cake.Issues.Reporting](https://www.nuget.org/packages/Cake.Issues.Reporting).
 
 The issues reporting addin for Cake allows you to create reports for issue from any code analyzer or linter.
@@ -33,4 +33,5 @@ See [LICENSE](https://github.com/cake-contrib/Cake.Issues/blob/develop/LICENSE) 
 [modular architecture]: https://cakeissues.net/latest/documentation/how-cake-issues-works/
 [set of aliases]: https://cakeissues.net/latest/api/
 [Cake Frosting]: https://cakebuild.net/docs/running-builds/runners/cake-frosting
+[Cake SDK]: https://cakebuild.net/docs/running-builds/runners/cake-sdk
 [Cake .NET Tool]: https://cakebuild.net/docs/running-builds/runners/dotnet-tool
