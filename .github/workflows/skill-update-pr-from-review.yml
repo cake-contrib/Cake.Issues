@@ -18,8 +18,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          repository: ${{ github.event.pull_request.head.repo.full_name }}
-          ref: ${{ github.event.pull_request.head.ref }}
+          ref: ${{ github.event.repository.default_branch }}
 
       - name: Apply requested skill update
         id: skill_update
@@ -51,7 +50,7 @@ jobs:
               raise SystemExit(0)
 
           command_match = re.match(
-              r"(?is)^/skill-update\s+([a-z0-9-]+)\s*:\s*(.+)$",
+              r"(?is)^/skill-update\s+([a-z0-9._-]+)\s*:\s*(.+)$",
               body,
           )
           if not command_match:
@@ -106,7 +105,6 @@ jobs:
 
           write_output("changed", "true")
           write_output("skill_name", skill_name)
-          write_output("guidance", guidance)
           PY
 
       - name: Create pull request
@@ -122,4 +120,3 @@ jobs:
 
             - Source comment: ${{ github.event.comment.html_url }}
             - Skill: `${{ steps.skill_update.outputs.skill_name }}`
-            - Added guidance: `${{ steps.skill_update.outputs.guidance }}`
