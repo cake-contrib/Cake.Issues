@@ -1,7 +1,7 @@
 # ESLint support for the Cake.Issues addin for Cake Frosting
 
 > **NOTE**:
-> This is the version of the addin compatible with [Cake Frosting].
+> This is the version of the addin compatible with [Cake Frosting] and [Cake SDK].
 > For addin compatible with [Cake .NET Tool] see [Cake.Issues.EsLint](https://www.nuget.org/packages/Cake.Issues.EsLint).
 
 The EsLint support for the Cake.Issues addin for Cake allows you to read issues logged by ESLint.
@@ -71,4 +71,5 @@ See [LICENSE](https://github.com/cake-contrib/Cake.Issues/blob/develop/LICENSE) 
 [modular architecture]: https://cakeissues.net/latest/documentation/how-cake-issues-works/
 [set of aliases]: https://cakeissues.net/latest/api/
 [Cake Frosting]: https://cakebuild.net/docs/running-builds/runners/cake-frosting
+[Cake SDK]: https://cakebuild.net/docs/running-builds/runners/cake-sdk
 [Cake .NET Tool]: https://cakebuild.net/docs/running-builds/runners/dotnet-tool

@@ -2,7 +2,7 @@
 
 > **NOTE**:
 > This is the version of the addin compatible with [Cake .NET Tool].
-> For addin compatible with [Cake Frosting] see [Cake.Frosting.Issues.Reporting.Sarif](https://www.nuget.org/packages/Cake.Frosting.Issues.Reporting.Sarif).
+> For addin compatible with [Cake Frosting] and [Cake SDK] see [Cake.Frosting.Issues.Reporting.Sarif](https://www.nuget.org/packages/Cake.Frosting.Issues.Reporting.Sarif).
 
 The SARIF support for the Cake.Issues addin for Cake allows you to create SARIF compatible files.
 
@@ -33,4 +33,5 @@ See [LICENSE](https://github.com/cake-contrib/Cake.Issues/blob/develop/LICENSE) 
 [modular architecture]: https://cakeissues.net/latest/documentation/how-cake-issues-works/
 [set of aliases]: https://cakeissues.net/latest/api/
 [Cake Frosting]: https://cakebuild.net/docs/running-builds/runners/cake-frosting
+[Cake SDK]: https://cakebuild.net/docs/running-builds/runners/cake-sdk
 [Cake .NET Tool]: https://cakebuild.net/docs/running-builds/runners/dotnet-tool
