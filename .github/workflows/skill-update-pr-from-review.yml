@@ -26,6 +26,7 @@ jobs:
           import json
           import os
           import re
+          import uuid
           from pathlib import Path
 
           event = json.loads(Path(os.environ["EVENT_PATH"]).read_text(encoding="utf-8"))
@@ -35,8 +36,9 @@ jobs:
           output_path = Path(os.environ["GITHUB_OUTPUT"])
 
           def write_output(key: str, value: str) -> None:
+              delimiter = f"EOF_{uuid.uuid4().hex}"
               with output_path.open("a", encoding="utf-8") as output_file:
-                  output_file.write(f"{key}={value}\n")
+                  output_file.write(f"{key}<<{delimiter}\n{value}\n{delimiter}\n")
 
           allowed_associations = {"OWNER", "MEMBER", "COLLABORATOR"}
           if association not in allowed_associations:
@@ -64,13 +66,22 @@ jobs:
 
           entry = f"- {guidance}"
           content = skill_path.read_text(encoding="utf-8").rstrip()
-
-          if entry in content:
-              write_output("changed", "false")
-              write_output("reason", "duplicate")
-              raise SystemExit(0)
-
           section_heading = "## Review-derived guidance"
+          section_match = re.search(
+              r"(?ms)^## Review-derived guidance\s*(.*?)(?=^##\s|\Z)",
+              content,
+          )
+          if section_match:
+              existing_entries = {
+                  line.strip()
+                  for line in section_match.group(1).splitlines()
+                  if line.strip().startswith("- ")
+              }
+              if entry in existing_entries:
+                  write_output("changed", "false")
+                  write_output("reason", "duplicate")
+                  raise SystemExit(0)
+
           if section_heading not in content:
               content = f"{content}\n\n{section_heading}\n\n{entry}\n"
           else:
@@ -95,7 +106,7 @@ jobs:
           PY
 
       - name: Create pull request
-        if: steps.skill_update.outputs.changed == 'true'
+        if: steps.skill_update.outputs.changed == 'true' && github.event.pull_request.head.repo.full_name == github.repository
         uses: peter-evans/create-pull-request@22a9089034f40e5a961c8808d113e2c98fb63676 # v7
         with:
           branch: automation/skill-update-${{ steps.skill_update.outputs.skill_name }}-${{ github.event.comment.id }}
