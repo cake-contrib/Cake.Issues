@@ -29,9 +29,9 @@ People working on this release:
 All addins have been updated for Cake 6.x.
 The supported target frameworks now include .NET 8, .NET 9, and .NET 10.
 
-## New Cake.Issues.Build addin
+## New Cake.Issues.BuildServer addin
 
-This release introduces the new `Cake.Issues.Build` addin, expanding options for integrating
+This release introduces the new `Cake.Issues.BuildServer` addin, expanding options for integrating
 Cake Issues into build workflows.
 Build server integrations for AppVeyor and GitHub Actions have been aligned with the
 `Cake.Issues.BuildServer` architecture.
