@@ -23,6 +23,11 @@ People working on this release:
 
 * [pascalberger](https://github.com/pascalberger)
 
+People reporting issues:
+
+* [bdukes](https://github.com/bdukes)
+* [christianbumann](https://github.com/christianbumann)
+
 ## Compatibility fixes for newer Cake releases
 
 Cake Issues has been updated to use Spectre.Console 0.55.2 and Errata 0.16.0.
