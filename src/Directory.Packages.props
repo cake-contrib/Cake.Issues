@@ -38,7 +38,7 @@
   <!-- Runners for test projects -->
   <ItemGroup Condition="$(MSBuildProjectName.EndsWith('.Tests'))">
     <GlobalPackageReference Include="coverlet.msbuild" Version="10.0.1" />
-    <GlobalPackageReference Include="Microsoft.SourceLink.GitHub" Version="10.0.400" />
+    <GlobalPackageReference Include="Microsoft.SourceLink.GitHub" Version="10.0.401" />
     <GlobalPackageReference Include="xunit.runner.visualstudio" Version="3.1.5" />
   </ItemGroup>
 
