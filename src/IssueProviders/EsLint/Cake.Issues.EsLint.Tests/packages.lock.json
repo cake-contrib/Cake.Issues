@@ -174,7 +174,7 @@
       "cake.issues": {
         "type": "Project",
         "dependencies": {
-          "Cake.Core": "[6.0.0, )"
+          "Cake.Core": "[6.2.0, )"
         }
       },
       "cake.issues.eslint": {
@@ -187,22 +187,22 @@
         "type": "Project",
         "dependencies": {
           "Cake.Issues": "[1.0.0, )",
-          "Cake.Testing": "[6.0.0, )"
+          "Cake.Testing": "[6.2.0, )"
         }
       },
       "Cake.Core": {
         "type": "CentralTransitive",
-        "requested": "[6.0.0, )",
-        "resolved": "6.0.0",
-        "contentHash": "SiAIpsPYMgSivBVReFz/wCYvimWVsZsoGVdZ/qogYbxLQA/QdXkMyHiGqqRhkfUuTf/0/N9HCYYAQe0sZfsekA=="
+        "requested": "[6.2.0, )",
+        "resolved": "6.2.0",
+        "contentHash": "t/yQZoSj6WLUS9hbCi68ZhrdxV9ubbxlnOEGcQCWHa4JH1tdedgzhib3li7R3JIGo8NaSyn9qrNNd0mjsWDjcA=="
       },
       "Cake.Testing": {
         "type": "CentralTransitive",
-        "requested": "[6.0.0, )",
-        "resolved": "6.0.0",
-        "contentHash": "zaArQbfm7oqhx1spghfjxCpqBCy8ynYAOz8wbzEeoMYsv8AkS2AShnbwZOmwQSG1eYvx3Ff2/SCtAxfeqDCMNQ==",
+        "requested": "[6.2.0, )",
+        "resolved": "6.2.0",
+        "contentHash": "VjWSQdbkLFuWxF+l98wdaf8duDZUUu4dIp050C55wmwfpfSE4r6IU63O4jvbgKwacC9YE+NLOkZDkMgOtzMVRg==",
         "dependencies": {
-          "Cake.Core": "6.0.0"
+          "Cake.Core": "6.2.0"
         }
       }
     },
@@ -379,7 +379,7 @@
       "cake.issues": {
         "type": "Project",
         "dependencies": {
-          "Cake.Core": "[6.0.0, )"
+          "Cake.Core": "[6.2.0, )"
         }
       },
       "cake.issues.eslint": {
@@ -392,22 +392,22 @@
         "type": "Project",
         "dependencies": {
           "Cake.Issues": "[1.0.0, )",
-          "Cake.Testing": "[6.0.0, )"
+          "Cake.Testing": "[6.2.0, )"
         }
       },
       "Cake.Core": {
         "type": "CentralTransitive",
-        "requested": "[6.0.0, )",
-        "resolved": "6.0.0",
-        "contentHash": "SiAIpsPYMgSivBVReFz/wCYvimWVsZsoGVdZ/qogYbxLQA/QdXkMyHiGqqRhkfUuTf/0/N9HCYYAQe0sZfsekA=="
+        "requested": "[6.2.0, )",
+        "resolved": "6.2.0",
+        "contentHash": "t/yQZoSj6WLUS9hbCi68ZhrdxV9ubbxlnOEGcQCWHa4JH1tdedgzhib3li7R3JIGo8NaSyn9qrNNd0mjsWDjcA=="
       },
       "Cake.Testing": {
         "type": "CentralTransitive",
-        "requested": "[6.0.0, )",
-        "resolved": "6.0.0",
-        "contentHash": "zaArQbfm7oqhx1spghfjxCpqBCy8ynYAOz8wbzEeoMYsv8AkS2AShnbwZOmwQSG1eYvx3Ff2/SCtAxfeqDCMNQ==",
+        "requested": "[6.2.0, )",
+        "resolved": "6.2.0",
+        "contentHash": "VjWSQdbkLFuWxF+l98wdaf8duDZUUu4dIp050C55wmwfpfSE4r6IU63O4jvbgKwacC9YE+NLOkZDkMgOtzMVRg==",
         "dependencies": {
-          "Cake.Core": "6.0.0"
+          "Cake.Core": "6.2.0"
         }
       }
     },
@@ -584,7 +584,7 @@
       "cake.issues": {
         "type": "Project",
         "dependencies": {
-          "Cake.Core": "[6.0.0, )"
+          "Cake.Core": "[6.2.0, )"
         }
       },
       "cake.issues.eslint": {
@@ -597,22 +597,22 @@
         "type": "Project",
         "dependencies": {
           "Cake.Issues": "[1.0.0, )",
-          "Cake.Testing": "[6.0.0, )"
+          "Cake.Testing": "[6.2.0, )"
         }
       },
       "Cake.Core": {
         "type": "CentralTransitive",
-        "requested": "[6.0.0, )",
-        "resolved": "6.0.0",
-        "contentHash": "SiAIpsPYMgSivBVReFz/wCYvimWVsZsoGVdZ/qogYbxLQA/QdXkMyHiGqqRhkfUuTf/0/N9HCYYAQe0sZfsekA=="
+        "requested": "[6.2.0, )",
+        "resolved": "6.2.0",
+        "contentHash": "t/yQZoSj6WLUS9hbCi68ZhrdxV9ubbxlnOEGcQCWHa4JH1tdedgzhib3li7R3JIGo8NaSyn9qrNNd0mjsWDjcA=="
       },
       "Cake.Testing": {
         "type": "CentralTransitive",
-        "requested": "[6.0.0, )",
-        "resolved": "6.0.0",
-        "contentHash": "zaArQbfm7oqhx1spghfjxCpqBCy8ynYAOz8wbzEeoMYsv8AkS2AShnbwZOmwQSG1eYvx3Ff2/SCtAxfeqDCMNQ==",
+        "requested": "[6.2.0, )",
+        "resolved": "6.2.0",
+        "contentHash": "VjWSQdbkLFuWxF+l98wdaf8duDZUUu4dIp050C55wmwfpfSE4r6IU63O4jvbgKwacC9YE+NLOkZDkMgOtzMVRg==",
         "dependencies": {
-          "Cake.Core": "6.0.0"
+          "Cake.Core": "6.2.0"
         }
       }
     }
