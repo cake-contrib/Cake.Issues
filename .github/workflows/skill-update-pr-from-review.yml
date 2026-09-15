@@ -35,14 +35,6 @@ jobs:
           comment = event.get("comment") or event.get("review_comment") or event.get("review") or {}
           body = (comment.get("body") or "").strip()
           association = comment.get("author_association") or ""
-          repository = event.get("repository", {})
-          pull_request = (
-              event.get("pull_request")
-              or comment.get("pull_request")
-              or {}
-          )
-          head_repository = ((pull_request.get("head") or {}).get("repo") or {}).get("full_name")
-          base_repository = repository.get("full_name")
           output_path = Path(os.environ["GITHUB_OUTPUT"])
 
           def write_output(key: str, value: str) -> None:
@@ -54,11 +46,6 @@ jobs:
           if association not in allowed_associations:
               write_output("changed", "false")
               write_output("reason", "unauthorized")
-              raise SystemExit(0)
-
-          if not head_repository or not base_repository or head_repository != base_repository:
-              write_output("changed", "false")
-              write_output("reason", "fork-pr")
               raise SystemExit(0)
 
           command_match = re.match(
@@ -123,6 +110,7 @@ jobs:
         with:
           branch: automation/skill-update-${{ steps.skill_update.outputs.skill_slug }}-${{ github.event.comment.id }}
           delete-branch: true
+          base: ${{ github.event.repository.default_branch }}
           title: Update ${{ steps.skill_update.outputs.skill_name }} skill from review feedback
           commit-message: Update ${{ steps.skill_update.outputs.skill_name }} skill from review feedback
           body: |
