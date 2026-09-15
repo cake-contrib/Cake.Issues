@@ -33,17 +33,21 @@ The supported target frameworks now include .NET 8, .NET 9, and .NET 10.
 
 This release introduces the new `Cake.Issues.Build` addin, expanding options for integrating
 Cake Issues into build workflows.
+Build server integrations for AppVeyor and GitHub Actions have been aligned with the
+`Cake.Issues.BuildServer` architecture.
+This change clarifies the separation of responsibilities: `Cake.Issues.PullRequests` for pull
+request integration and `Cake.Issues.BuildServer` for build server integration.
+Previously, build servers were also implemented as pull request systems, which was more confusing
+for users.
 
 ## Richer issue metadata
 
 The core issue model now includes `IIssue.Snippet` and `IIssue.SourceLanguage`.
 This enables issue providers and report formats to surface richer contextual information.
 
-## Build server and provider updates
+## Markdownlint 0.46.0 support
 
-Build server integrations have been aligned with the build-server architecture for AppVeyor and
-GitHub Actions.
-Support was also added for Markdownlint 0.46.0 format.
+Support was added for Markdownlint 0.46.0 format.
 
 ## Additional improvements
 
