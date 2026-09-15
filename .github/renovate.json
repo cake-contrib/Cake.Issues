@@ -22,7 +22,8 @@
       ],
       "matchStringsStrategy": "any",
       "matchStrings": [
-        "<dependency\\b[^>]*\\bid=\\\"(?<depName>[^\\\"]+)\\\"[^>]*\\bversion=\\\"(?<currentValue>[^\\[\\(][^\\\"]*)\\\"[^>]*\\/?>"
+        "<dependency\\b[^>]*\\bid=\\\"(?<depName>[^\\\"]+)\\\"[^>]*\\bversion=\\\"(?<currentValue>[^\\[\\(][^\\\"]*)\\\"[^>]*\\/?>",
+        "<dependency\\b[^>]*\\bversion=\\\"(?<currentValue>[^\\[\\(][^\\\"]*)\\\"[^>]*\\bid=\\\"(?<depName>[^\\\"]+)\\\"[^>]*\\/?>"
       ],
       "datasourceTemplate": "nuget",
       "versioningTemplate": "nuget"
