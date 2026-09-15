@@ -32,11 +32,15 @@ jobs:
           from pathlib import Path
 
           event = json.loads(Path(os.environ["EVENT_PATH"]).read_text(encoding="utf-8"))
-          comment = event.get("comment", {})
+          comment = event.get("comment") or event.get("review_comment") or event.get("review") or {}
           body = (comment.get("body") or "").strip()
           association = comment.get("author_association") or ""
           repository = event.get("repository", {})
-          pull_request = event.get("pull_request", {})
+          pull_request = (
+              event.get("pull_request")
+              or comment.get("pull_request")
+              or {}
+          )
           head_repository = ((pull_request.get("head") or {}).get("repo") or {}).get("full_name")
           base_repository = repository.get("full_name")
           output_path = Path(os.environ["GITHUB_OUTPUT"])
