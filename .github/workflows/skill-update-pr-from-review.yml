@@ -12,10 +12,14 @@ permissions:
 jobs:
   create-skill-update-pr:
     name: Create skill update PR
+    if: github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          ref: ${{ github.event.pull_request.head.ref }}
 
       - name: Apply requested skill update
         id: skill_update
@@ -106,7 +110,7 @@ jobs:
           PY
 
       - name: Create pull request
-        if: steps.skill_update.outputs.changed == 'true' && github.event.pull_request.head.repo.full_name == github.repository
+        if: steps.skill_update.outputs.changed == 'true'
         uses: peter-evans/create-pull-request@22a9089034f40e5a961c8808d113e2c98fb63676 # v7
         with:
           branch: automation/skill-update-${{ steps.skill_update.outputs.skill_name }}-${{ github.event.comment.id }}
