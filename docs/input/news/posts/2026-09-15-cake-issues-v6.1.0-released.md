@@ -28,9 +28,9 @@ People working on this release:
 Cake Issues has been updated to use Spectre.Console 0.55.2 and Errata 0.16.0.
 This fixes reporting issues when using Cake 6.2.0 and newer.
 
-This is an exceptional breaking release:
+This release includes an exceptional compatibility-breaking requirement change:
 while the 6.1.0 update restores compatibility with newer Cake versions, it now requires at least
-Cake 6.2.0 and is no longer compatible with Cake 6.0 or 6.1.
+Cake 6.2.0 because of the Spectre.Console update and is no longer compatible with Cake 6.0 or 6.1.
 
 ## Improved support for DocFx
 
@@ -45,8 +45,8 @@ NuGet package READMEs have also been updated to clarify Cake SDK support alongsi
 
 ## Updating from previous versions
 
-Cake.Issues 6.1.0 is an exceptional breaking release.
-To use this version, upgrade to Cake 6.2.0 or newer, then bump the version of the specific addins.
+Cake.Issues 6.1.0 introduces an exceptional compatibility-breaking minimum Cake requirement.
+To use this version, upgrade to Cake 6.2.0 or newer because of the Spectre.Console update, then bump the version of the specific addins.
 If you need to stay on Cake 6.0 or 6.1, remain on Cake.Issues 6.0.0.
 
 For details see [release notes](https://github.com/cake-contrib/Cake.Issues/releases/tag/6.1.0)
