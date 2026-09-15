@@ -4,11 +4,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageVersion Include="Cake.Common" Version="6.0.0" />
-    <PackageVersion Include="Cake.Core" Version="6.0.0" />
+    <PackageVersion Include="Cake.Common" Version="6.2.0" />
+    <PackageVersion Include="Cake.Core" Version="6.2.0" />
     <PackageVersion Include="Cake.Frosting.AzureDevOps" Version="5.0.2" />
-    <PackageVersion Include="Cake.Testing" Version="6.0.0" />
-    <PackageVersion Include="Errata" Version="0.15.0" />
+    <PackageVersion Include="Cake.Testing" Version="6.2.0" />
+    <PackageVersion Include="Errata" Version="0.16.0" />
     <PackageVersion Include="Gazorator" Version="0.5.2" />
     <PackageVersion Include="HtmlAgilityPack" Version="1.12.4" />
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.9.0" />
@@ -16,9 +16,9 @@
     <PackageVersion Include="NSubstitute" Version="5.3.0" />
     <PackageVersion Include="Sarif.Sdk" Version="4.6.5" />
     <PackageVersion Include="Shouldly" Version="4.3.0" />
-    <PackageVersion Include="Spectre.Console" Version="0.53.0" />
+    <PackageVersion Include="Spectre.Console" Version="0.55.2" />
     <PackageVersion Include="Spectre.Console.Analyzer" Version="1.0.0" />
-    <PackageVersion Include="Spectre.Console.Testing" Version="0.53.0" />
+    <PackageVersion Include="Spectre.Console.Testing" Version="0.55.2" />
     <PackageVersion Include="Verify.Xunit" Version="31.12.5" />
     <PackageVersion Include="xunit" Version="2.9.3" />
     <PackageVersion Include="Xunit.SkippableFact" Version="1.5.61" />

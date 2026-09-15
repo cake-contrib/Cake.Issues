@@ -277,6 +277,11 @@
         "resolved": "4.4.0",
         "contentHash": "YhEdSQUsTx+C8m8Bw7ar5/VesXvCFMItyZF7G1AUY+OM0VPZUOeAVpJ4Wl6fydBGUYZxojTDR3I6Bj/+BPkJNA=="
       },
+      "Spectre.Console.Ansi": {
+        "type": "Transitive",
+        "resolved": "0.55.2",
+        "contentHash": "tN3KEJQQZwLW9HJnG5YTSAxfBwxsmg1wVuGvhGG2rM+pbl+NGaHU8pDcNofPlOXlgpkbpBMxI5t9o9qPfy3sHQ=="
+      },
       "System.CodeDom": {
         "type": "Transitive",
         "resolved": "6.0.0",
@@ -413,14 +418,14 @@
       "cake.issues": {
         "type": "Project",
         "dependencies": {
-          "Cake.Core": "[6.0.0, )"
+          "Cake.Core": "[6.2.0, )"
         }
       },
       "cake.issues.pullrequests": {
         "type": "Project",
         "dependencies": {
           "Cake.Issues": "[1.0.0, )",
-          "Spectre.Console": "[0.53.0, )"
+          "Spectre.Console": "[0.55.2, )"
         }
       },
       "cake.issues.pullrequests.azuredevops": {
@@ -434,14 +439,14 @@
         "type": "Project",
         "dependencies": {
           "Cake.Issues": "[1.0.0, )",
-          "Cake.Testing": "[6.0.0, )"
+          "Cake.Testing": "[6.2.0, )"
         }
       },
       "Cake.Core": {
         "type": "CentralTransitive",
-        "requested": "[6.0.0, )",
-        "resolved": "6.0.0",
-        "contentHash": "SiAIpsPYMgSivBVReFz/wCYvimWVsZsoGVdZ/qogYbxLQA/QdXkMyHiGqqRhkfUuTf/0/N9HCYYAQe0sZfsekA=="
+        "requested": "[6.2.0, )",
+        "resolved": "6.2.0",
+        "contentHash": "t/yQZoSj6WLUS9hbCi68ZhrdxV9ubbxlnOEGcQCWHa4JH1tdedgzhib3li7R3JIGo8NaSyn9qrNNd0mjsWDjcA=="
       },
       "Cake.Frosting.AzureDevOps": {
         "type": "CentralTransitive",
@@ -460,18 +465,21 @@
       },
       "Cake.Testing": {
         "type": "CentralTransitive",
-        "requested": "[6.0.0, )",
-        "resolved": "6.0.0",
-        "contentHash": "zaArQbfm7oqhx1spghfjxCpqBCy8ynYAOz8wbzEeoMYsv8AkS2AShnbwZOmwQSG1eYvx3Ff2/SCtAxfeqDCMNQ==",
+        "requested": "[6.2.0, )",
+        "resolved": "6.2.0",
+        "contentHash": "VjWSQdbkLFuWxF+l98wdaf8duDZUUu4dIp050C55wmwfpfSE4r6IU63O4jvbgKwacC9YE+NLOkZDkMgOtzMVRg==",
         "dependencies": {
-          "Cake.Core": "6.0.0"
+          "Cake.Core": "6.2.0"
         }
       },
       "Spectre.Console": {
         "type": "CentralTransitive",
-        "requested": "[0.53.0, )",
-        "resolved": "0.53.0",
-        "contentHash": "m2iv8Egfywp7FaNLKCmCFHbSf36D4ctzZKvlAK9NXMyGLh6L+CnrZWK8o+LOYsoAS1jtoHn0W1BT0W8vuq/FUw=="
+        "requested": "[0.55.2, )",
+        "resolved": "0.55.2",
+        "contentHash": "yc0g12YJpmZHofGJLTQX02/uqfzJ6XHRx6pe9rANNjleQptXMHPxD9KI2/DWkXiJWddc+4oizEdGox15c89hhw==",
+        "dependencies": {
+          "Spectre.Console.Ansi": "0.55.2"
+        }
       }
     },
     "net8.0": {
@@ -750,6 +758,11 @@
         "resolved": "4.4.0",
         "contentHash": "YhEdSQUsTx+C8m8Bw7ar5/VesXvCFMItyZF7G1AUY+OM0VPZUOeAVpJ4Wl6fydBGUYZxojTDR3I6Bj/+BPkJNA=="
       },
+      "Spectre.Console.Ansi": {
+        "type": "Transitive",
+        "resolved": "0.55.2",
+        "contentHash": "tN3KEJQQZwLW9HJnG5YTSAxfBwxsmg1wVuGvhGG2rM+pbl+NGaHU8pDcNofPlOXlgpkbpBMxI5t9o9qPfy3sHQ=="
+      },
       "System.CodeDom": {
         "type": "Transitive",
         "resolved": "6.0.0",
@@ -891,14 +904,14 @@
       "cake.issues": {
         "type": "Project",
         "dependencies": {
-          "Cake.Core": "[6.0.0, )"
+          "Cake.Core": "[6.2.0, )"
         }
       },
       "cake.issues.pullrequests": {
         "type": "Project",
         "dependencies": {
           "Cake.Issues": "[1.0.0, )",
-          "Spectre.Console": "[0.53.0, )"
+          "Spectre.Console": "[0.55.2, )"
         }
       },
       "cake.issues.pullrequests.azuredevops": {
@@ -912,14 +925,14 @@
         "type": "Project",
         "dependencies": {
           "Cake.Issues": "[1.0.0, )",
-          "Cake.Testing": "[6.0.0, )"
+          "Cake.Testing": "[6.2.0, )"
         }
       },
       "Cake.Core": {
         "type": "CentralTransitive",
-        "requested": "[6.0.0, )",
-        "resolved": "6.0.0",
-        "contentHash": "SiAIpsPYMgSivBVReFz/wCYvimWVsZsoGVdZ/qogYbxLQA/QdXkMyHiGqqRhkfUuTf/0/N9HCYYAQe0sZfsekA=="
+        "requested": "[6.2.0, )",
+        "resolved": "6.2.0",
+        "contentHash": "t/yQZoSj6WLUS9hbCi68ZhrdxV9ubbxlnOEGcQCWHa4JH1tdedgzhib3li7R3JIGo8NaSyn9qrNNd0mjsWDjcA=="
       },
       "Cake.Frosting.AzureDevOps": {
         "type": "CentralTransitive",
@@ -939,18 +952,21 @@
       },
       "Cake.Testing": {
         "type": "CentralTransitive",
-        "requested": "[6.0.0, )",
-        "resolved": "6.0.0",
-        "contentHash": "zaArQbfm7oqhx1spghfjxCpqBCy8ynYAOz8wbzEeoMYsv8AkS2AShnbwZOmwQSG1eYvx3Ff2/SCtAxfeqDCMNQ==",
+        "requested": "[6.2.0, )",
+        "resolved": "6.2.0",
+        "contentHash": "VjWSQdbkLFuWxF+l98wdaf8duDZUUu4dIp050C55wmwfpfSE4r6IU63O4jvbgKwacC9YE+NLOkZDkMgOtzMVRg==",
         "dependencies": {
-          "Cake.Core": "6.0.0"
+          "Cake.Core": "6.2.0"
         }
       },
       "Spectre.Console": {
         "type": "CentralTransitive",
-        "requested": "[0.53.0, )",
-        "resolved": "0.53.0",
-        "contentHash": "m2iv8Egfywp7FaNLKCmCFHbSf36D4ctzZKvlAK9NXMyGLh6L+CnrZWK8o+LOYsoAS1jtoHn0W1BT0W8vuq/FUw=="
+        "requested": "[0.55.2, )",
+        "resolved": "0.55.2",
+        "contentHash": "yc0g12YJpmZHofGJLTQX02/uqfzJ6XHRx6pe9rANNjleQptXMHPxD9KI2/DWkXiJWddc+4oizEdGox15c89hhw==",
+        "dependencies": {
+          "Spectre.Console.Ansi": "0.55.2"
+        }
       }
     },
     "net9.0": {
@@ -1229,6 +1245,11 @@
         "resolved": "4.4.0",
         "contentHash": "YhEdSQUsTx+C8m8Bw7ar5/VesXvCFMItyZF7G1AUY+OM0VPZUOeAVpJ4Wl6fydBGUYZxojTDR3I6Bj/+BPkJNA=="
       },
+      "Spectre.Console.Ansi": {
+        "type": "Transitive",
+        "resolved": "0.55.2",
+        "contentHash": "tN3KEJQQZwLW9HJnG5YTSAxfBwxsmg1wVuGvhGG2rM+pbl+NGaHU8pDcNofPlOXlgpkbpBMxI5t9o9qPfy3sHQ=="
+      },
       "System.CodeDom": {
         "type": "Transitive",
         "resolved": "6.0.0",
@@ -1365,14 +1386,14 @@
       "cake.issues": {
         "type": "Project",
         "dependencies": {
-          "Cake.Core": "[6.0.0, )"
+          "Cake.Core": "[6.2.0, )"
         }
       },
       "cake.issues.pullrequests": {
         "type": "Project",
         "dependencies": {
           "Cake.Issues": "[1.0.0, )",
-          "Spectre.Console": "[0.53.0, )"
+          "Spectre.Console": "[0.55.2, )"
         }
       },
       "cake.issues.pullrequests.azuredevops": {
@@ -1386,14 +1407,14 @@
         "type": "Project",
         "dependencies": {
           "Cake.Issues": "[1.0.0, )",
-          "Cake.Testing": "[6.0.0, )"
+          "Cake.Testing": "[6.2.0, )"
         }
       },
       "Cake.Core": {
         "type": "CentralTransitive",
-        "requested": "[6.0.0, )",
-        "resolved": "6.0.0",
-        "contentHash": "SiAIpsPYMgSivBVReFz/wCYvimWVsZsoGVdZ/qogYbxLQA/QdXkMyHiGqqRhkfUuTf/0/N9HCYYAQe0sZfsekA=="
+        "requested": "[6.2.0, )",
+        "resolved": "6.2.0",
+        "contentHash": "t/yQZoSj6WLUS9hbCi68ZhrdxV9ubbxlnOEGcQCWHa4JH1tdedgzhib3li7R3JIGo8NaSyn9qrNNd0mjsWDjcA=="
       },
       "Cake.Frosting.AzureDevOps": {
         "type": "CentralTransitive",
@@ -1412,18 +1433,21 @@
       },
       "Cake.Testing": {
         "type": "CentralTransitive",
-        "requested": "[6.0.0, )",
-        "resolved": "6.0.0",
-        "contentHash": "zaArQbfm7oqhx1spghfjxCpqBCy8ynYAOz8wbzEeoMYsv8AkS2AShnbwZOmwQSG1eYvx3Ff2/SCtAxfeqDCMNQ==",
+        "requested": "[6.2.0, )",
+        "resolved": "6.2.0",
+        "contentHash": "VjWSQdbkLFuWxF+l98wdaf8duDZUUu4dIp050C55wmwfpfSE4r6IU63O4jvbgKwacC9YE+NLOkZDkMgOtzMVRg==",
         "dependencies": {
-          "Cake.Core": "6.0.0"
+          "Cake.Core": "6.2.0"
         }
       },
       "Spectre.Console": {
         "type": "CentralTransitive",
-        "requested": "[0.53.0, )",
-        "resolved": "0.53.0",
-        "contentHash": "m2iv8Egfywp7FaNLKCmCFHbSf36D4ctzZKvlAK9NXMyGLh6L+CnrZWK8o+LOYsoAS1jtoHn0W1BT0W8vuq/FUw=="
+        "requested": "[0.55.2, )",
+        "resolved": "0.55.2",
+        "contentHash": "yc0g12YJpmZHofGJLTQX02/uqfzJ6XHRx6pe9rANNjleQptXMHPxD9KI2/DWkXiJWddc+4oizEdGox15c89hhw==",
+        "dependencies": {
+          "Spectre.Console.Ansi": "0.55.2"
+        }
       }
     }
   }
