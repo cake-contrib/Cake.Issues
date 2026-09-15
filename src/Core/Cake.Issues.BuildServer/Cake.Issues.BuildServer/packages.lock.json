@@ -16,15 +16,23 @@
       },
       "Spectre.Console": {
         "type": "Direct",
-        "requested": "[0.53.0, )",
-        "resolved": "0.53.0",
-        "contentHash": "m2iv8Egfywp7FaNLKCmCFHbSf36D4ctzZKvlAK9NXMyGLh6L+CnrZWK8o+LOYsoAS1jtoHn0W1BT0W8vuq/FUw=="
+        "requested": "[0.55.2, )",
+        "resolved": "0.55.2",
+        "contentHash": "yc0g12YJpmZHofGJLTQX02/uqfzJ6XHRx6pe9rANNjleQptXMHPxD9KI2/DWkXiJWddc+4oizEdGox15c89hhw==",
+        "dependencies": {
+          "Spectre.Console.Ansi": "0.55.2"
+        }
       },
       "Spectre.Console.Analyzer": {
         "type": "Direct",
         "requested": "[1.0.0, )",
         "resolved": "1.0.0",
         "contentHash": "TojbwWASRf3PMUsotXa8MQ9SNwEwWZZ5bAYf1eLv+jiDsxaD/n7TKTi3da6z4+m8uZHri2i+BVRuLj5w+6j64Q=="
+      },
+      "Spectre.Console.Ansi": {
+        "type": "Transitive",
+        "resolved": "0.55.2",
+        "contentHash": "tN3KEJQQZwLW9HJnG5YTSAxfBwxsmg1wVuGvhGG2rM+pbl+NGaHU8pDcNofPlOXlgpkbpBMxI5t9o9qPfy3sHQ=="
       },
       "cake.issues": {
         "type": "Project",
@@ -54,15 +62,23 @@
       },
       "Spectre.Console": {
         "type": "Direct",
-        "requested": "[0.53.0, )",
-        "resolved": "0.53.0",
-        "contentHash": "m2iv8Egfywp7FaNLKCmCFHbSf36D4ctzZKvlAK9NXMyGLh6L+CnrZWK8o+LOYsoAS1jtoHn0W1BT0W8vuq/FUw=="
+        "requested": "[0.55.2, )",
+        "resolved": "0.55.2",
+        "contentHash": "yc0g12YJpmZHofGJLTQX02/uqfzJ6XHRx6pe9rANNjleQptXMHPxD9KI2/DWkXiJWddc+4oizEdGox15c89hhw==",
+        "dependencies": {
+          "Spectre.Console.Ansi": "0.55.2"
+        }
       },
       "Spectre.Console.Analyzer": {
         "type": "Direct",
         "requested": "[1.0.0, )",
         "resolved": "1.0.0",
         "contentHash": "TojbwWASRf3PMUsotXa8MQ9SNwEwWZZ5bAYf1eLv+jiDsxaD/n7TKTi3da6z4+m8uZHri2i+BVRuLj5w+6j64Q=="
+      },
+      "Spectre.Console.Ansi": {
+        "type": "Transitive",
+        "resolved": "0.55.2",
+        "contentHash": "tN3KEJQQZwLW9HJnG5YTSAxfBwxsmg1wVuGvhGG2rM+pbl+NGaHU8pDcNofPlOXlgpkbpBMxI5t9o9qPfy3sHQ=="
       },
       "cake.issues": {
         "type": "Project",
@@ -92,15 +108,23 @@
       },
       "Spectre.Console": {
         "type": "Direct",
-        "requested": "[0.53.0, )",
-        "resolved": "0.53.0",
-        "contentHash": "m2iv8Egfywp7FaNLKCmCFHbSf36D4ctzZKvlAK9NXMyGLh6L+CnrZWK8o+LOYsoAS1jtoHn0W1BT0W8vuq/FUw=="
+        "requested": "[0.55.2, )",
+        "resolved": "0.55.2",
+        "contentHash": "yc0g12YJpmZHofGJLTQX02/uqfzJ6XHRx6pe9rANNjleQptXMHPxD9KI2/DWkXiJWddc+4oizEdGox15c89hhw==",
+        "dependencies": {
+          "Spectre.Console.Ansi": "0.55.2"
+        }
       },
       "Spectre.Console.Analyzer": {
         "type": "Direct",
         "requested": "[1.0.0, )",
         "resolved": "1.0.0",
         "contentHash": "TojbwWASRf3PMUsotXa8MQ9SNwEwWZZ5bAYf1eLv+jiDsxaD/n7TKTi3da6z4+m8uZHri2i+BVRuLj5w+6j64Q=="
+      },
+      "Spectre.Console.Ansi": {
+        "type": "Transitive",
+        "resolved": "0.55.2",
+        "contentHash": "tN3KEJQQZwLW9HJnG5YTSAxfBwxsmg1wVuGvhGG2rM+pbl+NGaHU8pDcNofPlOXlgpkbpBMxI5t9o9qPfy3sHQ=="
       },
       "cake.issues": {
         "type": "Project",
