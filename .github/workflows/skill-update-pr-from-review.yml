@@ -74,7 +74,18 @@ jobs:
           if section_heading not in content:
               content = f"{content}\n\n{section_heading}\n\n{entry}\n"
           else:
-              content = f"{content}\n{entry}\n"
+              section_start = content.index(section_heading)
+              section_content_start = section_start + len(section_heading)
+              section_remainder = content[section_content_start:]
+              next_heading_match = re.search(r"\n##\s+", section_remainder)
+
+              if next_heading_match:
+                  insert_at = section_content_start + next_heading_match.start()
+                  before = content[:insert_at].rstrip()
+                  after = content[insert_at:].lstrip("\n")
+                  content = f"{before}\n{entry}\n\n{after}"
+              else:
+                  content = f"{content.rstrip()}\n{entry}\n"
 
           skill_path.write_text(content, encoding="utf-8")
 
@@ -85,7 +96,7 @@ jobs:
 
       - name: Create pull request
         if: steps.skill_update.outputs.changed == 'true'
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@22a9089034f40e5a961c8808d113e2c98fb63676 # v7
         with:
           branch: automation/skill-update-${{ steps.skill_update.outputs.skill_name }}-${{ github.event.comment.id }}
           delete-branch: true
