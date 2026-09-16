@@ -1,0 +1,2 @@
+"Tool","Tool Version","Format","Issue Provider","Supported Since"
+"[checkstyle](https://checkstyle.org/){target='_blank'}",,"[sarif](https://checkstyle.org/cmdline.html#Command_line_usage_Command_Line_Options){target='_blank'}","[Cake.Issues.Sarif](issue-providers/sarif/index.md)",4.2.0

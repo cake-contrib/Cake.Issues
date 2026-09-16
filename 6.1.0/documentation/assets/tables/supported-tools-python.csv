@@ -1,0 +1,2 @@
+"Tool","Tool Version","Format","Issue Provider","Supported Since"
+"[Bandit](https://bandit.readthedocs.io/){target='_blank'}",,[sarif](https://bandit.readthedocs.io/en/latest/formatters/sarif.html),"[Cake.Issues.Sarif](issue-providers/sarif/index.md)",4.2.0
