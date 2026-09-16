@@ -3,6 +3,7 @@
   "extends": [
     "github>cake-contrib/renovate-presets:cake-issues"
   ],
+  "prConcurrentLimit": 0,
   "customManagers": [
     {
       "customType": "regex",
