@@ -11,11 +11,19 @@ See [copilot-instructions](../../copilot-instructions) for general repo build gu
 
 The files under [docs/input/documentation/report-formats/generic/templates](../../../docs/input/documentation/report-formats/generic/templates) are **not** edited by hand. Every `htmldxdatagrid-demo-*.html`, `htmldatatable-demo-*.html`, and `htmldiagnostic-demo-*.html` file is produced by running the `Cake.Issues.Reporting.Generic` integration test build, which calls `CreateIssueReport` for each demo scenario/theme and writes the result directly into that folder.
 
-The relevant Cake tasks live in [tests/Cake.Issues.Reporting.Generic/script-runner/net8.0/build/create-reports](../../../tests/Cake.Issues.Reporting.Generic/script-runner/net8.0/build/create-reports):
+Each demo is defined as its own Cake task, and every runner variant under `tests/Cake.Issues.Reporting.Generic` defines the same set of tasks. The two runner styles use different file layouts:
+
+**Cake Scripting (`script-runner/net8.0`, `script-runner/net10.0`)** — `.cake` files in [build/create-reports](../../../tests/Cake.Issues.Reporting.Generic/script-runner/net8.0/build/create-reports):
 - `create-reports-htmldxdatagrid-theme-*.cake` — one file per DxDataGrid theme (e.g. `create-reports-htmldxdatagrid-theme-carmine.cake`), each setting `HtmlDxDataGridOption.Theme` to the matching `DevExtremeTheme` value.
 - `create-reports-htmldxdatagrid-*.cake` — one file per DxDataGrid feature demo (grouping, sorting, exporting, column chooser, persistence, etc.).
 - `create-reports-htmldatatable*.cake` / `create-reports-htmldiagnostic*.cake` — same pattern for the other two report formats.
-- `create-reports.cake` / `create-reports-htmldxdatagrid.cake` aggregate all of the above into the `Create-Reports` / `Create-Reports-HtmlDxDataGrid` tasks.
+- `create-reports.cake` / `create-reports-htmldxdatagrid.cake` aggregate all of the above via `#load` plus `.IsDependentOn(...)` into the `Create-Reports` / `Create-Reports-HtmlDxDataGrid` tasks.
+
+**Cake Frosting (`frosting/net8.0`, `frosting/net10.0`)** — C# task classes in [build/tasks/create-reports](../../../tests/Cake.Issues.Reporting.Generic/frosting/net8.0/build/tasks/create-reports):
+- One `FrostingTask<BuildContext>` class per demo, e.g. `CreateReportsHtmlDxDataGridThemeCarmineTask.cs`, annotated with `[TaskName("Create-Reports-HtmlDxDataGrid-Theme-Carmine")]` and `[IsDependentOn(typeof(AnalyzeTask))]`.
+- `CreateReportsHtmlDxDataGridTask.cs` / `CreateReportsTask.cs` aggregate them through `[IsDependentOn(typeof(...Task))]` attributes.
+
+Task names and generated output filenames are identical across both runners.
 
 The `.md` files (e.g. [htmldxdatagrid.md](../../../docs/input/documentation/report-formats/generic/templates/htmldxdatagrid.md)) already link to every generated `.html` file and normally do **not** need changes unless you are adding or removing a demo/theme entirely. The `.png` screenshots in that folder are manually captured and are out of scope for this skill.
 
@@ -24,7 +32,7 @@ The `.md` files (e.g. [htmldxdatagrid.md](../../../docs/input/documentation/repo
 - After modifying `DxDataGrid.cshtml`, `DataTable.cshtml`, or `Diagnostic.cshtml` in [src/ReportFormats/Generic/Cake.Issues.Reporting.Generic/Templates](../../../src/ReportFormats/Generic/Cake.Issues.Reporting.Generic/Templates).
 - After adding/changing a `DevExtremeTheme` value or other `HtmlDxDataGridOption`.
 - After changing any generic report format option's default behavior.
-- When adding a brand-new theme or demo scenario (this also requires a new `create-reports-*.cake` task file, wiring it into `create-reports-htmldxdatagrid.cake`, and adding a link + heading to the relevant `.md` file — do this before regenerating).
+- When adding a brand-new theme or demo scenario (this also requires new task files for both runner styles, wiring them into the aggregating tasks, and adding a link + heading to the relevant `.md` file — see [Adding a new theme or demo](#adding-a-new-theme-or-demo), and do this before regenerating).
 
 ## Steps
 
@@ -63,13 +71,17 @@ The `.md` files (e.g. [htmldxdatagrid.md](../../../docs/input/documentation/repo
    ```
    Open the relevant page (e.g. `/documentation/report-formats/generic/templates/htmldxdatagrid-demo-theme-carmine.html`) at `http://127.0.0.1:8000`.
 
-6. **Do not hand-edit the generated `.html` files.** If the output looks wrong, fix the Razor template, the report format option, or the corresponding `create-reports-*.cake` task, then repeat from step 2.
+6. **Do not hand-edit the generated `.html` files.** If the output looks wrong, fix the Razor template, the report format option, or the corresponding demo task (the `create-reports-*.cake` file for the script runner, the `CreateReports*Task.cs` class for Frosting), then repeat from step 2.
 
 ## Adding a new theme or demo
 
 If the change adds a new DxDataGrid theme or demo scenario rather than just altering an existing one:
 
-1. Add a new `create-reports-htmldxdatagrid-theme-<name>.cake` (or feature-demo) file in each of `tests/Cake.Issues.Reporting.Generic/{script-runner,frosting}/{net8.0,net10.0}/build/create-reports`, following the pattern of an existing theme file (set `HtmlDxDataGridOption.Theme` and the output filename `htmldxdatagrid-demo-theme-<name>.html`).
-2. Add the corresponding `#load` and `.IsDependentOn(...)` entries to `create-reports-htmldxdatagrid.cake` in each of those directories.
+1. Add the demo task to **both** runner styles, keeping the task name and output filename identical everywhere:
+   - **Cake Scripting:** add `create-reports-htmldxdatagrid-theme-<name>.cake` (or a feature-demo equivalent) to `tests/Cake.Issues.Reporting.Generic/script-runner/net8.0/build/create-reports` and `.../script-runner/net10.0/build/create-reports`, following an existing theme file (set `HtmlDxDataGridOption.Theme` and write to `htmldxdatagrid-demo-theme-<name>.html`).
+   - **Cake Frosting:** add `CreateReportsHtmlDxDataGridTheme<Name>Task.cs` to `tests/Cake.Issues.Reporting.Generic/frosting/net8.0/build/tasks/create-reports` and `.../frosting/net10.0/build/tasks/create-reports`, following e.g. `CreateReportsHtmlDxDataGridThemeCarmineTask.cs` (`[TaskName(...)]` matching the script-runner task name, `[IsDependentOn(typeof(AnalyzeTask))]`).
+2. Wire the new task into the aggregating tasks:
+   - Add `#load` and `.IsDependentOn("Create-Reports-HtmlDxDataGrid-Theme-<Name>")` to `create-reports-htmldxdatagrid.cake` in both script-runner directories.
+   - Add `[IsDependentOn(typeof(CreateReportsHtmlDxDataGridTheme<Name>Task))]` to `CreateReportsHtmlDxDataGridTask.cs` in both frosting directories.
 3. Add a link (and heading, if the `.md` groups themes under headings) to `htmldxdatagrid.md`.
 4. Run the steps above to generate the new `.html` file.
