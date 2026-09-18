@@ -24,10 +24,11 @@ See [copilot-instructions](../../copilot-instructions.md) for repository build c
 Before editing pipelines:
 
 1. Read `src/Directory.Build.props` to determine the product-supported target frameworks. The first TFM is normally the lowest supported TFM and the last is normally the highest.
-2. Read `src/global.json` to determine the SDK used for repository builds.
+2. Read `src/global.json` to determine the SDK version used to build the addin projects under `src/`. This does not cover the SDKs the root build tooling needs (see the next step).
 3. Inspect the matching directories below `tests/` to confirm which TFMs and runners actually have integration tests.
-4. Read `.azuredevops/pipelines/templates/steps/install-required-dotnet-versions-for-building.yml`, `.github/workflows/*.yml`, and `.appveyor.yml` to identify additional SDKs required by build tools.
-5. Check the CI provider's current official image documentation when adding, replacing, or removing an image. Treat the lowest available image as the oldest stable, non-deprecated explicit image supported by that provider, and the highest available image as the newest stable explicit image.
+4. Read `.azuredevops/pipelines/templates/steps/install-required-dotnet-versions-for-building.yml`, `.github/workflows/*.yml`, and `.appveyor.yml` to identify additional SDKs required by build tools such as GitVersion, Codecov, and Cake.Recipe.
+5. Read `azure-pipelines.yml` to see the Azure entry point: branch/PR triggers, path filters, and the stage templates it includes. Pipeline changes that add, remove, or reorder stages must be reflected here.
+6. Check the CI provider's current official image documentation when adding, replacing, or removing an image. Treat the lowest available image as the oldest stable, non-deprecated explicit image supported by that provider, and the highest available image as the newest stable explicit image.
 
 Do not confuse product-supported TFMs with SDKs installed only for tools such as GitVersion, Codecov, or Cake.Recipe. Preserve tool-only SDKs while they are required, and keep the reason documented next to their installation.
 
@@ -68,13 +69,14 @@ When adding, updating, or removing a supported TFM or SDK:
 
 1. Update the product TFM source of truth and `src/global.json` when they are part of the requested change.
 2. Update or add Azure SDK installation step templates and wire them through the shared installer.
-3. Update GitHub Actions SDK installation lists and integration-test `dotnet` matrices.
-4. Update AppVeyor SDK installation commands.
-5. Confirm `.github/actions/prepare-integration-test` derives the expected TFM from each SDK matrix value.
-6. Update integration-test working directories only when the corresponding directories exist below `tests/`.
-7. Keep template names, comments, display names, and installed versions consistent.
-8. Search the repository for the old and new version strings to find package metadata, examples, documentation, and pipeline references that must stay aligned.
-9. Remove obsolete SDK setup only after confirming no build tool, target framework, or test runner still requires it.
+3. Update GitHub Actions SDK installation lists for build and unit-test jobs.
+4. Update integration-test `dotnet` matrices only with SDK versions that represent supported product TFMs with an existing `tests/<addin>/.../<tfm>` directory. Do not add tool-only SDK versions (for example .NET 5 for Codecov or .NET 7 for Cake.Recipe) to these matrices: `.github/actions/prepare-integration-test` derives `TFM=net<major>.0` from the matrix value and would target a non-existent test directory.
+5. Update AppVeyor SDK installation commands.
+6. Confirm `.github/actions/prepare-integration-test` derives the expected TFM from each SDK matrix value you add or change.
+7. Update integration-test working directories only when the corresponding directories exist below `tests/`.
+8. Keep template names, comments, display names, and installed versions consistent.
+9. Search the repository for the old and new version strings to find package metadata, examples, documentation, and pipeline references that must stay aligned.
+10. Remove obsolete SDK setup only after confirming no build tool, target framework, or test runner still requires it.
 
 ## Update build images
 
@@ -82,7 +84,7 @@ When adding, replacing, or removing an OS image:
 
 1. Update every affected GitHub Actions matrix or `runs-on` value.
 2. Update Azure matrix keys, `imageName` values, and image-specific conditions.
-3. Update the AppVeyor image when the Windows build image changes.
+3. Update the AppVeyor `image` only when AppVeyor's own Windows build image coverage is intentionally changing. AppVeyor image names (for example `Visual Studio 2022`) are a separate, provider-specific catalog from GitHub/Azure image labels (for example `windows-2022`); changing a GitHub or Azure Windows image does not by itself require or imply an AppVeyor change.
 4. Review image-specific prerequisites such as Mono installation and adjust conditions without broadening them unnecessarily.
 5. Search for the old image name across workflows, templates, comments, and `CiStatus.md`.
 
@@ -96,7 +98,7 @@ Ensure that:
 
 - listed operating systems, TFMs, and runners match the effective matrices;
 - GitHub Actions badges point to existing workflow files and only claim branch coverage for branches that trigger the workflow;
-- Azure badge `stageName`, `jobName`, and `configuration` values match the pipeline display names and matrix configuration names exactly;
+- Azure badge `stageName` and `jobName` values match the pipeline stage and job `displayName` values; `configuration` matches the job's `displayName` followed by a space and the matrix key (for example `Test Cake Scripting Windows_Server_2022`), not the matrix key alone;
 - AppVeyor badges and image labels match `.appveyor.yml`;
 - removed jobs, TFMs, or images no longer appear;
 - newly added build or test coverage is represented.
