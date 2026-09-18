@@ -1,43 +1,78 @@
 # Cake Issues Addins for .NET
 
-**ALWAYS reference these instructions first and fallback to search or bash commands only when you encounter unexpected information that does not match the info here.**
+**ALWAYS reference these instructions first and fallback to search or shell commands only when you encounter unexpected information that does not match the info here.**
 
 This is a .NET based repository containing addins for the Cake Build Automation System. The individual addins are published as NuGet packages. All commands have been validated and timing measured.
 
 ## Prerequisites
 
-**CRITICAL**: .NET 9 SDK is required (specified in `src/global.json`):
-- Check version: `dotnet --version` (should be 9.0.304 or compatible)
+**CRITICAL**: .NET 10 SDK is required (specified in `src/global.json`):
+- Check version: `dotnet --version` (should be 10.0.401 or compatible)
 - Restore tools: `dotnet tool restore` (takes 5 seconds)
 
 For documentation building:
 - Python 3.12+ is required
-- Install dependencies: `cd docs && pip install -r requirements.txt` (takes 48 seconds)
+- Install dependencies:
+  - Linux/macOS: `cd docs && pip install -r requirements.txt` (takes 48 seconds)
+  - Windows PowerShell: `Push-Location docs; pip install -r requirements.txt; Pop-Location`
+
+## Cross-Platform Shell Usage
+
+This repository provides both Bash (`build.sh`) and PowerShell (`build.ps1`) entry points. Use the script that matches the environment:
+
+- Linux/macOS or Git Bash: `./build.sh --target=<TARGET>`
+- Windows PowerShell: `.\build.ps1 --target=<TARGET>`
+
+When changing directories or using paths, use the native syntax for the current shell:
+
+- Linux/macOS paths use `/`, for example `tests/Cake.Issues.MsBuild/script-runner/net9.0`.
+- Windows PowerShell paths use `\`, for example `tests\Cake.Issues.MsBuild\script-runner\net9.0`.
+- Bash command chaining with `&&` is fine in Bash. In PowerShell, prefer separate commands with `;` or run each command on its own line.
 
 ## Working Effectively - Build Commands
 
-**NEVER CANCEL builds or tests - all timing below includes 50% safety buffer:**
+**NEVER CANCEL builds or tests - timings can vary by operating system and all timeout guidance below includes a safety buffer:**
 
 ### Basic Operations (VALIDATED)
-- **Basic build only**: `./build.sh --target=DotNetCore-Build` 
-  - Time: 3.5 minutes - NEVER CANCEL, set timeout to 10+ minutes
-- **Create NuGet packages**: `./build.sh --target=Create-NuGet-Packages`
+- **Basic build only**:
+  - Linux/macOS: `./build.sh --target=DotNet-Build`
+  - Windows PowerShell: `.\build.ps1 --target=DotNet-Build`
+  - Time: 3.5 minutes on Linux/macOS, about 10.5 minutes on Windows - NEVER CANCEL, set timeout to 15+ minutes
+- **Create NuGet packages**:
+  - Linux/macOS: `./build.sh --target=Create-NuGet-Packages`
+  - Windows PowerShell: `.\build.ps1 --target=Create-NuGet-Packages`
   - Time: 2 minutes - NEVER CANCEL, set timeout to 5+ minutes  
-- **Run unit tests**: `./build.sh --target=Test`
+- **Run unit tests**:
+  - Linux/macOS: `./build.sh --target=Test`
+  - Windows PowerShell: `.\build.ps1 --target=Test`
   - Time: 3 minutes - NEVER CANCEL, set timeout to 10+ minutes
-- **Full CI build**: `./build.sh` (build + test + package + issues analysis)
+- **Full CI build** (build + test + package + issues analysis):
+  - Linux/macOS: `./build.sh`
+  - Windows PowerShell: `.\build.ps1`
   - Time: 4 minutes - NEVER CANCEL, set timeout to 15+ minutes
 
 ### Integration Tests (VALIDATED)
 **CRITICAL**: Must create packages FIRST before running integration tests:
-1. `./build.sh --target=Create-NuGet-Packages` (2 minutes)
-2. `cd tests/<ADDIN-NAME>/<RUNNER>/<TFM> && ./build.sh --verbosity=diagnostic` (15 seconds per test)
+1. Create local NuGet packages (2 minutes):
+   - Linux/macOS: `./build.sh --target=Create-NuGet-Packages`
+   - Windows PowerShell: `.\build.ps1 --target=Create-NuGet-Packages`
+2. Run the integration test from the selected test directory (15 seconds per test):
+   - Linux/macOS: `cd tests/<ADDIN-NAME>/<RUNNER>/<TFM> && ./build.sh --verbosity=diagnostic`
+   - Windows PowerShell: `Push-Location tests\<ADDIN-NAME>\<RUNNER>\<TFM>; .\build.ps1 --verbosity=diagnostic; Pop-Location`
 
 ### Documentation (VALIDATED)
-- Install dependencies: `cd docs && pip install -r requirements.txt` (48 seconds)
-- **Development server**: `cd docs && mkdocs serve` (builds in ~10 seconds, serves on http://127.0.0.1:8000)
-- **Build static site**: `cd docs && mkdocs build --site-dir ../BuildArtifacts/temp/_PublishedDocumentation` (10 seconds)
-- **Builds and serves documentation**: `./build.sh --target=website` (builds and serves documentation)
+- Install dependencies:
+  - Linux/macOS: `cd docs && pip install -r requirements.txt` (48 seconds)
+  - Windows PowerShell: `Push-Location docs; pip install -r requirements.txt; Pop-Location`
+- **Development server** (builds in ~10 seconds, serves on http://127.0.0.1:8000):
+  - Linux/macOS: `cd docs && mkdocs serve`
+  - Windows PowerShell: `Push-Location docs; mkdocs serve; Pop-Location`
+- **Build static site** (10 seconds):
+  - Linux/macOS: `cd docs && mkdocs build --site-dir ../BuildArtifacts/temp/_PublishedDocumentation`
+  - Windows PowerShell: `Push-Location docs; mkdocs build --site-dir ..\BuildArtifacts\temp\_PublishedDocumentation; Pop-Location`
+- **Builds and serves documentation**:
+  - Linux/macOS: `./build.sh --target=website`
+  - Windows PowerShell: `.\build.ps1 --target=website`
 
 ### Debug Output
 Add `--verbosity=diagnostic` to any build command for detailed output.
@@ -47,17 +82,17 @@ Add `--verbosity=diagnostic` to any build command for detailed output.
 **ALWAYS run these validation steps after making changes:**
 
 ### Basic Validation Workflow
-1. **Clean build**: `./build.sh --target=DotNetCore-Build` (3.5 min)
-2. **Unit tests**: `./build.sh --target=Test` (3 min) 
-3. **Package creation**: `./build.sh --target=Create-NuGet-Packages` (2 min)
+1. **Clean build**: `./build.sh --target=DotNet-Build` or `.\build.ps1 --target=DotNet-Build` (3.5 min on Linux/macOS, about 10.5 min on Windows)
+2. **Unit tests**: `./build.sh --target=Test` or `.\build.ps1 --target=Test` (3 min)
+3. **Package creation**: `./build.sh --target=Create-NuGet-Packages` or `.\build.ps1 --target=Create-NuGet-Packages` (2 min)
 4. **Integration test**: Pick one from `tests/` and run it (15 sec)
-5. **Full CI check**: `./build.sh` (4 min)
+5. **Full CI check**: `./build.sh` or `.\build.ps1` (4 min on Linux/macOS; at least 10.5 min on Windows)
 
 ### Before Committing Code
 - Ensure no warning or error messages from Roslyn analyzers are present
-- Ensure Unit Tests are passing: `./build.sh --target=Test`
+- Ensure Unit Tests are passing: `./build.sh --target=Test` or `.\build.ps1 --target=Test`
 - Ensure Integration Tests for affected addins are passing
-- Run full build: `./build.sh` to catch any issues
+- Run full build: `./build.sh` or `.\build.ps1` to catch any issues
 
 ## Repository Structure
 
@@ -68,7 +103,7 @@ Add `--verbosity=diagnostic` to any build command for detailed output.
 - Use consistent naming: `Cake.Issues.*` for main addins
 - Each addin has corresponding `.Tests` project
 - **Important files**:
-  - `src/global.json` - specifies .NET 9 SDK requirement
+  - `src/global.json` - specifies .NET 10 SDK requirement
   - `src/Cake.Issues.slnx` - main solution file
   - `src/Cake.Issues.Testing/` - shared testing utilities
   - `src/Cake.Issues.Testing/IssueChecker.cs` - use for comparing issues in tests
@@ -80,9 +115,9 @@ Add `--verbosity=diagnostic` to any build command for detailed output.
 
 ### Integration Tests (`tests/`)
 - Each addin has subdirectory with integration tests
-- Structure: `tests/<ADDIN-NAME>/script-runner/net8.0` and `net9.0`
+- Structure: `tests/<ADDIN-NAME>/script-runner/<TFM>` on Linux/macOS or `tests\<ADDIN-NAME>\script-runner\<TFM>` on Windows, where `<TFM>` is the target framework folder used by the selected integration test (for example, `net8.0`, `net9.0`, or `net10.0`)
 - Some addins also have `frosting/` subdirectories
-- **CRITICAL**: Run `./build.sh --target=Create-NuGet-Packages` first to create local packages
+- **CRITICAL**: Run `./build.sh --target=Create-NuGet-Packages` or `.\build.ps1 --target=Create-NuGet-Packages` first to create local packages
 
 ### Documentation (`docs/`)
 - Uses Material for MkDocs (Python-based)
@@ -108,23 +143,23 @@ Add `--verbosity=diagnostic` to any build command for detailed output.
 **Cake.Recipe powered build system:**
 - `recipe.cake` - main build configuration
 - `build.sh` - entry point script (calls dotnet cake)
-- `.config/dotnet-tools.json` - specifies Cake Tool 1.3.0
+- `.config/dotnet-tools.json` - specifies Cake Tool 3.2.0
 - Uses GitVersion for semantic versioning
 
 ## Common Issues and Troubleshooting
 
 ### Build Issues
 - **"Tool not found"**: Run `dotnet tool restore` first
-- **Package not found**: Ensure NuGet packages created with `./build.sh --target=Create-NuGet-Packages`
+- **Package not found**: Ensure NuGet packages created with `./build.sh --target=Create-NuGet-Packages` or `.\build.ps1 --target=Create-NuGet-Packages`
 - **GitVersion errors**: Ensure you're in git repository with proper remotes
 
 ### Integration Test Issues  
-- **Package version mismatch**: Delete `~/.nuget/packages/cake.issues*` and rebuild packages
-- **Test failures**: Check that you're using correct .NET target framework (net8.0 or net9.0)
-- **Permission denied**: Some integration test `build.sh` files may need `chmod +x build.sh` to make executable
+- **Package version mismatch**: Delete `~/.nuget/packages/cake.issues*` on Linux/macOS or `$env:USERPROFILE\.nuget\packages\cake.issues*` on Windows, then rebuild packages
+- **Test failures**: Check that you're using the correct .NET target framework folder for the selected integration test
+- **Permission denied**: On Linux/macOS, some integration test `build.sh` files may need `chmod +x build.sh` to make executable
 
 ### Website Issues
-- **mkdocs not found**: Install with `cd docs && pip install -r requirements.txt`
+- **mkdocs not found**: Install with `cd docs && pip install -r requirements.txt` on Linux/macOS or `Push-Location docs; pip install -r requirements.txt; Pop-Location` on Windows PowerShell
 
 ## Key Guidelines
 
@@ -144,8 +179,8 @@ Add `--verbosity=diagnostic` to any build command for detailed output.
 # Setup (run once)
 dotnet tool restore
 
-# Development cycle (run these in order)
-./build.sh --target=DotNetCore-Build          # 3.5 min - build only
+# Linux/macOS development cycle (run these in order)
+./build.sh --target=DotNet-Build              # 3.5 min - build only
 ./build.sh --target=Test                      # 3 min   - run tests  
 ./build.sh --target=Create-NuGet-Packages     # 2 min   - create packages
 
@@ -160,6 +195,29 @@ cd tests/Cake.Issues.MsBuild/script-runner/net9.0
 cd docs && pip install -r requirements.txt   # 48 sec  - install deps
 cd docs && mkdocs serve                       # 10 sec  - dev server on http://127.0.0.1:8000
 cd docs && mkdocs build                       # 10 sec  - build static site
+```
+
+```powershell
+# Setup (run once)
+dotnet tool restore
+
+# Windows PowerShell development cycle (run these in order)
+.\build.ps1 --target=DotNet-Build              # ~10.5 min - build only
+.\build.ps1 --target=Test                      # 3 min   - run tests
+.\build.ps1 --target=Create-NuGet-Packages     # 2 min   - create packages
+
+# Integration testing (after packages created)
+Push-Location tests\Cake.Issues.MsBuild\script-runner\net9.0
+.\build.ps1 --verbosity=diagnostic             # 15 sec  - test specific addin
+Pop-Location
+
+# Full validation
+.\build.ps1                                    # 4 min   - complete CI build
+
+# Documentation
+Push-Location docs; pip install -r requirements.txt; Pop-Location   # 48 sec - install deps
+Push-Location docs; mkdocs serve; Pop-Location                      # 10 sec - dev server on http://127.0.0.1:8000
+Push-Location docs; mkdocs build; Pop-Location                      # 10 sec - build static site
 ```
 
 **Remember**: NEVER CANCEL long-running builds. Set timeouts appropriately and wait for completion.
