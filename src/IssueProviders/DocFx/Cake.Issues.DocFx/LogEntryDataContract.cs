@@ -14,6 +14,9 @@ internal class LogEntryDataContract
     public string message_severity;
 
     [DataMember]
+    public string severity;
+
+    [DataMember]
     public string file;
 
     [DataMember]
@@ -24,6 +27,16 @@ internal class LogEntryDataContract
 
     [DataMember]
     public string source;
+
+    [DataMember]
+    public string code;
+
+    public string Severity => this.severity ?? this.message_severity;
+
+    public string Rule =>
+        this.severity != null
+            ? this.code ?? this.source
+            : this.source ?? this.code;
 }
 
 #pragma warning restore SA1310 // Field names must not contain underscore

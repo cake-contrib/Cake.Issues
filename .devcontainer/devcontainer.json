@@ -1,6 +1,6 @@
 {
 	"name": "Website editing",
-	"image": "python:3.14.6-slim-trixie",
+	"image": "python:3.14.7-slim-trixie",
 	"workspaceMount": "source=${localWorkspaceFolder}/docs,target=/docs,type=bind",
 	"workspaceFolder": "/docs",
 

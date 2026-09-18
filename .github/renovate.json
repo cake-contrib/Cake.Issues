@@ -3,6 +3,7 @@
   "extends": [
     "github>cake-contrib/renovate-presets:cake-issues"
   ],
+  "prConcurrentLimit": 0,
   "customManagers": [
     {
       "customType": "regex",
@@ -22,7 +23,8 @@
       ],
       "matchStringsStrategy": "any",
       "matchStrings": [
-        "<dependency\\s+[^>]*?id=\\\"(?<depName>.*?)\\\"\\s+[^>]*?version=\\\"(?<currentValue>.*?)\\\"[^>]*\\/?>"
+        "<dependency\\b[^>]*\\bid=\\\"(?<depName>[^\\\"]+)\\\"[^>]*\\bversion=\\\"(?<currentValue>[^\\[\\(][^\\\"]*)\\\"[^>]*\\/?>",
+        "<dependency\\b[^>]*\\bversion=\\\"(?<currentValue>[^\\[\\(][^\\\"]*)\\\"[^>]*\\bid=\\\"(?<depName>[^\\\"]+)\\\"[^>]*\\/?>"
       ],
       "datasourceTemplate": "nuget",
       "versioningTemplate": "nuget"

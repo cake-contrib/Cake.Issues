@@ -31,6 +31,8 @@ theme:
   name: material
   custom_dir: overrides
   language: en
+  logo: assets/images/logo.svg
+  favicon: assets/images/favicon.svg
   palette:
     # Palette toggle for automatic mode
     - media: "(prefers-color-scheme)"
@@ -79,6 +81,7 @@ extra_javascript:
 extra_css:
   - assets/stylesheets/extra.css
   - assets/stylesheets/styling.css
+  - assets/stylesheets/landing.css
 
 # Plugins
 plugins:
@@ -144,19 +147,19 @@ hooks:
 # Additional configuration
 extra:
   # renovate: datasource=nuget depName=Cake.Tool versioning=loose
-  cake_version: 6.0.0
+  cake_version: 6.2.0
   # renovate: datasource=nuget depName=Cake.AzureDevOps versioning=loose
   cake_azuredevops_version: 5.0.2
   # renovate: datasource=nuget depName=Cake.DocFx versioning=loose
   cake_docfx_version: 1.0.0
   # renovate: datasource=nuget depName=Cake.Issues versioning=loose
-  cake_issues_version: 6.0.0
+  cake_issues_version: 6.1.0
   # renovate: datasource=nuget depName=Cake.Markdownlint versioning=loose
   cake_markdownlint_version: 4.0.0
   # renovate: datasource=nuget depName=Cake.Git versioning=loose
   cake_git_version: 5.0.1
   # renovate: datasource=nuget depName=JetBrains.ReSharper.CommandLineTools versioning=loose
-  resharper_commandlinetool_version: 2025.2.6.1
+  resharper_commandlinetool_version: 2025.2.6.2
   example_tfm: net9.0
   version:
     provider: mike
