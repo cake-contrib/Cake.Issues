@@ -23,5 +23,14 @@ stages:
       - bash: sudo apt-get install mono-complete
         condition: eq(variables['imageName'], 'ubuntu-24.04')
         displayName: 'Install Mono'
+      # Pull request builds check out the merge commit in a detached HEAD state with no local branch
+      # pointing at it. This forces GitVersion to look up the pull request ref over the network using
+      # LibGit2Sharp, which intermittently fails with "LibGit2Sharp.LibGit2SharpException: this remote
+      # has never connected" (most frequently observed on Ubuntu agents). Creating a local branch for
+      # the pull request's source branch avoids that code path entirely, matching what the GitHub
+      # Actions unit tests workflow already does.
+      - bash: git checkout -b "${SYSTEM_PULLREQUEST_SOURCEBRANCH#refs/heads/}"
+        condition: eq(variables['Build.Reason'], 'PullRequest')
+        displayName: 'Create local branch for GitVersion'
       - bash: ./build.sh --target=Test
         displayName: 'Run Unit Tests'
