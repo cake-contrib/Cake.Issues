@@ -1,11 +1,7 @@
 #!/bin/bash
-SCRIPT_NAME="recipe.cake"
+set -e
 
-echo "Restoring .NET Core tools"
-dotnet tool restore
-
-echo "Bootstrapping Cake"
-dotnet cake $SCRIPT_NAME --bootstrap
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 echo "Running Build"
-dotnet cake $SCRIPT_NAME "$@"
+dotnet run --project "$SCRIPT_DIR/build/Build.csproj" -- "$@"
