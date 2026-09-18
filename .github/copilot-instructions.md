@@ -98,6 +98,10 @@ Add `--verbosity=diagnostic` to any build command for detailed output.
 
 ### Pull Requests
 - Create or update pull request descriptions using a Markdown body file instead of inline shell text, and verify the resulting description renders backticks, newlines, and lists correctly
+- Copilot code reviews are enabled for this repository.
+- After creating a pull request, monitor build status and Copilot code review comments in parallel.
+- Analyze any Copilot code review comments and fix them when the suggested change makes sense.
+- Always reply to Copilot code review comments. If a comment is addressed with a fix, resolve the comment after posting the reply.
 
 ## Build System Details
 
