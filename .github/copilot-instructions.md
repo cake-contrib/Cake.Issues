@@ -96,6 +96,9 @@ Add `--verbosity=diagnostic` to any build command for detailed output.
 - `azure-pipelines.yml` - main Azure pipeline file
 - When changing any CI pipeline or workflow, update `CiStatus.md` to keep its build matrices and status badges in sync
 
+### Pull Requests
+- Create or update pull request descriptions using a Markdown body file instead of inline shell text, and verify the resulting description renders backticks, newlines, and lists correctly
+
 ## Build System Details
 
 **Cake.Recipe powered build system:**
