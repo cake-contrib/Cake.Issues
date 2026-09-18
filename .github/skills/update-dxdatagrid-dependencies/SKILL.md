@@ -57,22 +57,27 @@ The source files are:
 7. When updating an existing pull request, query the pull request metadata
    before fetching or pushing:
    ```powershell
-   gh pr view <number> --repo <owner/repo> `
-     --json baseRefName,headRefName,headRepository,headRepositoryOwner
+   gh api "repos/<owner>/<repo>/pulls/<number>" --jq '{
+     baseRepository: .base.repo.full_name,
+     baseRefName: .base.ref,
+     headRepository: .head.repo.full_name,
+     headRefName: .head.ref
+   }'
    ```
-   Identify the Git remote whose repository matches
-   `headRepository.nameWithOwner`; do not infer it from remote names such as
-   `origin` or `upstream`. Remote names and ownership differ between local
-   clones, forks, worktrees, and hosted agent environments. If no configured
-   remote matches, add or use an explicit remote for the reported head
+   Identify the Git remotes whose repositories match `baseRepository` and
+   `headRepository`; do not infer them from remote names such as `origin` or
+   `upstream`. Remote names and ownership differ between local clones, forks,
+   worktrees, and hosted agent environments. If no configured remote matches
+   either repository, add or use an explicit remote for the reported
    repository.
 8. Update the pull request branch from the reported `baseRefName`, integrate
-   the source and generated changes, and push to the reported `headRefName` on
-   the matching head-repository remote. After pushing, verify the pull request
-   itself rather than relying on the push output:
+   using the matching base-repository remote, then integrate the source and
+   generated changes and push to the reported `headRefName` on the matching
+   head-repository remote. After pushing, verify the pull request itself rather
+   than relying on the push output:
    ```powershell
-   gh pr view <number> --repo <owner/repo> --json headRefOid,files
-   gh pr diff <number> --repo <owner/repo> --name-only
+   gh pr view <number> --repo <owner/repo> --json headRefOid,files `
+     --jq '{headRefOid: .headRefOid, files: [.files[].path]}'
    ```
    The pull request must list the Razor template, option documentation, and
    expected regenerated HTML. A successful push to a same-named branch in a
