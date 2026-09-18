@@ -256,7 +256,7 @@
         "type": "Project",
         "dependencies": {
           "Cake.Issues": "[1.0.0, )",
-          "MSBuild.StructuredLogger": "[2.3.113, )"
+          "MSBuild.StructuredLogger": "[2.3.246, )"
         }
       },
       "cake.issues.testing": {
@@ -283,9 +283,9 @@
       },
       "MSBuild.StructuredLogger": {
         "type": "CentralTransitive",
-        "requested": "[2.3.113, )",
-        "resolved": "2.3.113",
-        "contentHash": "pk0ITa0QfLwtj3mL5ItePF7WrupsCUfp6PHwMwVT9MmrPlUYTNUEvTkqrMyS15SuUG8Xw+PqgZ0DUKrYXR4Jhg==",
+        "requested": "[2.3.246, )",
+        "resolved": "2.3.246",
+        "contentHash": "W7sQrvBS9KzipO7TuL35RsahjDIWxjieK1x9SasTHcu8jbTUyUSxPxnwmt5I19WyMvytatI0TqpL3xF4XL9mhw==",
         "dependencies": {
           "Microsoft.Build.Framework": "17.5.0",
           "Microsoft.Build.Utilities.Core": "17.5.0"
@@ -547,7 +547,7 @@
         "type": "Project",
         "dependencies": {
           "Cake.Issues": "[1.0.0, )",
-          "MSBuild.StructuredLogger": "[2.3.113, )"
+          "MSBuild.StructuredLogger": "[2.3.246, )"
         }
       },
       "cake.issues.testing": {
@@ -574,9 +574,9 @@
       },
       "MSBuild.StructuredLogger": {
         "type": "CentralTransitive",
-        "requested": "[2.3.113, )",
-        "resolved": "2.3.113",
-        "contentHash": "pk0ITa0QfLwtj3mL5ItePF7WrupsCUfp6PHwMwVT9MmrPlUYTNUEvTkqrMyS15SuUG8Xw+PqgZ0DUKrYXR4Jhg==",
+        "requested": "[2.3.246, )",
+        "resolved": "2.3.246",
+        "contentHash": "W7sQrvBS9KzipO7TuL35RsahjDIWxjieK1x9SasTHcu8jbTUyUSxPxnwmt5I19WyMvytatI0TqpL3xF4XL9mhw==",
         "dependencies": {
           "Microsoft.Build.Framework": "17.5.0",
           "Microsoft.Build.Utilities.Core": "17.5.0"
@@ -838,7 +838,7 @@
         "type": "Project",
         "dependencies": {
           "Cake.Issues": "[1.0.0, )",
-          "MSBuild.StructuredLogger": "[2.3.113, )"
+          "MSBuild.StructuredLogger": "[2.3.246, )"
         }
       },
       "cake.issues.testing": {
@@ -865,9 +865,9 @@
       },
       "MSBuild.StructuredLogger": {
         "type": "CentralTransitive",
-        "requested": "[2.3.113, )",
-        "resolved": "2.3.113",
-        "contentHash": "pk0ITa0QfLwtj3mL5ItePF7WrupsCUfp6PHwMwVT9MmrPlUYTNUEvTkqrMyS15SuUG8Xw+PqgZ0DUKrYXR4Jhg==",
+        "requested": "[2.3.246, )",
+        "resolved": "2.3.246",
+        "contentHash": "W7sQrvBS9KzipO7TuL35RsahjDIWxjieK1x9SasTHcu8jbTUyUSxPxnwmt5I19WyMvytatI0TqpL3xF4XL9mhw==",
         "dependencies": {
           "Microsoft.Build.Framework": "17.5.0",
           "Microsoft.Build.Utilities.Core": "17.5.0"
