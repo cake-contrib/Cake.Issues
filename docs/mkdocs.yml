@@ -32,7 +32,7 @@ theme:
   custom_dir: overrides
   language: en
   logo: assets/images/logo.svg
-  favicon: assets/images/logo.svg
+  favicon: assets/images/favicon.svg
   palette:
     # Palette toggle for automatic mode
     - media: "(prefers-color-scheme)"
