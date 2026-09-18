@@ -8,7 +8,33 @@ search:
 title: Home
 ---
 
-Extensive and flexible solution for processing output of linters and other tools using [Cake build system](https://cakebuild.net).
+## How Cake Issues works
+
+<!-- markdownlint-disable-next-line MD033 -->
+<div class="mdx-steps" markdown>
+
+1.  ### Read issues
+
+    Import one or more [issue provider] addins to read warnings and errors from your linters and
+    static analyzers into a common [IIssue](https://cakebuild.net/api/Cake.Issues/IIssue/) format.
+
+2.  ### Create reports
+
+    Turn the collected issues into feature rich HTML reports, SARIF standard compatible reports or
+    console output using a [report format] addin.
+
+3.  ### Report to pull requests & builds
+
+    Post the issues as comments to your pull requests or annotate your build runs using a
+    [pull request system] or [build server] addin, giving developers instant feedback.
+
+<!-- markdownlint-restore -->
+</div>
+
+[issue provider]: documentation/issue-providers/index.md
+[report format]: documentation/report-formats/index.md
+[pull request system]: documentation/pull-request-systems/index.md
+[build server]: documentation/build-servers/index.md
 
 ## Why use Cake Issues?
 
@@ -80,3 +106,16 @@ Extensive and flexible solution for processing output of linters and other tools
 
 </div>
 <!-- markdownlint-restore -->
+
+<!-- markdownlint-disable-next-line MD033 -->
+<div class="mdx-cta" markdown>
+
+## Ready to get started?
+
+Add issue management to your Cake build in a few minutes with the ready-to-use
+[Recipe packages](documentation/usage/recipe/index.md), or pick individual addins for full control.
+
+[Get Started](documentation/usage/index.md){ .md-button .md-button--primary }
+[View on GitHub](https://github.com/cake-contrib/Cake.Issues){ .md-button }
+
+</div>
