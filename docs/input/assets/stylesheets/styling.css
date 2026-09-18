@@ -3,6 +3,22 @@
   --base-border-radius: 0.5rem;
 }
 
+/* Biel.ai widget: follow the active Material color palette.
+   Declared on `body`, as Material sets its palette variables there. */
+body {
+  --biel-primary-color: var(--md-primary-fg-color);
+  --biel-primary-light-color: var(--md-primary-fg-color--light);
+  --biel-primary-hover-color: var(--md-accent-fg-color);
+  --biel-button-dark-text-color: var(--md-primary-bg-color);
+  --biel-button-light-text-color: var(--md-primary-fg-color);
+  --biel-font-family: var(--md-text-font-family, "Roboto"), sans-serif;
+  --biel-code-snippet-font-family: var(--md-code-font-family, "Roboto Mono"), monospace;
+  --biel-button-border-radius: var(--base-border-radius);
+  --biel-radius-sm: var(--base-border-radius);
+  --biel-radius-md: var(--base-border-radius);
+  --biel-bot-content-border-radius: var(--base-border-radius);
+}
+
 /* Change font family of filename present on top of code block. */
 .highlight {
   margin-top: 15px;

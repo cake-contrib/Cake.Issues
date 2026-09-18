@@ -31,6 +31,8 @@ theme:
   name: material
   custom_dir: overrides
   language: en
+  logo: assets/images/logo.svg
+  favicon: assets/images/favicon.svg
   palette:
     # Palette toggle for automatic mode
     - media: "(prefers-color-scheme)"
@@ -79,6 +81,7 @@ extra_javascript:
 extra_css:
   - assets/stylesheets/extra.css
   - assets/stylesheets/styling.css
+  - assets/stylesheets/landing.css
 
 # Plugins
 plugins:

@@ -8,13 +8,43 @@ search:
 title: Home
 ---
 
-Extensive and flexible solution for processing output of linters and other tools using [Cake build system](https://cakebuild.net).
+## How Cake Issues works
+
+<!-- markdownlint-disable MD030 -->
+<!-- markdownlint-disable-next-line MD033 -->
+<div class="mdx-steps" markdown>
+
+1.  ### Read issues
+
+    Import one or more [issue provider] addins to read warnings and errors from your linters and
+    static analyzers into a common [IIssue](https://cakebuild.net/api/Cake.Issues/IIssue/) format.
+
+2.  ### Create reports
+
+    Turn the collected issues into feature rich HTML reports, SARIF standard compatible reports or
+    console output using a [report format] addin.
+
+3.  ### Report to pull requests & builds
+
+    Post the issues as comments to your pull requests using a [pull request system] addin, or
+    annotate your build runs using a [build server] addin. There's out of the box support for
+    [Azure DevOps](documentation/pull-request-systems/azure-devops/index.md),
+    [GitHub Actions](documentation/build-servers/github-actions/index.md) and
+    [AppVeyor](documentation/build-servers/appveyor/index.md).
+
+<!-- markdownlint-restore -->
+</div>
+
+[issue provider]: documentation/issue-providers/index.md
+[report format]: documentation/report-formats/index.md
+[pull request system]: documentation/pull-request-systems/index.md
+[build server]: documentation/build-servers/index.md
 
 ## Why use Cake Issues?
 
 <!-- markdownlint-disable MD030 -->
 <!-- markdownlint-disable-next-line MD033 -->
-<div class="grid cards" markdown>
+<div class="grid cards mdx-why" markdown>
 
 *   :material-globe-model:{ .lg .middle } **Rich ecosystem**
 
@@ -26,38 +56,15 @@ Extensive and flexible solution for processing output of linters and other tools
 
     [:octicons-arrow-right-24: Reference](https://cakebuild.net/extensions/cake-issues/)
 
-*   :material-wrench:{ .lg .middle } **Supports your tooling**
+*   :material-wrench:{ .lg .middle } **One format for every tool**
 
     ---
 
-    Read issues from different analyzers, linters or tools.
-    The growing range of out-of-the-box supported tools include support for
-    .NET, Java, TypeScript, Infrastructure As Code or security tools.
+    Every supported analyzer, linter or tool is read into the same issue format.
+    Filtering, reporting and pull request integration work the same way, no matter
+    which tools your project uses.
 
     [:octicons-arrow-right-24: Supported Tools](documentation/supported-tools.md)
-
-*   :material-eye:{ .lg .middle } **Pull request and build workflow integration**
-
-    ---
-
-    Issues found on a feature branch can be reported to pull requests or build runs giving developers
-    instant and direct feedback.
-    There's out of the box support for [Azure DevOps](documentation/pull-request-systems/azure-devops/index.md),
-    [GitHub Actions](documentation/build-servers/github-actions/index.md) and
-    [AppVeyor](documentation/build-servers/appveyor/index.md).
-
-    [:octicons-arrow-right-24: Pull Request Systems](documentation/pull-request-systems/index.md)
-    [:octicons-arrow-right-24: Build Servers](documentation/build-servers/index.md)
-
-*   :material-monitor-dashboard:{ .lg .middle } **Reporting**
-
-    ---
-
-    Cake Issues provides aliases to create reports from the parsed issues.
-    There are addins to create feature rich HTML reports, SARIF standard compatible reports or to
-    report issues to the console.
-
-    [:octicons-arrow-right-24: Report Formats](documentation/report-formats/index.md)
 
 *   :material-table:{ .lg .middle } **Extensible**
 
@@ -80,3 +87,16 @@ Extensive and flexible solution for processing output of linters and other tools
 
 </div>
 <!-- markdownlint-restore -->
+
+<!-- markdownlint-disable-next-line MD033 -->
+<div class="mdx-cta" markdown>
+
+## Ready to get started?
+
+Add issue management to your Cake build in a few minutes with the ready-to-use
+[Recipe packages](documentation/usage/recipe/index.md), or pick individual addins for full control.
+
+[Get Started](documentation/usage/index.md){ .md-button .md-button--primary }
+[View on GitHub](https://github.com/cake-contrib/Cake.Issues){ .md-button }
+
+</div>
