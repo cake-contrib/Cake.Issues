@@ -26,8 +26,9 @@ title: Home
 
 3.  ### Report to pull requests & builds
 
-    Post the issues as comments to your pull requests or annotate your build runs, with out of the
-    box support for [Azure DevOps](documentation/pull-request-systems/azure-devops/index.md),
+    Post the issues as comments to your pull requests using a [pull request system] addin, or
+    annotate your build runs using a [build server] addin. There's out of the box support for
+    [Azure DevOps](documentation/pull-request-systems/azure-devops/index.md),
     [GitHub Actions](documentation/build-servers/github-actions/index.md) and
     [AppVeyor](documentation/build-servers/appveyor/index.md).
 
@@ -36,6 +37,8 @@ title: Home
 
 [issue provider]: documentation/issue-providers/index.md
 [report format]: documentation/report-formats/index.md
+[pull request system]: documentation/pull-request-systems/index.md
+[build server]: documentation/build-servers/index.md
 
 ## Why use Cake Issues?
 

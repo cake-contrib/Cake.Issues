@@ -11,7 +11,10 @@
     <section class="mdx-hero">
         <div class="md-grid md-typeset mdx-hero__grid">
             <div class="mdx-hero__content">
-                <p class="mdx-hero__eyebrow">For the Cake Build Automation System</p>
+                <p class="mdx-hero__eyebrow">
+                    For the
+                    <a href="https://cakebuild.net">Cake Build Automation System</a>
+                </p>
                 <h1>Turn linter &amp; analyzer output into actionable feedback</h1>
                 <p class="mdx-hero__lead">
                     Cake Issues reads, filters and reports issues from your linters and static
@@ -64,13 +67,20 @@
                     "Azure DevOps": "material/microsoft-azure-devops",
                     "AppVeyor": "simple/appveyor"
                 }.items() %}
-                    <li title="{{ name }}">{% include ".icons/" ~ icon ~ ".svg" %}</li>
+                    <li title="{{ name }}">
+                        <span class="mdx-tech-strip__icon" aria-hidden="true">
+                            {%- include ".icons/" ~ icon ~ ".svg" -%}
+                        </span>
+                        <span class="mdx-sr-only">{{ name }}</span>
+                    </li>
                 {% endfor %}
             </ul>
             <p class="mdx-tech-strip__more">
                 <a href="{{ 'documentation/supported-tools/' | url }}">
                     See all supported tools
-                    {% include ".icons/octicons/arrow-right-24.svg" %}
+                    <span class="mdx-tech-strip__arrow" aria-hidden="true">
+                        {%- include ".icons/octicons/arrow-right-24.svg" -%}
+                    </span>
                 </a>
             </p>
         </div>

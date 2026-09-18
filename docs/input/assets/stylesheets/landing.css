@@ -1,6 +1,23 @@
 /* Landing page: hero, tech strip, how-it-works and call-to-action styling */
 
 /* ----------------------------------------------------------------------- */
+/* Utilities                                                                */
+/* ----------------------------------------------------------------------- */
+
+/* Visible to screen readers only, used to label icon-only content. */
+.mdx-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ----------------------------------------------------------------------- */
 /* Hero                                                                     */
 /* ----------------------------------------------------------------------- */
 
@@ -40,6 +57,21 @@
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+
+.md-typeset .mdx-hero__eyebrow a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: hsla(0, 0%, 100%, 0.45);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25em;
+  transition: color 125ms, text-decoration-color 125ms;
+}
+
+.md-typeset .mdx-hero__eyebrow a:hover,
+.md-typeset .mdx-hero__eyebrow a:focus {
+  color: var(--md-accent-bg-color);
+  text-decoration-color: currentcolor;
 }
 
 .md-typeset .mdx-hero__content h1 {
@@ -196,6 +228,10 @@
   color: var(--md-accent-fg-color);
 }
 
+.mdx-tech-strip__icon {
+  display: flex;
+}
+
 .mdx-tech-strip__list svg {
   width: 1.8rem;
   height: 1.8rem;
@@ -207,7 +243,7 @@
   font-size: 0.75rem;
 }
 
-.mdx-tech-strip__more svg {
+.mdx-tech-strip__arrow svg {
   width: 0.9rem;
   height: 0.9rem;
   vertical-align: -0.1rem;
