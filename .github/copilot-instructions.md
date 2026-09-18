@@ -86,7 +86,7 @@ Add `--verbosity=diagnostic` to any build command for detailed output.
 2. **Unit tests**: `./build.sh --target=Test` or `.\build.ps1 --target=Test` (3 min)
 3. **Package creation**: `./build.sh --target=Create-NuGet-Packages` or `.\build.ps1 --target=Create-NuGet-Packages` (2 min)
 4. **Integration test**: Pick one from `tests/` and run it (15 sec)
-5. **Full CI check**: `./build.sh` or `.\build.ps1` (4 min)
+5. **Full CI check**: `./build.sh` or `.\build.ps1` (4 min on Linux/macOS; at least 10.5 min on Windows)
 
 ### Before Committing Code
 - Ensure no warning or error messages from Roslyn analyzers are present
