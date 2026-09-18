@@ -114,7 +114,7 @@ After making changes:
 2. Review the effective low and high boundary coverage for each affected integration-test runner.
 3. Verify all referenced local actions, templates, working directories, and workflow files exist.
 4. Run `git diff --check`.
-5. Run the repository's mandatory validation workflow from `.github/copilot-instructions.md` ("Validation Scenarios"): clean build, unit tests, package creation, an integration test for each affected addin, and the full CI check. Do not substitute a smaller subset of these commands for a pipeline change.
+5. Run the smallest existing build or test command that exercises the changed pipeline behavior. For broad shared setup changes, run the full CI build described in `copilot-instructions.md`.
 6. If GitHub Actions YAML changed, inspect the workflow diff for valid expressions, indentation, triggers, and pinned action SHAs.
 7. If Azure Pipelines YAML changed, verify template paths, parameters, stage dependencies, matrix keys, and image-specific conditions.
 8. If AppVeyor changed, verify PowerShell quoting, SDK installation order, image selection, and branch filters.
