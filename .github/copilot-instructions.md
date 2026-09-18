@@ -98,6 +98,8 @@ Add `--verbosity=diagnostic` to any build command for detailed output.
 
 ### Pull Requests
 - Create or update pull request descriptions using a Markdown body file instead of inline shell text, and verify the resulting description renders backticks, newlines, and lists correctly
+- When PR descriptions, comments, or tool-call JSON contain Windows paths or commands with backslashes, avoid accidental escape sequences such as `\b`, `\t`, `\n`, `\r`, `\f`, or `\u`. Escape backslashes as `\\`, construct them in the shell, or use `/` where the target tool accepts it.
+- After creating or updating a PR description that includes Windows paths or commands, verify the stored body does not contain control characters or U+FFFD replacement characters.
 - Copilot code reviews are enabled for this repository.
 - After creating a pull request, monitor build status and Copilot code review comments in parallel.
 - Analyze any Copilot code review comments and fix them when the suggested change makes sense.
