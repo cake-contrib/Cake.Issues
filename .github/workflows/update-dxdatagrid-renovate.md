@@ -23,6 +23,7 @@ checkout:
   fetch-depth: 0
 runtimes:
   dotnet:
+    # .NET 5 is required by GitVersion during package creation.
     version: |
       5.x
       8.x
