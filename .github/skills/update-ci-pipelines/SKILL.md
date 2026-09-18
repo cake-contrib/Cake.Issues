@@ -68,15 +68,16 @@ For third-party GitHub Actions, follow the repository convention of pinning the 
 When adding, updating, or removing a supported TFM or SDK:
 
 1. Update the product TFM source of truth and `src/global.json` when they are part of the requested change.
-2. Update or add Azure SDK installation step templates and wire them through the shared installer.
+2. Update or add Azure SDK installation step templates (`.azuredevops/pipelines/templates/steps/install-net<major>.yml`) and wire them through the shared installer used by build and unit-test stages.
 3. Update GitHub Actions SDK installation lists for build and unit-test jobs.
 4. Update integration-test `dotnet` matrices only with SDK versions that represent supported product TFMs with an existing `tests/<addin>/.../<tfm>` directory. Do not add tool-only SDK versions (for example .NET 5 for Codecov or .NET 7 for Cake.Recipe) to these matrices: `.github/actions/prepare-integration-test` derives `TFM=net<major>.0` from the matrix value and would target a non-existent test directory.
-5. Update AppVeyor SDK installation commands.
-6. Confirm `.github/actions/prepare-integration-test` derives the expected TFM from each SDK matrix value you add or change.
-7. Update integration-test working directories only when the corresponding directories exist below `tests/`.
-8. Keep template names, comments, display names, and installed versions consistent.
-9. Search the repository for the old and new version strings to find package metadata, examples, documentation, and pipeline references that must stay aligned.
-10. Remove obsolete SDK setup only after confirming no build tool, target framework, or test runner still requires it.
+5. Each Azure integration-test stage template under `.azuredevops/pipelines/templates/stages/integration-tests-*.yml` hard-codes both a single `template: ../steps/install-net<major>.yml` step and a matching `tests/<addin>/.../<tfm>` working directory rather than reading from a matrix or the shared build installer. When the tested TFM boundary changes, update both the referenced install template and the working directory together in every affected stage file.
+6. Update AppVeyor SDK installation commands.
+7. Confirm `.github/actions/prepare-integration-test` derives the expected TFM from each SDK matrix value you add or change.
+8. Update integration-test working directories only when the corresponding directories exist below `tests/`.
+9. Keep template names, comments, display names, and installed versions consistent.
+10. Search the repository for the old and new version strings to find package metadata, examples, documentation, and pipeline references that must stay aligned.
+11. Remove obsolete SDK setup only after confirming no build tool, target framework, or test runner still requires it.
 
 ## Update build images
 
@@ -113,7 +114,7 @@ After making changes:
 2. Review the effective low and high boundary coverage for each affected integration-test runner.
 3. Verify all referenced local actions, templates, working directories, and workflow files exist.
 4. Run `git diff --check`.
-5. Run the smallest existing build or test command that exercises the changed pipeline behavior. For broad shared setup changes, run the full CI build described in `copilot-instructions.md`.
+5. Run the repository's mandatory validation workflow from `.github/copilot-instructions.md` ("Validation Scenarios"): clean build, unit tests, package creation, an integration test for each affected addin, and the full CI check. Do not substitute a smaller subset of these commands for a pipeline change.
 6. If GitHub Actions YAML changed, inspect the workflow diff for valid expressions, indentation, triggers, and pinned action SHAs.
 7. If Azure Pipelines YAML changed, verify template paths, parameters, stage dependencies, matrix keys, and image-specific conditions.
 8. If AppVeyor changed, verify PowerShell quoting, SDK installation order, image selection, and branch filters.
