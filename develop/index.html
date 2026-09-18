@@ -19,7 +19,7 @@
         
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="assets/images/favicon.svg">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
@@ -53,6 +53,8 @@
       <link rel="stylesheet" href="assets/stylesheets/extra.css">
     
       <link rel="stylesheet" href="assets/stylesheets/styling.css">
+    
+      <link rel="stylesheet" href="assets/stylesheets/landing.css">
     
       <link rel="stylesheet" href="css/drawio-darkmode.css">
     
@@ -108,7 +110,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#why-use-cake-issues" class="md-skip">
+        <a href="#how-cake-issues-works" class="md-skip">
           Skip to content
         </a>
       
@@ -142,8 +144,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="." title="Cake Issues" class="md-header__button md-logo" aria-label="Cake Issues" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+  <img src="assets/images/logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -394,8 +395,128 @@
     <div class="md-container" data-md-component="container">
       
       
+    
         
       
+
+    <section class="mdx-hero">
+        <div class="md-grid md-typeset mdx-hero__grid">
+            <div class="mdx-hero__content">
+                <p class="mdx-hero__eyebrow">
+                    For the
+                    <a href="https://cakebuild.net">Cake Build Automation System</a>
+                </p>
+                <h1>Turn linter &amp; analyzer output into actionable feedback</h1>
+                <p class="mdx-hero__lead">
+                    Cake Issues reads, filters and reports issues from your linters and static
+                    analyzers, and posts them straight to your pull requests and build logs —
+                    right from your Cake build.
+                </p>
+                <p class="mdx-hero__actions">
+                    <a href="documentation/usage/" class="md-button md-button--primary">
+                        Get Started
+                    </a>
+                    <a href="https://github.com/cake-contrib/Cake.Issues" class="md-button">
+                        View on GitHub
+                    </a>
+                </p>
+                <ul class="mdx-hero__stats">
+                    <li><strong>15+</strong><span>Modular addins</span></li>
+                    <li><strong>80+</strong><span>Supported tools</span></li>
+                    <li><strong>75+</strong><span>Cake aliases</span></li>
+                </ul>
+            </div>
+            <div class="mdx-hero__image">
+                <img src="assets/images/hero-illustration.svg" alt="Cake Issues reads issues from a linter and reports them to a pull request" width="640" height="480" draggable="false">
+            </div>
+        </div>
+    </section>
+
+    <section class="mdx-tech-strip">
+        <div class="md-grid md-typeset">
+            <p class="mdx-tech-strip__label">Works with the tools you already use</p>
+            <ul class="mdx-tech-strip__list">
+                
+                    <li title=".NET">
+                        <span class="mdx-tech-strip__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 8.77h-2.468v7.565h-1.425V8.77h-2.462V7.53H24zm-6.852 7.565h-4.821V7.53h4.63v1.24h-3.205v2.494h2.953v1.234h-2.953v2.604h3.396zm-6.708 0H8.882L4.78 9.863a3 3 0 0 1-.258-.51h-.036q.048.283.048 1.21v5.772H3.157V7.53h1.659l3.965 6.32q.25.392.323.54h.024q-.06-.35-.06-1.185V7.529h1.372zm-8.703-.693a.868.829 0 0 1-.869.829.868.829 0 0 1-.868-.83.868.829 0 0 1 .868-.828.868.829 0 0 1 .869.829"></path></svg></span>
+                        <span class="mdx-sr-only">.NET</span>
+                    </li>
+                
+                    <li title="Java">
+                        <span class="mdx-tech-strip__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.915 0 11.7.215C9.515 2.4 7.47 6.39 6.046 10.483c-1.064 1.024-3.633 2.81-3.711 3.551-.093.87 1.746 2.611 1.55 3.235-.198.625-1.304 1.408-1.014 1.939.1.188.823.011 1.277-.491a13.4 13.4 0 0 0-.017 2.14c.076.906.27 1.668.643 2.232.372.563.956.911 1.667.911.397 0 .727-.114 1.024-.264.298-.149.571-.33.91-.5.68-.34 1.634-.666 3.53-.604 1.903.062 2.872.39 3.559.704s1.15.664 1.925.664c.767 0 1.395-.336 1.807-.9.412-.563.631-1.33.72-2.24.06-.623.055-1.32 0-2.066.454.45 1.117.604 1.213.424.29-.53-.816-1.314-1.013-1.937-.198-.624 1.642-2.366 1.549-3.236-.08-.748-2.707-2.568-3.748-3.586C16.428 6.374 14.308 2.394 12.13.215zm.175 6.038a2.95 2.95 0 0 1 2.943 2.942 2.95 2.95 0 0 1-2.943 2.943A2.95 2.95 0 0 1 9.148 8.98a2.95 2.95 0 0 1 2.942-2.942M8.685 7.983a3.5 3.5 0 0 0-.145.997c0 1.951 1.6 3.55 3.55 3.55s3.55-1.598 3.55-3.55q-.002-.495-.132-.951.502.143.915.336a43 43 0 0 1 2.042 5.829c.678 2.545 1.01 4.92.846 6.607-.082.844-.29 1.51-.606 1.94-.315.431-.713.651-1.315.651-.593 0-.932-.27-1.673-.61-.741-.338-1.825-.694-3.792-.758-1.974-.064-3.073.293-3.821.669-.375.188-.659.373-.911.5s-.466.2-.752.2c-.53 0-.876-.209-1.16-.64-.285-.43-.474-1.101-.545-1.948-.141-1.693.176-4.069.823-6.614a43 43 0 0 1 1.934-5.783c.348-.167.749-.31 1.192-.425m-3.382 4.362a.2.2 0 0 1 .13.031c-.166.56-.323 1.116-.463 1.665a34 34 0 0 0-.547 2.555 4 4 0 0 0-.2-.39c-.58-1.012-.914-1.642-1.16-2.08.315-.24 1.679-1.755 2.24-1.781m13.394.01c.562.027 1.926 1.543 2.24 1.783-.246.438-.58 1.068-1.16 2.08a4 4 0 0 0-.163.309 32 32 0 0 0-.562-2.49 41 41 0 0 0-.482-1.652.2.2 0 0 1 .127-.03"></path></svg></span>
+                        <span class="mdx-sr-only">Java</span>
+                    </li>
+                
+                    <li title="TypeScript">
+                        <span class="mdx-tech-strip__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M1.125 0C.502 0 0 .502 0 1.125v21.75C0 23.498.502 24 1.125 24h21.75c.623 0 1.125-.502 1.125-1.125V1.125C24 .502 23.498 0 22.875 0zm17.363 9.75q.918 0 1.627.111a6.4 6.4 0 0 1 1.306.34v2.458a4 4 0 0 0-.643-.361 5 5 0 0 0-.717-.26 5.5 5.5 0 0 0-1.426-.2q-.45 0-.819.086a2.1 2.1 0 0 0-.623.242q-.254.156-.393.374a.9.9 0 0 0-.14.49q0 .294.156.529.156.234.443.444c.287.21.423.276.696.41q.41.203.926.416.705.296 1.266.628.561.333.963.753.402.418.614.957.213.538.214 1.253 0 .986-.373 1.656a3.03 3.03 0 0 1-1.012 1.085 4.4 4.4 0 0 1-1.487.596q-.85.18-1.79.18a10 10 0 0 1-1.84-.164 5.5 5.5 0 0 1-1.512-.493v-2.63a5.03 5.03 0 0 0 3.237 1.2q.5 0 .872-.09.373-.09.623-.25.249-.162.373-.38a1.02 1.02 0 0 0-.074-1.089 2.1 2.1 0 0 0-.537-.5 5.6 5.6 0 0 0-.807-.444 28 28 0 0 0-1.007-.436q-1.377-.575-2.053-1.405t-.676-2.005q0-.92.369-1.582.368-.662 1.004-1.089a4.5 4.5 0 0 1 1.47-.629 7.5 7.5 0 0 1 1.77-.201m-15.113.188h9.563v2.166H9.506v9.646H6.789v-9.646H3.375z"></path></svg></span>
+                        <span class="mdx-sr-only">TypeScript</span>
+                    </li>
+                
+                    <li title="JavaScript">
+                        <span class="mdx-tech-strip__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179z"></path></svg></span>
+                        <span class="mdx-sr-only">JavaScript</span>
+                    </li>
+                
+                    <li title="ESLint">
+                        <span class="mdx-tech-strip__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.257 9.132 11.816 6.5a.37.37 0 0 1 .368 0l4.559 2.632a.37.37 0 0 1 .184.32v5.263a.37.37 0 0 1-.184.319l-4.559 2.632a.37.37 0 0 1-.368 0l-4.559-2.632a.37.37 0 0 1-.184-.32V9.452a.37.37 0 0 1 .184-.32m16.595 2.398-5.446-9.475c-.198-.343-.564-.596-.96-.596H6.555c-.396 0-.762.253-.96.596L.149 11.509a1.13 1.13 0 0 0 0 1.117l5.447 9.398c.197.342.563.517.959.517h10.893c.395 0 .76-.17.959-.512l5.446-9.413a1.07 1.07 0 0 0 0-1.086m-4.51 4.556a.4.4 0 0 1-.204.338L12.2 20.426a.4.4 0 0 1-.392 0l-6.943-4.002a.4.4 0 0 1-.205-.338V8.08c0-.14.083-.269.204-.338L11.8 3.74c.12-.07.272-.07.392 0l6.943 4.003a.4.4 0 0 1 .206.338z"></path></svg></span>
+                        <span class="mdx-sr-only">ESLint</span>
+                    </li>
+                
+                    <li title="Python">
+                        <span class="mdx-tech-strip__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.25.18.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05-.05-1.23.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-.83H6.18l-.01-2.75-.02-.37.05-.34.11-.31.17-.28.25-.26.31-.23.38-.2.44-.18.51-.15.58-.12.64-.1.71-.06.77-.04.84-.02 1.27.05zm-6.3 1.98-.23.33-.08.41.08.41.23.34.33.22.41.09.41-.09.33-.22.23-.34.08-.41-.08-.41-.23-.33-.33-.22-.41-.09-.41.09zm13.09 3.95.28.06.32.12.35.18.36.27.36.35.35.47.32.59.28.73.21.88.14 1.04.05 1.23-.06 1.23-.16 1.04-.24.86-.32.71-.36.57-.4.45-.42.33-.42.24-.4.16-.36.09-.32.05-.24.02-.16-.01h-8.22v.82h5.84l.01 2.76.02.36-.05.34-.11.31-.17.29-.25.25-.31.24-.38.2-.44.17-.51.15-.58.13-.64.09-.71.07-.77.04-.84.01-1.27-.04-1.07-.14-.9-.2-.73-.25-.59-.3-.45-.33-.34-.34-.25-.34-.16-.33-.1-.3-.04-.25-.02-.2.01-.13v-5.34l.05-.64.13-.54.21-.46.26-.38.3-.32.33-.24.35-.2.35-.14.33-.1.3-.06.26-.04.21-.02.13-.01h5.84l.69-.05.59-.14.5-.21.41-.28.33-.32.27-.35.2-.36.15-.36.1-.35.07-.32.04-.28.02-.21V6.07h2.09l.14.01zm-6.47 14.25-.23.33-.08.41.08.41.23.33.33.23.41.08.41-.08.33-.23.23-.33.08-.41-.08-.41-.23-.33-.33-.23-.41-.08-.41.08z"></path></svg></span>
+                        <span class="mdx-sr-only">Python</span>
+                    </li>
+                
+                    <li title="Terraform">
+                        <span class="mdx-tech-strip__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M1.44 0v7.575l6.561 3.79V3.787zm21.12 4.227-6.561 3.791v7.574l6.56-3.787zM8.72 4.23v7.575l6.561 3.787V8.018zm0 8.405v7.575L15.28 24v-7.578z"></path></svg></span>
+                        <span class="mdx-sr-only">Terraform</span>
+                    </li>
+                
+                    <li title="Docker">
+                        <span class="mdx-tech-strip__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.983 11.078h2.119a.186.186 0 0 0 .186-.185V9.006a.186.186 0 0 0-.186-.186h-2.119a.185.185 0 0 0-.185.185v1.888c0 .102.083.185.185.185m-2.954-5.43h2.118a.186.186 0 0 0 .186-.186V3.574a.186.186 0 0 0-.186-.185h-2.118a.185.185 0 0 0-.185.185v1.888c0 .102.082.185.185.185m0 2.716h2.118a.187.187 0 0 0 .186-.186V6.29a.186.186 0 0 0-.186-.185h-2.118a.185.185 0 0 0-.185.185v1.887c0 .102.082.185.185.186m-2.93 0h2.12a.186.186 0 0 0 .184-.186V6.29a.185.185 0 0 0-.185-.185H8.1a.185.185 0 0 0-.185.185v1.887c0 .102.083.185.185.186m-2.964 0h2.119a.186.186 0 0 0 .185-.186V6.29a.185.185 0 0 0-.185-.185H5.136a.186.186 0 0 0-.186.185v1.887c0 .102.084.185.186.186m5.893 2.715h2.118a.186.186 0 0 0 .186-.185V9.006a.186.186 0 0 0-.186-.186h-2.118a.185.185 0 0 0-.185.185v1.888c0 .102.082.185.185.185m-2.93 0h2.12a.185.185 0 0 0 .184-.185V9.006a.185.185 0 0 0-.184-.186h-2.12a.185.185 0 0 0-.184.185v1.888c0 .102.083.185.185.185m-2.964 0h2.119a.185.185 0 0 0 .185-.185V9.006a.185.185 0 0 0-.184-.186h-2.12a.186.186 0 0 0-.186.186v1.887c0 .102.084.185.186.185m-2.92 0h2.12a.185.185 0 0 0 .184-.185V9.006a.185.185 0 0 0-.184-.186h-2.12a.185.185 0 0 0-.184.185v1.888c0 .102.082.185.185.185M23.763 9.89c-.065-.051-.672-.51-1.954-.51q-.508.001-1.01.087c-.248-1.7-1.653-2.53-1.716-2.566l-.344-.199-.226.327c-.284.438-.49.922-.612 1.43-.23.97-.09 1.882.403 2.661-.595.332-1.55.413-1.744.42H.751a.75.75 0 0 0-.75.748 11.4 11.4 0 0 0 .692 4.062c.545 1.428 1.355 2.48 2.41 3.124 1.18.723 3.1 1.137 5.275 1.137a15.7 15.7 0 0 0 2.93-.266 12.3 12.3 0 0 0 3.823-1.389 10.5 10.5 0 0 0 2.61-2.136c1.252-1.418 1.998-2.997 2.553-4.4h.221c1.372 0 2.215-.549 2.68-1.009.309-.293.55-.65.707-1.046l.098-.288Z"></path></svg></span>
+                        <span class="mdx-sr-only">Docker</span>
+                    </li>
+                
+                    <li title="Kubernetes">
+                        <span class="mdx-tech-strip__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m10.204 14.35.007.01-.999 2.413a5.17 5.17 0 0 1-2.075-2.597l2.578-.437.004.005a.44.44 0 0 1 .484.606zm-.833-2.129a.44.44 0 0 0 .173-.756l.002-.011L7.585 9.7a5.14 5.14 0 0 0-.73 3.255l2.514-.725zm1.145-1.98a.44.44 0 0 0 .699-.337l.01-.005.15-2.62a5.14 5.14 0 0 0-3.01 1.442l2.147 1.523zm.76 2.75.723.349.722-.347.18-.78-.5-.623h-.804l-.5.623.179.779zm1.5-3.095a.44.44 0 0 0 .7.336l.008.003 2.134-1.513a5.2 5.2 0 0 0-2.992-1.442l.148 2.615zm10.876 5.97-5.773 7.181a1.6 1.6 0 0 1-1.248.594l-9.261.003a1.6 1.6 0 0 1-1.247-.596l-5.776-7.18a1.58 1.58 0 0 1-.307-1.34L2.1 5.573c.108-.47.425-.864.863-1.073L11.305.513a1.6 1.6 0 0 1 1.385 0l8.345 3.985c.438.209.755.604.863 1.073l2.062 8.955c.108.47-.005.963-.308 1.34m-3.289-2.057c-.042-.01-.103-.026-.145-.034-.174-.033-.315-.025-.479-.038-.35-.037-.638-.067-.895-.148-.105-.04-.18-.165-.216-.216l-.201-.059a6.5 6.5 0 0 0-.105-2.332 6.5 6.5 0 0 0-.936-2.163c.052-.047.15-.133.177-.159.008-.09.001-.183.094-.282.197-.185.444-.338.743-.522.142-.084.273-.137.415-.242.032-.024.076-.062.11-.089.24-.191.295-.52.123-.736s-.506-.236-.745-.045c-.034.027-.08.062-.111.088-.134.116-.217.23-.33.35-.246.25-.45.458-.673.609-.097.056-.239.037-.303.033l-.19.135a6.55 6.55 0 0 0-4.146-2.003l-.012-.223c-.065-.062-.143-.115-.163-.25-.022-.268.015-.557.057-.905.023-.163.061-.298.068-.475.001-.04-.001-.099-.001-.142 0-.306-.224-.555-.5-.555-.275 0-.499.249-.499.555l.001.014c0 .041-.002.092 0 .128.006.177.044.312.067.475.042.348.078.637.056.906a.55.55 0 0 1-.162.258l-.012.211a6.42 6.42 0 0 0-4.166 2.003l-.18-.128c-.09.012-.18.04-.297-.029-.223-.15-.427-.358-.673-.608-.113-.12-.195-.234-.329-.349l-.111-.088a.6.6 0 0 0-.348-.132.48.48 0 0 0-.398.176c-.172.216-.117.546.123.737l.007.005.104.083c.142.105.272.159.414.242.299.185.546.338.743.522.076.082.09.226.1.288l.16.143a6.46 6.46 0 0 0-1.02 4.506l-.208.06c-.055.072-.133.184-.215.217-.257.081-.546.11-.895.147-.164.014-.305.006-.48.039-.037.007-.09.02-.133.03l-.004.002-.007.002c-.295.071-.484.342-.423.608.061.267.349.429.645.365l.007-.001.01-.003.129-.029c.17-.046.294-.113.448-.172.33-.118.604-.217.87-.256.112-.009.23.069.288.101l.217-.037a6.5 6.5 0 0 0 2.88 3.596l-.09.218c.033.084.069.199.044.282-.097.252-.263.517-.452.813-.091.136-.185.242-.268.399-.02.037-.045.095-.064.134-.128.275-.034.591.213.71.248.12.556-.007.69-.282v-.002c.02-.039.046-.09.062-.127.07-.162.094-.301.144-.458.132-.332.205-.68.387-.897.05-.06.13-.082.215-.105l.113-.205a6.45 6.45 0 0 0 4.609.012l.106.192c.086.028.18.042.256.155.136.232.229.507.342.84.05.156.074.295.145.457.016.037.043.09.062.129.133.276.442.402.69.282.247-.118.341-.435.213-.71-.02-.039-.045-.096-.065-.134-.083-.156-.177-.261-.268-.398-.19-.296-.346-.541-.443-.793-.04-.13.007-.21.038-.294-.018-.022-.059-.144-.083-.202a6.5 6.5 0 0 0 2.88-3.622c.064.01.176.03.213.038.075-.05.144-.114.28-.104.266.039.54.138.87.256.154.06.277.128.448.173.036.01.088.019.13.028l.009.003.007.001c.297.064.584-.098.645-.365.06-.266-.128-.537-.423-.608M16.4 9.701l-1.95 1.746v.005a.44.44 0 0 0 .173.757l.003.01 2.526.728a5.2 5.2 0 0 0-.108-1.674A5.2 5.2 0 0 0 16.4 9.7zm-4.013 5.325a.44.44 0 0 0-.404-.232.44.44 0 0 0-.372.233h-.002l-1.268 2.292a5.16 5.16 0 0 0 3.326.003l-1.27-2.296zm1.888-1.293a.44.44 0 0 0-.27.036.44.44 0 0 0-.214.572l-.003.004 1.01 2.438a5.15 5.15 0 0 0 2.081-2.615l-2.6-.44z"></path></svg></span>
+                        <span class="mdx-sr-only">Kubernetes</span>
+                    </li>
+                
+                    <li title="Ansible">
+                        <span class="mdx-tech-strip__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m10.617 11.473 4.686 3.695-3.102-7.662zM12 0C5.371 0 0 5.371 0 12s5.371 12 12 12 12-5.371 12-12S18.629 0 12 0m5.797 17.305a.85.85 0 0 1-.875.83c-.236 0-.416-.09-.664-.293l-6.19-5-2.079 5.203H6.191L11.438 5.44a.79.79 0 0 1 .764-.506.76.76 0 0 1 .742.506l4.774 11.494c.045.111.08.234.08.348z"></path></svg></span>
+                        <span class="mdx-sr-only">Ansible</span>
+                    </li>
+                
+                    <li title="Markdown">
+                        <span class="mdx-tech-strip__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22.27 19.385H1.73A1.73 1.73 0 0 1 0 17.655V6.345a1.73 1.73 0 0 1 1.73-1.73h20.54A1.73 1.73 0 0 1 24 6.345v11.308a1.73 1.73 0 0 1-1.73 1.731zM5.769 15.923v-4.5l2.308 2.885 2.307-2.885v4.5h2.308V8.078h-2.308l-2.307 2.885-2.308-2.885H3.46v7.847zM21.232 12h-2.309V8.077h-2.307V12h-2.308l3.461 4.039z"></path></svg></span>
+                        <span class="mdx-sr-only">Markdown</span>
+                    </li>
+                
+                    <li title="GitHub Actions">
+                        <span class="mdx-tech-strip__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.984 13.836a.5.5 0 0 1-.353-.146l-.745-.743a.5.5 0 1 1 .706-.708l.392.391 1.181-1.18a.5.5 0 0 1 .708.707l-1.535 1.533a.5.5 0 0 1-.354.146m9.353-.147 1.534-1.532a.5.5 0 0 0-.707-.707l-1.181 1.18-.392-.391a.5.5 0 1 0-.706.708l.746.743a.497.497 0 0 0 .706-.001M4.527 7.452l2.557-1.585A1 1 0 0 0 7.09 4.17L4.533 2.56A1 1 0 0 0 3 3.406v3.196a1.001 1.001 0 0 0 1.527.85m2.03-2.436L4 6.602V3.406zM24 12.5c0 1.93-1.57 3.5-3.5 3.5a3.5 3.5 0 0 1-3.46-3h-2.08a3.5 3.5 0 0 1-3.46 3 3.5 3.5 0 0 1-3.46-3h-.558c-.972 0-1.85-.399-2.482-1.042V17c0 1.654 1.346 3 3 3h.04c.244-1.693 1.7-3 3.46-3 1.93 0 3.5 1.57 3.5 3.5S13.43 24 11.5 24a3.5 3.5 0 0 1-3.46-3H8c-2.206 0-4-1.794-4-4V9.899A5.01 5.01 0 0 1 0 5c0-2.757 2.243-5 5-5s5 2.243 5 5a5.005 5.005 0 0 1-4.952 4.998A2.48 2.48 0 0 0 7.482 12h.558c.244-1.693 1.7-3 3.46-3a3.5 3.5 0 0 1 3.46 3h2.08a3.5 3.5 0 0 1 3.46-3c1.93 0 3.5 1.57 3.5 3.5m-15 8c0 1.378 1.122 2.5 2.5 2.5s2.5-1.122 2.5-2.5-1.122-2.5-2.5-2.5S9 19.122 9 20.5M5 9c2.206 0 4-1.794 4-4S7.206 1 5 1 1 2.794 1 5s1.794 4 4 4m9 3.5c0-1.378-1.122-2.5-2.5-2.5S9 11.122 9 12.5s1.122 2.5 2.5 2.5 2.5-1.122 2.5-2.5m9 0c0-1.378-1.122-2.5-2.5-2.5S18 11.122 18 12.5s1.122 2.5 2.5 2.5 2.5-1.122 2.5-2.5m-13 8a.5.5 0 1 0 1 0 .5.5 0 0 0-1 0m2 0a.5.5 0 1 0 1 0 .5.5 0 0 0-1 0m12 0c0 1.93-1.57 3.5-3.5 3.5a3.5 3.5 0 0 1-3.46-3.002q-.01.003-.021.005l-.506.017h-.017a.5.5 0 0 1-.016-.999l.506-.017c.018-.002.035.006.052.007A3.5 3.5 0 0 1 20.5 17c1.93 0 3.5 1.57 3.5 3.5m-1 0c0-1.378-1.122-2.5-2.5-2.5S18 19.122 18 20.5s1.122 2.5 2.5 2.5 2.5-1.122 2.5-2.5"></path></svg></span>
+                        <span class="mdx-sr-only">GitHub Actions</span>
+                    </li>
+                
+                    <li title="Azure DevOps">
+                        <span class="mdx-tech-strip__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m22 18-5 4-8-3v3l-4.19-5.75 12.91 1.05V6.34L22 5.65zM4.81 16.25V8.96l12.91-2.62L10.6 2v2.84L3.97 6.76 2 9.38v5.69z"></path></svg></span>
+                        <span class="mdx-sr-only">Azure DevOps</span>
+                    </li>
+                
+                    <li title="AppVeyor">
+                        <span class="mdx-tech-strip__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0c6.6 0 12 5.4 12 12s-5.4 12-12 12S0 18.6 0 12 5.4 0 12 0m2.94 14.34c1.32-1.68 1.14-4.08-.54-5.34-1.62-1.26-4.02-.96-5.4.72-1.32 1.68-1.14 4.08.54 5.34s4.08.96 5.4-.72m-6.42 7.8c.72.3 2.28.6 3.06.6l5.22-7.56c1.68-2.52 1.26-5.94-1.08-7.8-2.1-1.68-5.04-1.62-7.14 0l-7.26 5.58c.18 1.92.72 2.88.72 2.94l4.14-4.5c-.3 1.98.42 4.02 2.1 5.28 1.44 1.14 3.18 1.44 4.86 1.08z"></path></svg></span>
+                        <span class="mdx-sr-only">AppVeyor</span>
+                    </li>
+                
+            </ul>
+            <p class="mdx-tech-strip__more">
+                <a href="documentation/supported-tools/">
+                    See all supported tools
+                    <span class="mdx-tech-strip__arrow" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"></path></svg></span>
+                </a>
+            </p>
+        </div>
+    </section>
+
       <main class="md-main" data-md-component="main">
         <div class="md-main__inner md-grid">
           
@@ -416,8 +537,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="." title="Cake Issues" class="md-nav__button md-logo" aria-label="Cake Issues" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+  <img src="assets/images/logo.svg" alt="logo">
 
     </a>
     Cake Issues
@@ -500,10 +620,71 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
+  <a href="#how-cake-issues-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How Cake Issues works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How Cake Issues works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#read-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Read issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-reports" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create reports
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#report-to-pull-requests-builds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Report to pull requests &amp; builds
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#why-use-cake-issues" class="md-nav__link">
     <span class="md-ellipsis">
       
         Why use Cake Issues?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ready-to-get-started" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ready to get started?
       
     </span>
   </a>
@@ -7444,10 +7625,71 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
+  <a href="#how-cake-issues-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How Cake Issues works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How Cake Issues works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#read-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Read issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-reports" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create reports
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#report-to-pull-requests-builds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Report to pull requests &amp; builds
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#why-use-cake-issues" class="md-nav__link">
     <span class="md-ellipsis">
       
         Why use Cake Issues?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ready-to-get-started" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ready to get started?
       
     </span>
   </a>
@@ -7477,11 +7719,36 @@
               
               <article class="md-content__inner md-typeset">
                 
-    <p>Extensive and flexible solution for processing output of <abbr title="Static code analysis tools used to flag programming errors, bugs, stylistic errors and suspicious constructs">linters</abbr> and other tools using <a href="https://cakebuild.net">Cake build system</a>.</p>
+    <h2 id="how-cake-issues-works">How Cake Issues works<a class="headerlink" href="#how-cake-issues-works" title="Permanent link">¶</a></h2>
+<!-- markdownlint-disable MD030 -->
+<!-- markdownlint-disable-next-line MD033 -->
+<div class="mdx-steps">
+<ol>
+<li>
+<h3 id="read-issues">Read issues<a class="headerlink" href="#read-issues" title="Permanent link">¶</a></h3>
+<p>Import one or more <a href="documentation/issue-providers/">issue provider</a> <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr> to read warnings and errors from your <abbr title="Static code analysis tools used to flag programming errors, bugs, stylistic errors and suspicious constructs">linters</abbr> and
+static analyzers into a common <a href="https://cakebuild.net/api/Cake.Issues/IIssue/">IIssue</a> format.</p>
+</li>
+<li>
+<h3 id="create-reports">Create reports<a class="headerlink" href="#create-reports" title="Permanent link">¶</a></h3>
+<p>Turn the collected issues into feature rich HTML reports, SARIF standard compatible reports or
+console output using a <a href="documentation/report-formats/">report format</a> addin.</p>
+</li>
+<li>
+<h3 id="report-to-pull-requests-builds">Report to pull requests &amp; builds<a class="headerlink" href="#report-to-pull-requests-builds" title="Permanent link">¶</a></h3>
+<p>Post the issues as comments to your pull requests using a <a href="documentation/pull-request-systems/">pull request system</a> addin, or
+annotate your build runs using a <a href="documentation/build-servers/">build server</a> addin. There's out of the box support for
+<a href="documentation/pull-request-systems/azure-devops/">Azure DevOps</a>,
+<a href="documentation/build-servers/github-actions/">GitHub Actions</a> and
+<a href="documentation/build-servers/appveyor/">AppVeyor</a>.</p>
+</li>
+</ol>
+<!-- markdownlint-restore -->
+</div>
 <h2 id="why-use-cake-issues">Why use Cake Issues?<a class="headerlink" href="#why-use-cake-issues" title="Permanent link">¶</a></h2>
 <!-- markdownlint-disable MD030 -->
 <!-- markdownlint-disable-next-line MD033 -->
-<div class="grid cards">
+<div class="grid cards mdx-why">
 <ul>
 <li>
 <p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.36 2.64-1.41 1.42A6.98 6.98 0 0 1 18 9a7 7 0 0 1-7 7c-1.85 0-3.63-.74-4.94-2.05l-1.42 1.41A8.95 8.95 0 0 0 10 17.93V20H6v2h10v-2h-4v-2.06c4.55-.51 8-4.36 8-8.94 0-2.38-.95-4.67-2.64-6.36M11 3.5A5.5 5.5 0 0 0 5.5 9a5.5 5.5 0 0 0 5.5 5.5A5.5 5.5 0 0 0 16.5 9 5.5 5.5 0 0 0 11 3.5m0 2c1.94 0 3.5 1.57 3.5 3.5a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 7.5 9 3.5 3.5 0 0 1 11 5.5"></path></svg></span> <strong>Rich ecosystem</strong></p>
@@ -7492,31 +7759,12 @@ build scripts to work with issues.</p>
 <p><a href="https://cakebuild.net/extensions/cake-issues/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"></path></svg></span> Reference</a></p>
 </li>
 <li>
-<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m22.7 19-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4"></path></svg></span> <strong>Supports your tooling</strong></p>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m22.7 19-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4"></path></svg></span> <strong>One format for every tool</strong></p>
 <hr>
-<p>Read issues from different analyzers, <abbr title="Static code analysis tools used to flag programming errors, bugs, stylistic errors and suspicious constructs">linters</abbr> or tools.
-The growing range of out-of-the-box supported tools include support for
-.NET, Java, TypeScript, Infrastructure As Code or security tools.</p>
+<p>Every supported analyzer, <abbr title="A static code analysis tool used to flag programming errors, bugs, stylistic errors and suspicious constructs">linter</abbr> or tool is read into the same issue format.
+Filtering, reporting and pull request integration work the same way, no matter
+which tools your project uses.</p>
 <p><a href="documentation/supported-tools/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"></path></svg></span> Supported Tools</a></p>
-</li>
-<li>
-<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5 5 5 0 0 1 5-5 5 5 0 0 1 5 5 5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5"></path></svg></span> <strong>Pull request and build workflow integration</strong></p>
-<hr>
-<p>Issues found on a feature branch can be reported to pull requests or build runs giving developers
-instant and direct feedback.
-There's out of the box support for <a href="documentation/pull-request-systems/azure-devops/">Azure DevOps</a>,
-<a href="documentation/build-servers/github-actions/">GitHub Actions</a> and
-<a href="documentation/build-servers/appveyor/">AppVeyor</a>.</p>
-<p><a href="documentation/pull-request-systems/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"></path></svg></span> Pull Request Systems</a>
-<a href="documentation/build-servers/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"></path></svg></span> Build Servers</a></p>
-</li>
-<li>
-<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 16V4H3v12zm0-14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-7v2h2v2H8v-2h2v-2H3a2 2 0 0 1-2-2V4c0-1.11.89-2 2-2zM5 6h9v5H5zm10 0h4v2h-4zm4 3v5h-4V9zM5 12h4v2H5zm5 0h4v2h-4z"></path></svg></span> <strong>Reporting</strong></p>
-<hr>
-<p>Cake Issues provides <abbr title="Aliases are convenience methods that are easily accessible directly from a Cake build">aliases</abbr> to create reports from the parsed issues.
-There are <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr> to create feature rich HTML reports, SARIF standard compatible reports or to
-report issues to the console.</p>
-<p><a href="documentation/report-formats/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"></path></svg></span> Report Formats</a></p>
 </li>
 <li>
 <p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 4h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2m0 4v4h6V8zm8 0v4h6V8zm-8 6v4h6v-4zm8 0v4h6v-4z"></path></svg></span> <strong>Extensible</strong></p>
@@ -7537,6 +7785,14 @@ Source code is available on <a href="https://github.com/cake-contrib/Cake.Issues
 </div>
 <!-- markdownlint-restore -->
 
+<!-- markdownlint-disable-next-line MD033 -->
+<div class="mdx-cta">
+<h2 id="ready-to-get-started">Ready to get started?<a class="headerlink" href="#ready-to-get-started" title="Permanent link">¶</a></h2>
+<p>Add issue management to your Cake build in a few minutes with the ready-to-use
+<a href="documentation/usage/recipe/">Recipe packages</a>, or pick individual <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr> for full control.</p>
+<p><a class="md-button md-button--primary" href="documentation/usage/">Get Started</a>
+<a class="md-button" href="https://github.com/cake-contrib/Cake.Issues">View on GitHub</a></p>
+</div>
 <!-- Glossary for terms and concepts not documented on cakeissues.net --><biel-button project="2e6rm5xi5a" button-position="bottom-right" button-style="dark" modal-position="bottom-right" header-title="Cake Issues">Ask AI</biel-button>
 <script>
 document.addEventListener('keydown', function (e) {
