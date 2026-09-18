@@ -54,6 +54,34 @@ The source files are:
    reproducible from the updated Razor template. Keep all additional generated
    `htmldxdatagrid-demo-*.html` changes produced by the generator when they use
    the same default dependency.
+7. When updating an existing pull request, query the pull request metadata
+   before fetching or pushing:
+   ```powershell
+   gh api "repos/<owner>/<repo>/pulls/<number>" --jq '{
+     baseRepository: .base.repo.full_name,
+     baseRefName: .base.ref,
+     headRepository: .head.repo.full_name,
+     headRefName: .head.ref
+   }'
+   ```
+   Identify the Git remotes whose repositories match `baseRepository` and
+   `headRepository`; do not infer them from remote names such as `origin` or
+   `upstream`. Remote names and ownership differ between local clones, forks,
+   worktrees, and hosted agent environments. If no configured remote matches
+   either repository, add or use an explicit remote for the reported
+   repository.
+8. Update the pull request branch from the reported `baseRefName`, integrate
+   using the matching base-repository remote, then integrate the source and
+   generated changes and push to the reported `headRefName` on the matching
+   head-repository remote. After pushing, verify the pull request itself rather
+   than relying on the push output:
+   ```powershell
+   gh pr view <number> --repo <owner/repo> --json headRefOid,files `
+     --jq '{headRefOid: .headRefOid, files: [.files[].path]}'
+   ```
+   The pull request must list the Razor template, option documentation, and
+   expected regenerated HTML. A successful push to a same-named branch in a
+   different fork does not update the pull request.
 
 ## Guardrails
 
@@ -72,6 +100,11 @@ The source files are:
 - If the generated output does not contain Renovate's target version, stop and
   fix the source/default mapping. Do not restore the generated-only Renovate
   edit as a workaround.
+- Do not assume `origin` is the pull request head repository or that `upstream`
+  is the base repository. Resolve both from pull request metadata and remote
+  repository identity for the current environment.
+- Do not report the pull request as updated until its `headRefOid` and file
+  list have been checked after the push.
 
 ## Completion criteria
 
@@ -82,3 +115,6 @@ The source files are:
   exercised.
 - No generated HTML was manually patched and no unrelated dependency version
   changed.
+- If an existing pull request was updated, its verified file list includes
+  `DxDataGrid.cshtml`, `HtmlDxDataGridOption.cs`, and the expected regenerated
+  gallery output.
