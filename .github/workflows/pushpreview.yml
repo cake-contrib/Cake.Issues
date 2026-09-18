@@ -30,9 +30,49 @@ jobs:
           cd docs
           pip install -r requirements.txt
           mkdocs build
+      # PushLabsHQ/pushpreview-action is currently broken (it sends the zip file as a JSON
+      # property instead of a proper multipart/form-data body, see
+      # https://github.com/PushLabsHQ/pushpreview-action/blob/main/index.js), which always
+      # fails with "Cannot read properties of undefined (reading 'status')" since the API
+      # never receives a valid request. Until that's fixed upstream, call the PushPreview
+      # API directly with curl, which builds the multipart request correctly.
       - name: Generate preview
-        uses: PushLabsHQ/pushpreview-action@cf958f7be2bf55d3f56d351bb9abf56b4c6b9a50 # 1.0.6
-        with:
-          source-directory: ./docs/site
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          pushpreview-token: ${{ secrets.PUSHPREVIEW_TOKEN }}
+        run: |
+          set -euo pipefail
+          cd docs/site
+          zip -rq ../file.zip .
+          cd ..
+
+          http_status=$(curl -sS -o response.json -w "%{http_code}" \
+            -X POST "https://app.pushpreview.com/api/previews/" \
+            -H "Authorization: Api-Key ${PUSHPREVIEW_TOKEN}" \
+            -F "pr_identifier=${{ github.event.number }}" \
+            -F "organization=${{ github.repository_owner }}" \
+            -F "repository_name=${{ github.event.repository.name }}" \
+            -F "origin_source=GitHub" \
+            -F "file=@file.zip;type=application/zip") || http_status="000"
+
+          if [ "$http_status" -ge 200 ] && [ "$http_status" -lt 300 ]; then
+            preview_url=$(jq -r '.previewUrl // empty' response.json)
+            if [ -z "$preview_url" ]; then
+              gh pr comment ${{ github.event.pull_request.number }} --repo ${{ github.repository }} --body "🚨 Error: Internal server error. Please try again later."
+              echo "PushPreview API returned a successful status but no previewUrl." >&2
+              cat response.json >&2
+              exit 1
+            fi
+            gh pr comment ${{ github.event.pull_request.number }} --repo ${{ github.repository }} --body "🎉 Success! Your live preview is now available. Check it out here: ${preview_url}"
+          else
+            case "$http_status" in
+              401|403) message="🚨 Error: Invalid API key or team not found. Please verify your credentials." ;;
+              402) message="🚨 Error: Preview limit reached. Upgrade your plan at pushpreview.com for additional previews and features." ;;
+              413) message="🚨 Error: The preview exceeds the MB limit. Upgrade your plan at pushpreview.com for higher limits and additional features." ;;
+              *) message="🚨 Error: Internal server error. Please try again later." ;;
+            esac
+            gh pr comment ${{ github.event.pull_request.number }} --repo ${{ github.repository }} --body "$message"
+            echo "PushPreview API request failed with HTTP status $http_status" >&2
+            cat response.json >&2 || true
+            exit 1
+          fi
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PUSHPREVIEW_TOKEN: ${{ secrets.PUSHPREVIEW_TOKEN }}
