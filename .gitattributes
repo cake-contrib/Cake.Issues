@@ -7,4 +7,3 @@
 *.png filter=lfs diff=lfs merge=lfs -text
 
 .github/workflows/*.lock.yml linguist-generated=true
-.github/workflows/agentics-maintenance.yml linguist-generated=true

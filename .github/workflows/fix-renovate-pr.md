@@ -86,7 +86,6 @@ safe-outputs:
     commit-title-suffix: " [agentic workflow]"
   add-comment:
     target: "*"
-  noop:
 ---
 
 # Fix a failing Renovate dependency update
