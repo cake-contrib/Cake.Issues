@@ -30,8 +30,10 @@ checkout:
 runtimes:
   dotnet:
     # .NET 5 is required by GitVersion during package creation.
+    # .NET 7 is required by Cake.Recipe.
     version: |
       5.x
+      7.x
       8.x
       9.x
       10.x
@@ -52,6 +54,10 @@ tools:
   github:
     toolsets: [default, actions]
 steps:
+  - name: Install Mono
+    run: |
+      sudo apt-get update
+      sudo apt-get install -y mono-complete
   - name: Collect failing CI logs
     env:
       GH_TOKEN: ${{ github.token }}
@@ -135,12 +141,12 @@ in the associated Renovate pull request and, if so, to fix it.
 5. Validate the change. The repository is checked out in detached HEAD state on
    the failing commit, and GitVersion requires a branch, so create a local
    branch named after the head branch from `context.json` first. This runner is
-   Linux and Cake.Recipe requires Mono:
+   Linux; the workflow installs Mono before the sandbox starts because
+   Cake.Recipe requires it. Verify that Mono is available before validation:
 
    ```bash
    git checkout -b <head-branch>
-   sudo apt-get update
-   sudo apt-get install -y mono-complete
+   mono --version
    ./build.sh --target=DotNet-Build
    ./build.sh --target=Test
    ```
