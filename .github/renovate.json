@@ -40,7 +40,7 @@
       "matchStringsStrategy": "any",
       "matchStrings": [
         "ViewBag\\.JQueryVersion,\\s*\"(?<currentValue>[^\"]+)\"",
-        "Default value is <c>(?<currentValue>[^<]+)</c>\\.\\s*///\\s*</summary>\\s*JQueryVersion,",
+        "Default value for <c>jquery</c> is <c>(?<currentValue>[^<]+)</c>",
         "ajax\\.aspnetcdn\\.com/ajax/jquery/jquery-(?<currentValue>\\d[^/\"<]*?)\\.min\\.js"
       ],
       "depNameTemplate": "jquery",
@@ -57,7 +57,7 @@
       "matchStringsStrategy": "any",
       "matchStrings": [
         "ViewBag\\.DevExtremeVersion,\\s*\"(?<currentValue>[^\"]+)\"",
-        "Default value is <c>(?<currentValue>[^<]+)</c>\\.\\s*///\\s*</summary>\\s*DevExtremeVersion,",
+        "Default value for <c>devextreme</c> is <c>(?<currentValue>[^<]+)</c>",
         "cdn3\\.devexpress\\.com/jslib/(?<currentValue>\\d[^/\"<]*)/"
       ],
       "depNameTemplate": "devextreme",
@@ -74,7 +74,7 @@
       "matchStringsStrategy": "any",
       "matchStrings": [
         "ViewBag\\.ExcelJsVersion,\\s*\"(?<currentValue>[^\"]+)\"",
-        "Default value is <c>(?<currentValue>[^<]+)</c>\\.\\s*///\\s*</summary>\\s*ExcelJsVersion,",
+        "Default value for <c>exceljs</c> is <c>(?<currentValue>[^<]+)</c>",
         "cdnjs\\.cloudflare\\.com/ajax/libs/exceljs/(?<currentValue>\\d[^/\"<]*)/"
       ],
       "depNameTemplate": "exceljs",
@@ -92,7 +92,7 @@
       "matchStringsStrategy": "any",
       "matchStrings": [
         "ViewBag\\.FileSaverJsVersion,\\s*\"(?<currentValue>[^\"]+)\"",
-        "Default value is <c>(?<currentValue>[^<]+)</c>\\.\\s*///\\s*</summary>\\s*FileSaverJsVersion,",
+        "Default value for <c>FileSaver\\.js</c> is <c>(?<currentValue>[^<]+)</c>",
         "cdnjs\\.cloudflare\\.com/ajax/libs/FileSaver\\.js/(?<currentValue>\\d[^/\"<]*)/"
       ],
       "depNameTemplate": "FileSaver.js",
@@ -110,7 +110,7 @@
       "matchStringsStrategy": "any",
       "matchStrings": [
         "ViewBag\\.JsPdfVersion,\\s*\"(?<currentValue>[^\"]+)\"",
-        "Default value is <c>(?<currentValue>[^<]+)</c>\\.\\s*///\\s*</summary>\\s*JsPdfVersion,",
+        "Default value for <c>jspdf</c> is <c>(?<currentValue>[^<]+)</c>",
         "cdnjs\\.cloudflare\\.com/ajax/libs/jspdf/(?<currentValue>\\d[^/\"<]*)/"
       ],
       "depNameTemplate": "jspdf",
@@ -128,7 +128,7 @@
       "matchStringsStrategy": "any",
       "matchStrings": [
         "ViewBag\\.JsPdfAutoTableVersion,\\s*\"(?<currentValue>[^\"]+)\"",
-        "Default value is <c>(?<currentValue>[^<]+)</c>\\.\\s*///\\s*</summary>\\s*JsPdfAutotableVersion,",
+        "Default value for <c>jspdf-autotable</c> is <c>(?<currentValue>[^<]+)</c>",
         "cdnjs\\.cloudflare\\.com/ajax/libs/jspdf-autotable/(?<currentValue>\\d[^/\"<]*)/"
       ],
       "depNameTemplate": "jspdf-autotable",

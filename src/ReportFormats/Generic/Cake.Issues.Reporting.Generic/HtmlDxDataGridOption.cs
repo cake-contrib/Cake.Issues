@@ -348,7 +348,7 @@ public enum HtmlDxDataGridOption
     /// <summary>
     /// Version of <see href="https://jquery.com">jQuery</see> which should be used.
     /// This version needs to match the version required by the selected <see cref="DevExtremeVersion"/>.
-    /// Default value is <c>3.7.1</c>.
+    /// Default value for <c>jquery</c> is <c>3.7.1</c>.
     /// </summary>
     JQueryVersion,
 
@@ -375,7 +375,7 @@ public enum HtmlDxDataGridOption
     /// <summary>
     /// Version of the <see href="https://js.devexpress.com/">DevExtreme </see> libraries which should be used.
     /// If setting this the matching <see cref="JQueryVersion"/> needs to also be set.
-    /// Default value is <c>23.1.13</c>.
+    /// Default value for <c>devextreme</c> is <c>23.1.13</c>.
     /// </summary>
     DevExtremeVersion,
 
@@ -429,7 +429,7 @@ public enum HtmlDxDataGridOption
     /// <summary>
     /// Version of <see href="https://github.com/exceljs/exceljs">ExcelJS</see> which should be used.
     /// This version needs to match the version required by the selected <see cref="DevExtremeVersion"/>.
-    /// Default value is <c>4.4.0</c>.
+    /// Default value for <c>exceljs</c> is <c>4.4.0</c>.
     /// </summary>
     ExcelJsVersion,
 
@@ -449,7 +449,7 @@ public enum HtmlDxDataGridOption
     /// <summary>
     /// Version of <see href="https://github.com/eligrey/FileSaver.js/">FileSaver.js</see> which should be used.
     /// This version needs to match the version required by the selected <see cref="DevExtremeVersion"/>.
-    /// Default value is <c>2.0.5</c>.
+    /// Default value for <c>FileSaver.js</c> is <c>2.0.5</c>.
     /// </summary>
     FileSaverJsVersion,
 
@@ -469,7 +469,7 @@ public enum HtmlDxDataGridOption
     /// <summary>
     /// Version of <see href="https://github.com/MrRio/jsPDF">jsPDF</see> which should be used.
     /// This version needs to match the version required by the selected <see cref="DevExtremeVersion"/>.
-    /// Default value is <c>3.0.4</c>.
+    /// Default value for <c>jspdf</c> is <c>3.0.4</c>.
     /// </summary>
     JsPdfVersion,
 
@@ -489,7 +489,7 @@ public enum HtmlDxDataGridOption
     /// <summary>
     /// Version of <see href="https://github.com/simonbengtsson/jsPDF-AutoTable">jsPDF-AutoTable plugin</see> which should be used.
     /// This version needs to match the version required by the selected <see cref="DevExtremeVersion"/>.
-    /// Default value is <c>5.0.2</c>.
+    /// Default value for <c>jspdf-autotable</c> is <c>5.0.2</c>.
     /// </summary>
     JsPdfAutotableVersion,
 
