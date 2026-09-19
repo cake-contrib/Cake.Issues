@@ -16,6 +16,7 @@ permissions:
   pull-requests: read
   copilot-requests: write
 engine: copilot
+model: copilot/gpt-5.3-codex
 strict: true
 timeout-minutes: 30
 max-ai-credits: 1000
