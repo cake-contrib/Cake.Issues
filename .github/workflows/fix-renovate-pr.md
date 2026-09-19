@@ -41,6 +41,10 @@ network:
     - github
     - dotnet
     - python
+    # GitHub Actions job logs are served from Azure Blob Storage on rotating,
+    # randomly-named hosts (e.g. w2vvsblobprodsu6weus6.blob.core.windows.net),
+    # which the fixed github-actions ecosystem list does not cover.
+    - "*.blob.core.windows.net"
 tools:
   bash:
     - "*"
