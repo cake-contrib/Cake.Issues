@@ -64,7 +64,7 @@ steps:
         --jq '[.jobs[] | select(.conclusion == "failure") | {name, id, html_url}]' \
         > /tmp/gh-aw/agent/ci-failure/failed-jobs.json
       gh api "repos/${GH_AW_REPO}/pulls?state=open&head=${GH_AW_REPO%%/*}:${GH_AW_HEAD_BRANCH}" \
-        --jq '[.[] | {number, title, user: .user.login, labels: [.labels[].name], head: .head.ref, head_repo: .head.repo.full_name, base: .base.ref}]' \
+        --jq '[.[] | {number, title, user: .user.login, labels: [.labels[].name], head: .head.ref, head_sha: .head.sha, head_repo: .head.repo.full_name, base: .base.ref}]' \
         > /tmp/gh-aw/agent/ci-failure/pull-requests.json
       for job_id in $(jq -r '.[].id' /tmp/gh-aw/agent/ci-failure/failed-jobs.json); do
         gh api "repos/${GH_AW_REPO}/actions/jobs/${job_id}/logs" > "/tmp/gh-aw/agent/ci-failure/job-${job_id}.log" || true
@@ -108,9 +108,9 @@ in the associated Renovate pull request and, if so, to fix it.
    - its author is `renovate[bot]`;
    - it carries the `dependencies` label;
    - its head repository is `${{ github.repository }}`; and
-   - the pull request head commit is still
-     `${{ github.event.workflow_run.head_sha }}`. If newer commits exist, the
-     failure is outdated, so call `noop` and stop.
+   - the pull request head commit `head_sha` is still
+     `${{ github.event.workflow_run.head_sha }}`. If it differs, newer commits
+     exist, the failure is outdated, so call `noop` and stop.
 2. Read `/tmp/gh-aw/agent/ci-failure/failed-jobs.json` and the corresponding
    `/tmp/gh-aw/agent/ci-failure/job-<id>.tail.log` files to determine the root
    cause. Use the GitHub tools for additional context only when the downloaded
