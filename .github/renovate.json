@@ -27,7 +27,7 @@
         "<dependency\\b[^>]*\\bversion=\\\"(?<currentValue>[^\\[\\(][^\\\"]*)\\\"[^>]*\\bid=\\\"(?<depName>[^\\\"]+)\\\"[^>]*\\/?>"
       ],
       "datasourceTemplate": "nuget",
-      "versioningTemplate": "nuget"
+      "versioningTemplate": "semver-coerced"
     },
     {
       "customType": "regex",
