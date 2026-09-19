@@ -28,9 +28,129 @@
       ],
       "datasourceTemplate": "nuget",
       "versioningTemplate": "nuget"
+    },
+    {
+      "customType": "regex",
+      "description": "Update jQuery version used by the DxDataGrid report template",
+      "managerFilePatterns": [
+        "/src/ReportFormats/Generic/Cake\\.Issues\\.Reporting\\.Generic/Templates/DxDataGrid\\.cshtml$/",
+        "/src/ReportFormats/Generic/Cake\\.Issues\\.Reporting\\.Generic/HtmlDxDataGridOption\\.cs$/",
+        "/docs/input/documentation/report-formats/generic/templates/htmldxdatagrid-demo-.+\\.html$/"
+      ],
+      "matchStringsStrategy": "any",
+      "matchStrings": [
+        "ViewBag\\.JQueryVersion,\\s*\"(?<currentValue>[^\"]+)\"",
+        "Default value is <c>(?<currentValue>[^<]+)</c>\\.\\s*///\\s*</summary>\\s*JQueryVersion,",
+        "ajax\\.aspnetcdn\\.com/ajax/jquery/jquery-(?<currentValue>\\d[^/\"<]*?)\\.min\\.js"
+      ],
+      "depNameTemplate": "jquery",
+      "datasourceTemplate": "npm"
+    },
+    {
+      "customType": "regex",
+      "description": "Update DevExtreme version used by the DxDataGrid report template",
+      "managerFilePatterns": [
+        "/src/ReportFormats/Generic/Cake\\.Issues\\.Reporting\\.Generic/Templates/DxDataGrid\\.cshtml$/",
+        "/src/ReportFormats/Generic/Cake\\.Issues\\.Reporting\\.Generic/HtmlDxDataGridOption\\.cs$/",
+        "/docs/input/documentation/report-formats/generic/templates/htmldxdatagrid-demo-.+\\.html$/"
+      ],
+      "matchStringsStrategy": "any",
+      "matchStrings": [
+        "ViewBag\\.DevExtremeVersion,\\s*\"(?<currentValue>[^\"]+)\"",
+        "Default value is <c>(?<currentValue>[^<]+)</c>\\.\\s*///\\s*</summary>\\s*DevExtremeVersion,",
+        "cdn3\\.devexpress\\.com/jslib/(?<currentValue>\\d[^/\"<]*)/"
+      ],
+      "depNameTemplate": "devextreme",
+      "datasourceTemplate": "npm"
+    },
+    {
+      "customType": "regex",
+      "description": "Update ExcelJS version used by the DxDataGrid report template",
+      "managerFilePatterns": [
+        "/src/ReportFormats/Generic/Cake\\.Issues\\.Reporting\\.Generic/Templates/DxDataGrid\\.cshtml$/",
+        "/src/ReportFormats/Generic/Cake\\.Issues\\.Reporting\\.Generic/HtmlDxDataGridOption\\.cs$/",
+        "/docs/input/documentation/report-formats/generic/templates/htmldxdatagrid-demo-.+\\.html$/"
+      ],
+      "matchStringsStrategy": "any",
+      "matchStrings": [
+        "ViewBag\\.ExcelJsVersion,\\s*\"(?<currentValue>[^\"]+)\"",
+        "Default value is <c>(?<currentValue>[^<]+)</c>\\.\\s*///\\s*</summary>\\s*ExcelJsVersion,",
+        "cdnjs\\.cloudflare\\.com/ajax/libs/exceljs/(?<currentValue>\\d[^/\"<]*)/"
+      ],
+      "depNameTemplate": "exceljs",
+      "packageNameTemplate": "exceljs/exceljs.min.js",
+      "datasourceTemplate": "cdnjs"
+    },
+    {
+      "customType": "regex",
+      "description": "Update FileSaver.js version used by the DxDataGrid report template",
+      "managerFilePatterns": [
+        "/src/ReportFormats/Generic/Cake\\.Issues\\.Reporting\\.Generic/Templates/DxDataGrid\\.cshtml$/",
+        "/src/ReportFormats/Generic/Cake\\.Issues\\.Reporting\\.Generic/HtmlDxDataGridOption\\.cs$/",
+        "/docs/input/documentation/report-formats/generic/templates/htmldxdatagrid-demo-.+\\.html$/"
+      ],
+      "matchStringsStrategy": "any",
+      "matchStrings": [
+        "ViewBag\\.FileSaverJsVersion,\\s*\"(?<currentValue>[^\"]+)\"",
+        "Default value is <c>(?<currentValue>[^<]+)</c>\\.\\s*///\\s*</summary>\\s*FileSaverJsVersion,",
+        "cdnjs\\.cloudflare\\.com/ajax/libs/FileSaver\\.js/(?<currentValue>\\d[^/\"<]*)/"
+      ],
+      "depNameTemplate": "FileSaver.js",
+      "packageNameTemplate": "FileSaver.js/FileSaver.min.js",
+      "datasourceTemplate": "cdnjs"
+    },
+    {
+      "customType": "regex",
+      "description": "Update jsPDF version used by the DxDataGrid report template",
+      "managerFilePatterns": [
+        "/src/ReportFormats/Generic/Cake\\.Issues\\.Reporting\\.Generic/Templates/DxDataGrid\\.cshtml$/",
+        "/src/ReportFormats/Generic/Cake\\.Issues\\.Reporting\\.Generic/HtmlDxDataGridOption\\.cs$/",
+        "/docs/input/documentation/report-formats/generic/templates/htmldxdatagrid-demo-.+\\.html$/"
+      ],
+      "matchStringsStrategy": "any",
+      "matchStrings": [
+        "ViewBag\\.JsPdfVersion,\\s*\"(?<currentValue>[^\"]+)\"",
+        "Default value is <c>(?<currentValue>[^<]+)</c>\\.\\s*///\\s*</summary>\\s*JsPdfVersion,",
+        "cdnjs\\.cloudflare\\.com/ajax/libs/jspdf/(?<currentValue>\\d[^/\"<]*)/"
+      ],
+      "depNameTemplate": "jspdf",
+      "packageNameTemplate": "jspdf/jspdf.umd.min.js",
+      "datasourceTemplate": "cdnjs"
+    },
+    {
+      "customType": "regex",
+      "description": "Update jsPDF-AutoTable version used by the DxDataGrid report template",
+      "managerFilePatterns": [
+        "/src/ReportFormats/Generic/Cake\\.Issues\\.Reporting\\.Generic/Templates/DxDataGrid\\.cshtml$/",
+        "/src/ReportFormats/Generic/Cake\\.Issues\\.Reporting\\.Generic/HtmlDxDataGridOption\\.cs$/",
+        "/docs/input/documentation/report-formats/generic/templates/htmldxdatagrid-demo-.+\\.html$/"
+      ],
+      "matchStringsStrategy": "any",
+      "matchStrings": [
+        "ViewBag\\.JsPdfAutoTableVersion,\\s*\"(?<currentValue>[^\"]+)\"",
+        "Default value is <c>(?<currentValue>[^<]+)</c>\\.\\s*///\\s*</summary>\\s*JsPdfAutotableVersion,",
+        "cdnjs\\.cloudflare\\.com/ajax/libs/jspdf-autotable/(?<currentValue>\\d[^/\"<]*)/"
+      ],
+      "depNameTemplate": "jspdf-autotable",
+      "packageNameTemplate": "jspdf-autotable/jspdf.plugin.autotable.min.js",
+      "datasourceTemplate": "cdnjs"
     }
   ],
   "packageRules": [
+    {
+      "description": "CDN dependencies of the DxDataGrid report template are handled by dedicated custom managers, which keep the Razor template, the option documentation and the generated demo reports in sync. The built-in html manager only detects cdnjs.cloudflare.com URLs in the generated demo reports and would therefore report the same dependencies again.",
+      "matchManagers": [
+        "html"
+      ],
+      "enabled": false
+    },
+    {
+      "description": "htmldxdatagrid-demo-customscriptlocation.html intentionally references outdated versions to demonstrate the custom script location and version options",
+      "matchFileNames": [
+        "docs/input/documentation/report-formats/generic/templates/htmldxdatagrid-demo-customscriptlocation.html"
+      ],
+      "enabled": false
+    },
     {
       "description": "Ignore Cake runner minor and patch updates",
       "matchDepNames": [
