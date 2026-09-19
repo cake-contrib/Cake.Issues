@@ -375,7 +375,7 @@ public enum HtmlDxDataGridOption
     /// <summary>
     /// Version of the <see href="https://js.devexpress.com/">DevExtreme </see> libraries which should be used.
     /// If setting this the matching <see cref="JQueryVersion"/> needs to also be set.
-    /// Default value for <c>devextreme</c> is <c>23.1.13</c>.
+    /// Default value for <c>devextreme</c> is <c>26.1.4</c>.
     /// </summary>
     DevExtremeVersion,
 
