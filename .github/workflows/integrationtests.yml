@@ -30,11 +30,7 @@ jobs:
       - name: Install .NET
         uses: actions/setup-dotnet@a98b56852c35b8e3190ac28c8c2271da59106c68 # v6.0.0
         with:
-          # .NET 5 required for GitVersion
-          # .NET 7 required for Cake.Recipe
           dotnet-version: | 
-            5.x
-            7.x
             8.x
             9.x
             10.x
@@ -300,4 +296,3 @@ jobs:
         run: ./build.sh --verbosity=diagnostic
         working-directory: ./tests/Cake.Issues.Reporting.Sarif/frosting/${{ env.TFM }}
         shell: bash
-

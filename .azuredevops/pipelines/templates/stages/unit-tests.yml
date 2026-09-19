@@ -19,10 +19,6 @@ stages:
         vmImage: $(imageName)
       steps:
       - template: ../steps/install-required-dotnet-versions-for-building.yml 
-      # Ubuntu 24.04 does not have Mono installed, which is Required for Cake.Recipe
-      - bash: sudo apt-get install mono-complete
-        condition: eq(variables['imageName'], 'ubuntu-24.04')
-        displayName: 'Install Mono'
       # Pull request builds check out the merge commit in a detached HEAD state with no local branch
       # pointing at it. This forces GitVersion to look up the pull request ref over the network using
       # LibGit2Sharp, which intermittently fails with "LibGit2Sharp.LibGit2SharpException: this remote
