@@ -348,7 +348,7 @@ public enum HtmlDxDataGridOption
     /// <summary>
     /// Version of <see href="https://jquery.com">jQuery</see> which should be used.
     /// This version needs to match the version required by the selected <see cref="DevExtremeVersion"/>.
-    /// Default value for <c>jquery</c> is <c>3.7.1</c>.
+    /// Default value for <c>jquery</c> is <c>4.0.0</c>.
     /// </summary>
     JQueryVersion,
 
