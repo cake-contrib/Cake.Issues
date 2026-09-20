@@ -14,6 +14,7 @@ hide:
 * [Cake.Issues](https://cakebuild.net/extensions/cake-issues)
 * [Cake.Issues.Reporting](https://cakebuild.net/extensions/cake-issues-reporting)
 * [Cake.Issues.PullRequests](https://cakebuild.net/extensions/cake-issues-pullrequests)
+* [Cake.Issues.BuildServer](https://cakebuild.net/extensions/cake-issues-buildserver)
 
 </div>
 
@@ -50,7 +51,6 @@ hide:
 <!-- markdownlint-disable-next-line MD033 -->
 <div class="grid cards" markdown>
 
-* [Cake.Issues.BuildServer](https://cakebuild.net/extensions/cake-issues-buildserver)
 * [Cake.Issues.BuildServer.AppVeyor](https://cakebuild.net/extensions/cake-issues-buildserver-appveyor)
 * [Cake.Issues.BuildServer.GitHubActions](https://cakebuild.net/extensions/cake-issues-buildserver-githubactions)
 
