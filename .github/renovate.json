@@ -7,6 +7,20 @@
   "customManagers": [
     {
       "customType": "regex",
+      "description": "Update .NET SDK versions installed by AppVeyor",
+      "managerFilePatterns": [
+        "/\\.appveyor\\.yml$/"
+      ],
+      "matchStrings": [
+        "dotnet-install\\.ps1\"\\s+-Version\\s+(?<currentValue>(?<major>\\d+)\\.\\d+\\.\\d+)"
+      ],
+      "depNameTemplate": "dotnet-sdk-{{{major}}}",
+      "packageNameTemplate": "dotnet-sdk",
+      "datasourceTemplate": "dotnet",
+      "versioningTemplate": "loose"
+    },
+    {
+      "customType": "regex",
       "description": "Update versions of NuGet packages used in documentation",
       "managerFilePatterns": [
         "/docs/mkdocs.yml$/"
@@ -141,6 +155,41 @@
     }
   ],
   "packageRules": [
+    {
+      "description": "Keep AppVeyor tool runtimes on their required .NET major versions",
+      "matchDepNames": [
+        "dotnet-sdk-5"
+      ],
+      "allowedVersions": "<6.0.0"
+    },
+    {
+      "description": "Keep the AppVeyor Cake.Recipe runtime on its configured .NET major version",
+      "matchDepNames": [
+        "dotnet-sdk-7"
+      ],
+      "allowedVersions": ">=7.0.0 <8.0.0"
+    },
+    {
+      "description": "Keep the AppVeyor .NET 8 runtime on its configured major version",
+      "matchDepNames": [
+        "dotnet-sdk-8"
+      ],
+      "allowedVersions": ">=8.0.0 <9.0.0"
+    },
+    {
+      "description": "Keep the AppVeyor .NET 9 runtime on its configured major version",
+      "matchDepNames": [
+        "dotnet-sdk-9"
+      ],
+      "allowedVersions": ">=9.0.0 <10.0.0"
+    },
+    {
+      "description": "Keep the AppVeyor .NET 10 runtime on its configured major version",
+      "matchDepNames": [
+        "dotnet-sdk-10"
+      ],
+      "allowedVersions": ">=10.0.0 <11.0.0"
+    },
     {
       "description": "CDN dependencies of the DxDataGrid report template are handled by dedicated custom managers, which keep the Razor template, the option documentation and the generated demo reports in sync. The built-in html manager only detects cdnjs.cloudflare.com URLs in the generated demo reports and would therefore report the same dependencies again.",
       "matchManagers": [
