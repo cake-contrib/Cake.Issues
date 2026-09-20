@@ -1,5 +1,7 @@
 {
     "dotnet.defaultSolution": "src\\Cake.Issues.slnx",
+    "chat.agentSessions.autoArchiveMergedSessionsAfterDays": 15,
+    "chat.agentSessions.autoDeleteArchivedMergedSessionsAfterDays": 15,
     "yaml.schemas": {
         "https://squidfunk.github.io/mkdocs-material/schema.json": "mkdocs.yml"
     },
