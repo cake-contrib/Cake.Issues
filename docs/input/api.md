@@ -50,6 +50,7 @@ hide:
 <!-- markdownlint-disable-next-line MD033 -->
 <div class="grid cards" markdown>
 
+* [Cake.Issues.BuildServer](https://cakebuild.net/extensions/cake-issues-buildserver)
 * [Cake.Issues.BuildServer.AppVeyor](https://cakebuild.net/extensions/cake-issues-buildserver-appveyor)
 * [Cake.Issues.BuildServer.GitHubActions](https://cakebuild.net/extensions/cake-issues-buildserver-githubactions)
 
