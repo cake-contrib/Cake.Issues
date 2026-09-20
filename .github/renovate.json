@@ -7,6 +7,19 @@
   "customManagers": [
     {
       "customType": "regex",
+      "description": "Update markdownlint-cli npm package installations",
+      "managerFilePatterns": [
+        "/\\.github/actions/install-markdownlint/action\\.yml$/",
+        "/\\.azuredevops/pipelines/templates/steps/install-markdownlint\\.yml$/"
+      ],
+      "matchStrings": [
+        "npm\\s+install\\s+-g\\s+markdownlint-cli@(?<currentValue>[0-9A-Za-z][0-9A-Za-z._-]*)"
+      ],
+      "depNameTemplate": "markdownlint-cli",
+      "datasourceTemplate": "npm"
+    },
+    {
+      "customType": "regex",
       "description": "Update .NET SDK versions installed by AppVeyor",
       "managerFilePatterns": [
         "/\\.appveyor\\.yml$/"
