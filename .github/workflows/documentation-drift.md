@@ -53,6 +53,13 @@ safe-outputs:
       - recipe.cake
       - nuspec/**/*.nuspec
       - nuspec/**/*.targets
+      - docs/.markdownlint.json
+      - docs/.vscode/**
+      - docs/mkdocs.yml
+      - docs/requirements.txt
+      - docs/overrides/**
+      - docs/snippets/**
+      - docs/input/assets/**
       - docs/input/news/**
       - docs/input/documentation/report-formats/generic/templates/**
       - docs/site/**
@@ -70,12 +77,18 @@ accurately.
 The maintained documentation surfaces are:
 
 - `docs/input/documentation/**` for the Cake Issues website;
+- `docs/input/api.md` and `docs/input/index.md` for the website API index and
+  landing page content;
 - `README.md` and `CONTRIBUTING.md` for repository-level guidance;
 - `nuspec/nuget/*.md` for package README files; and
 - `CiStatus.md` for build and test matrices and status badges.
 
 Treat source code, tests, build scripts, project files, package specifications,
-and workflow files as evidence only. Do not edit them.
+and workflow files as evidence only. Do not edit them. Do not edit MkDocs
+configuration or tooling (`docs/mkdocs.yml`, `docs/requirements.txt`,
+`docs/overrides/**`, `docs/snippets/**`) or website assets
+(`docs/input/assets/**`); these are excluded from the pull request and any
+edit to them is discarded.
 
 Do not edit historical release posts under `docs/input/news/**`. Do not edit the
 generated report template galleries under
