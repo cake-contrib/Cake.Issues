@@ -7766,8 +7766,10 @@ addin.</p>
 <li>Can be set while reading issues</li>
 <li>Set to <code>IIssue.MessageText</code></li>
 <li>Can be set while reading issues</li>
-<li>Always <a href="https://cakebuild.net/api/Cake.Issues/IssuePriority/7A0CE07F">IssuePriority.Warning</a></li>
-<li>Always <code>Warning</code></li>
+<li>Since markdownlint-cli 0.47.0, <a href="https://cakebuild.net/api/Cake.Issues/IssuePriority/7A0CE07F">IssuePriority.Error</a> if reported severity is <code>error</code>,
+   otherwise <a href="https://cakebuild.net/api/Cake.Issues/IssuePriority/7A0CE07F">IssuePriority.Warning</a>.
+   For markdownlint-cli versions before 0.47.0, which don't report a severity, always <a href="https://cakebuild.net/api/Cake.Issues/IssuePriority/7A0CE07F">IssuePriority.Warning</a></li>
+<li><code>Error</code> or <code>Warning</code> depending on reported severity, see (4)</li>
 <li>Support for custom rules can be added through a custom <a href="https://cakebuild.net/api/Cake.Issues.Markdownlint/MarkdownlintIssuesAliases/2EE35F55">MarkdownlintAddRuleUrlResolver</a></li>
 </ol>
 </div>
