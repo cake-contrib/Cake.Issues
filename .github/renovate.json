@@ -7,6 +7,19 @@
   "customManagers": [
     {
       "customType": "regex",
+      "description": "Update .NET SDK versions installed by AppVeyor",
+      "managerFilePatterns": [
+        "/\\.appveyor\\.yml$/"
+      ],
+      "matchStrings": [
+        "dotnet-install\\.ps1\"\\s+-Version\\s+(?<currentValue>\\d+\\.\\d+\\.\\d+)"
+      ],
+      "depNameTemplate": "dotnet-sdk",
+      "datasourceTemplate": "dotnet",
+      "versioningTemplate": "loose"
+    },
+    {
+      "customType": "regex",
       "description": "Update versions of NuGet packages used in documentation",
       "managerFilePatterns": [
         "/docs/mkdocs.yml$/"
