@@ -7,6 +7,22 @@
   "customManagers": [
     {
       "customType": "regex",
+      "description": "Update Azure Pipelines NodeTool version channel",
+      "managerFilePatterns": [
+        "/\\.azuredevops/pipelines/templates/steps/install-markdownlint\\.yml$/"
+      ],
+      "matchStringsStrategy": "any",
+      "matchStrings": [
+        "versionSpec:\\s*'(?<currentValue>\\d+)\\.x'",
+        "displayName:\\s*'Install NodeJs (?<currentValue>\\d+)\\.x'"
+      ],
+      "depNameTemplate": "azure-pipelines-node",
+      "packageNameTemplate": "node",
+      "datasourceTemplate": "node-version",
+      "versioningTemplate": "node"
+    },
+    {
+      "customType": "regex",
       "description": "Update markdownlint-cli npm package installations",
       "managerFilePatterns": [
         "/\\.github/actions/install-markdownlint/action\\.yml$/",
