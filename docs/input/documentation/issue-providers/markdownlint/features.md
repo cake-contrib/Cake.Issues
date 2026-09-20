@@ -102,8 +102,10 @@ provides the following features.
     1. Can be set while reading issues
     2. Set to `IIssue.MessageText`
     3. Can be set while reading issues
-    4. Always [IssuePriority.Warning](https://cakebuild.net/api/Cake.Issues/IssuePriority/7A0CE07F)
-    5. Always `Warning`
+    4. Since markdownlint-cli 0.47.0, [IssuePriority.Error](https://cakebuild.net/api/Cake.Issues/IssuePriority/7A0CE07F) if reported severity is `error`,
+       otherwise [IssuePriority.Warning](https://cakebuild.net/api/Cake.Issues/IssuePriority/7A0CE07F).
+       For markdownlint-cli versions before 0.47.0, which don't report a severity, always [IssuePriority.Warning](https://cakebuild.net/api/Cake.Issues/IssuePriority/7A0CE07F)
+    5. `Error` or `Warning` depending on reported severity, see (4)
     6. Support for custom rules can be added through a custom [MarkdownlintAddRuleUrlResolver](https://cakebuild.net/api/Cake.Issues.Markdownlint/MarkdownlintIssuesAliases/2EE35F55)
 
 === "MarkdownlintCliJsonLogFileFormat"
