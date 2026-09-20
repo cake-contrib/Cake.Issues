@@ -1,9 +1,9 @@
 # Installs markdownlint
 
 steps:
-  - task: NodeTool@0
+  - task: UseNode@1
     inputs:
-      versionSpec: '24.x'
+      version: '24.x'
     displayName: 'Install NodeJs 24.x'
   - script: npm install -g markdownlint-cli@0.46.0
     displayName: 'Install markdownlint'

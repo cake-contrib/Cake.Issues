@@ -13,7 +13,7 @@
       ],
       "matchStringsStrategy": "any",
       "matchStrings": [
-        "versionSpec:\\s*'(?<currentValue>\\d+)\\.x'",
+        "version:\\s*'(?<currentValue>\\d+)\\.x'",
         "displayName:\\s*'Install NodeJs (?<currentValue>\\d+)\\.x'"
       ],
       "depNameTemplate": "azure-pipelines-node",
