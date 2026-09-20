@@ -275,6 +275,15 @@
         "Microsoft.Build.Utilities.Core"
       ],
       "enabled": false
+    },
+    {
+      "description": "Automatically merge test dependency updates after pipelines succeed",
+      "matchFileNames": [
+        "**/*Tests.csproj"
+      ],
+      "automerge": true,
+      "automergeType": "pr",
+      "platformAutomerge": true
     }
   ]
 }
