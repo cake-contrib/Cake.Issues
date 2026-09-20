@@ -27,6 +27,10 @@
         "<dependency\\b[^>]*\\bversion=\\\"(?<currentValue>[^\\[\\(][^\\\"]*)\\\"[^>]*\\bid=\\\"(?<depName>[^\\\"]+)\\\"[^>]*\\/?>"
       ],
       "datasourceTemplate": "nuget",
+      // Nuspec dependency versions here are unbracketed (e.g. "4.6.5"), which per the NuGet version-range
+      // spec means "4.6.5 or later", not "exactly 4.6.5". With versioningTemplate "nuget", Renovate treats
+      // the current value as an already-satisfied range once a newer release exists and stops proposing
+      // updates. These versions are meant to be pinned, so semver-coerced compares them as exact versions.
       "versioningTemplate": "semver-coerced"
     },
     {
