@@ -1,0 +1,53 @@
+name: Agentic workflow drift
+
+on:
+  pull_request:
+    paths:
+      - .github/aw/actions-lock.json
+      - .github/workflows/*.md
+      - .github/workflows/*.lock.yml
+      - .github/workflows/agentic-workflow-drift.yml
+
+permissions:
+  contents: read
+
+concurrency:
+  group: agentic-workflow-drift-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Validate compiled workflows
+    runs-on: ubuntu-24.04
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_AW_VERSION: v0.88.7
+    steps:
+      - name: Get the sources
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Install gh-aw
+        uses: github/gh-aw-actions/setup-cli@5e508589e03a7757a7e05b26e834292f5445bfb6 # v0.88.7
+        with:
+          version: ${{ env.GH_AW_VERSION }}
+      - name: Compile agentic workflows
+        run: gh aw compile --purge --no-check-update
+      - name: Check for drift
+        shell: bash
+        run: |
+          set -euo pipefail
+          status=$(git status --porcelain --untracked-files=all -- \
+            '.github/workflows/*.lock.yml' \
+            '.github/aw/actions-lock.json')
+
+          if [[ -n "${status}" ]]; then
+            echo "::error::Compiled agentic workflows are out of date. Run 'gh aw compile --purge --no-check-update' with gh-aw ${GH_AW_VERSION} and commit the generated changes."
+            echo "${status}"
+            git --no-pager diff -- \
+              '.github/workflows/*.lock.yml' \
+              '.github/aw/actions-lock.json'
+            exit 1
+          fi
+
+          echo "Compiled agentic workflows are in sync with their Markdown sources."
