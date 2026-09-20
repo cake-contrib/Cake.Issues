@@ -277,9 +277,18 @@
       "enabled": false
     },
     {
-      "description": "Automatically merge test dependency updates after pipelines succeed",
-      "matchFileNames": [
-        "**/*Tests.csproj"
+      "description": "Automatically merge test library updates after pipelines succeed",
+      "matchPackageNames": [
+        "Cake.Testing",
+        "coverlet.msbuild",
+        "Microsoft.NET.Test.Sdk",
+        "NSubstitute",
+        "Shouldly",
+        "Spectre.Console.Testing",
+        "Verify.Xunit",
+        "xunit",
+        "Xunit.SkippableFact",
+        "xunit.runner.visualstudio"
       ],
       "automerge": true,
       "automergeType": "pr",
