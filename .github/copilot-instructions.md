@@ -8,7 +8,6 @@ This is a .NET based repository containing addins for the Cake Build Automation 
 
 **CRITICAL**: .NET 10 SDK is required (specified in `src/global.json`):
 - Check version: `dotnet --version` (should be 10.0.401 or compatible)
-- Restore tools: `dotnet tool restore` (takes 5 seconds)
 
 For documentation building:
 - Python 3.12+ is required
@@ -45,11 +44,11 @@ When changing directories or using paths, use the native syntax for the current 
 - **Run unit tests**:
   - Linux/macOS: `./build.sh --target=Test`
   - Windows PowerShell: `.\build.ps1 --target=Test`
-  - Time: 3 minutes - NEVER CANCEL, set timeout to 10+ minutes
+  - Time: 18 minutes - NEVER CANCEL, set timeout to 30+ minutes
 - **Full CI build** (build + test + package + issues analysis):
   - Linux/macOS: `./build.sh`
   - Windows PowerShell: `.\build.ps1`
-  - Time: 4 minutes - NEVER CANCEL, set timeout to 15+ minutes
+  - Time: 35 minutes - NEVER CANCEL, set timeout to 60+ minutes
 
 ### Integration Tests (VALIDATED)
 **CRITICAL**: Must create packages FIRST before running integration tests:
@@ -145,16 +144,17 @@ Add `--verbosity=diagnostic` to any build command for detailed output.
 
 ## Build System Details
 
-**Cake.Recipe powered build system:**
-- `recipe.cake` - main build configuration
-- `build.sh` - entry point script (calls dotnet cake)
-- `.config/dotnet-tools.json` - specifies Cake Tool 3.2.0
+**Cake Frosting powered build system:**
+- `build/Build.csproj` - build application and dependency definition
+- `build/*.cs` - build context and task definitions
+- `build.sh` and `build.ps1` - entry point scripts
+- Uses `Cake.Frosting.Issues.Recipe` for issue management
 - Uses GitVersion for semantic versioning
 
 ## Common Issues and Troubleshooting
 
 ### Build Issues
-- **"Tool not found"**: Run `dotnet tool restore` first
+- **"Tool not found"**: Build tools are restored automatically by Cake Frosting
 - **Package not found**: Ensure NuGet packages created with `./build.sh --target=Create-NuGet-Packages` or `.\build.ps1 --target=Create-NuGet-Packages`
 - **GitVersion errors**: Ensure you're in git repository with proper remotes
 
@@ -181,12 +181,9 @@ Add `--verbosity=diagnostic` to any build command for detailed output.
 ## Frequently Used Commands Summary
 
 ```bash
-# Setup (run once)
-dotnet tool restore
-
 # Linux/macOS development cycle (run these in order)
 ./build.sh --target=DotNet-Build              # 3.5 min - build only
-./build.sh --target=Test                      # 3 min   - run tests  
+./build.sh --target=Test                      # 18 min  - run tests
 ./build.sh --target=Create-NuGet-Packages     # 2 min   - create packages
 
 # Integration testing (after packages created)
@@ -194,7 +191,7 @@ cd tests/Cake.Issues.MsBuild/script-runner/net9.0
 ./build.sh --verbosity=diagnostic             # 15 sec  - test specific addin
 
 # Full validation
-./build.sh                                    # 4 min   - complete CI build
+./build.sh                                    # 18.5 min - complete CI build
 
 # Documentation
 cd docs && pip install -r requirements.txt   # 48 sec  - install deps
@@ -203,12 +200,9 @@ cd docs && mkdocs build                       # 10 sec  - build static site
 ```
 
 ```powershell
-# Setup (run once)
-dotnet tool restore
-
 # Windows PowerShell development cycle (run these in order)
 .\build.ps1 --target=DotNet-Build              # ~10.5 min - build only
-.\build.ps1 --target=Test                      # 3 min   - run tests
+.\build.ps1 --target=Test                      # 18 min  - run tests
 .\build.ps1 --target=Create-NuGet-Packages     # 2 min   - create packages
 
 # Integration testing (after packages created)
@@ -217,7 +211,7 @@ Push-Location tests\Cake.Issues.MsBuild\script-runner\net9.0
 Pop-Location
 
 # Full validation
-.\build.ps1                                    # 4 min   - complete CI build
+.\build.ps1                                    # 18.5 min - complete CI build
 
 # Documentation
 Push-Location docs; pip install -r requirements.txt; Pop-Location   # 48 sec - install deps

@@ -27,32 +27,18 @@ jobs:
       - name: Install .NET
         uses: actions/setup-dotnet@a98b56852c35b8e3190ac28c8c2271da59106c68 # v6.0.0
         with:
-          # .NET 5 required for GitVersion
-          # .NET 7 required for Cake.Recipe
+          # .NET 5 required for Codecov.Tool
           dotnet-version: | 
             5.x
-            7.x
             8.x
             9.x
             10.x
-      # Ubuntu 24.04 does not have Mono installed, which is required for Cake.Recipe
-      - name: Install Mono
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y mono-complete
       - name: Build
         run: ./build.sh --target=CI --verbosity=diagnostic
         shell: bash
         env:
-          AZURE_PASSWORD: ${{ secrets.AZURE_PASSWORD }}
-          AZURE_SOURCE: ${{ secrets.AZURE_SOURCE }}
-          AZURE_USER: ${{ secrets.AZURE_USER }}
           CODECOV_REPO_TOKEN: ${{ secrets.CODECOV_REPO_TOKEN }}
           GITHUB_PAT: ${{ secrets.GH_TOKEN }}
-          GPR_SOURCE: ${{ secrets.GPR_SOURCE }}
-          GPR_API_KEY: ${{ secrets.GPR_API_KEY }}
-          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
-          NUGET_SOURCE: "https://api.nuget.org/v3/index.json"
       - name: Upload Issues
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:

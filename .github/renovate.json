@@ -161,7 +161,6 @@
     {
       "description": "Ignore Cake runner minor and patch updates",
       "matchDepNames": [
-        "Cake.Tool",
         "Cake.Frosting"
       ],
       "matchUpdateTypes": [
