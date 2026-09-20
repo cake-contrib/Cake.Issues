@@ -1,11 +1,5 @@
 # Build & Test Status
 
-## Pull Request Validation
-
-| CI Server | Validation | Trigger |
-|:--:|:--:|:--:|
-|GitHub Actions|Agentic workflow source and compiled workflow drift|Pull requests changing an agentic workflow source, compiled workflow, or compiler action lock|
-
 ## Full builds
 
 | CI Server | Operating System | Develop | Master |
