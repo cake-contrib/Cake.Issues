@@ -121,15 +121,6 @@ safe-outputs:
         GH_AW_REPO: ${{ github.repository }}
         GH_AW_RUN_ID: ${{ github.event.workflow_run.id }}
       steps:
-        - name: Configure GH_HOST for enterprise compatibility
-          run: | # zizmor: ignore[github-env] - GITHUB_SERVER_URL is set by GitHub Actions, not user input.
-            # Derive GH_HOST from GITHUB_SERVER_URL so the gh CLI targets the correct
-            # GitHub instance (GHES/GHEC). On github.com this is a harmless no-op.
-            GH_HOST="${GITHUB_SERVER_URL#https://}"
-            GH_HOST="${GH_HOST#http://}"
-            echo "GH_HOST=${GH_HOST}" >> "$GITHUB_ENV"
-          env:
-            GITHUB_SERVER_URL: ${{ github.server_url }}
         - name: Rerun failed jobs
           env:
             GH_TOKEN: ${{ github.token }}
