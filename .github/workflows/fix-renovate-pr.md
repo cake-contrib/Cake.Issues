@@ -109,13 +109,27 @@ safe-outputs:
         actions: write
       inputs:
         signature:
-          description: "Name of the matched known-flaky signature"
+          description: >-
+            Identifier of the matched known-flaky signature. Must be one of
+            the documented signature identifiers; keep this list synchronized
+            with the "Known flaky failures" section.
           required: true
-          type: string
+          type: choice
+          options:
+            - coverlet-stream-error
       env:
         GH_AW_REPO: ${{ github.repository }}
         GH_AW_RUN_ID: ${{ github.event.workflow_run.id }}
       steps:
+        - name: Configure GH_HOST for enterprise compatibility
+          run: | # zizmor: ignore[github-env] - GITHUB_SERVER_URL is set by GitHub Actions, not user input.
+            # Derive GH_HOST from GITHUB_SERVER_URL so the gh CLI targets the correct
+            # GitHub instance (GHES/GHEC). On github.com this is a harmless no-op.
+            GH_HOST="${GITHUB_SERVER_URL#https://}"
+            GH_HOST="${GH_HOST#http://}"
+            echo "GH_HOST=${GH_HOST}" >> "$GITHUB_ENV"
+          env:
+            GITHUB_SERVER_URL: ${{ github.server_url }}
         - name: Rerun failed jobs
           env:
             GH_TOKEN: ${{ github.token }}
@@ -222,28 +236,30 @@ matches one, skip the deeper root-cause analysis in step 3 and follow this
 fast path instead of the generic "not caused by the update" handling in
 step 4:
 
-- **Coverlet coverage stream error** — the log contains
-  `coverlet.msbuild.targets` together with
-  `Unable to read beyond the end of the stream.` during `DotNet-Test` coverage
-  generation, while the preceding test output shows all tests passed. This is
-  a known intermittent Coverlet/MSBuild coverage-collection failure.
+- **`coverlet-stream-error`** — the log contains `coverlet.msbuild.targets`
+  together with `Unable to read beyond the end of the stream.` during
+  `DotNet-Test` coverage generation, while the preceding test output shows
+  all tests passed. This is a known intermittent Coverlet/MSBuild
+  coverage-collection failure.
 
 Fast path for a matched signature. Read `run_attempt` from
 `/tmp/gh-aw/agent/ci-failure/context.json` to decide which branch applies:
 
-1. If `run_attempt` is `1`, call `rerun-failed-run` with a `signature`
-   describing the match, and stop. Do not call `add-comment` in this case:
-   the rerun will trigger a fresh analysis of this workflow if the retried
-   run fails again, so a comment now would just be noise. (`rerun-failed-run`
-   also independently refuses to rerun an already-retried run, as a safety
-   net against retry loops.)
+1. If `run_attempt` is `1`, call `rerun-failed-run` with the matched
+   signature's identifier (for example `coverlet-stream-error`) and stop. Do
+   not call `add-comment` in this case: the rerun will trigger a fresh
+   analysis of this workflow if the retried run fails again, so a comment
+   now would just be noise. (`rerun-failed-run` only accepts the identifiers
+   listed above and also independently refuses to rerun an already-retried
+   run, as a safety net against retry loops.)
 2. If `run_attempt` is greater than `1`, the automatic retry already
    happened and the same known signature reoccurred. Call `add-comment`
    explaining that the failure is a known flaky pattern that persisted
-   across an automatic retry, name the matched signature, and suggest a
-   manual rerun or a deeper look at the underlying tool. Then stop.
+   across an automatic retry, name the matched signature identifier, and
+   suggest a manual rerun or a deeper look at the underlying tool. Then stop.
 
-Add new entries to this list whenever a failure is confirmed to be a
+Add new entries to this list, and the matching `signature` option on
+`rerun-failed-run`, whenever a failure is confirmed to be a
 recurring, non-code-related flake, so future runs can be resolved without a
 full log investigation.
 
