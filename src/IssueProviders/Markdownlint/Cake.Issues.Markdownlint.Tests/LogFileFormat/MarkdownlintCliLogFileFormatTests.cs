@@ -617,7 +617,7 @@ public sealed class MarkdownlintCliLogFileFormatTests
                     "markdownlint")
                     .InFile("docs/index.md", 1)
                     .OfRule("MD022", new Uri("https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md022"))
-                    .WithPriority(IssuePriority.Warning));
+                    .WithPriority(IssuePriority.Error));
             IssueChecker.Check(
                 issues[1],
                 IssueBuilder.NewIssue(
@@ -626,7 +626,7 @@ public sealed class MarkdownlintCliLogFileFormatTests
                     "markdownlint")
                     .InFile("docs/index.md", 2, 811)
                     .OfRule("MD009", new Uri("https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md009"))
-                    .WithPriority(IssuePriority.Warning));
+                    .WithPriority(IssuePriority.Error));
             IssueChecker.Check(
                 issues[2],
                 IssueBuilder.NewIssue(
@@ -644,7 +644,7 @@ public sealed class MarkdownlintCliLogFileFormatTests
                     "markdownlint")
                     .InFile("docs/index.md", 4)
                     .OfRule("MD022", new Uri("https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md022"))
-                    .WithPriority(IssuePriority.Warning));
+                    .WithPriority(IssuePriority.Error));
             IssueChecker.Check(
                 issues[4],
                 IssueBuilder.NewIssue(
@@ -653,7 +653,7 @@ public sealed class MarkdownlintCliLogFileFormatTests
                     "markdownlint")
                     .InFile("docs/index.md", 4)
                     .OfRule("MD025", new Uri("https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md025"))
-                    .WithPriority(IssuePriority.Warning));
+                    .WithPriority(IssuePriority.Error));
             IssueChecker.Check(
                 issues[5],
                 IssueBuilder.NewIssue(
@@ -662,7 +662,7 @@ public sealed class MarkdownlintCliLogFileFormatTests
                     "markdownlint")
                     .InFile("docs/index.md", 5)
                     .OfRule("MD031", new Uri("https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md031"))
-                    .WithPriority(IssuePriority.Warning));
+                    .WithPriority(IssuePriority.Error));
             IssueChecker.Check(
                 issues[6],
                 IssueBuilder.NewIssue(
@@ -671,7 +671,7 @@ public sealed class MarkdownlintCliLogFileFormatTests
                     "markdownlint")
                     .InFile("docs/index.md", 5)
                     .OfRule("MD040", new Uri("https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md040"))
-                    .WithPriority(IssuePriority.Warning));
+                    .WithPriority(IssuePriority.Error));
             IssueChecker.Check(
                 issues[7],
                 IssueBuilder.NewIssue(
@@ -680,7 +680,7 @@ public sealed class MarkdownlintCliLogFileFormatTests
                     "markdownlint")
                     .InFile("docs/index.md", 7, 3)
                     .OfRule("MD047", new Uri("https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md047"))
-                    .WithPriority(IssuePriority.Warning));
+                    .WithPriority(IssuePriority.Error));
         }
 
         [Fact]
@@ -706,7 +706,7 @@ public sealed class MarkdownlintCliLogFileFormatTests
                     "markdownlint")
                     .InFile("docs/index.md", 1)
                     .OfRule("MD022", new Uri("https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md022"))
-                    .WithPriority(IssuePriority.Warning));
+                    .WithPriority(IssuePriority.Error));
         }
     }
 }

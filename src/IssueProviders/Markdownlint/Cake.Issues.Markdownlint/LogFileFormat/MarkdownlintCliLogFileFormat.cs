@@ -58,14 +58,20 @@ internal partial class MarkdownlintCliLogFileFormat(ICakeLog log)
             var message = groups["message"].Value;
 
             // Since markdownlint-cli 0.47.0 the severity (`error` or `warning`) is included in the
-            // output between the column number and the rule id, e.g. because rules can be configured
-            // with a custom severity. Since Cake.Issues doesn't distinguish these from other issues
-            // reported by markdownlint-cli, all issues are still reported with priority Warning.
+            // output between the column number and the rule id, since rules can be configured with a
+            // custom severity. `error` is mapped to IssuePriority.Error, everything else (`warning` or,
+            // for older markdownlint-cli versions not reporting a severity at all, no value) is mapped
+            // to IssuePriority.Warning as before.
+            var priority =
+                groups["severity"].Value == "error"
+                    ? IssuePriority.Error
+                    : IssuePriority.Warning;
+
             yield return
                 IssueBuilder
                     .NewIssue(message, issueProvider)
                     .InFile(fileName, lineNumber, columnNumber)
-                    .WithPriority(IssuePriority.Warning)
+                    .WithPriority(priority)
                     .OfRule(ruleId, MarkdownlintRuleUrlResolver.Instance.ResolveRuleUrl(ruleId))
                     .Create();
         }
