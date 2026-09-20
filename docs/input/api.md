@@ -13,8 +13,8 @@ hide:
 
 * [Cake.Issues](https://cakebuild.net/extensions/cake-issues)
 * [Cake.Issues.Reporting](https://cakebuild.net/extensions/cake-issues-reporting)
-* [Cake.Issues.PullRequests](https://cakebuild.net/extensions/cake-issues-pullrequests)
 * [Cake.Issues.BuildServer](https://cakebuild.net/extensions/cake-issues-buildserver)
+* [Cake.Issues.PullRequests](https://cakebuild.net/extensions/cake-issues-pullrequests)
 
 </div>
 
