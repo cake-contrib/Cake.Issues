@@ -21,6 +21,9 @@ jobs:
     runs-on: ubuntu-24.04
     env:
       GH_TOKEN: ${{ github.token }}
+      # Single source of truth for the gh-aw version. Updated by Renovate, from which the
+      # `Recompile agentic workflows` workflow derives the setup-cli pin below,
+      # .github/aw/actions-lock.json and the compiled .lock.yml files.
       GH_AW_VERSION: v0.88.7
     steps:
       - name: Get the sources

@@ -1,0 +1,167 @@
+name: Recompile agentic workflows
+
+# Renovate only bumps the GH_AW_VERSION value in .github/workflows/agentic-workflow-drift.yml.
+# Everything else that is tied to the gh-aw version is generated from it by this workflow:
+#   * the github/gh-aw-actions/setup-cli pin in .github/workflows/agentic-workflow-drift.yml
+#   * the action pins cached in .github/aw/actions-lock.json
+#   * the compiled .github/workflows/*.lock.yml files
+# The result is pushed onto the Renovate pull request branch, so that a single pull request
+# contains the version bump and the recompiled workflows.
+#
+# Pushing requires a personal access token with `contents: write` and `workflows: write`
+# permissions, stored in the GH_AW_CI_TRIGGER_TOKEN secret. The default GITHUB_TOKEN cannot be
+# used, since it is neither allowed to update files below .github/workflows nor does a push
+# authenticated with it trigger the checks of the pull request.
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - .github/workflows/agentic-workflow-drift.yml
+
+permissions:
+  contents: read
+
+concurrency:
+  group: agentic-workflow-recompile-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  recompile:
+    name: Recompile agentic workflows
+    # Only Renovate branches of this repository are recompiled. Pull requests from forks are
+    # skipped, since their branches cannot be updated from here.
+    if: >-
+      github.event.pull_request.user.login == 'renovate[bot]' &&
+      github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-24.04
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_AW_ACTIONS_REPO: github/gh-aw-actions
+      DRIFT_WORKFLOW: .github/workflows/agentic-workflow-drift.yml
+      ACTIONS_LOCK_FILE: .github/aw/actions-lock.json
+    steps:
+      - name: Verify push token
+        env:
+          CI_TRIGGER_TOKEN: ${{ secrets.GH_AW_CI_TRIGGER_TOKEN }}
+        run: |
+          set -euo pipefail
+          if [[ -z "${CI_TRIGGER_TOKEN}" ]]; then
+            echo "::error::The GH_AW_CI_TRIGGER_TOKEN secret is not configured. It needs to contain a personal access token with 'contents: write' and 'workflows: write' permissions, since neither the default GITHUB_TOKEN nor a token without workflow permissions can update files below .github/workflows."
+            exit 1
+          fi
+
+      - name: Get the sources
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          persist-credentials: true
+          token: ${{ secrets.GH_AW_CI_TRIGGER_TOKEN }}
+
+      - name: Determine gh-aw version
+        id: version
+        run: |
+          set -euo pipefail
+          version=$(sed -nE 's/^[[:space:]]*GH_AW_VERSION:[[:space:]]*(v[0-9]+\.[0-9]+\.[0-9]+).*$/\1/p' "${DRIFT_WORKFLOW}" | head -n 1)
+
+          if [[ -z "${version}" ]]; then
+            echo "::error::Could not determine the gh-aw version from GH_AW_VERSION in ${DRIFT_WORKFLOW}."
+            exit 1
+          fi
+
+          echo "Using gh-aw ${version}."
+          echo "version=${version}" >> "${GITHUB_OUTPUT}"
+
+      - name: Resolve commit of the gh-aw actions
+        id: actions-sha
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          set -euo pipefail
+          sha=$(gh api "repos/${GH_AW_ACTIONS_REPO}/commits/${VERSION}" --jq '.sha')
+
+          if [[ ! "${sha}" =~ ^[0-9a-f]{40}$ ]]; then
+            echo "::error::Could not resolve the commit of ${GH_AW_ACTIONS_REPO}@${VERSION}."
+            exit 1
+          fi
+
+          echo "${GH_AW_ACTIONS_REPO}@${VERSION} is ${sha}."
+          echo "sha=${sha}" >> "${GITHUB_OUTPUT}"
+
+      - name: Update pinned gh-aw actions
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+          SHA: ${{ steps.actions-sha.outputs.sha }}
+        run: |
+          set -euo pipefail
+
+          # Pin the setup-cli action used by the drift workflow to the commit of the new version.
+          sed -i -E "s|(uses: ${GH_AW_ACTIONS_REPO}/([a-z0-9-]+)@)[0-9a-f]{40} # v[0-9]+\.[0-9]+\.[0-9]+|\1${SHA} # ${VERSION}|g" "${DRIFT_WORKFLOW}"
+
+          # Replace the cached pins of the gh-aw actions. Entries of other actions are left
+          # untouched, they are managed by `gh aw compile`.
+          updated=$(jq \
+            --arg repoPrefix "${GH_AW_ACTIONS_REPO}/" \
+            --arg version "${VERSION}" \
+            --arg sha "${SHA}" '
+              .entries |= (
+                to_entries
+                | map(
+                    if (.value.repo | startswith($repoPrefix)) then
+                      {
+                        key: (.value.repo + "@" + $version),
+                        value: { repo: .value.repo, version: $version, sha: $sha }
+                      }
+                    else
+                      .
+                    end
+                  )
+                | sort_by(.key)
+                | from_entries
+              )' "${ACTIONS_LOCK_FILE}")
+          printf '%s\n' "${updated}" > "${ACTIONS_LOCK_FILE}"
+
+          git --no-pager diff -- "${DRIFT_WORKFLOW}" "${ACTIONS_LOCK_FILE}"
+
+      - name: Install gh-aw
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          set -euo pipefail
+          gh extension install github/gh-aw --force --pin "${VERSION}"
+          gh aw version
+
+      - name: Recompile agentic workflows
+        run: gh aw compile --purge --no-check-update
+
+      - name: Push recompiled workflows
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+          HEAD_BRANCH: ${{ github.event.pull_request.head.ref }}
+        run: |
+          set -euo pipefail
+
+          changes=$(git status --porcelain --untracked-files=all -- \
+            "${DRIFT_WORKFLOW}" \
+            "${ACTIONS_LOCK_FILE}" \
+            '.github/workflows/*.lock.yml')
+
+          if [[ -z "${changes}" ]]; then
+            echo "Agentic workflows are already up to date with gh-aw ${VERSION}."
+            echo "Agentic workflows are already up to date with gh-aw \`${VERSION}\`." >> "${GITHUB_STEP_SUMMARY}"
+            exit 0
+          fi
+
+          echo "${changes}"
+
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- \
+            "${DRIFT_WORKFLOW}" \
+            "${ACTIONS_LOCK_FILE}" \
+            '.github/workflows/*.lock.yml'
+          git commit -m "Recompile agentic workflows with gh-aw ${VERSION}"
+          git push origin "HEAD:refs/heads/${HEAD_BRANCH}"
+
+          echo "Recompiled the agentic workflows with gh-aw \`${VERSION}\`." >> "${GITHUB_STEP_SUMMARY}"
+          git --no-pager show --stat --oneline HEAD >> "${GITHUB_STEP_SUMMARY}"
