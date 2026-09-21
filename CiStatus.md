@@ -17,6 +17,12 @@
 |Azure Pipelines|macOS 14|[![Build Status](https://dev.azure.com/cake-contrib/Cake.Issues/_apis/build/status%2Fcake-contrib.Cake.Issues?branchName=develop&stageName=Unit%20Tests&jobName=Unit%20Tests&configuration=Unit%20Tests%20macOS)](https://dev.azure.com/cake-contrib/Cake.Issues/_build/latest?definitionId=2&branchName=develop)|[![Build Status](https://dev.azure.com/cake-contrib/Cake.Issues/_apis/build/status%2Fcake-contrib.Cake.Issues?branchName=master&stageName=Unit%20Tests&jobName=Unit%20Tests&configuration=Unit%20Tests%20macOS)](https://dev.azure.com/cake-contrib/Cake.Issues/_build/latest?definitionId=2&branchName=master)|
 |GitHub Actions|Windows / Ubuntu|N/A|[![Unit tests](https://github.com/cake-contrib/Cake.Issues/actions/workflows/unittests.yml/badge.svg?branch=master)](https://github.com/cake-contrib/Cake.Issues/actions/workflows/unittests.yml)|
 
+## Pull Request Checks
+
+| CI Server | Check | Triggered Paths |
+|:--:|:--:|:--|
+|GitHub Actions|[Report template drift](https://github.com/cake-contrib/Cake.Issues/actions/workflows/report-template-drift.yml)|`docs/input/documentation/report-formats/generic/templates/**`<br>`src/ReportFormats/Generic/Cake.Issues.Reporting.Generic/Templates/DxDataGrid.cshtml`<br>`src/ReportFormats/Generic/Cake.Issues.Reporting.Generic/HtmlDxDataGridOption.cs`|
+
 ## Integration Tests
 
 > Note: The following servers can't report individual status for different packages, runners or operating systems.
