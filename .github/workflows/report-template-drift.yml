@@ -22,7 +22,7 @@ jobs:
   Check:
     name: Check generated report templates
     needs: Build
-    runs-on: ubuntu-26.04
+    runs-on: ubuntu-22.04
     steps:
       - name: Get the sources
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -30,11 +30,6 @@ jobs:
         uses: ./.github/actions/prepare-integration-test
         with:
           dotnet-version: 8.x
-      # Ubuntu 26.04 does not have Mono installed, which is required for Cake.Recipe
-      - name: Install Mono
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y mono-complete
       - name: Regenerate report templates
         run: ./build.sh --verbosity=diagnostic
         working-directory: ./tests/Cake.Issues.Reporting.Generic/script-runner/net8.0

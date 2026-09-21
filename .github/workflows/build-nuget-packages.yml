@@ -6,7 +6,7 @@ on:
 jobs:
   Build:
     name: Build
-    runs-on: ubuntu-26.04
+    runs-on: ubuntu-22.04
     steps:
       - name: Get the sources
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -27,11 +27,6 @@ jobs:
             8.x
             9.x
             10.x
-      # Ubuntu 26.04 does not have Mono installed, which is required for Cake.Recipe
-      - name: Install Mono
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y mono-complete
       - name: Build
         run: ./build.sh --target=Create-NuGet-Packages
         shell: bash
