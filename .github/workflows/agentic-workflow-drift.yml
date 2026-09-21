@@ -24,14 +24,14 @@ jobs:
       # Single source of truth for the gh-aw version. Updated by Renovate, from which the
       # `Recompile agentic workflows` workflow derives the setup-cli pin below,
       # .github/aw/actions-lock.json and the compiled .lock.yml files.
-      GH_AW_VERSION: v0.88.7
+      GH_AW_VERSION: v0.89.17
     steps:
       - name: Get the sources
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
       - name: Install gh-aw
-        uses: github/gh-aw-actions/setup-cli@5e508589e03a7757a7e05b26e834292f5445bfb6 # v0.88.7
+        uses: github/gh-aw-actions/setup-cli@f3b81cdb3070066a47faa9bdf440f4f1dc78b1f0 # v0.89.17
         with:
           version: ${{ env.GH_AW_VERSION }}
       - name: Compile agentic workflows
