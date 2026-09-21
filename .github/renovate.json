@@ -276,6 +276,16 @@
       ],
       "enabled": false
     },
+    // DevExtreme 23.2 changed its licensing model to a paid/commercial-only license, so it can no longer be
+    // updated to that version or later. See the upstream license change commit:
+    // https://github.com/DevExpress/DevExtreme/commit/21694969a1a86e3b638a59250504b7ebd9d81c6d
+    {
+      "description": "Limit DevExtreme used by the DxDataGrid report template to 23.1 due to a license change in 23.2",
+      "matchDepNames": [
+        "devextreme"
+      ],
+      "allowedVersions": "<23.2.0"
+    },
     {
       "description": "Automatically merge test library updates after pipelines succeed",
       "matchPackageNames": [
