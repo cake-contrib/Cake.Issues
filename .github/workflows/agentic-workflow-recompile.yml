@@ -32,31 +32,24 @@ jobs:
     # Only Renovate branches of this repository are recompiled. Pull requests from forks are
     # skipped, since their branches cannot be updated from here.
     if: >-
+      github.actor == 'renovate[bot]' &&
       github.event.pull_request.user.login == 'renovate[bot]' &&
       github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-24.04
+    outputs:
+      has-changes: ${{ steps.prepare-patch.outputs.has-changes }}
+      version: ${{ steps.version.outputs.version }}
     env:
       GH_TOKEN: ${{ github.token }}
       GH_AW_ACTIONS_REPO: github/gh-aw-actions
       DRIFT_WORKFLOW: .github/workflows/agentic-workflow-drift.yml
       ACTIONS_LOCK_FILE: .github/aw/actions-lock.json
     steps:
-      - name: Verify push token
-        env:
-          CI_TRIGGER_TOKEN: ${{ secrets.GH_AW_CI_TRIGGER_TOKEN }}
-        run: |
-          set -euo pipefail
-          if [[ -z "${CI_TRIGGER_TOKEN}" ]]; then
-            echo "::error::The GH_AW_CI_TRIGGER_TOKEN secret is not configured. It needs to contain a personal access token with 'contents: write' and 'workflows: write' permissions, since neither the default GITHUB_TOKEN nor a token without workflow permissions can update files below .github/workflows."
-            exit 1
-          fi
-
       - name: Get the sources
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: ${{ github.event.pull_request.head.ref }}
-          persist-credentials: true
-          token: ${{ secrets.GH_AW_CI_TRIGGER_TOKEN }}
+          persist-credentials: false
 
       - name: Determine gh-aw version
         id: version
@@ -134,10 +127,8 @@ jobs:
       - name: Recompile agentic workflows
         run: gh aw compile --purge --no-check-update
 
-      - name: Push recompiled workflows
-        env:
-          VERSION: ${{ steps.version.outputs.version }}
-          HEAD_BRANCH: ${{ github.event.pull_request.head.ref }}
+      - name: Prepare recompiled workflow patch
+        id: prepare-patch
         run: |
           set -euo pipefail
 
@@ -147,12 +138,65 @@ jobs:
             '.github/workflows/*.lock.yml')
 
           if [[ -z "${changes}" ]]; then
-            echo "Agentic workflows are already up to date with gh-aw ${VERSION}."
-            echo "Agentic workflows are already up to date with gh-aw \`${VERSION}\`." >> "${GITHUB_STEP_SUMMARY}"
+            echo "has-changes=false" >> "${GITHUB_OUTPUT}"
             exit 0
           fi
 
           echo "${changes}"
+          git diff --binary -- \
+            "${DRIFT_WORKFLOW}" \
+            "${ACTIONS_LOCK_FILE}" \
+            '.github/workflows/*.lock.yml' > "${RUNNER_TEMP}/recompiled-workflows.patch"
+          echo "has-changes=true" >> "${GITHUB_OUTPUT}"
+
+      - name: Upload recompiled workflow patch
+        if: steps.prepare-patch.outputs.has-changes == 'true'
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: recompiled-workflows
+          path: ${{ runner.temp }}/recompiled-workflows.patch
+          if-no-files-found: error
+
+  push:
+    name: Push recompiled workflows
+    needs: recompile
+    if: >-
+      needs.recompile.outputs.has-changes == 'true' &&
+      github.actor == 'renovate[bot]' &&
+      github.event.pull_request.user.login == 'renovate[bot]' &&
+      github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-24.04
+    env:
+      DRIFT_WORKFLOW: .github/workflows/agentic-workflow-drift.yml
+      ACTIONS_LOCK_FILE: .github/aw/actions-lock.json
+    steps:
+      - name: Get the sources
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          persist-credentials: false
+
+      - name: Download recompiled workflow patch
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          name: recompiled-workflows
+          path: ${{ runner.temp }}
+
+      - name: Apply and commit recompiled workflows
+        env:
+          VERSION: ${{ needs.recompile.outputs.version }}
+        run: |
+          set -euo pipefail
+          git apply "${RUNNER_TEMP}/recompiled-workflows.patch"
+
+          changes=$(git status --porcelain --untracked-files=all)
+          unexpected=$(printf '%s\n' "${changes}" | grep -Ev \
+            '^[ MADRCU?!]{2} (\.github/aw/actions-lock\.json|\.github/workflows/agentic-workflow-drift\.yml|\.github/workflows/[^/]+\.lock\.yml)$' || true)
+          if [[ -n "${unexpected}" ]]; then
+            echo "::error::The recompiled patch contains unexpected files:"
+            echo "${unexpected}"
+            exit 1
+          fi
 
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
@@ -161,7 +205,21 @@ jobs:
             "${ACTIONS_LOCK_FILE}" \
             '.github/workflows/*.lock.yml'
           git commit -m "Recompile agentic workflows with gh-aw ${VERSION}"
-          git push origin "HEAD:refs/heads/${HEAD_BRANCH}"
 
-          echo "Recompiled the agentic workflows with gh-aw \`${VERSION}\`." >> "${GITHUB_STEP_SUMMARY}"
-          git --no-pager show --stat --oneline HEAD >> "${GITHUB_STEP_SUMMARY}"
+      - name: Push recompiled workflows
+        env:
+          CI_TRIGGER_TOKEN: ${{ secrets.GH_AW_CI_TRIGGER_TOKEN }}
+          HEAD_BRANCH: ${{ github.event.pull_request.head.ref }}
+        run: |
+          set -euo pipefail
+          if [[ -z "${CI_TRIGGER_TOKEN}" ]]; then
+            echo "::error::The GH_AW_CI_TRIGGER_TOKEN secret is not configured. It needs to contain a personal access token with 'contents: write' and 'workflows: write' permissions, since neither the default GITHUB_TOKEN nor a token without workflow permissions can update files below .github/workflows."
+            exit 1
+          fi
+
+          authorization=$(printf 'x-access-token:%s' "${CI_TRIGGER_TOKEN}" | base64 -w0)
+          git -c "http.https://github.com/.extraheader=AUTHORIZATION: basic ${authorization}" \
+            push origin "HEAD:refs/heads/${HEAD_BRANCH}"
+          unset authorization
+
+          echo "Pushed the recompiled agentic workflows." >> "${GITHUB_STEP_SUMMARY}"
