@@ -30,6 +30,11 @@ jobs:
         uses: ./.github/actions/prepare-integration-test
         with:
           dotnet-version: 8.x
+      # Ubuntu 26.04 does not have Mono installed, which is required for Cake.Recipe
+      - name: Install Mono
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y mono-complete
       - name: Regenerate report templates
         run: ./build.sh --verbosity=diagnostic
         working-directory: ./tests/Cake.Issues.Reporting.Generic/script-runner/net8.0

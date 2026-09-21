@@ -27,6 +27,11 @@ jobs:
             8.x
             9.x
             10.x
+      # Ubuntu 26.04 does not have Mono installed, which is required for Cake.Recipe
+      - name: Install Mono
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y mono-complete
       - name: Build
         run: ./build.sh --target=Create-NuGet-Packages
         shell: bash
