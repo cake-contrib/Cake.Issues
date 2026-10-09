@@ -186,6 +186,8 @@ internal class SarifIssueReportGenerator : IssueReportFormat
         sarifIssue.NotNull();
         sarifIssue.Issue.NotNull();
 
+        var location = sarifIssue.Issue.Location();
+
         var result =
             new Result
             {
@@ -198,9 +200,13 @@ internal class SarifIssueReportGenerator : IssueReportFormat
                     },
                 Kind = sarifIssue.Issue.Kind(),
                 Level = sarifIssue.Issue.Level(),
-                Locations = [sarifIssue.Issue.Location()],
                 BaselineState = sarifIssue.BaselineState,
             };
+
+        if (location != null)
+        {
+            result.Locations = [location];
+        }
 
         if (sarifIssue.Issue.RuleUrl != null)
         {

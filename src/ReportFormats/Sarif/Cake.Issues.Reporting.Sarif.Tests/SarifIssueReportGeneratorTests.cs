@@ -2,6 +2,7 @@
 
 using Microsoft.CodeAnalysis.Sarif;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 public sealed class SarifIssueReportGeneratorTests
 {
@@ -150,6 +151,24 @@ public sealed class SarifIssueReportGeneratorTests
 
             run.OriginalUriBaseIds.Count.ShouldBe(1);
             run.OriginalUriBaseIds[SarifIssueReportGenerator.RepoRootUriBaseId].Uri.LocalPath.ShouldBe(SarifIssueReportFixture.RepositoryRootPath);
+        }
+
+        [Fact]
+        public void Should_Omit_Location_If_Issue_Has_No_Location()
+        {
+            // Given
+            var fixture = new SarifIssueReportFixture();
+            var issue =
+                IssueBuilder
+                    .NewIssue("Message Foo.", "ProviderType Foo", "ProviderName Foo")
+                    .Create();
+
+            // When
+            var logContents = fixture.CreateReport([issue]);
+
+            // Then
+            var result = JObject.Parse(logContents)["runs"][0]["results"][0] as JObject;
+            result.Property("locations").ShouldBeNull();
         }
 
         [Fact]
