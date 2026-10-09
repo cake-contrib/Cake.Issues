@@ -17,15 +17,11 @@ To contribute:
 
 General requirements:
 
-* .NET Core 2.1, .NET Core 3.0,  .NET Core 3.1, .NET 5 or .NET 6 for running the build
-
-For building addins:
-
-* .NET 9 SKD
+* .NET 10 SDK
 
 For building website:
 
-* Python 3
+* Python 3.12 or later
 
 ### Building addins
 
@@ -38,7 +34,7 @@ On Windows PowerShell run:
 On OSX/Linux run:
 
 ```bash
-.\build.sh
+./build.sh
 ```
 
 ### Start website
@@ -57,7 +53,6 @@ On OSX/Linux run:
 
 ## Release
 
-See [Cake.Recipe documentation] how to create a new release of this addin.
+Release and deployment automation is intentionally kept outside the repository build.
 
 [GitFlow]: (https://nvie.com/posts/a-successful-git-branching-model/)
-[Cake.Recipe documentation]: https://cake-contrib.github.io/Cake.Recipe/docs/usage/creating-release

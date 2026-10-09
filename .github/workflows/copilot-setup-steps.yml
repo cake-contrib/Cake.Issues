@@ -31,12 +31,7 @@ jobs:
       - name: Install .NET
         uses: actions/setup-dotnet@a98b56852c35b8e3190ac28c8c2271da59106c68 # v6.0.0
         with:
-          # .NET 5 required for GitVersion
           dotnet-version: | 
-            5.x
             8.x
             9.x
             10.x
-      # Ubuntu 24.04 does not have Mono installed, which is Required for Cake.Recipe
-      - name: Install Mono
-        run: sudo apt-get install mono-complete
