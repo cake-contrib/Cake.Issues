@@ -469,7 +469,7 @@ public enum HtmlDxDataGridOption
     /// <summary>
     /// Version of <see href="https://github.com/MrRio/jsPDF">jsPDF</see> which should be used.
     /// This version needs to match the version required by the selected <see cref="DevExtremeVersion"/>.
-    /// Default value for <c>jspdf</c> is <c>3.0.4</c>.
+    /// Default value for <c>jspdf</c> is <c>4.2.1</c>.
     /// </summary>
     JsPdfVersion,
 
