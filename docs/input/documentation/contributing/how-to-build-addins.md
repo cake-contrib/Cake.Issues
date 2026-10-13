@@ -5,9 +5,9 @@ description: Instructions how to build individual Cake Issues addins.
 
 Ensure the following prerequisites are fulfilled:
 
-* Latest .NET version installed
+* .NET 10 SDK installed
 
-To build the addins and run unit tests [Cake] is used:
+The repository uses a [Cake Frosting] build.
 
 <!-- markdownlint-disable MD046 -->
 === ":material-microsoft-windows: Windows"
@@ -33,8 +33,8 @@ To run only part of the build a task can be passed using the `--target=<TASK>` s
 
 | Task                    | Description                                                                                                                          |
 |-------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
-| `DotNetCore-Build`      | Builds all addins                                                                                                                    |
+| `DotNet-Build`          | Builds all addins                                                                                                                    |
 | `Create-NuGet-Packages` | Builds and creates NuGet packages for all addins. The NuGet packages are available in the `BuildArtifacts\Packages\NuGet` directory. |
 | `Test`                  | Builds all addins and runs unit tests. Coverage report is available in the `BuildArtifacts\TestCoverage` directory.                  |
 
-[Cake]: https://cakebuild.net/
+[Cake Frosting]: https://cakebuild.net/docs/getting-started/frosting/
