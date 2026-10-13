@@ -16,7 +16,7 @@ on:
 jobs:
   Test:
     name: Build
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     steps:
       - name: Get the sources
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -35,7 +35,7 @@ jobs:
             8.x
             9.x
             10.x
-      # Ubuntu 24.04 does not have Mono installed, which is required for Cake.Recipe
+      # Ubuntu 26.04 does not have Mono installed, which is required for Cake.Recipe
       - name: Install Mono
         run: |
           sudo apt-get update

@@ -18,7 +18,7 @@ concurrency:
 jobs:
   validate:
     name: Validate compiled workflows
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     env:
       GH_TOKEN: ${{ github.token }}
       # Single source of truth for the gh-aw version. Updated by Renovate, from which the

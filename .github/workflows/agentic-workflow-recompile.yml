@@ -35,7 +35,7 @@ jobs:
       github.actor == 'renovate[bot]' &&
       github.event.pull_request.user.login == 'renovate[bot]' &&
       github.event.pull_request.head.repo.full_name == github.repository
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     outputs:
       has-changes: ${{ steps.prepare-patch.outputs.has-changes }}
       version: ${{ steps.version.outputs.version }}
@@ -165,7 +165,7 @@ jobs:
       github.actor == 'renovate[bot]' &&
       github.event.pull_request.user.login == 'renovate[bot]' &&
       github.event.pull_request.head.repo.full_name == github.repository
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     env:
       DRIFT_WORKFLOW: .github/workflows/agentic-workflow-drift.yml
       ACTIONS_LOCK_FILE: .github/aw/actions-lock.json
