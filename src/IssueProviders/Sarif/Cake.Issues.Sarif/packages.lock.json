@@ -16,9 +16,9 @@
       },
       "Sarif.Sdk": {
         "type": "Direct",
-        "requested": "[5.7.0, )",
-        "resolved": "5.7.0",
-        "contentHash": "UVBzw+EDLcdj0DLyxypTtGiNqaP3+Zm3RAP3rHoo20jaEzKv9JFvBLOq6chjV9IuKEGcDMgFnB1D+4DmSLjU8w==",
+        "requested": "[5.8.0, )",
+        "resolved": "5.8.0",
+        "contentHash": "7twZQxftcjxGvz2sQ9DysTdMFAm0PWGYzHibN+O25TenFDtJtCWxKLTzoWtX+jXx7biFh9+QzOqh3WwEJtSu8A==",
         "dependencies": {
           "Microsoft.Diagnostics.Tracing.EventRegister": "1.1.28",
           "Microsoft.Diagnostics.Tracing.TraceEvent": "3.1.3",
@@ -68,9 +68,9 @@
       },
       "Sarif.Sdk": {
         "type": "Direct",
-        "requested": "[5.7.0, )",
-        "resolved": "5.7.0",
-        "contentHash": "UVBzw+EDLcdj0DLyxypTtGiNqaP3+Zm3RAP3rHoo20jaEzKv9JFvBLOq6chjV9IuKEGcDMgFnB1D+4DmSLjU8w==",
+        "requested": "[5.8.0, )",
+        "resolved": "5.8.0",
+        "contentHash": "7twZQxftcjxGvz2sQ9DysTdMFAm0PWGYzHibN+O25TenFDtJtCWxKLTzoWtX+jXx7biFh9+QzOqh3WwEJtSu8A==",
         "dependencies": {
           "Microsoft.Diagnostics.Tracing.EventRegister": "1.1.28",
           "Microsoft.Diagnostics.Tracing.TraceEvent": "3.1.3",
@@ -120,9 +120,9 @@
       },
       "Sarif.Sdk": {
         "type": "Direct",
-        "requested": "[5.7.0, )",
-        "resolved": "5.7.0",
-        "contentHash": "UVBzw+EDLcdj0DLyxypTtGiNqaP3+Zm3RAP3rHoo20jaEzKv9JFvBLOq6chjV9IuKEGcDMgFnB1D+4DmSLjU8w==",
+        "requested": "[5.8.0, )",
+        "resolved": "5.8.0",
+        "contentHash": "7twZQxftcjxGvz2sQ9DysTdMFAm0PWGYzHibN+O25TenFDtJtCWxKLTzoWtX+jXx7biFh9+QzOqh3WwEJtSu8A==",
         "dependencies": {
           "Microsoft.Diagnostics.Tracing.EventRegister": "1.1.28",
           "Microsoft.Diagnostics.Tracing.TraceEvent": "3.1.3",
