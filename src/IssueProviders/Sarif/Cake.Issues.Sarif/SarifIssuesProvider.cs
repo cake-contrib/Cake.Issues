@@ -47,7 +47,10 @@ internal class SarifIssuesProvider(ICakeLog log, SarifIssuesSettings issueProvid
 
                 var (text, markdown) = GetMessage(sarifResult, run);
                 var (ruleId, ruleUrl) = GetRule(sarifResult, run);
-                var (filePath, startLine, endLine, startColumn, endColumn) = GetLocation(sarifResult, this.Settings);
+                var physicalLocation = sarifResult.Locations.FirstOrDefault()?.PhysicalLocation;
+                var (filePath, startLine, endLine, startColumn, endColumn) = GetLocation(physicalLocation, this.Settings);
+                var snippet = physicalLocation?.Region?.Snippet?.Text;
+                var sourceLanguage = GetSourceLanguage(physicalLocation, run);
 
                 // Build issue.
                 var issueBuilder =
@@ -64,6 +67,18 @@ internal class SarifIssuesProvider(ICakeLog log, SarifIssuesSettings issueProvid
                     issueBuilder =
                         issueBuilder
                             .WithMessageInMarkdownFormat(markdown);
+                }
+
+                if (!string.IsNullOrWhiteSpace(snippet))
+                {
+                    issueBuilder =
+                        issueBuilder.WithSnippet(snippet);
+                }
+
+                if (!string.IsNullOrWhiteSpace(sourceLanguage))
+                {
+                    issueBuilder =
+                        issueBuilder.WithSourceLanguage(sourceLanguage);
                 }
 
                 if (filePath != null)
@@ -176,17 +191,13 @@ internal class SarifIssuesProvider(ICakeLog log, SarifIssuesSettings issueProvid
     /// <summary>
     /// Determines the location for a SARIF result.
     /// </summary>
-    /// <param name="result">Result to read the location from.</param>
+    /// <param name="physicalLocation">Physical location to read the location from.</param>
     /// <param name="repositorySettings">Repository settings.</param>
     /// <returns>File and line of the result.</returns>
     private static (string FilePath, int? StartLine, int? EndLine, int? StartColumn, int? EndColumn) GetLocation(
-        Result result, IRepositorySettings repositorySettings)
+        PhysicalLocation physicalLocation, IRepositorySettings repositorySettings)
     {
-        result.NotNull();
-
-        // Only consider the first location.
-        var location = result.Locations.FirstOrDefault();
-        if (location is { PhysicalLocation: not null })
+        if (physicalLocation is not null)
         {
             // Depending on tool Uri is written differently:
             // - Absolute path on Windows RFC 3986 conform: file://C:/path/to/file
@@ -197,30 +208,30 @@ internal class SarifIssuesProvider(ICakeLog log, SarifIssuesSettings issueProvid
             string filePath;
             try
             {
-                if (location.PhysicalLocation.ArtifactLocation.Uri.IsFile)
+                if (physicalLocation.ArtifactLocation.Uri.IsFile)
                 {
                     // Handle RFC 3986 conform URIs.
-                    if (!string.IsNullOrEmpty(location.PhysicalLocation.ArtifactLocation.Uri.Host))
+                    if (!string.IsNullOrEmpty(physicalLocation.ArtifactLocation.Uri.Host))
                     {
                         // The case for Linux style URIs: file://path/to/file
-                        filePath = $"/{location.PhysicalLocation.ArtifactLocation.Uri.Host}{location.PhysicalLocation.ArtifactLocation.Uri.AbsolutePath}";
+                        filePath = $"/{physicalLocation.ArtifactLocation.Uri.Host}{physicalLocation.ArtifactLocation.Uri.AbsolutePath}";
                     }
                     else
                     {
                         // The case for Windows style URIs: file://C:/path/to/file
-                        filePath = location.PhysicalLocation.ArtifactLocation.Uri.AbsolutePath;
+                        filePath = physicalLocation.ArtifactLocation.Uri.AbsolutePath;
                     }
                 }
                 else
                 {
                     // Handle URIs without file scheme.
-                    filePath = location.PhysicalLocation.ArtifactLocation.Uri.AbsolutePath;
+                    filePath = physicalLocation.ArtifactLocation.Uri.AbsolutePath;
                 }
             }
             catch (InvalidOperationException)
             {
                 // Handle relative paths.
-                filePath = location.PhysicalLocation.ArtifactLocation.Uri.ToString();
+                filePath = physicalLocation.ArtifactLocation.Uri.ToString();
             }
 
             // Validate file path and make relative to repository root if it is an absolute path.
@@ -235,17 +246,45 @@ internal class SarifIssuesProvider(ICakeLog log, SarifIssuesSettings issueProvid
             int? endLine = null;
             int? startColumn = null;
             int? endColumn = null;
-            if (location.PhysicalLocation.Region != null)
+            if (physicalLocation.Region != null)
             {
-                startLine = location.PhysicalLocation.Region.StartLine > 0 ? location.PhysicalLocation.Region.StartLine : null;
-                endLine = location.PhysicalLocation.Region.EndLine > 0 ? location.PhysicalLocation.Region.EndLine : null;
-                startColumn = location.PhysicalLocation.Region.StartColumn > 0 ? location.PhysicalLocation.Region.StartColumn : null;
-                endColumn = location.PhysicalLocation.Region.EndColumn > 0 ? location.PhysicalLocation.Region.EndColumn : null;
+                startLine = physicalLocation.Region.StartLine > 0 ? physicalLocation.Region.StartLine : null;
+                endLine = physicalLocation.Region.EndLine > 0 ? physicalLocation.Region.EndLine : null;
+                startColumn = physicalLocation.Region.StartColumn > 0 ? physicalLocation.Region.StartColumn : null;
+                endColumn = physicalLocation.Region.EndColumn > 0 ? physicalLocation.Region.EndColumn : null;
             }
 
             return (filePath, startLine, endLine, startColumn, endColumn);
         }
 
         return (null, null, null, null, null);
+    }
+
+    /// <summary>
+    /// Determines the source language for a SARIF physical location.
+    /// </summary>
+    /// <param name="physicalLocation">Physical location to read the artifact from.</param>
+    /// <param name="run">SARIF run description.</param>
+    /// <returns>Source language of the artifact.</returns>
+    private static string GetSourceLanguage(PhysicalLocation physicalLocation, Run run)
+    {
+        if (physicalLocation?.ArtifactLocation == null || run.Artifacts == null)
+        {
+            return null;
+        }
+
+        var artifactLocation = physicalLocation.ArtifactLocation;
+        var artifactIndex = artifactLocation.Index;
+        var artifact = artifactIndex >= 0 && artifactIndex < run.Artifacts.Count
+            ? run.Artifacts[artifactIndex]
+            : artifactLocation.Uri == null
+                ? null
+                : run.Artifacts
+                    .FirstOrDefault(x =>
+                        x?.Location != null &&
+                        x.Location.Uri == artifactLocation.Uri &&
+                        x.Location.UriBaseId == artifactLocation.UriBaseId);
+
+        return artifact?.SourceLanguage;
     }
 }

@@ -1,0 +1,49 @@
+{
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "CodeScanner",
+          "rules": [
+            {
+              "id": "C2001"
+            }
+          ]
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "src/collections/list.cpp"
+          },
+          "sourceLanguage": "c"
+        }
+      ],
+      "results": [
+        {
+          "ruleId": "C2001",
+          "level": "warning",
+          "message": {
+            "text": "Found issue."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/collections/list.cpp"
+                },
+                "region": {
+                  "startLine": 15,
+                  "snippet": {
+                    "text": "int count;"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
