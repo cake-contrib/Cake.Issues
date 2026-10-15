@@ -468,6 +468,17 @@ public class IssueBuilder
     }
 
     /// <summary>
+    /// Sets the source code snippet where the issue occurred.
+    /// </summary>
+    /// <param name="snippet">The source code snippet where the issue occurred.</param>
+    /// <param name="sourceLanguage">The language in which the source code is written.</param>
+    /// <returns>Issue Builder instance.</returns>
+    public IssueBuilder WithSnippet(string snippet, string sourceLanguage) =>
+        this
+            .WithSnippet(snippet)
+            .WithSourceLanguage(sourceLanguage);
+
+    /// <summary>
     /// Sets the source language of the file where the issue occurred.
     /// </summary>
     /// <param name="sourceLanguage">The language in which the source code is written.</param>
@@ -480,17 +491,6 @@ public class IssueBuilder
 
         return this;
     }
-
-    /// <summary>
-    /// Sets the source code snippet where the issue occurred.
-    /// </summary>
-    /// <param name="snippet">The source code snippet where the issue occurred.</param>
-    /// <param name="sourceLanguage">The language in which the source code is written.</param>
-    /// <returns>Issue Builder instance.</returns>
-    public IssueBuilder WithSnippet(string snippet, string sourceLanguage) =>
-        this
-            .WithSnippet(snippet)
-            .WithSourceLanguage(sourceLanguage);
 
     /// <summary>
     /// Creates a new <see cref="IIssue"/>.
