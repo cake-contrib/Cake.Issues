@@ -116,6 +116,7 @@ public sealed class SarifIssuesProviderTests
                     "Variable `ptr` was used without being initialized." + Environment.NewLine +
                     "                           It was declared [here](0).")
                     .InFile(@"collections\list.h", 15, 15, 9, 10)
+                    .WithSnippet("add_core(ptr, offset, val);\n    return;", "cplusplus")
                     .OfRule("C2001")
                     .WithPriority(IssuePriority.Error)
                     .Create());
