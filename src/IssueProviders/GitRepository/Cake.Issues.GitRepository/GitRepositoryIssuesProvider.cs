@@ -16,7 +16,7 @@ using Cake.Core.Tooling;
 internal class GitRepositoryIssuesProvider : BaseIssueProvider
 {
     private readonly GitRunner runner;
-    private readonly Lazy<IEnumerable<string>> allFiles;
+    private readonly Lazy<IEnumerable<(string Path, bool SkipWorktree)>> allFiles;
     private readonly Lazy<IEnumerable<string>> textFiles;
     private readonly Lazy<IEnumerable<string>> binaryFiles;
 
@@ -48,14 +48,16 @@ internal class GitRepositoryIssuesProvider : BaseIssueProvider
         this.runner = new GitRunner(fileSystem, environment, processRunner, toolLocator);
 
         this.allFiles =
-            new Lazy<IEnumerable<string>>(
+            new Lazy<IEnumerable<(string Path, bool SkipWorktree)>>(
                 this.GetAllFilesFromRepository);
         this.textFiles =
             new Lazy<IEnumerable<string>>(
                 this.GetTextFilesFromRepository);
         this.binaryFiles =
             new Lazy<IEnumerable<string>>(
-                () => this.DetermineBinaryFiles(this.allFiles.Value, this.textFiles.Value));
+                () => this.DetermineBinaryFiles(
+                    this.allFiles.Value.Where(file => !file.SkipWorktree).Select(file => file.Path),
+                    this.textFiles.Value));
     }
 
     /// <summary>
@@ -162,7 +164,7 @@ internal class GitRepositoryIssuesProvider : BaseIssueProvider
         var result = new List<IIssue>();
 
         // Filter out excluded files and check path length
-        var filesToCheck = this.allFiles.Value.Where(file =>
+        var filesToCheck = this.allFiles.Value.Select(file => file.Path).Where(file =>
             !this.IsFileExcluded(file, CheckType.FilePathLength) &&
             file.Length > this.IssueProviderSettings.MaxFilePathLength);
 
@@ -186,8 +188,8 @@ internal class GitRepositoryIssuesProvider : BaseIssueProvider
     /// <summary>
     /// Returns a list of the files in the repository.
     /// </summary>
-    /// <returns>List of files in the repository.</returns>
-    private List<string> GetAllFilesFromRepository()
+    /// <returns>List of files in the repository with their skip-worktree status.</returns>
+    private List<(string Path, bool SkipWorktree)> GetAllFilesFromRepository()
     {
         this.Log.Verbose("Reading all files from repository '{0}'...", this.Settings.RepositoryRoot);
 
@@ -197,7 +199,7 @@ internal class GitRepositoryIssuesProvider : BaseIssueProvider
         };
 
         settings.Arguments.Clear();
-        settings.Arguments.Add("ls-files -z");
+        settings.Arguments.Add("ls-files -t -z");
         var output =
             this.runner.RunCommand(settings)
             ?? throw new Exception("Error reading files from repository");
@@ -207,6 +209,7 @@ internal class GitRepositoryIssuesProvider : BaseIssueProvider
                     output)
                 .Split('\0')
                 .Where(x => !string.IsNullOrEmpty(x))
+                .Select(x => (Path: x[2..], SkipWorktree: x.StartsWith("S ", StringComparison.Ordinal)))
                 .ToList();
         this.Log.Verbose("Found {0} file(s)", result.Count);
 

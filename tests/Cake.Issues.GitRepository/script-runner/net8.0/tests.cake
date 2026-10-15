@@ -235,7 +235,69 @@ Task("CheckFilesPathLength-Should-Ignore-FilesToExcludeFromFilePathLengthCheck")
     Information("Successful");
 });
 
+Task("CheckBinaryFilesTrackedByLfs-Should-Ignore-Files-Outside-Sparse-Checkout")
+    .Does(() =>
+{
+    var repoRoot = System.IO.Path.Combine(
+        System.IO.Path.GetTempPath(),
+        "Cake.Issues.SparseCheckout." + Guid.NewGuid().ToString("N"));
+    System.IO.Directory.CreateDirectory(repoRoot);
+
+    try
+    {
+        Action<string> git = arguments =>
+        {
+            var exitCode = StartProcess("git", new ProcessSettings
+            {
+                Arguments = arguments,
+                WorkingDirectory = repoRoot
+            });
+            if (exitCode != 0)
+            {
+                throw new Exception($"git {arguments} failed with exit code {exitCode}.");
+            }
+        };
+
+        git("init");
+        foreach (var directory in new[] { "included", "excluded" })
+        {
+            var path = System.IO.Path.Combine(repoRoot, directory);
+            System.IO.Directory.CreateDirectory(path);
+            System.IO.File.WriteAllText(System.IO.Path.Combine(path, "text.txt"), "Text content");
+            System.IO.File.WriteAllBytes(System.IO.Path.Combine(path, "binary.png"), new byte[] { 0, 1, 2, 3 });
+        }
+        git("add .");
+        git("-c user.name=CakeIssues -c user.email=tests@example.invalid -c commit.gpgsign=false commit -m Initial");
+        git("sparse-checkout set --cone included");
+
+        if (System.IO.File.Exists(System.IO.Path.Combine(repoRoot, "excluded", "text.txt")) ||
+            System.IO.File.Exists(System.IO.Path.Combine(repoRoot, "excluded", "binary.png")))
+        {
+            throw new Exception("Expected sparse checkout to omit the excluded files.");
+        }
+
+        var issues = ReadIssues(
+            GitRepositoryIssuesAliases.GitRepositoryIssues(
+                Context,
+                new GitRepositoryIssuesSettings { CheckBinaryFilesTrackedByLfs = true }),
+            new ReadIssuesSettings(repoRoot)).ToList();
+
+        if (issues.Count != 1 || issues[0].AffectedFileRelativePath.FullPath != "included/binary.png")
+        {
+            throw new Exception(
+                $"Expected only included/binary.png, but found: {string.Join(", ", issues.Select(i => i.AffectedFileRelativePath.FullPath))}");
+        }
+
+        Information("Successful");
+    }
+    finally
+    {
+        DeleteDirectory(repoRoot, new DeleteDirectorySettings { Recursive = true, Force = true });
+    }
+});
+
 Task("Run-All-Tests")
+    .IsDependentOn("CheckBinaryFilesTrackedByLfs-Should-Ignore-Files-Outside-Sparse-Checkout")
     .IsDependentOn("CheckBinaryFilesTrackedByLfs-Should-Return-Files-Not-Tracked-By-Lfs")
     .IsDependentOn("CheckBinaryFilesTrackedByLfs-Should-Ignore-Empty-Files")
     .IsDependentOn("CheckBinaryFilesTrackedByLfs-Should-Ignore-FilesToExclude")
