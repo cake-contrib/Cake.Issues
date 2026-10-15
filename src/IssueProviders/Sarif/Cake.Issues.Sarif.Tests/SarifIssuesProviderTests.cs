@@ -85,6 +85,32 @@ public sealed class SarifIssuesProviderTests
                     "Cake.Issues.Sarif.SarifIssuesProvider",
                     "CodeScanner")
                     .InFile(@"src\collections\list.cpp", 15)
+                    .WithSourceLanguage("c")
+                    .OfRule("C2001")
+                    .WithPriority(IssuePriority.Warning)
+                    .Create());
+        }
+
+        [Fact]
+        public void Should_Read_Issue_Correct_For_Uri_Only_Artifact_Location()
+        {
+            // Given
+            var fixture = new SarifIssuesProviderFixture("uri-only-artifact.sarif");
+
+            // When
+            var issues = fixture.ReadIssues().ToList();
+
+            // Then
+            issues.Count.ShouldBe(1);
+            var issue = issues.Single();
+            IssueChecker.Check(
+                issue,
+                IssueBuilder.NewIssue(
+                    "Found issue.",
+                    "Cake.Issues.Sarif.SarifIssuesProvider",
+                    "CodeScanner")
+                    .InFile(@"src\collections\list.cpp", 15)
+                    .WithSnippet("int count;", "c")
                     .OfRule("C2001")
                     .WithPriority(IssuePriority.Warning)
                     .Create());
@@ -237,6 +263,7 @@ public sealed class SarifIssuesProviderTests
                     "Cake.Issues.Sarif.SarifIssuesProvider",
                     "CodeScanner")
                     .InFile(@"src\collections\list.cpp", 15)
+                    .WithSourceLanguage("c")
                     .OfRule("C2001")
                     .WithPriority(IssuePriority.Warning)
                     .Create());
@@ -499,6 +526,7 @@ public sealed class SarifIssuesProviderTests
                     "Cake.Issues.Sarif.SarifIssuesProvider",
                     "jscpd")
                     .InFile(@"foo.tsx", 55, 70, 26, 2)
+                    .WithSourceLanguage("XML")
                     .OfRule(
                         "duplication",
                         new Uri("https://github.com/kucherenko/jscpd/"))
@@ -526,6 +554,7 @@ public sealed class SarifIssuesProviderTests
                     "Cake.Issues.Sarif.SarifIssuesProvider",
                     "jscpd")
                     .InFile(@"foo.tsx", 55, 70, 26, 2)
+                    .WithSourceLanguage("XML")
                     .OfRule(
                         "duplication",
                         new Uri("https://github.com/kucherenko/jscpd/"))

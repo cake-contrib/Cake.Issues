@@ -72,9 +72,13 @@ internal class SarifIssuesProvider(ICakeLog log, SarifIssuesSettings issueProvid
                 if (!string.IsNullOrWhiteSpace(snippet))
                 {
                     issueBuilder =
-                            !string.IsNullOrWhiteSpace(sourceLanguage)
-                                ? issueBuilder.WithSnippet(snippet, sourceLanguage)
-                                : issueBuilder.WithSnippet(snippet);
+                        issueBuilder.WithSnippet(snippet);
+                }
+
+                if (!string.IsNullOrWhiteSpace(sourceLanguage))
+                {
+                    issueBuilder =
+                        issueBuilder.WithSourceLanguage(sourceLanguage);
                 }
 
                 if (filePath != null)
@@ -270,10 +274,9 @@ internal class SarifIssuesProvider(ICakeLog log, SarifIssuesSettings issueProvid
         }
 
         var artifactLocation = physicalLocation.ArtifactLocation;
-        var artifact = artifactLocation.Index is int artifactIndex
-            ? artifactIndex >= 0 && artifactIndex < run.Artifacts.Count
-                ? run.Artifacts[artifactIndex]
-                : null
+        var artifactIndex = artifactLocation.Index;
+        var artifact = artifactIndex >= 0 && artifactIndex < run.Artifacts.Count
+            ? run.Artifacts[artifactIndex]
             : artifactLocation.Uri == null
                 ? null
                 : run.Artifacts

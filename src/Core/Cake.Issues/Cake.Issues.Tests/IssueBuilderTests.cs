@@ -2575,4 +2575,70 @@ public sealed class IssueBuilderTests
             issue.SourceLanguage.ShouldBe(sourceLanguage);
         }
     }
+
+    public sealed class TheWithSourceLanguageMethod
+    {
+        [Fact]
+        public void Should_Throw_If_SourceLanguage_Is_Null()
+        {
+            // Given
+            var fixture = new IssueBuilderFixture();
+            const string sourceLanguage = null;
+
+            // When
+            var result = Record.Exception(() =>
+                fixture.IssueBuilder.WithSourceLanguage(sourceLanguage));
+
+            // Then
+            result.IsArgumentNullException("sourceLanguage");
+        }
+
+        [Fact]
+        public void Should_Throw_If_SourceLanguage_Is_Empty()
+        {
+            // Given
+            var fixture = new IssueBuilderFixture();
+            var sourceLanguage = string.Empty;
+
+            // When
+            var result = Record.Exception(() =>
+                fixture.IssueBuilder.WithSourceLanguage(sourceLanguage));
+
+            // Then
+            result.IsArgumentException("sourceLanguage");
+        }
+
+        [Fact]
+        public void Should_Throw_If_SourceLanguage_Is_WhiteSpace()
+        {
+            // Given
+            var fixture = new IssueBuilderFixture();
+            const string sourceLanguage = " ";
+
+            // When
+            var result = Record.Exception(() =>
+                fixture.IssueBuilder.WithSourceLanguage(sourceLanguage));
+
+            // Then
+            result.IsArgumentException("sourceLanguage");
+        }
+
+        [Theory]
+        [InlineData("csharp")]
+        [InlineData("javascript")]
+        [InlineData("python")]
+        [InlineData("C#")]
+        [InlineData("TypeScript")]
+        public void Should_Set_SourceLanguage(string sourceLanguage)
+        {
+            // Given
+            var fixture = new IssueBuilderFixture();
+
+            // When
+            var issue = fixture.IssueBuilder.WithSourceLanguage(sourceLanguage).Create();
+
+            // Then
+            issue.SourceLanguage.ShouldBe(sourceLanguage);
+        }
+    }
 }
