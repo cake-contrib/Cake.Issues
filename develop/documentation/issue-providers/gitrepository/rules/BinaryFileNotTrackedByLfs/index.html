@@ -7717,6 +7717,9 @@ Considering that you always clone the full history of a repository, and not only
 using binary files in a repository considerably slow downs the operation.
 <a href="https://git-lfs.github.com/">Git Large File Storage</a> replaces large files with small text pointers
 inside the Git repository, while storing the file contents on a remote server.</p>
+<p>Files marked as skip-worktree by Git, such as files omitted by sparse checkout, are excluded
+from this check because their working-tree contents are not available for binary-file detection.
+These files are still included in the file path length check.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>The rule assumes that all files, which are not text files are binary files.
