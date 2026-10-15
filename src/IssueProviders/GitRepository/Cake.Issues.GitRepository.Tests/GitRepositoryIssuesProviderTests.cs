@@ -2,6 +2,84 @@
 
 public sealed class GitRepositoryIssuesProviderTests
 {
+    public sealed class TheReadIssuesMethod
+    {
+        [Fact]
+        public void Should_Not_Report_Files_Outside_Sparse_Checkout_As_Binary()
+        {
+            // Given
+            var fixture = new GitRepositoryIssuesProviderFixture
+            {
+                TaggedFiles = ["H included/text.txt", "S excluded/text.txt", "S excluded/binary.png"],
+                TextFiles = ["included/text.txt"],
+            };
+            fixture.Settings.CheckBinaryFilesTrackedByLfs = true;
+
+            // When
+            var issues = fixture.ReadIssues().ToList();
+
+            // Then
+            issues.ShouldBeEmpty();
+        }
+
+        [Fact]
+        public void Should_Still_Report_Checked_Out_Binary_Files_In_Sparse_Checkout()
+        {
+            // Given
+            var fixture = new GitRepositoryIssuesProviderFixture
+            {
+                TaggedFiles =
+                [
+                    "H included/text.txt",
+                    "H included/empty.png",
+                    "H included/binary file.png",
+                    "H included/lfs.png",
+                    "S excluded/text.txt",
+                ],
+                TextFiles = ["included/text.txt"],
+                EmptyFiles = ["included/empty.png"],
+                LfsFiles = ["included/lfs.png"],
+            };
+            fixture.Settings.CheckBinaryFilesTrackedByLfs = true;
+
+            // When
+            var issues = fixture.ReadIssues().ToList();
+
+            // Then
+            issues.Count.ShouldBe(1);
+            IssueChecker.Check(
+                issues[0],
+                IssueBuilder.NewIssue(
+                    "The binary file \"included/binary file.png\" is not tracked by Git LFS",
+                    GitRepositoryIssuesProvider.ProviderTypeName,
+                    "Git Repository")
+                    .WithMessageInHtmlFormat("The binary file <code>included/binary file.png</code> is not tracked by Git LFS")
+                    .WithMessageInMarkdownFormat("The binary file `included/binary file.png` is not tracked by Git LFS")
+                    .InFile("included/binary file.png")
+                    .OfRule(new BinaryFileNotTrackedByLfsRuleDescription(), issues[0].RuleUrl.Segments[1].Trim('/')));
+        }
+
+        [Fact]
+        public void Should_Still_Check_Path_Length_For_Files_Outside_Sparse_Checkout()
+        {
+            // Given
+            var fixture = new GitRepositoryIssuesProviderFixture
+            {
+                TaggedFiles = ["H a.txt", "S excluded/long-file-name.txt"],
+            };
+            fixture.Settings.CheckFilesPathLength = true;
+            fixture.Settings.MaxFilePathLength = 10;
+
+            // When
+            var issues = fixture.ReadIssues().ToList();
+
+            // Then
+            issues.Count.ShouldBe(1);
+            issues[0].AffectedFileRelativePath.FullPath.ShouldBe("excluded/long-file-name.txt");
+            issues[0].RuleId.ShouldBe("FilePathTooLong");
+        }
+    }
+
     public sealed class TheIsFileExcludedMethod
     {
         [Theory]

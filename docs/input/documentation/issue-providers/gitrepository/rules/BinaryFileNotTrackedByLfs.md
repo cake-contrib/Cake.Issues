@@ -22,6 +22,10 @@ using binary files in a repository considerably slow downs the operation.
 [Git Large File Storage](https://git-lfs.github.com/) replaces large files with small text pointers
 inside the Git repository, while storing the file contents on a remote server.
 
+Files marked as skip-worktree by Git, such as files omitted by sparse checkout, are excluded
+from this check because their working-tree contents are not available for binary-file detection.
+These files are still included in the file path length check.
+
 !!! info
     The rule assumes that all files, which are not text files are binary files.
     This also includes for example empty files.
