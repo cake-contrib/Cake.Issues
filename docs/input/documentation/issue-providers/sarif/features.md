@@ -36,8 +36,8 @@ following features.
 * [x] `IIssue.PriorityName`
 * [x] `IIssue.RuleId`
 * [x] `IIssue.RuleUrl`
-* [ ] `IIssue.Snippet`
-* [ ] `IIssue.SourceLanguage`
+* [x] `IIssue.Snippet`
+* [x] `IIssue.SourceLanguage`
 
 </div>
 
