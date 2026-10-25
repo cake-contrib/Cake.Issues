@@ -27,6 +27,11 @@ internal class SarifIssueReportGenerator : IssueReportFormat
     /// </summary>
     internal const string RuleUrlPropertyName = "RuleUrl";
 
+    /// <summary>
+    /// The name of the result object property bag property that holds the rule name when the ruleId is absent.
+    /// </summary>
+    internal const string RuleNamePropertyName = "RuleName";
+
     private readonly SarifIssueReportFormatSettings sarifIssueReportFormatSettings;
     private List<ReportingDescriptor> rules;
     private Dictionary<string, int> ruleIndices;
@@ -208,9 +213,9 @@ internal class SarifIssueReportGenerator : IssueReportFormat
             result.Locations = [location];
         }
 
-        if (sarifIssue.Issue.RuleUrl != null)
+        if (!string.IsNullOrEmpty(sarifIssue.Issue.RuleId))
         {
-            if (!string.IsNullOrEmpty(sarifIssue.Issue.RuleId))
+            if ((sarifIssue.Issue.RuleUrl != null) || !string.IsNullOrEmpty(sarifIssue.Issue.RuleName))
             {
                 if (!this.ruleIndices.TryGetValue(sarifIssue.Issue.RuleId, out var value))
                 {
@@ -227,12 +232,17 @@ internal class SarifIssueReportGenerator : IssueReportFormat
 
                 result.RuleIndex = value;
             }
-            else
+        }
+        else
+        {
+            if (sarifIssue.Issue.RuleUrl != null)
             {
-                // In the unusual case where there is a rule URL but no rule name, we put the
-                // URL in the result's property bag, because there's no rule whose metadata
-                // can hold it.
                 result.SetProperty(RuleUrlPropertyName, sarifIssue.Issue.RuleUrl);
+            }
+
+            if (!string.IsNullOrEmpty(sarifIssue.Issue.RuleName))
+            {
+                result.SetProperty(RuleNamePropertyName, sarifIssue.Issue.RuleName);
             }
         }
 
