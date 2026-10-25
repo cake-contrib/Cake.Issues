@@ -17,12 +17,6 @@
           "TfsUrlParser": "1.5.0"
         }
       },
-      "Microsoft.CodeAnalysis.NetAnalyzers": {
-        "type": "Direct",
-        "requested": "[9.0.0, )",
-        "resolved": "9.0.0",
-        "contentHash": "JajbvkrBgtdRghavIjcJuNHMOja4lqBmEezbhZyqWPYh2cpLhT5mPpfC7NQVDO4IehWQum9t/nwF4v+qQGtYWg=="
-      },
       "NewStyleCop.Analyzers": {
         "type": "Direct",
         "requested": "[1.2.1, )",
@@ -296,12 +290,6 @@
           "System.IdentityModel.Tokens.Jwt": "8.2.1",
           "TfsUrlParser": "1.5.0"
         }
-      },
-      "Microsoft.CodeAnalysis.NetAnalyzers": {
-        "type": "Direct",
-        "requested": "[9.0.0, )",
-        "resolved": "9.0.0",
-        "contentHash": "JajbvkrBgtdRghavIjcJuNHMOja4lqBmEezbhZyqWPYh2cpLhT5mPpfC7NQVDO4IehWQum9t/nwF4v+qQGtYWg=="
       },
       "NewStyleCop.Analyzers": {
         "type": "Direct",
@@ -580,12 +568,6 @@
           "System.IdentityModel.Tokens.Jwt": "8.2.1",
           "TfsUrlParser": "1.5.0"
         }
-      },
-      "Microsoft.CodeAnalysis.NetAnalyzers": {
-        "type": "Direct",
-        "requested": "[9.0.0, )",
-        "resolved": "9.0.0",
-        "contentHash": "JajbvkrBgtdRghavIjcJuNHMOja4lqBmEezbhZyqWPYh2cpLhT5mPpfC7NQVDO4IehWQum9t/nwF4v+qQGtYWg=="
       },
       "NewStyleCop.Analyzers": {
         "type": "Direct",
