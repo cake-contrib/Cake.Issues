@@ -547,6 +547,41 @@ public sealed class SarifIssueReportGeneratorTests
         }
 
         [Fact]
+        public void Should_Update_Rules_If_RuleUrl_Appears_After_RuleName()
+        {
+            // Given
+            var fixture = new SarifIssueReportFixture();
+            var ruleId = "Rule Bar";
+            var ruleName = "Rule Name Bar";
+            var ruleUrl = "https://www.example.come/rules/bar.html";
+            var issues =
+                 new List<IIssue>
+                 {
+                        IssueBuilder
+                            .NewIssue("Message Foo.", "ProviderType Foo", "ProviderName Foo")
+                            .OfRule(ruleId, ruleName)
+                            .Create(),
+                        IssueBuilder
+                            .NewIssue("Message Bar.", "ProviderType Foo", "ProviderName Foo")
+                            .OfRule(ruleId, new Uri(ruleUrl))
+                            .Create(),
+                 };
+
+            // When
+            var logContents = fixture.CreateReport(issues);
+
+            // Then
+            var sarifLog = JsonConvert.DeserializeObject<SarifLog>(logContents);
+
+            var run = sarifLog.Runs.ShouldHaveSingleItem();
+            var rule = run.Tool.Driver.Rules.ShouldHaveSingleItem();
+            rule.Id.ShouldBe(ruleId);
+            rule.Name.ShouldBe(ruleName);
+            rule.HelpUri.OriginalString.ShouldBe(ruleUrl);
+            run.Results.Select(result => result.RuleIndex).ShouldAllBe(index => index == 0);
+        }
+
+        [Fact]
         public void Should_Set_Rules_If_Some_RuleUrl()
         {
             // Runs which have a  rule that specifies a help URI should have added rule metadata.

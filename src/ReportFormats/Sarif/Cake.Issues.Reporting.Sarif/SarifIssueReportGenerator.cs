@@ -229,6 +229,12 @@ internal class SarifIssueReportGenerator : IssueReportFormat
                             HelpUri = sarifIssue.Issue.RuleUrl,
                         });
                 }
+                else
+                {
+                    var rule = this.rules[value];
+                    rule.Name ??= sarifIssue.Issue.RuleName;
+                    rule.HelpUri ??= sarifIssue.Issue.RuleUrl;
+                }
 
                 result.RuleIndex = value;
             }
