@@ -31,7 +31,7 @@ jobs:
         with:
           persist-credentials: false
       - name: Install gh-aw
-        uses: github/gh-aw-actions/setup-cli@40fb427c047bb9f77324054adeb574e04c9481aa # v0.93.4
+        uses: github/gh-aw-actions/setup-cli@de9d416cac8ccea1a2d582cb07c4b7db96946792 # v0.93.5
         with:
           version: ${{ env.GH_AW_VERSION }}
       - name: Compile agentic workflows
