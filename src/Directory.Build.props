@@ -6,6 +6,8 @@
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <AnalysisLevel>latest</AnalysisLevel>
     <Authors>Cake Issues contributors</Authors>
     <Copyright>Copyright © Cake Issues contributors</Copyright>
     <Product>Cake.Issues</Product>
