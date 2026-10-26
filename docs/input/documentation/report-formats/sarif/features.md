@@ -11,6 +11,7 @@ The [Cake.Issues.Reporting.Sarif addin] provides the following features:
 Supports the following properties in the SARIF report:
 
 * [x] RuleId
+* [x] RuleName
 * [x] Message
 * [x] Kind
 * [x] Level
