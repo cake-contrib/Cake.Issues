@@ -3,7 +3,7 @@
 steps:
   - task: UseNode@1
     inputs:
-      version: '24.x'
-    displayName: 'Install NodeJs 24.x'
+      version: '26.x'
+    displayName: 'Install NodeJs 26.x'
   - script: npm install -g markdownlint-cli@0.50.0
     displayName: 'Install markdownlint'
