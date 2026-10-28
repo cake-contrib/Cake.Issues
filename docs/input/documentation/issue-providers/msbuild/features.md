@@ -20,7 +20,7 @@ provides the following features.
 ## Supported log file formats
 
 * [x] [MsBuildBinaryLogFileFormat](https://cakebuild.net/api/Cake.Issues.MsBuild/MsBuildIssuesAliases/AD50C7E1)
-      alias for reading issues from binary log files up to format version 28.
+      alias for reading issues from binary log files.
 * [x] [MsBuildXmlFileLoggerFormat](https://cakebuild.net/api/Cake.Issues.MsBuild/MsBuildIssuesAliases/051D7B6E)
       alias for reading issues from log files created by [MSBuild Extension Pack XmlFileLogger](https://github.com/mikefourie-zz/MSBuildExtensionPack/blob/master/Solutions/Main/Loggers/Framework/XmlFileLogger.cs).
 
