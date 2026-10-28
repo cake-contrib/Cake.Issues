@@ -12,7 +12,7 @@
     <PackageVersion Include="Gazorator" Version="0.5.2" />
     <PackageVersion Include="HtmlAgilityPack" Version="1.13.1" />
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.11.0" />
-    <PackageVersion Include="MSBuild.StructuredLogger" Version="2.3.246" />
+    <PackageVersion Include="MSBuild.StructuredLogger" Version="2.3.269" />
     <PackageVersion Include="NSubstitute" Version="6.2.0" />
     <PackageVersion Include="Sarif.Sdk" Version="5.8.0" />
     <PackageVersion Include="Shouldly" Version="4.3.0" />
