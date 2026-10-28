@@ -10,9 +10,9 @@
       },
       "MSBuild.StructuredLogger": {
         "type": "Direct",
-        "requested": "[2.3.246, )",
-        "resolved": "2.3.246",
-        "contentHash": "W7sQrvBS9KzipO7TuL35RsahjDIWxjieK1x9SasTHcu8jbTUyUSxPxnwmt5I19WyMvytatI0TqpL3xF4XL9mhw==",
+        "requested": "[2.3.269, )",
+        "resolved": "2.3.269",
+        "contentHash": "m3mgwxcJ3cl8+FA8k99lwIjGybfJsDdcnkrVZheTyr/WQS+2DV55tgc7AQsBfOstJfNYNFXhBsXvi28fjAbD1Q==",
         "dependencies": {
           "Microsoft.Build.Framework": "17.5.0",
           "Microsoft.Build.Utilities.Core": "17.5.0"
@@ -112,12 +112,13 @@
       },
       "MSBuild.StructuredLogger": {
         "type": "Direct",
-        "requested": "[2.3.246, )",
-        "resolved": "2.3.246",
-        "contentHash": "W7sQrvBS9KzipO7TuL35RsahjDIWxjieK1x9SasTHcu8jbTUyUSxPxnwmt5I19WyMvytatI0TqpL3xF4XL9mhw==",
+        "requested": "[2.3.269, )",
+        "resolved": "2.3.269",
+        "contentHash": "m3mgwxcJ3cl8+FA8k99lwIjGybfJsDdcnkrVZheTyr/WQS+2DV55tgc7AQsBfOstJfNYNFXhBsXvi28fjAbD1Q==",
         "dependencies": {
           "Microsoft.Build.Framework": "17.5.0",
-          "Microsoft.Build.Utilities.Core": "17.5.0"
+          "Microsoft.Build.Utilities.Core": "17.5.0",
+          "System.Collections.Immutable": "10.0.0"
         }
       },
       "NewStyleCop.Analyzers": {
@@ -153,6 +154,11 @@
         "type": "Transitive",
         "resolved": "6.0.0",
         "contentHash": "hqTM5628jSsQiv+HGpiq3WKBl2c8v1KZfby2J6Pr7pEPlK9waPdgEO6b8A/+/xn/yZ9ulv8HuqK71ONy2tg67A=="
+      },
+      "System.Collections.Immutable": {
+        "type": "Transitive",
+        "resolved": "10.0.0",
+        "contentHash": "BHo23kBFvTFQa0tuDFXcb3Q8QInjm1Xrq+If/xuV8iMlxOOsylsa6sgRK25n5dlcMk8G2f0O/t5AdjZrdVBOXA=="
       },
       "System.Configuration.ConfigurationManager": {
         "type": "Transitive",
@@ -214,12 +220,13 @@
       },
       "MSBuild.StructuredLogger": {
         "type": "Direct",
-        "requested": "[2.3.246, )",
-        "resolved": "2.3.246",
-        "contentHash": "W7sQrvBS9KzipO7TuL35RsahjDIWxjieK1x9SasTHcu8jbTUyUSxPxnwmt5I19WyMvytatI0TqpL3xF4XL9mhw==",
+        "requested": "[2.3.269, )",
+        "resolved": "2.3.269",
+        "contentHash": "m3mgwxcJ3cl8+FA8k99lwIjGybfJsDdcnkrVZheTyr/WQS+2DV55tgc7AQsBfOstJfNYNFXhBsXvi28fjAbD1Q==",
         "dependencies": {
           "Microsoft.Build.Framework": "17.5.0",
-          "Microsoft.Build.Utilities.Core": "17.5.0"
+          "Microsoft.Build.Utilities.Core": "17.5.0",
+          "System.Collections.Immutable": "10.0.0"
         }
       },
       "NewStyleCop.Analyzers": {
@@ -255,6 +262,11 @@
         "type": "Transitive",
         "resolved": "6.0.0",
         "contentHash": "hqTM5628jSsQiv+HGpiq3WKBl2c8v1KZfby2J6Pr7pEPlK9waPdgEO6b8A/+/xn/yZ9ulv8HuqK71ONy2tg67A=="
+      },
+      "System.Collections.Immutable": {
+        "type": "Transitive",
+        "resolved": "10.0.0",
+        "contentHash": "BHo23kBFvTFQa0tuDFXcb3Q8QInjm1Xrq+If/xuV8iMlxOOsylsa6sgRK25n5dlcMk8G2f0O/t5AdjZrdVBOXA=="
       },
       "System.Configuration.ConfigurationManager": {
         "type": "Transitive",
