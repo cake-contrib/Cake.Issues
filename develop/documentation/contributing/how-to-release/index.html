@@ -111,6 +111,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#prerequisites" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -7165,6 +7170,24 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Performing Release
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -7181,6 +7204,67 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#start-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Start release
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#finish-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Finish release
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#publish-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Publish release
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -7407,6 +7491,58 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#start-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Start release
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#finish-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Finish release
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#publish-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Publish release
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -7532,7 +7668,54 @@
 
   <h1>Performing Release</h1>
 
-<p>See <a href="https://cake-contrib.github.io/Cake.Recipe/docs/usage/creating-release">Cake.Recipe documentation</a> how to create a new release of this addin.</p>
+<p>All Cake Issues <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr> are released together with the same version.
+Releases are created from release branches following the <a href="https://nvie.com/posts/a-successful-git-branching-model/">Git Flow</a> branching model,
+using the <a href="https://cake-contrib.github.io/Cake.Recipe/docs/usage/creating-release">Cake.Recipe release process</a>.</p>
+<p>The steps to create a release are automated using <a href="https://docs.github.com/copilot/concepts/agents/about-agent-skills">agent skills</a> available in the
+<code>.github/skills</code> directory of the repository, which can be used with GitHub Copilot or any
+other agent supporting skills.</p>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">¶</a></h2>
+<ul>
+<li>Permission to push to the <code>master</code>, <code>develop</code> and <code>release/*</code> branches and to create releases in the
+  <a href="https://github.com/cake-contrib/Cake.Issues">cake-contrib/Cake.Issues</a> repository.</li>
+<li><a href="https://cli.github.com/">GitHub CLI</a> installed and authenticated (<code>gh auth login</code>).</li>
+<li>A GitHub milestone named after the version to release (e.g. <code>6.2.0</code>) containing all issues and
+  pull requests of the release, with the appropriate labels set.</li>
+</ul>
+<h2 id="start-release">Start release<a class="headerlink" href="#start-release" title="Permanent link">¶</a></h2>
+<p>Ask the agent to start the release, e.g. <code>Start release 6.2.0</code>.
+This uses the <code>start-release</code> skill, which does the following:</p>
+<ol>
+<li>Creates a branch <code>release/&lt;VERSION&gt;</code> from the latest <code>develop</code> branch.</li>
+<li>Creates a draft release on GitHub with release notes based on the milestone.</li>
+<li>Adds the following commits to the release branch:<ul>
+<li><code>Add news entry</code>: Adds a news post for the release to the website,
+  using the <code>write-release-notes</code> skill.</li>
+<li><code>Update release notes link</code>: Updates the link to the release notes in all NuGet packages,
+  using the <code>update-release-notes-link</code> skill.</li>
+<li><code>Update version in examples</code>: Updates the version of the <abbr title="Addins allow to extend Cake language with additional aliases">addins</abbr> used in examples on the website,
+  using the <code>update-version-in-examples</code> skill.</li>
+</ul>
+</li>
+<li>Pushes the release branch after confirmation.</li>
+</ol>
+<p>Review the news post and the draft release on GitHub and make sure the build of the release
+branch is passing.
+Fixes for the release can be merged into the release branch.</p>
+<h2 id="finish-release">Finish release<a class="headerlink" href="#finish-release" title="Permanent link">¶</a></h2>
+<p>Ask the agent to finish the release, e.g. <code>Finish release 6.2.0</code>.
+This uses the <code>finish-release</code> skill, which does the following:</p>
+<ol>
+<li>Checks if the news post and the release notes are still up to date, and reports changes on the
+   release branch which aren't mentioned or aren't assigned to the milestone.</li>
+<li>Merges the release branch into <code>master</code> after confirmation.</li>
+<li>Merges <code>master</code> into <code>develop</code> after confirmation.</li>
+<li>Deletes the release branch after confirmation.</li>
+</ol>
+<h2 id="publish-release">Publish release<a class="headerlink" href="#publish-release" title="Permanent link">¶</a></h2>
+<p>Publish the draft release on the <a href="https://github.com/cake-contrib/Cake.Issues/releases">GitHub releases page</a> with <code>master</code> as target.</p>
+<p>Publishing the release creates the tag for the release, which triggers a build publishing the
+NuGet packages and closing the milestone.</p>
 <!-- Glossary for terms and concepts not documented on cakeissues.net --><biel-button project="2e6rm5xi5a" button-position="bottom-right" button-style="dark" modal-position="bottom-right" header-title="Cake Issues">Ask AI</biel-button>
 <script>
 document.addEventListener('keydown', function (e) {
