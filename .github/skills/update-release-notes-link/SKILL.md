@@ -39,7 +39,8 @@ Example for Bash:
 
 ```bash
 version="X.Y.Z"
-sed -i -E "s#(<releaseNotes>https://github\.com/cake-contrib/Cake\.Issues/releases/tag/)[^<]+(</releaseNotes>)#\1${version}\2#" nuspec/nuget/*.nuspec
+sed -i.bak -E "s#(<releaseNotes>https://github\.com/cake-contrib/Cake\.Issues/releases/tag/)[^<]+(</releaseNotes>)#\1${version}\2#" nuspec/nuget/*.nuspec \
+  && rm nuspec/nuget/*.nuspec.bak
 ```
 
 ## Validation

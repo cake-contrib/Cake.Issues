@@ -38,6 +38,10 @@ The history follows previous releases, for example `5.9.1`:
 
 * Working tree must be clean (`git status --porcelain` returns nothing). Otherwise stop and ask the user.
 * `gh` must be authenticated (`gh auth status`) with permission to push to `master` and `develop`.
+* Commands in this skill use `origin` as remote. Verify with `git remote -v` that both fetch and push URLs of
+  `origin` point to `cake-contrib/Cake.Issues`. If `origin` is a fork, use the remote pointing to
+  `cake-contrib/Cake.Issues` (e.g. `upstream`) instead of `origin` in all commands.
+  If no such remote exists, stop and ask the user.
 * Fetch the latest state. All following steps use `origin/release/X.Y.Z`,
   so they also work if the release branch is checked out in another worktree:
 
@@ -105,7 +109,13 @@ Changes might have been added to the release branch after it was started.
 6. Report the findings to the user in a table listing changes which are not mentioned, changes which are missing a milestone,
    and open milestone items. If there are no findings, state that the release notes are up to date.
 
-If there are findings, ask the user how to proceed before merging. Possible actions are:
+If there are findings, ask the user how to proceed before merging.
+Before editing, committing or regenerating the release draft, make sure to work in a clean checkout of
+`release/X.Y.Z` which is identical to `origin/release/X.Y.Z`. If the branch is checked out in another worktree
+(see `git worktree list`), work in that worktree. Otherwise run `git switch release/X.Y.Z`
+(or `git switch --track origin/release/X.Y.Z` if no local branch exists).
+
+Possible actions are:
 
 * Update the news post using the [write-release-notes](../write-release-notes/SKILL.md) skill and commit the change
   with the message `Update news entry`.
@@ -121,7 +131,7 @@ If there are findings, ask the user how to proceed before merging. Possible acti
   GITHUB_PAT=$(gh auth token) ./build.sh --target=releasenotes
   ```
 
-Push any additional commits to the release branch and wait for CI to pass before continuing.
+Push any additional commits to the release branch, wait for CI to pass, and repeat this step before continuing.
 
 ### 3. Merge release branch into master
 

@@ -35,6 +35,10 @@ Release branches follow the structure of previous releases, for example `release
 
 * Working tree must be clean (`git status --porcelain` returns nothing). Otherwise stop and ask the user.
 * `gh` must be authenticated (`gh auth status`) with permission to push to `cake-contrib/Cake.Issues`.
+* Commands in this skill use `origin` as remote. Verify with `git remote -v` that both fetch and push URLs of
+  `origin` point to `cake-contrib/Cake.Issues`. If `origin` is a fork, use the remote pointing to
+  `cake-contrib/Cake.Issues` (e.g. `upstream`) instead of `origin` in all commands.
+  If no such remote exists, stop and ask the user.
 * A GitHub milestone named `X.Y.Z` must exist. If it doesn't, stop and ask the user.
 * Check the milestone for open issues or pull requests and report them to the user:
 
