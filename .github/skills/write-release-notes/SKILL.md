@@ -62,3 +62,4 @@ If the milestone, release, or target version is unclear, ask for the missing det
 ## Pull request guidelines
 
 - Use `Add x.y.z release news post` as the pull request title, where `x.y.z` is the version of the release being added.
+- When used as part of the [start-release](../start-release/SKILL.md) skill, don't create a pull request. Commit the post directly to the release branch as described in that skill.
