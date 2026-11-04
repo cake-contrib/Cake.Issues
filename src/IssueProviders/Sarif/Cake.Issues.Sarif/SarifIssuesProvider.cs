@@ -199,6 +199,12 @@ internal class SarifIssuesProvider(ICakeLog log, SarifIssuesSettings issueProvid
     {
         if (physicalLocation is not null)
         {
+            var artifactLocation = physicalLocation.ArtifactLocation;
+            if (artifactLocation?.Uri == null)
+            {
+                return (null, null, null, null, null);
+            }
+
             // Depending on tool Uri is written differently:
             // - Absolute path on Windows RFC 3986 conform: file://C:/path/to/file
             // - Absolute path on Windows not RFC 3986 conform: C:/path/to/file
@@ -208,30 +214,30 @@ internal class SarifIssuesProvider(ICakeLog log, SarifIssuesSettings issueProvid
             string filePath;
             try
             {
-                if (physicalLocation.ArtifactLocation.Uri.IsFile)
+                if (artifactLocation.Uri.IsFile)
                 {
                     // Handle RFC 3986 conform URIs.
-                    if (!string.IsNullOrEmpty(physicalLocation.ArtifactLocation.Uri.Host))
+                    if (!string.IsNullOrEmpty(artifactLocation.Uri.Host))
                     {
                         // The case for Linux style URIs: file://path/to/file
-                        filePath = $"/{physicalLocation.ArtifactLocation.Uri.Host}{physicalLocation.ArtifactLocation.Uri.AbsolutePath}";
+                        filePath = $"/{artifactLocation.Uri.Host}{artifactLocation.Uri.AbsolutePath}";
                     }
                     else
                     {
                         // The case for Windows style URIs: file://C:/path/to/file
-                        filePath = physicalLocation.ArtifactLocation.Uri.AbsolutePath;
+                        filePath = artifactLocation.Uri.AbsolutePath;
                     }
                 }
                 else
                 {
                     // Handle URIs without file scheme.
-                    filePath = physicalLocation.ArtifactLocation.Uri.AbsolutePath;
+                    filePath = artifactLocation.Uri.AbsolutePath;
                 }
             }
             catch (InvalidOperationException)
             {
                 // Handle relative paths.
-                filePath = physicalLocation.ArtifactLocation.Uri.ToString();
+                filePath = artifactLocation.Uri.ToString();
             }
 
             // Validate file path and make relative to repository root if it is an absolute path.

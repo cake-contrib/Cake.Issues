@@ -117,6 +117,29 @@ public sealed class SarifIssuesProviderTests
         }
 
         [Fact]
+        public void Should_Read_Issue_Correct_For_Fileless_Snippet()
+        {
+            // Given
+            var fixture = new SarifIssuesProviderFixture("fileless-snippet.sarif");
+
+            // When
+            var issues = fixture.ReadIssues().ToList();
+
+            // Then
+            issues.Count.ShouldBe(1);
+            IssueChecker.Check(
+                issues.Single(),
+                IssueBuilder.NewIssue(
+                    "Found issue.",
+                    "Cake.Issues.Sarif.SarifIssuesProvider",
+                    "CodeScanner")
+                    .WithSnippet("var value = 42;", "csharp")
+                    .OfRule("C2001")
+                    .WithPriority(IssuePriority.Warning)
+                    .Create());
+        }
+
+        [Fact]
         public void Should_Read_Issue_Correct_For_Comprehensive_File()
         {
             // Given

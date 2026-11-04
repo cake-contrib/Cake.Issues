@@ -217,11 +217,11 @@ internal class SarifIssueReportGenerator : IssueReportFormat
         {
             var artifactLocation = location.PhysicalLocation.ArtifactLocation;
 
-            if (artifactLocation != null && !string.IsNullOrWhiteSpace(sarifIssue.Issue.SourceLanguage))
+            if (artifactLocation == null || !string.IsNullOrWhiteSpace(sarifIssue.Issue.SourceLanguage))
             {
                 var key = (
-                    artifactLocation.UriBaseId,
-                    artifactLocation.Uri.OriginalString,
+                    artifactLocation?.UriBaseId,
+                    artifactLocation?.Uri?.OriginalString,
                     sarifIssue.Issue.SourceLanguage);
 
                 if (!this.artifactIndices.TryGetValue(key, out var artifactIndex))
@@ -231,8 +231,9 @@ internal class SarifIssueReportGenerator : IssueReportFormat
                     this.artifacts.Add(
                         new Artifact
                         {
-                            Location =
-                                new ArtifactLocation
+                            Location = artifactLocation == null
+                                ? null
+                                : new ArtifactLocation
                                 {
                                     UriBaseId = artifactLocation.UriBaseId,
                                     Uri = artifactLocation.Uri,
@@ -241,7 +242,14 @@ internal class SarifIssueReportGenerator : IssueReportFormat
                         });
                 }
 
-                artifactLocation.Index = artifactIndex;
+                if (artifactLocation == null)
+                {
+                    location.PhysicalLocation.ArtifactLocation = new ArtifactLocation { Index = artifactIndex };
+                }
+                else
+                {
+                    artifactLocation.Index = artifactIndex;
+                }
             }
 
             result.Locations = [location];

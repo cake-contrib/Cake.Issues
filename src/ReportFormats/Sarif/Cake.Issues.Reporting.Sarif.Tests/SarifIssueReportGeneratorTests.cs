@@ -194,7 +194,11 @@ public sealed class SarifIssueReportGeneratorTests
             // Then
             var sarifLog = JsonConvert.DeserializeObject<SarifLog>(logContents);
             var location = sarifLog.Runs[0].Results[0].Locations.ShouldHaveSingleItem();
+            location.PhysicalLocation.ArtifactLocation.Index.ShouldBe(0);
             location.PhysicalLocation.Region.Snippet.Text.ShouldBe("var value = 42;");
+            var artifact = sarifLog.Runs[0].Artifacts.ShouldHaveSingleItem();
+            artifact.Location.ShouldBeNull();
+            artifact.SourceLanguage.ShouldBe("csharp");
         }
 
         [Fact]
