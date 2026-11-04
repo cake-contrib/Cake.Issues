@@ -186,10 +186,10 @@ The output is grouped by rule and includes summaries by provider and priority.
 
 ### Example output
 
-The following screenshot shows representative output for the settings used above.
-The issue text and source location are illustrative.
+The following screenshot shows output captured from the report generator using
+sample issues, with grouping enabled and summaries by provider and priority.
 
-![Console output with grouped diagnostics and provider and priority summaries](images/grouped-with-summaries.svg)
+![Console output with grouped diagnostics and provider and priority summaries](images/grouped-with-summaries.png)
 
 ### Compact output
 
@@ -205,7 +205,7 @@ ConsoleIssueReportFormat(
     });
 ```
 
-![Compact console output with issues grouped by rule](images/compact-grouped.svg)
+![Compact console output with issues grouped by rule](images/compact-grouped.png)
 
 ### Summary without diagnostics
 
@@ -222,4 +222,4 @@ ConsoleIssueReportFormat(
     });
 ```
 
-![Console output showing provider and priority summaries without diagnostics](images/summary-only.svg)
+![Console output showing provider and priority summaries without diagnostics](images/summary-only.png)
