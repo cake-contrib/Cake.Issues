@@ -35,6 +35,8 @@ internal class SarifIssueReportGenerator : IssueReportFormat
     private readonly SarifIssueReportFormatSettings sarifIssueReportFormatSettings;
     private List<ReportingDescriptor> rules;
     private Dictionary<string, int> ruleIndices;
+    private List<Artifact> artifacts;
+    private Dictionary<(string UriBaseId, string Uri, string SourceLanguage), int> artifactIndices;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="SarifIssueReportGenerator"/> class.
@@ -117,6 +119,8 @@ internal class SarifIssueReportGenerator : IssueReportFormat
             {
                 this.rules = [];
                 this.ruleIndices = [];
+                this.artifacts = [];
+                this.artifactIndices = [];
 
                 Run run = new()
                 {
@@ -134,6 +138,7 @@ internal class SarifIssueReportGenerator : IssueReportFormat
                     Results =
                         (from sarifIssue in issueGroup
                          select this.GetResult(sarifIssue)).ToList(),
+                    Artifacts = this.artifacts.Count > 0 ? this.artifacts : null,
                     OriginalUriBaseIds = new Dictionary<string, ArtifactLocation>
                     {
                         [RepoRootUriBaseId] =
@@ -210,6 +215,35 @@ internal class SarifIssueReportGenerator : IssueReportFormat
 
         if (location != null)
         {
+            var artifactLocation = location.PhysicalLocation.ArtifactLocation;
+
+            if (artifactLocation != null && !string.IsNullOrWhiteSpace(sarifIssue.Issue.SourceLanguage))
+            {
+                var key = (
+                    artifactLocation.UriBaseId,
+                    artifactLocation.Uri.OriginalString,
+                    sarifIssue.Issue.SourceLanguage);
+
+                if (!this.artifactIndices.TryGetValue(key, out var artifactIndex))
+                {
+                    artifactIndex = this.artifacts.Count;
+                    this.artifactIndices.Add(key, artifactIndex);
+                    this.artifacts.Add(
+                        new Artifact
+                        {
+                            Location =
+                                new ArtifactLocation
+                                {
+                                    UriBaseId = artifactLocation.UriBaseId,
+                                    Uri = artifactLocation.Uri,
+                                },
+                            SourceLanguage = sarifIssue.Issue.SourceLanguage,
+                        });
+                }
+
+                artifactLocation.Index = artifactIndex;
+            }
+
             result.Locations = [location];
         }
 

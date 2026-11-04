@@ -58,7 +58,7 @@ internal static class IIssueExtensions
     {
         issue.NotNull();
 
-        if (issue.AffectedFileRelativePath == null && !issue.Line.HasValue)
+        if (issue.AffectedFileRelativePath == null && !issue.Line.HasValue && string.IsNullOrEmpty(issue.Snippet))
         {
             return null;
         }
@@ -78,13 +78,14 @@ internal static class IIssueExtensions
                 };
         }
 
-        if (issue.Line.HasValue)
+        if (issue.Line.HasValue || !string.IsNullOrEmpty(issue.Snippet))
         {
-            result.PhysicalLocation.Region =
-                new Region
-                {
-                    StartLine = issue.Line.Value,
-                };
+            result.PhysicalLocation.Region = new Region();
+
+            if (issue.Line.HasValue)
+            {
+                result.PhysicalLocation.Region.StartLine = issue.Line.Value;
+            }
 
             if (issue.EndLine.HasValue)
             {
@@ -99,6 +100,11 @@ internal static class IIssueExtensions
             if (issue.EndColumn.HasValue)
             {
                 result.PhysicalLocation.Region.EndColumn = issue.EndColumn.Value;
+            }
+
+            if (!string.IsNullOrEmpty(issue.Snippet))
+            {
+                result.PhysicalLocation.Region.Snippet = new ArtifactContent { Text = issue.Snippet };
             }
         }
 
