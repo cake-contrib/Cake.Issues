@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="330" viewBox="0 0 1000 330" role="img" aria-labelledby="title description">
+  <title id="title">Console issue summaries without diagnostics</title>
+  <desc id="description">A terminal preview showing issue counts by provider and priority, with individual diagnostics omitted.</desc>
+  <rect width="1000" height="330" rx="12" fill="#111827"/>
+  <rect width="1000" height="38" rx="12" fill="#1f2937"/>
+  <circle cx="22" cy="19" r="6" fill="#f87171"/>
+  <circle cx="44" cy="19" r="6" fill="#fbbf24"/>
+  <circle cx="66" cy="19" r="6" fill="#34d399"/>
+  <text x="500" y="24" text-anchor="middle" fill="#d1d5db" font-family="Segoe UI, sans-serif" font-size="13">Build output</text>
+  <g font-family="Cascadia Mono, Consolas, monospace" font-size="14">
+    <text x="500" y="80" text-anchor="middle" fill="#f9fafb" font-weight="700">Summary</text>
+    <text x="500" y="112" text-anchor="middle" fill="#f9fafb" font-weight="700">Issues per provider &amp; run</text>
+    <text x="80" y="148" fill="#d1d5db">MSBuild</text>
+    <rect x="170" y="135" width="192" height="18" rx="3" fill="#38bdf8"/>
+    <text x="375" y="149" fill="#d1d5db">3</text>
+    <text x="500" y="193" text-anchor="middle" fill="#f9fafb" font-weight="700">Issues per priority</text>
+  </g>
+  <rect x="105" y="211" width="790" height="86" rx="6" fill="#1f2937" stroke="#4b5563"/>
+  <g font-family="Cascadia Mono, Consolas, monospace" font-size="13" fill="#e5e7eb">
+    <text x="126" y="237">Issue Provider / Run</text>
+    <text x="492" y="237">Number Of Issues</text>
+    <text x="126" y="272">MSBuild</text>
+    <text x="492" y="272"><tspan fill="#f87171">Errors  1</tspan><tspan dx="22" fill="#fbbf24">Warnings  2</tspan></text>
+  </g>
+</svg>

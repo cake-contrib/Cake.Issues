@@ -55,6 +55,7 @@ For this example the MsBuild issue provider is additionally used for reading iss
 <!-- markdownlint-restore -->
 
 The following example will print issues logged as warnings by MsBuild to the console.
+The output is grouped by rule and includes summaries by provider and priority.
 
 <!-- markdownlint-disable MD046 -->
 === "Cake .NET Tool"
@@ -182,3 +183,43 @@ The following example will print issues logged as warnings by MsBuild to the con
     }
     ```
 <!-- markdownlint-restore -->
+
+### Example output
+
+The following screenshot shows representative output for the settings used above.
+The issue text and source location are illustrative.
+
+![Console output with grouped diagnostics and provider and priority summaries](images/grouped-with-summaries.svg)
+
+### Compact output
+
+Set `Compact` to `true` to reduce the space used by diagnostics. The example below
+also groups issues with the same rule:
+
+```csharp
+ConsoleIssueReportFormat(
+    new ConsoleIssueReportFormatSettings
+    {
+        Compact = true,
+        GroupByRule = true
+    });
+```
+
+![Compact console output with issues grouped by rule](images/compact-grouped.svg)
+
+### Summary without diagnostics
+
+Set `ShowDiagnostics` to `false` to omit the individual diagnostics while keeping
+the summaries. This is useful when the build output should only include issue counts:
+
+```csharp
+ConsoleIssueReportFormat(
+    new ConsoleIssueReportFormatSettings
+    {
+        ShowDiagnostics = false,
+        ShowProviderSummary = true,
+        ShowPrioritySummary = true
+    });
+```
+
+![Console output showing provider and priority summaries without diagnostics](images/summary-only.svg)
