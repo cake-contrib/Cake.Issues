@@ -12,11 +12,11 @@
           "ruleId": "C2001",
           "level": "warning",
           "message": { "text": "Found issue." },
+          "properties": { "Snippet": "var value = 42;" },
           "locations": [
             {
               "physicalLocation": {
-                "artifactLocation": { "index": 0 },
-                "region": { "snippet": { "text": "var value = 42;" } }
+                "artifactLocation": { "index": 0 }
               }
             }
           ]

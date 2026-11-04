@@ -195,7 +195,33 @@ public sealed class SarifIssueReportGeneratorTests
             var sarifLog = JsonConvert.DeserializeObject<SarifLog>(logContents);
             var location = sarifLog.Runs[0].Results[0].Locations.ShouldHaveSingleItem();
             location.PhysicalLocation.ArtifactLocation.Index.ShouldBe(0);
-            location.PhysicalLocation.Region.Snippet.Text.ShouldBe("var value = 42;");
+            location.PhysicalLocation.Region.ShouldBeNull();
+            sarifLog.Runs[0].Results[0].GetProperty(SarifIssueReportGenerator.SnippetPropertyName).ShouldBe("var value = 42;");
+            var artifact = sarifLog.Runs[0].Artifacts.ShouldHaveSingleItem();
+            artifact.Location.ShouldBeNull();
+            artifact.SourceLanguage.ShouldBe("csharp");
+        }
+
+        [Fact]
+        public void Should_Include_Source_Language_If_Issue_Has_No_Other_Location_Data()
+        {
+            // Given
+            var fixture = new SarifIssueReportFixture();
+            var issue =
+                IssueBuilder
+                    .NewIssue("Message Foo.", "ProviderType Foo", "ProviderName Foo")
+                    .WithSourceLanguage("csharp")
+                    .Create();
+
+            // When
+            var logContents = fixture.CreateReport([issue]);
+
+            // Then
+            var sarifLog = JsonConvert.DeserializeObject<SarifLog>(logContents);
+            var result = sarifLog.Runs[0].Results.ShouldHaveSingleItem();
+            var location = result.Locations.ShouldHaveSingleItem();
+            location.PhysicalLocation.ArtifactLocation.Index.ShouldBe(0);
+            location.PhysicalLocation.Region.ShouldBeNull();
             var artifact = sarifLog.Runs[0].Artifacts.ShouldHaveSingleItem();
             artifact.Location.ShouldBeNull();
             artifact.SourceLanguage.ShouldBe("csharp");

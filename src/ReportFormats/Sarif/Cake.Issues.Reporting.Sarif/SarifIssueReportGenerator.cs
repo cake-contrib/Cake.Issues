@@ -32,6 +32,11 @@ internal class SarifIssueReportGenerator : IssueReportFormat
     /// </summary>
     internal const string RuleNamePropertyName = "RuleName";
 
+    /// <summary>
+    /// The name of the result object property bag property that holds a snippet without a known position.
+    /// </summary>
+    internal const string SnippetPropertyName = "Snippet";
+
     private readonly SarifIssueReportFormatSettings sarifIssueReportFormatSettings;
     private List<ReportingDescriptor> rules;
     private Dictionary<string, int> ruleIndices;
@@ -212,6 +217,11 @@ internal class SarifIssueReportGenerator : IssueReportFormat
                 Level = sarifIssue.Issue.Level(),
                 BaselineState = sarifIssue.BaselineState,
             };
+
+        if (!string.IsNullOrEmpty(sarifIssue.Issue.Snippet) && !sarifIssue.Issue.Line.HasValue)
+        {
+            result.SetProperty(SnippetPropertyName, sarifIssue.Issue.Snippet);
+        }
 
         if (location != null)
         {

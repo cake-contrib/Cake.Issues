@@ -16,6 +16,8 @@ using Newtonsoft.Json;
 /// <param name="issueProviderSettings">Settings for the issue provider.</param>
 internal class SarifIssuesProvider(ICakeLog log, SarifIssuesSettings issueProviderSettings) : BaseConfigurableIssueProvider<SarifIssuesSettings>(log, issueProviderSettings)
 {
+    private const string SnippetPropertyName = "Snippet";
+
     /// <inheritdoc />
     public override string ProviderName => "SARIF";
 
@@ -48,8 +50,13 @@ internal class SarifIssuesProvider(ICakeLog log, SarifIssuesSettings issueProvid
                 var (text, markdown) = GetMessage(sarifResult, run);
                 var (ruleId, ruleUrl) = GetRule(sarifResult, run);
                 var physicalLocation = sarifResult.Locations.FirstOrDefault()?.PhysicalLocation;
-                var (filePath, startLine, endLine, startColumn, endColumn) = GetLocation(physicalLocation, this.Settings);
+                var (filePath, startLine, endLine, startColumn, endColumn) = GetLocation(physicalLocation, run, this.Settings);
                 var snippet = physicalLocation?.Region?.Snippet?.Text;
+                if (snippet == null && sarifResult.TryGetProperty<string>(SnippetPropertyName, out var snippetProperty))
+                {
+                    snippet = snippetProperty;
+                }
+
                 var sourceLanguage = GetSourceLanguage(physicalLocation, run);
 
                 // Build issue.
@@ -192,17 +199,22 @@ internal class SarifIssuesProvider(ICakeLog log, SarifIssuesSettings issueProvid
     /// Determines the location for a SARIF result.
     /// </summary>
     /// <param name="physicalLocation">Physical location to read the location from.</param>
+    /// <param name="run">SARIF run containing the referenced artifacts.</param>
     /// <param name="repositorySettings">Repository settings.</param>
     /// <returns>File and line of the result.</returns>
     private static (string FilePath, int? StartLine, int? EndLine, int? StartColumn, int? EndColumn) GetLocation(
-        PhysicalLocation physicalLocation, IRepositorySettings repositorySettings)
+        PhysicalLocation physicalLocation, Run run, IRepositorySettings repositorySettings)
     {
         if (physicalLocation is not null)
         {
             var artifactLocation = physicalLocation.ArtifactLocation;
-            if (artifactLocation?.Uri == null)
+            if (artifactLocation != null &&
+                artifactLocation.Uri == null &&
+                artifactLocation.Index >= 0 &&
+                run.Artifacts != null &&
+                artifactLocation.Index < run.Artifacts.Count)
             {
-                return (null, null, null, null, null);
+                artifactLocation = run.Artifacts[artifactLocation.Index]?.Location;
             }
 
             // Depending on tool Uri is written differently:
@@ -211,41 +223,44 @@ internal class SarifIssuesProvider(ICakeLog log, SarifIssuesSettings issueProvid
             // - Absolute path on Linux not RFC 3986 conform: /path/to/file
             // - Absolute path on Linux RFC 3986 conform: file://path/to/file
             // - Relative path on Windows: path/to/file
-            string filePath;
-            try
+            string filePath = null;
+            if (artifactLocation?.Uri != null)
             {
-                if (artifactLocation.Uri.IsFile)
+                try
                 {
-                    // Handle RFC 3986 conform URIs.
-                    if (!string.IsNullOrEmpty(artifactLocation.Uri.Host))
+                    if (artifactLocation.Uri.IsFile)
                     {
-                        // The case for Linux style URIs: file://path/to/file
-                        filePath = $"/{artifactLocation.Uri.Host}{artifactLocation.Uri.AbsolutePath}";
+                        // Handle RFC 3986 conform URIs.
+                        if (!string.IsNullOrEmpty(artifactLocation.Uri.Host))
+                        {
+                            // The case for Linux style URIs: file://path/to/file
+                            filePath = $"/{artifactLocation.Uri.Host}{artifactLocation.Uri.AbsolutePath}";
+                        }
+                        else
+                        {
+                            // The case for Windows style URIs: file://C:/path/to/file
+                            filePath = artifactLocation.Uri.AbsolutePath;
+                        }
                     }
                     else
                     {
-                        // The case for Windows style URIs: file://C:/path/to/file
+                        // Handle URIs without file scheme.
                         filePath = artifactLocation.Uri.AbsolutePath;
                     }
                 }
-                else
+                catch (InvalidOperationException)
                 {
-                    // Handle URIs without file scheme.
-                    filePath = artifactLocation.Uri.AbsolutePath;
+                    // Handle relative paths.
+                    filePath = artifactLocation.Uri.ToString();
                 }
-            }
-            catch (InvalidOperationException)
-            {
-                // Handle relative paths.
-                filePath = artifactLocation.Uri.ToString();
-            }
 
-            // Validate file path and make relative to repository root if it is an absolute path.
-            (var pathValidationResult, filePath) = filePath.Validate(repositorySettings);
+                // Validate file path and make relative to repository root if it is an absolute path.
+                (var pathValidationResult, filePath) = filePath.Validate(repositorySettings);
 
-            if (!pathValidationResult)
-            {
-                return (null, null, null, null, null);
+                if (!pathValidationResult)
+                {
+                    filePath = null;
+                }
             }
 
             int? startLine = null;
