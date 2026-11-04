@@ -1,5 +1,7 @@
 ﻿namespace Cake.Issues.Reporting.Generic.Tests;
 
+using HtmlAgilityPack;
+
 public sealed class GenericIssueReportGeneratorTests
 {
     public sealed class TheCtor
@@ -65,6 +67,36 @@ public sealed class GenericIssueReportGeneratorTests
 
             // Then
             // No additional tests. We only check if template can be compiled.
+        }
+
+        [Fact]
+        public void Should_Include_Snippet_And_SourceLanguage_In_Diagnostic_Report()
+        {
+            // Given
+            var fixture = new GenericIssueReportFixture(GenericIssueReportTemplate.HtmlDiagnostic);
+            var issue =
+                IssueBuilder
+                    .NewIssue("Message Foo", "ProviderType Foo", "ProviderName Foo")
+                    .WithSnippet("var count = 1;", "csharp")
+                    .Create();
+
+            // When
+            var result = fixture.CreateReport([issue]);
+
+            // Then
+            var doc = new HtmlDocument();
+            doc.LoadHtml(result);
+            var headers = doc.DocumentNode.SelectNodes("//table/thead/tr/th")
+                .Select(node => node.InnerText)
+                .ToList();
+            var cells = doc.DocumentNode.SelectNodes("//table/tbody/tr/td")
+                .Select(node => node.InnerText)
+                .ToList();
+
+            headers.ShouldContain("Snippet");
+            headers.ShouldContain("SourceLanguage");
+            cells[headers.IndexOf("Snippet")].ShouldBe("var count = 1;");
+            cells[headers.IndexOf("SourceLanguage")].ShouldBe("csharp");
         }
 
         [Fact]
