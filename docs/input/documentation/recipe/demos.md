@@ -3,8 +3,8 @@ title: Demos
 description: Demo setups for Cake.Issues recipes.
 ---
 
-There are demo setups available for different combinations of build servers and repositories which you can fork and to which you can create pull requests
-to test the recipe functionality.
+There are demo setups available for different combinations of build servers and repositories which
+you can fork and to which you can create pull requests to test the recipe functionality.
 
 | Recipe             | Build Server                                                                                          | Repository                                                                |
 |--------------------|-------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------|

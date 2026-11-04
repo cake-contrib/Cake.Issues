@@ -12,7 +12,7 @@ A new [Cake.Issues.Reporting.Console addin] has been released which allows to ou
 <!-- more -->
 
 [Cake.Issues.Reporting.Console addin] can be used to print issues to the console and is built on top
-of the excellent [Errata library](https://github.com/spectreconsole/errata){target="_blank"} by Patrik Svensson.
+of the excellent [Errata library](https://github.com/spectreconsole/errata) by Patrik Svensson.
 
 Its main focus is to annotate source code with issues:
 

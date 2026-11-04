@@ -7,6 +7,7 @@ icon: material/test-tube
 To report issues to the console the Console report format needs to be imported.
 For this example the MsBuild issue provider is additionally used for reading issues:
 
+<!-- markdownlint-disable MD046 -->
 === "Cake .NET Tool"
 
     ```csharp title="build.cake"
@@ -51,6 +52,7 @@ For this example the MsBuild issue provider is additionally used for reading iss
       </ItemGroup>
     </Project>
     ```
+<!-- markdownlint-restore -->
 
 ## Console Output Examples
 
@@ -194,6 +196,7 @@ Combine grouping with summary tables for the most comprehensive output:
 
 The following example shows how to build a solution and create a console report with MsBuild issues:
 
+<!-- markdownlint-disable MD046 -->
 === "Cake .NET Tool"
 
     ```csharp title="build.cake"
@@ -318,3 +321,4 @@ The following example shows how to build a solution and create a console report 
         }
     }
     ```
+<!-- markdownlint-restore -->

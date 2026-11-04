@@ -1,0 +1,12 @@
+---
+title: Examples
+description: Examples for using the Cake.Issues.BuildServer.GitHubActions addin.
+icon: material/test-tube
+---
+
+<!-- markdownlint-disable-next-line MD033 -->
+<div class="grid cards" markdown>
+
+* [Create Annotations In GitHub Actions](write-annotations.md)
+
+</div>

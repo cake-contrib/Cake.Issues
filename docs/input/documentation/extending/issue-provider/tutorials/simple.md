@@ -4,12 +4,12 @@ description: Instructions how to implement a simple issue provider.
 ---
 
 This tutorial explains how to implement a simple issue provider using the
-[BaseIssueProvider](https://cakebuild.net/api/Cake.Issues/BaseIssueProvider/){target="_blank"}
+[BaseIssueProvider](https://cakebuild.net/api/Cake.Issues/BaseIssueProvider/)
 class from the `Cake.Issue` addin.
 
 ## Implementing issue provider
 
-A concrete class inheriting from [BaseIssueProvider](https://cakebuild.net/api/Cake.Issues/BaseIssueProvider/){target="_blank"}
+A concrete class inheriting from [BaseIssueProvider](https://cakebuild.net/api/Cake.Issues/BaseIssueProvider/)
 needs to be implemented:
 
 ```csharp
@@ -21,6 +21,7 @@ needs to be implemented:
 An alias for reading issues with the provider and a property alias for returning
 the provider type name should be defined:
 
+<!-- markdownlint-disable MD046 -->
 === "Alias for reading issues"
 
     ```csharp hl_lines="7-28"
@@ -32,3 +33,4 @@ the provider type name should be defined:
     ```csharp hl_lines="30-45"
     --8<-- "snippets/extending/issue-provider/simple/Aliases.cs"
     ```
+<!-- markdownlint-restore -->

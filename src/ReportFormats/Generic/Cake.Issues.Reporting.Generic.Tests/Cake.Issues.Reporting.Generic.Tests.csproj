@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Description>Tests for the Cake.Issues.Reporting.Generic addin</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- To disable parallelization in xunit builds while running "dotnet test" a configuration file is required. -->
+    <!-- For disabling parallelization in test execution inside Visual Studio see DisableTestParallelization attribute. -->
+    <Content Include="xunit.runner.json" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Templates\TestTemplate.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="HtmlAgilityPack" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Cake.Issues.Reporting.Generic\Cake.Issues.Reporting.Generic.csproj" />
+  </ItemGroup>
+</Project>

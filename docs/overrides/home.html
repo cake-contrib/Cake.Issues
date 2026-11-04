@@ -1,9 +1,92 @@
 {#-
-    Override to hide title and edit button on homepage
+    Landing page: renders a product-style hero and a supported-tools strip
+    above the regular page content, and hides the title and edit button.
 -#}
-  
+
 {% extends "main.html" %}
-  
+
+{% block tabs %}
+    {{ super() }}
+
+    <section class="mdx-hero">
+        <div class="md-grid md-typeset mdx-hero__grid">
+            <div class="mdx-hero__content">
+                <p class="mdx-hero__eyebrow">
+                    For the
+                    <a href="https://cakebuild.net">Cake Build Automation System</a>
+                </p>
+                <h1>Turn linter &amp; analyzer output into actionable feedback</h1>
+                <p class="mdx-hero__lead">
+                    Cake Issues reads, filters and reports issues from your linters and static
+                    analyzers, and posts them straight to your pull requests and build logs &mdash;
+                    right from your Cake build.
+                </p>
+                <p class="mdx-hero__actions">
+                    <a href="{{ 'documentation/usage/' | url }}" class="md-button md-button--primary">
+                        Get Started
+                    </a>
+                    <a href="{{ config.repo_url }}" class="md-button">
+                        View on GitHub
+                    </a>
+                </p>
+                <ul class="mdx-hero__stats">
+                    <li><strong>15+</strong><span>Modular addins</span></li>
+                    <li><strong>80+</strong><span>Supported tools</span></li>
+                    <li><strong>75+</strong><span>Cake aliases</span></li>
+                </ul>
+            </div>
+            <div class="mdx-hero__image">
+                <img
+                    src="{{ 'assets/images/hero-illustration.svg' | url }}"
+                    alt="Cake Issues reads issues from a linter and reports them to a pull request"
+                    width="640"
+                    height="480"
+                    draggable="false"
+                >
+            </div>
+        </div>
+    </section>
+
+    <section class="mdx-tech-strip">
+        <div class="md-grid md-typeset">
+            <p class="mdx-tech-strip__label">Works with the tools you already use</p>
+            <ul class="mdx-tech-strip__list">
+                {% for name, icon in {
+                    ".NET": "simple/dotnet",
+                    "Java": "simple/openjdk",
+                    "TypeScript": "simple/typescript",
+                    "JavaScript": "simple/javascript",
+                    "ESLint": "simple/eslint",
+                    "Python": "simple/python",
+                    "Terraform": "simple/terraform",
+                    "Docker": "simple/docker",
+                    "Kubernetes": "simple/kubernetes",
+                    "Ansible": "simple/ansible",
+                    "Markdown": "simple/markdown",
+                    "GitHub Actions": "simple/githubactions",
+                    "Azure DevOps": "material/microsoft-azure-devops",
+                    "AppVeyor": "simple/appveyor"
+                }.items() %}
+                    <li title="{{ name }}">
+                        <span class="mdx-tech-strip__icon" aria-hidden="true">
+                            {%- include ".icons/" ~ icon ~ ".svg" -%}
+                        </span>
+                        <span class="mdx-sr-only">{{ name }}</span>
+                    </li>
+                {% endfor %}
+            </ul>
+            <p class="mdx-tech-strip__more">
+                <a href="{{ 'documentation/supported-tools/' | url }}">
+                    See all supported tools
+                    <span class="mdx-tech-strip__arrow" aria-hidden="true">
+                        {%- include ".icons/octicons/arrow-right-24.svg" -%}
+                    </span>
+                </a>
+            </p>
+        </div>
+    </section>
+{% endblock %}
+
 {% block content %}
     {{ page.content }}
 {% endblock %}

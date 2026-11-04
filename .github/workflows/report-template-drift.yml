@@ -1,0 +1,51 @@
+name: Report template drift
+
+on:
+  pull_request:
+    paths:
+      - 'docs/input/documentation/report-formats/generic/templates/**'
+      - 'src/ReportFormats/Generic/Cake.Issues.Reporting.Generic/Templates/DxDataGrid.cshtml'
+      - 'src/ReportFormats/Generic/Cake.Issues.Reporting.Generic/HtmlDxDataGridOption.cs'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: report-template-drift-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  Build:
+    name: Build
+    uses: ./.github/workflows/build-nuget-packages.yml
+
+  Check:
+    name: Check generated report templates
+    needs: Build
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Get the sources
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Prepare integration test
+        uses: ./.github/actions/prepare-integration-test
+        with:
+          dotnet-version: 8.x
+      - name: Regenerate report templates
+        run: ./build.sh --verbosity=diagnostic
+        working-directory: ./tests/Cake.Issues.Reporting.Generic/script-runner/net8.0
+        shell: bash
+      - name: Check for drift
+        shell: bash
+        run: |
+          set -euo pipefail
+          templates='docs/input/documentation/report-formats/generic/templates'
+          status=$(git status --porcelain --untracked-files=all -- "${templates}")
+
+          if [[ -n "${status}" ]]; then
+            echo "::error::Generated report templates are out of date. Regenerate them with the Cake.Issues.Reporting.Generic script runner and commit the changes."
+            echo "${status}"
+            git --no-pager diff -- "${templates}"
+            exit 1
+          fi
+
+          echo "Generated report templates are in sync."

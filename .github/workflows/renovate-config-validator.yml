@@ -1,0 +1,20 @@
+name: Renovate config validation
+
+on:
+  pull_request:
+    paths:
+      - .github/renovate.json
+
+jobs:
+  validate:
+    name: Validate Renovate configuration
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+    steps:
+      - name: Get the sources
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Validate Renovate configuration
+        uses: suzuki-shunsuke/github-action-renovate-config-validator@1e1604219a6b38ae9a10aff42a28a3656322c31a # v2.4.1
+        with:
+          config_file_path: .github/renovate.json

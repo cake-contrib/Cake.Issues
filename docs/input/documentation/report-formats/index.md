@@ -6,11 +6,13 @@ description: Documentation of the different report format addins.
 Report format addins implement specific report formats and allow the
 Cake Issues addin to create reports in the specific format.
 
+<!-- markdownlint-disable-next-line MD033 -->
 <div class="grid cards" markdown>
 
-- :material-printer: __[Console]__ – Support for reporting issues to the console
-- :material-printer: __[Generic]__ – Support for creating reports in any text based format (HTML, Markdown, ...)
-- :material-printer: __[Sarif]__ – Support for creating reports in SARIF format
+* :material-printer: **[Console]** – Support for reporting issues to the console
+* :material-printer: **[Generic]** – Support for creating reports in any text based format
+  (HTML, Markdown, ...)
+* :material-printer: **[Sarif]** – Support for creating reports in SARIF format
 
 </div>
 

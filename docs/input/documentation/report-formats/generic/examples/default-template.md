@@ -6,6 +6,7 @@ description: Example how to create a report using an embedded default template.
 To create HTML reports the Generic report format needs to be imported.
 For this example the MsBuild issue provider is additionally used for reading issues:
 
+<!-- markdownlint-disable MD046 -->
 === "Cake .NET Tool"
 
     ```csharp title="build.cake"
@@ -50,9 +51,11 @@ For this example the MsBuild issue provider is additionally used for reading iss
       </ItemGroup>
     </Project>
     ```
+<!-- markdownlint-restore -->
 
 The following example will create a HTML report for issues logged as warnings by MsBuild.
 
+<!-- markdownlint-disable MD046 -->
 === "Cake .NET Tool"
 
     ```csharp title="build.cake"
@@ -165,3 +168,4 @@ The following example will create a HTML report for issues logged as warnings by
         }
     }
     ```
+<!-- markdownlint-restore -->

@@ -4,9 +4,10 @@ description: Examples for using the Cake.Issues.Markdownlint addin.
 icon: material/test-tube
 ---
 
-To call [markdownlint-cli]{target="_blank"} from a Cake script the [Cake.Markdownlint]{target="_blank"} addin can be used.
+To call [markdownlint-cli] from a Cake script the [Cake.Markdownlint] addin can be used.
 To read issues from markdownlint-cli log files the markdownlint issue provider needs to be imported:
 
+<!-- markdownlint-disable MD046 -->
 === "Cake .NET Tool"
 
     ```csharp title="build.cake"
@@ -50,10 +51,12 @@ To read issues from markdownlint-cli log files the markdownlint issue provider n
       </ItemGroup>
     </Project>
     ```
+<!-- markdownlint-restore -->
 
-The following example contains a task which will run [markdownlint-cli]{target="_blank"} and write a log file
+The following example contains a task which will run [markdownlint-cli] and write a log file
 and a task to read issues from the log file and write the number of warnings to the console:
 
+<!-- markdownlint-disable MD046 -->
 === "Cake .NET Tool"
 
     ```csharp title="build.cake"
@@ -183,6 +186,7 @@ and a task to read issues from the log file and write the number of warnings to 
         }
     }
     ```
+<!-- markdownlint-restore -->
 
 [markdownlint-cli]: https://github.com/igorshubovych/markdownlint-cli
 [Cake.Markdownlint]: https://cakebuild.net/extensions/cake-markdownlint/

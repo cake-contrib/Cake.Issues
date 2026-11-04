@@ -3,7 +3,51 @@
   "extends": [
     "github>cake-contrib/renovate-presets:cake-issues"
   ],
+  "prConcurrentLimit": 0,
   "customManagers": [
+    {
+      "customType": "regex",
+      "description": "Update Azure Pipelines NodeTool version channel",
+      "managerFilePatterns": [
+        "/\\.azuredevops/pipelines/templates/steps/install-markdownlint\\.yml$/"
+      ],
+      "matchStringsStrategy": "any",
+      "matchStrings": [
+        "version:\\s*'(?<currentValue>\\d+)\\.x'",
+        "displayName:\\s*'Install NodeJs (?<currentValue>\\d+)\\.x'"
+      ],
+      "depNameTemplate": "azure-pipelines-node",
+      "packageNameTemplate": "node",
+      "datasourceTemplate": "node-version",
+      "versioningTemplate": "node"
+    },
+    {
+      "customType": "regex",
+      "description": "Update markdownlint-cli npm package installations",
+      "managerFilePatterns": [
+        "/\\.github/actions/install-markdownlint/action\\.yml$/",
+        "/\\.azuredevops/pipelines/templates/steps/install-markdownlint\\.yml$/"
+      ],
+      "matchStrings": [
+        "npm\\s+install\\s+-g\\s+markdownlint-cli@(?<currentValue>[0-9A-Za-z][0-9A-Za-z._-]*)"
+      ],
+      "depNameTemplate": "markdownlint-cli",
+      "datasourceTemplate": "npm"
+    },
+    {
+      "customType": "regex",
+      "description": "Update .NET SDK versions installed by AppVeyor",
+      "managerFilePatterns": [
+        "/\\.appveyor\\.yml$/"
+      ],
+      "matchStrings": [
+        "dotnet-install\\.ps1\"\\s+-Version\\s+(?<currentValue>(?<major>\\d+)\\.\\d+\\.\\d+)"
+      ],
+      "depNameTemplate": "dotnet-sdk-{{{major}}}",
+      "packageNameTemplate": "dotnet-sdk",
+      "datasourceTemplate": "dotnet",
+      "versioningTemplate": "loose"
+    },
     {
       "customType": "regex",
       "description": "Update versions of NuGet packages used in documentation",
@@ -22,13 +66,203 @@
       ],
       "matchStringsStrategy": "any",
       "matchStrings": [
-        "<dependency\\s+[^>]*?id=\\\"(?<depName>.*?)\\\"\\s+[^>]*?version=\\\"(?<currentValue>.*?)\\\"[^>]*\\/?>"
+        "<dependency\\b[^>]*\\bid=\\\"(?<depName>[^\\\"]+)\\\"[^>]*\\bversion=\\\"(?<currentValue>[^\\[\\(][^\\\"]*)\\\"[^>]*\\/?>",
+        "<dependency\\b[^>]*\\bversion=\\\"(?<currentValue>[^\\[\\(][^\\\"]*)\\\"[^>]*\\bid=\\\"(?<depName>[^\\\"]+)\\\"[^>]*\\/?>"
       ],
       "datasourceTemplate": "nuget",
-      "versioningTemplate": "nuget"
+      // Nuspec dependency versions here are unbracketed (e.g. "4.6.5"), which per the NuGet version-range
+      // spec means "4.6.5 or later", not "exactly 4.6.5". With versioningTemplate "nuget", Renovate treats
+      // the current value as an already-satisfied range once a newer release exists and stops proposing
+      // updates. These versions are meant to be pinned, so semver-coerced compares them as exact versions.
+      "versioningTemplate": "semver-coerced"
+    },
+    {
+      "customType": "regex",
+      "description": "Update jQuery version used by the DxDataGrid report template",
+      "managerFilePatterns": [
+        "/src/ReportFormats/Generic/Cake\\.Issues\\.Reporting\\.Generic/Templates/DxDataGrid\\.cshtml$/",
+        "/src/ReportFormats/Generic/Cake\\.Issues\\.Reporting\\.Generic/HtmlDxDataGridOption\\.cs$/",
+        "/docs/input/documentation/report-formats/generic/templates/htmldxdatagrid-demo-.+\\.html$/"
+      ],
+      "matchStringsStrategy": "any",
+      "matchStrings": [
+        "ViewBag\\.JQueryVersion,\\s*\"(?<currentValue>[^\"]+)\"",
+        "Default value for <c>jquery</c> is <c>(?<currentValue>[^<]+)</c>",
+        "ajax\\.aspnetcdn\\.com/ajax/jquery/jquery-(?<currentValue>\\d[^/\"<]*?)\\.min\\.js"
+      ],
+      "depNameTemplate": "jquery",
+      "datasourceTemplate": "npm"
+    },
+    {
+      "customType": "regex",
+      "description": "Update DevExtreme version used by the DxDataGrid report template",
+      "managerFilePatterns": [
+        "/src/ReportFormats/Generic/Cake\\.Issues\\.Reporting\\.Generic/Templates/DxDataGrid\\.cshtml$/",
+        "/src/ReportFormats/Generic/Cake\\.Issues\\.Reporting\\.Generic/HtmlDxDataGridOption\\.cs$/",
+        "/docs/input/documentation/report-formats/generic/templates/htmldxdatagrid-demo-.+\\.html$/"
+      ],
+      "matchStringsStrategy": "any",
+      "matchStrings": [
+        "ViewBag\\.DevExtremeVersion,\\s*\"(?<currentValue>[^\"]+)\"",
+        "Default value for <c>devextreme</c> is <c>(?<currentValue>[^<]+)</c>",
+        "cdn3\\.devexpress\\.com/jslib/(?<currentValue>\\d[^/\"<]*)/"
+      ],
+      "depNameTemplate": "devextreme",
+      "datasourceTemplate": "npm"
+    },
+    {
+      "customType": "regex",
+      "description": "Update ExcelJS version used by the DxDataGrid report template",
+      "managerFilePatterns": [
+        "/src/ReportFormats/Generic/Cake\\.Issues\\.Reporting\\.Generic/Templates/DxDataGrid\\.cshtml$/",
+        "/src/ReportFormats/Generic/Cake\\.Issues\\.Reporting\\.Generic/HtmlDxDataGridOption\\.cs$/",
+        "/docs/input/documentation/report-formats/generic/templates/htmldxdatagrid-demo-.+\\.html$/"
+      ],
+      "matchStringsStrategy": "any",
+      "matchStrings": [
+        "ViewBag\\.ExcelJsVersion,\\s*\"(?<currentValue>[^\"]+)\"",
+        "Default value for <c>exceljs</c> is <c>(?<currentValue>[^<]+)</c>",
+        "cdnjs\\.cloudflare\\.com/ajax/libs/exceljs/(?<currentValue>\\d[^/\"<]*)/"
+      ],
+      "depNameTemplate": "exceljs",
+      "packageNameTemplate": "exceljs/exceljs.min.js",
+      "datasourceTemplate": "cdnjs"
+    },
+    {
+      "customType": "regex",
+      "description": "Update FileSaver.js version used by the DxDataGrid report template",
+      "managerFilePatterns": [
+        "/src/ReportFormats/Generic/Cake\\.Issues\\.Reporting\\.Generic/Templates/DxDataGrid\\.cshtml$/",
+        "/src/ReportFormats/Generic/Cake\\.Issues\\.Reporting\\.Generic/HtmlDxDataGridOption\\.cs$/",
+        "/docs/input/documentation/report-formats/generic/templates/htmldxdatagrid-demo-.+\\.html$/"
+      ],
+      "matchStringsStrategy": "any",
+      "matchStrings": [
+        "ViewBag\\.FileSaverJsVersion,\\s*\"(?<currentValue>[^\"]+)\"",
+        "Default value for <c>FileSaver\\.js</c> is <c>(?<currentValue>[^<]+)</c>",
+        "cdnjs\\.cloudflare\\.com/ajax/libs/FileSaver\\.js/(?<currentValue>\\d[^/\"<]*)/"
+      ],
+      "depNameTemplate": "FileSaver.js",
+      "packageNameTemplate": "FileSaver.js/FileSaver.min.js",
+      "datasourceTemplate": "cdnjs"
+    },
+    {
+      "customType": "regex",
+      "description": "Update jsPDF version used by the DxDataGrid report template",
+      "managerFilePatterns": [
+        "/src/ReportFormats/Generic/Cake\\.Issues\\.Reporting\\.Generic/Templates/DxDataGrid\\.cshtml$/",
+        "/src/ReportFormats/Generic/Cake\\.Issues\\.Reporting\\.Generic/HtmlDxDataGridOption\\.cs$/",
+        "/docs/input/documentation/report-formats/generic/templates/htmldxdatagrid-demo-.+\\.html$/"
+      ],
+      "matchStringsStrategy": "any",
+      "matchStrings": [
+        "ViewBag\\.JsPdfVersion,\\s*\"(?<currentValue>[^\"]+)\"",
+        "Default value for <c>jspdf</c> is <c>(?<currentValue>[^<]+)</c>",
+        "cdnjs\\.cloudflare\\.com/ajax/libs/jspdf/(?<currentValue>\\d[^/\"<]*)/"
+      ],
+      "depNameTemplate": "jspdf",
+      "packageNameTemplate": "jspdf/jspdf.umd.min.js",
+      "datasourceTemplate": "cdnjs"
+    },
+    {
+      "customType": "regex",
+      "description": "Update jsPDF-AutoTable version used by the DxDataGrid report template",
+      "managerFilePatterns": [
+        "/src/ReportFormats/Generic/Cake\\.Issues\\.Reporting\\.Generic/Templates/DxDataGrid\\.cshtml$/",
+        "/src/ReportFormats/Generic/Cake\\.Issues\\.Reporting\\.Generic/HtmlDxDataGridOption\\.cs$/",
+        "/docs/input/documentation/report-formats/generic/templates/htmldxdatagrid-demo-.+\\.html$/"
+      ],
+      "matchStringsStrategy": "any",
+      "matchStrings": [
+        "ViewBag\\.JsPdfAutoTableVersion,\\s*\"(?<currentValue>[^\"]+)\"",
+        "Default value for <c>jspdf-autotable</c> is <c>(?<currentValue>[^<]+)</c>",
+        "cdnjs\\.cloudflare\\.com/ajax/libs/jspdf-autotable/(?<currentValue>\\d[^/\"<]*)/"
+      ],
+      "depNameTemplate": "jspdf-autotable",
+      "packageNameTemplate": "jspdf-autotable/jspdf.plugin.autotable.min.js",
+      "datasourceTemplate": "cdnjs"
+    },
+    {
+      "customType": "regex",
+      "description": "Update the gh-aw CLI version used to compile the agentic workflows. This is the single source of truth for the gh-aw version: the `github/gh-aw-actions/setup-cli` pin, `.github/aw/actions-lock.json` and the compiled `.lock.yml` files are all derived from it by the `Recompile agentic workflows` workflow.",
+      "managerFilePatterns": [
+        "/\\.github/workflows/agentic-workflow-drift\\.yml$/"
+      ],
+      "matchStrings": [
+        "GH_AW_VERSION:\\s*(?<currentValue>v\\d+\\.\\d+\\.\\d+)"
+      ],
+      "depNameTemplate": "github/gh-aw",
+      // github/gh-aw flags its prereleases correctly, so the github-releases datasource only
+      // proposes stable releases. The tags of github/gh-aw-actions mirror every gh-aw release,
+      // including prereleases, and are therefore not a usable source for this version.
+      "datasourceTemplate": "github-releases"
     }
   ],
   "packageRules": [
+    {
+      "description": "Keep AppVeyor tool runtimes on their required .NET major versions",
+      "matchDepNames": [
+        "dotnet-sdk-5"
+      ],
+      "allowedVersions": "<6.0.0"
+    },
+    {
+      "description": "Keep the AppVeyor Cake.Recipe runtime on its configured .NET major version",
+      "matchDepNames": [
+        "dotnet-sdk-7"
+      ],
+      "allowedVersions": ">=7.0.0 <8.0.0"
+    },
+    {
+      "description": "Keep the AppVeyor .NET 8 runtime on its configured major version",
+      "matchDepNames": [
+        "dotnet-sdk-8"
+      ],
+      "allowedVersions": ">=8.0.0 <9.0.0"
+    },
+    {
+      "description": "Keep the AppVeyor .NET 9 runtime on its configured major version",
+      "matchDepNames": [
+        "dotnet-sdk-9"
+      ],
+      "allowedVersions": ">=9.0.0 <10.0.0"
+    },
+    {
+      "description": "Keep the AppVeyor .NET 10 runtime on its configured major version",
+      "matchDepNames": [
+        "dotnet-sdk-10"
+      ],
+      "allowedVersions": ">=10.0.0 <11.0.0"
+    },
+    {
+      "description": "CDN dependencies of the DxDataGrid report template are handled by dedicated custom managers, which keep the Razor template, the option documentation and the generated demo reports in sync. The built-in html manager only detects cdnjs.cloudflare.com URLs in the generated demo reports and would therefore report the same dependencies again.",
+      "matchManagers": [
+        "html"
+      ],
+      "enabled": false
+    },
+    {
+      "description": "htmldxdatagrid-demo-customscriptlocation.html intentionally references outdated versions to demonstrate the custom script location and version options",
+      "matchFileNames": [
+        "docs/input/documentation/report-formats/generic/templates/htmldxdatagrid-demo-customscriptlocation.html"
+      ],
+      "enabled": false
+    },
+    {
+      "description": "Agentic workflow lock files are generated by `gh aw compile`. All actions referenced in them are pinned by the compiler and version locked to it, so they must not be updated by Renovate.",
+      "matchFileNames": [
+        ".github/workflows/*.lock.yml"
+      ],
+      "enabled": false
+    },
+    {
+      "description": "The `github/gh-aw-actions` actions are version locked to the gh-aw CLI. Their pins are derived from the GH_AW_VERSION value by the `Recompile agentic workflows` workflow, which reruns `gh aw compile` on the Renovate pull request, so they must not be updated on their own.",
+      "matchDepNames": [
+        "github/gh-aw-actions",
+        "github/gh-aw-actions/**"
+      ],
+      "enabled": false
+    },
     {
       "description": "Ignore Cake runner minor and patch updates",
       "matchDepNames": [
@@ -64,6 +298,34 @@
         "Microsoft.Build.Utilities.Core"
       ],
       "enabled": false
+    },
+    // DevExtreme 23.2 changed its licensing model to a paid/commercial-only license, so it can no longer be
+    // updated to that version or later. See the upstream license change commit:
+    // https://github.com/DevExpress/DevExtreme/commit/21694969a1a86e3b638a59250504b7ebd9d81c6d
+    {
+      "description": "Limit DevExtreme used by the DxDataGrid report template to 23.1 due to a license change in 23.2",
+      "matchDepNames": [
+        "devextreme"
+      ],
+      "allowedVersions": "<23.2.0"
+    },
+    {
+      "description": "Automatically merge test library updates after pipelines succeed",
+      "matchPackageNames": [
+        "Cake.Testing",
+        "coverlet.msbuild",
+        "Microsoft.NET.Test.Sdk",
+        "NSubstitute",
+        "Shouldly",
+        "Spectre.Console.Testing",
+        "Verify.Xunit",
+        "xunit",
+        "Xunit.SkippableFact",
+        "xunit.runner.visualstudio"
+      ],
+      "automerge": true,
+      "automergeType": "pr",
+      "platformAutomerge": true
     }
   ]
 }

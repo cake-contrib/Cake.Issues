@@ -13,10 +13,10 @@ stages:
             imageName: 'windows-2022'
           Windows_Server_2025:
             imageName: 'windows-2025'
-          macOS_13:
-            imageName: 'macOS-13'
           macOS_14:
             imageName: 'macOS-14'
+          macOS_15:
+            imageName: 'macOS-15'
           Ubuntu_22_04:
             imageName: 'ubuntu-22.04'
           Ubuntu_24_04:
@@ -29,5 +29,5 @@ stages:
       - template: ../steps/install-net8.yml 
       - template: ../steps/provide-nuget-packages.yml 
       - powershell: ./build.ps1 --verbosity=diagnostic
-        workingDirectory: ./tests/Cake.Issues.GitRepository/script-runner
+        workingDirectory: ./tests/Cake.Issues.GitRepository/script-runner/net8.0
         displayName: 'Run integration tests'

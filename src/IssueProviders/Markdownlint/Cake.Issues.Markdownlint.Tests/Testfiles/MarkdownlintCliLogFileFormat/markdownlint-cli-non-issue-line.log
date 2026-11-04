@@ -1,0 +1,2 @@
+docs/index.md:1 error MD022/blanks-around-headings Headings should be surrounded by blank lines [Expected: 1; Actual: 0; Below] [Context: "# foo"]
+Summary: 1 error

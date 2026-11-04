@@ -9,21 +9,22 @@ links:
   - documentation/recipe/index.md
 ---
 
-Cake Issues version 5.7.0 has been released bringing enhanced integration with GitHub for Cake Issues Recipe
-and support for ignoring files in Git Repository issue provider.
+Cake Issues version 5.7.0 has been released bringing enhanced integration with GitHub for Cake Issues
+Recipe and support for ignoring files in Git Repository issue provider.
 
 <!-- more -->
 
 This post shows the highlights included in this release.
 For update instructions skip to [Updating from previous versions](#updating-from-previous-versions).
 
-❤ Huge thanks to our community! This release would not have been possible without your support and contributions! ❤
+❤ Huge thanks to our community! This release would not have been possible without your support and
+contributions! ❤
 
 People working on this release:
 
-* [christianbumann](https://github.com/christianbumann){target="_blank"}
-* [eoehen](https://github.com/eoehen){target="_blank"}
-* [pascalberger](https://github.com/pascalberger){target="_blank"}
+* [christianbumann](https://github.com/christianbumann)
+* [eoehen](https://github.com/eoehen)
+* [pascalberger](https://github.com/pascalberger)
 
 ## Possibility to ignore files in Git Repository issue provider
 
@@ -31,6 +32,7 @@ The Git Repository issue provider comes with new settings which allow to ignore 
 
 Files can be ignored for all or individual rules:
 
+<!-- markdownlint-disable MD046 -->
 === "Cake .NET Tool"
 
     ```csharp title="build.cake"
@@ -159,12 +161,14 @@ Files can be ignored for all or individual rules:
         }
     }
     ```
+<!-- markdownlint-restore -->
 
 See [Excluding files with patterns] for details.
 
 ## Fixes for MsBuild binary logs
 
-Fixed an issue where an exception was thrown when a binary log contained a warning not related to any project.
+Fixed an issue where an exception was thrown when a binary log contained a warning not related to
+any project.
 
 ## GitHub status checks in Cake Issues Recipe
 
@@ -183,6 +187,6 @@ With this enabled issues will become visible in the repository's `Security` → 
 Cake.Issues 5.7.0 addins are compatible with any 5.x addins.
 To update to the new version bump the version of the specific addins.
 
-For details see [release notes](https://github.com/cake-contrib/Cake.Issues/releases/tag/5.7.0){target="_blank"}
+For details see [release notes](https://github.com/cake-contrib/Cake.Issues/releases/tag/5.7.0)
 
 [Excluding files with patterns]: ../../documentation/issue-providers/gitrepository/examples/excluding-files.md

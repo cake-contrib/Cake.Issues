@@ -4,13 +4,14 @@ description: Report format to create reports in any text based format (HTML, Mar
 ---
 
 Support for creating reports in any text based format like HTML or Markdown is implemented in the
-[Cake.Issues.Reporting.Generic addin](https://cakebuild.net/extensions/cake-issues-reporting-generic/){target="_blank"}.
+[Cake.Issues.Reporting.Generic addin](https://cakebuild.net/extensions/cake-issues-reporting-generic/).
 
+<!-- markdownlint-disable-next-line MD033 -->
 <div class="grid cards" markdown>
 
-- :material-creation-outline: [Features](features.md)
-- :material-test-tube: [Examples](examples/index.md)
-- :material-image: [Template Gallery](templates/index.md)
-- :material-api: [API](https://cakebuild.net/extensions/cake-issues-reporting-generic){target="_blank"}
+* :material-creation-outline: [Features](features.md)
+* :material-test-tube: [Examples](examples/index.md)
+* :material-image: [Template Gallery](templates/index.md)
+* :material-api: [API](https://cakebuild.net/extensions/cake-issues-reporting-generic)
 
 </div>

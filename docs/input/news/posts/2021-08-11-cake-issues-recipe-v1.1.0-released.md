@@ -12,17 +12,18 @@ Version 1.1.0 of Cake Issues recipes have been released adding support to custom
 This post shows the highlights included in this release.
 For update instructions skip to [Updating from previous versions](#updating-from-previous-versions).
 
-❤ Huge thanks to our community! This release would not have been possible without your support and contributions! ❤
+❤ Huge thanks to our community! This release would not have been possible without your support and
+contributions! ❤
 
 People working on this release:
 
-* [pascalberger](https://github.com/pascalberger){target="_blank"}
+* [pascalberger](https://github.com/pascalberger)
 
 ## Report customization
 
-This version of Cake Issues recipes adds a new `FullIssuesReportSettings` configuration parameter which allows
-to customize the generated issue report.
-See [Report creation parameters]{target="_blank"} for details.
+This version of Cake Issues recipes adds a new `FullIssuesReportSettings` configuration parameter
+which allows to customize the generated issue report.
+See [Report creation parameters] for details.
 
 The following example enables exporting of the report when using Cake.Issues.Recipe:
 
@@ -40,9 +41,10 @@ context.Parameters.Reporting.FullIssuesReportSettings
 
 ## Updated addins
 
-`Cake.Git` has been updated to version 1.1.0 which comes with an updated version of LibGit2Sharp which adds support for Ubuntu 20.
+`Cake.Git` has been updated to version 1.1.0 which comes with an updated version of LibGit2Sharp
+which adds support for Ubuntu 20.
 
-See [Cake.Git 1.1.0 release notes]{target="_blank"} for details.
+See [Cake.Git 1.1.0 release notes] for details.
 
 ## Updating from previous versions
 

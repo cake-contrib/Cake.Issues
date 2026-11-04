@@ -29,21 +29,22 @@ For addin compatible with Cake Script Runners see Cake.Issues.Sarif.
     <copyright>Copyright © Cake Issues contributors</copyright>
     <tags>cake cake-addin cake-issues cake-issueprovider linting sarif</tags>
     <readme>docs\README.md</readme>
-    <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/5.7.0</releaseNotes>
+    <releaseNotes>https://github.com/cake-contrib/Cake.Issues/releases/tag/6.1.0</releaseNotes>
     <dependencies>
       <group targetFramework="net8.0">
-        <dependency id="Cake.Core" version="5.0" exclude="Build,Analyzers" />
-        <dependency id="Cake.Issues" version="[5.0.0-beta0001,6.0)" exclude="Build,Analyzers" />
-        <dependency id="Sarif.Sdk" version="4.5.4" exclude="Build,Analyzers" />
-        <!--Transitive dependencies specified explicitly to fix security vulnerabilities-->
-        <dependency id="Newtonsoft.Json" version="13.0.1" />
+        <dependency id="Cake.Core" version="6.2" exclude="Build,Analyzers" />
+        <dependency id="Cake.Issues" version="[6.0.0-beta0001,7.0)" exclude="Build,Analyzers" />
+        <dependency id="Sarif.Sdk" version="5.8.0" exclude="Build,Analyzers" />
       </group>
       <group targetFramework="net9.0">
-        <dependency id="Cake.Core" version="5.0" exclude="Build,Analyzers" />
-        <dependency id="Cake.Issues" version="[5.0.0-beta0001,6.0)" exclude="Build,Analyzers" />
-        <dependency id="Sarif.Sdk" version="4.5.4" exclude="Build,Analyzers" />
-        <!--Transitive dependencies specified explicitly to fix security vulnerabilities-->
-        <dependency id="Newtonsoft.Json" version="13.0.1" />
+        <dependency id="Cake.Core" version="6.2" exclude="Build,Analyzers" />
+        <dependency id="Cake.Issues" version="[6.0.0-beta0001,7.0)" exclude="Build,Analyzers" />
+        <dependency id="Sarif.Sdk" version="5.8.0" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework="net10.0">
+        <dependency id="Cake.Core" version="6.2" exclude="Build,Analyzers" />
+        <dependency id="Cake.Issues" version="[6.0.0-beta0001,7.0)" exclude="Build,Analyzers" />
+        <dependency id="Sarif.Sdk" version="5.8.0" exclude="Build,Analyzers" />
       </group>
     </dependencies>
   </metadata>
@@ -52,6 +53,6 @@ For addin compatible with Cake Script Runners see Cake.Issues.Sarif.
     <file src="Cake.Frosting.Issues.Sarif.targets" target="build" />
     <file src="Cake.Frosting.Issues.Sarif.targets" target="buildTransitive" />
     <file src="Cake.Frosting.Issues.Sarif.md" target="docs\README.md" />
-    <file src="..\..\src\Cake.Issues.Sarif\bin\Release\**\Cake.Issues.Sarif.*" target="lib" exclude="**\*.deps.json" />
+    <file src="..\..\src\IssueProviders\Sarif\Cake.Issues.Sarif\bin\Release\**\Cake.Issues.Sarif.*" target="lib" exclude="**\*.deps.json" />
   </files>
 </package>

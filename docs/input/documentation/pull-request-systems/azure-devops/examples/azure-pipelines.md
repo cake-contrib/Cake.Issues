@@ -6,6 +6,7 @@ description: Example how to use the Cake.Issues.PullRequests.AzureDevOps addin f
 To write issues as comments to Azure DevOps pull requests, the Azure DevOps addin needs to be imported.
 For this example the JetBrains InspectCode issue provider is additionally used for reading issues:
 
+<!-- markdownlint-disable MD046 -->
 === "Cake .NET Tool"
 
     ```csharp title="build.cake"
@@ -52,10 +53,12 @@ For this example the JetBrains InspectCode issue provider is additionally used f
       </ItemGroup>
     </Project>
     ```
+<!-- markdownlint-restore -->
 
-The following example shows a task which will call the [AzureDevOpsPullRequests](https://cakebuild.net/api/Cake.Issues.PullRequests.AzureDevOps/AzureDevOpsPullRequestSystemAliases/){target="_blank"}
+The following example shows a task which will call the [AzureDevOpsPullRequests](https://cakebuild.net/api/Cake.Issues.PullRequests.AzureDevOps/AzureDevOpsPullRequestSystemAliases/)
 alias to connect to the pull request using the environment variables provided by Azure Pipelines.:
 
+<!-- markdownlint-disable MD046 -->
 === "Cake .NET Tool"
 
     ```csharp title="build.cake"
@@ -122,9 +125,10 @@ alias to connect to the pull request using the environment variables provided by
 
 !!! info
     Please note that you'll need to setup your Azure Pipelines build to
-    [Allow scripts to access the OAuth token](https://docs.microsoft.com/en-us/azure/devops/pipelines/build/options#allow-scripts-to-access-the-oauth-token){target="_blank"}
+    [Allow scripts to access the OAuth token](https://docs.microsoft.com/en-us/azure/devops/pipelines/build/options#allow-scripts-to-access-the-oauth-token)
     and need to setup proper permissions.
 
     See [OAuth authentication from Azure Pipelines] for details.
+<!-- markdownlint-restore -->
 
 [OAuth authentication from Azure Pipelines]: ../setup.md#oauth-authentication-from-azure-pipelines

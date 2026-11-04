@@ -11,7 +11,7 @@ The Cake.Issues addins for the [Cake build automation system](https://cakebuild.
 
 Cake.Issues redefines issue management within the Cake build system by offering a comprehensive, universal, and extensible solution.
 The unique capabilities of the addins empower development teams to enforce coding standards, generate insightful reports,
-seamlessly incorporate various linting tools, and streamlining the integration with pull requests.
+seamlessly incorporate various linting tools, and streamline the integration with build servers and pull requests.
 With its [modular architecture] and extensive [set of aliases], Cake.Issues provides a future-proof infrastructure for issue management
 in Cake builds, fostering a more efficient and adaptable development process.
 
@@ -125,10 +125,11 @@ For questions and to discuss ideas & feature requests, use the [GitHub discussio
 | [Cake.Issues.Sarif](https://www.nuget.org/packages/Cake.Issues.Sarif) | [Cake.Frosting.Issues.Sarif](https://www.nuget.org/packages/Cake.Frosting.Issues.Sarif) | Issue provider for reading SARIF reports. |
 | [Cake.Issues.Tap](https://www.nuget.org/packages/Cake.Issues.Tap) | [Cake.Frosting.Issues.Tap](https://www.nuget.org/packages/Cake.Frosting.Issues.Tap) | Issue provider for reading files in Test Anything Protocol (TAP) format. |
 | [Cake.Issues.Terraform](https://www.nuget.org/packages/Cake.Issues.Terraform) | [Cake.Frosting.Issues.Terraform](https://www.nuget.org/packages/Cake.Frosting.Issues.Terraform) | Issue provider for reading Terraform validation output. |
-| [Cake.Issues.PullRequests](https://www.nuget.org/packages/Cake.Issues.PullRequests) | [Cake.Frosting.Issues.PullRequests](https://www.nuget.org/packages/Cake.Frosting.Issues.PullRequests) | Addin providing the aliases for writing issues to pull requests and build servers. |
-| [Cake.Issues.PullRequests.AppVeyor](https://www.nuget.org/packages/Cake.Issues.PullRequests.AppVeyor) | [Cake.Frosting.Issues.PullRequests.AppVeyor](https://www.nuget.org/packages/Cake.Frosting.Issues.PullRequests.AppVeyor) | Integration with AppVeyor builds. |
+| [Cake.Issues.BuildServer](https://www.nuget.org/packages/Cake.Issues.BuildServer) | [Cake.Frosting.Issues.BuildServer](https://www.nuget.org/packages/Cake.Frosting.Issues.BuildServer) | Addin providing the aliases for writing issues to build servers. |
+| [Cake.Issues.BuildServer.AppVeyor](https://www.nuget.org/packages/Cake.Issues.BuildServer.AppVeyor) | [Cake.Frosting.Issues.BuildServer.AppVeyor](https://www.nuget.org/packages/Cake.Frosting.Issues.BuildServer.AppVeyor) | Integration with AppVeyor builds. |
+| [Cake.Issues.BuildServer.GitHubActions](https://www.nuget.org/packages/Cake.Issues.BuildServer.GitHubActions) | [Cake.Frosting.Issues.BuildServer.GitHubActions](https://www.nuget.org/packages/Cake.Frosting.Issues.BuildServer.GitHubActions) | Integration with GitHub Actions. |
+| [Cake.Issues.PullRequests](https://www.nuget.org/packages/Cake.Issues.PullRequests) | [Cake.Frosting.Issues.PullRequests](https://www.nuget.org/packages/Cake.Frosting.Issues.PullRequests) | Addin providing the aliases for writing issues to pull requests. |
 | [Cake.Issues.PullRequests.AzureDevOps](https://www.nuget.org/packages/Cake.Issues.PullRequests.AzureDevOps) | [Cake.Frosting.Issues.PullRequests.AzureDevOps](https://www.nuget.org/packages/Cake.Frosting.Issues.PullRequests.AzureDevOps) | Integration with Azure DevOps pull requests. |
-| [Cake.Issues.PullRequests.GitHubActions](https://www.nuget.org/packages/Cake.Issues.PullRequests.GitHubActions) | [Cake.Frosting.Issues.PullRequests.GitHubActions](https://www.nuget.org/packages/Cake.Frosting.Issues.PullRequests.GitHubActions) | Integration with GitHub Actions. |
 | [Cake.Issues.Reporting](https://www.nuget.org/packages/Cake.Issues.Reporting) | [Cake.Frosting.Issues.Reporting](https://www.nuget.org/packages/Cake.Frosting.Issues.Reporting) | Addin providing the aliases for creating reports. |
 | [Cake.Issues.Reporting.Console](https://www.nuget.org/packages/Cake.Issues.Reporting.Console) | [Cake.Frosting.Issues.Reporting.Console](https://www.nuget.org/packages/Cake.Frosting.Issues.Reporting.Console) | Support for reporting issues to the console. |
 | [Cake.Issues.Reporting.Generic](https://www.nuget.org/packages/Cake.Issues.Reporting.Generic) | [Cake.Frosting.Issues.Reporting.Generic](https://www.nuget.org/packages/Cake.Frosting.Issues.Reporting.Generic) | Support for creating reports in any text based format (HTML, Markdown, ...). |

@@ -5,6 +5,7 @@ description: Tasks provided by Cake.Issues recipes.
 
 Cake.Issues recipes provide the following tasks to your build script:
 
+<!-- markdownlint-disable MD046 -->
 === "Cake.Issues.Recipe"
 
     | Task                         | Description                                  | IssuesBuildTasks property       |
@@ -32,3 +33,4 @@ Cake.Issues recipes provide the following tasks to your build script:
     | `Report-IssuesToPullRequest` | Report issues to pull request.               | `Cake.Frosting.Issues.Recipe.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`ReportIssuesToPullRequestTask` |
     | `Set-PullRequestIssuesState` | Set pull request status.                     | `Cake.Frosting.Issues.Recipe.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`SetPullRequestIssuesStateTask` |
     | `Report-IssuesToConsole`     | Report issues to console.                    | `Cake.Frosting.Issues.Recipe.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`ReportIssuesToConsoleTask`     |
+<!-- markdownlint-restore -->

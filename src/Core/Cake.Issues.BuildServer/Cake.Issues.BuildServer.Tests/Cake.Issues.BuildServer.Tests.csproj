@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Description>Tests for the Cake.Issues.BuildServer addin</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NSubstitute" />
+    <PackageReference Include="Spectre.Console" />
+    <PackageReference Include="Spectre.Console.Testing" />
+    <PackageReference Include="Verify.Xunit" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Cake.Issues.BuildServer\Cake.Issues.BuildServer.csproj" />
+    <ProjectReference Include="..\..\Cake.Issues.Testing\Cake.Issues.Testing.csproj" />
+  </ItemGroup>
+</Project>

@@ -7,10 +7,11 @@ The `Cake.Issues` addin can be used to create issues directly in the build scrip
 This issues can for example be used to create reports.
 
 ??? Tip "List of all aliases for creating issues"
-    See all available [Aliases for creating issues](https://cakebuild.net/extensions/cake-issues/#Creating-Issues){target="_blank"}
+    See all available [Aliases for creating issues](https://cakebuild.net/extensions/cake-issues/#Creating-Issues)
 
 To create issues you need to import the following core addin:
 
+<!-- markdownlint-disable MD046 -->
 === "Cake .NET Tool"
 
     ```csharp title="build.cake"
@@ -47,9 +48,11 @@ To create issues you need to import the following core addin:
       </ItemGroup>
     </Project>
     ```
+<!-- markdownlint-restore -->
 
 In the following task a new warning for the myfile.txt file on line 42 is created:
 
+<!-- markdownlint-disable MD046 -->
 === "Cake .NET Tool"
 
     ```csharp title="build.cake"
@@ -131,3 +134,4 @@ In the following task a new warning for the myfile.txt file on line 42 is create
         }
     }
     ```
+<!-- markdownlint-restore -->

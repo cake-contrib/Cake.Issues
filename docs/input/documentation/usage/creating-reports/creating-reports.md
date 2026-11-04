@@ -6,7 +6,7 @@ description: Usage instructions how to create reports.
 The `Cake.Issues.Reporting` addin can be used to create issue reports in different formats.
 
 ??? Tip "List of all aliases for creating reports"
-    See all available [Aliases for creating reports](https://cakebuild.net/extensions/cake-issues-reporting/#Creating-Issue-Reports){target="_blank"}
+    See all available [Aliases for creating reports](https://cakebuild.net/extensions/cake-issues-reporting/#Creating-Issue-Reports)
 
 To create report for issues you need to import the corresponding report format.
 In the following example the issue provider for reading warnings from MsBuild log files
@@ -15,6 +15,7 @@ and generic report format is imported:
 ??? tip "Example for other report formats"
     For examples for other formats see [Report Format Examples](../../report-formats/index.md).
 
+<!-- markdownlint-disable MD046 -->
 === "Cake .NET Tool"
 
     ```csharp title="build.cake"
@@ -59,8 +60,12 @@ and generic report format is imported:
       </ItemGroup>
     </Project>
     ```
-Afterwards you can define a task where you call the reporting addin with the desired issue provider and report format:
+<!-- markdownlint-restore -->
 
+Afterwards you can define a task where you call the reporting addin with the desired issue provider
+and report format:
+
+<!-- markdownlint-disable MD046 -->
 === "Cake .NET Tool"
 
     ```csharp title="build.cake"
@@ -127,3 +132,4 @@ Afterwards you can define a task where you call the reporting addin with the des
         }
     }
     ```
+<!-- markdownlint-restore -->

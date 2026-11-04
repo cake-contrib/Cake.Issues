@@ -1,9 +1,0 @@
-<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <Description>Addin for writing code analyzer or linter issues to GitHub Actions</Description>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Cake.Issues.PullRequests\Cake.Issues.PullRequests.csproj" />
-  </ItemGroup>
-</Project>

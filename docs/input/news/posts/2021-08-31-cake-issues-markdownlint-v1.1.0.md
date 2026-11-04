@@ -15,26 +15,27 @@ This is a minor release adding features and improvements.
 This post shows the highlights included in this release.
 For update instructions skip to [Updating from previous versions](#updating-from-previous-versions).
 
-❤ Huge thanks to our community! This release would not have been possible without your support and contributions! ❤
+❤ Huge thanks to our community! This release would not have been possible without your support and
+contributions! ❤
 
 People working on this release:
 
-* [pascalberger](https://github.com/pascalberger){target="_blank"}
+* [pascalberger](https://github.com/pascalberger)
 
 ## Support for markdownlint-cli JSON format
 
 Since version 0.28.0 markdownlint-cli supports a `--json` option to output result in JSON format.
-This version adds support for this format through the [MarkdownlintCliJsonLogFileFormat]{target="_blank"} alias.
+This version adds support for this format through the [MarkdownlintCliJsonLogFileFormat] alias.
 
 ## Provide column information
 
-This release of Cake.Issues.Markdownlint enhances the [MarkdownlintCliLogFileFormat]{target="_blank"} to provide column information
-if reported by markdownlint.
+This release of Cake.Issues.Markdownlint enhances the [MarkdownlintCliLogFileFormat] to provide
+column information if reported by markdownlint.
 
 ## Recipe packages
 
-[Cake Issues recipes] have been released in version 1.3.0 shipping with Cake.Issues.Markdownlint 1.1.0 and
-adding support for markdownlint-cli JSON files.
+[Cake Issues recipes] have been released in version 1.3.0 shipping with Cake.Issues.Markdownlint 1.1.0
+and adding support for markdownlint-cli JSON files.
 
 ## Updating from previous versions
 

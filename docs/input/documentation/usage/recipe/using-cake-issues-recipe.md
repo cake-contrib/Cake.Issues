@@ -3,7 +3,8 @@ title: Using Cake.Issues.Recipe
 description: Basic usage of Cake.Issues.Recipe.
 ---
 
-The [Cake.Issues.Recipe] package can be used to easily add issue management functionality to your build script.
+The [Cake.Issues.Recipe] package can be used to easily add issue management functionality to your
+build script.
 
 ## Add Cake.Issues.Recipe to your build script
 
@@ -17,7 +18,8 @@ To use Cake.Issues.Recipe in your build script you need to first load the NuGet 
 
 To make issues available to Cake.Issues.Recipe you need to set the corresponding configuration parameters.
 
-In the following example a new task is introduced which depends on existing tasks which build a MsBuild solution and run JetBrains InspectCode.
+In the following example a new task is introduced which depends on existing tasks which build a
+MsBuild solution and run JetBrains InspectCode.
 It will pass the MsBuild and InspectCode logfile to Cake.Issues.Recipe:
 
 ```csharp

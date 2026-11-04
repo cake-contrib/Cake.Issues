@@ -8,19 +8,21 @@ links:
 ---
 
 Cake Issues version 5.0.0 has been released.
-This is a major release, containing breaking changes beside bringing new features and bug fixes across all addins.
+This is a major release, containing breaking changes beside bringing new features and bug fixes
+across all addins.
 
 <!-- more -->
 
 This post shows the highlights included in this release.
 For update instructions skip to [Updating from previous versions](#updating-from-previous-versions).
 
-❤ Huge thanks to our community! This release would not have been possible without your support and contributions! ❤
+❤ Huge thanks to our community! This release would not have been possible without your support and
+contributions! ❤
 
 People working on this release:
 
-* [eoehen](https://github.com/eoehen){target="_blank"}
-* [pascalberger](https://github.com/pascalberger){target="_blank"}
+* [eoehen](https://github.com/eoehen)
+* [pascalberger](https://github.com/pascalberger)
 
 ## Support for Cake 5.0
 
@@ -47,4 +49,4 @@ newer versions where the vulnerabilities are fixed.
 Cake.Issues 5.0.0 is a breaking release, which means that there is a small change that changes to your
 build script are required.
 
-For details see [release notes](https://github.com/cake-contrib/Cake.Issues/releases/tag/5.0.0){target="_blank"}
+For details see [release notes](https://github.com/cake-contrib/Cake.Issues/releases/tag/5.0.0)

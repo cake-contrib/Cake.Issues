@@ -1,14 +1,14 @@
 # Support for creating any reports in any text based format (HTML, Markdown, ...) for the Cake.Issues addin for Cake Frosting
 
 > **NOTE**:
-> This is the version of the addin compatible with [Cake Frosting].
+> This is the version of the addin compatible with [Cake Frosting] and [Cake SDK].
 > For addin compatible with [Cake .NET Tool] see [Cake.Issues.Reporting.Generic](https://www.nuget.org/packages/Cake.Issues.Reporting.Generic).
 
 The generic report support for the Cake.Issues addin for Cake Frosting allows you to create issue reports in any text format (HTML, Markdown, ...).
 
 Cake.Issues redefines issue management within the Cake build system by offering a comprehensive, universal, and extensible solution.
 The unique capabilities of the addins empower development teams to enforce coding standards, generate insightful reports,
-seamlessly incorporate various linting tools, and streamlining the integration with pull requests.
+seamlessly incorporate various linting tools, and streamline the integration with build servers and pull requests.
 With its [modular architecture] and extensive [set of aliases], Cake.Issues provides a future-proof infrastructure for issue management
 in Cake builds, fostering a more efficient and adaptable development process.
 
@@ -33,4 +33,5 @@ See [LICENSE](https://github.com/cake-contrib/Cake.Issues/blob/develop/LICENSE) 
 [modular architecture]: https://cakeissues.net/latest/documentation/how-cake-issues-works/
 [set of aliases]: https://cakeissues.net/latest/api/
 [Cake Frosting]: https://cakebuild.net/docs/running-builds/runners/cake-frosting
+[Cake SDK]: https://cakebuild.net/docs/running-builds/runners/cake-sdk
 [Cake .NET Tool]: https://cakebuild.net/docs/running-builds/runners/dotnet-tool

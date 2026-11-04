@@ -2,13 +2,13 @@
 
 > **NOTE**:
 > This is the version of the addin compatible with [Cake .NET Tool].
-> For addin compatible with [Cake Frosting] see [Cake.Frosting.Issues.MsBuild](https://www.nuget.org/packages/Cake.Frosting.Issues.MsBuild).
+> For addin compatible with [Cake Frosting] and [Cake SDK] see [Cake.Frosting.Issues.MsBuild](https://www.nuget.org/packages/Cake.Frosting.Issues.MsBuild).
 
 The MsBuild support for the Cake.Issues addin for Cake allows you to read issues logged as warnings in a MsBuild log.
 
 Cake.Issues redefines issue management within the Cake build system by offering a comprehensive, universal, and extensible solution.
 The unique capabilities of the addins empower development teams to enforce coding standards, generate insightful reports,
-seamlessly incorporate various linting tools, and streamlining the integration with pull requests.
+seamlessly incorporate various linting tools, and streamline the integration with build servers and pull requests.
 With its [modular architecture] and extensive [set of aliases], Cake.Issues provides a future-proof infrastructure for issue management
 in Cake builds, fostering a more efficient and adaptable development process.
 
@@ -70,4 +70,5 @@ See [LICENSE](https://github.com/cake-contrib/Cake.Issues/blob/develop/LICENSE) 
 [modular architecture]: https://cakeissues.net/latest/documentation/how-cake-issues-works/
 [set of aliases]: https://cakeissues.net/latest/api/
 [Cake Frosting]: https://cakebuild.net/docs/running-builds/runners/cake-frosting
+[Cake SDK]: https://cakebuild.net/docs/running-builds/runners/cake-sdk
 [Cake .NET Tool]: https://cakebuild.net/docs/running-builds/runners/dotnet-tool
