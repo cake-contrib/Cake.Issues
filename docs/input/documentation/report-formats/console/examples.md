@@ -72,6 +72,16 @@ By default, the Console report format shows individual diagnostics for each issu
         string.Empty);
     ```
 
+=== "Cake SDK"
+
+    ```csharp title="Build.cs"
+    CreateIssueReport(
+        issues,
+        ConsoleIssueReportFormat(),
+        repoRootPath,
+        string.Empty);
+    ```
+
 === "Cake Frosting"
 
     ```csharp title="Program.cs"
@@ -82,7 +92,7 @@ By default, the Console report format shows individual diagnostics for each issu
         string.Empty);
     ```
 
-![Default Console Output](../../assets/images/console-examples/console-default.png)
+![Default Console Output](../../../assets/images/console-examples/console-default.png)
 
 ### Grouped by Rule
 
@@ -91,6 +101,20 @@ When `GroupByRule` is set to `true`, issues with the same rule ID are grouped to
 === "Cake .NET Tool"
 
     ```csharp title="build.cake"
+    CreateIssueReport(
+        issues,
+        ConsoleIssueReportFormat(
+            new ConsoleIssueReportFormatSettings
+            {
+                GroupByRule = true
+            }),
+        repoRootPath,
+        string.Empty);
+    ```
+
+=== "Cake SDK"
+
+    ```csharp title="Build.cs"
     CreateIssueReport(
         issues,
         ConsoleIssueReportFormat(
@@ -116,7 +140,7 @@ When `GroupByRule` is set to `true`, issues with the same rule ID are grouped to
         string.Empty);
     ```
 
-![Grouped by Rule Output](../../assets/images/console-examples/console-grouped.png)
+![Grouped by Rule Output](../../../assets/images/console-examples/console-grouped.png)
 
 ### With Summary Tables
 
@@ -137,6 +161,21 @@ Enable summary tables to see issue counts by provider and priority:
         string.Empty);
     ```
 
+=== "Cake SDK"
+
+    ```csharp title="Build.cs"
+    CreateIssueReport(
+        issues,
+        ConsoleIssueReportFormat(
+            new ConsoleIssueReportFormatSettings
+            {
+                ShowProviderSummary = true,
+                ShowPrioritySummary = true
+            }),
+        repoRootPath,
+        string.Empty);
+    ```
+
 === "Cake Frosting"
 
     ```csharp title="Program.cs"
@@ -152,7 +191,7 @@ Enable summary tables to see issue counts by provider and priority:
         string.Empty);
     ```
 
-![Console Output with Summaries](../../assets/images/console-examples/console-summaries.png)
+![Console Output with Summaries](../../../assets/images/console-examples/console-summaries.png)
 
 ### Combined Features
 
@@ -174,6 +213,22 @@ Combine grouping with summary tables for the most comprehensive output:
         string.Empty);
     ```
 
+=== "Cake SDK"
+
+    ```csharp title="Build.cs"
+    CreateIssueReport(
+        issues,
+        ConsoleIssueReportFormat(
+            new ConsoleIssueReportFormatSettings
+            {
+                GroupByRule = true,
+                ShowProviderSummary = true,
+                ShowPrioritySummary = true
+            }),
+        repoRootPath,
+        string.Empty);
+    ```
+
 === "Cake Frosting"
 
     ```csharp title="Program.cs"
@@ -190,7 +245,7 @@ Combine grouping with summary tables for the most comprehensive output:
         string.Empty);
     ```
 
-![Combined Features Output](../../assets/images/console-examples/console-combined.png)
+![Combined Features Output](../../../assets/images/console-examples/console-combined.png)
 
 ## Complete Build Example
 

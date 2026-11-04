@@ -2,6 +2,8 @@
 #addin "Cake.Issues.Reporting&prerelease"
 #addin "Cake.Issues.Reporting.Console&prerelease"
 
+#load build/create-reports/create-reports-console.cake
+
 //////////////////////////////////////////////////
 // ARGUMENTS
 //////////////////////////////////////////////////
@@ -30,7 +32,8 @@ Task("Print-Issues")
 });
 
 Task("Default")
-    .IsDependentOn("Print-Issues");
+    .IsDependentOn("Print-Issues")
+    .IsDependentOn("Create-Reports-Console-Examples");
 
 //////////////////////////////////////////////////
 // EXECUTION
