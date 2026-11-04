@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": { "driver": { "name": "CodeScanner" } },
+      "artifacts": [
+        {
+          "location": { "uri": "src/collections/list.cpp" },
+          "sourceLanguage": "c"
+        }
+      ],
+      "results": [
+        {
+          "ruleId": "C2001",
+          "level": "warning",
+          "message": { "text": "Found issue." },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": { "index": 0 },
+                "region": { "startLine": 15 }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

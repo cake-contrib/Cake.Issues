@@ -51,6 +51,7 @@ public sealed class SarifIssueReportGeneratorTests
                         .InProjectFile(@"src\Cake.Issues.Reporting.Sarif.Tests\Cake.Issues.Reporting.Sarif.Tests.csproj")
                         .OfRule("Rule Foo")
                         .WithPriority(IssuePriority.Error)
+                        .WithSnippet("var value = 42;", "csharp")
                         .Create(),
 
                     // Issue to exercise creation of rule metadata with helpUri, and messages
@@ -102,6 +103,11 @@ public sealed class SarifIssueReportGeneratorTests
             var physicalLocation = location.PhysicalLocation;
             physicalLocation.ArtifactLocation.Uri.OriginalString.ShouldBe("src/Cake.Issues.Reporting.Sarif.Tests/SarifIssueReportGeneratorTests.cs");
             physicalLocation.Region.StartLine.ShouldBe(10);
+            physicalLocation.Region.Snippet.Text.ShouldBe("var value = 42;");
+            physicalLocation.ArtifactLocation.Index.ShouldBe(0);
+            var artifact = run.Artifacts.ShouldHaveSingleItem();
+            artifact.Location.Uri.OriginalString.ShouldBe("src/Cake.Issues.Reporting.Sarif.Tests/SarifIssueReportGeneratorTests.cs");
+            artifact.SourceLanguage.ShouldBe("csharp");
 
             run.OriginalUriBaseIds.Count.ShouldBe(1);
             run.OriginalUriBaseIds[SarifIssueReportGenerator.RepoRootUriBaseId].Uri.LocalPath.ShouldBe(SarifIssueReportFixture.RepositoryRootPath);
@@ -169,6 +175,56 @@ public sealed class SarifIssueReportGeneratorTests
             // Then
             var result = JObject.Parse(logContents)["runs"][0]["results"][0] as JObject;
             result.Property("locations").ShouldBeNull();
+        }
+
+        [Fact]
+        public void Should_Include_Snippet_If_Issue_Has_No_Line_Or_File()
+        {
+            // Given
+            var fixture = new SarifIssueReportFixture();
+            var issue =
+                IssueBuilder
+                    .NewIssue("Message Foo.", "ProviderType Foo", "ProviderName Foo")
+                    .WithSnippet("var value = 42;", "csharp")
+                    .Create();
+
+            // When
+            var logContents = fixture.CreateReport([issue]);
+
+            // Then
+            var sarifLog = JsonConvert.DeserializeObject<SarifLog>(logContents);
+            var location = sarifLog.Runs[0].Results[0].Locations.ShouldHaveSingleItem();
+            location.PhysicalLocation.ArtifactLocation.Index.ShouldBe(0);
+            location.PhysicalLocation.Region.ShouldBeNull();
+            sarifLog.Runs[0].Results[0].GetProperty(SarifIssueReportGenerator.SnippetPropertyName).ShouldBe("var value = 42;");
+            var artifact = sarifLog.Runs[0].Artifacts.ShouldHaveSingleItem();
+            artifact.Location.ShouldBeNull();
+            artifact.SourceLanguage.ShouldBe("csharp");
+        }
+
+        [Fact]
+        public void Should_Include_Source_Language_If_Issue_Has_No_Other_Location_Data()
+        {
+            // Given
+            var fixture = new SarifIssueReportFixture();
+            var issue =
+                IssueBuilder
+                    .NewIssue("Message Foo.", "ProviderType Foo", "ProviderName Foo")
+                    .WithSourceLanguage("csharp")
+                    .Create();
+
+            // When
+            var logContents = fixture.CreateReport([issue]);
+
+            // Then
+            var sarifLog = JsonConvert.DeserializeObject<SarifLog>(logContents);
+            var result = sarifLog.Runs[0].Results.ShouldHaveSingleItem();
+            var location = result.Locations.ShouldHaveSingleItem();
+            location.PhysicalLocation.ArtifactLocation.Index.ShouldBe(0);
+            location.PhysicalLocation.Region.ShouldBeNull();
+            var artifact = sarifLog.Runs[0].Artifacts.ShouldHaveSingleItem();
+            artifact.Location.ShouldBeNull();
+            artifact.SourceLanguage.ShouldBe("csharp");
         }
 
         [Fact]
