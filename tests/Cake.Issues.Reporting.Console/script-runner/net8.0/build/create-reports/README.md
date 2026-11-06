@@ -1,19 +1,26 @@
 # Console report format example generation
 
-These Cake tasks generate the console output screenshots shown in the Console report format documentation. They live with the Console integration tests and follow the report-generation layout used by `Cake.Issues.Reporting.Generic`.
+The Console integration test runs the four Cake tasks in this directory using
+`sample-issues.json` and the checked-in source files under `repository`. The
+fixture locations are validated before each report is rendered, and Errata
+rendering errors fail the test rather than being included in a screenshot.
 
-## Regenerate all screenshots
-
-From the repository root, create the local NuGet packages and run the screenshot generator:
+To regenerate all screenshots, create local NuGet packages from the repository
+root, then install the renderer dependencies and run the generator:
 
 ```bash
 ./build.sh --target=Create-NuGet-Packages
 cd tests/Cake.Issues.Reporting.Console/script-runner/net8.0
-./generate-screenshots.sh
+npm ci
+npm run screenshots
 ```
 
-On Windows, create the packages with `.\build.ps1 --target=Create-NuGet-Packages`; run the screenshot generator in a Linux environment with the listed tools installed.
+On Windows, use `.\build.ps1 --target=Create-NuGet-Packages` for the first
+command. Node.js and a local Chrome, Chromium, or Microsoft Edge installation
+are required. If the browser is not in a standard location, set
+`CONSOLE_SCREENSHOT_BROWSER` to its executable path.
 
-The script requires `dotnet`, util-linux `script`, `ansi2html`, and `wkhtmltoimage` (provided by the `wkhtmltopdf` package on Ubuntu). It runs the Cake test runner against the local packages and writes the PNGs to `docs/input/assets/images/console-examples/`.
-
-The tasks and the shared sample data are in this directory. They can also be run individually with `dotnet cake build.cake --target=<target>` from the `net8.0` runner directory, using one of these targets: `Create-Reports-Console-Default`, `Create-Reports-Console-Grouped`, `Create-Reports-Console-Summaries`, or `Create-Reports-Console-Combined`.
+The generator captures ANSI output directly from the real Console addin,
+checks every report, and uses the browser to crop each PNG to the console
+content. It writes all four PNGs to `docs/input/assets/images/console-examples/`
+only after all reports and screenshots succeed.

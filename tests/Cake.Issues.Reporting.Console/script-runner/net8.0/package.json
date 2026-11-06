@@ -1,0 +1,11 @@
+{
+  "private": true,
+  "description": "Render Console report documentation screenshots",
+  "scripts": {
+    "screenshots": "node generate-screenshots.js"
+  },
+  "dependencies": {
+    "ansi-to-html": "0.7.2",
+    "playwright-core": "1.55.1"
+  }
+}

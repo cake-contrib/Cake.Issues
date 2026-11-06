@@ -124,7 +124,7 @@ Add `--verbosity=diagnostic` to any build command for detailed output.
 - `docs/requirements.txt` - Python dependencies  
 - `docs/mkdocs.yml` - configuration file
 - Markdown format with usage examples
-- When changing `src/Cake.Issues.Reporting.Console` or its documentation examples, regenerate the checked-in Console screenshots using `tests/Cake.Issues.Reporting.Console/script-runner/net8.0/generate-screenshots.sh` after creating local NuGet packages. Keep the Cake report-generation tasks and sample data under `tests/Cake.Issues.Reporting.Console/script-runner/net8.0/build/create-reports`, following the Generic report-format demo tests.
+- When changing `src/ReportFormats/Console/Cake.Issues.Reporting.Console` or its documentation examples, regenerate the checked-in Console screenshots using `npm run screenshots` in `tests/Cake.Issues.Reporting.Console/script-runner/net8.0` after creating local NuGet packages and installing the renderer dependencies. Keep the Cake report-generation tasks and sample data under that runner's `build/create-reports`, following the Generic report-format demo tests.
 
 ### CI/CD
 - `.github/workflows/` - GitHub Actions (unit tests, integration tests)
