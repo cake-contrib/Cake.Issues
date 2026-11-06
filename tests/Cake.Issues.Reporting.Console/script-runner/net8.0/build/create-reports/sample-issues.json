@@ -1,0 +1,62 @@
+[
+  {
+    "Version": 5,
+    "Identifier": "unused-add",
+    "AffectedFileRelativePath": "src/Calculator.cs",
+    "Line": 7,
+    "Column": 13,
+    "EndColumn": 19,
+    "MessageText": "The variable 'unused' is assigned but never used.",
+    "Priority": 300,
+    "PriorityName": "Warning",
+    "RuleId": "CS0219",
+    "ProviderType": "Cake.Issues.MsBuild.MsBuildIssuesProvider",
+    "ProviderName": "MSBuild",
+    "AdditionalInformation": {}
+  },
+  {
+    "Version": 5,
+    "Identifier": "unused-subtract",
+    "AffectedFileRelativePath": "src/Calculator.cs",
+    "Line": 13,
+    "Column": 13,
+    "EndColumn": 19,
+    "MessageText": "The variable 'unused' is assigned but never used.",
+    "Priority": 300,
+    "PriorityName": "Warning",
+    "RuleId": "CS0219",
+    "ProviderType": "Cake.Issues.MsBuild.MsBuildIssuesProvider",
+    "ProviderName": "MSBuild",
+    "AdditionalInformation": {}
+  },
+  {
+    "Version": 5,
+    "Identifier": "static-add",
+    "AffectedFileRelativePath": "src/Calculator.cs",
+    "Line": 5,
+    "Column": 16,
+    "EndColumn": 19,
+    "MessageText": "Member 'Add' does not access instance data and can be marked static.",
+    "Priority": 200,
+    "PriorityName": "Suggestion",
+    "RuleId": "CA1822",
+    "ProviderType": "Cake.Issues.InspectCode.InspectCodeIssuesProvider",
+    "ProviderName": "InspectCode",
+    "AdditionalInformation": {}
+  },
+  {
+    "Version": 5,
+    "Identifier": "static-subtract",
+    "AffectedFileRelativePath": "src/Calculator.cs",
+    "Line": 11,
+    "Column": 16,
+    "EndColumn": 24,
+    "MessageText": "Member 'Subtract' does not access instance data and can be marked static.",
+    "Priority": 200,
+    "PriorityName": "Suggestion",
+    "RuleId": "CA1822",
+    "ProviderType": "Cake.Issues.InspectCode.InspectCodeIssuesProvider",
+    "ProviderName": "InspectCode",
+    "AdditionalInformation": {}
+  }
+]
