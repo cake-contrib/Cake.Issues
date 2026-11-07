@@ -46,19 +46,31 @@ jobs:
       # Determine the version (either from the release or manually inputted)
       - name: Set version to deploy
         id: set-version
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EVENT_NAME: ${{ github.event_name }}
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
         run: |
-          if [[ "${{ github.event_name }}" == "release" ]]; then
-            echo "VERSION=${{ github.event.release.tag_name }}" >> $GITHUB_ENV
-          elif [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
-            LATEST_TAG=$(curl -s https://api.github.com/repos/${{ github.repository }}/releases/latest | jq -r .tag_name)
-            if [ "$LATEST_TAG" != "null" ]; then
-              echo "VERSION=$LATEST_TAG" >> $GITHUB_ENV
-            else
-              echo "No latest release found" && exit 1
-            fi
+          export GH_HOST="${GITHUB_SERVER_URL#https://}"
+          LATEST_TAG=$(gh api "repos/$GITHUB_REPOSITORY/releases/latest" --jq .tag_name)
+          if [[ -z "$LATEST_TAG" || "$LATEST_TAG" == "null" ]]; then
+            echo "No latest release found" >&2
+            exit 1
+          fi
+          echo "LATEST_TAG=$LATEST_TAG" >> "$GITHUB_ENV"
+          if [[ "$EVENT_NAME" == "release" ]]; then
+            echo "VERSION=$RELEASE_TAG" >> "$GITHUB_ENV"
+          elif [[ "$EVENT_NAME" == "workflow_dispatch" ]]; then
+            echo "VERSION=$LATEST_TAG" >> "$GITHUB_ENV"
           else
-            echo "No version specified, cannot deploy." && exit 1
+            echo "No version specified, cannot deploy." >&2
+            exit 1
           fi
       - name: Build & Publish
-        run: mike deploy --push --update-aliases $VERSION latest
+        run: |
+          if [[ "$VERSION" == "$LATEST_TAG" ]]; then
+            mike deploy --push --update-aliases "$VERSION" latest
+          else
+            mike deploy --push "$VERSION"
+          fi
         working-directory: ./docs
