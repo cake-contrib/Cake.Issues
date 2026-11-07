@@ -5,7 +5,7 @@ icon: material/test-tube
 ---
 
 To report issues to the console the Console report format needs to be imported.
-For this example the MsBuild issue provider is additionally used for reading issues:
+The examples use the MsBuild and SARIF issue providers to read issues:
 
 <!-- markdownlint-disable MD046 -->
 === "Cake .NET Tool"
@@ -13,6 +13,7 @@ For this example the MsBuild issue provider is additionally used for reading iss
     ```csharp title="build.cake"
     #addin nuget:?package=Cake.Issues&version={{ cake_issues_version }}
     #addin nuget:?package=Cake.Issues.MsBuild&version={{ cake_issues_version }}
+    #addin nuget:?package=Cake.Issues.Sarif&version={{ cake_issues_version }}
     #addin nuget:?package=Cake.Issues.Reporting&version={{ cake_issues_version }}
     #addin nuget:?package=Cake.Issues.Reporting.Console&version={{ cake_issues_version }}
     ```
@@ -30,6 +31,7 @@ For this example the MsBuild issue provider is additionally used for reading iss
       </PropertyGroup>
       <ItemGroup>
         <PackageReference Include="Cake.Frosting.Issues.MsBuild" Version="{{ cake_issues_version }}" />
+        <PackageReference Include="Cake.Frosting.Issues.Sarif" Version="{{ cake_issues_version }}" />
         <PackageReference Include="Cake.Frosting.Issues.Reporting.Console" Version="{{ cake_issues_version }}" />
       </ItemGroup>
     </Project>
@@ -48,13 +50,215 @@ For this example the MsBuild issue provider is additionally used for reading iss
       <ItemGroup>
         <PackageReference Include="Cake.Frosting" Version="{{ cake_version }}" />
         <PackageReference Include="Cake.Frosting.Issues.MsBuild" Version="{{ cake_issues_version }}" />
+        <PackageReference Include="Cake.Frosting.Issues.Sarif" Version="{{ cake_issues_version }}" />
         <PackageReference Include="Cake.Frosting.Issues.Reporting.Console" Version="{{ cake_issues_version }}" />
       </ItemGroup>
     </Project>
     ```
 <!-- markdownlint-restore -->
 
-The following example will print issues logged as warnings by MsBuild to the console.
+<!-- markdownlint-disable MD046 -->
+## Console Output Examples
+
+The Console report format can be configured with various settings to customize
+the output. It renders an issue only when its affected source file exists and
+the issue has a line and column. The screenshots use valid source locations and
+show both MSBuild warnings and SARIF suggestions.
+
+### Default Settings
+
+By default, the Console report format shows individual diagnostics for each renderable issue:
+
+=== "Cake .NET Tool"
+
+    ```csharp title="build.cake"
+    CreateIssueReport(
+        issues,
+        ConsoleIssueReportFormat(),
+        repoRootPath,
+        string.Empty);
+    ```
+
+=== "Cake SDK"
+
+    ```csharp title="Build.cs"
+    CreateIssueReport(
+        issues,
+        ConsoleIssueReportFormat(),
+        repoRootPath,
+        string.Empty);
+    ```
+
+=== "Cake Frosting"
+
+    ```csharp title="Program.cs"
+    context.CreateIssueReport(
+        issues,
+        context.ConsoleIssueReportFormat(),
+        repoRootPath,
+        string.Empty);
+    ```
+
+![Default Console Output](../../../assets/images/console-examples/console-default.png)
+
+### Grouped by Rule
+
+When `GroupByRule` is set to `true`, issues with the same rule ID are grouped together:
+
+=== "Cake .NET Tool"
+
+    ```csharp title="build.cake"
+    CreateIssueReport(
+        issues,
+        ConsoleIssueReportFormat(
+            new ConsoleIssueReportFormatSettings
+            {
+                GroupByRule = true
+            }),
+        repoRootPath,
+        string.Empty);
+    ```
+
+=== "Cake SDK"
+
+    ```csharp title="Build.cs"
+    CreateIssueReport(
+        issues,
+        ConsoleIssueReportFormat(
+            new ConsoleIssueReportFormatSettings
+            {
+                GroupByRule = true
+            }),
+        repoRootPath,
+        string.Empty);
+    ```
+
+=== "Cake Frosting"
+
+    ```csharp title="Program.cs"
+    context.CreateIssueReport(
+        issues,
+        context.ConsoleIssueReportFormat(
+            new ConsoleIssueReportFormatSettings
+            {
+                GroupByRule = true
+            }),
+        repoRootPath,
+        string.Empty);
+    ```
+
+![Grouped by Rule Output](../../../assets/images/console-examples/console-grouped.png)
+
+### With Summary Tables
+
+Enable summary tables to see issue counts by provider and priority:
+
+=== "Cake .NET Tool"
+
+    ```csharp title="build.cake"
+    CreateIssueReport(
+        issues,
+        ConsoleIssueReportFormat(
+            new ConsoleIssueReportFormatSettings
+            {
+                ShowProviderSummary = true,
+                ShowPrioritySummary = true
+            }),
+        repoRootPath,
+        string.Empty);
+    ```
+
+=== "Cake SDK"
+
+    ```csharp title="Build.cs"
+    CreateIssueReport(
+        issues,
+        ConsoleIssueReportFormat(
+            new ConsoleIssueReportFormatSettings
+            {
+                ShowProviderSummary = true,
+                ShowPrioritySummary = true
+            }),
+        repoRootPath,
+        string.Empty);
+    ```
+
+=== "Cake Frosting"
+
+    ```csharp title="Program.cs"
+    context.CreateIssueReport(
+        issues,
+        context.ConsoleIssueReportFormat(
+            new ConsoleIssueReportFormatSettings
+            {
+                ShowProviderSummary = true,
+                ShowPrioritySummary = true
+            }),
+        repoRootPath,
+        string.Empty);
+    ```
+
+![Console Output with Summaries](../../../assets/images/console-examples/console-summaries.png)
+
+### Combined Features
+
+Combine grouping with summary tables for the most comprehensive output:
+
+=== "Cake .NET Tool"
+
+    ```csharp title="build.cake"
+    CreateIssueReport(
+        issues,
+        ConsoleIssueReportFormat(
+            new ConsoleIssueReportFormatSettings
+            {
+                GroupByRule = true,
+                ShowProviderSummary = true,
+                ShowPrioritySummary = true
+            }),
+        repoRootPath,
+        string.Empty);
+    ```
+
+=== "Cake SDK"
+
+    ```csharp title="Build.cs"
+    CreateIssueReport(
+        issues,
+        ConsoleIssueReportFormat(
+            new ConsoleIssueReportFormatSettings
+            {
+                GroupByRule = true,
+                ShowProviderSummary = true,
+                ShowPrioritySummary = true
+            }),
+        repoRootPath,
+        string.Empty);
+    ```
+
+=== "Cake Frosting"
+
+    ```csharp title="Program.cs"
+    context.CreateIssueReport(
+        issues,
+        context.ConsoleIssueReportFormat(
+            new ConsoleIssueReportFormatSettings
+            {
+                GroupByRule = true,
+                ShowProviderSummary = true,
+                ShowPrioritySummary = true
+            }),
+        repoRootPath,
+        string.Empty);
+    ```
+
+![Combined Features Output](../../../assets/images/console-examples/console-combined.png)
+
+<!-- markdownlint-restore -->
+
+## Complete Build Example
+
+The following example shows how to build a solution and create a console report with MsBuild issues:
 
 <!-- markdownlint-disable MD046 -->
 === "Cake .NET Tool"
