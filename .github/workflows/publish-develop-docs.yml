@@ -10,6 +10,12 @@ on:
 permissions:
   contents: write
 
+# Both documentation publishers write to gh-pages, regardless of source ref.
+concurrency:
+  group: publish-docs-gh-pages
+  cancel-in-progress: false
+  queue: max
+
 jobs:
   deploy:
     name: Build & Publish Docs
