@@ -21,6 +21,7 @@
 
 > Note: The following servers can't report individual status for different packages, runners or operating systems.
 > Click on the build to see details.
+> GitHub Actions covers macOS 15 on ARM64 and macOS 26 on Intel.
 
 | CI Server | Runner | Operating System | Develop | Master |
 |:--:|:--:|:--:|:--:|:--:|
