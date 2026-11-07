@@ -8,16 +8,6 @@
 |Azure Pipelines|Windows Server 2022|[![Build Status](https://dev.azure.com/cake-contrib/Cake.Issues/_apis/build/status%2Fcake-contrib.Cake.Issues?branchName=develop&stageName=Full%20Build&jobName=Build)](https://dev.azure.com/cake-contrib/Cake.Issues/_build/latest?definitionId=2&branchName=develop)|[![Build Status](https://dev.azure.com/cake-contrib/Cake.Issues/_apis/build/status%2Fcake-contrib.Cake.Issues?branchName=master&stageName=Full%20Build&jobName=Build)](https://dev.azure.com/cake-contrib/Cake.Issues/_build/latest?definitionId=2&branchName=master)|
 |GitHub Actions|Ubuntu 24.04|[![Build](https://github.com/cake-contrib/Cake.Issues/actions/workflows/build.yml/badge.svg?branch=develop)](https://github.com/cake-contrib/Cake.Issues/actions/workflows/build.yml)|[![Build](https://github.com/cake-contrib/Cake.Issues/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/cake-contrib/Cake.Issues/actions/workflows/build.yml)|
 
-## Documentation publishing
-
-[Publish Develop Docs](https://github.com/cake-contrib/Cake.Issues/actions/workflows/publish-develop-docs.yml)
-runs on pushes to `develop`.
-[Publish Release Docs](https://github.com/cake-contrib/Cake.Issues/actions/workflows/publish-release-docs.yml)
-runs when a release is published or when manually dispatched.
-Both workflows share the `publish-docs-gh-pages` concurrency group because they push to the same `gh-pages` branch.
-The lock covers checkout through publishing, so each run fetches the preceding deployment before making its own commit.
-Running deployments are not canceled; up to 100 pending runs are queued instead of replacing pending release deployments.
-
 ## Unit Tests
 
 | CI Server | Operating System | Develop | Master |
