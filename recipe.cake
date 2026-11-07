@@ -24,6 +24,9 @@ BuildParameters.SetParameters(
     shouldGenerateDocumentation: false, // Documentation is generated through GitHub Actions workflow
     shouldRunInspectCode: false,
     shouldRunCoveralls: false,  // Disabled because it's currently failing
+    // Cake.Recipe's framework path override requires Mono, which current macOS images do not include.
+    shouldUseTargetFrameworkPath: Context.Environment.Platform.Family != PlatformFamily.Windows &&
+                                  Context.Environment.Platform.Family != PlatformFamily.OSX,
     nuGetSources: new [] { "https://api.nuget.org/v3/index.json" }, // Don't use additional MyGet feed, since CPM only supports one feed 
     preferredBuildProviderType: BuildProviderType.GitHubActions,
     preferredBuildAgentOperatingSystem: PlatformFamily.Linux);
