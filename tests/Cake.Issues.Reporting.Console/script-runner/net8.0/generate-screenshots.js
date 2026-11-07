@@ -46,6 +46,7 @@ async function main() {
   const temporaryDirectory = mkdtempSync(path.join(os.tmpdir(), "cake-console-screenshots-"));
   let browser;
   try {
+    rmSync(path.join(runner, "packages", "cake.issues.reporting.console"), { recursive: true, force: true });
     runDotnet(["tool", "restore"]);
     runDotnet(["cake", "build.cake", "--bootstrap"]);
     browser = await chromium.launch({ executablePath: browserPath(), headless: true });

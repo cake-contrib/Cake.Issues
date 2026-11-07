@@ -40,8 +40,8 @@
     "Priority": 200,
     "PriorityName": "Suggestion",
     "RuleId": "CA1822",
-    "ProviderType": "Cake.Issues.InspectCode.InspectCodeIssuesProvider",
-    "ProviderName": "InspectCode",
+    "ProviderType": "Cake.Issues.Sarif.SarifIssuesProvider",
+    "ProviderName": "SARIF",
     "AdditionalInformation": {}
   },
   {
@@ -55,8 +55,8 @@
     "Priority": 200,
     "PriorityName": "Suggestion",
     "RuleId": "CA1822",
-    "ProviderType": "Cake.Issues.InspectCode.InspectCodeIssuesProvider",
-    "ProviderName": "InspectCode",
+    "ProviderType": "Cake.Issues.Sarif.SarifIssuesProvider",
+    "ProviderName": "SARIF",
     "AdditionalInformation": {}
   }
 ]
