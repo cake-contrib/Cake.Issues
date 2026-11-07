@@ -10,6 +10,12 @@ on:
 permissions:
   contents: write
 
+# Both documentation publishers write to gh-pages, regardless of source ref.
+concurrency:
+  group: publish-docs-gh-pages
+  cancel-in-progress: false
+  queue: max
+
 jobs:
   deploy:
     name: Build & Publish Docs
@@ -18,6 +24,7 @@ jobs:
       - name: Get the sources
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
+          ref: develop
           lfs: true
           fetch-depth: 0
       - name: Install Python
