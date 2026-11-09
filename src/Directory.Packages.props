@@ -25,11 +25,6 @@
     <PackageVersion Include="YamlDotNet" Version="18.1.0" />
   </ItemGroup>
 
-  <!-- Analyzers for all projects -->
-  <ItemGroup>
-    <GlobalPackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="9.0.0" />
-  </ItemGroup>
-
   <!-- Analyzers addin projects -->
   <ItemGroup Condition="!$(MSBuildProjectName.EndsWith('.Tests'))">
     <GlobalPackageReference Include="NewStyleCop.Analyzers" Version="1.2.1" />
