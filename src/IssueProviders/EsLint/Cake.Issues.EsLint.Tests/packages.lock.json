@@ -183,35 +183,35 @@
       "cake.issues": {
         "type": "Project",
         "dependencies": {
-          "Cake.Core": "[6.2.0, )"
+          "Cake.Core": "[7.0.0, )"
         }
       },
       "cake.issues.eslint": {
         "type": "Project",
         "dependencies": {
-          "Cake.Issues": "[1.0.0, )"
+          "Cake.Issues": "[6.2.0-alpha0118, )"
         }
       },
       "cake.issues.testing": {
         "type": "Project",
         "dependencies": {
-          "Cake.Issues": "[1.0.0, )",
-          "Cake.Testing": "[6.2.0, )"
+          "Cake.Issues": "[6.2.0-alpha0118, )",
+          "Cake.Testing": "[7.0.0, )"
         }
       },
       "Cake.Core": {
         "type": "CentralTransitive",
-        "requested": "[6.2.0, )",
-        "resolved": "6.2.0",
-        "contentHash": "t/yQZoSj6WLUS9hbCi68ZhrdxV9ubbxlnOEGcQCWHa4JH1tdedgzhib3li7R3JIGo8NaSyn9qrNNd0mjsWDjcA=="
+        "requested": "[7.0.0, )",
+        "resolved": "7.0.0",
+        "contentHash": "Iiq7ncl74HCCl9iKCV2B4wGw/jXfVggp79dq0VKiUnfFnSorcIXNOYmIPknA0h5elFBA8yyCBgD+oenh2STuSQ=="
       },
       "Cake.Testing": {
         "type": "CentralTransitive",
-        "requested": "[6.2.0, )",
-        "resolved": "6.2.0",
-        "contentHash": "VjWSQdbkLFuWxF+l98wdaf8duDZUUu4dIp050C55wmwfpfSE4r6IU63O4jvbgKwacC9YE+NLOkZDkMgOtzMVRg==",
+        "requested": "[7.0.0, )",
+        "resolved": "7.0.0",
+        "contentHash": "JlTUrrqctnJKc6vIstsz4o4OQ0IT8QhnJeCyWRPNKlmR6Lwq4Kpq+z/czLdFylSBi4uAGEyA41tlzsK2UFmaNw==",
         "dependencies": {
-          "Cake.Core": "6.2.0"
+          "Cake.Core": "7.0.0"
         }
       }
     },
@@ -403,13 +403,13 @@
       "cake.issues.eslint": {
         "type": "Project",
         "dependencies": {
-          "Cake.Issues": "[1.0.0, )"
+          "Cake.Issues": "[6.2.0-alpha0118, )"
         }
       },
       "cake.issues.testing": {
         "type": "Project",
         "dependencies": {
-          "Cake.Issues": "[1.0.0, )",
+          "Cake.Issues": "[6.2.0-alpha0118, )",
           "Cake.Testing": "[6.2.0, )"
         }
       },
@@ -617,13 +617,13 @@
       "cake.issues.eslint": {
         "type": "Project",
         "dependencies": {
-          "Cake.Issues": "[1.0.0, )"
+          "Cake.Issues": "[6.2.0-alpha0118, )"
         }
       },
       "cake.issues.testing": {
         "type": "Project",
         "dependencies": {
-          "Cake.Issues": "[1.0.0, )",
+          "Cake.Issues": "[6.2.0-alpha0118, )",
           "Cake.Testing": "[6.2.0, )"
         }
       },

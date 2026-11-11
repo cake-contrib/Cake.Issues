@@ -17,6 +17,10 @@ internal sealed class CakeContextFixture
     public IProcessRunner ProcessRunner { get; set; }
     public IRegistry Registry { get; set; }
     public IToolLocator Tools { get; set; }
+#if NET10_0_OR_GREATER
+    public IToolInstaller ToolInstaller { get; set; }
+    public IServiceProvider ServiceProvider { get; set; }
+#endif
     public ICakeDataService Data { get; set; }
     public ICakeConfiguration Configuration { get; set; }
 
@@ -30,19 +34,40 @@ internal sealed class CakeContextFixture
         this.ProcessRunner = Substitute.For<IProcessRunner>();
         this.Registry = Substitute.For<IRegistry>();
         this.Tools = Substitute.For<IToolLocator>();
+#if NET10_0_OR_GREATER
+        this.ToolInstaller = Substitute.For<IToolInstaller>();
+        this.ServiceProvider = Substitute.For<IServiceProvider>();
+#endif
         this.Data = Substitute.For<ICakeDataService>();
         this.Configuration = Substitute.For<ICakeConfiguration>();
     }
 
-    public CakeContext CreateContext() => new(
-        this.FileSystem,
-        this.Environment,
-        this.Globber,
-        this.Log,
-        this.Arguments,
-        this.ProcessRunner,
-        this.Registry,
-        this.Tools,
-        this.Data,
-        this.Configuration);
+    public CakeContext CreateContext() =>
+#if NET10_0_OR_GREATER
+        new(
+            this.FileSystem,
+            this.Environment,
+            this.Globber,
+            this.Log,
+            this.Arguments,
+            this.ProcessRunner,
+            this.Registry,
+            this.Tools,
+            this.Data,
+            this.Configuration,
+            this.ToolInstaller,
+            this.ServiceProvider);
+#else
+        new(
+            this.FileSystem,
+            this.Environment,
+            this.Globber,
+            this.Log,
+            this.Arguments,
+            this.ProcessRunner,
+            this.Registry,
+            this.Tools,
+            this.Data,
+            this.Configuration);
+#endif
 }
