@@ -17,12 +17,15 @@ internal sealed class CakeContextFixture
     public IProcessRunner ProcessRunner { get; set; } = Substitute.For<IProcessRunner>();
     public IRegistry Registry { get; set; } = Substitute.For<IRegistry>();
     public IToolLocator Tools { get; set; } = Substitute.For<IToolLocator>();
+#if NET10_0_OR_GREATER
     public IToolInstaller ToolInstaller { get; set; } = Substitute.For<IToolInstaller>();
     public IServiceProvider ServiceProvider { get; set; } = Substitute.For<IServiceProvider>();
+#endif
     public ICakeDataService Data { get; set; } = Substitute.For<ICakeDataService>();
     public ICakeConfiguration Configuration { get; set; } = Substitute.For<ICakeConfiguration>();
 
     public CakeContext CreateContext() =>
+#if NET10_0_OR_GREATER
         new(
             this.FileSystem,
             this.Environment,
@@ -36,4 +39,17 @@ internal sealed class CakeContextFixture
             this.Configuration,
             this.ToolInstaller,
             this.ServiceProvider);
+#else
+        new(
+            this.FileSystem,
+            this.Environment,
+            this.Globber,
+            this.Log,
+            this.Arguments,
+            this.ProcessRunner,
+            this.Registry,
+            this.Tools,
+            this.Data,
+            this.Configuration);
+#endif
 }
