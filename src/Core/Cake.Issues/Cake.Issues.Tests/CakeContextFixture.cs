@@ -17,6 +17,8 @@ internal sealed class CakeContextFixture
     public IProcessRunner ProcessRunner { get; set; }
     public IRegistry Registry { get; set; }
     public IToolLocator Tools { get; set; }
+    public IToolInstaller ToolInstaller { get; set; }
+    public IServiceProvider ServiceProvider { get; set; }
     public ICakeDataService Data { get; set; }
     public ICakeConfiguration Configuration { get; set; }
 
@@ -30,6 +32,8 @@ internal sealed class CakeContextFixture
         this.ProcessRunner = Substitute.For<IProcessRunner>();
         this.Registry = Substitute.For<IRegistry>();
         this.Tools = Substitute.For<IToolLocator>();
+        this.ToolInstaller = Substitute.For<IToolInstaller>();
+        this.ServiceProvider = Substitute.For<IServiceProvider>();
         this.Data = Substitute.For<ICakeDataService>();
         this.Configuration = Substitute.For<ICakeConfiguration>();
     }
@@ -44,5 +48,7 @@ internal sealed class CakeContextFixture
         this.Registry,
         this.Tools,
         this.Data,
-        this.Configuration);
+        this.Configuration,
+        this.ToolInstaller,
+        this.ServiceProvider);
 }
