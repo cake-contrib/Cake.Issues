@@ -37,7 +37,7 @@
       "cake.issues.reporting": {
         "type": "Project",
         "dependencies": {
-          "Cake.Issues": "[6.2.0-alpha0118, )"
+          "Cake.Issues": "[1.0.0, )"
         }
       },
       "Cake.Core": {
@@ -92,7 +92,7 @@
       "cake.issues.reporting": {
         "type": "Project",
         "dependencies": {
-          "Cake.Issues": "[6.2.0-alpha0118, )"
+          "Cake.Issues": "[1.0.0, )"
         }
       },
       "Cake.Core": {
@@ -147,7 +147,7 @@
       "cake.issues.reporting": {
         "type": "Project",
         "dependencies": {
-          "Cake.Issues": "[6.2.0-alpha0118, )"
+          "Cake.Issues": "[1.0.0, )"
         }
       },
       "Cake.Core": {

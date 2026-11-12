@@ -189,14 +189,14 @@
       "cake.issues.tap": {
         "type": "Project",
         "dependencies": {
-          "Cake.Issues": "[6.2.0-alpha0118, )",
+          "Cake.Issues": "[1.0.0, )",
           "YamlDotNet": "[18.1.0, )"
         }
       },
       "cake.issues.testing": {
         "type": "Project",
         "dependencies": {
-          "Cake.Issues": "[6.2.0-alpha0118, )",
+          "Cake.Issues": "[1.0.0, )",
           "Cake.Testing": "[7.0.0, )"
         }
       },
@@ -410,14 +410,14 @@
       "cake.issues.tap": {
         "type": "Project",
         "dependencies": {
-          "Cake.Issues": "[6.2.0-alpha0118, )",
+          "Cake.Issues": "[1.0.0, )",
           "YamlDotNet": "[18.1.0, )"
         }
       },
       "cake.issues.testing": {
         "type": "Project",
         "dependencies": {
-          "Cake.Issues": "[6.2.0-alpha0118, )",
+          "Cake.Issues": "[1.0.0, )",
           "Cake.Testing": "[6.2.0, )"
         }
       },
@@ -631,14 +631,14 @@
       "cake.issues.tap": {
         "type": "Project",
         "dependencies": {
-          "Cake.Issues": "[6.2.0-alpha0118, )",
+          "Cake.Issues": "[1.0.0, )",
           "YamlDotNet": "[18.1.0, )"
         }
       },
       "cake.issues.testing": {
         "type": "Project",
         "dependencies": {
-          "Cake.Issues": "[6.2.0-alpha0118, )",
+          "Cake.Issues": "[1.0.0, )",
           "Cake.Testing": "[6.2.0, )"
         }
       },

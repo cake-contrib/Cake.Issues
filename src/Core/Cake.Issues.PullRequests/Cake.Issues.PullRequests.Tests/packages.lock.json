@@ -232,14 +232,14 @@
       "cake.issues.pullrequests": {
         "type": "Project",
         "dependencies": {
-          "Cake.Issues": "[6.2.0-alpha0118, )",
+          "Cake.Issues": "[1.0.0, )",
           "Spectre.Console": "[0.55.2, )"
         }
       },
       "cake.issues.testing": {
         "type": "Project",
         "dependencies": {
-          "Cake.Issues": "[6.2.0-alpha0118, )",
+          "Cake.Issues": "[1.0.0, )",
           "Cake.Testing": "[7.0.0, )"
         }
       },
@@ -490,14 +490,14 @@
       "cake.issues.pullrequests": {
         "type": "Project",
         "dependencies": {
-          "Cake.Issues": "[6.2.0-alpha0118, )",
+          "Cake.Issues": "[1.0.0, )",
           "Spectre.Console": "[0.55.2, )"
         }
       },
       "cake.issues.testing": {
         "type": "Project",
         "dependencies": {
-          "Cake.Issues": "[6.2.0-alpha0118, )",
+          "Cake.Issues": "[1.0.0, )",
           "Cake.Testing": "[6.2.0, )"
         }
       },
@@ -748,14 +748,14 @@
       "cake.issues.pullrequests": {
         "type": "Project",
         "dependencies": {
-          "Cake.Issues": "[6.2.0-alpha0118, )",
+          "Cake.Issues": "[1.0.0, )",
           "Spectre.Console": "[0.55.2, )"
         }
       },
       "cake.issues.testing": {
         "type": "Project",
         "dependencies": {
-          "Cake.Issues": "[6.2.0-alpha0118, )",
+          "Cake.Issues": "[1.0.0, )",
           "Cake.Testing": "[6.2.0, )"
         }
       },
