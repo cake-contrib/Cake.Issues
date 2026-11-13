@@ -29,10 +29,10 @@ jobs:
       - name: Prepare integration test
         uses: ./.github/actions/prepare-integration-test
         with:
-          dotnet-version: 8.x
+          dotnet-version: 11.x
       - name: Regenerate report templates
         run: ./build.sh --verbosity=diagnostic
-        working-directory: ./tests/Cake.Issues.Reporting.Generic/script-runner/net8.0
+        working-directory: ./tests/Cake.Issues.Reporting.Generic/script-runner/net11.0
         shell: bash
       - name: Check for drift
         shell: bash
