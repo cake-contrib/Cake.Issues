@@ -24,16 +24,16 @@ stages:
       pool:
         vmImage: $(imageName)
       steps:
-      - template: ../steps/install-net8.yml 
+      - template: ../steps/install-net11.yml
       - template: ../steps/provide-nuget-packages.yml 
       - powershell: ./build.ps1 --verbosity=diagnostic
-        workingDirectory: ./tests/Cake.Issues.Reporting.Sarif/script-runner/net8.0
+        workingDirectory: ./tests/Cake.Issues.Reporting.Sarif/script-runner/net11.0
         displayName: 'Run integration tests'
-      - publish: $(Build.SourcesDirectory)/tests/Cake.Issues.Reporting.Sarif/script-runner/net8.0/output
+      - publish: $(Build.SourcesDirectory)/tests/Cake.Issues.Reporting.Sarif/script-runner/net11.0/output
         artifact: Integration Tests Cake.Issues.Reporting.Sarif Cake Scripting $(System.JobName)
         displayName: 'Publish generated reports as build artifact'
-    - job: TestReportingSarifFrostingNet8Job
-      displayName: Test Cake Frosting .NET 8
+    - job: TestReportingSarifFrostingNet10Job
+      displayName: Test Cake Frosting .NET 10
       strategy:
         matrix:
           Windows_Server_2022:
@@ -51,16 +51,16 @@ stages:
       pool:
         vmImage: $(imageName)
       steps:
-      - template: ../steps/install-net8.yml 
+      - template: ../steps/install-net10.yml
       - template: ../steps/provide-nuget-packages.yml 
       - powershell: ./build.ps1 --verbosity=diagnostic
-        workingDirectory: ./tests/Cake.Issues.Reporting.Sarif/frosting/net8.0
+        workingDirectory: ./tests/Cake.Issues.Reporting.Sarif/frosting/net10.0
         displayName: 'Run integration tests'
-      - publish: $(Build.SourcesDirectory)/tests/Cake.Issues.Reporting.Sarif/frosting/net8.0/output
-        artifact: Integration Tests Cake.Issues.Reporting.Sarif Cake Frosting .NET 8 $(System.JobName)
+      - publish: $(Build.SourcesDirectory)/tests/Cake.Issues.Reporting.Sarif/frosting/net10.0/output
+        artifact: Integration Tests Cake.Issues.Reporting.Sarif Cake Frosting .NET 10 $(System.JobName)
         displayName: 'Publish generated reports as build artifact'
-    - job: TestReportingSarifFrostingNet9Job
-      displayName: Test Cake Frosting .NET 9
+    - job: TestReportingSarifFrostingNet11Job
+      displayName: Test Cake Frosting .NET 11
       strategy:
         matrix:
           Windows_Server_2022:
@@ -78,11 +78,11 @@ stages:
       pool:
         vmImage: $(imageName)
       steps:
-      - template: ../steps/install-net9.yml 
+      - template: ../steps/install-net11.yml
       - template: ../steps/provide-nuget-packages.yml 
       - powershell: ./build.ps1 --verbosity=diagnostic
-        workingDirectory: ./tests/Cake.Issues.Reporting.Sarif/frosting/net9.0
+        workingDirectory: ./tests/Cake.Issues.Reporting.Sarif/frosting/net11.0
         displayName: 'Run integration tests'
-      - publish: $(Build.SourcesDirectory)/tests/Cake.Issues.Reporting.Sarif/frosting/net9.0/output
-        artifact: Integration Tests Cake.Issues.Reporting.Sarif Cake Frosting .NET 9 $(System.JobName)
+      - publish: $(Build.SourcesDirectory)/tests/Cake.Issues.Reporting.Sarif/frosting/net11.0/output
+        artifact: Integration Tests Cake.Issues.Reporting.Sarif Cake Frosting .NET 11 $(System.JobName)
         displayName: 'Publish generated reports as build artifact'

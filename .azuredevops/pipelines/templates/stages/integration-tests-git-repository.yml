@@ -26,8 +26,8 @@ stages:
       steps:
       - checkout: self
         lfs: true
-      - template: ../steps/install-net8.yml 
+      - template: ../steps/install-net11.yml
       - template: ../steps/provide-nuget-packages.yml 
       - powershell: ./build.ps1 --verbosity=diagnostic
-        workingDirectory: ./tests/Cake.Issues.GitRepository/script-runner/net8.0
+        workingDirectory: ./tests/Cake.Issues.GitRepository/script-runner/net11.0
         displayName: 'Run integration tests'

@@ -6,8 +6,8 @@ This is a .NET based repository containing addins for the Cake Build Automation 
 
 ## Prerequisites
 
-**CRITICAL**: .NET 10 SDK is required (specified in `src/global.json`):
-- Check version: `dotnet --version` (should be 10.0.401 or compatible)
+**CRITICAL**: .NET 11 SDK is required (specified in `src/global.json`):
+- Check version: `dotnet --version` (should be 11.0.100 or compatible)
 - Restore tools: `dotnet tool restore` (takes 5 seconds)
 
 For documentation building:
@@ -25,8 +25,8 @@ This repository provides both Bash (`build.sh`) and PowerShell (`build.ps1`) ent
 
 When changing directories or using paths, use the native syntax for the current shell:
 
-- Linux/macOS paths use `/`, for example `tests/Cake.Issues.MsBuild/script-runner/net9.0`.
-- Windows PowerShell paths use `\`, for example `tests\Cake.Issues.MsBuild\script-runner\net9.0`.
+- Linux/macOS paths use `/`, for example `tests/Cake.Issues.MsBuild/script-runner/net11.0`.
+- Windows PowerShell paths use `\`, for example `tests\Cake.Issues.MsBuild\script-runner\net11.0`.
 - Bash command chaining with `&&` is fine in Bash. In PowerShell, prefer separate commands with `;` or run each command on its own line.
 
 ## Working Effectively - Build Commands
@@ -115,7 +115,7 @@ Add `--verbosity=diagnostic` to any build command for detailed output.
 
 ### Integration Tests (`tests/`)
 - Each addin has subdirectory with integration tests
-- Structure: `tests/<ADDIN-NAME>/script-runner/<TFM>` on Linux/macOS or `tests\<ADDIN-NAME>\script-runner\<TFM>` on Windows, where `<TFM>` is the target framework folder used by the selected integration test (for example, `net8.0`, `net9.0`, or `net10.0`)
+- Structure: `tests/<ADDIN-NAME>/script-runner/<TFM>` on Linux/macOS or `tests\<ADDIN-NAME>\script-runner\<TFM>` on Windows, where `<TFM>` is the target framework folder used by the selected integration test (`net10.0` or `net11.0`)
 - Some addins also have `frosting/` subdirectories
 - **CRITICAL**: Run `./build.sh --target=Create-NuGet-Packages` or `.\build.ps1 --target=Create-NuGet-Packages` first to create local packages
 
@@ -124,7 +124,7 @@ Add `--verbosity=diagnostic` to any build command for detailed output.
 - `docs/requirements.txt` - Python dependencies  
 - `docs/mkdocs.yml` - configuration file
 - Markdown format with usage examples
-- When changing `src/ReportFormats/Console/Cake.Issues.Reporting.Console` or its documentation examples, regenerate the checked-in Console screenshots using `npm run screenshots` in `tests/Cake.Issues.Reporting.Console/script-runner/net8.0` after creating local NuGet packages and installing the renderer dependencies. Keep the Cake report-generation tasks and sample data under that runner's `build/create-reports`, following the Generic report-format demo tests.
+- When changing `src/ReportFormats/Console/Cake.Issues.Reporting.Console` or its documentation examples, regenerate the checked-in Console screenshots using `npm run screenshots` in `tests/Cake.Issues.Reporting.Console/script-runner/net11.0` after creating local NuGet packages and installing the renderer dependencies. Keep the Cake report-generation tasks and sample data under that runner's `build/create-reports`, following the Generic report-format demo tests.
 
 ### CI/CD
 - `.github/workflows/` - GitHub Actions (unit tests, integration tests)
@@ -191,7 +191,7 @@ dotnet tool restore
 ./build.sh --target=Create-NuGet-Packages     # 2 min   - create packages
 
 # Integration testing (after packages created)
-cd tests/Cake.Issues.MsBuild/script-runner/net9.0
+cd tests/Cake.Issues.MsBuild/script-runner/net11.0
 ./build.sh --verbosity=diagnostic             # 15 sec  - test specific addin
 
 # Full validation
@@ -213,7 +213,7 @@ dotnet tool restore
 .\build.ps1 --target=Create-NuGet-Packages     # 2 min   - create packages
 
 # Integration testing (after packages created)
-Push-Location tests\Cake.Issues.MsBuild\script-runner\net9.0
+Push-Location tests\Cake.Issues.MsBuild\script-runner\net11.0
 .\build.ps1 --verbosity=diagnostic             # 15 sec  - test specific addin
 Pop-Location
 

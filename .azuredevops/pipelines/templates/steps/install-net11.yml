@@ -1,0 +1,7 @@
+# Installs .NET 11
+
+steps:
+  - task: UseDotNet@2
+    inputs:
+      version: '11.x'
+    displayName: 'Install .NET 11'
