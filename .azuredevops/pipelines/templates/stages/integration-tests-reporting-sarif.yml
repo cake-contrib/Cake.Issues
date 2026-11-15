@@ -24,12 +24,12 @@ stages:
       pool:
         vmImage: $(imageName)
       steps:
-      - template: ../steps/install-net11.yml
+      - template: ../steps/install-net10.yml
       - template: ../steps/provide-nuget-packages.yml 
       - powershell: ./build.ps1 --verbosity=diagnostic
-        workingDirectory: ./tests/Cake.Issues.Reporting.Sarif/script-runner/net11.0
+        workingDirectory: ./tests/Cake.Issues.Reporting.Sarif/script-runner/net10.0
         displayName: 'Run integration tests'
-      - publish: $(Build.SourcesDirectory)/tests/Cake.Issues.Reporting.Sarif/script-runner/net11.0/output
+      - publish: $(Build.SourcesDirectory)/tests/Cake.Issues.Reporting.Sarif/script-runner/net10.0/output
         artifact: Integration Tests Cake.Issues.Reporting.Sarif Cake Scripting $(System.JobName)
         displayName: 'Publish generated reports as build artifact'
     - job: TestReportingSarifFrostingNet10Job
