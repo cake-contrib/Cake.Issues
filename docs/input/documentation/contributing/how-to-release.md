@@ -25,8 +25,7 @@ Ask the agent to start the release, e.g. `Start release 6.2.0`.
 This uses the `start-release` skill, which does the following:
 
 1. Creates a branch `release/<VERSION>` from the latest `develop` branch.
-2. Creates a draft release on GitHub using the `create-github-release-draft` skill,
-   with release notes based on the milestone and branch history.
+2. Creates a draft release on GitHub with release notes based on the milestone and branch history.
 3. Adds the following commits to the release branch:
     * `Add news entry`: Adds a news post for the release to the website,
       using the `write-release-notes` skill.
@@ -50,8 +49,7 @@ This uses the `create-beta-release` skill, which does the following:
 
 1. Checks CI and release notes for the release branch.
 2. Proposes the next beta version, starting with `6.2.0-beta.1`.
-3. Creates a prerelease draft targeting `release/6.2.0` after confirmation, using the
-   `create-github-release-draft` skill without merging branches.
+3. Creates a prerelease draft targeting `release/6.2.0` after confirmation, without merging branches.
 
 Review and publish the draft on the [GitHub releases page], keeping the release branch as its target
 and **Set as a pre-release** enabled. Publishing creates the tag and triggers a build publishing
