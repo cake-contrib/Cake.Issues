@@ -162,6 +162,7 @@ Publishing creates tag `X.Y.Z-beta.N` and triggers the build publishing beta NuG
 If the branch changes before publication, repeat the CI and release-note checks.
 Warn that the existing documentation publisher also deploys a beta documentation site,
 whose installation examples retain the stable version prepared by `start-release`.
-When installing the beta, users must select `X.Y.Z-beta.N` explicitly until the stable
-packages exist. Changing the documentation publisher is not part of this skill.
+When installing the beta, users must select the published NuGet prerelease version,
+which can differ from the tag: `6.0.0-beta.2` published packages as `6.0.0-beta0002`.
+Changing the documentation publisher is not part of this skill.
 Keep the release branch and stable draft for subsequent betas and the eventual stable release.
