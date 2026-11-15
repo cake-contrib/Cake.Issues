@@ -11,17 +11,6 @@ To contribute:
 * Push your feature branch.
 * Create a pull request.
 
-## AI-assisted contributions
-
-Shared coding-agent guidance is in [AGENTS.md](AGENTS.md), with directory-specific
-instructions in nested `AGENTS.md` files. Reusable [Agent Skills] live in
-`.agents/skills`. These are the canonical locations for all harnesses; configure
-tools that do not discover them automatically to load them rather than copying
-instructions into tool-specific files.
-
-GitHub Copilot-specific behavior remains in
-[.github/copilot-instructions.md](.github/copilot-instructions.md).
-
 ## Building
 
 ### Prerequisites
@@ -72,4 +61,3 @@ See [Cake.Recipe documentation] how to create a new release of this addin.
 
 [GitFlow]: (https://nvie.com/posts/a-successful-git-branching-model/)
 [Cake.Recipe documentation]: https://cake-contrib.github.io/Cake.Recipe/docs/usage/creating-release
-[Agent Skills]: https://agentskills.io/

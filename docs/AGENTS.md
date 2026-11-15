@@ -52,5 +52,6 @@ the checked-in screenshots:
    `tests/Cake.Issues.Reporting.Console/script-runner/net10.0`.
 3. Run `npm run screenshots` from that runner directory.
 
-Keep report-generation tasks and sample data under the runner's
-`build/create-reports` directory, following the Generic report-format demos.
+Keep shared Console report-generation tasks and sample data under
+`tests/Cake.Issues.Reporting.Console/common`, following the Generic
+report-format demos.

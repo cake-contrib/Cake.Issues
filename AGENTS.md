@@ -90,8 +90,11 @@ Keep `CiStatus.md` build matrices and status badges synchronized with CI changes
   CLI. Verify that backticks, newlines, and lists are preserved.
 - Escape backslashes properly in JSON and shell arguments containing Windows
   paths. Verify the stored body has no control or replacement characters.
-- Monitor CI and reviewer feedback, address valid findings, and explain fixes
-  or disagreements in the relevant review thread.
+- After creating a pull request, monitor build status and Copilot code review
+  comments in parallel. Address valid findings and explain fixes or
+  disagreements in the relevant review thread.
+- Always reply to Copilot code review comments. When a comment is addressed
+  with a fix, resolve the thread after replying.
 
 ## Troubleshooting
 

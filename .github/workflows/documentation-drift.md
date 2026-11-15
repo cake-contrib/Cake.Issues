@@ -47,6 +47,7 @@ safe-outputs:
       - BuildArtifacts/**
       - GitReleaseManager.yaml
       - LICENSE
+      - AGENTS.md
       - "**/AGENTS.md"
       - azure-pipelines.yml
       - build.ps1
