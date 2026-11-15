@@ -65,11 +65,11 @@ When changing directories or using paths, use the native syntax for the current 
   - Linux/macOS: `cd docs && pip install -r requirements.txt` (48 seconds)
   - Windows PowerShell: `Push-Location docs; pip install -r requirements.txt; Pop-Location`
 - **Development server** (builds in ~10 seconds, serves on http://127.0.0.1:8000):
-  - Linux/macOS: `cd docs && mkdocs serve`
-  - Windows PowerShell: `Push-Location docs; mkdocs serve; Pop-Location`
-- **Build static site** (10 seconds):
-  - Linux/macOS: `cd docs && mkdocs build --site-dir ../BuildArtifacts/temp/_PublishedDocumentation`
-  - Windows PowerShell: `Push-Location docs; mkdocs build --site-dir ..\BuildArtifacts\temp\_PublishedDocumentation; Pop-Location`
+  - Linux/macOS: `cd docs && zensical serve`
+  - Windows PowerShell: `Push-Location docs; zensical serve; Pop-Location`
+- **Build static site** (output in `docs/site`, 30 seconds):
+  - Linux/macOS: `cd docs && zensical build`
+  - Windows PowerShell: `Push-Location docs; zensical build; Pop-Location`
 - **Builds and serves documentation**:
   - Linux/macOS: `./build.sh --target=website`
   - Windows PowerShell: `.\build.ps1 --target=website`
@@ -120,7 +120,7 @@ Add `--verbosity=diagnostic` to any build command for detailed output.
 - **CRITICAL**: Run `./build.sh --target=Create-NuGet-Packages` or `.\build.ps1 --target=Create-NuGet-Packages` first to create local packages
 
 ### Documentation (`docs/`)
-- Uses Material for MkDocs (Python-based)
+- Uses Zensical (Python-based, configured through `mkdocs.yml`)
 - `docs/requirements.txt` - Python dependencies  
 - `docs/mkdocs.yml` - configuration file
 - Markdown format with usage examples
@@ -165,7 +165,7 @@ Add `--verbosity=diagnostic` to any build command for detailed output.
 - **Permission denied**: On Linux/macOS, some integration test `build.sh` files may need `chmod +x build.sh` to make executable
 
 ### Website Issues
-- **mkdocs not found**: Install with `cd docs && pip install -r requirements.txt` on Linux/macOS or `Push-Location docs; pip install -r requirements.txt; Pop-Location` on Windows PowerShell
+- **zensical not found**: Install with `cd docs && pip install -r requirements.txt` on Linux/macOS or `Push-Location docs; pip install -r requirements.txt; Pop-Location` on Windows PowerShell
 
 ## Key Guidelines
 
@@ -199,8 +199,8 @@ cd tests/Cake.Issues.MsBuild/script-runner/net11.0
 
 # Documentation
 cd docs && pip install -r requirements.txt   # 48 sec  - install deps
-cd docs && mkdocs serve                       # 10 sec  - dev server on http://127.0.0.1:8000
-cd docs && mkdocs build                       # 10 sec  - build static site
+cd docs && zensical serve                     # 10 sec  - dev server on http://127.0.0.1:8000
+cd docs && zensical build                     # 10 sec  - build static site
 ```
 
 ```powershell
@@ -222,8 +222,8 @@ Pop-Location
 
 # Documentation
 Push-Location docs; pip install -r requirements.txt; Pop-Location   # 48 sec - install deps
-Push-Location docs; mkdocs serve; Pop-Location                      # 10 sec - dev server on http://127.0.0.1:8000
-Push-Location docs; mkdocs build; Pop-Location                      # 10 sec - build static site
+Push-Location docs; zensical serve; Pop-Location                    # 10 sec - dev server on http://127.0.0.1:8000
+Push-Location docs; zensical build; Pop-Location                    # 10 sec - build static site
 ```
 
 **Remember**: NEVER CANCEL long-running builds. Set timeouts appropriately and wait for completion.

@@ -197,14 +197,14 @@ using the [HtmlDxDataGridOption.Theme]:
       ([Source Code](https://github.com/cake-contrib/Cake.Issues/blob/develop/tests/Cake.Issues.Reporting.Generic/script-runner/build/create-reports/create-reports-htmldxdatagrid-theme-materialpurpledarkcompact.cake))
     * [Material Teal Dark Compact Theme](htmldxdatagrid-demo-theme-materialtealdarkcompact.html)
       ([Source Code](https://github.com/cake-contrib/Cake.Issues/blob/develop/tests/Cake.Issues.Reporting.Generic/script-runner/build/create-reports/create-reports-htmldxdatagrid-theme-materialtealdarkcompact.cake))
-    * Fluent Blue Light Theme <!-- md:badge commercial -->
-    * Fluent SaaS Light Theme <!-- md:badge commercial -->
-    * Fluent Blue Light Compact Theme <!-- md:badge commercial -->
-    * Fluent SaaS Light Compact Theme <!-- md:badge commercial -->
-    * Fluent Blue Dark Theme <!-- md:badge commercial -->
-    * Fluent SaaS Dark Theme <!-- md:badge commercial -->
-    * Fluent Blue Dark Compact Theme <!-- md:badge commercial -->
-    * Fluent SaaS Dark Compact Theme <!-- md:badge commercial -->
+    * Fluent Blue Light Theme {{ badge_commercial() }}
+    * Fluent SaaS Light Theme {{ badge_commercial() }}
+    * Fluent Blue Light Compact Theme {{ badge_commercial() }}
+    * Fluent SaaS Light Compact Theme {{ badge_commercial() }}
+    * Fluent Blue Dark Theme {{ badge_commercial() }}
+    * Fluent SaaS Dark Theme {{ badge_commercial() }}
+    * Fluent Blue Dark Compact Theme {{ badge_commercial() }}
+    * Fluent SaaS Dark Compact Theme {{ badge_commercial() }}
 
 === "Cake Frosting"
 
@@ -283,14 +283,14 @@ using the [HtmlDxDataGridOption.Theme]:
       ([Source Code](https://github.com/cake-contrib/Cake.Issues/blob/develop/tests/Cake.Issues.Reporting.Generic/frosting/build/tasks/create-reports/CreateReportsHtmlDxDataGridThemeMaterialPurpleDarkCompactTask.cs))
     * [Material Teal Dark Compact Theme](htmldxdatagrid-demo-theme-materialtealdarkcompact.html)
       ([Source Code](https://github.com/cake-contrib/Cake.Issues/blob/develop/tests/Cake.Issues.Reporting.Generic/frosting/build/tasks/create-reports/CreateReportsHtmlDxDataGridThemeMaterialTealDarkCompactTask.cs))
-    * Fluent Blue Light Theme <!-- md:badge commercial -->
-    * Fluent SaaS Light Theme <!-- md:badge commercial -->
-    * Fluent Blue Light Compact Theme <!-- md:badge commercial -->
-    * Fluent SaaS Light Compact Theme <!-- md:badge commercial -->
-    * Fluent Blue Dark Theme <!-- md:badge commercial -->
-    * Fluent SaaS Dark Theme <!-- md:badge commercial -->
-    * Fluent Blue Dark Compact Theme <!-- md:badge commercial -->
-    * Fluent SaaS Dark Compact Theme <!-- md:badge commercial -->
+    * Fluent Blue Light Theme {{ badge_commercial() }}
+    * Fluent SaaS Light Theme {{ badge_commercial() }}
+    * Fluent Blue Light Compact Theme {{ badge_commercial() }}
+    * Fluent SaaS Light Compact Theme {{ badge_commercial() }}
+    * Fluent Blue Dark Theme {{ badge_commercial() }}
+    * Fluent SaaS Dark Theme {{ badge_commercial() }}
+    * Fluent Blue Dark Compact Theme {{ badge_commercial() }}
+    * Fluent SaaS Dark Compact Theme {{ badge_commercial() }}
 
 ### Column visibility
 

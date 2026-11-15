@@ -1,8 +1,33 @@
 {% extends "base.html" %}
 
+{% block extrahead %}
+  {{ super() }}
+  <!-- Biel.ai chatbot -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/biel-search@latest/dist/biel-search/biel-search.css">
+  <script type="module" src="https://cdn.jsdelivr.net/npm/biel-search@latest/dist/biel-search/biel-search.esm.js"></script>
+{% endblock %}
+
 {% block outdated %}
   You're not viewing the latest version.
   <a href="{{ '../' ~ base_url }}">
     <strong>Click here to go to latest.</strong>
   </a>
+{% endblock %}
+
+{% block scripts %}
+  {{ super() }}
+  <biel-button project="2e6rm5xi5a" button-position="bottom-right" button-style="dark" modal-position="bottom-right" header-title="Cake Issues">Ask AI</biel-button>
+  <script>
+    // Prevent theme keyboard shortcuts from firing while typing inside the Biel.ai chatbot.
+    document.addEventListener("keydown", function (e) {
+      var path = e.composedPath ? e.composedPath() : [];
+      for (var i = 0; i < path.length; i++) {
+        var tag = path[i].tagName;
+        if (tag && tag.toLowerCase().indexOf("biel-") === 0) {
+          e.stopPropagation();
+          return;
+        }
+      }
+    });
+  </script>
 {% endblock %}

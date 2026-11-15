@@ -29,7 +29,7 @@ jobs:
         run: |
           cd docs
           pip install -r requirements.txt
-          mkdocs build
+          zensical build
       - name: Generate preview
         uses: PushLabsHQ/pushpreview-action@cf958f7be2bf55d3f56d351bb9abf56b4c6b9a50 # 1.0.6
         with:

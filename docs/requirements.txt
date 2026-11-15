@@ -1,10 +1,4 @@
-mike==2.2.0
-mkdocs==1.6.1
-mkdocs-biel==0.1.1
-mkdocs-drawio==1.16.3
-mkdocs-glightbox==0.5.3
-mkdocs-macros-plugin==1.5.0
-mkdocs-material==9.8.1
-mkdocs-material[imaging]==9.8.1
-mkdocs-open-in-new-tab==1.0.8
-mkdocs-table-reader-plugin==4.0.2
+mike @ git+https://github.com/squidfunk/mike.git@2d4ad799442f4592db8ad53b179bfb33db8c69ac
+pandas==3.1.1
+tabulate==0.10.0
+zensical==0.1.1

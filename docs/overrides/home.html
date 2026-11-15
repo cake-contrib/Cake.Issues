@@ -51,22 +51,22 @@
         <div class="md-grid md-typeset">
             <p class="mdx-tech-strip__label">Works with the tools you already use</p>
             <ul class="mdx-tech-strip__list">
-                {% for name, icon in {
-                    ".NET": "simple/dotnet",
-                    "Java": "simple/openjdk",
-                    "TypeScript": "simple/typescript",
-                    "JavaScript": "simple/javascript",
-                    "ESLint": "simple/eslint",
-                    "Python": "simple/python",
-                    "Terraform": "simple/terraform",
-                    "Docker": "simple/docker",
-                    "Kubernetes": "simple/kubernetes",
-                    "Ansible": "simple/ansible",
-                    "Markdown": "simple/markdown",
-                    "GitHub Actions": "simple/githubactions",
-                    "Azure DevOps": "material/microsoft-azure-devops",
-                    "AppVeyor": "simple/appveyor"
-                }.items() %}
+                {% for name, icon in [
+                    [".NET", "simple/dotnet"],
+                    ["Java", "simple/openjdk"],
+                    ["TypeScript", "simple/typescript"],
+                    ["JavaScript", "simple/javascript"],
+                    ["ESLint", "simple/eslint"],
+                    ["Python", "simple/python"],
+                    ["Terraform", "simple/terraform"],
+                    ["Docker", "simple/docker"],
+                    ["Kubernetes", "simple/kubernetes"],
+                    ["Ansible", "simple/ansible"],
+                    ["Markdown", "simple/markdown"],
+                    ["GitHub Actions", "simple/githubactions"],
+                    ["Azure DevOps", "material/microsoft-azure-devops"],
+                    ["AppVeyor", "simple/appveyor"]
+                ] %}
                     <li title="{{ name }}">
                         <span class="mdx-tech-strip__icon" aria-hidden="true">
                             {%- include ".icons/" ~ icon ~ ".svg" -%}

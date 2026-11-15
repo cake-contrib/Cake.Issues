@@ -6,8 +6,8 @@
             "type": "chrome",
             "request": "launch",
             "url": "http://127.0.0.1:8000",
-            "preLaunchTask": "mkdocs-serve",
-            "postDebugTask": "mkdocs-stop"
+            "preLaunchTask": "zensical-serve",
+            "postDebugTask": "zensical-stop"
         }
     ]
 }

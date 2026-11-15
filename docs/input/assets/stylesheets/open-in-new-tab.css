@@ -1,0 +1,12 @@
+/*
+ * Shows an icon for external links which open in a new tab (except those in the header and footer).
+ * Based on mkdocs-open-in-new-tab (https://github.com/JakubAndrysek/mkdocs-open-in-new-tab),
+ * Copyright (c) 2023 Kuba Andrýsek, MIT License.
+ */
+.md-main a[target="_blank"]::after {
+  content: "↗";
+  display: inline-block;
+  margin-left: 0.2em;
+  width: 1em;
+  height: 1em;
+}

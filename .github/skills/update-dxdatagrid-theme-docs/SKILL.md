@@ -67,7 +67,7 @@ The `.md` files (e.g. [htmldxdatagrid.md](../../../docs/input/documentation/repo
    ```powershell
    cd docs
    pip install -r requirements.txt
-   mkdocs serve
+   zensical serve
    ```
    Open the relevant page (e.g. `/documentation/report-formats/generic/templates/htmldxdatagrid-demo-theme-carmine.html`) at `http://127.0.0.1:8000`.
 
