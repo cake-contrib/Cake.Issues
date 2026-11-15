@@ -10,7 +10,7 @@ the stable release.
 
 See [how to release](../../../docs/input/documentation/contributing/how-to-release.md)
 for the overall release process and
-[copilot-instructions](../../copilot-instructions.md) for general repository guidance.
+[AGENTS.md](../../../AGENTS.md) for general repository guidance.
 
 This skill only creates or updates a GitHub release **draft** marked as a **prerelease**.
 Do not merge or delete branches, create or push tags, or publish the release.

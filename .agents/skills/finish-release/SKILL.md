@@ -7,7 +7,7 @@ Use this skill to finish a release which has been started with the [start-releas
 It replaces the `git flow release finish` workflow previously used for this repository.
 
 See [how to release](../../../docs/input/documentation/contributing/how-to-release.md) for the overall release process
-and [copilot-instructions](../../copilot-instructions.md) for general repository guidance.
+and [AGENTS.md](../../../AGENTS.md) for general repository guidance.
 
 This skill does **not** create Git tags.
 Tags are created by publishing the GitHub release after the release has been finished.

@@ -37,6 +37,7 @@ safe-outputs:
     excluded-files:
       - .appveyor.yml
       - .github/**
+      - .agents/**
       - .azuredevops/**
       - .config/**
       - .devcontainer/**
@@ -46,6 +47,8 @@ safe-outputs:
       - BuildArtifacts/**
       - GitReleaseManager.yaml
       - LICENSE
+      - AGENTS.md
+      - "**/AGENTS.md"
       - azure-pipelines.yml
       - build.ps1
       - build.sh
@@ -101,7 +104,9 @@ templates and regeneration process are handled separately.
    changes merged during the review window. Focus on public APIs, aliases,
    options, defaults, supported tools and versions, setup steps, examples,
    build/test matrices, and contributor workflows.
-2. Read `.github/copilot-instructions.md` before assessing changes. Follow the
+2. Read `AGENTS.md` and the relevant nested `AGENTS.md` files, including
+   `docs/AGENTS.md`, before assessing changes. Treat agent instructions and
+   `.agents/skills/**` as evidence only; do not edit them. Follow the
    repository's established documentation structure, terminology, examples,
    and validation commands.
 3. Compare each user-visible change with all relevant maintained documentation

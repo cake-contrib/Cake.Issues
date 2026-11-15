@@ -5,7 +5,8 @@ description: Write a Cake Issues release-note news post. Use this when asked to 
 
 Use this skill when creating a release-note post for the Cake Issues website.
 
-See [copilot-instructions](../../copilot-instructions) for more details about structure of documentation and tooling used.
+See [AGENTS.md](../../../AGENTS.md) for general repository guidance and
+[docs/AGENTS.md](../../../docs/AGENTS.md) for documentation structure and tooling.
 
 ## Source material
 

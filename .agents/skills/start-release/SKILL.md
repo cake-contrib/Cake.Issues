@@ -7,7 +7,7 @@ Use this skill to start a new release of Cake Issues.
 It replaces the `git flow release start` workflow previously used for this repository.
 
 See [how to release](../../../docs/input/documentation/contributing/how-to-release.md) for the overall release process
-and [copilot-instructions](../../copilot-instructions.md) for general repository guidance.
+and [AGENTS.md](../../../AGENTS.md) for general repository guidance.
 
 ## Inputs
 
