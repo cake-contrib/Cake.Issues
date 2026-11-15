@@ -7709,7 +7709,7 @@ other agent supporting skills.</p>
 This uses the <code>start-release</code> skill, which does the following:</p>
 <ol>
 <li>Creates a branch <code>release/&lt;VERSION&gt;</code> from the latest <code>develop</code> branch.</li>
-<li>Creates a draft release on GitHub with release notes based on the milestone.</li>
+<li>Creates a draft release on GitHub with release notes based on the milestone and branch history.</li>
 <li>Adds the following commits to the release branch:<ul>
 <li><code>Add news entry</code>: Adds a news post for the release to the website,
   using the <code>write-release-notes</code> skill.</li>
