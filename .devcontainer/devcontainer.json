@@ -21,6 +21,7 @@
 				"terminal.integrated.shell.linux": "/bin/bash",
 			},
 			"extensions": [
+				"zensical.zensical-studio",
 				"davidanson.vscode-markdownlint",
 				"hediet.vscode-drawio",
 				"streetsidesoftware.code-spell-checker",
