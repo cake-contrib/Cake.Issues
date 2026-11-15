@@ -29,6 +29,7 @@ watch:
 # Theme configuration
 theme:
   name: material
+  variant: classic
   custom_dir: overrides
   language: en
   logo: assets/images/logo.svg
@@ -74,31 +75,27 @@ theme:
 # Additional JavaScript
 extra_javascript:
   - https://viewer.diagrams.net/js/viewer-static.min.js
-  # Required for mkdocs-drawio to support instant-loading of Material theme (navigation.instant). See https://github.com/tuunit/mkdocs-drawio?tab=readme-ov-file#material-integration
-  - assets/javascripts/drawio-reload.js
+  # Renders images referencing .drawio files with the diagrams.net viewer,
+  # since Zensical doesn't support the mkdocs-drawio plugin yet.
+  - assets/javascripts/drawio.js
+  - assets/javascripts/open-in-new-tab.js
 
 # Additional styling
 extra_css:
+  - assets/stylesheets/drawio.css
+  - assets/stylesheets/open-in-new-tab.css
   - assets/stylesheets/extra.css
   - assets/stylesheets/styling.css
   - assets/stylesheets/landing.css
 
 # Plugins
 plugins:
-  - biel:
-      project: 2e6rm5xi5a
-      header_title: Cake Issues
   - blog:
       blog_dir: news
       post_readtime: true
-  - drawio:
-      edit: false
-      darkmode: true
   - glightbox
   - macros
   - meta
-  - open-in-new-tab:
-      add_icon: true
   - search
   - social:
       enabled: !ENV [GITHUB_ACTIONS, false]
@@ -113,8 +110,8 @@ markdown_extensions:
   - md_in_html
   - pymdownx.details
   - pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      emoji_index: !!python/name:zensical.extensions.emoji.twemoji
+      emoji_generator: !!python/name:zensical.extensions.emoji.to_svg
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
@@ -140,10 +137,6 @@ markdown_extensions:
   - toc:
       permalink: true
 
-# Hooks
-hooks:
-  - overrides/hooks/shortcodes.py
-  
 # Additional configuration
 extra:
   # renovate: datasource=nuget depName=Cake.Tool versioning=loose

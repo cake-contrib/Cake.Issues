@@ -172,7 +172,7 @@ Task("Website")
     .Does(() =>
 {
     StartProcess(
-         "mkdocs",
+         "zensical",
          new ProcessSettings {
              Arguments = "serve",
              WorkingDirectory = "./docs"

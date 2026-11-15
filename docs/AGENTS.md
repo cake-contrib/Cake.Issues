@@ -2,9 +2,9 @@
 
 Follow [the shared instructions](../AGENTS.md).
 
-The website uses Material for MkDocs. `mkdocs.yml` is the configuration,
-`requirements.txt` defines Python dependencies, and `input` contains maintained
-Markdown pages and usage examples. API reference content is generated.
+The website uses Zensical. `mkdocs.yml` is the configuration, `main.py` defines
+macros, `requirements.txt` defines Python dependencies, and `input` contains
+maintained Markdown pages and usage examples. API reference content is generated.
 
 ## Tooling
 
@@ -21,12 +21,10 @@ pip install -r requirements.txt
 Pop-Location
 ```
 
-From `docs`, run `mkdocs serve` for the development server at
-`http://127.0.0.1:8000` (typically builds in 10 seconds), or `mkdocs build --strict`
-to validate website changes. To select the repository build output directory:
-
-- Bash: `mkdocs build --site-dir ../BuildArtifacts/temp/_PublishedDocumentation`.
-- PowerShell: `mkdocs build --site-dir ..\BuildArtifacts\temp\_PublishedDocumentation`.
+From `docs`, run `zensical serve` for the development server at
+`http://127.0.0.1:8000` (typically builds in 30 seconds), or
+`zensical build --strict` to validate website changes. The site is built to
+`docs/site`.
 
 Alternatively, from the repository root use `./build.sh --target=website` or
 `.\build.ps1 --target=website` to build and serve the documentation.

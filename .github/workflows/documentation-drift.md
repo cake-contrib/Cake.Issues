@@ -60,6 +60,7 @@ safe-outputs:
       - docs/.vscode/**
       - docs/mkdocs.yml
       - docs/requirements.txt
+      - docs/main.py
       - docs/overrides/**
       - docs/snippets/**
       - docs/input/assets/**
@@ -87,9 +88,9 @@ The maintained documentation surfaces are:
 - `CiStatus.md` for build and test matrices and status badges.
 
 Treat source code, tests, build scripts, project files, package specifications,
-and workflow files as evidence only. Do not edit them. Do not edit MkDocs
+and workflow files as evidence only. Do not edit them. Do not edit Zensical
 configuration or tooling (`docs/mkdocs.yml`, `docs/requirements.txt`,
-`docs/overrides/**`, `docs/snippets/**`) or website assets
+`docs/main.py`, `docs/overrides/**`, `docs/snippets/**`) or website assets
 (`docs/input/assets/**`); these are excluded from the pull request and any
 edit to them is discarded.
 
@@ -118,7 +119,7 @@ templates and regeneration process are handled separately.
 5. Preserve existing Markdown style and links. Use Cake Script and Cake
    Frosting examples where the surrounding documentation supports both.
 6. If files under `docs/**` change, install `docs/requirements.txt` and run
-   `mkdocs build --strict` from the `docs` directory. Fix documentation errors
+   `zensical build --strict` from the `docs` directory. Fix documentation errors
    caused by the proposed changes. Do not hide or broadly suppress failures.
 7. Review the final diff and confirm it contains documentation changes only.
 

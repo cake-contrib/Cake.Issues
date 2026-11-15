@@ -2,10 +2,10 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "mkdocs-serve",
+            "label": "zensical-serve",
             "type": "shell",
             "isBackground": true,
-            "command": "mkdocs serve",
+            "command": "zensical serve",
             "problemMatcher": {
                 "owner": "custom",
                 "pattern": {
@@ -13,13 +13,13 @@
                 },
                 "background": {
                     "activeOnStart": true,
-                    "beginsPattern": ".*Building documentation.*",
-                    "endsPattern": ".*Serving on.*"
+                    "beginsPattern": ".*Build started.*",
+                    "endsPattern": ".*issues? found.*"
                 }
             }
         },
         {
-            "label": "mkdocs-stop",
+            "label": "zensical-stop",
             "type": "shell",
             "command": "${command:workbench.action.terminal.kill}"
         }

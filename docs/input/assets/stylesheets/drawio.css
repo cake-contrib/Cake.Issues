@@ -1,0 +1,17 @@
+/*
+ * Synchronizes the color scheme of the diagrams.net viewer with the site color scheme.
+ * Based on mkdocs-drawio (https://github.com/tuunit/mkdocs-drawio), Copyright 2024 Sergey Lukin, MIT License.
+ * See assets/THIRD-PARTY-NOTICES.txt for the full license text.
+ */
+:root {
+  color-scheme: light;
+}
+
+[data-md-color-scheme="slate"] {
+  color-scheme: dark;
+}
+
+.mxgraph,
+.geDiagramContainer {
+  color-scheme: inherit !important;
+}

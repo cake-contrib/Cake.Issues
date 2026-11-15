@@ -5,7 +5,9 @@
 	"workspaceFolder": "/docs",
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
-	"features": {},
+	"features": {
+		"ghcr.io/devcontainers/features/git:1.3.8": {}
+	},
 
 	"forwardPorts": [
 		8000
@@ -19,6 +21,7 @@
 				"terminal.integrated.shell.linux": "/bin/bash",
 			},
 			"extensions": [
+				"zensical.zensical-studio",
 				"davidanson.vscode-markdownlint",
 				"hediet.vscode-drawio",
 				"streetsidesoftware.code-spell-checker",
