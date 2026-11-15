@@ -67,20 +67,16 @@ git switch --no-track -c release/X.Y.Z origin/develop
 
 ### 3. Create the GitHub release draft
 
-The release notes on GitHub are created as a draft from the milestone using GitReleaseManager.
-`GITHUB_PAT` needs to contain a token with permissions to create releases.
+Use the [create-github-release-draft](../create-github-release-draft/SKILL.md) skill for
+version and milestone `X.Y.Z`, with the local `release/X.Y.Z` branch and its recorded SHA
+as source, and `master` as the stable draft target.
+The branch is not pushed yet; do not require a remote release branch.
 
-```powershell
-$env:GITHUB_PAT = gh auth token
-.\build.ps1 --target=releasenotes
-```
-
-```bash
-GITHUB_PAT=$(gh auth token) ./build.sh --target=releasenotes
-```
-
-Verify the draft exists with `gh release view X.Y.Z --repo cake-contrib/Cake.Issues`.
-If creating the draft fails, report the error, and continue using the milestone as source for the news entry.
+The shared skill retains GitReleaseManager draft generation and applies the release template,
+using milestone labels for addin/type grouping and branch history for additional chores.
+Review and confirm the completed notes before creating the draft.
+If creating or formatting the draft fails, report the error and continue using the milestone
+as source for the news entry, explicitly noting that the GitHub draft is incomplete.
 Never publish the draft release. Publishing the release creates the Git tag and is a manual step after the release has been finished.
 
 ### 4. Add news entry
@@ -131,6 +127,12 @@ git commit -m "Update Frosting Dependency"
 * `git --no-pager log --oneline origin/develop..release/X.Y.Z` must show exactly the three commits above
   (four for major releases).
 * Each commit must only contain the files described in the respective step.
+* After all preparation commits, refresh the stable release draft using steps 1-5 of the
+  [create-github-release-draft](../create-github-release-draft/SKILL.md) skill, with the
+  completed `release/X.Y.Z` SHA as the source, `master` as the target and the existing draft
+  as the destination. This rechecks requirements against the versions actually prepared,
+  including major-release Frosting dependency ranges. Present changed notes and get
+  confirmation before updating the draft.
 * Optionally build the website to verify the news post renders correctly.
 
 ### 9. Push the release branch

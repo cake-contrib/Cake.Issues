@@ -25,7 +25,7 @@ Ask the agent to start the release, e.g. `Start release 6.2.0`.
 This uses the `start-release` skill, which does the following:
 
 1. Creates a branch `release/<VERSION>` from the latest `develop` branch.
-2. Creates a draft release on GitHub with release notes based on the milestone.
+2. Creates a draft release on GitHub with release notes based on the milestone and branch history.
 3. Adds the following commits to the release branch:
     * `Add news entry`: Adds a news post for the release to the website,
       using the `write-release-notes` skill.
