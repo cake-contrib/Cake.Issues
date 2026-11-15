@@ -2,14 +2,14 @@
     "version": "1",
     "environments": [
         {
-            "name": "Debian Bookworm .NET 8",
+            "name": "Ubuntu Resolute .NET 10",
             "type": "docker",
-            "dockerFile": "Images\\Dockerfile.net8-bookworm"
+            "dockerFile": "Images\\Dockerfile.net10-resolute"
         },
         {
-            "name": "Debian Bookworm .NET 9",
+            "name": "Ubuntu Resolute .NET 11",
             "type": "docker",
-            "dockerFile": "Images\\Dockerfile.net9-bookworm"
-            }
-        ]
+            "dockerFile": "Images\\Dockerfile.net11-resolute"
+        }
+    ]
 }
