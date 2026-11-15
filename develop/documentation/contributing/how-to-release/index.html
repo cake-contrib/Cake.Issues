@@ -7241,6 +7241,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#beta-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Beta release
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#finish-release" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -7520,6 +7531,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#beta-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Beta release
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#finish-release" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -7705,6 +7727,19 @@ This uses the <code>start-release</code> skill, which does the following:</p>
 <p>Review the news post and the draft release on GitHub and make sure the build of the release
 branch is passing.
 Fixes for the release can be merged into the release branch.</p>
+<h2 id="beta-release">Beta release<a class="headerlink" href="#beta-release" title="Permanent link">¶</a></h2>
+<p>After starting the release, ask the agent to create a beta, e.g. <code>Create beta release 6.2.0</code>.
+This uses the <code>create-beta-release</code> skill, which does the following:</p>
+<ol>
+<li>Checks <abbr title="Continuous Integration - The practice of integrating source code changes frequently and ensuring that the integrated codebase is in a workable state">CI</abbr> and release notes for the release branch.</li>
+<li>Proposes the next beta version, starting with <code>6.2.0-beta.1</code>.</li>
+<li>Creates a prerelease draft targeting <code>release/6.2.0</code> after confirmation, without merging branches.</li>
+</ol>
+<p>Review and publish the draft on the <a href="https://github.com/cake-contrib/Cake.Issues/releases">GitHub releases page</a>, keeping the release branch as its target
+and <strong>Set as a pre-release</strong> enabled. Publishing creates the tag and triggers a build publishing
+the beta NuGet packages. If the branch changes before publication, recheck <abbr title="Continuous Integration - The practice of integrating source code changes frequently and ensuring that the integrated codebase is in a workable state">CI</abbr> and release notes.</p>
+<p>Beta documentation currently shows the stable version in its installation examples;
+use the published prerelease NuGet package version instead.</p>
 <h2 id="finish-release">Finish release<a class="headerlink" href="#finish-release" title="Permanent link">¶</a></h2>
 <p>Ask the agent to finish the release, e.g. <code>Finish release 6.2.0</code>.
 This uses the <code>finish-release</code> skill, which does the following:</p>
