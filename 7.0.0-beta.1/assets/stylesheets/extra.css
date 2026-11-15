@@ -1,0 +1,15 @@
+.mermaid {
+    text-align: center;
+}
+
+.mdx-badge {
+    padding: 0.1em 0.3em;
+    margin: 0 0.2em;
+    font-size: 0.8em;
+    background-color: var(--md-code-bg-color);
+    border-radius: 0.35em;
+}
+
+.mdx-badge a, .mdx-badge a:hover {
+    color: var(--md-code-hl-string-color);
+}

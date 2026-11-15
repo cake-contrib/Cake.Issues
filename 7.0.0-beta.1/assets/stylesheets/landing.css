@@ -1,0 +1,381 @@
+/* Landing page: hero, tech strip, how-it-works and call-to-action styling */
+
+/* ----------------------------------------------------------------------- */
+/* Utilities                                                                */
+/* ----------------------------------------------------------------------- */
+
+/* Visible to screen readers only, used to label icon-only content. */
+.mdx-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ----------------------------------------------------------------------- */
+/* Hero                                                                     */
+/* ----------------------------------------------------------------------- */
+
+.mdx-hero {
+  background: linear-gradient(
+    180deg,
+    var(--md-primary-fg-color--dark) 0%,
+    var(--md-primary-fg-color) 100%
+  );
+  color: var(--md-primary-bg-color);
+  overflow: hidden;
+}
+
+.mdx-hero__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: 2rem;
+  padding: 3.2rem 0.8rem;
+}
+
+@media screen and (min-width: 76.25em) {
+  .mdx-hero__grid {
+    grid-template-columns: 6fr 5fr;
+    gap: 1rem;
+    padding: 4.8rem 0.8rem;
+  }
+}
+
+.mdx-hero__eyebrow {
+  display: inline-block;
+  margin: 0 0 0.8rem;
+  padding: 0.2rem 0.8rem;
+  border-radius: 2rem;
+  background-color: hsla(0, 0%, 100%, 0.15);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.md-typeset .mdx-hero__eyebrow a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: hsla(0, 0%, 100%, 0.45);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25em;
+  transition: color 125ms, text-decoration-color 125ms;
+}
+
+.md-typeset .mdx-hero__eyebrow a:hover,
+.md-typeset .mdx-hero__eyebrow a:focus {
+  color: var(--md-accent-bg-color);
+  text-decoration-color: currentcolor;
+}
+
+.md-typeset .mdx-hero__content h1 {
+  margin: 0 0 0.8rem;
+  color: var(--md-primary-bg-color);
+  font-weight: 700;
+  font-size: 2.2rem;
+  line-height: 1.2;
+}
+
+@media screen and (min-width: 76.25em) {
+  .md-typeset .mdx-hero__content h1 {
+    font-size: 2.6rem;
+  }
+}
+
+.mdx-hero__lead {
+  margin: 0 0 1.6rem;
+  max-width: 32rem;
+  color: hsla(0, 0%, 100%, 0.85);
+  font-size: 0.95rem;
+}
+
+.mdx-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin: 0 0 2rem;
+}
+
+.md-typeset .mdx-hero__actions .md-button,
+.md-typeset .mdx-cta .md-button {
+  padding: 0.7rem 1.4rem;
+  border-width: 2px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  transition: background-color 125ms, border-color 125ms, color 125ms,
+    transform 125ms;
+}
+
+.md-typeset .mdx-hero__actions .md-button:hover,
+.md-typeset .mdx-cta .md-button:hover {
+  transform: translateY(-1px);
+}
+
+.md-typeset .mdx-hero__actions .md-button {
+  color: var(--md-primary-bg-color);
+  border-color: hsla(0, 0%, 100%, 0.6);
+}
+
+.md-typeset .mdx-hero__actions .md-button--primary {
+  background-color: var(--md-primary-bg-color);
+  border-color: var(--md-primary-bg-color);
+  color: var(--md-primary-fg-color);
+}
+
+.md-typeset .mdx-hero__actions .md-button--primary:hover,
+.md-typeset .mdx-hero__actions .md-button--primary:focus {
+  background-color: var(--md-accent-fg-color);
+  border-color: var(--md-accent-fg-color);
+  color: var(--md-accent-bg-color);
+}
+
+.md-typeset .mdx-hero__actions .md-button:not(.md-button--primary):hover,
+.md-typeset .mdx-hero__actions .md-button:not(.md-button--primary):focus {
+  background-color: hsla(0, 0%, 100%, 0.15);
+  border-color: var(--md-primary-bg-color);
+  color: var(--md-primary-bg-color);
+}
+
+.md-typeset ul.mdx-hero__stats:not([hidden]) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.6rem 2.4rem;
+  margin: 0;
+  padding: 1.2rem 0 0;
+  border-top: 1px solid hsla(0, 0%, 100%, 0.2);
+  list-style: none;
+}
+
+.md-typeset ul.mdx-hero__stats > li {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.mdx-hero__stats strong {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.mdx-hero__stats span {
+  color: hsla(0, 0%, 100%, 0.75);
+  font-size: 0.7rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.mdx-hero__image {
+  display: flex;
+  justify-content: center;
+}
+
+.mdx-hero__image img {
+  max-width: 100%;
+  height: auto;
+  filter: drop-shadow(0 1.2rem 2.4rem hsla(0, 0%, 0%, 0.35));
+}
+
+/* ----------------------------------------------------------------------- */
+/* Tech strip                                                               */
+/* ----------------------------------------------------------------------- */
+
+.mdx-tech-strip {
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+  background-color: var(--md-default-bg-color);
+}
+
+.mdx-tech-strip > .md-grid {
+  padding: 1.6rem 0.8rem;
+  text-align: center;
+}
+
+.mdx-tech-strip__label {
+  margin: 0 0 1rem;
+  color: var(--md-default-fg-color--light);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.md-typeset ul.mdx-tech-strip__list:not([hidden]) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1.6rem 2rem;
+  margin: 0 0 0.8rem;
+  padding: 0;
+  list-style: none;
+}
+
+.md-typeset ul.mdx-tech-strip__list > li {
+  display: flex;
+  margin: 0;
+  color: var(--md-default-fg-color--light);
+  opacity: 0.75;
+  transition: opacity 125ms, color 125ms;
+}
+
+.md-typeset ul.mdx-tech-strip__list > li:hover {
+  opacity: 1;
+  color: var(--md-accent-fg-color);
+}
+
+.mdx-tech-strip__icon {
+  display: flex;
+}
+
+.mdx-tech-strip__list svg {
+  width: 1.8rem;
+  height: 1.8rem;
+  fill: currentcolor;
+}
+
+.mdx-tech-strip__more {
+  margin: 0;
+  font-size: 0.75rem;
+}
+
+.mdx-tech-strip__arrow svg {
+  width: 0.9rem;
+  height: 0.9rem;
+  vertical-align: -0.1rem;
+  fill: currentcolor;
+}
+
+/* ----------------------------------------------------------------------- */
+/* How it works                                                             */
+/* ----------------------------------------------------------------------- */
+
+.mdx-steps {
+  counter-reset: mdx-step;
+}
+
+.md-typeset .mdx-steps > ol:not([hidden]) {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media screen and (min-width: 60em) {
+  .md-typeset .mdx-steps > ol:not([hidden]) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.md-typeset .mdx-steps > ol > li {
+  counter-increment: mdx-step;
+  position: relative;
+  margin: 0;
+  padding: 1.6rem 1.2rem 1.2rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: var(--base-border-radius);
+}
+
+.md-typeset .mdx-steps > ol > li::before {
+  content: counter(mdx-step);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.8rem;
+  height: 1.8rem;
+  margin-bottom: 0.6rem;
+  border-radius: 50%;
+  background-color: var(--md-primary-fg-color);
+  color: var(--md-primary-bg-color);
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+.md-typeset .mdx-steps > ol > li > h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1rem;
+}
+
+.md-typeset .mdx-steps > ol > li > p:last-child {
+  margin-bottom: 0;
+}
+
+/* ----------------------------------------------------------------------- */
+/* Why use Cake Issues grid                                                 */
+/* ----------------------------------------------------------------------- */
+
+@media screen and (min-width: 60em) {
+  .md-typeset .grid.cards.mdx-why,
+  .md-typeset .grid.cards.mdx-why > ul:not([hidden]) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ----------------------------------------------------------------------- */
+/* Call to action banner                                                    */
+/* ----------------------------------------------------------------------- */
+
+.mdx-cta {
+  margin: 2.4rem 0 0.8rem;
+  padding: 2.4rem 1.6rem;
+  border-radius: var(--base-border-radius);
+  background: linear-gradient(
+    135deg,
+    var(--md-primary-fg-color) 0%,
+    var(--md-accent-fg-color) 100%
+  );
+  color: var(--md-primary-bg-color);
+  text-align: center;
+}
+
+.md-typeset .mdx-cta h2 {
+  margin: 0 0 0.6rem;
+  color: var(--md-primary-bg-color);
+}
+
+.md-typeset .mdx-cta p {
+  margin: 0 auto 1.2rem;
+  max-width: 32rem;
+  color: hsla(0, 0%, 100%, 0.9);
+}
+
+.md-typeset .mdx-cta p a:not(.md-button) {
+  color: var(--md-primary-bg-color);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.md-typeset .mdx-cta p a:not(.md-button):hover {
+  color: var(--md-accent-bg-color);
+}
+
+.mdx-cta .md-button {
+  color: var(--md-primary-bg-color);
+  border-color: hsla(0, 0%, 100%, 0.6);
+}
+
+.md-typeset .mdx-cta .md-button--primary {
+  background-color: var(--md-primary-bg-color);
+  border-color: var(--md-primary-bg-color);
+  color: var(--md-primary-fg-color);
+}
+
+.md-typeset .mdx-cta .md-button--primary:hover,
+.md-typeset .mdx-cta .md-button--primary:focus {
+  background-color: var(--md-accent-bg-color);
+  border-color: var(--md-accent-bg-color);
+  color: var(--md-primary-fg-color);
+}
+
+.md-typeset .mdx-cta .md-button:not(.md-button--primary):hover,
+.md-typeset .mdx-cta .md-button:not(.md-button--primary):focus {
+  background-color: hsla(0, 0%, 100%, 0.15);
+  border-color: var(--md-primary-bg-color);
+  color: var(--md-primary-bg-color);
+}

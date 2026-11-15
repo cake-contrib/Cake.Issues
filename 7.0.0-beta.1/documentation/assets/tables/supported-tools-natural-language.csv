@@ -1,0 +1,2 @@
+"Tool","Tool Version","Format","Issue Provider","Supported Since"
+"[textlint](https://textlint.github.io/){target='_blank'} :material-alert-decagram:",,"[tap](https://textlint.github.io/docs/cli.html#options){target='_blank'}","[Cake.Issues.Tap](issue-providers/tap/index.md)",5.1.0
