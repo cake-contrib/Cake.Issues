@@ -118,21 +118,8 @@ git commit -m "Update version in examples"
 
 ### 7. Update Frosting dependency version ranges (major releases only)
 
-Only for major releases (`X.0.0`): The Cake Frosting addin packages reference other Cake.Issues packages
-with a version range limited to the current major version.
-All `Cake.Frosting.Issues.*.nuspec` files in [nuspec/nuget](../../../nuspec/nuget) which reference
-`Cake.Issues` or other `Cake.Frosting.Issues.*` packages contain lines like:
-
-```xml
-<dependency id="Cake.Issues" version="[6.0.0-beta0001,7.0)" exclude="Build,Analyzers" />
-```
-
-Update the version range to the new major version in **every** file.
-For example for release `7.0.0` replace `[6.0.0-beta0001,7.0)` with `[7.0.0-beta0001,8.0)`.
-Don't change `Cake.Core` or other non-Cake.Issues dependencies.
-Preserve existing line endings and encoding, and verify with `git diff` that only the
-`<dependency>` lines of Cake.Issues packages changed.
-Commit the change separately:
+Only for major releases (`X.0.0`): Use the
+[update-frosting-dependencies](../update-frosting-dependencies/SKILL.md) skill and commit the change separately:
 
 ```bash
 git add nuspec/nuget
