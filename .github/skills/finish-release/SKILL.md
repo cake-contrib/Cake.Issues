@@ -27,6 +27,7 @@ The history follows previous releases, for example `5.9.1`:
 |\
 | *   Merge branch 'release/X.Y.Z'        <- master (tagged X.Y.Z when the GitHub release is published)
 | |\
+| | * Update Frosting Dependency          (major releases only)
 | | * Update version in examples
 | | * Update release notes link
 | | * Add news entry
@@ -76,7 +77,8 @@ Changes might have been added to the release branch after it was started.
    git --no-pager log --no-merges --format="%h %ad %s" --date=short origin/master..origin/release/X.Y.Z
    ```
 
-3. List commits added after the news entry, ignoring the `Update release notes link` and `Update version in examples` commits:
+3. List commits added after the news entry, ignoring the `Update release notes link`, `Update version in examples`
+   and, for major releases, `Update Frosting Dependency` commits:
 
    ```bash
    git --no-pager log --no-merges --format="%h %s" <news-entry-commit>..origin/release/X.Y.Z

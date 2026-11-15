@@ -33,6 +33,8 @@ This uses the `start-release` skill, which does the following:
       using the `update-release-notes-link` skill.
     * `Update version in examples`: Updates the version of the addins used in examples on the website,
       using the `update-version-in-examples` skill.
+    * `Update Frosting Dependency` (major releases only): Updates the version ranges of dependencies
+      between Cake.Issues packages in the Cake Frosting NuGet packages to the new major version.
 4. Pushes the release branch after confirmation.
 
 Review the news post and the draft release on GitHub and make sure the build of the release
