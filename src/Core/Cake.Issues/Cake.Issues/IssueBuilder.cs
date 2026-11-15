@@ -319,7 +319,7 @@ public class IssueBuilder
     {
         additionalInformation.NotNull();
 
-        this.additionalInformation = new Dictionary<string, string>(additionalInformation);
+        this.additionalInformation = [with(additionalInformation)];
         return this;
     }
 

@@ -11,7 +11,7 @@ using Errata;
 /// <param name="settings">Settings for report creation.</param>
 internal sealed class FileSystemRepository(ICreateIssueReportSettings settings) : ISourceRepository
 {
-    private readonly Dictionary<string, Source> cache = new(StringComparer.OrdinalIgnoreCase);
+    private readonly Dictionary<string, Source> cache = [with(StringComparer.OrdinalIgnoreCase)];
 
     /// <inheritdoc />
     public bool TryGet(string id, out Source source)
