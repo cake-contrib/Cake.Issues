@@ -200,6 +200,21 @@
   ],
   "packageRules": [
     {
+      "description": "Keep TFM-specific integration-test SDKs and Docker images on their configured .NET major versions while allowing minor, patch and digest updates",
+      "matchFileNames": [
+        "/^tests\\/.*\\/net\\d+\\.0\\/global\\.json$/",
+        "/^src\\/Images\\/Dockerfile\\.net\\d+-[^/]+$/"
+      ],
+      "matchDepNames": [
+        "dotnet-sdk",
+        "mcr.microsoft.com/dotnet/sdk"
+      ],
+      "matchUpdateTypes": [
+        "major"
+      ],
+      "enabled": false
+    },
+    {
       "description": "Keep AppVeyor tool runtimes on their required .NET major versions",
       "matchDepNames": [
         "dotnet-sdk-5"
