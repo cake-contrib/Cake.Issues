@@ -8,7 +8,7 @@ Releases are created from release branches following the [Git Flow] branching mo
 using the [Cake.Recipe release process].
 
 The steps to create a release are automated using [agent skills] available in the
-`.github/skills` directory of the repository, which can be used with GitHub Copilot or any
+`.agents/skills` directory of the repository, which can be used with GitHub Copilot or any
 other agent supporting skills.
 
 ## Prerequisites
@@ -25,7 +25,7 @@ Ask the agent to start the release, e.g. `Start release 6.2.0`.
 This uses the `start-release` skill, which does the following:
 
 1. Creates a branch `release/<VERSION>` from the latest `develop` branch.
-2. Creates a draft release on GitHub with release notes based on the milestone.
+2. Creates a draft release on GitHub with release notes based on the milestone and branch history.
 3. Adds the following commits to the release branch:
     * `Add news entry`: Adds a news post for the release to the website,
       using the `write-release-notes` skill.
