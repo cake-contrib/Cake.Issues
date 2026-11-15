@@ -2,6 +2,8 @@
 // diagrams.net viewer. Replaces the mkdocs-drawio plugin, which is not yet
 // supported by Zensical (https://github.com/zensical/zensical/issues/73).
 // Configuration matches what mkdocs-drawio rendered with `edit: false`.
+// mkdocs-drawio: Copyright 2024 Sergey Lukin, MIT License.
+// See assets/THIRD-PARTY-NOTICES.txt for the full license text.
 const drawioConfig = {
   "toolbar-position": "bottom",
   "toolbar-nohide": "0",
@@ -37,6 +39,10 @@ document$.subscribe(async () => {
   if (images.length === 0)
     return
 
-  await Promise.all(Array.from(images, renderDrawioDiagram))
+  const results = await Promise.allSettled(Array.from(images, renderDrawioDiagram))
+  for (const result of results) {
+    if (result.status === "rejected")
+      console.error("Could not render diagram", result.reason)
+  }
   GraphViewer.processElements()
 })

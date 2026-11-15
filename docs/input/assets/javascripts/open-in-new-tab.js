@@ -1,6 +1,7 @@
 // Opens external links and links to downloadable files in a new tab.
 // Based on mkdocs-open-in-new-tab (https://github.com/JakubAndrysek/mkdocs-open-in-new-tab),
 // Copyright (c) 2023 Kuba Andrýsek, MIT License, which is not supported by Zensical.
+// See assets/THIRD-PARTY-NOTICES.txt for the full license text.
 const downloadExtensions = [
   ".pdf", ".doc", ".docx", ".json", ".xls", ".xlsx", ".ppt", ".pptx",
   ".zip", ".rar", ".tar", ".gz", ".7z", ".bz2", ".xz", ".tgz", ".tar.gz"
