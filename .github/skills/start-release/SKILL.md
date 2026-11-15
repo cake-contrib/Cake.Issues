@@ -1,6 +1,6 @@
 ---
 name: start-release
-description: Start a new Cake Issues release by creating a release branch from develop and preparing it with the news entry, release notes link and version in examples, each in a separate commit. Use this when asked to start, create or prepare a release or release branch.
+description: Start a new Cake Issues release by creating a release branch from develop and preparing it with the news entry, release notes link, version in examples and, for major releases, the Frosting dependency version ranges, each in a separate commit. Use this when asked to start, create or prepare a release or release branch.
 ---
 
 Use this skill to start a new release of Cake Issues.
@@ -23,11 +23,15 @@ and [copilot-instructions](../../copilot-instructions.md) for general repository
 Release branches follow the structure of previous releases, for example `release/5.9.1`:
 
 ```text
-* Update version in examples      <- release/X.Y.Z
+* Update Frosting Dependency      <- release/X.Y.Z (major releases only)
+* Update version in examples
 * Update release notes link
 * Add news entry
 * <latest commit on develop>      <- branch point
 ```
+
+For non-major releases the `Update Frosting Dependency` commit is omitted and `Update version in examples`
+is the tip of the release branch.
 
 ## Steps
 
@@ -112,13 +116,37 @@ git add docs/mkdocs.yml
 git commit -m "Update version in examples"
 ```
 
-### 7. Verify
+### 7. Update Frosting dependency version ranges (major releases only)
 
-* `git --no-pager log --oneline origin/develop..release/X.Y.Z` must show exactly the three commits above.
+Only for major releases (`X.0.0`): The Cake Frosting addin packages reference other Cake.Issues packages
+with a version range limited to the current major version.
+All `Cake.Frosting.Issues.*.nuspec` files in [nuspec/nuget](../../../nuspec/nuget) which reference
+`Cake.Issues` or other `Cake.Frosting.Issues.*` packages contain lines like:
+
+```xml
+<dependency id="Cake.Issues" version="[6.0.0-beta0001,7.0)" exclude="Build,Analyzers" />
+```
+
+Update the version range to the new major version in **every** file.
+For example for release `7.0.0` replace `[6.0.0-beta0001,7.0)` with `[7.0.0-beta0001,8.0)`.
+Don't change `Cake.Core` or other non-Cake.Issues dependencies.
+Preserve existing line endings and encoding, and verify with `git diff` that only the
+`<dependency>` lines of Cake.Issues packages changed.
+Commit the change separately:
+
+```bash
+git add nuspec/nuget
+git commit -m "Update Frosting Dependency"
+```
+
+### 8. Verify
+
+* `git --no-pager log --oneline origin/develop..release/X.Y.Z` must show exactly the three commits above
+  (four for major releases).
 * Each commit must only contain the files described in the respective step.
 * Optionally build the website to verify the news post renders correctly.
 
-### 8. Push the release branch
+### 9. Push the release branch
 
 Ask the user for confirmation before pushing. Then push the branch:
 
