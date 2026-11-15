@@ -8,7 +8,7 @@ Use this skill to prepare a beta of a release started with the
 It follows the checks of [finish-release](../finish-release/SKILL.md), but does not finish
 the stable release.
 
-See [how to release](../../../../docs/input/documentation/contributing/how-to-release.md)
+See [how to release](../../../docs/input/documentation/contributing/how-to-release.md)
 for the overall release process and
 [copilot-instructions](../../copilot-instructions.md) for general repository guidance.
 
@@ -113,9 +113,12 @@ Follow the release-note checks in step 2 of `finish-release`:
 5. Ask how to proceed if there are discrepancies. Do not automatically edit the news post,
    stable draft, package specifications or example versions as part of preparing a beta.
 
-Save the reviewed beta release notes in a UTF-8 file in the session artifact directory.
-Use the stable draft's body as a starting point, but retain only changes present on
-`origin/release/X.Y.Z` and add any missing delivered changes.
+Prepare the reviewed beta release notes using steps 1-3 of the
+[create-github-release-draft](../create-github-release-draft/SKILL.md) skill, with
+version `X.Y.Z-beta.N`, milestone `X.Y.Z`, source `origin/release/X.Y.Z` and its recorded
+SHA, and target `release/X.Y.Z`. Use the stable draft as source material, but apply the
+shared template with beta-specific attribution, requirements and website link.
+Retain only changes present on the release branch and add missing delivered changes.
 If the stable draft is missing, report that and ask to prepare notes from the milestone
 and branch history instead. Do not silently substitute GitHub's generated notes.
 
@@ -128,21 +131,11 @@ Recheck releases and remote tags for the selected beta version to avoid overwrit
 a release created in the meantime. Also repeat the requirement that the selected beta
 number exceeds every published beta and remote beta tag for `X.Y.Z`.
 
-Replace `<release-notes-file>` with the reviewed notes file:
-
-```bash
-gh release create X.Y.Z-beta.N --repo cake-contrib/Cake.Issues --draft --prerelease --latest=false --target release/X.Y.Z --title X.Y.Z-beta.N --notes-file <release-notes-file>
-```
-
-If the user chose to update an existing draft, first verify it is still a draft.
-Do not modify a published release or repurpose the stable release draft:
-
-```bash
-gh release edit X.Y.Z-beta.N --repo cake-contrib/Cake.Issues --draft --prerelease --latest=false --target release/X.Y.Z --title X.Y.Z-beta.N --notes-file <release-notes-file>
-```
-
-Always keep `--draft` and `--prerelease`. Do not use `--verify-tag`, which would require
-creating the tag before publication. If creation or updating fails, report the error and stop.
+Use steps 4-5 of [create-github-release-draft](../create-github-release-draft/SKILL.md)
+to create or update the beta draft with the reviewed notes file.
+Pass the confirmed choice to create a new draft or update the existing beta draft.
+The shared skill owns the GitHub commands and template verification; always keep the draft
+marked as a prerelease, preserve the stable draft, and stop on creation/update errors.
 
 ### 4. Verify and hand off
 

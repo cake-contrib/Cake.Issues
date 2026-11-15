@@ -67,20 +67,16 @@ git switch --no-track -c release/X.Y.Z origin/develop
 
 ### 3. Create the GitHub release draft
 
-The release notes on GitHub are created as a draft from the milestone using GitReleaseManager.
-`GITHUB_PAT` needs to contain a token with permissions to create releases.
+Use the [create-github-release-draft](../create-github-release-draft/SKILL.md) skill for
+version and milestone `X.Y.Z`, with the local `release/X.Y.Z` branch and its recorded SHA
+as source, and `master` as the stable draft target.
+The branch is not pushed yet; do not require a remote release branch.
 
-```powershell
-$env:GITHUB_PAT = gh auth token
-.\build.ps1 --target=releasenotes
-```
-
-```bash
-GITHUB_PAT=$(gh auth token) ./build.sh --target=releasenotes
-```
-
-Verify the draft exists with `gh release view X.Y.Z --repo cake-contrib/Cake.Issues`.
-If creating the draft fails, report the error, and continue using the milestone as source for the news entry.
+The shared skill retains GitReleaseManager draft generation and applies the release template,
+using milestone labels for addin/type grouping and branch history for additional chores.
+Review and confirm the completed notes before creating the draft.
+If creating or formatting the draft fails, report the error and continue using the milestone
+as source for the news entry, explicitly noting that the GitHub draft is incomplete.
 Never publish the draft release. Publishing the release creates the Git tag and is a manual step after the release has been finished.
 
 ### 4. Add news entry
