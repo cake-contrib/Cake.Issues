@@ -127,6 +127,12 @@ git commit -m "Update Frosting Dependency"
 * `git --no-pager log --oneline origin/develop..release/X.Y.Z` must show exactly the three commits above
   (four for major releases).
 * Each commit must only contain the files described in the respective step.
+* After all preparation commits, refresh the stable release draft using steps 1-5 of the
+  [create-github-release-draft](../create-github-release-draft/SKILL.md) skill, with the
+  completed `release/X.Y.Z` SHA as the source, `master` as the target and the existing draft
+  as the destination. This rechecks requirements against the versions actually prepared,
+  including major-release Frosting dependency ranges. Present changed notes and get
+  confirmation before updating the draft.
 * Optionally build the website to verify the news post renders correctly.
 
 ### 9. Push the release branch

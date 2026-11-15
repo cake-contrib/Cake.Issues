@@ -136,6 +136,8 @@ gh api --paginate "repos/cake-contrib/Cake.Issues/commits/<commit-sha>/pulls?per
   Milestone dependency updates remain in the relevant addin's Dependencies section.
 * If history reveals a missing user-facing milestone assignment, report it to the user and
   resolve the discrepancy before finalizing, rather than silently disguising it as a chore.
+* Exclude release-preparation commits made by `start-release` (news entry, release notes link,
+  example version and Frosting dependency range) from history-derived chores.
 
 ## 3. Apply the release template
 
@@ -149,7 +151,12 @@ Repeat the addin block for each affected addin.
   Cake package references, `src/Directory.Build.props`, NuGet specifications and dependency
   documentation. In particular, update Cake and TFMs for major releases and addin-specific
   requirements when relevant dependencies change, such as Cake.AzureDevOps.
-  Retain unchanged requirements only after checking them.
+  Cake.Issues dependency compatibility should be stated as compatible versions within the same
+  major version, not exact version matching. Retain unchanged requirements only after checking
+  them. For a stable draft first created by `start-release`, recheck requirements against the
+  completed release-branch SHA after all preparation commits, including major-release Frosting
+  dependency range updates; if this changes the notes, confirm with the user before updating
+  the existing draft.
 * Use factual change summaries with issue/PR links. Keep milestone entries in their mapped
   addin/type sections; put only the separately reviewed maintenance changes in Chores.
 * End with a **Full changelog** link comparing the verified previous tag to the release version.

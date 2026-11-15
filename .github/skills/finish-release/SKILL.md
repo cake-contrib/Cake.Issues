@@ -122,16 +122,14 @@ Possible actions are:
 * Update the news post using the [write-release-notes](../write-release-notes/SKILL.md) skill and commit the change
   with the message `Update news entry`.
 * Assign missing issues or pull requests to the milestone.
-* Regenerate the GitHub release draft from the milestone:
-
-  ```powershell
-  $env:GITHUB_PAT = gh auth token
-  .\build.ps1 --target=releasenotes
-  ```
-
-  ```bash
-  GITHUB_PAT=$(gh auth token) ./build.sh --target=releasenotes
-  ```
+* Refresh the existing GitHub release draft using steps 1-5 of the
+  [create-github-release-draft](../create-github-release-draft/SKILL.md) skill. Use the
+  completed `origin/release/X.Y.Z` SHA as the source, `master` as the target, and the stable
+  version and milestone `X.Y.Z`. This rechecks requirements after all release-preparation
+  commits, including major-release Frosting dependency range updates. Include the release
+  preparation commits in the reviewed source history, but exclude them from Chores as directed
+  by the shared skill. Present the updated notes and get confirmation before replacing the
+  existing draft; do not use GitReleaseManager to overwrite the shared template.
 
 Push any additional commits to the release branch, wait for CI to pass, and repeat this step before continuing.
 

@@ -12,7 +12,7 @@ As part of this release we had [{{ISSUE_COUNT}} issues](https://github.com/cake-
 
 - Cake {{CAKE_VERSION_REQUIREMENT}}
 - Targeting {{SUPPORTED_DOTNET_VERSIONS}}
-- Individual addins require dependencies in the same version
+- Cake.Issues addins require compatible versions within the same major version
 
 **Cake.Issues.GitRepository**
 

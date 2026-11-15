@@ -60,18 +60,6 @@ the beta NuGet packages. If the branch changes before publication, recheck CI an
 Beta documentation currently shows the stable version in its installation examples;
 use the published prerelease NuGet package version instead.
 
-## GitHub release draft format
-
-Stable and beta drafts use the shared template in the `create-github-release-draft` skill.
-It includes the delivered milestone issue count, reviewers and reporters, versioned website
-and NuGet links, and current requirements. Changes are grouped by addin (or `General` for
-changes affecting all or most addins), then by label-derived type: breaking changes, features,
-improvements, bugs, dependencies and documentation.
-
-Additional maintenance changes from Git history appear under Chores, excluding changes
-already covered by the milestone and Renovate updates. A full changelog comparison link
-ends the draft. Review the requirements especially for major releases and changed dependencies.
-
 ## Finish release
 
 Ask the agent to finish the release, e.g. `Finish release 6.2.0`.
