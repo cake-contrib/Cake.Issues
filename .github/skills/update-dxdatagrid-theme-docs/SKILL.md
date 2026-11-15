@@ -44,7 +44,7 @@ The `.md` files (e.g. [htmldxdatagrid.md](../../../docs/input/documentation/repo
 
 2. **Run the Cake Scripting integration test for `Cake.Issues.Reporting.Generic`.** This regenerates every file in the templates folder in place:
    ```powershell
-   cd tests/Cake.Issues.Reporting.Generic/script-runner/net11.0
+   cd tests/Cake.Issues.Reporting.Generic/script-runner/net10.0
    ./build.ps1 --verbosity=diagnostic
    ```
    Takes about 15 seconds. This writes directly into `docs/input/documentation/report-formats/generic/templates` (path is resolved relatively from `BuildData.TemplateGalleryFolder` in `build.cake`).
@@ -58,7 +58,7 @@ The `.md` files (e.g. [htmldxdatagrid.md](../../../docs/input/documentation/repo
 
 4. **(Optional) Also refresh via the Cake Frosting runner** if you want to confirm both runners produce identical output (CI runs both):
    ```powershell
-   cd tests/Cake.Issues.Reporting.Generic/frosting/net11.0
+   cd tests/Cake.Issues.Reporting.Generic/frosting/net10.0
    ./build.ps1 --verbosity=diagnostic
    ```
    Then re-run `git diff` to confirm no further changes.
