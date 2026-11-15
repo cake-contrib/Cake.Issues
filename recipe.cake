@@ -114,14 +114,14 @@ BuildParameters.Tasks.DotNetTestTask.Does<DotNetMSBuildSettings>((context, msBui
     }
 });
 
-// Upload only .NET 9 coverage results to avoid issues with files being too large
+// Upload only .NET 11 coverage results to avoid issues with files being too large
 ((CakeTask)BuildParameters.Tasks.UploadCodecovReportTask.Task).Actions.Clear();
 BuildParameters.Tasks.UploadCodecovReportTask
     .WithCriteria(() => BuildParameters.IsMainRepository, "Skipping because not running from the main repository")
     .WithCriteria(() => BuildParameters.ShouldRunCodecov, "Skipping because uploading to codecov is disabled")
     .WithCriteria(() => BuildParameters.CanPublishToCodecov, "Skipping because repo token is missing, or not running on GitHub CI")
     .Does<BuildVersion>((context, buildVersion) => RequireTool(ToolSettings.CodecovGlobalTool, () => {
-        var coverageFiles = GetFiles(BuildParameters.Paths.Directories.TestCoverage + "/coverlet/*.net9.0.opencover.xml");
+        var coverageFiles = GetFiles(BuildParameters.Paths.Directories.TestCoverage + "/coverlet/*.net11.0.opencover.xml");
         if (FileExists(BuildParameters.Paths.Files.TestCoverageOutputFilePath))
         {
             coverageFiles += BuildParameters.Paths.Files.TestCoverageOutputFilePath;

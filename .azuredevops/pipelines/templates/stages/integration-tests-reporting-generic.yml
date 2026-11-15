@@ -24,16 +24,16 @@ stages:
       pool:
         vmImage: $(imageName)
       steps:
-      - template: ../steps/install-net8.yml 
+      - template: ../steps/install-net10.yml
       - template: ../steps/provide-nuget-packages.yml 
       - powershell: ./build.ps1 --verbosity=diagnostic
-        workingDirectory: ./tests/Cake.Issues.Reporting.Generic/script-runner/net8.0
+        workingDirectory: ./tests/Cake.Issues.Reporting.Generic/script-runner/net10.0
         displayName: 'Run integration tests'
       - publish: $(Build.SourcesDirectory)/docs/input/documentation/report-formats/generic/templates
         artifact: Integration Tests Cake.Issues.Reporting.Generic Cake Scripting $(System.JobName)
         displayName: 'Publish generated reports as build artifact'
-    - job: TestReportingGenericFrostingNet8Job
-      displayName: Test Cake Frosting .NET 8
+    - job: TestReportingGenericFrostingNet10Job
+      displayName: Test Cake Frosting .NET 10
       strategy:
         matrix:
           Windows_Server_2022:
@@ -51,11 +51,11 @@ stages:
       pool:
         vmImage: $(imageName)
       steps:
-      - template: ../steps/install-net8.yml 
+      - template: ../steps/install-net10.yml
       - template: ../steps/provide-nuget-packages.yml 
       - powershell: ./build.ps1 --verbosity=diagnostic
-        workingDirectory: ./tests/Cake.Issues.Reporting.Generic/frosting/net8.0
+        workingDirectory: ./tests/Cake.Issues.Reporting.Generic/frosting/net10.0
         displayName: 'Run integration tests'
       - publish: $(Build.SourcesDirectory)/docs/input/documentation/report-formats/generic/templates
-        artifact: Integration Tests Cake.Issues.Reporting.Generic Cake Frosting .NET 8 $(System.JobName)
+        artifact: Integration Tests Cake.Issues.Reporting.Generic Cake Frosting .NET 10 $(System.JobName)
         displayName: 'Publish generated reports as build artifact'

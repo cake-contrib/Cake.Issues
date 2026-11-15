@@ -24,9 +24,8 @@ jobs:
           dotnet-version: |
             5.x
             7.x
-            8.x
-            9.x
             10.x
+            11.x
       - name: Build
         run: ./build.sh --target=Create-NuGet-Packages
         shell: bash
