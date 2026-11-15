@@ -42,6 +42,44 @@ Review the news post and the draft release on GitHub and make sure the build of 
 branch is passing.
 Fixes for the release can be merged into the release branch.
 
+## Beta release
+
+Betas are published from the existing `release/X.Y.Z` branch before finishing the stable
+release. Their versions use `X.Y.Z-beta.N`, where `N` starts at `1` and increases for each
+beta, for example `6.2.0-beta.1`, then `6.2.0-beta.2`.
+Do not create a branch with the beta suffix, merge branches, or delete the release branch.
+
+Ask the agent to create a beta, e.g. `Create beta release 6.2.0` or
+`Create beta release 6.2.0-beta.1`. This uses the `create-beta-release` skill, which:
+
+1. Verifies the release branch and CI status and proposes the next unused beta number.
+2. Checks the release notes against the branch and stable milestone `X.Y.Z`.
+   Open milestone items are allowed, but only delivered changes belong in the beta notes.
+3. Creates a GitHub release draft marked as a prerelease, targeting `release/X.Y.Z`,
+   after confirmation. The stable draft remains unchanged.
+4. Leaves publication to you; it does not create a Git tag.
+
+To create and publish a beta manually:
+
+1. Ensure `release/X.Y.Z` has been pushed and its CI builds pass.
+2. Check existing releases (including drafts) and tags on GitHub. Choose
+   `X.Y.Z-beta.1` for the first beta, or increment the highest existing beta number.
+   Never reuse a published beta version or existing tag.
+3. On the [GitHub releases page], choose **Draft a new release**.
+4. Enter `X.Y.Z-beta.N` as a new tag and release title, and select `release/X.Y.Z`
+   as the target, not `master` or `develop`. Do not create or push the Git tag separately.
+5. Add reviewed release notes based on the stable milestone and the changes actually
+   present on the release branch. Check the news post and stable draft for missing changes.
+6. Enable **Set as a pre-release** and choose **Save draft**.
+7. Review the draft, confirm the release branch builds still pass, and choose
+   **Publish release**, keeping the release branch as target and the prerelease option enabled.
+   If the branch changed since the draft was created, recheck CI and the release notes first.
+
+Publishing the beta draft creates the `X.Y.Z-beta.N` Git tag, which triggers the build
+publishing beta NuGet packages. Creating the draft alone does not trigger a beta release.
+Keep the release branch, stable milestone and stable draft for further betas and the final
+release; do not run `finish-release` until the stable release is ready.
+
 ## Finish release
 
 Ask the agent to finish the release, e.g. `Finish release 6.2.0`.
