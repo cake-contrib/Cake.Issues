@@ -8,7 +8,7 @@ Releases are created from release branches following the [Git Flow] branching mo
 using the [Cake.Recipe release process].
 
 The steps to create a release are automated using [agent skills] available in the
-`.github/skills` directory of the repository, which can be used with GitHub Copilot or any
+`.agents/skills` directory of the repository, which can be used with GitHub Copilot or any
 other agent supporting skills.
 
 ## Prerequisites

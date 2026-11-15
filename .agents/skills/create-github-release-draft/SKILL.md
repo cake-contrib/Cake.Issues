@@ -6,7 +6,7 @@ description: Create or update a Cake Issues GitHub release draft using the share
 Use this skill from [start-release](../start-release/SKILL.md) and
 [create-beta-release](../create-beta-release/SKILL.md), or to prepare a draft independently.
 See [how to release](../../../docs/input/documentation/contributing/how-to-release.md)
-and [copilot-instructions](../../copilot-instructions.md).
+and [AGENTS.md](../../../AGENTS.md).
 
 Only create or update **drafts**. Never publish a release, create or push tags, merge branches,
 or change release preparation files. Publishing is a manual step that creates the tag.

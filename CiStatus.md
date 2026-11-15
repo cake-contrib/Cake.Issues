@@ -1,5 +1,12 @@
 # Build & Test Status
 
+## Agentic maintenance
+
+The [Documentation drift workflow](.github/workflows/documentation-drift.md)
+uses root and scoped `AGENTS.md` guidance. Shared skills under `.agents/skills`
+and agent instruction files are excluded from its proposed documentation fixes.
+Its schedule, build coverage, and status badges are unchanged.
+
 ## Full builds
 
 | CI Server | Operating System | Develop | Master |

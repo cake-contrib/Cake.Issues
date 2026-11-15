@@ -5,7 +5,8 @@ description: Regenerate the demo report templates (including the DxDataGrid them
 
 Use this skill to refresh the generated HTML template files that back the demo galleries in the Cake.Issues.Reporting.Generic documentation, most notably the DxDataGrid theme gallery (`htmldxdatagrid-demo-theme-*.html`).
 
-See [copilot-instructions](../../copilot-instructions) for general repo build guidance.
+See [AGENTS.md](../../../AGENTS.md) for general repo build guidance and
+[docs/AGENTS.md](../../../docs/AGENTS.md) for documentation tooling.
 
 ## Background
 
