@@ -71,14 +71,23 @@ For precedent, `6.0.0-beta.2` was a prerelease targeting `release/6.0.0`.
 
   Do not treat an authentication or API failure as an empty list.
   A published release or existing remote tag for the selected version must not be reused.
+  Even for an explicit version or an existing draft, `N` must exceed the highest number
+  among published betas and remote beta tags for `X.Y.Z`. If it does not, stop and ask
+  the user to choose a newer beta version.
   If that version already has a draft, ask whether to update it or select the next number.
-* Check the latest CI runs of the release branch:
+* Check CI results for the recorded release branch commit, not older successful runs.
+  Replace `<release-commit-sha>` with the recorded SHA:
 
   ```bash
-  gh run list --repo cake-contrib/Cake.Issues --branch release/X.Y.Z --limit 10
+  gh run list --repo cake-contrib/Cake.Issues --branch release/X.Y.Z --commit <release-commit-sha> --limit 100
+  gh api --paginate "repos/cake-contrib/Cake.Issues/commits/<release-commit-sha>/check-runs?per_page=100" --jq '.check_runs[] | {name,status,conclusion,html_url}'
+  gh api --paginate "repos/cake-contrib/Cake.Issues/commits/<release-commit-sha>/status?per_page=100" --jq '.statuses[] | {context,state,target_url}'
   ```
 
-  If builds are failing, still running, or missing, report this and ask whether to continue.
+  Verify the required GitHub Actions, Azure Pipelines and AppVeyor builds for this commit.
+  Account for workflows skipped by path filters; do not treat an unexplained missing
+  result as success. If required builds are failing, still running, or missing,
+  report this and ask whether to continue.
 
 ### 2. Check that the release notes are up to date
 
@@ -116,7 +125,8 @@ Ask for confirmation of the beta version, target branch and reviewed notes befor
 or updating the draft. Fetch again and compare the release branch SHA with the recorded SHA.
 If it changed, repeat the CI and release-note checks before continuing.
 Recheck releases and remote tags for the selected beta version to avoid overwriting
-a release created in the meantime.
+a release created in the meantime. Also repeat the requirement that the selected beta
+number exceeds every published beta and remote beta tag for `X.Y.Z`.
 
 Replace `<release-notes-file>` with the reviewed notes file:
 
@@ -150,4 +160,8 @@ Tell the user to review and publish the beta draft on the
 keeping `release/X.Y.Z` as target and **Set as a pre-release** enabled.
 Publishing creates tag `X.Y.Z-beta.N` and triggers the build publishing beta NuGet packages.
 If the branch changes before publication, repeat the CI and release-note checks.
+Warn that the existing documentation publisher also deploys a beta documentation site,
+whose installation examples retain the stable version prepared by `start-release`.
+When installing the beta, users must select `X.Y.Z-beta.N` explicitly until the stable
+packages exist. Changing the documentation publisher is not part of this skill.
 Keep the release branch and stable draft for subsequent betas and the eventual stable release.

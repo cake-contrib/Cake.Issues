@@ -52,7 +52,8 @@ Do not create a branch with the beta suffix, merge branches, or delete the relea
 Ask the agent to create a beta, e.g. `Create beta release 6.2.0` or
 `Create beta release 6.2.0-beta.1`. This uses the `create-beta-release` skill, which:
 
-1. Verifies the release branch and CI status and proposes the next unused beta number.
+1. Verifies CI results for the release branch commit across GitHub Actions, Azure Pipelines
+   and AppVeyor, accounting for path-filtered builds, and proposes the next unused beta number.
 2. Checks the release notes against the branch and stable milestone `X.Y.Z`.
    Open milestone items are allowed, but only delivered changes belong in the beta notes.
 3. Creates a GitHub release draft marked as a prerelease, targeting `release/X.Y.Z`,
@@ -65,6 +66,7 @@ To create and publish a beta manually:
 2. Check existing releases (including drafts) and tags on GitHub. Choose
    `X.Y.Z-beta.1` for the first beta, or increment the highest existing beta number.
    Never reuse a published beta version or existing tag.
+   Even when updating an older draft, its number must exceed all published betas and tags.
 3. On the [GitHub releases page], choose **Draft a new release**.
 4. Enter `X.Y.Z-beta.N` as a new tag and release title, and select `release/X.Y.Z`
    as the target, not `master` or `develop`. Do not create or push the Git tag separately.
@@ -77,6 +79,9 @@ To create and publish a beta manually:
 
 Publishing the beta draft creates the `X.Y.Z-beta.N` Git tag, which triggers the build
 publishing beta NuGet packages. Creating the draft alone does not trigger a beta release.
+The existing documentation publisher also deploys a beta documentation site. Its installation
+examples retain the stable `X.Y.Z` version prepared when starting the release, so use
+`X.Y.Z-beta.N` explicitly to install beta packages until the stable packages are available.
 Keep the release branch, stable milestone and stable draft for further betas and the final
 release; do not run `finish-release` until the stable release is ready.
 
