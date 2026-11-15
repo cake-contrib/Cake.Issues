@@ -42,6 +42,22 @@ Review the news post and the draft release on GitHub and make sure the build of 
 branch is passing.
 Fixes for the release can be merged into the release branch.
 
+## Beta release
+
+After starting the release, ask the agent to create a beta, e.g. `Create beta release 6.2.0`.
+This uses the `create-beta-release` skill, which does the following:
+
+1. Checks CI and release notes for the release branch.
+2. Proposes the next beta version, starting with `6.2.0-beta.1`.
+3. Creates a prerelease draft targeting `release/6.2.0` after confirmation, without merging branches.
+
+Review and publish the draft on the [GitHub releases page], keeping the release branch as its target
+and **Set as a pre-release** enabled. Publishing creates the tag and triggers a build publishing
+the beta NuGet packages. If the branch changes before publication, recheck CI and release notes.
+
+Beta documentation currently shows the stable version in its installation examples;
+use the published prerelease NuGet package version instead.
+
 ## Finish release
 
 Ask the agent to finish the release, e.g. `Finish release 6.2.0`.
