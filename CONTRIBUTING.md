@@ -21,7 +21,7 @@ General requirements:
 
 For building addins:
 
-* .NET 9 SKD
+* .NET 11 SDK
 
 For building website:
 
