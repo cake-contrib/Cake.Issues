@@ -17,5 +17,7 @@ Supports the following properties in the SARIF report:
 * [x] Level
 * [x] Location
 * [x] RuleUrl
+* [x] Snippet
+* [x] SourceLanguage
 
 [Cake.Issues.Reporting.Sarif addin]: https://cakebuild.net/extensions/cake-issues-reporting-sarif/
