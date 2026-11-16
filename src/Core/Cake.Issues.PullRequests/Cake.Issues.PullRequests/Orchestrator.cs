@@ -156,7 +156,7 @@ internal class Orchestrator
     /// <returns>Issues reported to the pull request.</returns>
     private List<IIssue> PostAndResolveComments(
         IReportIssuesToPullRequestSettings reportIssuesToPullRequestSettings,
-        IList<IIssue> issues)
+        List<IIssue> issues)
     {
         reportIssuesToPullRequestSettings.NotNull();
         issues.NotNull();
@@ -194,7 +194,7 @@ internal class Orchestrator
                 reportIssuesToPullRequestSettings);
         }
 
-        if (!issues.Any())
+        if (issues.Count == 0)
         {
             this.log.Information("No new issues were posted");
             return [];

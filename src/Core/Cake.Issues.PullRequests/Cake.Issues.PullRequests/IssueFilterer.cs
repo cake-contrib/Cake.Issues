@@ -116,7 +116,7 @@ internal class IssueFilterer
     /// <returns>List of issues filtered to only the ones affecting files changed in this pull request.</returns>
     private IList<IIssue> FilterIssuesByPath(IList<IIssue> issues)
     {
-        if (!issues.Any())
+        if (issues.Count == 0)
         {
             return issues;
         }
@@ -173,7 +173,7 @@ internal class IssueFilterer
         IList<IIssue> issues,
         IDictionary<IIssue, IssueCommentInfo> issueComments)
     {
-        if (!issues.Any())
+        if (issues.Count == 0)
         {
             return issues;
         }
@@ -206,7 +206,7 @@ internal class IssueFilterer
         IList<IIssue> issues,
         IReadOnlyCollection<IPullRequestDiscussionThread> existingThreads)
     {
-        if (!issues.Any())
+        if (issues.Count == 0)
         {
             return issues;
         }

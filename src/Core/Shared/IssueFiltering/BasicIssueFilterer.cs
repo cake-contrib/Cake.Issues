@@ -67,7 +67,7 @@ internal class BasicIssueFilterer
     /// <returns>List of issues limited to the maximum number of issues to post.</returns>
     private IList<IIssue> FilterIssuesByNumber(IList<IIssue> issues)
     {
-        if (!issues.Any())
+        if (issues.Count == 0)
         {
             return issues;
         }

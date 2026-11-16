@@ -27,7 +27,7 @@
 
   <!-- Analyzers for all projects -->
   <ItemGroup>
-    <GlobalPackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="9.0.0" />
+    <GlobalPackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="11.0.100" />
   </ItemGroup>
 
   <!-- Analyzers addin projects -->
@@ -38,7 +38,7 @@
   <!-- Runners for test projects -->
   <ItemGroup Condition="$(MSBuildProjectName.EndsWith('.Tests'))">
     <GlobalPackageReference Include="coverlet.msbuild" Version="10.1.1" />
-    <GlobalPackageReference Include="Microsoft.SourceLink.GitHub" Version="10.0.404" />
+    <GlobalPackageReference Include="Microsoft.SourceLink.GitHub" Version="11.0.100" />
     <GlobalPackageReference Include="xunit.runner.visualstudio" Version="4.0.1" />
   </ItemGroup>
 

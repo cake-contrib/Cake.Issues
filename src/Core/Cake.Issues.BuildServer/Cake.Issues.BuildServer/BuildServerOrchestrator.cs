@@ -134,12 +134,12 @@ internal class BuildServerOrchestrator
     /// <returns>Issues reported to the build server.</returns>
     private List<IIssue> PostIssues(
         IReportIssuesToBuildServerSettings reportIssuesToBuildServerSettings,
-        IList<IIssue> issues)
+        List<IIssue> issues)
     {
         reportIssuesToBuildServerSettings.NotNull();
         issues.NotNull();
 
-        if (!issues.Any())
+        if (issues.Count == 0)
         {
             this.log.Information("No new issues were posted");
             return [];
