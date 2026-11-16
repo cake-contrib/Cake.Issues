@@ -1,4 +1,4 @@
-﻿namespace Cake.Issues.Sarif;
+namespace Cake.Issues.Sarif;
 
 using System;
 using System.Collections.Generic;
@@ -140,7 +140,7 @@ internal class SarifIssuesProvider(ICakeLog log, SarifIssuesSettings issueProvid
             MultiformatMessageString message,
             IList<string> arguments)
         {
-            if (arguments.Any())
+            if (arguments.Count > 0)
             {
                 string messageText = null;
                 string messageMarkdown = null;

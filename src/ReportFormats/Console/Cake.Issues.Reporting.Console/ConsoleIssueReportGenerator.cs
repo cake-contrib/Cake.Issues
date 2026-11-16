@@ -1,4 +1,4 @@
-﻿namespace Cake.Issues.Reporting.Console;
+namespace Cake.Issues.Reporting.Console;
 
 using System.Collections.Generic;
 using System.IO;
@@ -115,9 +115,9 @@ internal class ConsoleIssueReportGenerator : IssueReportFormat
     /// Prints the issues of issues.
     /// </summary>
     /// <param name="issues">List of issues.</param>
-    private void PrintSummary(IList<IIssue> issues)
+    private void PrintSummary(List<IIssue> issues)
     {
-        if (!issues.Any())
+        if (issues.Count == 0)
         {
             this.console.WriteLine("No issues");
             return;
