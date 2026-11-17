@@ -21,7 +21,8 @@ General requirements:
 
 For building addins:
 
-* .NET 9 SKD
+* .NET 11 SDK
+* .NET 10 runtime (required for running tests)
 
 For building website:
 
