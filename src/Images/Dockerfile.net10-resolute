@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/sdk:10.0.404-resolute@sha256:f685dd6b5a970778b53cead9a11cf54206c4b4fc3c97e4424a59b8bff9aa43d7
+FROM mcr.microsoft.com/dotnet/sdk:10.0.404-resolute@sha256:2d64f50ba64d62b05c0154d81a219f18f0dc5e71cb6c852199d4022edf4daec9
 
 RUN wget https://aka.ms/getvsdbgsh && \
     sh getvsdbgsh -v latest  -l /vsdbg
