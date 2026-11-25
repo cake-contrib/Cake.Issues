@@ -5,5 +5,5 @@ steps:
     inputs:
       version: '26.x'
     displayName: 'Install NodeJs 26.x'
-  - script: npm install -g markdownlint-cli@0.50.0
+  - script: npm install -g markdownlint-cli@0.50.1
     displayName: 'Install markdownlint'

@@ -9,5 +9,5 @@ runs:
         node-version: '26'
     - name: Install markdownlint
       run: |
-        npm install -g markdownlint-cli@0.50.0
+        npm install -g markdownlint-cli@0.50.1
       shell: bash
